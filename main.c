@@ -651,7 +651,7 @@ load_properties ()
 				 "/apps/gnibbles/preferences",
 				 gconf_key_change_cb, NULL, NULL, NULL);
 	for (i = 0; i < NUMWORMS; i++) {
-		buffer = g_strdup_printf ("%s/%d", "/apps/gnibbles/worm", i);
+		buffer = g_strdup_printf ("%s/%d", "/apps/gnibbles/preferences/worm", i);
 		gconf_client_notify_add (gconf_client_get_default (),
 					 buffer,
 					 gconf_key_change_cb, NULL, NULL, NULL);

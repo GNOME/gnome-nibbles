@@ -34,12 +34,12 @@
 #define KEY_SOUND "/apps/gnibbles/preferences/sound"
 #define KEY_TILE_SIZE "/apps/gnibbles/preferences/tile_size"
 
-#define KEY_WORM_COLOR "/apps/gnibbles/worm/%d/color"
-#define KEY_WORM_REL_MOVE "/apps/gnibbles/worm/%d/move_relative"
-#define KEY_WORM_UP "/apps/gnibbles/worm/%d/key_up"
-#define KEY_WORM_DOWN "/apps/gnibbles/worm/%d/key_down"
-#define KEY_WORM_LEFT "/apps/gnibbles/worm/%d/key_left"
-#define KEY_WORM_RIGHT "/apps/gnibbles/worm/%d/key_right"
+#define KEY_WORM_COLOR "/apps/gnibbles/preferences/worm/%d/color"
+#define KEY_WORM_REL_MOVE "/apps/gnibbles/preferences/worm/%d/move_relative"
+#define KEY_WORM_UP "/apps/gnibbles/preferences/worm/%d/key_up"
+#define KEY_WORM_DOWN "/apps/gnibbles/preferences/worm/%d/key_down"
+#define KEY_WORM_LEFT "/apps/gnibbles/preferences/worm/%d/key_left"
+#define KEY_WORM_RIGHT "/apps/gnibbles/preferences/worm/%d/key_right"
 
 #define MAX_SPEED 4
 

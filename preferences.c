@@ -42,6 +42,7 @@ extern GnibblesProperties *properties;
 extern gint paused;
 
 GtkWidget *control_table[NUMWORMS];
+GtkWidget *control_button[NUMWORMS][4];
 GtkWidget *start_level_label, 
 	*start_level_spin_button;
 
@@ -181,7 +182,7 @@ num_worms_cb (GtkWidget *widget, gpointer data)
 	gnibbles_properties_set_worms_number (t_properties->numworms);
 }
 
-static void
+static gint
 worm_up_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
 	gchar *key_name;
@@ -191,13 +192,17 @@ worm_up_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	
 	key_name = keyboard_string (event->keyval);
 	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
-
+	gtk_widget_set_sensitive (widget, FALSE);
+	gtk_widget_grab_focus (control_button[(gint) data][0]);
+	
 	t_properties->wormprops[(gint) data]->up = key_name;
 
 	gnibbles_properties_set_worm_up ((gint)data, key_name);
+
+	return TRUE;
 }
 
-static void
+static gint
 worm_down_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
 	gchar *key_name;
@@ -207,13 +212,17 @@ worm_down_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	
 	key_name = keyboard_string (event->keyval);
 	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
+	gtk_widget_set_sensitive (widget, FALSE);
+	gtk_widget_grab_focus (control_button[(gint) data][1]);
 
 	t_properties->wormprops[(gint) data]->down = key_name;
 
 	gnibbles_properties_set_worm_down ((gint)data, key_name);
+
+	return TRUE;
 }
 
-static void
+static gint
 worm_left_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
 	gchar *key_name;
@@ -222,13 +231,17 @@ worm_left_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	
 	key_name = keyboard_string (event->keyval);
 	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
+	gtk_widget_set_sensitive (widget, FALSE);
+	gtk_widget_grab_focus (control_button[(gint) data][2]);
 
 	t_properties->wormprops[(gint) data]->left = key_name;
 
 	gnibbles_properties_set_worm_left ((gint)data, key_name);
+
+	return TRUE;
 }
 
-static void
+static gint
 worm_right_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
 	gchar *key_name;
@@ -237,11 +250,14 @@ worm_right_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	
 	key_name = keyboard_string (event->keyval);
 	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
+	gtk_widget_set_sensitive (widget, FALSE);
+	gtk_widget_grab_focus (control_button[(gint) data][3]);
 
 	t_properties->wormprops[(gint) data]->right = key_name;
 
 	gnibbles_properties_set_worm_right ((gint)data, key_name);
 
+	return TRUE;
 }
 
 static void
@@ -288,6 +304,13 @@ worm_relative_movement_cb (GtkWidget *widget, gpointer data)
 		(i, GTK_TOGGLE_BUTTON (widget)->active);
 }
 
+static void
+key_change_cb (GtkWidget * widget, GtkWidget * target)
+{
+	gtk_widget_set_sensitive (target, TRUE);
+	gtk_widget_grab_focus (target);
+}
+
 void
 gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 {
@@ -306,6 +329,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	GtkWidget *omenu;
 	GtkWidget *menuitem;
 	GtkWidget *menu;
+	GtkWidget *entries[NUMWORMS][4];
 	gchar *buffer;
 	gint i, j;
 	GList *list;
@@ -575,11 +599,12 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_container_set_border_width (GTK_CONTAINER (table), 0);
 		gtk_table_set_col_spacings (GTK_TABLE (table), 0);
 		gtk_table_set_row_spacings (GTK_TABLE (table), 0);
-                
-		label2 = gtk_label_new (_("Up"));
-		gtk_widget_set_name (label2, "WormControlUpLabel");
-		gtk_misc_set_alignment (GTK_MISC (label2), 1, 0.5);
-		gtk_table_attach (GTK_TABLE (table), label2, 2, 3, 0, 1, 0, 0 , 3, 3);
+		
+		control_button[i][0] = gtk_button_new_with_label (_("Up"));
+		gtk_widget_set_name (control_button[i][0],
+				     "WormControlUpLabel");
+		gtk_table_attach (GTK_TABLE (table), control_button[i][0],
+				  2, 3, 0, 1, 0, 0 , 3, 3);
 
 		entry = gtk_entry_new ();
 		gtk_widget_set_name (entry, "WormControlUpEntry");
@@ -589,11 +614,17 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), entry, 2, 3, 1, 2, 0, 0, 3, 3);
 		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
                                   GTK_SIGNAL_FUNC (worm_up_cb), (gpointer) i);
-
-		label2 = gtk_label_new (_("Down"));
-		gtk_widget_set_name (label2, "WormControlDownLabel");
-		gtk_misc_set_alignment (GTK_MISC (label2), 1, 0.5);
-		gtk_table_attach (GTK_TABLE (table), label2, 2, 3, 4, 5, 0, 0, 3, 3);
+		g_signal_connect (GTK_OBJECT (control_button[i][0]),
+				  "clicked",
+				  GTK_SIGNAL_FUNC(key_change_cb),
+				  entry);
+		entries[i][0] = entry;
+		
+		control_button[i][1] = gtk_button_new_with_label (_("Down"));
+		gtk_widget_set_name (control_button[i][1],
+				     "WormControlDownLabel");
+		gtk_table_attach (GTK_TABLE (table), control_button[i][1],
+				  2, 3, 4, 5, 0, 0, 3, 3);
 
 		entry = gtk_entry_new ();
 		gtk_widget_set_name (entry, "WormControlDownEntry");
@@ -603,10 +634,16 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), entry, 2, 3, 3, 4, 0, 0, 3, 3);
 		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
                                   GTK_SIGNAL_FUNC (worm_down_cb), (gpointer) i);
+		g_signal_connect (GTK_OBJECT (control_button[i][1]),
+				  "clicked",
+				  GTK_SIGNAL_FUNC(key_change_cb),
+				  entry);
+		entries[i][1] = entry;
 
-		label2 = gtk_label_new (_("Left"));
-		gtk_misc_set_alignment (GTK_MISC (label2), 1, 0.5);
-		gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 2, 3, 0, 0, 3, 3);
+		control_button[i][2] = gtk_button_new_with_label (_("Left"));
+		gtk_table_attach (GTK_TABLE (table),
+				  control_button[i][2],
+				  0, 1, 2, 3, 0, 0, 3, 3);
 
 		entry = gtk_entry_new ();
 		gtk_entry_set_text (GTK_ENTRY (entry), properties->wormprops[i]->left);
@@ -616,10 +653,15 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
                                   GTK_SIGNAL_FUNC (worm_left_cb), (gpointer) i);
+		g_signal_connect (GTK_OBJECT (control_button[i][2]),
+				  "clicked",
+				  GTK_SIGNAL_FUNC(key_change_cb),
+				  entry);
+		entries[i][2] = entry;
 
-		label2 = gtk_label_new (_("Right"));
-		gtk_misc_set_alignment (GTK_MISC (label2), 1, 0.5);
-		gtk_table_attach (GTK_TABLE (table), label2, 4, 5, 2, 3, 0, 0, 3, 3);
+		control_button[i][3] = gtk_button_new_with_label (_("Right"));
+		gtk_table_attach (GTK_TABLE (table), control_button[i][3],
+				  4, 5, 2, 3, 0, 0, 3, 3);
 
 		entry = gtk_entry_new ();
 		gtk_entry_set_text (GTK_ENTRY (entry), properties->wormprops[i]->right);
@@ -628,7 +670,11 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), entry, 3, 4, 2, 3, 0, 0, 3, 3);
 		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
                                   GTK_SIGNAL_FUNC (worm_right_cb), (gpointer) i);
-
+		g_signal_connect (GTK_OBJECT (control_button[i][3]),
+				  "clicked",
+				  GTK_SIGNAL_FUNC(key_change_cb),
+				  entry);
+		entries[i][3] = entry;
                 
                 frame = games_frame_new (_("Options"));
                 gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
@@ -707,4 +753,9 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  G_CALLBACK (destroy_cb), NULL);
 	
 	gtk_widget_show_all (pref_dialog);
+
+	for (i = 0; i<NUMWORMS; i++)
+		for (j = 0; j<4; j++)
+			gtk_widget_set_sensitive (entries[i][j], FALSE);
+			
 }

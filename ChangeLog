@@ -1,3 +1,11 @@
+2003-06-16  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* preferences.c: Change the control entry dialog so that it is
+	usable from the keyboard (bug #97327). 
+
+	* main.c: 
+	* properties.c: Make sure the gconf key names match the schema.
+
 2003-06-13  William Jon McCann  <mccann@jhu.edu>
 
 	* preferences.c (keyboard_string): Use gdk_keyval_name().
