@@ -1,3 +1,9 @@
+2001-06-08  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	Apply patch from Jeff Ozvold <corsalini@yahoo.it>. Bug #52900.
+
+	* main.c (main_loop): Ensure we don't try to load randon level 0.
+
 2001-06-06  Juan Pablo Mendoza <pablo_juan@yahoo.com>
 
 	* main (new_game_2_cb): Check if the IDs are 0 before defining a
