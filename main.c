@@ -137,8 +137,6 @@ static gint key_press_cb (GtkWidget *widget, GdkEventKey *event)
 
 static gint new_game_2_cb (GtkWidget *widget, gpointer data)
 {
-	gnibbles_add_bonus (1);
-
 	if (!paused) {
 		keyboard_id = gtk_signal_connect (GTK_OBJECT (window),
 				"key_press_event",
@@ -172,6 +170,8 @@ static gint new_game_cb (GtkWidget *widget, gpointer data)
 		current_level = rand () % MAXLEVEL + 1;
 	
 	gnibbles_load_level (current_level);
+
+	gnibbles_add_bonus (1);
 	
 	paused = 0;
 
@@ -218,7 +218,6 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 		add_bonus_id = gtk_timeout_add (BONUSDELAY *
 				properties->gamespeed, (GtkFunction) add_bonus,
 				NULL);
-		
 	} else {
 		if (main_id || erase_id || restart_id) {
 			paused = 1;
@@ -234,10 +233,12 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 				gtk_timeout_remove (add_bonus_id);
 				add_bonus_id = 0;
 			}
+			/*
 			if (restart_id) {
 				gtk_timeout_remove (restart_id);
 				restart_id = 0;
 			}
+			*/
 		}
 	}
 }
@@ -294,6 +295,9 @@ static gint add_bonus (gpointer data)
 static gint restart_game (gpointer data)
 {
 	gnibbles_load_level (current_level);
+
+	gnibbles_add_bonus (1);
+
 	dummy_id = gtk_timeout_add (1500, (GtkFunction) new_game_2_cb,
 			NULL);
 

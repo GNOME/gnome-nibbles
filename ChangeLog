@@ -1,0 +1,12 @@
+1999-02-01  Ian Peters  <ipeters@acm.org>
+
+	* Fixed a nasty bug when pausing while the worm is being erased and it
+	is restarting the level...
+	* Changed the new game / restart level behaviour slightly so that the
+	initial bonus is shown a second or so before the worm pops up.  Helps
+	with the pause issue from above, too.
+
+1999-01-31  Ian Peters  <ipeters@acm.org>
+
+	* Wrote the game.
+
