@@ -269,7 +269,7 @@ gnibbles_load_level (GtkWidget *window, gint level)
 
 	gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window), drawing_area->style->fg_gc
 			[GTK_WIDGET_STATE (drawing_area)], buffer_pixmap, 0, 0,
-			0, 0, BOARDWIDTH * 10, BOARDHEIGHT * 10);
+			0, 0, BOARDWIDTH * properties->tilesize, BOARDHEIGHT * properties->tilesize);
 
 	fclose (in);
 }

@@ -1,3 +1,8 @@
+2004-04-11  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnibbles.c (gnibbles_init): Fix from Theo van Klaveren for
+	drawing while in huge mode. Bug #139589.
+
 2004-03-03  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/gnibbles.xml: Updated version since it is still accurate
