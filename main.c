@@ -19,6 +19,7 @@
 
 #include <config.h>
 #include <gnome.h>
+#include <libgnomeui/gnome-window-icon.h>
 #include <gdk/gdkkeysyms.h>
 #include <time.h>
 
@@ -608,8 +609,10 @@ int main (int argc, char **argv)
 	textdomain(PACKAGE);
 	
 	gnome_init ("Gnibbles", VERSION, argc, argv);
-
+	gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/gnome-nibbles.png");
 	srand (time (NULL));
+
+	setup_window ();
 
 	load_properties ();
 
