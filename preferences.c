@@ -189,6 +189,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	pref_dialog = gnome_property_box_new ();
 	gnome_dialog_set_parent (GNOME_DIALOG (pref_dialog), GTK_WINDOW
 			(window));
+	gtk_window_set_title (GTK_WINDOW (pref_dialog),
+			_("Gnibbles Preferences"));
 	gtk_signal_connect (GTK_OBJECT (pref_dialog), "destroy",
 			GTK_SIGNAL_FUNC (gtk_widget_destroyed), &pref_dialog);
 	gtk_signal_connect (GTK_OBJECT (pref_dialog), "destroy",
