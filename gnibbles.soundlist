@@ -8,7 +8,7 @@ file=gnibbles/crash.wav
 description=Worm Death
 description[ca]=Mort d'un cuc
 description[es]=Muerte de una oruga
-description[fr]=Mort d'uen chenille
+description[fr]=Mort de la chenille
 description[ko]=¹ú·¹ Á×À½
 description[no]=Ormen dør
 
@@ -26,7 +26,7 @@ file=gnibbles/gobble.wav
 description=Eat Bonus
 description[ca]=Bonificació agafada
 description[es]=Al comer un diamante
-description[fr]=Le bonus est pris
+description[fr]=Prise du bonus
 description[ko]=º¸³Ê½º ¸ÔÀ½
 description[no]=Spis bonus
 
