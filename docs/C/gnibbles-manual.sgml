@@ -1,0 +1,464 @@
+<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.1//EN"[
+        <!-- if not using PNG graphic, replace reference above with
+             .....PUBLIC "-//OASIS//DTD DocBook V3.1//EN"[
+         -->
+<!ENTITY version "1.2.0">
+]>
+
+
+<!-- =============Document Header ============================= -->
+
+<article id="index"> <!-- please do not change the id -->
+
+ <artheader>
+  <title>Gnibbles</title>
+  <copyright>
+   <year>2000</year>
+   <holder>Kevin Breit</holder>
+  </copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2000</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+
+  <!-- do not put authorname in the header except in copyright - use
+  section "authors" below -->
+
+  <legalnotice>
+   <para>
+    Permission is granted to copy, distribute and/or modify this
+    document under the terms of the <citetitle>GNU Free Documentation
+    License</citetitle>, Version 1.1 or any later version published
+    by the Free Software Foundation with no Invariant Sections, no
+    Front-Cover Texts, and no Back-Cover Texts. You may obtain a copy
+    of the <citetitle>GNU Free Documentation License</citetitle> from
+    the Free Software Foundation by visiting <ulink type="http"
+    url="http://www.fsf.org">their Web site</ulink> or by writing to:
+    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+    Boston, MA 02111-1307, USA.
+   </para>
+   <para>
+    Many of the names used by companies to distinguish their products and
+    services are claimed as trademarks. Where those names appear in any
+    GNOME documentation, and those trademarks are made aware to the members
+    of the GNOME Documentation Project, the names have been printed in caps
+    or initial caps.
+   </para>
+  </legalnotice>
+
+  <!-- this is the version of manual, not application --> 
+  <releaseinfo>
+   This is version 1.0 of Gnibbles manual.
+  </releaseinfo>
+
+ </artheader>
+
+ <!-- ============= Document Body ============================= -->
+
+ <!-- ============= Introduction ============================== -->
+ <sect1 id="intro">
+  <title>Introduction</title>
+
+  <para>
+   <application>Gnibbles</application> is a game where the user controls a snake   .  The snake moves around the board, eating diamonds while avoiding the walls   placed around it. 
+  </para>
+
+  <para>
+   To run <application>Gnibbles</application>, select
+   <menuchoice>
+    <guisubmenu>games</guisubmenu>
+    <guimenuitem>Gnibbles</guimenuitem>
+   </menuchoice>
+   from the <guimenu>Main Menu</guimenu>, or type
+   <command>Gnibbles</command> on the command line. 
+  </para>
+
+  <para>
+   <application>Gnibbles</application> is included in the
+   <filename>gnome-games</filename> package, which is part of the
+   GNOME desktop environment. This document describes version
+   &version; of <application>Gnibbles</application>.
+  </para>
+ </sect1>
+
+ <sect1 id="objective">
+ <title>Gnibbles Objective</title>
+  <para>
+    The objective of Gnibbles is quite simple.  You control the snake and
+    if the snake runs into a wall or runs into itself, you die.  You get three
+    lives before your game is over.  You win by either beating your own high
+    score (or a friends) or by completing all the levels.
+  </para>
+ </sect1>
+
+ <!-- ================ Usage ================================ -->
+ <!-- This section should describe basic usage of the application. -->
+
+ <sect1 id="usage">
+  <title>Using Gnibbles</title>
+  <para>
+   <application>Gnibbles</application> is a simple game to play.  The only keys
+   that are needed are the arrow keys.
+  </para>
+
+  <!-- ========= Basic Usage =========================== -->
+  <sect2 id="mainwin">
+   <title>Basic usage</title>
+   <para>
+    Starting <application>Gnibbles</application> opens 
+    the <interface>title screen</interface> shown below.
+    <figure id="intro-fig">
+     <title>Gnibbles Introduction Window</title>
+     <screenshot>
+      <screeninfo>Gnibbles Introduction Window</screeninfo>
+      <graphic fileref="images/intro" format="png"
+       srccredit="Kevin Breit">
+      </graphic>
+     </screenshot>
+    </figure>
+   </para>
+   <para>
+     To start the game, click on the intro screen, shown above.  The game
+     will automatically start.
+   </para>
+   <para>
+     When the game starts, the snake will come out of the left side of the
+     screen.  You use the up arrow to make the direction of the snake go up.
+     Use the right arrow to turn the snake right, left arrow to turn the snake
+     left, and down arrow to turn the snake down.
+     <figure id="gameplay">
+       <title>Gnibbles During Gameplay</title>
+       <screenshot>
+         <screeninfo>Gnibbles During Gameplay</screeninfo>
+         <graphic fileref="images/playing" format="png"
+           srccredit="Kevin Breit">
+         </graphic>
+       </screenshot>
+     </figure>
+   </para>
+  </sect2>
+
+  <!-- This section should also describe main elements of graphic user
+       interface, such as menus and buttons, unless this description
+       is too long - in that case, it should be moved to a separate
+       section. For example -->
+
+
+  <!-- ========= Menus =========================== -->
+  <sect2 id="menubar">
+   <title>Menus</title>
+   <para>
+    The menu bar, located at the top of the <interface>Main
+    Window</interface>, contains the following menus:
+   </para>
+
+   <variablelist>
+    <varlistentry>
+     <term><guimenu>Game</guimenu></term>
+     <listitem>
+      <para>
+       This menu contains:
+       <itemizedlist>
+        <listitem>
+         <para>
+          <menuchoice>
+           <shortcut>
+            <keysym>Ctrl+N</keysym>
+           </shortcut>
+           <guimenuitem>New Game</guimenuitem>
+          </menuchoice>
+          &mdash; This starts a new game of <application>Gnibbles</application>
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <menuchoice>
+           <guimenuitem>Pause game</guimenuitem>
+          </menuchoice>
+          &mdash; This will pause your game.  Click on the 'Pause Game' menu
+          option to resume game.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <menuchoice>
+           <guimenuitem>Scores</guimenuitem>
+          </menuchoice>
+          &mdash; This shows the high scores.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <menuchoice>
+           <shortcut>
+            <keysym>Ctrl-Q</keysym>
+           </shortcut>
+           <guimenuitem>Exit</guimenuitem>
+          </menuchoice>
+          &mdash; This quits the application.
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </varlistentry>
+
+    <varlistentry>
+     <term><guimenu>Settings</guimenu></term>
+     <listitem>
+      <para>
+       This menu contains:
+       <itemizedlist>
+        <listitem>
+         <para>
+          <menuchoice>
+           <guimenuitem>Preferences</guimenuitem>
+          </menuchoice>
+           &mdash; This opens your window to edit <link linkend="prefs">
+           preferences.</link>
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </varlistentry>   
+
+    <varlistentry>
+     <term><guimenu>About</guimenu></term>
+     <listitem>
+      <para>
+       This menu contains:
+       <itemizedlist>
+        <listitem>
+         <para>
+          <guimenuitem>About</guimenuitem> &mdash; This opens the
+          <interface>About</interface> dialog which shows
+          basic information about
+          <application>Gnibbles</application>, such as
+          the author's name, the application version number, and the
+          URL for the application's Web page if one exists.
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </sect2>
+ </sect1>
+
+
+ <!-- ============= Customization ============================= -->
+ <sect1 id="prefs">
+  <title>Customization</title>
+  <para>
+   To change the application settings, select
+   <menuchoice>
+    <guimenu>Settings</guimenu>
+    <guimenuitem>Preferences...</guimenuitem>
+   </menuchoice>.  This opens the
+   <interface>Preferences</interface> dialog.
+  </para>
+
+  <figure id="game-prefs">
+    <title>Game Preferences Tab</title>
+    <screenshot>
+      <screeninfo>Game Preferences Tab</screeninfo>
+      <graphic fileref="images/game" format="png" srccredit="Kevin Breit">
+      </graphic>
+    </screenshot>
+  </figure>
+
+  <para>
+   The properties in the <guilabel>Game</guilabel> tab are:
+   <itemizedlist>
+
+    <listitem>
+     <para>
+      (Speed) &mdash; This controls the speed of the snake.
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      (Levels in random order) &mdash; Selecting this causes the level
+      advancement in non-numerical order.
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      (Fake bonuses) &mdash; When enabled, this allows for two blue diamonds on
+      the screen at a time.  One diamond makes you shrink instead of grow when
+      eaten.
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      (Sounds) &mdash; Enables sounds 
+     </para>
+    </listitem>
+   </itemizedlist>
+  </para>
+  <para>
+ 
+  <figure id="graphics-prefs">
+    <title>Graphics Preferences Tab</title>
+    <screenshot>
+      <screeninfo>Graphics Preferences Tab</screeninfo>
+      <graphic fileref="images/graphics" format="png" srccredit="Kevin Breit">
+      </graphic>
+    </screenshot>
+  </figure>
+ 
+   The properties in the <guilabel>Graphics</guilabel> tab are:
+   <itemizedlist>
+
+    <listitem>
+     <para>
+      (Tiny) &mdash; This button makes your board tiny (184x132) 
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      (Small) &mdash; This button makes your board small (368x264)
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      (Medium) &mdash; This button makes your board medium (460x330) 
+     </para>
+    </listitem>
+ 
+    <listitem>
+     <para>
+      (Large) &mdash; This button makes your board large(736x528)
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      (Extra Large) &mdash; This button makes your board extra large (920x660)
+      &hellip;(description)
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      (Huge) &mdash; This button makes your huge (1840x1320)
+      &hellip;(description)
+     </para>
+    </listitem>
+   </itemizedlist>
+  </para>
+  <para>
+
+  <figure id="worm-prefs">
+    <title>Worm Preferences Tab</title>
+    <screenshot>
+      <screeninfo>Worm Preferences Tab</screeninfo>
+      <graphic fileref="images/worm_op" format="png" srccredit="Kevin Breit">
+      </graphic>
+    </screenshot>
+  </figure>
+
+   The properties in the <guilabel>Worm 1 </guilabel>through <guilabel> Worm 
+4</guilabel> tabs let you set controls for your different worms. 
+  </para>
+  <para>
+    After you have made all the changes you want, click on
+    <guibutton>OK</guibutton> to apply the changes and close the
+    <interface>Preferences</interface> dialog. To cancel the changes
+    and return to previous values, click the
+    <guibutton>Close</guibutton> button.
+  </para>
+
+ </sect1>
+
+ <sect1 id="bugs">
+  <title>Known Bugs and Limitations</title>
+  <para>
+   This application has no known bugs.
+  </para>
+ </sect1>
+
+
+<!-- ============= Authors ================================ -->
+
+ <sect1 id="authors">
+  <title>Authors</title>
+  <para>
+   <application>Gnibbles</application> was written by Sean MacIsaac 
+   (<email>sjm@acm.org</email>) and Ian Peters (<email>itp@gnu.org</email>). 
+   Please send all comments, suggestions, and bug reports to
+   the authors. (Instructions for submitting bug reports can be found <ulink 
+   url="http://bugs.gnome.org/Reporting.html" type="http"> on-line</ulink>.)
+  </para> 
+
+  <para>
+   This manual was written by Kevin Breit 
+   (<email>battery841@mypad.com</email>). Please send all comments and
+   suggestions regarding this manual to the <ulink type="http"
+   url="http://developer.gnome.org/projects/gdp">GNOME 
+   Documentation Project</ulink> 
+   by sending an email to <email>docs@gnome.org</email>. You can also
+   add your comments online by using the <ulink type="http"
+   url="http://www.gnome.org/gdp/doctable/">GNOME Documentation Status
+   Table</ulink>.
+  </para>
+
+  <!-- For translations: uncomment this:
+
+  <para>
+   Latin translation was done by ME
+   (<email>MYNAME@MYADDRESS</email>). Please send all  comments  and
+   suggestions regarding this translation to SOMEWHERE.
+  </para>
+
+  -->
+
+ </sect1>
+
+
+ <!-- ============= Application License ============================= -->
+
+ <sect1 id="license">
+  <title>License</title>
+  <para>
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the <citetitle>GNU General Public
+   License</citetitle> as published by the Free Software Foundation;
+   either version 2 of the License, or (at your option) any later
+   version.
+  </para>
+  <para>
+   This program is distributed in the hope that it will be useful, but
+   WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   <citetitle>GNU General Public License</citetitle> for more details.
+  </para>
+  <para>
+   A copy of the <citetitle>GNU General Public License</citetitle> is
+   included as an appendix to the <citetitle>GNOME Users
+   Guide</citetitle>.  You may also obtain a copy of the
+   <citetitle>GNU General Public License</citetitle> from the Free
+   Software Foundation by visiting <ulink type="http"
+   url="http://www.fsf.org">their Web site</ulink> or by writing to
+   <address>
+    Free Software Foundation, Inc.
+    <street>59 Temple Place</street> - Suite 330
+    <city>Boston</city>, <state>MA</state> <postcode>02111-1307</postcode>
+    <country>USA</country>
+   </address>
+  </para>
+ </sect1>
+</article>
+
