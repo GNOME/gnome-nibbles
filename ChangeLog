@@ -1,3 +1,10 @@
+2004-09-09  callum  <callum@spooky-possum.org>
+
+	* help/C/figures/*
+	* help/C/gnibbles.xml: Updated docs for 2.8 / changed name from
+	Gnibbles to Nibbles. Also removed the reference to the obsolete 
+	Appearance pereferences tab.	
+
 2004-06-05  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* preferences.c:

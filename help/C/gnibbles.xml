@@ -2,12 +2,12 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
-  <!ENTITY appversion "2.6">
-  <!ENTITY manrevision "2.6">
-  <!ENTITY date "March 2002">
-  <!ENTITY app "<application>Gnibbles</application>">
-  <!ENTITY appname "Gnibbles">
-  <!ENTITY VERSION "2.6">
+  <!ENTITY appversion "2.8">
+  <!ENTITY manrevision "2.8">
+  <!ENTITY date "September 2004">
+  <!ENTITY app "<application>Nibbles</application>">
+  <!ENTITY appname "Nibbles">
+  <!ENTITY VERSION "2.8">
 ]>
 
 <!-- 
@@ -105,7 +105,7 @@
  </articleinfo>
 
   <indexterm zone="index"> 
-    <primary>Gnibbles</primary> 
+    <primary>Nibbles</primary> 
   </indexterm> 
 
  <!-- ============= Document Body ============================= -->
@@ -115,31 +115,31 @@
   <title>Introduction</title>
 
   <para>
-   <application>Gnibbles</application> is a game where the user controls a snake   .  The snake moves around the board, eating diamonds while avoiding the walls   placed around it. 
+   <application>Nibbles</application> is a game where the user controls a snake   .  The snake moves around the board, eating diamonds while avoiding the walls   placed around it. 
   </para>
 
   <para>
-   To run <application>Gnibbles</application>, select
+   To run <application>Nibbles</application>, select
    <menuchoice>
     <guisubmenu>games</guisubmenu>
-    <guimenuitem>Gnibbles</guimenuitem>
+    <guimenuitem>Nibbles</guimenuitem>
    </menuchoice>
    from the <guimenu>Main Menu</guimenu>, or type
-   <command>Gnibbles</command> on the command line. 
+   <command>Nibbles</command> on the command line. 
   </para>
 
   <para>
-   <application>Gnibbles</application> is included in the
+   <application>Nibbles</application> is included in the
    <filename>gnome-games</filename> package, which is part of the
    GNOME desktop environment. This document describes version
-   &VERSION; of <application>Gnibbles</application>.
+   &VERSION; of <application>Nibbles</application>.
   </para>
  </sect1>
 
  <sect1 id="objective">
- <title>Gnibbles Objective</title>
+ <title>Nibbles Objective</title>
   <para>
-    The objective of Gnibbles is quite simple.  You control the snake and
+    The objective of Nibbles is quite simple.  You control the snake and
     if the snake runs into a wall or runs into itself, you die.  You get three
     lives before your game is over.  You win by either beating your own high
     score (or a friends) or by completing all the levels.
@@ -150,9 +150,9 @@
  <!-- This section should describe basic usage of the application. -->
 
  <sect1 id="usage">
-  <title>Using Gnibbles</title>
+  <title>Using Nibbles</title>
   <para>
-   <application>Gnibbles</application> is a simple game to play.  The only keys
+   <application>Nibbles</application> is a simple game to play.  The only keys
    that are needed are the arrow keys.
   </para>
 
@@ -160,17 +160,17 @@
 <sect2 id="mainwin">
 <title>Basic usage</title>
 <para>
-Starting <application>Gnibbles</application> opens 
+Starting <application>Nibbles</application> opens 
 the <interface>main window</interface> shown below.
 <figure id="intro-fig">
-<title>Gnibbles Introduction Window</title>
+<title>Nibbles Introduction Window</title>
 <screenshot>
  <mediaobject> 
     <imageobject>
 <imagedata fileref="figures/intro.png" format="PNG" srccredit="Kevin Breit"/>
     </imageobject>
     <textobject> 
-      <phrase>Gnibbles Introduction Window.</phrase> 
+      <phrase>Nibbles Introduction Window.</phrase> 
     </textobject> 
   </mediaobject>
 </screenshot>
@@ -186,14 +186,14 @@ screen.  You use the up arrow to make the direction of the snake go up.
 Use the right arrow to turn the snake right, left arrow to turn the snake
 left, and down arrow to turn the snake down.
 <figure id="gameplay">
-<title>Gnibbles During Gameplay</title>
+<title>Nibbles During Gameplay</title>
 <screenshot>
   <mediaobject> 
     <imageobject>
   <imagedata fileref="figures/playing.png" format="PNG" srccredit="Kevin Breit"/>
     </imageobject>
     <textobject> 
-      <phrase>Gnibbles During Gameplay.</phrase> 
+      <phrase>Nibbles During Gameplay.</phrase> 
     </textobject> 
   </mediaobject>
 </screenshot>
@@ -230,7 +230,7 @@ section. For example -->
            </shortcut>
            <guimenuitem>New Game</guimenuitem>
           </menuchoice>
-          &mdash; This starts a new game of <application>Gnibbles</application>
+          &mdash; This starts a new game of <application>Nibbles</application>
          </para>
         </listitem>
         <listitem>
@@ -314,7 +314,7 @@ section. For example -->
           <guimenuitem>About</guimenuitem> &mdash; This opens the
           <interface>About</interface> dialog which shows
           basic information about
-          <application>Gnibbles</application>, such as
+          <application>Nibbles</application>, such as
           the author's name, the version number of the game.
          </para>
         </listitem>
@@ -327,7 +327,7 @@ section. For example -->
   <sect2 id="diamonds">
   <title>Diamonds</title>
    <para>
-    <application>Gnibbles</application> has numerous different
+    <application>Nibbles</application> has numerous different
     diamonds to eat.  They are each a different color and serve
     a different function. Only the pale purple diamond is guaranteed
     to be around long enough for you to eat it (in fact, you have to
@@ -427,25 +427,6 @@ section. For example -->
    </variablelist>
   </para>
   <para>
-  <figure id="graphics-prefs">
-    <title>Appearance Preferences Tab</title>
-    <screenshot>
-        <mediaobject> 
-    <imageobject>
-  <imagedata fileref="figures/graphics.png" format="PNG" srccredit="Kevin Breit"/>
-         </imageobject>
-    <textobject> 
-      <phrase>Graphics Preferences Tab.</phrase> 
-    </textobject> 
-  </mediaobject>
-    </screenshot>
-  </figure>
- 
-  </para>
-   The items in the <guilabel>Appearance</guilabel> tab control the
-   size of the playing field. Choose the size that best fits your
-   screen and your eye-sight.
-  <para>
 
   <figure id="worm-prefs">
     <title>Worm Preferences Tab</title>
@@ -466,11 +447,11 @@ section. For example -->
 
    <variablelist>
     <varlistentry>
-    <term>Up, Down, Left and Right</term>
+    <term>Keyboard controls</term>
     <listitem>
      <para>
-      These buttons let you change the keyboard controls for the given
-      worm. To change a control, click on the appropriate button and
+      This list let you change the keyboard controls for the given
+      worm. To change a control, double click on the appropriate entry and
       then press the key you want to use for that control.
      </para>
     </listitem>
@@ -515,7 +496,7 @@ section. For example -->
  <sect1 id="authors">
   <title>Authors</title>
   <para>
-   <application>Gnibbles</application> was written by Sean MacIsaac 
+   <application>Nibbles</application> was written by Sean MacIsaac 
    (<email>sjm@acm.org</email>) and Ian Peters (<email>itp@gnu.org</email>). 
    Please send all comments, suggestions, and bug reports to
    the authors. (Instructions for submitting bug reports can be found <ulink 
