@@ -1,3 +1,8 @@
+2003-06-16  William Jon McCann  <mccannwj@localhost.localdomain>
+
+	* preferences.c (gnibbles_preferences_cb): Make the relative
+	moves callback work with new keyboard controls design.
+
 2003-06-16  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* preferences.c: Change the control entry dialog so that it is

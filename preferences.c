@@ -282,7 +282,7 @@ set_worm_controls_sensitivity (gint i, gboolean value)
 
 	for (; list; list = list->next) {
 		name = gtk_widget_get_name (GTK_WIDGET (list->data));
-		if (g_strrstr (name, "Up") || g_strrstr (name, "Down"))
+		if (g_strrstr (name, "UpLabel") || g_strrstr (name, "DownLabel"))
 			gtk_widget_set_sensitive (list->data, !value);
 	}
 	g_list_free (list);
