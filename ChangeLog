@@ -1,3 +1,8 @@
+1999-02-12  Ian Peters  <ipeters@acm.org>
+
+	* main.c: end_game_cb now sets paused to 0, so as not to fool
+	game_is_running.
+
 1999-02-08  Ian Peters  <ipeters@acm.org>
 
 	* bonus.c (gnibbles_bonus_erase): free the bonus, free the memory, much

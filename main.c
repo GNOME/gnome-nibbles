@@ -325,6 +325,8 @@ static gint end_game_cb (GtkWidget *widget, gpointer data)
 		gtk_widget_set_sensitive (settings_menu[0].widget, TRUE);
 	}
 
+	paused = 0;
+
 	return (FALSE);
 }
 
