@@ -84,6 +84,7 @@ int gnibbles_boni_fake (GnibblesBoni *boni, gint x, gint y)
 			return (boni->bonuses[i]->fake);
 		}
 	}
+	return 0;
 }
 
 void gnibbles_boni_remove_bonus (GnibblesBoni *boni, gint x, gint y) { 

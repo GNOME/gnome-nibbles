@@ -46,7 +46,7 @@
 #define NEWROUND 1
 #define GAMEOVER 2
 
-#define GAMEDELAY 20
+#define GAMEDELAY 35
 #define BONUSDELAY 100
 
 #define MAXLEVEL 26
