@@ -63,19 +63,17 @@ static void destroy_cb (GtkWidget *widget, gpointer data)
 
 static void apply_cb (GtkWidget *widget, gint action, gpointer data)
 {
-	gtk_widget_hide(widget);
 	if (action == GTK_RESPONSE_ACCEPT) {
-    if (t_properties->tilesize != properties->tilesize) {
-      gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
-                             t_properties->tilesize * BOARDWIDTH,
-                             t_properties->tilesize * BOARDHEIGHT);
-    }
- 
-		gnibbles_properties_destroy (properties);
+		if (t_properties->tilesize != properties->tilesize) {
+			gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
+						     t_properties->tilesize * BOARDWIDTH,
+						     t_properties->tilesize * BOARDHEIGHT);
+		}
+ 		gnibbles_properties_destroy (properties);
 		properties = gnibbles_properties_copy (t_properties);
-
 		gnibbles_properties_save (properties);
-	}  
+	}
+	gtk_widget_destroy (widget);
 }
 
 static void game_speed_cb (GtkWidget *widget, gpointer data)
