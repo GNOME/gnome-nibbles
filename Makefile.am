@@ -91,29 +91,29 @@ EXTRA_DIST = \
 SUBDIRS=sounds
 
 install-data-local:
-	-$(mkinstalldirs) $(scoredir)
-	-touch $(scoredir)/gnibbles.4.0.scores
-	-chown games.games $(scoredir)/gnibbles.4.0.scores
-	-chmod 664 $(scoredir)/gnibbles.4.0.scores
-	-touch $(scoredir)/gnibbles.3.0.scores
-	-chown games.games $(scoredir)/gnibbles.3.0.scores
-	-chmod 664 $(scoredir)/gnibbles.3.0.scores
-	-touch $(scoredir)/gnibbles.2.0.scores
-	-chown games.games $(scoredir)/gnibbles.2.0.scores
-	-chmod 664 $(scoredir)/gnibbles.2.0.scores
-	-touch $(scoredir)/gnibbles.1.0.scores
-	-chown games.games $(scoredir)/gnibbles.1.0.scores
-	-chmod 664 $(scoredir)/gnibbles.1.0.scores
-	-touch $(scoredir)/gnibbles.4.1.scores
-	-chown games.games $(scoredir)/gnibbles.4.1.scores
-	-chmod 664 $(scoredir)/gnibbles.4.1.scores
-	-touch $(scoredir)/gnibbles.3.1.scores
-	-chown games.games $(scoredir)/gnibbles.3.1.scores
-	-chmod 664 $(scoredir)/gnibbles.3.1.scores
-	-touch $(scoredir)/gnibbles.2.1.scores
-	-chown games.games $(scoredir)/gnibbles.2.1.scores
-	-chmod 664 $(scoredir)/gnibbles.2.1.scores
-	-touch $(scoredir)/gnibbles.1.1.scores
-	-chown games.games $(scoredir)/gnibbles.1.1.scores
-	-chmod 664 $(scoredir)/gnibbles.1.1.scores
-	-chgrp games $(bindir)/gnibbles && chmod 2111 $(bindir)/gnibbles
+	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
+	-touch $(DESTDIR)$(scoredir)/gnibbles.4.0.scores
+	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.4.0.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.4.0.scores
+	-touch $(DESTDIR)$(scoredir)/gnibbles.3.0.scores
+	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.3.0.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.3.0.scores
+	-touch $(DESTDIR)$(scoredir)/gnibbles.2.0.scores
+	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.2.0.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.2.0.scores
+	-touch $(DESTDIR)$(scoredir)/gnibbles.1.0.scores
+	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.1.0.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.1.0.scores
+	-touch $(DESTDIR)$(scoredir)/gnibbles.4.1.scores
+	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.4.1.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.4.1.scores
+	-touch $(DESTDIR)$(scoredir)/gnibbles.3.1.scores
+	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.3.1.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.3.1.scores
+	-touch $(DESTDIR)$(scoredir)/gnibbles.2.1.scores
+	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.2.1.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.2.1.scores
+	-touch $(DESTDIR)$(scoredir)/gnibbles.1.1.scores
+	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.1.1.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.1.1.scores
+	-chgrp games $(DESTDIR)$(bindir)/gnibbles && chmod 2111 $(DESTDIR)$(bindir)/gnibbles
