@@ -1,3 +1,7 @@
+2003-07-27  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* main.c: Compiler warning fixes.
+
 2003-07-22  William Jon McCann  <mccann@jhu.edu>
 
 	* preferences.c (gnibbles_preferences_cb): Use mnemonic in preferences

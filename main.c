@@ -80,7 +80,7 @@ gint pause_game_cb (GtkWidget *widget, gpointer data);
 static gint end_game_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void about_cb (GtkWidget *widget, gpointer data);
-static gint show_scores_cb (GtkWidget *widget, gpointer data);
+static void show_scores_cb (GtkWidget *widget, gpointer data);
 
 static GnomeUIInfo game_menu[] = {
 	GNOMEUIINFO_MENU_NEW_GAME_ITEM (new_game_cb, NULL),
@@ -385,7 +385,7 @@ gint pause_game_cb (GtkWidget *widget, gpointer data)
 	return TRUE;
 }
 
-static gint show_scores_cb (GtkWidget *widget, gpointer data)
+static void show_scores_cb (GtkWidget *widget, gpointer data)
 {
 	gnibbles_show_scores (window, 0);
 }
