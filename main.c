@@ -224,7 +224,11 @@ static void about_cb (GtkWidget *widget, gpointer data)
 			(const char **)documenters,
 			strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
 			pixbuf);
-        gtk_window_set_transient_for (GTK_WINDOW (about), GTK_WINDOW (window));
+   
+	if (pixbuf != NULL)
+		gdk_pixbuf_unref (pixbuf);
+	
+	gtk_window_set_transient_for (GTK_WINDOW (about), GTK_WINDOW (window));
 	g_signal_connect (G_OBJECT (about), "destroy", G_CALLBACK
 			(gtk_widget_destroyed), &about);
 	gtk_widget_show (about);
