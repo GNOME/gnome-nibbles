@@ -1,5 +1,9 @@
 2000-08-03  Dan Mueth <d-mueth@uchicago.edu>
 
+	* docs/: removed - I should have put all this in help/
+
+2000-08-03  Dan Mueth <d-mueth@uchicago.edu>
+
 	* docs/: Created 
 	* docs/C/: Created
 	* docs/C/gnibbles-manual.sgml: Added Kevin Breit's doc
