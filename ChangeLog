@@ -1,3 +1,8 @@
+1999-02-04  Ian Peters  <ipeters@acm.org>
+
+	* Fixed a bug when you finished all the levels.  Not just sits you on
+	the last level until you die.
+
 1999-02-02  Ian Peters  <ipeters@acm.org>
 
 	* Fixed some bugs in gnibbles_worm_grok_bonus, such as incorrect maths

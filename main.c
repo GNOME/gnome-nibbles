@@ -363,7 +363,7 @@ static gint main_loop (gpointer data)
 		main_id = 0;
 		if ((current_level < MAXLEVEL) && !properties->random)
 			current_level++;
-		else {
+		else if (properties->random) {
 			tmp = rand () % MAXLEVEL;
 			while (tmp == current_level)
 				tmp = rand () % MAXLEVEL + 1;
