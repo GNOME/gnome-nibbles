@@ -21,6 +21,7 @@
 
 #include "preferences.h"
 #include "../gnobots2/keylabels.h"
+#include "main.h"
 
 static GtkWidget *pref_dialog = NULL;
 
@@ -28,9 +29,13 @@ static GnibblesProperties *t_properties;
 
 static gint pref_dialog_valid = 0;
 
+static gint unpause = 0;
+
 extern GtkWidget *window;
 
 extern GnibblesProperties *properties;
+
+extern gint paused;
 
 static gchar *keyboard_string (gint ksym)
 {
@@ -48,6 +53,11 @@ static void destroy_cb (GtkWidget *widget, gpointer data)
 	pref_dialog_valid = 0;
 
 	gnibbles_properties_destroy (t_properties);
+
+	if (unpause) {
+		pause_game_cb (NULL, 0);
+		unpause = 0;
+	}
 }
 
 static void apply_cb (GtkWidget *widget, gint pagenum, gpointer data)
@@ -255,9 +265,18 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gchar buffer[256];
 	gint i, j;
 	GList *list;
+	gint running = 0;
 	
 	if (pref_dialog)
 		return;
+
+	if (!paused) {
+		unpause = 1;
+		pause_game_cb (NULL, 0);
+	}
+
+	if (game_running ())
+		running = 1;
 
 	t_properties = gnibbles_properties_copy (properties);
 
@@ -280,6 +299,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 	frame = gtk_frame_new (_("Speed"));
 	gtk_container_border_width (GTK_CONTAINER (frame), 0);
+	if (running)
+		gtk_widget_set_sensitive (frame, FALSE);
 	gtk_widget_show (frame);
 
 	vbox = gtk_vbox_new (TRUE, 0);
@@ -339,6 +360,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (label2);
 	if (properties->random)
 		gtk_widget_set_sensitive (GTK_WIDGET (label2), FALSE);
+	if (running)
+		gtk_widget_set_sensitive (GTK_WIDGET (label2), FALSE);
 	gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 3, 4, GTK_EXPAND |
 			GTK_FILL, 0, 0, 0);
 
@@ -352,6 +375,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (levelspinner);
 	if (properties->random)
 		gtk_widget_set_sensitive (GTK_WIDGET (levelspinner), FALSE);
+	if (running)
+		gtk_widget_set_sensitive (GTK_WIDGET (levelspinner), FALSE);
 	gtk_table_attach (GTK_TABLE (table), levelspinner, 1, 2, 3, 4,
 			GTK_EXPAND | GTK_FILL, 0, 0, 0);
 
@@ -361,6 +386,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (button);
 	gtk_table_attach (GTK_TABLE (table), button, 0, 2, 0, 1,
 			GTK_EXPAND | GTK_FILL, 0, 0, 0);
+	if (running)
+		gtk_widget_set_sensitive (button, FALSE);
 	if (properties->random)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
@@ -371,6 +398,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (button);
 	gtk_table_attach (GTK_TABLE (table), button, 0, 2, 1, 2,
 			GTK_EXPAND | GTK_FILL, 0, 0, 0);
+	if (running)
+		gtk_widget_set_sensitive (button, FALSE);
 	if (properties->fakes)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
@@ -390,6 +419,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (label2);
 	gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 4, 5, GTK_EXPAND |
 			GTK_FILL, 0, 0, 0);
+	if (running)
+		gtk_widget_set_sensitive (label2, FALSE);
 
 	adjustment = gtk_adjustment_new ((gfloat) properties->numworms, 1.0,
 			NUMWORMS, 1.0, 1.0, 0.0);
@@ -401,6 +432,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (button);
 	gtk_table_attach (GTK_TABLE (table), button, 1, 2, 4, 5, GTK_EXPAND |
 			GTK_FILL, 0, 0, 0);
+	if (running)
+		gtk_widget_set_sensitive (button, FALSE);
 
 	gtk_box_pack_start (GTK_BOX (hbox), table, TRUE, TRUE, 0);
 

@@ -61,7 +61,7 @@ static gint main_loop (gpointer data);
 static gint add_bonus_cb (gpointer data);
 static void render_logo ();
 static gint new_game_cb (GtkWidget *widget, gpointer data);
-static gint pause_game_cb (GtkWidget *widget, gpointer data);
+gint pause_game_cb (GtkWidget *widget, gpointer data);
 static gint end_game_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void about_cb (GtkWidget *widget, gpointer data);
@@ -96,7 +96,7 @@ static GnomeUIInfo main_menu[] = {
 	GNOMEUIINFO_END
 };
 
-static gint game_running ()
+gint game_running ()
 {
 	return (main_id || erase_id || dummy_id || restart_id || paused);
 }
@@ -211,7 +211,9 @@ static gint new_game_cb (GtkWidget *widget, gpointer data)
 {
 	gtk_widget_set_sensitive (game_menu[1].widget, TRUE);
 	gtk_widget_set_sensitive (game_menu[4].widget, TRUE);
+	/*
 	gtk_widget_set_sensitive (settings_menu[0].widget, FALSE);
+	*/
 
 	if (game_running ()) {
 		if (!end_game_box ()) {
@@ -257,7 +259,7 @@ static gint new_game_cb (GtkWidget *widget, gpointer data)
 	dummy_id = gtk_timeout_add (1500, (GtkFunction) new_game_2_cb, NULL);
 }
 
-static gint pause_game_cb (GtkWidget *widget, gpointer data)
+gint pause_game_cb (GtkWidget *widget, gpointer data)
 {
 	if (paused) {
 		paused = 0;
@@ -339,7 +341,9 @@ static gint end_game_cb (GtkWidget *widget, gpointer data)
 		render_logo ();
 		gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
 		gtk_widget_set_sensitive (game_menu[4].widget, FALSE);
+		/*
 		gtk_widget_set_sensitive (settings_menu[0].widget, TRUE);
+		*/
 	}
 
 	paused = 0;

@@ -1,5 +1,14 @@
 1999-03-03  Ian Peters  <ipeters@acm.org>
 
+	* preferences.c: gnibbles_preferences_cb, destroy_cb: Added logic to
+	handle being called while a game is in progress, paused or not
+	* main.c: stop desensitizing the settings->preferences item now that it
+	can handle being called mid-game
+	* main.h: export the two functions needed by preferences.c, which I'm
+	not thrilled about, but oh well
+
+1999-03-03  Ian Peters  <ipeters@acm.org>
+
 	* worm.h: struct GnibblesWorm: removed pixmap, up, down, left, right,
 	relmove, added an index into the properties structure which has all of
 	this data
