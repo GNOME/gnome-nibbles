@@ -1,3 +1,8 @@
+2002-06-19  Ross Burton  <ross@burtonini.com>
+
+	* main.c (about_cb): Use the install path instead of the system
+	path.
+
 2002-05-05  Chris Lyttle    <chris@wilddev.net>
 
 	* help/C/gnibbles-C.omf : updated for new format of SK 0.3.8.

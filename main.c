@@ -193,7 +193,7 @@ static void about_cb (GtkWidget *widget, gpointer data)
 		char *filename = NULL;
 
 		filename = gnome_program_locate_file (NULL,
-				GNOME_FILE_DOMAIN_PIXMAP, "gnome-nibbles.png",
+				GNOME_FILE_DOMAIN_APP_PIXMAP, "gnome-nibbles.png",
 				TRUE, NULL);
 		if (filename != NULL)
 		{
