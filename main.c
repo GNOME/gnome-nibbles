@@ -637,34 +637,25 @@ static void
 gconf_key_change_cb (GConfClient *client, guint cnxn_id,
 		     GConfEntry *entry, gpointer user_data)
 {
-	end_game (1);
-	gnibbles_properties_destroy (properties);
-	properties = gnibbles_properties_new ();
+	gnibbles_properties_update (properties);
 }
 
 static void
 load_properties ()
 {
-	gint i;
-	gchar *buffer;
+	GConfClient * client;
 
 	properties = gnibbles_properties_new ();
+	client = gconf_client_get_default ();
 
 	/* maybe this should to into properties.c */
-        gconf_client_add_dir (gconf_client_get_default (),
+        gconf_client_add_dir (client,
                               KEY_DIR,
                               GCONF_CLIENT_PRELOAD_RECURSIVE,
                               NULL);
-	gconf_client_notify_add (gconf_client_get_default (),
+	gconf_client_notify_add (client,
 				 KEY_PREFERENCES_DIR,
 				 gconf_key_change_cb, NULL, NULL, NULL);
-	for (i = 0; i < NUMWORMS; i++) {
-		buffer = g_strdup_printf (KEY_WORM_DIR, i);
-		gconf_client_notify_add (gconf_client_get_default (),
-					 buffer,
-					 gconf_key_change_cb, NULL, NULL, NULL);
-		g_free (buffer);
-	}
 }
 
 static void

@@ -1,3 +1,13 @@
+2003-12-12  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* properties.c:
+	* properties.h:
+	* preferences.c: 	
+	* main.c: Make all properties fit the model of gconf set ->
+	callback -> property set. The keymap was already this way. Also,
+	stop the game restarting at the slightest change. Didn't anyone
+	notice that the game speed wasn't preserved from game to game ?
+
 2003-10-30  Callum McKenzie  <callum@localhost.localdomain>
 
 	* Makefile.am: Removed *_DISABLE_DEPRECATED.

@@ -28,7 +28,7 @@
 #include "gnibbles.h"
 
 #define KEY_DIR "/apps/gnibbles"
-#define KEY_PREFERENCES_DIR "/apps/gnibbles"
+#define KEY_PREFERENCES_DIR "/apps/gnibbles/preferences"
 #define KEY_NUM_WORMS "/apps/gnibbles/preferences/players"
 #define KEY_SPEED "/apps/gnibbles/preferences/speed"
 #define KEY_FAKES "/apps/gnibbles/preferences/fakes"
@@ -63,6 +63,8 @@ typedef struct {
 } GnibblesProperties;
 
 GnibblesProperties *gnibbles_properties_new (void);
+
+void gnibbles_properties_update (GnibblesProperties * tmp);
 
 void gnibbles_properties_destroy (GnibblesProperties *props);
 

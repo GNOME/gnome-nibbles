@@ -35,7 +35,6 @@
 
 extern GtkWidget *drawing_area;
 static GtkWidget *pref_dialog = NULL;
-static GnibblesProperties *t_properties;
 static gint unpause = 0;
 extern GtkWidget *window;
 extern GnibblesProperties *properties;
@@ -67,14 +66,10 @@ destroy_cb (GtkWidget *widget, gpointer data)
 static void
 apply_cb (GtkWidget *widget, gint action, gpointer data)
 {
-	if (t_properties->tilesize != properties->tilesize) {
-		gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
-					     t_properties->tilesize * BOARDWIDTH,
-					     t_properties->tilesize * BOARDHEIGHT);
-	}
-	gnibbles_properties_destroy (properties);
-	properties = gnibbles_properties_copy (t_properties);
-	gnibbles_properties_save (properties);
+	gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
+				     properties->tilesize * BOARDWIDTH,
+				     properties->tilesize * BOARDHEIGHT);
+
 	update_score_state ();
 
 	gtk_widget_destroy (widget);
@@ -87,22 +82,22 @@ game_speed_cb (GtkWidget *widget, gpointer data)
 		return;
 
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
-		t_properties->gamespeed = (gint) data;
-		gnibbles_properties_set_tile_size ((gint) data);
+		gnibbles_properties_set_speed ((gint) data);
 	}
 }
 
 static void
 start_level_cb (GtkWidget *widget, gpointer data)
 {
+	gint level;
+
 	if (!pref_dialog)
 		return;
 
 	end_game (1);
 
-	t_properties->startlevel = gtk_spin_button_get_value_as_int
-		(GTK_SPIN_BUTTON (data));
-	gnibbles_properties_set_start_level (t_properties->startlevel);
+	level = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (data));
+	gnibbles_properties_set_start_level (level);
 }
 
 static void
@@ -114,12 +109,11 @@ random_order_cb (GtkWidget *widget, gpointer data)
 		return;
 
 	value = GTK_TOGGLE_BUTTON (widget)->active;
-	t_properties->random = value;
 
 	gtk_widget_set_sensitive (start_level_label, !value);
 	gtk_widget_set_sensitive (start_level_spin_button, !value);
 
-	gnibbles_properties_set_random (GTK_TOGGLE_BUTTON (widget)->active);
+	gnibbles_properties_set_random (value);
 }
 
 static void
@@ -127,11 +121,6 @@ fake_bonus_cb (GtkWidget *widget, gpointer data)
 {
 	if (!pref_dialog)
 		return;
-
-	if (GTK_TOGGLE_BUTTON (widget)->active)
-		t_properties->fakes = 1;
-	else
-		t_properties->fakes = 0;
 
 	gnibbles_properties_set_fakes ((gint)data);
 }
@@ -142,10 +131,6 @@ sound_cb (GtkWidget *widget, gpointer data)
 	if (!pref_dialog)
 		return;
 
-	if (GTK_TOGGLE_BUTTON (widget)->active)
-		t_properties->sound = 1;
-	else
-		t_properties->sound = 0;
 	gnibbles_properties_set_sound ((gint)data);
 }
 
@@ -156,28 +141,26 @@ tile_size_cb (GtkWidget *widget, gpointer data)
     return;
 
   if (GTK_TOGGLE_BUTTON (widget)->active) {
-    t_properties->tilesize = (gint) data;
-    if (t_properties->tilesize != properties->tilesize) {
-	    properties->tilesize = t_properties->tilesize;
-	    gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
-					 properties->tilesize * BOARDWIDTH,
-					 properties->tilesize * BOARDHEIGHT);
-	    gnibbles_properties_set_tile_size ((gint)data);
-    }
-    end_game (0);
+	  properties->tilesize = (gint) data;
+	  gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
+				       properties->tilesize * BOARDWIDTH,
+				       properties->tilesize * BOARDHEIGHT);
+	  gnibbles_properties_set_tile_size ((gint)data);
+	  end_game (0);
   }
 }
 
 static void
 num_worms_cb (GtkWidget *widget, gpointer data)
 {
+	gint value;
+
 	if (!pref_dialog)
 		return;
 
-	t_properties->numworms = gtk_spin_button_get_value_as_int
-		(GTK_SPIN_BUTTON (data));
+	value = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (data));
 
-	gnibbles_properties_set_worms_number (t_properties->numworms);
+	gnibbles_properties_set_worms_number (value);
 }
 
 static gint
@@ -193,8 +176,6 @@ worm_up_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	gtk_widget_set_sensitive (widget, FALSE);
 	gtk_widget_grab_focus (control_button[(gint) data][0]);
 	
-	t_properties->wormprops[(gint) data]->up = key_name;
-
 	gnibbles_properties_set_worm_up ((gint)data, key_name);
 
 	return TRUE;
@@ -213,8 +194,6 @@ worm_down_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	gtk_widget_set_sensitive (widget, FALSE);
 	gtk_widget_grab_focus (control_button[(gint) data][1]);
 
-	t_properties->wormprops[(gint) data]->down = key_name;
-
 	gnibbles_properties_set_worm_down ((gint)data, key_name);
 
 	return TRUE;
@@ -231,8 +210,6 @@ worm_left_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
 	gtk_widget_set_sensitive (widget, FALSE);
 	gtk_widget_grab_focus (control_button[(gint) data][2]);
-
-	t_properties->wormprops[(gint) data]->left = key_name;
 
 	gnibbles_properties_set_worm_left ((gint)data, key_name);
 
@@ -251,8 +228,6 @@ worm_right_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	gtk_widget_set_sensitive (widget, FALSE);
 	gtk_widget_grab_focus (control_button[(gint) data][3]);
 
-	t_properties->wormprops[(gint) data]->right = key_name;
-
 	gnibbles_properties_set_worm_right ((gint)data, key_name);
 
 	return TRUE;
@@ -263,8 +238,6 @@ set_worm_color_cb (GtkWidget *widget, gpointer data)
 {
 	gint color = gtk_combo_box_get_active (GTK_COMBO_BOX (widget)) + WORMRED;
 	gint worm = (gint) data;
-
-	t_properties->wormprops[worm]->color = color;
 
 	gnibbles_properties_set_worm_color (worm, color);
 }
@@ -341,8 +314,6 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 	if (game_running ())
 		running = 1;
-
-	t_properties = gnibbles_properties_copy (properties);
 
 	pref_dialog = gtk_dialog_new_with_buttons (_("Gnibbles Preferences"),
                                                    GTK_WINDOW(window), 0,

@@ -71,17 +71,14 @@ colorval_name (gint colorval)
 	return "unknown";
 }
 
-GnibblesProperties *
-gnibbles_properties_new ()
+void
+gnibbles_properties_update (GnibblesProperties * tmp)
 {
-	GnibblesProperties *tmp;
 	gint i;
 	gchar buffer[256];
 	gchar *color_name;
 
 	conf_client = gconf_client_get_default ();
-
-	tmp = (GnibblesProperties *) g_malloc (sizeof (GnibblesProperties));
 
 	tmp->numworms = gconf_client_get_int (conf_client,
 					      KEY_NUM_WORMS,
@@ -176,7 +173,18 @@ gnibbles_properties_new ()
 			tmp->wormprops[i]->right = gdk_keyval_name (GDK_Right);
 	}
 
-	return (tmp);
+}
+
+GnibblesProperties *
+gnibbles_properties_new (void)
+{
+	GnibblesProperties *tmp;
+
+	tmp = (GnibblesProperties *) g_malloc (sizeof (GnibblesProperties));
+
+	gnibbles_properties_update (tmp);
+
+	return tmp;
 }
 
 void
