@@ -3,6 +3,10 @@
 	* main.c: Split 'End game?' dialog into new game / quit dialogs which
 	conform with other parts of gnome-games package. (Bug #97321)
 
+2002-11-18  Fernando Herrera <fherrera@onirica.com>
+
+	* gnibbles.desktop.in: add X-GNOME-BUGZILLA stuff
+
 2002-11-11  Ross Burton  <ross@burtonini.com>
 
 	* gnome-nibbles.png: New icon contributed by Timothy Musson.
