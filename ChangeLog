@@ -1,5 +1,9 @@
 2004-02-14  Callum McKenzie  <callum@physics.otago.ac.nz>
 
+	* worm.c: Further improvements to the key buffering code: avoid
+	repeat keys in normal mode and clear the queues when the worm
+	dies.
+
 	* gnibbles.c (gnibbles_add_bonus): Changed the while loop to a do
 	while to make it clear to the compiler that the first iteration is
 	always executed and hence avoid warnings about x and y being

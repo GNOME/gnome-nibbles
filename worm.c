@@ -39,6 +39,49 @@ extern GnibblesProperties *properties;
 
 extern gint current_level;
 
+typedef struct _key_queue_entry {
+	GnibblesWorm *worm;
+	guint keyval;
+} key_queue_entry;
+
+static GQueue *key_queue[NUMWORMS] = {NULL, NULL, NULL, NULL};
+
+static void gnibbles_worm_queue_keypress (GnibblesWorm *worm, guint keyval)
+{
+	key_queue_entry *entry;
+	int n = worm->number;
+
+	if (key_queue[n] == NULL)
+		key_queue[n] = g_queue_new ();
+
+	/* Ignore duplicates in normal movement mode. This resolves the
+	 * key repeat issue. We ignore this in relative mode because then
+	 * you do want two keys that are the same in quick succession. */
+	if ((!properties->wormprops[worm->number]->relmove) && 
+	    (!g_queue_is_empty (key_queue[n])) &&
+	    (keyval == ((key_queue_entry *) g_queue_peek_tail (key_queue[n]))->keyval))
+		return;
+
+	entry = g_malloc (sizeof(key_queue_entry));
+	entry->worm = worm;
+	entry->keyval = keyval;
+	g_queue_push_tail (key_queue[n], (gpointer) entry);
+}
+
+static void gnibbles_worm_queue_empty (GnibblesWorm *worm)
+{
+	key_queue_entry *entry;
+	int n = worm->number;
+
+	if (!key_queue[n])
+		return;
+
+	while (!g_queue_is_empty (key_queue[n])) {
+		entry = g_queue_pop_head (key_queue[n]);
+		g_free (entry);
+	}
+}
+
 GnibblesWorm *
 gnibbles_worm_new (guint t_number)
 {
@@ -77,27 +120,7 @@ gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
 	worm->length = 1;
 	worm->change = SLENGTH - 1;
 	worm->keypress = 0;
-}
-
-typedef struct _key_queue_entry {
-	GnibblesWorm *worm;
-	guint keyval;
-} key_queue_entry;
-
-static GQueue *key_queue[NUMWORMS] = {NULL, NULL, NULL, NULL};
-
-static void gnibbles_worm_queue_keypress (GnibblesWorm *worm, guint keyval)
-{
-	key_queue_entry *entry;
-	int n = worm->number;
-
-	if (key_queue[n] == NULL)
-		key_queue[n] = g_queue_new ();
-
-	entry = g_malloc (sizeof(key_queue_entry));
-	entry->worm = worm;
-	entry->keyval = keyval;
-	g_queue_push_tail (key_queue[n], (gpointer) entry);
+	gnibbles_worm_queue_empty (worm);
 }
 
 gint
