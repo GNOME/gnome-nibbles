@@ -483,6 +483,7 @@ gint gnibbles_keypress_worms (guint keyval)
 	for (i = 0; i < properties->numworms; i++)
 		if (gnibbles_worm_handle_keypress (worms[i], keyval))
                         return TRUE;
+
         return FALSE;
 }
 

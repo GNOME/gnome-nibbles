@@ -79,13 +79,36 @@ gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
 	worm->keypress = 0;
 }
 
+typedef struct _key_queue_entry {
+	GnibblesWorm *worm;
+	guint keyval;
+} key_queue_entry;
+
+static GQueue *key_queue[NUMWORMS] = {NULL, NULL, NULL, NULL};
+
+static void gnibbles_worm_queue_keypress (GnibblesWorm *worm, guint keyval)
+{
+	key_queue_entry *entry;
+	int n = worm->number;
+
+	if (key_queue[n] == NULL)
+		key_queue[n] = g_queue_new ();
+
+	entry = g_malloc (sizeof(key_queue_entry));
+	entry->worm = worm;
+	entry->keyval = keyval;
+	g_queue_push_tail (key_queue[n], (gpointer) entry);
+}
+
 gint
 gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 {
 	gint key_left, key_right, key_up, key_down;
 
-	if (worm->keypress)
+	if (worm->keypress) {
+                gnibbles_worm_queue_keypress (worm, keyval);
 		return FALSE;
+	} 
 
 	key_left = gdk_keyval_from_name (properties->wormprops[worm->number]->left);
 	key_right = gdk_keyval_from_name (properties->wormprops[worm->number]->right);
@@ -99,6 +122,7 @@ gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 			worm->direction = worm->direction + 1;
                 else
                         return FALSE;
+		worm->keypress = 1;
 		if (worm->direction == 0)
 			worm->direction = 4;
 		if (worm->direction == 5)
@@ -127,6 +151,18 @@ gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 		}
 	}
         return FALSE;
+}
+
+static void gnibbles_worm_dequeue_keypress (GnibblesWorm * worm)
+{
+	key_queue_entry *entry;
+	int n = worm->number;
+
+	entry = (key_queue_entry *) g_queue_pop_head (key_queue[n]);
+
+	gnibbles_worm_handle_keypress (entry->worm, entry->keyval);
+
+	g_free (entry);
 }
 
 static gint
@@ -222,9 +258,9 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 
 void
 gnibbles_worm_draw_head (GnibblesWorm *worm)
-{
+{	
 	worm->keypress = 0;
-	
+
 	switch (worm->direction) {
 		case WORMUP:
 			worm->xoff[worm->start] = 0;
@@ -294,6 +330,11 @@ gnibbles_worm_draw_head (GnibblesWorm *worm)
 
 	gnibbles_draw_pixmap (properties->wormprops[worm->number]->color,
 			worm->xhead, worm->yhead);
+
+	if (key_queue[worm->number] && 
+	    !g_queue_is_empty (key_queue[worm->number])) {
+		gnibbles_worm_dequeue_keypress (worm);
+	}
 }
 
 gint

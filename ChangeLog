@@ -1,3 +1,11 @@
+2004-02-13  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* worm.c: Fix keypress handling so that a second quick keypress is
+	queued until after the next worm step rather than being
+	ignored. The original feature was designed so that a worm couldn't
+	U-turn onto itself. Also added support for this feature to
+	relative movement. Fixes bug #128639.
+
 2004-02-11  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* main.c (about_cb): translator_credits ->
