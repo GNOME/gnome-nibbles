@@ -50,7 +50,6 @@ keyboard_string (gint ksym)
 {
 	gchar *name;
 	name = gdk_keyval_name (ksym);
-	fprintf (stderr, "%s\n", name);
 	return name;
 }
 
