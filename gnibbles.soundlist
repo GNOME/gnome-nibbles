@@ -4,6 +4,7 @@ description[da]=Gnibbles
 description[de]=Gnibbles
 description[gl]=Gnibbles
 description[ko]=±×´Ïºí
+description[lt]=Gnibbles
 description[no]=Gnibbles
 description[pl]=Gnibbles
 
@@ -18,6 +19,7 @@ description[es]=Muerte de una oruga
 description[fr]=Mort de la chenille
 description[gl]=Morte dun verme
 description[ko]=¹ú·¹ Á×À½
+description[lt]=Gyvatë þûsta
 description[no]=Ormen dør
 
 [appear]
@@ -26,11 +28,13 @@ description=Bonus Appears
 description[ca]=Aparició d'una bonificació
 description[da]=Bonus tilstede
 description[de]=Bonus erscheint
+description[ca]=Aparició d'una bonificació
 description[el]=ÅìöÜíéóç åíüò äéáìáíôéïý
 description[es]=Aparición de un diamante
 description[fr]=Apparition d'un bonus
 description[gl]=Aparece un Bonus
 description[ko]=º¸³Ê½º ³ªÅ¸³²
+description[lt]=Atsiranda deimantas
 description[no]=Bonus tilstede
 
 [gobble]
@@ -44,6 +48,7 @@ description[es]=Al comer un diamante
 description[fr]=Prise du bonus
 description[gl]=Bonus comido
 description[ko]=º¸³Ê½º ¸ÔÀ½
+description[lt]=Suvalgomas deimantas
 description[no]=Spis bonus
 description[pl]=Po³kniêcie dodatku
 
@@ -57,6 +62,7 @@ description[es]=Teleportación de la oruga
 description[fr]=Téléportation de la chenille
 description[gl]=Teleportación dun verme
 description[ko]=¹ú·¹ ¼ø°£ ÀÌµ¿
+description[lt]=Gyvatë teleportuojasi
 description[no]=Ormen teleporteret
 
 [reverse]
@@ -69,6 +75,7 @@ description[es]=Cambio de sentido
 description[fr]=Volte-face de la chenille
 description[gl]=Cambio de sentido do verme
 description[ko]=¹ú·¹ µÚ¹Ù²ñ
+description[lt]=Gyvatë apsisuka
 description[no]=Ormen vender
 
 [gameover]
@@ -82,6 +89,7 @@ description[es]=Juego terminado
 description[fr]=Fin du jeu
 description[gl]=Xogo rematado
 description[ko]=°ÔÀÓ ³¡
+description[lt]=Þaidimo pabaiga
 description[no]=Spillet over
 description[pl]=Zakoñczenie gry
 
@@ -96,6 +104,7 @@ description[es]=Bonus
 description[fr]=Bonus
 description[gl]=Bonus
 description[ko]=º¸³Ê½º
+description[lt]=Deimantas
 description[no]=Bonus
 description[pl]=Dodatek
 
@@ -110,5 +119,6 @@ description[es]=Vida extra
 description[fr]=Vie supplémentaire
 description[gl]=Vida extra
 description[ko]=Ãß°¡ »ý¸í
+description[lt]=Papildoma gyvybë
 description[no]=Ekstra liv
 description[pl]=Dodatkowe ¿ycie
