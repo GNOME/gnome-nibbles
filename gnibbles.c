@@ -80,9 +80,11 @@ void gnibbles_load_pixmap ()
 
 	image = gdk_imlib_load_image (filename);
 	visual = gdk_imlib_get_visual ();
+	/*
 	if (visual->type != GDK_VISUAL_TRUE_COLOR) {
 		gdk_imlib_set_render_type (RT_PLAIN_PALETTE);
 	}
+	*/
 	gdk_imlib_render (image, image->rgb_width, image->rgb_height);
 	gnibbles_pixmap = gdk_imlib_move_image (image);
 
@@ -99,9 +101,11 @@ void gnibbles_load_pixmap ()
 
 	image = gdk_imlib_load_image (filename);
 	visual = gdk_imlib_get_visual ();
+	/*
 	if (visual->type != GDK_VISUAL_TRUE_COLOR) {
 		gdk_imlib_set_render_type (RT_PLAIN_PALETTE);
 	}
+	*/
 	gdk_imlib_render (image, image->rgb_width, image->rgb_height);
 	logo_pixmap = gdk_imlib_move_image (image);
 
