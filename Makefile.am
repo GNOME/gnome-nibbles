@@ -2,7 +2,7 @@ pixmapdir=$(datadir)/pixmaps/gnibbles
 configdir=$(datadir)/gnibbles
 icondir=$(datadir)/pixmaps
 soundlistdir = $(sysconfdir)/sound/events
-Gamesdir=$(datadir)/gnome/apps/Games
+Gamesdir=$(datadir)/applications
 scoredir=$(localstatedir)/games
 
 INCLUDES = 			\
