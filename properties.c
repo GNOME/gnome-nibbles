@@ -6,7 +6,7 @@
 GnibblesProperties *gnibbles_properties_new ()
 {
 	GnibblesProperties *tmp;
-	int i;
+	gint i;
 	gchar buffer[256];
 
 	tmp = (GnibblesProperties *) malloc (sizeof (GnibblesProperties));
@@ -24,21 +24,21 @@ GnibblesProperties *gnibbles_properties_new ()
 		tmp->wormprops[i] = (GnibblesWormProps *) malloc (sizeof
 				(GnibblesWormProps));
 
-		sprintf (buffer, "/gnibbles/Worm%1d/color=%2d", i, i + 12);
+		sprintf (buffer, "/gnibbles/Worm%d/color=%d", i, i + 12);
 		tmp->wormprops[i]->color = gnome_config_get_int (buffer);
-		sprintf (buffer, "/gnibbles/Worm%1d/up=0");
+		sprintf (buffer, "/gnibbles/Worm%d/up=0", i);
 		tmp->wormprops[i]->up = gnome_config_get_int (buffer);
 		if (!tmp->wormprops[i]->up)
 			tmp->wormprops[i]->up = GDK_Up;
-		sprintf (buffer, "/gnibbles/Worm%1d/down=0");
+		sprintf (buffer, "/gnibbles/Worm%d/down=0", i);
 		tmp->wormprops[i]->down = gnome_config_get_int (buffer);
 		if (!tmp->wormprops[i]->down)
 			tmp->wormprops[i]->down = GDK_Down;
-		sprintf (buffer, "/gnibbles/Worm%1d/left=0");
+		sprintf (buffer, "/gnibbles/Worm%d/left=0", i);
 		tmp->wormprops[i]->left = gnome_config_get_int (buffer);
 		if (!tmp->wormprops[i]->left)
 			tmp->wormprops[i]->left = GDK_Left;
-		sprintf (buffer, "/gnibbles/Worm%1d/right=0");
+		sprintf (buffer, "/gnibbles/Worm%d/right=0", i);
 		tmp->wormprops[i]->right = gnome_config_get_int (buffer);
 		if (!tmp->wormprops[i]->right)
 			tmp->wormprops[i]->right = GDK_Right;

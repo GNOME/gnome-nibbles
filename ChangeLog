@@ -1,5 +1,10 @@
 1999-02-01  Ian Peters  <ipeters@acm.org>
 
+	* Fixed bug in loading per worm properties
+
+
+1999-02-01  Ian Peters  <ipeters@acm.org>
+
 	* Fixed a nasty bug when pausing while the worm is being erased and it
 	is restarting the level...
 	* Changed the new game / restart level behaviour slightly so that the
