@@ -2,7 +2,7 @@
         <!-- if not using PNG graphic, replace reference above with
              .....PUBLIC "-//OASIS//DTD DocBook V3.1//EN"[
          -->
-<!ENTITY version "1.2.0">
+<!ENTITY VERSION "1.2.0">
 ]>
 
 
@@ -11,7 +11,7 @@
 <article id="index"> <!-- please do not change the id -->
 
  <artheader>
-  <title>Gnibbles</title>
+  <title>Gnibbles Manual</title>
   <copyright>
    <year>2000</year>
    <holder>Kevin Breit</holder>
@@ -29,27 +29,28 @@
   <!-- do not put authorname in the header except in copyright - use
   section "authors" below -->
 
-  <legalnotice>
-   <para>
-    Permission is granted to copy, distribute and/or modify this
-    document under the terms of the <citetitle>GNU Free Documentation
-    License</citetitle>, Version 1.1 or any later version published
-    by the Free Software Foundation with no Invariant Sections, no
-    Front-Cover Texts, and no Back-Cover Texts. You may obtain a copy
-    of the <citetitle>GNU Free Documentation License</citetitle> from
-    the Free Software Foundation by visiting <ulink type="http"
-    url="http://www.fsf.org">their Web site</ulink> or by writing to:
-    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-    Boston, MA 02111-1307, USA.
-   </para>
-   <para>
-    Many of the names used by companies to distinguish their products and
-    services are claimed as trademarks. Where those names appear in any
-    GNOME documentation, and those trademarks are made aware to the members
-    of the GNOME Documentation Project, the names have been printed in caps
-    or initial caps.
-   </para>
-  </legalnotice>
+<legalnotice id="legalnotice">
+      <para>
+        Permission is granted to copy, distribute and/or modify this document
+        under the terms of the <ulink type="help" url="gnome-help:fdl">
+        <citetitle>GNU Free Documentation License</citetitle></ulink>, Version 
+        1.1 or any later version published by the
+        Free Software Foundation with no Invariant Sections, no Front-Cover
+        Texts, and no Back-Cover Texts. You may obtain a copy of the
+        <citetitle>GNU Free Documentation License</citetitle> from the Free
+        Software Foundation by visiting <ulink type="http"
+                                               url="http://www.fsf.org">their
+        Web site</ulink> or by writing to: Free Software Foundation, Inc., 59
+        Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+      </para>
+      <para>
+        Many of the names used by companies to distinguish their products and
+        services are claimed as trademarks. Where those names appear in any
+        GNOME documentation, and those trademarks are made aware to the members
+        of the GNOME Documentation Project, the names have been printed in caps
+        or initial caps.
+      </para>
+    </legalnotice>
 
   <!-- this is the version of manual, not application --> 
   <releaseinfo>
@@ -82,7 +83,7 @@
    <application>Gnibbles</application> is included in the
    <filename>gnome-games</filename> package, which is part of the
    GNOME desktop environment. This document describes version
-   &version; of <application>Gnibbles</application>.
+   &VERSION; of <application>Gnibbles</application>.
   </para>
  </sect1>
 
@@ -107,50 +108,50 @@
   </para>
 
   <!-- ========= Basic Usage =========================== -->
-  <sect2 id="mainwin">
-   <title>Basic usage</title>
-   <para>
-    Starting <application>Gnibbles</application> opens 
-    the <interface>title screen</interface> shown below.
-    <figure id="intro-fig">
-     <title>Gnibbles Introduction Window</title>
-     <screenshot>
-      <screeninfo>Gnibbles Introduction Window</screeninfo>
-      <graphic fileref="intro" format="png"
-       srccredit="Kevin Breit">
-      </graphic>
-     </screenshot>
-    </figure>
-   </para>
-   <para>
-     To start the game, click on the intro screen, shown above.  The game
-     will automatically start.
-   </para>
-   <para>
-     When the game starts, the snake will come out of the left side of the
-     screen.  You use the up arrow to make the direction of the snake go up.
-     Use the right arrow to turn the snake right, left arrow to turn the snake
-     left, and down arrow to turn the snake down.
-     <figure id="gameplay">
-       <title>Gnibbles During Gameplay</title>
-       <screenshot>
-         <screeninfo>Gnibbles During Gameplay</screeninfo>
-         <graphic fileref="playing" format="png"
-           srccredit="Kevin Breit">
-         </graphic>
-       </screenshot>
-     </figure>
-   </para>
-  </sect2>
+<sect2 id="mainwin">
+<title>Basic usage</title>
+<para>
+Starting <application>Gnibbles</application> opens 
+the <interface>main window</interface> shown below.
+<figure id="intro-fig">
+<title>Gnibbles Introduction Window</title>
+<screenshot>
+<screeninfo>Gnibbles Introduction Window</screeninfo>
+<graphic fileref="intro" format="png"
+srccredit="Kevin Breit">
+</graphic>
+</screenshot>
+</figure>
+</para>
+<para>
+To start the game, click on the intro screen, shown above.  The game
+will automatically start.
+</para>
+<para>
+When the game starts, the snake will come out of the left side of the
+screen.  You use the up arrow to make the direction of the snake go up.
+Use the right arrow to turn the snake right, left arrow to turn the snake
+left, and down arrow to turn the snake down.
+<figure id="gameplay">
+<title>Gnibbles During Gameplay</title>
+<screenshot>
+ <screeninfo>Gnibbles During Gameplay</screeninfo>
+ <graphic fileref="playing" format="png"
+   srccredit="Kevin Breit">
+ </graphic>
+</screenshot>
+</figure>
+</para>
+</sect2>
 
-  <!-- This section should also describe main elements of graphic user
-       interface, such as menus and buttons, unless this description
-       is too long - in that case, it should be moved to a separate
-       section. For example -->
+<!-- This section should also describe main elements of graphic user
+interface, such as menus and buttons, unless this description
+is too long - in that case, it should be moved to a separate
+section. For example -->
 
 
-  <!-- ========= Menus =========================== -->
-  <sect2 id="menubar">
+<!-- ========= Menus =========================== -->
+<sect2 id="menubar">
    <title>Menus</title>
    <para>
     The menu bar, located at the top of the <interface>Main
@@ -180,8 +181,8 @@
           <menuchoice>
            <guimenuitem>Pause game</guimenuitem>
           </menuchoice>
-          &mdash; This will pause your game.  Click on the 'Pause Game' menu
-          option to resume game.
+          &mdash; This will pause your game.  Click on the <quote>Pause Game
+          </quote> menu option to resume game.
          </para>
         </listitem>
         <listitem>
@@ -287,7 +288,8 @@
     <listitem>
      <para>
       (Levels in random order) &mdash; Selecting this causes the level
-      advancement in non-numerical order.
+      advancement to happen in random order.  So you may start at level 5,
+      go to 3, and then 8.
      </para>
     </listitem>
 
@@ -301,7 +303,7 @@
 
     <listitem>
      <para>
-      (Sounds) &mdash; Enables sounds 
+      (Sounds) &mdash; Enables sounds. 
      </para>
     </listitem>
    </itemizedlist>
@@ -434,7 +436,8 @@
   <title>License</title>
   <para>
    This program is free software; you can redistribute it and/or
-   modify it under the terms of the <citetitle>GNU General Public
+   modify it under the terms of the <ulink type="help" url="gnome-help:gpl">
+   <citetitle>GNU General Public
    License</citetitle> as published by the Free Software Foundation;
    either version 2 of the License, or (at your option) any later
    version.
@@ -461,4 +464,3 @@
   </para>
  </sect1>
 </article>
-
