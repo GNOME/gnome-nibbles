@@ -130,16 +130,20 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 	switch (board[worm->xhead][worm->yhead] - 'A') {
 		case BONUSREGULAR:
 			worm->change += (12 - boni->numleft) * 3;
-			worm->change += 12 - boni->numleft;
+			worm->score += 12 - boni->numleft;
 			boni->numleft--;
 			break;
 		case BONUSDOUBLE:
-			worm->change += worm->length;
-			worm->score += worm->length;
+			worm->score += worm->length + worm->change;
+			worm->change += worm->length + worm->change;
 			break;
 		case BONUSHALF:
-			worm->change -= worm->length/2;
-			worm->score += worm->length/2;
+			if (worm->length + worm->change > 2) {
+				worm->score += (worm->length + worm->change) /
+					2;
+				worm->change -= (worm->length + worm->change) /
+					2;
+			}
 			break;
 		case BONUSLIFE:
 			worm->lives += 1;

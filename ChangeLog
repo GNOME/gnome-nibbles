@@ -1,5 +1,11 @@
 1999-02-02  Ian Peters  <ipeters@acm.org>
 
+	* Fixed some bugs in gnibbles_worm_grok_bonus, such as incorrect maths
+	while doubling and halving, and stupid typo in case BONUSREGULAR, which
+	meant nothing much was happening to scores.  All better.
+
+1999-02-02  Ian Peters  <ipeters@acm.org>
+
 	* Fixed some memory leak in properties.c
 	* Added configuration options to allow multiple players to set keys,
 	set worm color, set number of players, set starting level.  Multiple
