@@ -218,13 +218,13 @@ static void about_cb (GtkWidget *widget, gpointer data)
 	}
 
 	about = gnome_about_new (_("Gnibbles"), VERSION,
-			"(C) 1999 Sean MacIsaac and Ian Peters",
-			_("Send comments and bug reports to: "
-			  "sjm@acm.org, itp@gnu.org"),
-			(const char **)authors,
-			(const char **)documenters,
-			strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
-			pixbuf);
+				 "Copyright \xc2\xa9 1999-2003 Sean MacIsaac, "
+				 "Ian Peters",
+				 _("Align balls into coloured lines."),
+				 (const char **)authors,
+				 (const char **)documenters,
+				 strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
+				 pixbuf);
    
 	if (pixbuf != NULL)
 		gdk_pixbuf_unref (pixbuf);
