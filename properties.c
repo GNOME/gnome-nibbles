@@ -16,7 +16,7 @@ GnibblesProperties *gnibbles_properties_new ()
 	tmp->gamespeed = gnome_config_get_int
 		("/gnibbles/Preferences/gamespeed=2");
 	tmp->fakes = gnome_config_get_int ("/gnibbles/Preferences/fakes=0");
-	tmp->random = gnome_config_get_int ("/gnibbles/Preferences/random=1");
+	tmp->random = gnome_config_get_int ("/gnibbles/Preferences/random=0");
 	tmp->startlevel = gnome_config_get_int
 		("/gnibbles/Preferences/startlevel=1");
 
