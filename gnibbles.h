@@ -30,7 +30,7 @@
 #define GAMEDELAY 20
 #define BONUSDELAY 100
 
-#define MAXLEVEL 20
+#define MAXLEVEL 26
 
 void gnibbles_draw_pixmap (gint which, gint x, gint y);
 void gnibbles_draw_big_pixmap (gint which, gint x, gint y);

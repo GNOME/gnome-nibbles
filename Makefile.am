@@ -58,7 +58,13 @@ config_DATA = \
 	level017.gnl \
 	level018.gnl \
 	level019.gnl \
-	level020.gnl
+	level020.gnl \
+	level021.gnl \
+	level022.gnl \
+	level023.gnl \
+	level024.gnl \
+	level025.gnl \
+	level026.gnl
 
 Games_DATA = gnibbles.desktop
 
