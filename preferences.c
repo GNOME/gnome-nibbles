@@ -108,6 +108,19 @@ static void fake_bonus_cb (GtkWidget *widget, gpointer data)
 	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
+static void sound_cb (GtkWidget *widget, gpointer data)
+{
+	if (!pref_dialog_valid)
+		return;
+
+	if (GTK_TOGGLE_BUTTON (widget)->active)
+		t_properties->sound = 1;
+	else
+		t_properties->sound = 0;
+
+	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
+}
+
 static void num_worms_cb (GtkWidget *widget, gpointer data)
 {
 	if (!pref_dialog_valid)
@@ -227,7 +240,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (frame);
 
 	vbox = gtk_vbox_new (TRUE, 0);
-	gtk_container_border_width (GTK_CONTAINER (vbox), 0);
+	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
 	gtk_widget_show (vbox);
 
 	button = gtk_radio_button_new_with_label (NULL, _("Nibbles newbie"));
@@ -274,14 +287,14 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 	gtk_box_pack_start (GTK_BOX (hbox), frame, TRUE, TRUE, 0);
 
-	table = gtk_table_new (4, 2, FALSE);
+	table = gtk_table_new (5, 2, FALSE);
 	gtk_widget_show (table);
 	gtk_table_set_row_spacings (GTK_TABLE (table), GNOME_PAD);
 
 	label2 = gtk_label_new (_("Starting level: "));
 	gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 	gtk_widget_show (label2);
-	gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 2, 3, GTK_EXPAND |
+	gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 3, 4, GTK_EXPAND |
 			GTK_FILL, 0, 0, 0);
 
 	adjustment = gtk_adjustment_new ((gfloat) properties->startlevel, 1.0,
@@ -294,7 +307,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (levelspinner);
 	if (properties->random)
 		gtk_widget_set_sensitive (GTK_WIDGET (levelspinner), FALSE);
-	gtk_table_attach (GTK_TABLE (table), levelspinner, 1, 2, 2, 3,
+	gtk_table_attach (GTK_TABLE (table), levelspinner, 1, 2, 3, 4,
 			GTK_EXPAND | GTK_FILL, 0, 0, 0);
 
 	button = gtk_check_button_new_with_label (_("Levels in random order"));
@@ -317,10 +330,20 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
 
+	button = gtk_check_button_new_with_label (_("Sounds"));
+	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+			(sound_cb), NULL);
+	if (properties->sound)
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+				TRUE);
+	gtk_widget_show (button);
+	gtk_table_attach (GTK_TABLE (table), button, 0, 2, 2, 3,
+			GTK_EXPAND | GTK_FILL, 0, 0, 0);
+
 	label2 = gtk_label_new (_("Number of players: "));
 	gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 	gtk_widget_show (label2);
-	gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 3, 4, GTK_EXPAND |
+	gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 4, 5, GTK_EXPAND |
 			GTK_FILL, 0, 0, 0);
 
 	adjustment = gtk_adjustment_new ((gfloat) properties->numworms, 1.0,
@@ -331,7 +354,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_signal_connect (GTK_OBJECT (adjustment), "value_changed",
 			GTK_SIGNAL_FUNC (num_worms_cb), button);
 	gtk_widget_show (button);
-	gtk_table_attach (GTK_TABLE (table), button, 1, 2, 3, 4, GTK_EXPAND |
+	gtk_table_attach (GTK_TABLE (table), button, 1, 2, 4, 5, GTK_EXPAND |
 			GTK_FILL, 0, 0, 0);
 
 	gtk_box_pack_start (GTK_BOX (hbox), table, TRUE, TRUE, 0);

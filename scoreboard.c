@@ -83,7 +83,7 @@ void gnibbles_scoreboard_update (GnibblesScoreboard *scoreboard)
 {
 	int i;
 	gchar buffer[15];
-	gchar buffer2[15];
+	gchar *buffer2;
 
 	for (i = 0; i < scoreboard->count; i++) {
 		sprintf (buffer, "%02d, %05d",

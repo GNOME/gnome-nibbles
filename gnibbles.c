@@ -455,15 +455,15 @@ gint gnibbles_move_worms ()
 			gnibbles_worm_draw_head (worms[i]);
 
 	if (status & GAMEOVER) {
-		gnome_triggers_do (NULL, NULL, "gnibbles", "crash", NULL);
-		gnome_triggers_do (NULL, NULL, "gnibbles", "gameover", NULL);
+		gnibbles_play_sound ("crash");
+		gnibbles_play_sound ("gameover");
 		return (GAMEOVER);
 	}
 
 	if (status)
 		return (CONTINUE);
 
-	gnome_triggers_do (NULL, NULL, "gnibbles", "crash", NULL);
+	gnibbles_play_sound ("crash");
 	return (NEWROUND);
 }
 
@@ -481,4 +481,10 @@ void gnibbles_undraw_worms (gint data)
 
 	for (i = 0; i < properties->numworms; i++)
 		gnibbles_worm_undraw_nth (worms[i], data);
+}
+
+void gnibbles_play_sound (const char *which)
+{
+	if (properties->sound)
+		gnome_triggers_do (NULL, NULL, "gnibbles", which, NULL);
 }

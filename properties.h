@@ -36,6 +36,7 @@ typedef struct {
 	gint fakes;
 	gint random;
 	gint startlevel;
+	gint sound;
 	GnibblesWormProps *wormprops[NUMWORMS];
 } GnibblesProperties;
 

@@ -145,7 +145,7 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 
 	if (gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
 		gtk_timeout_add(1, (GtkFunction) gnibbles_worm_reverse, worm);
-		gnome_triggers_do (NULL, NULL, "gnibbles", "reverse", NULL);
+		gnibbles_play_sound ("reverse");
 		return;
 	}
 
@@ -155,15 +155,13 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 			worm->change += (NUMBONI - boni->numleft) * GROWFACTOR;
 			worm->score += (NUMBONI - boni->numleft) *
 				current_level;
-			gnome_triggers_do (NULL, NULL, "gnibbles", "gobble",
-					NULL);
+			gnibbles_play_sound ("gobble");
 			break;
 		case BONUSDOUBLE:
 			worm->score += (worm->length + worm->change) *
 				current_level;
 			worm->change += worm->length + worm->change;
-			gnome_triggers_do (NULL, NULL, "gnibbles", "bonus",
-					NULL);
+			gnibbles_play_sound ("bonus");
 			break;
 		case BONUSHALF:
 			if (worm->length + worm->change > 2) {
@@ -171,14 +169,12 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 					2) * current_level;
 				worm->change -= (worm->length + worm->change) /
 					2;
-				gnome_triggers_do (NULL, NULL, "gnibbles",
-						"bonus", NULL);
+				gnibbles_play_sound ("bonus");
 			}
 			break;
 		case BONUSLIFE:
 			worm->lives += 1;
-			gnome_triggers_do (NULL, NULL, "gnibbles", "life",
-					NULL);
+			gnibbles_play_sound ("life");
 			break;
 		case BONUSREVERSE:
 			for (i = 0; i < properties->numworms; i++)
@@ -186,8 +182,7 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 					gtk_timeout_add(1, (GtkFunction)
 							gnibbles_worm_reverse,
 						 	worms[i]);
-			gnome_triggers_do (NULL, NULL, "gnibbles", "reverse",
-					NULL);
+			gnibbles_play_sound ("reverse");
 			break;
 	}
 }
@@ -253,7 +248,7 @@ void gnibbles_worm_draw_head (GnibblesWorm *worm)
 
 	if (board[worm->xhead][worm->yhead] == WARPLETTER) {
 		gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
-		gnome_triggers_do (NULL, NULL, "gnibbles", "teleport", NULL);
+		gnibbles_play_sound ("teleport");
 	}
 
 	worm->start++;

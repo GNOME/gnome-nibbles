@@ -38,6 +38,7 @@ GnibblesProperties *gnibbles_properties_new ()
 	tmp->random = gnome_config_get_int ("/gnibbles/Preferences/random=0");
 	tmp->startlevel = gnome_config_get_int
 		("/gnibbles/Preferences/startlevel=1");
+	tmp->sound = gnome_config_get_int ("/gnibbles/Preferences/sound=1");
 
 	for (i = 0; i < NUMWORMS; i++) {
 		tmp->wormprops[i] = (GnibblesWormProps *) malloc (sizeof
@@ -88,6 +89,7 @@ GnibblesProperties *gnibbles_properties_copy (GnibblesProperties *props)
 	tmp->fakes = props->fakes;
 	tmp->random = props->random;
 	tmp->startlevel = props->startlevel;
+	tmp->sound = props->sound;
 	
 	for (i = 0; i < NUMWORMS; i++) {
 		tmp->wormprops[i] = (GnibblesWormProps *) malloc (sizeof
@@ -116,6 +118,7 @@ void gnibbles_properties_save (GnibblesProperties *props)
 	gnome_config_set_int ("/gnibbles/Preferences/random", props->random);
 	gnome_config_set_int ("/gnibbles/Preferences/startlevel",
 			props->startlevel);
+	gnome_config_set_int ("/gnibbles/Preferences/sound", props->sound);
 
 	for (i = 0; i < NUMWORMS; i++) {
 		sprintf (buffer, "/gnibbles/Worm%d/color", i);

@@ -65,7 +65,7 @@ void gnibbles_boni_add_bonus (GnibblesBoni *boni, gint t_x, gint t_y,
 	gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
 	boni->numbonuses++;
 	if (t_type != BONUSREGULAR)
-		gnome_triggers_do (NULL, NULL, "gnibbles", "appear", NULL);
+		gnibbles_play_sound ("appear");
 }
 
 int gnibbles_boni_fake (GnibblesBoni *boni, gint x, gint y)

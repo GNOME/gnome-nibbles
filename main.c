@@ -246,7 +246,7 @@ static gint new_game_cb (GtkWidget *widget, gpointer data)
 	if (dummy_id)
 		gtk_timeout_remove (dummy_id);
 
-	gnome_triggers_do (NULL, NULL, "gnibbles", "startgame", NULL);
+	gnibbles_play_sound ("startgame");
 
 	dummy_id = gtk_timeout_add (1500, (GtkFunction) new_game_2_cb, NULL);
 }
@@ -352,7 +352,7 @@ static gint restart_game (gpointer data)
 	dummy_id = gtk_timeout_add (1500, (GtkFunction) new_game_2_cb,
 			NULL);
 
-	gnome_triggers_do (NULL, NULL, "gnibbles", "startgame", NULL);
+	gnibbles_play_sound ("startgame");
 
 	restart_id = 0;
 

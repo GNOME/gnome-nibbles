@@ -1,3 +1,11 @@
+1999-02-27  Ian Peters  <ipeters@acm.org>
+
+	* Added sound toggle to preferences, properties
+	* Previous calls to gnome_triggers_do now call gnibbles_play_sound,
+	which checks properties->sound and then calls gnome_triggers_do
+	* Fixed potential badness / compile warning in scoreboard.c
+	gtk_label_get
+
 1999-02-24  Ian Peters  <ipeters@acm.org>
 
 	* Added license info to *.c, *.h
