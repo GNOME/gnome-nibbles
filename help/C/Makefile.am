@@ -4,7 +4,7 @@ figs = \
 	figures/worm_op.png		\
 	figures/graphics.png		\
 	figures/playing.png
-docname = gnibbles 
+docname = gnibbles
 lang = C
 omffile = gnibbles-C.omf
 sgml_ents = 
