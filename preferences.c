@@ -72,6 +72,7 @@ static void apply_cb (GtkWidget *widget, gint action, gpointer data)
  		gnibbles_properties_destroy (properties);
 		properties = gnibbles_properties_copy (t_properties);
 		gnibbles_properties_save (properties);
+		update_score_state ();
 	}
 	gtk_widget_destroy (widget);
 }

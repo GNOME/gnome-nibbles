@@ -530,5 +530,7 @@ void gnibbles_log_score ()
 
 	pos = gnome_score_log (worms[0]->score, buf, TRUE);
 
+	update_score_state ();
+
 	gnibbles_show_scores (pos);
 }

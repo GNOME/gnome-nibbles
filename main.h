@@ -22,5 +22,6 @@
 
 gint game_running ();
 gint pause_game_cb (GtkWidget *widget, gpointer data);
+void update_score_state ();
 
 #endif

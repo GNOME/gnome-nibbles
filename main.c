@@ -550,6 +550,27 @@ static void set_bg_color ()
 	g_object_unref (G_OBJECT (tmp_image));
 }
 
+void update_score_state ()
+{
+        gchar **names = NULL;
+        gfloat *scores = NULL;
+        time_t *scoretimes = NULL;
+	gint top;
+
+	char buf[10];
+	sprintf (buf, "%d.%d", properties->gamespeed, properties->fakes);
+
+	top = gnome_score_get_notable("gnibbles", buf, &names, &scores, &scoretimes);
+	if (top > 0) {
+		gtk_widget_set_sensitive (game_menu[3].widget, TRUE);
+		g_strfreev(names);
+		g_free(scores);
+		g_free(scoretimes);
+	} else {
+		gtk_widget_set_sensitive (game_menu[3].widget, FALSE);
+	}
+}
+
 gboolean
 show_cursor_cb (GtkWidget *widget, GdkEventMotion *event, gpointer data)
 {
@@ -651,6 +672,8 @@ int main (int argc, char **argv)
 	load_properties ();
 
 	setup_window ();
+
+	update_score_state ();
 
 	gnibbles_load_pixmap (window);
 
