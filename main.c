@@ -179,6 +179,11 @@ static void about_cb (GtkWidget *widget, gpointer data)
 	static GtkWidget *about;
 
 	const gchar *authors[] = {"Sean MacIsaac", "Ian Peters", NULL};
+	gchar *documenters[] = {
+                NULL
+        };
+        /* Translator credits */
+        gchar *translator_credits = _("");
 
 	if (about != NULL) {
 		gdk_window_raise (about->window);
@@ -188,9 +193,11 @@ static void about_cb (GtkWidget *widget, gpointer data)
 
 	about = gnome_about_new (_("Gnibbles"), VERSION,
 			"(C) 1999 Sean MacIsaac and Ian Peters",
-			(const char **)authors,
 			_("Send comments and bug reports to: "
 			  "sjm@acm.org, itp@gnu.org"),
+			(const char **)authors,
+			(const char **)documenters,
+                        (const char *)translator_credits,
 			NULL);
 	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &about);

@@ -103,7 +103,7 @@ void gnibbles_load_pixmap ()
 		exit (1);
 	}
 
-	image = gdk_pixbuf_new_from_file (filename);
+	image = gdk_pixbuf_new_from_file (filename, NULL);
 
 	if (gnibbles_pixmap)
 		gdk_pixmap_unref (gnibbles_pixmap);
@@ -129,7 +129,7 @@ void gnibbles_load_pixmap ()
 		exit (1);
 	}
 
-	image = gdk_pixbuf_new_from_file (filename);
+	image = gdk_pixbuf_new_from_file (filename, NULL);
 	tmp = gdk_pixbuf_scale_simple (image, BOARDWIDTH * properties->tilesize,
 				 BOARDHEIGHT * properties->tilesize, 
 				 GDK_INTERP_TILES);
