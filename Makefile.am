@@ -8,10 +8,7 @@ INCLUDES =		 			\
 	$(GNOME_GAMES_CFLAGS)			\
 	-I$(top_srcdir)/libgames-support	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DREAL_DATADIR=\""$(datadir)"\" 	\
-	-DG_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED \
-	-DGTK_DISABLE_DEPRECATED -DGNOME_DISABLE_DEPRECATED
-
+	-DREAL_DATADIR=\""$(datadir)"\"
 
 bin_PROGRAMS = gnibbles
 

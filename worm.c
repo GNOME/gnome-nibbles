@@ -177,7 +177,7 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 	int i;
 
 	if (gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
-		gtk_timeout_add(1, (GtkFunction) gnibbles_worm_reverse, worm);
+		g_timeout_add(1, (GtkFunction) gnibbles_worm_reverse, worm);
 		gnibbles_play_sound ("reverse");
 		return;
 	}
@@ -212,7 +212,7 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 		case BONUSREVERSE:
 			for (i = 0; i < properties->numworms; i++)
 				if (worm != worms[i])
-					gtk_timeout_add (1, (GtkFunction)
+					g_timeout_add (1, (GSourceFunc)
 							 gnibbles_worm_reverse,
 							 worms[i]);
 			gnibbles_play_sound ("reverse");
