@@ -260,7 +260,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 //	gtk_container_border_width (GTK_CONTAINER (table), GNOME_PAD_SMALL);
 	gtk_table_set_row_spacings (GTK_TABLE (table), GNOME_PAD);
 
-	label2 = gtk_label_new ("Starting level: ");
+	label2 = gtk_label_new (_("Starting level: "));
 	gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 	gtk_widget_show (label2);
 	gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 2, 3, GTK_EXPAND |
@@ -299,7 +299,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
 
-	label2 = gtk_label_new ("Number of players: ");
+	label2 = gtk_label_new (_("Number of players: "));
 	gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 	gtk_widget_show (label2);
 	gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 3, 4, GTK_EXPAND |
@@ -332,7 +332,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_set_col_spacings (GTK_TABLE (table), GNOME_PAD);
 		gtk_widget_show (table);
 
-		label2 = gtk_label_new ("Up:");
+		label2 = gtk_label_new (_("Up:"));
 		gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 		gtk_widget_show (label2);
 		gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 0, 1,
@@ -350,7 +350,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 				0, 0,
 				0, 0);
 
-		label2 = gtk_label_new ("Down:");
+		label2 = gtk_label_new (_("Down:"));
 		gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 		gtk_widget_show (label2);
 		gtk_table_attach (GTK_TABLE (table), label2, 2, 3, 0, 1,
@@ -368,7 +368,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 				0, 0,
 				0, 0);
 
-		label2 = gtk_label_new ("Left:");
+		label2 = gtk_label_new (_("Left:"));
 		gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 		gtk_widget_show (label2);
 		gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 1, 2,
@@ -386,7 +386,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 				0, 0,
 				0, 0);
 
-		label2 = gtk_label_new ("Right:");
+		label2 = gtk_label_new (_("Right:"));
 		gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 		gtk_widget_show (label2);
 		gtk_table_attach (GTK_TABLE (table), label2, 2, 3, 1, 2,
@@ -404,7 +404,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 				0, 0,
 				0, 0);
 
-		label2 = gtk_label_new ("Color:");
+		label2 = gtk_label_new (_("Color:"));
 		gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 		gtk_widget_show (label2);
 		gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 2, 3,
@@ -413,7 +413,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 		omenu = gtk_option_menu_new ();
 		menu = gtk_menu_new ();
-		menuitem = gtk_menu_item_new_with_label ("Red");
+		menuitem = gtk_menu_item_new_with_label (_("Red"));
 		gtk_widget_show (menuitem);
 		gtk_menu_append (GTK_MENU (menu), menuitem);
 		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
@@ -425,31 +425,31 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMGREEN << 2 | i));
-		menuitem = gtk_menu_item_new_with_label ("Blue");
+		menuitem = gtk_menu_item_new_with_label (_("Blue"));
 		gtk_widget_show (menuitem);
 		gtk_menu_append (GTK_MENU (menu), menuitem);
 		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMBLUE << 2 | i));
-		menuitem = gtk_menu_item_new_with_label ("Yellow");
+		menuitem = gtk_menu_item_new_with_label (_("Yellow"));
 		gtk_widget_show (menuitem);
 		gtk_menu_append (GTK_MENU (menu), menuitem);
 		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMYELLOW << 2 | i));
-		menuitem = gtk_menu_item_new_with_label ("Cyan");
+		menuitem = gtk_menu_item_new_with_label (_("Cyan"));
 		gtk_widget_show (menuitem);
 		gtk_menu_append (GTK_MENU (menu), menuitem);
 		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMCYAN << 2 | i));
-		menuitem = gtk_menu_item_new_with_label ("Purple");
+		menuitem = gtk_menu_item_new_with_label (_("Purple"));
 		gtk_widget_show (menuitem);
 		gtk_menu_append (GTK_MENU (menu), menuitem);
 		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMPURPLE << 2 | i));
-		menuitem = gtk_menu_item_new_with_label ("Gray");
+		menuitem = gtk_menu_item_new_with_label (_("Gray"));
 		gtk_widget_show (menuitem);
 		gtk_menu_append (GTK_MENU (menu), menuitem);
 		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
