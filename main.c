@@ -227,8 +227,8 @@ static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
 
 static gint key_press_cb (GtkWidget *widget, GdkEventKey *event)
 {
-	gnibbles_keypress_worms (event->keyval);
 	hide_cursor ();
+	return gnibbles_keypress_worms (event->keyval);
 }
 
 static void draw_board ()

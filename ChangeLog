@@ -1,3 +1,13 @@
+2002-09-19  Ross Burton  <ross@burtonini.com>
+
+	* main.c:
+	* gnibbles.h:
+	* gnibbles.c:
+	* worm.h:
+	* worm.c: Allow keypresses to carry on being processed, so that
+	keyboard shortcuts work again. Patch from Timothy Musson
+	<trmusson@ihug.co.nz>.
+
 2002-08-23  Ross Burton  <ross@burtonini.com>
 
 	* gnibbles.c:

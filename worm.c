@@ -74,42 +74,50 @@ void gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
 	worm->keypress = 0;
 }
 
-void gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
+gint gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 {
 	if (worm->keypress)
-		return;
+		return FALSE;
 	
 	if (properties->wormprops[worm->number]->relmove) {
 		if (keyval == properties->wormprops[worm->number]->left)
 			worm->direction = worm->direction - 1;
-		if (keyval == properties->wormprops[worm->number]->right)
+		else if (keyval == properties->wormprops[worm->number]->right)
 			worm->direction = worm->direction + 1;
+                else
+                        return FALSE;
 		if (worm->direction == 0)
 			worm->direction = 4;
 		if (worm->direction == 5)
 			worm->direction = 1;
+                return TRUE;
 	} else {
 		if ((keyval == properties->wormprops[worm->number]->up) &&
 				(worm->direction != WORMDOWN)) {
 			worm->direction = WORMUP;
 			worm->keypress = 1;
+                        return TRUE;
 		}
 		if ((keyval == properties->wormprops[worm->number]->right) &&
 				(worm->direction !=WORMLEFT)) {
 			worm->direction = WORMRIGHT;
 			worm->keypress = 1;
+                        return TRUE;
 		}
 		if ((keyval == properties->wormprops[worm->number]->down) &&
 				(worm->direction != WORMUP)) {
 			worm->direction = WORMDOWN;
 			worm->keypress = 1;
+                        return TRUE;
 		}
 		if ((keyval == properties->wormprops[worm->number]->left) &&
 				(worm->direction != WORMRIGHT)) {
 			worm->direction = WORMLEFT;
 			worm->keypress = 1;
+                        return TRUE;
 		}
 	}
+        return FALSE;
 }
 
 static gint gnibbles_worm_reverse (gpointer data)

@@ -481,12 +481,14 @@ gint gnibbles_move_worms ()
 	return (NEWROUND);
 }
 
-void gnibbles_keypress_worms (guint keyval)
+gint gnibbles_keypress_worms (guint keyval)
 {
 	int i;
 
 	for (i = 0; i < properties->numworms; i++)
-		gnibbles_worm_handle_keypress (worms[i], keyval);
+		if (gnibbles_worm_handle_keypress (worms[i], keyval))
+                        return TRUE;
+        return FALSE;
 }
 
 void gnibbles_undraw_worms (gint data)

@@ -57,7 +57,7 @@ void gnibbles_worm_destroy (GnibblesWorm *worm);
 void gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
 		gint t_direction);
 
-void gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval);
+gint gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval);
 
 gint gnibbles_worm_move_test_head (GnibblesWorm *worm);
 
