@@ -2,12 +2,12 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
-  <!ENTITY appversion "2.0">
-  <!ENTITY manrevision "2.0">
+  <!ENTITY appversion "2.4">
+  <!ENTITY manrevision "2.4">
   <!ENTITY date "March 2002">
   <!ENTITY app "<application>Gnibbles</application>">
   <!ENTITY appname "Gnibbles">
-  <!ENTITY VERSION "1.2.0">
+  <!ENTITY VERSION "2.4">
 ]>
 
 <!-- 
@@ -253,6 +253,14 @@ section. For example -->
         <listitem>
          <para>
           <menuchoice>
+           <guimenuitem>End Game</guimenuitem>
+          </menuchoice>
+          &mdash; End the current game and return to the title screen.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <menuchoice>
            <shortcut>
             <keysym>Ctrl-Q</keysym>
            </shortcut>
@@ -287,19 +295,27 @@ section. For example -->
     </varlistentry>   
 
     <varlistentry>
-     <term><guimenu>About</guimenu></term>
+     <term><guimenu>Help</guimenu></term>
      <listitem>
       <para>
        This menu contains:
        <itemizedlist>
         <listitem>
+          <para>
+          <menuchoice>
+           <shortcut>
+            <keysym>F1</keysym>
+           </shortcut>
+           <guimenuitem>Contents</guimenuitem>
+          </menuchoice>
+          &mdash; Display this manual.
+         </para>
          <para>
           <guimenuitem>About</guimenuitem> &mdash; This opens the
           <interface>About</interface> dialog which shows
           basic information about
           <application>Gnibbles</application>, such as
-          the author's name, the application version number, and the
-          URL for the application's Web page if one exists.
+          the author's name, the version number of the game.
          </para>
         </listitem>
        </itemizedlist>
@@ -311,37 +327,16 @@ section. For example -->
   <sect2 id="diamonds">
   <title>Diamonds</title>
    <para>
-    <application>Gnibbles</application> has numerous different diamonds
-    which to eat.  They each are a different color and serve a different
-    function.
-    <variablelist>
-     <varlistentry>
-      <term>Purple Diamond</term>
-      <listitem>
-       <para>
-        Gives you one diamond credit and adds length to your snake.
-       </para>
-      </listitem>
-     </varlistentry>
-     <varlistentry>
-      <term>Yellow Diamond</term>
-      <listitem>
-       <para>
-        Gives 12 points, adds length to the snake and gives you one
-        diamond credit.
-      </para>
-     </listitem>
-    </varlistentry>
-    <varlistentry>
-     <term>Red Diamond</term>
-     <listitem>
-      <para>
-       Gives 11 points, makes your snake shorter, and gives you one 
-       diamond credit.
-      </para>
-     </listitem>
-    </varlistentry>
-   </variablelist>
+    <application>Gnibbles</application> has numerous different
+    diamonds to eat.  They are each a different color and serve
+    a different function. Only the pale purple diamond is guaranteed
+    to be around long enough for you to eat it (in fact, you have to
+    eat them to finish the level). The other diamonds are all bonuses,
+    but they only stick around for a short time. We'll leave it up to
+    you to discover just what the bonus each colour gives, but they
+    all affect either the score, the length of the worm, or both. Be careful
+    when going for these bonus diamonds, don't cut yourself off from
+    the ordinary diamonds that you need to finish the level.
   </para>
   </sect2>   
  </sect1>
@@ -354,9 +349,10 @@ section. For example -->
    To change the application settings, select
    <menuchoice>
     <guimenu>Settings</guimenu>
-    <guimenuitem>Preferences...</guimenuitem>
+    <guimenuitem>Preferences</guimenuitem>
    </menuchoice>.  This opens the
-   <interface>Preferences</interface> dialog.
+   <interface>Preferences</interface> dialog. All preferences are
+    automatically saved and applied as you change them.
   </para>
 
   <figure id="game-prefs">
@@ -385,7 +381,7 @@ section. For example -->
     </listitem>
     </varlistentry>
     <varlistentry>
-     <term>Levels in random order</term>
+     <term>Play levels in random order</term>
     <listitem>
      <para>
       Selecting this causes the level
@@ -394,7 +390,7 @@ section. For example -->
     </listitem>
     </varlistentry>
     <varlistentry>
-     <term>Fake bonuses</term>
+     <term>Enable fake bonuses</term>
     <listitem>
      <para>
       When enabled, this allows for two blue diamonds on
@@ -404,10 +400,27 @@ section. For example -->
     </listitem>
     </varlistentry>
     <varlistentry>
-    <term>Sounds</term>
+    <term>Enable sounds</term>
      <listitem>
       <para>
-       Enables sounds. 
+       Controls the use of sound in the game. 
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+    <term>Starting level</term>
+     <listitem>
+      <para>
+       Which level to start with. Use this if you want to jump
+       immediately to a challenging level.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+    <term>Number of players</term>
+     <listitem>
+      <para>
+       There is room for up to four players.
       </para>
      </listitem>
     </varlistentry>
@@ -415,7 +428,7 @@ section. For example -->
   </para>
   <para>
   <figure id="graphics-prefs">
-    <title>Graphics Preferences Tab</title>
+    <title>Appearance Preferences Tab</title>
     <screenshot>
         <mediaobject> 
     <imageobject>
@@ -428,48 +441,10 @@ section. For example -->
     </screenshot>
   </figure>
  
-   The properties in the <guilabel>Graphics</guilabel> tab are:
-   <itemizedlist>
-
-    <listitem>
-     <para>
-      (Tiny) &mdash; This button makes your board tiny (184x132). 
-     </para>
-    </listitem>
-
-    <listitem>
-     <para>
-      (Small) &mdash; This button makes your board small (368x264).
-     </para>
-    </listitem>
-
-    <listitem>
-     <para>
-      (Medium) &mdash; This button makes your board medium (460x330). 
-     </para>
-    </listitem>
- 
-    <listitem>
-     <para>
-      (Large) &mdash; This button makes your board large(736x528).
-     </para>
-    </listitem>
-
-    <listitem>
-     <para>
-      (Extra Large) &mdash; This button makes your board extra large (920x660)
-      &hellip;(description).
-     </para>
-    </listitem>
-
-    <listitem>
-     <para>
-      (Huge) &mdash; This button makes your huge (1840x1320)
-      &hellip;(description).
-     </para>
-    </listitem>
-   </itemizedlist>
   </para>
+   The items in the <guilabel>Appearance</guilabel> tab control the
+   size of the playing field. Choose the size that best fits your
+   screen and your eye-sight.
   <para>
 
   <figure id="worm-prefs">
@@ -487,14 +462,42 @@ section. For example -->
   </figure>
 
    The properties in the <guilabel>Worm 1 </guilabel>through <guilabel> Worm 
-4</guilabel> tabs let you set controls for your different worms. 
-  </para>
-  <para>
-    After you have made all the changes you want, click on
-    <guibutton>OK</guibutton> to apply the changes and close the
-    <interface>Preferences</interface> dialog. To cancel the changes
-    and return to previous values, click the
-    <guibutton>Close</guibutton> button.
+4</guilabel> tabs let you set individual preferences for the different worms. 
+
+   <variablelist>
+    <varlistentry>
+    <term>Up, Down, Left and Right</term>
+    <listitem>
+     <para>
+      These buttons let you change the keyboard controls for the given
+      worm. To change a control, click on the appropriate button and
+      then press the key you want to use for that control.
+     </para>
+    </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>Use relative motion</term>
+    <listitem>
+     <para>
+      Rather than left sending your worm toward the left of the screen,
+      right toward the right and so on, the left and right keys make
+      the worm perform a left or right turn. For example, if the worm
+      is moving to the left and you press the left control it turns to
+      head toward the bottom of the screen.
+     </para>
+    </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>Worm color</term>
+    <listitem>
+     <para>
+      Customize the color of your worm so you can tell it from your
+      opponent's worm in multi-player mode.
+     </para>
+    </listitem>
+    </varlistentry>
+   </variablelist>
+
   </para>
 
  </sect1>

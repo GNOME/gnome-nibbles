@@ -1,3 +1,7 @@
+2003-07-30  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* help/C/gnibbles.xml: Updated for 2.4 (including the screenshots).
+
 2003-07-27  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* main.c: Compiler warning fixes.
