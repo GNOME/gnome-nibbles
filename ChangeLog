@@ -1,3 +1,8 @@
+2003-12-12  William Jon McCann  <mccann@jhu.edu>
+
+	* gnibbles.desktop.in: Remove duplicate Icon and fix mispelling
+	in X-GNOME-Bugzilla-Product.
+
 2003-12-12  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* properties.c:
