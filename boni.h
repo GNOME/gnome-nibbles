@@ -26,7 +26,7 @@
 #include "bonus.h"
 
 #define MAXBONUSES 100
-#define MAXMISSED 3
+#define MAXMISSED 2
 
 #define NUMBONI 10
 

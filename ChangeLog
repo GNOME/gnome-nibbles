@@ -1,3 +1,11 @@
+1999-07-17  Ian Peters  <itp@gnu.org>
+
+	* gnibbles.c: Only take away points when you die if there are two
+	players or more.
+	* boni.h: Turned MAXMISSED down from 3 to 2, meaning you are now
+	penalized sooner if you aren't getting normal bonuses and are focusing
+	on the special ones.
+
 1999-03-17  Ian Peters  <itp@gnu.org>
 
 	* gnibbles_logo.png: Old logo screen removed.

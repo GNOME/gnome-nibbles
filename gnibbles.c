@@ -423,7 +423,8 @@ gint gnibbles_move_worms ()
 
 	for (i = 0; i < properties->numworms; i++)
 		if (dead[i]) {
-			worms[i]->score *= .7;
+			if (properties->numworms > 1)
+				worms[i]->score *= .7;
 			status |= gnibbles_worm_lose_life (worms[i]) << 1;
 		}
 
