@@ -34,7 +34,7 @@ GnibblesWarpManager *gnibbles_warpmanager_new ()
 	int i;
 	GnibblesWarpManager *tmp;
 
-	tmp = (GnibblesWarpManager *) malloc (sizeof (GnibblesWarpManager));
+	tmp = (GnibblesWarpManager *) g_malloc (sizeof (GnibblesWarpManager));
 	for (i = 0; i < MAXWARPS; i++)
 		tmp->warps[i] = NULL;
 	tmp->numwarps = 0;

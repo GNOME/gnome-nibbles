@@ -174,6 +174,7 @@ static void quit_cb (GtkWidget *widget, gpointer data)
 static void about_cb (GtkWidget *widget, gpointer data)
 {
 	static GtkWidget *about;
+	GdkPixbuf *pixbuf = NULL;
 
 	const gchar *authors[] = {"Sean MacIsaac", "Ian Peters", NULL};
 	gchar *documenters[] = {
@@ -188,6 +189,19 @@ static void about_cb (GtkWidget *widget, gpointer data)
 		return;
 	}
 
+	{
+		char *filename = NULL;
+
+		filename = gnome_program_locate_file (NULL,
+				GNOME_FILE_DOMAIN_PIXMAP, "gnome-nibbles.png",
+				TRUE, NULL);
+		if (filename != NULL)
+		{
+			pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+			g_free (filename);
+		}
+	}
+
 	about = gnome_about_new (_("Gnibbles"), VERSION,
 			"(C) 1999 Sean MacIsaac and Ian Peters",
 			_("Send comments and bug reports to: "
@@ -195,7 +209,7 @@ static void about_cb (GtkWidget *widget, gpointer data)
 			(const char **)authors,
 			(const char **)documenters,
 			strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
-			NULL);
+			pixbuf);
 	g_signal_connect (G_OBJECT (about), "destroy", G_CALLBACK
 			(gtk_widget_destroyed), &about);
 	gtk_widget_show (about);

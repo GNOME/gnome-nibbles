@@ -1,3 +1,17 @@
+2002-04-17  Bastien Nocera  <hadess@hadess.net>
+
+	* boni.c: (gnibbles_boni_new):
+	* main.c: (about_cb):
+	* preferences.c: (gnibbles_preferences_cb):
+	* properties.c: (gnibbles_properties_new),
+	(gnibbles_properties_copy):
+	* scoreboard.c: (gnibbles_scoreboard_update):
+	* warp.c: (gnibbles_warp_new):
+	* warpmanager.c: (gnibbles_warpmanager_new):
+	* worm.c: (gnibbles_worm_new):
+	fix all build warnings, use g_malloc instead of malloc,
+	add nice about box icon (Closes: #77352)
+
 2002-02-17  Chris Lyttle  <chris@wilddev.net>
 
 	* help/C/gnibbles.xml: updated for new template.

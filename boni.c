@@ -31,7 +31,7 @@ GnibblesBoni *gnibbles_boni_new ()
 	int i;
 	GnibblesBoni *tmp;
 
-	tmp = (GnibblesBoni *) malloc (sizeof (GnibblesBoni));
+	tmp = (GnibblesBoni *) g_malloc (sizeof (GnibblesBoni));
 	for (i = 0; i < MAXBONUSES; i++)
 		tmp->bonuses[i] = NULL;
 	tmp->numbonuses = 0;

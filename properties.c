@@ -28,7 +28,7 @@ GnibblesProperties *gnibbles_properties_new ()
 	gint i;
 	gchar buffer[256];
 
-	tmp = (GnibblesProperties *) malloc (sizeof (GnibblesProperties));
+	tmp = (GnibblesProperties *) g_malloc (sizeof (GnibblesProperties));
 
 	tmp->numworms = gnome_config_get_int
 		("/gnibbles/Preferences/numworms=1");
@@ -42,7 +42,7 @@ GnibblesProperties *gnibbles_properties_new ()
   tmp->tilesize = gnome_config_get_int ("/gnibbles/Preferences/tilesize=10");
 
 	for (i = 0; i < NUMWORMS; i++) {
-		tmp->wormprops[i] = (GnibblesWormProps *) malloc (sizeof
+		tmp->wormprops[i] = (GnibblesWormProps *) g_malloc (sizeof
 				(GnibblesWormProps));
 
 		sprintf (buffer, "/gnibbles/Worm%d/color=%d", i, (i % 7) + 12);
@@ -85,7 +85,7 @@ GnibblesProperties *gnibbles_properties_copy (GnibblesProperties *props)
 	GnibblesProperties *tmp;
 	int i;
 
-	tmp = (GnibblesProperties *) malloc (sizeof (GnibblesProperties));
+	tmp = (GnibblesProperties *) g_malloc (sizeof (GnibblesProperties));
 
 	tmp->numworms = props->numworms;
 	tmp->gamespeed = props->gamespeed;
@@ -96,7 +96,7 @@ GnibblesProperties *gnibbles_properties_copy (GnibblesProperties *props)
   tmp->tilesize = props->tilesize;
 	
 	for (i = 0; i < NUMWORMS; i++) {
-		tmp->wormprops[i] = (GnibblesWormProps *) malloc (sizeof
+		tmp->wormprops[i] = (GnibblesWormProps *) g_malloc (sizeof
 				(GnibblesWormProps));
 
 		tmp->wormprops[i]->color = props->wormprops[i]->color;

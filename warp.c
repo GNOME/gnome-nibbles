@@ -27,7 +27,7 @@ GnibblesWarp *gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
 {
 	GnibblesWarp *tmp;
 
-	tmp = (GnibblesWarp *) malloc (sizeof (GnibblesWarp));
+	tmp = (GnibblesWarp *) g_malloc (sizeof (GnibblesWarp));
 
 	tmp->x = t_x;
 	tmp->y = t_y;

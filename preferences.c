@@ -338,7 +338,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(game_speed_cb), (gpointer) 4);
 
-	button = gtk_radio_button_new_with_label (gtk_radio_button_group
+	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
 			(GTK_RADIO_BUTTON (button)), _("My second day"));
 	gtk_widget_show (button);
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
@@ -348,7 +348,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(game_speed_cb), (gpointer) 3);
 
-	button = gtk_radio_button_new_with_label (gtk_radio_button_group
+	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
 			(GTK_RADIO_BUTTON (button)), _("Not too shabby"));
 	gtk_widget_show (button);
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
@@ -358,7 +358,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(game_speed_cb), (gpointer) 2);
 
-	button = gtk_radio_button_new_with_label (gtk_radio_button_group
+	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
 			(GTK_RADIO_BUTTON (button)),
 			_("Finger-twitching good"));
 	gtk_widget_show (button);
@@ -486,7 +486,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 2);
 
-	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
                                             _("Small (368x264)"));
 	gtk_widget_show (button);
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
@@ -496,7 +496,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 4);
 
-	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
                                             _("Medium (460x330)"));
 	gtk_widget_show (button);
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
@@ -506,7 +506,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 5);
 
-	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
                                             _("Large (736x528)"));
 	gtk_widget_show (button);
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
@@ -516,7 +516,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 8);
 
-	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
                                             _("Extra large (920x660)"));
 	gtk_widget_show (button);
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
@@ -526,7 +526,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 10);
 
-	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
                                             _("Huge (1840x1320)"));
 	gtk_widget_show (button);
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);

@@ -39,7 +39,7 @@ extern gint current_level;
 
 GnibblesWorm *gnibbles_worm_new (guint t_number)
 {
-        GnibblesWorm *tmp = (GnibblesWorm *) malloc (sizeof (GnibblesWorm));
+        GnibblesWorm *tmp = (GnibblesWorm *) g_malloc (sizeof (GnibblesWorm));
 
 	tmp->xoff = (gint8 *) malloc (CAPACITY * sizeof (gint8));
 	tmp->yoff = (gint8 *) malloc (CAPACITY * sizeof (gint8));
