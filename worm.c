@@ -266,7 +266,7 @@ void gnibbles_worm_draw_head (GnibblesWorm *worm)
 	if (worm->start == CAPACITY)
 		worm->start = 0;
 		
-	board[worm->xhead][worm->yhead] = WORMCHAR;
+	board[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
 
 	gnibbles_draw_pixmap (properties->wormprops[worm->number]->color,
 			worm->xhead, worm->yhead);

@@ -57,6 +57,10 @@ gint paused = 0;
 
 gint current_level;
 
+/*
+guint pixmap_width = 10, pixmap_height = 10;
+*/
+
 static gint main_loop (gpointer data);
 static gint add_bonus_cb (gpointer data);
 static void render_logo ();
@@ -106,8 +110,10 @@ static void zero_board ()
 	int i, j;
 
 	for (i = 0; i < BOARDWIDTH; i++)
-		for (j = 0; j < BOARDHEIGHT; j++)
-			board[i][j] = 'a';
+		for (j = 0; j < BOARDHEIGHT; j++) {
+			board[i][j] = EMPTYCHAR;
+			gnibbles_draw_pixmap_buffer (0, i, j);
+		}
 }
 
 static gint end_game_box ()
@@ -139,9 +145,8 @@ static gint end_game_box ()
 
 static void quit_cb (GtkWidget *widget, gpointer data)
 {
-	if (game_running ())
-		if (end_game_box ())
-			return;
+	if (game_running () && end_game_box ())
+		return;
 
 	gnibbles_destroy ();
 	gtk_main_quit ();
@@ -162,7 +167,8 @@ static void about_cb (GtkWidget *widget, gpointer data)
 	about = gnome_about_new (_("Gnibbles"), VERSION,
 			"(C) 1999 Sean MacIsaac and Ian Peters",
 			(const char **)authors,
-			_("Send comments and bug reports to: sjm@acm.org, itp@gnu.org"),
+			_("Send comments and bug reports to: "
+			  "sjm@acm.org, itp@gnu.org"),
 			NULL);
 	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &about);
@@ -184,6 +190,82 @@ static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
 static gint key_press_cb (GtkWidget *widget, GdkEventKey *event)
 {
 	gnibbles_keypress_worms (event->keyval);
+}
+
+static void draw_board ()
+{
+	int i, j;
+
+	for (i = 0; i < BOARDWIDTH; i++)
+		for (j = 0; j < BOARDHEIGHT; j++)
+			if (board[i][j] >= EMPTYCHAR &&
+			    board[i][j] < EMPTYCHAR + 19) {
+				gnibbles_draw_pixmap_buffer (
+					board[i][j] - EMPTYCHAR, i, j);
+			} else if (board[i][j] >= WORMCHAR &&
+				   board[i][j] < WORMCHAR + NUMWORMS) {
+				gnibbles_draw_pixmap_buffer (
+					properties->wormprops
+					[board[i][j] - WORMCHAR]->color, i, j);
+			} else if (board[i][j] >= 'A' && board[i][j] < 'J') {
+				/* bonus */
+			} else {
+				g_warning("Unknown board charact at "
+					  "%d, %d: '%c' (%u)\n", i, j,
+					  board[i][j], board[i][j]);
+			}
+
+	for (i=0; i<boni->numbonuses; i++)
+		gnibbles_bonus_draw (boni->bonuses[i]);
+
+	gdk_draw_pixmap (drawing_area->window,
+			 drawing_area->style->fg_gc[GTK_WIDGET_STATE
+			 (drawing_area)], buffer_pixmap, 0, 0, 0, 0,
+			 BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
+	
+}
+
+static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
+{
+	/* Tried-and-tested pixmap scalings */
+	const unsigned scale[] = {2, 4, 5, 8, 10, 20};
+	int i, j;
+
+  /*
+	pixmap_width = pixmap_height = scale[0];
+	for (i=0; i<sizeof(scale)/sizeof(*scale); i++) {
+    printf ("%d\n", scale[i]);
+		if ((BOARDWIDTH * scale[i] <= event->width) &&
+		    (BOARDHEIGHT * scale[i] <= event->height)) {
+			pixmap_width = pixmap_height = scale[i];
+    }
+	}
+  */
+
+  /*
+	if ((event->width % BOARDWIDTH || event->height % BOARDHEIGHT) &&
+	    (drawing_area->requisition.width != pixmap_width*BOARDWIDTH ||
+	     drawing_area->requisition.height != pixmap_height*BOARDHEIGHT)) {
+    printf ("%d, %d\n", pixmap_width * BOARDWIDTH, pixmap_height * BOARDHEIGHT);
+		gtk_drawing_area_size(GTK_DRAWING_AREA(drawing_area),
+				      pixmap_width * BOARDWIDTH,
+				      pixmap_height * BOARDHEIGHT);
+		return (FALSE);
+	}
+  */
+
+	gnibbles_load_pixmap();
+	gdk_imlib_free_pixmap (buffer_pixmap);
+	buffer_pixmap = gdk_pixmap_new (drawing_area->window,
+					BOARDWIDTH * properties->tilesize,
+					BOARDHEIGHT * properties->tilesize, -1);
+
+	if (game_running ())
+		draw_board ();
+	else
+		render_logo ();
+
+	return (FALSE);
 }
 
 static gint new_game_2_cb (GtkWidget *widget, gpointer data)
@@ -301,8 +383,7 @@ static gint show_scores_cb (GtkWidget *widget, gpointer data)
 
 static gint end_game_cb (GtkWidget *widget, gpointer data)
 {
-	if ((gint) data == 2)
-		if (end_game_box ())
+	if ((gint) data == 2 && end_game_box ())
 			return 0;
 
 	if (main_id) {
@@ -458,7 +539,7 @@ static void set_bg_color ()
 static void setup_window ()
 {
 	GtkWidget *label, *hbox;
-	
+
 	window = gnome_app_new ("gnibbles", "Gnome Nibbles");
 	gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
 	gtk_widget_realize (window);
@@ -472,11 +553,14 @@ static void setup_window ()
 
 	gtk_widget_pop_colormap ();
 	gtk_widget_pop_visual ();
-	
+
 	gnome_app_set_contents (GNOME_APP (window), drawing_area);
 
+	gtk_signal_connect (GTK_OBJECT (drawing_area), "configure_event",
+			GTK_SIGNAL_FUNC (configure_event_cb), NULL);
+
 	gtk_drawing_area_size (GTK_DRAWING_AREA (drawing_area),
-			BOARDWIDTH * PIXMAPWIDTH, BOARDHEIGHT * PIXMAPHEIGHT);
+			BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
 	gtk_signal_connect (GTK_OBJECT (drawing_area), "expose_event",
 			GTK_SIGNAL_FUNC (expose_event_cb), NULL);
 	gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
@@ -503,26 +587,15 @@ static void render_logo ()
 
 	zero_board ();
 
-	for (i = 0; i < BOARDWIDTH; i++)
-		for (j = 0; j < BOARDHEIGHT; j++)
-			gnibbles_draw_pixmap_buffer (board[i][j]-'a', i, j);
-
-	/*
-	gdk_draw_pixmap (drawing_area->window,
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], logo_pixmap, 0, 0, 160, 220, 600,
-			200);
-			*/
-
 	gdk_draw_pixmap (buffer_pixmap,
 			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], logo_pixmap, 0, 0, 85, 205, 750,
-			250);
+			(drawing_area)], logo_pixmap, 0, 0, 0, 0,
+			BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
 
 	gdk_draw_pixmap (drawing_area->window,
 			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], buffer_pixmap, 0, 0, 0, 0, 920,
-			660);
+			(drawing_area)], buffer_pixmap, 0, 0, 0, 0,
+			BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
 }
 
 int main (int argc, char **argv)
@@ -538,16 +611,16 @@ int main (int argc, char **argv)
 
 	srand (time (NULL));
 
-	setup_window ();
-
 	load_properties ();
+
+	setup_window ();
 
 	gnibbles_load_pixmap ();
 
 	gtk_widget_show (window);
 
 	buffer_pixmap = gdk_pixmap_new (drawing_area->window,
-			BOARDWIDTH * PIXMAPWIDTH, BOARDHEIGHT * PIXMAPHEIGHT,
+			BOARDWIDTH * properties->tilesize, BOARDHEIGHT * properties->tilesize,
 			-1);
 
 	render_logo ();

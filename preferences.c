@@ -23,6 +23,8 @@
 #include "../gnobots2/keylabels.h"
 #include "main.h"
 
+extern GtkWidget *drawing_area;
+
 static GtkWidget *pref_dialog = NULL;
 
 static GnibblesProperties *t_properties;
@@ -59,6 +61,12 @@ static void destroy_cb (GtkWidget *widget, gpointer data)
 static void apply_cb (GtkWidget *widget, gint pagenum, gpointer data)
 {
 	if (pagenum == -1) {
+    if (t_properties->tilesize != properties->tilesize) {
+      gtk_drawing_area_size (GTK_DRAWING_AREA (drawing_area),
+                             t_properties->tilesize * BOARDWIDTH,
+                             t_properties->tilesize * BOARDHEIGHT);
+    }
+    
 		gnibbles_properties_destroy (properties);
 		properties = gnibbles_properties_copy (t_properties);
 
@@ -140,6 +148,17 @@ static void sound_cb (GtkWidget *widget, gpointer data)
 		t_properties->sound = 0;
 
 	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
+}
+
+static void tile_size_cb (GtkWidget *widget, gpointer data)
+{
+  if (!pref_dialog)
+    return;
+
+  if (GTK_TOGGLE_BUTTON (widget)->active) {
+    t_properties->tilesize = (gint) data;
+	  gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
+  }
 }
 
 static void num_worms_cb (GtkWidget *widget, gpointer data)
@@ -435,6 +454,87 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			GTK_SIGNAL_FUNC (num_worms_cb), button);
 
 	gtk_box_pack_start (GTK_BOX (hbox), table, TRUE, TRUE, 0);
+
+	gnome_property_box_append_page (GNOME_PROPERTY_BOX (pref_dialog),
+			hbox, label);
+
+  label = gtk_label_new (_("Graphics"));
+  gtk_widget_show (label);
+
+	hbox = gtk_hbox_new (FALSE, GNOME_PAD);
+	gtk_container_border_width (GTK_CONTAINER (hbox), GNOME_PAD);
+	gtk_widget_show (hbox);
+
+	frame = gtk_frame_new (_("Board size"));
+	gtk_container_border_width (GTK_CONTAINER (frame), 0);
+	gtk_widget_show (frame);
+
+	vbox = gtk_vbox_new (TRUE, 0);
+	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
+	gtk_widget_show (vbox);
+
+	button = gtk_radio_button_new_with_label (NULL, _("Tiny (184x132)"));
+	gtk_widget_show (button);
+	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+	if (properties->tilesize == 2)
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+				TRUE);
+	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+			(tile_size_cb), (gpointer) 2);
+
+	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+                                            _("Small (368x264)"));
+	gtk_widget_show (button);
+	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+	if (properties->tilesize == 4)
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+				TRUE);
+	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+			(tile_size_cb), (gpointer) 4);
+
+	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+                                            _("Medium (460x330)"));
+	gtk_widget_show (button);
+	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+	if (properties->tilesize == 5)
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+				TRUE);
+	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+			(tile_size_cb), (gpointer) 5);
+
+	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+                                            _("Large (736x528)"));
+	gtk_widget_show (button);
+	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+	if (properties->tilesize == 8)
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+				TRUE);
+	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+			(tile_size_cb), (gpointer) 8);
+
+	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+                                            _("Extra large (920x660)"));
+	gtk_widget_show (button);
+	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+	if (properties->tilesize == 10)
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+				TRUE);
+	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+			(tile_size_cb), (gpointer) 10);
+
+	button = gtk_radio_button_new_with_label (gtk_radio_button_group (button),
+                                            _("Huge (1840x1320)"));
+	gtk_widget_show (button);
+	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+	if (properties->tilesize == 20)
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+				TRUE);
+	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+			(tile_size_cb), (gpointer) 20);
+
+	gtk_container_add (GTK_CONTAINER (frame), vbox);
+
+	gtk_box_pack_start (GTK_BOX (hbox), frame, TRUE, TRUE, 0);
 
 	gnome_property_box_append_page (GNOME_PROPERTY_BOX (pref_dialog),
 			hbox, label);

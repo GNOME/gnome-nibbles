@@ -45,44 +45,43 @@ extern GnibblesProperties *properties;
 
 extern GnibblesScoreboard *scoreboard;
 
+/*
+extern guint properties->tilesize, properties->tilesize;
+*/
+
+void gnibbles_copy_pixmap (GdkDrawable *drawable, gint which, gint x, gint y,
+			   gboolean big)
+{
+	gint w = properties->tilesize * (big ? 2 : 1),
+		h = properties->tilesize * (big ? 2 : 1);
+	guint nh = 10 / (big ? 2 : 1), nv = 10 / (big ? 2 : 1);
+
+	gdk_draw_pixmap (drawable, drawing_area->style->fg_gc[GTK_WIDGET_STATE
+			(drawing_area)], gnibbles_pixmap, (which % nh) * w,
+			((big ? 3 : 0) + which / nv) * h, x * properties->tilesize,
+			y * properties->tilesize, w, h);
+}
+
 void gnibbles_draw_pixmap (gint which, gint x, gint y)
 {
-	gdk_draw_pixmap (drawing_area->window,
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], gnibbles_pixmap, (which % 10) * 10,
-			(which / 10) * 10, x * 10, y * 10, 10, 10);
-	gdk_draw_pixmap (buffer_pixmap,
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], gnibbles_pixmap, (which % 10) * 10,
-			(which / 10) * 10, x * 10, y * 10, 10, 10);
+	gnibbles_copy_pixmap(drawing_area->window, which, x, y, FALSE);
+	gnibbles_copy_pixmap(buffer_pixmap, which, x, y, FALSE);
 }
 
 void gnibbles_draw_big_pixmap (gint which, gint x, gint y)
 {
-	gdk_draw_pixmap (drawing_area->window,
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], gnibbles_pixmap, (which % 5) * 20,
-			60 + (which / 5) * 20, x * 10, y * 10, 20, 20);
-	gdk_draw_pixmap (buffer_pixmap,
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], gnibbles_pixmap, (which % 5) * 20,
-			60 + (which / 5) * 20, x * 10, y * 10, 20, 20);
+	gnibbles_copy_pixmap(drawing_area->window, which, x, y, TRUE);
+	gnibbles_copy_pixmap(buffer_pixmap, which, x, y, TRUE);
 }
 
 void gnibbles_draw_pixmap_buffer (gint which, gint x, gint y)
 {
-	gdk_draw_pixmap (buffer_pixmap,
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], gnibbles_pixmap, (which % 10) * 10,
-			(which / 10) * 10, x * 10, y * 10, 10, 10);
+	gnibbles_copy_pixmap(buffer_pixmap, which, x, y, FALSE);
 }
 
 void gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 {
-	gdk_draw_pixmap (buffer_pixmap,
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], gnibbles_pixmap, (which % 5) * 20,
-			60 + (which / 5) * 20, x * 10, y * 10, 20, 20);
+	gnibbles_copy_pixmap(buffer_pixmap, which, x, y, TRUE);
 }
 
 void gnibbles_load_pixmap ()
@@ -100,7 +99,8 @@ void gnibbles_load_pixmap ()
 
 	image = gdk_imlib_load_image (filename);
 	visual = gdk_imlib_get_visual ();
-	gdk_imlib_render (image, image->rgb_width, image->rgb_height);
+	gdk_imlib_render (image, 10 * properties->tilesize, 10 * properties->tilesize);
+	gdk_imlib_free_pixmap (gnibbles_pixmap);
 	gnibbles_pixmap = gdk_imlib_move_image (image);
 
 	gdk_imlib_destroy_image (image);
@@ -116,7 +116,9 @@ void gnibbles_load_pixmap ()
 
 	image = gdk_imlib_load_image (filename);
 	visual = gdk_imlib_get_visual ();
-	gdk_imlib_render (image, image->rgb_width, image->rgb_height);
+	gdk_imlib_render (image, BOARDWIDTH * properties->tilesize,
+			  BOARDHEIGHT * properties->tilesize);
+	gdk_imlib_free_pixmap (logo_pixmap);
 	logo_pixmap = gdk_imlib_move_image (image);
 
 	gdk_imlib_destroy_image (image);
