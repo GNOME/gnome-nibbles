@@ -200,7 +200,6 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (label);
 
 	hbox = gtk_hbox_new (FALSE, GNOME_PAD);
-//	gtk_container_border_width (GTK_CONTAINER (hbox), GNOME_PAD_SMALL);
 	gtk_container_border_width (GTK_CONTAINER (hbox), GNOME_PAD);
 	gtk_widget_show (hbox);
 
@@ -209,7 +208,6 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (frame);
 
 	vbox = gtk_vbox_new (TRUE, 0);
-//	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD_SMALL);
 	gtk_container_border_width (GTK_CONTAINER (vbox), 0);
 	gtk_widget_show (vbox);
 
@@ -259,7 +257,6 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 	table = gtk_table_new (4, 2, FALSE);
 	gtk_widget_show (table);
-//	gtk_container_border_width (GTK_CONTAINER (table), GNOME_PAD_SMALL);
 	gtk_table_set_row_spacings (GTK_TABLE (table), GNOME_PAD);
 
 	label2 = gtk_label_new (_("Starting level: "));

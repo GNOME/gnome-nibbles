@@ -18,8 +18,6 @@ GdkPixmap *buffer_pixmap = NULL;
 GdkPixmap *gnibbles_pixmap = NULL;
 GdkPixmap *logo_pixmap = NULL;
 
-//gint numworms = 1;
-
 extern GtkWidget *drawing_area;
 
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
@@ -403,8 +401,8 @@ gint gnibbles_move_worms ()
 		status &= !dead[i];
 	}
 
-	// If one worm has died, me must make sure that an earlier worm was not
-	// supposed to die as well.
+	/* If one worm has died, me must make sure that an earlier worm was not
+	   supposed to die as well. */
 
 	if (!status)
 		for (i = 0; i < properties->numworms; i++)
