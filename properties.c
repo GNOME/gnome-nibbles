@@ -39,7 +39,7 @@ GnibblesProperties *gnibbles_properties_new ()
 	tmp->startlevel = gnome_config_get_int
 		("/gnibbles/Preferences/startlevel=1");
 	tmp->sound = gnome_config_get_int ("/gnibbles/Preferences/sound=1");
-  tmp->tilesize = gnome_config_get_int ("/gnibbles/Preferences/tilesize=10");
+  tmp->tilesize = gnome_config_get_int ("/gnibbles/Preferences/tilesize=5");
 
 	for (i = 0; i < NUMWORMS; i++) {
 		tmp->wormprops[i] = (GnibblesWormProps *) g_malloc (sizeof
