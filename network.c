@@ -78,7 +78,10 @@ network_game_move (guint x)
 
   snprintf (msgbuf, sizeof (msgbuf), "move %u %u \n", x, current_worm_id);
   games_send_gamedata(msgbuf);
-  worm_set_direction (current_worm_id, x);
+
+  if (network_is_host ()) {
+    worm_set_direction (current_worm_id, x);
+  }
 }
 
 int
@@ -90,7 +93,7 @@ network_allow (void)
 static 
 void clear_board(void)
 {
-  end_game (0);
+  end_game (1);
 }
 
 static 
@@ -174,7 +177,27 @@ game_handle_input (NetworkGame *ng, char *buf)
       network_set_status (ng, DISCONNECTED, _("Invalid game data (move)"));
       return;
     }
+    if (!network_is_host ()) {
+      worm_set_direction (me, x);
+    } else {
+      static char msgbuf[256];
+
+      snprintf (msgbuf, sizeof (msgbuf), "ack_move %u %u \n", x, me);
+      worm_set_direction (me, x);
+      games_send_gamedata(msgbuf);
+    }
+
+  /* Move messages from the client to the host must be acknowledged
+     by the host before the client can act upon it.  */
+  } else if (! strcmp (buf, "ack_move")) {
+    int x, y, me;
+
+    if (!args || sscanf(args, "%d %d", &x, &me) != 2) {
+      network_set_status (ng, DISCONNECTED, _("Invalid game data (move)"));
+      return;
+    }
     worm_set_direction (me, x);
+
 
   /* The move_worms message is used to synchronize the game.
      The host sends this message to the client, which then can

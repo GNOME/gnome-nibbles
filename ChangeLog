@@ -1,4 +1,9 @@
-2004-09-20 Andreas Røsdal <andrearo@stud.ntnu.no>
+2004-09-21 Andreas Røsdal <andrearo stud ntnu no>
+ 
+ 	* network.c: Acknowledge move messages from client to host,
+ 	and properly handle the end of the game.
+ 
+2004-09-20 Andreas Røsdal <andrearo stud ntnu no>
 
 	* main.c: Implement network mode. main_loop is controlled by
 	a timer on the server, and on the client main_loop is controlled
