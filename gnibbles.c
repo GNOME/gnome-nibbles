@@ -255,7 +255,8 @@ void gnibbles_init ()
 				properties->wormprops[i]->up,
 				properties->wormprops[i]->down,
 				properties->wormprops[i]->left,
-				properties->wormprops[i]->right);
+				properties->wormprops[i]->right,
+				properties->wormprops[i]->relmove);
 		gnibbles_scoreboard_register (scoreboard, worms[i]);
 	}
 

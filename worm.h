@@ -50,10 +50,11 @@ typedef struct
 	gint keypress;
 	gint lives;
 	guint score;
+	guint relmove;
 } GnibblesWorm;
 
 GnibblesWorm *gnibbles_worm_new (gint8 t_pixmap, guint t_up, guint t_down,
-		guint t_left, guint t_right);
+		guint t_left, guint t_right, guint t_relmove);
 
 void gnibbles_worm_destroy (GnibblesWorm *worm);
 

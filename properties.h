@@ -27,6 +27,7 @@
 
 typedef struct {
 	gint color;
+	gint relmove;
 	guint up, down, left, right;
 } GnibblesWormProps;
 

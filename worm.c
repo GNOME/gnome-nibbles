@@ -34,7 +34,7 @@ extern GnibblesProperties *properties;
 extern gint current_level;
 
 GnibblesWorm *gnibbles_worm_new (gint8 t_pixmap, guint t_up, guint t_down,
-		guint t_left, guint t_right)
+		guint t_left, guint t_right, guint t_relmove)
 {
         GnibblesWorm *tmp = (GnibblesWorm *) malloc (sizeof (GnibblesWorm));
 
@@ -47,6 +47,7 @@ GnibblesWorm *gnibbles_worm_new (gint8 t_pixmap, guint t_up, guint t_down,
 	tmp->yoff = (gint8 *) malloc (CAPACITY * sizeof (gint8));
 	tmp->lives = SLIVES;
 	tmp->score = 0;
+	tmp->relmove = t_relmove;
 
         return tmp;
 }
@@ -80,21 +81,32 @@ void gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 	if (worm->keypress)
 		return;
 	
-	if ((keyval == worm->up) && (worm->direction != WORMDOWN)) {
-		worm->direction = WORMUP;
-		worm->keypress = 1;
-	}
-	if ((keyval == worm->right) && (worm->direction !=WORMLEFT)) {
-		worm->direction = WORMRIGHT;
-		worm->keypress = 1;
-	}
-	if ((keyval == worm->down) && (worm->direction != WORMUP)) {
-		worm->direction = WORMDOWN;
-		worm->keypress = 1;
-	}
-	if ((keyval == worm->left) && (worm->direction != WORMRIGHT)) {
-		worm->direction = WORMLEFT;
-		worm->keypress = 1;
+	if (worm->relmove) {
+		if (keyval == worm->left)
+			worm->direction = worm->direction - 1;
+		if (keyval == worm->right)
+			worm->direction = worm->direction + 1;
+		if (worm->direction == 0)
+			worm->direction = 4;
+		if (worm->direction == 5)
+			worm->direction = 1;
+	} else {
+		if ((keyval == worm->up) && (worm->direction != WORMDOWN)) {
+			worm->direction = WORMUP;
+			worm->keypress = 1;
+		}
+		if ((keyval == worm->right) && (worm->direction !=WORMLEFT)) {
+			worm->direction = WORMRIGHT;
+			worm->keypress = 1;
+		}
+		if ((keyval == worm->down) && (worm->direction != WORMUP)) {
+			worm->direction = WORMDOWN;
+			worm->keypress = 1;
+		}
+		if ((keyval == worm->left) && (worm->direction != WORMRIGHT)) {
+			worm->direction = WORMLEFT;
+			worm->keypress = 1;
+		}
 	}
 }
 

@@ -194,6 +194,19 @@ static void set_worm_color_cb (GtkWidget *widget, gpointer data)
 	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
+static void worm_relative_movement_cb (GtkWidget *widget, gpointer data)
+{
+	if (!pref_dialog_valid)
+		return;
+	
+	if (GTK_TOGGLE_BUTTON (widget)->active)
+		t_properties->wormprops[(gint) data]->relmove = 1;
+	else
+		t_properties->wormprops[(gint) data]->relmove = 0;
+
+	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
+}
+
 void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 {
 	GtkWidget *label;
@@ -504,6 +517,18 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		
 		gtk_widget_show(omenu);
 		gtk_table_attach (GTK_TABLE (table), omenu, 1, 2, 2, 3,
+				GTK_EXPAND | GTK_FILL, 0, 0, 0);
+
+		button = gtk_check_button_new_with_label
+			(_("Relative Movement"));
+		gtk_signal_connect (GTK_OBJECT (button), "toggled",
+				GTK_SIGNAL_FUNC (worm_relative_movement_cb),
+				(gpointer) i);
+		if (properties->wormprops[i]->relmove)
+			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON
+					(button), TRUE);
+		gtk_widget_show (button);
+		gtk_table_attach (GTK_TABLE (table), button, 2, 4, 2, 3,
 				GTK_EXPAND | GTK_FILL, 0, 0, 0);
 
 		gnome_property_box_append_page (GNOME_PROPERTY_BOX

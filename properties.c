@@ -46,6 +46,8 @@ GnibblesProperties *gnibbles_properties_new ()
 
 		sprintf (buffer, "/gnibbles/Worm%d/color=%d", i, (i % 7) + 12);
 		tmp->wormprops[i]->color = gnome_config_get_int (buffer);
+		sprintf (buffer, "/gnibbles/Worm%d/relmove=0", i);
+		tmp->wormprops[i]->relmove = gnome_config_get_int (buffer);
 		sprintf (buffer, "/gnibbles/Worm%d/up=0", i);
 		tmp->wormprops[i]->up = gnome_config_get_int (buffer);
 		if (!tmp->wormprops[i]->up)
@@ -96,6 +98,7 @@ GnibblesProperties *gnibbles_properties_copy (GnibblesProperties *props)
 				(GnibblesWormProps));
 
 		tmp->wormprops[i]->color = props->wormprops[i]->color;
+		tmp->wormprops[i]->relmove = props->wormprops[i]->relmove;
 		tmp->wormprops[i]->up = props->wormprops[i]->up;
 		tmp->wormprops[i]->down = props->wormprops[i]->down;
 		tmp->wormprops[i]->left = props->wormprops[i]->left;
@@ -123,6 +126,8 @@ void gnibbles_properties_save (GnibblesProperties *props)
 	for (i = 0; i < NUMWORMS; i++) {
 		sprintf (buffer, "/gnibbles/Worm%d/color", i);
 		gnome_config_set_int (buffer, props->wormprops[i]->color);
+		sprintf (buffer, "/gnibbles/Worm%d/relmove", i);
+		gnome_config_set_int (buffer, props->wormprops[i]->relmove);
 		sprintf (buffer, "/gnibbles/Worm%d/up", i);
 		gnome_config_set_int (buffer, props->wormprops[i]->up);
 		sprintf (buffer, "/gnibbles/Worm%d/down", i);
