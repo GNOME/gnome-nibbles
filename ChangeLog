@@ -1,3 +1,7 @@
+1999-02-24  Ian Peters  <ipeters@acm.org>
+
+	* Added license info to *.c, *.h
+
 1999-02-14  Ian Peters  <ipeters@acm.org>
 
 	* Changes all over the place.  Added sounds.
