@@ -48,7 +48,7 @@ static GnomeUIInfo game_menu[] = {
 	GNOMEUIINFO_MENU_NEW_GAME_ITEM (new_game_cb, NULL),
 	GNOMEUIINFO_MENU_PAUSE_GAME_ITEM (pause_game_cb, NULL),
 	GNOMEUIINFO_SEPARATOR,
-	GNOMEUIINFO_MENU_END_GAME_ITEM (end_game_cb, (gpointer) 1),
+	GNOMEUIINFO_MENU_END_GAME_ITEM (end_game_cb, (gpointer) 2),
 	GNOMEUIINFO_MENU_EXIT_ITEM (quit_cb, NULL),
 	GNOMEUIINFO_END
 };
@@ -91,6 +91,9 @@ static gint end_game_box ()
 	static GtkWidget *box;
 	gint status;
 
+	if (box)
+		return 0;
+
 	pause_state = paused;
 	if (!paused)
 		pause_game_cb (NULL, (gpointer) 0);
@@ -103,6 +106,7 @@ static gint end_game_box ()
 			(window));
 	gnome_dialog_set_default (GNOME_DIALOG (box), 0);
 	status = gnome_dialog_run (GNOME_DIALOG (box));
+	box = NULL;
 	if (!pause_state)
 		pause_game_cb (NULL, (gpointer) 0);
 	return (status);
@@ -275,7 +279,7 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 
 static gint end_game_cb (GtkWidget *widget, gpointer data)
 {
-	if ((gint) data)
+	if ((gint) data == 2)
 		if (end_game_box ())
 			return 0;
 

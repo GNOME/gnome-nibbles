@@ -31,12 +31,14 @@ static void destroy_cb (GtkWidget *widget, gpointer data)
 	gnibbles_properties_destroy (t_properties);
 }
 
-static void apply_cb (GtkWidget *widget, gpointer data)
+static void apply_cb (GtkWidget *widget, gint pagenum, gpointer data)
 {
-	gnibbles_properties_destroy (properties);
-	properties = gnibbles_properties_copy (t_properties);
+	if (pagenum == -1) {
+		gnibbles_properties_destroy (properties);
+		properties = gnibbles_properties_copy (t_properties);
 
-	gnibbles_properties_save (properties);
+		gnibbles_properties_save (properties);
+	}
 }
 
 static void game_speed_cb (GtkWidget *widget, gpointer data)
