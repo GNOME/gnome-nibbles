@@ -322,7 +322,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			hbox, label);
 
 	for (i = 0; i < NUMWORMS; i++) {
-		sprintf (buffer, "Worm %d", i + 1);
+		sprintf (buffer, _("Worm %d"), i + 1);
 		label = gtk_label_new (buffer);
 		gtk_widget_show (label);
 

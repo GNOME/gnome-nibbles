@@ -27,7 +27,7 @@ GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar)
 					FALSE, 0);
 		}
 		
-		sprintf (buffer, "Worm %d:", i + 1);
+		sprintf (buffer, _("Worm %d:"), i + 1);
 		tmp->names[i] = gtk_label_new (buffer);
 		gtk_widget_set_sensitive (tmp->names[i], FALSE);
 		gtk_widget_show (tmp->names[i]);
