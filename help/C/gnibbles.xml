@@ -251,6 +251,42 @@ section. For example -->
     </varlistentry>
    </variablelist>
   </sect2>
+  <sect2 id="diamonds">
+  <title>Diamonds</title>
+   <para>
+    <application>Gnibbles</application> has numerous different diamonds
+    which to eat.  They each are a different color and serve a different
+    function.
+    <variablelist>
+     <varlistentry>
+      <term>Purple Diamond</term>
+      <listitem>
+       <para>
+        Gives you one diamond credit and adds length to your snake.
+       </para>
+      </listitem>
+     </varlistentry>
+     <varlistentry>
+      <term>Yellow Diamond</term>
+      <listitem>
+       <para>
+        Gives 12 points, adds length to the snake and gives you one
+        diamond credit.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>Red Diamond</term>
+     <listitem>
+      <para>
+       Gives 11 points, makes your snake shorter, and gives you one 
+       diamond credit.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+  </sect2>   
  </sect1>
 
 
@@ -277,39 +313,45 @@ section. For example -->
 
   <para>
    The properties in the <guilabel>Game</guilabel> tab are:
-   <itemizedlist>
-
+   <variablelist>
+    <varlistentry>
+    <term>Speed</term>
     <listitem>
      <para>
-      (Speed) &mdash; This controls the speed of the snake.
+      This controls the speed of the snake.
      </para>
     </listitem>
-
+    </varlistentry>
+    <varlistentry>
+     <term>Levels in random order</term>
     <listitem>
      <para>
-      (Levels in random order) &mdash; Selecting this causes the level
-      advancement to happen in random order.  So you may start at level 5,
-      go to 3, and then 8.
+      Selecting this causes the level
+      advancement to happen in random order.
      </para>
     </listitem>
-
+    </varlistentry>
+    <varlistentry>
+     <term>Fake bonuses</term>
     <listitem>
      <para>
-      (Fake bonuses) &mdash; When enabled, this allows for two blue diamonds on
+      When enabled, this allows for two blue diamonds on
       the screen at a time.  One diamond makes you shrink instead of grow when
       eaten.
      </para>
     </listitem>
-
-    <listitem>
-     <para>
-      (Sounds) &mdash; Enables sounds. 
-     </para>
-    </listitem>
-   </itemizedlist>
+    </varlistentry>
+    <varlistentry>
+    <term>Sounds</term>
+     <listitem>
+      <para>
+       Enables sounds. 
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
   </para>
   <para>
- 
   <figure id="graphics-prefs">
     <title>Graphics Preferences Tab</title>
     <screenshot>
@@ -324,39 +366,39 @@ section. For example -->
 
     <listitem>
      <para>
-      (Tiny) &mdash; This button makes your board tiny (184x132) 
+      (Tiny) &mdash; This button makes your board tiny (184x132). 
      </para>
     </listitem>
 
     <listitem>
      <para>
-      (Small) &mdash; This button makes your board small (368x264)
+      (Small) &mdash; This button makes your board small (368x264).
      </para>
     </listitem>
 
     <listitem>
      <para>
-      (Medium) &mdash; This button makes your board medium (460x330) 
+      (Medium) &mdash; This button makes your board medium (460x330). 
      </para>
     </listitem>
  
     <listitem>
      <para>
-      (Large) &mdash; This button makes your board large(736x528)
+      (Large) &mdash; This button makes your board large(736x528).
      </para>
     </listitem>
 
     <listitem>
      <para>
       (Extra Large) &mdash; This button makes your board extra large (920x660)
-      &hellip;(description)
+      &hellip;(description).
      </para>
     </listitem>
 
     <listitem>
      <para>
       (Huge) &mdash; This button makes your huge (1840x1320)
-      &hellip;(description)
+      &hellip;(description).
      </para>
     </listitem>
    </itemizedlist>
@@ -438,7 +480,7 @@ section. For example -->
    This program is free software; you can redistribute it and/or
    modify it under the terms of the <ulink type="help" url="gnome-help:gpl">
    <citetitle>GNU General Public
-   License</citetitle> as published by the Free Software Foundation;
+   License</citetitle></ulink> as published by the Free Software Foundation;
    either version 2 of the License, or (at your option) any later
    version.
   </para>
@@ -464,3 +506,4 @@ section. For example -->
   </para>
  </sect1>
 </article>
+
