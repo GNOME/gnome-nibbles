@@ -1,7 +1,6 @@
-<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.1//EN"[
-        <!-- if not using PNG graphic, replace reference above with
-             .....PUBLIC "-//OASIS//DTD DocBook V3.1//EN"[
-         -->
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
 <!ENTITY VERSION "1.2.0">
 ]>
 
@@ -10,7 +9,7 @@
 
 <article id="index"> <!-- please do not change the id -->
 
- <artheader>
+ <articleinfo>
   <title>Gnibbles Manual</title>
   <copyright>
    <year>2000</year>
@@ -57,7 +56,7 @@
    This is version 1.0 of Gnibbles manual.
   </releaseinfo>
 
- </artheader>
+ </articleinfo>
 
  <!-- ============= Document Body ============================= -->
 
@@ -116,10 +115,14 @@ the <interface>main window</interface> shown below.
 <figure id="intro-fig">
 <title>Gnibbles Introduction Window</title>
 <screenshot>
-<screeninfo>Gnibbles Introduction Window</screeninfo>
-<graphic fileref="figures/intro" format="png"
-srccredit="Kevin Breit">
-</graphic>
+ <mediaobject> 
+    <imageobject>
+<imagedata fileref="figures/intro.png" format="PNG" srccredit="Kevin Breit"/>
+    </imageobject>
+    <textobject> 
+      <phrase>Gnibbles Introduction Window.</phrase> 
+    </textobject> 
+  </mediaobject>
 </screenshot>
 </figure>
 </para>
@@ -135,10 +138,14 @@ left, and down arrow to turn the snake down.
 <figure id="gameplay">
 <title>Gnibbles During Gameplay</title>
 <screenshot>
- <screeninfo>Gnibbles During Gameplay</screeninfo>
- <graphic fileref="figures/playing" format="png"
-   srccredit="Kevin Breit">
- </graphic>
+  <mediaobject> 
+    <imageobject>
+  <imagedata fileref="figures/playing.png" format="PNG" srccredit="Kevin Breit"/>
+    </imageobject>
+    <textobject> 
+      <phrase>Gnibbles During Gameplay.</phrase> 
+    </textobject> 
+  </mediaobject>
 </screenshot>
 </figure>
 </para>
@@ -305,9 +312,14 @@ section. For example -->
   <figure id="game-prefs">
     <title>Game Preferences Tab</title>
     <screenshot>
-      <screeninfo>Game Preferences Tab</screeninfo>
-      <graphic fileref="figures/game" format="png" srccredit="Kevin Breit">
-      </graphic>
+       <mediaobject> 
+    <imageobject>
+      <imagedata fileref="figures/game.png" format="PNG" srccredit="Kevin Breit"/>
+          </imageobject>
+    <textobject> 
+      <phrase>Game Preferences Tab.</phrase> 
+    </textobject> 
+  </mediaobject>
     </screenshot>
   </figure>
 
@@ -355,9 +367,14 @@ section. For example -->
   <figure id="graphics-prefs">
     <title>Graphics Preferences Tab</title>
     <screenshot>
-      <screeninfo>Graphics Preferences Tab</screeninfo>
-      <graphic fileref="figures/graphics" format="png" srccredit="Kevin Breit">
-      </graphic>
+        <mediaobject> 
+    <imageobject>
+  <imagedata fileref="figures/graphics.png" format="PNG" srccredit="Kevin Breit"/>
+         </imageobject>
+    <textobject> 
+      <phrase>Graphics Preferences Tab.</phrase> 
+    </textobject> 
+  </mediaobject>
     </screenshot>
   </figure>
  
@@ -408,9 +425,14 @@ section. For example -->
   <figure id="worm-prefs">
     <title>Worm Preferences Tab</title>
     <screenshot>
-      <screeninfo>Worm Preferences Tab</screeninfo>
-      <graphic fileref="figures/worm_op" format="png" srccredit="Kevin Breit">
-      </graphic>
+       <mediaobject> 
+    <imageobject>
+  <imagedata fileref="figures/worm_op.png" format="PNG" srccredit="Kevin Breit"/>
+         </imageobject>
+    <textobject> 
+      <phrase>Worm Preferences Tab.</phrase> 
+    </textobject> 
+  </mediaobject>
     </screenshot>
   </figure>
 
