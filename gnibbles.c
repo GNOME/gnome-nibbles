@@ -129,7 +129,7 @@ void gnibbles_load_level (int level)
 	filename = gnome_unconditional_datadir_file (tmp);
 
 	if ((in = fopen (filename, "r")) == NULL) {
-		printf ("This is really bad I'll figure out later\n");
+		printf (_("Ack!  Couldn't load level file %s\n", filename);
 		exit (1);
 	}
 
