@@ -1,3 +1,8 @@
+2003-06-09  William Jon McCann  <mccann@jhu.edu>
+
+	* main.c: 
+	* gnibbles.c: Removed separator from dialogs as in HIG.
+
 2003-05-31  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* Makefile.am (install-data-local): Implement setgid modifications

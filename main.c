@@ -168,6 +168,7 @@ static gint end_game_box (short quit)
 				GTK_STOCK_QUIT, GTK_RESPONSE_YES,
 				NULL);
 	}
+        gtk_dialog_set_has_separator (GTK_DIALOG (box), FALSE);
 	status = gtk_dialog_run (GTK_DIALOG (box)) == GTK_RESPONSE_NO;
 	gtk_widget_destroy (GTK_WIDGET (box));
 	box = NULL;
