@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
 "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!--
+ (C) Copyright 2004 Theo van Klaveren
+ This work is licensed under the Creative Commons Attribution License. To view
+ a copy of this license, visit http://creativecommons.org/licenses/by/1.0/ or
+ send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California
+ 94305, USA.
+ -->
 <svg
    id="svg836"
    sodipodi:version="0.32"
    inkscape:version="0.38.1"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    width="100.00000mm"
    height="100.00000mm"
-   sodipodi:docbase="/usr/home/klaveren/Sources/gnome-games/gnibbles/pix"
-   sodipodi:docname="questionmark.svg">
+   sodipodi:docbase="/home/klaveren/Sources/gnome-games/gnibbles/pix"
+   sodipodi:docname="questionmark.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xml="http://www.w3.org/XML/1998/namespace"
+   xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs
      id="defs838" />
   <sodipodi:namedview
@@ -25,21 +33,48 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.6721668"
      inkscape:cx="141.73228"
-     inkscape:cy="141.73228"
+     inkscape:cy="306.54499"
      inkscape:window-width="802"
      inkscape:window-height="613"
      showgrid="true"
      snaptogrid="true"
-     inkscape:window-x="48"
-     inkscape:window-y="355" />
-  <text
-     xml:space="preserve"
-     style="fill:#a50000;fill-opacity:1.0000000;stroke:#ffffff;font-family:Utopia;font-style:normal;font-weight:normal;font-size:200.00000;stroke-opacity:1.0000000;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;font-stretch:normal;font-variant:normal;text-anchor:start;writing-mode:lr;"
-     x="30.200001"
-     y="149.38889"
-     id="text839"
-     sodipodi:linespacing="100%"
-     transform="scale(2.952756,2.217647)"><tspan
-       id="tspan840"
-       style="fill:#a50000;fill-opacity:1.0000000;stroke:#ffffff;stroke-opacity:1.0000000;">?</tspan></text>
+     inkscape:window-x="329"
+     inkscape:window-y="56" />
+  <g
+     id="g833"
+     transform="translate(1.776357e-14,-2.714078)"
+     style="fill:#000000;fill-opacity:1.0000000;">
+    <defs
+       id="defs851"
+       style="fill:#000000;fill-opacity:1.0000000;" />
+    <sodipodi:namedview
+       id="namedview835"
+       pagecolor="#ffffff"
+       bordercolor="#666666"
+       borderopacity="1.0"
+       inkscape:pageopacity="0.0"
+       inkscape:pageshadow="2"
+       inkscape:zoom="1.2770556"
+       inkscape:cx="141.73228"
+       inkscape:cy="213.73203"
+       inkscape:window-width="640"
+       inkscape:window-height="501"
+       showgrid="true"
+       snaptogrid="true"
+       inkscape:window-x="4"
+       inkscape:window-y="48"
+       style="fill:#000000;fill-opacity:1.0000000;" />
+    <rect
+       style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:none;stroke-width:0.68499970pt;"
+       id="rect852"
+       width="354.33071"
+       height="354.99705"
+       x="-1.7763568e-14"
+       y="2.7140450" />
+  </g>
+  <path
+     transform="scale(3.489621,2.464052)"
+     style="font-size:200.00000;fill:#a50000;stroke:#ffffff;stroke-width:1.0000000pt;font-family:Utopia;"
+     d="M 50.908667,101.59999 C 57.108667,101.59999 64.708667,100.39999 70.108667,95.999994 L 68.508667,91.999994 C 67.108667,92.399994 64.908667,92.799994 62.508667,92.799994 C 58.308667,92.799994 48.908667,89.199994 48.908667,78.199994 C 48.908667,69.399994 54.108667,62.199994 64.108667,55.199994 C 70.908667,50.399994 82.908667,43.399994 83.308667,27.199994 C 82.908667,8.5999939 69.708667,-6.1035156e-06 51.708667,-6.1035156e-06 C 25.308667,0.39999390 17.308667,16.599994 17.308667,23.199994 C 17.308667,30.599994 24.508667,33.199994 27.908667,33.199994 C 30.908667,33.199994 33.708667,31.799994 34.308667,28.399994 C 37.108667,13.399994 42.708667,6.9999939 50.708667,6.9999939 C 59.908667,6.9999939 63.508667,15.599994 63.508667,27.199994 C 63.508667,39.799994 54.708667,51.999994 45.708667,58.799994 C 33.708667,67.999994 29.508667,73.199994 29.508667,82.199994 C 29.508667,94.799994 40.108667,101.59999 50.908667,101.59999 z M 49.508667,143.79999 C 57.108667,143.79999 61.708667,138.59999 61.908667,131.39999 C 61.908667,124.19999 57.108667,118.79999 49.508667,118.79999 C 42.108667,118.79999 37.108667,124.19999 37.108667,131.39999 C 37.108667,138.59999 42.108667,143.79999 49.508667,143.79999 z "
+     id="path828" />
 </svg>

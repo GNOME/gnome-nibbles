@@ -1,16 +1,16 @@
 pixmapdir=$(datadir)/pixmaps/gnibbles
 
 BONUS_PIX=\
-	1up.svg \
 	blank.svg \
-	cherry.svg \
-	creampie.svg \
-	diamond-cyan.svg \
-	dollarbag.svg \
-	gold.svg \
-	icecream.svg \
-	questionmark.svg \
-	twirly.svg
+        bonus1.svg \
+        bonus2.svg \
+        bonus3.svg \
+        bonus4.svg \
+        bonus5.svg \
+        diamond.svg \
+        life.svg \
+        questionmark.svg
+
 
 SMALL_PIX=\
 	snake-blue.svg \

@@ -374,7 +374,8 @@ new_game_cb (GtkWidget *widget, gpointer data)
 		current_level = properties->startlevel;
 	else
 		current_level = rand () % MAXLEVEL + 1;
-	
+
+	zero_board();
 	gnibbles_load_level (GTK_WIDGET (window), current_level);
 
 	gnibbles_add_bonus (1);
@@ -507,6 +508,7 @@ static gint add_bonus_cb (gpointer data)
 
 static gint restart_game (gpointer data)
 {
+	zero_board();
 	gnibbles_load_level (GTK_WIDGET (window), current_level);
 
 	gnibbles_add_bonus (1);
@@ -597,14 +599,8 @@ static gint main_loop (gpointer data)
 static void
 set_bg_color (void)
 {
-	GdkImage *tmp_image;
-	GdkColor bgcolor;
-
-	tmp_image = gdk_drawable_get_image (GDK_DRAWABLE (gnibbles_pixmap),
-					    0, 0, 1, 1);
-	bgcolor.pixel = gdk_image_get_pixel (tmp_image, 0, 0);
-	gdk_window_set_background (drawing_area->window, &bgcolor);
-	g_object_unref (G_OBJECT (tmp_image));
+	gdk_window_set_background (drawing_area->window,
+				   &drawing_area->style->black);
 }
 */
 

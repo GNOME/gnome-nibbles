@@ -39,7 +39,7 @@ GnibblesWarpManager *warpmanager;
 
 GdkPixmap *buffer_pixmap = NULL;
 GdkPixbuf *logo_pixmap = NULL;
-GdkPixbuf *bonus_pixmaps[8] = { NULL, NULL, NULL, NULL,
+GdkPixbuf *bonus_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
 			        NULL, NULL, NULL, NULL };
 GdkPixbuf *small_pixmaps[19] = { NULL, NULL, NULL, NULL, NULL,
 				 NULL, NULL, NULL, NULL, NULL,
@@ -98,10 +98,19 @@ gnibbles_copy_pixmap (GdkDrawable *drawable, gint which, gint x, gint y,
 	gint size = properties->tilesize * (big == TRUE ? 2 : 1);
 	GdkPixbuf *copy_buf;
 
-	if (big == TRUE)
+	if (big == TRUE) {
+		if (which < 0 || which > 8) {
+			g_print("Invalid bonus image %d\n", which);
+			return;
+		}
 		copy_buf = bonus_pixmaps[which];
-	else
+	} else {
+		if (which < 0 || which > 19) {
+			g_print("Invalid tile image %d\n", which);
+			return;
+		}
 		copy_buf = small_pixmaps[which];
+	}
 
 	gdk_draw_pixbuf (GDK_DRAWABLE (drawable),
 			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
@@ -140,10 +149,16 @@ gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 void
 gnibbles_load_logo (GtkWidget *window)
 {
+	gint width = drawing_area->allocation.width;
+	gint height = drawing_area->allocation.height;
+
+	if (GTK_WIDGET_REALIZED(drawing_area) == FALSE)
+		return;
+
 	if (logo_pixmap)
 		g_object_unref(logo_pixmap);
 	logo_pixmap = gnibbles_load_pixmap_file(window, "pixmaps/gnibbles/gnibbles-logo.png",
-			BOARDWIDTH * properties->tilesize, BOARDHEIGHT * properties->tilesize);
+			width, height);
 }
 
 void
