@@ -177,8 +177,8 @@ the <interface>main window</interface> shown below.
 </figure>
 </para>
 <para>
-To start the game, click on the intro screen, shown above.  The game
-will automatically start.
+To start the game, select <menuchoice><guimenu>Game</guimenu>
+<guimenuitem>New Game</guimenuitem></menuchoice>.
 </para>
 <para>
 When the game starts, the snake will come out of the left side of the
