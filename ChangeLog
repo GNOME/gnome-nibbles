@@ -1,3 +1,8 @@
+2001-05-23  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* worm.c (gnibbles_worm_undraw_nth) : Chaged if (i == 0) to 
+	  if (i <= 0) to fix buf #51309.
+
 2000-11-08  Kevin Breit <battery841@mypad.com>
 
 	* help/C/gnibbles.sgml: Started conversion from <itemizedlist> to
