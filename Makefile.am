@@ -82,17 +82,10 @@ soundlist_DATA = $(soundlist_in_files:.soundlist.in=.soundlist)
 
 EXTRA_DIST = \
 	$(pixmap_DATA) 	\
-	$(Games_DATA) \
+	$(Games_in_files) \
 	$(config_DATA) \
-	$(soundlist_DATA) \
+	$(soundlist_in_files) \
 	$(icon_DATA)
-
-#EXTRA_DIST = README \
-#             AUTHORS \
-#             gnobots2.desktop \
-#             gnobots2.soundlist \
-#             $(appicon_DATA) \
-#             $(pixmap_DATA)
 
 SUBDIRS=sounds help
 
