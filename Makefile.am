@@ -82,7 +82,7 @@ EXTRA_DIST = \
 	$(Games_DATA) \
 	$(config_DATA) \
 	$(soundlist_DATA) \
-	$(appicon_DATA)
+	$(icon_DATA)
 
 #EXTRA_DIST = README \
 #             AUTHORS \
