@@ -9,6 +9,7 @@
 #include "bonus.h"
 #include "boni.h"
 #include "preferences.h"
+#include "scoreboard.h"
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -19,6 +20,8 @@ extern GdkPixmap *gnibbles_pixmap;
 extern GdkPixmap *logo_pixmap;
 
 GnibblesProperties *properties;
+
+GnibblesScoreboard *scoreboard;
 
 extern GnibblesBoni *boni;
 
@@ -107,7 +110,7 @@ static gint end_game_box ()
 	gnome_dialog_set_default (GNOME_DIALOG (box), 0);
 	status = gnome_dialog_run (GNOME_DIALOG (box));
 	box = NULL;
-	if (!pause_state)
+	if (!pause_state && status)
 		pause_game_cb (NULL, (gpointer) 0);
 	return (status);
 }
@@ -142,25 +145,6 @@ static void about_cb (GtkWidget *widget, gpointer data)
 
 	gtk_widget_show (about);
 }
-
-/*
-static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
-{
-	if (buffer_pixmap)
-		gdk_pixmap_unref (buffer_pixmap);
-
-	printf ("configure_event_cb, %d\n", GTK_WIDGET
-			(widget)->allocation.height);
-
-	buffer_pixmap = gdk_pixmap_new (widget->window,
-			widget->allocation.width, widget->allocation.height,
-			-1);
-
-	render_logo ();
-
-	return (TRUE);
-}
-*/
 
 static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
 {
@@ -271,7 +255,8 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 				main_id = 0;
 			}
 			if (keyboard_id) {
-				gtk_timeout_remove (keyboard_id);
+				gtk_signal_disconnect (GTK_OBJECT (window),
+						keyboard_id);
 				keyboard_id = 0;
 			}
 			if (add_bonus_id) {
@@ -374,6 +359,8 @@ static gint main_loop (gpointer data)
 
 	status = gnibbles_move_worms ();
 
+	gnibbles_scoreboard_update (scoreboard);
+
 	if (status == GAMEOVER) {
 		gtk_signal_disconnect (GTK_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
@@ -457,28 +444,16 @@ static void setup_window ()
 			BOARDWIDTH * PIXMAPWIDTH, BOARDHEIGHT * PIXMAPHEIGHT);
 	gtk_signal_connect (GTK_OBJECT (drawing_area), "expose_event",
 			GTK_SIGNAL_FUNC (expose_event_cb), NULL);
-//	gtk_signal_connect (GTK_OBJECT (drawing_area), "configure_event",
-//			GTK_SIGNAL_FUNC (configure_event_cb), NULL);
 	gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
 			GDK_EXPOSURE_MASK);
 	gtk_widget_show (drawing_area);
 
 	gnome_app_create_menus (GNOME_APP (window), main_menu);
 
-	appbar = gnome_appbar_new (TRUE, TRUE, FALSE);
+	appbar = gnome_appbar_new (FALSE, TRUE, FALSE);
 	gnome_app_set_statusbar (GNOME_APP (window), appbar);
 
-	hbox = gtk_hbox_new (FALSE, GNOME_PAD_SMALL);
-	gtk_widget_show (hbox);
-
-	label = gtk_label_new ("Foo!");
-	gtk_widget_show (label);
-
-	gtk_box_pack_start (GTK_BOX (hbox), label, TRUE, TRUE, 0);
-
-	gtk_box_pack_end (GTK_BOX (appbar), hbox, FALSE, FALSE, 0);
-
-	gnome_appbar_set_progress (GNOME_APPBAR (appbar), .5);
+	scoreboard = gnibbles_scoreboard_new (appbar);
 }
 
 static void load_properties ()

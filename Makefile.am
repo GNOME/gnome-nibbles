@@ -27,6 +27,8 @@ gnibbles_SOURCES = \
 	properties.c \
 	preferences.h \
 	preferences.c \
+	scoreboard.h \
+	scoreboard.c \
 	main.c
 
 gnibbles_LDADD = \

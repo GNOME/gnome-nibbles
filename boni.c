@@ -17,6 +17,7 @@ GnibblesBoni *gnibbles_boni_new ()
 		tmp->bonuses[i] = NULL;
 	tmp->numbonuses = 0;
 	tmp->numleft = 11;
+	tmp->missed = 0;
 
 	return tmp;
 }

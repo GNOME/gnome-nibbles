@@ -8,6 +8,7 @@
 #include "bonus.h"
 #include "warpmanager.h"
 #include "properties.h"
+#include "scoreboard.h"
 
 GnibblesWorm *worms[NUMWORMS] = { NULL, NULL, NULL, NULL };
 GnibblesBoni *boni = NULL;
@@ -24,6 +25,8 @@ extern GtkWidget *drawing_area;
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 
 extern GnibblesProperties *properties;
+
+extern GnibblesScoreboard *scoreboard;
 
 void gnibbles_draw_pixmap (gint which, gint x, gint y)
 {
@@ -228,12 +231,18 @@ void gnibbles_init ()
 		if (worms[i])
 			gnibbles_worm_destroy (worms[i]);
 	
-	for (i = 0; i < properties->numworms; i++)
+	gnibbles_scoreboard_clear (scoreboard);
+
+	for (i = 0; i < properties->numworms; i++) {
 		worms[i] = gnibbles_worm_new (properties->wormprops[i]->color,
 				properties->wormprops[i]->up,
 				properties->wormprops[i]->down,
 				properties->wormprops[i]->left,
 				properties->wormprops[i]->right);
+		gnibbles_scoreboard_register (scoreboard, worms[i]);
+	}
+
+	gnibbles_scoreboard_update (scoreboard);
 	/*
 	worms[0] = gnibbles_worm_new (WORMCYAN, GDK_Up, GDK_Down, GDK_Left,
 			GDK_Right);
@@ -306,8 +315,7 @@ void gnibbles_add_bonus (int regular)
 				good = 0;
 		}
 		gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 0, 300);
-	}
-	else {
+	} else if (boni->missed <= MAXMISSED) {
 		good = rand () % 7;
 
 		if (good)
@@ -362,6 +370,11 @@ gint gnibbles_move_worms ()
 {
 	int i, j, status = 1;
 	int dead[properties->numworms];
+
+	if (boni->missed > MAXMISSED)
+		for (i = 0; i < properties->numworms; i++)
+			if (worms[i]->score)
+				worms[i]->score--;
 	
 	for (i = 0; i < boni->numbonuses; i++) {
 		if (!(boni->bonuses[i]->countdown--))
@@ -370,6 +383,7 @@ gint gnibbles_move_worms ()
 				gnibbles_boni_remove_bonus (boni,
 						boni->bonuses[i]->x,
 						boni->bonuses[i]->y);
+				boni->missed++;
 				gnibbles_add_bonus (1);
 			} else
 				gnibbles_boni_remove_bonus (boni,
@@ -421,8 +435,6 @@ gint gnibbles_move_worms ()
 			gnibbles_worm_draw_head (worms[i]);
 
 	if (status & GAMEOVER) {
-		for (i = 0; i < properties->numworms; i++)
-			printf("Player %d score is %d\n", i, worms[i]->score);
 		return (GAMEOVER);
 	}
 

@@ -7,11 +7,13 @@
 #include "bonus.h"
 
 #define MAXBONUSES 100
+#define MAXMISSED 3
 
 typedef struct {
 	GnibblesBonus *bonuses[MAXBONUSES];
 	gint numbonuses;
 	gint numleft;
+	gint missed;
 } GnibblesBoni;
 
 GnibblesBoni *gnibbles_boni_new ();

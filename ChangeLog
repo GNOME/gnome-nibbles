@@ -1,5 +1,19 @@
 1999-02-12  Ian Peters  <ipeters@acm.org>
 
+	* lots-o-files: Added the code for discouraging missing bonuses too
+	much - don't try to run your score up anymore.
+
+1999-02-12  Ian Peters  <ipeters@acm.org>
+
+	* main.c: in pause_game_cb, changed gtk_timeout_remove to
+	gtk_callback_disconnect (Doh!), fixes many little bugs.
+
+1999-02-12  Ian Peters  <ipeters@acm.org>
+
+	* scoreboard.c, scoreboard.h, assorted others: Added the scoreboard.
+
+1999-02-12  Ian Peters  <ipeters@acm.org>
+
 	* main.c: end_game_cb now sets paused to 0, so as not to fool
 	game_is_running.
 
