@@ -1,3 +1,13 @@
+2001-06-06  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* main (new_game_2_cb): Check if the IDs are 0 before defining a
+	  new callback (Fix a bug when if you open a new game dialog rigth
+	  after you worm is destroyed the game become unstable and twice
+	  as faster.).
+	  (main): Why we was calling setup_windows twice ?
+	  (setup_window): Show the cursor also if we lost the focus (i.e. a
+	  dialog popup).
+
 2001-05-30  Juan Pablo Mendoza <pablo_juan@yahoo.com>
 
 	Implement "bug" #3969. Code mostly stolen from libzvt.

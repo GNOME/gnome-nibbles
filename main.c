@@ -269,17 +269,18 @@ static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
 static gint new_game_2_cb (GtkWidget *widget, gpointer data)
 {
 	if (!paused) {
-		keyboard_id = gtk_signal_connect (GTK_OBJECT (window),
-				"key_press_event",
-				GTK_SIGNAL_FUNC (key_press_cb), NULL);
-
-		main_id = gtk_timeout_add (GAMEDELAY * properties->gamespeed,
-				(GtkFunction) main_loop, NULL);
-
-		add_bonus_id = gtk_timeout_add (BONUSDELAY *
-				properties->gamespeed,
-				(GtkFunction) add_bonus_cb,
-				NULL);
+		if (!keyboard_id)
+			keyboard_id = gtk_signal_connect (GTK_OBJECT (window),
+					"key_press_event",
+					GTK_SIGNAL_FUNC (key_press_cb), NULL);
+		if (!main_id)
+			main_id = gtk_timeout_add (GAMEDELAY * properties->gamespeed,
+					(GtkFunction) main_loop, NULL);
+		if (!add_bonus_id)
+			add_bonus_id = gtk_timeout_add (BONUSDELAY *
+					properties->gamespeed,
+					(GtkFunction) add_bonus_cb,
+					NULL);
 	}
 
 	dummy_id = 0;
@@ -578,6 +579,9 @@ static void setup_window ()
 	gtk_signal_connect (GTK_OBJECT(drawing_area), "motion_notify_event",
 			GTK_SIGNAL_FUNC (show_cursor_cb), NULL);
 
+	gtk_signal_connect (GTK_OBJECT(window), "focus_out_event",
+			GTK_SIGNAL_FUNC (show_cursor_cb), NULL);
+
 	gtk_drawing_area_size (GTK_DRAWING_AREA (drawing_area),
 			BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
 	gtk_signal_connect (GTK_OBJECT (drawing_area), "expose_event",
@@ -631,8 +635,6 @@ int main (int argc, char **argv)
 	srand (time (NULL));
 
 	load_properties ();
-
-	setup_window ();
 
 	setup_window ();
 
