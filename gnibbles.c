@@ -307,7 +307,7 @@ gnibbles_add_bonus (gint regular)
 			return;
 	}
 
-	while (!good) {
+	do {
 		good = 1;
 		x = rand() % (BOARDWIDTH - 1);
 		y = rand() % (BOARDHEIGHT - 1);
@@ -319,7 +319,7 @@ gnibbles_add_bonus (gint regular)
 			good = 0;
 		if (board[x + 1][y + 1] != EMPTYCHAR)
 			good = 0;
-	}
+	} while (!good);
 
 	if (regular) {
 		if ((rand() % 7 == 0) && properties->fakes)

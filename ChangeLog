@@ -1,3 +1,10 @@
+2004-02-14  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnibbles.c (gnibbles_add_bonus): Changed the while loop to a do
+	while to make it clear to the compiler that the first iteration is
+	always executed and hence avoid warnings about x and y being
+	uninitialised.
+
 2004-02-13  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* worm.c: Fix keypress handling so that a second quick keypress is
