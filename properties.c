@@ -299,38 +299,7 @@ gnibbles_properties_set_worm_color (gint i, gint value)
 	gconf_client_set_string (conf_client, buffer, color_name, NULL);
 	g_free (buffer);
 }
-void
-gnibbles_properties_set_worm_up (gint i, gchar *value)
-{
-	gchar *buffer;
-	buffer = g_strdup_printf (KEY_WORM_UP, i);
-	gconf_client_set_string (conf_client, buffer, value, NULL);
-	g_free (buffer);
-}
-void
-gnibbles_properties_set_worm_down (gint i, gchar *value)
-{
-	gchar *buffer;
-	buffer = g_strdup_printf (KEY_WORM_DOWN, i);
-	gconf_client_set_string (conf_client, buffer, value, NULL);
-	g_free (buffer);
-}
-void
-gnibbles_properties_set_worm_left (gint i, gchar *value)
-{
-	gchar *buffer;
-	buffer = g_strdup_printf (KEY_WORM_LEFT, i);
-	gconf_client_set_string (conf_client, buffer, value, NULL);
-	g_free (buffer);
-}
-void
-gnibbles_properties_set_worm_right (gint i, gchar *value)
-{
-	gchar *buffer;
-	buffer = g_strdup_printf (KEY_WORM_RIGHT, i);
-	gconf_client_set_string (conf_client, buffer, value, NULL);
-	g_free (buffer);
-}
+
 void
 gnibbles_properties_set_height (gint value)
 {

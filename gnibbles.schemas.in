@@ -138,7 +138,7 @@
       <type>string</type>
       <default>Up</default>
       <locale name="C">
-        <short>Key to use for motion up</short>
+        <short>Move up</short>
         <long>Key to use for motion up.</long>
       </locale>
     </schema>
@@ -149,7 +149,7 @@
       <type>string</type>
       <default>Down</default>
       <locale name="C">
-        <short>Key to use for motion down</short>
+        <short>Move down</short>
         <long>Key to use for motion down.</long>
       </locale>
     </schema>
@@ -160,7 +160,7 @@
       <type>string</type>
       <default>Left</default>
       <locale name="C">
-        <short>Key to use for motion left</short>
+        <short>Move left</short>
         <long>Key to use for motion left.</long>
       </locale>
     </schema>
@@ -171,7 +171,7 @@
       <type>string</type>
       <default>Right</default>
       <locale name="C">
-        <short>Key to use for motion right</short>
+        <short>Move right</short>
         <long>Key to use for motion right.</long>
       </locale>
     </schema>
@@ -205,7 +205,7 @@
       <type>string</type>
       <default>Up</default>
       <locale name="C">
-        <short>Key to use for motion up</short>
+        <short>Move up</short>
         <long>Key to use for motion up.</long>
       </locale>
     </schema>
@@ -216,7 +216,7 @@
       <type>string</type>
       <default>Down</default>
       <locale name="C">
-        <short>Key to use for motion down</short>
+        <short>Move down</short>
         <long>Key to use for motion down.</long>
       </locale>
     </schema>
@@ -227,7 +227,7 @@
       <type>string</type>
       <default>Left</default>
       <locale name="C">
-        <short>Key to use for motion left</short>
+        <short>Move left</short>
         <long>Key to use for motion left.</long>
       </locale>
     </schema>
@@ -238,7 +238,7 @@
       <type>string</type>
       <default>Right</default>
       <locale name="C">
-        <short>Key to use for motion right</short>
+        <short>Move right</short>
         <long>Key to use for motion right.</long>
       </locale>
     </schema>
@@ -272,7 +272,7 @@
       <type>string</type>
       <default>Up</default>
       <locale name="C">
-        <short>Key to use for motion up</short>
+        <short>Move up</short>
         <long>Key to use for motion up.</long>
       </locale>
     </schema>
@@ -283,7 +283,7 @@
       <type>string</type>
       <default>Down</default>
       <locale name="C">
-        <short>Key to use for motion down</short>
+        <short>Move down</short>
         <long>Key to use for motion down.</long>
       </locale>
     </schema>
@@ -294,7 +294,7 @@
       <type>string</type>
       <default>Left</default>
       <locale name="C">
-        <short>Key to use for motion left</short>
+        <short>Move left</short>
         <long>Key to use for motion left.</long>
       </locale>
     </schema>
@@ -305,7 +305,7 @@
       <type>string</type>
       <default>Right</default>
       <locale name="C">
-        <short>Key to use for motion right</short>
+        <short>Move right</short>
         <long>Key to use for motion right.</long>
       </locale>
     </schema>
@@ -339,7 +339,7 @@
       <type>string</type>
       <default>Up</default>
       <locale name="C">
-        <short>Key to use for motion up</short>
+        <short>Move up</short>
         <long>Key to use for motion up.</long>
       </locale>
     </schema>
@@ -350,7 +350,7 @@
       <type>string</type>
       <default>Down</default>
       <locale name="C">
-        <short>Key to use for motion down</short>
+        <short>Move down</short>
         <long>Key to use for motion down.</long>
       </locale>
     </schema>
@@ -361,7 +361,7 @@
       <type>string</type>
       <default>Left</default>
       <locale name="C">
-        <short>Key to use for motion left</short>
+        <short>Move left</short>
         <long>Key to use for motion left.</long>
       </locale>
     </schema>
@@ -372,7 +372,7 @@
       <type>string</type>
       <default>Right</default>
       <locale name="C">
-        <short>Key to use for motion right</short>
+        <short>Move right</short>
         <long>Key to use for motion right.</long>
       </locale>
     </schema>
