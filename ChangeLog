@@ -1,3 +1,8 @@
+2004-05-10  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* pix/Makefile.am: Add EXTRA_DIST so that we build correctly
+	outside the tree.
+
 2004-05-04  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* snake-*.png: Reworked graphics so that they are all different
