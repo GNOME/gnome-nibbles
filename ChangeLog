@@ -1,5 +1,8 @@
 2003-06-18  William Jon McCann  <mccann@jhu.edu>
 
+	* preferences.c (gnibbles_preferences_cb): Backing out UTF-8
+	multiplication symbol for now.
+
 	* main.c: 
 	* properties.c: Include string.h.
 

@@ -514,7 +514,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	vbox = gtk_vbox_new (FALSE, 6);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
 
-	button = gtk_radio_button_new_with_label (NULL, _("Tiny  (184 \xc3\x97 132)"));
+	button = gtk_radio_button_new_with_label (NULL, _("Tiny  (184 x 132)"));
 
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 2)
@@ -524,7 +524,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 2);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Small  (368 \xc3\x97 264)"));
+						  _("Small  (368 x 264)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 4)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -533,7 +533,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 4);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Medium  (460 \xc3\x97 330)"));
+						  _("Medium  (460 x 330)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 5)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -542,7 +542,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 5);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Large  (736 \xc3\x97 528)"));
+						  _("Large  (736 x 528)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 8)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -551,7 +551,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 8);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Extra large  (920 \xc3\x97 660)"));
+						  _("Extra large  (920 x 660)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 10)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -560,7 +560,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 10);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Huge  (1840 \xc3\x97 1320)"));
+						  _("Huge  (1840 x 1320)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 20)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
