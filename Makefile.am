@@ -98,28 +98,9 @@ CLEANFILES = $(Games_DATA) $(soundlist_DATA)
 
 install-data-local:
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
-	-touch $(DESTDIR)$(scoredir)/gnibbles.4.0.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.4.0.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.4.0.scores
-	-touch $(DESTDIR)$(scoredir)/gnibbles.3.0.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.3.0.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.3.0.scores
-	-touch $(DESTDIR)$(scoredir)/gnibbles.2.0.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.2.0.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.2.0.scores
-	-touch $(DESTDIR)$(scoredir)/gnibbles.1.0.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.1.0.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.1.0.scores
-	-touch $(DESTDIR)$(scoredir)/gnibbles.4.1.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.4.1.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.4.1.scores
-	-touch $(DESTDIR)$(scoredir)/gnibbles.3.1.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.3.1.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.3.1.scores
-	-touch $(DESTDIR)$(scoredir)/gnibbles.2.1.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.2.1.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.2.1.scores
-	-touch $(DESTDIR)$(scoredir)/gnibbles.1.1.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.1.1.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.1.1.scores
-	-chgrp games $(DESTDIR)$(bindir)/gnibbles && chmod 2555 $(DESTDIR)$(bindir)/gnibbles
+	-for i in 4.0 3.0 2.0 1.0 4.1 3.1 2.1 1.1 ; do \
+	   touch $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
+	   chown $(scores_user).$(scores_group) $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
+	   chmod 664 $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
+	 done
+	-if test "x$(setgid)" = "xtrue"; then chgrp $(scores_group) $(DESTDIR)$(bindir)/gnibbles && chmod 2555 $(DESTDIR)$(bindir)/gnibbles ; fi
