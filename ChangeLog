@@ -1,3 +1,13 @@
+2001-05-30  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	Implement "bug" #3969. Code mostly stolen from libzvt.
+
+	* main.c (hide_cursor), (show_cursor), (show_cursor_cb): New
+	  functions.
+	  (setup_window): Create the "invisible GdkCursor" and connect to
+	  motion_notify_event signal.
+	  (key_press_cb): Hide the cursor here.
+
 2001-05-23  Juan Pablo Mendoza <pablo_juan@yahoo.com>
 
 	* worm.c (gnibbles_worm_undraw_nth) : Chaged if (i == 0) to 

@@ -62,6 +62,11 @@ gint current_level;
 guint pixmap_width = 10, pixmap_height = 10;
 */
 
+static struct _pointers {
+	GdkCursor *current;
+	GdkCursor *invisible;
+} pointers = { NULL };
+
 static gint main_loop (gpointer data);
 static gint add_bonus_cb (gpointer data);
 static void render_logo ();
@@ -100,6 +105,22 @@ static GnomeUIInfo main_menu[] = {
 	GNOMEUIINFO_MENU_HELP_TREE (help_menu),
 	GNOMEUIINFO_END
 };
+
+void hide_cursor ()
+{
+	if (pointers.current != pointers.invisible) {
+		gdk_window_set_cursor (drawing_area->window, pointers.invisible);
+		pointers.current = pointers.invisible;
+	}
+}
+
+void show_cursor ()
+{
+	if (pointers.current != NULL) {
+		gdk_window_set_cursor (drawing_area->window, NULL);
+		pointers.current = NULL;
+	}
+}
 
 gint game_running ()
 {
@@ -191,6 +212,7 @@ static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
 static gint key_press_cb (GtkWidget *widget, GdkEventKey *event)
 {
 	gnibbles_keypress_worms (event->keyval);
+	hide_cursor ();
 }
 
 static void draw_board ()
@@ -512,9 +534,17 @@ static void set_bg_color ()
 	gdk_image_destroy (tmp_image);
 }
 
+gboolean
+show_cursor_cb (GtkWidget *widget, GdkEventMotion *event, gpointer data)
+{
+        show_cursor ();
+        return FALSE;
+}
+
 static void setup_window ()
 {
 	GtkWidget *label, *hbox;
+	GdkPixmap *cursor_dot_pm;
 
 	window = gnome_app_new ("gnibbles", "GNOME Nibbles");
 	gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
@@ -527,6 +557,16 @@ static void setup_window ()
 
 	drawing_area = gtk_drawing_area_new ();
 
+	cursor_dot_pm = gdk_pixmap_create_from_data(
+		window->window, "\0", 1, 1, 1,
+		&drawing_area->style->fg[GTK_STATE_ACTIVE],
+		&drawing_area->style->bg[GTK_STATE_ACTIVE]);
+
+	pointers.invisible = gdk_cursor_new_from_pixmap (
+		cursor_dot_pm, cursor_dot_pm,
+		&drawing_area->style->fg[GTK_STATE_ACTIVE],
+		&drawing_area->style->bg[GTK_STATE_ACTIVE], 0, 0);
+
 	gtk_widget_pop_colormap ();
 	gtk_widget_pop_visual ();
 
@@ -535,12 +575,15 @@ static void setup_window ()
 	gtk_signal_connect (GTK_OBJECT (drawing_area), "configure_event",
 			GTK_SIGNAL_FUNC (configure_event_cb), NULL);
 
+	gtk_signal_connect (GTK_OBJECT(drawing_area), "motion_notify_event",
+			GTK_SIGNAL_FUNC (show_cursor_cb), NULL);
+
 	gtk_drawing_area_size (GTK_DRAWING_AREA (drawing_area),
 			BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
 	gtk_signal_connect (GTK_OBJECT (drawing_area), "expose_event",
 			GTK_SIGNAL_FUNC (expose_event_cb), NULL);
 	gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
-			GDK_EXPOSURE_MASK);
+			GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK);
 	gtk_widget_show (drawing_area);
 
 	gnome_app_create_menus (GNOME_APP (window), main_menu);
