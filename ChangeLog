@@ -1,5 +1,9 @@
 1999-02-06  Ian Peters  <ipeters@acm.org>
 
+	* Made the padding in the preferences dialog more consistant.
+
+1999-02-06  Ian Peters  <ipeters@acm.org>
+
 	* Fixed a smallish bug in the confirmation dialog stuff.
 
 1999-02-06  Ian Peters  <ipeters@acm.org>
