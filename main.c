@@ -824,6 +824,7 @@ new_network_game_cb (GtkWidget *widget, gpointer data)
 {
   gtk_widget_set_sensitive (settings_menu[0].widget, FALSE);
   network_new (window);
+  gtk_widget_set_sensitive (settings_menu[0].widget, TRUE);
 }
 
 void 
