@@ -41,12 +41,12 @@ extern gint current_level;
 
 typedef struct _key_queue_entry {
 	GnibblesWorm *worm;
-	guint keyval;
+	guint dir;
 } key_queue_entry;
 
 static GQueue *key_queue[NUMWORMS] = {NULL, NULL, NULL, NULL};
 
-static void gnibbles_worm_queue_keypress (GnibblesWorm *worm, guint keyval)
+static void gnibbles_worm_queue_keypress (GnibblesWorm *worm, guint dir)
 {
 	key_queue_entry *entry;
 	int n = worm->number;
@@ -59,12 +59,12 @@ static void gnibbles_worm_queue_keypress (GnibblesWorm *worm, guint keyval)
 	 * you do want two keys that are the same in quick succession. */
 	if ((!properties->wormprops[worm->number]->relmove) && 
 	    (!g_queue_is_empty (key_queue[n])) &&
-	    (keyval == ((key_queue_entry *) g_queue_peek_tail (key_queue[n]))->keyval))
+	    (dir == ((key_queue_entry *) g_queue_peek_tail (key_queue[n]))->dir))
 		return;
 
 	entry = g_malloc (sizeof(key_queue_entry));
 	entry->worm = worm;
-	entry->keyval = keyval;
+	entry->dir = dir;
 	g_queue_push_tail (key_queue[n], (gpointer) entry);
 }
 
@@ -128,48 +128,58 @@ gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 {
 	gint key_left, key_right, key_up, key_down;
 
-	if (worm->keypress) {
+/*	if (worm->keypress) {
                 gnibbles_worm_queue_keypress (worm, keyval);
 		return FALSE;
-	} 
+	} */
 
-	key_left = gdk_keyval_from_name (properties->wormprops[worm->number]->left);
-	key_right = gdk_keyval_from_name (properties->wormprops[worm->number]->right);
-	key_up = gdk_keyval_from_name (properties->wormprops[worm->number]->up);
-	key_down = gdk_keyval_from_name (properties->wormprops[worm->number]->down);
-	
+
+
+        if (is_network_running ()) {
+	  key_left = gdk_keyval_from_name (properties->wormprops[0]->left);
+	  key_right = gdk_keyval_from_name (properties->wormprops[0]->right);
+	  key_up = gdk_keyval_from_name (properties->wormprops[0]->up);
+	  key_down = gdk_keyval_from_name (properties->wormprops[0]->down);
+        } else {
+	  key_left = gdk_keyval_from_name (properties->wormprops[worm->number]->left);
+	  key_right = gdk_keyval_from_name (properties->wormprops[worm->number]->right);
+	  key_up = gdk_keyval_from_name (properties->wormprops[worm->number]->up);
+	  key_down = gdk_keyval_from_name (properties->wormprops[worm->number]->down);
+	}
+
 	if (properties->wormprops[worm->number]->relmove) {
 		if (keyval == key_left)
-			worm->direction = worm->direction - 1;
+			worm_handle_direction(worm->number, worm->direction - 1);
 		else if (keyval == key_right)
-			worm->direction = worm->direction + 1;
+			worm_set_direction(worm->number, worm->direction + 1);
                 else
                         return FALSE;
-		worm->keypress = 1;
-		if (worm->direction == 0)
-			worm->direction = 4;
+		/*worm->keypress = 1;*/
+		if (worm->direction == 0) {
+			worm_handle_direction(worm->number, 4);
+                }
 		if (worm->direction == 5)
-			worm->direction = 1;
+			worm_handle_direction(worm->number, 1);
                 return TRUE;
 	} else {
 		if ((keyval == key_up) && (worm->direction != WORMDOWN)) {
-			worm->direction = WORMUP;
-			worm->keypress = 1;
+			worm_handle_direction(worm->number, WORMUP);
+			/*worm->keypress = 1;*/
                         return TRUE;
 		}
 		if ((keyval == key_right) && (worm->direction !=WORMLEFT)) {
-			worm->direction = WORMRIGHT;
-			worm->keypress = 1;
+			worm_handle_direction(worm->number, WORMRIGHT);
+			/*worm->keypress = 1;*/
                         return TRUE;
 		}
 		if ((keyval == key_down) && (worm->direction != WORMUP)) {
-			worm->direction = WORMDOWN;
-			worm->keypress = 1;
+			worm_handle_direction(worm->number, WORMDOWN);
+			/*worm->keypress = 1;*/
                         return TRUE;
 		}
 		if ((keyval == key_left) && (worm->direction != WORMRIGHT)) {
-			worm->direction = WORMLEFT;
-			worm->keypress = 1;
+			worm_handle_direction(worm->number, WORMLEFT);
+			/*worm->keypress = 1;*/
                         return TRUE;
 		}
 	}
@@ -183,7 +193,7 @@ static void gnibbles_worm_dequeue_keypress (GnibblesWorm * worm)
 
 	entry = (key_queue_entry *) g_queue_pop_head (key_queue[n]);
 
-	gnibbles_worm_handle_keypress (entry->worm, entry->keyval);
+	worm_set_direction (entry->worm->number, entry->dir);
 
 	g_free (entry);
 }
@@ -330,12 +340,12 @@ gnibbles_worm_draw_head (GnibblesWorm *worm)
 		if ((board[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
 				!gnibbles_boni_fake (boni, worm->xhead,
 				worm->yhead)) {
-			gnibbles_boni_remove_bonus (boni, worm->xhead,
+			gnibbles_boni_remove_bonus_final (boni, worm->xhead,
 					worm->yhead);
 			if (boni->numleft != 0)
 				gnibbles_add_bonus (1);
 		} else
-			gnibbles_boni_remove_bonus (boni, worm->xhead,
+			gnibbles_boni_remove_bonus_final (boni, worm->xhead,
 					worm->yhead);
 	}
 
@@ -491,4 +501,35 @@ gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset)
 				i = CAPACITY - 1;
 		}
 	}
+
+
 }
+
+
+void
+worm_handle_direction (int worm, int dir)
+{
+	if (is_network_running ()) {
+    		network_game_move (dir);
+	} else {
+		worm_set_direction(worm, dir);
+  	}	
+}
+
+
+void
+worm_set_direction (int worm, int dir)
+{
+        if (worms[worm]) {
+
+		if (worms[worm]->keypress) {
+        		gnibbles_worm_queue_keypress (worms[worm], dir);
+                	return;
+        	} 
+
+               	worms[worm]->direction = dir;
+		worms[worm]->keypress = 1;
+        }
+
+}
+

@@ -23,6 +23,7 @@
 #include "gnibbles.h"
 #include "bonus.h"
 #include "boni.h"
+#include "network.h"
 
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 
@@ -66,6 +67,25 @@ void gnibbles_boni_add_bonus (GnibblesBoni *boni, gint t_x, gint t_y,
 	boni->numbonuses++;
 	if (t_type != BONUSREGULAR)
 		gnibbles_play_sound ("appear");
+	network_add_bonus (t_x, t_y, t_type, t_fake, t_countdown);
+
+}
+
+void gnibbles_boni_add_bonus_final (GnibblesBoni *boni, gint t_x, gint t_y,
+                gint t_type, gint t_fake, gint t_countdown)
+{
+        if (boni->numbonuses == MAXBONUSES)
+                return;
+        boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y,
+                        t_type, t_fake, t_countdown);
+        board[t_x][t_y] = t_type + 'A';
+        board[t_x + 1][t_y] = t_type + 'A';
+        board[t_x][t_y + 1] = t_type + 'A';
+        board[t_x + 1][t_y + 1] = t_type + 'A';
+        gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
+        boni->numbonuses++;
+        if (t_type != BONUSREGULAR)
+                gnibbles_play_sound ("appear");
 }
 
 int gnibbles_boni_fake (GnibblesBoni *boni, gint x, gint y)
@@ -90,6 +110,7 @@ int gnibbles_boni_fake (GnibblesBoni *boni, gint x, gint y)
 void gnibbles_boni_remove_bonus (GnibblesBoni *boni, gint x, gint y) { 
 	int i;
 
+	network_remove_bonus (x, y);
 	for (i = 0; i < boni->numbonuses; i++) {
 		if ((x == boni->bonuses[i]->x && 
 				y == boni->bonuses[i]->y) ||
@@ -113,3 +134,30 @@ void gnibbles_boni_remove_bonus (GnibblesBoni *boni, gint x, gint y) {
 		}
 	}
 }
+
+void gnibbles_boni_remove_bonus_final (GnibblesBoni *boni, gint x, gint y) {
+        int i;
+
+        for (i = 0; i < boni->numbonuses; i++) {
+                if ((x == boni->bonuses[i]->x &&
+                                y == boni->bonuses[i]->y) ||
+                                (x == boni->bonuses[i]->x + 1 &&
+                                y == boni->bonuses[i]->y) ||
+                                (x == boni->bonuses[i]->x &&
+                                y == boni->bonuses[i]->y + 1) ||
+                                (x == boni->bonuses[i]->x + 1 &&
+                                y == boni->bonuses[i]->y + 1)) {
+                        board[boni->bonuses[i]->x][boni->bonuses[i]->y] =
+                                EMPTYCHAR;
+                        board[boni->bonuses[i]->x + 1][boni->bonuses[i]->y] =
+                                EMPTYCHAR;
+                        board[boni->bonuses[i]->x][boni->bonuses[i]->y + 1] =
+                                EMPTYCHAR;
+                        board[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1]                                = EMPTYCHAR;
+                        gnibbles_bonus_erase (boni->bonuses[i]);
+                        boni->bonuses[i] = boni->bonuses[--boni->numbonuses];
+                        return;
+                }
+        }
+}
+

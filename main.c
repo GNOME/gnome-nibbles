@@ -37,6 +37,7 @@
 #include "boni.h"
 #include "preferences.h"
 #include "scoreboard.h"
+#include "network.h"
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -73,7 +74,6 @@ static struct _pointers {
 	GdkCursor *invisible;
 } pointers = { NULL };
 
-static gint main_loop (gpointer data);
 static gint add_bonus_cb (gpointer data);
 static void render_logo (void);
 static gint new_game_cb (GtkWidget *widget, gpointer data);
@@ -82,9 +82,11 @@ static gint end_game_cb (GtkWidget *widget, gpointer data);
 static void quit_cb (GtkWidget *widget, gpointer data);
 static void about_cb (GtkWidget *widget, gpointer data);
 static void show_scores_cb (GtkWidget *widget, gpointer data);
+static void new_network_game_cb(GtkWidget *widget, gpointer data);
 
 static GnomeUIInfo game_menu[] = {
 	GNOMEUIINFO_MENU_NEW_GAME_ITEM (new_game_cb, NULL),
+	GNOMEUIINFO_ITEM(N_("New net_work game"), NULL, new_network_game_cb, NULL),
 	GNOMEUIINFO_MENU_PAUSE_GAME_ITEM (pause_game_cb, NULL),
 	GNOMEUIINFO_SEPARATOR,
 	GNOMEUIINFO_MENU_SCORES_ITEM (show_scores_cb, NULL),
@@ -231,6 +233,7 @@ static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
 static gint key_press_cb (GtkWidget *widget, GdkEventKey *event)
 {
 	hide_cursor ();
+
 	return gnibbles_keypress_worms (event->keyval);
 }
 
@@ -338,11 +341,11 @@ new_game_2_cb (GtkWidget *widget, gpointer data)
 							"key_press_event",
 							G_CALLBACK (key_press_cb),
 							NULL);
-		if (!main_id)
+		if (!main_id && network_is_host ())
 			main_id = g_timeout_add (GAMEDELAY * properties->gamespeed,
 						   (GSourceFunc) main_loop,
 						   NULL);
-		if (!add_bonus_id)
+		if (!add_bonus_id && network_is_host ()) 
 			add_bonus_id = g_timeout_add (BONUSDELAY *
 							properties->gamespeed,
 							(GSourceFunc) add_bonus_cb,
@@ -354,11 +357,22 @@ new_game_2_cb (GtkWidget *widget, gpointer data)
 	return (FALSE);
 }
 
+gint
+new_game (void)
+{
+  return new_game_cb(NULL, NULL);
+}
+
 static gint
 new_game_cb (GtkWidget *widget, gpointer data)
 {
-	gtk_widget_set_sensitive (game_menu[1].widget, TRUE);
-	gtk_widget_set_sensitive (game_menu[4].widget, TRUE);
+        gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
+	if (is_network_running ()) {
+		gtk_widget_set_sensitive (game_menu[2].widget, FALSE);
+	} else {
+               gtk_widget_set_sensitive (game_menu[2].widget, TRUE);
+	}
+	gtk_widget_set_sensitive (game_menu[5].widget, TRUE);
 	/*
 	gtk_widget_set_sensitive (settings_menu[0].widget, FALSE);
 	*/
@@ -370,10 +384,13 @@ new_game_cb (GtkWidget *widget, gpointer data)
 
 	gnibbles_init ();
 
-	if (!properties->random)
+	if (is_network_running ()) {
+		current_level = 1;
+	} else if (!properties->random) {
 		current_level = properties->startlevel;
-	else
+	} else {
 		current_level = rand () % MAXLEVEL + 1;
+	}
 
 	zero_board();
 	gnibbles_load_level (GTK_WIDGET (window), current_level);
@@ -483,14 +500,18 @@ end_game (gint data)
 
 	if ((gint) data) {
 		render_logo ();
-		gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
-		gtk_widget_set_sensitive (game_menu[4].widget, FALSE);
-		/*
+                gtk_widget_set_sensitive (game_menu[0].widget, TRUE);
+                gtk_widget_set_sensitive (game_menu[1].widget, TRUE);
+		gtk_widget_set_sensitive (game_menu[2].widget, FALSE);
+		gtk_widget_set_sensitive (game_menu[5].widget, FALSE);
 		gtk_widget_set_sensitive (settings_menu[0].widget, TRUE);
-		*/
 	}
 
 	paused = 0;
+
+	if (is_network_running ()) {
+		network_stop ();
+	}
 }
 
 static gint end_game_cb (GtkWidget *widget, gpointer data)
@@ -539,20 +560,23 @@ static gint erase_worms_cb (gpointer datap)
 	return (FALSE);
 }
 
-static gint main_loop (gpointer data)
+gint 
+main_loop (gpointer data)
 {
 	gint status;
 	gint tmp;
 
 	status = gnibbles_move_worms ();
-
 	gnibbles_scoreboard_update (scoreboard);
+	network_move_worms ();
 
 	if (status == GAMEOVER) {
 		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
 		main_id = 0;
-		g_source_remove (add_bonus_id);
+		if (add_bonus_id) {
+			g_source_remove (add_bonus_id);
+		}
 		add_bonus_id = 0;
 		erase_id = g_timeout_add (3000,
 					  (GSourceFunc) erase_worms_cb,
@@ -564,7 +588,9 @@ static gint main_loop (gpointer data)
 	if (status == NEWROUND) {
 		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
-		g_source_remove (add_bonus_id);
+		if (add_bonus_id) {
+			g_source_remove (add_bonus_id);
+		}
 		add_bonus_id = 0;
 		main_id = 0;
 		erase_id = g_timeout_add (ERASETIME / ERASESIZE,
@@ -578,12 +604,15 @@ static gint main_loop (gpointer data)
 	if (boni->numleft == 0) {
 		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
-		g_source_remove (add_bonus_id);
+		if (add_bonus_id) {
+			g_source_remove (add_bonus_id);
+		}
 		add_bonus_id = 0;
 		main_id = 0;
-		if ((current_level < MAXLEVEL) && !properties->random)
+		if ((current_level < MAXLEVEL) && !properties->random 
+		     || is_network_running ())
 			current_level++;
-		else if (properties->random) {
+		else if (properties->random && !is_network_running ()) {
 			tmp = rand () % MAXLEVEL + 1;
 			while (tmp == current_level)
 				tmp = rand () % MAXLEVEL + 1;
@@ -622,12 +651,12 @@ update_score_state (void)
 				       &names, &scores, &scoretimes);
 	g_free (buf);
 	if (top > 0) {
-		gtk_widget_set_sensitive (game_menu[3].widget, TRUE);
+		gtk_widget_set_sensitive (game_menu[4].widget, TRUE);
 		g_strfreev (names);
 		g_free (scores);
 		g_free (scoretimes);
 	} else {
-		gtk_widget_set_sensitive (game_menu[3].widget, FALSE);
+		gtk_widget_set_sensitive (game_menu[4].widget, FALSE);
 	}
 }
 
@@ -782,10 +811,24 @@ main (int argc, char **argv)
 
 	/*set_bg_color ();*/
 
-	gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
-	gtk_widget_set_sensitive (game_menu[4].widget, FALSE);
+	gtk_widget_set_sensitive (game_menu[2].widget, FALSE);
+	gtk_widget_set_sensitive (game_menu[5].widget, FALSE);
 
 	gtk_main ();
 
 	return 0;
 }
+
+static void
+new_network_game_cb (GtkWidget *widget, gpointer data)
+{
+  gtk_widget_set_sensitive (settings_menu[0].widget, FALSE);
+  network_new (window);
+}
+
+void 
+set_numworms (int num)
+{
+  properties->numworms = num;
+}
+

@@ -1,8 +1,19 @@
+2004-09-20 Andreas Røsdal <andrearo@stud.ntnu.no>
+
+	* main.c: Implement network mode. main_loop is controlled by
+	a timer on the server, and on the client main_loop is controlled
+	by the server.
+	* network.c: Gnibbles specific network code using the
+	common network code in libgames-support.
+	* warpmanager.c: Make network games deterministic, by
+	removing a random factor. 
+	* worm.c: Enable key-queues across the network.
+
 2004-09-15  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* main.c (about_cb): Update the name in the about box.
 
-2004-09-09  callum  <callum@spooky-possum.org>
+2004-09-09  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/figures/*
 	* help/C/gnibbles.xml: Updated docs for 2.8 / changed name from

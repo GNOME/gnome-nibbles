@@ -24,5 +24,9 @@ gint game_running (void);
 gint pause_game_cb (GtkWidget *widget, gpointer data);
 void update_score_state (void);
 void end_game (gint);
+gint new_game (void); 
+void set_numworms (int num);
+gint main_loop (gpointer data);
+
 
 #endif

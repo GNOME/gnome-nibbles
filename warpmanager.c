@@ -25,6 +25,7 @@
 #include "warpmanager.h"
 #include "boni.h"
 #include "worm.h"
+#include "network.h"
 
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 extern GnibblesBoni *boni;
@@ -114,8 +115,14 @@ void gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager *warpmanager,
 			if (warpmanager->warps[i]->wx == -1) {
 				good = 0;
 				while (!good) {
-					x = rand() % BOARDWIDTH;
-					y = rand() % BOARDHEIGHT;
+				/* In network games, warps should be fair. */
+					if (is_network_running ()) {
+						x = 10 % BOARDWIDTH;
+						y = 10 % BOARDHEIGHT;
+					} else {
+						x = rand() % BOARDWIDTH;
+						y = rand() % BOARDHEIGHT;
+					}
 					if (board[x][y] == EMPTYCHAR)
 						good = 1;
 				}

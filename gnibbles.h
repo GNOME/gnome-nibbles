@@ -65,5 +65,8 @@ void gnibbles_undraw_worms (gint data);
 void gnibbles_play_sound (const char *which);
 void gnibbles_show_scores (GtkWidget *window, gint pos);
 void gnibbles_log_score (GtkWidget *window);
+void gnibbles_add_spec_bonus (gint t_x, gint t_y,
+      		         gint t_type, gint t_fake, gint t_countdown);
+void gnibbles_remove_spec_bonus (gint x, gint y);
 
 #endif

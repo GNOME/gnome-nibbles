@@ -443,7 +443,9 @@ gnibbles_add_bonus (gint regular)
 gint gnibbles_move_worms ()
 {
 	gint i, j, status = 1;
-	gint *dead = g_new (gint, properties->numworms);
+	gint *dead;
+
+	dead = g_new (gint, properties->numworms);
 
 	if (boni->missed > MAXMISSED)
 		for (i = 0; i < properties->numworms; i++)
@@ -530,8 +532,9 @@ gint gnibbles_keypress_worms (guint keyval)
 	gint i;
 
 	for (i = 0; i < properties->numworms; i++)
-		if (gnibbles_worm_handle_keypress (worms[i], keyval))
+		if (gnibbles_worm_handle_keypress (worms[i], keyval)) {
                         return TRUE;
+		}
 
         return FALSE;
 }
@@ -593,4 +596,18 @@ gnibbles_log_score (GtkWidget *window)
 	update_score_state ();
 
 	gnibbles_show_scores (window, pos);
+}
+
+
+void 
+gnibbles_add_spec_bonus (gint t_x, gint t_y,
+                   gint t_type, gint t_fake, gint t_countdown)
+{
+	gnibbles_boni_add_bonus_final (boni, t_x, t_y, t_type, t_fake, t_countdown);
+}
+
+void
+gnibbles_remove_spec_bonus (gint x, gint y)
+{
+	gnibbles_boni_remove_bonus_final (boni, x, y);
 }

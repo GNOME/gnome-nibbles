@@ -27,6 +27,8 @@ gnibbles_SOURCES = \
 	worm.c \
 	gnibbles.h \
 	gnibbles.c \
+	network.c \
+	network.h \
 	properties.h \
 	properties.c \
 	preferences.h \
