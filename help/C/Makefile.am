@@ -8,10 +8,11 @@ figs = \
 	worm_op.png
 
 gnibbles_help_DATA = 	\
+	gnibbles.sgml		\
 	index.html		\
 	topic.dat
 
-EXTRA_DIST = gnibbles.sgml $(gnibbles_help_DATA) $(figs)
+EXTRA_DIST = $(gnibbles_help_DATA) $(figs)
 
 all: index.html
 
