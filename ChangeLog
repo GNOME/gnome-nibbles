@@ -1,3 +1,7 @@
+2005-03-02  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* help/C/gnibbles.xml: Bump the app version number. No revisions.
+
 2004-11-21  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnibbles.soundlist.in (_description): Fix the description.
