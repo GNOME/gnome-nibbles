@@ -88,6 +88,7 @@ void gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 void gnibbles_load_pixmap ()
 {
 	GdkPixbuf *image;
+	GdkPixbuf *tmp;
 	gchar *filename;
 
 	filename = gnome_unconditional_pixmap_file ("gnibbles/gnibbles.png");
@@ -107,9 +108,13 @@ void gnibbles_load_pixmap ()
 	if (gnibbles_pixmap)
 		gdk_pixmap_unref (gnibbles_pixmap);
 
-	gdk_pixbuf_render_pixmap_and_mask (image, &gnibbles_pixmap, NULL, 127);
+	tmp = gdk_pixbuf_scale_simple (image, 10 * properties->tilesize, 
+				10 * properties->tilesize, GDK_INTERP_TILES);
+
+	gdk_pixbuf_render_pixmap_and_mask (tmp, &gnibbles_pixmap, NULL, 127);
 
 	gdk_pixbuf_unref (image);
+	gdk_pixbuf_unref (tmp);
 	g_free (filename);
 
 	filename = gnome_unconditional_pixmap_file
@@ -125,13 +130,17 @@ void gnibbles_load_pixmap ()
 	}
 
 	image = gdk_pixbuf_new_from_file (filename);
+	tmp = gdk_pixbuf_scale_simple (image, BOARDWIDTH * properties->tilesize,
+				 BOARDHEIGHT * properties->tilesize, 
+				 GDK_INTERP_TILES);
 
 	if (logo_pixmap)
 		gdk_pixmap_unref (logo_pixmap);
 
-	gdk_pixbuf_render_pixmap_and_mask (image, &logo_pixmap, NULL, 127);
+	gdk_pixbuf_render_pixmap_and_mask (tmp, &logo_pixmap, NULL, 127);
 
 	gdk_pixbuf_unref (image);
+	gdk_pixbuf_unref (tmp);
 	g_free (filename);
 }
 
