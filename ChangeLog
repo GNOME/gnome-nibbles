@@ -1,3 +1,8 @@
+1999-02-13  Ian Peters  <ipeters@acm.org>
+
+	* Fixed bug when you delete the window - connect to delete_event, not
+	destroy.
+
 1999-02-12  Ian Peters  <ipeters@acm.org>
 
 	* lots-o-files: Added the code for discouraging missing bonuses too

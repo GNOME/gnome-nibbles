@@ -427,8 +427,8 @@ static void setup_window ()
 	window = gnome_app_new ("gnibbles", "Gnome Nibbles");
 	gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
 	gtk_widget_realize (window);
-	gtk_signal_connect (GTK_OBJECT (window), "destroy", GTK_SIGNAL_FUNC
-			(quit_cb), NULL);
+	gtk_signal_connect (GTK_OBJECT (window), "delete_event",
+			GTK_SIGNAL_FUNC (quit_cb), NULL);
 
 	gtk_widget_push_visual (gdk_imlib_get_visual ());
 	gtk_widget_push_colormap (gdk_imlib_get_colormap ());

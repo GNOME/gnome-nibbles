@@ -72,7 +72,8 @@ Games_DATA = gnibbles.desktop
 
 EXTRA_DIST = \
 	$(pixmap_DATA) 	\
-	$(Games_DATA)
+	$(Games_DATA) \
+	$(config_DATA)
 
 #EXTRA_DIST = README \
 #             AUTHORS \
