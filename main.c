@@ -228,32 +228,7 @@ static void draw_board ()
 
 static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
 {
-	/* Tried-and-tested pixmap scalings */
-	const unsigned scale[] = {2, 4, 5, 8, 10, 20};
 	int i, j;
-
-  /*
-	pixmap_width = pixmap_height = scale[0];
-	for (i=0; i<sizeof(scale)/sizeof(*scale); i++) {
-    printf ("%d\n", scale[i]);
-		if ((BOARDWIDTH * scale[i] <= event->width) &&
-		    (BOARDHEIGHT * scale[i] <= event->height)) {
-			pixmap_width = pixmap_height = scale[i];
-    }
-	}
-  */
-
-  /*
-	if ((event->width % BOARDWIDTH || event->height % BOARDHEIGHT) &&
-	    (drawing_area->requisition.width != pixmap_width*BOARDWIDTH ||
-	     drawing_area->requisition.height != pixmap_height*BOARDHEIGHT)) {
-    printf ("%d, %d\n", pixmap_width * BOARDWIDTH, pixmap_height * BOARDHEIGHT);
-		gtk_drawing_area_size(GTK_DRAWING_AREA(drawing_area),
-				      pixmap_width * BOARDWIDTH,
-				      pixmap_height * BOARDHEIGHT);
-		return (FALSE);
-	}
-  */
 
 	gnibbles_load_pixmap();
 	gdk_imlib_free_pixmap (buffer_pixmap);
@@ -541,7 +516,7 @@ static void setup_window ()
 {
 	GtkWidget *label, *hbox;
 
-	window = gnome_app_new ("gnibbles", "Gnome Nibbles");
+	window = gnome_app_new ("gnibbles", "GNOME Nibbles");
 	gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
 	gtk_widget_realize (window);
 	gtk_signal_connect (GTK_OBJECT (window), "delete_event",
@@ -589,14 +564,14 @@ static void render_logo ()
 	zero_board ();
 
 	gdk_draw_pixmap (buffer_pixmap,
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], logo_pixmap, 0, 0, 0, 0,
-			BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
+			drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)], logo_pixmap,
+      0, 0, 0, 0, BOARDWIDTH*properties->tilesize,
+      BOARDHEIGHT*properties->tilesize);
 
 	gdk_draw_pixmap (drawing_area->window,
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], buffer_pixmap, 0, 0, 0, 0,
-			BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
+			drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
+      buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH*properties->tilesize,
+      BOARDHEIGHT*properties->tilesize);
 }
 
 int main (int argc, char **argv)
