@@ -102,6 +102,8 @@ static void random_order_cb (GtkWidget *widget, gpointer data)
 		gtk_widget_set_sensitive ((GtkWidget *) list->data, TRUE);
 	}
 
+	g_list_free (list);
+
 	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
@@ -229,6 +231,8 @@ static void worm_relative_movement_cb (GtkWidget *widget, gpointer data)
 		}
 	}
 
+	g_list_free (list);
+
 	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
@@ -333,6 +337,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	label2 = gtk_label_new (_("Starting level: "));
 	gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 	gtk_widget_show (label2);
+	if (properties->random)
+		gtk_widget_set_sensitive (GTK_WIDGET (label2), FALSE);
 	gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 3, 4, GTK_EXPAND |
 			GTK_FILL, 0, 0, 0);
 
@@ -560,6 +566,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 						(list->data), FALSE);
 				list = list->next;
 			}
+			g_list_free (list);
 		}
 
 		gtk_widget_show (button);
