@@ -16,7 +16,7 @@ GnibblesBoni *gnibbles_boni_new ()
 	for (i = 0; i < MAXBONUSES; i++)
 		tmp->bonuses[i] = NULL;
 	tmp->numbonuses = 0;
-	tmp->numleft = 11;
+	tmp->numleft = NUMBONI;
 	tmp->missed = 0;
 
 	return tmp;

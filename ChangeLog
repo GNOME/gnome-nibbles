@@ -1,5 +1,10 @@
 1999-02-13  Ian Peters  <ipeters@acm.org>
 
+	* Score values increase by levels.  Plugged a memory leak by actually
+	destroying the scoreboard at the end.
+
+1999-02-13  Ian Peters  <ipeters@acm.org>
+
 	* Fixed bug when you delete the window - connect to delete_event, not
 	destroy.
 

@@ -12,6 +12,8 @@ extern GnibblesWarpManager *warpmanager;
 
 extern GnibblesProperties *properties;
 
+extern gint current_level;
+
 GnibblesWorm *gnibbles_worm_new (gint8 t_pixmap, guint t_up, guint t_down,
 		guint t_left, guint t_right)
 {
@@ -129,18 +131,20 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 
 	switch (board[worm->xhead][worm->yhead] - 'A') {
 		case BONUSREGULAR:
-			worm->change += (12 - boni->numleft) * 3;
-			worm->score += 12 - boni->numleft;
 			boni->numleft--;
+			worm->change += (NUMBONI - boni->numleft) * GROWFACTOR;
+			worm->score += (NUMBONI - boni->numleft) *
+				current_level;
 			break;
 		case BONUSDOUBLE:
-			worm->score += worm->length + worm->change;
+			worm->score += (worm->length + worm->change) *
+				current_level;
 			worm->change += worm->length + worm->change;
 			break;
 		case BONUSHALF:
 			if (worm->length + worm->change > 2) {
-				worm->score += (worm->length + worm->change) /
-					2;
+				worm->score += ((worm->length + worm->change) /
+					2) * current_level;
 				worm->change -= (worm->length + worm->change) /
 					2;
 			}

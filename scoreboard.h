@@ -10,13 +10,14 @@
 typedef struct
 {
 	GnibblesWorm *worms[NUMWORMS];
-	GtkWidget *appbar;
 	GtkWidget *names[NUMWORMS];
 	GtkWidget *data[NUMWORMS];
 	gint count;
 } GnibblesScoreboard;
 
 GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar);
+
+void gnibbles_scoreboard_destroy (GnibblesScoreboard *scoreboard);
 
 void gnibbles_scoreboard_register (GnibblesScoreboard *scoreboard,
 		GnibblesWorm *t_worm);

@@ -15,6 +15,8 @@
 #define ERASESIZE 6
 #define ERASETIME 500
 
+#define GROWFACTOR 4
+
 typedef struct
 {
 	gint xhead, yhead;

@@ -268,6 +268,9 @@ void gnibbles_destroy ()
 
 	if (properties)
 		gnibbles_properties_destroy (properties);
+
+	if (scoreboard)
+		gnibbles_scoreboard_destroy (scoreboard);
 }
 
 void gnibbles_add_bonus (int regular)

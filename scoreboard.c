@@ -14,7 +14,6 @@ GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar)
 	GnibblesScoreboard *tmp = (GnibblesScoreboard *) malloc (sizeof
 			(GnibblesScoreboard));
 
-	tmp->appbar = t_appbar;
 	tmp->count = 0;
 
 	for (i = 0; i < NUMWORMS; i++) {
@@ -24,7 +23,7 @@ GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar)
 		if (i) {
 			vsep = gtk_vseparator_new ();
 			gtk_widget_show (vsep);
-			gtk_box_pack_start (GTK_BOX (tmp->appbar), vsep, FALSE,
+			gtk_box_pack_start (GTK_BOX (t_appbar), vsep, FALSE,
 					FALSE, 0);
 		}
 		
@@ -40,11 +39,16 @@ GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar)
 		gtk_box_pack_start (GTK_BOX (hbox), tmp->data[i], FALSE, FALSE,
 				0);
 
-		gtk_box_pack_start (GTK_BOX (tmp->appbar), hbox, FALSE, FALSE,
+		gtk_box_pack_start (GTK_BOX (t_appbar), hbox, FALSE, FALSE,
 				GNOME_PAD);
 	}
 
 	return (tmp);
+}
+
+void gnibbles_scoreboard_destroy (GnibblesScoreboard *scoreboard)
+{
+	free (scoreboard);
 }
 
 void gnibbles_scoreboard_register (GnibblesScoreboard *scoreboard,
