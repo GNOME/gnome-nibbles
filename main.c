@@ -219,7 +219,7 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 				properties->gamespeed, (GtkFunction) add_bonus,
 				NULL);
 	} else {
-		if (main_id || erase_id || restart_id) {
+		if (main_id || erase_id || restart_id || dummy_id ) {
 			paused = 1;
 			if (main_id) {
 				gtk_timeout_remove (main_id);
