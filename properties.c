@@ -21,6 +21,7 @@
 
 #include <config.h>
 #include <gnome.h>
+#include <string.h>
 #include <gconf/gconf-client.h>
 
 #include "properties.h"

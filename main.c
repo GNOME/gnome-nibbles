@@ -21,6 +21,7 @@
 
 #include <config.h>
 #include <gnome.h>
+#include <string.h>
 #include <libgnomeui/gnome-window-icon.h>
 #include <gdk/gdkkeysyms.h>
 #include <time.h>
