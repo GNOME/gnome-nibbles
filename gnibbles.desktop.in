@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=Gnibbles
-_Comment=Gnome Nibbles Game
+_Comment=Nibbles game
 Exec=gnibbles
 Icon=gnome-nibbles.png
 Terminal=0
