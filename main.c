@@ -84,7 +84,7 @@ static GnomeUIInfo game_menu[] = {
 	GNOMEUIINFO_MENU_SCORES_ITEM (show_scores_cb, NULL),
 	GNOMEUIINFO_MENU_END_GAME_ITEM (end_game_cb, (gpointer) 2),
 	GNOMEUIINFO_SEPARATOR,
-	GNOMEUIINFO_MENU_EXIT_ITEM (quit_cb, NULL),
+	GNOMEUIINFO_MENU_QUIT_ITEM (quit_cb, NULL),
 	GNOMEUIINFO_END
 };
 
