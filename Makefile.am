@@ -31,7 +31,8 @@ gnibbles_SOURCES = \
 	preferences.c \
 	scoreboard.h \
 	scoreboard.c \
-	main.c
+	main.c \
+	main.h
 
 gnibbles_LDADD = \
 	$(GNOME_LIBDIR) \
