@@ -1,3 +1,9 @@
+2005-03-23  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* preferences.c: 	
+	* main.c: Patches from Dennis Cranston <dennis_cranston@yahoo.com>
+	to make the game more HIG compliant.
+
 2005-03-08  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* network.c (game_handle_input): Rationalise error messages (bug
