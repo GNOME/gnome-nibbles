@@ -1,3 +1,8 @@
+1999-02-08  Ian Peters  <ipeters@acm.org>
+
+	* bonus.c (gnibbles_bonus_erase): free the bonus, free the memory, much
+	better.
+
 1999-02-07  Ian Peters  <ipeters@acm.org>
 
 	* Removed configure_event_cb, since this should only be done once.

@@ -28,4 +28,6 @@ void gnibbles_bonus_draw (GnibblesBonus *bonus)
 void gnibbles_bonus_erase (GnibblesBonus *bonus)
 {
 	gnibbles_draw_big_pixmap (BONUSNONE, bonus->x, bonus->y);
+
+	free (bonus);
 }
