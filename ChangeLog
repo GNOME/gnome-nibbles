@@ -4,6 +4,7 @@
 	* network.c:
 	* worm.c:
 	* main.c: Clean up warnings.
+	(main): Use gtk_window_set_default_icon_name (via Paolo Borelli).
 
 2004-10-04 Andreas Røsdal <andrearo@stud.ntnu.no>
 

@@ -22,7 +22,6 @@
 #include <config.h>
 #include <gnome.h>
 #include <string.h>
-#include <libgnomeui/gnome-window-icon.h>
 #include <gdk/gdkkeysyms.h>
 #include <time.h>
 #include <gconf/gconf-client.h>
@@ -789,7 +788,7 @@ main (int argc, char **argv)
 			    GNOME_PARAM_POPT_TABLE, NULL,
 			    GNOME_PARAM_APP_DATADIR, REAL_DATADIR,
 			    NULL);
-	gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/gnome-nibbles.png");
+	gtk_window_set_default_icon_name ("gnome-nibbles");
 	srand (time (NULL));
 
 	load_properties ();
