@@ -105,7 +105,7 @@ SCOREFILES = 4.0 3.0 2.0 1.0 4.1 3.1 2.1 1.1
 
 install-data-local:
 if GCONF_SCHEMAS_INSTALL
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/$(schema_DATA)
+	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/gnibbles/$(schema_DATA)
 endif
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	-for i in ${SCOREFILES} ; do \
