@@ -1,3 +1,7 @@
+1999-02-14  Ian Peters  <ipeters@acm.org>
+
+	* Changes all over the place.  Added sounds.
+
 1999-02-13  Ian Peters  <ipeters@acm.org>
 
 	* Score values increase by levels.  Plugged a memory leak by actually

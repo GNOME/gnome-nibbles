@@ -126,6 +126,7 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 
 	if (gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
 		gtk_timeout_add(1, (GtkFunction) gnibbles_worm_reverse, worm);
+		gnome_triggers_do (NULL, NULL, "gnibbles", "reverse", NULL);
 		return;
 	}
 
@@ -135,11 +136,15 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 			worm->change += (NUMBONI - boni->numleft) * GROWFACTOR;
 			worm->score += (NUMBONI - boni->numleft) *
 				current_level;
+			gnome_triggers_do (NULL, NULL, "gnibbles", "gobble",
+					NULL);
 			break;
 		case BONUSDOUBLE:
 			worm->score += (worm->length + worm->change) *
 				current_level;
 			worm->change += worm->length + worm->change;
+			gnome_triggers_do (NULL, NULL, "gnibbles", "bonus",
+					NULL);
 			break;
 		case BONUSHALF:
 			if (worm->length + worm->change > 2) {
@@ -147,10 +152,14 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 					2) * current_level;
 				worm->change -= (worm->length + worm->change) /
 					2;
+				gnome_triggers_do (NULL, NULL, "gnibbles",
+						"bonus", NULL);
 			}
 			break;
 		case BONUSLIFE:
 			worm->lives += 1;
+			gnome_triggers_do (NULL, NULL, "gnibbles", "life",
+					NULL);
 			break;
 		case BONUSREVERSE:
 			for (i = 0; i < properties->numworms; i++)
@@ -158,6 +167,8 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 					gtk_timeout_add(1, (GtkFunction)
 							gnibbles_worm_reverse,
 						 	worms[i]);
+			gnome_triggers_do (NULL, NULL, "gnibbles", "reverse",
+					NULL);
 			break;
 	}
 }
@@ -221,8 +232,10 @@ void gnibbles_worm_draw_head (GnibblesWorm *worm)
 					worm->yhead);
 	}
 
-	if (board[worm->xhead][worm->yhead] == WARPLETTER)
+	if (board[worm->xhead][worm->yhead] == WARPLETTER) {
 		gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
+		gnome_triggers_do (NULL, NULL, "gnibbles", "teleport", NULL);
+	}
 
 	worm->start++;
 

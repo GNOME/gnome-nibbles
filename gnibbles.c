@@ -438,12 +438,15 @@ gint gnibbles_move_worms ()
 			gnibbles_worm_draw_head (worms[i]);
 
 	if (status & GAMEOVER) {
+		gnome_triggers_do (NULL, NULL, "gnibbles", "crash", NULL);
+		gnome_triggers_do (NULL, NULL, "gnibbles", "gameover", NULL);
 		return (GAMEOVER);
 	}
 
 	if (status)
 		return (CONTINUE);
 
+	gnome_triggers_do (NULL, NULL, "gnibbles", "crash", NULL);
 	return (NEWROUND);
 }
 

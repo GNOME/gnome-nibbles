@@ -1,6 +1,7 @@
 pixmapdir=$(datadir)/pixmaps/gnibbles
 configdir=$(datadir)/gnibbles
 appicondir=$(datadir)/pixmaps
+soundlistdir = $(sysconfdir)/sound/events
 Gamesdir=$(datadir)/apps/Games
 
 INCLUDES = 			\
@@ -70,10 +71,13 @@ config_DATA = \
 
 Games_DATA = gnibbles.desktop
 
+soundlist_DATA = gnibbles.soundlist
+
 EXTRA_DIST = \
 	$(pixmap_DATA) 	\
 	$(Games_DATA) \
-	$(config_DATA)
+	$(config_DATA) \
+	$(soundlist_DATA)
 
 #EXTRA_DIST = README \
 #             AUTHORS \
