@@ -505,16 +505,21 @@ void gnibbles_play_sound (const char *which)
 		gnome_triggers_do (NULL, NULL, "gnibbles", which, NULL);
 }
 
-void gnibbles_show_scores (gint pos)
+void gnibbles_show_scores (GtkWidget *window, gint pos)
 {
+	GtkWidget *dialog;
 	char buf[10];
 
 	sprintf (buf, "%d.%d", properties->gamespeed, properties->fakes);
 
-	gnome_scores_display ("Gnibbles", "gnibbles", buf, pos);
+	dialog = gnome_scores_display ("Gnibbles", "gnibbles", buf, pos);
+	if (dialog != NULL) {
+		gtk_window_set_transient_for (GTK_WINDOW(dialog), GTK_WINDOW(window));
+		gtk_window_set_modal (GTK_WINDOW(dialog), TRUE);
+	}
 }
 
-void gnibbles_log_score ()
+void gnibbles_log_score (GtkWidget *window)
 {
 	char buf[10];
 	int pos;
@@ -534,5 +539,5 @@ void gnibbles_log_score ()
 
 	update_score_state ();
 
-	gnibbles_show_scores (pos);
+	gnibbles_show_scores (window, pos);
 }

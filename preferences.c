@@ -278,7 +278,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	
 	if (pref_dialog)
 	{
-		gtk_widget_show(pref_dialog);
+		gtk_window_present (GTK_WINDOW(pref_dialog));
 		return;
 	}
 

@@ -1,3 +1,11 @@
+2002-11-22  Tim Musson  <trmusson@ihug.co.nz>
+
+	* gnibbles.c, gnibbles.h: (gnibbles_show_scores), (gnibbles_log_score):
+	* main.c: (show_scores_cb), (main_loop):
+	Made Score dialog modal. (#97320)
+	* main.c: (about_cb): Added gtk_window_present and made transient.
+	* preferences.c: (gnibbles_preferences_cb): Added gtk_window_present.
+
 2002-11-19  Jeremy Browne  <jeremy@synonymous.ca>
 
 	* main.c: Split 'End game?' dialog into new game / quit dialogs which

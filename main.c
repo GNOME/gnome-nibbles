@@ -188,7 +188,7 @@ static void quit_cb (GtkWidget *widget, gpointer data)
 
 static void about_cb (GtkWidget *widget, gpointer data)
 {
-	static GtkWidget *about;
+	static GtkWidget *about = NULL;
 	GdkPixbuf *pixbuf = NULL;
 
 	const gchar *authors[] = {"Sean MacIsaac", "Ian Peters", NULL};
@@ -199,8 +199,7 @@ static void about_cb (GtkWidget *widget, gpointer data)
         gchar *translator_credits = _("translator_credits");
 
 	if (about != NULL) {
-		gdk_window_raise (about->window);
-		gdk_window_show (about->window);
+		gtk_window_present (GTK_WINDOW(about));
 		return;
 	}
 
@@ -225,6 +224,7 @@ static void about_cb (GtkWidget *widget, gpointer data)
 			(const char **)documenters,
 			strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
 			pixbuf);
+        gtk_window_set_transient_for (GTK_WINDOW (about), GTK_WINDOW (window));
 	g_signal_connect (G_OBJECT (about), "destroy", G_CALLBACK
 			(gtk_widget_destroyed), &about);
 	gtk_widget_show (about);
@@ -407,7 +407,7 @@ gint pause_game_cb (GtkWidget *widget, gpointer data)
 
 static gint show_scores_cb (GtkWidget *widget, gpointer data)
 {
-	gnibbles_show_scores (0);
+	gnibbles_show_scores (window, 0);
 }
 
 static gint end_game_cb (GtkWidget *widget, gpointer data)
@@ -514,7 +514,7 @@ static gint main_loop (gpointer data)
 		erase_id = gtk_timeout_add (3000,
 				(GtkFunction) erase_worms_cb,
 				(gpointer) ERASESIZE);
-		gnibbles_log_score ();
+		gnibbles_log_score (window);
 		return (FALSE);
 	}
 
