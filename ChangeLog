@@ -1,3 +1,8 @@
+1999-03-12  Ian Peters  <itp@gnu.org>
+
+	* preferences.c (gnibbles_preferences_cb): removed pref_dialog_valid,
+	since pref_dialog encompasses this information.
+
 1999-03-09  Ian Peters  <itp@acm.org>
 
 	* gnibbles.c: gnibbles_log_score (): Check to make sure we started on
