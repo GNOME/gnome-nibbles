@@ -35,6 +35,7 @@
 #include "games-network.h"
 #include "games-network-dialog.h"
 #include "network.h"
+#include "worm.h"
 
 char *game_server = "gnothello.gnome.org"; 
 char *game_port = "26479";
@@ -171,7 +172,7 @@ game_handle_input (NetworkGame *ng, char *buf)
   /*  Handle the move message, telling the client which
       direction to move the worm. */
   } else if (! strcmp (buf, "move")) {
-    int x, y, me;
+    int x, me;
 
     if (!args || sscanf(args, "%d %d", &x, &me) != 2) {
       network_set_status (ng, DISCONNECTED, _("Invalid game data (move)"));
@@ -190,7 +191,7 @@ game_handle_input (NetworkGame *ng, char *buf)
   /* Move messages from the client to the host must be acknowledged
      by the host before the client can act upon it.  */
   } else if (! strcmp (buf, "ack_move")) {
-    int x, y, me;
+    int x, me;
 
     if (!args || sscanf(args, "%d %d", &x, &me) != 2) {
       network_set_status (ng, DISCONNECTED, _("Invalid game data (move)"));

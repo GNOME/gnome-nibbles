@@ -610,8 +610,8 @@ main_loop (gpointer data)
 		}
 		add_bonus_id = 0;
 		main_id = 0;
-		if ((current_level < MAXLEVEL) && !properties->random 
-		     || is_network_running ())
+		if ((current_level < MAXLEVEL) && (!properties->random 
+		     || is_network_running ()))
 			current_level++;
 		else if (properties->random && !is_network_running ()) {
 			tmp = rand () % MAXLEVEL + 1;

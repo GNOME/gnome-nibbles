@@ -1,6 +1,8 @@
 #ifndef NETWORK_H
 #define NETWORK_H
 
+#include <games-network.h>
+
 #define PLAYER_1 1
 #define PLAYER_2 31
 

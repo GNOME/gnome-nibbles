@@ -29,6 +29,7 @@
 #include "bonus.h"
 #include "warpmanager.h"
 #include "properties.h"
+#include "network.h"
 
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 extern GnibblesWorm *worms[NUMWORMS];
