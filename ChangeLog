@@ -1,3 +1,8 @@
+2001-06-09  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* worm.c (gnibbles_worm_undraw_nth): Don't enter in a infinite
+	  loop!
+
 2001-06-08  Juan Pablo Mendoza <pablo_juan@yahoo.com>
 
 	Apply patch from Jeff Ozvold <corsalini@yahoo.it>. Bug #52900.
