@@ -31,7 +31,6 @@ GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar)
 	int i;
 	char buffer[255];
 	GtkWidget *hbox;
-	GtkWidget *vsep;
 
 	GnibblesScoreboard *tmp = (GnibblesScoreboard *) malloc (sizeof
 			(GnibblesScoreboard));

@@ -53,9 +53,9 @@ void gnibbles_warpmanager_destroy (GnibblesWarpManager *warpmanager)
 }
 
 void gnibbles_warpmanager_add_warp (GnibblesWarpManager *warpmanager, gint t_x,
-		gint t_y, gint t_wx, gint t_wy)
+                                    gint t_y, gint t_wx, gint t_wy)
 {
-	gint i, add = 1, draw;
+	gint i, add = 1, draw = 0;
 
 	if (t_x < 0) {
 		for (i = 0; i < warpmanager->numwarps; i++) {

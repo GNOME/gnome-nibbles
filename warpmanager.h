@@ -34,7 +34,7 @@ typedef struct {
 	gint numwarps;
 } GnibblesWarpManager;
 
-GnibblesWarpManager *gnibbles_warpmanager_new ();
+GnibblesWarpManager *gnibbles_warpmanager_new (void);
 
 void gnibbles_warpmanager_destroy (GnibblesWarpManager *warpmanager);
 

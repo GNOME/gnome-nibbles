@@ -24,6 +24,7 @@
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
+#include "main.h"
 #include "gnibbles.h"
 #include "worm.h"
 #include "boni.h"
@@ -52,7 +53,7 @@ extern GnibblesScoreboard *scoreboard;
 extern guint properties->tilesize, properties->tilesize;
 */
 
-void
+static void
 gnibbles_error (GtkWidget *window, gchar *message)
 {
 	GtkWidget *w = gtk_message_dialog_new (GTK_WINDOW (window), GTK_DIALOG_MODAL,
@@ -64,7 +65,7 @@ gnibbles_error (GtkWidget *window, gchar *message)
 	exit (1);
 }
 
-void
+static void
 gnibbles_copy_pixmap (GdkDrawable *drawable, gint which, gint x, gint y,
 		      gboolean big)
 {
@@ -275,7 +276,7 @@ gnibbles_load_level (GtkWidget *window, gint level)
 }
 
 void
-gnibbles_init ()
+gnibbles_init (void)
 {
 	gint i;
 
@@ -401,7 +402,7 @@ gint gnibbles_move_worms ()
 				worms[i]->score--;
 	
 	for (i = 0; i < boni->numbonuses; i++) {
-		if (!(boni->bonuses[i]->countdown--))
+		if (!(boni->bonuses[i]->countdown--)) {
 			if (boni->bonuses[i]->type == BONUSREGULAR &&
 					!boni->bonuses[i]->fake) {
 				gnibbles_boni_remove_bonus (boni,
@@ -409,10 +410,12 @@ gint gnibbles_move_worms ()
 						boni->bonuses[i]->y);
 				boni->missed++;
 				gnibbles_add_bonus (1);
-			} else
+			} else {
 				gnibbles_boni_remove_bonus (boni,
 						boni->bonuses[i]->x,
 						boni->bonuses[i]->y);
+			}
+		}
 	}
 		
 	for (i = 0; i < properties->numworms; i++) {

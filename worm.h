@@ -59,10 +59,16 @@ void gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
 
 gint gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval);
 
-gint gnibbles_worm_move_test_head (GnibblesWorm *worm);
+gint gnibbles_worm_test_move_head (GnibblesWorm *worm);
 
 void gnibbles_worm_move_tail (GnibblesWorm *worm);
 
 void gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset);
+
+void gnibbles_worm_draw_head (GnibblesWorm *worm);
+
+void gnibbles_worm_erase_tail (GnibblesWorm *worm);
+
+gint gnibbles_worm_lose_life (GnibblesWorm *worm);
 
 #endif

@@ -1,3 +1,18 @@
+2003-06-17  William Jon McCann  <mccann@jhu.edu>
+
+	* worm.c: 
+	* worm.h: 
+	* warpmanager.c: 
+	* warpmanager.h:
+	* gnibbles.c: 
+	* gnibbles.h: 
+	* boni.h: 
+	* properties.c: 
+	* properties.h: 
+	* preferences.c: 
+	* scoreboard.c (gnibbles_scoreboard_new): 
+	* main.c: Fixed compiler warnings.
+
 2003-06-16  William Jon McCann  <mccannwj@localhost.localdomain>
 
 	* preferences.c (gnibbles_preferences_cb): Make the relative

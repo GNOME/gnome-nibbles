@@ -39,7 +39,8 @@ extern GnibblesProperties *properties;
 
 extern gint current_level;
 
-GnibblesWorm *gnibbles_worm_new (guint t_number)
+GnibblesWorm *
+gnibbles_worm_new (guint t_number)
 {
         GnibblesWorm *tmp = (GnibblesWorm *) g_malloc (sizeof (GnibblesWorm));
 
@@ -52,15 +53,17 @@ GnibblesWorm *gnibbles_worm_new (guint t_number)
         return tmp;
 }
 
-void gnibbles_worm_destroy (GnibblesWorm *worm)
+void 
+gnibbles_worm_destroy (GnibblesWorm *worm)
 {
 	free (worm->xoff);
 	free (worm->yoff);
 	free (worm);
 }
 
-void gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
-		gint t_direction)
+void 
+gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
+			 gint t_direction)
 {
 	worm->xhead = t_xhead;
 	worm->yhead = t_yhead;
@@ -76,7 +79,8 @@ void gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
 	worm->keypress = 0;
 }
 
-gint gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
+gint
+gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 {
 	gint key_left, key_right, key_up, key_down;
 
@@ -125,7 +129,8 @@ gint gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
         return FALSE;
 }
 
-static gint gnibbles_worm_reverse (gpointer data)
+static gint
+gnibbles_worm_reverse (gpointer data)
 {
 	gint i, j, temp;
 	GnibblesWorm *worm;
@@ -166,7 +171,8 @@ static gint gnibbles_worm_reverse (gpointer data)
 	return FALSE;
 }
 
-static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
+static void
+gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 {
 	int i;
 
@@ -206,15 +212,16 @@ static void gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 		case BONUSREVERSE:
 			for (i = 0; i < properties->numworms; i++)
 				if (worm != worms[i])
-					gtk_timeout_add(1, (GtkFunction)
-							gnibbles_worm_reverse,
-						 	worms[i]);
+					gtk_timeout_add (1, (GtkFunction)
+							 gnibbles_worm_reverse,
+							 worms[i]);
 			gnibbles_play_sound ("reverse");
 			break;
 	}
 }
 
-void gnibbles_worm_draw_head (GnibblesWorm *worm)
+void
+gnibbles_worm_draw_head (GnibblesWorm *worm)
 {
 	worm->keypress = 0;
 	
@@ -289,7 +296,8 @@ void gnibbles_worm_draw_head (GnibblesWorm *worm)
 			worm->xhead, worm->yhead);
 }
 
-gint gnibbles_worm_test_move_head(GnibblesWorm *worm)
+gint
+gnibbles_worm_test_move_head(GnibblesWorm *worm)
 {
 	int x, y;
 
@@ -330,7 +338,8 @@ gint gnibbles_worm_test_move_head(GnibblesWorm *worm)
 	return (TRUE);
 }
 
-void gnibbles_worm_erase_tail (GnibblesWorm *worm)
+void
+gnibbles_worm_erase_tail (GnibblesWorm *worm)
 {
 	if (worm->change <= 0) {
 		board[worm->xtail][worm->ytail] = EMPTYCHAR;
@@ -342,7 +351,8 @@ void gnibbles_worm_erase_tail (GnibblesWorm *worm)
 	}
 }
 
-void gnibbles_worm_move_tail (GnibblesWorm *worm)
+void
+gnibbles_worm_move_tail (GnibblesWorm *worm)
 {
 	if (worm->change <= 0) {
 		gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
@@ -369,7 +379,8 @@ void gnibbles_worm_move_tail (GnibblesWorm *worm)
 	}
 }
 
-gint gnibbles_worm_lose_life (GnibblesWorm *worm)
+gint
+gnibbles_worm_lose_life (GnibblesWorm *worm)
 {
 	worm->lives--;
 	if (worm->lives < 0)
@@ -378,7 +389,8 @@ gint gnibbles_worm_lose_life (GnibblesWorm *worm)
 	return 0;
 }
 
-void gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset)
+void
+gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset)
 {
 	int x, y, i, j;
 

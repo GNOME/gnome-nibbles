@@ -62,7 +62,7 @@ ColorLookup color_lookup[NUM_COLORS] = {
 	{WORMGRAY, "gray"}
 };
 
-gint
+static gint
 colorval_from_name (gchar *name)
 {
 	gint i;
@@ -74,7 +74,7 @@ colorval_from_name (gchar *name)
 	return 0;
 }
 
-gchar *
+static gchar *
 colorval_name (gint colorval)
 {
 	gint i;
@@ -277,7 +277,7 @@ void
 gnibbles_properties_set_worm_relative_movement (gint i, gboolean value)
 {
 	gchar *buffer;
-	buffer = g_strdup_printf (KEY_WORM_REL_MOVE, i, value);
+	buffer = g_strdup_printf (KEY_WORM_REL_MOVE, i);
 	gconf_client_set_bool (conf_client, buffer, value, NULL);
 	g_free (buffer);
 }
@@ -288,7 +288,7 @@ gnibbles_properties_set_worm_color (gint i, gint value)
 	gchar *color_name;
 	
 	color_name = colorval_name (value);
-	buffer = g_strdup_printf (KEY_WORM_COLOR, i, value);
+	buffer = g_strdup_printf (KEY_WORM_COLOR, i);
 	gconf_client_set_string (conf_client, buffer, color_name, NULL);
 	g_free (buffer);
 }
@@ -296,7 +296,7 @@ void
 gnibbles_properties_set_worm_up (gint i, gchar *value)
 {
 	gchar *buffer;
-	buffer = g_strdup_printf (KEY_WORM_UP, i, value);
+	buffer = g_strdup_printf (KEY_WORM_UP, i);
 	gconf_client_set_string (conf_client, buffer, value, NULL);
 	g_free (buffer);
 }
@@ -304,7 +304,7 @@ void
 gnibbles_properties_set_worm_down (gint i, gchar *value)
 {
 	gchar *buffer;
-	buffer = g_strdup_printf (KEY_WORM_DOWN, i, value);
+	buffer = g_strdup_printf (KEY_WORM_DOWN, i);
 	gconf_client_set_string (conf_client, buffer, value, NULL);
 	g_free (buffer);
 }
@@ -312,7 +312,7 @@ void
 gnibbles_properties_set_worm_left (gint i, gchar *value)
 {
 	gchar *buffer;
-	buffer = g_strdup_printf (KEY_WORM_LEFT, i, value);
+	buffer = g_strdup_printf (KEY_WORM_LEFT, i);
 	gconf_client_set_string (conf_client, buffer, value, NULL);
 	g_free (buffer);
 }
@@ -320,7 +320,7 @@ void
 gnibbles_properties_set_worm_right (gint i, gchar *value)
 {
 	gchar *buffer;
-	buffer = g_strdup_printf (KEY_WORM_RIGHT, i, value);
+	buffer = g_strdup_printf (KEY_WORM_RIGHT, i);
 	gconf_client_set_string (conf_client, buffer, value, NULL);
 	g_free (buffer);
 }

@@ -26,6 +26,7 @@
 #include <time.h>
 #include <gconf/gconf-client.h>
 
+#include "main.h"
 #include "properties.h"
 #include "gnibbles.h"
 #include "worm.h"
@@ -72,7 +73,7 @@ static struct _pointers {
 
 static gint main_loop (gpointer data);
 static gint add_bonus_cb (gpointer data);
-static void render_logo ();
+static void render_logo (void);
 static gint new_game_cb (GtkWidget *widget, gpointer data);
 gint pause_game_cb (GtkWidget *widget, gpointer data);
 static gint end_game_cb (GtkWidget *widget, gpointer data);
@@ -109,8 +110,8 @@ static GnomeUIInfo main_menu[] = {
 	GNOMEUIINFO_END
 };
 
-void
-hide_cursor ()
+static void
+hide_cursor (void)
 {
 	if (pointers.current != pointers.invisible) {
 		gdk_window_set_cursor (drawing_area->window, pointers.invisible);
@@ -118,8 +119,8 @@ hide_cursor ()
 	}
 }
 
-void
-show_cursor ()
+static void
+show_cursor (void)
 {
 	if (pointers.current != NULL) {
 		gdk_window_set_cursor (drawing_area->window, NULL);
@@ -127,13 +128,14 @@ show_cursor ()
 	}
 }
 
-gint game_running ()
+gint 
+game_running (void)
 {
 	return (main_id || erase_id || dummy_id || restart_id || paused);
 }
 
 static void
-zero_board ()
+zero_board (void)
 {
 	gint i, j;
 
@@ -340,6 +342,8 @@ new_game_cb (GtkWidget *widget, gpointer data)
 		gtk_timeout_remove (dummy_id);
 
 	dummy_id = gtk_timeout_add (1500, (GtkFunction) new_game_2_cb, NULL);
+
+	return TRUE;
 }
 
 gint pause_game_cb (GtkWidget *widget, gpointer data)
@@ -377,6 +381,7 @@ gint pause_game_cb (GtkWidget *widget, gpointer data)
 			}
 		}
 	}
+	return TRUE;
 }
 
 static gint show_scores_cb (GtkWidget *widget, gpointer data)
@@ -531,7 +536,7 @@ static gint main_loop (gpointer data)
 }
 
 static void
-set_bg_color ()
+set_bg_color (void)
 {
 	GdkImage *tmp_image;
 	GdkColor bgcolor;
@@ -544,7 +549,7 @@ set_bg_color ()
 }
 
 void
-update_score_state ()
+update_score_state (void)
 {
         gchar **names = NULL;
         gfloat *scores = NULL;
@@ -565,7 +570,7 @@ update_score_state ()
 	}
 }
 
-gboolean
+static gboolean
 show_cursor_cb (GtkWidget *widget, GdkEventMotion *event, gpointer data)
 {
         show_cursor ();
@@ -573,9 +578,8 @@ show_cursor_cb (GtkWidget *widget, GdkEventMotion *event, gpointer data)
 }
 
 static void
-setup_window ()
+setup_window (void)
 {
-	GtkWidget *label, *hbox;
 	GdkPixmap *cursor_dot_pm;
 
 	window = gnome_app_new ("gnibbles", "GNOME Nibbles");
@@ -660,35 +664,33 @@ load_properties ()
 }
 
 static void
-render_logo ()
+render_logo (void)
 {
-	gint i, j;
-
 	zero_board ();
 
 	gdk_draw_drawable (GDK_DRAWABLE (buffer_pixmap),
 			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
 			   logo_pixmap,
-			   0, 0, 0, 0, BOARDWIDTH*properties->tilesize,
-			   BOARDHEIGHT*properties->tilesize);
+			   0, 0, 0, 0,
+			   BOARDWIDTH * properties->tilesize,
+			   BOARDHEIGHT * properties->tilesize);
 
 	gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
 			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
-			   buffer_pixmap, 0, 0, 0, 0,
-			   BOARDWIDTH*properties->tilesize,
-			   BOARDHEIGHT*properties->tilesize);
+			   buffer_pixmap,
+			   0, 0, 0, 0,
+			   BOARDWIDTH * properties->tilesize,
+			   BOARDHEIGHT * properties->tilesize);
 }
 
 int 
 main (int argc, char **argv)
 {
-	gint foo;
-
 	gnome_score_init ("gnibbles");
 
-	bindtextdomain(GETTEXT_PACKAGE, GNOMELOCALEDIR);
+	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-	textdomain(GETTEXT_PACKAGE);
+	textdomain (GETTEXT_PACKAGE);
 	
 	gnome_program_init ("gnibbles", VERSION, LIBGNOMEUI_MODULE,
 			    argc, argv,

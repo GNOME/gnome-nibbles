@@ -37,7 +37,7 @@ typedef struct {
 	gint missed;
 } GnibblesBoni;
 
-GnibblesBoni *gnibbles_boni_new ();
+GnibblesBoni *gnibbles_boni_new (void);
 
 void gnibbles_boni_destroy (GnibblesBoni *boni);
 

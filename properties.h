@@ -44,7 +44,7 @@ typedef struct {
 	GnibblesWormProps *wormprops[NUMWORMS];
 } GnibblesProperties;
 
-GnibblesProperties *gnibbles_properties_new ();
+GnibblesProperties *gnibbles_properties_new (void);
 
 void gnibbles_properties_destroy (GnibblesProperties *props);
 

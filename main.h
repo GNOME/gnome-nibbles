@@ -20,9 +20,9 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-gint game_running ();
+gint game_running (void);
 gint pause_game_cb (GtkWidget *widget, gpointer data);
-void update_score_state ();
-gint end_game (gint);
+void update_score_state (void);
+void end_game (gint);
 
 #endif
