@@ -355,7 +355,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (pref_dialog)->vbox),
                            notebook);
 
-	label = gtk_label_new (_("Game"));
+	label = gtk_label_new_with_mnemonic (_("_Game"));
 	table = gtk_table_new (1, 2, FALSE);
 	gtk_table_set_row_spacings (GTK_TABLE (table), 6);
 	gtk_container_set_border_width (GTK_CONTAINER (table), 12);
@@ -504,7 +504,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
                           GTK_SIGNAL_FUNC (num_worms_cb), button);
         
 
-        label = gtk_label_new (_("Appearance"));
+        label = gtk_label_new_with_mnemonic (_("_Appearance"));
 
 	hbox = gtk_hbox_new (FALSE, GNOME_PAD);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), GNOME_PAD);
@@ -576,8 +576,8 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
                                   hbox, label);
 
 	for (i = 0; i < NUMWORMS; i++) {
-		buffer = g_strdup_printf ("%s %d", _("Worm"), i + 1);
-		label = gtk_label_new (buffer);
+		buffer = g_strdup_printf ("%s _%d", _("Worm"), i + 1);
+		label = gtk_label_new_with_mnemonic (buffer);
                 g_free (buffer);
 
                 vbox = gtk_vbox_new (FALSE, 6);
