@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Gnibbles
+Name[da]=Gnibbles
 Name[de]=Gnibbles
 Name[es]=Gnibbles
 Name[et]=Gnibbles
@@ -11,6 +12,7 @@ Name[no]=Gnibbles
 Name[pt]=Gnibbles
 Name[ru]=çÎÉÂÂÌÅÓ
 Comment=Gnome Nibbles Game
+Comment[da]=Gnome Nibbles spil
 Comment[de]=Nibbles für Gnome
 Comment[es]=Juego de orugas de Gnome
 Comment[et]=Ussimäng GNOMEle
