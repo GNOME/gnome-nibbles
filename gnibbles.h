@@ -59,7 +59,6 @@ void gnibbles_load_pixmap (GtkWidget *window);
 void gnibbles_load_level (GtkWidget *window, gint level);
 void gnibbles_init ();
 void gnibbles_add_bonus (gint regular);
-void gnibbles_destroy ();
 gint gnibbles_move_worms ();
 gint gnibbles_keypress_worms (guint keyval);
 void gnibbles_undraw_worms (gint data);

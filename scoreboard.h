@@ -36,8 +36,6 @@ typedef struct
 
 GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar);
 
-void gnibbles_scoreboard_destroy (GnibblesScoreboard *scoreboard);
-
 void gnibbles_scoreboard_register (GnibblesScoreboard *scoreboard,
 		GnibblesWorm *t_worm);
 

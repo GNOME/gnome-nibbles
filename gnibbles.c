@@ -294,28 +294,6 @@ gnibbles_init ()
 }
 
 void
-gnibbles_destroy ()
-{
-	gint i;
-
-	if (warpmanager)
-		gnibbles_warpmanager_destroy (warpmanager);
-
-	if (boni)
-		gnibbles_boni_destroy (boni);
-
-	for (i = 0; i < properties->numworms; i++)
-		if (worms[i])
-			gnibbles_worm_destroy (worms[i]);
-
-	if (properties)
-		gnibbles_properties_destroy (properties);
-
-	if (scoreboard)
-		gnibbles_scoreboard_destroy (scoreboard);
-}
-
-void
 gnibbles_add_bonus (gint regular)
 {
 	gint x, y, good;

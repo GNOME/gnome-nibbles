@@ -61,11 +61,6 @@ GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar)
 	return (tmp);
 }
 
-void gnibbles_scoreboard_destroy (GnibblesScoreboard *scoreboard)
-{
-	free (scoreboard);
-}
-
 void gnibbles_scoreboard_register (GnibblesScoreboard *scoreboard,
 		GnibblesWorm *t_worm)
 {

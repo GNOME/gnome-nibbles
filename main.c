@@ -144,53 +144,9 @@ zero_board ()
 		}
 }
 
-static gint end_game_box (short quit)
-{
-	gint pause_state;
-	static GtkWidget *box;
-	gint status;
-
-	if (box)
-		return 0;
-
-	pause_state = paused;
-	if (!paused)
-		pause_game_cb (NULL, (gpointer) 0);
-
-	if (!quit)
-		box = gtk_message_dialog_new (GTK_WINDOW (window),
-					      GTK_DIALOG_MODAL,
-					      GTK_MESSAGE_QUESTION,
-					      GTK_BUTTONS_YES_NO,
-					      _("Are you sure you want to start a new game?"));
-	else {
-		box = gtk_message_dialog_new (GTK_WINDOW (window),
-					      GTK_DIALOG_MODAL,
-					      GTK_MESSAGE_QUESTION,
-					      GTK_BUTTONS_NONE,
-					      _("Are you sure you want to quit Gnibbles?"));
-		gtk_dialog_add_buttons (GTK_DIALOG (box),
-					GTK_STOCK_CANCEL, GTK_RESPONSE_NO,
-					GTK_STOCK_QUIT, GTK_RESPONSE_YES,
-					NULL);
-	}
-        gtk_dialog_set_has_separator (GTK_DIALOG (box), FALSE);
-	status = gtk_dialog_run (GTK_DIALOG (box)) == GTK_RESPONSE_NO;
-	gtk_widget_destroy (GTK_WIDGET (box));
-	box = NULL;
-	if (!pause_state && status)
-		pause_game_cb (NULL, (gpointer) 0);
-	return (status);
-
-}
-
 static void
 quit_cb (GtkWidget *widget, gpointer data)
 {
-	if (game_running () && end_game_box (1)) // 1 for quit
-		return;
-
-	gnibbles_destroy ();
 	gtk_main_quit ();
 }
 
@@ -348,11 +304,8 @@ new_game_cb (GtkWidget *widget, gpointer data)
 	*/
 
 	if (game_running ()) {
-		if (!end_game_box (0)) { // 0 for new game
 			end_game_cb (widget, (gpointer) 0);
 			main_id = 0;
-		} else
-			return 0;
 	}
 
 	gnibbles_init ();
@@ -434,9 +387,6 @@ static gint show_scores_cb (GtkWidget *widget, gpointer data)
 void
 end_game (gint data)
 {
-	if ((gint) data == 2 && end_game_box (0)) // 0 for new game
-		return;
-
 	if (main_id) {
 		gtk_timeout_remove (main_id);
 		main_id = 0;

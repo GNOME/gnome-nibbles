@@ -1,3 +1,11 @@
+2003-06-13  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* main.c: 
+	* gnibbles.h:
+	* gnibbles.c: Removed the "are you sure" questions and also
+	some de-allocation code that was only called at exit but
+	mysteriously encouraged a crash.
+
 2003-06-12  William Jon McCann  <mccann@jhu.edu>
 
 	* main.c (load_properties): Use gconf.  Use constistent style.
