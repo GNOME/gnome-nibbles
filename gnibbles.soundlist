@@ -7,6 +7,7 @@ description[ko]=±×´Ïºí
 description[lt]=Gnibbles
 description[no]=Gnibbles
 description[pl]=Gnibbles
+description[sk]=Gnibbles
 
 [crash]
 file=gnibbles/crash.wav
@@ -21,6 +22,7 @@ description[gl]=Morte dun verme
 description[ko]=¹ú·¹ Á×À½
 description[lt]=Gyvatë þûsta
 description[no]=Ormen dør
+description[sk]=Smr» èervíka
 
 [appear]
 file=gnibbles/appear.wav
@@ -36,6 +38,7 @@ description[gl]=Aparece un Bonus
 description[ko]=º¸³Ê½º ³ªÅ¸³²
 description[lt]=Atsiranda deimantas
 description[no]=Bonus tilstede
+description[sk]=Zobrazenie bonusu
 
 [gobble]
 file=gnibbles/gobble.wav
@@ -51,6 +54,7 @@ description[ko]=º¸³Ê½º ¸ÔÀ½
 description[lt]=Suvalgomas deimantas
 description[no]=Spis bonus
 description[pl]=Po³kniêcie dodatku
+description[sk]=Zjedenie bonusu
 
 [teleport]
 file=gnibbles/teleport.wav
@@ -64,6 +68,7 @@ description[gl]=Teleportación dun verme
 description[ko]=¹ú·¹ ¼ø°£ ÀÌµ¿
 description[lt]=Gyvatë teleportuojasi
 description[no]=Ormen teleporteret
+description[sk]=Teleport èervíka
 
 [reverse]
 file=gnibbles/reverse.wav
@@ -77,6 +82,7 @@ description[gl]=Cambio de sentido do verme
 description[ko]=¹ú·¹ µÚ¹Ù²ñ
 description[lt]=Gyvatë apsisuka
 description[no]=Ormen vender
+description[sk]=Obrátenie èervíka
 
 [gameover]
 file=gnibbles/laughter.wav
@@ -92,6 +98,7 @@ description[ko]=°ÔÀÓ ³¡
 description[lt]=Þaidimo pabaiga
 description[no]=Spillet over
 description[pl]=Zakoñczenie gry
+description[sk]=Koniec hry
 
 [bonus]
 file=gnibbles/bonus.wav
@@ -107,6 +114,7 @@ description[ko]=º¸³Ê½º
 description[lt]=Deimantas
 description[no]=Bonus
 description[pl]=Dodatek
+description[sk]=Bonus
 
 [life]
 file=gnibbles/life.wav
@@ -122,3 +130,4 @@ description[ko]=Ãß°¡ »ý¸í
 description[lt]=Papildoma gyvybë
 description[no]=Ekstra liv
 description[pl]=Dodatkowe ¿ycie
+description[sk]=Extra ¾ivot
