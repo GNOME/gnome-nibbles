@@ -118,4 +118,4 @@ install-data-local:
 	-touch $(DESTDIR)$(scoredir)/gnibbles.1.1.scores
 	-chown games.games $(DESTDIR)$(scoredir)/gnibbles.1.1.scores
 	-chmod 664 $(DESTDIR)$(scoredir)/gnibbles.1.1.scores
-	-chgrp games $(DESTDIR)$(bindir)/gnibbles && chmod 2111 $(DESTDIR)$(bindir)/gnibbles
+	-chgrp games $(DESTDIR)$(bindir)/gnibbles && chmod 2555 $(DESTDIR)$(bindir)/gnibbles
