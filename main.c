@@ -520,8 +520,8 @@ static void render_logo ()
 
 	gdk_draw_pixmap (buffer_pixmap,
 			drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], logo_pixmap, 0, 0, 160, 220, 600,
-			200);
+			(drawing_area)], logo_pixmap, 0, 0, 85, 205, 750,
+			250);
 
 	gdk_draw_pixmap (drawing_area->window,
 			drawing_area->style->fg_gc[GTK_WIDGET_STATE

@@ -1,3 +1,11 @@
+1999-03-17  Ian Peters  <itp@gnu.org>
+
+	* gnibbles_logo.png: Old logo screen removed.
+	* gnibbles-logo.png: New logo screen.
+	* Makefile.am: New logo...
+	* gnibbles.c: New logo...
+	* main.c: New logo...
+
 1999-03-13  Ian Peters  <itp@gnu.org>
 
 	* preferences.c (set_worm_color_cb): Stupid logic error made setting

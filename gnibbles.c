@@ -107,7 +107,7 @@ void gnibbles_load_pixmap ()
 	g_free (filename);
 
 	filename = gnome_unconditional_pixmap_file
-		("gnibbles/gnibbles_logo.png");
+		("gnibbles/gnibbles-logo.png");
 
 	if (!g_file_exists (filename)) {
 		g_print (_("Couldn't find pixmap file!\n"));

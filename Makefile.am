@@ -41,7 +41,7 @@ gnibbles_LDADD = \
 
 pixmap_DATA = \
 	gnibbles.png \
-	gnibbles_logo.png
+	gnibbles-logo.png
 
 config_DATA = \
 	level001.gnl \
