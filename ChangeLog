@@ -1,3 +1,8 @@
+2004-04-28  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* pix/wall*: Update from Theo so the walls are less red. Forgot to
+	apply this yesterday.
+
 2004-04-26  Theo van Klaveren  <t.vanklaveren@student.utwente.nl>
 
 	* gnibbles.c (gnibbles_copy_pixmap): Don't try to load

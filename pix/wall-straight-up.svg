@@ -2,13 +2,20 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
 "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!--
+ (C) Copyright 2004 Theo van Klaveren
+ This work is licensed under the Creative Commons Attribution License. To view
+ a copy of this license, visit http://creativecommons.org/licenses/by/1.0/ or
+ send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California
+ 94305, USA.
+ -->
 <svg
    id="svg1"
    sodipodi:version="0.32"
    inkscape:version="0.38.1"
    width="50.000000mm"
    height="50.000000mm"
-   sodipodi:docbase="/home/klaveren/Sources/gnome-games/gnibbles/pix"
+   sodipodi:docbase="/home/klaveren/Desktop/verwijzing naar gnome-games/gnibbles/pix"
    sodipodi:docname="wall-straight-up.svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -24,8 +31,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.5541113"
-     inkscape:cx="70.866144"
-     inkscape:cy="86.527163"
+     inkscape:cx="70.866150"
+     inkscape:cy="73.536214"
      inkscape:window-width="640"
      inkscape:window-height="501"
      showgrid="true"
@@ -34,37 +41,8 @@
      inkscape:window-y="103"
      showguides="true"
      snaptoguides="true" />
-  <g
-     id="g827"
-     transform="matrix(1.000000,0.000000,0.000000,1.003522,-1.351664e-6,-0.627887)">
-    <defs
-       id="defs828" />
-    <sodipodi:namedview
-       id="namedview829"
-       pagecolor="#ffffff"
-       bordercolor="#666666"
-       borderopacity="1.0"
-       inkscape:pageopacity="0.0"
-       inkscape:pageshadow="2"
-       inkscape:zoom="2.5541113"
-       inkscape:cx="70.866138"
-       inkscape:cy="64.190941"
-       inkscape:window-width="640"
-       inkscape:window-height="501"
-       showgrid="true"
-       snaptogrid="true"
-       inkscape:window-x="0"
-       inkscape:window-y="27" />
-    <rect
-       style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:none;stroke-width:1.1155039pt;"
-       id="rect841"
-       width="177.09200"
-       height="176.54354"
-       x="0.073352252"
-       y="0.62568099" />
-  </g>
   <rect
-     style="fill:#bc2929;fill-rule:evenodd;stroke:none;stroke-width:1.2500000;"
+     style="fill:#cccccc;fill-rule:evenodd;stroke:none;stroke-width:1.2500000;fill-opacity:1.0000000;"
      id="rect842"
      width="177.16535"
      height="35.433075"
