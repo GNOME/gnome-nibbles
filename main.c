@@ -147,6 +147,20 @@ zero_board (void)
 		}
 }
 
+/* Avoid a race condition where a redraw is attempted
+ * between the window being destroyed and the destroy
+ * event being sent. */
+static gint
+delete_cb (GtkWidget * widget, gpointer data)
+{
+	if (main_id) g_source_remove (main_id);
+	if (erase_id) g_source_remove (erase_id);
+	if (dummy_id) g_source_remove (dummy_id);
+	if (restart_id) g_source_remove (restart_id);
+
+	return FALSE;
+}
+
 static void
 quit_cb (GtkWidget *widget, gpointer data)
 {
@@ -589,8 +603,10 @@ setup_window (void)
 	window = gnome_app_new ("gnibbles", "GNOME Nibbles");
 	gtk_window_set_resizable (GTK_WINDOW (window), FALSE);
 	gtk_widget_realize (window);
-	g_signal_connect (G_OBJECT (window), "delete_event",
+	g_signal_connect (G_OBJECT (window), "destroy",
 			G_CALLBACK (quit_cb), NULL);
+	g_signal_connect (G_OBJECT (window), "delete_event",
+			G_CALLBACK (delete_cb), NULL);
 
 	drawing_area = gtk_drawing_area_new ();
 

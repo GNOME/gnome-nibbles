@@ -1,3 +1,8 @@
+2003-12-15  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* main.c: Reorganise the response to the window being closed. This
+	may fix bug 128558.
+
 2003-12-12  William Jon McCann  <mccann@jhu.edu>
 
 	* gnibbles.desktop.in: Remove duplicate Icon and fix mispelling
