@@ -1,5 +1,8 @@
 2004-02-14  Callum McKenzie  <callum@physics.otago.ac.nz>
 
+	* gnibbles.c (gnibbles_error): Remove references to _has_separator
+	when dealing with message dialogs.
+
 	* worm.c: Further improvements to the key buffering code: avoid
 	repeat keys in normal mode and clear the queues when the worm
 	dies.

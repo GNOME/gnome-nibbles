@@ -59,7 +59,6 @@ gnibbles_error (GtkWidget *window, gchar *message)
 	GtkWidget *w = gtk_message_dialog_new (GTK_WINDOW (window), GTK_DIALOG_MODAL,
 					       GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
 					       message);
-        gtk_dialog_set_has_separator (GTK_DIALOG (w), FALSE);
 	gtk_dialog_run (GTK_DIALOG (w));
 	gtk_widget_destroy (GTK_WIDGET (w));
 	exit (1);
