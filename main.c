@@ -1,6 +1,6 @@
 /* 
  *   Gnome Nibbles: Gnome Worm Game
- *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@acm.org>
+ *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
  * 
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -162,7 +162,7 @@ static void about_cb (GtkWidget *widget, gpointer data)
 	about = gnome_about_new (_("Gnibbles"), VERSION,
 			"(C) 1999 Sean MacIsaac and Ian Peters",
 			(const char **)authors,
-			_("Send comments and bug reports to: sjm@acm.org, itp@acm.org"),
+			_("Send comments and bug reports to: sjm@acm.org, itp@gnu.org"),
 			NULL);
 	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &about);
