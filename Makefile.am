@@ -85,3 +85,5 @@ EXTRA_DIST = \
 #             gnobots2.soundlist \
 #             $(appicon_DATA) \
 #             $(pixmap_DATA)
+
+SUBDIRS=sounds
