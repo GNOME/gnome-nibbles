@@ -2,6 +2,13 @@
 
 	* *.[ch]: Fix up #include <config.h> stuff.
 	
+2002-02-14  Chris Lyttle    <chris@wilddev.net>
+
+	* help/C/gnibbles.xml : move to XML.
+	* help/C/gnibbles-C.omf : move to XML.
+	* help/C/gnibbles.sgml : deleted, move to XML.
+	* help/C/Makefile.am : move to XML.
+
 2002-02-02  Zbigniew Chyla  <cyba@gnome.pl>
 
 	* main.c (about_cb): Don't try to translate empty string.
