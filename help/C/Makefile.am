@@ -26,7 +26,7 @@ dist-hook:
 	-mkdir $(distdir)/gnibbles
 	-mkdir $(distdir)/gnibbles/stylesheet-images
 	cp $(srcdir)/gnibbles/*.html $(distdir)/gnibbles
-	cp -R $(srcdir)/gnibbles/stylesheet-images/*.png $(distdir)/gnibbles/stylesheet-images
+	cp -R $(srcdir)/gnibbles/stylesheet-images/*.gif $(distdir)/gnibbles/stylesheet-images
 	cp $(srcdir)/gnibbles/*.css $(distdir)/gnibbles
 
 # No-op if db2html failed
@@ -40,8 +40,8 @@ install-data-local: index.html
 	  done; \
 	fi
 	-$(mkinstalldirs) $(DESTDIR)$(gnibbles_helpdir)/stylesheet-images
-	files=`echo $(srcdir)/gnibbles/stylesheet-images/*.png`; \
-	if test "$$files" != '$(srcdir)/gnibbles/stylesheet-images/*.png'; then \
+	files=`echo $(srcdir)/gnibbles/stylesheet-images/*.gif`; \
+	if test "$$files" != '$(srcdir)/gnibbles/stylesheet-images/*.gif'; then \
 	  for file in $$files; do \
 	    basefile=`echo $$file | sed -e 's,^.*/,,'`; \
 	    $(INSTALL_DATA) $$file $(DESTDIR)$(gnibbles_helpdir)/stylesheet-images/$$basefile; \
