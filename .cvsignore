@@ -2,3 +2,5 @@ gnibbles
 Makefile.in
 Makefile
 .deps
+.libs
+.deps
