@@ -167,6 +167,7 @@ delete_cb (GtkWidget * widget, gpointer data)
 static void
 quit_cb (GtkWidget *widget, gpointer data)
 {
+	games_kill_server ();
 	gtk_main_quit ();
 }
 
