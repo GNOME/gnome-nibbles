@@ -1,3 +1,7 @@
+2004-11-21  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnibbles.soundlist.in (_description): Fix the description.
+
 2004-11-10  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* network.h:
