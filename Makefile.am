@@ -92,6 +92,8 @@ EXTRA_DIST = \
 
 SUBDIRS=sounds help
 
+CLEANFILES = $(Games_DATA) $(soundlist_DATA)
+
 install-data-local:
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	-touch $(DESTDIR)$(scoredir)/gnibbles.4.0.scores
