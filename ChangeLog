@@ -1,3 +1,11 @@
+2001-06-10  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* gnibbles.c (gnibbles_move_worms): Remove piece of invalid C
+          code, pointed out by Albert Chin-A-Youn
+	  <bugzilla-gnome@thewrittenword.com>. Bug #56010
+
+	* worm.c (gnibbles_worm_undraw_nth): Now i hope this would be rigth.
+
 2001-06-09  Juan Pablo Mendoza <pablo_juan@yahoo.com>
 
 	* worm.c (gnibbles_worm_undraw_nth): Don't enter in a infinite

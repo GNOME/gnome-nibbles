@@ -370,7 +370,7 @@ void gnibbles_add_bonus (int regular)
 gint gnibbles_move_worms ()
 {
 	int i, j, status = 1;
-	int dead[properties->numworms];
+	int *dead = g_new (int, properties->numworms);
 
 	if (boni->missed > MAXMISSED)
 		for (i = 0; i < properties->numworms; i++)
@@ -448,6 +448,7 @@ gint gnibbles_move_worms ()
 		return (CONTINUE);
 
 	gnibbles_play_sound ("crash");
+	g_free (dead);
 	return (NEWROUND);
 }
 

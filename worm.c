@@ -391,10 +391,10 @@ void gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset)
 			y += worm->yoff[i];
 			if ((worm->stop == 0 && i == CAPACITY - 1) ||
 					(worm->stop != 0 &&
-					 i >= worm->stop - 1))
+					 i == worm->stop - 1))
 				return;
 			i--;
-			if (i == 0)
+			if (i == 0 && worm->stop == 0)
 				i = CAPACITY - 1;
 		}
 	}
