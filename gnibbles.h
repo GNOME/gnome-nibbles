@@ -23,8 +23,6 @@
 #include <config.h>
 #include <gnome.h>
 
-#define PIXMAPWIDTH 10
-#define PIXMAPHEIGHT 10
 #define BOARDWIDTH 92
 #define BOARDHEIGHT 66
 #define BLANKPIXMAP 0
@@ -57,6 +55,7 @@ void gnibbles_draw_big_pixmap (gint which, gint x, gint y);
 void gnibbles_draw_pixmap_buffer (gint which, gint x, gint y);
 void gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y);
 void gnibbles_load_pixmap (GtkWidget *window);
+void gnibbles_load_logo (GtkWidget *window);
 void gnibbles_load_level (GtkWidget *window, gint level);
 void gnibbles_init (void);
 void gnibbles_add_bonus (gint regular);

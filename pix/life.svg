@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg1"
+   sodipodi:version="0.32"
+   inkscape:version="0.39cvs"
+   width="100.00000mm"
+   height="100.00000mm"
+   sodipodi:docname="1up.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   sodipodi:docbase="/home/callum/CVS/gnome-games/gnibbles/pix">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient838">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1.0000000;"
+         offset="0.0000000"
+         id="stop839" />
+      <stop
+         style="stop-color:#b70000;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop840" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient838"
+       id="linearGradient841" />
+    <radialGradient
+       xlink:href="#linearGradient838"
+       id="radialGradient842" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0000000"
+     inkscape:cx="138.91968"
+     inkscape:cy="153.03937"
+     inkscape:window-width="1038"
+     inkscape:window-height="857"
+     showgrid="true"
+     snaptogrid="true"
+     inkscape:window-x="30"
+     inkscape:window-y="47" />
+  <path
+     style="fill:url(#radialGradient842);fill-rule:evenodd;stroke:#ffffff;stroke-width:2.5000000;stroke-opacity:1.0000000;fill-opacity:1.0000000;stroke-miterlimit:4.0000000;stroke-dasharray:none;"
+     d="M 183.66105,141.10726 C 183.66105,105.67419 219.09413,70.241120 254.52720,70.241120 C 307.67680,70.241120 307.67680,141.10726 289.96027,176.54033 C 272.24373,211.97340 219.09413,265.12301 183.66105,300.55608 C 148.22798,265.12301 95.078374,211.97340 77.361839,176.54033 C 59.645303,141.10726 59.645303,70.241120 112.79491,70.241120 C 148.22798,70.241120 183.66105,105.67419 183.66105,141.10726 z "
+     id="path943"
+     sodipodi:nodetypes="ccccccc" />
+</svg>

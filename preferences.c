@@ -66,10 +66,6 @@ destroy_cb (GtkWidget *widget, gpointer data)
 static void
 apply_cb (GtkWidget *widget, gint action, gpointer data)
 {
-	gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
-				     properties->tilesize * BOARDWIDTH,
-				     properties->tilesize * BOARDHEIGHT);
-
 	update_score_state ();
 
 	gtk_widget_destroy (widget);
@@ -132,22 +128,6 @@ sound_cb (GtkWidget *widget, gpointer data)
 		return;
 
 	gnibbles_properties_set_sound ((gint)data);
-}
-
-static void
-tile_size_cb (GtkWidget *widget, gpointer data)
-{
-  if (!pref_dialog)
-    return;
-
-  if (GTK_TOGGLE_BUTTON (widget)->active) {
-	  properties->tilesize = (gint) data;
-	  gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
-				       properties->tilesize * BOARDWIDTH,
-				       properties->tilesize * BOARDHEIGHT);
-	  gnibbles_properties_set_tile_size ((gint)data);
-	  end_game (0);
-  }
 }
 
 static void
@@ -287,7 +267,6 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 {
 	GtkWidget *notebook;
 	GtkWidget *label;
-	GtkWidget *hbox;
 	GtkWidget *frame;
 	GtkWidget *button;
 	GtkWidget *levelspinner;
@@ -472,78 +451,6 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
                           GTK_SIGNAL_FUNC (num_worms_cb), button);
         
-
-        label = gtk_label_new_with_mnemonic (_("_Appearance"));
-
-	hbox = gtk_hbox_new (FALSE, GNOME_PAD);
-	gtk_container_set_border_width (GTK_CONTAINER (hbox), GNOME_PAD);
-
-	frame = games_frame_new (_("Board size"));
-
-	vbox = gtk_vbox_new (FALSE, 6);
-	gtk_container_set_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
-
-	button = gtk_radio_button_new_with_label (NULL, _("Tiny  (184 x 132)"));
-
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	if (properties->tilesize == 2)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-					      TRUE);
-	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
-			  (tile_size_cb), (gpointer) 2);
-
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Small  (368 x 264)"));
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	if (properties->tilesize == 4)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-					      TRUE);
-	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
-			  (tile_size_cb), (gpointer) 4);
-
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Medium  (460 x 330)"));
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	if (properties->tilesize == 5)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-					      TRUE);
-	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
-			  (tile_size_cb), (gpointer) 5);
-
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Large  (736 x 528)"));
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	if (properties->tilesize == 8)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-					      TRUE);
-	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
-			  (tile_size_cb), (gpointer) 8);
-
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Extra large  (920 x 660)"));
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	if (properties->tilesize == 10)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-					      TRUE);
-	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
-			  (tile_size_cb), (gpointer) 10);
-
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Huge  (1840 x 1320)"));
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	if (properties->tilesize == 20)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-					      TRUE);
-	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
-			  (tile_size_cb), (gpointer) 20);
-
-	gtk_container_add (GTK_CONTAINER (frame), vbox);
-
-	gtk_box_pack_start (GTK_BOX (hbox), frame, FALSE, FALSE, 0);
-
-	gtk_notebook_append_page (GTK_NOTEBOOK (notebook),
-                                  hbox, label);
-
 	for (i = 0; i < NUMWORMS; i++) {
 		buffer = g_strdup_printf ("%s _%d", _("Worm"), i + 1);
 		label = gtk_label_new_with_mnemonic (buffer);

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg831"
+   sodipodi:version="0.32"
+   inkscape:version="0.39cvs"
+   width="100.00000mm"
+   height="100.00000mm"
+   sodipodi:docbase="/home/callum/CVS/gnome-games/gnibbles/pix"
+   sodipodi:docname="dollarbag.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xml="http://www.w3.org/XML/1998/namespace"
+   xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs
+     id="defs833" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.1484168"
+     inkscape:cx="141.73228"
+     inkscape:cy="152.94272"
+     inkscape:window-width="826"
+     inkscape:window-height="748"
+     showgrid="true"
+     snaptogrid="true"
+     inkscape:window-x="101"
+     inkscape:window-y="141" />
+  <path
+     style="fill:#fffb0e;fill-rule:evenodd;stroke:#000000;stroke-width:1.0000000pt;fill-opacity:1.0000000;"
+     d="M 128.13132,337.23917 L 234.43054,337.23917 C 269.86361,319.52264 365.89556,212.59841 198.99747,71.491132 L 234.43054,18.341525 L 128.13132,18.341525 L 163.56439,71.491132 C 4.1155682,213.22343 92.698243,319.52264 128.13132,337.23917 z "
+     id="path836"
+     sodipodi:nodetypes="ccccccc" />
+  <text
+     xml:space="preserve"
+     style="fill:black;fill-opacity:1;stroke:none;font-family:Utopia;font-style:normal;font-weight:normal;font-size:200.00000;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;font-stretch:normal;font-variant:normal;text-anchor:start;writing-mode:lr;"
+     x="129.73242"
+     y="281.06456"
+     id="text837"
+     sodipodi:linespacing="100%"><tspan
+       id="tspan838">$</tspan></text>
+</svg>

@@ -1,3 +1,45 @@
+2004-04-26  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* diamond.svg: Changed from a spiral thing so that it looks better
+	at small sizes and also is something other than red.
+	
+	* life.svg: Changed from a "1 up" to a heart so we aren't tied to
+	English.
+	
+	* gnibbles.c (gnibbles_load_pixmap): Renamed the files so that we
+	can change their contents without having to do further
+	renaming. e.g. cherry.svg ->bonus1.svg.
+
+	* main.c (setup_window): Repackage the drawing area in a
+	games-gridframe to do the automatic centering thing.
+
+2004-04-13  Theo van Klaveren  <t.vanklaveren@student.utwente.nl>
+
+      The big nibbles scalability patch.
+
+      * gnibbles.h: Remove PIXMAPWIDTH, PIXMAPHEIGHT. They are no
+      longer appropriate.
+      * gnibbles.c:
+       - Convert Pixmaps to Pixbufs so alpha is preserved.
+       - Load images from seperate files into seperate pixbufs.
+       - New load_pixmap_file() utility function that loads an
+         arbitrary pixbuf at requested size. Use it everywhere.
+       - New function to only reload the gnibbles logo.
+      * main.c:
+       - Cope with pixmap->pixbuf conversion.
+       - Erase the buffer when recreating it (we now draw with alpha!)
+       - Make window resizable.
+       - Adjust tile size when the window resizes. Don't reload the tiles
+         when the tile size doesn't change, only reload the logo.
+      * preferences.c:
+       - Nuke the 'size' tab.
+      * properties.[ch], gnibbles.schemas.in:
+       - New window width and height properties, with utility functions.
+      * pix/*, gnibbles.png:
+       - New artwork.
+      * Makefile.am:
+       - Add 'pix' subdirectory.
+
 2004-04-11  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnibbles.c (gnibbles_init): Fix from Theo van Klaveren for

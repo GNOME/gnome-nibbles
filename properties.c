@@ -122,6 +122,18 @@ gnibbles_properties_update (GnibblesProperties * tmp)
 	if (tmp->tilesize > 30)
 		tmp->tilesize = 30;
 
+	tmp->width = gconf_client_get_int (conf_client,
+					      KEY_WIDTH,
+					      NULL);
+	if (tmp->width < 1 || tmp->width > 3200)
+		tmp->width = tmp->tilesize * BOARDWIDTH;
+
+	tmp->height = gconf_client_get_int (conf_client,
+					      KEY_HEIGHT,
+					      NULL);
+	if (tmp->height < 1 || tmp->height > 2400)
+		tmp->height = tmp->tilesize * BOARDHEIGHT;
+
 	for (i = 0; i < NUMWORMS; i++) {
 		tmp->wormprops[i] = (GnibblesWormProps *) g_malloc (sizeof
 								    (GnibblesWormProps));
@@ -213,6 +225,8 @@ gnibbles_properties_copy (GnibblesProperties *props)
 	tmp->startlevel = props->startlevel;
 	tmp->sound = props->sound;
 	tmp->tilesize = props->tilesize;
+	tmp->width = props->width;
+	tmp->height = props->height;
 	
 	for (i = 0; i < NUMWORMS; i++) {
 		tmp->wormprops[i] = (GnibblesWormProps *) g_malloc (sizeof
@@ -316,6 +330,16 @@ gnibbles_properties_set_worm_right (gint i, gchar *value)
 	buffer = g_strdup_printf (KEY_WORM_RIGHT, i);
 	gconf_client_set_string (conf_client, buffer, value, NULL);
 	g_free (buffer);
+}
+void
+gnibbles_properties_set_height (gint value)
+{
+	gconf_client_set_int (conf_client, KEY_HEIGHT, value, NULL);
+}
+void
+gnibbles_properties_set_width (gint value)
+{
+	gconf_client_set_int (conf_client, KEY_WIDTH, value, NULL);
 }
 
 void

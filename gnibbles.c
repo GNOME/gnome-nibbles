@@ -38,8 +38,13 @@ GnibblesBoni *boni = NULL;
 GnibblesWarpManager *warpmanager;
 
 GdkPixmap *buffer_pixmap = NULL;
-GdkPixmap *gnibbles_pixmap = NULL;
-GdkPixmap *logo_pixmap = NULL;
+GdkPixbuf *logo_pixmap = NULL;
+GdkPixbuf *bonus_pixmaps[8] = { NULL, NULL, NULL, NULL,
+			        NULL, NULL, NULL, NULL };
+GdkPixbuf *small_pixmaps[19] = { NULL, NULL, NULL, NULL, NULL,
+				 NULL, NULL, NULL, NULL, NULL,
+				 NULL, NULL, NULL, NULL, NULL,
+				 NULL, NULL, NULL, NULL};
 
 extern GtkWidget *drawing_area;
 
@@ -64,20 +69,46 @@ gnibbles_error (GtkWidget *window, gchar *message)
 	exit (1);
 }
 
+static GdkPixbuf *
+gnibbles_load_pixmap_file (GtkWidget *window, const gchar *pixmap, gint xsize, gint ysize)
+{
+	GdkPixbuf *image;
+	gchar *filename;
+
+	filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
+					      pixmap, TRUE, NULL);
+
+	if (!filename) {
+		char *message =
+		    g_strdup_printf (_("Gnibbles couldn't find pixmap file:\n%s\n\n"
+			"Please check your Gnibbles installation"), pixmap);
+		gnibbles_error (window, message);
+	}
+
+	image = gdk_pixbuf_new_from_file_at_size (filename, xsize, ysize, NULL);
+	g_free (filename);
+
+	return image;
+}
+
 static void
 gnibbles_copy_pixmap (GdkDrawable *drawable, gint which, gint x, gint y,
 		      gboolean big)
 {
-	gint w = properties->tilesize * (big ? 2 : 1),
-		h = properties->tilesize * (big ? 2 : 1);
-	guint nh = 10 / (big ? 2 : 1), nv = 10 / (big ? 2 : 1);
+	gint size = properties->tilesize * (big == TRUE ? 2 : 1);
+	GdkPixbuf *copy_buf;
 
-	gdk_draw_drawable (GDK_DRAWABLE (drawable),
+	if (big == TRUE)
+		copy_buf = bonus_pixmaps[which];
+	else
+		copy_buf = small_pixmaps[which];
+
+	gdk_draw_pixbuf (GDK_DRAWABLE (drawable),
 			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
-			   gnibbles_pixmap, (which % nh) * w,
-			   ((big ? 3 : 0) + which / nv) * h,
+			   copy_buf, 0, 0,
 			   x * properties->tilesize,
-			   y * properties->tilesize, w, h);
+			   y * properties->tilesize, size, size,
+			   GDK_RGB_DITHER_NORMAL, 0, 0);
 }
 
 void
@@ -107,60 +138,64 @@ gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 }
 
 void
+gnibbles_load_logo (GtkWidget *window)
+{
+	if (logo_pixmap)
+		g_object_unref(logo_pixmap);
+	logo_pixmap = gnibbles_load_pixmap_file(window, "pixmaps/gnibbles/gnibbles-logo.png",
+			BOARDWIDTH * properties->tilesize, BOARDHEIGHT * properties->tilesize);
+}
+
+void
 gnibbles_load_pixmap (GtkWidget *window)
 {
-	GdkPixbuf *image;
-	GdkPixbuf *tmp;
-	gchar *filename;
+	gchar *bonus_files[] = {
+		"pixmaps/gnibbles/blank.svg",
+		"pixmaps/gnibbles/diamond.svg",
+		"pixmaps/gnibbles/bonus1.svg",
+		"pixmaps/gnibbles/bonus2.svg",
+		"pixmaps/gnibbles/life.svg",
+		"pixmaps/gnibbles/bonus3.svg",
+		"pixmaps/gnibbles/bonus4.svg",
+		"pixmaps/gnibbles/bonus5.svg",
+		"pixmaps/gnibbles/questionmark.svg"
+	};
+	gchar *small_files[] = {
+		"pixmaps/gnibbles/wall-empty.svg",
+		"pixmaps/gnibbles/wall-straight-up.svg",
+		"pixmaps/gnibbles/wall-straight-side.svg",
+		"pixmaps/gnibbles/wall-corner-bottom-left.svg",
+		"pixmaps/gnibbles/wall-corner-bottom-right.svg",
+		"pixmaps/gnibbles/wall-corner-top-left.svg",
+		"pixmaps/gnibbles/wall-corner-top-right.svg",
+		"pixmaps/gnibbles/wall-tee-up.svg",
+		"pixmaps/gnibbles/wall-tee-right.svg",
+		"pixmaps/gnibbles/wall-tee-left.svg",
+		"pixmaps/gnibbles/wall-tee-down.svg",
+		"pixmaps/gnibbles/wall-cross.svg",
+		"pixmaps/gnibbles/snake-red.svg",
+		"pixmaps/gnibbles/snake-green.svg",
+		"pixmaps/gnibbles/snake-blue.svg",
+		"pixmaps/gnibbles/snake-yellow.svg",
+		"pixmaps/gnibbles/snake-cyan.svg",
+		"pixmaps/gnibbles/snake-magenta.svg",
+		"pixmaps/gnibbles/snake-grey.svg"
+	};
+	int i;
 
-	filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
-					      "pixmaps/gnibbles/gnibbles.png",
-					      TRUE, NULL);
-
-	if (!filename) {
-		char *message =
-		    g_strdup_printf (_("Gnibbles couldn't find pixmap file:\n%s\n\n"
-			"Please check your Gnibbles installation"), filename);
-		gnibbles_error (window, message);
+	for (i = 0; i < 9; i++) {
+		if (bonus_pixmaps[i])
+			g_object_unref(bonus_pixmaps[i]);
+		bonus_pixmaps[i] = gnibbles_load_pixmap_file(window, bonus_files[i],
+				2 * properties->tilesize, 2 * properties->tilesize);
 	}
 
-	image = gdk_pixbuf_new_from_file (filename, NULL);
-
-	if (gnibbles_pixmap)
-		g_object_unref (G_OBJECT (gnibbles_pixmap));
-
-	tmp = gdk_pixbuf_scale_simple (image, 10 * properties->tilesize, 
-				10 * properties->tilesize, GDK_INTERP_TILES);
-
-	gdk_pixbuf_render_pixmap_and_mask (tmp, &gnibbles_pixmap, NULL, 127);
-
-	g_object_unref (G_OBJECT (image));
-	g_object_unref (G_OBJECT (tmp));
-	g_free (filename);
-
-	filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
-					      "pixmaps/gnibbles/gnibbles-logo.png",
-					      TRUE, NULL);
-
-	if (!filename) {
-		char *message = g_strdup_printf (_("Gnibbles Couldn't find pixmap file:\n%s\n\n"
-			"Please check your Gnibbles instalation"), filename);
-		gnibbles_error (window, message);
+	for (i = 0; i < 19; i++) {
+		if (small_pixmaps[i])
+			g_object_unref(small_pixmaps[i]);
+		small_pixmaps[i] = gnibbles_load_pixmap_file(window, small_files[i],
+				properties->tilesize, properties->tilesize);
 	}
-
-	image = gdk_pixbuf_new_from_file (filename, NULL);
-	tmp = gdk_pixbuf_scale_simple (image, BOARDWIDTH * properties->tilesize,
-				 BOARDHEIGHT * properties->tilesize, 
-				 GDK_INTERP_TILES);
-
-	if (logo_pixmap)
-		g_object_unref (G_OBJECT (logo_pixmap));
-
-	gdk_pixbuf_render_pixmap_and_mask (tmp, &logo_pixmap, NULL, 127);
-
-	g_object_unref (G_OBJECT (image));
-	g_object_unref (G_OBJECT (tmp));
-	g_free (filename);
 }
 
 void

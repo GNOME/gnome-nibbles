@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg836"
+   sodipodi:version="0.32"
+   inkscape:version="0.38.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="100.00000mm"
+   height="100.00000mm"
+   sodipodi:docbase="/usr/home/klaveren/Sources/gnome-games/gnibbles/pix"
+   sodipodi:docname="questionmark.svg">
+  <defs
+     id="defs838" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.6721668"
+     inkscape:cx="141.73228"
+     inkscape:cy="141.73228"
+     inkscape:window-width="802"
+     inkscape:window-height="613"
+     showgrid="true"
+     snaptogrid="true"
+     inkscape:window-x="48"
+     inkscape:window-y="355" />
+  <text
+     xml:space="preserve"
+     style="fill:#a50000;fill-opacity:1.0000000;stroke:#ffffff;font-family:Utopia;font-style:normal;font-weight:normal;font-size:200.00000;stroke-opacity:1.0000000;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;font-stretch:normal;font-variant:normal;text-anchor:start;writing-mode:lr;"
+     x="30.200001"
+     y="149.38889"
+     id="text839"
+     sodipodi:linespacing="100%"
+     transform="scale(2.952756,2.217647)"><tspan
+       id="tspan840"
+       style="fill:#a50000;fill-opacity:1.0000000;stroke:#ffffff;stroke-opacity:1.0000000;">?</tspan></text>
+</svg>

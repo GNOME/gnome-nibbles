@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg1"
+   sodipodi:version="0.32"
+   inkscape:version="0.38.1"
+   width="50.000000mm"
+   height="50.000000mm"
+   sodipodi:docbase="/home/klaveren/Sources/gnome-games/gnibbles/pix"
+   sodipodi:docname="snake-red.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient930">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1.0000000;"
+         offset="0.0000000"
+         id="stop931" />
+      <stop
+         style="stop-color:#9f0000;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop932" />
+    </linearGradient>
+    <defs
+       id="defs889" />
+    <sodipodi:namedview
+       id="namedview890"
+       pagecolor="#ffffff"
+       bordercolor="#666666"
+       borderopacity="1.0"
+       inkscape:pageopacity="0.0"
+       inkscape:pageshadow="2"
+       inkscape:zoom="2.5541113"
+       inkscape:cx="70.866138"
+       inkscape:cy="70.866138"
+       inkscape:window-width="640"
+       inkscape:window-height="501"
+       showgrid="true"
+       snaptogrid="true"
+       inkscape:window-x="63"
+       inkscape:window-y="40"
+       showguides="true"
+       snaptoguides="true" />
+    <defs
+       id="defs911" />
+    <sodipodi:namedview
+       id="namedview912"
+       pagecolor="#ffffff"
+       bordercolor="#666666"
+       borderopacity="1.0"
+       inkscape:pageopacity="0.0"
+       inkscape:pageshadow="2"
+       inkscape:zoom="2.5541113"
+       inkscape:cx="70.866138"
+       inkscape:cy="70.866138"
+       inkscape:window-width="640"
+       inkscape:window-height="501"
+       showgrid="true"
+       snaptogrid="true"
+       inkscape:window-x="63"
+       inkscape:window-y="40"
+       showguides="true"
+       snaptoguides="true" />
+    <defs
+       id="defs906" />
+    <sodipodi:namedview
+       id="namedview907"
+       pagecolor="#ffffff"
+       bordercolor="#666666"
+       borderopacity="1.0"
+       inkscape:pageopacity="0.0"
+       inkscape:pageshadow="2"
+       inkscape:zoom="2.5541113"
+       inkscape:cx="70.866138"
+       inkscape:cy="70.866138"
+       inkscape:window-width="640"
+       inkscape:window-height="501"
+       showgrid="true"
+       snaptogrid="true"
+       inkscape:window-x="63"
+       inkscape:window-y="40"
+       showguides="true"
+       snaptoguides="true" />
+    <radialGradient
+       xlink:href="#linearGradient930"
+       id="radialGradient933"
+       cx="0.77343750"
+       cy="0.26562500"
+       r="0.67986709"
+       fx="0.77343750"
+       fy="0.26562500" />
+    <linearGradient
+       xlink:href="#linearGradient930"
+       id="linearGradient934"
+       x1="0.0000000"
+       y1="0.50000000"
+       x2="1.0000000"
+       y2="0.50000000" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.7798890"
+     inkscape:cx="70.866138"
+     inkscape:cy="82.788229"
+     inkscape:window-width="671"
+     inkscape:window-height="533"
+     showgrid="true"
+     snaptogrid="true"
+     inkscape:window-x="69"
+     inkscape:window-y="46"
+     showguides="true"
+     snaptoguides="true" />
+  <rect
+     style="fill:url(#radialGradient933);fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.99503222pt;"
+     id="rect837"
+     width="177.16534"
+     height="177.16837"
+     x="1.0092427e-05"
+     y="-0.0030300519"
+     ry="29.227785" />
+</svg>

@@ -36,6 +36,8 @@
 #define KEY_START_LEVEL "/apps/gnibbles/preferences/start_level"
 #define KEY_SOUND "/apps/gnibbles/preferences/sound"
 #define KEY_TILE_SIZE "/apps/gnibbles/preferences/tile_size"
+#define KEY_HEIGHT "/apps/gnibbles/preferences/height"
+#define KEY_WIDTH "/apps/gnibbles/preferences/width"
 
 #define KEY_WORM_DIR "/apps/gnibbles/preferences/worm/%d"
 #define KEY_WORM_COLOR "/apps/gnibbles/preferences/worm/%d/color"
@@ -59,6 +61,8 @@ typedef struct {
 	gint startlevel;
 	gint sound;
 	gint tilesize;
+	gint height;
+	gint width;
 	GnibblesWormProps *wormprops[NUMWORMS];
 } GnibblesProperties;
 
@@ -82,8 +86,9 @@ void gnibbles_properties_set_worm_color (gint i, gint value);
 void gnibbles_properties_set_worm_up (gint i, gchar *value);
 void gnibbles_properties_set_worm_down (gint i, gchar *value);
 void gnibbles_properties_set_worm_left (gint i, gchar *value);
-
 void gnibbles_properties_set_worm_right (gint i, gchar *value);
+void gnibbles_properties_set_height (gint value);
+void gnibbles_properties_set_width (gint value);
 
 void gnibbles_properties_save (GnibblesProperties *props);
 

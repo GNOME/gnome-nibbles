@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg1"
+   sodipodi:version="0.32"
+   inkscape:version="0.38.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="100.00000mm"
+   height="100.00000mm"
+   sodipodi:docbase="/usr/home/klaveren/Sources/gnome-games/gnibbles/pix"
+   sodipodi:docname="creampie.svg">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient831">
+      <stop
+         style="stop-color:#ffbdbd;stop-opacity:1.0000000;"
+         offset="0.0000000"
+         id="stop832" />
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop833" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient831"
+       id="linearGradient834" />
+    <radialGradient
+       xlink:href="#linearGradient831"
+       id="radialGradient835"
+       cx="0.68749994"
+       cy="0.28125006"
+       r="0.37573171"
+       fx="0.67968744"
+       fy="0.28125006" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.9085279"
+     inkscape:cx="141.73228"
+     inkscape:cy="197.35309"
+     inkscape:window-width="867"
+     inkscape:window-height="680"
+     showgrid="true"
+     snaptogrid="true"
+     inkscape:window-x="0"
+     inkscape:window-y="27" />
+  <path
+     style="fill:#fff7eb;fill-rule:evenodd;stroke:#000000;stroke-width:1.0847287pt;"
+     d="M 19.072463,230.31494 L 230.99296,36.111015 C 315.20042,36.111015 337.29217,106.97716 337.29217,106.97716 L 19.072463,230.31494 z "
+     id="path826"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:#ffcc7f;fill-rule:evenodd;stroke:#000000;stroke-width:1.0847287pt;"
+     d="M 18.394507,230.99290 L 18.394507,266.42597 L 337.29215,142.41022 L 337.29215,106.97714 L 18.394507,230.99290 z "
+     id="path827"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="fill:#ffcc7f;fill-rule:evenodd;stroke:#000000;stroke-width:1.0847287pt;"
+     d="M 18.394522,301.85905 L 18.394522,337.29212 L 337.29216,213.27637 L 337.29216,177.84329 L 18.394522,301.85905 z "
+     id="path828"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="fill:#ffeed5;fill-rule:evenodd;stroke:#000000;stroke-width:1.0847287pt;"
+     d="M 18.394491,266.42596 L 18.394491,301.85903 L 337.29213,177.84328 L 337.29213,142.41020 L 18.394491,266.42596 z "
+     id="path829"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     sodipodi:type="arc"
+     style="fill:url(#radialGradient835);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0000000pt;"
+     id="path830"
+     sodipodi:cx="195.17661"
+     sodipodi:cy="115.15746"
+     sodipodi:rx="26.198202"
+     sodipodi:ry="26.574802"
+     d="M 221.37481 115.15746 A 26.198202 26.574802 0 1 0 168.97840,115.15746 A 26.198202 26.574802 0 1 0 221.37481 115.15746 z"
+     transform="translate(79.18129,-62.00788)" />
+</svg>

@@ -94,7 +94,7 @@ EXTRA_DIST = \
 	$(schema_in_files) \
 	$(icon_DATA)
 
-SUBDIRS=sounds help
+SUBDIRS=sounds help pix
 
 DISTCLEANFILES = $(Games_DATA) $(soundlist_DATA) $(schema_DATA)
 

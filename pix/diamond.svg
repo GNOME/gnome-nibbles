@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg840"
+   sodipodi:version="0.32"
+   inkscape:version="0.39cvs"
+   width="100.00000mm"
+   height="100.00000mm"
+   sodipodi:docname="twirly.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   sodipodi:docbase="/home/callum/CVS/gnome-games/gnibbles/pix">
+  <defs
+     id="defs842">
+    <linearGradient
+       id="linearGradient1097">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1.0000000;"
+         offset="0.0000000"
+         id="stop1098" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop1099" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient845">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1.0000000;"
+         offset="0.0000000"
+         id="stop846" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop847" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient845"
+       id="linearGradient848"
+       x1="0.0000000"
+       y1="0.50000000"
+       x2="1.1089743"
+       y2="0.50322574" />
+    <radialGradient
+       xlink:href="#linearGradient1097"
+       id="radialGradient1096"
+       cx="0.50000000"
+       cy="0.50000000"
+       r="0.40625000"
+       fx="0.50000000"
+       fy="0.50000000" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.7838795"
+     inkscape:cx="148.73028"
+     inkscape:cy="139.14596"
+     inkscape:window-width="866"
+     inkscape:window-height="697"
+     showgrid="true"
+     snaptogrid="true"
+     inkscape:window-x="152"
+     inkscape:window-y="197" />
+  <path
+     style="fill:#648aec;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#7f7f7f;stroke-width:1.0000000pt;stroke-opacity:1.0000000;stroke-linejoin:round;stroke-linecap:round;"
+     d="M 34.808068,158.82380 L 176.54035,158.82380 L 176.54035,17.091517 L 34.808068,158.82380 z "
+     id="path1047" />
+  <path
+     style="fill:#006cca;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#7f7f7f;stroke-width:1.0000000pt;stroke-opacity:1.0000000;stroke-linejoin:round;stroke-linecap:round;"
+     d="M 176.54035,17.091514 L 176.54035,158.82380 L 318.27264,158.82380 L 176.54035,17.091514 z "
+     id="path1048" />
+  <path
+     style="fill:#006cac;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#7f7f7f;stroke-width:1.0000000pt;stroke-opacity:1.0000000;stroke-linejoin:round;stroke-linecap:round;"
+     d="M 176.54035,300.55608 L 176.54035,158.82379 L 318.27264,158.82379 L 176.54035,300.55608 z "
+     id="path1049" />
+  <path
+     style="fill:#006ce2;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#7f7f7f;stroke-width:1.0000000pt;stroke-opacity:1.0000000;stroke-linejoin:round;stroke-linecap:round;"
+     d="M 176.54035,300.55608 L 176.54035,158.82380 L 34.808074,158.82380 L 176.54035,300.55608 z "
+     id="path1050" />
+</svg>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg836"
+   sodipodi:version="0.32"
+   inkscape:version="0.38.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="100.00000mm"
+   height="100.00000mm"
+   sodipodi:docbase="/usr/home/klaveren/Sources/gnome-games/gnibbles/pix"
+   sodipodi:docname="icecream.svg">
+  <defs
+     id="defs838" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.1751327"
+     inkscape:cx="141.73230"
+     inkscape:cy="135.50634"
+     inkscape:window-width="785"
+     inkscape:window-height="721"
+     showgrid="true"
+     snaptogrid="true"
+     inkscape:window-x="69"
+     inkscape:window-y="279" />
+  <path
+     style="fill:#b88d44;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.4740000pt;stroke-opacity:1.0000000;"
+     d="M 177.09677,351.25768 L 124.93701,142.65356 C 177.16534,177.16536 229.39370,142.65356 229.39370,142.65356 L 177.09677,351.25768 z "
+     id="path2438"
+     sodipodi:nodetypes="cccc" />
+  <g
+     id="g2443"
+     transform="translate(3.835736e-5,6.388922e-5)"
+     style="stroke:#ffffff;stroke-opacity:1.0000000;">
+    <path
+       sodipodi:type="arc"
+       style="fill:#efef89;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.0000000pt;stroke-opacity:1.0000000;"
+       id="path2439"
+       sodipodi:cx="124.01575"
+       sodipodi:cy="106.29919"
+       sodipodi:rx="35.433071"
+       sodipodi:ry="35.433071"
+       d="M 159.44882 106.29919 A 35.433071 35.433071 0 1 0 88.582676,106.29919 A 35.433071 35.433071 0 1 0 159.44882 106.29919 z"
+       transform="matrix(1.228334,0.000000,0.000000,1.228334,-1.742222,-6.555177)"
+       sodipodi:fill-cmyk="(0.0000000 0.0000000 0.42622951 0.065573767)" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#efef89;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.0000000pt;stroke-opacity:1.0000000;"
+       id="path2440"
+       sodipodi:cx="124.01575"
+       sodipodi:cy="106.29919"
+       sodipodi:rx="35.433071"
+       sodipodi:ry="35.433071"
+       d="M 159.44882 106.29919 A 35.433071 35.433071 0 1 0 88.582676,106.29919 A 35.433071 35.433071 0 1 0 159.44882 106.29919 z"
+       transform="matrix(1.228334,0.000000,0.000000,1.228334,51.40738,-6.555177)"
+       sodipodi:fill-cmyk="(0.0000000 0.0000000 0.42622951 0.065573767)" />
+  </g>
+  <path
+     sodipodi:type="arc"
+     style="fill:#efef89;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.0000000pt;stroke-opacity:1.0000000;"
+     id="path2441"
+     sodipodi:cx="124.01575"
+     sodipodi:cy="106.29919"
+     sodipodi:rx="35.433071"
+     sodipodi:ry="35.433071"
+     d="M 159.44882 106.29919 A 35.433071 35.433071 0 1 0 88.582676,106.29919 A 35.433071 35.433071 0 1 0 159.44882 106.29919 z"
+     transform="matrix(1.228334,0.000000,0.000000,1.228334,24.83261,-68.56298)"
+     sodipodi:fill-cmyk="(0.0000000 0.0000000 0.42622951 0.065573767)" />
+</svg>

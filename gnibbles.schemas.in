@@ -38,6 +38,18 @@
     </schema>
 
     <schema>
+      <key>/schemas/apps/gnibbles/preferences/height</key>
+      <applyto>/apps/gnibbles/preferences/height</applyto>
+      <owner>gnibbles</owner>
+      <type>int</type>
+      <default>400</default>
+      <locale name="C">
+        <short>Height of the GNibbles window</short>
+        <long>Height of the GNibbles window, used to restore the window size between sessions.</long>
+      </locale>
+    </schema>
+
+    <schema>
       <key>/schemas/apps/gnibbles/preferences/random</key>
       <applyto>/apps/gnibbles/preferences/random</applyto>
       <owner>gnibbles</owner>
@@ -82,6 +94,18 @@
       <locale name="C">
         <short>Size of game tiles</short>
         <long>Size of game tiles.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/width</key>
+      <applyto>/apps/gnibbles/preferences/width</applyto>
+      <owner>gnibbles</owner>
+      <type>int</type>
+      <default>600</default>
+      <locale name="C">
+        <short>Width of the GNibbles window</short>
+        <long>Width of the GNibbles window, used to restore the window size between sessions.</long>
       </locale>
     </schema>
 

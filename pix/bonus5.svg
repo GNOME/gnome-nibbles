@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg1487"
+   sodipodi:version="0.32"
+   inkscape:version="0.38.1"
+   width="210mm"
+   height="297mm"
+   sodipodi:docbase="/home/klaveren/Sources/gnome-games/gnibbles/pix"
+   sodipodi:docname="gold.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xml="http://www.w3.org/XML/1998/namespace"
+   xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs
+     id="defs1489" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.9312164"
+     inkscape:cx="105.84061"
+     inkscape:cy="781.26966"
+     inkscape:window-width="755"
+     inkscape:window-height="750"
+     inkscape:window-x="149"
+     inkscape:window-y="165"
+     showgrid="true"
+     snaptogrid="true" />
+  <rect
+     style="font-size:12;fill:#fff969;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.743876;"
+     id="rect1491"
+     width="115.15945601"
+     height="49.86779140"
+     x="52.32936724"
+     y="62.69480171"
+     transform="matrix(0.989585,-0.143948,0.323551,0.946211,0.000000,0.000000)" />
+  <path
+     transform="matrix(-0.527027,0.849849,0.326081,0.945342,0.000000,0.000000)"
+     style="font-size:12;fill:#fff968;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.402485;"
+     d="M -66.225746 114.7252 L -66.225746 163.9537 L -60.008562 174.09452 L -60.558251 122.68497 L -66.225746 114.7252 z "
+     id="path1496"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="font-size:12;fill:#fff969;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.503222;"
+     d="M 165.47134 142.16161 L 173.9014 158.81657 L 286.19526 154.76659 L 278.69646 140.24406 L 165.47134 142.16161 z "
+     id="path1495"
+     sodipodi:nodetypes="ccccc"
+     transform="matrix(0.991697,-0.128598,-0.531911,0.846800,0.000000,0.000000)" />
+  <text
+     xml:space="preserve"
+     style="fill:#8f9200;fill-opacity:1.0000000;stroke:none;font-family:Impact;font-style:normal;font-weight:normal;font-size:48;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;text-anchor:start;writing-mode:lr;"
+     x="50.3376217"
+     y="101.806578"
+     id="text1497"
+     sodipodi:linespacing="100%"
+     transform="matrix(1.078472,-0.149405,0.364323,0.988776,0.000000,0.000000)"
+     sodipodi:fill-cmyk="(0.020000000 0.0000000 1.0000000 0.42622951)"><tspan
+       x="50.337624"
+       y="101.80658"
+       sodipodi:role="line"
+       id="tspan1520"
+       style="fill:#8f9200;fill-opacity:1.0000000;">GOLD</tspan></text>
+</svg>

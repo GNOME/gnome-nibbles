@@ -27,6 +27,8 @@
 #include <time.h>
 #include <gconf/gconf-client.h>
 
+#include <games-gridframe.h>
+
 #include "main.h"
 #include "properties.h"
 #include "gnibbles.h"
@@ -41,8 +43,7 @@ GtkWidget *drawing_area;
 GtkWidget *appbar;
 
 extern GdkPixmap *buffer_pixmap;
-extern GdkPixmap *gnibbles_pixmap;
-extern GdkPixmap *logo_pixmap;
+extern GdkPixbuf *logo_pixmap;
 
 GnibblesProperties *properties;
 
@@ -269,14 +270,56 @@ draw_board ()
 }
 
 static gint
+window_configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
+{
+	gnibbles_properties_set_height(event->height);
+	gnibbles_properties_set_width(event->width);
+	return FALSE;
+}
+
+static gint
 configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
 {
+	int tilesize, ts_x, ts_y;
+
+	/* Compute the new tile size based on the size of the
+	 * drawing area, rounded down. */
+	ts_x = event->width / BOARDWIDTH;
+	ts_y = event->height / BOARDHEIGHT;
+	if (ts_x * BOARDWIDTH > event->width)
+		ts_x--;
+	if (ts_y * BOARDHEIGHT > event->height)
+		ts_y--;
+	tilesize = MIN(ts_x, ts_y);
+
+	/* But, has the tile size changed? */
+	if (properties->tilesize == tilesize) {
+
+		/* We must always re-load the logo. */
+		gnibbles_load_logo (window);
+		return FALSE;
+	}
+
+	properties->tilesize = tilesize;
+	gnibbles_properties_set_tile_size(tilesize);
+
+	/* Reload the images pixmap. */
+	gnibbles_load_logo (window);
 	gnibbles_load_pixmap (window);
+
+	/* Recreate the buffer pixmap. */
 	if (buffer_pixmap)
 		g_object_unref (G_OBJECT (buffer_pixmap));
 	buffer_pixmap = gdk_pixmap_new (drawing_area->window,
 					BOARDWIDTH * properties->tilesize,
 					BOARDHEIGHT * properties->tilesize, -1);
+
+	/* Erase the buffer pixmap. */
+	gdk_draw_rectangle(buffer_pixmap,
+				drawing_area->style->black_gc,
+				TRUE, 0, 0,
+				BOARDWIDTH * properties->tilesize,
+				BOARDHEIGHT * properties->tilesize);
 
 	if (game_running ())
 		draw_board ();
@@ -550,6 +593,7 @@ static gint main_loop (gpointer data)
 	return (TRUE);
 }
 
+/*
 static void
 set_bg_color (void)
 {
@@ -562,6 +606,7 @@ set_bg_color (void)
 	gdk_window_set_background (drawing_area->window, &bgcolor);
 	g_object_unref (G_OBJECT (tmp_image));
 }
+*/
 
 void
 update_score_state (void)
@@ -599,14 +644,18 @@ static void
 setup_window (void)
 {
 	GdkPixmap *cursor_dot_pm;
+	GtkWidget * packing;
 
 	window = gnome_app_new ("gnibbles", "GNOME Nibbles");
-	gtk_window_set_resizable (GTK_WINDOW (window), FALSE);
 	gtk_widget_realize (window);
+	gtk_window_resize(GTK_WINDOW(window), properties->width, properties->height);
 	g_signal_connect (G_OBJECT (window), "destroy",
 			G_CALLBACK (quit_cb), NULL);
 	g_signal_connect (G_OBJECT (window), "delete_event",
 			G_CALLBACK (delete_cb), NULL);
+
+	packing = games_grid_frame_new (BOARDWIDTH, BOARDHEIGHT);
+	gnome_app_set_contents (GNOME_APP (window), packing);
 
 	drawing_area = gtk_drawing_area_new ();
 
@@ -620,10 +669,13 @@ setup_window (void)
 		&drawing_area->style->fg[GTK_STATE_ACTIVE],
 		&drawing_area->style->bg[GTK_STATE_ACTIVE], 0, 0);
 
-	gnome_app_set_contents (GNOME_APP (window), drawing_area);
+	gtk_container_add (GTK_CONTAINER (packing), drawing_area);
 
 	g_signal_connect (G_OBJECT (drawing_area), "configure_event",
 			G_CALLBACK (configure_event_cb), NULL);
+
+	g_signal_connect (G_OBJECT (window), "configure_event",
+			G_CALLBACK (window_configure_event_cb), NULL);
 
 	g_signal_connect (G_OBJECT(drawing_area), "motion_notify_event",
 			G_CALLBACK (show_cursor_cb), NULL);
@@ -632,8 +684,8 @@ setup_window (void)
 			G_CALLBACK (show_cursor_cb), NULL);
 
 	gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
-				     BOARDWIDTH*properties->tilesize,
-				     BOARDHEIGHT*properties->tilesize);
+				     BOARDWIDTH*5,
+				     BOARDHEIGHT*5);
 	g_signal_connect (G_OBJECT (drawing_area), "expose_event",
 			G_CALLBACK (expose_event_cb), NULL);
 	gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
@@ -679,19 +731,20 @@ render_logo (void)
 {
 	zero_board ();
 
-	gdk_draw_drawable (GDK_DRAWABLE (buffer_pixmap),
+	gdk_draw_pixbuf (GDK_DRAWABLE (buffer_pixmap),
 			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
 			   logo_pixmap,
 			   0, 0, 0, 0,
 			   BOARDWIDTH * properties->tilesize,
-			   BOARDHEIGHT * properties->tilesize);
+			   BOARDHEIGHT * properties->tilesize,
+			   GDK_RGB_DITHER_NORMAL, 0, 0);
 
 	gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
 			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
 			   buffer_pixmap,
 			   0, 0, 0, 0,
 			   BOARDWIDTH * properties->tilesize,
-			   BOARDHEIGHT * properties->tilesize);
+			  BOARDHEIGHT * properties->tilesize);
 }
 
 int 
@@ -717,6 +770,7 @@ main (int argc, char **argv)
 
 	update_score_state ();
 
+	gnibbles_load_logo (window);
 	gnibbles_load_pixmap (window);
 
 	gtk_widget_show (window);
@@ -728,7 +782,7 @@ main (int argc, char **argv)
 
 	render_logo ();
 
-	set_bg_color ();
+	/*set_bg_color ();*/
 
 	gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
 	gtk_widget_set_sensitive (game_menu[4].widget, FALSE);
