@@ -1,3 +1,11 @@
+1999-02-02  Ian Peters  <ipeters@acm.org>
+
+	* Fixed some memory leak in properties.c
+	* Added configuration options to allow multiple players to set keys,
+	set worm color, set number of players, set starting level.  Multiple
+	worm play is now possible for up to 4 players, and this is an arbitrary
+	limit - really, how many people fit on one keyboard?
+
 1999-02-01  Ian Peters  <ipeters@acm.org>
 
 	* Fixed crazy little pausing bug - didn't pause when worm had died,

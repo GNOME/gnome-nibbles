@@ -229,7 +229,7 @@ void gnibbles_init ()
 			gnibbles_worm_destroy (worms[i]);
 	
 	for (i = 0; i < properties->numworms; i++)
-		worms[i] = gnibbles_worm_new (WORMRED + i,
+		worms[i] = gnibbles_worm_new (properties->wormprops[i]->color,
 				properties->wormprops[i]->up,
 				properties->wormprops[i]->down,
 				properties->wormprops[i]->left,

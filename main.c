@@ -439,12 +439,6 @@ static void setup_window ()
 static void load_properties ()
 {
 	properties = gnibbles_properties_new ();
-
-	printf ("Number of worms is %d\n", properties->numworms);
-	printf ("Game speed is %d\n", properties->gamespeed);
-	printf ("Fake bonuses is %d\n", properties->fakes);
-	printf ("Random level play is %d\n", properties->random);
-	printf ("Starting level is %d\n", properties->startlevel);
 }
 
 static void render_logo ()
