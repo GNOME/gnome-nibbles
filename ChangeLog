@@ -1,5 +1,10 @@
 2000-04-26  Ian Peters  <itp@gnu.org>
 
+	* main.c (main): load_properties before setup_window, else we segfault.
+	  How did this ever work?
+
+2000-04-26  Ian Peters  <itp@gnu.org>
+
 	* merged/modified patch from Sean Atkinson to allow configurable board
 	  size (yay now all the laptop users can quit complaining)
 
