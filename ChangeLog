@@ -1,3 +1,14 @@
+2002-04-24  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am:
+	* preferences.c: (destroy_cb), (apply_cb), (game_speed_cb),
+	(start_level_cb), (random_order_cb), (fake_bonus_cb), (sound_cb),
+	(tile_size_cb), (num_worms_cb), (worm_up_cb), (worm_down_cb),
+	(worm_left_cb), (worm_right_cb), (set_worm_color_cb),
+	(worm_relative_movement_cb), (gnibbles_preferences_cb):
+	ported to Gnome2, thanks to Shahms E. King <shahms@shahms.com>
+	for the patch
+
 2002-04-17  Bastien Nocera  <hadess@hadess.net>
 
 	* boni.c: (gnibbles_boni_new):

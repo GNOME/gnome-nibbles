@@ -8,7 +8,10 @@ scoredir=$(localstatedir)/games
 INCLUDES = 			\
 	$(GNOME_GAMES_CFLAGS)		\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DREAL_DATADIR=\""$(datadir)"\"
+	-DREAL_DATADIR=\""$(datadir)"\" \
+	-DG_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED \
+	-DGTK_DISABLE_DEPRECATED -DGNOME_DISABLE_DEPRECATED
+
 
 bin_PROGRAMS = gnibbles
 

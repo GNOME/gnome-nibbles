@@ -54,28 +54,28 @@ static gchar *keyboard_string (gint ksym)
 
 static void destroy_cb (GtkWidget *widget, gpointer data)
 {
-	gnibbles_properties_destroy (t_properties);
-
 	if (unpause) {
 		pause_game_cb (NULL, 0);
 		unpause = 0;
 	}
+	pref_dialog = NULL;
 }
 
-static void apply_cb (GtkWidget *widget, gint pagenum, gpointer data)
+static void apply_cb (GtkWidget *widget, gint action, gpointer data)
 {
-	if (pagenum == -1) {
+	gtk_widget_hide(widget);
+	if (action == GTK_RESPONSE_ACCEPT) {
     if (t_properties->tilesize != properties->tilesize) {
       gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
                              t_properties->tilesize * BOARDWIDTH,
                              t_properties->tilesize * BOARDHEIGHT);
     }
-    
+ 
 		gnibbles_properties_destroy (properties);
 		properties = gnibbles_properties_copy (t_properties);
 
 		gnibbles_properties_save (properties);
-	}
+	}  
 }
 
 static void game_speed_cb (GtkWidget *widget, gpointer data)
@@ -85,7 +85,6 @@ static void game_speed_cb (GtkWidget *widget, gpointer data)
 
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
 		t_properties->gamespeed = (gint) data;
-		gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 	}
 }
 
@@ -97,7 +96,6 @@ static void start_level_cb (GtkWidget *widget, gpointer data)
 	t_properties->startlevel = gtk_spin_button_get_value_as_int
 		(GTK_SPIN_BUTTON (data));
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void random_order_cb (GtkWidget *widget, gpointer data)
@@ -108,7 +106,7 @@ static void random_order_cb (GtkWidget *widget, gpointer data)
 	if (!pref_dialog)
 		return;
 
-	list = gtk_container_children (GTK_CONTAINER (widget->parent));
+	list = gtk_container_get_children (GTK_CONTAINER (widget->parent));
 	list = g_list_reverse (list);
 
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
@@ -125,7 +123,6 @@ static void random_order_cb (GtkWidget *widget, gpointer data)
 
 	g_list_free (list);
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void fake_bonus_cb (GtkWidget *widget, gpointer data)
@@ -138,7 +135,6 @@ static void fake_bonus_cb (GtkWidget *widget, gpointer data)
 	else
 		t_properties->fakes = 0;
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void sound_cb (GtkWidget *widget, gpointer data)
@@ -151,7 +147,6 @@ static void sound_cb (GtkWidget *widget, gpointer data)
 	else
 		t_properties->sound = 0;
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void tile_size_cb (GtkWidget *widget, gpointer data)
@@ -161,7 +156,6 @@ static void tile_size_cb (GtkWidget *widget, gpointer data)
 
   if (GTK_TOGGLE_BUTTON (widget)->active) {
     t_properties->tilesize = (gint) data;
-	  gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
   }
 }
 
@@ -173,7 +167,6 @@ static void num_worms_cb (GtkWidget *widget, gpointer data)
 	t_properties->numworms = gtk_spin_button_get_value_as_int
 		(GTK_SPIN_BUTTON (data));
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void worm_up_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -186,7 +179,6 @@ static void worm_up_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 
 	t_properties->wormprops[(gint) data]->up = event->keyval;
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void worm_down_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -199,7 +191,6 @@ static void worm_down_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 
 	t_properties->wormprops[(gint) data]->down = event->keyval;
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void worm_left_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -212,7 +203,6 @@ static void worm_left_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 
 	t_properties->wormprops[(gint) data]->left = event->keyval;
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void worm_right_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -225,7 +215,6 @@ static void worm_right_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 
 	t_properties->wormprops[(gint) data]->right = event->keyval;
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void set_worm_color_cb (GtkWidget *widget, gpointer data)
@@ -235,7 +224,6 @@ static void set_worm_color_cb (GtkWidget *widget, gpointer data)
 
 	t_properties->wormprops[worm]->color = color;
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 static void worm_relative_movement_cb (GtkWidget *widget, gpointer data)
@@ -246,7 +234,7 @@ static void worm_relative_movement_cb (GtkWidget *widget, gpointer data)
 	if (!pref_dialog)
 		return;
 
-	list = gtk_container_children (GTK_CONTAINER (widget->parent));
+	list = gtk_container_get_children (GTK_CONTAINER (widget->parent));
 	list = g_list_reverse (list);
 	
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
@@ -265,11 +253,11 @@ static void worm_relative_movement_cb (GtkWidget *widget, gpointer data)
 
 	g_list_free (list);
 
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
 
 void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 {
+	GtkWidget *notebook;
 	GtkWidget *label;
 	GtkWidget *hbox;
 	GtkWidget *frame;
@@ -290,7 +278,10 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gint running = 0;
 	
 	if (pref_dialog)
+	{
+		gtk_widget_show(pref_dialog);
 		return;
+	}
 
 	if (!paused) {
 		unpause = 1;
@@ -302,31 +293,32 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 	t_properties = gnibbles_properties_copy (properties);
 
-	pref_dialog = gnome_property_box_new ();
-	gnome_dialog_set_parent (GNOME_DIALOG (pref_dialog), GTK_WINDOW
-			(window));
-	gtk_window_set_title (GTK_WINDOW (pref_dialog),
-			_("Gnibbles Preferences"));
-	gtk_signal_connect (GTK_OBJECT (pref_dialog), "destroy",
-			GTK_SIGNAL_FUNC (gtk_widget_destroyed), &pref_dialog);
-	gtk_signal_connect (GTK_OBJECT (pref_dialog), "destroy",
-			GTK_SIGNAL_FUNC (destroy_cb), NULL);
+	pref_dialog = gtk_dialog_new_with_buttons (_("Gnibbles Preferences"),
+			GTK_WINDOW(window),
+			0,
+			GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
+			GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
+
+	notebook = gtk_notebook_new();
+	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (pref_dialog)->vbox),
+			notebook);
+	gtk_widget_show (notebook);
 
 	label = gtk_label_new (_("Game"));
 	gtk_widget_show (label);
 
 	hbox = gtk_hbox_new (FALSE, GNOME_PAD);
-	gtk_container_border_width (GTK_CONTAINER (hbox), GNOME_PAD);
+	gtk_container_set_border_width (GTK_CONTAINER (hbox), GNOME_PAD);
 	gtk_widget_show (hbox);
 
 	frame = gtk_frame_new (_("Speed"));
-	gtk_container_border_width (GTK_CONTAINER (frame), 0);
+	gtk_container_set_border_width (GTK_CONTAINER (frame), 0);
 	if (running)
 		gtk_widget_set_sensitive (frame, FALSE);
 	gtk_widget_show (frame);
 
 	vbox = gtk_vbox_new (TRUE, 0);
-	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
+	gtk_container_set_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
 	gtk_widget_show (vbox);
 
 	button = gtk_radio_button_new_with_label (NULL, _("Nibbles newbie"));
@@ -335,7 +327,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->gamespeed == 4)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(game_speed_cb), (gpointer) 4);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
@@ -345,7 +337,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->gamespeed == 3)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(game_speed_cb), (gpointer) 3);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
@@ -355,7 +347,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->gamespeed == 2)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(game_speed_cb), (gpointer) 2);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
@@ -366,7 +358,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->gamespeed == 1)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(game_speed_cb), (gpointer) 1);
 
 	gtk_container_add (GTK_CONTAINER (frame), vbox);
@@ -399,7 +391,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_widget_set_sensitive (GTK_WIDGET (levelspinner), FALSE);
 	gtk_table_attach (GTK_TABLE (table), levelspinner, 1, 2, 3, 4,
 			GTK_EXPAND | GTK_FILL, 0, 0, 0);
-	gtk_signal_connect (GTK_OBJECT (adjustment), "value_changed",
+	g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
 			GTK_SIGNAL_FUNC (start_level_cb), levelspinner);
 
 	button = gtk_check_button_new_with_label (_("Levels in random order"));
@@ -411,7 +403,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->random)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(random_order_cb), NULL);
 
 	button = gtk_check_button_new_with_label (_("Fake bonuses"));
@@ -423,7 +415,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->fakes)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(fake_bonus_cb), NULL);
 
 	button = gtk_check_button_new_with_label (_("Sounds"));
@@ -433,7 +425,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (button);
 	gtk_table_attach (GTK_TABLE (table), button, 0, 2, 2, 3,
 			GTK_EXPAND | GTK_FILL, 0, 0, 0);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(sound_cb), NULL);
 
 	label2 = gtk_label_new (_("Number of players: "));
@@ -454,27 +446,27 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			GTK_FILL, 0, 0, 0);
 	if (running)
 		gtk_widget_set_sensitive (button, FALSE);
-	gtk_signal_connect (GTK_OBJECT (adjustment), "value_changed",
+	g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
 			GTK_SIGNAL_FUNC (num_worms_cb), button);
 
 	gtk_box_pack_start (GTK_BOX (hbox), table, TRUE, TRUE, 0);
 
-	gnome_property_box_append_page (GNOME_PROPERTY_BOX (pref_dialog),
+	gtk_notebook_append_page (GTK_NOTEBOOK (notebook),
 			hbox, label);
 
   label = gtk_label_new (_("Graphics"));
   gtk_widget_show (label);
 
 	hbox = gtk_hbox_new (FALSE, GNOME_PAD);
-	gtk_container_border_width (GTK_CONTAINER (hbox), GNOME_PAD);
+	gtk_container_set_border_width (GTK_CONTAINER (hbox), GNOME_PAD);
 	gtk_widget_show (hbox);
 
 	frame = gtk_frame_new (_("Board size"));
-	gtk_container_border_width (GTK_CONTAINER (frame), 0);
+	gtk_container_set_border_width (GTK_CONTAINER (frame), 0);
 	gtk_widget_show (frame);
 
 	vbox = gtk_vbox_new (TRUE, 0);
-	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
+	gtk_container_set_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
 	gtk_widget_show (vbox);
 
 	button = gtk_radio_button_new_with_label (NULL, _("Tiny (184x132)"));
@@ -483,7 +475,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->tilesize == 2)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 2);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
@@ -493,7 +485,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->tilesize == 4)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 4);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
@@ -503,7 +495,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->tilesize == 5)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 5);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
@@ -513,7 +505,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->tilesize == 8)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 8);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
@@ -523,7 +515,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->tilesize == 10)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 10);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
@@ -533,14 +525,14 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (properties->tilesize == 20)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
-	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(tile_size_cb), (gpointer) 20);
 
 	gtk_container_add (GTK_CONTAINER (frame), vbox);
 
 	gtk_box_pack_start (GTK_BOX (hbox), frame, TRUE, TRUE, 0);
 
-	gnome_property_box_append_page (GNOME_PROPERTY_BOX (pref_dialog),
+	gtk_notebook_append_page (GTK_NOTEBOOK (notebook),
 			hbox, label);
 
 	for (i = 0; i < NUMWORMS; i++) {
@@ -549,7 +541,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_widget_show (label);
 
 		table = gtk_table_new (3, 4, FALSE);
-		gtk_container_border_width (GTK_CONTAINER (table),
+		gtk_container_set_border_width (GTK_CONTAINER (table),
 				GNOME_PAD);
 		gtk_table_set_col_spacings (GTK_TABLE (table),
 				GNOME_PAD);
@@ -572,7 +564,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), entry, 1, 2, 0, 1,
 				GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL,
 				0, 0);
-		gtk_signal_connect (GTK_OBJECT (entry), "key_press_event",
+		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
 				GTK_SIGNAL_FUNC (worm_up_cb), (gpointer) i);
 
 		label2 = gtk_label_new (_("Down:"));
@@ -590,7 +582,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), entry, 3, 4, 0, 1,
 				GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL,
 				0, 0);
-		gtk_signal_connect (GTK_OBJECT (entry), "key_press_event",
+		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
 				GTK_SIGNAL_FUNC (worm_down_cb), (gpointer) i);
 
 		label2 = gtk_label_new (_("Left:"));
@@ -608,7 +600,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), entry, 1, 2, 1, 2,
 				GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL,
 				0, 0);
-		gtk_signal_connect (GTK_OBJECT (entry), "key_press_event",
+		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
 				GTK_SIGNAL_FUNC (worm_left_cb), (gpointer) i);
 
 		label2 = gtk_label_new (_("Right:"));
@@ -626,7 +618,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), entry, 3, 4, 1, 2,
 				GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL,
 				0, 0);
-		gtk_signal_connect (GTK_OBJECT (entry), "key_press_event",
+		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
 				GTK_SIGNAL_FUNC (worm_right_cb), (gpointer) i);
 
 		label2 = gtk_label_new (_("Color:"));
@@ -640,44 +632,44 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		menu = gtk_menu_new ();
 		menuitem = gtk_menu_item_new_with_label (_("Red"));
 		gtk_widget_show (menuitem);
-		gtk_menu_append (GTK_MENU (menu), menuitem);
-		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
+		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
+		g_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMRED << 2 | i));
 		menuitem = gtk_menu_item_new_with_label (_("Green"));
 		gtk_widget_show (menuitem);
-		gtk_menu_append (GTK_MENU (menu), menuitem);
-		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
+		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
+		g_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMGREEN << 2 | i));
 		menuitem = gtk_menu_item_new_with_label (_("Blue"));
 		gtk_widget_show (menuitem);
-		gtk_menu_append (GTK_MENU (menu), menuitem);
-		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
+		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
+		g_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMBLUE << 2 | i));
 		menuitem = gtk_menu_item_new_with_label (_("Yellow"));
 		gtk_widget_show (menuitem);
-		gtk_menu_append (GTK_MENU (menu), menuitem);
-		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
+		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
+		g_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMYELLOW << 2 | i));
 		menuitem = gtk_menu_item_new_with_label (_("Cyan"));
 		gtk_widget_show (menuitem);
-		gtk_menu_append (GTK_MENU (menu), menuitem);
-		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
+		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
+		g_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMCYAN << 2 | i));
 		menuitem = gtk_menu_item_new_with_label (_("Purple"));
 		gtk_widget_show (menuitem);
-		gtk_menu_append (GTK_MENU (menu), menuitem);
-		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
+		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
+		g_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMPURPLE << 2 | i));
 		menuitem = gtk_menu_item_new_with_label (_("Gray"));
 		gtk_widget_show (menuitem);
-		gtk_menu_append (GTK_MENU (menu), menuitem);
-		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
+		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
+		g_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMGRAY << 2 | i));
 
@@ -695,7 +687,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		if (properties->wormprops[i]->relmove) {
 			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON
 					(button), TRUE);
-			list = gtk_container_children (GTK_CONTAINER (table));
+			list = gtk_container_get_children (GTK_CONTAINER (table));
 			list = g_list_reverse (list);
 			for (j = 0; j < 4; j++) {
 				gtk_widget_set_sensitive (GTK_WIDGET
@@ -704,7 +696,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			}
 			g_list_free (list);
 		}
-		gtk_signal_connect (GTK_OBJECT (button), "toggled",
+		g_signal_connect (GTK_OBJECT (button), "toggled",
 				GTK_SIGNAL_FUNC (worm_relative_movement_cb),
 				(gpointer) i);
 
@@ -712,12 +704,15 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), button, 2, 4, 2, 3,
 				GTK_EXPAND | GTK_FILL, 0, 0, 0);
 
-		gnome_property_box_append_page (GNOME_PROPERTY_BOX
-				(pref_dialog), table, label);
+		gtk_notebook_append_page (GTK_NOTEBOOK(notebook), table, label);
 	}
 
-	gtk_signal_connect (GTK_OBJECT (pref_dialog), "apply", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (pref_dialog), "response", GTK_SIGNAL_FUNC
 			(apply_cb), NULL);
-
+	g_signal_connect (GTK_OBJECT (pref_dialog), "destroy", GTK_SIGNAL_FUNC
+			(destroy_cb), NULL);
+	g_signal_connect (GTK_OBJECT (pref_dialog), "close", GTK_SIGNAL_FUNC
+			(destroy_cb), NULL);
+	
 	gtk_widget_show (pref_dialog);
 }
