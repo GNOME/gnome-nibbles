@@ -1,5 +1,9 @@
 1999-02-28  Ian Peters  <ipeters@acm.org>
 
+	* Relative movement grays out up/down key selection (preferences.c)
+
+1999-02-28  Ian Peters  <ipeters@acm.org>
+
 	* Added support for relative motion of worms instead of absolute
 
 1999-02-27  Ian Peters  <ipeters@acm.org>

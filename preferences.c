@@ -196,13 +196,28 @@ static void set_worm_color_cb (GtkWidget *widget, gpointer data)
 
 static void worm_relative_movement_cb (GtkWidget *widget, gpointer data)
 {
+	GList *list;
+	int i;
+	
 	if (!pref_dialog_valid)
 		return;
+
+	list = gtk_container_children (GTK_CONTAINER (widget->parent));
+	list = g_list_reverse (list);
 	
-	if (GTK_TOGGLE_BUTTON (widget)->active)
+	if (GTK_TOGGLE_BUTTON (widget)->active) {
 		t_properties->wormprops[(gint) data]->relmove = 1;
-	else
+		for (i = 0; i < 4; i++) {
+			gtk_widget_set_sensitive (list->data, FALSE);
+			list = list->next;
+		}
+	} else {
 		t_properties->wormprops[(gint) data]->relmove = 0;
+		for (i = 0; i < 4; i++) {
+			gtk_widget_set_sensitive (list->data, TRUE);
+			list = list->next;
+		}
+	}
 
 	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
 }
@@ -224,7 +239,8 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	GtkWidget *menuitem;
 	GtkWidget *menu;
 	gchar buffer[256];
-	gint i;
+	gint i, j;
+	GList *list;
 	
 	if (pref_dialog)
 		return;
@@ -524,9 +540,18 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_signal_connect (GTK_OBJECT (button), "toggled",
 				GTK_SIGNAL_FUNC (worm_relative_movement_cb),
 				(gpointer) i);
-		if (properties->wormprops[i]->relmove)
+		if (properties->wormprops[i]->relmove) {
 			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON
 					(button), TRUE);
+			list = gtk_container_children (GTK_CONTAINER (table));
+			list = g_list_reverse (list);
+			for (j = 0; j < 4; j++) {
+				gtk_widget_set_sensitive (GTK_WIDGET
+						(list->data), FALSE);
+				list = list->next;
+			}
+		}
+
 		gtk_widget_show (button);
 		gtk_table_attach (GTK_TABLE (table), button, 2, 4, 2, 3,
 				GTK_EXPAND | GTK_FILL, 0, 0, 0);
