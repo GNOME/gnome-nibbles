@@ -1,3 +1,8 @@
+2003-10-19  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* main.c: 
+	* preferences.c: Replace deprecated gtk+ functions.
+
 2003-07-30  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/gnibbles.xml: Updated for 2.4 (including the screenshots).

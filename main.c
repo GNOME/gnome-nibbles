@@ -282,13 +282,13 @@ new_game_2_cb (GtkWidget *widget, gpointer data)
 							G_CALLBACK (key_press_cb),
 							NULL);
 		if (!main_id)
-			main_id = gtk_timeout_add (GAMEDELAY * properties->gamespeed,
-						   (GtkFunction) main_loop,
+			main_id = g_timeout_add (GAMEDELAY * properties->gamespeed,
+						   (GSourceFunc) main_loop,
 						   NULL);
 		if (!add_bonus_id)
-			add_bonus_id = gtk_timeout_add (BONUSDELAY *
+			add_bonus_id = g_timeout_add (BONUSDELAY *
 							properties->gamespeed,
-							(GtkFunction) add_bonus_cb,
+							(GSourceFunc) add_bonus_cb,
 							NULL);
 	}
 
@@ -325,24 +325,24 @@ new_game_cb (GtkWidget *widget, gpointer data)
 	paused = 0;
 	
 	if (erase_id) {
-		gtk_timeout_remove (erase_id);
+		g_source_remove (erase_id);
 		erase_id = 0;
 	}
 
 	if (restart_id) {
-		gtk_timeout_remove (restart_id);
+		g_source_remove (restart_id);
 		restart_id = 0;
 	}
 
 	if (add_bonus_id) {
-		gtk_timeout_remove (add_bonus_id);
+		g_source_remove (add_bonus_id);
 		add_bonus_id = 0;
 	}
 
 	if (dummy_id)
-		gtk_timeout_remove (dummy_id);
+		g_source_remove (dummy_id);
 
-	dummy_id = gtk_timeout_add (1500, (GtkFunction) new_game_2_cb, NULL);
+	dummy_id = g_timeout_add (1500, (GSourceFunc) new_game_2_cb, NULL);
 
 	return TRUE;
 }
@@ -351,8 +351,8 @@ gint pause_game_cb (GtkWidget *widget, gpointer data)
 {
 	if (paused) {
 		paused = 0;
-		dummy_id = gtk_timeout_add (500, (GtkFunction) new_game_2_cb,
-				NULL);
+		dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb,
+					  NULL);
 		/*
 		main_id = gtk_timeout_add (GAMEDELAY * properties->gamespeed,
 				(GtkFunction) main_loop, NULL);
@@ -368,7 +368,7 @@ gint pause_game_cb (GtkWidget *widget, gpointer data)
 		if (main_id || erase_id || restart_id || dummy_id ) {
 			paused = 1;
 			if (main_id) {
-				gtk_timeout_remove (main_id);
+				g_source_remove (main_id);
 				main_id = 0;
 			}
 			if (keyboard_id) {
@@ -377,7 +377,7 @@ gint pause_game_cb (GtkWidget *widget, gpointer data)
 				keyboard_id = 0;
 			}
 			if (add_bonus_id) {
-				gtk_timeout_remove (add_bonus_id);
+				g_source_remove (add_bonus_id);
 				add_bonus_id = 0;
 			}
 		}
@@ -394,7 +394,7 @@ void
 end_game (gint data)
 {
 	if (main_id) {
-		gtk_timeout_remove (main_id);
+		g_source_remove (main_id);
 		main_id = 0;
 	}
 
@@ -404,22 +404,22 @@ end_game (gint data)
 	}
 
 	if (add_bonus_id) {
-		gtk_timeout_remove (add_bonus_id);
+		g_source_remove (add_bonus_id);
 		add_bonus_id = 0;
 	}
 
 	if (erase_id) {
-		gtk_timeout_remove (erase_id);
+		g_source_remove (erase_id);
 		erase_id = 0;
 	}
 
 	if (dummy_id) {
-		gtk_timeout_remove (dummy_id);
+		g_source_remove (dummy_id);
 		dummy_id = 0;
 	}
 
 	if (restart_id) {
-		gtk_timeout_remove (restart_id);
+		g_source_remove (restart_id);
 		restart_id = 0;
 	}
 
@@ -454,8 +454,8 @@ static gint restart_game (gpointer data)
 
 	gnibbles_add_bonus (1);
 
-	dummy_id = gtk_timeout_add (1500, (GtkFunction) new_game_2_cb,
-			NULL);
+	dummy_id = g_timeout_add (1500, (GSourceFunc) new_game_2_cb,
+				  NULL);
 
 	restart_id = 0;
 
@@ -470,8 +470,8 @@ static gint erase_worms_cb (gpointer data)
 			end_game_cb (NULL, (gpointer) 1);
 	} else {
 		gnibbles_undraw_worms (ERASESIZE - (gint) data);
-		erase_id = gtk_timeout_add (ERASETIME / ERASESIZE,
-				(GtkFunction) erase_worms_cb,
+		erase_id = g_timeout_add (ERASETIME / ERASESIZE,
+				(GSourceFunc) erase_worms_cb,
 				(gpointer) ((gint) data - 1));
 	}
 
@@ -491,11 +491,11 @@ static gint main_loop (gpointer data)
 		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
 		main_id = 0;
-		gtk_timeout_remove (add_bonus_id);
+		g_source_remove (add_bonus_id);
 		add_bonus_id = 0;
-		erase_id = gtk_timeout_add (3000,
-					    (GtkFunction) erase_worms_cb,
-					    (gpointer) ERASESIZE);
+		erase_id = g_timeout_add (3000,
+					  (GSourceFunc) erase_worms_cb,
+					  (gpointer) ERASESIZE);
 		gnibbles_log_score (window);
 		return (FALSE);
 	}
@@ -503,21 +503,21 @@ static gint main_loop (gpointer data)
 	if (status == NEWROUND) {
 		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
-		gtk_timeout_remove (add_bonus_id);
+		g_source_remove (add_bonus_id);
 		add_bonus_id = 0;
 		main_id = 0;
-		erase_id = gtk_timeout_add (ERASETIME / ERASESIZE,
-				(GtkFunction) erase_worms_cb,
-				(gpointer) ERASESIZE);
-		restart_id = gtk_timeout_add (1000, (GtkFunction) restart_game,
-				NULL);
+		erase_id = g_timeout_add (ERASETIME / ERASESIZE,
+					  (GSourceFunc) erase_worms_cb,
+					  (gpointer) ERASESIZE);
+		restart_id = g_timeout_add (1000, (GSourceFunc) restart_game,
+					    NULL);
 		return (FALSE);
 	}
 
 	if (boni->numleft == 0) {
 		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
-		gtk_timeout_remove (add_bonus_id);
+		g_source_remove (add_bonus_id);
 		add_bonus_id = 0;
 		main_id = 0;
 		if ((current_level < MAXLEVEL) && !properties->random)
@@ -528,8 +528,8 @@ static gint main_loop (gpointer data)
 				tmp = rand () % MAXLEVEL + 1;
 			current_level = tmp;
 		}
-		restart_id = gtk_timeout_add (1000, (GtkFunction) restart_game,
-				NULL);
+		restart_id = g_timeout_add (1000, (GSourceFunc) restart_game,
+					    NULL);
 		return (FALSE);
 	}
 

@@ -261,8 +261,8 @@ worm_right_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 static void
 set_worm_color_cb (GtkWidget *widget, gpointer data)
 {
-	gint color = ((gint) data) >> 2;
-	gint worm = ((gint) data) & 3;
+	gint color = gtk_combo_box_get_active (GTK_COMBO_BOX (widget)) + WORMRED;
+	gint worm = (gint) data;
 
 	t_properties->wormprops[worm]->color = color;
 
@@ -324,8 +324,6 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	GtkWidget *table, *table2;
 	GtkWidget *entry;
 	GtkWidget *omenu;
-	GtkWidget *menuitem;
-	GtkWidget *menu;
 	GtkWidget *entries[NUMWORMS][4];
 	gchar *buffer;
 	gint i, j;
@@ -689,48 +687,19 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
                 gtk_table_attach_defaults (GTK_TABLE (table2), label2, 0, 1, 0, 1);
 
-		omenu = gtk_option_menu_new ();
-		menu = gtk_menu_new ();
-		menuitem = gtk_menu_item_new_with_label (_("Red"));
-		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
-		g_signal_connect (GTK_OBJECT (menuitem), "activate",
+		omenu = gtk_combo_box_new_text ();
+		gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Red"));
+		gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Green"));
+		gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Blue"));
+		gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Yellow"));
+		gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Cyan"));
+		gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Purple"));
+		gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Gray"));
+		g_signal_connect (GTK_OBJECT (omenu), "changed",
 				  GTK_SIGNAL_FUNC (set_worm_color_cb),
-				  (gpointer) (WORMRED << 2 | i));
-		menuitem = gtk_menu_item_new_with_label (_("Green"));
-		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
-		g_signal_connect (GTK_OBJECT (menuitem), "activate",
-				  GTK_SIGNAL_FUNC (set_worm_color_cb),
-				  (gpointer) (WORMGREEN << 2 | i));
-		menuitem = gtk_menu_item_new_with_label (_("Blue"));
-		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
-		g_signal_connect (GTK_OBJECT (menuitem), "activate",
-				  GTK_SIGNAL_FUNC (set_worm_color_cb),
-				  (gpointer) (WORMBLUE << 2 | i));
-		menuitem = gtk_menu_item_new_with_label (_("Yellow"));
-		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
-		g_signal_connect (GTK_OBJECT (menuitem), "activate",
-				  GTK_SIGNAL_FUNC (set_worm_color_cb),
-				  (gpointer) (WORMYELLOW << 2 | i));
-		menuitem = gtk_menu_item_new_with_label (_("Cyan"));
-		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
-		g_signal_connect (GTK_OBJECT (menuitem), "activate",
-				  GTK_SIGNAL_FUNC (set_worm_color_cb),
-				  (gpointer) (WORMCYAN << 2 | i));
-		menuitem = gtk_menu_item_new_with_label (_("Purple"));
-		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
-		g_signal_connect (GTK_OBJECT (menuitem), "activate",
-				  GTK_SIGNAL_FUNC (set_worm_color_cb),
-				  (gpointer) (WORMPURPLE << 2 | i));
-		menuitem = gtk_menu_item_new_with_label (_("Gray"));
-		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
-		g_signal_connect (GTK_OBJECT (menuitem), "activate",
-				  GTK_SIGNAL_FUNC (set_worm_color_cb),
-				  (gpointer) (WORMGRAY << 2 | i));
-
-		gtk_menu_set_active (GTK_MENU (menu),
-				     properties->wormprops[i]->color - WORMRED);
-		
-		gtk_option_menu_set_menu (GTK_OPTION_MENU (omenu), menu);
+				  (gpointer) i);
+		gtk_combo_box_set_active (GTK_COMBO_BOX (omenu),
+					  properties->wormprops[i]->color - WORMRED);
                 gtk_table_attach_defaults (GTK_TABLE (table2), omenu, 1, 2, 0, 1);
 
 		set_worm_controls_sensitivity (i, properties->wormprops[i]->relmove);
