@@ -116,7 +116,7 @@
      <title>Gnibbles Introduction Window</title>
      <screenshot>
       <screeninfo>Gnibbles Introduction Window</screeninfo>
-      <graphic fileref="images/intro" format="png"
+      <graphic fileref="intro" format="png"
        srccredit="Kevin Breit">
       </graphic>
      </screenshot>
@@ -135,7 +135,7 @@
        <title>Gnibbles During Gameplay</title>
        <screenshot>
          <screeninfo>Gnibbles During Gameplay</screeninfo>
-         <graphic fileref="images/playing" format="png"
+         <graphic fileref="playing" format="png"
            srccredit="Kevin Breit">
          </graphic>
        </screenshot>
@@ -269,7 +269,7 @@
     <title>Game Preferences Tab</title>
     <screenshot>
       <screeninfo>Game Preferences Tab</screeninfo>
-      <graphic fileref="images/game" format="png" srccredit="Kevin Breit">
+      <graphic fileref="game" format="png" srccredit="Kevin Breit">
       </graphic>
     </screenshot>
   </figure>
@@ -312,7 +312,7 @@
     <title>Graphics Preferences Tab</title>
     <screenshot>
       <screeninfo>Graphics Preferences Tab</screeninfo>
-      <graphic fileref="images/graphics" format="png" srccredit="Kevin Breit">
+      <graphic fileref="graphics" format="png" srccredit="Kevin Breit">
       </graphic>
     </screenshot>
   </figure>
@@ -365,7 +365,7 @@
     <title>Worm Preferences Tab</title>
     <screenshot>
       <screeninfo>Worm Preferences Tab</screeninfo>
-      <graphic fileref="images/worm_op" format="png" srccredit="Kevin Breit">
+      <graphic fileref="worm_op" format="png" srccredit="Kevin Breit">
       </graphic>
     </screenshot>
   </figure>

@@ -1,5 +1,15 @@
 2000-08-03  Dan Mueth <d-mueth@uchicago.edu>
 
+	* Makefile.am: Added the "help" SUBDIR
+	* help/Makefile.am: Added
+	* help/C/Makefile.am: Added
+	* help/C/topic.dat: Added
+	* help/C/images/*.png: Moved into help/C/
+          - geez, we really need to standardize where these 
+            things belong - every package does it differently :(
+
+2000-08-03  Dan Mueth <d-mueth@uchicago.edu>
+
 	* help/: Created 
 	* help/C/: Created
 	* help/C/gnibbles-manual.sgml: Added Kevin Breit's doc

@@ -91,7 +91,7 @@ EXTRA_DIST = \
 #             $(appicon_DATA) \
 #             $(pixmap_DATA)
 
-SUBDIRS=sounds
+SUBDIRS=sounds help
 
 install-data-local:
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
