@@ -199,7 +199,7 @@ about_cb (GtkWidget *widget, gpointer data)
 		}
 	}
 
-	about = gnome_about_new (_("Gnibbles"), VERSION,
+	about = gnome_about_new (_("Nibbles"), VERSION,
 				 "Copyright \xc2\xa9 1999-2004 Sean MacIsaac, "
 				 "Ian Peters",
 				 _("A worm game for GNOME."),
