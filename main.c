@@ -253,7 +253,8 @@ static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
 	int i, j;
 
 	gnibbles_load_pixmap();
-	gdk_imlib_free_pixmap (buffer_pixmap);
+	if (buffer_pixmap)
+		gdk_pixmap_unref (buffer_pixmap);
 	buffer_pixmap = gdk_pixmap_new (drawing_area->window,
 					BOARDWIDTH * properties->tilesize,
 					BOARDHEIGHT * properties->tilesize, -1);
@@ -553,8 +554,8 @@ static void setup_window ()
 	gtk_signal_connect (GTK_OBJECT (window), "delete_event",
 			GTK_SIGNAL_FUNC (quit_cb), NULL);
 
-	gtk_widget_push_visual (gdk_imlib_get_visual ());
-	gtk_widget_push_colormap (gdk_imlib_get_colormap ());
+	gtk_widget_push_visual (gdk_rgb_get_visual ());
+	gtk_widget_push_colormap (gdk_rgb_get_cmap ());
 
 	drawing_area = gtk_drawing_area_new ();
 

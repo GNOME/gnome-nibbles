@@ -8,7 +8,7 @@ scoredir=$(localstatedir)/games
 INCLUDES = 			\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(includedir)				 \
-	$(GNOME_INCLUDEDIR)
+	$(GNOME_INCLUDEDIR) $(GDK_PIXBUF_CFLAGS)
 
 bin_PROGRAMS = gnibbles
 
@@ -39,6 +39,7 @@ gnibbles_SOURCES = \
 gnibbles_LDADD = \
 	$(GNOME_LIBDIR) \
 	$(GNOMEUI_LIBS)	\
+	$(GDK_PIXBUF_LIBS) \
 	$(INTLLIBS)
 
 pixmap_DATA = \

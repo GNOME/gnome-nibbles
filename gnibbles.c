@@ -20,6 +20,7 @@
 #include <config.h>
 #include <gnome.h>
 #include <gdk/gdkkeysyms.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 #include "gnibbles.h"
 #include "worm.h"
@@ -86,8 +87,7 @@ void gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 
 void gnibbles_load_pixmap ()
 {
-	GdkImlibImage *image;
-	GdkVisual *visual;
+	GdkPixbuf *image;
 	gchar *filename;
 
 	filename = gnome_unconditional_pixmap_file ("gnibbles/gnibbles.png");
@@ -102,13 +102,14 @@ void gnibbles_load_pixmap ()
 		exit (1);
 	}
 
-	image = gdk_imlib_load_image (filename);
-	visual = gdk_imlib_get_visual ();
-	gdk_imlib_render (image, 10 * properties->tilesize, 10 * properties->tilesize);
-	gdk_imlib_free_pixmap (gnibbles_pixmap);
-	gnibbles_pixmap = gdk_imlib_move_image (image);
+	image = gdk_pixbuf_new_from_file (filename);
 
-	gdk_imlib_destroy_image (image);
+	if (gnibbles_pixmap)
+		gdk_pixmap_unref (gnibbles_pixmap);
+
+	gdk_pixbuf_render_pixmap_and_mask (image, &gnibbles_pixmap, NULL, 127);
+
+	gdk_pixbuf_unref (image);
 	g_free (filename);
 
 	filename = gnome_unconditional_pixmap_file
@@ -123,14 +124,14 @@ void gnibbles_load_pixmap ()
 		exit (1);
 	}
 
-	image = gdk_imlib_load_image (filename);
-	visual = gdk_imlib_get_visual ();
-	gdk_imlib_render (image, BOARDWIDTH * properties->tilesize,
-			  BOARDHEIGHT * properties->tilesize);
-	gdk_imlib_free_pixmap (logo_pixmap);
-	logo_pixmap = gdk_imlib_move_image (image);
+	image = gdk_pixbuf_new_from_file (filename);
 
-	gdk_imlib_destroy_image (image);
+	if (logo_pixmap)
+		gdk_pixmap_unref (logo_pixmap);
+
+	gdk_pixbuf_render_pixmap_and_mask (image, &logo_pixmap, NULL, 127);
+
+	gdk_pixbuf_unref (image);
 	g_free (filename);
 }
 
