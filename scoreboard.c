@@ -26,7 +26,8 @@
 #include "gnibbles.h"
 #include "scoreboard.h"
 
-GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar)
+GnibblesScoreboard *
+gnibbles_scoreboard_new (GtkWidget *t_appbar)
 {
 	int i;
 	char buffer[255];
@@ -60,8 +61,9 @@ GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar)
 	return (tmp);
 }
 
-void gnibbles_scoreboard_register (GnibblesScoreboard *scoreboard,
-		GnibblesWorm *t_worm)
+void 
+gnibbles_scoreboard_register (GnibblesScoreboard *scoreboard,
+			      GnibblesWorm *t_worm)
 {
 	scoreboard->worms[scoreboard->count] = t_worm;
 	gtk_widget_set_sensitive (scoreboard->names[scoreboard->count], TRUE);
@@ -69,25 +71,28 @@ void gnibbles_scoreboard_register (GnibblesScoreboard *scoreboard,
 	scoreboard->count++;
 }
 
-void gnibbles_scoreboard_update (GnibblesScoreboard *scoreboard)
+void
+gnibbles_scoreboard_update (GnibblesScoreboard *scoreboard)
 {
 	int i;
-	char buffer[15];
-	const char *buffer2;
+	gchar *buffer = NULL;
+	const gchar *buffer2;
 
 	for (i = 0; i < scoreboard->count; i++) {
-		sprintf (buffer, "%02d, %05d",
-				(scoreboard->worms[i]->lives > -1) ?
-				scoreboard->worms[i]->lives : 0,
-				scoreboard->worms[i]->score);
+		buffer = g_strdup_printf ("%02d, %05d",
+					  (scoreboard->worms[i]->lives > -1) ?
+					  scoreboard->worms[i]->lives : 0,
+					  scoreboard->worms[i]->score);
 		buffer2 = gtk_label_get_text (GTK_LABEL (scoreboard->data[i]));
 		if (strcmp (buffer, buffer2))
 			gtk_label_set_text (GTK_LABEL (scoreboard->data[i]),
-					buffer);
+					    buffer);
+		g_free (buffer);
 	}
 }
 
-void gnibbles_scoreboard_clear (GnibblesScoreboard *scoreboard)
+void
+gnibbles_scoreboard_clear (GnibblesScoreboard *scoreboard)
 {
 	int i;
 

@@ -27,6 +27,24 @@
 
 #include "gnibbles.h"
 
+#define KEY_DIR "/apps/gnibbles"
+#define KEY_PREFERENCES_DIR "/apps/gnibbles"
+#define KEY_NUM_WORMS "/apps/gnibbles/preferences/players"
+#define KEY_SPEED "/apps/gnibbles/preferences/speed"
+#define KEY_FAKES "/apps/gnibbles/preferences/fakes"
+#define KEY_RANDOM "/apps/gnibbles/preferences/random"
+#define KEY_START_LEVEL "/apps/gnibbles/preferences/start_level"
+#define KEY_SOUND "/apps/gnibbles/preferences/sound"
+#define KEY_TILE_SIZE "/apps/gnibbles/preferences/tile_size"
+
+#define KEY_WORM_DIR "/apps/gnibbles/preferences/worm/%d"
+#define KEY_WORM_COLOR "/apps/gnibbles/preferences/worm/%d/color"
+#define KEY_WORM_REL_MOVE "/apps/gnibbles/preferences/worm/%d/move_relative"
+#define KEY_WORM_UP "/apps/gnibbles/preferences/worm/%d/key_up"
+#define KEY_WORM_DOWN "/apps/gnibbles/preferences/worm/%d/key_down"
+#define KEY_WORM_LEFT "/apps/gnibbles/preferences/worm/%d/key_left"
+#define KEY_WORM_RIGHT "/apps/gnibbles/preferences/worm/%d/key_right"
+
 typedef struct {
 	gint color;
 	gboolean relmove;

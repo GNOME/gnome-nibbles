@@ -1,3 +1,15 @@
+2003-06-24  William Jon McCann  <mccann@jhu.edu>
+
+	* main.c (update_score_state):
+	* scoreboard.c (gnibbles_scoreboard_update): 
+	* gnibbles.c (gnibbles_load_level, gnibbles_log_score) 
+	(gnibbles_show_scores): Even though it is probably fine try not
+	to use fixed length buffers.
+
+	* main.c (load_properties): 
+	* properties.h: Moved gconf key definitions into header so we can use
+	them in main.
+
 2003-06-22  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* preferences.c (gnibbles_preferences_cb): Remove trailing spaces

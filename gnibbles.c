@@ -167,17 +167,17 @@ gnibbles_load_pixmap (GtkWidget *window)
 void
 gnibbles_load_level (GtkWidget *window, gint level)
 {
-	gchar tmp[30];
+	gchar *tmp = NULL;
 	gchar *filename;
 	FILE *in;
 	gchar tmpboard[BOARDWIDTH + 1];
 	gint i, j;
 	gint count = 0;
 
-	sprintf (tmp, "gnibbles/level%03d.gnl", level);
+	tmp = g_strdup_printf ("gnibbles/level%03d.gnl", level);
 	filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
 					      tmp, TRUE, NULL);
-
+	g_free (tmp);
 	if ((in = fopen (filename, "r")) == NULL) {
 		char *message = g_strdup_printf (
                         _("Gnibbles couldn't load level file:\n%s\n\n"
@@ -506,21 +506,24 @@ void
 gnibbles_show_scores (GtkWidget *window, gint pos)
 {
 	GtkWidget *dialog;
-	char buf[10];
+	gchar *buf = NULL;
 
-	sprintf (buf, "%d.%d", properties->gamespeed, properties->fakes);
+	buf = g_strdup_printf ("%d.%d", properties->gamespeed,
+			       properties->fakes);
 
 	dialog = gnome_scores_display ("Gnibbles", "gnibbles", buf, pos);
+	g_free (buf);
 	if (dialog != NULL) {
-		gtk_window_set_transient_for (GTK_WINDOW(dialog), GTK_WINDOW(window));
-		gtk_window_set_modal (GTK_WINDOW(dialog), TRUE);
+		gtk_window_set_transient_for (GTK_WINDOW (dialog),
+					      GTK_WINDOW (window));
+		gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
 	}
 }
 
 void
 gnibbles_log_score (GtkWidget *window)
 {
-	char buf[10];
+	gchar *buf = NULL;
 	gint pos;
 	
 	if (properties->numworms > 1)
@@ -532,10 +535,11 @@ gnibbles_log_score (GtkWidget *window)
 	if (!worms[0]->score)
 		return;
 
-	sprintf (buf, "%d.%d", properties->gamespeed, properties->fakes);
+	buf = g_strdup_printf ("%d.%d", properties->gamespeed,
+			       properties->fakes);
 
 	pos = gnome_score_log (worms[0]->score, buf, TRUE);
-
+	g_free (buf);
 	update_score_state ();
 
 	gnibbles_show_scores (window, pos);

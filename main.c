@@ -557,15 +557,18 @@ update_score_state (void)
         time_t *scoretimes = NULL;
 	gint top;
 
-	char buf[10];
-	sprintf (buf, "%d.%d", properties->gamespeed, properties->fakes);
+	gchar *buf = NULL;
+	buf = g_strdup_printf ("%d.%d", properties->gamespeed,
+			       properties->fakes);
 
-	top = gnome_score_get_notable("gnibbles", buf, &names, &scores, &scoretimes);
+	top = gnome_score_get_notable ("gnibbles", buf,
+				       &names, &scores, &scoretimes);
+	g_free (buf);
 	if (top > 0) {
 		gtk_widget_set_sensitive (game_menu[3].widget, TRUE);
-		g_strfreev(names);
-		g_free(scores);
-		g_free(scoretimes);
+		g_strfreev (names);
+		g_free (scores);
+		g_free (scoretimes);
 	} else {
 		gtk_widget_set_sensitive (game_menu[3].widget, FALSE);
 	}
@@ -649,14 +652,14 @@ load_properties ()
 
 	/* maybe this should to into properties.c */
         gconf_client_add_dir (gconf_client_get_default (),
-                              "/apps/gnibbles",
+                              KEY_DIR,
                               GCONF_CLIENT_PRELOAD_RECURSIVE,
                               NULL);
 	gconf_client_notify_add (gconf_client_get_default (),
-				 "/apps/gnibbles/preferences",
+				 KEY_PREFERENCES_DIR,
 				 gconf_key_change_cb, NULL, NULL, NULL);
 	for (i = 0; i < NUMWORMS; i++) {
-		buffer = g_strdup_printf ("%s/%d", "/apps/gnibbles/preferences/worm", i);
+		buffer = g_strdup_printf (KEY_WORM_DIR, i);
 		gconf_client_notify_add (gconf_client_get_default (),
 					 buffer,
 					 gconf_key_change_cb, NULL, NULL, NULL);
