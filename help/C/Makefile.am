@@ -7,7 +7,7 @@ figs = \
 docname = gnibbles
 lang = C
 omffile = gnibbles-C.omf
-entities = 
+entities = legal.xml
 include $(top_srcdir)/xmldocs.make
 dist-hook: app-dist-hook
 
