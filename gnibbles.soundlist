@@ -9,7 +9,7 @@ description[pl]=Gnibbles
 file=gnibbles/crash.wav
 description=Worm Death
 description[ca]=Mort d'un cuc
-description[da]=Ormen dψd
+description[da]=Ormen dψr
 description[el]=Θάνατος ενός σκουλικιού
 description[es]=Muerte de una oruga
 description[fr]=Mort de la chenille
@@ -43,23 +43,23 @@ description[pl]=Po³kniκcie dodatku
 file=gnibbles/teleport.wav
 description=Worm Teleport
 description[ca]=Teleportaciσ d'un cuc
-description[da]=Orm teleportert
+description[da]=Orm teleporteret
 description[el]=Τηλεμεταφορά του σκουλικιού
 description[es]=Teleportaciσn de la oruga
 description[fr]=Tιlιportation de la chenille
 description[ko]=Ήϊ·Ή Όψ°£ ΐΜµΏ
-description[no]=Orm teleportert
+description[no]=Ormen teleporteret
 
 [reverse]
 file=gnibbles/reverse.wav
 description=Worm Reverse
-description[da]=Orm snur
+description[da]=Orm vender
 description[ca]=Canvi de sentit del cuc
 description[el]=Αλλαγή φοράς πορείας του σκουλικιού
 description[es]=Cambio de sentido
 description[fr]=Volte-face de la chenille
 description[ko]=Ήϊ·Ή µΪΉΩ²ρ
-description[no]=Orm snur
+description[no]=Ormen vender
 
 [gameover]
 file=gnibbles/laughter.wav
