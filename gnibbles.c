@@ -252,6 +252,9 @@ void gnibbles_destroy ()
 	for (i = 0; i < properties->numworms; i++)
 		if (worms[i])
 			gnibbles_worm_destroy (worms[i]);
+
+	if (properties)
+		gnibbles_properties_destroy (properties);
 }
 
 void gnibbles_add_bonus (int regular)
