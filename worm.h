@@ -20,7 +20,6 @@
 #ifndef _WORM_H_
 #define _WORM_H_
 
-#include <config.h>
 #include <gnome.h>
 
 #define WORMNONE  0

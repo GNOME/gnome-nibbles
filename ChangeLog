@@ -1,3 +1,7 @@
+2002-02-16  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* *.[ch]: Fix up #include <config.h> stuff.
+	
 2002-02-02  Zbigniew Chyla  <cyba@gnome.pl>
 
 	* main.c (about_cb): Don't try to translate empty string.
