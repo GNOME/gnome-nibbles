@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
-_Name=Gnibbles
-_Comment=Nibbles game
+_Name=Nibbles
+_Comment=Guide a worm around a maze
 Exec=gnibbles
 Icon=gnome-nibbles.png
 Terminal=false
