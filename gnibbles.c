@@ -29,7 +29,7 @@
 #include "properties.h"
 #include "scoreboard.h"
 
-GnibblesWorm *worms[NUMWORMS] = { NULL, NULL, NULL, NULL };
+GnibblesWorm *worms[NUMWORMS]; /* = { NULL, NULL, NULL, NULL }; */
 GnibblesBoni *boni = NULL;
 GnibblesWarpManager *warpmanager;
 
@@ -487,4 +487,31 @@ void gnibbles_play_sound (const char *which)
 {
 	if (properties->sound)
 		gnome_triggers_do (NULL, NULL, "gnibbles", which, NULL);
+}
+
+void gnibbles_show_scores (gint pos)
+{
+	char buf[10];
+
+	sprintf (buf, "%d.%d", properties->gamespeed, properties->fakes);
+
+	gnome_scores_display ("Gnibbles", "gnibbles", buf, pos);
+}
+
+void gnibbles_log_score ()
+{
+	char buf[10];
+	int pos;
+	
+	if (properties->numworms > 1)
+		return;
+
+	if (!worms[0]->score)
+		return;
+
+	sprintf (buf, "%d.%d", properties->gamespeed, properties->fakes);
+
+	pos = gnome_score_log (worms[0]->score, buf, TRUE);
+
+	gnibbles_show_scores (pos);
 }

@@ -3,6 +3,7 @@ configdir=$(datadir)/gnibbles
 appicondir=$(datadir)/pixmaps
 soundlistdir = $(sysconfdir)/sound/events
 Gamesdir=$(datadir)/gnome/apps/Games
+scoredir=$(localstatedir)/games
 
 INCLUDES = 			\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
@@ -87,3 +88,31 @@ EXTRA_DIST = \
 #             $(pixmap_DATA)
 
 SUBDIRS=sounds
+
+install-data-local:
+	-$(mkinstalldirs) $(scoredir)
+	-touch $(scoredir)/gnibbles.4.0.scores
+	-chown games.games $(scoredir)/gnibbles.4.0.scores
+	-chmod 664 $(scoredir)/gnibbles.4.0.scores
+	-touch $(scoredir)/gnibbles.3.0.scores
+	-chown games.games $(scoredir)/gnibbles.3.0.scores
+	-chmod 664 $(scoredir)/gnibbles.3.0.scores
+	-touch $(scoredir)/gnibbles.2.0.scores
+	-chown games.games $(scoredir)/gnibbles.2.0.scores
+	-chmod 664 $(scoredir)/gnibbles.2.0.scores
+	-touch $(scoredir)/gnibbles.1.0.scores
+	-chown games.games $(scoredir)/gnibbles.1.0.scores
+	-chmod 664 $(scoredir)/gnibbles.1.0.scores
+	-touch $(scoredir)/gnibbles.4.1.scores
+	-chown games.games $(scoredir)/gnibbles.4.1.scores
+	-chmod 664 $(scoredir)/gnibbles.4.1.scores
+	-touch $(scoredir)/gnibbles.3.1.scores
+	-chown games.games $(scoredir)/gnibbles.3.1.scores
+	-chmod 664 $(scoredir)/gnibbles.3.1.scores
+	-touch $(scoredir)/gnibbles.2.1.scores
+	-chown games.games $(scoredir)/gnibbles.2.1.scores
+	-chmod 664 $(scoredir)/gnibbles.2.1.scores
+	-touch $(scoredir)/gnibbles.1.1.scores
+	-chown games.games $(scoredir)/gnibbles.1.1.scores
+	-chmod 664 $(scoredir)/gnibbles.1.1.scores
+	-chgrp games $(bindir)/gnibbles && chmod 2111 $(bindir)/gnibbles

@@ -44,7 +44,7 @@ GnibblesProperties *gnibbles_properties_new ()
 		tmp->wormprops[i] = (GnibblesWormProps *) malloc (sizeof
 				(GnibblesWormProps));
 
-		sprintf (buffer, "/gnibbles/Worm%d/color=%d", i, i + 12);
+		sprintf (buffer, "/gnibbles/Worm%d/color=%d", i, (i % 7) + 12);
 		tmp->wormprops[i]->color = gnome_config_get_int (buffer);
 		sprintf (buffer, "/gnibbles/Worm%d/up=0", i);
 		tmp->wormprops[i]->up = gnome_config_get_int (buffer);

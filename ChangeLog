@@ -1,5 +1,9 @@
 1999-02-27  Ian Peters  <ipeters@acm.org>
 
+	* Added score stuff (main.c, gnibbles.c, gnibbles.h)
+
+1999-02-27  Ian Peters  <ipeters@acm.org>
+
 	* Added sound toggle to preferences, properties
 	* Previous calls to gnome_triggers_do now call gnibbles_play_sound,
 	which checks properties->sound and then calls gnome_triggers_do

@@ -64,5 +64,7 @@ gint gnibbles_move_worms ();
 void gnibbles_keypress_worms (guint keyval);
 void gnibbles_undraw_worms (gint data);
 void gnibbles_play_sound (const char *which);
+void gnibbles_show_scores (gint pos);
+void gnibbles_log_score ();
 
 #endif
