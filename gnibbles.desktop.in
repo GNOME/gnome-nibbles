@@ -11,3 +11,4 @@ Categories=GNOME;Application;Game;ArcadeGame;
 X-GNOME-Bugzilla-Bugzilla=GNOME
 X-GNOME-Bugzilla-Product=gnome-gammes
 X-GNOME-Bugzilla-Component=gnibbles
+StartupNotify=true
