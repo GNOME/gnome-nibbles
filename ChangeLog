@@ -1,3 +1,10 @@
+1999-02-07  Ian Peters  <ipeters@acm.org>
+
+	* Removed configure_event_cb, since this should only be done once.
+	Triggerd by the gnomedock stuff seeming to generate configure events
+	with reckless abandon, even when nothing changes size.  Moved code to
+	main.
+
 1999-02-06  Ian Peters  <ipeters@acm.org>
 
 	* Made the padding in the preferences dialog more consistant.

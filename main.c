@@ -143,10 +143,14 @@ static void about_cb (GtkWidget *widget, gpointer data)
 	gtk_widget_show (about);
 }
 
+/*
 static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
 {
 	if (buffer_pixmap)
 		gdk_pixmap_unref (buffer_pixmap);
+
+	printf ("configure_event_cb, %d\n", GTK_WIDGET
+			(widget)->allocation.height);
 
 	buffer_pixmap = gdk_pixmap_new (widget->window,
 			widget->allocation.width, widget->allocation.height,
@@ -156,6 +160,7 @@ static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
 
 	return (TRUE);
 }
+*/
 
 static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
 {
@@ -450,8 +455,8 @@ static void setup_window ()
 			BOARDWIDTH * PIXMAPWIDTH, BOARDHEIGHT * PIXMAPHEIGHT);
 	gtk_signal_connect (GTK_OBJECT (drawing_area), "expose_event",
 			GTK_SIGNAL_FUNC (expose_event_cb), NULL);
-	gtk_signal_connect (GTK_OBJECT (drawing_area), "configure_event",
-			GTK_SIGNAL_FUNC (configure_event_cb), NULL);
+//	gtk_signal_connect (GTK_OBJECT (drawing_area), "configure_event",
+//			GTK_SIGNAL_FUNC (configure_event_cb), NULL);
 	gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
 			GDK_EXPOSURE_MASK);
 	gtk_widget_show (drawing_area);
@@ -522,6 +527,12 @@ int main (int argc, char **argv)
 	gnibbles_load_pixmap ();
 
 	gtk_widget_show (window);
+
+	buffer_pixmap = gdk_pixmap_new (drawing_area->window,
+			BOARDWIDTH * PIXMAPWIDTH, BOARDHEIGHT * PIXMAPHEIGHT,
+			-1);
+
+	render_logo ();
 
 	set_bg_color ();
 
