@@ -1,3 +1,5 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
+
 /* 
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
@@ -40,13 +42,6 @@ GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar)
 		hbox = gtk_hbox_new (FALSE, GNOME_PAD);
 		gtk_widget_show (hbox);
 
-		if (i) {
-			vsep = gtk_vseparator_new ();
-			gtk_widget_show (vsep);
-			gtk_box_pack_start (GTK_BOX (t_appbar), vsep, FALSE,
-					FALSE, 0);
-		}
-		
 		sprintf (buffer, _("Worm %d:"), i + 1);
 		tmp->names[i] = gtk_label_new (buffer);
 		gtk_widget_set_sensitive (tmp->names[i], FALSE);

@@ -4,13 +4,11 @@ icondir=$(datadir)/pixmaps
 soundlistdir = $(sysconfdir)/sound/events
 Gamesdir=$(datadir)/applications
 
-
-
-
-INCLUDES = 			\
-	$(GNOME_GAMES_CFLAGS)		\
+INCLUDES =		 			\
+	$(GNOME_GAMES_CFLAGS)			\
+	-I$(top_srcdir)/libgames-support	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DREAL_DATADIR=\""$(datadir)"\" \
+	-DREAL_DATADIR=\""$(datadir)"\" 	\
 	-DG_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED \
 	-DGTK_DISABLE_DEPRECATED -DGNOME_DISABLE_DEPRECATED
 
@@ -43,6 +41,7 @@ gnibbles_SOURCES = \
 
 gnibbles_LDADD = \
 	$(GNOME_GAMES_LIBS) \
+	$(top_srcdir)/libgames-support/libgames-support.la \
 	$(INTLLIBS)
 
 pixmap_DATA = \
