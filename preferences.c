@@ -552,7 +552,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 				GTK_EXPAND | GTK_FILL, 0, 0, 0);
 
 		button = gtk_check_button_new_with_label
-			(_("Relative Movement"));
+			(_("Relative movement"));
 		gtk_signal_connect (GTK_OBJECT (button), "toggled",
 				GTK_SIGNAL_FUNC (worm_relative_movement_cb),
 				(gpointer) i);
