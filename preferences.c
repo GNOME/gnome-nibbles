@@ -289,7 +289,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
 
-	button = gtk_check_button_new_with_label (_("Fake bonuses (fun!)"));
+	button = gtk_check_button_new_with_label (_("Fake bonuses"));
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 			(fake_bonus_cb), NULL);
 	gtk_widget_show (button);
