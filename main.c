@@ -191,7 +191,6 @@ static gint new_game_2_cb (GtkWidget *widget, gpointer data)
 
 static gint new_game_cb (GtkWidget *widget, gpointer data)
 {
-	//gtk_widget_set_sensitive (game_menu[0].widget, FALSE);
 	gtk_widget_set_sensitive (game_menu[1].widget, TRUE);
 	gtk_widget_set_sensitive (game_menu[3].widget, TRUE);
 	gtk_widget_set_sensitive (settings_menu[0].widget, FALSE);
@@ -242,6 +241,9 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 {
 	if (paused) {
 		paused = 0;
+		dummy_id = gtk_timeout_add (500, (GtkFunction) new_game_2_cb,
+				NULL);
+		/*
 		main_id = gtk_timeout_add (GAMEDELAY * properties->gamespeed,
 				(GtkFunction) main_loop, NULL);
 		keyboard_id = gtk_signal_connect (GTK_OBJECT (window),
@@ -251,6 +253,7 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 				properties->gamespeed,
 				(GtkFunction) add_bonus_cb,
 				NULL);
+				*/
 	} else {
 		if (main_id || erase_id || restart_id || dummy_id ) {
 			paused = 1;
@@ -272,11 +275,6 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 
 static gint end_game_cb (GtkWidget *widget, gpointer data)
 {
-	//gtk_widget_set_sensitive (game_menu[0].widget, TRUE);
-	gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
-	gtk_widget_set_sensitive (game_menu[3].widget, FALSE);
-	gtk_widget_set_sensitive (settings_menu[0].widget, TRUE);
-
 	if ((gint) data)
 		if (end_game_box ())
 			return 0;
@@ -311,8 +309,12 @@ static gint end_game_cb (GtkWidget *widget, gpointer data)
 		restart_id = 0;
 	}
 
-	if ((gint) data)
+	if ((gint) data) {
 		render_logo ();
+		gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
+		gtk_widget_set_sensitive (game_menu[3].widget, FALSE);
+		gtk_widget_set_sensitive (settings_menu[0].widget, TRUE);
+	}
 
 	return (FALSE);
 }

@@ -1,3 +1,9 @@
+1999-02-06  Ian Peters  <ipeters@acm.org>
+
+	* Fixed some stuff from yesterday, specifically bug in menuitem
+	sensitivity stuff.
+	* Added slight pause after unpausing the game.
+
 1999-02-05  Ian Peters  <ipeters@acm.org>
 
 	* Made the new game / end game / exit game menu items a little bit
