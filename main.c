@@ -14,12 +14,13 @@ GtkWidget *window;
 GtkWidget *drawing_area;
 GtkWidget *appbar;
 
-extern GnibblesBoni *boni;
 extern GdkPixmap *buffer_pixmap;
 extern GdkPixmap *gnibbles_pixmap;
 extern GdkPixmap *logo_pixmap;
 
 GnibblesProperties *properties;
+
+extern GnibblesBoni *boni;
 
 gchar board[BOARDWIDTH][BOARDHEIGHT];
 
@@ -35,7 +36,7 @@ gint paused = 0;
 gint current_level;
 
 static gint main_loop (gpointer data);
-static gint add_bonus (gpointer data);
+static gint add_bonus_cb (gpointer data);
 static void render_logo ();
 static gint new_game_cb (GtkWidget *widget, gpointer data);
 static gint pause_game_cb (GtkWidget *widget, gpointer data);
@@ -47,7 +48,7 @@ static GnomeUIInfo game_menu[] = {
 	GNOMEUIINFO_MENU_NEW_GAME_ITEM (new_game_cb, NULL),
 	GNOMEUIINFO_MENU_PAUSE_GAME_ITEM (pause_game_cb, NULL),
 	GNOMEUIINFO_SEPARATOR,
-	GNOMEUIINFO_MENU_END_GAME_ITEM (end_game_cb, NULL),
+	GNOMEUIINFO_MENU_END_GAME_ITEM (end_game_cb, (gpointer) 1),
 	GNOMEUIINFO_MENU_EXIT_ITEM (quit_cb, NULL),
 	GNOMEUIINFO_END
 };
@@ -70,6 +71,11 @@ static GnomeUIInfo main_menu[] = {
 	GNOMEUIINFO_END
 };
 
+static gint game_running ()
+{
+	return (main_id || erase_id || dummy_id || restart_id || paused);
+}
+
 static void zero_board ()
 {
 	int i, j;
@@ -79,8 +85,35 @@ static void zero_board ()
 			board[i][j] = 'a';
 }
 
+static gint end_game_box ()
+{
+	gint pause_state;
+	static GtkWidget *box;
+	gint status;
+
+	pause_state = paused;
+	if (!paused)
+		pause_game_cb (NULL, (gpointer) 0);
+	box = gnome_message_box_new (
+			_("Do you really want to end this game?"),
+			GNOME_MESSAGE_BOX_QUESTION,
+			GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO,
+			NULL);
+	gnome_dialog_set_parent (GNOME_DIALOG (box), GTK_WINDOW
+			(window));
+	gnome_dialog_set_default (GNOME_DIALOG (box), 0);
+	status = gnome_dialog_run (GNOME_DIALOG (box));
+	if (!pause_state)
+		pause_game_cb (NULL, (gpointer) 0);
+	return (status);
+}
+
 static void quit_cb (GtkWidget *widget, gpointer data)
 {
+	if (game_running ())
+		if (end_game_box ())
+			return;
+
 	gnibbles_destroy ();
 	gtk_main_quit ();
 }
@@ -146,7 +179,8 @@ static gint new_game_2_cb (GtkWidget *widget, gpointer data)
 				(GtkFunction) main_loop, NULL);
 
 		add_bonus_id = gtk_timeout_add (BONUSDELAY *
-				properties->gamespeed, (GtkFunction) add_bonus,
+				properties->gamespeed,
+				(GtkFunction) add_bonus_cb,
 				NULL);
 	}
 
@@ -157,10 +191,18 @@ static gint new_game_2_cb (GtkWidget *widget, gpointer data)
 
 static gint new_game_cb (GtkWidget *widget, gpointer data)
 {
-	gtk_widget_set_sensitive (game_menu[0].widget, FALSE);
+	//gtk_widget_set_sensitive (game_menu[0].widget, FALSE);
 	gtk_widget_set_sensitive (game_menu[1].widget, TRUE);
 	gtk_widget_set_sensitive (game_menu[3].widget, TRUE);
 	gtk_widget_set_sensitive (settings_menu[0].widget, FALSE);
+
+	if (game_running ()) {
+		if (!end_game_box ()) {
+			end_game_cb (widget, (gpointer) 0);
+			main_id = 0;
+		} else
+			return 0;
+	}
 
 	gnibbles_init ();
 
@@ -174,20 +216,10 @@ static gint new_game_cb (GtkWidget *widget, gpointer data)
 	gnibbles_add_bonus (1);
 	
 	paused = 0;
-
-	if (main_id) {
-		gtk_timeout_remove (main_id);
-		main_id = 0;
-	}
 	
 	if (erase_id) {
 		gtk_timeout_remove (erase_id);
 		erase_id = 0;
-	}
-
-	if (add_bonus_id) {
-		gtk_timeout_remove (add_bonus_id);
-		add_bonus_id = 0;
 	}
 
 	if (restart_id) {
@@ -216,7 +248,8 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 			"key_press_event", GTK_SIGNAL_FUNC (key_press_cb),
 			NULL);
 		add_bonus_id = gtk_timeout_add (BONUSDELAY *
-				properties->gamespeed, (GtkFunction) add_bonus,
+				properties->gamespeed,
+				(GtkFunction) add_bonus_cb,
 				NULL);
 	} else {
 		if (main_id || erase_id || restart_id || dummy_id ) {
@@ -233,22 +266,20 @@ static gint pause_game_cb (GtkWidget *widget, gpointer data)
 				gtk_timeout_remove (add_bonus_id);
 				add_bonus_id = 0;
 			}
-			/*
-			if (restart_id) {
-				gtk_timeout_remove (restart_id);
-				restart_id = 0;
-			}
-			*/
 		}
 	}
 }
 
 static gint end_game_cb (GtkWidget *widget, gpointer data)
 {
-	gtk_widget_set_sensitive (game_menu[0].widget, TRUE);
+	//gtk_widget_set_sensitive (game_menu[0].widget, TRUE);
 	gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
 	gtk_widget_set_sensitive (game_menu[3].widget, FALSE);
 	gtk_widget_set_sensitive (settings_menu[0].widget, TRUE);
+
+	if ((gint) data)
+		if (end_game_box ())
+			return 0;
 
 	if (main_id) {
 		gtk_timeout_remove (main_id);
@@ -280,12 +311,13 @@ static gint end_game_cb (GtkWidget *widget, gpointer data)
 		restart_id = 0;
 	}
 
-	render_logo ();
+	if ((gint) data)
+		render_logo ();
 
 	return (FALSE);
 }
 
-static gint add_bonus (gpointer data)
+static gint add_bonus_cb (gpointer data)
 {
 	gnibbles_add_bonus (0);
 
@@ -306,16 +338,16 @@ static gint restart_game (gpointer data)
 	return (FALSE);
 }
 
-static gint erase_worms (gpointer data)
+static gint erase_worms_cb (gpointer data)
 {
 	if ((gint) data == 0) {
 		erase_id = 0;
 		if (!restart_id)
-			end_game_cb (NULL, 0);
+			end_game_cb (NULL, (gpointer) 1);
 	} else {
 		gnibbles_undraw_worms (ERASESIZE - (gint) data);
 		erase_id = gtk_timeout_add (ERASETIME / ERASESIZE,
-				(GtkFunction) erase_worms,
+				(GtkFunction) erase_worms_cb,
 				(gpointer) ((gint) data - 1));
 	}
 
@@ -336,7 +368,7 @@ static gint main_loop (gpointer data)
 		gtk_timeout_remove (add_bonus_id);
 		add_bonus_id = 0;
 		erase_id = gtk_timeout_add (3000,
-				(GtkFunction) erase_worms,
+				(GtkFunction) erase_worms_cb,
 				(gpointer) ERASESIZE);
 		return (FALSE);
 	}
@@ -348,7 +380,7 @@ static gint main_loop (gpointer data)
 		add_bonus_id = 0;
 		main_id = 0;
 		erase_id = gtk_timeout_add (ERASETIME / ERASESIZE,
-				(GtkFunction) erase_worms,
+				(GtkFunction) erase_worms_cb,
 				(gpointer) ERASESIZE);
 		restart_id = gtk_timeout_add (1000, (GtkFunction) restart_game,
 				NULL);

@@ -1,5 +1,11 @@
 1999-02-05  Ian Peters  <ipeters@acm.org>
 
+	* Made the new game / end game / exit game menu items a little bit
+	smarter - ie ask for confirmation, stuff like that.  Only when needed,
+	of course.
+
+1999-02-05  Ian Peters  <ipeters@acm.org>
+
 	* Changed default config option for random levels to false.
 
 1999-02-04  Ian Peters  <ipeters@acm.org>
