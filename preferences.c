@@ -81,15 +81,25 @@ static void start_level_cb (GtkWidget *widget, gpointer data)
 
 static void random_order_cb (GtkWidget *widget, gpointer data)
 {
+	GList *list;
+	int i;
+	
 	if (!pref_dialog_valid)
 		return;
 
+	list = gtk_container_children (GTK_CONTAINER (widget->parent));
+	list = g_list_reverse (list);
+
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
 		t_properties->random = 1;
-		gtk_widget_set_sensitive ((GtkWidget *) data, FALSE);
+		gtk_widget_set_sensitive ((GtkWidget *) list->data, FALSE);
+		list = list->next;
+		gtk_widget_set_sensitive ((GtkWidget *) list->data, FALSE);
 	} else {
 		t_properties->random = 0;
-		gtk_widget_set_sensitive ((GtkWidget *) data, TRUE);
+		gtk_widget_set_sensitive ((GtkWidget *) list->data, TRUE);
+		list = list->next;
+		gtk_widget_set_sensitive ((GtkWidget *) list->data, TRUE);
 	}
 
 	gnome_property_box_changed (GNOME_PROPERTY_BOX (pref_dialog));
@@ -341,7 +351,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 	button = gtk_check_button_new_with_label (_("Levels in random order"));
 	gtk_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
-			(random_order_cb), levelspinner);
+			(random_order_cb), NULL);
 	gtk_widget_show (button);
 	gtk_table_attach (GTK_TABLE (table), button, 0, 2, 0, 1,
 			GTK_EXPAND | GTK_FILL, 0, 0, 0);
