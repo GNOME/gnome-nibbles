@@ -1,4 +1,9 @@
-1999-03-03  Ian Peters  <ipeters@acm.org>
+1999-03-09  Ian Peters  <itp@acm.org>
+
+	* gnibbles.c: gnibbles_log_score (): Check to make sure we started on
+	level 1 before logging a score, otherwise ignore it.
+
+1999-03-03  Ian Peters  <itp@acm.org>
 
 	* preferences.c: gnibbles_preferences_cb, destroy_cb: Added logic to
 	handle being called while a game is in progress, paused or not
@@ -7,7 +12,7 @@
 	* main.h: export the two functions needed by preferences.c, which I'm
 	not thrilled about, but oh well
 
-1999-03-03  Ian Peters  <ipeters@acm.org>
+1999-03-03  Ian Peters  <itp@acm.org>
 
 	* worm.h: struct GnibblesWorm: removed pixmap, up, down, left, right,
 	relmove, added an index into the properties structure which has all of
@@ -16,23 +21,23 @@
 	structure rather than the previous local copies of configuration data
 	* gnibbles.c: small changes as above
 
-1999-02-28  Ian Peters  <ipeters@acm.org>
+1999-02-28  Ian Peters  <itp@acm.org>
 
 	* Install menu hints
 
-1999-02-28  Ian Peters  <ipeters@acm.org>
+1999-02-28  Ian Peters  <itp@acm.org>
 
 	* Relative movement grays out up/down key selection (preferences.c)
 
-1999-02-28  Ian Peters  <ipeters@acm.org>
+1999-02-28  Ian Peters  <itp@acm.org>
 
 	* Added support for relative motion of worms instead of absolute
 
-1999-02-27  Ian Peters  <ipeters@acm.org>
+1999-02-27  Ian Peters  <itp@acm.org>
 
 	* Added score stuff (main.c, gnibbles.c, gnibbles.h)
 
-1999-02-27  Ian Peters  <ipeters@acm.org>
+1999-02-27  Ian Peters  <itp@acm.org>
 
 	* Added sound toggle to preferences, properties
 	* Previous calls to gnome_triggers_do now call gnibbles_play_sound,
@@ -40,91 +45,91 @@
 	* Fixed potential badness / compile warning in scoreboard.c
 	gtk_label_get
 
-1999-02-24  Ian Peters  <ipeters@acm.org>
+1999-02-24  Ian Peters  <itp@acm.org>
 
 	* Added license info to *.c, *.h
 
-1999-02-14  Ian Peters  <ipeters@acm.org>
+1999-02-14  Ian Peters  <itp@acm.org>
 
 	* Changes all over the place.  Added sounds.
 
-1999-02-13  Ian Peters  <ipeters@acm.org>
+1999-02-13  Ian Peters  <itp@acm.org>
 
 	* Score values increase by levels.  Plugged a memory leak by actually
 	destroying the scoreboard at the end.
 
-1999-02-13  Ian Peters  <ipeters@acm.org>
+1999-02-13  Ian Peters  <itp@acm.org>
 
 	* Fixed bug when you delete the window - connect to delete_event, not
 	destroy.
 
-1999-02-12  Ian Peters  <ipeters@acm.org>
+1999-02-12  Ian Peters  <itp@acm.org>
 
 	* lots-o-files: Added the code for discouraging missing bonuses too
 	much - don't try to run your score up anymore.
 
-1999-02-12  Ian Peters  <ipeters@acm.org>
+1999-02-12  Ian Peters  <itp@acm.org>
 
 	* main.c: in pause_game_cb, changed gtk_timeout_remove to
 	gtk_callback_disconnect (Doh!), fixes many little bugs.
 
-1999-02-12  Ian Peters  <ipeters@acm.org>
+1999-02-12  Ian Peters  <itp@acm.org>
 
 	* scoreboard.c, scoreboard.h, assorted others: Added the scoreboard.
 
-1999-02-12  Ian Peters  <ipeters@acm.org>
+1999-02-12  Ian Peters  <itp@acm.org>
 
 	* main.c: end_game_cb now sets paused to 0, so as not to fool
 	game_is_running.
 
-1999-02-08  Ian Peters  <ipeters@acm.org>
+1999-02-08  Ian Peters  <itp@acm.org>
 
 	* bonus.c (gnibbles_bonus_erase): free the bonus, free the memory, much
 	better.
 
-1999-02-07  Ian Peters  <ipeters@acm.org>
+1999-02-07  Ian Peters  <itp@acm.org>
 
 	* Removed configure_event_cb, since this should only be done once.
 	Triggerd by the gnomedock stuff seeming to generate configure events
 	with reckless abandon, even when nothing changes size.  Moved code to
 	main.
 
-1999-02-06  Ian Peters  <ipeters@acm.org>
+1999-02-06  Ian Peters  <itp@acm.org>
 
 	* Made the padding in the preferences dialog more consistant.
 
-1999-02-06  Ian Peters  <ipeters@acm.org>
+1999-02-06  Ian Peters  <itp@acm.org>
 
 	* Fixed a smallish bug in the confirmation dialog stuff.
 
-1999-02-06  Ian Peters  <ipeters@acm.org>
+1999-02-06  Ian Peters  <itp@acm.org>
 
 	* Fixed some stuff from yesterday, specifically bug in menuitem
 	sensitivity stuff.
 	* Added slight pause after unpausing the game.
 
-1999-02-05  Ian Peters  <ipeters@acm.org>
+1999-02-05  Ian Peters  <itp@acm.org>
 
 	* Made the new game / end game / exit game menu items a little bit
 	smarter - ie ask for confirmation, stuff like that.  Only when needed,
 	of course.
 
-1999-02-05  Ian Peters  <ipeters@acm.org>
+1999-02-05  Ian Peters  <itp@acm.org>
 
 	* Changed default config option for random levels to false.
 
-1999-02-04  Ian Peters  <ipeters@acm.org>
+1999-02-04  Ian Peters  <itp@acm.org>
 
 	* Fixed a bug when you finished all the levels.  Not just sits you on
 	the last level until you die.
 
-1999-02-02  Ian Peters  <ipeters@acm.org>
+1999-02-02  Ian Peters  <itp@acm.org>
 
 	* Fixed some bugs in gnibbles_worm_grok_bonus, such as incorrect maths
 	while doubling and halving, and stupid typo in case BONUSREGULAR, which
 	meant nothing much was happening to scores.  All better.
 
-1999-02-02  Ian Peters  <ipeters@acm.org>
+1999-02-02  Ian Peters  <itp@acm.org>
 
 	* Fixed some memory leak in properties.c
 	* Added configuration options to allow multiple players to set keys,
@@ -132,17 +137,17 @@
 	worm play is now possible for up to 4 players, and this is an arbitrary
 	limit - really, how many people fit on one keyboard?
 
-1999-02-01  Ian Peters  <ipeters@acm.org>
+1999-02-01  Ian Peters  <itp@acm.org>
 
 	* Fixed crazy little pausing bug - didn't pause when worm had died,
 	erased, level reinitialized, during 1 second pause before worm popped
 	out again...
 
-1999-02-01  Ian Peters  <ipeters@acm.org>
+1999-02-01  Ian Peters  <itp@acm.org>
 
 	* Fixed bug in loading per worm properties
 
-1999-02-01  Ian Peters  <ipeters@acm.org>
+1999-02-01  Ian Peters  <itp@acm.org>
 
 	* Fixed a nasty bug when pausing while the worm is being erased and it
 	is restarting the level...
@@ -150,7 +155,7 @@
 	initial bonus is shown a second or so before the worm pops up.  Helps
 	with the pause issue from above, too.
 
-1999-01-31  Ian Peters  <ipeters@acm.org>
+1999-01-31  Ian Peters  <itp@acm.org>
 
 	* Wrote the game.
 

@@ -487,6 +487,9 @@ void gnibbles_log_score ()
 	if (properties->numworms > 1)
 		return;
 
+	if (properties->startlevel != 1)
+		return;
+
 	if (!worms[0]->score)
 		return;
 
