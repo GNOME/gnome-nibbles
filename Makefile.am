@@ -84,11 +84,17 @@ soundlist_in_files = gnibbles.soundlist.in
 soundlist_DATA = $(soundlist_in_files:.soundlist.in=.soundlist)
 @INTLTOOL_SOUNDLIST_RULE@
 
+schemadir   = @GCONF_SCHEMA_FILE_DIR@
+schema_in_files = gnibbles.schemas.in
+schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+@INTLTOOL_SCHEMAS_RULE@
+
 EXTRA_DIST = \
 	$(pixmap_DATA) 	\
 	$(Games_in_files) \
 	$(config_DATA) \
 	$(soundlist_in_files) \
+	$(schema_in_files) \
 	$(icon_DATA)
 
 SUBDIRS=sounds help
@@ -96,6 +102,9 @@ SUBDIRS=sounds help
 CLEANFILES = $(Games_DATA) $(soundlist_DATA)
 
 install-data-local:
+if GCONF_SCHEMAS_INSTALL
+	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
+endif
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	-for i in 4.0 3.0 2.0 1.0 4.1 3.1 2.1 1.1 ; do \
 	   touch $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \

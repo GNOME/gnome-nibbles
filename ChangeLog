@@ -1,3 +1,15 @@
+2003-06-13  William Jon McCann  <mccann@jhu.edu>
+
+	* gnibbles.schemas.in: 
+	* Makefile.am: Install schemas.
+
+	* properties.c: Renamed num_worms gconf key.  Removed old
+	gnome_config save code.
+
+	* preferences.c (gnibbles_preferences_cb): Tweak some
+	of the text in the dialog.  Include verbs in checkbox
+	labels.  Use UTF-8 mulitplication symbol in screen size label.
+
 2003-06-13  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* main.c: 

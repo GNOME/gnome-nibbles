@@ -26,7 +26,7 @@
 #include "properties.h"
 
 #define KEY_DIR "/apps/gnibbles"
-#define KEY_NUM_WORMS "/apps/gnibbles/preferences/worms_number"
+#define KEY_NUM_WORMS "/apps/gnibbles/preferences/players"
 #define KEY_SPEED "/apps/gnibbles/preferences/speed"
 #define KEY_FAKES "/apps/gnibbles/preferences/fakes"
 #define KEY_RANDOM "/apps/gnibbles/preferences/random"
@@ -266,35 +266,4 @@ gnibbles_properties_set_worm_right (gint i, gint value)
 void
 gnibbles_properties_save (GnibblesProperties *props)
 {
-#if 0
-	gchar buffer[255];
-	int i;
-	gnome_config_set_int ("/gnibbles/Preferences/numworms",
-			props->numworms);
-	gnome_config_set_int ("/gnibbles/Preferences/gamespeed",
-			props->gamespeed);
-	gnome_config_set_int ("/gnibbles/Preferences/fakes", props->fakes);
-	gnome_config_set_int ("/gnibbles/Preferences/random", props->random);
-	gnome_config_set_int ("/gnibbles/Preferences/startlevel",
-			props->startlevel);
-	gnome_config_set_int ("/gnibbles/Preferences/sound", props->sound);
-	gnome_config_set_int ("/gnibbles/Preferences/tilesize", props->tilesize);
-
-	for (i = 0; i < NUMWORMS; i++) {
-		sprintf (buffer, "/gnibbles/Worm%d/color", i);
-		gnome_config_set_int (buffer, props->wormprops[i]->color);
-		sprintf (buffer, "/gnibbles/Worm%d/relmove", i);
-		gnome_config_set_int (buffer, props->wormprops[i]->relmove);
-		sprintf (buffer, "/gnibbles/Worm%d/up", i);
-		gnome_config_set_int (buffer, props->wormprops[i]->up);
-		sprintf (buffer, "/gnibbles/Worm%d/down", i);
-		gnome_config_set_int (buffer, props->wormprops[i]->down);
-		sprintf (buffer, "/gnibbles/Worm%d/left", i);
-		gnome_config_set_int (buffer, props->wormprops[i]->left);
-		sprintf (buffer, "/gnibbles/Worm%d/right", i);
-		gnome_config_set_int (buffer, props->wormprops[i]->right);
-	}
-
-	gnome_config_sync ();
-#endif
 }

@@ -401,7 +401,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 6);
         gtk_container_add (GTK_CONTAINER (frame), vbox);
 
-	button = gtk_check_button_new_with_label (_("Levels in random order"));
+	button = gtk_check_button_new_with_label (_("Play levels in random order"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 
 	if (running)
@@ -412,7 +412,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
                           (random_order_cb), NULL);
 
-	button = gtk_check_button_new_with_label (_("Fake bonuses"));
+	button = gtk_check_button_new_with_label (_("Enable fake bonuses"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 
 	if (running)
@@ -423,7 +423,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
                           (fake_bonus_cb), NULL);
         
-	button = gtk_check_button_new_with_label (_("Sounds"));
+	button = gtk_check_button_new_with_label (_("Enable sounds"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->sound)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -483,7 +483,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
                           GTK_SIGNAL_FUNC (num_worms_cb), button);
         
 
-        label = gtk_label_new (_("Graphics"));
+        label = gtk_label_new (_("Appearance"));
 
 	hbox = gtk_hbox_new (FALSE, GNOME_PAD);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), GNOME_PAD);
@@ -493,7 +493,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	vbox = gtk_vbox_new (FALSE, 6);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
 
-	button = gtk_radio_button_new_with_label (NULL, _("Tiny (184x132)"));
+	button = gtk_radio_button_new_with_label (NULL, _("Tiny  (184 \xc3\x97 132)"));
 
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 2)
@@ -503,7 +503,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 2);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Small (368x264)"));
+						  _("Small  (368 \xc3\x97 264)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 4)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -512,7 +512,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 4);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Medium (460x330)"));
+						  _("Medium  (460 \xc3\x97 330)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 5)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -521,7 +521,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 5);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Large (736x528)"));
+						  _("Large  (736 \xc3\x97 528)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 8)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -530,7 +530,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 8);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Extra large (920x660)"));
+						  _("Extra large  (920 \xc3\x97 660)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 10)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -539,7 +539,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 			  (tile_size_cb), (gpointer) 10);
 
 	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group (GTK_RADIO_BUTTON(button)),
-						  _("Huge (1840x1320)"));
+						  _("Huge  (1840 \xc3\x97 1320)"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	if (properties->tilesize == 20)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -564,7 +564,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 		gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox, label);
 
-                frame = games_frame_new (_("Controls"));
+                frame = games_frame_new (_("Keyboard controls"));
                 gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
 
 		table = gtk_table_new (4, 5, FALSE);
@@ -640,13 +640,13 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
                 gtk_container_add (GTK_CONTAINER (frame), vbox2);
 
 		button = gtk_check_button_new_with_label
-			(_("Relative movement"));
+			(_("Use relative movement"));
                 gtk_box_pack_start (GTK_BOX (vbox2), button, FALSE, FALSE, 0);
 
                 table2 = gtk_table_new (1, 2, FALSE);
                 gtk_box_pack_start (GTK_BOX (vbox2), table2, FALSE, FALSE, 0);
 
-		label2 = gtk_label_new (_("Color:"));
+		label2 = gtk_label_new (_("Worm color:"));
 		gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
                 gtk_table_attach_defaults (GTK_TABLE (table2), label2, 0, 1, 0, 1);
 
