@@ -2,11 +2,6 @@
 description=Gnibbles
 description[ko]=그니블
 
-[startgame]
-file=gnibbles/start.wav
-description=Start Game
-description[ko]=게임 시작
-
 [crash]
 file=gnibbles/crash.wav
 description=Worm Death
