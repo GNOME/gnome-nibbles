@@ -1,6 +1,7 @@
 [__section_info__]
 description=Gnibbles
 description[ko]=±×´Ïºí
+description[no]=Gnibbles
 
 [crash]
 file=gnibbles/crash.wav
@@ -9,6 +10,7 @@ description[ca]=Mort d'un cuc
 description[es]=Muerte de una oruga
 description[fr]=Mort d'uen chenille
 description[ko]=¹ú·¹ Á×À½
+description[no]=Ormen dør
 
 [appear]
 file=gnibbles/appear.wav
@@ -17,6 +19,7 @@ description[ca]=Aparició d'una bonificació
 description[es]=Aparición de un diamante
 description[fr]=Apparition d'un bonus
 description[ko]=º¸³Ê½º ³ªÅ¸³²
+description[no]=Bonus tilstede
 
 [gobble]
 file=gnibbles/gobble.wav
@@ -25,6 +28,7 @@ description[ca]=Bonificació agafada
 description[es]=Al comer un diamante
 description[fr]=Le bonus est pris
 description[ko]=º¸³Ê½º ¸ÔÀ½
+description[no]=Spis bonus
 
 [teleport]
 file=gnibbles/teleport.wav
@@ -33,6 +37,7 @@ description[ca]=Teleportació d'un cuc
 description[es]=Teleportación de la oruga
 description[fr]=Téléportation de la chenille
 description[ko]=¹ú·¹ ¼ø°£ ÀÌµ¿
+description[no]=Orm teleportert
 
 [reverse]
 file=gnibbles/reverse.wav
@@ -41,6 +46,7 @@ description[ca]=Canvi de sentit del cuc
 description[es]=Cambio de sentido
 description[fr]=Volte-face de la chenille
 description[ko]=¹ú·¹ µÚ¹Ù²ñ
+description[no]=Orm snur
 
 [gameover]
 file=gnibbles/laughter.wav
@@ -49,6 +55,7 @@ description[ca]=Fi del joc
 description[es]=Juego terminado
 description[fr]=Fin du jeu
 description[ko]=°ÔÀÓ ³¡
+description[no]=Spillet over
 
 [bonus]
 file=gnibbles/bonus.wav
@@ -57,6 +64,7 @@ description[ca]=Bonificació
 description[es]=Bonus
 description[fr]=Bonus
 description[ko]=º¸³Ê½º
+description[no]=Bonus
 
 [life]
 file=gnibbles/life.wav
@@ -65,3 +73,4 @@ description[ca]=Vida extra
 description[es]=Vida extra
 description[fr]=Vie supplémentaire
 description[ko]=Ãß°¡ »ý¸í
+description[no]=Ekstra liv
