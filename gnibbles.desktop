@@ -18,6 +18,7 @@ Comment[no]=Gnome Nibbles spill
 Comment[pt]=Gnome Nibbles Game
 Comment[ru]=Игра Gnome Нибблес(змея)
 Exec=gnibbles
+Icon=gnome-nibbles.png
 Terminal=0
 Type=Application
 Icon=gnome-nibbles.png
