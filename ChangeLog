@@ -1,3 +1,7 @@
+2003-06-11  William Jon McCann  <mccann@jhu.edu>
+
+	* main.c (about_cb): Fixed program description.
+
 2003-06-11  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* main.c: i18n fixes from Christian Neumair (bug #114875).

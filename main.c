@@ -220,7 +220,7 @@ static void about_cb (GtkWidget *widget, gpointer data)
 	about = gnome_about_new (_("Gnibbles"), VERSION,
 				 "Copyright \xc2\xa9 1999-2003 Sean MacIsaac, "
 				 "Ian Peters",
-				 _("Align balls into coloured lines."),
+				 _("A worm game for GNOME."),
 				 (const char **)authors,
 				 (const char **)documenters,
 				 strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
