@@ -78,7 +78,7 @@ game_speed_cb (GtkWidget *widget, gpointer data)
 		return;
 
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
-		gnibbles_properties_set_speed ((gint) data);
+		gnibbles_properties_set_speed (GPOINTER_TO_INT(data));
 	}
 }
 
@@ -118,7 +118,7 @@ fake_bonus_cb (GtkWidget *widget, gpointer data)
 	if (!pref_dialog)
 		return;
 
-	gnibbles_properties_set_fakes ((gint)data);
+	gnibbles_properties_set_fakes (GPOINTER_TO_INT(data));
 }
 
 static void
@@ -127,7 +127,7 @@ sound_cb (GtkWidget *widget, gpointer data)
 	if (!pref_dialog)
 		return;
 
-	gnibbles_properties_set_sound ((gint)data);
+	gnibbles_properties_set_sound (GPOINTER_TO_INT(data));
 }
 
 static void
@@ -154,9 +154,9 @@ worm_up_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	key_name = keyboard_string (event->keyval);
 	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
 	gtk_widget_set_sensitive (widget, FALSE);
-	gtk_widget_grab_focus (control_button[(gint) data][0]);
+	gtk_widget_grab_focus (control_button[GPOINTER_TO_INT(data)][0]);
 	
-	gnibbles_properties_set_worm_up ((gint)data, key_name);
+	gnibbles_properties_set_worm_up (GPOINTER_TO_INT(data), key_name);
 
 	return TRUE;
 }
@@ -172,9 +172,9 @@ worm_down_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	key_name = keyboard_string (event->keyval);
 	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
 	gtk_widget_set_sensitive (widget, FALSE);
-	gtk_widget_grab_focus (control_button[(gint) data][1]);
+	gtk_widget_grab_focus (control_button[GPOINTER_TO_INT(data)][1]);
 
-	gnibbles_properties_set_worm_down ((gint)data, key_name);
+	gnibbles_properties_set_worm_down (GPOINTER_TO_INT(data), key_name);
 
 	return TRUE;
 }
@@ -189,9 +189,9 @@ worm_left_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	key_name = keyboard_string (event->keyval);
 	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
 	gtk_widget_set_sensitive (widget, FALSE);
-	gtk_widget_grab_focus (control_button[(gint) data][2]);
+	gtk_widget_grab_focus (control_button[GPOINTER_TO_INT(data)][2]);
 
-	gnibbles_properties_set_worm_left ((gint)data, key_name);
+	gnibbles_properties_set_worm_left (GPOINTER_TO_INT(data), key_name);
 
 	return TRUE;
 }
@@ -206,9 +206,10 @@ worm_right_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	key_name = keyboard_string (event->keyval);
 	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
 	gtk_widget_set_sensitive (widget, FALSE);
-	gtk_widget_grab_focus (control_button[(gint) data][3]);
+	gtk_widget_grab_focus (control_button[GPOINTER_TO_INT(data)][3]);
 
-	gnibbles_properties_set_worm_right ((gint)data, key_name);
+	gnibbles_properties_set_worm_right (GPOINTER_TO_INT(data), 
+                                            key_name);
 
 	return TRUE;
 }
@@ -217,7 +218,7 @@ static void
 set_worm_color_cb (GtkWidget *widget, gpointer data)
 {
 	gint color = gtk_combo_box_get_active (GTK_COMBO_BOX (widget)) + WORMRED;
-	gint worm = (gint) data;
+	gint worm = GPOINTER_TO_INT(data);
 
 	gnibbles_properties_set_worm_color (worm, color);
 }
@@ -247,7 +248,7 @@ worm_relative_movement_cb (GtkWidget *widget, gpointer data)
 	if (pref_dialog == NULL)
 		return;
 	
-	i = (gint) data;
+	i = GPOINTER_TO_INT(data);
 	
 	set_worm_controls_sensitivity (i, GTK_TOGGLE_BUTTON (widget)->active);
 
@@ -485,7 +486,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
                 gtk_entry_set_width_chars (GTK_ENTRY (entry), KB_TEXT_NCHARS);
 		gtk_table_attach (GTK_TABLE (table), entry, 2, 3, 1, 2, 0, 0, 3, 3);
 		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
-                                  GTK_SIGNAL_FUNC (worm_up_cb), (gpointer) i);
+                                  GTK_SIGNAL_FUNC (worm_up_cb), GINT_TO_POINTER(i));
 		g_signal_connect (GTK_OBJECT (control_button[i][0]),
 				  "clicked",
 				  GTK_SIGNAL_FUNC(key_change_cb),
@@ -505,7 +506,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
                 gtk_entry_set_width_chars (GTK_ENTRY (entry), KB_TEXT_NCHARS);
 		gtk_table_attach (GTK_TABLE (table), entry, 2, 3, 3, 4, 0, 0, 3, 3);
 		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
-                                  GTK_SIGNAL_FUNC (worm_down_cb), (gpointer) i);
+                                  GTK_SIGNAL_FUNC (worm_down_cb), GINT_TO_POINTER(i));
 		g_signal_connect (GTK_OBJECT (control_button[i][1]),
 				  "clicked",
 				  GTK_SIGNAL_FUNC(key_change_cb),
@@ -524,7 +525,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), entry, 1, 2, 2, 3, 0, 0, 3, 3);
 
 		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
-                                  GTK_SIGNAL_FUNC (worm_left_cb), (gpointer) i);
+                                  GTK_SIGNAL_FUNC (worm_left_cb), GINT_TO_POINTER(i));
 		g_signal_connect (GTK_OBJECT (control_button[i][2]),
 				  "clicked",
 				  GTK_SIGNAL_FUNC(key_change_cb),
@@ -541,7 +542,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
                 gtk_entry_set_width_chars (GTK_ENTRY (entry), KB_TEXT_NCHARS);
 		gtk_table_attach (GTK_TABLE (table), entry, 3, 4, 2, 3, 0, 0, 3, 3);
 		g_signal_connect (GTK_OBJECT (entry), "key_press_event",
-                                  GTK_SIGNAL_FUNC (worm_right_cb), (gpointer) i);
+                                  GTK_SIGNAL_FUNC (worm_right_cb), GINT_TO_POINTER(i));
 		g_signal_connect (GTK_OBJECT (control_button[i][3]),
 				  "clicked",
 				  GTK_SIGNAL_FUNC(key_change_cb),
@@ -575,7 +576,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Gray"));
 		g_signal_connect (GTK_OBJECT (omenu), "changed",
 				  GTK_SIGNAL_FUNC (set_worm_color_cb),
-				  (gpointer) i);
+				  GINT_TO_POINTER(i));
 		gtk_combo_box_set_active (GTK_COMBO_BOX (omenu),
 					  properties->wormprops[i]->color - WORMRED);
                 gtk_table_attach_defaults (GTK_TABLE (table2), omenu, 1, 2, 0, 1);
@@ -585,7 +586,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 					      properties->wormprops[i]->relmove);
 		g_signal_connect (G_OBJECT (button), "toggled",
 				  G_CALLBACK (worm_relative_movement_cb),
-				  (gpointer) i);
+				  GINT_TO_POINTER(i));
 	}
 
 	g_signal_connect (G_OBJECT (pref_dialog), "response",

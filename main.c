@@ -495,7 +495,7 @@ end_game (gint data)
 
 static gint end_game_cb (GtkWidget *widget, gpointer data)
 {
-	end_game ((gint)data);
+	end_game (GPOINTER_TO_INT(data));
 	return (FALSE);
 }
 
@@ -521,17 +521,19 @@ static gint restart_game (gpointer data)
 	return (FALSE);
 }
 
-static gint erase_worms_cb (gpointer data)
+static gint erase_worms_cb (gpointer datap)
 {
-	if ((gint) data == 0) {
+	gint data = GPOINTER_TO_INT(datap);
+
+	if (data == 0) {
 		erase_id = 0;
 		if (!restart_id)
-			end_game_cb (NULL, (gpointer) 1);
+			end_game_cb (NULL, GINT_TO_POINTER(1));
 	} else {
-		gnibbles_undraw_worms (ERASESIZE - (gint) data);
+		gnibbles_undraw_worms (ERASESIZE - data);
 		erase_id = g_timeout_add (ERASETIME / ERASESIZE,
 				(GSourceFunc) erase_worms_cb,
-				(gpointer) ((gint) data - 1));
+				GINT_TO_POINTER(data - 1));
 	}
 
 	return (FALSE);
