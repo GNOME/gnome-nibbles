@@ -8,7 +8,7 @@
       <type>int</type>
       <default>1</default>
       <locale name="C">
-        <short>Number of players.</short>
+        <short>Number of players</short>
         <long>Number of players.</long>
       </locale>
     </schema>
@@ -20,7 +20,7 @@
       <type>int</type>
       <default>3</default>
       <locale name="C">
-        <short>Game speed.</short>
+        <short>Game speed</short>
         <long>Game speed (1=fast, 4=slow).</long>
       </locale>
     </schema>
@@ -32,8 +32,8 @@
       <type>bool</type>
       <default>FALSE</default>
       <locale name="C">
-        <short>Use.</short>
-        <long>Game speed (1=fast, 4=slow).</long>
+        <short>Enable fake bonuses</short>
+        <long>Enable fake bonuses.</long>
       </locale>
     </schema>
 
@@ -44,7 +44,7 @@
       <type>bool</type>
       <default>FALSE</default>
       <locale name="C">
-        <short>Play levels in random order.</short>
+        <short>Play levels in random order</short>
         <long>Play levels in random order.</long>
       </locale>
     </schema>
@@ -56,7 +56,7 @@
       <type>int</type>
       <default>1</default>
       <locale name="C">
-        <short>Game level to start on.</short>
+        <short>Game level to start on</short>
         <long>Game level to start on.</long>
       </locale>
     </schema>
@@ -68,7 +68,7 @@
       <type>bool</type>
       <default>FALSE</default>
       <locale name="C">
-        <short>Enable sounds.</short>
+        <short>Enable sounds</short>
         <long>Enable sounds.</long>
       </locale>
     </schema>
@@ -80,7 +80,7 @@
       <type>int</type>
       <default>5</default>
       <locale name="C">
-        <short>Size of game tiles.</short>
+        <short>Size of game tiles</short>
         <long>Size of game tiles.</long>
       </locale>
     </schema>
@@ -92,7 +92,7 @@
       <type>string</type>
       <default>red</default>
       <locale name="C">
-        <short>Color to use for worm.</short>
+        <short>Color to use for worm</short>
         <long>Color to use for worm.</long>
       </locale>
     </schema>
@@ -103,7 +103,7 @@
       <type>bool</type>
       <default>FALSE</default>
       <locale name="C">
-        <short>Use relative movement.</short>
+        <short>Use relative movement</short>
         <long>Use relative movement (ie. left or right only).</long>
       </locale>
     </schema>
@@ -114,7 +114,7 @@
       <type>string</type>
       <default>Up</default>
       <locale name="C">
-        <short>Key to use for motion up.</short>
+        <short>Key to use for motion up</short>
         <long>Key to use for motion up.</long>
       </locale>
     </schema>
@@ -125,7 +125,7 @@
       <type>string</type>
       <default>Down</default>
       <locale name="C">
-        <short>Key to use for motion down.</short>
+        <short>Key to use for motion down</short>
         <long>Key to use for motion down.</long>
       </locale>
     </schema>
@@ -136,7 +136,7 @@
       <type>string</type>
       <default>Left</default>
       <locale name="C">
-        <short>Key to use for motion left.</short>
+        <short>Key to use for motion left</short>
         <long>Key to use for motion left.</long>
       </locale>
     </schema>
@@ -147,7 +147,7 @@
       <type>string</type>
       <default>Right</default>
       <locale name="C">
-        <short>Key to use for motion right.</short>
+        <short>Key to use for motion right</short>
         <long>Key to use for motion right.</long>
       </locale>
     </schema>
@@ -159,7 +159,7 @@
       <type>string</type>
       <default>green</default>
       <locale name="C">
-        <short>Color to use for worm.</short>
+        <short>Color to use for worm</short>
         <long>Color to use for worm.</long>
       </locale>
     </schema>
@@ -170,7 +170,7 @@
       <type>bool</type>
       <default>FALSE</default>
       <locale name="C">
-        <short>Use relative movement.</short>
+        <short>Use relative movement</short>
         <long>Use relative movement (ie. left or right only).</long>
       </locale>
     </schema>
@@ -181,7 +181,7 @@
       <type>string</type>
       <default>Up</default>
       <locale name="C">
-        <short>Key to use for motion up.</short>
+        <short>Key to use for motion up</short>
         <long>Key to use for motion up.</long>
       </locale>
     </schema>
@@ -192,7 +192,7 @@
       <type>string</type>
       <default>Down</default>
       <locale name="C">
-        <short>Key to use for motion down.</short>
+        <short>Key to use for motion down</short>
         <long>Key to use for motion down.</long>
       </locale>
     </schema>
@@ -203,7 +203,7 @@
       <type>string</type>
       <default>Left</default>
       <locale name="C">
-        <short>Key to use for motion left.</short>
+        <short>Key to use for motion left</short>
         <long>Key to use for motion left.</long>
       </locale>
     </schema>
@@ -214,7 +214,7 @@
       <type>string</type>
       <default>Right</default>
       <locale name="C">
-        <short>Key to use for motion right.</short>
+        <short>Key to use for motion right</short>
         <long>Key to use for motion right.</long>
       </locale>
     </schema>
@@ -226,7 +226,7 @@
       <type>string</type>
       <default>blue</default>
       <locale name="C">
-        <short>Color to use for worm.</short>
+        <short>Color to use for worm</short>
         <long>Color to use for worm.</long>
       </locale>
     </schema>
@@ -237,7 +237,7 @@
       <type>bool</type>
       <default>FALSE</default>
       <locale name="C">
-        <short>Use relative movement.</short>
+        <short>Use relative movement</short>
         <long>Use relative movement (ie. left or right only).</long>
       </locale>
     </schema>
@@ -248,7 +248,7 @@
       <type>string</type>
       <default>Up</default>
       <locale name="C">
-        <short>Key to use for motion up.</short>
+        <short>Key to use for motion up</short>
         <long>Key to use for motion up.</long>
       </locale>
     </schema>
@@ -259,7 +259,7 @@
       <type>string</type>
       <default>Down</default>
       <locale name="C">
-        <short>Key to use for motion down.</short>
+        <short>Key to use for motion down</short>
         <long>Key to use for motion down.</long>
       </locale>
     </schema>
@@ -270,7 +270,7 @@
       <type>string</type>
       <default>Left</default>
       <locale name="C">
-        <short>Key to use for motion left.</short>
+        <short>Key to use for motion left</short>
         <long>Key to use for motion left.</long>
       </locale>
     </schema>
@@ -281,7 +281,7 @@
       <type>string</type>
       <default>Right</default>
       <locale name="C">
-        <short>Key to use for motion right.</short>
+        <short>Key to use for motion right</short>
         <long>Key to use for motion right.</long>
       </locale>
     </schema>
@@ -293,7 +293,7 @@
       <type>string</type>
       <default>yellow</default>
       <locale name="C">
-        <short>Color to use for worm.</short>
+        <short>Color to use for worm</short>
         <long>Color to use for worm.</long>
       </locale>
     </schema>
@@ -304,7 +304,7 @@
       <type>bool</type>
       <default>FALSE</default>
       <locale name="C">
-        <short>Use relative movement.</short>
+        <short>Use relative movement</short>
         <long>Use relative movement (ie. left or right only).</long>
       </locale>
     </schema>
@@ -315,7 +315,7 @@
       <type>string</type>
       <default>Up</default>
       <locale name="C">
-        <short>Key to use for motion up.</short>
+        <short>Key to use for motion up</short>
         <long>Key to use for motion up.</long>
       </locale>
     </schema>
@@ -326,7 +326,7 @@
       <type>string</type>
       <default>Down</default>
       <locale name="C">
-        <short>Key to use for motion down.</short>
+        <short>Key to use for motion down</short>
         <long>Key to use for motion down.</long>
       </locale>
     </schema>
@@ -337,7 +337,7 @@
       <type>string</type>
       <default>Left</default>
       <locale name="C">
-        <short>Key to use for motion left.</short>
+        <short>Key to use for motion left</short>
         <long>Key to use for motion left.</long>
       </locale>
     </schema>
@@ -348,7 +348,7 @@
       <type>string</type>
       <default>Right</default>
       <locale name="C">
-        <short>Key to use for motion right.</short>
+        <short>Key to use for motion right</short>
         <long>Key to use for motion right.</long>
       </locale>
     </schema>

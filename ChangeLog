@@ -1,3 +1,11 @@
+2003-06-22  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* preferences.c (gnibbles_preferences_cb): Remove trailing spaces
+	from translatable strings.
+
+	* gnibbles.schemas.in: Remove trailing periods in short
+	descriptions and complete the description for the fakes key.
+
 2003-06-18  William Jon McCann  <mccann@jhu.edu>
 
 	* preferences.c (gnibbles_preferences_cb): Backing out UTF-8

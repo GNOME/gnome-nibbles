@@ -457,7 +457,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_table_set_row_spacings (GTK_TABLE (table2), 6);
 	gtk_container_set_border_width (GTK_CONTAINER (table2), 0);
 
-	label2 = gtk_label_new (_("Starting level: "));
+	label2 = gtk_label_new (_("Starting level:"));
 	start_level_label = label2;
 	gtk_widget_set_name (label2, "StartLevelLabel");
 	gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
@@ -484,7 +484,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
 			  GTK_SIGNAL_FUNC (start_level_cb), levelspinner);
 
-	label2 = gtk_label_new (_("Number of players: "));
+	label2 = gtk_label_new (_("Number of players:"));
 	gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
 	gtk_table_attach_defaults (GTK_TABLE (table2), label2, 0, 1, 1, 2);
