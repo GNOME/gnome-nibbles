@@ -73,9 +73,13 @@ config_DATA = \
 	level025.gnl \
 	level026.gnl
 
-Games_DATA = gnibbles.desktop
+Games_in_files = gnibbles.desktop.in
+Games_DATA = $(Games_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
-soundlist_DATA = gnibbles.soundlist
+soundlist_in_files = gnibbles.soundlist.in
+soundlist_DATA = $(soundlist_in_files:.soundlist.in=.soundlist)
+@INTLTOOL_SOUNDLIST_RULE@
 
 EXTRA_DIST = \
 	$(pixmap_DATA) 	\
