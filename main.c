@@ -482,8 +482,9 @@ static void setup_window ()
 
 	gnome_app_create_menus (GNOME_APP (window), main_menu);
 
-	appbar = gnome_appbar_new (FALSE, TRUE, FALSE);
+	appbar = gnome_appbar_new (FALSE, TRUE, GNOME_PREFERENCES_USER);
 	gnome_app_set_statusbar (GNOME_APP (window), appbar);
+	gnome_app_install_menu_hints (GNOME_APP (window), main_menu);
 
 	scoreboard = gnibbles_scoreboard_new (appbar);
 }

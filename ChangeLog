@@ -1,5 +1,9 @@
 1999-02-28  Ian Peters  <ipeters@acm.org>
 
+	* Install menu hints
+
+1999-02-28  Ian Peters  <ipeters@acm.org>
+
 	* Relative movement grays out up/down key selection (preferences.c)
 
 1999-02-28  Ian Peters  <ipeters@acm.org>
