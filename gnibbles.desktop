@@ -20,3 +20,4 @@ Comment[ru]=Игра Gnome Нибблес(змея)
 Exec=gnibbles
 Terminal=0
 Type=Application
+Icon=gnome-nibbles.png
