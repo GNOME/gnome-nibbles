@@ -31,6 +31,7 @@
 
 #define NUMWORMS 4
 
+#define NUM_COLORS 7
 #define WORMRED 12
 #define WORMGREEN 13
 #define WORMBLUE 14

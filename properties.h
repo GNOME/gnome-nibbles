@@ -30,7 +30,7 @@
 typedef struct {
 	gint color;
 	gboolean relmove;
-	guint up, down, left, right;
+	gchar *up, *down, *left, *right;
 } GnibblesWormProps;
 
 typedef struct {
@@ -49,6 +49,21 @@ GnibblesProperties *gnibbles_properties_new ();
 void gnibbles_properties_destroy (GnibblesProperties *props);
 
 GnibblesProperties *gnibbles_properties_copy (GnibblesProperties *props);
+
+void gnibbles_properties_set_worms_number (gint value);
+void gnibbles_properties_set_speed (gint value);
+void gnibbles_properties_set_fakes (gboolean value);
+void gnibbles_properties_set_random (gboolean value);
+void gnibbles_properties_set_start_level (gint value);
+void gnibbles_properties_set_sound (gboolean value);
+void gnibbles_properties_set_tile_size (gint value);
+void gnibbles_properties_set_worm_relative_movement (gint i, gboolean value);
+void gnibbles_properties_set_worm_color (gint i, gint value);
+void gnibbles_properties_set_worm_up (gint i, gchar *value);
+void gnibbles_properties_set_worm_down (gint i, gchar *value);
+void gnibbles_properties_set_worm_left (gint i, gchar *value);
+
+void gnibbles_properties_set_worm_right (gint i, gchar *value);
 
 void gnibbles_properties_save (GnibblesProperties *props);
 

@@ -1,3 +1,5 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
+
 /* 
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
@@ -76,13 +78,20 @@ void gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
 
 gint gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 {
+	gint key_left, key_right, key_up, key_down;
+
 	if (worm->keypress)
 		return FALSE;
+
+	key_left = gdk_keyval_from_name (properties->wormprops[worm->number]->left);
+	key_right = gdk_keyval_from_name (properties->wormprops[worm->number]->right);
+	key_up = gdk_keyval_from_name (properties->wormprops[worm->number]->up);
+	key_down = gdk_keyval_from_name (properties->wormprops[worm->number]->down);
 	
 	if (properties->wormprops[worm->number]->relmove) {
-		if (keyval == properties->wormprops[worm->number]->left)
+		if (keyval == key_left)
 			worm->direction = worm->direction - 1;
-		else if (keyval == properties->wormprops[worm->number]->right)
+		else if (keyval == key_right)
 			worm->direction = worm->direction + 1;
                 else
                         return FALSE;
@@ -92,26 +101,22 @@ gint gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 			worm->direction = 1;
                 return TRUE;
 	} else {
-		if ((keyval == properties->wormprops[worm->number]->up) &&
-				(worm->direction != WORMDOWN)) {
+		if ((keyval == key_up) && (worm->direction != WORMDOWN)) {
 			worm->direction = WORMUP;
 			worm->keypress = 1;
                         return TRUE;
 		}
-		if ((keyval == properties->wormprops[worm->number]->right) &&
-				(worm->direction !=WORMLEFT)) {
+		if ((keyval == key_right) && (worm->direction !=WORMLEFT)) {
 			worm->direction = WORMRIGHT;
 			worm->keypress = 1;
                         return TRUE;
 		}
-		if ((keyval == properties->wormprops[worm->number]->down) &&
-				(worm->direction != WORMUP)) {
+		if ((keyval == key_down) && (worm->direction != WORMUP)) {
 			worm->direction = WORMDOWN;
 			worm->keypress = 1;
                         return TRUE;
 		}
-		if ((keyval == properties->wormprops[worm->number]->left) &&
-				(worm->direction != WORMRIGHT)) {
+		if ((keyval == key_left) && (worm->direction != WORMRIGHT)) {
 			worm->direction = WORMLEFT;
 			worm->keypress = 1;
                         return TRUE;

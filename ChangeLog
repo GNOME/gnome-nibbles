@@ -1,5 +1,12 @@
 2003-06-13  William Jon McCann  <mccann@jhu.edu>
 
+	* preferences.c (keyboard_string): Use gdk_keyval_name().
+
+	* gnibbles.schemas.in: 
+	* properties.c (gnibbles_properties_new): Check for upper
+	bounds on numeric gconf data.  Store keyboard controls keys
+	as strings.  Store worm color as a string.
+
 	* gnibbles.schemas.in: 
 	* Makefile.am: Install schemas.
 

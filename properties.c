@@ -41,7 +41,50 @@
 #define KEY_WORM_LEFT "/apps/gnibbles/worm/%d/key_left"
 #define KEY_WORM_RIGHT "/apps/gnibbles/worm/%d/key_right"
 
+#define MAX_SPEED 4
+
 static GConfClient *conf_client;
+
+typedef struct _ColorLookup ColorLookup;
+
+struct _ColorLookup {
+  gint   colorval;
+  gchar *name;
+};
+
+ColorLookup color_lookup[NUM_COLORS] = {
+	{WORMRED, "red"},
+	{WORMGREEN, "green"},
+	{WORMBLUE, "blue"},
+	{WORMYELLOW, "yellow"},
+	{WORMCYAN, "cyan"},
+	{WORMPURPLE, "purple"},
+	{WORMGRAY, "gray"}
+};
+
+gint
+colorval_from_name (gchar *name)
+{
+	gint i;
+	
+	for (i = 0; i < NUM_COLORS; i++)
+		if (!strcmp (name, color_lookup[i].name))
+			return color_lookup[i].colorval;
+	
+	return 0;
+}
+
+gchar *
+colorval_name (gint colorval)
+{
+	gint i;
+	
+	for (i = 0; i < NUM_COLORS; i++)
+		if (colorval == color_lookup[i].colorval)
+			return color_lookup[i].name;
+	
+	return "unknown";
+}
 
 GnibblesProperties *
 gnibbles_properties_new ()
@@ -49,6 +92,7 @@ gnibbles_properties_new ()
 	GnibblesProperties *tmp;
 	gint i;
 	gchar buffer[256];
+	gchar *color_name;
 
 	conf_client = gconf_client_get_default ();
 
@@ -59,12 +103,16 @@ gnibbles_properties_new ()
 					      NULL);
 	if (tmp->numworms < 1)
 		tmp->numworms = 1;
+	else if (tmp->numworms > NUMWORMS)
+		tmp->numworms = NUMWORMS;
 
 	tmp->gamespeed = gconf_client_get_int (conf_client,
 					       KEY_SPEED,
 					       NULL);
 	if (tmp->gamespeed < 1)
 		tmp->gamespeed = 2;
+	else if (tmp->gamespeed > MAX_SPEED)
+		tmp->gamespeed = MAX_SPEED;
 
 	tmp->fakes = gconf_client_get_bool (conf_client,
 					    KEY_FAKES,
@@ -78,6 +126,8 @@ gnibbles_properties_new ()
 						NULL);
 	if (tmp->startlevel < 1)
 		tmp->startlevel = 1;
+	if (tmp->startlevel > MAXLEVEL)
+		tmp->startlevel = MAXLEVEL;
 
 	tmp->sound = gconf_client_get_bool (conf_client,
 					    KEY_SOUND,
@@ -87,49 +137,58 @@ gnibbles_properties_new ()
 					      NULL);
 	if (tmp->tilesize < 1)
 		tmp->tilesize = 5;
+	if (tmp->tilesize > 30)
+		tmp->tilesize = 30;
 
 	for (i = 0; i < NUMWORMS; i++) {
 		tmp->wormprops[i] = (GnibblesWormProps *) g_malloc (sizeof
 								    (GnibblesWormProps));
 
 		sprintf (buffer, KEY_WORM_COLOR, i);
-		tmp->wormprops[i]->color = gconf_client_get_int (conf_client,
-								 buffer,
-								 NULL);
+		color_name = gconf_client_get_string (conf_client,
+						      buffer,
+						      NULL);
+		if (color_name == NULL)
+			color_name = g_strdup ("red");
+		tmp->wormprops[i]->color = colorval_from_name (color_name);
+		g_free (color_name);
+
 		if (tmp->wormprops[i]->color < 1)
-			tmp->wormprops[i]->color = (i % 7) + 12;
+			tmp->wormprops[i]->color = (i % NUM_COLORS) + WORMRED;
+		if (tmp->wormprops[i]->color > WORMRED + NUM_COLORS)
+			tmp->wormprops[i]->color = (i % NUM_COLORS) + WORMRED;
 
 		sprintf (buffer, KEY_WORM_REL_MOVE, i);
 		tmp->wormprops[i]->relmove = gconf_client_get_bool (conf_client,
 								    buffer,
 								    NULL);
 		sprintf (buffer, KEY_WORM_UP, i);
-		tmp->wormprops[i]->up = gconf_client_get_int (conf_client,
-							      buffer,
-							      NULL);
-		if (!tmp->wormprops[i]->up)
-			tmp->wormprops[i]->up = GDK_Up;
-
-		sprintf (buffer, KEY_WORM_DOWN, i);
-		tmp->wormprops[i]->down = gconf_client_get_int (conf_client,
-								buffer,
-								NULL);
-		if (!tmp->wormprops[i]->down)
-			tmp->wormprops[i]->down = GDK_Down;
-
-		sprintf (buffer, KEY_WORM_LEFT, i);
-		tmp->wormprops[i]->left = gconf_client_get_int (conf_client,
-								buffer,
-								NULL);
-		if (!tmp->wormprops[i]->left)
-			tmp->wormprops[i]->left = GDK_Left;
-
-		sprintf (buffer, KEY_WORM_RIGHT, i);
-		tmp->wormprops[i]->right = gconf_client_get_int (conf_client,
+		tmp->wormprops[i]->up = gconf_client_get_string (conf_client,
 								 buffer,
 								 NULL);
+		if (!tmp->wormprops[i]->up)
+			tmp->wormprops[i]->up = gdk_keyval_name (GDK_Up);
+
+		sprintf (buffer, KEY_WORM_DOWN, i);
+		tmp->wormprops[i]->down = gconf_client_get_string (conf_client,
+								   buffer,
+								   NULL);
+		if (!tmp->wormprops[i]->down)
+			tmp->wormprops[i]->down = gdk_keyval_name (GDK_Down);
+
+		sprintf (buffer, KEY_WORM_LEFT, i);
+		tmp->wormprops[i]->left = gconf_client_get_string (conf_client,
+								   buffer,
+								   NULL);
+		if (!tmp->wormprops[i]->left)
+			tmp->wormprops[i]->left = gdk_keyval_name (GDK_Left);
+
+		sprintf (buffer, KEY_WORM_RIGHT, i);
+		tmp->wormprops[i]->right = gconf_client_get_string (conf_client,
+								    buffer,
+								    NULL);
 		if (!tmp->wormprops[i]->right)
-			tmp->wormprops[i]->right = GDK_Right;
+			tmp->wormprops[i]->right = gdk_keyval_name (GDK_Right);
 	}
 
 	return (tmp);
@@ -226,40 +285,43 @@ void
 gnibbles_properties_set_worm_color (gint i, gint value)
 {
 	gchar *buffer;
+	gchar *color_name;
+	
+	color_name = colorval_name (value);
 	buffer = g_strdup_printf (KEY_WORM_COLOR, i, value);
-	gconf_client_set_int (conf_client, buffer, value, NULL);
+	gconf_client_set_string (conf_client, buffer, color_name, NULL);
 	g_free (buffer);
 }
 void
-gnibbles_properties_set_worm_up (gint i, gint value)
+gnibbles_properties_set_worm_up (gint i, gchar *value)
 {
 	gchar *buffer;
 	buffer = g_strdup_printf (KEY_WORM_UP, i, value);
-	gconf_client_set_int (conf_client, buffer, value, NULL);
+	gconf_client_set_string (conf_client, buffer, value, NULL);
 	g_free (buffer);
 }
 void
-gnibbles_properties_set_worm_down (gint i, gint value)
+gnibbles_properties_set_worm_down (gint i, gchar *value)
 {
 	gchar *buffer;
 	buffer = g_strdup_printf (KEY_WORM_DOWN, i, value);
-	gconf_client_set_int (conf_client, buffer, value, NULL);
+	gconf_client_set_string (conf_client, buffer, value, NULL);
 	g_free (buffer);
 }
 void
-gnibbles_properties_set_worm_left (gint i, gint value)
+gnibbles_properties_set_worm_left (gint i, gchar *value)
 {
 	gchar *buffer;
 	buffer = g_strdup_printf (KEY_WORM_LEFT, i, value);
-	gconf_client_set_int (conf_client, buffer, value, NULL);
+	gconf_client_set_string (conf_client, buffer, value, NULL);
 	g_free (buffer);
 }
 void
-gnibbles_properties_set_worm_right (gint i, gint value)
+gnibbles_properties_set_worm_right (gint i, gchar *value)
 {
 	gchar *buffer;
 	buffer = g_strdup_printf (KEY_WORM_RIGHT, i, value);
-	gconf_client_set_int (conf_client, buffer, value, NULL);
+	gconf_client_set_string (conf_client, buffer, value, NULL);
 	g_free (buffer);
 }
 

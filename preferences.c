@@ -27,7 +27,6 @@
 #include <games-frame.h>
 
 #include "preferences.h"
-#include "../gnobots2/keylabels.h"
 #include "main.h"
 
 #define KB_TEXT_WIDTH 60
@@ -49,13 +48,10 @@ GtkWidget *start_level_label,
 static gchar *
 keyboard_string (gint ksym)
 {
-	gint i;
-
-	for (i = 0; i < KB_MAP_SIZE; i++)
-		if (ksym == kb_map[i].ksym)
-			return kb_map[i].str;
-
-	return "UNK";
+	gchar *name;
+	name = gdk_keyval_name (ksym);
+	fprintf (stderr, "%s\n", name);
+	return name;
 }
 
 static void
@@ -189,57 +185,63 @@ num_worms_cb (GtkWidget *widget, gpointer data)
 static void
 worm_up_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+	gchar *key_name;
+
 	if (!pref_dialog)
 		return;
 	
-	gtk_entry_set_text (GTK_ENTRY (widget), keyboard_string
-			    (event->keyval));
+	key_name = keyboard_string (event->keyval);
+	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
 
-	t_properties->wormprops[(gint) data]->up = event->keyval;
+	t_properties->wormprops[(gint) data]->up = key_name;
 
-	gnibbles_properties_set_worm_up ((gint)data, event->keyval);
+	gnibbles_properties_set_worm_up ((gint)data, key_name);
 }
 
 static void
 worm_down_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+	gchar *key_name;
+
 	if (!pref_dialog)
 		return;
 	
-	gtk_entry_set_text (GTK_ENTRY (widget), keyboard_string
-			    (event->keyval));
+	key_name = keyboard_string (event->keyval);
+	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
 
-	t_properties->wormprops[(gint) data]->down = event->keyval;
+	t_properties->wormprops[(gint) data]->down = key_name;
 
-	gnibbles_properties_set_worm_down ((gint)data, event->keyval);
+	gnibbles_properties_set_worm_down ((gint)data, key_name);
 }
 
 static void
 worm_left_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+	gchar *key_name;
 	if (!pref_dialog)
 		return;
 	
-	gtk_entry_set_text (GTK_ENTRY (widget), keyboard_string
-			    (event->keyval));
+	key_name = keyboard_string (event->keyval);
+	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
 
-	t_properties->wormprops[(gint) data]->left = event->keyval;
+	t_properties->wormprops[(gint) data]->left = key_name;
 
-	gnibbles_properties_set_worm_left ((gint)data, event->keyval);
+	gnibbles_properties_set_worm_left ((gint)data, key_name);
 }
 
 static void
 worm_right_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+	gchar *key_name;
 	if (!pref_dialog)
 		return;
 	
-	gtk_entry_set_text (GTK_ENTRY (widget), keyboard_string
-			    (event->keyval));
+	key_name = keyboard_string (event->keyval);
+	gtk_entry_set_text (GTK_ENTRY (widget), key_name);
 
-	t_properties->wormprops[(gint) data]->right = event->keyval;
+	t_properties->wormprops[(gint) data]->right = key_name;
 
-	gnibbles_properties_set_worm_right ((gint)data, event->keyval);
+	gnibbles_properties_set_worm_right ((gint)data, key_name);
 
 }
 
@@ -582,8 +584,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 		entry = gtk_entry_new ();
 		gtk_widget_set_name (entry, "WormControlUpEntry");
-		gtk_entry_set_text (GTK_ENTRY (entry), keyboard_string
-                                    (properties->wormprops[i]->up));
+		gtk_entry_set_text (GTK_ENTRY (entry), properties->wormprops[i]->up);
 		gtk_entry_set_editable (GTK_ENTRY (entry), FALSE);
                 gtk_entry_set_width_chars (GTK_ENTRY (entry), KB_TEXT_NCHARS);
 		gtk_table_attach (GTK_TABLE (table), entry, 2, 3, 1, 2, 0, 0, 3, 3);
@@ -597,8 +598,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 
 		entry = gtk_entry_new ();
 		gtk_widget_set_name (entry, "WormControlDownEntry");
-		gtk_entry_set_text (GTK_ENTRY (entry), keyboard_string
-                                    (properties->wormprops[i]->down));
+		gtk_entry_set_text (GTK_ENTRY (entry), properties->wormprops[i]->down);
 		gtk_entry_set_editable (GTK_ENTRY (entry), FALSE);
                 gtk_entry_set_width_chars (GTK_ENTRY (entry), KB_TEXT_NCHARS);
 		gtk_table_attach (GTK_TABLE (table), entry, 2, 3, 3, 4, 0, 0, 3, 3);
@@ -610,8 +610,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), label2, 0, 1, 2, 3, 0, 0, 3, 3);
 
 		entry = gtk_entry_new ();
-		gtk_entry_set_text (GTK_ENTRY (entry), keyboard_string
-                                    (properties->wormprops[i]->left));
+		gtk_entry_set_text (GTK_ENTRY (entry), properties->wormprops[i]->left);
 		gtk_entry_set_editable (GTK_ENTRY (entry), FALSE);
                 gtk_entry_set_width_chars (GTK_ENTRY (entry), KB_TEXT_NCHARS);
 		gtk_table_attach (GTK_TABLE (table), entry, 1, 2, 2, 3, 0, 0, 3, 3);
@@ -624,8 +623,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_table_attach (GTK_TABLE (table), label2, 4, 5, 2, 3, 0, 0, 3, 3);
 
 		entry = gtk_entry_new ();
-		gtk_entry_set_text (GTK_ENTRY (entry), keyboard_string
-                                    (properties->wormprops[i]->right));
+		gtk_entry_set_text (GTK_ENTRY (entry), properties->wormprops[i]->right);
 		gtk_entry_set_editable (GTK_ENTRY (entry), FALSE);
                 gtk_entry_set_width_chars (GTK_ENTRY (entry), KB_TEXT_NCHARS);
 		gtk_table_attach (GTK_TABLE (table), entry, 3, 4, 2, 3, 0, 0, 3, 3);
