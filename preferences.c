@@ -208,7 +208,7 @@ static void worm_right_cb (GtkWidget *widget, GdkEventKey *event, gpointer data)
 static void set_worm_color_cb (GtkWidget *widget, gpointer data)
 {
 	gint color = ((gint) data) >> 2;
-	gint worm = ((gint) data) & 2;
+	gint worm = ((gint) data) & 3;
 
 	t_properties->wormprops[worm]->color = color;
 

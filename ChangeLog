@@ -1,3 +1,9 @@
+1999-03-13  Ian Peters  <itp@gnu.org>
+
+	* preferences.c (set_worm_color_cb): Stupid logic error made setting
+	worm colors odd --- changing 1 or 2 changed 1's color, changing 3 or 4
+	changed 3's color.  Forgot that 11 in binary is /3/.
+
 1999-03-12  Ian Peters  <itp@gnu.org>
 
 	* preferences.c (gnibbles_preferences_cb): removed pref_dialog_valid,
