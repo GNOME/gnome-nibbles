@@ -161,7 +161,7 @@ game_handle_input (NetworkGame *ng, char *buf)
     }
       
     if (!args || sscanf (args, "%d", &me) != 1) {
-      network_set_status (ng, DISCONNECTED, _("Invalid game data (set_peer)"));
+      network_set_status (ng, DISCONNECTED, _("Invalid game data"));
       return;
     }
 
@@ -175,7 +175,7 @@ game_handle_input (NetworkGame *ng, char *buf)
     int x, me;
 
     if (!args || sscanf(args, "%d %d", &x, &me) != 2) {
-      network_set_status (ng, DISCONNECTED, _("Invalid game data (move)"));
+      network_set_status (ng, DISCONNECTED, _("Invalid game data"));
       return;
     }
     if (!network_is_host ()) {
@@ -194,7 +194,7 @@ game_handle_input (NetworkGame *ng, char *buf)
     int x, me;
 
     if (!args || sscanf(args, "%d %d", &x, &me) != 2) {
-      network_set_status (ng, DISCONNECTED, _("Invalid game data (move)"));
+      network_set_status (ng, DISCONNECTED, _("Invalid game data"));
       return;
     }
     worm_set_direction (me, x);
@@ -212,7 +212,7 @@ game_handle_input (NetworkGame *ng, char *buf)
 
     if (!args || sscanf(args, "%u %u %u %u %u", 
 			&x, &y, &type, &fake, &count) != 5) {
-      network_set_status (ng, DISCONNECTED, _("Invalid game data (add_bonus)"));
+      network_set_status (ng, DISCONNECTED, _("Invalid game data"));
       return;
     }
     gnibbles_add_spec_bonus (x, y, type, fake, count);
@@ -222,7 +222,7 @@ game_handle_input (NetworkGame *ng, char *buf)
     int x, y;
 
     if (!args || sscanf(args, "%u %u ", &x, &y) != 2) {
-      network_set_status (ng, DISCONNECTED, _("Invalid game data (remove_bonus)"));
+      network_set_status (ng, DISCONNECTED, _("Invalid game data"));
       return;
     }
     gnibbles_remove_spec_bonus (x, y);

@@ -1,3 +1,8 @@
+2005-03-08  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* network.c (game_handle_input): Rationalise error messages (bug
+	#167248).
+
 2005-03-02  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/gnibbles.xml: Bump the app version number. No revisions.
