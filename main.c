@@ -640,7 +640,7 @@ int main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain(GETTEXT_PACKAGE);
 	
-	gnome_program_init ("Gnibbles", VERSION, LIBGNOMEUI_MODULE,
+	gnome_program_init ("gnibbles", VERSION, LIBGNOMEUI_MODULE,
 			    argc, argv,
 			    GNOME_PARAM_POPT_TABLE, NULL,
 			    GNOME_PARAM_APP_DATADIR, REAL_DATADIR,
