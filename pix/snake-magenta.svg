@@ -5,17 +5,28 @@
 <svg
    id="svg1"
    sodipodi:version="0.32"
-   inkscape:version="0.38.1"
+   inkscape:version="0.39cvs"
    width="50.000000mm"
    height="50.000000mm"
-   sodipodi:docbase="/usr/home/klaveren/Sources/gnome-games/gnibbles/pix"
    sodipodi:docname="snake-magenta.svg"
+   sodipodi:docbase="/home/callum/CVS/gnome-games/gnibbles/pix"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs
      id="defs3">
+    <linearGradient
+       id="linearGradient1140">
+      <stop
+         style="stop-color:#070007;stop-opacity:1.0000000;"
+         offset="0.0000000"
+         id="stop1141" />
+      <stop
+         style="stop-color:#92009f;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop1142" />
+    </linearGradient>
     <linearGradient
        id="linearGradient930">
       <stop
@@ -88,13 +99,13 @@
        showguides="true"
        snaptoguides="true" />
     <radialGradient
-       xlink:href="#linearGradient930"
+       xlink:href="#linearGradient1140"
        id="radialGradient933"
-       cx="0.77343750"
-       cy="0.26562500"
-       r="0.67986709"
-       fx="0.77343750"
-       fy="0.26562500" />
+       cx="0.38281250"
+       cy="0.60937500"
+       r="0.50000000"
+       fx="0.36718750"
+       fy="0.63281250" />
     <linearGradient
        xlink:href="#linearGradient930"
        id="linearGradient934"
@@ -102,6 +113,14 @@
        y1="0.50000000"
        x2="1.0000000"
        y2="0.50000000" />
+    <radialGradient
+       xlink:href="#linearGradient930"
+       id="radialGradient1138"
+       cx="0.61718750"
+       cy="0.44531250"
+       r="0.50000000"
+       fx="0.60937500"
+       fy="0.43750000" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -111,22 +130,27 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.7798890"
-     inkscape:cx="70.866138"
-     inkscape:cy="69.654432"
+     inkscape:cx="94.125391"
+     inkscape:cy="55.738301"
      inkscape:window-width="671"
      inkscape:window-height="533"
      showgrid="true"
      snaptogrid="true"
-     inkscape:window-x="69"
-     inkscape:window-y="46"
+     inkscape:window-x="354"
+     inkscape:window-y="237"
      showguides="true"
      snaptoguides="true" />
   <rect
-     style="fill:url(#radialGradient933);fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.99503222pt;"
-     id="rect837"
+     style="fill:#510052;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;"
+     id="rect1139"
      width="177.16534"
-     height="177.16837"
-     x="1.0092427e-05"
-     y="-0.0030300519"
-     ry="29.227785" />
+     height="177.16535"
+     ry="29.227288"
+     x="7.1054274e-15"
+     y="-6.4128967e-06" />
+  <path
+     style="fill:url(#radialGradient1138);fill-rule:evenodd;stroke:none;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:0.75;"
+     d="M 0.0000000,17.716525 C 1.0848249e-15,-1.0092427e-05 0.0000000,-1.0092427e-05 17.716535,-1.0092427e-05 C 35.433071,17.716525 53.149606,35.433061 70.866142,53.149596 C 88.582677,70.866132 88.582677,70.866132 106.29921,53.149596 C 124.01575,35.433061 141.73228,17.716525 159.44882,-1.0092427e-05 C 177.16535,-1.0092427e-05 177.16535,-1.0092427e-05 177.16535,17.716525 C 159.44882,35.433061 141.73228,53.149596 124.01575,70.866132 C 106.29921,88.582667 106.29921,88.582667 124.01575,106.29920 C 141.73228,124.01574 159.44882,141.73227 177.16535,159.44881 C 177.16535,177.16534 177.16535,177.16534 159.44882,177.16534 C 141.73228,159.44881 124.01575,141.73227 106.29921,124.01574 C 88.582677,106.29920 88.582677,106.29920 70.866142,124.01574 C 53.149606,141.73227 35.433071,159.44881 17.716535,177.16534 C 4.4408921e-15,177.16534 1.0848248e-15,177.16534 0.0000000,159.44881 C 17.716535,141.73227 35.433071,124.01574 53.149606,106.29920 C 70.866142,88.582667 70.866142,88.582667 53.149606,70.866132 C 35.433071,53.149596 17.716535,35.433061 0.0000000,17.716525 z "
+     id="path1137"
+     sodipodi:nodetypes="ccccccccccccccccc" />
 </svg>

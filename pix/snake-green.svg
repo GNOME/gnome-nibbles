@@ -5,15 +5,15 @@
 <svg
    id="svg1"
    sodipodi:version="0.32"
-   inkscape:version="0.38.1"
+   inkscape:version="0.39cvs"
    width="50.000000mm"
    height="50.000000mm"
-   sodipodi:docbase="/usr/home/klaveren/Sources/gnome-games/gnibbles/pix"
    sodipodi:docname="snake-green.svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink">
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   sodipodi:docbase="/home/callum/CVS/gnome-games/gnibbles/pix">
   <defs
      id="defs3">
     <linearGradient
@@ -111,14 +111,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.7798890"
-     inkscape:cx="70.866138"
-     inkscape:cy="69.654432"
+     inkscape:cx="70.866139"
+     inkscape:cy="69.654433"
      inkscape:window-width="671"
      inkscape:window-height="533"
      showgrid="true"
      snaptogrid="true"
-     inkscape:window-x="69"
-     inkscape:window-y="46"
+     inkscape:window-x="538"
+     inkscape:window-y="312"
      showguides="true"
      snaptoguides="true" />
   <rect
@@ -128,5 +128,5 @@
      height="177.16837"
      x="1.0092427e-05"
      y="-0.0030300519"
-     ry="29.227785" />
+     ry="88.584183" />
 </svg>

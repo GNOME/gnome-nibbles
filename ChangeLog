@@ -1,3 +1,9 @@
+2004-05-04  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* snake-*.png: Reworked graphics so that they are all different
+	shapes as well as different colours. This should help with
+	colour-blindness issues.
+
 2004-04-28  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* pix/wall*: Update from Theo so the walls are less red. Forgot to

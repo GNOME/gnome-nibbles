@@ -5,15 +5,15 @@
 <svg
    id="svg1"
    sodipodi:version="0.32"
-   inkscape:version="0.38.1"
+   inkscape:version="0.39cvs"
    width="50.000000mm"
    height="50.000000mm"
-   sodipodi:docbase="/usr/home/klaveren/Sources/gnome-games/gnibbles/pix"
    sodipodi:docname="snake-grey.svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink">
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   sodipodi:docbase="/home/callum/CVS/gnome-games/gnibbles/pix">
   <defs
      id="defs3">
     <linearGradient
@@ -90,18 +90,14 @@
     <radialGradient
        xlink:href="#linearGradient930"
        id="radialGradient933"
-       cx="0.77343750"
-       cy="0.26562500"
-       r="0.67986709"
-       fx="0.77343750"
-       fy="0.26562500" />
+       cx="0.58593750"
+       cy="0.38281250"
+       r="0.52221173"
+       fx="0.58593750"
+       fy="0.38281250" />
     <linearGradient
        xlink:href="#linearGradient930"
-       id="linearGradient934"
-       x1="0.0000000"
-       y1="0.50000000"
-       x2="1.0000000"
-       y2="0.50000000" />
+       id="linearGradient934" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -111,22 +107,30 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.7798890"
-     inkscape:cx="70.866138"
-     inkscape:cy="69.654432"
+     inkscape:cx="70.866139"
+     inkscape:cy="83.884459"
      inkscape:window-width="671"
      inkscape:window-height="533"
      showgrid="true"
      snaptogrid="true"
-     inkscape:window-x="69"
-     inkscape:window-y="46"
+     inkscape:window-x="306"
+     inkscape:window-y="190"
      showguides="true"
      snaptoguides="true" />
   <rect
-     style="fill:url(#radialGradient933);fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.99503222pt;"
+     style="fill:#afafaf;fill-rule:evenodd;stroke-width:3.0000000pt;"
+     id="rect1182"
+     width="177.16536"
+     height="177.16536"
+     ry="88.582680"
+     x="0.0000000"
+     y="-1.0092427e-05" />
+  <rect
+     style="fill:url(#radialGradient933);fill-opacity:1.0000000;fill-rule:evenodd;stroke-width:0.99503222pt;"
      id="rect837"
-     width="177.16534"
-     height="177.16837"
-     x="1.0092427e-05"
-     y="-0.0030300519"
-     ry="29.227785" />
+     width="141.73228"
+     height="141.73470"
+     x="17.716535"
+     y="17.713797"
+     ry="70.867348" />
 </svg>

@@ -5,15 +5,15 @@
 <svg
    id="svg1"
    sodipodi:version="0.32"
-   inkscape:version="0.38.1"
+   inkscape:version="0.39cvs"
    width="50.000000mm"
    height="50.000000mm"
-   sodipodi:docbase="/usr/home/klaveren/Sources/gnome-games/gnibbles/pix"
    sodipodi:docname="snake-blue.svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink">
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   sodipodi:docbase="/home/callum/CVS/gnome-games/gnibbles/pix">
   <defs
      id="defs3">
     <linearGradient
@@ -90,11 +90,13 @@
     <radialGradient
        xlink:href="#linearGradient930"
        id="radialGradient933"
-       cx="0.77343750"
-       cy="0.26562500"
-       r="0.67986709"
-       fx="0.77343750"
-       fy="0.26562500" />
+       cx="128.88304"
+       cy="-30.444914"
+       r="66.709892"
+       fx="129.86990"
+       fy="-31.423512"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(0.999957,1.000043)" />
     <linearGradient
        xlink:href="#linearGradient930"
        id="linearGradient934"
@@ -111,22 +113,22 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.7798890"
-     inkscape:cx="70.866138"
-     inkscape:cy="69.654432"
+     inkscape:cx="70.866139"
+     inkscape:cy="56.696163"
      inkscape:window-width="671"
      inkscape:window-height="533"
      showgrid="true"
      snaptogrid="true"
-     inkscape:window-x="69"
-     inkscape:window-y="46"
+     inkscape:window-x="525"
+     inkscape:window-y="346"
      showguides="true"
      snaptoguides="true" />
   <rect
      style="fill:url(#radialGradient933);fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.99503222pt;"
      id="rect837"
-     width="177.16534"
-     height="177.16837"
-     x="1.0092427e-05"
-     y="-0.0030300519"
-     ry="29.227785" />
+     width="125.78509"
+     height="125.79585"
+     x="62.909259"
+     y="-62.891108"
+     transform="matrix(0.707127,0.707086,-0.701178,0.712987,0.000000,0.000000)" />
 </svg>
