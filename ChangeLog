@@ -1,3 +1,11 @@
+2003-10-21  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* Makefile.am (install-data-local): Change the way gconf files are
+	installed. This should improve things for people building outside
+	the source tree. Also consolidated the score files list under a
+	variable and add the schema data to the CLEANFILES list. See 
+	bug #123192.
+
 2003-10-19  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* main.c: 

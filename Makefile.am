@@ -99,14 +99,16 @@ EXTRA_DIST = \
 
 SUBDIRS=sounds help
 
-CLEANFILES = $(Games_DATA) $(soundlist_DATA)
+CLEANFILES = $(Games_DATA) $(soundlist_DATA) $(schema_DATA)
+
+SCOREFILES = 4.0 3.0 2.0 1.0 4.1 3.1 2.1 1.1
 
 install-data-local:
 if GCONF_SCHEMAS_INSTALL
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
+	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/$(schema_DATA)
 endif
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
-	-for i in 4.0 3.0 2.0 1.0 4.1 3.1 2.1 1.1 ; do \
+	-for i in ${SCOREFILES} ; do \
 	   touch $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
 	   chown $(scores_user):$(scores_group) $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
 	   chmod 664 $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
