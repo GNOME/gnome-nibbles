@@ -1,3 +1,5 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
+
 /* 
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
@@ -22,6 +24,7 @@
 #include <libgnomeui/gnome-window-icon.h>
 #include <gdk/gdkkeysyms.h>
 #include <time.h>
+#include <gconf/gconf-client.h>
 
 #include "properties.h"
 #include "gnibbles.h"
@@ -106,7 +109,8 @@ static GnomeUIInfo main_menu[] = {
 	GNOMEUIINFO_END
 };
 
-void hide_cursor ()
+void
+hide_cursor ()
 {
 	if (pointers.current != pointers.invisible) {
 		gdk_window_set_cursor (drawing_area->window, pointers.invisible);
@@ -114,7 +118,8 @@ void hide_cursor ()
 	}
 }
 
-void show_cursor ()
+void
+show_cursor ()
 {
 	if (pointers.current != NULL) {
 		gdk_window_set_cursor (drawing_area->window, NULL);
@@ -127,9 +132,10 @@ gint game_running ()
 	return (main_id || erase_id || dummy_id || restart_id || paused);
 }
 
-static void zero_board ()
+static void
+zero_board ()
 {
-	int i, j;
+	gint i, j;
 
 	for (i = 0; i < BOARDWIDTH; i++)
 		for (j = 0; j < BOARDHEIGHT; j++) {
@@ -153,20 +159,20 @@ static gint end_game_box (short quit)
 
 	if (!quit)
 		box = gtk_message_dialog_new (GTK_WINDOW (window),
-			       GTK_DIALOG_MODAL,
-			       GTK_MESSAGE_QUESTION,
-			       GTK_BUTTONS_YES_NO,
-			       _("Are you sure you want to start a new game?"));
+					      GTK_DIALOG_MODAL,
+					      GTK_MESSAGE_QUESTION,
+					      GTK_BUTTONS_YES_NO,
+					      _("Are you sure you want to start a new game?"));
 	else {
 		box = gtk_message_dialog_new (GTK_WINDOW (window),
-				GTK_DIALOG_MODAL,
-				GTK_MESSAGE_QUESTION,
-				GTK_BUTTONS_NONE,
-				_("Are you sure you want to quit Gnibbles?"));
+					      GTK_DIALOG_MODAL,
+					      GTK_MESSAGE_QUESTION,
+					      GTK_BUTTONS_NONE,
+					      _("Are you sure you want to quit Gnibbles?"));
 		gtk_dialog_add_buttons (GTK_DIALOG (box),
-				GTK_STOCK_CANCEL, GTK_RESPONSE_NO,
-				GTK_STOCK_QUIT, GTK_RESPONSE_YES,
-				NULL);
+					GTK_STOCK_CANCEL, GTK_RESPONSE_NO,
+					GTK_STOCK_QUIT, GTK_RESPONSE_YES,
+					NULL);
 	}
         gtk_dialog_set_has_separator (GTK_DIALOG (box), FALSE);
 	status = gtk_dialog_run (GTK_DIALOG (box)) == GTK_RESPONSE_NO;
@@ -178,7 +184,8 @@ static gint end_game_box (short quit)
 
 }
 
-static void quit_cb (GtkWidget *widget, gpointer data)
+static void
+quit_cb (GtkWidget *widget, gpointer data)
 {
 	if (game_running () && end_game_box (1)) // 1 for quit
 		return;
@@ -187,7 +194,8 @@ static void quit_cb (GtkWidget *widget, gpointer data)
 	gtk_main_quit ();
 }
 
-static void about_cb (GtkWidget *widget, gpointer data)
+static void
+about_cb (GtkWidget *widget, gpointer data)
 {
 	static GtkWidget *about = NULL;
 	GdkPixbuf *pixbuf = NULL;
@@ -237,10 +245,11 @@ static void about_cb (GtkWidget *widget, gpointer data)
 
 static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
 {
-	gdk_draw_drawable (GDK_DRAWABLE (widget->window), widget->style->fg_gc[GTK_WIDGET_STATE
-			(widget)], buffer_pixmap, event->area.x, event->area.y,
-			event->area.x, event->area.y, event->area.width,
-			event->area.height);
+	gdk_draw_drawable (GDK_DRAWABLE (widget->window),
+			   widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
+			   buffer_pixmap, event->area.x, event->area.y,
+			   event->area.x, event->area.y, event->area.width,
+			   event->area.height);
 
 	return (FALSE);
 }
@@ -251,7 +260,8 @@ static gint key_press_cb (GtkWidget *widget, GdkEventKey *event)
 	return gnibbles_keypress_worms (event->keyval);
 }
 
-static void draw_board ()
+static void
+draw_board ()
 {
 	int i, j;
 
@@ -278,13 +288,15 @@ static void draw_board ()
 		gnibbles_bonus_draw (boni->bonuses[i]);
 
 	gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
-			 drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			 (drawing_area)], buffer_pixmap, 0, 0, 0, 0,
-			 BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
+			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
+			   buffer_pixmap, 0, 0, 0, 0,
+			   BOARDWIDTH*properties->tilesize,
+			   BOARDHEIGHT*properties->tilesize);
 	
 }
 
-static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
+static gint
+configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
 {
 	gnibbles_load_pixmap (window);
 	if (buffer_pixmap)
@@ -301,21 +313,24 @@ static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
 	return (FALSE);
 }
 
-static gint new_game_2_cb (GtkWidget *widget, gpointer data)
+static gint
+new_game_2_cb (GtkWidget *widget, gpointer data)
 {
 	if (!paused) {
 		if (!keyboard_id)
 			keyboard_id = g_signal_connect (G_OBJECT (window),
-					"key_press_event",
-					G_CALLBACK (key_press_cb), NULL);
+							"key_press_event",
+							G_CALLBACK (key_press_cb),
+							NULL);
 		if (!main_id)
 			main_id = gtk_timeout_add (GAMEDELAY * properties->gamespeed,
-					(GtkFunction) main_loop, NULL);
+						   (GtkFunction) main_loop,
+						   NULL);
 		if (!add_bonus_id)
 			add_bonus_id = gtk_timeout_add (BONUSDELAY *
-					properties->gamespeed,
-					(GtkFunction) add_bonus_cb,
-					NULL);
+							properties->gamespeed,
+							(GtkFunction) add_bonus_cb,
+							NULL);
 	}
 
 	dummy_id = 0;
@@ -323,7 +338,8 @@ static gint new_game_2_cb (GtkWidget *widget, gpointer data)
 	return (FALSE);
 }
 
-static gint new_game_cb (GtkWidget *widget, gpointer data)
+static gint
+new_game_cb (GtkWidget *widget, gpointer data)
 {
 	gtk_widget_set_sensitive (game_menu[1].widget, TRUE);
 	gtk_widget_set_sensitive (game_menu[4].widget, TRUE);
@@ -415,10 +431,11 @@ static gint show_scores_cb (GtkWidget *widget, gpointer data)
 	gnibbles_show_scores (window, 0);
 }
 
-static gint end_game_cb (GtkWidget *widget, gpointer data)
+void
+end_game (gint data)
 {
 	if ((gint) data == 2 && end_game_box (0)) // 0 for new game
-			return 0;
+		return;
 
 	if (main_id) {
 		gtk_timeout_remove (main_id);
@@ -460,7 +477,11 @@ static gint end_game_cb (GtkWidget *widget, gpointer data)
 	}
 
 	paused = 0;
+}
 
+static gint end_game_cb (GtkWidget *widget, gpointer data)
+{
+	end_game ((gint)data);
 	return (FALSE);
 }
 
@@ -517,8 +538,8 @@ static gint main_loop (gpointer data)
 		gtk_timeout_remove (add_bonus_id);
 		add_bonus_id = 0;
 		erase_id = gtk_timeout_add (3000,
-				(GtkFunction) erase_worms_cb,
-				(gpointer) ERASESIZE);
+					    (GtkFunction) erase_worms_cb,
+					    (gpointer) ERASESIZE);
 		gnibbles_log_score (window);
 		return (FALSE);
 	}
@@ -559,18 +580,21 @@ static gint main_loop (gpointer data)
 	return (TRUE);
 }
 
-static void set_bg_color ()
+static void
+set_bg_color ()
 {
 	GdkImage *tmp_image;
 	GdkColor bgcolor;
 
-	tmp_image = gdk_drawable_get_image (GDK_DRAWABLE (gnibbles_pixmap), 0, 0, 1, 1);
+	tmp_image = gdk_drawable_get_image (GDK_DRAWABLE (gnibbles_pixmap),
+					    0, 0, 1, 1);
 	bgcolor.pixel = gdk_image_get_pixel (tmp_image, 0, 0);
 	gdk_window_set_background (drawing_area->window, &bgcolor);
 	g_object_unref (G_OBJECT (tmp_image));
 }
 
-void update_score_state ()
+void
+update_score_state ()
 {
         gchar **names = NULL;
         gfloat *scores = NULL;
@@ -598,7 +622,8 @@ show_cursor_cb (GtkWidget *widget, GdkEventMotion *event, gpointer data)
         return FALSE;
 }
 
-static void setup_window ()
+static void
+setup_window ()
 {
 	GtkWidget *label, *hbox;
 	GdkPixmap *cursor_dot_pm;
@@ -633,7 +658,8 @@ static void setup_window ()
 			G_CALLBACK (show_cursor_cb), NULL);
 
 	gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
-			BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
+				     BOARDWIDTH*properties->tilesize,
+				     BOARDHEIGHT*properties->tilesize);
 	g_signal_connect (G_OBJECT (drawing_area), "expose_event",
 			G_CALLBACK (expose_event_cb), NULL);
 	gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
@@ -649,29 +675,62 @@ static void setup_window ()
 	scoreboard = gnibbles_scoreboard_new (appbar);
 }
 
-static void load_properties ()
+static void
+gconf_key_change_cb (GConfClient *client, guint cnxn_id,
+		     GConfEntry *entry, gpointer user_data)
 {
+	end_game (1);
+	gnibbles_properties_destroy (properties);
 	properties = gnibbles_properties_new ();
 }
 
-static void render_logo ()
+static void
+load_properties ()
+{
+	gint i;
+	gchar *buffer;
+
+	properties = gnibbles_properties_new ();
+
+	/* maybe this should to into properties.c */
+        gconf_client_add_dir (gconf_client_get_default (),
+                              "/apps/gnibbles",
+                              GCONF_CLIENT_PRELOAD_RECURSIVE,
+                              NULL);
+	gconf_client_notify_add (gconf_client_get_default (),
+				 "/apps/gnibbles/preferences",
+				 gconf_key_change_cb, NULL, NULL, NULL);
+	for (i = 0; i < NUMWORMS; i++) {
+		buffer = g_strdup_printf ("%s/%d", "/apps/gnibbles/worm", i);
+		gconf_client_notify_add (gconf_client_get_default (),
+					 buffer,
+					 gconf_key_change_cb, NULL, NULL, NULL);
+		g_free (buffer);
+	}
+}
+
+static void
+render_logo ()
 {
 	gint i, j;
 
 	zero_board ();
 
 	gdk_draw_drawable (GDK_DRAWABLE (buffer_pixmap),
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)], logo_pixmap,
-      0, 0, 0, 0, BOARDWIDTH*properties->tilesize,
-      BOARDHEIGHT*properties->tilesize);
+			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
+			   logo_pixmap,
+			   0, 0, 0, 0, BOARDWIDTH*properties->tilesize,
+			   BOARDHEIGHT*properties->tilesize);
 
 	gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
-			drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
-      buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH*properties->tilesize,
-      BOARDHEIGHT*properties->tilesize);
+			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
+			   buffer_pixmap, 0, 0, 0, 0,
+			   BOARDWIDTH*properties->tilesize,
+			   BOARDHEIGHT*properties->tilesize);
 }
 
-int main (int argc, char **argv)
+int 
+main (int argc, char **argv)
 {
 	gint foo;
 
@@ -700,8 +759,9 @@ int main (int argc, char **argv)
 	gtk_widget_show (window);
 
 	buffer_pixmap = gdk_pixmap_new (drawing_area->window,
-			BOARDWIDTH * properties->tilesize, BOARDHEIGHT * properties->tilesize,
-			-1);
+					BOARDWIDTH * properties->tilesize,
+					BOARDHEIGHT * properties->tilesize,
+					-1);
 
 	render_logo ();
 

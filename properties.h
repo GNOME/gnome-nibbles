@@ -1,3 +1,5 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
+
 /* 
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
@@ -27,7 +29,7 @@
 
 typedef struct {
 	gint color;
-	gint relmove;
+	gboolean relmove;
 	guint up, down, left, right;
 } GnibblesWormProps;
 
@@ -38,7 +40,7 @@ typedef struct {
 	gint random;
 	gint startlevel;
 	gint sound;
-  gint tilesize;
+	gint tilesize;
 	GnibblesWormProps *wormprops[NUMWORMS];
 } GnibblesProperties;
 

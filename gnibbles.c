@@ -1,3 +1,5 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
+
 /* 
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
@@ -50,7 +52,8 @@ extern GnibblesScoreboard *scoreboard;
 extern guint properties->tilesize, properties->tilesize;
 */
 
-void gnibbles_error (GtkWidget *window, gchar *message)
+void
+gnibbles_error (GtkWidget *window, gchar *message)
 {
 	GtkWidget *w = gtk_message_dialog_new (GTK_WINDOW (window), GTK_DIALOG_MODAL,
 					       GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
@@ -61,42 +64,50 @@ void gnibbles_error (GtkWidget *window, gchar *message)
 	exit (1);
 }
 
-void gnibbles_copy_pixmap (GdkDrawable *drawable, gint which, gint x, gint y,
-			   gboolean big)
+void
+gnibbles_copy_pixmap (GdkDrawable *drawable, gint which, gint x, gint y,
+		      gboolean big)
 {
 	gint w = properties->tilesize * (big ? 2 : 1),
 		h = properties->tilesize * (big ? 2 : 1);
 	guint nh = 10 / (big ? 2 : 1), nv = 10 / (big ? 2 : 1);
 
-	gdk_draw_drawable (GDK_DRAWABLE (drawable), drawing_area->style->fg_gc[GTK_WIDGET_STATE
-			(drawing_area)], gnibbles_pixmap, (which % nh) * w,
-			((big ? 3 : 0) + which / nv) * h, x * properties->tilesize,
-			y * properties->tilesize, w, h);
+	gdk_draw_drawable (GDK_DRAWABLE (drawable),
+			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
+			   gnibbles_pixmap, (which % nh) * w,
+			   ((big ? 3 : 0) + which / nv) * h,
+			   x * properties->tilesize,
+			   y * properties->tilesize, w, h);
 }
 
-void gnibbles_draw_pixmap (gint which, gint x, gint y)
+void
+gnibbles_draw_pixmap (gint which, gint x, gint y)
 {
-	gnibbles_copy_pixmap(drawing_area->window, which, x, y, FALSE);
-	gnibbles_copy_pixmap(buffer_pixmap, which, x, y, FALSE);
+	gnibbles_copy_pixmap (drawing_area->window, which, x, y, FALSE);
+	gnibbles_copy_pixmap (buffer_pixmap, which, x, y, FALSE);
 }
 
-void gnibbles_draw_big_pixmap (gint which, gint x, gint y)
+void
+gnibbles_draw_big_pixmap (gint which, gint x, gint y)
 {
-	gnibbles_copy_pixmap(drawing_area->window, which, x, y, TRUE);
-	gnibbles_copy_pixmap(buffer_pixmap, which, x, y, TRUE);
+	gnibbles_copy_pixmap (drawing_area->window, which, x, y, TRUE);
+	gnibbles_copy_pixmap (buffer_pixmap, which, x, y, TRUE);
 }
 
-void gnibbles_draw_pixmap_buffer (gint which, gint x, gint y)
+void
+gnibbles_draw_pixmap_buffer (gint which, gint x, gint y)
 {
-	gnibbles_copy_pixmap(buffer_pixmap, which, x, y, FALSE);
+	gnibbles_copy_pixmap (buffer_pixmap, which, x, y, FALSE);
 }
 
-void gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
+void
+gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 {
-	gnibbles_copy_pixmap(buffer_pixmap, which, x, y, TRUE);
+	gnibbles_copy_pixmap (buffer_pixmap, which, x, y, TRUE);
 }
 
-void gnibbles_load_pixmap (GtkWidget *window)
+void
+gnibbles_load_pixmap (GtkWidget *window)
 {
 	GdkPixbuf *image;
 	GdkPixbuf *tmp;
@@ -152,14 +163,15 @@ void gnibbles_load_pixmap (GtkWidget *window)
 	g_free (filename);
 }
 
-void gnibbles_load_level (GtkWidget *window, int level)
+void
+gnibbles_load_level (GtkWidget *window, gint level)
 {
 	gchar tmp[30];
 	gchar *filename;
 	FILE *in;
 	gchar tmpboard[BOARDWIDTH + 1];
-	int i, j;
-	int count = 0;
+	gint i, j;
+	gint count = 0;
 
 	sprintf (tmp, "gnibbles/level%03d.gnl", level);
 	filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
@@ -262,9 +274,10 @@ void gnibbles_load_level (GtkWidget *window, int level)
 	fclose (in);
 }
 
-void gnibbles_init ()
+void
+gnibbles_init ()
 {
-	int i;
+	gint i;
 
 	for (i = 0; i < properties->numworms; i++)
 		if (worms[i])
@@ -280,9 +293,10 @@ void gnibbles_init ()
 	gnibbles_scoreboard_update (scoreboard);
 }
 
-void gnibbles_destroy ()
+void
+gnibbles_destroy ()
 {
-	int i;
+	gint i;
 
 	if (warpmanager)
 		gnibbles_warpmanager_destroy (warpmanager);
@@ -301,7 +315,8 @@ void gnibbles_destroy ()
 		gnibbles_scoreboard_destroy (scoreboard);
 }
 
-void gnibbles_add_bonus (int regular)
+void
+gnibbles_add_bonus (gint regular)
 {
 	gint x, y, good;
 
@@ -399,8 +414,8 @@ void gnibbles_add_bonus (int regular)
 
 gint gnibbles_move_worms ()
 {
-	int i, j, status = 1;
-	int *dead = g_new (int, properties->numworms);
+	gint i, j, status = 1;
+	gint *dead = g_new (gint, properties->numworms);
 
 	if (boni->missed > MAXMISSED)
 		for (i = 0; i < properties->numworms; i++)
@@ -438,17 +453,15 @@ gint gnibbles_move_worms ()
 		for (i = 0; i < properties->numworms; i++)
 			if (!dead[i])
 				for (j = 0; j < properties->numworms; j++) {
-					if (i != j && worms[i]->xhead ==
-							worms[j]->xhead &&
-							worms[i]->yhead ==
-							worms[j]->yhead)
+					if (i != j
+					    && worms[i]->xhead == worms[j]->xhead
+					    && worms[i]->yhead == worms[j]->yhead)
 						dead[i] = TRUE;
 					gnibbles_draw_pixmap (BLANKPIXMAP,
-							worms[i]->xtail,
-							worms[i]->ytail);
+							      worms[i]->xtail,
+							      worms[i]->ytail);
 					gnibbles_draw_pixmap
-						(properties->wormprops[i]
-						 ->color,
+						(properties->wormprops[i]->color,
 						 worms[i]->xhead,
 						 worms[i]->yhead);
 				}
@@ -484,7 +497,7 @@ gint gnibbles_move_worms ()
 
 gint gnibbles_keypress_worms (guint keyval)
 {
-	int i;
+	gint i;
 
 	for (i = 0; i < properties->numworms; i++)
 		if (gnibbles_worm_handle_keypress (worms[i], keyval))
@@ -492,21 +505,24 @@ gint gnibbles_keypress_worms (guint keyval)
         return FALSE;
 }
 
-void gnibbles_undraw_worms (gint data)
+void
+gnibbles_undraw_worms (gint data)
 {
-	int i;
+	gint i;
 
 	for (i = 0; i < properties->numworms; i++)
 		gnibbles_worm_undraw_nth (worms[i], data);
 }
 
-void gnibbles_play_sound (const char *which)
+void
+gnibbles_play_sound (const char *which)
 {
 	if (properties->sound)
 		gnome_triggers_do (NULL, NULL, "gnibbles", which, NULL);
 }
 
-void gnibbles_show_scores (GtkWidget *window, gint pos)
+void
+gnibbles_show_scores (GtkWidget *window, gint pos)
 {
 	GtkWidget *dialog;
 	char buf[10];
@@ -520,10 +536,11 @@ void gnibbles_show_scores (GtkWidget *window, gint pos)
 	}
 }
 
-void gnibbles_log_score (GtkWidget *window)
+void
+gnibbles_log_score (GtkWidget *window)
 {
 	char buf[10];
-	int pos;
+	gint pos;
 	
 	if (properties->numworms > 1)
 		return;

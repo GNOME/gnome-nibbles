@@ -1,3 +1,16 @@
+2003-06-12  William Jon McCann  <mccann@jhu.edu>
+
+	* main.c (load_properties): Use gconf.  Use constistent style.
+
+	* gnibbles.c: Use consistent style.
+
+	* properties.c (gnibbles_properties_new): Initial conversion
+	to GConf.
+
+	* preferences.c (worm_relative_movement_cb): Fixed code broken
+	by HIG work on preferences.  Code is now independent of dialog
+	layout.
+
 2003-06-11  William Jon McCann  <mccann@jhu.edu>
 
 	* main.c (about_cb): Fixed program description.
