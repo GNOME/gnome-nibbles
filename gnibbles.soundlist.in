@@ -1,0 +1,34 @@
+[__section_info__]
+_description=Gnibbles
+
+[crash]
+file=gnibbles/crash.wav
+_description=Worm Death
+
+[appear]
+file=gnibbles/appear.wav
+_description=Bonus Appears
+
+[gobble]
+file=gnibbles/gobble.wav
+_description=Eat Bonus
+
+[teleport]
+file=gnibbles/teleport.wav
+_description=Worm Teleport
+
+[reverse]
+file=gnibbles/reverse.wav
+_description=Worm Reverse
+
+[gameover]
+file=gnibbles/laughter.wav
+_description=Game Over
+
+[bonus]
+file=gnibbles/bonus.wav
+_description=Bonus
+
+[life]
+file=gnibbles/life.wav
+_description=Extra Life

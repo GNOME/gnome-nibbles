@@ -1,0 +1,474 @@
+2002-11-22  Tim Musson  <trmusson@ihug.co.nz>
+
+	* gnibbles.c, gnibbles.h: (gnibbles_show_scores), (gnibbles_log_score):
+	* main.c: (show_scores_cb), (main_loop):
+	Made Score dialog modal. (#97320)
+	* main.c: (about_cb): Added gtk_window_present and made transient.
+	* preferences.c: (gnibbles_preferences_cb): Added gtk_window_present.
+
+2002-11-19  Jeremy Browne  <jeremy@synonymous.ca>
+
+	* main.c: Split 'End game?' dialog into new game / quit dialogs which
+	conform with other parts of gnome-games package. (Bug #97321)
+
+2002-11-18  Fernando Herrera <fherrera@onirica.com>
+
+	* gnibbles.desktop.in: add X-GNOME-BUGZILLA stuff
+
+2002-11-11  Ross Burton  <ross@burtonini.com>
+
+	* gnome-nibbles.png: New icon contributed by Timothy Musson.
+
+2002-09-19  Ross Burton  <ross@burtonini.com>
+
+	* main.c:
+	* gnibbles.h:
+	* gnibbles.c:
+	* worm.h:
+	* worm.c: Allow keypresses to carry on being processed, so that
+	keyboard shortcuts work again. Patch from Timothy Musson
+	<trmusson@ihug.co.nz>.
+
+2002-08-23  Ross Burton  <ross@burtonini.com>
+
+	* gnibbles.c:
+	* main.c: 
+	* main.h:
+	* preferences.c: Enable the high scores dialog. Patch from Andrew
+	Sobala <andrew@sobala.net>, fixing #84235.
+
+2002-08-20  Ross Burton  <ross@burtonini.com>
+
+	* help/C/gnibbles.xml: Fix a mistake in the "How to start" docs,
+	fixing #90640.
+
+2002-08-20  Andrew Sobala  <andrew@sobala.net>
+
+	* preferences.c (apply_cb): Force the dialog to be recreated each
+	time instead of cancelled preferences being remembered, fixing
+	#90569.
+
+2002-06-24  Ross Burton  <ross@burtonini.com>
+
+	* properties.c (gnibbles_properties_new): Set the default map size
+	to medium, instead of extra huge.
+
+2002-06-19  Ross Burton  <ross@burtonini.com>
+
+	* main.c (about_cb): Use the install path instead of the system
+	path.
+
+2002-05-05  Chris Lyttle    <chris@wilddev.net>
+
+	* help/C/gnibbles-C.omf : updated for new format of SK 0.3.8.
+	* help/C/Makefile.am : updated for new format of SK 0.3.8.
+
+2002-04-24  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am:
+	* preferences.c: (destroy_cb), (apply_cb), (game_speed_cb),
+	(start_level_cb), (random_order_cb), (fake_bonus_cb), (sound_cb),
+	(tile_size_cb), (num_worms_cb), (worm_up_cb), (worm_down_cb),
+	(worm_left_cb), (worm_right_cb), (set_worm_color_cb),
+	(worm_relative_movement_cb), (gnibbles_preferences_cb):
+	ported to Gnome2, thanks to Shahms E. King <shahms@shahms.com>
+	for the patch
+
+2002-04-17  Bastien Nocera  <hadess@hadess.net>
+
+	* boni.c: (gnibbles_boni_new):
+	* main.c: (about_cb):
+	* preferences.c: (gnibbles_preferences_cb):
+	* properties.c: (gnibbles_properties_new),
+	(gnibbles_properties_copy):
+	* scoreboard.c: (gnibbles_scoreboard_update):
+	* warp.c: (gnibbles_warp_new):
+	* warpmanager.c: (gnibbles_warpmanager_new):
+	* worm.c: (gnibbles_worm_new):
+	fix all build warnings, use g_malloc instead of malloc,
+	add nice about box icon (Closes: #77352)
+
+2002-02-17  Chris Lyttle  <chris@wilddev.net>
+
+	* help/C/gnibbles.xml: updated for new template.
+	* help/C/Makefile.am:  added legal.xml
+	* help/C/legal.xml:  added to comply with new template
+			
+2002-02-16  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* *.[ch]: Fix up #include <config.h> stuff.
+	
+2002-02-14  Chris Lyttle    <chris@wilddev.net>
+
+	* help/C/gnibbles.xml : move to XML.
+	* help/C/gnibbles-C.omf : move to XML.
+	* help/C/gnibbles.sgml : deleted, move to XML.
+	* help/C/Makefile.am : move to XML.
+
+2002-02-02  Zbigniew Chyla  <cyba@gnome.pl>
+
+	* main.c (about_cb): Don't try to translate empty string.
+
+2002-01-20  Markus Bertheau  <twanger@bluetwanger.de>
+
+	* Makefile.am:
+	* scoreboard.c:
+	* preferences.c:
+	* gnibbles.[ch]:
+	* main.c:
+
+	First part of making it compile without deprecated
+	functions.
+
+2001-12-19  Seth Nickell  <snickell@stanford.edu>
+
+	* Makefile.am:
+	* gnibbles.desktop:
+
+	Install into the proper locatio and add a Categories
+	field.
+	
+2001-12-04  Duarte Loreto <happyguy_pt@hotmail.com>
+
+        * gnibbles.desktop: Added Portuguese (pt) translation.
+
+2001-07-27  Abel Cheung  <maddog@linux.org.hk>
+
+	* gnibbles.desktop: Added traditional Chinese translation.
+
+2001-07-14  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	I really sucks, the board resizing was totally broken, i need to 
+	rework this to not use all this pixmap nightmare. But not now. I 
+	just want it working right now.
+
+	* gnibbles.c: (gnibbles_load_pixmap): Scale the pixbuf to the 
+	  expected size.
+
+2001-07-07  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* main.c
+	* gnibbles.c: die bitch! die!, scream! scream!, hahaha, eat that
+	  stupid imlib.
+
+2001-07-05  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* gnibbles.c (gnibbles_load_pixmap), (gnibbles_load_level): Fix
+	  typos.
+
+2001-07-05  Christian Rose  <menthos@menthos.com>
+
+	* gnibbles.desktop: Modified Swedish translation.
+
+2001-06-11  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* gnibbles.c (gnibbles_load_pixmap), (gnibbles_load_level): Show
+	  dialogs instead of g_prints.
+
+2001-06-10  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* gnibbles.c (gnibbles_move_worms): Remove piece of invalid C
+          code, pointed out by Albert Chin-A-Youn
+	  <bugzilla-gnome@thewrittenword.com>. Bug #56010
+
+	* worm.c (gnibbles_worm_undraw_nth): Now i hope this would be rigth.
+
+2001-06-09  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* worm.c (gnibbles_worm_undraw_nth): Don't enter in a infinite
+	  loop!
+
+2001-06-08  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	Apply patch from Jeff Ozvold <corsalini@yahoo.it>. Bug #52900.
+
+	* main.c (main_loop): Ensure we don't try to load randon level 0.
+
+2001-06-06  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* main (new_game_2_cb): Check if the IDs are 0 before defining a
+	  new callback (Fix a bug when if you open a new game dialog rigth
+	  after you worm is destroyed the game become unstable and twice
+	  as faster.).
+	  (main): Why we was calling setup_windows twice ?
+	  (setup_window): Show the cursor also if we lost the focus (i.e. a
+	  dialog popup).
+
+2001-05-30  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	Implement "bug" #3969. Code mostly stolen from libzvt.
+
+	* main.c (hide_cursor), (show_cursor), (show_cursor_cb): New
+	  functions.
+	  (setup_window): Create the "invisible GdkCursor" and connect to
+	  motion_notify_event signal.
+	  (key_press_cb): Hide the cursor here.
+
+2001-05-23  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* worm.c (gnibbles_worm_undraw_nth) : Chaged if (i == 0) to 
+	  if (i <= 0) to fix buf #51309.
+
+2000-11-08  Kevin Breit <battery841@mypad.com>
+
+	* help/C/gnibbles.sgml: Started conversion from <itemizedlist> to
+          <variablelist> and a few clarity changes.
+
+2000-11-08  Kevin Breit <battery841@mypad.com>
+
+	* help/C/gnibbles.sgml: Made the manual Gnome 1.4/db2html2 ready.
+
+2000-10-19  Dan Mueth <d-mueth@uchicago.edu>
+
+	* help/C/topic.dat: Fixed
+
+2000-08-12  Dan Mueth <d-mueth@uchicago.edu>
+
+	* help/C/Makefile.am: Fixed stylesheet-images/ stuff
+
+2000-08-03  Dan Mueth <d-mueth@uchicago.edu>
+
+	* Makefile.am: Added the "help" SUBDIR
+	* help/Makefile.am: Added
+	* help/C/Makefile.am: Added
+	* help/C/topic.dat: Added
+	* help/C/images/*.png: Moved into help/C/
+          - geez, we really need to standardize where these 
+            things belong - every package does it differently :(
+
+2000-08-03  Dan Mueth <d-mueth@uchicago.edu>
+
+	* help/: Created 
+	* help/C/: Created
+	* help/C/gnibbles-manual.sgml: Added Kevin Breit's doc
+	* help/C/images/: Created
+	* help/C/images/*.png: Added Kevin's screenshots
+
+2000-08-03  Dan Mueth <d-mueth@uchicago.edu>
+
+	* docs/: removed - I should have put all this in help/
+
+2000-08-03  Dan Mueth <d-mueth@uchicago.edu>
+
+	* docs/: Created 
+	* docs/C/: Created
+	* docs/C/gnibbles-manual.sgml: Added Kevin Breit's doc
+	* docs/C/images/: Created
+	* docs/C/images/*.png: Added Kevin's screenshots
+
+2000-05-12  Andreas Hyden  <a.hyden@cyberpoint.se>
+
+	* gnibbles.desktop: Added Swedish translation.
+
+2000-05-06  Karl Eichwalder  <ke@suse.de>
+
+	* gnibbles.soundlist: Add de.
+
+2000-04-26  Ian Peters  <itp@gnu.org>
+
+	* main.c (main): load_properties before setup_window, else we segfault.
+	  How did this ever work?
+
+2000-04-26  Ian Peters  <itp@gnu.org>
+
+	* merged/modified patch from Sean Atkinson to allow configurable board
+	  size (yay now all the laptop users can quit complaining)
+
+2000-03-10 Elliot Lee <sopwith@redhat.com>
+	* boni.c: Fix warning.
+	* gnibbles.h: Increase GAMEDELAY to a level where newbie mode is
+	actually playable.
+
+1999-08-14  Matthias Warkus  <mawa@iname.com>
+
+	* gnibbles.desktop: Use gnome-nibbles.png about which humanity
+	seems to have forgot.
+
+1999-07-17  Ian Peters  <itp@gnu.org>
+
+	* gnibbles.c: Only take away points when you die if there are two
+	players or more.
+	* boni.h: Turned MAXMISSED down from 3 to 2, meaning you are now
+	penalized sooner if you aren't getting normal bonuses and are focusing
+	on the special ones.
+
+1999-03-17  Ian Peters  <itp@gnu.org>
+
+	* gnibbles_logo.png: Old logo screen removed.
+	* gnibbles-logo.png: New logo screen.
+	* Makefile.am: New logo...
+	* gnibbles.c: New logo...
+	* main.c: New logo...
+
+1999-03-13  Ian Peters  <itp@gnu.org>
+
+	* preferences.c (set_worm_color_cb): Stupid logic error made setting
+	worm colors odd --- changing 1 or 2 changed 1's color, changing 3 or 4
+	changed 3's color.  Forgot that 11 in binary is /3/.
+
+1999-03-12  Ian Peters  <itp@gnu.org>
+
+	* preferences.c (gnibbles_preferences_cb): removed pref_dialog_valid,
+	since pref_dialog encompasses this information.
+
+1999-03-09  Ian Peters  <itp@gnu.org>
+
+	* gnibbles.c: gnibbles_log_score (): Check to make sure we started on
+	level 1 before logging a score, otherwise ignore it.
+
+1999-03-03  Ian Peters  <itp@gnu.org>
+
+	* preferences.c: gnibbles_preferences_cb, destroy_cb: Added logic to
+	handle being called while a game is in progress, paused or not
+	* main.c: stop desensitizing the settings->preferences item now that it
+	can handle being called mid-game
+	* main.h: export the two functions needed by preferences.c, which I'm
+	not thrilled about, but oh well
+
+1999-03-03  Ian Peters  <itp@gnu.org>
+
+	* worm.h: struct GnibblesWorm: removed pixmap, up, down, left, right,
+	relmove, added an index into the properties structure which has all of
+	this data
+	* worm.c: updated several functions to access the global properties
+	structure rather than the previous local copies of configuration data
+	* gnibbles.c: small changes as above
+
+1999-02-28  Ian Peters  <itp@gnu.org>
+
+	* Install menu hints
+
+1999-02-28  Ian Peters  <itp@gnu.org>
+
+	* Relative movement grays out up/down key selection (preferences.c)
+
+1999-02-28  Ian Peters  <itp@gnu.org>
+
+	* Added support for relative motion of worms instead of absolute
+
+1999-02-27  Ian Peters  <itp@gnu.org>
+
+	* Added score stuff (main.c, gnibbles.c, gnibbles.h)
+
+1999-02-27  Ian Peters  <itp@gnu.org>
+
+	* Added sound toggle to preferences, properties
+	* Previous calls to gnome_triggers_do now call gnibbles_play_sound,
+	which checks properties->sound and then calls gnome_triggers_do
+	* Fixed potential badness / compile warning in scoreboard.c
+	gtk_label_get
+
+1999-02-24  Ian Peters  <itp@gnu.org>
+
+	* Added license info to *.c, *.h
+
+1999-02-14  Ian Peters  <itp@gnu.org>
+
+	* Changes all over the place.  Added sounds.
+
+1999-02-13  Ian Peters  <itp@gnu.org>
+
+	* Score values increase by levels.  Plugged a memory leak by actually
+	destroying the scoreboard at the end.
+
+1999-02-13  Ian Peters  <itp@gnu.org>
+
+	* Fixed bug when you delete the window - connect to delete_event, not
+	destroy.
+
+1999-02-12  Ian Peters  <itp@gnu.org>
+
+	* lots-o-files: Added the code for discouraging missing bonuses too
+	much - don't try to run your score up anymore.
+
+1999-02-12  Ian Peters  <itp@gnu.org>
+
+	* main.c: in pause_game_cb, changed gtk_timeout_remove to
+	gtk_callback_disconnect (Doh!), fixes many little bugs.
+
+1999-02-12  Ian Peters  <itp@gnu.org>
+
+	* scoreboard.c, scoreboard.h, assorted others: Added the scoreboard.
+
+1999-02-12  Ian Peters  <itp@gnu.org>
+
+	* main.c: end_game_cb now sets paused to 0, so as not to fool
+	game_is_running.
+
+1999-02-08  Ian Peters  <itp@gnu.org>
+
+	* bonus.c (gnibbles_bonus_erase): free the bonus, free the memory, much
+	better.
+
+1999-02-07  Ian Peters  <itp@gnu.org>
+
+	* Removed configure_event_cb, since this should only be done once.
+	Triggerd by the gnomedock stuff seeming to generate configure events
+	with reckless abandon, even when nothing changes size.  Moved code to
+	main.
+
+1999-02-06  Ian Peters  <itp@gnu.org>
+
+	* Made the padding in the preferences dialog more consistant.
+
+1999-02-06  Ian Peters  <itp@gnu.org>
+
+	* Fixed a smallish bug in the confirmation dialog stuff.
+
+1999-02-06  Ian Peters  <itp@gnu.org>
+
+	* Fixed some stuff from yesterday, specifically bug in menuitem
+	sensitivity stuff.
+	* Added slight pause after unpausing the game.
+
+1999-02-05  Ian Peters  <itp@gnu.org>
+
+	* Made the new game / end game / exit game menu items a little bit
+	smarter - ie ask for confirmation, stuff like that.  Only when needed,
+	of course.
+
+1999-02-05  Ian Peters  <itp@gnu.org>
+
+	* Changed default config option for random levels to false.
+
+1999-02-04  Ian Peters  <itp@gnu.org>
+
+	* Fixed a bug when you finished all the levels.  Not just sits you on
+	the last level until you die.
+
+1999-02-02  Ian Peters  <itp@gnu.org>
+
+	* Fixed some bugs in gnibbles_worm_grok_bonus, such as incorrect maths
+	while doubling and halving, and stupid typo in case BONUSREGULAR, which
+	meant nothing much was happening to scores.  All better.
+
+1999-02-02  Ian Peters  <itp@gnu.org>
+
+	* Fixed some memory leak in properties.c
+	* Added configuration options to allow multiple players to set keys,
+	set worm color, set number of players, set starting level.  Multiple
+	worm play is now possible for up to 4 players, and this is an arbitrary
+	limit - really, how many people fit on one keyboard?
+
+1999-02-01  Ian Peters  <itp@gnu.org>
+
+	* Fixed crazy little pausing bug - didn't pause when worm had died,
+	erased, level reinitialized, during 1 second pause before worm popped
+	out again...
+
+1999-02-01  Ian Peters  <itp@gnu.org>
+
+	* Fixed bug in loading per worm properties
+
+1999-02-01  Ian Peters  <itp@gnu.org>
+
+	* Fixed a nasty bug when pausing while the worm is being erased and it
+	is restarting the level...
+	* Changed the new game / restart level behaviour slightly so that the
+	initial bonus is shown a second or so before the worm pops up.  Helps
+	with the pause issue from above, too.
+
+1999-01-31  Ian Peters  <itp@gnu.org>
+
+	* Wrote the game.
+
