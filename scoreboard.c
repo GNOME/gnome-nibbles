@@ -18,6 +18,7 @@
  */
 
 #include <config.h>
+#include <string.h>
 #include <gnome.h>
 
 #include "gnibbles.h"
@@ -90,7 +91,7 @@ void gnibbles_scoreboard_update (GnibblesScoreboard *scoreboard)
 				(scoreboard->worms[i]->lives > -1) ?
 				scoreboard->worms[i]->lives : 0,
 				scoreboard->worms[i]->score);
-		gtk_label_get (GTK_LABEL (scoreboard->data[i]), &buffer2);
+		buffer2 = gtk_label_get_text (GTK_LABEL (scoreboard->data[i]));
 		if (strcmp (buffer, buffer2))
 			gtk_label_set_text (GTK_LABEL (scoreboard->data[i]),
 					buffer);

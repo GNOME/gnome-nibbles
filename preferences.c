@@ -62,7 +62,7 @@ static void apply_cb (GtkWidget *widget, gint pagenum, gpointer data)
 {
 	if (pagenum == -1) {
     if (t_properties->tilesize != properties->tilesize) {
-      gtk_drawing_area_size (GTK_DRAWING_AREA (drawing_area),
+      gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
                              t_properties->tilesize * BOARDWIDTH,
                              t_properties->tilesize * BOARDHEIGHT);
     }

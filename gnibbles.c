@@ -50,6 +50,16 @@ extern GnibblesScoreboard *scoreboard;
 extern guint properties->tilesize, properties->tilesize;
 */
 
+void gnibbles_error (GtkWidget *window, gchar *message)
+{
+	GtkWidget *w = gtk_message_dialog_new (GTK_WINDOW (window), GTK_DIALOG_MODAL,
+					       GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
+					       message);
+	gtk_dialog_run (GTK_DIALOG (w));
+	gtk_widget_destroy (GTK_WIDGET (w));
+	exit (1);
+}
+
 void gnibbles_copy_pixmap (GdkDrawable *drawable, gint which, gint x, gint y,
 			   gboolean big)
 {
@@ -57,7 +67,7 @@ void gnibbles_copy_pixmap (GdkDrawable *drawable, gint which, gint x, gint y,
 		h = properties->tilesize * (big ? 2 : 1);
 	guint nh = 10 / (big ? 2 : 1), nv = 10 / (big ? 2 : 1);
 
-	gdk_draw_pixmap (drawable, drawing_area->style->fg_gc[GTK_WIDGET_STATE
+	gdk_draw_drawable (GDK_DRAWABLE (drawable), drawing_area->style->fg_gc[GTK_WIDGET_STATE
 			(drawing_area)], gnibbles_pixmap, (which % nh) * w,
 			((big ? 3 : 0) + which / nv) * h, x * properties->tilesize,
 			y * properties->tilesize, w, h);
@@ -85,48 +95,45 @@ void gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 	gnibbles_copy_pixmap(buffer_pixmap, which, x, y, TRUE);
 }
 
-void gnibbles_load_pixmap ()
+void gnibbles_load_pixmap (GtkWidget *window)
 {
 	GdkPixbuf *image;
 	GdkPixbuf *tmp;
 	gchar *filename;
 
-	filename = gnome_unconditional_pixmap_file ("gnibbles/gnibbles.png");
+	filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
+					      "pixmaps/gnibbles/gnibbles.png",
+					      TRUE, NULL);
 
-	if (!g_file_exists (filename)) {
+	if (!filename) {
 		char *message =
 		    g_strdup_printf (_("Gnibbles couldn't find pixmap file:\n%s\n\n"
 			"Please check your Gnibbles installation"), filename);
-		GtkWidget *w = gnome_error_dialog (message);
-		gnome_dialog_run_and_close (GNOME_DIALOG(w));
-		g_free (message);
-		exit (1);
+		gnibbles_error (window, message);
 	}
 
 	image = gdk_pixbuf_new_from_file (filename, NULL);
 
 	if (gnibbles_pixmap)
-		gdk_pixmap_unref (gnibbles_pixmap);
+		g_object_unref (G_OBJECT (gnibbles_pixmap));
 
 	tmp = gdk_pixbuf_scale_simple (image, 10 * properties->tilesize, 
 				10 * properties->tilesize, GDK_INTERP_TILES);
 
 	gdk_pixbuf_render_pixmap_and_mask (tmp, &gnibbles_pixmap, NULL, 127);
 
-	gdk_pixbuf_unref (image);
-	gdk_pixbuf_unref (tmp);
+	g_object_unref (G_OBJECT (image));
+	g_object_unref (G_OBJECT (tmp));
 	g_free (filename);
 
-	filename = gnome_unconditional_pixmap_file
-		("gnibbles/gnibbles-logo.png");
+	filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
+					      "pixmaps/gnibbles/gnibbles-logo.png",
+					      TRUE, NULL);
 
-	if (!g_file_exists (filename)) {
+	if (!filename) {
 		char *message = g_strdup_printf (_("Gnibbles Couldn't find pixmap file:\n%s\n\n"
 			"Please check your Gnibbles instalation"), filename);
-		GtkWidget *w = gnome_error_dialog (message);
-		gnome_dialog_run_and_close (GNOME_DIALOG(w));
-		g_free (message);
-		exit (1);
+		gnibbles_error (window, message);
 	}
 
 	image = gdk_pixbuf_new_from_file (filename, NULL);
@@ -135,16 +142,16 @@ void gnibbles_load_pixmap ()
 				 GDK_INTERP_TILES);
 
 	if (logo_pixmap)
-		gdk_pixmap_unref (logo_pixmap);
+		g_object_unref (G_OBJECT (logo_pixmap));
 
 	gdk_pixbuf_render_pixmap_and_mask (tmp, &logo_pixmap, NULL, 127);
 
-	gdk_pixbuf_unref (image);
-	gdk_pixbuf_unref (tmp);
+	g_object_unref (G_OBJECT (image));
+	g_object_unref (G_OBJECT (tmp));
 	g_free (filename);
 }
 
-void gnibbles_load_level (int level)
+void gnibbles_load_level (GtkWidget *window, int level)
 {
 	gchar tmp[30];
 	gchar *filename;
@@ -154,16 +161,14 @@ void gnibbles_load_level (int level)
 	int count = 0;
 
 	sprintf (tmp, "gnibbles/level%03d.gnl", level);
-	filename = gnome_unconditional_datadir_file (tmp);
+	filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
+					      tmp, TRUE, NULL);
 
 	if ((in = fopen (filename, "r")) == NULL) {
 		char *message = g_strdup_printf (
                         _("Gnibbles couldn't load level file:\n%s\n\n"
                          "Please check your Gnibbles installation"), filename);
-                GtkWidget *w = gnome_error_dialog (message);
-                gnome_dialog_run_and_close (GNOME_DIALOG(w));
-                g_free (message);
-		exit (1);
+		gnibbles_error (window, message);
 	}
 
 	g_free (filename);
@@ -249,7 +254,7 @@ void gnibbles_load_level (int level)
 		}
 	}
 
-	gdk_draw_pixmap (drawing_area->window, drawing_area->style->fg_gc
+	gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window), drawing_area->style->fg_gc
 			[GTK_WIDGET_STATE (drawing_area)], buffer_pixmap, 0, 0,
 			0, 0, BOARDWIDTH * 10, BOARDHEIGHT * 10);
 

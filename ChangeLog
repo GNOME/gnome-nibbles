@@ -1,3 +1,14 @@
+2002-01-20  Markus Bertheau  <twanger@bluetwanger.de>
+
+	* Makefile.am:
+	* scoreboard.c:
+	* preferences.c:
+	* gnibbles.[ch]:
+	* main.c:
+
+	First part of making it compile without deprecated
+	functions.
+
 2001-12-19  Seth Nickell  <snickell@stanford.edu>
 
 	* Makefile.am:

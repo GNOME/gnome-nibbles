@@ -150,15 +150,12 @@ static gint end_game_box ()
 	pause_state = paused;
 	if (!paused)
 		pause_game_cb (NULL, (gpointer) 0);
-	box = gnome_message_box_new (
-			_("Do you really want to end this game?"),
-			GNOME_MESSAGE_BOX_QUESTION,
-			GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO,
-			NULL);
-	gnome_dialog_set_parent (GNOME_DIALOG (box), GTK_WINDOW
-			(window));
-	gnome_dialog_set_default (GNOME_DIALOG (box), 0);
-	status = gnome_dialog_run (GNOME_DIALOG (box));
+	box = gtk_message_dialog_new (GTK_WINDOW (window), GTK_DIALOG_MODAL,
+				      GTK_MESSAGE_QUESTION,
+				      GTK_BUTTONS_YES_NO,
+				      _("Do you really want to end this game?"));
+	status = gtk_dialog_run (GTK_DIALOG (box)) == GTK_RESPONSE_NO;
+	gtk_widget_destroy (GTK_WIDGET (box));
 	box = NULL;
 	if (!pause_state && status)
 		pause_game_cb (NULL, (gpointer) 0);
@@ -199,16 +196,14 @@ static void about_cb (GtkWidget *widget, gpointer data)
 			(const char **)documenters,
                         (const char *)translator_credits,
 			NULL);
-	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
+	g_signal_connect (G_OBJECT (about), "destroy", G_CALLBACK
 			(gtk_widget_destroyed), &about);
-	gnome_dialog_set_parent (GNOME_DIALOG (about), GTK_WINDOW (window));
-
 	gtk_widget_show (about);
 }
 
 static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
 {
-	gdk_draw_pixmap (widget->window, widget->style->fg_gc[GTK_WIDGET_STATE
+	gdk_draw_drawable (GDK_DRAWABLE (widget->window), widget->style->fg_gc[GTK_WIDGET_STATE
 			(widget)], buffer_pixmap, event->area.x, event->area.y,
 			event->area.x, event->area.y, event->area.width,
 			event->area.height);
@@ -248,7 +243,7 @@ static void draw_board ()
 	for (i=0; i<boni->numbonuses; i++)
 		gnibbles_bonus_draw (boni->bonuses[i]);
 
-	gdk_draw_pixmap (drawing_area->window,
+	gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
 			 drawing_area->style->fg_gc[GTK_WIDGET_STATE
 			 (drawing_area)], buffer_pixmap, 0, 0, 0, 0,
 			 BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
@@ -257,11 +252,9 @@ static void draw_board ()
 
 static gint configure_event_cb (GtkWidget *widget, GdkEventConfigure *event)
 {
-	int i, j;
-
-	gnibbles_load_pixmap();
+	gnibbles_load_pixmap (window);
 	if (buffer_pixmap)
-		gdk_pixmap_unref (buffer_pixmap);
+		g_object_unref (G_OBJECT (buffer_pixmap));
 	buffer_pixmap = gdk_pixmap_new (drawing_area->window,
 					BOARDWIDTH * properties->tilesize,
 					BOARDHEIGHT * properties->tilesize, -1);
@@ -278,9 +271,9 @@ static gint new_game_2_cb (GtkWidget *widget, gpointer data)
 {
 	if (!paused) {
 		if (!keyboard_id)
-			keyboard_id = gtk_signal_connect (GTK_OBJECT (window),
+			keyboard_id = g_signal_connect (G_OBJECT (window),
 					"key_press_event",
-					GTK_SIGNAL_FUNC (key_press_cb), NULL);
+					G_CALLBACK (key_press_cb), NULL);
 		if (!main_id)
 			main_id = gtk_timeout_add (GAMEDELAY * properties->gamespeed,
 					(GtkFunction) main_loop, NULL);
@@ -319,7 +312,7 @@ static gint new_game_cb (GtkWidget *widget, gpointer data)
 	else
 		current_level = rand () % MAXLEVEL + 1;
 	
-	gnibbles_load_level (current_level);
+	gnibbles_load_level (GTK_WIDGET (window), current_level);
 
 	gnibbles_add_bonus (1);
 	
@@ -371,7 +364,7 @@ gint pause_game_cb (GtkWidget *widget, gpointer data)
 				main_id = 0;
 			}
 			if (keyboard_id) {
-				gtk_signal_disconnect (GTK_OBJECT (window),
+				g_signal_handler_disconnect (G_OBJECT (window),
 						keyboard_id);
 				keyboard_id = 0;
 			}
@@ -399,7 +392,7 @@ static gint end_game_cb (GtkWidget *widget, gpointer data)
 	}
 
 	if (keyboard_id) {
-		gtk_signal_disconnect (GTK_OBJECT (window), keyboard_id);
+		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
 	}
 
@@ -446,7 +439,7 @@ static gint add_bonus_cb (gpointer data)
 
 static gint restart_game (gpointer data)
 {
-	gnibbles_load_level (current_level);
+	gnibbles_load_level (GTK_WIDGET (window), current_level);
 
 	gnibbles_add_bonus (1);
 
@@ -484,7 +477,7 @@ static gint main_loop (gpointer data)
 	gnibbles_scoreboard_update (scoreboard);
 
 	if (status == GAMEOVER) {
-		gtk_signal_disconnect (GTK_OBJECT (window), keyboard_id);
+		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
 		main_id = 0;
 		gtk_timeout_remove (add_bonus_id);
@@ -497,7 +490,7 @@ static gint main_loop (gpointer data)
 	}
 
 	if (status == NEWROUND) {
-		gtk_signal_disconnect (GTK_OBJECT (window), keyboard_id);
+		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
 		gtk_timeout_remove (add_bonus_id);
 		add_bonus_id = 0;
@@ -511,7 +504,7 @@ static gint main_loop (gpointer data)
 	}
 
 	if (boni->numleft == 0) {
-		gtk_signal_disconnect (GTK_OBJECT (window), keyboard_id);
+		g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
 		keyboard_id = 0;
 		gtk_timeout_remove (add_bonus_id);
 		add_bonus_id = 0;
@@ -537,10 +530,10 @@ static void set_bg_color ()
 	GdkImage *tmp_image;
 	GdkColor bgcolor;
 
-	tmp_image = gdk_image_get (gnibbles_pixmap, 0, 0, 1, 1);
+	tmp_image = gdk_drawable_get_image (GDK_DRAWABLE (gnibbles_pixmap), 0, 0, 1, 1);
 	bgcolor.pixel = gdk_image_get_pixel (tmp_image, 0, 0);
 	gdk_window_set_background (drawing_area->window, &bgcolor);
-	gdk_image_destroy (tmp_image);
+	g_object_unref (G_OBJECT (tmp_image));
 }
 
 gboolean
@@ -556,13 +549,10 @@ static void setup_window ()
 	GdkPixmap *cursor_dot_pm;
 
 	window = gnome_app_new ("gnibbles", "GNOME Nibbles");
-	gtk_window_set_policy (GTK_WINDOW (window), FALSE, FALSE, TRUE);
+	gtk_window_set_resizable (GTK_WINDOW (window), FALSE);
 	gtk_widget_realize (window);
-	gtk_signal_connect (GTK_OBJECT (window), "delete_event",
-			GTK_SIGNAL_FUNC (quit_cb), NULL);
-
-	gtk_widget_push_visual (gdk_rgb_get_visual ());
-	gtk_widget_push_colormap (gdk_rgb_get_cmap ());
+	g_signal_connect (G_OBJECT (window), "delete_event",
+			G_CALLBACK (quit_cb), NULL);
 
 	drawing_area = gtk_drawing_area_new ();
 
@@ -576,24 +566,21 @@ static void setup_window ()
 		&drawing_area->style->fg[GTK_STATE_ACTIVE],
 		&drawing_area->style->bg[GTK_STATE_ACTIVE], 0, 0);
 
-	gtk_widget_pop_colormap ();
-	gtk_widget_pop_visual ();
-
 	gnome_app_set_contents (GNOME_APP (window), drawing_area);
 
-	gtk_signal_connect (GTK_OBJECT (drawing_area), "configure_event",
-			GTK_SIGNAL_FUNC (configure_event_cb), NULL);
+	g_signal_connect (G_OBJECT (drawing_area), "configure_event",
+			G_CALLBACK (configure_event_cb), NULL);
 
-	gtk_signal_connect (GTK_OBJECT(drawing_area), "motion_notify_event",
-			GTK_SIGNAL_FUNC (show_cursor_cb), NULL);
+	g_signal_connect (G_OBJECT(drawing_area), "motion_notify_event",
+			G_CALLBACK (show_cursor_cb), NULL);
 
-	gtk_signal_connect (GTK_OBJECT(window), "focus_out_event",
-			GTK_SIGNAL_FUNC (show_cursor_cb), NULL);
+	g_signal_connect (G_OBJECT(window), "focus_out_event",
+			G_CALLBACK (show_cursor_cb), NULL);
 
-	gtk_drawing_area_size (GTK_DRAWING_AREA (drawing_area),
+	gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
 			BOARDWIDTH*properties->tilesize, BOARDHEIGHT*properties->tilesize);
-	gtk_signal_connect (GTK_OBJECT (drawing_area), "expose_event",
-			GTK_SIGNAL_FUNC (expose_event_cb), NULL);
+	g_signal_connect (G_OBJECT (drawing_area), "expose_event",
+			G_CALLBACK (expose_event_cb), NULL);
 	gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
 			GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK);
 	gtk_widget_show (drawing_area);
@@ -618,12 +605,12 @@ static void render_logo ()
 
 	zero_board ();
 
-	gdk_draw_pixmap (buffer_pixmap,
+	gdk_draw_drawable (GDK_DRAWABLE (buffer_pixmap),
 			drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)], logo_pixmap,
       0, 0, 0, 0, BOARDWIDTH*properties->tilesize,
       BOARDHEIGHT*properties->tilesize);
 
-	gdk_draw_pixmap (drawing_area->window,
+	gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
 			drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],
       buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH*properties->tilesize,
       BOARDHEIGHT*properties->tilesize);
@@ -639,7 +626,11 @@ int main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain(GETTEXT_PACKAGE);
 	
-	gnome_init ("Gnibbles", VERSION, argc, argv);
+	gnome_program_init ("Gnibbles", VERSION, LIBGNOMEUI_MODULE,
+			    argc, argv,
+			    GNOME_PARAM_POPT_TABLE, NULL,
+			    GNOME_PARAM_APP_DATADIR, REAL_DATADIR,
+			    NULL);
 	gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/gnome-nibbles.png");
 	srand (time (NULL));
 
@@ -647,7 +638,7 @@ int main (int argc, char **argv)
 
 	setup_window ();
 
-	gnibbles_load_pixmap ();
+	gnibbles_load_pixmap (window);
 
 	gtk_widget_show (window);
 
