@@ -12,6 +12,8 @@ INCLUDES = 			\
 
 bin_PROGRAMS = gnibbles
 
+appicon_DATA = gnome-nibbles.png
+
 gnibbles_SOURCES = \
 	bonus.h \
 	bonus.c \
@@ -79,7 +81,8 @@ EXTRA_DIST = \
 	$(pixmap_DATA) 	\
 	$(Games_DATA) \
 	$(config_DATA) \
-	$(soundlist_DATA)
+	$(soundlist_DATA) \
+	$(appicon_DATA)
 
 #EXTRA_DIST = README \
 #             AUTHORS \
