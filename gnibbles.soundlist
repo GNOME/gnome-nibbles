@@ -2,6 +2,7 @@
 description=Gnibbles
 description[ko]=±×´Ïºí
 description[no]=Gnibbles
+description[pl]=Gnibbles
 
 [crash]
 file=gnibbles/crash.wav
@@ -29,6 +30,7 @@ description[es]=Al comer un diamante
 description[fr]=Prise du bonus
 description[ko]=º¸³Ê½º ¸ÔÀ½
 description[no]=Spis bonus
+description[pl]=Po³kniêcie dodatku
 
 [teleport]
 file=gnibbles/teleport.wav
@@ -56,6 +58,7 @@ description[es]=Juego terminado
 description[fr]=Fin du jeu
 description[ko]=°ÔÀÓ ³¡
 description[no]=Spillet over
+description[pl]=Zakoñczenie gry
 
 [bonus]
 file=gnibbles/bonus.wav
@@ -65,6 +68,7 @@ description[es]=Bonus
 description[fr]=Bonus
 description[ko]=º¸³Ê½º
 description[no]=Bonus
+description[pl]=Dodatek
 
 [life]
 file=gnibbles/life.wav
@@ -74,3 +78,4 @@ description[es]=Vida extra
 description[fr]=Vie supplémentaire
 description[ko]=Ãß°¡ »ý¸í
 description[no]=Ekstra liv
+description[pl]=Dodatkowe ¿ycie
