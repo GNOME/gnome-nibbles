@@ -93,7 +93,12 @@ void gnibbles_load_pixmap ()
 	filename = gnome_unconditional_pixmap_file ("gnibbles/gnibbles.png");
 
 	if (!g_file_exists (filename)) {
-		g_print (_("Couldn't find pixmap file!\n"));
+		char *message =
+		    g_strdup_printf (_("Gnibbles Couldn't find pixmap file:\n%s\n\n"
+			"Please check you Gnibbles instalation"), filename);
+		GtkWidget *w = gnome_error_dialog (message);
+		gnome_dialog_run_and_close (GNOME_DIALOG(w));
+		g_free (message);
 		exit (1);
 	}
 
@@ -110,7 +115,11 @@ void gnibbles_load_pixmap ()
 		("gnibbles/gnibbles-logo.png");
 
 	if (!g_file_exists (filename)) {
-		g_print (_("Couldn't find pixmap file!\n"));
+		char *message = g_strdup_printf (_("Gnibbles Couldn't find pixmap file:\n%s\n\n"
+			"Please check you Gnibbles instalation"), filename);
+		GtkWidget *w = gnome_error_dialog (message);
+		gnome_dialog_run_and_close (GNOME_DIALOG(w));
+		g_free (message);
 		exit (1);
 	}
 
@@ -138,7 +147,12 @@ void gnibbles_load_level (int level)
 	filename = gnome_unconditional_datadir_file (tmp);
 
 	if ((in = fopen (filename, "r")) == NULL) {
-		printf (_("Ack!  Couldn't load level file %s\n"), filename);
+		char *message = g_strdup_printf (
+                        _("Gnibbles Couldn't load level file:\n%s\n\n"
+                         "Please check you Gnibbles instalation"), filename);
+                GtkWidget *w = gnome_error_dialog (message);
+                gnome_dialog_run_and_close (GNOME_DIALOG(w));
+                g_free (message);
 		exit (1);
 	}
 
