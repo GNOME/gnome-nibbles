@@ -1,6 +1,6 @@
 pixmapdir=$(datadir)/pixmaps/gnibbles
 configdir=$(datadir)/gnibbles
-appicondir=$(datadir)/pixmaps
+icondir=$(datadir)/pixmaps
 soundlistdir = $(sysconfdir)/sound/events
 Gamesdir=$(datadir)/gnome/apps/Games
 scoredir=$(localstatedir)/games
@@ -12,7 +12,7 @@ INCLUDES = 			\
 
 bin_PROGRAMS = gnibbles
 
-appicon_DATA = gnome-nibbles.png
+icon_DATA = gnome-nibbles.png
 
 gnibbles_SOURCES = \
 	bonus.h \
