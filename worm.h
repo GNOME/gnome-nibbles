@@ -40,9 +40,7 @@ typedef struct
 {
 	gint xhead, yhead;
 	gint xtail, ytail;
-	gint pixmap;
 	gint direction;
-	guint up, down, left, right;
 	gint8 *xoff, *yoff;
 	gint start, stop;
 	gint length;
@@ -50,11 +48,10 @@ typedef struct
 	gint keypress;
 	gint lives;
 	guint score;
-	guint relmove;
+	guint number;
 } GnibblesWorm;
 
-GnibblesWorm *gnibbles_worm_new (gint8 t_pixmap, guint t_up, guint t_down,
-		guint t_left, guint t_right, guint t_relmove);
+GnibblesWorm *gnibbles_worm_new (guint t_number);
 
 void gnibbles_worm_destroy (GnibblesWorm *worm);
 
@@ -64,7 +61,9 @@ void gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
 void gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval);
 
 gint gnibbles_worm_move_test_head (GnibblesWorm *worm);
+
 void gnibbles_worm_move_tail (GnibblesWorm *worm);
+
 void gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset);
 
 #endif

@@ -29,7 +29,7 @@
 #include "properties.h"
 #include "scoreboard.h"
 
-GnibblesWorm *worms[NUMWORMS]; /* = { NULL, NULL, NULL, NULL }; */
+GnibblesWorm *worms[NUMWORMS];
 GnibblesBoni *boni = NULL;
 GnibblesWarpManager *warpmanager;
 
@@ -100,11 +100,6 @@ void gnibbles_load_pixmap ()
 
 	image = gdk_imlib_load_image (filename);
 	visual = gdk_imlib_get_visual ();
-	/*
-	if (visual->type != GDK_VISUAL_TRUE_COLOR) {
-		gdk_imlib_set_render_type (RT_PLAIN_PALETTE);
-	}
-	*/
 	gdk_imlib_render (image, image->rgb_width, image->rgb_height);
 	gnibbles_pixmap = gdk_imlib_move_image (image);
 
@@ -121,11 +116,6 @@ void gnibbles_load_pixmap ()
 
 	image = gdk_imlib_load_image (filename);
 	visual = gdk_imlib_get_visual ();
-	/*
-	if (visual->type != GDK_VISUAL_TRUE_COLOR) {
-		gdk_imlib_set_render_type (RT_PLAIN_PALETTE);
-	}
-	*/
 	gdk_imlib_render (image, image->rgb_width, image->rgb_height);
 	logo_pixmap = gdk_imlib_move_image (image);
 
@@ -251,23 +241,11 @@ void gnibbles_init ()
 	gnibbles_scoreboard_clear (scoreboard);
 
 	for (i = 0; i < properties->numworms; i++) {
-		worms[i] = gnibbles_worm_new (properties->wormprops[i]->color,
-				properties->wormprops[i]->up,
-				properties->wormprops[i]->down,
-				properties->wormprops[i]->left,
-				properties->wormprops[i]->right,
-				properties->wormprops[i]->relmove);
+		worms[i] = gnibbles_worm_new (i);
 		gnibbles_scoreboard_register (scoreboard, worms[i]);
 	}
 
 	gnibbles_scoreboard_update (scoreboard);
-	/*
-	worms[0] = gnibbles_worm_new (WORMCYAN, GDK_Up, GDK_Down, GDK_Left,
-			GDK_Right);
-	if (numworms > 1) 
-		worms[1] = gnibbles_worm_new (WORMGRAY, GDK_w, GDK_s, GDK_a,
-				GDK_d);
-				*/
 }
 
 void gnibbles_destroy ()
@@ -436,9 +414,11 @@ gint gnibbles_move_worms ()
 					gnibbles_draw_pixmap (BLANKPIXMAP,
 							worms[i]->xtail,
 							worms[i]->ytail);
-					gnibbles_draw_pixmap (worms[i]->pixmap,
-							worms[i]->xhead,
-							worms[i]->yhead);
+					gnibbles_draw_pixmap
+						(properties->wormprops[i]
+						 ->color,
+						 worms[i]->xhead,
+						 worms[i]->yhead);
 				}
 
 	for (i = 0; i < properties->numworms; i++)

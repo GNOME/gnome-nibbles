@@ -1,3 +1,12 @@
+1999-03-03  Ian Peters  <ipeters@acm.org>
+
+	* worm.h: struct GnibblesWorm: removed pixmap, up, down, left, right,
+	relmove, added an index into the properties structure which has all of
+	this data
+	* worm.c: updated several functions to access the global properties
+	structure rather than the previous local copies of configuration data
+	* gnibbles.c: small changes as above
+
 1999-02-28  Ian Peters  <ipeters@acm.org>
 
 	* Install menu hints
