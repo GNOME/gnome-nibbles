@@ -108,7 +108,7 @@ endif
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	-for i in 4.0 3.0 2.0 1.0 4.1 3.1 2.1 1.1 ; do \
 	   touch $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
-	   chown $(scores_user).$(scores_group) $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
+	   chown $(scores_user):$(scores_group) $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
 	   chmod 664 $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
 	 done
 	-if test "x$(setgid)" = "xtrue"; then chgrp $(scores_group) $(DESTDIR)$(bindir)/gnibbles && chmod 2555 $(DESTDIR)$(bindir)/gnibbles ; fi
