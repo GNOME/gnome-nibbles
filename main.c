@@ -159,8 +159,11 @@ static void about_cb (GtkWidget *widget, gpointer data)
 		return;
 	}
 
-	about = gnome_about_new (_("Gnibbles"), VERSION, "(C) 1999 Sean MacIsaac and Ian Peters", (const char **)authors,
-			_("Send comments and bug reports to: sjm@acm.org, itp@acm.org"), NULL);
+	about = gnome_about_new (_("Gnibbles"), VERSION,
+			"(C) 1999 Sean MacIsaac and Ian Peters",
+			(const char **)authors,
+			_("Send comments and bug reports to: sjm@acm.org, itp@acm.org"),
+			NULL);
 	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &about);
 	gnome_dialog_set_parent (GNOME_DIALOG (about), GTK_WINDOW (window));
