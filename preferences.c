@@ -540,7 +540,7 @@ void gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",
 				GTK_SIGNAL_FUNC (set_worm_color_cb),
 				(gpointer) (WORMRED << 2 | i));
-		menuitem = gtk_menu_item_new_with_label ("Green");
+		menuitem = gtk_menu_item_new_with_label (_("Green"));
 		gtk_widget_show (menuitem);
 		gtk_menu_append (GTK_MENU (menu), menuitem);
 		gtk_signal_connect (GTK_OBJECT (menuitem), "activate",

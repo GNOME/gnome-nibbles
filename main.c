@@ -530,6 +530,9 @@ int main (int argc, char **argv)
 	gint foo;
 
 	gnome_score_init ("gnibbles");
+
+	bindtextdomain(PACKAGE, GNOMELOCALEDIR);
+	textdomain(PACKAGE);
 	
 	gnome_init ("Gnibbles", VERSION, argc, argv);
 
