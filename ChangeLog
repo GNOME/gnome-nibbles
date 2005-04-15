@@ -1,3 +1,11 @@
+2005-04-14  Richard Hoelscher  <rah@rahga.com>
+
+	* main.c (about_cb): In about dialog, use name from icon theme.
+
+2005-04-09  Pedro Villavicencio Garrido  <pvillavi@gnome.org>
+
+	* main.c (about_cb): port to GtkAboutDialog.
+
 2005-04-05  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* main.c: Restore the preferences menu sensitivity once a network

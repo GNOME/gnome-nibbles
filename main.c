@@ -173,50 +173,17 @@ quit_cb (GtkWidget *widget, gpointer data)
 static void
 about_cb (GtkWidget *widget, gpointer data)
 {
-	static GtkWidget *about = NULL;
-	GdkPixbuf *pixbuf = NULL;
-
 	const gchar *authors[] = {"Sean MacIsaac", "Ian Peters", NULL};
-	gchar *documenters[] = {
-                NULL
-        };
-        /* Translator credits */
-        gchar *translator_credits = _("translator-credits");
 
-	if (about != NULL) {
-		gtk_window_present (GTK_WINDOW(about));
-		return;
-	}
-
-	{
-		char *filename = NULL;
-
-		filename = gnome_program_locate_file (NULL,
-				GNOME_FILE_DOMAIN_APP_PIXMAP, "gnome-nibbles.png",
-				TRUE, NULL);
-		if (filename != NULL)
-		{
-			pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
-			g_free (filename);
-		}
-	}
-
-	about = gnome_about_new (_("Nibbles"), VERSION,
-				 "Copyright \xc2\xa9 1999-2004 Sean MacIsaac, "
-				 "Ian Peters",
-				 _("A worm game for GNOME."),
-				 (const char **)authors,
-				 (const char **)documenters,
-				 strcmp (translator_credits, "translator-credits") != 0 ? translator_credits : NULL,
-				 pixbuf);
-   
-	if (pixbuf != NULL)
-		gdk_pixbuf_unref (pixbuf);
-	
-	gtk_window_set_transient_for (GTK_WINDOW (about), GTK_WINDOW (window));
-	g_signal_connect (G_OBJECT (about), "destroy", G_CALLBACK
-			(gtk_widget_destroyed), &about);
-	gtk_widget_show (about);
+	gtk_show_about_dialog (GTK_WINDOW (window),
+			       "name", _("Nibbles"), 
+			       "version", VERSION,
+			       "copyright", "Copyright \xc2\xa9 1999-2004 Sean MacIsaac, Ian Peters",
+			       "comments", _("A worm game for GNOME."),
+			       "authors", authors,
+			       "translator-credits", _("translator-credits"),
+			       "logo-icon-name", "gnome-nibbles",
+			       NULL);
 }
 
 static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
