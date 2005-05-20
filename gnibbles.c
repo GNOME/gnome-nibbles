@@ -219,7 +219,7 @@ gnibbles_load_level (GtkWidget *window, gint level)
 	gchar *tmp = NULL;
 	gchar *filename;
 	FILE *in;
-	gchar tmpboard[BOARDWIDTH + 1];
+	gchar tmpboard[BOARDWIDTH + 2];
 	gint i, j;
 	gint count = 0;
 
@@ -247,7 +247,7 @@ gnibbles_load_level (GtkWidget *window, gint level)
 	boni = gnibbles_boni_new ();
 
 	for (i = 0; i < BOARDHEIGHT; i++) {
-		fgets (tmpboard, 255, in);
+		fgets (tmpboard, sizeof(tmpboard), in);
 		for (j = 0; j < BOARDWIDTH; j++) {
 			board[j][i] = tmpboard[j];
 			switch (board[j][i]) {
