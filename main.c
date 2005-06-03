@@ -640,7 +640,7 @@ setup_window (void)
 	GdkPixmap *cursor_dot_pm;
 	GtkWidget * packing;
 
-	window = gnome_app_new ("gnibbles", "GNOME Nibbles");
+	window = gnome_app_new ("gnibbles", "Nibbles");
 	gtk_widget_realize (window);
 	gtk_window_resize(GTK_WINDOW(window), properties->width, properties->height);
 	g_signal_connect (G_OBJECT (window), "destroy",

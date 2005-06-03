@@ -1,3 +1,7 @@
+2005-06-03  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* main.c (setup_window): Debranding.
+
 2005-05-19  Richard Hoelscher  <rah@rahga.com>
 
 	* gnibbles.c (gnibbles_load_level): Fix crashing problems found
