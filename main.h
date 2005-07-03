@@ -21,9 +21,9 @@
 #define _MAIN_H_
 
 gint game_running (void);
-gint pause_game_cb (GtkWidget *widget, gpointer data);
+gint pause_game_cb (GtkAction *action, gpointer data);
 void update_score_state (void);
-void end_game (gint);
+void end_game (gboolean);
 gint new_game (void); 
 void set_numworms (int num);
 gint main_loop (gpointer data);

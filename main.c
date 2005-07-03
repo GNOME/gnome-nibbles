@@ -27,6 +27,7 @@
 #include <gconf/gconf-client.h>
 
 #include <games-gridframe.h>
+#include <games-stock.h>
 
 #include "main.h"
 #include "properties.h"
@@ -64,10 +65,6 @@ gint paused = 0;
 
 gint current_level;
 
-/*
-guint pixmap_width = 10, pixmap_height = 10;
-*/
-
 static struct _pointers {
 	GdkCursor *current;
 	GdkCursor *invisible;
@@ -75,43 +72,14 @@ static struct _pointers {
 
 static gint add_bonus_cb (gpointer data);
 static void render_logo (void);
-static gint new_game_cb (GtkWidget *widget, gpointer data);
-gint pause_game_cb (GtkWidget *widget, gpointer data);
-static gint end_game_cb (GtkWidget *widget, gpointer data);
-static void quit_cb (GtkWidget *widget, gpointer data);
-static void about_cb (GtkWidget *widget, gpointer data);
-static void show_scores_cb (GtkWidget *widget, gpointer data);
-static void new_network_game_cb(GtkWidget *widget, gpointer data);
+static void new_network_game_cb (GtkAction *action, gpointer data);
+static gint end_game_cb (GtkAction *action, gpointer data);
 
-static GnomeUIInfo game_menu[] = {
-	GNOMEUIINFO_MENU_NEW_GAME_ITEM (new_game_cb, NULL),
-	GNOMEUIINFO_ITEM(N_("New Net_work Game"), NULL, new_network_game_cb, NULL),
-	GNOMEUIINFO_MENU_PAUSE_GAME_ITEM (pause_game_cb, NULL),
-	GNOMEUIINFO_SEPARATOR,
-	GNOMEUIINFO_MENU_SCORES_ITEM (show_scores_cb, NULL),
-	GNOMEUIINFO_MENU_END_GAME_ITEM (end_game_cb, (gpointer) 2),
-	GNOMEUIINFO_SEPARATOR,
-	GNOMEUIINFO_MENU_QUIT_ITEM (quit_cb, NULL),
-	GNOMEUIINFO_END
-};
-
-static GnomeUIInfo settings_menu[] = {
-	GNOMEUIINFO_MENU_PREFERENCES_ITEM (gnibbles_preferences_cb, NULL),
-	GNOMEUIINFO_END
-};
-
-static GnomeUIInfo help_menu[] = {
-	GNOMEUIINFO_HELP ("gnibbles"),
-	GNOMEUIINFO_MENU_ABOUT_ITEM (about_cb, NULL),
-	GNOMEUIINFO_END
-};
-
-static GnomeUIInfo main_menu[] = {
-	GNOMEUIINFO_MENU_GAME_TREE (game_menu),
-	GNOMEUIINFO_MENU_SETTINGS_TREE (settings_menu),
-	GNOMEUIINFO_MENU_HELP_TREE (help_menu),
-	GNOMEUIINFO_END
-};
+static GtkAction *new_network_game_action;
+static GtkAction *pause_action;
+static GtkAction *end_game_action;
+static GtkAction *preferences_action;
+static GtkAction *scores_action;
 
 static void
 hide_cursor (void)
@@ -164,14 +132,14 @@ delete_cb (GtkWidget * widget, gpointer data)
 }
 
 static void
-quit_cb (GtkWidget *widget, gpointer data)
+quit_cb (GObject *object, gpointer data)
 {
 	games_kill_server ();
 	gtk_main_quit ();
 }
 
 static void
-about_cb (GtkWidget *widget, gpointer data)
+about_cb (GtkAction *action, gpointer data)
 {
 	const gchar *authors[] = {"Sean MacIsaac", "Ian Peters", NULL};
 
@@ -327,25 +295,16 @@ new_game_2_cb (GtkWidget *widget, gpointer data)
 gint
 new_game (void)
 {
-  return new_game_cb(NULL, NULL);
-}
-
-static gint
-new_game_cb (GtkWidget *widget, gpointer data)
-{
-        gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
+        gtk_action_set_sensitive (new_network_game_action, FALSE);
 	if (is_network_running ()) {
-		gtk_widget_set_sensitive (game_menu[2].widget, FALSE);
+		gtk_action_set_sensitive (pause_action, FALSE);
 	} else {
-               gtk_widget_set_sensitive (game_menu[2].widget, TRUE);
+               gtk_action_set_sensitive (pause_action, TRUE);
 	}
-	gtk_widget_set_sensitive (game_menu[5].widget, TRUE);
-	/*
-	gtk_widget_set_sensitive (settings_menu[0].widget, FALSE);
-	*/
+	gtk_action_set_sensitive (end_game_action, TRUE);
 
 	if (game_running ()) {
-			end_game_cb (widget, (gpointer) 0);
+			end_game (FALSE);
 			main_id = 0;
 	}
 
@@ -389,7 +348,14 @@ new_game_cb (GtkWidget *widget, gpointer data)
 	return TRUE;
 }
 
-gint pause_game_cb (GtkWidget *widget, gpointer data)
+static void
+new_game_cb (GtkAction *action, gpointer data)
+{
+   new_game ();
+}
+
+
+gint pause_game_cb (GtkAction *action, gpointer data)
 {
 	if (paused) {
 		paused = 0;
@@ -427,13 +393,13 @@ gint pause_game_cb (GtkWidget *widget, gpointer data)
 	return TRUE;
 }
 
-static void show_scores_cb (GtkWidget *widget, gpointer data)
+static void show_scores_cb (GtkAction *action, gpointer data)
 {
 	gnibbles_show_scores (window, 0);
 }
 
 void
-end_game (gint data)
+end_game (gboolean show_splash)
 {
 	if (main_id) {
 		g_source_remove (main_id);
@@ -465,13 +431,12 @@ end_game (gint data)
 		restart_id = 0;
 	}
 
-	if ((gint) data) {
+	if (show_splash) {
 		render_logo ();
-                gtk_widget_set_sensitive (game_menu[0].widget, TRUE);
-                gtk_widget_set_sensitive (game_menu[1].widget, TRUE);
-		gtk_widget_set_sensitive (game_menu[2].widget, FALSE);
-		gtk_widget_set_sensitive (game_menu[5].widget, FALSE);
-		gtk_widget_set_sensitive (settings_menu[0].widget, TRUE);
+		gtk_action_set_sensitive (new_network_game_action, TRUE);
+		gtk_action_set_sensitive (pause_action, FALSE);
+		gtk_action_set_sensitive (end_game_action, FALSE);
+		gtk_action_set_sensitive (preferences_action, TRUE);
 	}
 
 	paused = 0;
@@ -481,9 +446,9 @@ end_game (gint data)
 	}
 }
 
-static gint end_game_cb (GtkWidget *widget, gpointer data)
+static gint end_game_cb (GtkAction *action, gpointer data)
 {
-	end_game (GPOINTER_TO_INT(data));
+	end_game (TRUE);
 	return (FALSE);
 }
 
@@ -516,7 +481,7 @@ static gint erase_worms_cb (gpointer datap)
 	if (data == 0) {
 		erase_id = 0;
 		if (!restart_id)
-			end_game_cb (NULL, GINT_TO_POINTER(1));
+			end_game (TRUE);
 	} else {
 		gnibbles_undraw_worms (ERASESIZE - data);
 		erase_id = g_timeout_add (ERASETIME / ERASESIZE,
@@ -593,15 +558,6 @@ main_loop (gpointer data)
 	return (TRUE);
 }
 
-/*
-static void
-set_bg_color (void)
-{
-	gdk_window_set_background (drawing_area->window,
-				   &drawing_area->style->black);
-}
-*/
-
 void
 update_score_state (void)
 {
@@ -618,12 +574,12 @@ update_score_state (void)
 				       &names, &scores, &scoretimes);
 	g_free (buf);
 	if (top > 0) {
-		gtk_widget_set_sensitive (game_menu[4].widget, TRUE);
+		gtk_action_set_sensitive (scores_action, TRUE);
 		g_strfreev (names);
 		g_free (scores);
 		g_free (scoretimes);
 	} else {
-		gtk_widget_set_sensitive (game_menu[4].widget, FALSE);
+		gtk_action_set_sensitive (scores_action, FALSE);
 	}
 }
 
@@ -635,10 +591,79 @@ show_cursor_cb (GtkWidget *widget, GdkEventMotion *event, gpointer data)
 }
 
 static void
+help_cb (GtkAction *action, gpointer data)
+{
+	gnome_help_display ("gnibbles.xml", NULL, NULL);
+}
+ 
+static const GtkActionEntry action_entry[] = {
+	{ "GameMenu", NULL, N_("_Game") },
+	{ "SettingsMenu", NULL, N_("_Settings") },
+	{ "HelpMenu", NULL, N_("_Help") },
+	{ "NewGame", GAMES_STOCK_NEW_GAME, NULL, NULL, NULL, G_CALLBACK (new_game_cb) },
+	{ "NewNetworkGame", GAMES_STOCK_NEW_GAME, "New Net_work Game", NULL, NULL, G_CALLBACK (new_network_game_cb) },
+	{ "Pause", GAMES_STOCK_PAUSE_GAME, NULL, NULL, NULL, G_CALLBACK (pause_game_cb) },
+	{ "EndGame", GAMES_STOCK_END_GAME, NULL, NULL, NULL, G_CALLBACK (end_game_cb) },
+	{ "Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL, G_CALLBACK (show_scores_cb) },
+	{ "Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_cb) },
+	{ "Preferences", GTK_STOCK_PREFERENCES, NULL, NULL, NULL, G_CALLBACK (gnibbles_preferences_cb) },
+	{ "Contents", GAMES_STOCK_CONTENTS, NULL, NULL, NULL, G_CALLBACK (help_cb) },
+	{ "About", GTK_STOCK_ABOUT, NULL, NULL, NULL, G_CALLBACK (about_cb) }
+};
+
+static const char *ui_description =
+"<ui>"
+"  <menubar name='MainMenu'>"
+"    <menu action='GameMenu'>"
+"      <menuitem action='NewGame'/>"
+"      <menuitem action='NewNetworkGame'/>"
+"      <menuitem action='EndGame'/>"
+"      <separator/>"
+"      <menuitem action='Pause'/>"
+"      <separator/>"
+"      <menuitem action='Scores'/>"
+"      <separator/>"
+"      <menuitem action='Quit'/>"
+"    </menu>"
+"    <menu action='SettingsMenu'>"
+"      <menuitem action='Preferences'/>"
+"    </menu>"
+"    <menu action='HelpMenu'>"
+"      <menuitem action='Contents'/>"
+"      <menuitem action='About'/>"
+"    </menu>"
+"  </menubar>"
+"</ui>";
+
+static void
+create_menus (GtkUIManager *ui_manager)
+{
+        GtkActionGroup *action_group;
+
+        action_group = gtk_action_group_new ("group");
+
+        gtk_action_group_set_translation_domain(action_group, GETTEXT_PACKAGE);
+        gtk_action_group_add_actions (action_group, action_entry, G_N_ELEMENTS (action_entry), window);
+
+        gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
+        gtk_ui_manager_add_ui_from_string (ui_manager, ui_description, -1, NULL);
+
+        new_network_game_action = gtk_action_group_get_action (action_group, "NewNetworkGame");
+	scores_action = gtk_action_group_get_action (action_group, "Scores");
+        end_game_action = gtk_action_group_get_action (action_group, "EndGame");
+        pause_action = gtk_action_group_get_action (action_group, "Pause");
+	preferences_action = gtk_action_group_get_action (action_group, "Preferences");
+}
+
+static void
 setup_window (void)
 {
 	GdkPixmap *cursor_dot_pm;
-	GtkWidget * packing;
+	GtkWidget *vbox;
+	GtkWidget *packing;
+	GtkWidget *menubar;
+	GtkUIManager 	*ui_manager;
+	GtkAccelGroup	*accel_group;
 
 	window = gnome_app_new ("gnibbles", "Nibbles");
 	gtk_widget_realize (window);
@@ -648,8 +673,22 @@ setup_window (void)
 	g_signal_connect (G_OBJECT (window), "delete_event",
 			G_CALLBACK (delete_cb), NULL);
 
+	vbox = gtk_vbox_new (FALSE, 0);
+	gnome_app_set_contents (GNOME_APP (window), vbox);
+
+	games_stock_init ();
+	ui_manager = gtk_ui_manager_new ();
+	create_menus (ui_manager);
+
+	accel_group = gtk_ui_manager_get_accel_group (ui_manager);
+	gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
+
+	menubar = gtk_ui_manager_get_widget (ui_manager, "/MainMenu");
+	gtk_box_pack_start (GTK_BOX(vbox), menubar, FALSE, FALSE, 0);	
+
 	packing = games_grid_frame_new (BOARDWIDTH, BOARDHEIGHT);
-	gnome_app_set_contents (GNOME_APP (window), packing);
+	gtk_box_pack_start (GTK_BOX(vbox), packing, TRUE, TRUE, 0);
+	gtk_widget_show (packing);
 
 	drawing_area = gtk_drawing_area_new ();
 
@@ -686,11 +725,8 @@ setup_window (void)
 			GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK);
 	gtk_widget_show (drawing_area);
 
-	gnome_app_create_menus (GNOME_APP (window), main_menu);
-
 	appbar = gnome_appbar_new (FALSE, TRUE, GNOME_PREFERENCES_USER);
 	gnome_app_set_statusbar (GNOME_APP (window), appbar);
-	gnome_app_install_menu_hints (GNOME_APP (window), main_menu);
 
 	scoreboard = gnibbles_scoreboard_new (appbar);
 }
@@ -776,10 +812,8 @@ main (int argc, char **argv)
 
 	render_logo ();
 
-	/*set_bg_color ();*/
-
-	gtk_widget_set_sensitive (game_menu[2].widget, FALSE);
-	gtk_widget_set_sensitive (game_menu[5].widget, FALSE);
+	gtk_action_set_sensitive (pause_action, FALSE);
+	gtk_action_set_sensitive (end_game_action, FALSE);
 
 	gtk_main ();
 
@@ -787,11 +821,11 @@ main (int argc, char **argv)
 }
 
 static void
-new_network_game_cb (GtkWidget *widget, gpointer data)
+new_network_game_cb (GtkAction *action, gpointer data)
 {
-  gtk_widget_set_sensitive (settings_menu[0].widget, FALSE);
+  gtk_action_set_sensitive (preferences_action, FALSE);
   network_new (window);
-  gtk_widget_set_sensitive (settings_menu[0].widget, TRUE);
+  gtk_action_set_sensitive (preferences_action, TRUE);
 }
 
 void 

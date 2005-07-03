@@ -94,7 +94,7 @@ network_allow (void)
 static 
 void clear_board(void)
 {
-  end_game (1);
+  end_game (TRUE);
 }
 
 static 
