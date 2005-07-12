@@ -611,7 +611,7 @@ static const GtkActionEntry action_entry[] = {
 	{ "About", GTK_STOCK_ABOUT, NULL, NULL, NULL, G_CALLBACK (about_cb) }
 };
 
-static const char *ui_description =
+static const char ui_description[] =
 "<ui>"
 "  <menubar name='MainMenu'>"
 "    <menu action='GameMenu'>"
