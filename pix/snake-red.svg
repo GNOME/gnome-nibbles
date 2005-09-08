@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
-"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <!-- (C) Copyright 2004 Theo van Klaveren -->
 <!--
@@ -27,27 +25,42 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg1"
    sodipodi:version="0.32"
-   inkscape:version="0.38.1"
-   width="50.000000mm"
-   height="50.000000mm"
-   sodipodi:docbase="/home/klaveren/Sources/gnome-games/gnibbles/pix"
-   sodipodi:docname="snake-red.svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink">
+   inkscape:version="0.42"
+   width="5.0000001cm"
+   height="5.0000001cm"
+   sodipodi:docbase="/home/aurium/Desktop/gnibbles"
+   sodipodi:docname="snake-red.svg">
+  <metadata
+     id="metadata17">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <defs
      id="defs3">
     <linearGradient
        id="linearGradient930">
       <stop
-         style="stop-color:#ff0000;stop-opacity:1.0000000;"
+         style="stop-color:#ff5800;stop-opacity:1.0000000;"
          offset="0.0000000"
          id="stop931" />
       <stop
-         style="stop-color:#9f0000;stop-opacity:1.0000000;"
+         style="stop-color:#810000;stop-opacity:1.0000000;"
          offset="1.0000000"
          id="stop932" />
     </linearGradient>
@@ -114,11 +127,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <radialGradient
        xlink:href="#linearGradient930"
        id="radialGradient933"
-       cx="0.77343750"
-       cy="0.26562500"
-       r="0.67986709"
-       fx="0.77343750"
-       fy="0.26562500" />
+       cx="83.010628"
+       cy="70.632462"
+       r="120.44991"
+       fx="83.010628"
+       fy="70.632462"
+       gradientTransform="matrix(-2.627274e-3,0.892959,-0.883957,-2.600699e-3,-70.19240,-7.876027)"
+       gradientUnits="userSpaceOnUse" />
     <linearGradient
        xlink:href="#linearGradient930"
        id="linearGradient934"
@@ -126,6 +141,17 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
        y1="0.50000000"
        x2="1.0000000"
        y2="0.50000000" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient930"
+       id="radialGradient2786"
+       cx="75.167374"
+       cy="61.947632"
+       fx="75.167374"
+       fy="61.947632"
+       r="85.032272"
+       gradientTransform="matrix(3.125999e-3,1.356996,-1.335951,3.077498e-3,146.0762,-42.19062)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -134,23 +160,29 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.7798890"
-     inkscape:cx="70.866138"
-     inkscape:cy="82.788229"
-     inkscape:window-width="671"
-     inkscape:window-height="533"
-     showgrid="true"
+     inkscape:zoom="2.8165777"
+     inkscape:cx="88.582680"
+     inkscape:cy="88.582685"
+     inkscape:window-width="1018"
+     inkscape:window-height="679"
+     showgrid="false"
      snaptogrid="true"
-     inkscape:window-x="69"
-     inkscape:window-y="46"
+     inkscape:window-x="6"
+     inkscape:window-y="33"
      showguides="true"
-     snaptoguides="true" />
+     snaptoguides="true"
+     inkscape:current-layer="svg1" />
   <rect
-     style="fill:url(#radialGradient933);fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:0.99503222pt;"
-     id="rect837"
-     width="177.16534"
-     height="177.16837"
-     x="1.0092427e-05"
-     y="-0.0030300519"
-     ry="29.227785" />
+     style="fill:url(#radialGradient2786);fill-opacity:1.0000000;stroke:#000000;stroke-width:7.0866142;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
+     id="rect1322"
+     width="170.06454"
+     height="170.07874"
+     x="3.5433044"
+     y="3.5433171"
+     rx="72.431122"
+     ry="72.431122" />
+  <path
+     style="fill:#000000;fill-opacity:0.25847459;stroke:none;stroke-width:7.0866141;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
+     d="M 88.582681,35.433076 C 59.364844,35.433076 35.433068,59.364849 35.433071,88.582683 C 35.433071,117.80052 59.364851,141.73229 88.582681,141.73229 C 117.80051,141.73229 141.73227,117.80051 141.73228,88.582683 C 141.73228,59.364849 117.80050,35.433089 88.582681,35.433076 z M 88.582681,58.182718 C 105.44950,58.182725 118.88198,71.715865 118.88198,88.582683 C 118.88197,105.44950 105.44949,118.88198 88.582681,118.88198 C 71.715853,118.88198 58.283375,105.44950 58.283375,88.582683 C 58.283372,71.715865 71.715859,58.182718 88.582681,58.182718 z "
+     id="path1341" />
 </svg>

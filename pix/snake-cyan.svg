@@ -1,30 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
-"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<!-- (C) Copyright 2004 Callum McKenzie -->
+<!-- (C) Copyright 2004 Theo van Klaveren -->
+<!--
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THEO VAN KLAVEREN ``AS IS'' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THEO VAN KLAVEREN OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
 <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg1"
    sodipodi:version="0.32"
-   inkscape:version="0.39cvs"
-   width="50.000000mm"
-   height="50.000000mm"
-   sodipodi:docname="snake-cyan.svg"
-   sodipodi:docbase="/home/callum/CVS/gnome-games/gnibbles/pix"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink">
+   inkscape:version="0.42"
+   width="5.0000001cm"
+   height="5.0000001cm"
+   sodipodi:docbase="/home/aurium/Desktop/gnibbles"
+   sodipodi:docname="snake-cyan.svg">
+  <metadata
+     id="metadata17">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <defs
      id="defs3">
     <linearGradient
        id="linearGradient930">
       <stop
-         style="stop-color:#00ffff;stop-opacity:1.0000000;"
+         style="stop-color:#6bffff;stop-opacity:1.0000000;"
          offset="0.0000000"
          id="stop931" />
       <stop
-         style="stop-color:#009f9f;stop-opacity:1.0000000;"
+         style="stop-color:#004bd2;stop-opacity:1.0000000;"
          offset="1.0000000"
          id="stop932" />
     </linearGradient>
@@ -91,11 +127,13 @@
     <radialGradient
        xlink:href="#linearGradient930"
        id="radialGradient933"
-       cx="0.77343750"
-       cy="0.26562500"
-       r="0.67986709"
-       fx="0.77343750"
-       fy="0.26562500" />
+       cx="83.010628"
+       cy="70.632462"
+       r="120.44991"
+       fx="83.010628"
+       fy="70.632462"
+       gradientTransform="matrix(-2.627274e-3,0.892959,-0.883957,-2.600699e-3,129.8076,-7.876027)"
+       gradientUnits="userSpaceOnUse" />
     <linearGradient
        xlink:href="#linearGradient930"
        id="linearGradient934"
@@ -103,14 +141,6 @@
        y1="0.50000000"
        x2="1.0000000"
        y2="0.50000000" />
-    <radialGradient
-       xlink:href="#linearGradient930"
-       id="radialGradient1135"
-       cx="0.62500000"
-       cy="0.35156250"
-       r="0.50000000"
-       fx="0.62500000"
-       fy="0.33593750" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -119,28 +149,34 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.9313567"
-     inkscape:cx="74.844082"
-     inkscape:cy="71.643897"
-     inkscape:window-width="902"
-     inkscape:window-height="798"
-     showgrid="true"
+     inkscape:zoom="2.8165777"
+     inkscape:cx="88.582680"
+     inkscape:cy="89.765436"
+     inkscape:window-width="1018"
+     inkscape:window-height="679"
+     showgrid="false"
      snaptogrid="true"
-     inkscape:window-x="353"
-     inkscape:window-y="166"
+     inkscape:window-x="6"
+     inkscape:window-y="33"
      showguides="true"
-     snaptoguides="true" />
+     snaptoguides="true"
+     inkscape:current-layer="svg1" />
   <rect
-     style="fill:#005a5a;fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:3.0000000pt;"
-     id="rect1159"
-     width="177.16536"
-     height="177.16536"
-     ry="29.227289"
-     x="0.0000000"
-     y="-1.0092427e-05" />
-  <path
-     style="fill:url(#radialGradient1135);fill-rule:evenodd;stroke:none;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1.0000000;"
-     d="M 0.0000000,88.582667 C 1.0848249e-15,70.866132 2.2204460e-15,70.866132 17.716535,70.866132 L 70.866142,70.866132 L 70.866142,17.716525 C 70.866142,-1.0092427e-05 70.866142,-1.0092427e-05 88.582677,-1.0092427e-05 C 106.29921,-1.0092427e-05 106.29921,-1.0092427e-05 106.29921,17.716525 L 106.29921,70.866132 L 159.44882,70.866132 C 177.16535,70.866132 177.16535,70.866132 177.16535,88.582667 C 177.16535,106.29920 177.16535,106.29921 159.44882,106.29920 C 141.73228,106.29921 124.01575,106.29920 106.29921,106.29920 C 106.29921,124.01574 106.29922,141.73227 106.29921,159.44881 C 106.29922,177.16534 106.29921,177.16534 88.582677,177.16534 C 70.866142,177.16534 70.866141,177.16534 70.866142,159.44881 L 70.866142,106.29920 L 17.716535,106.29920 C 0.0000000,106.29920 1.0848249e-15,106.29920 0.0000000,88.582667 z "
-     id="path1133"
-     sodipodi:nodetypes="ccccccccccccccczc" />
+     style="fill:#004fe0;fill-opacity:1.0000000;stroke:none;stroke-width:6.2500000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
+     id="rect2044"
+     width="170.07874"
+     height="170.07874"
+     x="3.5433071"
+     y="3.5433171"
+     rx="39.767368"
+     ry="39.767368" />
+  <rect
+     style="fill:url(#radialGradient933);fill-opacity:0.75000000;fill-rule:evenodd;stroke-width:7.0866142;stroke:#000044;stroke-opacity:1.0000000;stroke-miterlimit:4.0000000;stroke-dasharray:none"
+     id="rect837"
+     width="170.07874"
+     height="170.07874"
+     x="3.5433071"
+     y="3.5433123"
+     ry="39.767368"
+     rx="39.767368" />
 </svg>

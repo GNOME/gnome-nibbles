@@ -157,7 +157,7 @@ gnibbles_load_logo (GtkWidget *window)
 
 	if (logo_pixmap)
 		g_object_unref(logo_pixmap);
-	logo_pixmap = gnibbles_load_pixmap_file(window, "pixmaps/gnibbles/gnibbles-logo.png",
+	logo_pixmap = gnibbles_load_pixmap_file(window, "pixmaps/gnibbles/gnibbles-logo.svg",
 			width, height);
 }
 

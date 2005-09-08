@@ -1,5 +1,10 @@
 2005-08-06  Callum McKenzie  <callum@physics.otago.ac.nz>
 
+	* Makefile.am: 
+	* gnibbles.c:
+	* pix/*: New graphics from Aurélio A. Heckert. Code to look for
+	the SVG version of the logo rather than the PNG.
+
 	* help/C/gnibbles.xml: Remove the mention of the
 	no-longer-existing bug reporting guidelines. See bug #312723.
 
