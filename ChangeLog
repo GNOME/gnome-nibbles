@@ -1,3 +1,11 @@
+2005-09-25  Callum McKenzie  <callum@spooky-possum.org>
+
+	* main.c: Don't use GAMES_STOCK_NEW_GAME for the New Network Game
+	menu item, it duplicates the key bindings. See bug #317131.
+
+	* preferences.c (gnibbles_preferences_cb): Gnibbles -> Nibbles for
+	the preferences dialog title. See bug #317132.
+
 2005-08-06  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* Makefile.am: 

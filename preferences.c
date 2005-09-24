@@ -201,7 +201,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	if (game_running ())
 		running = 1;
 
-	pref_dialog = gtk_dialog_new_with_buttons (_("Gnibbles Preferences"),
+	pref_dialog = gtk_dialog_new_with_buttons (_("Nibbles Preferences"),
                                                    GTK_WINDOW(window), 0,
                                                    GTK_STOCK_CLOSE,
                                                    GTK_RESPONSE_CLOSE, NULL);

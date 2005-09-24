@@ -601,7 +601,7 @@ static const GtkActionEntry action_entry[] = {
 	{ "SettingsMenu", NULL, N_("_Settings") },
 	{ "HelpMenu", NULL, N_("_Help") },
 	{ "NewGame", GAMES_STOCK_NEW_GAME, NULL, NULL, NULL, G_CALLBACK (new_game_cb) },
-	{ "NewNetworkGame", GAMES_STOCK_NEW_GAME, "New Net_work Game", NULL, NULL, G_CALLBACK (new_network_game_cb) },
+	{ "NewNetworkGame", NULL, "New Net_work Game", NULL, NULL, G_CALLBACK (new_network_game_cb) },
 	{ "Pause", GAMES_STOCK_PAUSE_GAME, NULL, NULL, NULL, G_CALLBACK (pause_game_cb) },
 	{ "EndGame", GAMES_STOCK_END_GAME, NULL, NULL, NULL, G_CALLBACK (end_game_cb) },
 	{ "Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL, G_CALLBACK (show_scores_cb) },
