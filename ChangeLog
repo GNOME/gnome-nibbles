@@ -1,5 +1,8 @@
 2005-09-25  Callum McKenzie  <callum@spooky-possum.org>
 
+	* gnibbles-logo.svg: Gnibbles -> Nibbles. Also removed some of the
+	off-page graphics that never get displayed.
+	
 	* main.c: Don't use GAMES_STOCK_NEW_GAME for the New Network Game
 	menu item, it duplicates the key bindings. See bug #317131.
 
