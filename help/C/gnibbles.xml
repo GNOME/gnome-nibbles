@@ -115,17 +115,17 @@
   <title>Introduction</title>
 
   <para>
-   <application>Nibbles</application> is a game where the user controls a snake   .  The snake moves around the board, eating diamonds while avoiding the walls   placed around it. 
+   <application>Nibbles</application> is a game where the user controls a snake.  The snake moves around the board, eating diamonds while avoiding the walls   placed around it. 
   </para>
 
   <para>
    To run <application>Nibbles</application>, select
    <menuchoice>
-    <guisubmenu>games</guisubmenu>
+    <guisubmenu>Games</guisubmenu>
     <guimenuitem>Nibbles</guimenuitem>
    </menuchoice>
-   from the <guimenu>Main Menu</guimenu>, or type
-   <command>Nibbles</command> on the command line. 
+   from the <guimenu>Applications</guimenu> menu, or type
+   <command>gnibbles</command> on the command line. 
   </para>
 
   <para>
@@ -483,13 +483,14 @@ section. For example -->
 
  </sect1>
 
+<!--
  <sect1 id="bugs">
   <title>Known Bugs and Limitations</title>
   <para>
    This application has no known bugs.
   </para>
  </sect1>
-
+-->
 
 <!-- ============= Authors ================================ -->
 
@@ -498,8 +499,7 @@ section. For example -->
   <para>
    <application>Nibbles</application> was written by Sean MacIsaac 
    (<email>sjm@acm.org</email>) and Ian Peters (<email>itp@gnu.org</email>). 
-   Please send all comments, suggestions, and bug reports can be sent
-  to the <ulink
+   Please send all comments, suggestions, and bug reports to the <ulink
    url="http://bugzilla.gnome.org/">GNOME bug tracking database</ulink>.
   </para> 
 
