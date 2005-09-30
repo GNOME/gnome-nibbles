@@ -39,8 +39,8 @@ gnibbles_SOURCES = \
 	main.h
 
 gnibbles_LDADD = \
-	$(GNOME_GAMES_LIBS) \
 	../libgames-support/libgames-support.la \
+	$(GNOME_GAMES_LIBS) \
 	$(INTLLIBS)
 
 pixmap_DATA = \
