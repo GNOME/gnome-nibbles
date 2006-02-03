@@ -1,3 +1,37 @@
+2006-02-03  Callum McKenzie  <callum@spooky-possum.org>
+
+	* gnibbles.c (gnibbles_copy_pixmap): replace some g_print
+	statements used as warnings with g_warning.
+
+	* pix/wall-tee-up.svg: 
+	* pix/wall-tee-right.svg: 
+	* pix/wall-tee-left.svg: 
+	* pix/wall-tee-down.svg: 
+	* pix/wall-straight-up.svg: 
+	* pix/wall-straight-side.svg: 
+	* pix/wall-cross.svg: 
+	* pix/wall-corner-top-right.svg: 
+	* pix/wall-corner-top-left.svg: 
+	* pix/wall-corner-bottom-right.svg: 
+	* pix/wall-corner-bottom-left.svg: 
+	* pix/snake-yellow.svg: 
+	* pix/snake-red.svg: 
+	* pix/snake-magenta.svg: 
+	* pix/snake-grey.svg: 
+	* pix/snake-green.svg: 
+	* pix/snake-cyan.svg: 
+	* pix/snake-blue.svg: 
+	* pix/questionmark.svg: 
+	* pix/life.svg: 
+	* pix/diamond.svg: 
+	* pix/bonus5.svg: 
+	* pix/bonus4.svg: 
+	* pix/bonus3.svg: 
+	* pix/bonus2.svg: 
+	* pix/bonus1.svg: 
+	* pix/blank.svg: 
+	* pix/wall-empty.svg: Add a doctype so librsvg will load us again.
+
 2006-01-17  Callum McKenzie  <callum@spooky-possum.org>
 
 	* main.c: Patch from Scott Bronson to ensure user-edited

@@ -100,13 +100,13 @@ gnibbles_copy_pixmap (GdkDrawable *drawable, gint which, gint x, gint y,
 
 	if (big == TRUE) {
 		if (which < 0 || which > 8) {
-			g_print("Invalid bonus image %d\n", which);
+			g_warning ("Invalid bonus image %d\n", which);
 			return;
 		}
 		copy_buf = bonus_pixmaps[which];
 	} else {
 		if (which < 0 || which > 19) {
-			g_print("Invalid tile image %d\n", which);
+			g_warning ("Invalid tile image %d\n", which);
 			return;
 		}
 		copy_buf = small_pixmaps[which];
