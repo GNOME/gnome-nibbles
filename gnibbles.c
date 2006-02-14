@@ -313,7 +313,9 @@ gnibbles_load_level (GtkWidget *window, gint level)
 					board[j][i] = EMPTYCHAR;
 					break;
 			}
-			gnibbles_draw_pixmap_buffer (board[j][i]-'a', j, i);
+			/* Warpmanager draws the warp points. Everything else gets drawn here. */
+			if (board[j][i] >= 'a')
+				gnibbles_draw_pixmap_buffer (board[j][i]-'a', j, i);
 		}
 	}
 

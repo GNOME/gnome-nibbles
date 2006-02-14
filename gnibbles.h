@@ -23,6 +23,8 @@
 #include <config.h>
 #include <gnome.h>
 
+#include "warpmanager.h"
+
 #define BOARDWIDTH 92
 #define BOARDHEIGHT 66
 #define BLANKPIXMAP 0
@@ -49,6 +51,8 @@
 #define BONUSDELAY 100
 
 #define MAXLEVEL 26
+
+extern GnibblesWarpManager *warpmanager;
 
 void gnibbles_draw_pixmap (gint which, gint x, gint y);
 void gnibbles_draw_big_pixmap (gint which, gint x, gint y);

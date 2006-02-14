@@ -38,6 +38,7 @@
 #include "preferences.h"
 #include "scoreboard.h"
 #include "network.h"
+#include "warp.h"
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -177,8 +178,9 @@ draw_board ()
 {
 	int i, j;
 
-	for (i = 0; i < BOARDWIDTH; i++)
-		for (j = 0; j < BOARDHEIGHT; j++)
+	for (i = 0; i < BOARDWIDTH; i++) {
+		for (j = 0; j < BOARDHEIGHT; j++) {
+			gnibbles_draw_pixmap_buffer (0, i, j);
 			if (board[i][j] >= EMPTYCHAR &&
 			    board[i][j] < EMPTYCHAR + 19) {
 				gnibbles_draw_pixmap_buffer (
@@ -191,13 +193,16 @@ draw_board ()
 			} else if (board[i][j] >= 'A' && board[i][j] < 'J') {
 				/* bonus */
 			} else {
-				g_warning("Unknown board charact at "
-					  "%d, %d: '%c' (%u)\n", i, j,
-					  board[i][j], board[i][j]);
+				/* Warp point. */
 			}
+		}
+	}
 
 	for (i=0; i<boni->numbonuses; i++)
 		gnibbles_bonus_draw (boni->bonuses[i]);
+
+	for (i=0; i<warpmanager->numwarps; i++)
+		gnibbles_warp_draw_buffer (warpmanager->warps[i]);
 
 	gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
 			   drawing_area->style->fg_gc[GTK_WIDGET_STATE (drawing_area)],

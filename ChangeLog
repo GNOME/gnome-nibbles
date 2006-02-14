@@ -1,3 +1,14 @@
+2006-02-14  Callum McKenzie  <callum@spooky-possum.org>
+
+	* gnibbles.h: 
+	* main.c: Draw bonuses and warp points properly when the board is resized.
+
+	* gnibbles.c (gnibbles_load_level): Avoid warnings about bad tile
+	numbers by avoiding trying to draw the warp 
+
+	* level008.gnl: Patch from Benjamin Otte to align the top and
+	bottom exits correctly.
+
 2006-02-03  Callum McKenzie  <callum@spooky-possum.org>
 
 	* gnibbles.c (gnibbles_copy_pixmap): replace some g_print
