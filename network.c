@@ -37,7 +37,7 @@
 #include "network.h"
 #include "worm.h"
 
-char *game_server = "gnothello.gnome.org"; 
+char *game_server = "localhost";
 char *game_port = "26479";
 
 static void game_handle_input (NetworkGame *ng, char *buf);
