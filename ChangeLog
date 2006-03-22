@@ -1,5 +1,14 @@
 2006-03-22  Callum McKenzie  <callum@spooky-possum.org>
 
+	* preferences.c: 
+	* properties.c:
+	* main.c:
+	* main.h:
+	* gnibbles.c: Convert the high score code to the new system. As a
+	side-effect fix bug #335264. Also remove the logic to set the
+	score menu sensitivity. It isn't so critical with the modern
+	dialog.
+
 	* help/C/gnibbles.xml: Remove the doctable link, it was broken
 	*and* being used inappropriately. Replaced with the 
 	ghelp:gnome-feedback link. Bug #335263.

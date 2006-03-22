@@ -23,6 +23,8 @@
 #include <gnome.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <games-scores-dialog.h>
+#include <games-scores.h>
 
 #include "main.h"
 #include "gnibbles.h"
@@ -560,25 +562,32 @@ gnibbles_play_sound (const char *which)
 void
 gnibbles_show_scores (GtkWidget *window, gint pos)
 {
-	GtkWidget *dialog;
-	gchar *buf = NULL;
+	static GtkWidget *scoresdialog = NULL;
+	gchar *message;
 
-	buf = g_strdup_printf ("%d.%d", properties->gamespeed,
-			       properties->fakes);
-
-	dialog = gnome_scores_display ("Gnibbles", "gnibbles", buf, pos);
-	g_free (buf);
-	if (dialog != NULL) {
-		gtk_window_set_transient_for (GTK_WINDOW (dialog),
-					      GTK_WINDOW (window));
-		gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+	if (!scoresdialog) {
+		scoresdialog = games_scores_dialog_new (highscores, 
+							_("Nibbles Scores"));
+		if (pos > 0) {
+			games_scores_dialog_set_hilight (GAMES_SCORES_DIALOG (scoresdialog), pos);
+			message = g_strdup_printf ("<b>%s</b>\n\n%s",
+						   _("Congratulations!"),
+						   _("Your score has made the top ten."));
+			games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog), message);
+			g_free (message);
+		} else {
+			games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog), NULL);
+		}
 	}
+
+	gtk_dialog_run (GTK_DIALOG (scoresdialog));
+	gtk_widget_hide (scoresdialog);
 }
 
 void
 gnibbles_log_score (GtkWidget *window)
 {
-	gchar *buf = NULL;
+	GamesScoreValue score;
 	gint pos;
 	
 	if (properties->numworms > 1)
@@ -590,12 +599,8 @@ gnibbles_log_score (GtkWidget *window)
 	if (!worms[0]->score)
 		return;
 
-	buf = g_strdup_printf ("%d.%d", properties->gamespeed,
-			       properties->fakes);
-
-	pos = gnome_score_log (worms[0]->score, buf, TRUE);
-	g_free (buf);
-	update_score_state ();
+	score.plain = worms[0]->score;
+	pos = games_scores_add_score (highscores, score);
 
 	gnibbles_show_scores (window, pos);
 }

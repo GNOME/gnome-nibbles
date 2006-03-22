@@ -23,8 +23,10 @@
 #include <gnome.h>
 #include <string.h>
 #include <gconf/gconf-client.h>
+#include <games-scores.h>
 
 #include "properties.h"
+#include "main.h"
 
 #define MAX_SPEED 4
 
@@ -76,6 +78,7 @@ gnibbles_properties_update (GnibblesProperties * tmp)
 {
 	gint i;
 	gchar buffer[256];
+	gchar *category;
 	gchar *color_name;
 
 	conf_client = gconf_client_get_default ();
@@ -185,6 +188,9 @@ gnibbles_properties_update (GnibblesProperties * tmp)
 			tmp->wormprops[i]->right = gdk_keyval_name (GDK_Right);
 	}
 
+	category = g_strdup_printf ("%d.%d", tmp->gamespeed, tmp->fakes);
+	games_scores_set_category (highscores, category);
+	g_free (category);
 }
 
 GnibblesProperties *

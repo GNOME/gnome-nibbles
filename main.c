@@ -28,6 +28,7 @@
 
 #include <games-gridframe.h>
 #include <games-stock.h>
+#include <games-scores.h>
 
 #include "main.h"
 #include "properties.h"
@@ -43,6 +44,22 @@
 GtkWidget *window;
 GtkWidget *drawing_area;
 GtkWidget *appbar;
+
+static const GamesScoresCategory scorecats[] = {{"4.0", N_("Beginner")},
+						{"3.0", N_("Slow")},
+						{"2.0", N_("gnibbles|Medium")},
+						{"1.0", N_("Fast")},
+						{"4.1", N_("Beginner with Fakes")},
+						{"3.1", N_("Slow with Fakes")},
+						{"2.1", N_("Medium with Fakes")},
+						{"1.1", N_("Fast with Fakes")},
+						GAMES_SCORES_LAST_CATEGORY };
+static const GamesScoresDescription scoredesc = {scorecats,
+						 "4.0",
+						 "gnibbles",
+						 GAMES_SCORES_STYLE_PLAIN_DESCENDING};
+
+GamesScores *highscores;
 
 extern GdkPixmap *buffer_pixmap;
 extern GdkPixbuf *logo_pixmap;
@@ -563,31 +580,6 @@ main_loop (gpointer data)
 	return (TRUE);
 }
 
-void
-update_score_state (void)
-{
-        gchar **names = NULL;
-        gfloat *scores = NULL;
-        time_t *scoretimes = NULL;
-	gint top;
-
-	gchar *buf = NULL;
-	buf = g_strdup_printf ("%d.%d", properties->gamespeed,
-			       properties->fakes);
-
-	top = gnome_score_get_notable ("gnibbles", buf,
-				       &names, &scores, &scoretimes);
-	g_free (buf);
-	if (top > 0) {
-		gtk_action_set_sensitive (scores_action, TRUE);
-		g_strfreev (names);
-		g_free (scores);
-		g_free (scoretimes);
-	} else {
-		gtk_action_set_sensitive (scores_action, FALSE);
-	}
-}
-
 static gboolean
 show_cursor_cb (GtkWidget *widget, GdkEventMotion *event, gpointer data)
 {
@@ -785,7 +777,7 @@ render_logo (void)
 int 
 main (int argc, char **argv)
 {
-	gnome_score_init ("gnibbles");
+	setgid_io_init ();
 
 	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -799,11 +791,11 @@ main (int argc, char **argv)
 	gtk_window_set_default_icon_name ("gnome-nibbles");
 	srand (time (NULL));
 
+	highscores = games_scores_new (&scoredesc);
+
 	load_properties ();
 
 	setup_window ();
-
-	update_score_state ();
 
 	gnibbles_load_logo (window);
 	gnibbles_load_pixmap (window);

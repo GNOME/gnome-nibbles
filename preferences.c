@@ -57,8 +57,6 @@ destroy_cb (GtkWidget *widget, gpointer data)
 static void
 apply_cb (GtkWidget *widget, gint action, gpointer data)
 {
-	update_score_state ();
-
 	gtk_widget_destroy (widget);
 }
 
