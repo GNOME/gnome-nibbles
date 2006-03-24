@@ -568,16 +568,17 @@ gnibbles_show_scores (GtkWidget *window, gint pos)
 	if (!scoresdialog) {
 		scoresdialog = games_scores_dialog_new (highscores, 
 							_("Nibbles Scores"));
-		if (pos > 0) {
-			games_scores_dialog_set_hilight (GAMES_SCORES_DIALOG (scoresdialog), pos);
-			message = g_strdup_printf ("<b>%s</b>\n\n%s",
-						   _("Congratulations!"),
-						   _("Your score has made the top ten."));
-			games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog), message);
-			g_free (message);
-		} else {
-			games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog), NULL);
-		}
+		games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG (scoresdialog), _("Speed:"));
+	}
+	if (pos > 0) {
+		games_scores_dialog_set_hilight (GAMES_SCORES_DIALOG (scoresdialog), pos);
+		message = g_strdup_printf ("<b>%s</b>\n\n%s",
+					   _("Congratulations!"),
+					   _("Your score has made the top ten."));
+		games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog), message);
+		g_free (message);
+	} else {
+		games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog), NULL);
 	}
 
 	gtk_dialog_run (GTK_DIALOG (scoresdialog));
