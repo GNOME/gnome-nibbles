@@ -1,3 +1,9 @@
+2006-04-02  Callum McKenzie  <callum@spooky-possum.org>
+
+	* Makefile.am: 
+	* gnibbles.desktop.in: Update the icon handling to use icon
+	themes.
+
 2006-03-24  Callum McKenzie  <callum@spooky-possum.org>
 
 	* gnibbles.c: Make sure the hilight is set every time, and add a

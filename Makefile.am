@@ -1,6 +1,6 @@
 pixmapdir=$(datadir)/pixmaps/gnibbles
 configdir=$(datadir)/gnibbles
-icondir=$(datadir)/pixmaps
+icondir=$(datadir)/icons/hicolor/48x48/apps/
 soundlistdir = $(sysconfdir)/sound/events
 Gamesdir=$(datadir)/applications
 
