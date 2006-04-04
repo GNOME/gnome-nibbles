@@ -777,17 +777,19 @@ render_logo (void)
 int 
 main (int argc, char **argv)
 {
+	GnomeProgram *program;
+
 	setgid_io_init ();
 
 	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 	
-	gnome_program_init ("gnibbles", VERSION, LIBGNOMEUI_MODULE,
-			    argc, argv,
-			    GNOME_PARAM_POPT_TABLE, NULL,
-			    GNOME_PARAM_APP_DATADIR, REAL_DATADIR,
-			    NULL);
+	program = gnome_program_init ("gnibbles", VERSION, LIBGNOMEUI_MODULE,
+				      argc, argv,
+				      GNOME_PARAM_POPT_TABLE, NULL,
+				      GNOME_PARAM_APP_DATADIR, REAL_DATADIR,
+				      NULL);
 	gtk_window_set_default_icon_name ("gnome-nibbles");
 	srand (time (NULL));
 
@@ -815,6 +817,8 @@ main (int argc, char **argv)
 	gtk_main ();
 
 	gnome_accelerators_sync();
+
+	g_object_unref (program);
 
 	return 0;
 }
