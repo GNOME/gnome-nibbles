@@ -161,14 +161,20 @@ about_cb (GtkAction *action, gpointer data)
 {
 	const gchar *authors[] = {"Sean MacIsaac", "Ian Peters", NULL};
 
+	const gchar *documenters[] = {"Kevin Breit", NULL};
+
 	gtk_show_about_dialog (GTK_WINDOW (window),
 			       "name", _("Nibbles"), 
 			       "version", VERSION,
-			       "copyright", "Copyright \xc2\xa9 1999-2004 Sean MacIsaac, Ian Peters",
+			       "copyright", "Copyright \xc2\xa9 1999-2006 Sean MacIsaac, Ian Peters",
+			       "license", "GPL 2+",
 			       "comments", _("A worm game for GNOME."),
 			       "authors", authors,
+			       "documenters", documenters,
 			       "translator-credits", _("translator-credits"),
 			       "logo-icon-name", "gnome-nibbles",
+			       "website", "http://www.gnome.org/projects/gnome-games/",
+			       "wrap-license", TRUE,
 			       NULL);
 }
 
