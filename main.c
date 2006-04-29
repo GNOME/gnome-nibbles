@@ -724,6 +724,8 @@ setup_window (void)
 				     BOARDHEIGHT*5);
 	g_signal_connect (G_OBJECT (drawing_area), "expose_event",
 			G_CALLBACK (expose_event_cb), NULL);
+	/* We do our own double-buffering. */
+	gtk_widget_set_double_buffered(GTK_WIDGET (drawing_area), FALSE);
 	gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
 			GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK);
 	gtk_widget_show (drawing_area);
