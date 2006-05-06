@@ -1,3 +1,10 @@
+2006-05-06  Callum McKenzie  <callum@spooky-possum.org>
+
+	* worm.c: Move the "clock logic" for turning in relative mode into
+	worm_set_direction. This fixes bug #340788. Also change a
+	reference to worm_set_direction to worm_handle_direction. This
+	should make relative mode work in a network game.
+
 2006-04-29  Callum McKenzie  <callum@spooky-possum.org>
 
 	* main.c (setup_window): Disable double-buffering since we do our

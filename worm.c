@@ -152,15 +152,9 @@ gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 		if (keyval == key_left)
 			worm_handle_direction(worm->number, worm->direction - 1);
 		else if (keyval == key_right)
-			worm_set_direction(worm->number, worm->direction + 1);
+			worm_handle_direction(worm->number, worm->direction + 1);
                 else
                         return FALSE;
-		/*worm->keypress = 1;*/
-		if (worm->direction == 0) {
-			worm_handle_direction(worm->number, 4);
-                }
-		if (worm->direction == 5)
-			worm_handle_direction(worm->number, 1);
                 return TRUE;
 	} else {
 		if ((keyval == key_up) && (worm->direction != WORMDOWN)) {
@@ -522,6 +516,11 @@ void
 worm_set_direction (int worm, int dir)
 {
         if (worms[worm]) {
+
+		if (dir > 4)
+			dir = 1;
+		if (dir < 1)
+			dir = 4;
 
 		if (worms[worm]->keypress) {
         		gnibbles_worm_queue_keypress (worms[worm], dir);
