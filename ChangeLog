@@ -1,3 +1,20 @@
+2006-07-12  Andreas Røsdal  <andrearo@stud.ntnu.no>
+
+	* wall-corner-bottom-left.svg:
+	* wall-cross.svg:
+	* wall-tee-down.svg:
+	* wall-corner-bottom-right.svg:
+	* wall-tee-left.svg:
+	* wall-corner-top-left.svg:
+	* wall-straight-side.svg:  
+	* wall-tee-right.svg:
+	* wall-corner-top-right.svg:
+	* wall-straight-up.svg:   
+	* wall-tee-up.svg: Increase brightness of walls by 40%. This is an
+	usability improvement, because now the walls are easier to see
+	on a dark display. 
+
+
 2006-06-21  Andreas Røsdal  <andrearo@stud.ntnu.no>
 
 	* main.c: Add fullscreen mode to gnibbles.
