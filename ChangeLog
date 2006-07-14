@@ -1,3 +1,7 @@
+2006-07-13  Andreas Røsdal  <andrearo@stud.ntnu.no>
+
+	* main.c: Add a Resume menu item, to unpause games. Bug #346969.
+
 2006-07-12  Andreas Røsdal  <andrearo@stud.ntnu.no>
 
 	* wall-corner-bottom-left.svg:

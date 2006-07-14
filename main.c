@@ -95,6 +95,7 @@ static gint end_game_cb (GtkAction *action, gpointer data);
 
 static GtkAction *new_network_game_action;
 static GtkAction *pause_action;
+static GtkAction *resume_action;
 static GtkAction *end_game_action;
 static GtkAction *preferences_action;
 static GtkAction *scores_action;
@@ -384,6 +385,8 @@ new_game (void)
 	gnibbles_add_bonus (1);
 	
 	paused = 0;
+	gtk_action_set_visible (pause_action, !paused);
+	gtk_action_set_visible (resume_action, paused);
 	
 	if (erase_id) {
 		g_source_remove (erase_id);
@@ -450,6 +453,11 @@ gint pause_game_cb (GtkAction *action, gpointer data)
 			}
 		}
 	}
+	gtk_action_set_sensitive (pause_action, !paused);
+	gtk_action_set_sensitive (resume_action, paused);
+	gtk_action_set_visible (pause_action, !paused);
+	gtk_action_set_visible (resume_action, paused);
+
 	return TRUE;
 }
 
@@ -495,6 +503,7 @@ end_game (gboolean show_splash)
 		render_logo ();
 		gtk_action_set_sensitive (new_network_game_action, TRUE);
 		gtk_action_set_sensitive (pause_action, FALSE);
+		gtk_action_set_sensitive (resume_action, FALSE);
 		gtk_action_set_sensitive (end_game_action, FALSE);
 		gtk_action_set_sensitive (preferences_action, TRUE);
 	}
@@ -639,6 +648,7 @@ static const GtkActionEntry action_entry[] = {
 	{ "NewGame", GAMES_STOCK_NEW_GAME, NULL, NULL, NULL, G_CALLBACK (new_game_cb) },
 	{ "NewNetworkGame", NULL, "New Net_work Game", NULL, NULL, G_CALLBACK (new_network_game_cb) },
 	{ "Pause", GAMES_STOCK_PAUSE_GAME, NULL, NULL, NULL, G_CALLBACK (pause_game_cb) },
+	{ "Resume", GAMES_STOCK_RESUME_GAME, NULL, NULL, NULL, G_CALLBACK (pause_game_cb) },
 	{ "EndGame", GAMES_STOCK_END_GAME, NULL, NULL, NULL, G_CALLBACK (end_game_cb) },
 	{ "Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL, G_CALLBACK (show_scores_cb) },
 	{ "Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_cb) },
@@ -658,6 +668,7 @@ static const char ui_description[] =
 "      <menuitem action='EndGame'/>"
 "      <separator/>"
 "      <menuitem action='Pause'/>"
+"      <menuitem action='Resume'/>"
 "      <separator/>"
 "      <menuitem action='Scores'/>"
 "      <separator/>"
@@ -694,6 +705,7 @@ create_menus (GtkUIManager *ui_manager)
 	scores_action = gtk_action_group_get_action (action_group, "Scores");
         end_game_action = gtk_action_group_get_action (action_group, "EndGame");
         pause_action = gtk_action_group_get_action (action_group, "Pause");
+        resume_action = gtk_action_group_get_action (action_group, "Resume");
 	preferences_action = gtk_action_group_get_action (action_group, "Preferences");
 	fullscreen_action = gtk_action_group_get_action (action_group, "Fullscreen");
 	leave_fullscreen_action = gtk_action_group_get_action (action_group,
@@ -867,7 +879,9 @@ main (int argc, char **argv)
 	render_logo ();
 
 	gtk_action_set_sensitive (pause_action, FALSE);
+	gtk_action_set_sensitive (resume_action, FALSE);
 	gtk_action_set_sensitive (end_game_action, FALSE);
+	gtk_action_set_visible (resume_action, paused);
 
 	gtk_main ();
 
