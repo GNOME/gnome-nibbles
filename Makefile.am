@@ -99,7 +99,8 @@ EXTRA_DIST = \
 	$(config_DATA) \
 	$(soundlist_in_files) \
 	$(schema_in_files) \
-	$(icon_DATA)
+	$(icon_DATA) \
+	$(svgicon_DATA)
 
 SUBDIRS=sounds help pix
 
