@@ -23,7 +23,7 @@
 #include "gnibbles.h"
 #include "bonus.h"
 #include "boni.h"
-#include "network.h"
+#include "ggz-network.h"
 
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 
@@ -67,7 +67,9 @@ void gnibbles_boni_add_bonus (GnibblesBoni *boni, gint t_x, gint t_y,
 	boni->numbonuses++;
 	if (t_type != BONUSREGULAR)
 		gnibbles_play_sound ("appear");
+	#ifdef GGZ_CLIENT
 	network_add_bonus (t_x, t_y, t_type, t_fake, t_countdown);
+	#endif
 
 }
 
@@ -110,7 +112,9 @@ int gnibbles_boni_fake (GnibblesBoni *boni, gint x, gint y)
 void gnibbles_boni_remove_bonus (GnibblesBoni *boni, gint x, gint y) { 
 	int i;
 
+	#ifdef GGZ_CLIENT
 	network_remove_bonus (x, y);
+	#endif
 	for (i = 0; i < boni->numbonuses; i++) {
 		if ((x == boni->bonuses[i]->x && 
 				y == boni->bonuses[i]->y) ||

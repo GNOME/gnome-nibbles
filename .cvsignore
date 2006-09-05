@@ -4,6 +4,9 @@ Makefile.in
 .libs
 .deps
 gnibbles
+gnibblesd
+gnibbles-server.dsc
+gnibbles-client.dsc
 gnibbles.soundlist
 gnibbles.desktop
 gnibbles.schemas

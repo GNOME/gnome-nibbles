@@ -27,6 +27,10 @@
 #include <games-frame.h>
 #include <games-controls.h>
 
+#ifdef GGZ_CLIENT
+#include "ggz-network.h"
+#endif
+
 #include "preferences.h"
 #include "main.h"
 
@@ -44,6 +48,19 @@ extern gint paused;
 GtkWidget *start_level_label, 
 	*start_level_spin_button;
 
+
+static void
+network_set_preferences (void)
+{
+#ifdef GGZ_CLIENT
+	if (ggz_network_mode) {
+		network_req_settings (properties->gamespeed, 
+				properties->fakes,
+				properties->startlevel);
+	}
+#endif
+}
+
 static void
 destroy_cb (GtkWidget *widget, gpointer data)
 {
@@ -51,6 +68,7 @@ destroy_cb (GtkWidget *widget, gpointer data)
 		pause_game_cb (NULL, 0);
 		unpause = 0;
 	}
+	network_set_preferences ();
 	pref_dialog = NULL;
 }
 
@@ -280,7 +298,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	button = gtk_check_button_new_with_mnemonic (_("_Play levels in random order"));
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 
-	if (running)
+	if (running || ggz_network_mode)
 		gtk_widget_set_sensitive (button, FALSE);
 	if (properties->random)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -345,7 +363,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
 	gtk_table_attach (GTK_TABLE (table2), label2, 0, 1, 1, 2, GTK_FILL, 0, 0, 0);
-	if (running)
+	if (running || ggz_network_mode)
 		gtk_widget_set_sensitive (label2, FALSE);
 
 	adjustment = gtk_adjustment_new ((gfloat) properties->numworms, 1.0,
@@ -356,7 +374,7 @@ gnibbles_preferences_cb (GtkWidget *widget, gpointer data)
 	gtk_label_set_mnemonic_widget (GTK_LABEL (label2), button);
 
 	gtk_table_attach_defaults (GTK_TABLE (table2), button, 1, 2, 1, 2);
-	if (running)
+	if (running || ggz_network_mode)
 		gtk_widget_set_sensitive (button, FALSE);
 	g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
                           GTK_SIGNAL_FUNC (num_worms_cb), button);

@@ -38,6 +38,7 @@
 typedef struct
 {
 	gint xhead, yhead;
+	gint xstart, ystart;
 	gint xtail, ytail;
 	gint direction;
 	gint8 *xoff, *yoff;

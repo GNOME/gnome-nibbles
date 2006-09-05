@@ -46,6 +46,7 @@
 #define CONTINUE 0
 #define NEWROUND 1
 #define GAMEOVER 2
+#define VICTORY 3 
 
 #define GAMEDELAY 35
 #define BONUSDELAY 100
@@ -64,6 +65,7 @@ void gnibbles_load_level (GtkWidget *window, gint level);
 void gnibbles_init (void);
 void gnibbles_add_bonus (gint regular);
 gint gnibbles_move_worms (void);
+gint gnibbles_get_winner (void); 
 gint gnibbles_keypress_worms (guint keyval);
 void gnibbles_undraw_worms (gint data);
 void gnibbles_play_sound (const char *which);

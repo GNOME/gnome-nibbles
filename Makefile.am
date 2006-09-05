@@ -9,12 +9,33 @@ INCLUDES =		 			\
 	$(GNOME_GAMES_CFLAGS)			\
 	-I$(top_srcdir)/libgames-support	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DREAL_DATADIR=\""$(datadir)"\"
+	-DREAL_DATADIR=\""$(datadir)"\" 	\
+	@LIBGGZ_INCLUDES@ @GGZDMOD_INCLUDES@ @GGZ_GTK_INCLUDES@
 
-bin_PROGRAMS = gnibbles
+if GGZ_SERVER
+bin_PROGRAMS = gnibbles gnibblesd 
+gnibblesd_SOURCES = server.h   \
+		 server.c   
+
+gnibblesd_LDFLAGS = @GGZDMOD_LDFLAGS@
+
+gnibblesd_LDADD = \
+	$(GNOME_GAMES_LIBS)     \
+	$(INTLLIBS) 		\
+	@LIB_GGZDMOD@
+
+else
+bin_PROGRAMS = gnibbles 
+endif
 
 icon_DATA = gnome-nibbles.png
 svgicon_DATA = gnome-nibbles.svg
+
+if GGZ_CLIENT
+GGZ_FILES =	ggz-network.h \
+		ggz-network.c \
+		$(NULL)
+endif
 
 gnibbles_SOURCES = \
 	bonus.h \
@@ -29,8 +50,6 @@ gnibbles_SOURCES = \
 	worm.c \
 	gnibbles.h \
 	gnibbles.c \
-	network.c \
-	network.h \
 	properties.h \
 	properties.c \
 	preferences.h \
@@ -38,15 +57,17 @@ gnibbles_SOURCES = \
 	scoreboard.h \
 	scoreboard.c \
 	main.c \
-	main.h
+	main.h \
+	$(GGZ_FILES)
 
 gnibbles_LDADD = \
 	../libgames-support/libgames-support.la \
 	$(GNOME_GAMES_LIBS) \
-	$(AVAHI_LIBS) \
-	$(BONJOUR_LIBS) \
-	$(HOWL_LIBS) \
-	$(INTLLIBS)
+	$(INTLLIBS) \
+	$(LIB_GGZMOD) \
+	$(LIB_GGZ_GTK)
+
+gnibbles_LDFLAGS = $(GGZMOD_LDFLAGS)
 
 pixmap_DATA = \
 	gnibbles.png \
@@ -100,7 +121,10 @@ EXTRA_DIST = \
 	$(soundlist_in_files) \
 	$(schema_in_files) \
 	$(icon_DATA) \
-	$(svgicon_DATA)
+	$(svgicon_DATA) \
+	gnibbles-client.dsc.in \
+	gnibbles-server.dsc.in \
+        gnibbles.room          
 
 SUBDIRS=sounds help pix
 
@@ -112,6 +136,10 @@ install-data-local:
 if GCONF_SCHEMAS_INSTALL
 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/gnibbles/$(schema_DATA)
 endif
+if GGZ_CLIENT
+	$(GGZ_CONFIG) -D --install --modfile=gnibbles-client.dsc --force
+endif
+
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	-for i in ${SCOREFILES} ; do \
 	   touch $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
@@ -119,3 +147,18 @@ endif
 	   chmod 664 $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
 	 done
 	-if test "x$(setgid)" = "xtrue"; then chgrp $(scores_group) $(DESTDIR)$(bindir)/gnibbles && chmod 2555 $(DESTDIR)$(bindir)/gnibbles ; fi
+uninstall-local:
+if GGZ_CLIENT
+	-$(GGZ_CONFIG) -D --remove --modfile=gnibbles-client.dsc
+endif
+
+
+if GGZ_SERVER
+ggzroom_DATA = gnibbles.room
+ggzroomdir = ${prefix}/etc/ggzd/rooms/
+
+ggzgame_DATA = gnibbles-server.dsc
+ggzgamedir = ${prefix}/etc/ggzd/games/
+endif
+
+

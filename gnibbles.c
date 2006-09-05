@@ -35,6 +35,10 @@
 #include "properties.h"
 #include "scoreboard.h"
 
+#ifdef GGZ_CLIENT
+#include "ggz-network.h"
+#endif
+
 GnibblesWorm *worms[NUMWORMS];
 GnibblesBoni *boni = NULL;
 GnibblesWarpManager *warpmanager;
@@ -352,6 +356,12 @@ gnibbles_add_bonus (gint regular)
 {
 	gint x, y, good;
 
+	#ifdef GGZ_CLIENT
+	if (!network_is_host ()) {
+		return;
+	}
+	#endif
+
 	if (regular) {
 		good = 0;
 	} else {
@@ -446,7 +456,7 @@ gnibbles_add_bonus (gint regular)
 
 gint gnibbles_move_worms ()
 {
-	gint i, j, status = 1;
+	gint i, j, status = 1, nlives = 0;
 	gint *dead;
 
 	dead = g_new (gint, properties->numworms);
@@ -506,7 +516,17 @@ gint gnibbles_move_worms ()
 		if (dead[i]) {
 			if (properties->numworms > 1)
 				worms[i]->score *= .7;
-			status |= gnibbles_worm_lose_life (worms[i]) << 1;
+			if (ggz_network_mode) {
+				if (!gnibbles_worm_lose_life (worms[i])) {
+					gnibbles_worm_set_start (worms[i], 
+								 worms[i]->xstart, 
+								 worms[i]->ystart, 
+								 WORMDOWN);
+				}	
+
+			} else {
+				status |= gnibbles_worm_lose_life (worms[i]) << 1;
+			}
 		}
 
 	for (i = 0; i < properties->numworms; i++)
@@ -523,12 +543,33 @@ gint gnibbles_move_worms ()
 		return (GAMEOVER);
 	}
 
-	if (status)
+	for (i = 0; i < properties->numworms; i++) {
+		if (worms[i]->lives > 0) 
+			nlives += 1;   
+	}
+	if (ggz_network_mode && nlives == 1) {
+		return (VICTORY);
+	} 
+
+	if (status || ggz_network_mode)
 		return (CONTINUE);
 
 	gnibbles_play_sound ("crash");
 	g_free (dead);
 	return (NEWROUND);
+}
+
+
+gint gnibbles_get_winner (void) 
+{
+	int i;
+
+	for (i = 0; i < properties->numworms; i++) {
+		if (worms[i]->lives > 0) {
+			return i;
+		}
+	}
+	return -1;
 }
 
 gint gnibbles_keypress_worms (guint keyval)

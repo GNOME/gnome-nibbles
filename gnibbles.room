@@ -1,0 +1,12 @@
+[RoomInfo]
+# This is the short name for the room
+Name = Gnibbles 
+# This is the long descriptive name for the room
+Description = Gnibbles is a worms game for GNOME.
+# The gametype should match up to the Name of an added game
+GameType = Gnibbles 
+# Any additional game arguments specific to this room
+#ExecutableArgs = 
+# These set maximum values for this room
+MaxPlayers = 150
+MaxTables = 45

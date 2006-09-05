@@ -22,13 +22,25 @@
 
 #include <games-scores.h>
 
+#define MAIN_PAGE           	0
+#define NETWORK_PAGE           	1
+
+
+gboolean ggz_network_mode;
+int player_id;
+int num_players;
+int seat;
+int seats[4];
+char names[4][17];
+
 gint game_running (void);
 gint pause_game_cb (GtkAction *action, gpointer data);
 void end_game (gboolean);
 gint new_game (void); 
-void set_numworms (int num);
 gint main_loop (gpointer data);
 
 extern GamesScores *highscores;
+extern GtkWidget *notebook;
+extern GtkWidget *window;
 
 #endif

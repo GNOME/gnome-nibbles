@@ -29,7 +29,10 @@
 #include "bonus.h"
 #include "warpmanager.h"
 #include "properties.h"
-#include "network.h"
+#include "main.h"
+#ifdef GGZ_CLIENT
+#include "ggz-network.h"
+#endif
 
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 extern GnibblesWorm *worms[NUMWORMS];
@@ -110,7 +113,9 @@ gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
 			 gint t_direction)
 {
 	worm->xhead = t_xhead;
+	worm->xstart = t_xhead;
 	worm->yhead = t_yhead;
+	worm->ystart = t_yhead;
 	worm->xtail = t_xhead;
 	worm->ytail = t_yhead;
 	worm->direction = t_direction;
@@ -136,7 +141,7 @@ gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 
 
 
-        if (is_network_running ()) {
+        if (ggz_network_mode) {
 	  key_left = gdk_keyval_from_name (properties->wormprops[0]->left);
 	  key_right = gdk_keyval_from_name (properties->wormprops[0]->right);
 	  key_up = gdk_keyval_from_name (properties->wormprops[0]->up);
@@ -504,8 +509,10 @@ gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset)
 void
 worm_handle_direction (int worm, int dir)
 {
-	if (is_network_running ()) {
+	if (ggz_network_mode) {
+		#ifdef GGZ_CLIENT
     		network_game_move (dir);
+		#endif
 	} else {
 		worm_set_direction(worm, dir);
   	}	
