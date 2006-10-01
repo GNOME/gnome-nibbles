@@ -228,12 +228,13 @@ about_cb (GtkAction *action, gpointer data)
 	const gchar *authors[] = {"Sean MacIsaac", "Ian Peters", NULL};
 
 	const gchar *documenters[] = {"Kevin Breit", NULL};
+	gchar *license = games_get_license (_("Nibbles"));
 
 	gtk_show_about_dialog (GTK_WINDOW (window),
 			       "name", _("Nibbles"), 
 			       "version", VERSION,
 			       "copyright", "Copyright \xc2\xa9 1999-2006 Sean MacIsaac, Ian Peters",
-			       "license", "GPL 2+",
+			       "license", license,
 			       "comments", _("A worm game for GNOME."),
 			       "authors", authors,
 			       "documenters", documenters,
@@ -242,6 +243,7 @@ about_cb (GtkAction *action, gpointer data)
 			       "website", "http://www.gnome.org/projects/gnome-games/",
 			       "wrap-license", TRUE,
 			       NULL);
+	g_free (license);
 }
 
 static gint expose_event_cb (GtkWidget *widget, GdkEventExpose *event)
