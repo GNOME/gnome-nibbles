@@ -35,42 +35,41 @@
 
 #define GROWFACTOR 4
 
-typedef struct
-{
-	gint xhead, yhead;
-	gint xstart, ystart;
-	gint xtail, ytail;
-	gint direction;
-	gint8 *xoff, *yoff;
-	gint start, stop;
-	gint length;
-	gint change;
-	gint keypress;
-	gint lives;
-	guint score;
-	guint number;
+typedef struct {
+  gint xhead, yhead;
+  gint xstart, ystart;
+  gint xtail, ytail;
+  gint direction;
+  gint8 *xoff, *yoff;
+  gint start, stop;
+  gint length;
+  gint change;
+  gint keypress;
+  gint lives;
+  guint score;
+  guint number;
 } GnibblesWorm;
 
 GnibblesWorm *gnibbles_worm_new (guint t_number);
 
-void gnibbles_worm_destroy (GnibblesWorm *worm);
+void gnibbles_worm_destroy (GnibblesWorm * worm);
 
-void gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
-		gint t_direction);
+void gnibbles_worm_set_start (GnibblesWorm * worm, guint t_xhead,
+			      guint t_yhead, gint t_direction);
 
-gint gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval);
+gint gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval);
 
-gint gnibbles_worm_test_move_head (GnibblesWorm *worm);
+gint gnibbles_worm_test_move_head (GnibblesWorm * worm);
 
-void gnibbles_worm_move_tail (GnibblesWorm *worm);
+void gnibbles_worm_move_tail (GnibblesWorm * worm);
 
-void gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset);
+void gnibbles_worm_undraw_nth (GnibblesWorm * worm, gint offset);
 
-void gnibbles_worm_draw_head (GnibblesWorm *worm);
+void gnibbles_worm_draw_head (GnibblesWorm * worm);
 
-void gnibbles_worm_erase_tail (GnibblesWorm *worm);
+void gnibbles_worm_erase_tail (GnibblesWorm * worm);
 
-gint gnibbles_worm_lose_life (GnibblesWorm *worm);
+gint gnibbles_worm_lose_life (GnibblesWorm * worm);
 void worm_set_direction (int wrm, int dir);
 void worm_handle_direction (int wrm, int dir);
 #endif

@@ -48,31 +48,31 @@
 #define KEY_WORM_RIGHT "/apps/gnibbles/preferences/worm/%d/key_right"
 
 typedef struct {
-	gint color;
-	gboolean relmove;
-	gchar *up, *down, *left, *right;
+  gint color;
+  gboolean relmove;
+  gchar *up, *down, *left, *right;
 } GnibblesWormProps;
 
 typedef struct {
-	gint numworms;
-	gint gamespeed;
-	gint fakes;
-	gint random;
-	gint startlevel;
-	gint sound;
-	gint tilesize;
-	gint height;
-	gint width;
-	GnibblesWormProps *wormprops[NUMWORMS];
+  gint numworms;
+  gint gamespeed;
+  gint fakes;
+  gint random;
+  gint startlevel;
+  gint sound;
+  gint tilesize;
+  gint height;
+  gint width;
+  GnibblesWormProps *wormprops[NUMWORMS];
 } GnibblesProperties;
 
 GnibblesProperties *gnibbles_properties_new (void);
 
 void gnibbles_properties_update (GnibblesProperties * tmp);
 
-void gnibbles_properties_destroy (GnibblesProperties *props);
+void gnibbles_properties_destroy (GnibblesProperties * props);
 
-GnibblesProperties *gnibbles_properties_copy (GnibblesProperties *props);
+GnibblesProperties *gnibbles_properties_copy (GnibblesProperties * props);
 
 void gnibbles_properties_set_worms_number (gint value);
 void gnibbles_properties_set_speed (gint value);
@@ -83,13 +83,13 @@ void gnibbles_properties_set_sound (gboolean value);
 void gnibbles_properties_set_tile_size (gint value);
 void gnibbles_properties_set_worm_relative_movement (gint i, gboolean value);
 void gnibbles_properties_set_worm_color (gint i, gint value);
-void gnibbles_properties_set_worm_up (gint i, gchar *value);
-void gnibbles_properties_set_worm_down (gint i, gchar *value);
-void gnibbles_properties_set_worm_left (gint i, gchar *value);
-void gnibbles_properties_set_worm_right (gint i, gchar *value);
+void gnibbles_properties_set_worm_up (gint i, gchar * value);
+void gnibbles_properties_set_worm_down (gint i, gchar * value);
+void gnibbles_properties_set_worm_left (gint i, gchar * value);
+void gnibbles_properties_set_worm_right (gint i, gchar * value);
 void gnibbles_properties_set_height (gint value);
 void gnibbles_properties_set_width (gint value);
 
-void gnibbles_properties_save (GnibblesProperties *props);
+void gnibbles_properties_save (GnibblesProperties * props);
 
 #endif

@@ -45,14 +45,14 @@ int fd;
 
 extern char *game_server;
 
-void network_init(void);
-void network_game_move(guint);
-void network_add_bonus(gint t_x, gint t_y,
-		       gint t_type, gint t_fake, gint t_countdown);
-void network_remove_bonus(gint x, gint y);
-gboolean network_is_host(void);
-void network_move_worms(void);
-void network_req_settings(int speed, int fake, int startlevel);
-void on_network_game(void);
+void network_init (void);
+void network_game_move (guint);
+void network_add_bonus (gint t_x, gint t_y,
+			gint t_type, gint t_fake, gint t_countdown);
+void network_remove_bonus (gint x, gint y);
+gboolean network_is_host (void);
+void network_move_worms (void);
+void network_req_settings (int speed, int fake, int startlevel);
+void on_network_game (void);
 
 #endif

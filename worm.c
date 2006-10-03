@@ -44,95 +44,97 @@ extern GnibblesProperties *properties;
 extern gint current_level;
 
 typedef struct _key_queue_entry {
-	GnibblesWorm *worm;
-	guint dir;
+  GnibblesWorm *worm;
+  guint dir;
 } key_queue_entry;
 
-static GQueue *key_queue[NUMWORMS] = {NULL, NULL, NULL, NULL};
+static GQueue *key_queue[NUMWORMS] = { NULL, NULL, NULL, NULL };
 
-static void gnibbles_worm_queue_keypress (GnibblesWorm *worm, guint dir)
+static void
+gnibbles_worm_queue_keypress (GnibblesWorm * worm, guint dir)
 {
-	key_queue_entry *entry;
-	int n = worm->number;
+  key_queue_entry *entry;
+  int n = worm->number;
 
-	if (key_queue[n] == NULL)
-		key_queue[n] = g_queue_new ();
+  if (key_queue[n] == NULL)
+    key_queue[n] = g_queue_new ();
 
-	/* Ignore duplicates in normal movement mode. This resolves the
-	 * key repeat issue. We ignore this in relative mode because then
-	 * you do want two keys that are the same in quick succession. */
-	if ((!properties->wormprops[worm->number]->relmove) && 
-	    (!g_queue_is_empty (key_queue[n])) &&
-	    (dir == ((key_queue_entry *) g_queue_peek_tail (key_queue[n]))->dir))
-		return;
+  /* Ignore duplicates in normal movement mode. This resolves the
+   * key repeat issue. We ignore this in relative mode because then
+   * you do want two keys that are the same in quick succession. */
+  if ((!properties->wormprops[worm->number]->relmove) &&
+      (!g_queue_is_empty (key_queue[n])) &&
+      (dir == ((key_queue_entry *) g_queue_peek_tail (key_queue[n]))->dir))
+    return;
 
-	entry = g_malloc (sizeof(key_queue_entry));
-	entry->worm = worm;
-	entry->dir = dir;
-	g_queue_push_tail (key_queue[n], (gpointer) entry);
+  entry = g_malloc (sizeof (key_queue_entry));
+  entry->worm = worm;
+  entry->dir = dir;
+  g_queue_push_tail (key_queue[n], (gpointer) entry);
 }
 
-static void gnibbles_worm_queue_empty (GnibblesWorm *worm)
+static void
+gnibbles_worm_queue_empty (GnibblesWorm * worm)
 {
-	key_queue_entry *entry;
-	int n = worm->number;
+  key_queue_entry *entry;
+  int n = worm->number;
 
-	if (!key_queue[n])
-		return;
+  if (!key_queue[n])
+    return;
 
-	while (!g_queue_is_empty (key_queue[n])) {
-		entry = g_queue_pop_head (key_queue[n]);
-		g_free (entry);
-	}
+  while (!g_queue_is_empty (key_queue[n])) {
+    entry = g_queue_pop_head (key_queue[n]);
+    g_free (entry);
+  }
 }
 
 GnibblesWorm *
 gnibbles_worm_new (guint t_number)
 {
-        GnibblesWorm *tmp = (GnibblesWorm *) g_malloc (sizeof (GnibblesWorm));
+  GnibblesWorm *tmp = (GnibblesWorm *) g_malloc (sizeof (GnibblesWorm));
 
-	tmp->xoff = (gint8 *) malloc (CAPACITY * sizeof (gint8));
-	tmp->yoff = (gint8 *) malloc (CAPACITY * sizeof (gint8));
-	tmp->lives = SLIVES;
-	tmp->score = 0;
-	tmp->number = t_number;
+  tmp->xoff = (gint8 *) malloc (CAPACITY * sizeof (gint8));
+  tmp->yoff = (gint8 *) malloc (CAPACITY * sizeof (gint8));
+  tmp->lives = SLIVES;
+  tmp->score = 0;
+  tmp->number = t_number;
 
-        return tmp;
+  return tmp;
 }
 
-void 
-gnibbles_worm_destroy (GnibblesWorm *worm)
+void
+gnibbles_worm_destroy (GnibblesWorm * worm)
 {
-	free (worm->xoff);
-	free (worm->yoff);
-	free (worm);
+  free (worm->xoff);
+  free (worm->yoff);
+  free (worm);
 }
 
-void 
-gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead, guint t_yhead,
+void
+gnibbles_worm_set_start (GnibblesWorm * worm, guint t_xhead, guint t_yhead,
 			 gint t_direction)
 {
-	worm->xhead = t_xhead;
-	worm->xstart = t_xhead;
-	worm->yhead = t_yhead;
-	worm->ystart = t_yhead;
-	worm->xtail = t_xhead;
-	worm->ytail = t_yhead;
-	worm->direction = t_direction;
-	worm->xoff[0] = 0;
-	worm->yoff[0] = 0;
-	worm->start = 0;
-	worm->stop = 0;
-	worm->length = 1;
-	worm->change = SLENGTH - 1;
-	worm->keypress = 0;
-	gnibbles_worm_queue_empty (worm);
+  worm->xhead = t_xhead;
+  worm->xstart = t_xhead;
+  worm->yhead = t_yhead;
+  worm->ystart = t_yhead;
+  worm->xtail = t_xhead;
+  worm->ytail = t_yhead;
+  worm->direction = t_direction;
+  worm->xoff[0] = 0;
+  worm->yoff[0] = 0;
+  worm->start = 0;
+  worm->stop = 0;
+  worm->length = 1;
+  worm->change = SLENGTH - 1;
+  worm->keypress = 0;
+  gnibbles_worm_queue_empty (worm);
 }
 
 gint
-gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
+gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
 {
-	gint key_left, key_right, key_up, key_down;
+  gint key_left, key_right, key_up, key_down;
 
 /*	if (worm->keypress) {
                 gnibbles_worm_queue_keypress (worm, keyval);
@@ -141,366 +143,357 @@ gnibbles_worm_handle_keypress (GnibblesWorm *worm, guint keyval)
 
 
 
-        if (ggz_network_mode) {
-	  key_left = gdk_keyval_from_name (properties->wormprops[0]->left);
-	  key_right = gdk_keyval_from_name (properties->wormprops[0]->right);
-	  key_up = gdk_keyval_from_name (properties->wormprops[0]->up);
-	  key_down = gdk_keyval_from_name (properties->wormprops[0]->down);
-        } else {
-	  key_left = gdk_keyval_from_name (properties->wormprops[worm->number]->left);
-	  key_right = gdk_keyval_from_name (properties->wormprops[worm->number]->right);
-	  key_up = gdk_keyval_from_name (properties->wormprops[worm->number]->up);
-	  key_down = gdk_keyval_from_name (properties->wormprops[worm->number]->down);
-	}
+  if (ggz_network_mode) {
+    key_left = gdk_keyval_from_name (properties->wormprops[0]->left);
+    key_right = gdk_keyval_from_name (properties->wormprops[0]->right);
+    key_up = gdk_keyval_from_name (properties->wormprops[0]->up);
+    key_down = gdk_keyval_from_name (properties->wormprops[0]->down);
+  } else {
+    key_left =
+      gdk_keyval_from_name (properties->wormprops[worm->number]->left);
+    key_right =
+      gdk_keyval_from_name (properties->wormprops[worm->number]->right);
+    key_up = gdk_keyval_from_name (properties->wormprops[worm->number]->up);
+    key_down =
+      gdk_keyval_from_name (properties->wormprops[worm->number]->down);
+  }
 
-	if (properties->wormprops[worm->number]->relmove) {
-		if (keyval == key_left)
-			worm_handle_direction(worm->number, worm->direction - 1);
-		else if (keyval == key_right)
-			worm_handle_direction(worm->number, worm->direction + 1);
-                else
-                        return FALSE;
-                return TRUE;
-	} else {
-		if ((keyval == key_up) && (worm->direction != WORMDOWN)) {
-			worm_handle_direction(worm->number, WORMUP);
-			/*worm->keypress = 1;*/
-                        return TRUE;
-		}
-		if ((keyval == key_right) && (worm->direction !=WORMLEFT)) {
-			worm_handle_direction(worm->number, WORMRIGHT);
-			/*worm->keypress = 1;*/
-                        return TRUE;
-		}
-		if ((keyval == key_down) && (worm->direction != WORMUP)) {
-			worm_handle_direction(worm->number, WORMDOWN);
-			/*worm->keypress = 1;*/
-                        return TRUE;
-		}
-		if ((keyval == key_left) && (worm->direction != WORMRIGHT)) {
-			worm_handle_direction(worm->number, WORMLEFT);
-			/*worm->keypress = 1;*/
-                        return TRUE;
-		}
-	}
-        return FALSE;
+  if (properties->wormprops[worm->number]->relmove) {
+    if (keyval == key_left)
+      worm_handle_direction (worm->number, worm->direction - 1);
+    else if (keyval == key_right)
+      worm_handle_direction (worm->number, worm->direction + 1);
+    else
+      return FALSE;
+    return TRUE;
+  } else {
+    if ((keyval == key_up) && (worm->direction != WORMDOWN)) {
+      worm_handle_direction (worm->number, WORMUP);
+      /*worm->keypress = 1; */
+      return TRUE;
+    }
+    if ((keyval == key_right) && (worm->direction != WORMLEFT)) {
+      worm_handle_direction (worm->number, WORMRIGHT);
+      /*worm->keypress = 1; */
+      return TRUE;
+    }
+    if ((keyval == key_down) && (worm->direction != WORMUP)) {
+      worm_handle_direction (worm->number, WORMDOWN);
+      /*worm->keypress = 1; */
+      return TRUE;
+    }
+    if ((keyval == key_left) && (worm->direction != WORMRIGHT)) {
+      worm_handle_direction (worm->number, WORMLEFT);
+      /*worm->keypress = 1; */
+      return TRUE;
+    }
+  }
+  return FALSE;
 }
 
-static void gnibbles_worm_dequeue_keypress (GnibblesWorm * worm)
+static void
+gnibbles_worm_dequeue_keypress (GnibblesWorm * worm)
 {
-	key_queue_entry *entry;
-	int n = worm->number;
+  key_queue_entry *entry;
+  int n = worm->number;
 
-	entry = (key_queue_entry *) g_queue_pop_head (key_queue[n]);
+  entry = (key_queue_entry *) g_queue_pop_head (key_queue[n]);
 
-	worm_set_direction (entry->worm->number, entry->dir);
+  worm_set_direction (entry->worm->number, entry->dir);
 
-	g_free (entry);
+  g_free (entry);
 }
 
 static gint
 gnibbles_worm_reverse (gpointer data)
 {
-	gint i, j, temp;
-	GnibblesWorm *worm;
+  gint i, j, temp;
+  GnibblesWorm *worm;
 
-	worm = (GnibblesWorm *) data;
-	temp = worm->xhead;
-	worm->xhead = worm->xtail;
-	worm->xtail = temp;
-	temp = worm->yhead;
-	worm->yhead = worm->ytail;
-	worm->ytail = temp;
-	temp = worm->yhead;
-	i = worm->start - 1;
-	j = worm->stop;
-	while (i != j && i != j - 1) {
-		temp = worm->xoff[j];
-		worm->xoff[j] = -worm->xoff[i];
-		worm->xoff[i] = -temp;
-		temp = worm->yoff[j];
-		worm->yoff[j] = -worm->yoff[i];
-		worm->yoff[i] = -temp;
-		i--;
-		j++;
-	}
-	if (j == i) {
-		worm->xoff[j] *= -1;
-		worm->yoff[j] *= -1;
-	}
-	if (worm->xoff[worm->start - 1] == 1)
-		worm->direction = WORMLEFT;
-	if (worm->xoff[worm->start - 1] == -1)
-		worm->direction = WORMRIGHT;
-	if (worm->yoff[worm->start - 1] == 1)
-		worm->direction = WORMUP;
-	if (worm->yoff[worm->start - 1] == -1)
-		worm->direction = WORMDOWN;
+  worm = (GnibblesWorm *) data;
+  temp = worm->xhead;
+  worm->xhead = worm->xtail;
+  worm->xtail = temp;
+  temp = worm->yhead;
+  worm->yhead = worm->ytail;
+  worm->ytail = temp;
+  temp = worm->yhead;
+  i = worm->start - 1;
+  j = worm->stop;
+  while (i != j && i != j - 1) {
+    temp = worm->xoff[j];
+    worm->xoff[j] = -worm->xoff[i];
+    worm->xoff[i] = -temp;
+    temp = worm->yoff[j];
+    worm->yoff[j] = -worm->yoff[i];
+    worm->yoff[i] = -temp;
+    i--;
+    j++;
+  }
+  if (j == i) {
+    worm->xoff[j] *= -1;
+    worm->yoff[j] *= -1;
+  }
+  if (worm->xoff[worm->start - 1] == 1)
+    worm->direction = WORMLEFT;
+  if (worm->xoff[worm->start - 1] == -1)
+    worm->direction = WORMRIGHT;
+  if (worm->yoff[worm->start - 1] == 1)
+    worm->direction = WORMUP;
+  if (worm->yoff[worm->start - 1] == -1)
+    worm->direction = WORMDOWN;
 
-	return FALSE;
+  return FALSE;
 }
 
 static void
-gnibbles_worm_grok_bonus (GnibblesWorm *worm)
+gnibbles_worm_grok_bonus (GnibblesWorm * worm)
 {
-	int i;
+  int i;
 
-	if (gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
-		g_timeout_add(1, (GtkFunction) gnibbles_worm_reverse, worm);
-		gnibbles_play_sound ("reverse");
-		return;
-	}
+  if (gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
+    g_timeout_add (1, (GtkFunction) gnibbles_worm_reverse, worm);
+    gnibbles_play_sound ("reverse");
+    return;
+  }
 
-	switch (board[worm->xhead][worm->yhead] - 'A') {
-		case BONUSREGULAR:
-			boni->numleft--;
-			worm->change += (NUMBONI - boni->numleft) * GROWFACTOR;
-			worm->score += (NUMBONI - boni->numleft) *
-				current_level;
-			gnibbles_play_sound ("gobble");
-			break;
-		case BONUSDOUBLE:
-			worm->score += (worm->length + worm->change) *
-				current_level;
-			worm->change += worm->length + worm->change;
-			gnibbles_play_sound ("bonus");
-			break;
-		case BONUSHALF:
-			if (worm->length + worm->change > 2) {
-				worm->score += ((worm->length + worm->change) /
-					2) * current_level;
-				worm->change -= (worm->length + worm->change) /
-					2;
-				gnibbles_play_sound ("bonus");
-			}
-			break;
-		case BONUSLIFE:
-			worm->lives += 1;
-			gnibbles_play_sound ("life");
-			break;
-		case BONUSREVERSE:
-			for (i = 0; i < properties->numworms; i++)
-				if (worm != worms[i])
-					g_timeout_add (1, (GSourceFunc)
-							 gnibbles_worm_reverse,
-							 worms[i]);
-			gnibbles_play_sound ("reverse");
-			break;
-	}
+  switch (board[worm->xhead][worm->yhead] - 'A') {
+  case BONUSREGULAR:
+    boni->numleft--;
+    worm->change += (NUMBONI - boni->numleft) * GROWFACTOR;
+    worm->score += (NUMBONI - boni->numleft) * current_level;
+    gnibbles_play_sound ("gobble");
+    break;
+  case BONUSDOUBLE:
+    worm->score += (worm->length + worm->change) * current_level;
+    worm->change += worm->length + worm->change;
+    gnibbles_play_sound ("bonus");
+    break;
+  case BONUSHALF:
+    if (worm->length + worm->change > 2) {
+      worm->score += ((worm->length + worm->change) / 2) * current_level;
+      worm->change -= (worm->length + worm->change) / 2;
+      gnibbles_play_sound ("bonus");
+    }
+    break;
+  case BONUSLIFE:
+    worm->lives += 1;
+    gnibbles_play_sound ("life");
+    break;
+  case BONUSREVERSE:
+    for (i = 0; i < properties->numworms; i++)
+      if (worm != worms[i])
+	g_timeout_add (1, (GSourceFunc)
+		       gnibbles_worm_reverse, worms[i]);
+    gnibbles_play_sound ("reverse");
+    break;
+  }
 }
 
 void
-gnibbles_worm_draw_head (GnibblesWorm *worm)
-{	
-	worm->keypress = 0;
+gnibbles_worm_draw_head (GnibblesWorm * worm)
+{
+  worm->keypress = 0;
 
-	switch (worm->direction) {
-		case WORMUP:
-			worm->xoff[worm->start] = 0;
-			worm->yoff[worm->start] = 1;
-			worm->yhead--;
-			break;
-		case WORMDOWN:
-			worm->xoff[worm->start] = 0;
-			worm->yoff[worm->start] = -1;
-			worm->yhead++;
-			break;
-		case WORMLEFT:
-			worm->xoff[worm->start] = 1;
-			worm->yoff[worm->start] = 0;
-			worm->xhead--;
-			break;
-		case WORMRIGHT:
-			worm->xoff[worm->start] = -1;
-			worm->yoff[worm->start] = 0;
-			worm->xhead++;
-			break;
-	}
+  switch (worm->direction) {
+  case WORMUP:
+    worm->xoff[worm->start] = 0;
+    worm->yoff[worm->start] = 1;
+    worm->yhead--;
+    break;
+  case WORMDOWN:
+    worm->xoff[worm->start] = 0;
+    worm->yoff[worm->start] = -1;
+    worm->yhead++;
+    break;
+  case WORMLEFT:
+    worm->xoff[worm->start] = 1;
+    worm->yoff[worm->start] = 0;
+    worm->xhead--;
+    break;
+  case WORMRIGHT:
+    worm->xoff[worm->start] = -1;
+    worm->yoff[worm->start] = 0;
+    worm->xhead++;
+    break;
+  }
 
-	if (worm->xhead == BOARDWIDTH) {
-		worm->xhead = 0;
-		worm->xoff[worm->start] += BOARDWIDTH;
-	}
-	if (worm->xhead < 0) {
-		worm->xhead = BOARDWIDTH - 1;
-		worm->xoff[worm->start] -= BOARDWIDTH;
-	}
-	if (worm->yhead == BOARDHEIGHT) {
-		worm->yhead = 0;
-		worm->yoff[worm->start] += BOARDHEIGHT;
-	}
-	if (worm->yhead < 0) {
-		worm->yhead = BOARDHEIGHT - 1;
-		worm->yoff[worm->start] -= BOARDHEIGHT;
-	}
+  if (worm->xhead == BOARDWIDTH) {
+    worm->xhead = 0;
+    worm->xoff[worm->start] += BOARDWIDTH;
+  }
+  if (worm->xhead < 0) {
+    worm->xhead = BOARDWIDTH - 1;
+    worm->xoff[worm->start] -= BOARDWIDTH;
+  }
+  if (worm->yhead == BOARDHEIGHT) {
+    worm->yhead = 0;
+    worm->yoff[worm->start] += BOARDHEIGHT;
+  }
+  if (worm->yhead < 0) {
+    worm->yhead = BOARDHEIGHT - 1;
+    worm->yoff[worm->start] -= BOARDHEIGHT;
+  }
 
-	if ((board[worm->xhead][worm->yhead] != EMPTYCHAR) &&
-			(board[worm->xhead][worm->yhead] != WARPLETTER)) {
-		gnibbles_worm_grok_bonus (worm);
-		if ((board[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
-				!gnibbles_boni_fake (boni, worm->xhead,
-				worm->yhead)) {
-			gnibbles_boni_remove_bonus_final (boni, worm->xhead,
-					worm->yhead);
-			if (boni->numleft != 0)
-				gnibbles_add_bonus (1);
-		} else
-			gnibbles_boni_remove_bonus_final (boni, worm->xhead,
-					worm->yhead);
-	}
+  if ((board[worm->xhead][worm->yhead] != EMPTYCHAR) &&
+      (board[worm->xhead][worm->yhead] != WARPLETTER)) {
+    gnibbles_worm_grok_bonus (worm);
+    if ((board[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
+	!gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
+      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+      if (boni->numleft != 0)
+	gnibbles_add_bonus (1);
+    } else
+      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+  }
 
-	if (board[worm->xhead][worm->yhead] == WARPLETTER) {
-		gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
-		gnibbles_play_sound ("teleport");
-	}
+  if (board[worm->xhead][worm->yhead] == WARPLETTER) {
+    gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
+    gnibbles_play_sound ("teleport");
+  }
 
-	worm->start++;
+  worm->start++;
 
-	if (worm->start == CAPACITY)
-		worm->start = 0;
-		
-	board[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
+  if (worm->start == CAPACITY)
+    worm->start = 0;
 
-	gnibbles_draw_pixmap (properties->wormprops[worm->number]->color,
+  board[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
+
+  gnibbles_draw_pixmap (properties->wormprops[worm->number]->color,
 			worm->xhead, worm->yhead);
 
-	if (key_queue[worm->number] && 
-	    !g_queue_is_empty (key_queue[worm->number])) {
-		gnibbles_worm_dequeue_keypress (worm);
-	}
+  if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
+    gnibbles_worm_dequeue_keypress (worm);
+  }
 }
 
 gint
-gnibbles_worm_test_move_head(GnibblesWorm *worm)
+gnibbles_worm_test_move_head (GnibblesWorm * worm)
 {
-	int x, y;
+  int x, y;
 
-	x = worm->xhead;
-	y = worm->yhead;
+  x = worm->xhead;
+  y = worm->yhead;
 
-	switch (worm->direction) {
-		case WORMUP:
-			y = worm->yhead - 1;
-			break;
-		case WORMDOWN:
-			y = worm->yhead + 1;
-			break;
-		case WORMLEFT:
-			x = worm->xhead - 1;
-			break;
-		case WORMRIGHT:
-			x = worm->xhead + 1;
-			break;
-	}
+  switch (worm->direction) {
+  case WORMUP:
+    y = worm->yhead - 1;
+    break;
+  case WORMDOWN:
+    y = worm->yhead + 1;
+    break;
+  case WORMLEFT:
+    x = worm->xhead - 1;
+    break;
+  case WORMRIGHT:
+    x = worm->xhead + 1;
+    break;
+  }
 
-	if (x == BOARDWIDTH) {
-		x = 0;
-	}
-	if (x < 0) {
-		x = BOARDWIDTH - 1;
-	}
-	if (y == BOARDHEIGHT) {
-		y = 0;
-	}
-	if (y < 0) {
-		y = BOARDHEIGHT - 1;
-	}
+  if (x == BOARDWIDTH) {
+    x = 0;
+  }
+  if (x < 0) {
+    x = BOARDWIDTH - 1;
+  }
+  if (y == BOARDHEIGHT) {
+    y = 0;
+  }
+  if (y < 0) {
+    y = BOARDHEIGHT - 1;
+  }
 
-	if (board[x][y] > EMPTYCHAR && board[x][y] < 'z')
-		return (FALSE);
+  if (board[x][y] > EMPTYCHAR && board[x][y] < 'z')
+    return (FALSE);
 
-	return (TRUE);
+  return (TRUE);
 }
 
 void
-gnibbles_worm_erase_tail (GnibblesWorm *worm)
+gnibbles_worm_erase_tail (GnibblesWorm * worm)
 {
-	if (worm->change <= 0) {
-		board[worm->xtail][worm->ytail] = EMPTYCHAR;
-		if (worm->change) {
-			board[worm->xtail - worm->xoff[worm->stop]]
-				[worm->ytail - worm->yoff[worm->stop]] =
-				EMPTYCHAR;
-		}
-	}
+  if (worm->change <= 0) {
+    board[worm->xtail][worm->ytail] = EMPTYCHAR;
+    if (worm->change) {
+      board[worm->xtail - worm->xoff[worm->stop]]
+	[worm->ytail - worm->yoff[worm->stop]] = EMPTYCHAR;
+    }
+  }
 }
 
 void
-gnibbles_worm_move_tail (GnibblesWorm *worm)
+gnibbles_worm_move_tail (GnibblesWorm * worm)
 {
-	if (worm->change <= 0) {
-		gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
-		worm->xtail -= worm->xoff[worm->stop];
-		worm->ytail -= worm->yoff[worm->stop];
-		worm->stop++;
-		if (worm->stop == CAPACITY)
-			worm->stop = 0;
-		if (worm->change) {
-			gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail,
-					worm->ytail);
-			board[worm->xtail][worm->ytail] = EMPTYCHAR;
-			worm->xtail -= worm->xoff[worm->stop];
-			worm->ytail -= worm->yoff[worm->stop];
-			worm->stop++;
-			if (worm->stop == CAPACITY)
-				worm->stop = 0;
-			worm->change++;
-			worm->length--;
-		}
-	} else {
-		worm->change--;
-		worm->length++;
-	}
+  if (worm->change <= 0) {
+    gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
+    worm->xtail -= worm->xoff[worm->stop];
+    worm->ytail -= worm->yoff[worm->stop];
+    worm->stop++;
+    if (worm->stop == CAPACITY)
+      worm->stop = 0;
+    if (worm->change) {
+      gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
+      board[worm->xtail][worm->ytail] = EMPTYCHAR;
+      worm->xtail -= worm->xoff[worm->stop];
+      worm->ytail -= worm->yoff[worm->stop];
+      worm->stop++;
+      if (worm->stop == CAPACITY)
+	worm->stop = 0;
+      worm->change++;
+      worm->length--;
+    }
+  } else {
+    worm->change--;
+    worm->length++;
+  }
 }
 
 gint
-gnibbles_worm_lose_life (GnibblesWorm *worm)
+gnibbles_worm_lose_life (GnibblesWorm * worm)
 {
-	worm->lives--;
-	if (worm->lives < 0)
-		return 1;
+  worm->lives--;
+  if (worm->lives < 0)
+    return 1;
 
-	return 0;
+  return 0;
 }
 
 void
-gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset)
+gnibbles_worm_undraw_nth (GnibblesWorm * worm, gint offset)
 {
-	int x, y, i, j;
+  int x, y, i, j;
 
-	x = worm->xhead;
-	y = worm->yhead;
+  x = worm->xhead;
+  y = worm->yhead;
 
-	i = worm->start - 1;
-	if (i <= 0)
-		i = CAPACITY - 1;
+  i = worm->start - 1;
+  if (i <= 0)
+    i = CAPACITY - 1;
 
-	for (j = 0; j < offset; j++) {
-		if ((worm->stop == 0 && i == CAPACITY - 1) ||
-				(worm->stop != 0 &&
-				 i == worm->stop - 1))
-			return;
-		x += worm->xoff[i];
-		y += worm->yoff[i];
-		i--;
-		if (i == 0)
-			i = CAPACITY - 1;
-	}
+  for (j = 0; j < offset; j++) {
+    if ((worm->stop == 0 && i == CAPACITY - 1) ||
+	(worm->stop != 0 && i == worm->stop - 1))
+      return;
+    x += worm->xoff[i];
+    y += worm->yoff[i];
+    i--;
+    if (i == 0)
+      i = CAPACITY - 1;
+  }
 
-	while (1) {
-		gnibbles_draw_pixmap (BLANKPIXMAP, x, y);
-		for (j = 0; j < ERASESIZE; j++) {
-			x += worm->xoff[i];
-			y += worm->yoff[i];
-			if ((worm->stop == 0 && i == CAPACITY - 1) ||
-					(worm->stop != 0 &&
-					 i == worm->stop - 1))
-				return;
-			i--;
-			if (i == 0 && worm->stop == 0)
-				i = CAPACITY - 1;
-		}
-	}
+  while (1) {
+    gnibbles_draw_pixmap (BLANKPIXMAP, x, y);
+    for (j = 0; j < ERASESIZE; j++) {
+      x += worm->xoff[i];
+      y += worm->yoff[i];
+      if ((worm->stop == 0 && i == CAPACITY - 1) ||
+	  (worm->stop != 0 && i == worm->stop - 1))
+	return;
+      i--;
+      if (i == 0 && worm->stop == 0)
+	i = CAPACITY - 1;
+    }
+  }
 
 
 }
@@ -509,34 +502,33 @@ gnibbles_worm_undraw_nth (GnibblesWorm *worm, gint offset)
 void
 worm_handle_direction (int worm, int dir)
 {
-	if (ggz_network_mode) {
-		#ifdef GGZ_CLIENT
-    		network_game_move (dir);
-		#endif
-	} else {
-		worm_set_direction(worm, dir);
-  	}	
+  if (ggz_network_mode) {
+#ifdef GGZ_CLIENT
+    network_game_move (dir);
+#endif
+  } else {
+    worm_set_direction (worm, dir);
+  }
 }
 
 
 void
 worm_set_direction (int worm, int dir)
 {
-        if (worms[worm]) {
+  if (worms[worm]) {
 
-		if (dir > 4)
-			dir = 1;
-		if (dir < 1)
-			dir = 4;
+    if (dir > 4)
+      dir = 1;
+    if (dir < 1)
+      dir = 4;
 
-		if (worms[worm]->keypress) {
-        		gnibbles_worm_queue_keypress (worms[worm], dir);
-                	return;
-        	} 
+    if (worms[worm]->keypress) {
+      gnibbles_worm_queue_keypress (worms[worm], dir);
+      return;
+    }
 
-               	worms[worm]->direction = dir;
-		worms[worm]->keypress = 1;
-        }
+    worms[worm]->direction = dir;
+    worms[worm]->keypress = 1;
+  }
 
 }
-

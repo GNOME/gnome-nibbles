@@ -33,17 +33,17 @@
 #define BONUSSWITCH	7
 
 typedef struct {
-	gint x, y;
-	guint type;
-	gint fake;
-	gint countdown;
+  gint x, y;
+  guint type;
+  gint fake;
+  gint countdown;
 } GnibblesBonus;
 
 GnibblesBonus *gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
-		gint t_fake, gint t_countdown);
+				   gint t_fake, gint t_countdown);
 
-void gnibbles_bonus_draw (GnibblesBonus *bonus);
+void gnibbles_bonus_draw (GnibblesBonus * bonus);
 
-void gnibbles_bonus_erase (GnibblesBonus *bonus);
+void gnibbles_bonus_erase (GnibblesBonus * bonus);
 
 #endif

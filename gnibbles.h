@@ -46,7 +46,7 @@
 #define CONTINUE 0
 #define NEWROUND 1
 #define GAMEOVER 2
-#define VICTORY 3 
+#define VICTORY 3
 
 #define GAMEDELAY 35
 #define BONUSDELAY 100
@@ -59,20 +59,20 @@ void gnibbles_draw_pixmap (gint which, gint x, gint y);
 void gnibbles_draw_big_pixmap (gint which, gint x, gint y);
 void gnibbles_draw_pixmap_buffer (gint which, gint x, gint y);
 void gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y);
-void gnibbles_load_pixmap (GtkWidget *window);
-void gnibbles_load_logo (GtkWidget *window);
-void gnibbles_load_level (GtkWidget *window, gint level);
+void gnibbles_load_pixmap (GtkWidget * window);
+void gnibbles_load_logo (GtkWidget * window);
+void gnibbles_load_level (GtkWidget * window, gint level);
 void gnibbles_init (void);
 void gnibbles_add_bonus (gint regular);
 gint gnibbles_move_worms (void);
-gint gnibbles_get_winner (void); 
+gint gnibbles_get_winner (void);
 gint gnibbles_keypress_worms (guint keyval);
 void gnibbles_undraw_worms (gint data);
 void gnibbles_play_sound (const char *which);
-void gnibbles_show_scores (GtkWidget *window, gint pos);
-void gnibbles_log_score (GtkWidget *window);
+void gnibbles_show_scores (GtkWidget * window, gint pos);
+void gnibbles_log_score (GtkWidget * window);
 void gnibbles_add_spec_bonus (gint t_x, gint t_y,
-      		         gint t_type, gint t_fake, gint t_countdown);
+			      gint t_type, gint t_fake, gint t_countdown);
 void gnibbles_remove_spec_bonus (gint x, gint y);
 
 #endif

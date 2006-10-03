@@ -27,79 +27,75 @@
 #include "scoreboard.h"
 
 GnibblesScoreboard *
-gnibbles_scoreboard_new (GtkWidget *t_appbar)
+gnibbles_scoreboard_new (GtkWidget * t_appbar)
 {
-	int i;
-	char buffer[255];
-	GtkWidget *hbox;
+  int i;
+  char buffer[255];
+  GtkWidget *hbox;
 
-	GnibblesScoreboard *tmp = (GnibblesScoreboard *) malloc (sizeof
-			(GnibblesScoreboard));
+  GnibblesScoreboard *tmp = (GnibblesScoreboard *) malloc (sizeof
+							   (GnibblesScoreboard));
 
-	tmp->count = 0;
+  tmp->count = 0;
 
-	for (i = 0; i < NUMWORMS; i++) {
-		hbox = gtk_hbox_new (FALSE, GNOME_PAD);
-		gtk_widget_show (hbox);
+  for (i = 0; i < NUMWORMS; i++) {
+    hbox = gtk_hbox_new (FALSE, GNOME_PAD);
+    gtk_widget_show (hbox);
 
-		sprintf (buffer, _("Worm %d:"), i + 1);
-		tmp->names[i] = gtk_label_new (buffer);
-		gtk_widget_set_sensitive (tmp->names[i], FALSE);
-		gtk_widget_show (tmp->names[i]);
-		gtk_box_pack_start (GTK_BOX (hbox), tmp->names[i], FALSE,
-				FALSE, 0);
-		tmp->data[i] = gtk_label_new ("00, 00000");
-		gtk_widget_set_sensitive (tmp->data[i], FALSE);
-		gtk_widget_show (tmp->data[i]);
-		gtk_box_pack_start (GTK_BOX (hbox), tmp->data[i], FALSE, FALSE,
-				0);
+    sprintf (buffer, _("Worm %d:"), i + 1);
+    tmp->names[i] = gtk_label_new (buffer);
+    gtk_widget_set_sensitive (tmp->names[i], FALSE);
+    gtk_widget_show (tmp->names[i]);
+    gtk_box_pack_start (GTK_BOX (hbox), tmp->names[i], FALSE, FALSE, 0);
+    tmp->data[i] = gtk_label_new ("00, 00000");
+    gtk_widget_set_sensitive (tmp->data[i], FALSE);
+    gtk_widget_show (tmp->data[i]);
+    gtk_box_pack_start (GTK_BOX (hbox), tmp->data[i], FALSE, FALSE, 0);
 
-		gtk_box_pack_start (GTK_BOX (t_appbar), hbox, FALSE, FALSE,
-				GNOME_PAD);
-	}
+    gtk_box_pack_start (GTK_BOX (t_appbar), hbox, FALSE, FALSE, GNOME_PAD);
+  }
 
-	return (tmp);
-}
-
-void 
-gnibbles_scoreboard_register (GnibblesScoreboard *scoreboard,
-			      GnibblesWorm *t_worm)
-{
-	scoreboard->worms[scoreboard->count] = t_worm;
-	gtk_widget_set_sensitive (scoreboard->names[scoreboard->count], TRUE);
-	gtk_widget_set_sensitive (scoreboard->data[scoreboard->count], TRUE);
-	scoreboard->count++;
+  return (tmp);
 }
 
 void
-gnibbles_scoreboard_update (GnibblesScoreboard *scoreboard)
+gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
+			      GnibblesWorm * t_worm)
 {
-	int i;
-	gchar *buffer = NULL;
-	const gchar *buffer2;
-
-	for (i = 0; i < scoreboard->count; i++) {
-		buffer = g_strdup_printf ("%02d, %05d",
-					  (scoreboard->worms[i]->lives > -1) ?
-					  scoreboard->worms[i]->lives : 0,
-					  scoreboard->worms[i]->score);
-		buffer2 = gtk_label_get_text (GTK_LABEL (scoreboard->data[i]));
-		if (strcmp (buffer, buffer2))
-			gtk_label_set_text (GTK_LABEL (scoreboard->data[i]),
-					    buffer);
-		g_free (buffer);
-	}
+  scoreboard->worms[scoreboard->count] = t_worm;
+  gtk_widget_set_sensitive (scoreboard->names[scoreboard->count], TRUE);
+  gtk_widget_set_sensitive (scoreboard->data[scoreboard->count], TRUE);
+  scoreboard->count++;
 }
 
 void
-gnibbles_scoreboard_clear (GnibblesScoreboard *scoreboard)
+gnibbles_scoreboard_update (GnibblesScoreboard * scoreboard)
 {
-	int i;
+  int i;
+  gchar *buffer = NULL;
+  const gchar *buffer2;
 
-	scoreboard->count = 0;
-	
-	for (i = 0; i < NUMWORMS; i++) {
-		gtk_widget_set_sensitive (scoreboard->names[i], FALSE);
-		gtk_widget_set_sensitive (scoreboard->data[i], FALSE);
-	}
+  for (i = 0; i < scoreboard->count; i++) {
+    buffer = g_strdup_printf ("%02d, %05d",
+			      (scoreboard->worms[i]->lives > -1) ?
+			      scoreboard->worms[i]->lives : 0,
+			      scoreboard->worms[i]->score);
+    buffer2 = gtk_label_get_text (GTK_LABEL (scoreboard->data[i]));
+    if (strcmp (buffer, buffer2))
+      gtk_label_set_text (GTK_LABEL (scoreboard->data[i]), buffer);
+    g_free (buffer);
+  }
+}
+
+void
+gnibbles_scoreboard_clear (GnibblesScoreboard * scoreboard)
+{
+  int i;
+
+  scoreboard->count = 0;
+
+  for (i = 0; i < NUMWORMS; i++) {
+    gtk_widget_set_sensitive (scoreboard->names[i], FALSE);
+    gtk_widget_set_sensitive (scoreboard->data[i], FALSE);
+  }
 }

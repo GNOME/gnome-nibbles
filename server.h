@@ -62,27 +62,27 @@ struct game_t {
 };
 
 // Intializes game variables
-void game_init(GGZdMod * ggzdmod);
+void game_init (GGZdMod * ggzdmod);
 // Handle server messages
-void game_handle_ggz_state(GGZdMod * ggz,
+void game_handle_ggz_state (GGZdMod * ggz,
+			    GGZdModEvent event, const void *data);
+void game_handle_ggz_seat (GGZdMod * ggz,
 			   GGZdModEvent event, const void *data);
-void game_handle_ggz_seat(GGZdMod * ggz,
-			  GGZdModEvent event, const void *data);
 // Handle player messages
-void game_handle_player(GGZdMod * ggz, GGZdModEvent event, const void *data);
+void game_handle_player (GGZdMod * ggz, GGZdModEvent event, const void *data);
 // Handle player move
-int game_handle_move(int);
+int game_handle_move (int);
 
-int game_handle_settings(int seat);
+int game_handle_settings (int seat);
 
-int game_handle_boni(int seat);
-int game_handle_noboni(int seat);
+int game_handle_boni (int seat);
+int game_handle_noboni (int seat);
 
 // Send to the player what is his seat
-int game_send_seat(int);
+int game_send_seat (int);
 
-int game_send_sync(void);
+int game_send_sync (void);
 // Send to everyone who is playing
-int game_send_players(void);
+int game_send_players (void);
 // Sends the start message and start the game
-int game_start(void);
+int game_start (void);

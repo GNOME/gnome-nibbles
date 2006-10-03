@@ -26,21 +26,20 @@
 #include "gnibbles.h"
 #include "worm.h"
 
-typedef struct
-{
-	GnibblesWorm *worms[NUMWORMS];
-	GtkWidget *names[NUMWORMS];
-	GtkWidget *data[NUMWORMS];
-	gint count;
+typedef struct {
+  GnibblesWorm *worms[NUMWORMS];
+  GtkWidget *names[NUMWORMS];
+  GtkWidget *data[NUMWORMS];
+  gint count;
 } GnibblesScoreboard;
 
-GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget *t_appbar);
+GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget * t_appbar);
 
-void gnibbles_scoreboard_register (GnibblesScoreboard *scoreboard,
-		GnibblesWorm *t_worm);
+void gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
+				   GnibblesWorm * t_worm);
 
-void gnibbles_scoreboard_update (GnibblesScoreboard *scoreboard);
+void gnibbles_scoreboard_update (GnibblesScoreboard * scoreboard);
 
-void gnibbles_scoreboard_clear (GnibblesScoreboard *scoreboard);
+void gnibbles_scoreboard_clear (GnibblesScoreboard * scoreboard);
 
 #endif

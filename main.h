@@ -34,9 +34,9 @@ int seats[4];
 char names[4][17];
 
 gint game_running (void);
-gint pause_game_cb (GtkAction *action, gpointer data);
+gint pause_game_cb (GtkAction * action, gpointer data);
 void end_game (gboolean);
-gint new_game (void); 
+gint new_game (void);
 gint main_loop (gpointer data);
 
 extern GamesScores *highscores;

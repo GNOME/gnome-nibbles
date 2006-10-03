@@ -25,6 +25,6 @@
 
 #include "properties.h"
 
-void gnibbles_preferences_cb (GtkWidget *widget, gpointer data);
+void gnibbles_preferences_cb (GtkWidget * widget, gpointer data);
 
 #endif
