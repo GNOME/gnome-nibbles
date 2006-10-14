@@ -8,7 +8,8 @@ INCLUDES =		 			\
 	-I$(top_srcdir)/libgames-support	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DREAL_DATADIR=\""$(datadir)"\" 	\
-	@LIBGGZ_INCLUDES@ @GGZDMOD_INCLUDES@ @GGZ_GTK_INCLUDES@
+	$(GGZMOD_INCLUDES) $(GGZ_GTK_INCLUDES) $(GGZCORE_INCLUDES)\
+	$(LIBGGZ_INCLUDES) $(GGZCORE_INCLUDES)
 
 if GGZ_SERVER
 bin_PROGRAMS = gnibbles gnibblesd 
