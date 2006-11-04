@@ -532,3 +532,23 @@ worm_set_direction (int worm, int dir)
   }
 
 }
+
+/* Remove Worm from Field */
+void
+gnibbles_worm_reset (GnibblesWorm * worm)
+{
+  while (worm->stop != worm->start) {
+    board[worm->xtail][worm->ytail] = EMPTYCHAR;
+    gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
+
+    worm->xtail -= worm->xoff[worm->stop];
+    worm->ytail -= worm->yoff[worm->stop];
+
+    worm->stop++;
+    if (worm->stop == CAPACITY)
+      worm->stop = 0;
+  }
+
+  board[worm->xtail][worm->ytail] = EMPTYCHAR;
+  gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
+}

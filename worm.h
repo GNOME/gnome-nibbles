@@ -70,6 +70,9 @@ void gnibbles_worm_draw_head (GnibblesWorm * worm);
 void gnibbles_worm_erase_tail (GnibblesWorm * worm);
 
 gint gnibbles_worm_lose_life (GnibblesWorm * worm);
+
+void gnibbles_worm_reset (GnibblesWorm * worm);
+
 void worm_set_direction (int wrm, int dir);
 void worm_handle_direction (int wrm, int dir);
 #endif

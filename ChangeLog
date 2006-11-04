@@ -1,3 +1,10 @@
+2006-11-04  Andreas Røsdal <andrearo@stud.ntnu.no> 
+
+	* gnibbles.c:
+	* worm.c:
+	* worm.h: Remove remains of dead worms in network games.
+	Based on patch by Johannes Hölzl. 
+
 2006-10-01  Jason Clinton <me@jasonclinton.com>
 
 	* 16x16/gnome-nibbles.png:

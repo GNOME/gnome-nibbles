@@ -504,6 +504,7 @@ gnibbles_move_worms ()
 	worms[i]->score *= .7;
       if (ggz_network_mode) {
 	if (!gnibbles_worm_lose_life (worms[i])) {
+	  gnibbles_worm_reset(worms[i]);
 	  gnibbles_worm_set_start (worms[i],
 				   worms[i]->xstart,
 				   worms[i]->ystart, WORMDOWN);
