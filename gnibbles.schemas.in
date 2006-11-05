@@ -18,7 +18,7 @@
       <applyto>/apps/gnibbles/preferences/ai</applyto>
       <owner>gnibbles</owner>
       <type>int</type>
-      <default>1</default>
+      <default>3</default>
       <locale name="C">
         <short>Number of AI players</short>
         <long>Number of AI players.</long>
