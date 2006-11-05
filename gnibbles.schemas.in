@@ -8,8 +8,20 @@
       <type>int</type>
       <default>1</default>
       <locale name="C">
-        <short>Number of players</short>
-        <long>Number of players.</long>
+        <short>Number of human players</short>
+        <long>Number of human players.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/ai</key>
+      <applyto>/apps/gnibbles/preferences/ai</applyto>
+      <owner>gnibbles</owner>
+      <type>int</type>
+      <default>1</default>
+      <locale name="C">
+        <short>Number of AI players</short>
+        <long>Number of AI players.</long>
       </locale>
     </schema>
 

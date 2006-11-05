@@ -46,6 +46,7 @@ extern GnibblesProperties *properties;
 extern gint paused;
 
 GtkWidget *start_level_label, *start_level_spin_button;
+GtkWidget *num_human, *num_ai;
 
 
 static void
@@ -138,14 +139,25 @@ sound_cb (GtkWidget * widget, gpointer data)
 static void
 num_worms_cb (GtkWidget * widget, gpointer data)
 {
-  gint value;
+  gint human, ai;
 
   if (!pref_dialog)
     return;
 
-  value = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (data));
+  human = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (num_human));
+  ai = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (num_ai));
 
-  gnibbles_properties_set_worms_number (value);
+  if (!ai && !human) {
+    human = 1;
+  } else if (data == num_human && ai + human >= NUMWORMS) {
+    ai = NUMWORMS - human;
+  } else if (data == num_ai && ai + human >= NUMWORMS) {
+    human = NUMWORMS - ai;
+  }
+  gtk_spin_button_set_value (GTK_SPIN_BUTTON (num_human), human);
+  gtk_spin_button_set_value (GTK_SPIN_BUTTON (num_ai), ai);
+  gnibbles_properties_set_worms_number (human);
+  gnibbles_properties_set_ai_number (ai);
 }
 
 static void
@@ -319,7 +331,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
 		    (sound_cb), NULL);
 
-  table2 = gtk_table_new (2, 2, FALSE);
+  table2 = gtk_table_new (3, 2, FALSE);
   gtk_box_pack_start (GTK_BOX (vbox), table2, FALSE, FALSE, 0);
   gtk_table_set_row_spacings (GTK_TABLE (table2), 6);
   gtk_table_set_col_spacings (GTK_TABLE (table2), 12);
@@ -354,7 +366,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
 		    GTK_SIGNAL_FUNC (start_level_cb), levelspinner);
 
-  label2 = gtk_label_new_with_mnemonic (_("N_umber of players:"));
+  label2 = gtk_label_new_with_mnemonic (_("Number of _human players:"));
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
   gtk_table_attach (GTK_TABLE (table2), label2, 0, 1, 1, 2, GTK_FILL, 0, 0,
@@ -362,18 +374,39 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   if (running || ggz_network_mode)
     gtk_widget_set_sensitive (label2, FALSE);
 
-  adjustment = gtk_adjustment_new ((gfloat) properties->numworms, 1.0,
+  adjustment = gtk_adjustment_new ((gfloat) properties->human, 0.0,
 				   NUMWORMS, 1.0, 1.0, 0.0);
 
-  button = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 0, 0);
-  gtk_spin_button_set_wrap (GTK_SPIN_BUTTON (button), FALSE);
-  gtk_label_set_mnemonic_widget (GTK_LABEL (label2), button);
+  num_human = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 0, 0);
+  gtk_spin_button_set_wrap (GTK_SPIN_BUTTON (num_human), FALSE);
+  gtk_label_set_mnemonic_widget (GTK_LABEL (label2), num_human);
 
-  gtk_table_attach_defaults (GTK_TABLE (table2), button, 1, 2, 1, 2);
+  gtk_table_attach_defaults (GTK_TABLE (table2), num_human, 1, 2, 1, 2);
   if (running || ggz_network_mode)
-    gtk_widget_set_sensitive (button, FALSE);
+    gtk_widget_set_sensitive (num_human, FALSE);
   g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
-		    GTK_SIGNAL_FUNC (num_worms_cb), button);
+		    GTK_SIGNAL_FUNC (num_worms_cb), num_human);
+
+  label2 = gtk_label_new_with_mnemonic (_("Number of _AI players:"));
+  gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+
+  gtk_table_attach (GTK_TABLE (table2), label2, 0, 1, 2, 3, GTK_FILL, 0, 0,
+		    0);
+  if (running || ggz_network_mode)
+    gtk_widget_set_sensitive (label2, FALSE);
+
+  adjustment = gtk_adjustment_new ((gfloat) properties->ai, 0.0,
+				   NUMWORMS, 1.0, 1.0, 0.0);
+
+  num_ai = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 0, 0);
+  gtk_spin_button_set_wrap (GTK_SPIN_BUTTON (num_ai), FALSE);
+  gtk_label_set_mnemonic_widget (GTK_LABEL (label2), num_ai);
+
+  gtk_table_attach_defaults (GTK_TABLE (table2), num_ai, 1, 2, 2, 3);
+  if (running || ggz_network_mode)
+    gtk_widget_set_sensitive (num_ai, FALSE);
+  g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
+		    GTK_SIGNAL_FUNC (num_worms_cb), num_ai);
 
   for (i = 0; i < NUMWORMS; i++) {
     gchar *up_key;

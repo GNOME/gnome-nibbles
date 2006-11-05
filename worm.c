@@ -515,6 +515,11 @@ worm_handle_direction (int worm, int dir)
 void
 worm_set_direction (int worm, int dir)
 {
+
+  if (worm >= properties->human) {
+    return;
+  }
+
   if (worms[worm]) {
 
     if (dir > 4)
@@ -551,4 +556,35 @@ gnibbles_worm_reset (GnibblesWorm * worm)
 
   board[worm->xtail][worm->ytail] = EMPTYCHAR;
   gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
+}
+
+/* Determines the direction of the AI worm. */
+void
+gnibbles_worm_ai_move (GnibblesWorm * worm)
+{
+  int opposite, dir;
+
+  opposite = (worm->direction + 2) % 4;
+
+  /* Move in random direction at random time intervals*/
+  if (rand () % 30 == 1) {
+    dir = worm->direction + 1;
+    if (dir != opposite) {
+      if (dir > 4)
+        dir = 1;
+      if (dir < 1)
+        dir = 4;
+      worm->direction = dir;
+    }
+  }
+ 
+  /* Avoid walls */
+  for (dir = 1; dir <= 4; dir++) {
+    if (dir == opposite) continue;
+    if (!gnibbles_worm_test_move_head (worm)) {
+      worm->direction = dir;
+    } else {
+      continue;
+    }
+  }
 }

@@ -73,6 +73,8 @@ gint gnibbles_worm_lose_life (GnibblesWorm * worm);
 
 void gnibbles_worm_reset (GnibblesWorm * worm);
 
+void gnibbles_worm_ai_move (GnibblesWorm * worm);
+
 void worm_set_direction (int wrm, int dir);
 void worm_handle_direction (int wrm, int dir);
 #endif

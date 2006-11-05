@@ -1,3 +1,16 @@
+2006-11-05  Andreas Røsdal <andrearo@stud.ntnu.no> 
+
+	* ggz-network.c:
+	* gnibbles.c:
+	* gnibbles.schemas.in:
+	* main.c:
+	* main.h:
+	* preferences.c:
+	* properties.c:
+	* properties.h:
+	* worm.c:
+	* worm.h: Add a gnibbles AI.
+
 2006-11-04  Andreas Røsdal <andrearo@stud.ntnu.no> 
 
 	* gnibbles.c:

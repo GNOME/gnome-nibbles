@@ -452,6 +452,11 @@ gnibbles_move_worms ()
 
   dead = g_new (gint, properties->numworms);
 
+  for (i = 0; i < properties->ai; i++) {
+    gnibbles_worm_ai_move (worms[properties->human + i]);
+  }
+
+
   if (boni->missed > MAXMISSED)
     for (i = 0; i < properties->numworms; i++)
       if (worms[i]->score)
@@ -502,17 +507,14 @@ gnibbles_move_worms ()
     if (dead[i]) {
       if (properties->numworms > 1)
 	worms[i]->score *= .7;
-      if (ggz_network_mode) {
-	if (!gnibbles_worm_lose_life (worms[i])) {
-	  gnibbles_worm_reset(worms[i]);
-	  gnibbles_worm_set_start (worms[i],
-				   worms[i]->xstart,
-				   worms[i]->ystart, WORMDOWN);
+      if (!gnibbles_worm_lose_life (worms[i])) {
+        gnibbles_worm_reset(worms[i]);
+        gnibbles_worm_set_start (worms[i],
+				 worms[i]->xstart,
+				 worms[i]->ystart, WORMDOWN);
+	return (CONTINUE);
 	}
 
-      } else {
-	status |= gnibbles_worm_lose_life (worms[i]) << 1;
-      }
     }
 
   for (i = 0; i < properties->numworms; i++)
@@ -533,11 +535,11 @@ gnibbles_move_worms ()
     if (worms[i]->lives > 0)
       nlives += 1;
   }
-  if (ggz_network_mode && nlives == 1) {
+  if (nlives == 1) {
     return (VICTORY);
   }
 
-  if (status || ggz_network_mode)
+  if (status)
     return (CONTINUE);
 
   gnibbles_play_sound ("crash");

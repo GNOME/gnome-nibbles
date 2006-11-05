@@ -30,6 +30,7 @@
 #define KEY_DIR "/apps/gnibbles"
 #define KEY_PREFERENCES_DIR "/apps/gnibbles/preferences"
 #define KEY_NUM_WORMS "/apps/gnibbles/preferences/players"
+#define KEY_NUM_AI "/apps/gnibbles/preferences/ai"
 #define KEY_SPEED "/apps/gnibbles/preferences/speed"
 #define KEY_FAKES "/apps/gnibbles/preferences/fakes"
 #define KEY_RANDOM "/apps/gnibbles/preferences/random"
@@ -55,6 +56,8 @@ typedef struct {
 
 typedef struct {
   gint numworms;
+  gint human;
+  gint ai;
   gint gamespeed;
   gint fakes;
   gint random;
@@ -75,6 +78,7 @@ void gnibbles_properties_destroy (GnibblesProperties * props);
 GnibblesProperties *gnibbles_properties_copy (GnibblesProperties * props);
 
 void gnibbles_properties_set_worms_number (gint value);
+void gnibbles_properties_set_ai_number (gint value);
 void gnibbles_properties_set_speed (gint value);
 void gnibbles_properties_set_fakes (gboolean value);
 void gnibbles_properties_set_random (gboolean value);

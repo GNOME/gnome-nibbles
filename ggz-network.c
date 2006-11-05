@@ -56,6 +56,7 @@ get_seat (void)
   if (ggz_read_int (fd, &num_players) < 0 || ggz_read_int (fd, &seat) < 0)
     return -1;
   gnibbles_properties_set_worms_number (num_players);
+  gnibbles_properties_set_ai_number (0);
 
   return 0;
 }

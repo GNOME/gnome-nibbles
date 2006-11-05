@@ -83,11 +83,19 @@ gnibbles_properties_update (GnibblesProperties * tmp)
 
   conf_client = gconf_client_get_default ();
 
-  tmp->numworms = gconf_client_get_int (conf_client, KEY_NUM_WORMS, NULL);
-  if (tmp->numworms < 1)
-    tmp->numworms = 1;
-  else if (tmp->numworms > NUMWORMS)
-    tmp->numworms = NUMWORMS;
+  tmp->human = gconf_client_get_int (conf_client, KEY_NUM_WORMS, NULL);
+  if (tmp->human < 0)
+    tmp->human = 0;
+  else if (tmp->human > NUMWORMS)
+    tmp->human = NUMWORMS;
+
+  tmp->ai = gconf_client_get_int (conf_client, KEY_NUM_AI, NULL);
+  if (tmp->ai < 0)
+    tmp->ai = 0;
+  else if (tmp->ai > NUMWORMS)
+    tmp->ai = NUMWORMS;
+
+  tmp->numworms = tmp->human + tmp->ai;
 
   tmp->gamespeed = gconf_client_get_int (conf_client, KEY_SPEED, NULL);
   if (tmp->gamespeed < 1)
@@ -230,6 +238,12 @@ void
 gnibbles_properties_set_worms_number (gint value)
 {
   gconf_client_set_int (conf_client, KEY_NUM_WORMS, value, NULL);
+}
+
+void
+gnibbles_properties_set_ai_number (gint value)
+{
+  gconf_client_set_int (conf_client, KEY_NUM_AI, value, NULL);
 }
 
 void
