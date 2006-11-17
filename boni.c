@@ -21,6 +21,7 @@
 #include <gnome.h>
 
 #include "gnibbles.h"
+#include "main.h"
 #include "bonus.h"
 #include "boni.h"
 #include "ggz-network.h"
@@ -72,7 +73,9 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
   if (t_type != BONUSREGULAR)
     gnibbles_play_sound ("appear");
 #ifdef GGZ_CLIENT
-  network_add_bonus (t_x, t_y, t_type, t_fake, t_countdown);
+  if (ggz_network_mode) { 
+    network_add_bonus (t_x, t_y, t_type, t_fake, t_countdown);
+  }
 #endif
 
 }
@@ -121,7 +124,9 @@ gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
   int i;
 
 #ifdef GGZ_CLIENT
-  network_remove_bonus (x, y);
+  if (ggz_network_mode) { 
+    network_remove_bonus (x, y);
+  }
 #endif
   for (i = 0; i < boni->numbonuses; i++) {
     if ((x == boni->bonuses[i]->x &&

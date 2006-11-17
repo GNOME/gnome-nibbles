@@ -371,7 +371,9 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event)
 static gint
 network_loop (gpointer data)
 {
-  network_move_worms ();
+  if (ggz_network_mode) { 
+    network_move_worms ();
+  }
   return TRUE;
 }
 #endif
