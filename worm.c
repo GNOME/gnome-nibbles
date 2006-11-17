@@ -561,9 +561,14 @@ gnibbles_worm_reset (GnibblesWorm * worm)
 static gint
 gnibbles_worm_ai_wander (gint x, gint y, gint dir)
 {
-  if (x <= 0 || x >= BOARDWIDTH || y <= 0 || y >= BOARDHEIGHT || dir <= 0 || dir > 4) {
+  if (x <= 0 || x >= BOARDWIDTH || y <= 0 || y >= BOARDHEIGHT) {
     return 0;
   }
+
+  if (dir > 4)
+    dir = 1;
+  if (dir < 1)
+    dir = 4;
 
   switch (dir) {
   case WORMUP:
