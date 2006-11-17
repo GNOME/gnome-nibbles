@@ -1,5 +1,10 @@
 2006-11-17  Andreas Røsdal <andrearo@stud.ntnu.no> 
 
+	* worm.c: Make worm AI slightly more intelligent, by
+	following bonuses.
+
+2006-11-17  Andreas Røsdal <andrearo@stud.ntnu.no> 
+
 	* main.c:
 	* boni.c: Fix Bug #375983 - gnibbles network code dumps stuff to stdout.
 

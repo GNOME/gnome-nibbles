@@ -558,23 +558,81 @@ gnibbles_worm_reset (GnibblesWorm * worm)
   gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
 }
 
+static gint
+gnibbles_worm_ai_wander (gint x, gint y, gint dir)
+{
+  if (x <= 0 || x >= BOARDWIDTH || y <= 0 || y >= BOARDHEIGHT || dir <= 0 || dir > 4) {
+    return 0;
+  }
+
+  switch (dir) {
+  case WORMUP:
+    y -= 1;
+    break;
+  case WORMDOWN:
+    y += 1;
+    break;
+  case WORMLEFT:
+    x -= 1;
+    break;
+  case WORMRIGHT:
+    x += 1;
+    break;
+  }
+
+  switch (board[x][y] - 'A') {
+  case BONUSREGULAR:
+  case BONUSDOUBLE:
+  case BONUSLIFE:
+  case BONUSREVERSE:
+    return 1;
+    break;
+  case BONUSHALF:
+    return 0;
+    break;
+  default:
+    return gnibbles_worm_ai_wander (x, y, dir);
+    break;
+  }
+}
+
 /* Determines the direction of the AI worm. */
 void
 gnibbles_worm_ai_move (GnibblesWorm * worm)
 {
-  int opposite, dir;
+  int opposite, dir, left, right, front;
 
   opposite = (worm->direction + 2) % 4;
 
-  /* Move in random direction at random time intervals*/
-  if (rand () % 30 == 1) {
-    dir = worm->direction + 1;
-    if (dir != opposite) {
-      if (dir > 4)
-        dir = 1;
+  front = gnibbles_worm_ai_wander (worm->xhead, worm->yhead, worm->direction);
+  left = gnibbles_worm_ai_wander (worm->xhead, worm->yhead, worm->direction - 1);
+  right = gnibbles_worm_ai_wander (worm->xhead, worm->yhead, worm->direction + 1);
+
+  if (!front) {
+    if (left) {
+      // Found a bonus to the left
+      dir = worm->direction - 1;
       if (dir < 1)
         dir = 4;
       worm->direction = dir;
+    } else if (right) {
+      // Found a bonus to the right
+      dir = worm->direction + 1;
+      if (dir > 4)
+        dir = 1;
+      worm->direction = dir;
+    } else {
+      // Else move in random direction at random time intervals
+      if (rand () % 30 == 1) {
+        dir = worm->direction + 1;
+        if (dir != opposite) {
+          if (dir > 4)
+            dir = 1;
+          if (dir < 1)
+            dir = 4;
+          worm->direction = dir;
+        }
+      }
     }
   }
  
