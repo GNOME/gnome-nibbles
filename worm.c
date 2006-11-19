@@ -403,7 +403,7 @@ gnibbles_worm_test_move_head (GnibblesWorm * worm)
     y = BOARDHEIGHT - 1;
   }
 
-  if (board[x][y] > EMPTYCHAR && board[x][y] < 'z')
+  if (board[x][y] > EMPTYCHAR && board[x][y] < 'z' + properties->numworms)
     return (FALSE);
 
   return (TRUE);

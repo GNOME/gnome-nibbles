@@ -1,7 +1,7 @@
 2006-11-17  Andreas Røsdal <andrearo@stud.ntnu.no> 
 
 	* worm.c: Make worm AI slightly more intelligent, by
-	following bonuses.
+	following bonuses. Also, fix a bug in the worm collision detection.
 
 2006-11-17  Andreas Røsdal <andrearo@stud.ntnu.no> 
 
