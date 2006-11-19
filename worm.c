@@ -596,7 +596,11 @@ gnibbles_worm_ai_wander (gint x, gint y, gint dir)
     return 0;
     break;
   default:
-    return gnibbles_worm_ai_wander (x, y, dir);
+    if (board[x][y] > EMPTYCHAR && board[x][y] < 'z' + properties->numworms) {
+      return 0;
+    } else {
+      return gnibbles_worm_ai_wander (x, y, dir);
+    }
     break;
   }
 }
