@@ -76,9 +76,7 @@ gnibbles_LDADD = \
 
 gnibbles_LDFLAGS = $(GGZMOD_LDFLAGS)
 
-pixmap_DATA = \
-	gnibbles.png \
-	gnibbles-logo.svg
+pixmap_DATA = gnibbles-logo.svg
 
 config_DATA = \
 	level001.gnl \
