@@ -121,19 +121,27 @@ random_order_cb (GtkWidget * widget, gpointer data)
 static void
 fake_bonus_cb (GtkWidget * widget, gpointer data)
 {
+  gboolean value;
+
   if (!pref_dialog)
     return;
 
-  gnibbles_properties_set_fakes (GPOINTER_TO_INT (data));
+  value = GTK_TOGGLE_BUTTON (widget)->active;
+
+  gnibbles_properties_set_fakes (value);
 }
 
 static void
 sound_cb (GtkWidget * widget, gpointer data)
 {
+  gboolean value;
+
   if (!pref_dialog)
     return;
 
-  gnibbles_properties_set_sound (GPOINTER_TO_INT (data));
+  value = GTK_TOGGLE_BUTTON (widget)->active;
+
+  gnibbles_properties_set_sound (value);
 }
 
 static void
