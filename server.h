@@ -35,8 +35,6 @@
 #define GN_REQ_NOBONI 14
 #define GN_MSG_NOBONI 15
 
-#define GNIBBLES_NET_SYNC 500
-
 // States
 #define GN_STATE_INIT 0
 #define GN_STATE_WAIT 1

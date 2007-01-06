@@ -120,8 +120,6 @@ game_send_sync (void)
 {
   int j, mfd;
 
-  usleep (GNIBBLES_NET_SYNC); 
-
   for (j = 0; j < ggzdmod_get_num_seats (game.ggz); j++) {
     if ((mfd = ggzdmod_get_seat (game.ggz, j).fd) == -1)
       continue;
