@@ -388,7 +388,7 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
 				      G_CALLBACK (key_press_cb), NULL);
 #ifdef GGZ_CLIENT
     if (!main_id && ggz_network_mode && network_is_host ()) {
-      main_id = g_timeout_add (GAMEDELAY * properties->gamespeed,
+      main_id = g_timeout_add (GAMEDELAY * (properties->gamespeed + NETDELAY),
 			       (GSourceFunc) network_loop, NULL);
     } else
 #endif

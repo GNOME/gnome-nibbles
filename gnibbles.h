@@ -49,6 +49,7 @@
 #define VICTORY 3
 
 #define GAMEDELAY 35
+#define NETDELAY 2
 #define BONUSDELAY 100
 
 #define MAXLEVEL 26
