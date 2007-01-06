@@ -137,11 +137,19 @@ get_players (void)
 	add_chat_text (tmp);
 	g_free (tmp);
       }
-    } else if (old != GGZ_SEAT_OPEN && !firsttime) {
+    } 
+
+    if (seats[i] == GGZ_SEAT_ABANDONED) {
       if (i == 0) {
 	tmp =
 	  g_strdup_printf (_
 			   ("The game ended because the host %s left the game.\n"),
+			   names[i]);
+	add_chat_text (tmp);
+	g_free (tmp);
+      } else {
+	tmp =
+	  g_strdup_printf (_("%s left the game.\n"),
 			   names[i]);
 	add_chat_text (tmp);
 	g_free (tmp);

@@ -1,3 +1,7 @@
+2007-01-06  Andreas Røsdal <andreasr@gnome.org> 
+
+	* ggz-network.c: Give information about players leaving the game.
+
 2006-11-28  Andreas Røsdal <andrearo@stud.ntnu.no> 
 
 	* preferences.c: Dont always send false to gconf for sound and fakes,
