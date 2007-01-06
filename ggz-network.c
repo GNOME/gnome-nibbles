@@ -29,6 +29,7 @@
 #include <netinet/in.h>
 #include <errno.h>
 #include <netdb.h>
+#include <pwd.h>
 
 #include "main.h"
 
@@ -380,7 +381,7 @@ void
 on_network_game (void)
 {
   GtkWidget *ggzbox;
-
+  struct passwd *pwent;  
 
   if (ggz_network_mode) {
     gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), NETWORK_PAGE);
@@ -389,13 +390,15 @@ on_network_game (void)
 
   ggz_network_mode = TRUE;
 
-
   ggz_gtk_initialize (FALSE,
 		      ggz_connected, ggz_game_launched, ggz_closed,
 		      NETWORK_ENGINE, NETWORK_VERSION, "GNOME GGZ");
 
+  pwent = getpwuid(getuid());
+  ggz_embed_ensure_server ("GGZ Gaming Zone", "gnome.ggzgamingzone.org",
+			   5688, pwent->pw_name);
   ggz_embed_ensure_server ("GNOME GGZ", "games.gnome.org",
-			   5688, _("Player"));
+			   5688, pwent->pw_name);
 
   ggzbox = ggz_gtk_create_main_area (window);
   gtk_notebook_append_page (GTK_NOTEBOOK (notebook), ggzbox, NULL);
