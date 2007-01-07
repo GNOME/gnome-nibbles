@@ -659,7 +659,10 @@ main_loop (gpointer data)
       g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
       keyboard_id = 0;
     }
-    main_id = 0;
+    if (main_id) {
+      g_source_remove (main_id);
+      main_id = 0;
+    }
     if (add_bonus_id) {
       g_source_remove (add_bonus_id);
     }
@@ -708,8 +711,11 @@ main_loop (gpointer data)
     if (add_bonus_id) {
       g_source_remove (add_bonus_id);
     }
+    if (main_id) {
+      g_source_remove (main_id);
+      main_id = 0;
+    }
     add_bonus_id = 0;
-    main_id = 0;
     erase_id = g_timeout_add (ERASETIME / ERASESIZE,
 			      (GSourceFunc) erase_worms_cb,
 			      (gpointer) ERASESIZE);
@@ -729,7 +735,10 @@ main_loop (gpointer data)
       g_source_remove (add_bonus_id);
     }
     add_bonus_id = 0;
-    main_id = 0;
+    if (main_id) {
+      g_source_remove (main_id);
+      main_id = 0;
+    }
     if ((current_level < MAXLEVEL) && (!properties->random
 				       || ggz_network_mode))
       current_level++;
