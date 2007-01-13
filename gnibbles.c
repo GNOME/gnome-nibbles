@@ -341,7 +341,8 @@ gnibbles_init (void)
 
   for (i = 0; i < properties->numworms; i++) {
     worms[i] = gnibbles_worm_new (i);
-    gnibbles_scoreboard_register (scoreboard, worms[i]);
+    gnibbles_scoreboard_register (scoreboard, worms[i], 
+	                 colorval_name (properties->wormprops[i]->color));
   }
 
   gnibbles_scoreboard_update (scoreboard);

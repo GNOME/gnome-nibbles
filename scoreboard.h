@@ -36,7 +36,8 @@ typedef struct {
 GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget * t_appbar);
 
 void gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
-				   GnibblesWorm * t_worm);
+				   GnibblesWorm * t_worm,
+			           gchar * colorname);
 
 void gnibbles_scoreboard_update (GnibblesScoreboard * scoreboard);
 

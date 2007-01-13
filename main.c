@@ -232,7 +232,7 @@ quit_cb (GObject * object, gpointer data)
 static void
 about_cb (GtkAction * action, gpointer data)
 {
-  const gchar *authors[] = { "Sean MacIsaac", "Ian Peters", NULL };
+  const gchar *authors[] = { "Sean MacIsaac", "Ian Peters", "Andreas Røsdal", NULL };
 
   const gchar *documenters[] = { "Kevin Breit", NULL };
   gchar *license = games_get_license (_("Nibbles"));
@@ -241,7 +241,7 @@ about_cb (GtkAction * action, gpointer data)
 			 "name", _("Nibbles"),
 			 "version", VERSION,
 			 "copyright",
-			 "Copyright \xc2\xa9 1999-2006 Sean MacIsaac, Ian Peters",
+			 "Copyright \xc2\xa9 1999-2007 Sean MacIsaac, Ian Peters, Andreas Røsdal",
 			 "license", license, "comments",
 			 _("A worm game for GNOME."), "authors", authors,
 			 "documenters", documenters, "translator-credits",

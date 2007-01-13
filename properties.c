@@ -43,7 +43,7 @@ ColorLookup color_lookup[NUM_COLORS] = {
   {WORMRED, "red"},
   {WORMGREEN, "green"},
   {WORMBLUE, "blue"},
-  {WORMYELLOW, "yellow"},
+  {WORMYELLOW, "orange"},
   {WORMCYAN, "cyan"},
   {WORMPURPLE, "purple"},
   {WORMGRAY, "gray"}
@@ -61,7 +61,7 @@ colorval_from_name (gchar * name)
   return 0;
 }
 
-static gchar *
+gchar *
 colorval_name (gint colorval)
 {
   gint i;

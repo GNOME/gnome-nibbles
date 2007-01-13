@@ -60,10 +60,15 @@ gnibbles_scoreboard_new (GtkWidget * t_appbar)
 
 void
 gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
-			      GnibblesWorm * t_worm)
+			      GnibblesWorm * t_worm, gchar * colorname)
 {
+  GdkColor color;
+
+  gdk_color_parse (colorname, &color);
+
   scoreboard->worms[scoreboard->count] = t_worm;
   gtk_widget_set_sensitive (scoreboard->names[scoreboard->count], TRUE);
+  gtk_widget_modify_fg (scoreboard->names[scoreboard->count], GTK_STATE_NORMAL, &color); 
   gtk_widget_set_sensitive (scoreboard->data[scoreboard->count], TRUE);
   scoreboard->count++;
 }

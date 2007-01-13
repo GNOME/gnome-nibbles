@@ -1,3 +1,12 @@
+2007-01-13  Andreas Røsdal <andreasr@gnome.org> 
+
+	* properties.c:
+	* properties.h:
+	* scoreboard.c:
+	* scoreboard.h:
+	* gnibbles.c: Set worm color on toolbar so it will be possible to
+	determine the color of a player.
+
 2007-01-06  Andreas Røsdal <andreasr@gnome.org> 
 
 	* main.c: Correctly remove main_loop timeout when a level ends.

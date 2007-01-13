@@ -95,5 +95,6 @@ void gnibbles_properties_set_height (gint value);
 void gnibbles_properties_set_width (gint value);
 
 void gnibbles_properties_save (GnibblesProperties * props);
+gchar *colorval_name (gint colorval);
 
 #endif
