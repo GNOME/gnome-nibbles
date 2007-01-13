@@ -389,5 +389,140 @@
       </locale>
     </schema>
 
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/4/color</key>
+      <applyto>/apps/gnibbles/preferences/worm/4/color</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>cyan</default>
+      <locale name="C">
+        <short>Color to use for worm</short>
+        <long>Color to use for worm.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/4/move_relative</key>
+      <applyto>/apps/gnibbles/preferences/worm/4/move_relative</applyto>
+      <owner>gnibbles</owner>
+      <type>bool</type>
+      <default>FALSE</default>
+      <locale name="C">
+        <short>Use relative movement</short>
+        <long>Use relative movement (ie. left or right only).</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/4/key_up</key>
+      <applyto>/apps/gnibbles/preferences/worm/4/key_up</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>Up</default>
+      <locale name="C">
+        <short>Move up</short>
+        <long>Key to use for motion up.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/4/key_down</key>
+      <applyto>/apps/gnibbles/preferences/worm/4/key_down</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>Down</default>
+      <locale name="C">
+        <short>Move down</short>
+        <long>Key to use for motion down.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/4/key_left</key>
+      <applyto>/apps/gnibbles/preferences/worm/4/key_left</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>Left</default>
+      <locale name="C">
+        <short>Move left</short>
+        <long>Key to use for motion left.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/4/key_right</key>
+      <applyto>/apps/gnibbles/preferences/worm/4/key_right</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>Right</default>
+      <locale name="C">
+        <short>Move right</short>
+        <long>Key to use for motion right.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/5/color</key>
+      <applyto>/apps/gnibbles/preferences/worm/5/color</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>purple</default>
+      <locale name="C">
+        <short>Color to use for worm</short>
+        <long>Color to use for worm.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/5/move_relative</key>
+      <applyto>/apps/gnibbles/preferences/worm/5/move_relative</applyto>
+      <owner>gnibbles</owner>
+      <type>bool</type>
+      <default>FALSE</default>
+      <locale name="C">
+        <short>Use relative movement</short>
+        <long>Use relative movement (ie. left or right only).</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/5/key_up</key>
+      <applyto>/apps/gnibbles/preferences/worm/5/key_up</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>Up</default>
+      <locale name="C">
+        <short>Move up</short>
+        <long>Key to use for motion up.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/5/key_down</key>
+      <applyto>/apps/gnibbles/preferences/worm/5/key_down</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>Down</default>
+      <locale name="C">
+        <short>Move down</short>
+        <long>Key to use for motion down.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/5/key_left</key>
+      <applyto>/apps/gnibbles/preferences/worm/5/key_left</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>Left</default>
+      <locale name="C">
+        <short>Move left</short>
+        <long>Key to use for motion left.</long>
+      </locale>
+    </schema>
+    <schema>
+      <key>/schemas/apps/gnibbles/preferences/worm/5/key_right</key>
+      <applyto>/apps/gnibbles/preferences/worm/5/key_right</applyto>
+      <owner>gnibbles</owner>
+      <type>string</type>
+      <default>Right</default>
+      <locale name="C">
+        <short>Move right</short>
+        <long>Key to use for motion right.</long>
+      </locale>
+    </schema>
+
+
   </schemalist>
 </gconfschemafile>

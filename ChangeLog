@@ -1,5 +1,15 @@
 2007-01-13  Andreas Røsdal <andreasr@gnome.org> 
 
+	* level*.gnl:
+	* scoreboard.c:
+	* gnibbles.h:
+	* gnibbles.schemas.in:
+	* gnibbles-server.dsc.in:
+	* main.h:
+	* worm.h: Allow up to six players in hotseat and network mode. 
+
+2007-01-13  Andreas Røsdal <andreasr@gnome.org> 
+
 	* properties.c:
 	* properties.h:
 	* scoreboard.c:

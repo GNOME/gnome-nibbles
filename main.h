@@ -22,6 +22,8 @@
 
 #include <games-scores.h>
 
+#include "gnibbles.h"
+
 #define MAIN_PAGE           	0
 #define NETWORK_PAGE           	1
 
@@ -30,8 +32,8 @@ gboolean ggz_network_mode;
 int player_id;
 int num_players;
 int seat;
-int seats[4];
-char names[4][17];
+int seats[NUMWORMS];
+char names[NUMWORMS][17];
 
 gint game_running (void);
 gint pause_game_cb (GtkAction * action, gpointer data);

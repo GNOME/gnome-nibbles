@@ -28,7 +28,7 @@
 #define WORMLEFT  3
 #define WORMUP    4
 #define SLENGTH   5
-#define SLIVES    3
+#define SLIVES    10
 #define CAPACITY  BOARDWIDTH * BOARDHEIGHT
 #define ERASESIZE 6
 #define ERASETIME 500

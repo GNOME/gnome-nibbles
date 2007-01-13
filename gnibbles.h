@@ -29,7 +29,7 @@
 #define BOARDHEIGHT 66
 #define BLANKPIXMAP 0
 
-#define NUMWORMS 4
+#define NUMWORMS 6
 
 #define NUM_COLORS 7
 #define WORMRED 12

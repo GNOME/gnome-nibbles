@@ -45,11 +45,9 @@ gnibbles_scoreboard_new (GtkWidget * t_appbar)
     sprintf (buffer, _("Worm %d:"), i + 1);
     tmp->names[i] = gtk_label_new (buffer);
     gtk_widget_set_sensitive (tmp->names[i], FALSE);
-    gtk_widget_show (tmp->names[i]);
     gtk_box_pack_start (GTK_BOX (hbox), tmp->names[i], FALSE, FALSE, 0);
-    tmp->data[i] = gtk_label_new ("00, 00000");
+    tmp->data[i] = gtk_label_new ("00, 0000");
     gtk_widget_set_sensitive (tmp->data[i], FALSE);
-    gtk_widget_show (tmp->data[i]);
     gtk_box_pack_start (GTK_BOX (hbox), tmp->data[i], FALSE, FALSE, 0);
 
     gtk_box_pack_start (GTK_BOX (t_appbar), hbox, FALSE, FALSE, GNOME_PAD);
@@ -70,6 +68,8 @@ gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
   gtk_widget_set_sensitive (scoreboard->names[scoreboard->count], TRUE);
   gtk_widget_modify_fg (scoreboard->names[scoreboard->count], GTK_STATE_NORMAL, &color); 
   gtk_widget_set_sensitive (scoreboard->data[scoreboard->count], TRUE);
+  gtk_widget_show (scoreboard->names[scoreboard->count]);
+  gtk_widget_show (scoreboard->data[scoreboard->count]);
   scoreboard->count++;
 }
 
@@ -81,7 +81,7 @@ gnibbles_scoreboard_update (GnibblesScoreboard * scoreboard)
   const gchar *buffer2;
 
   for (i = 0; i < scoreboard->count; i++) {
-    buffer = g_strdup_printf ("%02d, %05d",
+    buffer = g_strdup_printf ("%02d, %04d",
 			      (scoreboard->worms[i]->lives > -1) ?
 			      scoreboard->worms[i]->lives : 0,
 			      scoreboard->worms[i]->score);
@@ -100,7 +100,7 @@ gnibbles_scoreboard_clear (GnibblesScoreboard * scoreboard)
   scoreboard->count = 0;
 
   for (i = 0; i < NUMWORMS; i++) {
-    gtk_widget_set_sensitive (scoreboard->names[i], FALSE);
-    gtk_widget_set_sensitive (scoreboard->data[i], FALSE);
+    gtk_widget_hide (scoreboard->names[i]);
+    gtk_widget_hide (scoreboard->data[i]);
   }
 }
