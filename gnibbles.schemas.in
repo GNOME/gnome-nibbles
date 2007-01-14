@@ -54,7 +54,7 @@
       <applyto>/apps/gnibbles/preferences/height</applyto>
       <owner>gnibbles</owner>
       <type>int</type>
-      <default>400</default>
+      <default>520</default>
       <locale name="C">
         <short>Height of the GNibbles window</short>
         <long>Height of the GNibbles window, used to restore the window size between sessions.</long>
@@ -102,7 +102,7 @@
       <applyto>/apps/gnibbles/preferences/tile_size</applyto>
       <owner>gnibbles</owner>
       <type>int</type>
-      <default>5</default>
+      <default>7</default>
       <locale name="C">
         <short>Size of game tiles</short>
         <long>Size of game tiles.</long>
@@ -114,7 +114,7 @@
       <applyto>/apps/gnibbles/preferences/width</applyto>
       <owner>gnibbles</owner>
       <type>int</type>
-      <default>600</default>
+      <default>650</default>
       <locale name="C">
         <short>Width of the GNibbles window</short>
         <long>Width of the GNibbles window, used to restore the window size between sessions.</long>

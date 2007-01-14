@@ -50,7 +50,7 @@ gnibbles_scoreboard_new (GtkWidget * t_appbar)
     gtk_widget_set_sensitive (tmp->data[i], FALSE);
     gtk_box_pack_start (GTK_BOX (hbox), tmp->data[i], FALSE, FALSE, 0);
 
-    gtk_box_pack_start (GTK_BOX (t_appbar), hbox, FALSE, FALSE, GNOME_PAD);
+    gtk_box_pack_start (GTK_BOX (t_appbar), hbox, FALSE, FALSE, GNOME_PAD_SMALL);
   }
 
   return (tmp);
