@@ -160,13 +160,15 @@ network_gui_update (void)
 #endif
 }
 
-static void
+static gboolean
 window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
 {
   /* Handle fullscreen, in case something else takes us to/from fullscreen. */
   if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
     set_fullscreen_actions (event->new_window_state
 			    & GDK_WINDOW_STATE_FULLSCREEN);
+    
+  return FALSE;
 }
 
 
@@ -307,7 +309,7 @@ draw_board ()
 
 }
 
-static gint
+static gboolean
 window_configure_event_cb (GtkWidget * widget, GdkEventConfigure * event)
 {
   gnibbles_properties_set_height (event->height);
@@ -315,7 +317,7 @@ window_configure_event_cb (GtkWidget * widget, GdkEventConfigure * event)
   return FALSE;
 }
 
-static gint
+static gboolean
 configure_event_cb (GtkWidget * widget, GdkEventConfigure * event)
 {
   int tilesize, ts_x, ts_y;
