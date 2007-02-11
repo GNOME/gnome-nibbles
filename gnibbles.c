@@ -598,7 +598,7 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
   gchar *message;
 
   if (!scoresdialog) {
-    scoresdialog = games_scores_dialog_new (highscores, _("Nibbles Scores"));
+    scoresdialog = games_scores_dialog_new (GTK_WINDOW (window), highscores, _("Nibbles Scores"));
     games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG
 						  (scoresdialog),
 						  _("Speed:"));
