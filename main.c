@@ -1028,7 +1028,7 @@ render_logo (void)
   pango_font_description_set_size (pfd, 
 		(size * drawing_area->allocation.width) / 400);
   pango_layout_set_font_description (layout, pfd);
-  /* Tanslators: This string will be included in the intro screen, so don't make sure it fits! */
+  /* Translators: This string will be included in the intro screen, so don't make sure it fits! */
   pango_layout_set_text (layout, _("A worm game for GNOME."), -1);
   pango_layout_get_pixel_size(layout, &width, &height);  
 
