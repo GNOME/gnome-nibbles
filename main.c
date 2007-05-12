@@ -987,9 +987,15 @@ load_properties ()
 			   gconf_key_change_cb, NULL, NULL, NULL);
 }
 
+
 static void
 render_logo (void)
 {
+  PangoContext *context;
+  PangoLayout *layout;
+  PangoFontDescription * pfd;
+  int size;
+
   zero_board ();
 
   gdk_draw_pixbuf (GDK_DRAWABLE (buffer_pixmap),
@@ -999,11 +1005,45 @@ render_logo (void)
 		   BOARDHEIGHT * properties->tilesize, GDK_RGB_DITHER_NORMAL,
 		   0, 0);
 
+  context = gdk_pango_context_get ();
+  layout = pango_layout_new (context);
+  pfd = pango_context_get_font_description (context);
+  size = pango_font_description_get_size (pfd);
+  pango_font_description_set_size (pfd, 
+		(size * drawing_area->allocation.width) / 200);
+  pango_font_description_set_family (pfd, "Sans");
+  pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD); 
+  pango_layout_set_font_description (layout, pfd);
+  pango_layout_set_text (layout, _("Nibbles"), -1);
+
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->black_gc,  
+		   (drawing_area->allocation.width / 2) + 35, 
+		   (drawing_area->allocation.height / 15) + 3, layout);
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->white_gc,  
+		   (drawing_area->allocation.width / 2) + 32, 
+		   (drawing_area->allocation.height / 15), layout);
+
+  pango_font_description_set_size (pfd, 
+		(size * drawing_area->allocation.width) / 600);
+  pango_layout_set_font_description (layout, pfd);
+  /* Tanslators: This string will be included in the intro screen, so don't make sure it fits! */
+  pango_layout_set_text (layout, _("A worm game for GNOME."), -1);
+
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->black_gc,  
+		   (drawing_area->allocation.width / 2) + 17, 
+                   (drawing_area->allocation.height / 5) + 2, layout);
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->white_gc,  
+		   (drawing_area->allocation.width / 2) + 15,
+                   (drawing_area->allocation.height / 5), layout);
+
+
   gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
 		     drawing_area->style->
-		     fg_gc[GTK_WIDGET_STATE (drawing_area)], buffer_pixmap, 0,
-		     0, 0, 0, BOARDWIDTH * properties->tilesize,
+		     fg_gc[GTK_WIDGET_STATE (drawing_area)], buffer_pixmap, 
+		     0, 0, 0, 0, BOARDWIDTH * properties->tilesize,
 		     BOARDHEIGHT * properties->tilesize);
+
+
 }
 
 int
