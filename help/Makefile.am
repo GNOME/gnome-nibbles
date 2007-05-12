@@ -5,12 +5,15 @@ DOC_LINGUAS = es sv
 DOC_MODULE = gnibbles
 
 DOC_ENTITIES = \
-	legal.xml
+	legal.xml \
+	network-games.xml
 
 DOC_FIGURES = \
 	figures/game.png \
 	figures/intro.png \
 	figures/playing.png \
+	figures/connect.png \
+	figures/tables.png \
 	figures/worm_op.png
 
 dist-hook: doc-dist-hook

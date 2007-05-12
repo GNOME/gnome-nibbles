@@ -2,12 +2,13 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
-  <!ENTITY appversion "2.12">
-  <!ENTITY manrevision "2.8">
-  <!ENTITY date "September 2004">
+  <!ENTITY NETWORKGAMES SYSTEM "network-games.xml"> 
+  <!ENTITY appversion "2.20">
+  <!ENTITY manrevision "2.20">
+  <!ENTITY date "May 2007">
   <!ENTITY app "<application>Nibbles</application>">
   <!ENTITY appname "Nibbles">
-  <!ENTITY VERSION "2.8">
+  <!ENTITY VERSION "2.20">
 ]>
 
 <!-- 
@@ -147,9 +148,14 @@
  <title>Nibbles Objective</title>
   <para>
     The objective of Nibbles is quite simple.  You control the snake and
-    if the snake runs into a wall or runs into itself, you die.  You get three
+    if the snake runs into a wall or runs into itself, you die.  You get ten
     lives before your game is over.  You win by either beating your own high
-    score (or a friends) or by completing all the levels.
+    score (or a friends) or by completing all the levels. It is also 
+    possible to play against worms with artificial intelligence.
+  </para>
+  <para>
+    &appname; also features <link linkend="network-games">multiplayer</link> support with up to six competing
+    human players in hotseat or network mode.
   </para>
  </sect1>
 
@@ -174,7 +180,7 @@ the <interface>main window</interface> shown below.
 <screenshot>
  <mediaobject> 
     <imageobject>
-<imagedata fileref="figures/intro.png" format="PNG" srccredit="Kevin Breit"/>
+<imagedata fileref="figures/intro.png" format="PNG" srccredit="Andreas Røsdal"/>
     </imageobject>
     <textobject> 
       <phrase>Nibbles Introduction Window.</phrase> 
@@ -197,7 +203,7 @@ left, and down arrow to turn the snake down.
 <screenshot>
   <mediaobject> 
     <imageobject>
-  <imagedata fileref="figures/playing.png" format="PNG" srccredit="Kevin Breit"/>
+  <imagedata fileref="figures/playing.png" format="PNG" srccredit="Andreas Røsdal"/>
     </imageobject>
     <textobject> 
       <phrase>Nibbles During Gameplay.</phrase> 
@@ -237,16 +243,18 @@ section. For example -->
            </shortcut>
            <guimenuitem>New Game</guimenuitem>
           </menuchoice>
-          &mdash; This starts a new game of <application>Nibbles</application>
+           This starts a new game of <application>Nibbles</application>.
          </para>
         </listitem>
         <listitem>
          <para>
           <menuchoice>
-           <guimenuitem>Pause game</guimenuitem>
+           <shortcut>
+            <keysym>Ctrl+G</keysym>
+           </shortcut>
+           <guimenuitem>Network Game</guimenuitem>
           </menuchoice>
-          &mdash; This will pause your game.  Click on the <quote>Pause Game
-          </quote> menu option to resume game.
+           This starts a network multiplayer game using GGZ Gaming Zone.
          </para>
         </listitem>
         <listitem>
@@ -254,7 +262,16 @@ section. For example -->
           <menuchoice>
            <guimenuitem>Scores</guimenuitem>
           </menuchoice>
-          &mdash; This shows the high scores.
+           This shows the high scores.
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <menuchoice>
+           <guimenuitem>Pause game</guimenuitem>
+          </menuchoice>
+           This will pause your game.  Click on the <quote>Pause Game
+          </quote> menu option to resume game.
          </para>
         </listitem>
         <listitem>
@@ -262,7 +279,7 @@ section. For example -->
           <menuchoice>
            <guimenuitem>End Game</guimenuitem>
           </menuchoice>
-          &mdash; End the current game and return to the title screen.
+           End the current game and return to the title screen.
          </para>
         </listitem>
         <listitem>
@@ -273,13 +290,32 @@ section. For example -->
            </shortcut>
            <guimenuitem>Exit</guimenuitem>
           </menuchoice>
-          &mdash; This quits the application.
+           This quits the application.
          </para>
         </listitem>
        </itemizedlist>
       </para>
      </listitem>
     </varlistentry>
+
+   <varlistentry>
+     <term><guimenu>View</guimenu></term>
+     <listitem>
+      <para>
+       This menu contains:
+       <itemizedlist>
+        <listitem>
+         <para>
+          <menuchoice>
+           <guimenuitem>Fullscreen</guimenuitem>
+          </menuchoice>
+            This toggles your game window to be fullscreen. 
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </varlistentry>   
 
     <varlistentry>
      <term><guimenu>Settings</guimenu></term>
@@ -292,7 +328,7 @@ section. For example -->
           <menuchoice>
            <guimenuitem>Preferences</guimenuitem>
           </menuchoice>
-           &mdash; This opens your window to edit <link linkend="prefs">
+            This opens your window to edit <link linkend="prefs">
            preferences.</link>
          </para>
         </listitem>
@@ -315,10 +351,10 @@ section. For example -->
            </shortcut>
            <guimenuitem>Contents</guimenuitem>
           </menuchoice>
-          &mdash; Display this manual.
+           Display this manual.
          </para>
          <para>
-          <guimenuitem>About</guimenuitem> &mdash; This opens the
+          <guimenuitem>About</guimenuitem>  This opens the
           <interface>About</interface> dialog which shows
           basic information about
           <application>Nibbles</application>, such as
@@ -424,10 +460,19 @@ section. For example -->
      </listitem>
     </varlistentry>
     <varlistentry>
-    <term>Number of players</term>
+    <term>Number of human players</term>
      <listitem>
       <para>
-       There is room for up to four players.
+       There is room for up to six players.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+    <term>Number of AI players</term>
+     <listitem>
+      <para>
+       There is room for up to six AI players. Note that the total
+       number of human and AI players must be less than or equal to six.
       </para>
      </listitem>
     </varlistentry>
@@ -490,14 +535,14 @@ section. For example -->
 
  </sect1>
 
-<!--
- <sect1 id="bugs">
-  <title>Known Bugs and Limitations</title>
-  <para>
-   This application has no known bugs.
-  </para>
- </sect1>
--->
+<!-- ============= Network games  ===============================================
+ This doc is common to gnome-games. The file is pulled in from gnibbles directory
+ as a SVN symlink, and included here. Therefore translators only have to translate 
+ the network stuff once, instead of one time for each game. 
+ ================================ -->
+
+ &NETWORKGAMES;
+
 
 <!-- ============= Authors ================================ -->
 
@@ -505,8 +550,9 @@ section. For example -->
   <title>Authors</title>
   <para>
    <application>Nibbles</application> was written by Sean MacIsaac 
-   (<email>sjm@acm.org</email>) and Ian Peters (<email>itp@gnu.org</email>). 
-   This manual was written by Kevin Breit (<email>battery841@mypad.com</email>).
+   <email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. 
+   This manual was written by Kevin Breit <email>battery841@mypad.com</email>.
+   Nibbles was updated with network support by Andreas Røsdal <email>andreasr@gnome.org</email>.
    To report a bug or make a suggestion regarding this application or
    this manual, follow the directions in this 
    <ulink url="ghelp:gnome-feedback" type="help">document</ulink>.
@@ -552,9 +598,9 @@ section. For example -->
    url="http://www.fsf.org">their Web site</ulink> or by writing to
    <address>
     Free Software Foundation, Inc.
-    <street>59 Temple Place</street> - Suite 330
-    <city>Boston</city>, <state>MA</state> <postcode>02111-1307</postcode>
-    <country>USA</country>
+    59 Temple Place - Suite 330
+    Boston, MA 02111-1307
+    USA
    </address>
   </para>
  </sect1>
