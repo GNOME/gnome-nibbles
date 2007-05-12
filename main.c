@@ -995,6 +995,7 @@ render_logo (void)
   PangoLayout *layout;
   PangoFontDescription * pfd;
   int size;
+  static int width, height;
 
   zero_board ();
 
@@ -1010,31 +1011,33 @@ render_logo (void)
   pfd = pango_context_get_font_description (context);
   size = pango_font_description_get_size (pfd);
   pango_font_description_set_size (pfd, 
-		(size * drawing_area->allocation.width) / 200);
+		(size * drawing_area->allocation.width) / 100);
   pango_font_description_set_family (pfd, "Sans");
   pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD); 
   pango_layout_set_font_description (layout, pfd);
   pango_layout_set_text (layout, _("Nibbles"), -1);
+  pango_layout_get_pixel_size(layout, &width, &height);  
 
   gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->black_gc,  
-		   (drawing_area->allocation.width / 2) + 35, 
-		   (drawing_area->allocation.height / 15) + 3, layout);
+		   (drawing_area->allocation.width - width) * 0.5 + 3, 
+		   (drawing_area->allocation.height * 0.75) + 3, layout);
   gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->white_gc,  
-		   (drawing_area->allocation.width / 2) + 32, 
-		   (drawing_area->allocation.height / 15), layout);
+		   (drawing_area->allocation.width - width) * 0.5, 
+		   (drawing_area->allocation.height * 0.75), layout);
 
   pango_font_description_set_size (pfd, 
-		(size * drawing_area->allocation.width) / 600);
+		(size * drawing_area->allocation.width) / 400);
   pango_layout_set_font_description (layout, pfd);
   /* Tanslators: This string will be included in the intro screen, so don't make sure it fits! */
   pango_layout_set_text (layout, _("A worm game for GNOME."), -1);
+  pango_layout_get_pixel_size(layout, &width, &height);  
 
-  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->black_gc,  
-		   (drawing_area->allocation.width / 2) + 17, 
-                   (drawing_area->allocation.height / 5) + 2, layout);
-  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->white_gc,  
-		   (drawing_area->allocation.width / 2) + 15,
-                   (drawing_area->allocation.height / 5), layout);
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->black_gc,
+		   (drawing_area->allocation.width - width) * 0.5 + 2, 
+                   (drawing_area->allocation.height * 0.94) + 2, layout);
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->white_gc,
+		   (drawing_area->allocation.width - width) * 0.5,
+                   (drawing_area->allocation.height * 0.94), layout);
 
 
   gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
