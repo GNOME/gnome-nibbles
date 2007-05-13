@@ -1020,10 +1020,10 @@ render_logo (void)
 
   gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->black_gc,  
 		   (drawing_area->allocation.width - width) * 0.5 + 3, 
-		   (drawing_area->allocation.height * 0.75) + 3, layout);
+		   (drawing_area->allocation.height * 0.72) + 3, layout);
   gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->white_gc,  
 		   (drawing_area->allocation.width - width) * 0.5, 
-		   (drawing_area->allocation.height * 0.75), layout);
+		   (drawing_area->allocation.height * 0.72), layout);
 
   pango_font_description_set_size (pfd, 
 		(size * drawing_area->allocation.width) / 400);
