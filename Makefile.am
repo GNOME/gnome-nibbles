@@ -27,17 +27,6 @@ else
 bin_PROGRAMS = gnibbles 
 endif
 
-icon16dir = $(datadir)/icons/hicolor/16x16/apps/
-icon16_DATA = 16x16/gnome-nibbles.png
-icon22dir = $(datadir)/icons/hicolor/22x22/apps/
-icon22_DATA = 22x22/gnome-nibbles.png
-icon32dir = $(datadir)/icons/hicolor/32x32/apps/
-icon32_DATA = 32x32/gnome-nibbles.png
-icon48dir = $(datadir)/icons/hicolor/48x48/apps/
-icon48_DATA = 48x48/gnome-nibbles.png
-svgicondir = $(datadir)/icons/hicolor/scalable/apps/
-svgicon_DATA = scalable/gnome-nibbles.svg
-
 if GGZ_CLIENT
 GGZ_FILES =	ggz-network.h \
 		ggz-network.c \
@@ -125,11 +114,6 @@ EXTRA_DIST = \
 	$(config_DATA) \
 	$(soundlist_in_files) \
 	$(schema_in_files) \
-	$(icon16_DATA) \
-	$(icon22_DATA) \
-	$(icon32_DATA) \
-	$(icon48_DATA) \
-	$(svgicon_DATA) \
 	gnibbles-client.dsc.in \
 	gnibbles-server.dsc.in \
         gnibbles.room          

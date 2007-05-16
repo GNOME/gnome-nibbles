@@ -248,7 +248,7 @@ about_cb (GtkAction * action, gpointer data)
 			 _("A worm game for GNOME."), "authors", authors,
 			 "documenters", documenters, "translator-credits",
 			 _("translator-credits"), "logo-icon-name",
-			 "gnome-nibbles", "website",
+			 "gnome-gnibbles", "website",
 			 "http://www.gnome.org/projects/gnome-games/",
 			 "wrap-license", TRUE, NULL);
   g_free (license);
@@ -1064,7 +1064,7 @@ main (int argc, char **argv)
 				argc, argv,
 				GNOME_PARAM_POPT_TABLE, NULL,
 				GNOME_PARAM_APP_DATADIR, REAL_DATADIR, NULL);
-  gtk_window_set_default_icon_name ("gnome-nibbles");
+  gtk_window_set_default_icon_name ("gnome-gnibbles");
   srand (time (NULL));
 
   highscores = games_scores_new (&scoredesc);
