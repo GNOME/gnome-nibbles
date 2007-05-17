@@ -1,6 +1,5 @@
 pixmapdir=$(datadir)/pixmaps/gnibbles
 configdir=$(datadir)/gnibbles
-soundlistdir = $(sysconfdir)/sound/events
 Gamesdir=$(datadir)/applications
 
 INCLUDES =		 			\
@@ -99,10 +98,6 @@ Games_in_files = gnibbles.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-soundlist_in_files = gnibbles.soundlist.in
-soundlist_DATA = $(soundlist_in_files:.soundlist.in=.soundlist)
-@INTLTOOL_SOUNDLIST_RULE@
-
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = gnibbles.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
@@ -112,15 +107,14 @@ EXTRA_DIST = \
 	$(pixmap_DATA) 	\
 	$(Games_in_files) \
 	$(config_DATA) \
-	$(soundlist_in_files) \
 	$(schema_in_files) \
 	gnibbles-client.dsc.in \
 	gnibbles-server.dsc.in \
         gnibbles.room          
 
-SUBDIRS=sounds help pix
+SUBDIRS= help pix
 
-DISTCLEANFILES = $(Games_DATA) $(soundlist_DATA) $(schema_DATA)
+DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
 
 SCOREFILES = 4.0 3.0 2.0 1.0 4.1 3.1 2.1 1.1
 

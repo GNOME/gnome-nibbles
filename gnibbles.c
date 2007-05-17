@@ -25,6 +25,7 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <games-scores-dialog.h>
 #include <games-scores.h>
+#include <games-sound.h>
 
 #include "main.h"
 #include "gnibbles.h"
@@ -588,7 +589,7 @@ void
 gnibbles_play_sound (const char *which)
 {
   if (properties->sound)
-    gnome_triggers_do (NULL, NULL, "gnibbles", which, NULL);
+    games_sound_play (which);
 }
 
 void
