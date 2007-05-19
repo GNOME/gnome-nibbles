@@ -400,7 +400,8 @@ on_network_game (void)
 
   ggz_gtk_initialize (FALSE,
 		      ggz_connected, ggz_game_launched, ggz_closed,
-		      NETWORK_ENGINE, NETWORK_VERSION, "GNOME GGZ");
+		      NETWORK_ENGINE, NETWORK_VERSION, "gnibbles.xml",
+		      "GGZ Gaming Zone");
 
   pwent = getpwuid(getuid());
   ggz_embed_ensure_server ("GGZ Gaming Zone", "gnome.ggzgamingzone.org",
