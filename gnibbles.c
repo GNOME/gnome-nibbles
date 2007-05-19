@@ -510,21 +510,23 @@ gnibbles_move_worms ()
       if (properties->numworms > 1)
 	worms[i]->score *= .7;
       if (!gnibbles_worm_lose_life (worms[i])) {
-        gnibbles_worm_reset(worms[i]);
+        /* One of the worms lost one life, but the round continues. */
+        gnibbles_worm_reset (worms[i]);
         gnibbles_worm_set_start (worms[i],
 				 worms[i]->xstart,
 				 worms[i]->ystart, WORMDOWN);
+	gnibbles_play_sound ("crash");
 	return (CONTINUE);
 	}
 
     }
 
   for (i = 0; i < properties->numworms; i++)
-    if (!dead[i])
+    if (worms[i]->lives)
       gnibbles_worm_move_tail (worms[i]);
 
   for (i = 0; i < properties->numworms; i++)
-    if (!dead[i])
+    if (worms[i]->lives)
       gnibbles_worm_draw_head (worms[i]);
 
   if (status & GAMEOVER) {
@@ -537,16 +539,18 @@ gnibbles_move_worms ()
     if (worms[i]->lives > 0)
       nlives += 1;
   }
-  if (nlives == 1) {
+  if (nlives == 1 && (properties->ai + properties->human > 1)) {
+    /* There is one player left, the other AI players are dead, and that player has won! */
     return (VICTORY);
+  } else if (nlives == 0) {
+    /* There was only one worm, and it died. */
+    return (GAMEOVER);
   }
 
-  if (status)
-    return (CONTINUE);
+   /* Noone died, so the round can continue. */
 
-  gnibbles_play_sound ("crash");
   g_free (dead);
-  return (NEWROUND);
+  return (CONTINUE);
 }
 
 
