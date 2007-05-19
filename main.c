@@ -29,6 +29,7 @@
 #include <games-gridframe.h>
 #include <games-stock.h>
 #include <games-scores.h>
+#include <games-sound.h>
 
 #include "main.h"
 #include "properties.h"
@@ -1053,6 +1054,7 @@ int
 main (int argc, char **argv)
 {
   GnomeProgram *program;
+  GOptionContext *context;
 
   setgid_io_init ();
 
@@ -1060,8 +1062,13 @@ main (int argc, char **argv)
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
+  g_thread_init (NULL);
+  context = g_option_context_new (NULL);
+  g_option_context_add_group (context, games_sound_get_option_group ());
+
   program = gnome_program_init ("gnibbles", VERSION, LIBGNOMEUI_MODULE,
 				argc, argv,
+				GNOME_PARAM_GOPTION_CONTEXT, context,
 				GNOME_PARAM_POPT_TABLE, NULL,
 				GNOME_PARAM_APP_DATADIR, REAL_DATADIR, NULL);
   gtk_window_set_default_icon_name ("gnome-gnibbles");
