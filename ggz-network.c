@@ -185,6 +185,7 @@ game_handle_io (GGZMod * mod)
     break;
 
   case GN_MSG_START:
+    gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
     new_game ();
     break;
 
@@ -364,7 +365,6 @@ ggz_game_launched (void)
 
   network_init ();
   end_game (TRUE);
-  gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
 
   str = g_strdup_printf (_("Welcome to a network game of %s."),
 			 NETWORK_ENGINE);
