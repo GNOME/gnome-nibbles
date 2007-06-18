@@ -94,8 +94,8 @@ config_DATA = \
 	level025.gnl \
 	level026.gnl
 
-Games_in_files = gnibbles.desktop.in
-Games_DATA = $(Games_in_files:.desktop.in=.desktop)
+Games_in_files = gnibbles.desktop.in.in
+Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
@@ -105,7 +105,6 @@ schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 
 EXTRA_DIST = \
 	$(pixmap_DATA) 	\
-	$(Games_in_files) \
 	$(config_DATA) \
 	$(schema_in_files) \
 	gnibbles-client.dsc.in \
