@@ -1,3 +1,8 @@
+2007-06-19  Kim Christensen <kingudk@gmail.com>
+
+	* gnibbles.desktop.in.in: Corrected categori according to bug #417014, 
+	Categories changed from "ArcadeGame" to "LogicGame".
+
 2007-05-20  Andreas Røsdal <andreasr@gnome.org> 
 
 	* gnibbles.c: Bug #439236 Nibbles no longer allows 1 worm,
