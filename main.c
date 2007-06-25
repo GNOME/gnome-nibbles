@@ -317,14 +317,6 @@ draw_board ()
 }
 
 static gboolean
-window_configure_event_cb (GtkWidget * widget, GdkEventConfigure * event)
-{
-/*  gnibbles_properties_set_height (event->height);
-  gnibbles_properties_set_width (event->width);*/
-  return FALSE;
-}
-
-static gboolean
 configure_event_cb (GtkWidget * widget, GdkEventConfigure * event)
 {
   int tilesize, ts_x, ts_y;
@@ -938,9 +930,6 @@ setup_window (void)
 
   g_signal_connect (G_OBJECT (drawing_area), "configure_event",
 		    G_CALLBACK (configure_event_cb), NULL);
-
-  g_signal_connect (G_OBJECT (window), "configure_event",
-                   G_CALLBACK (window_configure_event_cb), NULL);
 
   g_signal_connect (G_OBJECT (drawing_area), "motion_notify_event",
 		    G_CALLBACK (show_cursor_cb), NULL);

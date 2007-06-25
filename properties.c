@@ -117,14 +117,6 @@ gnibbles_properties_update (GnibblesProperties * tmp)
   if (tmp->tilesize > 30)
     tmp->tilesize = 30;
 
-/*  tmp->width = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_WIDTH, NULL);
-  if (tmp->width < 1 || tmp->width > 3200)
-    tmp->width = tmp->tilesize * BOARDWIDTH;
-
-  tmp->height = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_HEIGHT, NULL);
-  if (tmp->height < 1 || tmp->height > 2400)
-    tmp->height = tmp->tilesize * BOARDHEIGHT;
-*/
   for (i = 0; i < NUMWORMS; i++) {
     tmp->wormprops[i] = g_slice_new0 (GnibblesWormProps);
 
