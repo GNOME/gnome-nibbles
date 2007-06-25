@@ -1080,6 +1080,8 @@ main (int argc, char **argv)
 
   gtk_main ();
 
+  gnibbles_properties_destroy (properties);
+
   games_conf_shutdown ();
 
   g_object_unref (program);
