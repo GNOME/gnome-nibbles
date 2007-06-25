@@ -24,12 +24,12 @@
 #include <string.h>
 #include <gdk/gdkkeysyms.h>
 #include <time.h>
-#include <gconf/gconf-client.h>
 
 #include <games-gridframe.h>
 #include <games-stock.h>
 #include <games-scores.h>
 #include <games-sound.h>
+#include <games-conf.h>
 
 #include "main.h"
 #include "properties.h"
@@ -48,6 +48,8 @@
 #include <ggz-embed.h>
 #endif
 
+#define DEFAULT_WIDTH 650
+#define DEFAULT_HEIGHT 520
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -229,7 +231,7 @@ delete_cb (GtkWidget * widget, gpointer data)
 static void
 quit_cb (GObject * object, gpointer data)
 {
-  gtk_main_quit ();
+  gtk_widget_destroy (window);
 }
 
 static void
@@ -241,7 +243,11 @@ about_cb (GtkAction * action, gpointer data)
   gchar *license = games_get_license (_("Nibbles"));
 
   gtk_show_about_dialog (GTK_WINDOW (window),
+#if GTK_CHECK_VERSION (2, 11, 0)
+                         "program-name", _("Nibbles"),
+#else
 			 "name", _("Nibbles"),
+#endif
 			 "version", VERSION,
 			 "copyright",
 			 "Copyright \xc2\xa9 1999-2007 Sean MacIsaac, Ian Peters, Andreas Røsdal",
@@ -313,8 +319,8 @@ draw_board ()
 static gboolean
 window_configure_event_cb (GtkWidget * widget, GdkEventConfigure * event)
 {
-  gnibbles_properties_set_height (event->height);
-  gnibbles_properties_set_width (event->width);
+/*  gnibbles_properties_set_height (event->height);
+  gnibbles_properties_set_width (event->width);*/
   return FALSE;
 }
 
@@ -367,7 +373,7 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event)
   else
     render_logo ();
 
-  return (FALSE);
+  return FALSE;
 }
 
 #ifdef GGZ_CLIENT
@@ -879,14 +885,17 @@ setup_window (void)
   GtkAccelGroup *accel_group;
 
   window = gnome_app_new ("gnibbles", "Nibbles");
-  gtk_widget_realize (window);
-  gtk_window_resize (GTK_WINDOW (window), properties->width,
-		     properties->height);
-  g_signal_connect (G_OBJECT (window), "destroy", G_CALLBACK (quit_cb), NULL);
+
+  gtk_window_set_default_size (GTK_WINDOW (window), DEFAULT_WIDTH, DEFAULT_HEIGHT);
+  games_conf_add_window (GTK_WINDOW (window));
+
+  g_signal_connect (G_OBJECT (window), "destroy", G_CALLBACK (gtk_main_quit), NULL);
   g_signal_connect (G_OBJECT (window), "delete_event",
 		    G_CALLBACK (delete_cb), NULL);
   g_signal_connect (G_OBJECT (window), "window_state_event",
 		    G_CALLBACK (window_state_cb), NULL);
+
+  gtk_widget_realize (window);
 
   vbox = gtk_vbox_new (FALSE, 0);
 
@@ -931,7 +940,7 @@ setup_window (void)
 		    G_CALLBACK (configure_event_cb), NULL);
 
   g_signal_connect (G_OBJECT (window), "configure_event",
-		    G_CALLBACK (window_configure_event_cb), NULL);
+                   G_CALLBACK (window_configure_event_cb), NULL);
 
   g_signal_connect (G_OBJECT (drawing_area), "motion_notify_event",
 		    G_CALLBACK (show_cursor_cb), NULL);
@@ -964,30 +973,6 @@ setup_window (void)
   scoreboard = gnibbles_scoreboard_new (appbar);
 
 }
-
-static void
-gconf_key_change_cb (GConfClient * client, guint cnxn_id,
-		     GConfEntry * entry, gpointer user_data)
-{
-  gnibbles_properties_update (properties);
-}
-
-static void
-load_properties ()
-{
-  GConfClient *client;
-
-  properties = gnibbles_properties_new ();
-  client = gconf_client_get_default ();
-
-  /* maybe this should to into properties.c */
-  gconf_client_add_dir (client,
-			KEY_DIR, GCONF_CLIENT_PRELOAD_RECURSIVE, NULL);
-  gconf_client_notify_add (client,
-			   KEY_PREFERENCES_DIR,
-			   gconf_key_change_cb, NULL, NULL, NULL);
-}
-
 
 static void
 render_logo (void)
@@ -1076,7 +1061,9 @@ main (int argc, char **argv)
 
   highscores = games_scores_new (&scoredesc);
 
-  load_properties ();
+  games_conf_initialise ("Gnibbles");
+
+  properties = gnibbles_properties_new ();
 
   setup_window ();
 
@@ -1104,7 +1091,7 @@ main (int argc, char **argv)
 
   gtk_main ();
 
-  gnome_accelerators_sync ();
+  games_conf_shutdown ();
 
   g_object_unref (program);
 

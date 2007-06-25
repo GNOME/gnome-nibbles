@@ -22,15 +22,13 @@
 #include <config.h>
 #include <gnome.h>
 #include <string.h>
-#include <gconf/gconf-client.h>
 #include <games-scores.h>
+#include <games-conf.h>
 
 #include "properties.h"
 #include "main.h"
 
 #define MAX_SPEED 4
-
-static GConfClient *conf_client;
 
 typedef struct _ColorLookup ColorLookup;
 
@@ -81,15 +79,13 @@ gnibbles_properties_update (GnibblesProperties * tmp)
   gchar *category;
   gchar *color_name;
 
-  conf_client = gconf_client_get_default ();
-
-  tmp->human = gconf_client_get_int (conf_client, KEY_NUM_WORMS, NULL);
+  tmp->human = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_NUM_WORMS, NULL);
   if (tmp->human < 0)
     tmp->human = 0;
   else if (tmp->human > NUMWORMS)
     tmp->human = NUMWORMS;
 
-  tmp->ai = gconf_client_get_int (conf_client, KEY_NUM_AI, NULL);
+  tmp->ai = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_NUM_AI, NULL);
   if (tmp->ai < 0)
     tmp->ai = 0;
   else if (tmp->ai > NUMWORMS)
@@ -97,44 +93,43 @@ gnibbles_properties_update (GnibblesProperties * tmp)
 
   tmp->numworms = tmp->human + tmp->ai;
 
-  tmp->gamespeed = gconf_client_get_int (conf_client, KEY_SPEED, NULL);
+  tmp->gamespeed = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_SPEED, NULL);
   if (tmp->gamespeed < 1)
     tmp->gamespeed = 2;
   else if (tmp->gamespeed > MAX_SPEED)
     tmp->gamespeed = MAX_SPEED;
 
-  tmp->fakes = gconf_client_get_bool (conf_client, KEY_FAKES, NULL);
+  tmp->fakes = games_conf_get_boolean (KEY_PREFERENCES_GROUP, KEY_FAKES, NULL);
 
-  tmp->random = gconf_client_get_bool (conf_client, KEY_RANDOM, NULL);
-  tmp->startlevel = gconf_client_get_int (conf_client, KEY_START_LEVEL, NULL);
+  tmp->random = games_conf_get_boolean (KEY_PREFERENCES_GROUP, KEY_RANDOM, NULL);
+
+  tmp->startlevel = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_START_LEVEL, NULL);
   if (tmp->startlevel < 1)
     tmp->startlevel = 1;
   if (tmp->startlevel > MAXLEVEL)
     tmp->startlevel = MAXLEVEL;
 
-  tmp->sound = gconf_client_get_bool (conf_client, KEY_SOUND, NULL);
-  tmp->tilesize = gconf_client_get_int (conf_client, KEY_TILE_SIZE, NULL);
+  tmp->sound = games_conf_get_boolean (KEY_PREFERENCES_GROUP, KEY_SOUND, NULL);
+
+  tmp->tilesize = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_TILE_SIZE, NULL);
   if (tmp->tilesize < 1)
     tmp->tilesize = 5;
   if (tmp->tilesize > 30)
     tmp->tilesize = 30;
 
-  tmp->width = gconf_client_get_int (conf_client, KEY_WIDTH, NULL);
+/*  tmp->width = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_WIDTH, NULL);
   if (tmp->width < 1 || tmp->width > 3200)
     tmp->width = tmp->tilesize * BOARDWIDTH;
 
-  tmp->height = gconf_client_get_int (conf_client, KEY_HEIGHT, NULL);
+  tmp->height = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_HEIGHT, NULL);
   if (tmp->height < 1 || tmp->height > 2400)
     tmp->height = tmp->tilesize * BOARDHEIGHT;
-
+*/
   for (i = 0; i < NUMWORMS; i++) {
-    tmp->wormprops[i] = (GnibblesWormProps *) g_malloc (sizeof
-							(GnibblesWormProps));
+    tmp->wormprops[i] = g_slice_new0 (GnibblesWormProps);
 
-    sprintf (buffer, KEY_WORM_COLOR, i);
-    color_name = gconf_client_get_string (conf_client, buffer, NULL);
-    if (color_name == NULL)
-      color_name = g_strdup ("red");
+    g_snprintf (buffer, sizeof (buffer), KEY_WORM_COLOR, i);
+    color_name = games_conf_get_string_with_default (KEY_PREFERENCES_GROUP, buffer, "red");
     tmp->wormprops[i]->color = colorval_from_name (color_name);
     g_free (color_name);
 
@@ -143,32 +138,25 @@ gnibbles_properties_update (GnibblesProperties * tmp)
     if (tmp->wormprops[i]->color > WORMRED + NUM_COLORS)
       tmp->wormprops[i]->color = (i % NUM_COLORS) + WORMRED;
 
-    sprintf (buffer, KEY_WORM_REL_MOVE, i);
-    tmp->wormprops[i]->relmove = gconf_client_get_bool (conf_client,
-							buffer, NULL);
-    sprintf (buffer, KEY_WORM_UP, i);
-    tmp->wormprops[i]->up = gconf_client_get_string (conf_client,
-						     buffer, NULL);
-    if (!tmp->wormprops[i]->up)
-      tmp->wormprops[i]->up = gdk_keyval_name (GDK_Up);
+    g_snprintf (buffer, sizeof (buffer), KEY_WORM_REL_MOVE, i);
+    tmp->wormprops[i]->relmove = games_conf_get_boolean (KEY_PREFERENCES_GROUP,
+ 							 buffer, NULL);
 
-    sprintf (buffer, KEY_WORM_DOWN, i);
-    tmp->wormprops[i]->down = gconf_client_get_string (conf_client,
-						       buffer, NULL);
-    if (!tmp->wormprops[i]->down)
-      tmp->wormprops[i]->down = gdk_keyval_name (GDK_Down);
+    g_snprintf (buffer, sizeof (buffer), KEY_WORM_UP, i);
+    tmp->wormprops[i]->up = games_conf_get_keyval_with_default (KEY_PREFERENCES_GROUP,
+                                                                buffer, GDK_Up);
 
-    sprintf (buffer, KEY_WORM_LEFT, i);
-    tmp->wormprops[i]->left = gconf_client_get_string (conf_client,
-						       buffer, NULL);
-    if (!tmp->wormprops[i]->left)
-      tmp->wormprops[i]->left = gdk_keyval_name (GDK_Left);
+    g_snprintf (buffer, sizeof (buffer), KEY_WORM_DOWN, i);
+    tmp->wormprops[i]->down = games_conf_get_keyval_with_default (KEY_PREFERENCES_GROUP,
+						                  buffer, GDK_Down);
 
-    sprintf (buffer, KEY_WORM_RIGHT, i);
-    tmp->wormprops[i]->right = gconf_client_get_string (conf_client,
-							buffer, NULL);
-    if (!tmp->wormprops[i]->right)
-      tmp->wormprops[i]->right = gdk_keyval_name (GDK_Right);
+    g_snprintf (buffer, sizeof (buffer), KEY_WORM_LEFT, i);
+    tmp->wormprops[i]->left = games_conf_get_keyval_with_default (KEY_PREFERENCES_GROUP,
+                                                                  buffer, GDK_Left);
+
+    g_snprintf (buffer, sizeof (buffer), KEY_WORM_RIGHT, i);
+    tmp->wormprops[i]->right = games_conf_get_keyval_with_default (KEY_PREFERENCES_GROUP,
+                                                                   buffer, GDK_Right);
   }
 
   category = g_strdup_printf ("%d.%d", tmp->gamespeed, tmp->fakes);
@@ -176,16 +164,35 @@ gnibbles_properties_update (GnibblesProperties * tmp)
   g_free (category);
 }
 
+static void
+conf_value_changed_cb (GamesConf *conf,
+                       const char *group,
+                       const char *key,
+                       gpointer data)
+{
+  GnibblesProperties *props = (GnibblesProperties *) data;
+
+  if (!group || strcmp (group, KEY_PREFERENCES_GROUP) != 0)
+    return;
+
+  gnibbles_properties_update (props);
+}
+
 GnibblesProperties *
 gnibbles_properties_new (void)
 {
-  GnibblesProperties *tmp;
+  GnibblesProperties *props;
 
-  tmp = (GnibblesProperties *) g_malloc (sizeof (GnibblesProperties));
+  props = g_slice_new0 (GnibblesProperties);
 
-  gnibbles_properties_update (tmp);
+  props->conf_notify_id = g_signal_connect (games_conf_get_default (),
+                                            "value-changed",
+                                            G_CALLBACK (conf_value_changed_cb),
+                                            props);
 
-  return tmp;
+  gnibbles_properties_update (props);
+
+  return props;
 }
 
 void
@@ -194,42 +201,11 @@ gnibbles_properties_destroy (GnibblesProperties * props)
   int i;
 
   for (i = 0; i < NUMWORMS; i++)
-    free (props->wormprops[i]);
+    g_slice_free (GnibblesWormProps, props->wormprops[i]);
 
-  free (props);
-}
+  g_signal_handler_disconnect (games_conf_get_default (), props->conf_notify_id);
 
-GnibblesProperties *
-gnibbles_properties_copy (GnibblesProperties * props)
-{
-  GnibblesProperties *tmp;
-  int i;
-
-  tmp = (GnibblesProperties *) g_malloc (sizeof (GnibblesProperties));
-
-  tmp->numworms = props->numworms;
-  tmp->gamespeed = props->gamespeed;
-  tmp->fakes = props->fakes;
-  tmp->random = props->random;
-  tmp->startlevel = props->startlevel;
-  tmp->sound = props->sound;
-  tmp->tilesize = props->tilesize;
-  tmp->width = props->width;
-  tmp->height = props->height;
-
-  for (i = 0; i < NUMWORMS; i++) {
-    tmp->wormprops[i] = (GnibblesWormProps *) g_malloc (sizeof
-							(GnibblesWormProps));
-
-    tmp->wormprops[i]->color = props->wormprops[i]->color;
-    tmp->wormprops[i]->relmove = props->wormprops[i]->relmove;
-    tmp->wormprops[i]->up = props->wormprops[i]->up;
-    tmp->wormprops[i]->down = props->wormprops[i]->down;
-    tmp->wormprops[i]->left = props->wormprops[i]->left;
-    tmp->wormprops[i]->right = props->wormprops[i]->right;
-  }
-
-  return (tmp);
+  g_slice_free (GnibblesProperties, props);
 }
 
 /* FIXME: I suppose these set functions should be combined somehow */
@@ -237,82 +213,69 @@ gnibbles_properties_copy (GnibblesProperties * props)
 void
 gnibbles_properties_set_worms_number (gint value)
 {
-  gconf_client_set_int (conf_client, KEY_NUM_WORMS, value, NULL);
+  games_conf_set_integer (KEY_PREFERENCES_GROUP, KEY_NUM_WORMS, value);
 }
 
 void
 gnibbles_properties_set_ai_number (gint value)
 {
-  gconf_client_set_int (conf_client, KEY_NUM_AI, value, NULL);
+  games_conf_set_integer (KEY_PREFERENCES_GROUP, KEY_NUM_AI, value);
 }
 
 void
 gnibbles_properties_set_speed (gint value)
 {
-  gconf_client_set_int (conf_client, KEY_SPEED, value, NULL);
+  games_conf_set_integer (KEY_PREFERENCES_GROUP, KEY_SPEED, value);
 }
 
 void
 gnibbles_properties_set_fakes (gboolean value)
 {
-  gconf_client_set_bool (conf_client, KEY_FAKES, value, NULL);
+  games_conf_set_boolean (KEY_PREFERENCES_GROUP, KEY_FAKES, value);
 }
 
 void
 gnibbles_properties_set_random (gboolean value)
 {
-  gconf_client_set_bool (conf_client, KEY_RANDOM, value, NULL);
+  games_conf_set_boolean (KEY_PREFERENCES_GROUP, KEY_RANDOM, value);
 }
 
 void
 gnibbles_properties_set_start_level (gint value)
 {
-  gconf_client_set_int (conf_client, KEY_START_LEVEL, value, NULL);
+  games_conf_set_integer (KEY_PREFERENCES_GROUP, KEY_START_LEVEL, value);
 }
 
 void
 gnibbles_properties_set_sound (gboolean value)
 {
-  gconf_client_set_bool (conf_client, KEY_SOUND, value, NULL);
+  games_conf_set_boolean (KEY_PREFERENCES_GROUP, KEY_SOUND, value);
 }
 
 void
 gnibbles_properties_set_tile_size (gint value)
 {
-  gconf_client_set_int (conf_client, KEY_TILE_SIZE, value, NULL);
+  games_conf_set_integer (KEY_PREFERENCES_GROUP, KEY_TILE_SIZE, value);
 }
 
 void
 gnibbles_properties_set_worm_relative_movement (gint i, gboolean value)
 {
-  gchar *buffer;
-  buffer = g_strdup_printf (KEY_WORM_REL_MOVE, i);
-  gconf_client_set_bool (conf_client, buffer, value, NULL);
-  g_free (buffer);
+  char key[64];
+  g_snprintf (key, sizeof (key), KEY_WORM_REL_MOVE, i);
+  games_conf_set_boolean (KEY_PREFERENCES_GROUP, key, value);
 }
 
 void
 gnibbles_properties_set_worm_color (gint i, gint value)
 {
-  gchar *buffer;
-  gchar *color_name;
+  char key[64];
+  char *color_name;
+
+  g_snprintf (key, sizeof (key), KEY_WORM_COLOR, i);
 
   color_name = colorval_name (value);
-  buffer = g_strdup_printf (KEY_WORM_COLOR, i);
-  gconf_client_set_string (conf_client, buffer, color_name, NULL);
-  g_free (buffer);
-}
-
-void
-gnibbles_properties_set_height (gint value)
-{
-  gconf_client_set_int (conf_client, KEY_HEIGHT, value, NULL);
-}
-
-void
-gnibbles_properties_set_width (gint value)
-{
-  gconf_client_set_int (conf_client, KEY_WIDTH, value, NULL);
+  games_conf_set_string (KEY_PREFERENCES_GROUP, key, color_name);
 }
 
 void

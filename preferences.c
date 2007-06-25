@@ -417,10 +417,10 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 		    GTK_SIGNAL_FUNC (num_worms_cb), num_ai);
 
   for (i = 0; i < NUMWORMS; i++) {
-    gchar *up_key;
-    gchar *down_key;
-    gchar *left_key;
-    gchar *right_key;
+    char up_key[64];
+    char down_key[64];
+    char left_key[64];
+    char right_key[64];
 
     buffer = g_strdup_printf ("%s %d", _("Worm"), i + 1);
     label = gtk_label_new (buffer);
@@ -433,22 +433,20 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
     frame = games_frame_new (_("Keyboard Controls"));
 
-    controls = games_controls_list_new ();
+    controls = games_controls_list_new (KEY_PREFERENCES_GROUP);
 
-    left_key = g_strdup_printf (KEY_WORM_LEFT, i);
-    right_key = g_strdup_printf (KEY_WORM_RIGHT, i);
-    up_key = g_strdup_printf (KEY_WORM_UP, i);
-    down_key = g_strdup_printf (KEY_WORM_DOWN, i);
+    g_snprintf (left_key, sizeof (left_key), KEY_WORM_LEFT, i);
+    g_snprintf (right_key, sizeof (right_key), KEY_WORM_RIGHT, i);
+    g_snprintf (up_key, sizeof (up_key), KEY_WORM_UP, i);
+    g_snprintf (down_key, sizeof (down_key), KEY_WORM_DOWN, i);
 
     games_controls_list_add_controls (GAMES_CONTROLS_LIST (controls),
-				      left_key, right_key, up_key, down_key,
+				      left_key, _("Move left"), GDK_Left,
+                                      right_key, _("Move right"), GDK_Right,
+                                      up_key, _("Move up"), GDK_Up,
+                                      down_key, _("Move down"), GDK_Down,
 				      NULL);
     gtk_container_add (GTK_CONTAINER (frame), controls);
-
-    g_free (left_key);
-    g_free (right_key);
-    g_free (up_key);
-    g_free (down_key);
 
     gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
 

@@ -27,31 +27,29 @@
 
 #include "gnibbles.h"
 
-#define KEY_DIR "/apps/gnibbles"
-#define KEY_PREFERENCES_DIR "/apps/gnibbles/preferences"
-#define KEY_NUM_WORMS "/apps/gnibbles/preferences/players"
-#define KEY_NUM_AI "/apps/gnibbles/preferences/ai"
-#define KEY_SPEED "/apps/gnibbles/preferences/speed"
-#define KEY_FAKES "/apps/gnibbles/preferences/fakes"
-#define KEY_RANDOM "/apps/gnibbles/preferences/random"
-#define KEY_START_LEVEL "/apps/gnibbles/preferences/start_level"
-#define KEY_SOUND "/apps/gnibbles/preferences/sound"
-#define KEY_TILE_SIZE "/apps/gnibbles/preferences/tile_size"
-#define KEY_HEIGHT "/apps/gnibbles/preferences/height"
-#define KEY_WIDTH "/apps/gnibbles/preferences/width"
+#define KEY_PREFERENCES_GROUP "preferences"
 
-#define KEY_WORM_DIR "/apps/gnibbles/preferences/worm/%d"
-#define KEY_WORM_COLOR "/apps/gnibbles/preferences/worm/%d/color"
-#define KEY_WORM_REL_MOVE "/apps/gnibbles/preferences/worm/%d/move_relative"
-#define KEY_WORM_UP "/apps/gnibbles/preferences/worm/%d/key_up"
-#define KEY_WORM_DOWN "/apps/gnibbles/preferences/worm/%d/key_down"
-#define KEY_WORM_LEFT "/apps/gnibbles/preferences/worm/%d/key_left"
-#define KEY_WORM_RIGHT "/apps/gnibbles/preferences/worm/%d/key_right"
+#define KEY_NUM_WORMS "players"
+#define KEY_NUM_AI "ai"
+#define KEY_SPEED "speed"
+#define KEY_FAKES "fakes"
+#define KEY_RANDOM "random"
+#define KEY_START_LEVEL "start_level"
+#define KEY_SOUND "sound"
+#define KEY_TILE_SIZE "tile_size"
+
+#define KEY_WORM_DIR "worm/%d"
+#define KEY_WORM_COLOR "worm/%d/color"
+#define KEY_WORM_REL_MOVE "worm/%d/move_relative"
+#define KEY_WORM_UP "worm/%d/key_up"
+#define KEY_WORM_DOWN "worm/%d/key_down"
+#define KEY_WORM_LEFT "worm/%d/key_left"
+#define KEY_WORM_RIGHT "worm/%d/key_right"
 
 typedef struct {
   gint color;
   gboolean relmove;
-  gchar *up, *down, *left, *right;
+  guint up, down, left, right;
 } GnibblesWormProps;
 
 typedef struct {
@@ -64,9 +62,8 @@ typedef struct {
   gint startlevel;
   gint sound;
   gint tilesize;
-  gint height;
-  gint width;
   GnibblesWormProps *wormprops[NUMWORMS];
+  gulong conf_notify_id;
 } GnibblesProperties;
 
 GnibblesProperties *gnibbles_properties_new (void);
@@ -74,8 +71,6 @@ GnibblesProperties *gnibbles_properties_new (void);
 void gnibbles_properties_update (GnibblesProperties * tmp);
 
 void gnibbles_properties_destroy (GnibblesProperties * props);
-
-GnibblesProperties *gnibbles_properties_copy (GnibblesProperties * props);
 
 void gnibbles_properties_set_worms_number (gint value);
 void gnibbles_properties_set_ai_number (gint value);
@@ -91,8 +86,6 @@ void gnibbles_properties_set_worm_up (gint i, gchar * value);
 void gnibbles_properties_set_worm_down (gint i, gchar * value);
 void gnibbles_properties_set_worm_left (gint i, gchar * value);
 void gnibbles_properties_set_worm_right (gint i, gchar * value);
-void gnibbles_properties_set_height (gint value);
-void gnibbles_properties_set_width (gint value);
 
 void gnibbles_properties_save (GnibblesProperties * props);
 gchar *colorval_name (gint colorval);

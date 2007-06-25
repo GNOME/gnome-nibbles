@@ -134,7 +134,7 @@ gnibbles_worm_set_start (GnibblesWorm * worm, guint t_xhead, guint t_yhead,
 gint
 gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
 {
-  gint key_left, key_right, key_up, key_down;
+  GnibblesWormProps *props;
 
 /*	if (worm->keypress) {
                 gnibbles_worm_queue_keypress (worm, keyval);
@@ -143,46 +143,33 @@ gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
 
 
 
-  if (ggz_network_mode) {
-    key_left = gdk_keyval_from_name (properties->wormprops[0]->left);
-    key_right = gdk_keyval_from_name (properties->wormprops[0]->right);
-    key_up = gdk_keyval_from_name (properties->wormprops[0]->up);
-    key_down = gdk_keyval_from_name (properties->wormprops[0]->down);
-  } else {
-    key_left =
-      gdk_keyval_from_name (properties->wormprops[worm->number]->left);
-    key_right =
-      gdk_keyval_from_name (properties->wormprops[worm->number]->right);
-    key_up = gdk_keyval_from_name (properties->wormprops[worm->number]->up);
-    key_down =
-      gdk_keyval_from_name (properties->wormprops[worm->number]->down);
-  }
+  props = properties->wormprops[ggz_network_mode ? 0 : worm->number];
 
   if (properties->wormprops[worm->number]->relmove) {
-    if (keyval == key_left)
+    if (keyval == props->left)
       worm_handle_direction (worm->number, worm->direction - 1);
-    else if (keyval == key_right)
+    else if (keyval == props->right)
       worm_handle_direction (worm->number, worm->direction + 1);
     else
       return FALSE;
     return TRUE;
   } else {
-    if ((keyval == key_up) && (worm->direction != WORMDOWN)) {
+    if ((keyval == props->up) && (worm->direction != WORMDOWN)) {
       worm_handle_direction (worm->number, WORMUP);
       /*worm->keypress = 1; */
       return TRUE;
     }
-    if ((keyval == key_right) && (worm->direction != WORMLEFT)) {
+    if ((keyval == props->right) && (worm->direction != WORMLEFT)) {
       worm_handle_direction (worm->number, WORMRIGHT);
       /*worm->keypress = 1; */
       return TRUE;
     }
-    if ((keyval == key_down) && (worm->direction != WORMUP)) {
+    if ((keyval == props->down) && (worm->direction != WORMUP)) {
       worm_handle_direction (worm->number, WORMDOWN);
       /*worm->keypress = 1; */
       return TRUE;
     }
-    if ((keyval == key_left) && (worm->direction != WORMRIGHT)) {
+    if ((keyval == props->left) && (worm->direction != WORMRIGHT)) {
       worm_handle_direction (worm->number, WORMLEFT);
       /*worm->keypress = 1; */
       return TRUE;
