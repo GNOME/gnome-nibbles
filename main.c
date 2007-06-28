@@ -1038,7 +1038,7 @@ main (int argc, char **argv)
 
   g_thread_init (NULL);
   context = g_option_context_new (NULL);
-  g_option_context_add_group (context, games_sound_get_option_group ());
+  games_sound_add_option_group (context);
 
   program = gnome_program_init ("gnibbles", VERSION, LIBGNOMEUI_MODULE,
 				argc, argv,
