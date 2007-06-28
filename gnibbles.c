@@ -515,7 +515,7 @@ gnibbles_move_worms ()
         gnibbles_worm_set_start (worms[i],
 				 worms[i]->xstart,
 				 worms[i]->ystart, WORMDOWN);
-	gnibbles_play_sound ("crash");
+	games_sound_play ("crash");
 	return (CONTINUE);
 	}
 
@@ -530,8 +530,8 @@ gnibbles_move_worms ()
       gnibbles_worm_draw_head (worms[i]);
 
   if (status & GAMEOVER) {
-    gnibbles_play_sound ("crash");
-    gnibbles_play_sound ("gameover");
+    games_sound_play ("crash");
+    games_sound_play ("gameover");
     return (GAMEOVER);
   }
 
@@ -587,13 +587,6 @@ gnibbles_undraw_worms (gint data)
 
   for (i = 0; i < properties->numworms; i++)
     gnibbles_worm_undraw_nth (worms[i], data);
-}
-
-void
-gnibbles_play_sound (const char *which)
-{
-  if (properties->sound)
-    games_sound_play (which);
 }
 
 void

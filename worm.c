@@ -240,7 +240,7 @@ gnibbles_worm_grok_bonus (GnibblesWorm * worm)
 
   if (gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
     g_timeout_add (1, (GtkFunction) gnibbles_worm_reverse, worm);
-    gnibbles_play_sound ("reverse");
+    games_sound_play ("reverse");
     return;
   }
 
@@ -249,30 +249,30 @@ gnibbles_worm_grok_bonus (GnibblesWorm * worm)
     boni->numleft--;
     worm->change += (NUMBONI - boni->numleft) * GROWFACTOR;
     worm->score += (NUMBONI - boni->numleft) * current_level;
-    gnibbles_play_sound ("gobble");
+    games_sound_play ("gobble");
     break;
   case BONUSDOUBLE:
     worm->score += (worm->length + worm->change) * current_level;
     worm->change += worm->length + worm->change;
-    gnibbles_play_sound ("bonus");
+    games_sound_play ("bonus");
     break;
   case BONUSHALF:
     if (worm->length + worm->change > 2) {
       worm->score += ((worm->length + worm->change) / 2) * current_level;
       worm->change -= (worm->length + worm->change) / 2;
-      gnibbles_play_sound ("bonus");
+      games_sound_play ("bonus");
     }
     break;
   case BONUSLIFE:
     worm->lives += 1;
-    gnibbles_play_sound ("life");
+    games_sound_play ("life");
     break;
   case BONUSREVERSE:
     for (i = 0; i < properties->numworms; i++)
       if (worm != worms[i])
 	g_timeout_add (1, (GSourceFunc)
 		       gnibbles_worm_reverse, worms[i]);
-    gnibbles_play_sound ("reverse");
+    games_sound_play ("reverse");
     break;
   }
 }
@@ -336,7 +336,7 @@ gnibbles_worm_draw_head (GnibblesWorm * worm)
 
   if (board[worm->xhead][worm->yhead] == WARPLETTER) {
     gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
-    gnibbles_play_sound ("teleport");
+    games_sound_play ("teleport");
   }
 
   worm->start++;

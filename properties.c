@@ -110,6 +110,7 @@ gnibbles_properties_update (GnibblesProperties * tmp)
     tmp->startlevel = MAXLEVEL;
 
   tmp->sound = games_conf_get_boolean (KEY_PREFERENCES_GROUP, KEY_SOUND, NULL);
+  games_sound_enable (tmp->sound);
 
   tmp->tilesize = games_conf_get_integer (KEY_PREFERENCES_GROUP, KEY_TILE_SIZE, NULL);
   if (tmp->tilesize < 1)
