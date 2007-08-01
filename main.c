@@ -257,6 +257,7 @@ about_cb (GtkAction * action, gpointer data)
 			 _("translator-credits"), "logo-icon-name",
 			 "gnome-gnibbles", "website",
 			 "http://www.gnome.org/projects/gnome-games/",
+			 "website-label", _("GNOME Games web site"),
 			 "wrap-license", TRUE, NULL);
   g_free (license);
 }
