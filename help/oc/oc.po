@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gnibbles.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-05-20 03:47+0100\n"
-"PO-Revision-Date: 2007-08-23 00:23+0200\n"
+"PO-Revision-Date: 2007-09-01 16:16+0200\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -72,7 +72,7 @@ msgstr "Kevin Breit"
 #: C/gnibbles.xml:54(publishername) C/gnibbles.xml:67(orgname)
 #: C/gnibbles.xml:93(para)
 msgid "GNOME Documentation Project"
-msgstr ""
+msgstr "Projècte de documentacion de GNOME"
 
 #: C/gnibbles.xml:2(para)
 msgid ""
@@ -155,11 +155,11 @@ msgstr ""
 
 #: C/gnibbles.xml:88(date)
 msgid "May 2007"
-msgstr ""
+msgstr "Mai de 2007"
 
 #: C/gnibbles.xml:90(para)
 msgid "Kevin Breit <email>battery841@mypad.com</email>"
-msgstr ""
+msgstr "Kevin Breit <email>battery841@mypad.com</email>"
 
 #: C/gnibbles.xml:98(releaseinfo)
 msgid "This manual describes version 2.20 of Nibbles."
@@ -389,7 +389,7 @@ msgstr ""
 
 #: C/gnibbles.xml:390(title)
 msgid "Customization"
-msgstr ""
+msgstr "Personalisacion"
 
 #: C/gnibbles.xml:391(para)
 msgid ""
@@ -401,11 +401,11 @@ msgstr ""
 
 #: C/gnibbles.xml:402(title)
 msgid "Game Preferences Tab"
-msgstr ""
+msgstr "Onglet de preferéncias del jòc"
 
 #: C/gnibbles.xml:409(phrase)
 msgid "Game Preferences Tab."
-msgstr ""
+msgstr "Onglet de preferéncias del jòc."
 
 #: C/gnibbles.xml:419(term)
 msgid "Speed"
