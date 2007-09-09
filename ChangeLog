@@ -1,3 +1,9 @@
+2007-09-09  Andreas Røsdal <andreasr@gnome.org> 
+
+	* worm.c:
+	* boni.c:
+	* properties.c: Remove missing includes. Reported by me in bug #474635.
+
 2007-06-19  Kim Christensen <kingudk@gmail.com>
 
 	* gnibbles.desktop.in.in: Corrected categori according to bug #417014, 

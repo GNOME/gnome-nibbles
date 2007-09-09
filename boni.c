@@ -20,6 +20,8 @@
 #include <config.h>
 #include <gnome.h>
 
+#include <games-sound.h>
+
 #include "gnibbles.h"
 #include "main.h"
 #include "bonus.h"

@@ -23,6 +23,8 @@
 #include <config.h>
 #endif
 
+#include <games-sound.h>
+
 #include "worm.h"
 #include "gnibbles.h"
 #include "boni.h"

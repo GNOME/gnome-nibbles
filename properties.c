@@ -22,6 +22,7 @@
 #include <config.h>
 #include <gnome.h>
 #include <string.h>
+#include <games-sound.h>
 #include <games-scores.h>
 #include <games-conf.h>
 
