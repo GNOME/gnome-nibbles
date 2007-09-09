@@ -2,7 +2,7 @@
 
 	* worm.c:
 	* boni.c:
-	* properties.c: Remove missing includes. Reported by me in bug #474635.
+	* properties.c: Add missing includes. Reported by me in bug #474635.
 
 2007-06-19  Kim Christensen <kingudk@gmail.com>
 
