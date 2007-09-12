@@ -1,3 +1,9 @@
+2007-09-12  Claude Paroz  <claude@2xlibre.net>
+
+	* Makefile.am: Added fr to DOC_LINGUAS.
+	* fr/fr.po: Added French translation.
+	* fr/figures/*.png: Added remaining screenshots.
+
 2007-08-06  Claude Paroz <claude@2xlibre.net>
 	* fr/figures/tables.png:
 	* fr/figures/connect.png: Added figures linked from other manuals.
