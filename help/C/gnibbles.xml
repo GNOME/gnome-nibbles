@@ -25,11 +25,14 @@
 <!-- please do not change the id; for translations, change lang to -->
 <!-- appropriate code -->
  <articleinfo>
-  <title>&app; Manual V&manrevision;</title>
+  <title>&app; Manual</title>
 
     <abstract role="description">
       <para>
-      Nibbles is a game where the user controls a snake. The snake moves around the board, eating diamonds while avoiding the walls placed around it.
+	Nibbles is a worm game for GNOME. The player controls a 2D 
+	snake while trying to get food. Getting food gives points, 
+	but hitting anything causes a loss of points. When all points 
+	are lost, the player loses.
       </para>
     </abstract>
 
