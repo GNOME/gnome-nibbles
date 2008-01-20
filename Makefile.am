@@ -107,7 +107,7 @@ schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 if GGZ_SERVER
 bin_PROGRAMS += gnibblesd
 
-gnibblesd_SOURCES =
+gnibblesd_SOURCES = \
 	server.h \
 	server.c \
 	$(NULL)
