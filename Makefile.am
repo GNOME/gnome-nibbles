@@ -147,7 +147,7 @@ EXTRA_DIST = \
 	$(schema_in_files) \
 	gnibbles-client.dsc.in \
 	gnibbles-server.dsc.in \
-        gnibbles.room          
+        gnibbles.room.in
 
 SUBDIRS= help pix
 
