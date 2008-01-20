@@ -1,36 +1,4 @@
-pixmapdir=$(datadir)/pixmaps/gnibbles
-configdir=$(datadir)/gnibbles
-Gamesdir=$(datadir)/applications
-
-INCLUDES =		 			\
-	$(GNOME_GAMES_CFLAGS)			\
-	-I$(top_srcdir)/libgames-support	\
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DREAL_DATADIR=\""$(datadir)"\" 	\
-	$(GGZMOD_INCLUDES) $(GGZ_GTK_INCLUDES) $(GGZCORE_INCLUDES)\
-	$(LIBGGZ_INCLUDES) $(GGZCORE_INCLUDES) $(GGZDMOD_INCLUDES)
-
-if GGZ_SERVER
-bin_PROGRAMS = gnibbles gnibblesd 
-gnibblesd_SOURCES = server.h   \
-		 server.c   
-
-gnibblesd_LDFLAGS = @GGZDMOD_LDFLAGS@
-
-gnibblesd_LDADD = \
-	$(GNOME_GAMES_LIBS)     \
-	$(INTLLIBS) 		\
-	@LIB_GGZDMOD@
-
-else
-bin_PROGRAMS = gnibbles 
-endif
-
-if GGZ_CLIENT
-GGZ_FILES =	ggz-network.h \
-		ggz-network.c \
-		$(NULL)
-endif
+bin_PROGRAMS = gnibbles
 
 gnibbles_SOURCES = \
 	bonus.h \
@@ -53,19 +21,50 @@ gnibbles_SOURCES = \
 	scoreboard.c \
 	main.c \
 	main.h \
-	$(GGZ_FILES)
+	$(NULL)
+
+gnibbles_CPPFLAGS = \
+	-I$(top_srcdir)/libgames-support \
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
+	-DREAL_DATADIR=\""$(datadir)"\" \
+	$(AM_CPPFLAGS)
+
+gnibbles_CFLAGS = \
+	$(GNOME_GAMES_CFLAGS)			\
+	$(AM_CFLAGS)
+
+gnibbles_LDFLAGS = $(AM_LDFLAGS)
 
 gnibbles_LDADD = \
-	../libgames-support/libgames-support.la \
+	$(top_builddir)/libgames-support/libgames-support.la \
 	$(GNOME_GAMES_LIBS) \
-	$(INTLLIBS) \
+	$(INTLLIBS)
+
+if GGZ_CLIENT
+gnibbles_SOURCES += \
+	ggz-network.h \
+	ggz-network.c \
+	$(NULL)
+
+gnibbles_CPPFLAGS += \
+	$(GGZMOD_INCLUDES) \
+	$(GGZ_GTK_INCLUDES) \
+	$(GGZCORE_INCLUDES) \
+	$(LIBGGZ_INCLUDES) \
+	$(GGZCORE_INCLUDES) \
+	$(GGZDMOD_INCLUDES)
+
+gnibbles_LDADD += \
 	$(LIB_GGZMOD) \
 	$(LIB_GGZ_GTK)
 
-gnibbles_LDFLAGS = $(GGZMOD_LDFLAGS)
+gnibbles_LDFLAGS += $(GGZMOD_LDFLAGS)
+endif
 
+pixmapdir = $(datadir)/pixmaps/gnibbles
 pixmap_DATA = gnibbles-logo.svg
 
+configdir = $(datadir)/gnibbles
 config_DATA = \
 	level001.gnl \
 	level002.gnl \
@@ -92,16 +91,55 @@ config_DATA = \
 	level023.gnl \
 	level024.gnl \
 	level025.gnl \
-	level026.gnl
+	level026.gnl \
+	$(NULL)
 
-Games_in_files = gnibbles.desktop.in.in
-Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
+desktopdir=$(datadir)/applications
+desktop_in_files = gnibbles.desktop.in.in
+desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = gnibbles.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 @INTLTOOL_SCHEMAS_RULE@
+
+if GGZ_SERVER
+bin_PROGRAMS += gnibblesd
+
+gnibblesd_SOURCES =
+	server.h \
+	server.c \
+	$(NULL)
+
+gnibblesd_CPPFLAGS = \
+	-I$(top_srcdir)/libgames-support \
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
+	-DREAL_DATADIR=\""$(datadir)"\" \
+	$(GGZMOD_INCLUDES) $(GGZ_GTK_INCLUDES) $(GGZCORE_INCLUDES)\
+	$(LIBGGZ_INCLUDES) $(GGZCORE_INCLUDES) $(GGZDMOD_INCLUDES)
+	$(AM_CPPFLAGS)
+
+gnibblesd_CFLAGS = \
+	$(GNOME_GAMES_CFLAGS)			\
+	$(AM_CFLAGS)
+
+gnibblesd_LDFLAGS = $(AM_LDFLAGS) $(GGZDMOD_LDFLAGS)
+
+gnibblesd_LDADD = \
+	$(GNOME_GAMES_LIBS)     \
+	$(INTLLIBS) 		\
+	$(LIB_GGZDMOD)
+
+ggzroom_in_files = gnibbles.room.in
+ggzroom_DATA = $(ggzroom_in_files:.room.in=.room)
+ggzroomdir = ${prefix}/etc/ggzd/rooms/
+@GNOME_GAMES_GGZ_INTLTOOL_ROOM_RULE@
+
+ggzgame_DATA = gnibbles-server.dsc
+ggzgamedir = ${prefix}/etc/ggzd/games/
+
+endif # GGZ_SERVER
 
 EXTRA_DIST = \
 	$(pixmap_DATA) 	\
@@ -112,6 +150,8 @@ EXTRA_DIST = \
         gnibbles.room          
 
 SUBDIRS= help pix
+
+CLEANFILES = $(ggzroom_DATA)
 
 DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
 
@@ -136,14 +176,3 @@ uninstall-local:
 if GGZ_CLIENT
 	-$(GGZ_CONFIG) -D --remove --modfile=gnibbles-client.dsc
 endif
-
-
-if GGZ_SERVER
-ggzroom_DATA = gnibbles.room
-ggzroomdir = ${prefix}/etc/ggzd/rooms/
-
-ggzgame_DATA = gnibbles-server.dsc
-ggzgamedir = ${prefix}/etc/ggzd/games/
-endif
-
-
