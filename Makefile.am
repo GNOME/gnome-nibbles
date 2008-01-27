@@ -1,4 +1,5 @@
 bin_PROGRAMS = gnibbles
+ggzexecmod_PROGRAMS =
 
 gnibbles_SOURCES = \
 	bonus.h \
@@ -57,8 +58,6 @@ gnibbles_CPPFLAGS += \
 gnibbles_LDADD += \
 	$(LIB_GGZMOD) \
 	$(LIB_GGZ_GTK)
-
-gnibbles_LDFLAGS += $(GGZMOD_LDFLAGS)
 endif
 
 pixmapdir = $(datadir)/pixmaps/gnibbles
@@ -97,15 +96,13 @@ config_DATA = \
 desktopdir=$(datadir)/applications
 desktop_in_files = gnibbles.desktop.in.in
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = gnibbles.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
-@INTLTOOL_SCHEMAS_RULE@
 
 if GGZ_SERVER
-bin_PROGRAMS += gnibblesd
+ggzexecmod_PROGRAMS += gnibblesd
 
 gnibblesd_SOURCES = \
 	server.h \
@@ -124,7 +121,7 @@ gnibblesd_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS)			\
 	$(AM_CFLAGS)
 
-gnibblesd_LDFLAGS = $(AM_LDFLAGS) $(GGZDMOD_LDFLAGS)
+gnibblesd_LDFLAGS = $(AM_LDFLAGS)
 
 gnibblesd_LDADD = \
 	$(GNOME_GAMES_LIBS)     \
@@ -134,12 +131,15 @@ gnibblesd_LDADD = \
 ggzroom_in_files = gnibbles.room.in
 ggzroom_DATA = $(ggzroom_in_files:.room.in=.room)
 ggzroomdir = ${prefix}/etc/ggzd/rooms/
-@GNOME_GAMES_GGZ_INTLTOOL_ROOM_RULE@
 
-ggzgame_DATA = gnibbles-server.dsc
-ggzgamedir = ${prefix}/etc/ggzd/games/
-
+ggzserver_dscdir = ${prefix}/etc/ggzd/games/
+ggzserver_dsc_in_files = gnibbles-server.dsc.in
+ggzserver_dsc_DATA = $(ggzserver_dsc_in_files:.dsc.in=.dsc)
 endif # GGZ_SERVER
+
+if GGZ_CLIENT
+ggzclient_dsc_in_files = gnibbles-client.dsc.in
+endif # GGZ_CLIENT
 
 EXTRA_DIST = \
 	$(pixmap_DATA) 	\
@@ -151,20 +151,19 @@ EXTRA_DIST = \
 
 SUBDIRS= help pix
 
-CLEANFILES = $(ggzroom_DATA)
+CLEANFILES = $(ggzroom_DATA) $(ggzclient_dsc_in_files:.dsc.in=.dsc)
 
 DISTCLEANFILES = $(desktop_DATA) $(schema_DATA)
 
 SCOREFILES = 4.0 3.0 2.0 1.0 4.1 3.1 2.1 1.1
 
-install-data-local:
+install-data-local: $(ggzclient_dsc_in_files:.dsc.in=.dsc)
 if GCONF_SCHEMAS_INSTALL
 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/gnibbles/$(schema_DATA)
 endif
 if GGZ_CLIENT
 	$(GGZ_CONFIG) -D --install --modfile=gnibbles-client.dsc --force
 endif
-
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	-for i in ${SCOREFILES} ; do \
 	   touch $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
@@ -172,7 +171,13 @@ endif
 	   chmod 664 $(DESTDIR)$(scoredir)/gnibbles.$$i.scores; \
 	 done
 	-if test "x$(setgid)" = "xtrue"; then chgrp $(scores_group) $(DESTDIR)$(bindir)/gnibbles && chmod 2555 $(DESTDIR)$(bindir)/gnibbles ; fi
+
 uninstall-local:
 if GGZ_CLIENT
 	-$(GGZ_CONFIG) -D --remove --modfile=gnibbles-client.dsc
 endif
+
+@INTLTOOL_DESKTOP_RULE@
+@INTLTOOL_SCHEMAS_RULE@
+@GNOME_GAMES_GGZ_INTLTOOL_ROOM_RULE@
+@GNOME_GAMES_GGZ_DSC_RULE@

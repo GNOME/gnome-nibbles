@@ -3,10 +3,10 @@ Author = The GNOME Project
 Description = Gnibbles is a worms game for GNOME.
 Homepage = http://www.gnome.org/projects/gnome-games/ 
 Name = Gnibbles
-Version = @VERSION@ 
+Version = @VERSION@
 
 [LaunchInfo]
-ExecutablePath = @prefix@/bin/gnibblesd 
+ExecutablePath = @ggzexecmoddir@/gnibblesd
 # Set ExecutableArgs in the room file
 
 [Protocol]
