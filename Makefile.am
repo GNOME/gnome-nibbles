@@ -1,3 +1,5 @@
+NULL =
+
 bin_PROGRAMS = gnibbles
 ggzexecmod_PROGRAMS =
 
@@ -151,7 +153,12 @@ EXTRA_DIST = \
 
 SUBDIRS= help pix
 
-CLEANFILES = $(ggzroom_DATA) $(ggzclient_dsc_in_files:.dsc.in=.dsc)
+
+CLEANFILES = \
+	$(ggzroom_DATA) \
+	$(ggzserver_dsc_in_files:.dsc.in=.dsc) \
+	$(ggzclient_dsc_in_files:.dsc.in=.dsc) \
+	$(NULL)
 
 DISTCLEANFILES = $(desktop_DATA) $(schema_DATA)
 
