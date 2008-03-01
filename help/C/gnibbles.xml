@@ -30,7 +30,7 @@
     <abstract role="description">
       <para>
 	Nibbles is a worm game for GNOME. The player controls a 2D 
-	snake while trying to get food. Getting food gives points, 
+	worm while trying to get food. Getting food gives points, 
 	but hitting anything causes a loss of points. When all points 
 	are lost, the player loses.
       </para>
@@ -126,7 +126,7 @@
   <title>Introduction</title>
 
   <para>
-   <application>Nibbles</application> is a game where the user controls a snake.  The snake moves around the board, eating diamonds while avoiding the walls   placed around it. 
+   <application>Nibbles</application> is a game where the user controls a worm.  The worm moves around the board, eating diamonds while avoiding the walls   placed around it. 
   </para>
 
   <para>
@@ -150,8 +150,8 @@
  <sect1 id="objective">
  <title>Nibbles Objective</title>
   <para>
-    The objective of Nibbles is quite simple.  You control the snake and
-    if the snake runs into a wall or runs into itself, you die.  You get ten
+    The objective of Nibbles is quite simple.  You control the worm and
+    if the worm runs into a wall or runs into itself, you die.  You get ten
     lives before your game is over.  You win by either beating your own high
     score (or a friend's) or by completing all the levels. It is also 
     possible to play against worms with artificial intelligence.
@@ -197,10 +197,10 @@ To start the game, select <menuchoice><guimenu>Game</guimenu>
 <guimenuitem>New Game</guimenuitem></menuchoice>.
 </para>
 <para>
-When the game starts, the snake will come out of the left side of the
-screen.  You use the up arrow to make the direction of the snake go up.
-Use the right arrow to turn the snake right, left arrow to turn the snake
-left, and down arrow to turn the snake down.
+When the game starts, the worm will come out of the left side of the
+screen.  You use the up arrow to make the direction of the worm go up.
+Use the right arrow to turn the worm right, left arrow to turn the worm
+left, and down arrow to turn the worm down.
 <figure id="gameplay">
 <title>Nibbles During Gameplay</title>
 <screenshot>
@@ -422,7 +422,7 @@ section. For example -->
     <term>Speed</term>
     <listitem>
      <para>
-      This controls the speed of the snake.
+      This controls the speed of the worm.
      </para>
     </listitem>
     </varlistentry>
