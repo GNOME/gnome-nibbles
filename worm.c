@@ -123,6 +123,7 @@ gnibbles_worm_set_start (GnibblesWorm * worm, guint t_xhead, guint t_yhead,
   worm->xtail = t_xhead;
   worm->ytail = t_yhead;
   worm->direction = t_direction;
+  worm->direction_start = t_direction;
   worm->xoff[0] = 0;
   worm->yoff[0] = 0;
   worm->start = 0;

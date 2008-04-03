@@ -40,6 +40,7 @@ typedef struct {
   gint xstart, ystart;
   gint xtail, ytail;
   gint direction;
+  gint direction_start;
   gint8 *xoff, *yoff;
   gint start, stop;
   gint length;

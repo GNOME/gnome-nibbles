@@ -514,7 +514,8 @@ gnibbles_move_worms ()
         gnibbles_worm_reset (worms[i]);
         gnibbles_worm_set_start (worms[i],
 				 worms[i]->xstart,
-				 worms[i]->ystart, WORMDOWN);
+				 worms[i]->ystart,
+				 worms[i]->direction_start);
 	games_sound_play ("crash");
 	return (CONTINUE);
 	}
@@ -522,11 +523,11 @@ gnibbles_move_worms ()
     }
 
   for (i = 0; i < properties->numworms; i++)
-    if (worms[i]->lives)
+    if (worms[i]->lives > 0)
       gnibbles_worm_move_tail (worms[i]);
 
   for (i = 0; i < properties->numworms; i++)
-    if (worms[i]->lives)
+    if (worms[i]->lives > 0)
       gnibbles_worm_draw_head (worms[i]);
 
   if (status & GAMEOVER) {
@@ -625,6 +626,9 @@ gnibbles_log_score (GtkWidget * window)
   gint pos;
 
   if (properties->numworms > 1)
+    return;
+
+  if (properties->human != 1)
     return;
 
   if (properties->startlevel != 1)
