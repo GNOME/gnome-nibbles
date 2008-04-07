@@ -60,7 +60,13 @@ void gnibbles_worm_set_start (GnibblesWorm * worm, guint t_xhead,
 
 gint gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval);
 
+void gnibbles_worm_position_move_head (GnibblesWorm * worm, gint *x, gint *y);
+
 gint gnibbles_worm_test_move_head (GnibblesWorm * worm);
+
+gint gnibbles_worm_can_move_to (GnibblesWorm * worm, gint x, gint y);
+
+gint gnibbles_worm_is_move_safe (GnibblesWorm * worm);
 
 void gnibbles_worm_move_tail (GnibblesWorm * worm);
 

@@ -358,43 +358,76 @@ gnibbles_worm_draw_head (GnibblesWorm * worm)
 }
 
 gint
+gnibbles_worm_can_move_to (GnibblesWorm * worm, gint x, gint y)
+{
+  if (worm->xhead == x)
+    return worm->yhead - 1 == y || worm->yhead + 1 == y;
+  if (worm->yhead == y)
+    return worm->xhead - 1 == x || worm->xhead + 1 == x;
+  return (FALSE);
+}
+
+void
+gnibbles_worm_position_move_head (GnibblesWorm * worm, gint *x, gint *y)
+{
+  *x = worm->xhead;
+  *y = worm->yhead;
+
+  switch (worm->direction) {
+  case WORMUP:
+    *y = worm->yhead - 1;
+    break;
+  case WORMDOWN:
+    *y = worm->yhead + 1;
+    break;
+  case WORMLEFT:
+    *x = worm->xhead - 1;
+    break;
+  case WORMRIGHT:
+    *x = worm->xhead + 1;
+    break;
+  }
+
+  if (*x == BOARDWIDTH) {
+    *x = 0;
+  }
+  if (*x < 0) {
+    *x = BOARDWIDTH - 1;
+  }
+  if (*y == BOARDHEIGHT) {
+    *y = 0;
+  }
+  if (*y < 0) {
+    *y = BOARDHEIGHT - 1;
+  }
+}
+
+gint
 gnibbles_worm_test_move_head (GnibblesWorm * worm)
 {
   int x, y;
 
-  x = worm->xhead;
-  y = worm->yhead;
-
-  switch (worm->direction) {
-  case WORMUP:
-    y = worm->yhead - 1;
-    break;
-  case WORMDOWN:
-    y = worm->yhead + 1;
-    break;
-  case WORMLEFT:
-    x = worm->xhead - 1;
-    break;
-  case WORMRIGHT:
-    x = worm->xhead + 1;
-    break;
-  }
-
-  if (x == BOARDWIDTH) {
-    x = 0;
-  }
-  if (x < 0) {
-    x = BOARDWIDTH - 1;
-  }
-  if (y == BOARDHEIGHT) {
-    y = 0;
-  }
-  if (y < 0) {
-    y = BOARDHEIGHT - 1;
-  }
+  gnibbles_worm_position_move_head(worm, &x, &y);
 
   if (board[x][y] > EMPTYCHAR && board[x][y] < 'z' + properties->numworms)
     return (FALSE);
+
+  return (TRUE);
+}
+
+gint
+gnibbles_worm_is_move_safe (GnibblesWorm * worm)
+{
+  int x, y, i;
+
+  gnibbles_worm_position_move_head(worm, &x, &y);
+
+  for (i = 0; i < properties->numworms; i++) {
+    if (i != worm->number) {
+      if (gnibbles_worm_can_move_to (worms[i], x, y))
+        return (FALSE);
+    }
+  }
 
   return (TRUE);
 }
@@ -635,7 +668,18 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
     }
   }
  
-  /* Avoid walls */
+  /* Avoid walls and the heads of other snakes. */
+  for (dir = 1; dir <= 4; dir++) {
+    if (dir == opposite) continue;
+    if (!gnibbles_worm_test_move_head (worm)
+        || !gnibbles_worm_is_move_safe (worm)) {
+      worm->direction = dir;
+    } else {
+      continue;
+    }
+  }
+  /* Make sure we are at least avoiding walls.
+   * Mostly other snakes should avoid our head. */
   for (dir = 1; dir <= 4; dir++) {
     if (dir == opposite) continue;
     if (!gnibbles_worm_test_move_head (worm)) {

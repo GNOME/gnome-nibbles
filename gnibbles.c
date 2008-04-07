@@ -487,23 +487,25 @@ gnibbles_move_worms ()
     status &= !dead[i];
   }
 
+  for (i = 0; i < properties->numworms; i++)
+    if (!dead[i] && worms[i]->lives > 0)
+      gnibbles_worm_move_tail (worms[i]);
+
+  for (i = 0; i < properties->numworms; i++)
+    if (!dead[i] && worms[i]->lives > 0)
+      gnibbles_worm_draw_head (worms[i]);
+
+
   /* If one worm has died, me must make sure that an earlier worm was not
    * supposed to die as well. */
 
-  if (!status)
-    for (i = 0; i < properties->numworms; i++)
-      if (!dead[i])
-	for (j = 0; j < properties->numworms; j++) {
-	  if (i != j
-	      && worms[i]->xhead == worms[j]->xhead
-	      && worms[i]->yhead == worms[j]->yhead)
-	    dead[i] = TRUE;
-	  gnibbles_draw_pixmap (BLANKPIXMAP,
-				worms[i]->xtail, worms[i]->ytail);
-	  gnibbles_draw_pixmap
-	    (properties->wormprops[i]->color,
-	     worms[i]->xhead, worms[i]->yhead);
-	}
+  for (i = 0; i < properties->numworms; i++)
+    for (j = 0; j < properties->numworms; j++) {
+      if (i != j
+          && worms[i]->xhead == worms[j]->xhead
+	  && worms[i]->yhead == worms[j]->yhead)
+	dead[i] = TRUE;
+    }
 
   for (i = 0; i < properties->numworms; i++)
     if (dead[i]) {
@@ -517,18 +519,10 @@ gnibbles_move_worms ()
 				 worms[i]->ystart,
 				 worms[i]->direction_start);
 	games_sound_play ("crash");
-	return (CONTINUE);
+	/* Don't return here.  May need to reset more worms. */
 	}
 
     }
-
-  for (i = 0; i < properties->numworms; i++)
-    if (worms[i]->lives > 0)
-      gnibbles_worm_move_tail (worms[i]);
-
-  for (i = 0; i < properties->numworms; i++)
-    if (worms[i]->lives > 0)
-      gnibbles_worm_draw_head (worms[i]);
 
   if (status & GAMEOVER) {
     games_sound_play ("crash");

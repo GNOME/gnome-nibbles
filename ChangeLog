@@ -1,5 +1,13 @@
 2008-04-03  Simon McNeilly <simon_mcneilly@hotmail.com>
 
+	* gnibbles.c:
+	* worm.h:
+	* worm.c: Fixed issues detecting collision of worms moving into same
+        square and only allowing one worm to be killed off each round. 
+	Reported in bug #400395.
+
+2008-04-03  Simon McNeilly <simon_mcneilly@hotmail.com>
+
 	* gnibbles.c: Only allow human players to get a high score.
 
 2008-04-03  Simon McNeilly <simon_mcneilly@hotmail.com>
