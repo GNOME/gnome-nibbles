@@ -132,9 +132,9 @@ gnibblesd_LDADD = \
 
 ggzroom_in_files = gnibbles.room.in
 ggzroom_DATA = $(ggzroom_in_files:.room.in=.room)
-ggzroomdir = ${prefix}/etc/ggzd/rooms/
+ggzroomdir = ${ggzdconfdir}/rooms/
 
-ggzserver_dscdir = ${prefix}/etc/ggzd/games/
+ggzserver_dscdir = ${ggzdconfdir}/games/
 ggzserver_dsc_in_files = gnibbles-server.dsc.in
 ggzserver_dsc_DATA = $(ggzserver_dsc_in_files:.dsc.in=.dsc)
 endif # GGZ_SERVER
