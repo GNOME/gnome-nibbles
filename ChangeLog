@@ -1,5 +1,10 @@
 2008-06-16  Andreas Røsdal <andreasr@gnome.org> 
 
+	* gnibbles.c: Fix a bug where worms crash on the starting square 
+	of dead worms. Patch by ais523@bham.ac.uk in bug #536070.
+
+2008-06-16  Andreas Røsdal <andreasr@gnome.org> 
+
 	* worm.c: Improved AI search algorithm. Solves AI problems with level 15.
 	Patch by ais523@bham.ac.uk in bug #419159.
 

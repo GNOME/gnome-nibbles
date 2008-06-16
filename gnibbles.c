@@ -503,7 +503,9 @@ gnibbles_move_worms ()
     for (j = 0; j < properties->numworms; j++) {
       if (i != j
           && worms[i]->xhead == worms[j]->xhead
-	  && worms[i]->yhead == worms[j]->yhead)
+	  && worms[i]->yhead == worms[j]->yhead
+	  && worms[i]->lives > 0
+	  && worms[j]->lives > 0)
 	dead[i] = TRUE;
     }
 
