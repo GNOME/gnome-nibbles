@@ -1,3 +1,8 @@
+2008-06-16  Andreas Røsdal <andreasr@gnome.org> 
+
+	* worm.c: Improved AI search algorithm. Solves AI problems with level 15.
+	Patch by ais523@bham.ac.uk in bug #419159.
+
 2008-04-03  Simon McNeilly <simon_mcneilly@hotmail.com>
 
 	* gnibbles.c:

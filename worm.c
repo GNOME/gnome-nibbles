@@ -581,13 +581,185 @@ gnibbles_worm_reset (GnibblesWorm * worm)
   gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
 }
 
+/* Check whether the worm will be trapped in a dead end. A location
+   within the dead end and the length of the worm is given. This
+   prevents worms getting trapped in a spiral, or in a corner sharper
+   than 90 degrees.  runnumber is a unique number used to update the
+   deadend board. The principle of the deadend board is that it marks
+   all squares previously checked, so the exact size of the deadend
+   can be calculated in O(n) time; to prevent the need to clear it
+   afterwards, a different number is stored in the board each time
+   (the number will not have been previously used, so the board will
+   appear empty). Although in theory deadend_runnumber may wrap round,
+   after 4 billion steps the entire board is likely to have been
+   overwritten anyway. */
+static guint deadendboard[BOARDWIDTH][BOARDHEIGHT] = {{0}};
+static guint deadend_runnumber = 0;
 static gint
-gnibbles_worm_ai_wander (gint x, gint y, gint dir)
+gnibbles_worm_ai_deadend (gint x, gint y, gint lengthleft)
 {
-  if (x <= 0 || x >= BOARDWIDTH || y <= 0 || y >= BOARDHEIGHT) {
+  gint cdir, cx, cy;
+
+  if (x >= BOARDWIDTH)
+    x = 0;
+  if (x < 0)
+    x = BOARDWIDTH - 1;
+  if (y >= BOARDHEIGHT)
+    y = 0;
+  if (y < 0)
+    y = BOARDHEIGHT - 1;
+
+  if (! lengthleft)
+    return 0;
+
+  cdir = 5;
+  while (--cdir) {
+    cx = x;
+    cy = y;
+    switch (cdir) {
+    case WORMUP:
+      cy -= 1;
+      break;
+    case WORMDOWN:
+      cy += 1;
+      break;
+    case WORMLEFT:
+      cx -= 1;
+      break;
+    case WORMRIGHT:
+      cx += 1;
+      break;
+    }
+
+    if (cx >= BOARDWIDTH)
+      cx = 0;
+    if (cx < 0)
+      cx = BOARDWIDTH - 1;
+    if (cy >= BOARDHEIGHT)
+      cy = 0;
+    if (cy < 0)
+      cy = BOARDHEIGHT - 1;
+
+    if ((board[cx][cy] <= EMPTYCHAR
+	 || board[x][y] >= 'z' + properties->numworms)
+	&& deadendboard[cx][cy] != deadend_runnumber) {
+      deadendboard[cx][cy] = deadend_runnumber;
+      lengthleft = gnibbles_worm_ai_deadend(cx, cy, lengthleft - 1);
+      if (!lengthleft)
+	return 0;
+    }
+  }
+  return lengthleft;
+}
+
+/* Check a deadend starting from the next square in this direction,
+   rather than from this square. Also block off the squares near worm
+   heads, so that humans can't kill AI players by trapping them
+   against a wall.  The given length is quartered and squared; this
+   allows for the situation where the worm has gone round in a square
+   and is about to get trapped in a spiral. However, it's set to at
+   least BOARDWIDTH, so that on the levels with long thin paths a worm
+   won't start down the path if it'll crash at the other end. */
+static gint
+gnibbles_worm_ai_deadend_after (gint x, gint y, gint dir, gint length)
+{
+  gint cx, cy, cl, i;
+
+  if (x < 0 || x >= BOARDWIDTH || y < 0 || y >= BOARDHEIGHT) {
     return 0;
   }
 
+  ++deadend_runnumber;
+
+  if (dir > 4)
+    dir = 1;
+  if (dir < 1)
+    dir = 4;
+
+  i = properties->numworms;
+  while(i--) {
+    cx = worms[i]->xhead;
+    cy = worms[i]->yhead;
+    if(cx != x || cy != y) {
+      if(cx > 0) deadendboard[cx-1][cy] = deadend_runnumber;
+      if(cy > 0) deadendboard[cx][cy-1] = deadend_runnumber;
+      if(cx < BOARDWIDTH-1) deadendboard[cx+1][cy] = deadend_runnumber;
+      if(cy < BOARDHEIGHT-1) deadendboard[cx][cy+1] = deadend_runnumber;
+    }
+  }
+
+  cx = x;
+  cy = y;
+  switch (dir) {
+  case WORMUP:
+    cy -= 1;
+    break;
+  case WORMDOWN:
+    cy += 1;
+    break;
+  case WORMLEFT:
+    cx -= 1;
+    break;
+  case WORMRIGHT:
+    cx += 1;
+    break;
+  }
+
+  if (cx >= BOARDWIDTH)
+    cx = 0;
+  if (cx < 0)
+    cx = BOARDWIDTH - 1;
+  if (cy >= BOARDHEIGHT)
+    cy = 0;
+  if (cy < 0)
+    cy = BOARDHEIGHT - 1;
+
+  deadendboard[x][y] = deadend_runnumber;
+  deadendboard[cx][cy] = deadend_runnumber;
+
+  cl = (length * length) / 16;
+  if (cl < BOARDWIDTH)
+    cl = BOARDWIDTH;
+  return gnibbles_worm_ai_deadend (cx, cy, cl);
+}
+
+/* Check to see if another worm's head is too close in front of us;
+   that is, that it's within 3 in the direction we're going and within
+   1 to the side. */
+static gint
+gnibbles_worm_ai_tooclose (GnibblesWorm * worm)
+{
+  gint i = properties->numworms;
+  gint dx, dy;
+  while (i--) {
+    dx = worm->xhead - worms[i]->xhead;
+    dy = worm->yhead - worms[i]->yhead;
+    switch (worm->direction)
+    {
+    case WORMUP:
+      if (dy > 0 && dy <= 3 && dx >= -1 && dx <= 1)
+	return 1;
+      break;
+    case WORMDOWN:
+      if (dy < 0 && dy >= -3 && dx >= -1 && dx <= 1)
+	return 1;
+      break;
+    case WORMLEFT:
+      if (dx > 0 && dx <= 3 && dy >= -1 && dy <= 1)
+	return 1;
+      break;
+    case WORMRIGHT:
+      if (dx < 0 && dx >= -3 && dy >= -1 && dy <= 1)
+	return 1;
+      break;
+    }
+  }
+  return 0;
+}
+
+static gint
+gnibbles_worm_ai_wander (gint x, gint y, gint dir, gint ox, gint oy)
+{
   if (dir > 4)
     dir = 1;
   if (dir < 1)
@@ -608,6 +780,15 @@ gnibbles_worm_ai_wander (gint x, gint y, gint dir)
     break;
   }
 
+  if (x >= BOARDWIDTH)
+    x = 0;
+  if (x < 0)
+    x = BOARDWIDTH - 1;
+  if (y >= BOARDHEIGHT)
+    y = 0;
+  if (y < 0)
+    y = BOARDHEIGHT - 1;
+
   switch (board[x][y] - 'A') {
   case BONUSREGULAR:
   case BONUSDOUBLE:
@@ -622,7 +803,9 @@ gnibbles_worm_ai_wander (gint x, gint y, gint dir)
     if (board[x][y] > EMPTYCHAR && board[x][y] < 'z' + properties->numworms) {
       return 0;
     } else {
-      return gnibbles_worm_ai_wander (x, y, dir);
+      if (ox == x && oy == y)
+	return 0;
+      return gnibbles_worm_ai_wander (x, y, dir, ox, oy);
     }
     break;
   }
@@ -633,12 +816,16 @@ void
 gnibbles_worm_ai_move (GnibblesWorm * worm)
 {
   int opposite, dir, left, right, front;
+  gint bestyet, bestdir, thislen, olddir;
 
-  opposite = (worm->direction + 2) % 4;
+  opposite = (worm->direction + 1) % 4 + 1;
 
-  front = gnibbles_worm_ai_wander (worm->xhead, worm->yhead, worm->direction);
-  left = gnibbles_worm_ai_wander (worm->xhead, worm->yhead, worm->direction - 1);
-  right = gnibbles_worm_ai_wander (worm->xhead, worm->yhead, worm->direction + 1);
+  front = gnibbles_worm_ai_wander
+    (worm->xhead, worm->yhead, worm->direction, worm->xhead, worm->yhead);
+  left = gnibbles_worm_ai_wander
+    (worm->xhead, worm->yhead, worm->direction - 1, worm->xhead, worm->yhead);
+  right = gnibbles_worm_ai_wander
+    (worm->xhead, worm->yhead, worm->direction + 1, worm->xhead, worm->yhead);
 
   if (!front) {
     if (left) {
@@ -656,7 +843,7 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
     } else {
       // Else move in random direction at random time intervals
       if (rand () % 30 == 1) {
-        dir = worm->direction + 1;
+        dir = worm->direction + (rand() % 2 ? 1 : -1);
         if (dir != opposite) {
           if (dir > 4)
             dir = 1;
@@ -667,17 +854,50 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
       }
     }
   }
- 
-  /* Avoid walls and the heads of other snakes. */
+
+  /* Avoid walls, dead-ends and other worm's heads. This is done using
+     an evalution function which is CAPACITY for a wall, 4 if another
+     worm's head is in the tooclose area, 4 if another worm's head
+     could move to the same location as ours, plus 0 if there's no
+     dead-end, or the amount that doesn't fit for a deadend. olddir's
+     score is reduced by 100, to favour it, but only if its score is 0
+     otherwise; this is so that if we're currently trapped in a dead
+     end, the worm will move in a space-filling manner in the hope
+     that the dead end will disappear (e.g. if it's made from the tail
+     of some worm, as often happens). */
+  olddir = worm->direction;
+  bestyet = CAPACITY*2;
+  bestdir = -1;
   for (dir = 1; dir <= 4; dir++) {
+    worm->direction = dir;
     if (dir == opposite) continue;
-    if (!gnibbles_worm_test_move_head (worm)
-        || !gnibbles_worm_is_move_safe (worm)) {
-      worm->direction = dir;
-    } else {
-      continue;
+    thislen = 0;
+    if(!gnibbles_worm_test_move_head (worm))
+      thislen += CAPACITY;
+    if(gnibbles_worm_ai_tooclose (worm))
+      thislen += 4;
+    if(!gnibbles_worm_is_move_safe (worm))
+      thislen += 4;
+    thislen += gnibbles_worm_ai_deadend_after
+      (worm->xhead, worm->yhead, dir, worm->length + worm->change);
+    if (dir == olddir && !thislen)
+      thislen -= 100;
+    /* If the favoured direction isn't appropriate, then choose
+       another direction at random rather than favouring one in
+       particular, to stop the worms bunching in the bottom-
+       right corner of the board. */
+    if (thislen <= 0)
+      thislen -= random() % 100;
+    if (thislen < bestyet)
+    {
+      bestyet = thislen;
+      bestdir = dir;
     }
   }
+  if (bestdir == -1) /* this should never happen, but just in case... */
+    bestdir = olddir;
+  worm->direction = bestdir;
+
   /* Make sure we are at least avoiding walls.
    * Mostly other snakes should avoid our head. */
   for (dir = 1; dir <= 4; dir++) {
