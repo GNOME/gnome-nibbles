@@ -147,32 +147,37 @@ gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
 
 
   props = properties->wormprops[ggz_network_mode ? 0 : worm->number];
+  guint propsUp = toupper(props->up);
+  guint propsLeft = toupper(props->left);
+  guint propsDown = toupper(props->down);
+  guint propsRight = toupper(props->right);
+  guint keyvalUpper = toupper(keyval);	
 
   if (properties->wormprops[worm->number]->relmove) {
-    if (keyval == props->left)
+    if (keyvalUpper == propsLeft)
       worm_handle_direction (worm->number, worm->direction - 1);
-    else if (keyval == props->right)
+    else if (keyvalUpper == propsRight)
       worm_handle_direction (worm->number, worm->direction + 1);
     else
       return FALSE;
     return TRUE;
   } else {
-    if ((keyval == props->up) && (worm->direction != WORMDOWN)) {
+    if ((keyvalUpper == propsUp) && (worm->direction != WORMDOWN)) {
       worm_handle_direction (worm->number, WORMUP);
       /*worm->keypress = 1; */
       return TRUE;
     }
-    if ((keyval == props->right) && (worm->direction != WORMLEFT)) {
+    if ((keyvalUpper == propsRight) && (worm->direction != WORMLEFT)) {
       worm_handle_direction (worm->number, WORMRIGHT);
       /*worm->keypress = 1; */
       return TRUE;
     }
-    if ((keyval == props->down) && (worm->direction != WORMUP)) {
+    if ((keyvalUpper == propsDown) && (worm->direction != WORMUP)) {
       worm_handle_direction (worm->number, WORMDOWN);
       /*worm->keypress = 1; */
       return TRUE;
     }
-    if ((keyval == props->left) && (worm->direction != WORMRIGHT)) {
+    if ((keyvalUpper == propsLeft) && (worm->direction != WORMRIGHT)) {
       worm_handle_direction (worm->number, WORMLEFT);
       /*worm->keypress = 1; */
       return TRUE;
