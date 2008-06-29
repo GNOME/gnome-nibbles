@@ -151,7 +151,7 @@ gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
   guint propsLeft = toupper(props->left);
   guint propsDown = toupper(props->down);
   guint propsRight = toupper(props->right);
-  guint keyvalUpper = toupper(keyval);	
+  guint keyvalUpper = toupper(keyval);
 
   if (properties->wormprops[worm->number]->relmove) {
     if (keyvalUpper == propsLeft)
