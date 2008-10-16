@@ -20,11 +20,14 @@
  */
 
 #include <config.h>
-#include <gnome.h>
+
 #include <string.h>
-#include <games-sound.h>
-#include <games-scores.h>
-#include <games-conf.h>
+
+#include <gtk/gtk.h>
+
+#include <libgames-support/games-sound.h>
+#include <libgames-support/games-scores.h>
+#include <libgames-support/games-conf.h>
 
 #include "properties.h"
 #include "main.h"

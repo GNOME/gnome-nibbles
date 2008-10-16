@@ -23,7 +23,8 @@
 #define _PROPERTIES_H_
 
 #include <config.h>
-#include <gnome.h>
+
+#include <gtk/gtk.h>
 
 #include "gnibbles.h"
 

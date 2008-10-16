@@ -21,7 +21,8 @@
 #define _GNIBBLES_H_
 
 #include <config.h>
-#include <gnome.h>
+
+#include <gtk/gtk.h>
 
 #include "warpmanager.h"
 

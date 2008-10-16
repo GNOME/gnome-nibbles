@@ -20,17 +20,20 @@
  */
 
 #include <config.h>
-#include <gnome.h>
+
 #include <string.h>
-#include <gdk/gdkkeysyms.h>
 #include <time.h>
 
-#include <games-gridframe.h>
-#include <games-stock.h>
-#include <games-scores.h>
-#include <games-sound.h>
-#include <games-conf.h>
-#include <games-runtime.h>
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
+
+#include <libgames-support/games-conf.h>
+#include <libgames-support/games-gridframe.h>
+#include <libgames-support/games-runtime.h>
+#include <libgames-support/games-scores.h>
+#include <libgames-support/games-sound.h>
+#include <libgames-support/games-stock.h>
 
 #include "main.h"
 #include "properties.h"
@@ -54,7 +57,7 @@
 
 GtkWidget *window;
 GtkWidget *drawing_area;
-GtkWidget *appbar;
+GtkWidget *statusbar;
 GtkWidget *notebook;
 GtkWidget *chat = NULL;
 
@@ -892,12 +895,14 @@ setup_window (void)
 {
   GdkPixmap *cursor_dot_pm;
   GtkWidget *vbox;
+  GtkWidget *main_vbox;
   GtkWidget *packing;
   GtkWidget *menubar;
   GtkUIManager *ui_manager;
   GtkAccelGroup *accel_group;
 
-  window = gnome_app_new ("gnibbles", "Nibbles");
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window), _("Nibbles"));
 
   gtk_window_set_default_size (GTK_WINDOW (window), DEFAULT_WIDTH, DEFAULT_HEIGHT);
   games_conf_add_window (GTK_WINDOW (window), KEY_PREFERENCES_GROUP);
@@ -967,9 +972,16 @@ setup_window (void)
   gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
 			 GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK);
 
-  gnome_app_set_contents (GNOME_APP (window), notebook);
+  main_vbox = gtk_vbox_new (FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (main_vbox), notebook, TRUE, TRUE, 0);
   gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox, NULL);
   gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
+
+  statusbar = gtk_statusbar_new ();
+  gtk_box_pack_start (GTK_BOX (main_vbox), statusbar, FALSE, FALSE, 0);
+
+  gtk_container_add (GTK_CONTAINER (window), main_vbox);
+
 
   gtk_widget_show_all (window);
 #ifdef GGZ_CLIENT
@@ -977,10 +989,7 @@ setup_window (void)
 #endif
   gtk_widget_show (drawing_area);
 
-  appbar = gnome_appbar_new (FALSE, TRUE, GNOME_PREFERENCES_USER);
-  gnome_app_set_statusbar (GNOME_APP (window), appbar);
-
-  scoreboard = gnibbles_scoreboard_new (appbar);
+  scoreboard = gnibbles_scoreboard_new (statusbar);
 
 }
 
@@ -1048,28 +1057,45 @@ render_logo (void)
 int
 main (int argc, char **argv)
 {
-  GnomeProgram *program;
   GOptionContext *context;
+  gboolean retval;
+  GError *error = NULL;
 
-  setgid_io_init ();
-
-  bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-  textdomain (GETTEXT_PACKAGE);
-
+#if defined(HAVE_GNOME) || defined(HAVE_RSVG_GNOMEVFS)
+  /* If we're going to use gnome-vfs, we need to init threads before
+   * calling any glib functions.
+   */
   g_thread_init (NULL);
+#endif
   
   if (!games_runtime_init ("gnibbles"))
     return 1;
 
+  setgid_io_init ();
+
+  bindtextdomain (GETTEXT_PACKAGE, games_runtime_get_directory (GAMES_RUNTIME_LOCALE_DIRECTORY));
+  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  textdomain (GETTEXT_PACKAGE);
+
   context = g_option_context_new (NULL);
+
+#if GLIB_CHECK_VERSION (2, 12, 0)
+  g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
+#endif  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+
+  g_option_context_add_group (context, gtk_get_option_group (TRUE));
   games_sound_add_option_group (context);
 
-  program = gnome_program_init ("gnibbles", VERSION, LIBGNOMEUI_MODULE,
-				argc, argv,
-				GNOME_PARAM_GOPTION_CONTEXT, context,
-				GNOME_PARAM_POPT_TABLE, NULL,
-				GNOME_PARAM_APP_DATADIR, REAL_DATADIR, NULL);
+  retval = g_option_context_parse (context, &argc, &argv, &error);
+  g_option_context_free (context);
+  if (!retval) {
+    g_print ("%s", error->message);
+    g_error_free (error);
+    exit (1);
+  }
+
+  g_set_application_name (_("Nibbles"));
+
   gtk_window_set_default_icon_name ("gnome-gnibbles");
   srand (time (NULL));
 
@@ -1108,8 +1134,6 @@ main (int argc, char **argv)
   gnibbles_properties_destroy (properties);
 
   games_conf_shutdown ();
-
-  g_object_unref (program);
 
   games_runtime_shutdown ();
 

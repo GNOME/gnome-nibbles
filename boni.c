@@ -18,9 +18,10 @@
  */
 
 #include <config.h>
-#include <gnome.h>
 
-#include <games-sound.h>
+#include <gtk/gtk.h>
+
+#include <libgames-support/games-sound.h>
 
 #include "gnibbles.h"
 #include "main.h"

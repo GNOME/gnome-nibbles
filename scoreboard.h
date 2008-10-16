@@ -21,7 +21,8 @@
 #define _SCOREBOARD_H_
 
 #include <config.h>
-#include <gnome.h>
+
+#include <gtk/gtk.h>
 
 #include "gnibbles.h"
 #include "worm.h"
@@ -33,7 +34,7 @@ typedef struct {
   gint count;
 } GnibblesScoreboard;
 
-GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget * t_appbar);
+GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget * t_statusbar);
 
 void gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
 				   GnibblesWorm * t_worm,

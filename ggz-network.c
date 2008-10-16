@@ -19,26 +19,29 @@
  */
 
 #include <config.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <gnome.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <errno.h>
 #include <netdb.h>
 #include <pwd.h>
 
-#include "main.h"
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
 
 #include <ggzmod.h>
 #include <ggz-embed.h>
 #include <ggz-gtk.h>
+
 #include "games-dlg-chat.h"
 #include "games-dlg-players.h"
 
+#include "main.h"
 #include "gnibbles.h"
 #include "properties.h"
 #include "ggz-network.h"

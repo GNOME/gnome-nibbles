@@ -21,7 +21,8 @@
 #define _BONUS_H_
 
 #include <config.h>
-#include <gnome.h>
+
+#include <gtk/gtk.h>
 
 #define BONUSNONE	0
 #define BONUSREGULAR	1

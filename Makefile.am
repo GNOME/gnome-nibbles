@@ -62,10 +62,10 @@ gnibbles_LDADD += \
 	$(LIB_GGZ_GTK)
 endif
 
-pixmapdir = $(datadir)/pixmaps/gnibbles
+pixmapdir = $(datadir)/gnome-games/gnibbles/pixmaps
 pixmap_DATA = gnibbles-logo.svg
 
-configdir = $(datadir)/gnibbles
+configdir = $(datadir)/gnome-games/gnibbles/games
 config_DATA = \
 	level001.gnl \
 	level002.gnl \
@@ -99,7 +99,7 @@ desktopdir=$(datadir)/applications
 desktop_in_files = gnibbles.desktop.in.in
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 
-schemadir   = @GCONF_SCHEMA_FILE_DIR@
+schemadir = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = gnibbles.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 
@@ -126,8 +126,8 @@ gnibblesd_CFLAGS = \
 gnibblesd_LDFLAGS = $(AM_LDFLAGS)
 
 gnibblesd_LDADD = \
-	$(GNOME_GAMES_LIBS)     \
-	$(INTLLIBS) 		\
+	$(GNOME_GAMES_LIBS)	\
+	$(INTLLIBS)			\
 	$(LIB_GGZDMOD)
 
 ggzroom_in_files = gnibbles.room.in
@@ -149,7 +149,7 @@ EXTRA_DIST = \
 	$(schema_in_files) \
 	gnibbles-client.dsc.in \
 	gnibbles-server.dsc.in \
-        gnibbles.room.in
+	gnibbles.room.in
 
 SUBDIRS= help pix
 

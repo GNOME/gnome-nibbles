@@ -20,12 +20,16 @@
  */
 
 #include <config.h>
-#include <gnome.h>
+
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <games-scores-dialog.h>
-#include <games-scores.h>
-#include <games-sound.h>
+
+#include <libgames-support/games-runtime.h>
+#include <libgames-support/games-scores-dialog.h>
+#include <libgames-support/games-scores.h>
+#include <libgames-support/games-sound.h>
 
 #include "main.h"
 #include "gnibbles.h"
@@ -85,15 +89,19 @@ gnibbles_load_pixmap_file (GtkWidget * window, const gchar * pixmap,
 {
   GdkPixbuf *image;
   gchar *filename;
+  const char *dirname;
 
-  filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
-					pixmap, TRUE, NULL);
+  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
+  filename = g_build_filename (dirname, pixmap, NULL);
 
   if (!filename) {
     char *message =
       g_strdup_printf (_("Gnibbles couldn't find pixmap file:\n%s\n\n"
 			 "Please check your Gnibbles installation"), pixmap);
     gnibbles_error (window, message);
+    /* We should never get here since the app exits in gnibbles_error. But let's
+     * free it anyway in case someone comes along and changes gnibbles_error */
+    g_free(message);
   }
 
   image = gdk_pixbuf_new_from_file_at_size (filename, xsize, ysize, NULL);
@@ -168,7 +176,7 @@ gnibbles_load_logo (GtkWidget * window)
   if (logo_pixmap)
     g_object_unref (logo_pixmap);
   logo_pixmap =
-    gnibbles_load_pixmap_file (window, "pixmaps/gnibbles/gnibbles-logo.svg",
+    gnibbles_load_pixmap_file (window, "gnibbles-logo.svg",
 			       width, height);
 }
 
@@ -176,36 +184,36 @@ void
 gnibbles_load_pixmap (GtkWidget * window)
 {
   gchar *bonus_files[] = {
-    "pixmaps/gnibbles/blank.svg",
-    "pixmaps/gnibbles/diamond.svg",
-    "pixmaps/gnibbles/bonus1.svg",
-    "pixmaps/gnibbles/bonus2.svg",
-    "pixmaps/gnibbles/life.svg",
-    "pixmaps/gnibbles/bonus3.svg",
-    "pixmaps/gnibbles/bonus4.svg",
-    "pixmaps/gnibbles/bonus5.svg",
-    "pixmaps/gnibbles/questionmark.svg"
+    "blank.svg",
+    "diamond.svg",
+    "bonus1.svg",
+    "bonus2.svg",
+    "life.svg",
+    "bonus3.svg",
+    "bonus4.svg",
+    "bonus5.svg",
+    "questionmark.svg"
   };
   gchar *small_files[] = {
-    "pixmaps/gnibbles/wall-empty.svg",
-    "pixmaps/gnibbles/wall-straight-up.svg",
-    "pixmaps/gnibbles/wall-straight-side.svg",
-    "pixmaps/gnibbles/wall-corner-bottom-left.svg",
-    "pixmaps/gnibbles/wall-corner-bottom-right.svg",
-    "pixmaps/gnibbles/wall-corner-top-left.svg",
-    "pixmaps/gnibbles/wall-corner-top-right.svg",
-    "pixmaps/gnibbles/wall-tee-up.svg",
-    "pixmaps/gnibbles/wall-tee-right.svg",
-    "pixmaps/gnibbles/wall-tee-left.svg",
-    "pixmaps/gnibbles/wall-tee-down.svg",
-    "pixmaps/gnibbles/wall-cross.svg",
-    "pixmaps/gnibbles/snake-red.svg",
-    "pixmaps/gnibbles/snake-green.svg",
-    "pixmaps/gnibbles/snake-blue.svg",
-    "pixmaps/gnibbles/snake-yellow.svg",
-    "pixmaps/gnibbles/snake-cyan.svg",
-    "pixmaps/gnibbles/snake-magenta.svg",
-    "pixmaps/gnibbles/snake-grey.svg"
+    "wall-empty.svg",
+    "wall-straight-up.svg",
+    "wall-straight-side.svg",
+    "wall-corner-bottom-left.svg",
+    "wall-corner-bottom-right.svg",
+    "wall-corner-top-left.svg",
+    "wall-corner-top-right.svg",
+    "wall-tee-up.svg",
+    "wall-tee-right.svg",
+    "wall-tee-left.svg",
+    "wall-tee-down.svg",
+    "wall-cross.svg",
+    "snake-red.svg",
+    "snake-green.svg",
+    "snake-blue.svg",
+    "snake-yellow.svg",
+    "snake-cyan.svg",
+    "snake-magenta.svg",
+    "snake-grey.svg"
   };
   int i;
 
@@ -230,15 +238,18 @@ void
 gnibbles_load_level (GtkWidget * window, gint level)
 {
   gchar *tmp = NULL;
+  const char *dirname;
   gchar *filename;
   FILE *in;
   gchar tmpboard[BOARDWIDTH + 2];
   gint i, j;
   gint count = 0;
 
-  tmp = g_strdup_printf ("gnibbles/level%03d.gnl", level);
-  filename = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_DATADIR,
-					tmp, TRUE, NULL);
+  tmp = g_strdup_printf ("level%03d.gnl", level);
+
+  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_GAMES_DIRECTORY);
+  filename = g_build_filename (dirname, tmp, NULL);
+
   g_free (tmp);
   if ((in = fopen (filename, "r")) == NULL) {
     char *message =

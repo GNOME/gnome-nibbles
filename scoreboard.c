@@ -20,14 +20,17 @@
  */
 
 #include <config.h>
+
 #include <string.h>
-#include <gnome.h>
+
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
 
 #include "gnibbles.h"
 #include "scoreboard.h"
 
 GnibblesScoreboard *
-gnibbles_scoreboard_new (GtkWidget * t_appbar)
+gnibbles_scoreboard_new (GtkWidget * t_statusbar)
 {
   int i;
   char buffer[255];
@@ -39,7 +42,7 @@ gnibbles_scoreboard_new (GtkWidget * t_appbar)
   tmp->count = 0;
 
   for (i = 0; i < NUMWORMS; i++) {
-    hbox = gtk_hbox_new (FALSE, GNOME_PAD);
+    hbox = gtk_hbox_new (FALSE, 8);
     gtk_widget_show (hbox);
 
     sprintf (buffer, _("Worm %d:"), i + 1);
@@ -50,7 +53,7 @@ gnibbles_scoreboard_new (GtkWidget * t_appbar)
     gtk_widget_set_sensitive (tmp->data[i], FALSE);
     gtk_box_pack_start (GTK_BOX (hbox), tmp->data[i], FALSE, FALSE, 0);
 
-    gtk_box_pack_start (GTK_BOX (t_appbar), hbox, FALSE, FALSE, GNOME_PAD_SMALL);
+    gtk_box_pack_start (GTK_BOX (t_statusbar), hbox, FALSE, FALSE, 4);
   }
 
   return (tmp);
