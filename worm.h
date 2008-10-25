@@ -20,7 +20,7 @@
 #ifndef _WORM_H_
 #define _WORM_H_
 
-#include <gnome.h>
+#include <gtk/gtk.h>
 
 #define WORMNONE  0
 #define WORMRIGHT 1

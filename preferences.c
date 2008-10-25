@@ -23,9 +23,11 @@
 #include <config.h>
 #endif
 
+#include <glib/gi18n.h>
 #include <gdk/gdkkeysyms.h>
-#include <games-frame.h>
-#include <games-controls.h>
+
+#include <libgames-support/games-frame.h>
+#include <libgames-support/games-controls.h>
 
 #ifdef GGZ_CLIENT
 #include "ggz-network.h"

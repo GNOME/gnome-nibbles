@@ -24,6 +24,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
 
 #include <libgames-support/games-sound.h>
 #include <libgames-support/games-scores.h>

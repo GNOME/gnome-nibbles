@@ -21,7 +21,8 @@
 #define _WARPMANAGER_H_
 
 #include <config.h>
-#include <gnome.h>
+
+#include <gtk/gtk.h>
 
 #include "warp.h"
 #include "worm.h"
