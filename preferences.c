@@ -272,7 +272,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
   if (properties->gamespeed == 4)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
-  g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+  g_signal_connect (GTK_OBJECT (button), "toggled", G_CALLBACK
 		    (game_speed_cb), (gpointer) 4);
 
   button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
@@ -282,7 +282,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
   if (properties->gamespeed == 3)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
-  g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+  g_signal_connect (GTK_OBJECT (button), "toggled", G_CALLBACK
 		    (game_speed_cb), (gpointer) 3);
 
   button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
@@ -292,7 +292,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
   if (properties->gamespeed == 2)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
-  g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+  g_signal_connect (GTK_OBJECT (button), "toggled", G_CALLBACK
 		    (game_speed_cb), (gpointer) 2);
 
   button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
@@ -302,7 +302,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
   if (properties->gamespeed == 1)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
-  g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+  g_signal_connect (GTK_OBJECT (button), "toggled", G_CALLBACK
 		    (game_speed_cb), (gpointer) 1);
 
 
@@ -321,7 +321,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_widget_set_sensitive (button, FALSE);
   if (properties->random)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
-  g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+  g_signal_connect (GTK_OBJECT (button), "toggled", G_CALLBACK
 		    (random_order_cb), NULL);
 
   button = gtk_check_button_new_with_mnemonic (_("_Enable fake bonuses"));
@@ -331,14 +331,14 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_widget_set_sensitive (button, FALSE);
   if (properties->fakes)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
-  g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+  g_signal_connect (GTK_OBJECT (button), "toggled", G_CALLBACK
 		    (fake_bonus_cb), NULL);
 
   button = gtk_check_button_new_with_mnemonic (_("E_nable sounds"));
   gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
   if (properties->sound)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
-  g_signal_connect (GTK_OBJECT (button), "toggled", GTK_SIGNAL_FUNC
+  g_signal_connect (GTK_OBJECT (button), "toggled", G_CALLBACK
 		    (sound_cb), NULL);
 
   table2 = gtk_table_new (3, 2, FALSE);
@@ -374,7 +374,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_widget_set_sensitive (GTK_WIDGET (levelspinner), FALSE);
   gtk_table_attach_defaults (GTK_TABLE (table2), levelspinner, 1, 2, 0, 1);
   g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
-		    GTK_SIGNAL_FUNC (start_level_cb), levelspinner);
+		    G_CALLBACK (start_level_cb), levelspinner);
 
   label2 = gtk_label_new_with_mnemonic (_("Number of _human players:"));
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
@@ -395,7 +395,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   if (running || ggz_network_mode)
     gtk_widget_set_sensitive (num_human, FALSE);
   g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
-		    GTK_SIGNAL_FUNC (num_worms_cb), num_human);
+		    G_CALLBACK (num_worms_cb), num_human);
 
   label2 = gtk_label_new_with_mnemonic (_("Number of _AI players:"));
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
@@ -416,7 +416,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   if (running || ggz_network_mode)
     gtk_widget_set_sensitive (num_ai, FALSE);
   g_signal_connect (GTK_OBJECT (adjustment), "value_changed",
-		    GTK_SIGNAL_FUNC (num_worms_cb), num_ai);
+		    G_CALLBACK (num_worms_cb), num_ai);
 
   for (i = 0; i < NUMWORMS; i++) {
     char up_key[64];
@@ -479,7 +479,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Purple"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Gray"));
     g_signal_connect (GTK_OBJECT (omenu), "changed",
-		      GTK_SIGNAL_FUNC (set_worm_color_cb),
+		      G_CALLBACK (set_worm_color_cb),
 		      GINT_TO_POINTER (i));
     gtk_combo_box_set_active (GTK_COMBO_BOX (omenu),
 			      properties->wormprops[i]->color - WORMRED);

@@ -495,8 +495,8 @@ pause_game_cb (GtkAction * action, gpointer data)
     /*
      * main_id = gtk_timeout_add (GAMEDELAY * properties->gamespeed,
      * (GtkFunction) main_loop, NULL);
-     * keyboard_id = gtk_signal_connect (GTK_OBJECT (window),
-     * "key_press_event", GTK_SIGNAL_FUNC (key_press_cb),
+     * keyboard_id = g_signal_connect (GTK_OBJECT (window),
+     * "key_press_event", G_CALLBACK (key_press_cb),
      * NULL);
      * add_bonus_id = gtk_timeout_add (BONUSDELAY *
      * properties->gamespeed,

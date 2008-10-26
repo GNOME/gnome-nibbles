@@ -19,6 +19,8 @@
 
 #include <config.h>
 
+#include <stdlib.h>
+
 #include <gtk/gtk.h>
 
 #include <libgames-support/games-sound.h>
