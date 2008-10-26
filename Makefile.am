@@ -27,7 +27,7 @@ gnibbles_SOURCES = \
 	$(NULL)
 
 gnibbles_CPPFLAGS = \
-	-I$(top_srcdir)/libgames-support \
+	-I$(top_srcdir) \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DREAL_DATADIR=\""$(datadir)"\" \
 	$(AM_CPPFLAGS)
