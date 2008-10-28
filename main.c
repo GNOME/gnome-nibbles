@@ -23,6 +23,7 @@
 
 #include <string.h>
 #include <time.h>
+#include <stdlib.h>
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
@@ -1063,7 +1064,7 @@ main (int argc, char **argv)
 
 #if GLIB_CHECK_VERSION (2, 12, 0)
   g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
-#endif  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+#endif 
 
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
   games_sound_add_option_group (context);

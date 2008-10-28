@@ -23,6 +23,9 @@
 #include <config.h>
 #endif
 
+#include <stdlib.h>
+#include <ctype.h>
+
 #include <games-sound.h>
 
 #include "worm.h"
