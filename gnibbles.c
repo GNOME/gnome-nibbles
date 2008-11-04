@@ -256,9 +256,10 @@ gnibbles_load_level (GtkWidget * window, gint level)
   if ((in = fopen (filename, "r")) == NULL) {
     char *message =
       g_strdup_printf (_
-		       ("Gnibbles couldn't load level file:\n%s\n\n"
-			"Please check your Gnibbles installation"), filename);
+                       ("Gnibbles couldn't load level file:\n%s\n\n"
+                        "Please check your Gnibbles installation"), filename);
     gnibbles_error (window, message);
+    g_free (message);
   }
 
   g_free (filename);
@@ -274,33 +275,41 @@ gnibbles_load_level (GtkWidget * window, gint level)
   boni = gnibbles_boni_new ();
 
   for (i = 0; i < BOARDHEIGHT; i++) {
-    fgets (tmpboard, sizeof (tmpboard), in);
+    if (!fgets (tmpboard, sizeof (tmpboard), in)) {
+      char *message =
+        g_strdup_printf (_
+                         ("Level file appears to be damaged:\n%s\n\n"
+                         "Please check your Gnibbles installation"), filename);
+      gnibbles_error (window, message);
+      g_free (message);
+      break;
+    }
     for (j = 0; j < BOARDWIDTH; j++) {
       board[j][i] = tmpboard[j];
       switch (board[j][i]) {
       case 'm':
-	board[j][i] = 'a';
-	if (count < properties->numworms)
-	  gnibbles_worm_set_start (worms[count++], j, i, WORMUP);
-	break;
+        board[j][i] = 'a';
+        if (count < properties->numworms)
+          gnibbles_worm_set_start (worms[count++], j, i, WORMUP);
+        break;
       case 'n':
-	board[j][i] = 'a';
-	if (count < properties->numworms)
-	  gnibbles_worm_set_start (worms[count++], j, i, WORMLEFT);
-	break;
+        board[j][i] = 'a';
+        if (count < properties->numworms)
+          gnibbles_worm_set_start (worms[count++], j, i, WORMLEFT);
+        break;
       case 'o':
-	board[j][i] = 'a';
-	if (count < properties->numworms)
-	  gnibbles_worm_set_start (worms[count++], j, i, WORMDOWN);
-	break;
+        board[j][i] = 'a';
+        if (count < properties->numworms)
+          gnibbles_worm_set_start (worms[count++], j, i, WORMDOWN);
+        break;
       case 'p':
-	board[j][i] = 'a';
-	if (count < properties->numworms)
-	  gnibbles_worm_set_start (worms[count++], j, i, WORMRIGHT);
-	break;
+        board[j][i] = 'a';
+        if (count < properties->numworms)
+          gnibbles_worm_set_start (worms[count++], j, i, WORMRIGHT);
+        break;
       case 'Q':
-	gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);
-	break;
+        gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);
+        break;
       case 'R':
       case 'S':
       case 'T':
@@ -310,9 +319,9 @@ gnibbles_load_level (GtkWidget * window, gint level)
       case 'X':
       case 'Y':
       case 'Z':
-	gnibbles_warpmanager_add_warp
-	  (warpmanager, j - 1, i - 1, -board[j][i], 0);
-	break;
+        gnibbles_warpmanager_add_warp
+          (warpmanager, j - 1, i - 1, -board[j][i], 0);
+        break;
       case 'r':
       case 's':
       case 't':
@@ -322,22 +331,22 @@ gnibbles_load_level (GtkWidget * window, gint level)
       case 'x':
       case 'y':
       case 'z':
-	gnibbles_warpmanager_add_warp
-	  (warpmanager, -(board[j][i] - 'a' + 'A'), 0, j, i);
-	board[j][i] = EMPTYCHAR;
-	break;
+        gnibbles_warpmanager_add_warp
+          (warpmanager, -(board[j][i] - 'a' + 'A'), 0, j, i);
+        board[j][i] = EMPTYCHAR;
+        break;
       }
       /* Warpmanager draws the warp points. Everything else gets drawn here. */
       if (board[j][i] >= 'a')
-	gnibbles_draw_pixmap_buffer (board[j][i] - 'a', j, i);
+        gnibbles_draw_pixmap_buffer (board[j][i] - 'a', j, i);
     }
   }
 
   gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
-		     drawing_area->style->
-		     fg_gc[GTK_WIDGET_STATE (drawing_area)], buffer_pixmap, 0,
-		     0, 0, 0, BOARDWIDTH * properties->tilesize,
-		     BOARDHEIGHT * properties->tilesize);
+                     drawing_area->style->
+                     fg_gc[GTK_WIDGET_STATE (drawing_area)], buffer_pixmap, 0,
+                     0, 0, 0, BOARDWIDTH * properties->tilesize,
+                     BOARDHEIGHT * properties->tilesize);
 
   fclose (in);
 }
