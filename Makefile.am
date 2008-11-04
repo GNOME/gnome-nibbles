@@ -28,8 +28,6 @@ gnibbles_SOURCES = \
 
 gnibbles_CPPFLAGS = \
 	-I$(top_srcdir) \
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DREAL_DATADIR=\""$(datadir)"\" \
 	$(AM_CPPFLAGS)
 
 gnibbles_CFLAGS = \
@@ -99,7 +97,7 @@ desktopdir=$(datadir)/applications
 desktop_in_files = gnibbles.desktop.in.in
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 
-schemadir = @GCONF_SCHEMA_FILE_DIR@
+schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_in_files = gnibbles.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 
@@ -112,9 +110,7 @@ gnibblesd_SOURCES = \
 	$(NULL)
 
 gnibblesd_CPPFLAGS = \
-	-I$(top_srcdir)/libgames-support \
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DREAL_DATADIR=\""$(datadir)"\" \
+	-I$(top_srcdir) \
 	$(GGZ_GTK_INCLUDES) $(GGZMOD_INCLUDES) $(GGZCORE_INCLUDES) \
 	$(LIBGGZ_INCLUDES) $(GGZCORE_INCLUDES) $(GGZDMOD_INCLUDES)
 	$(AM_CPPFLAGS)

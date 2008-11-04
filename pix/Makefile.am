@@ -1,6 +1,6 @@
-pixmapdir=$(datadir)/gnome-games/gnibbles/pixmaps
+pixmapdir = $(pkgdatadir)/gnibbles/pixmaps
 
-BONUS_PIX=\
+BONUS_PIX = \
 	blank.svg \
 	bonus1.svg \
 	bonus2.svg \
@@ -11,8 +11,7 @@ BONUS_PIX=\
 	life.svg \
 	questionmark.svg
 
-
-SMALL_PIX=\
+SMALL_PIX = \
 	snake-blue.svg \
 	snake-cyan.svg \
 	snake-green.svg \
@@ -33,6 +32,6 @@ SMALL_PIX=\
 	wall-tee-right.svg \
 	wall-tee-up.svg
 
-pixmap_DATA= ${BONUS_PIX} ${SMALL_PIX}
+pixmap_DATA = ${BONUS_PIX} ${SMALL_PIX}
 
 EXTRA_DIST = $(pixmap_DATA)
