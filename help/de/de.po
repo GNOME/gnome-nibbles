@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2008-08-30 03:53+0000\n"
-"PO-Revision-Date: 2008-10-18 12:50+0100\n"
+"PO-Revision-Date: 2008-11-09 20:11+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "translated"
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/gnibbles.xml:77(None)
 msgid "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
-msgstr ""
+msgstr "translated"
 
 #: C/gnibbles.xml:28(title)
 msgid "<application>Nibbles</application> Manual"
