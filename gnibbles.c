@@ -98,8 +98,8 @@ gnibbles_load_pixmap_file (GtkWidget * window, const gchar * pixmap,
 
   if (!filename) {
     char *message =
-      g_strdup_printf (_("Gnibbles couldn't find pixmap file:\n%s\n\n"
-			 "Please check your Gnibbles installation"), pixmap);
+      g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
+			 "Please check your Nibbles installation"), pixmap);
     gnibbles_error (window, message);
     /* We should never get here since the app exits in gnibbles_error. But let's
      * free it anyway in case someone comes along and changes gnibbles_error */
@@ -256,8 +256,8 @@ gnibbles_load_level (GtkWidget * window, gint level)
   if ((in = fopen (filename, "r")) == NULL) {
     char *message =
       g_strdup_printf (_
-                       ("Gnibbles couldn't load level file:\n%s\n\n"
-                        "Please check your Gnibbles installation"), filename);
+                       ("Nibbles couldn't load level file:\n%s\n\n"
+                        "Please check your Nibbles installation"), filename);
     gnibbles_error (window, message);
     g_free (message);
   }
@@ -279,7 +279,7 @@ gnibbles_load_level (GtkWidget * window, gint level)
       char *message =
         g_strdup_printf (_
                          ("Level file appears to be damaged:\n%s\n\n"
-                         "Please check your Gnibbles installation"), filename);
+                         "Please check your Nibbles installation"), filename);
       gnibbles_error (window, message);
       g_free (message);
       break;
