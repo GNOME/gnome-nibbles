@@ -624,6 +624,7 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
     games_scores_dialog_set_hilight (GAMES_SCORES_DIALOG (scoresdialog), pos);
     message = g_strdup_printf ("<b>%s</b>\n\n%s",
 			       _("Congratulations!"),
+                               pos == 1 ? _("Your score is the best!") :
 			       _("Your score has made the top ten."));
     games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
 				     message);
