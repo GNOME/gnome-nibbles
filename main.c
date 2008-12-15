@@ -474,7 +474,7 @@ new_game (void)
   if (dummy_id)
     g_source_remove (dummy_id);
 
-  dummy_id = g_timeout_add (1500, (GSourceFunc) new_game_2_cb, NULL);
+  dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_2_cb, NULL);
 
   network_gui_update ();
 
@@ -614,7 +614,7 @@ restart_game (gpointer data)
 
   gnibbles_add_bonus (1);
 
-  dummy_id = g_timeout_add (1500, (GSourceFunc) new_game_2_cb, NULL);
+  dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_2_cb, NULL);
 
   restart_id = 0;
 
@@ -675,7 +675,7 @@ main_loop (gpointer data)
       g_source_remove (add_bonus_id);
     }
     add_bonus_id = 0;
-    erase_id = g_timeout_add (3000,
+    erase_id = g_timeout_add_seconds (3,
 			      (GSourceFunc) erase_worms_cb,
 			      (gpointer) ERASESIZE);
     gnibbles_log_score (window);
@@ -696,7 +696,7 @@ main_loop (gpointer data)
       g_source_remove (add_bonus_id);
     }
     add_bonus_id = 0;
-    erase_id = g_timeout_add (3000,
+    erase_id = g_timeout_add_seconds (3,
 			      (GSourceFunc) erase_worms_cb,
 			      (gpointer) ERASESIZE);
     gnibbles_log_score (window);
@@ -727,7 +727,7 @@ main_loop (gpointer data)
     erase_id = g_timeout_add (ERASETIME / ERASESIZE,
 			      (GSourceFunc) erase_worms_cb,
 			      (gpointer) ERASESIZE);
-    restart_id = g_timeout_add (1000, (GSourceFunc) restart_game, NULL);
+    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
     return (FALSE);
   }
 
@@ -756,7 +756,7 @@ main_loop (gpointer data)
 	tmp = rand () % MAXLEVEL + 1;
       current_level = tmp;
     }
-    restart_id = g_timeout_add (1000, (GSourceFunc) restart_game, NULL);
+    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
     return (FALSE);
   }
 
