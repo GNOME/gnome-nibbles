@@ -64,14 +64,14 @@ GtkWidget *notebook;
 GtkWidget *chat = NULL;
 
 static const GamesScoresCategory scorecats[] = {
-{"4.0", N_("Beginner")},
-{"3.0", N_("Slow")},
-{"2.0", N_("gnibbles|Medium")},
-{"1.0", N_("Fast")},
-{"4.1", N_("Beginner with Fakes")},
-{"3.1", N_("Slow with Fakes")},
-{"2.1", N_("Medium with Fakes")},
-{"1.1", N_("Fast with Fakes")}
+{ "4.0", NC_("game speed", "Beginner")            },
+{ "3.0", NC_("game speed", "Slow")                },
+{ "2.0", NC_("game speed", "Medium")              },
+{ "1.0", NC_("game speed", "Fast")                },
+{ "4.1", NC_("game speed", "Beginner with Fakes") },
+{ "3.1", NC_("game speed", "Slow with Fakes")     },
+{ "2.1", NC_("game speed", "Medium with Fakes")   },
+{ "1.1", NC_("game speed", "Fast with Fakes")     }
 };
 
 GamesScores *highscores;
@@ -1068,7 +1068,7 @@ main (int argc, char **argv)
 
   highscores = games_scores_new ("gnibbles",
                                  scorecats, G_N_ELEMENTS (scorecats),
-                                 NULL, NULL,
+                                 "game speed", NULL,
                                  0 /* default category */,
                                  GAMES_SCORES_STYLE_PLAIN_DESCENDING);
 
