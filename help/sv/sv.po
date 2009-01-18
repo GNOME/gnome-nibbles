@@ -196,23 +196,23 @@ msgid "Game"
 msgstr "Spel"
 
 #: C/gnibbles.xml:233(para)
-msgid "<menuchoice><shortcut><keysym>Ctrl+N</keysym></shortcut><guimenuitem>New Game</guimenuitem></menuchoice>&mdash; This starts a new game of <application>Nibbles</application>"
+msgid "<menuchoice><shortcut><keysym>Ctrl+N</keysym></shortcut><guimenuitem>New Game</guimenuitem></menuchoice>— This starts a new game of <application>Nibbles</application>"
 msgstr ""
 
 #: C/gnibbles.xml:244(para)
-msgid "<menuchoice><guimenuitem>Pause game</guimenuitem></menuchoice>&mdash; This will pause your game. Click on the <quote>Pause Game </quote> menu option to resume game."
+msgid "<menuchoice><guimenuitem>Pause game</guimenuitem></menuchoice>— This will pause your game. Click on the <quote>Pause Game </quote> menu option to resume game."
 msgstr ""
 
 #: C/gnibbles.xml:253(para)
-msgid "<menuchoice><guimenuitem>Scores</guimenuitem></menuchoice>&mdash; This shows the high scores."
+msgid "<menuchoice><guimenuitem>Scores</guimenuitem></menuchoice>— This shows the high scores."
 msgstr ""
 
 #: C/gnibbles.xml:261(para)
-msgid "<menuchoice><guimenuitem>End Game</guimenuitem></menuchoice>&mdash; End the current game and return to the title screen."
+msgid "<menuchoice><guimenuitem>End Game</guimenuitem></menuchoice>— End the current game and return to the title screen."
 msgstr ""
 
 #: C/gnibbles.xml:269(para)
-msgid "<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Exit</guimenuitem></menuchoice>&mdash; This quits the application."
+msgid "<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Exit</guimenuitem></menuchoice>— This quits the application."
 msgstr ""
 
 #: C/gnibbles.xml:229(para)
@@ -226,7 +226,7 @@ msgid "Settings"
 msgstr "Inställningar"
 
 #: C/gnibbles.xml:291(para)
-msgid "<menuchoice><guimenuitem>Preferences</guimenuitem></menuchoice>&mdash; This opens your window to edit <link linkend=\"prefs\"> preferences.</link>"
+msgid "<menuchoice><guimenuitem>Preferences</guimenuitem></menuchoice>— This opens your window to edit <link linkend=\"prefs\"> preferences.</link>"
 msgstr ""
 
 #: C/gnibbles.xml:305(guimenu)
@@ -234,11 +234,11 @@ msgid "Help"
 msgstr "Hjälp"
 
 #: C/gnibbles.xml:311(para)
-msgid "<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Contents</guimenuitem></menuchoice>&mdash; Display this manual."
+msgid "<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Contents</guimenuitem></menuchoice>— Display this manual."
 msgstr ""
 
 #: C/gnibbles.xml:320(para)
-msgid "<guimenuitem>About</guimenuitem>&mdash; This opens the <interface>About</interface> dialog which shows basic information about <application>Nibbles</application>, such as the author's name, the version number of the game."
+msgid "<guimenuitem>About</guimenuitem>— This opens the <interface>About</interface> dialog which shows basic information about <application>Nibbles</application>, such as the author's name, the version number of the game."
 msgstr ""
 
 #: C/gnibbles.xml:335(title)
