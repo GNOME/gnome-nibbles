@@ -26,7 +26,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#include <games-sound.h>
+#include <libgames-support/games-sound.h>
 
 #include "worm.h"
 #include "gnibbles.h"

@@ -20,7 +20,7 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-#include <games-scores.h>
+#include <libgames-support/games-scores.h>
 
 #include "gnibbles.h"
 

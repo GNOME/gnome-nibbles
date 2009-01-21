@@ -38,8 +38,8 @@
 #include <ggz-embed.h>
 #include <ggz-gtk.h>
 
-#include "games-dlg-chat.h"
-#include "games-dlg-players.h"
+#include <libgames-support/games-dlg-chat.h>
+#include <libgames-support/games-dlg-players.h>
 
 #include "main.h"
 #include "gnibbles.h"

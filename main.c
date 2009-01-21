@@ -48,8 +48,8 @@
 #include "warp.h"
 
 #ifdef GGZ_CLIENT
-#include <games-dlg-chat.h>
-#include <games-dlg-players.h>
+#include <libgames-support/games-dlg-chat.h>
+#include <libgames-support/games-dlg-players.h>
 #include "ggz-network.h"
 #include <ggz-embed.h>
 #endif
