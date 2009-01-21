@@ -31,15 +31,28 @@ gnibbles_CPPFLAGS = \
 	$(AM_CPPFLAGS)
 
 gnibbles_CFLAGS = \
-	$(GNOME_GAMES_CFLAGS)			\
+	$(GTK_CFLAGS) \
 	$(AM_CFLAGS)
-
-gnibbles_LDFLAGS = $(AM_LDFLAGS)
 
 gnibbles_LDADD = \
 	$(top_builddir)/libgames-support/libgames-support.la \
-	$(GNOME_GAMES_LIBS) \
+	$(GTK_LIBS) \
 	$(INTLLIBS)
+
+if HAVE_GNOME
+gnibbles_CFLAGS += $(GNOME_CFLAGS)
+gnibbles_LDADD += $(GNOME_LIBS)
+endif
+
+if HAVE_RSVG
+gnibbles_CFLAGS += $(RSVG_CFLAGS)
+gnibbles_LDADD += $(RSVG_LIBS)
+endif
+
+if WITH_GTHREAD
+gnibbles_CFLAGS += $(GHTREAD_CFLAGS)
+gnibbles_LDADD += $(GTHREAD_LIBS)
+endif
 
 if GGZ_CLIENT
 gnibbles_SOURCES += \
