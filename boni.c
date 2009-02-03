@@ -34,7 +34,7 @@
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 
 GnibblesBoni *
-gnibbles_boni_new ()
+gnibbles_boni_new (void)
 {
   int i;
   GnibblesBoni *tmp;

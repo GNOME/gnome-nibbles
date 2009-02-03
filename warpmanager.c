@@ -34,7 +34,7 @@ extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 extern GnibblesBoni *boni;
 
 GnibblesWarpManager *
-gnibbles_warpmanager_new ()
+gnibbles_warpmanager_new (void)
 {
   int i;
   GnibblesWarpManager *tmp;

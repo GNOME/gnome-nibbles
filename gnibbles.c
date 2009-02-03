@@ -469,7 +469,7 @@ gnibbles_add_bonus (gint regular)
 }
 
 gint
-gnibbles_move_worms ()
+gnibbles_move_worms (void)
 {
   gint i, j, status = 1, nlives = 0;
   gint *dead;

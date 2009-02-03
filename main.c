@@ -284,7 +284,7 @@ key_press_cb (GtkWidget * widget, GdkEventKey * event)
 }
 
 static void
-draw_board ()
+draw_board (void)
 {
   int i, j;
 
