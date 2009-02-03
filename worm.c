@@ -141,20 +141,18 @@ gint
 gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
 {
   GnibblesWormProps *props;
-
+  guint propsUp, propsLeft, propsDown, propsRight, keyvalUpper;
 /*	if (worm->keypress) {
                 gnibbles_worm_queue_keypress (worm, keyval);
 		return FALSE;
 	} */
 
-
-
   props = properties->wormprops[ggz_network_mode ? 0 : worm->number];
-  guint propsUp = toupper(props->up);
-  guint propsLeft = toupper(props->left);
-  guint propsDown = toupper(props->down);
-  guint propsRight = toupper(props->right);
-  guint keyvalUpper = toupper(keyval);
+  propsUp = toupper(props->up);
+  propsLeft = toupper(props->left);
+  propsDown = toupper(props->down);
+  propsRight = toupper(props->right);
+  keyvalUpper = toupper(keyval);
 
   if (properties->wormprops[worm->number]->relmove) {
     if (keyvalUpper == propsLeft)
