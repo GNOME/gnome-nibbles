@@ -489,17 +489,6 @@ pause_game_cb (GtkAction * action, gpointer data)
   if (paused) {
     paused = 0;
     dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
-    /*
-     * main_id = gtk_timeout_add (GAMEDELAY * properties->gamespeed,
-     * (GtkFunction) main_loop, NULL);
-     * keyboard_id = g_signal_connect (GTK_OBJECT (window),
-     * "key_press_event", G_CALLBACK (key_press_cb),
-     * NULL);
-     * add_bonus_id = gtk_timeout_add (BONUSDELAY *
-     * properties->gamespeed,
-     * (GtkFunction) add_bonus_cb,
-     * NULL);
-     */
   } else {
     if (main_id || erase_id || restart_id || dummy_id) {
       paused = 1;
