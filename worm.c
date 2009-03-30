@@ -534,6 +534,9 @@ worm_handle_direction (int worm, int dir)
   if (ggz_network_mode) {
 #ifdef GGZ_CLIENT
     network_game_move (dir);
+
+    worms[0]->direction = dir;
+    worms[0]->keypress = 1;
 #endif
   } else {
     worm_set_direction (worm, dir);

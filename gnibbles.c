@@ -590,8 +590,9 @@ gint
 gnibbles_keypress_worms (guint keyval)
 {
   gint i;
+  gint numworms = ggz_network_mode ? 1 : properties->numworms;
 
-  for (i = 0; i < properties->numworms; i++)
+  for (i = 0; i < numworms; i++)
     if (gnibbles_worm_handle_keypress (worms[i], keyval)) {
       return TRUE;
     }
