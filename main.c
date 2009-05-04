@@ -34,7 +34,6 @@
 #include <libgames-support/games-help.h>
 #include <libgames-support/games-runtime.h>
 #include <libgames-support/games-scores.h>
-#include <libgames-support/games-sound.h>
 #include <libgames-support/games-stock.h>
 
 #include "main.h"
@@ -1040,7 +1039,6 @@ main (int argc, char **argv)
 #endif 
 
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
-  games_sound_add_option_group (context);
 
   retval = g_option_context_parse (context, &argc, &argv, &error);
   g_option_context_free (context);
