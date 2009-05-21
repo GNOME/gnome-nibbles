@@ -30,6 +30,12 @@ gnibbles_SOURCES = \
 	scoreboard.c \
 	main.c \
 	main.h \
+	board.c \
+	board.h \
+	level.c \
+	level.h \
+	worm-clutter.c \
+	worm-clutter.h \
 	$(NULL)
 
 gnibbles_CPPFLAGS = \
@@ -38,11 +44,15 @@ gnibbles_CPPFLAGS = \
 
 gnibbles_CFLAGS = \
 	$(GTK_CFLAGS) \
+	$(CLUTTER_CFLAGS) \
+	$(CLUTTER_GTK_CFLAGS) \
 	$(AM_CFLAGS)
 
 gnibbles_LDADD = \
 	$(top_builddir)/libgames-support/libgames-support.la \
 	$(GTK_LIBS) \
+	$(CLUTTER_LIBS) \
+	$(CLUTTER_GTK_LIBS) \
 	$(INTLLIBS)
 
 if HAVE_GNOME
