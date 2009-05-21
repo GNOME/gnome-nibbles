@@ -25,6 +25,7 @@ SMALL_PIX = \
 	wall-corner-top-right.svg \
 	wall-cross.svg \
 	wall-empty.svg \
+	wall-small-empty.svg \
 	wall-straight-side.svg \
 	wall-straight-up.svg \
 	wall-tee-down.svg \
