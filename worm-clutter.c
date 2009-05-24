@@ -19,12 +19,18 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
+#include <config.h>
+#include <glib/gi18n.h>
+#include <gdk/gdk.h>
+#include <stdlib.h>
+#include <libgames-support/games-runtime.h>
 
+#include "main.h"
+#include "gnibbles.h"
 #include "properties.h"
 #include "worm-clutter.h"
 
 extern GnibblesProperties *properties;
-
 
 GnibblesCWorm*
 gnibbles_cworm_new (guint number, gint x_s, gint y_s)

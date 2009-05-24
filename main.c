@@ -50,6 +50,7 @@
 #include <clutter/clutter.h>
 
 #include "board.h"
+#include "worm-clutter.h"
 
 #ifdef GGZ_CLIENT
 #include <libgames-support/games-dlg-chat.h>
@@ -87,6 +88,19 @@ GnibblesProperties *properties;
 
 GnibblesScoreboard *scoreboard;
 
+GdkPixbuf *wall_pixmaps[11] = { NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL, NULL, NULL, NULL,
+  NULL
+};
+
+GdkPixbuf *worm_pixmaps[7] = { NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL
+};
+
+GdkPixbuf *boni_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL, NULL, NULL
+};
+
 extern GnibblesBoni *boni;
 
 gchar board[BOARDWIDTH][BOARDHEIGHT];
@@ -123,6 +137,98 @@ static GtkAction *preferences_action;
 static GtkAction *scores_action;
 static GtkAction *fullscreen_action;
 static GtkAction *leave_fullscreen_action;
+
+static GdkPixbuf *
+load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
+{
+  GdkPixbuf *image;
+  gchar *filename;
+  const char *dirname;
+
+  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
+  filename = g_build_filename (dirname, pixmap, NULL);
+
+  if (!filename) {
+    char *message =
+      g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
+			 "Please check your Nibbles installation"), pixmap);
+    //gnibbles_error (window, message;
+    g_free(message);
+  }
+
+  image = gdk_pixbuf_new_from_file_at_size (filename, xsize, ysize, NULL);
+  g_free (filename);
+
+  return image;
+}
+
+static void 
+load_pixmap ()
+{
+  gchar *bonus_files[] = {
+    "blank.svg",
+    "diamond.svg",
+    "bonus1.svg",
+    "bonus2.svg",
+    "life.svg",
+    "bonus3.svg",
+    "bonus4.svg",
+    "bonus5.svg",
+    "questionmark.svg"
+  };
+
+  gchar *small_files[] = {
+    "wall-straight-up.svg",
+    "wall-straight-side.svg",
+    "wall-corner-bottom-left.svg",
+    "wall-corner-bottom-right.svg",
+    "wall-corner-top-left.svg",
+    "wall-corner-top-right.svg",
+    "wall-tee-up.svg",
+    "wall-tee-right.svg",
+    "wall-tee-left.svg",
+    "wall-tee-down.svg",
+    "wall-cross.svg"
+  };
+  
+  gchar *worm_files[] = {
+    "snake-red.svg",
+    "snake-green.svg",
+    "snake-blue.svg",
+    "snake-yellow.svg",
+    "snake-cyan.svg",
+    "snake-magenta.svg",
+    "snake-grey.svg"
+  };
+
+  int i;
+
+  for (i = 0; i < 9; i++) {
+    if (boni_pixmaps[i])
+      g_object_unref (boni_pixmaps[i]);
+    boni_pixmaps[i] = load_pixmap_file (bonus_files[i],
+						  4 * properties->tilesize,
+						  4 * properties->tilesize);
+  }
+
+  for (i = 0; i < 11; i++) {
+    if (wall_pixmaps[i])
+      g_object_unref (wall_pixmaps[i]);
+      
+    wall_pixmaps[i] = load_pixmap_file (small_files[i],
+		  		                              4 * properties->tilesize,
+                           						  4 * properties->tilesize);
+  }
+
+  for (i = 0; i < 7; i++) {
+    if (worm_pixmaps[i])
+      g_object_unref (worm_pixmaps[i]);
+
+    worm_pixmaps[i] = load_pixmap_file (worm_files[i],
+                                        4 * properties->tilesize,
+                                        4 * properties->tilesize);
+  }
+}
 
 static void
 hide_cursor (void)
@@ -1218,13 +1324,16 @@ main (int argc, char **argv)
   gtk_action_set_visible (new_game_action, !ggz_network_mode);
   gtk_action_set_visible (player_list_action, ggz_network_mode);
 
+  load_pixmap ();
 
   // clutter fun
   gtk_clutter_init (&argc, &argv);
   GnibblesBoard *board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
   setup_window_clutter (board);
   
-  gnibbles_board_load_level (board, gnibbles_level_new (1));
+  gnibbles_board_load_level (board, gnibbles_level_new (16));
+
+  //GnibblesCWorm *cworm = gnibbles_cworm_new (1,10,10);
 
   //render_logo_clutter (board);
 

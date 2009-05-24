@@ -35,18 +35,77 @@
 #include "properties.h"
 #include "board.h"
 
-static GdkPixbuf*  load_pixmap_file (const gchar * pixmap,
-			                                      gint xsize, gint ysize);
-static void load_pixmap ();
+extern GnibblesProperties *properties;
 
-GdkPixbuf *wall_pixmaps[19] = { NULL, NULL, NULL, NULL, NULL,
+extern GdkPixbuf *wall_pixmaps[];
+
+GdkPixbuf *walls_pixmaps[19] = { NULL, NULL, NULL, NULL, NULL,
   NULL, NULL, NULL, NULL, NULL,
   NULL, NULL, NULL, NULL, NULL,
   NULL, NULL, NULL, NULL
 };
 
-extern GnibblesProperties *properties;
+static GdkPixbuf *
+board_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
+{
+  GdkPixbuf *image;
+  gchar *filename;
+  const char *dirname;
 
+  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
+  filename = g_build_filename (dirname, pixmap, NULL);
+
+  if (!filename) {
+    char *message =
+      g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
+			 "Please check your Nibbles installation"), pixmap);
+    //gnibbles_error (window, message;
+    g_free(message);
+  }
+
+  image = gdk_pixbuf_new_from_file_at_size (filename, xsize, ysize, NULL);
+  g_free (filename);
+
+  return image;
+}
+
+static void 
+board_load_pixmap ()
+{
+
+  gchar *small_files[] = {
+    "snake-red.svg",
+    "snake-green.svg",
+    "snake-blue.svg",
+    "snake-yellow.svg",
+    "snake-cyan.svg",
+    "snake-magenta.svg",
+    "snake-grey.svg",
+    "wall-empty.svg",
+    "wall-straight-up.svg",
+    "wall-straight-side.svg",
+    "wall-corner-bottom-left.svg",
+    "wall-corner-bottom-right.svg",
+    "wall-corner-top-left.svg",
+    "wall-corner-top-right.svg",
+    "wall-tee-up.svg",
+    "wall-tee-right.svg",
+    "wall-tee-left.svg",
+    "wall-tee-down.svg",
+    "wall-cross.svg"
+  };
+
+  int i;
+
+  for (i = 0; i < 19; i++) {
+    if (walls_pixmaps[i])
+      g_object_unref (walls_pixmaps[i]);
+      
+    walls_pixmaps[i] = board_load_pixmap_file (small_files[i],
+		  		                              4 * properties->tilesize,
+                           						  4 * properties->tilesize);
+  }
+}
 
 GnibblesBoard *
 gnibbles_board_new (gint t_w, gint t_h) 
@@ -57,12 +116,12 @@ gnibbles_board_new (gint t_w, gint t_h)
   board->width = t_w;
   board->height = t_h;
   board->level = NULL;
-  board->surface =NULL;
+  board->surface = NULL;
   board->clutter_widget = gtk_clutter_embed_new ();
 
   ClutterActor *stage;
 
-  load_pixmap ();
+  board_load_pixmap ();
 
   stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (board->clutter_widget));
   clutter_stage_set_color (CLUTTER_STAGE(stage), &stage_color);
@@ -130,61 +189,61 @@ gnibbles_board_load_level (GnibblesBoard *board, GnibblesLevel *level)
   gint i,j;
   gint x_pos, y_pos;
   ClutterActor *tmp;  
-  gboolean wall = TRUE;
+  gboolean is_wall = TRUE;
 
   if (board->level)
     g_object_unref (board->level);
 
   board->level = clutter_group_new ();
 
-  /* Load walls onto the surface*/
+  /* Load wall_pixmaps onto the surface*/
   for (i = 0; i < BOARDHEIGHT; i++) {
     y_pos = i * properties->tilesize;
     for (j = 0; j < BOARDWIDTH; j++) {
-      wall = TRUE;
+      is_wall = TRUE;
       switch (level->walls[j][i]) {
         case 'a': // empty space
-          wall = FALSE;
+          is_wall = FALSE;
           break; // break right away
         case 'b': // straight up
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[1]);
+          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[0]);
           break;
         case 'c': // straight side
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[2]);
+          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[1]);
           break;
         case 'd': // corner bottom left
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[3]);
+          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[2]);
           break;
         case 'e': // corner bottom right
+          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[3]);
+          break;
+          case 'f': // corner up left
           tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[4]);
           break;
-        case 'f': // corner up left
+        case 'g': // corner up right
           tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[5]);
           break;
-        case 'g': // corner up right
+        case 'h': // tee up
           tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[6]);
           break;
-        case 'h': // tee up
+        case 'i': // tee right
           tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[7]);
           break;
-        case 'i': // tee right
+        case 'j': // tee left
           tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[8]);
           break;
-        case 'j': // tee left
+        case 'k': // tee down
           tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[9]);
           break;
-        case 'k': // tee down
+        case 'l': // cross
           tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[10]);
           break;
-        case 'l': // cross
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[11]);
-          break;
         default:
-          wall = FALSE;
+          is_wall = FALSE;
           break;
       }
 
-      if (wall == TRUE) {
+      if (is_wall) {
         x_pos = j * properties->tilesize;
 
         clutter_actor_set_size (CLUTTER_ACTOR(tmp),
@@ -236,67 +295,3 @@ gnibbles_board_resize (GnibblesBoard *board, gint newtile)
     clutter_actor_set_size (tmp ,newtile, newtile);
   }
 }
-
-static void 
-load_pixmap ()
-{
-
-  gchar *small_files[] = {
-    "wall-empty.svg",
-    "wall-straight-up.svg",
-    "wall-straight-side.svg",
-    "wall-corner-bottom-left.svg",
-    "wall-corner-bottom-right.svg",
-    "wall-corner-top-left.svg",
-    "wall-corner-top-right.svg",
-    "wall-tee-up.svg",
-    "wall-tee-right.svg",
-    "wall-tee-left.svg",
-    "wall-tee-down.svg",
-    "wall-cross.svg",
-    "snake-red.svg",
-    "snake-green.svg",
-    "snake-blue.svg",
-    "snake-yellow.svg",
-    "snake-cyan.svg",
-    "snake-magenta.svg",
-    "snake-grey.svg"
-  };
-
-  int i;
-
-  for (i = 0; i < 19; i++) {
-    if (wall_pixmaps[i])
-      g_object_unref (wall_pixmaps[i]);
-      
-    wall_pixmaps[i] = load_pixmap_file (small_files[i],
-		  		                              4 * properties->tilesize,
-                           						  4 * properties->tilesize);
-  }
-}
-
-static GdkPixbuf *
-load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
-{
-  GdkPixbuf *image;
-  gchar *filename;
-  const char *dirname;
-
-  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
-  filename = g_build_filename (dirname, pixmap, NULL);
-
-  if (!filename) {
-    char *message =
-      g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
-			 "Please check your Nibbles installation"), pixmap);
-    //gnibbles_error (window, message;
-    g_free(message);
-  }
-
-  image = gdk_pixbuf_new_from_file_at_size (filename, xsize, ysize, NULL);
-  g_free (filename);
-
-  return image;
-}
-
-
