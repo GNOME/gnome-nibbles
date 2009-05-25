@@ -225,8 +225,8 @@ load_pixmap ()
       g_object_unref (worm_pixmaps[i]);
 
     worm_pixmaps[i] = load_pixmap_file (worm_files[i],
-                                        4 * properties->tilesize,
-                                        4 * properties->tilesize);
+                                        2 * properties->tilesize,
+                                        2 * properties->tilesize);
   }
 }
 
@@ -1333,8 +1333,10 @@ main (int argc, char **argv)
   
   gnibbles_board_load_level (board, gnibbles_level_new (16));
 
-  //GnibblesCWorm *cworm = gnibbles_cworm_new (1,10,10);
-
+  GnibblesCWorm *cworm = gnibbles_cworm_new (1,15,15);
+  
+  ClutterActor *stage = gnibbles_board_get_stage (board);
+  clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworm->actors);
   //render_logo_clutter (board);
 
   gtk_main ();

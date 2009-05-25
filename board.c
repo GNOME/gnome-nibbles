@@ -152,7 +152,7 @@ gnibbles_board_new (gint t_w, gint t_h)
                              "    \"y\" : 0,"
                              "    \"width\" : %d,"
                              "    \"height\" : %d,"
-                             "    \"keep-aspect-ratio\" : true"
+                             "    \"keep-aspect-ratio\" : true,"
                              "    \"visible\" : true,"
                              "    \"repeat-x\" : true,"
                              "    \"repeat-y\" : true"

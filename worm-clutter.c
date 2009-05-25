@@ -20,17 +20,20 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 #include <config.h>
+#include <glib/gprintf.h>
+
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
 #include <stdlib.h>
 #include <libgames-support/games-runtime.h>
-
+#include <clutter-gtk/clutter-gtk.h>
 #include "main.h"
 #include "gnibbles.h"
 #include "properties.h"
 #include "worm-clutter.h"
 
 extern GnibblesProperties *properties;
+extern GdkPixbuf *worm_pixmaps[];
 
 GnibblesCWorm*
 gnibbles_cworm_new (guint number, gint x_s, gint y_s)
@@ -46,44 +49,76 @@ gnibbles_cworm_new (guint number, gint x_s, gint y_s)
   worm->xstart = x_s;
   worm->ystart = y_s;
 
-  ClutterActor *actor = clutter_rectangle_new ();
+  gnibbles_cworm_add_straight_actor (worm, SLENGTH);
 
-  if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT) {
-    clutter_actor_set_size (CLUTTER_ACTOR (actor), 
-                            SLENGTH * properties->tilesize, 
-                            properties->tilesize);
-   
-  } else if (worm->direction == WORMDOWN || worm->direction == WORMUP) {
-    clutter_actor_set_size (CLUTTER_ACTOR (actor),  
-                            properties->tilesize,
-                            SLENGTH * properties->tilesize);
-  }
-
-  clutter_actor_set_position (CLUTTER_ACTOR (actor), worm->xstart, worm->ystart);
-  clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), actor);  
-  
-  worm->list = g_list_append (worm->list, actor);
   return worm;
 }
 
 void
-gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
+gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm, gint size)
 {
-  ClutterActor *straight = clutter_rectangle_new ();
-  
-  if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT)
-    clutter_actor_set_size (straight, properties->tilesize ,0);
-  else if (worm->direction == WORMDOWN || worm->direction == WORMUP)
-    clutter_actor_set_size (straight, 0, properties->tilesize);
+  ClutterScript *script = NULL;
+  ClutterActor *actor = NULL;
 
+  gchar worm_script[300];  
+
+  if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT) {
+    g_sprintf (worm_script,  "["
+                             "  {"
+                             "    \"id\" : \"worm\","
+                             "    \"type\" : \"ClutterTexture\","
+                             "    \"x\" : %d,"
+                             "    \"y\" : %d,"
+                             "    \"width\" : %d,"
+                             "    \"height\" : %d,"
+                             "    \"keep-aspect-ratio\" : true,"
+                             "    \"visible\" : true,"
+                             "    \"repeat-x\" : true,"
+                             "    \"repeat-y\" : false,"
+                             "  }"
+                             "]",
+                             worm->xstart,
+                             worm->ystart,
+                             size * (2 * properties->tilesize),
+                             2 * properties->tilesize);
+
+  } else if (worm->direction == WORMDOWN || worm->direction == WORMUP) {
+    g_sprintf (worm_script,  "["
+                             "  {"
+                             "    \"id\" : \"worm\","
+                             "    \"type\" : \"ClutterTexture\","
+                             "    \"x\" : %d,"
+                             "    \"y\" : %d,"
+                             "    \"width\" : %d,"
+                             "    \"height\" : %d,"
+                             "    \"keep-aspect-ratio\" : true,"
+                             "    \"visible\" : true,"
+                             "    \"repeat-x\" : false,"
+                             "    \"repeat-y\" : true,"
+                             "  }"
+                             "]",
+                             worm->xstart,
+                             worm->ystart,
+                             2 * properties->tilesize,
+                             size * (2 * properties->tilesize));
+
+  }
+
+  script = clutter_script_new ();
+
+  clutter_script_load_from_data (script, worm_script, -1, NULL);
+  clutter_script_get_objects (script, "worm", &actor, NULL);
+
+  gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (actor), worm_pixmaps[0]);
+
+  clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), actor);  
+  
   if (!worm->inverse)
-    worm->list = g_list_append (worm->list, straight);
+    worm->list = g_list_append (worm->list, actor);
   else
-    worm->list = g_list_prepend (worm->list, straight);
+    worm->list = g_list_prepend (worm->list, actor);
   
-  clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), straight);
-
-  //TODO: start increasing the size of the actor
+  //TODO: connect/timeline: start increasing the size of the actor
 }
 
 void

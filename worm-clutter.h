@@ -62,7 +62,7 @@ typedef struct {
 } WormCorner;
 
 GnibblesCWorm * gnibbles_cworm_new (guint number, gint x_s, gint y_s);
-void gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm);
+void gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm, gint size);
 void gnibbles_cworm_add_corner_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_remove_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_destroy (GnibblesCWorm * worm);
