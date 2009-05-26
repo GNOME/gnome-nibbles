@@ -225,8 +225,8 @@ load_pixmap ()
       g_object_unref (worm_pixmaps[i]);
 
     worm_pixmaps[i] = load_pixmap_file (worm_files[i],
-                                        2 * properties->tilesize,
-                                        2 * properties->tilesize);
+                                        properties->tilesize,
+                                        properties->tilesize);
   }
 }
 
@@ -1324,10 +1324,10 @@ main (int argc, char **argv)
   gtk_action_set_visible (new_game_action, !ggz_network_mode);
   gtk_action_set_visible (player_list_action, ggz_network_mode);
 
-  load_pixmap ();
-
   // clutter fun
   gtk_clutter_init (&argc, &argv);
+
+  load_pixmap ();
   GnibblesBoard *board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
   setup_window_clutter (board);
   

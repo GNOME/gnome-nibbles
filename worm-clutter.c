@@ -49,7 +49,7 @@ gnibbles_cworm_new (guint number, gint x_s, gint y_s)
   worm->xstart = x_s;
   worm->ystart = y_s;
 
-  gnibbles_cworm_add_straight_actor (worm, SLENGTH);
+  gnibbles_cworm_add_straight_actor (worm, 30);
 
   return worm;
 }
@@ -57,59 +57,30 @@ gnibbles_cworm_new (guint number, gint x_s, gint y_s)
 void
 gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm, gint size)
 {
-  ClutterScript *script = NULL;
   ClutterActor *actor = NULL;
+  GValue val = {0,};
 
-  gchar worm_script[300];  
+  actor = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps[0]);
+
+  g_value_init (&val, G_TYPE_BOOLEAN);
+  g_value_set_boolean ( &val, TRUE);
+
+  clutter_actor_set_position (CLUTTER_ACTOR (actor),
+                              worm->xstart,
+                              worm->ystart);
+  g_object_set_property (G_OBJECT (actor), "keep-aspect-ratio", &val);
 
   if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT) {
-    g_sprintf (worm_script,  "["
-                             "  {"
-                             "    \"id\" : \"worm\","
-                             "    \"type\" : \"ClutterTexture\","
-                             "    \"x\" : %d,"
-                             "    \"y\" : %d,"
-                             "    \"width\" : %d,"
-                             "    \"height\" : %d,"
-                             "    \"keep-aspect-ratio\" : true,"
-                             "    \"visible\" : true,"
-                             "    \"repeat-x\" : true,"
-                             "    \"repeat-y\" : false,"
-                             "  }"
-                             "]",
-                             worm->xstart,
-                             worm->ystart,
-                             size * (2 * properties->tilesize),
-                             2 * properties->tilesize);
-
+    clutter_actor_set_size (CLUTTER_ACTOR (actor),
+                          properties->tilesize * size,
+                          properties->tilesize);
+    g_object_set_property (G_OBJECT (actor), "repeat-x", &val);
   } else if (worm->direction == WORMDOWN || worm->direction == WORMUP) {
-    g_sprintf (worm_script,  "["
-                             "  {"
-                             "    \"id\" : \"worm\","
-                             "    \"type\" : \"ClutterTexture\","
-                             "    \"x\" : %d,"
-                             "    \"y\" : %d,"
-                             "    \"width\" : %d,"
-                             "    \"height\" : %d,"
-                             "    \"keep-aspect-ratio\" : true,"
-                             "    \"visible\" : true,"
-                             "    \"repeat-x\" : false,"
-                             "    \"repeat-y\" : true,"
-                             "  }"
-                             "]",
-                             worm->xstart,
-                             worm->ystart,
-                             2 * properties->tilesize,
-                             size * (2 * properties->tilesize));
-
+    clutter_actor_set_size (CLUTTER_ACTOR (actor),
+                          properties->tilesize,
+                          properties->tilesize * size);
+    g_object_set_property (G_OBJECT (actor), "repeat-y", &val);
   }
-
-  script = clutter_script_new ();
-
-  clutter_script_load_from_data (script, worm_script, -1, NULL);
-  clutter_script_get_objects (script, "worm", &actor, NULL);
-
-  gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (actor), worm_pixmaps[0]);
 
   clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), actor);  
   

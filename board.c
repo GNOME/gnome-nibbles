@@ -111,6 +111,9 @@ GnibblesBoard *
 gnibbles_board_new (gint t_w, gint t_h) 
 {
   ClutterColor stage_color = {0x00,0x00,0x00,0xff};
+  gchar *filename;
+  const char *dirname;
+  GValue val = {0,};
 
   GnibblesBoard *board = g_new (GnibblesBoard, 1);
   board->width = t_w;
@@ -133,47 +136,24 @@ gnibbles_board_new (gint t_w, gint t_h)
   clutter_stage_set_user_resizable (CLUTTER_STAGE (stage), FALSE);
   clutter_actor_show (stage);
 
-  gchar *filename;
-  const char *dirname;
-
   dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
   filename = g_build_filename (dirname, "wall-small-empty.svg", NULL);
 
-  /* Using ClutterScript to set special texture property such as "repeat-x",
-   * "repeat-y" and "keep-aspect-ratio" */
-  gchar texture_script[200];
+  board->surface = clutter_texture_new_from_file (filename, NULL);
+  
+  g_value_init (&val, G_TYPE_BOOLEAN);
+  g_value_set_boolean ( &val, TRUE);
 
-  g_sprintf (texture_script, "["
-                             "  {"
-                             "    \"id\" : \"surface\","
-                             "    \"type\" : \"ClutterTexture\","
-                             "    \"filename\" : \"%s\","
-                             "    \"x\" : 0,"
-                             "    \"y\" : 0,"
-                             "    \"width\" : %d,"
-                             "    \"height\" : %d,"
-                             "    \"keep-aspect-ratio\" : true,"
-                             "    \"visible\" : true,"
-                             "    \"repeat-x\" : true,"
-                             "    \"repeat-y\" : true"
-                             "  }"
-                             "]",
-                             filename,
-                             properties->tilesize,
-                             properties->tilesize);
+  g_object_set_property (G_OBJECT (board->surface), "repeat-y", &val);
+  g_object_set_property (G_OBJECT (board->surface), "repeat-x", &val);
 
-  ClutterScript *script = clutter_script_new ();
-
-  clutter_script_load_from_data (script, texture_script, -1, NULL);
-  clutter_script_get_objects (script, "surface", &(board->surface), NULL);
-
+  clutter_actor_set_position (CLUTTER_ACTOR (board->surface), 0, 0);
   clutter_actor_set_size (CLUTTER_ACTOR (board->surface),
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), board->surface);
   clutter_actor_show (board->surface);
 
-  g_object_unref (script);
   return board;
 }
 
