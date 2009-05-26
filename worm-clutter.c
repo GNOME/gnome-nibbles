@@ -48,78 +48,96 @@ gnibbles_cworm_new (guint number, gint x_s, gint y_s)
   worm->inverse = FALSE;
   worm->xstart = x_s;
   worm->ystart = y_s;
+  worm->xhead = x_s;
+  worm->yhead = y_s;
 
-  gnibbles_cworm_add_straight_actor (worm, 30);
+  worm->direction = WORMDOWN;
+  gnibbles_cworm_add_straight_actor (worm);
+
 
   return worm;
 }
 
 void
-gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm, gint size)
+gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
 {
   ClutterActor *actor = NULL;
   GValue val = {0,};
-
+  gint size;
   actor = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps[0]);
 
   g_value_init (&val, G_TYPE_BOOLEAN);
   g_value_set_boolean ( &val, TRUE);
 
   clutter_actor_set_position (CLUTTER_ACTOR (actor),
-                              worm->xstart,
-                              worm->ystart);
+                              worm->xhead,
+                              worm->yhead);
   g_object_set_property (G_OBJECT (actor), "keep-aspect-ratio", &val);
 
+  ClutterActor *tmp = NULL;
+
+  if (worm->list) {
+    if (worm->inverse)
+      tmp = (g_list_first (worm->list))->data;
+    else 
+      tmp = (g_list_last (worm->list))->data;
+  } else {
+    size = SLENGTH; 
+  }
+
+  if (tmp) {
+    guint w,h;
+    clutter_actor_get_size (CLUTTER_ACTOR (tmp), &w, &h);
+    size = w < h ? h : w;
+    size = size / properties->tilesize;
+  }
+  
   if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT) {
-    clutter_actor_set_size (CLUTTER_ACTOR (actor),
+
+    if (worm->direction == WORMRIGHT) {
+      worm->yhead += properties->tilesize;
+      worm->xhead += (properties->tilesize * size) - properties->tilesize;
+    } else {
+      worm->yhead -= properties->tilesize;
+      worm->xhead -= (properties->tilesize * size) - properties->tilesize;
+    }
+
+    if (!tmp)
+      clutter_actor_set_size (CLUTTER_ACTOR (actor),
                           properties->tilesize * size,
                           properties->tilesize);
+    else
+      clutter_actor_set_size (CLUTTER_ACTOR (actor), 0, properties->tilesize);
+
     g_object_set_property (G_OBJECT (actor), "repeat-x", &val);
   } else if (worm->direction == WORMDOWN || worm->direction == WORMUP) {
-    clutter_actor_set_size (CLUTTER_ACTOR (actor),
+
+    if (worm->direction == WORMDOWN) {
+      worm->xhead += properties->tilesize;
+      worm->yhead += (properties->tilesize * size) - properties->tilesize;
+    } else {
+      worm->xhead -= properties->tilesize;
+      worm->yhead -= (properties->tilesize * size) - properties->tilesize;
+    }
+
+    if (!tmp)
+      clutter_actor_set_size (CLUTTER_ACTOR (actor),
                           properties->tilesize,
                           properties->tilesize * size);
+    else
+      clutter_actor_set_size (CLUTTER_ACTOR (actor), properties->tilesize, 0);
+
     g_object_set_property (G_OBJECT (actor), "repeat-y", &val);
   }
 
   clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), actor);  
   
   if (!worm->inverse)
-    worm->list = g_list_append (worm->list, actor);
-  else
     worm->list = g_list_prepend (worm->list, actor);
-  
-  //TODO: connect/timeline: start increasing the size of the actor
-}
-
-void
-gnibbles_cworm_add_corner_actor (GnibblesCWorm *worm)
-{
-  //TODO: rounded corner
-  ClutterActor *corner = clutter_rectangle_new ();
-
-  //TODO: switch to determine how the corner is rounded
-  switch (worm->direction)
-  {
-    case WORMRIGHT:
-      break;
-    case WORMLEFT:
-      break;
-    case WORMDOWN:
-      break;
-    case WORMUP:
-      break;
-    default:
-      clutter_actor_set_size (corner, properties->tilesize, properties->tilesize);
-      break;
-  }
-
-  if (!worm->inverse)
-    worm->list = g_list_append (worm->list, corner);
   else
-    worm->list = g_list_prepend (worm->list, corner);
-
-  clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), corner);
+    worm->list = g_list_append (worm->list, actor);
+ 
+  //TODO: connect/timeline: start increasing the size of the actor
 }
 
 void
