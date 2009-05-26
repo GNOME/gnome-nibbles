@@ -39,74 +39,6 @@ extern GnibblesProperties *properties;
 
 extern GdkPixbuf *wall_pixmaps[];
 
-GdkPixbuf *walls_pixmaps[19] = { NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL, NULL, NULL
-};
-
-static GdkPixbuf *
-board_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
-{
-  GdkPixbuf *image;
-  gchar *filename;
-  const char *dirname;
-
-  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
-  filename = g_build_filename (dirname, pixmap, NULL);
-
-  if (!filename) {
-    char *message =
-      g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
-			 "Please check your Nibbles installation"), pixmap);
-    //gnibbles_error (window, message;
-    g_free(message);
-  }
-
-  image = gdk_pixbuf_new_from_file_at_size (filename, xsize, ysize, NULL);
-  g_free (filename);
-
-  return image;
-}
-
-static void 
-board_load_pixmap ()
-{
-
-  gchar *small_files[] = {
-    "snake-red.svg",
-    "snake-green.svg",
-    "snake-blue.svg",
-    "snake-yellow.svg",
-    "snake-cyan.svg",
-    "snake-magenta.svg",
-    "snake-grey.svg",
-    "wall-empty.svg",
-    "wall-straight-up.svg",
-    "wall-straight-side.svg",
-    "wall-corner-bottom-left.svg",
-    "wall-corner-bottom-right.svg",
-    "wall-corner-top-left.svg",
-    "wall-corner-top-right.svg",
-    "wall-tee-up.svg",
-    "wall-tee-right.svg",
-    "wall-tee-left.svg",
-    "wall-tee-down.svg",
-    "wall-cross.svg"
-  };
-
-  int i;
-
-  for (i = 0; i < 19; i++) {
-    if (walls_pixmaps[i])
-      g_object_unref (walls_pixmaps[i]);
-      
-    walls_pixmaps[i] = board_load_pixmap_file (small_files[i],
-		  		                              4 * properties->tilesize,
-                           						  4 * properties->tilesize);
-  }
-}
-
 GnibblesBoard *
 gnibbles_board_new (gint t_w, gint t_h) 
 {
@@ -123,8 +55,6 @@ gnibbles_board_new (gint t_w, gint t_h)
   board->clutter_widget = gtk_clutter_embed_new ();
 
   ClutterActor *stage;
-
-  board_load_pixmap ();
 
   stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (board->clutter_widget));
   clutter_stage_set_color (CLUTTER_STAGE(stage), &stage_color);
