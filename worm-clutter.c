@@ -36,7 +36,7 @@ extern GnibblesProperties *properties;
 extern GdkPixbuf *worm_pixmaps[];
 
 GnibblesCWorm*
-gnibbles_cworm_new (guint number, gint x_s, gint y_s)
+gnibbles_cworm_new (guint number)
 {
   GnibblesCWorm *worm = g_new (GnibblesCWorm, 1);
   
@@ -46,14 +46,9 @@ gnibbles_cworm_new (guint number, gint x_s, gint y_s)
   worm->lives = SLIVES;
   worm->direction = 1;
   worm->inverse = FALSE;
-  worm->xstart = x_s;
-  worm->ystart = y_s;
-  worm->xhead = x_s;
-  worm->yhead = y_s;
 
   worm->direction = WORMDOWN;
   gnibbles_cworm_add_straight_actor (worm);
-
 
   return worm;
 }
@@ -64,7 +59,7 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
   ClutterActor *actor = NULL;
   GValue val = {0,};
   gint size;
-  actor = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps[0]);
+  actor = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps[worm->number]);
 
   g_value_init (&val, G_TYPE_BOOLEAN);
   g_value_set_boolean ( &val, TRUE);
@@ -141,12 +136,51 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
 }
 
 void
-gnibbles_cworm_remove_actor (GnibblesCWorm *worm)
+gnibbles_cworm_destroy (GnibblesCWorm *worm)
 {
-  if (!worm->inverse)
-    worm->list = g_list_remove_link (worm->list, g_list_first (worm->list));
-  else 
-    worm->list = g_list_remove_link (worm->list, g_list_last (worm->list));
+  while (worm->list)
+    gnibbles_cworm_remove_actor (worm);
+
+  g_list_free (worm->list);
+  g_free (worm->actors);
 }
 
+void
+gnibbles_cworm_remove_actor (GnibblesCWorm *worm)
+{
+  g_return_if_fail (g_list_first (worm->list)->data);
 
+  ClutterActor *tmp = NULL;
+
+  if (!worm->inverse) {
+    tmp = CLUTTER_ACTOR ((g_list_first (worm->list))->data);
+    worm->list = g_list_delete_link (worm->list, g_list_first (worm->list));
+  } else {
+    tmp = CLUTTER_ACTOR ((g_list_last (worm->list))->data);
+    worm->list = g_list_delete_link (worm->list, g_list_last (worm->list));
+  }
+
+  clutter_container_remove_actor (CLUTTER_CONTAINER (worm->actors), tmp);
+}
+
+void 
+gnibbles_cworm_set_start (GnibblesCWorm * worm, guint t_xhead,
+			                    guint t_yhead, gint t_direction)
+{
+  worm->xhead = t_xhead;
+  worm->xstart = t_xhead;
+  worm->yhead = t_yhead;
+  worm->ystart = t_yhead;
+  worm->direction = t_direction;
+  worm->direction_start = t_direction;
+}
+
+gint
+gnibbles_cworm_lose_life (GnibblesCWorm * worm)
+{
+  worm->lives--;
+  if (worm->lives < 0)
+    return 1;
+
+  return 0;
+}

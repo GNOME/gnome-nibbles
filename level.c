@@ -22,7 +22,13 @@
 #include <stdlib.h>
 #include <glib/gi18n.h>
 #include "level.h"
+#include "gnibbles.h"
+#include "worm-clutter.h"
+#include "main.h"
+#include "properties.h"
 
+extern GnibblesCWorm *cworms[];
+extern GnibblesProperties *properties;
 
 GnibblesLevel *
 gnibbles_level_new (gint level)
@@ -35,7 +41,8 @@ gnibbles_level_new (gint level)
   FILE *in;
   gchar tmpboard [BOARDWIDTH +2];
   gint i,j;
-  
+  gint count = 0;
+
   tmp = g_strdup_printf("level%03d.gnl", level);
   
   dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_GAMES_DIRECTORY);
@@ -68,23 +75,23 @@ gnibbles_level_new (gint level)
       switch (lvl->walls[j][i]) {
         case 'm':
           lvl->walls[j][i] = EMPTYCHAR;
-          //if (count < properties->numworms)
-          //  gnibbles_worm_set_start (worms[count++], j, i, WORMUP);
+          if (count < properties->numworms)
+            gnibbles_cworm_set_start (cworms[count++], j, i, WORMUP);
           break;
         case 'n':
           lvl->walls[j][i] = EMPTYCHAR;
-          //if (count < properties->numworms)
-          //  gnibbles_worm_set_start (worms[count++], j, i, WORMLEFT);
+          if (count < properties->numworms)
+            gnibbles_cworm_set_start (cworms[count++], j, i, WORMLEFT);
           break;
         case 'o':
           lvl->walls[j][i] = EMPTYCHAR;
-          //if (count < properties->numworms)
-          //  gnibbles_worm_set_start (worms[count++], j, i, WORMDOWN);
+          if (count < properties->numworms)
+            gnibbles_cworm_set_start (cworms[count++], j, i, WORMDOWN);
           break;
         case 'p':
           lvl->walls[j][i] = EMPTYCHAR;
-          //if (count < properties->numworms)
-          //  gnibbles_worm_set_start (worms[count++], j, i, WORMRIGHT);
+          if (count < properties->numworms)
+            gnibbles_cworm_set_start (cworms[count++], j, i, WORMRIGHT);
           break;
         case 'Q':
           //gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);

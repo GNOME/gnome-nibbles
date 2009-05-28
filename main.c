@@ -101,6 +101,7 @@ GdkPixbuf *boni_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
   NULL, NULL, NULL, NULL
 };
 
+extern GnibblesCWorm *cworms[];
 extern GnibblesBoni *boni;
 
 gchar board[BOARDWIDTH][BOARDHEIGHT];
@@ -1331,12 +1332,25 @@ main (int argc, char **argv)
   GnibblesBoard *board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
   setup_window_clutter (board);
   
-  gnibbles_board_load_level (board, gnibbles_level_new (16));
-
-  GnibblesCWorm *cworm = gnibbles_cworm_new (1,15,15);
-  
   ClutterActor *stage = gnibbles_board_get_stage (board);
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworm->actors);
+
+  int i;
+
+  for (i = 0; i < properties->numworms; i++)
+    if (cworms[i])
+      gnibbles_cworm_destroy (cworms[i]);
+
+  for (i = 0; i < properties->numworms; i++) {
+    cworms[i] = gnibbles_cworm_new (i);
+  }
+
+  gnibbles_board_load_level (board, gnibbles_level_new (1));
+ 
+  for (i = 0; i < properties->numworms; i++) {
+   clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworms[i]->actors);
+   clutter_actor_raise_top (cworms[i]->actors);
+  }
+
   //render_logo_clutter (board);
 
   gtk_main ();

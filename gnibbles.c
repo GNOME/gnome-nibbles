@@ -43,9 +43,13 @@
 #include "properties.h"
 #include "scoreboard.h"
 
+#include "worm-clutter.h"
+
 #ifdef GGZ_CLIENT
 #include "ggz-network.h"
 #endif
+
+GnibblesCWorm *cworms[NUMWORMS];
 
 GnibblesWorm *worms[NUMWORMS];
 GnibblesBoni *boni = NULL;
