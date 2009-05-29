@@ -59,6 +59,10 @@ gnibbles_level_new (gint level)
     g_free (message);
   }
 
+  for (i = 0; i < properties->numworms; i++)
+    if (cworms[i])
+      gnibbles_cworm_destroy (cworms[i]);
+
   for (i = 0; i < BOARDHEIGHT; i++) {
     if (!fgets (tmpboard, sizeof (tmpboard), in)) {
       char *message =
@@ -76,22 +80,22 @@ gnibbles_level_new (gint level)
         case 'm':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms)
-            gnibbles_cworm_set_start (cworms[count++], j, i, WORMUP);
+            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMUP);
           break;
         case 'n':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms)
-            gnibbles_cworm_set_start (cworms[count++], j, i, WORMLEFT);
+            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMDOWN);
           break;
         case 'o':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms)
-            gnibbles_cworm_set_start (cworms[count++], j, i, WORMDOWN);
+            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMLEFT);
           break;
         case 'p':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms)
-            gnibbles_cworm_set_start (cworms[count++], j, i, WORMRIGHT);
+            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMRIGHT);
           break;
         case 'Q':
           //gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);

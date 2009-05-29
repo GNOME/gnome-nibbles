@@ -36,7 +36,8 @@ extern GnibblesProperties *properties;
 extern GdkPixbuf *worm_pixmaps[];
 
 GnibblesCWorm*
-gnibbles_cworm_new (guint number)
+gnibbles_cworm_new (guint number, guint t_xhead,
+			                    guint t_yhead, gint t_direction)
 {
   GnibblesCWorm *worm = g_new (GnibblesCWorm, 1);
   
@@ -47,7 +48,13 @@ gnibbles_cworm_new (guint number)
   worm->direction = 1;
   worm->inverse = FALSE;
 
-  worm->direction = WORMDOWN;
+  worm->xhead = t_xhead;
+  worm->xstart = t_xhead;
+  worm->yhead = t_yhead;
+  worm->ystart = t_yhead;
+  worm->direction = t_direction;
+  worm->direction_start = t_direction;
+
   gnibbles_cworm_add_straight_actor (worm);
 
   return worm;
@@ -59,14 +66,16 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
   ClutterActor *actor = NULL;
   GValue val = {0,};
   gint size;
+
   actor = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps[worm->number]);
 
   g_value_init (&val, G_TYPE_BOOLEAN);
-  g_value_set_boolean ( &val, TRUE);
+  g_value_set_boolean (&val, TRUE);
 
   clutter_actor_set_position (CLUTTER_ACTOR (actor),
-                              worm->xhead,
-                              worm->yhead);
+                              worm->xhead * properties->tilesize,
+                              worm->yhead * properties->tilesize);
+
   g_object_set_property (G_OBJECT (actor), "keep-aspect-ratio", &val);
 
   ClutterActor *tmp = NULL;
@@ -99,8 +108,8 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
 
     if (!tmp)
       clutter_actor_set_size (CLUTTER_ACTOR (actor),
-                          properties->tilesize * size,
-                          properties->tilesize);
+                              properties->tilesize * size,
+                              properties->tilesize);
     else
       clutter_actor_set_size (CLUTTER_ACTOR (actor), 0, properties->tilesize);
 
@@ -163,18 +172,6 @@ gnibbles_cworm_remove_actor (GnibblesCWorm *worm)
   clutter_container_remove_actor (CLUTTER_CONTAINER (worm->actors), tmp);
 }
 
-void 
-gnibbles_cworm_set_start (GnibblesCWorm * worm, guint t_xhead,
-			                    guint t_yhead, gint t_direction)
-{
-  worm->xhead = t_xhead;
-  worm->xstart = t_xhead;
-  worm->yhead = t_yhead;
-  worm->ystart = t_yhead;
-  worm->direction = t_direction;
-  worm->direction_start = t_direction;
-}
-
 gint
 gnibbles_cworm_lose_life (GnibblesCWorm * worm)
 {
@@ -183,4 +180,50 @@ gnibbles_cworm_lose_life (GnibblesCWorm * worm)
     return 1;
 
   return 0;
+}
+void 
+gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile)
+{
+  if (!worm)
+    return;
+  if (!worm->actors)
+    return;
+
+  int i;
+  int x_pos;
+  int y_pos;
+  int count;    
+  guint w,h;
+  guint size;
+  gboolean direction;
+  GValue val = {0,};
+  ClutterActor *tmp;
+
+  count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
+
+  for (i = 0; i < count; i++) {
+    tmp = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
+    clutter_actor_get_position (tmp, &x_pos, &y_pos);
+
+    clutter_actor_set_position (tmp,
+                                (x_pos / properties->tilesize) * newtile,
+                                (y_pos / properties->tilesize) * newtile);
+
+    g_value_init (&val, G_TYPE_BOOLEAN);
+    g_object_get_property (G_OBJECT (tmp), "repeat-x", &val);
+    direction = g_value_get_boolean (&val);
+
+    clutter_actor_get_size (CLUTTER_ACTOR (tmp), &w, &h);
+    size = w < h ? h : w;
+    size = size / newtile;
+
+    if (direction)
+      clutter_actor_set_size (tmp, newtile * size, newtile);
+    else
+      clutter_actor_set_size (tmp, newtile, newtile * size);
+
+    //TODO: Resize/Reload pixbuf
+    //gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (tmp), worm_pixmaps[worm->number]);
+  }
+
 }

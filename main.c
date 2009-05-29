@@ -157,7 +157,7 @@ load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
     g_free(message);
   }
 
-  image = gdk_pixbuf_new_from_file_at_size (filename, xsize, ysize, NULL);
+  image = gdk_pixbuf_new_from_file_at_scale (filename, xsize, ysize, TRUE, NULL);
   g_free (filename);
 
   return image;
@@ -217,8 +217,8 @@ load_pixmap ()
       g_object_unref (wall_pixmaps[i]);
       
     wall_pixmaps[i] = load_pixmap_file (small_files[i],
-		  		                              4 * properties->tilesize,
-                           						  4 * properties->tilesize);
+		  		                              2 * properties->tilesize,
+                           						  2 * properties->tilesize);
   }
 
   for (i = 0; i < 7; i++) {
@@ -445,9 +445,12 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
     ts_y--;
   tilesize = MIN (ts_x, ts_y);
 
+  int i;
   if (data) {
     GnibblesBoard *board = (GnibblesBoard *)data;
     gnibbles_board_resize (board, tilesize);
+    for (i=0; i<properties->numworms; i++)
+      gnibbles_cworm_resize (cworms[i], tilesize);
   }
 
   /* But, has the tile size changed? */
@@ -1335,14 +1338,6 @@ main (int argc, char **argv)
   ClutterActor *stage = gnibbles_board_get_stage (board);
 
   int i;
-
-  for (i = 0; i < properties->numworms; i++)
-    if (cworms[i])
-      gnibbles_cworm_destroy (cworms[i]);
-
-  for (i = 0; i < properties->numworms; i++) {
-    cworms[i] = gnibbles_cworm_new (i);
-  }
 
   gnibbles_board_load_level (board, gnibbles_level_new (1));
  

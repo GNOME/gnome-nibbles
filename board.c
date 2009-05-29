@@ -176,6 +176,11 @@ gnibbles_board_load_level (GnibblesBoard *board, GnibblesLevel *level)
 void
 gnibbles_board_resize (GnibblesBoard *board, gint newtile)
 {
+  if (!board->level)
+    return;
+  if (!board->surface)
+    return;
+
   int i;
   int x_pos;
   int y_pos;
@@ -190,9 +195,6 @@ gnibbles_board_resize (GnibblesBoard *board, gint newtile)
   clutter_actor_set_size (board->surface,
                           BOARDWIDTH * newtile,
                           BOARDHEIGHT * newtile);
-
-  if (!board->level)
-    return;
 
   count = clutter_group_get_n_children (CLUTTER_GROUP (board->level));
 

@@ -62,13 +62,14 @@ typedef struct {
   gint direction;
 } WormCorner;
 
-GnibblesCWorm * gnibbles_cworm_new (guint number);
+GnibblesCWorm * gnibbles_cworm_new (guint number, guint t_xhead,
+			                    guint t_yhead, gint t_direction);
+                          
 void gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_remove_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_destroy (GnibblesCWorm * worm);
-void gnibbles_cworm_set_start (GnibblesCWorm * worm, guint t_xhead,
-			      guint t_yhead, gint t_direction);
 gint gnibbles_cworm_lose_life (GnibblesCWorm * worm);
+void gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile);
 
 gint gnibbles_cworm_handle_keypress (GnibblesCWorm * worm, guint keyval);
 gint gnibbles_cworm_can_move_to (GnibblesCWorm * worm, gint x, gint y);
