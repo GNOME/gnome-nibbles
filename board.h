@@ -28,11 +28,11 @@
 #include "level.h"
 
 typedef struct {
-        gint width;
-        gint height;
-        GtkWidget *clutter_widget;
-        ClutterActor *surface;
-        ClutterActor *level;
+  gint width;
+  gint height;
+  GtkWidget *clutter_widget;
+  ClutterActor *surface;
+  ClutterActor *level;
 } GnibblesBoard;
 
 GnibblesBoard* gnibbles_board_new (gint t_w, gint t_h);

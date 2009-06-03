@@ -43,6 +43,7 @@ typedef struct {
   GList *list;
   gint xstart, ystart;
   guint xhead, yhead;
+  guint xtail, ytail;
   gint direction;
   gint direction_start;
   gint length;
@@ -50,6 +51,9 @@ typedef struct {
   guint score;
   guint number;
   gboolean inverse;
+  gint start;
+  gint stop;
+  gint change;
 } GnibblesCWorm;
 
 typedef struct {
@@ -72,9 +76,12 @@ gint gnibbles_cworm_lose_life (GnibblesCWorm * worm);
 void gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile);
 
 gint gnibbles_cworm_handle_keypress (GnibblesCWorm * worm, guint keyval);
+void gnibbles_cworm_draw_head (GnibblesCWorm * worm);
 gint gnibbles_cworm_can_move_to (GnibblesCWorm * worm, gint x, gint y);
+void gnibbles_cworm_position_move_head (GnibblesCWorm * worm, gint *x, gint *y);
+gint gnibbles_cworm_test_move_head (GnibblesCWorm * worm);
 gint gnibbles_cworm_is_move_safe (GnibblesCWorm * worm);
-void gnibbles_cworm_reset (GnibblesCWorm * worm);
+void gnibbles_cworm_move_tail (GnibblesCWorm * worm);
 void gnibbles_cworm_ai_move (GnibblesCWorm * worm);
 
 #endif

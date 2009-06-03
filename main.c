@@ -86,6 +86,8 @@ extern GdkPixbuf *logo_pixmap;
 
 GnibblesProperties *properties;
 
+GnibblesLevel *level;
+
 GnibblesScoreboard *scoreboard;
 
 GdkPixbuf *wall_pixmaps[11] = { NULL, NULL, NULL, NULL, NULL,
@@ -1338,11 +1340,13 @@ main (int argc, char **argv)
 
   int i;
 
-  gnibbles_board_load_level (board, gnibbles_level_new (1));
+  level = gnibbles_level_new (1);
+
+  gnibbles_board_load_level (board, level);
  
   for (i = 0; i < properties->numworms; i++) {
-   clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworms[i]->actors);
-   clutter_actor_raise_top (cworms[i]->actors);
+    clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworms[i]->actors);
+    clutter_actor_raise_top (cworms[i]->actors);
   }
 
   //render_logo_clutter (board);
