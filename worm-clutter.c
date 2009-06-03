@@ -181,6 +181,7 @@ gnibbles_cworm_lose_life (GnibblesCWorm * worm)
 
   return 0;
 }
+
 void 
 gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile)
 {
@@ -200,7 +201,9 @@ gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile)
   ClutterActor *tmp;
 
   count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
-  load_pixmap_with_tilesize (newtile);
+  load_pixmap (newtile);
+
+  g_value_init (&val, G_TYPE_BOOLEAN);
 
   for (i = 0; i < count; i++) {
     tmp = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
@@ -210,21 +213,18 @@ gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile)
                                 (x_pos / properties->tilesize) * newtile,
                                 (y_pos / properties->tilesize) * newtile);
 
-    g_value_init (&val, G_TYPE_BOOLEAN);
     g_object_get_property (G_OBJECT (tmp), "repeat-x", &val);
     direction = g_value_get_boolean (&val);
 
     clutter_actor_get_size (CLUTTER_ACTOR (tmp), &w, &h);
     size = w < h ? h : w;
-    size = size / newtile;
+    size = size / properties->tilesize;
 
     if (direction)
       clutter_actor_set_size (tmp, newtile * size, newtile);
     else
       clutter_actor_set_size (tmp, newtile, newtile * size);
 
-
-    //TODO: Resize/Reload pixbuf
     gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (tmp), worm_pixmaps[worm->number]);
   }
 
