@@ -40,7 +40,7 @@ gint pause_game_cb (GtkAction * action, gpointer data);
 void end_game (gboolean);
 gint new_game (void);
 gint main_loop (gpointer data);
-
+void load_pixmap_with_tilesize (gint tilesize);
 extern GamesScores *highscores;
 extern GtkWidget *notebook;
 extern GtkWidget *window;

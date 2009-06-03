@@ -53,7 +53,7 @@ gnibbles_level_new (gint level)
   if ((in = fopen (filename, "r")) == NULL) {
     char *message =
       g_strdup_printf (_
-                       ("Nibbles couldn't load level file:\n%s\n\n"
+                        ("Nibbles couldn't load level file:\n%s\n\n"
                         "Please check your Nibbles installation"), filename);
     //gnibbles_error (window, message);
     g_free (message);

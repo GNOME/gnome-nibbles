@@ -200,6 +200,7 @@ gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile)
   ClutterActor *tmp;
 
   count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
+  load_pixmap_with_tilesize (newtile);
 
   for (i = 0; i < count; i++) {
     tmp = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
@@ -222,8 +223,9 @@ gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile)
     else
       clutter_actor_set_size (tmp, newtile, newtile * size);
 
+
     //TODO: Resize/Reload pixbuf
-    //gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (tmp), worm_pixmaps[worm->number]);
+    gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (tmp), worm_pixmaps[worm->number]);
   }
 
 }
