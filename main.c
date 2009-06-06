@@ -1340,7 +1340,7 @@ main (int argc, char **argv)
 
   int i;
 
-  level = gnibbles_level_new (1);
+  level = gnibbles_level_new (5);
 
   gnibbles_board_load_level (board, level);
  
@@ -1349,6 +1349,14 @@ main (int argc, char **argv)
     clutter_actor_raise_top (cworms[i]->actors);
   }
 
+  ClutterTimeline *timeline = clutter_timeline_new (10, 6);
+  clutter_timeline_set_loop (timeline, TRUE);
+  cworms[2]->direction = WORMDOWN;
+  gnibbles_cworm_add_straight_actor (cworms[2]);
+  
+  g_signal_connect (timeline, "new-frame", G_CALLBACK (gnibbles_cworm_move), cworms[2]);
+  g_signal_connect (timeline, "new-frame", G_CALLBACK (gnibbles_cworm_move), cworms[3]);
+  clutter_timeline_start (timeline);
   //render_logo_clutter (board);
 
   gtk_main ();

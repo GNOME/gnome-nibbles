@@ -55,8 +55,6 @@ gnibbles_cworm_new (guint number, guint t_xhead,
   worm->list = NULL;
   worm->number = number;
   worm->lives = SLIVES;
-  worm->direction = 1;
-  worm->inverse = FALSE;
 
   worm->xhead = t_xhead;
   worm->xstart = t_xhead;
@@ -91,30 +89,21 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
   ClutterActor *tmp = NULL;
 
   if (worm->list) {
-    if (worm->inverse)
-      tmp = (g_list_first (worm->list))->data;
-    else 
-      tmp = (g_list_last (worm->list))->data;
-  } else {
-    size = SLENGTH; 
-  }
-
-  if (tmp) {
+    tmp = (g_list_first (worm->list))->data;
     guint w,h;
     clutter_actor_get_size (CLUTTER_ACTOR (tmp), &w, &h);
     size = w < h ? h : w;
     size = size / properties->tilesize;
+  } else {
+    size = SLENGTH; 
   }
   
   if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT) {
 
-    if (worm->direction == WORMRIGHT) {
-      worm->yhead += properties->tilesize;
-      worm->xhead += (properties->tilesize * size) - properties->tilesize;
-    } else {
-      worm->yhead -= properties->tilesize;
-      worm->xhead -= (properties->tilesize * size) - properties->tilesize;
-    }
+    if (worm->direction == WORMRIGHT)
+      worm->xhead += properties->tilesize;
+    else 
+      worm->xhead -= properties->tilesize;
 
     if (!tmp)
       clutter_actor_set_size (CLUTTER_ACTOR (actor),
@@ -126,13 +115,10 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
     g_object_set_property (G_OBJECT (actor), "repeat-x", &val);
   } else if (worm->direction == WORMDOWN || worm->direction == WORMUP) {
 
-    if (worm->direction == WORMDOWN) {
-      worm->xhead += properties->tilesize;
-      worm->yhead += (properties->tilesize * size) - properties->tilesize;
-    } else {
-      worm->xhead -= properties->tilesize;
-      worm->yhead -= (properties->tilesize * size) - properties->tilesize;
-    }
+    if (worm->direction == WORMDOWN)
+      worm->yhead += properties->tilesize;
+    else 
+      worm->yhead -= properties->tilesize;
 
     if (!tmp)
       clutter_actor_set_size (CLUTTER_ACTOR (actor),
@@ -146,11 +132,8 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
 
   clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), actor);  
   
-  if (!worm->inverse)
-    worm->list = g_list_prepend (worm->list, actor);
-  else
-    worm->list = g_list_append (worm->list, actor);
- 
+  worm->list = g_list_prepend (worm->list, actor);
+
   //TODO: connect/timeline: start increasing the size of the actor
 }
 
@@ -165,19 +148,18 @@ gnibbles_cworm_destroy (GnibblesCWorm *worm)
 }
 
 void
+gnibbles_cworm_inverse (GnibblesCWorm *worm)
+{
+  worm->list = g_list_reverse (worm->list);
+}
+
+void
 gnibbles_cworm_remove_actor (GnibblesCWorm *worm)
 {
-  g_return_if_fail (g_list_first (worm->list)->data);
+  g_return_if_fail (worm->list);
 
-  ClutterActor *tmp = NULL;
-
-  if (!worm->inverse) {
-    tmp = CLUTTER_ACTOR ((g_list_first (worm->list))->data);
-    worm->list = g_list_delete_link (worm->list, g_list_first (worm->list));
-  } else {
-    tmp = CLUTTER_ACTOR ((g_list_last (worm->list))->data);
-    worm->list = g_list_delete_link (worm->list, g_list_last (worm->list));
-  }
+  ClutterActor *tmp = CLUTTER_ACTOR ((g_list_last (worm->list))->data);
+  worm->list = g_list_delete_link (worm->list, g_list_last (worm->list));
 
   clutter_container_remove_actor (CLUTTER_CONTAINER (worm->actors), tmp);
 }
@@ -240,7 +222,62 @@ gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile)
 
 }
 
+void
+gnibbles_cworm_move (ClutterTimeline *timeline, gint frame_num, gpointer data)
+{
+  guint w,h;
+  gint x,y;
+  guint size;
+  gboolean direction;
+  GValue val = {0,};
 
+  GnibblesCWorm *worm = (GnibblesCWorm *)data;
+
+  ClutterActor *first = g_list_first (worm->list)->data;
+  ClutterActor *last = g_list_last (worm->list)->data;
+
+  g_value_init (&val, G_TYPE_BOOLEAN);
+  g_object_get_property (G_OBJECT (first), "repeat-x", &val);
+  direction = g_value_get_boolean (&val);
+
+  if (first == last) {
+    clutter_actor_get_position (CLUTTER_ACTOR (first), &x, &y);
+    if (direction)
+      clutter_actor_set_position (CLUTTER_ACTOR (first), x + properties->tilesize, y);
+    else
+      clutter_actor_set_position (CLUTTER_ACTOR (first), x, y + properties->tilesize);
+  } else {
+
+    clutter_actor_get_size (CLUTTER_ACTOR (first), &w, &h);
+    size = w < h ? h : w;
+
+    if (direction)
+      clutter_actor_set_size (first, properties->tilesize + size, properties->tilesize);
+    else
+      clutter_actor_set_size (first, properties->tilesize, properties->tilesize + size);
+
+    g_object_get_property (G_OBJECT (last), "repeat-x", &val);
+    direction = g_value_get_boolean (&val);
+    clutter_actor_get_size (CLUTTER_ACTOR (last), &w, &h);
+    clutter_actor_get_position (CLUTTER_ACTOR (last), &x, &y);
+    size = w < h ? h : w;
+    size = size / (properties->tilesize + 1);
+
+    //TODO: Set move UP/DOWn RIGHT/LEFT
+    if (direction) {
+      clutter_actor_set_size (last, properties->tilesize * size, properties->tilesize);
+      clutter_actor_set_position (last, x + properties->tilesize, y);
+      worm->xhead += properties->tilesize;
+    } else {
+      clutter_actor_set_size (last, properties->tilesize, properties->tilesize * size);
+      clutter_actor_set_position (last, x, y + properties->tilesize);
+      worm->yhead += properties->tilesize;
+    }
+   
+    if (size <= 0)
+      gnibbles_cworm_remove_actor (worm);
+  }
+}
 
 void
 gnibbles_cworm_draw_head (GnibblesCWorm * worm)
