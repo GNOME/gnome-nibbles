@@ -124,8 +124,8 @@ msgid "Feedback"
 msgstr "Commenti"
 
 #: C/gnibbles.xml:109(para)
-msgid "To report a bug or make a suggestion regarding the <application>Nibbles</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
-msgstr "Per segnalare un problema o inviare suggerimenti sull'applicazione <application>Nibbles</application> o su questo manuale, seguire le istruzioni presenti alla <ulink url=\"ghelp:gnome-feedback\" type=\"help\">pagina di commenti su GNOME</ulink>."
+msgid "To report a bug or make a suggestion regarding the <application>Nibbles</application> application or this manual, follow the directions in the <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
+msgstr "Per segnalare un problema o inviare suggerimenti sull'applicazione <application>Nibbles</application> o su questo manuale, seguire le istruzioni presenti alla <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">pagina di commenti su GNOME</ulink>."
 
 #: C/gnibbles.xml:119(primary)
 msgid "Nibbles"
@@ -473,8 +473,8 @@ msgid "Authors"
 msgstr "Autori"
 
 #: C/gnibbles.xml:554(para)
-msgid "<application>Nibbles</application> was written by Sean MacIsaac <email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This manual was written by Kevin Breit <email>battery841@mypad.com</email>. Nibbles was updated with network support by Andreas Røsdal <email>andreasr@gnome.org</email>. To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
-msgstr "<application>Nibbles</application> è stato scritto da Sean MacIsaac <email>sjm@acm.org</email> e Ian Peters <email>itp@gnu.org</email>. Questo manuale è stato scritto da Kevin Breit <email>battery841@mypad.com</email>. Nibbles è stato aggiornato con il supporto per la rete da Andreas Røsdal <email>andreasr@gnome.org</email>. Per segnalare un problema o inviare suggerimenti su questa applicazione o su questo manuale, seguire le istruzioni contenute in questo <ulink url=\"ghelp:gnome-feedback\" type=\"help\">documento</ulink>."
+msgid "<application>Nibbles</application> was written by Sean MacIsaac <email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This manual was written by Kevin Breit <email>battery841@mypad.com</email>. Nibbles was updated with network support by Andreas Røsdal <email>andreasr@gnome.org</email>. To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
+msgstr "<application>Nibbles</application> è stato scritto da Sean MacIsaac <email>sjm@acm.org</email> e Ian Peters <email>itp@gnu.org</email>. Questo manuale è stato scritto da Kevin Breit <email>battery841@mypad.com</email>. Nibbles è stato aggiornato con il supporto per la rete da Andreas Røsdal <email>andreasr@gnome.org</email>. Per segnalare un problema o inviare suggerimenti su questa applicazione o su questo manuale, seguire le istruzioni contenute in questo <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">documento</ulink>."
 
 #: C/gnibbles.xml:580(title)
 msgid "License"

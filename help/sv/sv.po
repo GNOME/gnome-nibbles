@@ -133,7 +133,7 @@ msgid "Feedback"
 msgstr "Återkoppling"
 
 #: C/gnibbles.xml:109(para)
-msgid "To report a bug or make a suggestion regarding the <application>Nibbles</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
+msgid "To report a bug or make a suggestion regarding the <application>Nibbles</application> application or this manual, follow the directions in the <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
 msgstr ""
 
 #: C/gnibbles.xml:119(primary)
@@ -487,7 +487,7 @@ msgid "Authors"
 msgstr "Upphovsmän"
 
 #: C/gnibbles.xml:554(para)
-msgid "<application>Nibbles</application> was written by Sean MacIsaac <email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This manual was written by Kevin Breit <email>battery841@mypad.com</email>. Nibbles was updated with network support by Andreas Røsdal <email>andreasr@gnome.org</email>. To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
+msgid "<application>Nibbles</application> was written by Sean MacIsaac <email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This manual was written by Kevin Breit <email>battery841@mypad.com</email>. Nibbles was updated with network support by Andreas Røsdal <email>andreasr@gnome.org</email>. To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
 msgstr ""
 
 #: C/gnibbles.xml:580(title)
