@@ -134,7 +134,6 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
   
   worm->list = g_list_prepend (worm->list, actor);
 
-  //TODO: connect/timeline: start increasing the size of the actor
 }
 
 void

@@ -1260,6 +1260,67 @@ render_logo (void)
 
 }
 
+static void
+move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
+{
+  if (msecs % 19 != 0)
+    return;
+
+  gfloat w,h;
+  gfloat x,y;
+  guint size;
+  gboolean direction;
+  GValue val = {0,};
+  gint i;
+  g_value_init (&val, G_TYPE_BOOLEAN);
+
+  for (i = 0; i < 4 /*numworms*/; i++) {
+    ClutterActor *first = g_list_first (cworms[i]->list)->data;
+    ClutterActor *last = g_list_last (cworms[i]->list)->data;
+
+    g_object_get_property (G_OBJECT (first), "repeat-x", &val);
+    direction = g_value_get_boolean (&val);
+
+    if (first == last) {
+      clutter_actor_get_position (CLUTTER_ACTOR (first), &x, &y);
+      if (direction)
+        clutter_actor_set_position (CLUTTER_ACTOR (first), x + properties->tilesize, y);
+      else
+        clutter_actor_set_position (CLUTTER_ACTOR (first), x, y + properties->tilesize);
+    } else {
+
+      clutter_actor_get_size (CLUTTER_ACTOR (first), &w, &h);
+      size = w < h ? h : w;
+
+      if (direction)
+        clutter_actor_set_size (first, properties->tilesize + size, properties->tilesize);
+      else
+        clutter_actor_set_size (first, properties->tilesize, properties->tilesize + size);
+
+      g_object_get_property (G_OBJECT (last), "repeat-x", &val);
+      direction = g_value_get_boolean (&val);
+      clutter_actor_get_size (CLUTTER_ACTOR (last), &w, &h);
+      clutter_actor_get_position (CLUTTER_ACTOR (last), &x, &y);
+      size = w < h ? h : w;
+      size = size / (properties->tilesize + 1);
+
+      //TODO: Set move UP/DOWn RIGHT/LEFT
+      if (direction) {
+        clutter_actor_set_size (last, properties->tilesize * size, properties->tilesize);
+        clutter_actor_set_position (last, x + properties->tilesize, y);
+        cworms[i]->xhead += properties->tilesize;
+      } else {
+        clutter_actor_set_size (last, properties->tilesize, properties->tilesize * size);
+        clutter_actor_set_position (last, x, y + properties->tilesize);
+        cworms[i]->yhead += properties->tilesize;
+      }
+   
+      if (size <= 0)
+        gnibbles_cworm_remove_actor (cworms[i]);
+    }
+  }
+}
+
 int
 main (int argc, char **argv)
 {
@@ -1349,7 +1410,7 @@ main (int argc, char **argv)
     clutter_actor_raise_top (cworms[i]->actors);
   }
 
-  ClutterTimeline *timeline = clutter_timeline_new (10, 6);
+  ClutterTimeline *timeline = clutter_timeline_new (20);
   clutter_timeline_set_loop (timeline, TRUE);
   cworms[2]->direction = WORMDOWN;
   gnibbles_cworm_add_straight_actor (cworms[2]);
