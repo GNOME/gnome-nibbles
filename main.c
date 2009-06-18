@@ -1263,7 +1263,11 @@ render_logo (void)
 static void
 move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
 {
-  if (msecs % 19 != 0)
+
+  const int elapsed_time = clutter_timeline_get_elapsed_time (timeline);
+  const int duration = clutter_timeline_get_duration (timeline);
+
+  if (!(elapsed_time == duration))
     return;
 
   gfloat w,h;
@@ -1320,6 +1324,7 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
     }
   }
 }
+
 
 int
 main (int argc, char **argv)
@@ -1410,13 +1415,13 @@ main (int argc, char **argv)
     clutter_actor_raise_top (cworms[i]->actors);
   }
 
-  ClutterTimeline *timeline = clutter_timeline_new (20);
+  ClutterTimeline *timeline = clutter_timeline_new (150);
   clutter_timeline_set_loop (timeline, TRUE);
   cworms[2]->direction = WORMDOWN;
   gnibbles_cworm_add_straight_actor (cworms[2]);
-  
-  g_signal_connect (timeline, "new-frame", G_CALLBACK (gnibbles_cworm_move), cworms[2]);
-  g_signal_connect (timeline, "new-frame", G_CALLBACK (gnibbles_cworm_move), cworms[3]);
+ 
+  g_signal_connect (timeline, "new-frame", G_CALLBACK (move_worm_cb), NULL);
+
   clutter_timeline_start (timeline);
   //render_logo_clutter (board);
 
