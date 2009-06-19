@@ -278,86 +278,6 @@ gnibbles_cworm_move (ClutterTimeline *timeline, gint frame_num, gpointer data)
   }
 }
 
-void
-gnibbles_cworm_draw_head (GnibblesCWorm * worm)
-{
-  //worm->keypress = 0;
-
-  switch (worm->direction) {
-  case WORMUP:
-    //worm->xoff[worm->start] = 0;
-    //worm->yoff[worm->start] = 1;
-    worm->yhead--;
-    break;
-  case WORMDOWN:
-    //worm->xoff[worm->start] = 0;
-    //worm->yoff[worm->start] = -1;
-    worm->yhead++;
-    break;
-  case WORMLEFT:
-    //worm->xoff[worm->start] = 1;
-    //worm->yoff[worm->start] = 0;
-    worm->xhead--;
-    break;
-  case WORMRIGHT:
-    //worm->xoff[worm->start] = -1;
-    //worm->yoff[worm->start] = 0;
-    worm->xhead++;
-    break;
-  }
-
-  if (worm->xhead == BOARDWIDTH) {
-    worm->xhead = 0;
-    //worm->xoff[worm->start] += BOARDWIDTH;
-  }
-  if (worm->xhead < 0) {
-    worm->xhead = BOARDWIDTH - 1;
-    //worm->xoff[worm->start] -= BOARDWIDTH;
-  }
-  if (worm->yhead == BOARDHEIGHT) {
-    worm->yhead = 0;
-    //worm->yoff[worm->start] += BOARDHEIGHT;
-  }
-  if (worm->yhead < 0) {
-    worm->yhead = BOARDHEIGHT - 1;
-    //worm->yoff[worm->start] -= BOARDHEIGHT;
-  }
-
-  if ((level->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
-      (level->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
-    //gnibbles_cworm_grok_bonus (worm);
-    if ((level->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
-	      !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
-      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-      
-      if (boni->numleft != 0)
-	      gnibbles_add_bonus (1);
-
-    } else
-      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-  }
-
-  if (level->walls[worm->xhead][worm->yhead] == WARPLETTER) {
-    //gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
-    //games_sound_play ("teleport");
-  }
-
-  worm->start++;
-
-  if (worm->start == CAPACITY)
-    worm->start = 0;
-
-  level->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
-/*
-  gnibbles_draw_pixmap (properties->wormprops[worm->number]->color,
-			worm->xhead, worm->yhead);
-
-  if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
-    gnibbles_cworm_dequeue_keypress (worm);
-  }
-*/
-}
-
 gint
 gnibbles_cworm_can_move_to (GnibblesCWorm * worm, gint x, gint y)
 {
@@ -431,33 +351,6 @@ gnibbles_cworm_is_move_safe (GnibblesCWorm * worm)
   }
 
   return TRUE;
-}
-
-void
-gnibbles_cworm_move_tail (GnibblesCWorm * worm)
-{
-  if (worm->change <= 0) {
-    //gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
-    //worm->xtail -= worm->xoff[worm->stop];
-    //worm->ytail -= worm->yoff[worm->stop];
-    worm->stop++;
-    if (worm->stop == CAPACITY)
-      worm->stop = 0;
-    if (worm->change) {
-      //gnibbles_draw_pixmap (BLANKPIXMAP, worm->xtail, worm->ytail);
-      level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-      //worm->xtail -= worm->xoff[worm->stop];
-      //worm->ytail -= worm->yoff[worm->stop];
-      worm->stop++;
-      if (worm->stop == CAPACITY)
-	      worm->stop = 0;
-      worm->change++;
-      worm->length--;
-    }
-  } else {
-    worm->change--;
-    worm->length++;
-  }
 }
 
 /* Check whether the worm will be trapped in a dead end. A location
@@ -745,20 +638,28 @@ gnibbles_cworm_ai_move (GnibblesCWorm * worm)
      that the dead end will disappear (e.g. if it's made from the tail
      of some worm, as often happens). */
   olddir = worm->direction;
-  bestyet = CAPACITY*2;
+  bestyet = CAPACITY * 2;
   bestdir = -1;
+
   for (dir = 1; dir <= 4; dir++) {
     worm->direction = dir;
-    if (dir == opposite) continue;
+
+    if (dir == opposite) 
+      continue;
     thislen = 0;
+
     if(!gnibbles_cworm_test_move_head (worm))
       thislen += CAPACITY;
+
     if(gnibbles_cworm_ai_tooclose (worm))
       thislen += 4;
+
     if(!gnibbles_cworm_is_move_safe (worm))
       thislen += 4;
+
     thislen += gnibbles_cworm_ai_deadend_after
       (worm->xhead, worm->yhead, dir, worm->length + worm->change);
+
     if (dir == olddir && !thislen)
       thislen -= 100;
     /* If the favoured direction isn't appropriate, then choose
@@ -767,20 +668,22 @@ gnibbles_cworm_ai_move (GnibblesCWorm * worm)
        right corner of the board. */
     if (thislen <= 0)
       thislen -= random() % 100;
-    if (thislen < bestyet)
-    {
+    if (thislen < bestyet) {
       bestyet = thislen;
       bestdir = dir;
     }
   }
+
   if (bestdir == -1) /* this should never happen, but just in case... */
     bestdir = olddir;
+
   worm->direction = bestdir;
 
   /* Make sure we are at least avoiding walls.
    * Mostly other snakes should avoid our head. */
   for (dir = 1; dir <= 4; dir++) {
-    if (dir == opposite) continue;
+    if (dir == opposite) 
+      continue;
     if (!gnibbles_cworm_test_move_head (worm)) {
       worm->direction = dir;
     } else {
