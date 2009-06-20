@@ -1263,19 +1263,16 @@ render_logo (void)
 static void
 move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
 {
-
   const int elapsed_time = clutter_timeline_get_elapsed_time (timeline);
   const int duration = clutter_timeline_get_duration (timeline);
+
 
   if (!(elapsed_time == duration))
     return;
 
-  gfloat w,h;
-  gfloat x,y;
-  guint size;
-  gint i, olddir, length, tmp_dir;
+  gint i, olddir, length;
 
-  for (i = 0; i < 4 /*numworms*/; i++) {
+  for (i = 0; i < properties->numworms; i++) {
     // get the current direction of the worm
     olddir = cworms[i]->direction;
     // determine the new direction the worm will take
@@ -1285,18 +1282,16 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
       gnibbles_cworm_add_straight_actor (cworms[i]);
 
     length = g_list_length (cworms[i]->list);
+    printf ("Worm ID: %d, Length:%d", i, length);
     //if there's only one actor in the list, just move the actor
     if (length == 1) {
       gnibbles_cworm_move_straight_worm (cworms[i]);
     } else if (length >= 2) {
       gnibbles_cworm_move_head (cworms[i]);
       gnibbles_cworm_move_tail (cworms[i]);
-
-      if (size <= 0)
-        gnibbles_cworm_remove_actor (cworms[i]);
-    } else {
-        //worm's dead
-        return;
+    } else if ( length < 1) {
+      //worm's dead
+      return;
     }
   }
 }
@@ -1381,7 +1376,7 @@ main (int argc, char **argv)
 
   int i;
 
-  level = gnibbles_level_new (5);
+  level = gnibbles_level_new (1);
 
   gnibbles_board_load_level (board, level);
  

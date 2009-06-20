@@ -99,27 +99,28 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
   }
   
   if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT) {
-
+    worm->xtail = worm->xhead; 
     if (worm->direction == WORMRIGHT)
-      worm->xhead += properties->tilesize;
+      worm->xhead += size * properties->tilesize;
     else 
-      worm->xhead -= properties->tilesize;
-
-    if (!tmp)
+      worm->xhead -= size * properties->tilesize;
+    
+    if (!tmp) {
       clutter_actor_set_size (CLUTTER_ACTOR (actor),
                               properties->tilesize * size,
                               properties->tilesize);
-    else
+    } else {
       clutter_actor_set_size (CLUTTER_ACTOR (actor), 0, properties->tilesize);
+    }
 
     g_object_set_property (G_OBJECT (actor), "repeat-x", &val);
   } else if (worm->direction == WORMDOWN || worm->direction == WORMUP) {
-
+    worm->ytail = worm->ytail;
     if (worm->direction == WORMDOWN)
-      worm->yhead += properties->tilesize;
+      worm->yhead += size * properties->tilesize;
     else 
-      worm->yhead -= properties->tilesize;
-
+      worm->yhead -= size * properties->tilesize;
+    
     if (!tmp)
       clutter_actor_set_size (CLUTTER_ACTOR (actor),
                           properties->tilesize,
@@ -307,6 +308,7 @@ gnibbles_cworm_move (ClutterTimeline *timeline, gint frame_num, gpointer data)
 void
 gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm)
 {
+  //g_return_if_fail (!(g_list_length (worm->list) == 1));
   gfloat x,y;
   ClutterActor *head = g_list_first (worm->list)->data;
 
@@ -340,6 +342,7 @@ gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm)
 void
 gnibbles_cworm_move_head (GnibblesCWorm *worm)
 {
+  //g_return_if_fail (g_list_length (worm->list) <= 1);
   gfloat w,h;
   gfloat x,y;
   guint size;
@@ -349,23 +352,25 @@ gnibbles_cworm_move_head (GnibblesCWorm *worm)
   clutter_actor_get_size (CLUTTER_ACTOR (head), &w, &h);
   clutter_actor_get_position (CLUTTER_ACTOR (head), &x, &y);
   size = w < h ? h : w;
+  size = size + properties->tilesize;
+  size = size / properties->tilesize;
   // set the size of the head actor 
   switch (worm->direction) {
     case WORMRIGHT:
       clutter_actor_set_size (CLUTTER_ACTOR (head), 
-                              size + properties->tilesize, 
+                              size * properties->tilesize, 
                               properties->tilesize);
       worm->xhead += properties->tilesize;
       break;
     case WORMDOWN:
       clutter_actor_set_size (CLUTTER_ACTOR (head), 
                               properties->tilesize, 
-                              size + properties->tilesize);
+                              size * properties->tilesize);
       worm->yhead += properties->tilesize;
       break;
     case WORMLEFT:
       clutter_actor_set_size (CLUTTER_ACTOR (head), 
-                              size + (2 * properties->tilesize), 
+                              size * (2 * properties->tilesize), 
                               properties->tilesize);
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
                                   x - properties->tilesize, y);
@@ -374,7 +379,7 @@ gnibbles_cworm_move_head (GnibblesCWorm *worm)
     case WORMUP:
       clutter_actor_set_size (CLUTTER_ACTOR (head), 
                               properties->tilesize, 
-                              size + (2 * properties->tilesize));
+                              size * (2 * properties->tilesize));
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
                                   x, y - properties->tilesize);
       worm->yhead -= properties->tilesize;
@@ -387,6 +392,8 @@ gnibbles_cworm_move_head (GnibblesCWorm *worm)
 void
 gnibbles_cworm_move_tail (GnibblesCWorm *worm)
 {
+  //g_return_if_fail ( g_list_length (worm->list) <= 1);
+
   gfloat w,h;
   gfloat x,y;
   guint size;
@@ -397,44 +404,49 @@ gnibbles_cworm_move_tail (GnibblesCWorm *worm)
   clutter_actor_get_size (CLUTTER_ACTOR (tail), &w, &h);
   clutter_actor_get_position (CLUTTER_ACTOR (tail), &x, &y);
   size = w < h ? h : w;
+  size = size - properties->tilesize;
+  size = size / properties->tilesize;
 
   tmp_dir = gnibbles_cworm_get_next_actor_position (worm);
   switch (tmp_dir) {
-   case WORMRIGHT:
-     clutter_actor_set_size (CLUTTER_ACTOR (tail), 
-                              size - properties->tilesize, 
+    case WORMRIGHT:
+      clutter_actor_set_size (CLUTTER_ACTOR (tail), 
+                              size * properties->tilesize, 
                               properties->tilesize);
-     clutter_actor_set_position (CLUTTER_ACTOR (tail), 
-                                 x + properties->tilesize, y);
-     worm->xtail -= properties->tilesize;
-     break;
-   case WORMDOWN:
-     clutter_actor_set_size (CLUTTER_ACTOR (tail), 
-                             properties->tilesize, 
-                             size - properties->tilesize);
-     clutter_actor_set_position (CLUTTER_ACTOR (tail), 
-                                 x, y + properties->tilesize);
-     worm->ytail -= properties->tilesize;
-     break;
-   case WORMLEFT:
-     clutter_actor_set_size (CLUTTER_ACTOR (tail), 
-                             properties->tilesize * size, 
-                             properties->tilesize);
-     clutter_actor_set_position (CLUTTER_ACTOR (tail), 
-                                 x - properties->tilesize, y);
-     worm->xtail += properties->tilesize;
-     break;
-   case WORMUP:
-     clutter_actor_set_size (CLUTTER_ACTOR (tail), 
-                             properties->tilesize, 
-                             properties->tilesize * size);
-     clutter_actor_set_position (CLUTTER_ACTOR (tail), 
-                                 x, y - properties->tilesize);
-     worm->ytail += properties->tilesize;
-     break;
-   default:
-     break;
-   } 
+      clutter_actor_set_position (CLUTTER_ACTOR (tail), 
+                                x + properties->tilesize, y);
+      worm->xtail -= properties->tilesize;
+      break;
+    case WORMDOWN:
+      clutter_actor_set_size (CLUTTER_ACTOR (tail), 
+                              properties->tilesize, 
+                              size * properties->tilesize);
+      clutter_actor_set_position (CLUTTER_ACTOR (tail), 
+                                x, y + properties->tilesize);
+      worm->ytail -= properties->tilesize;
+      break;
+    case WORMLEFT:
+      clutter_actor_set_size (CLUTTER_ACTOR (tail), 
+                              properties->tilesize * size, 
+                              properties->tilesize);
+      clutter_actor_set_position (CLUTTER_ACTOR (tail), 
+                                x - properties->tilesize, y);
+      worm->xtail += properties->tilesize;
+      break;
+    case WORMUP:
+      clutter_actor_set_size (CLUTTER_ACTOR (tail), 
+                              properties->tilesize, 
+                              properties->tilesize * size);
+      clutter_actor_set_position (CLUTTER_ACTOR (tail), 
+                                  x, y - properties->tilesize);
+      worm->ytail += properties->tilesize;
+      break;
+    default:
+      break;
+  }
+
+  if (size <= 0)
+     gnibbles_cworm_remove_actor (worm);
 }
 
 gint
@@ -721,23 +733,23 @@ gnibbles_cworm_ai_wander (gint x, gint y, gint dir, gint ox, gint oy)
     y = BOARDHEIGHT - 1;
 
   switch (level->walls[x][y] - 'A') {
-  case BONUSREGULAR:
-  case BONUSDOUBLE:
-  case BONUSLIFE:
-  case BONUSREVERSE:
-    return 1;
-    break;
-  case BONUSHALF:
-    return 0;
-    break;
-  default:
-    if (level->walls[x][y] > EMPTYCHAR && level->walls[x][y] < 'z' + properties->numworms) {
+    case BONUSREGULAR:
+    case BONUSDOUBLE:
+    case BONUSLIFE:
+    case BONUSREVERSE:
+      return 1;
+      break;
+    case BONUSHALF:
       return 0;
-    } else {
-      if (ox == x && oy == y)
-	return 0;
-      return gnibbles_cworm_ai_wander (x, y, dir, ox, oy);
-    }
+      break;
+    default: 
+      if (level->walls[x][y] > EMPTYCHAR && level->walls[x][y] < 'z' + properties->numworms) {
+        return 0;
+      } else {
+        if (ox == x && oy == y)
+	        return 0;
+        return gnibbles_cworm_ai_wander (x, y, dir, ox, oy);
+      }
     break;
   }
 }

@@ -29,7 +29,7 @@
 
 extern GnibblesCWorm *cworms[];
 extern GnibblesProperties *properties;
-
+extern GnibblesWarpManager *warpmanager;
 GnibblesLevel *
 gnibbles_level_new (gint level)
 {
@@ -98,7 +98,7 @@ gnibbles_level_new (gint level)
             cworms[count] = gnibbles_cworm_new (count++, j, i, WORMRIGHT);
           break;
         case 'Q':
-          //gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);
+          gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);
           break;
         case 'R':
         case 'S':
@@ -109,8 +109,8 @@ gnibbles_level_new (gint level)
         case 'X':
         case 'Y':
         case 'Z':
-          //gnibbles_warpmanager_add_warp
-          //  (warpmanager, j - 1, i - 1, -board[j][i], 0);
+          gnibbles_warpmanager_add_warp
+            (warpmanager, j - 1, i - 1, -(lvl->walls[j][i]), 0);
           break;
         case 'r':
         case 's':
@@ -121,8 +121,8 @@ gnibbles_level_new (gint level)
         case 'x':
         case 'y':
         case 'z':
-          //gnibbles_warpmanager_add_warp
-          //  (warpmanager, -(board[j][i] - 'a' + 'A'), 0, j, i);
+          gnibbles_warpmanager_add_warp
+            (warpmanager, -(lvl->walls[j][i] - 'a' + 'A'), 0, j, i);
           lvl->walls[j][i] = EMPTYCHAR;
           break;
        }
