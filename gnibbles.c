@@ -490,17 +490,17 @@ gnibbles_move_worms (void)
   if (boni->missed > MAXMISSED)
     for (i = 0; i < properties->numworms; i++)
       if (worms[i]->score)
-	worms[i]->score--;
+	      worms[i]->score--;
 
   for (i = 0; i < boni->numbonuses; i++) {
     if (!(boni->bonuses[i]->countdown--)) {
       if (boni->bonuses[i]->type == BONUSREGULAR && !boni->bonuses[i]->fake) {
-	gnibbles_boni_remove_bonus (boni,
-				    boni->bonuses[i]->x, boni->bonuses[i]->y);
-	boni->missed++;
-	gnibbles_add_bonus (1);
+	      gnibbles_boni_remove_bonus (boni,
+				          boni->bonuses[i]->x, boni->bonuses[i]->y);
+	      boni->missed++;
+	      gnibbles_add_bonus (1);
       } else {
-	gnibbles_boni_remove_bonus (boni,
+	      gnibbles_boni_remove_bonus (boni,
 				    boni->bonuses[i]->x, boni->bonuses[i]->y);
       }
     }
@@ -540,18 +540,17 @@ gnibbles_move_worms (void)
   for (i = 0; i < properties->numworms; i++)
     if (dead[i]) {
       if (properties->numworms > 1)
-	worms[i]->score *= .7;
+	      worms[i]->score *= .7;
       if (!gnibbles_worm_lose_life (worms[i])) {
         /* One of the worms lost one life, but the round continues. */
         gnibbles_worm_reset (worms[i]);
         gnibbles_worm_set_start (worms[i],
-				 worms[i]->xstart,
-				 worms[i]->ystart,
-				 worms[i]->direction_start);
-	games_sound_play ("crash");
+				  worms[i]->xstart,
+				  worms[i]->ystart,
+				  worms[i]->direction_start);
+	      games_sound_play ("crash");
 	/* Don't return here.  May need to reset more worms. */
-	}
-
+	    }
     }
 
   if (status & GAMEOVER) {

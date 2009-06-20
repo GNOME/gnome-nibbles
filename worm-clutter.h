@@ -77,6 +77,10 @@ void gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile);
 void gnibbles_cworm_move (ClutterTimeline *timeline, gint msecs, gpointer data);
 gint gnibbles_cworm_get_next_actor_position (GnibblesCWorm *worm);
 
+void gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm);
+void gnibbles_cworm_move_head (GnibblesCWorm *worm);
+void gnibbles_cworm_move_tail (GnibblesCWorm *worm);
+
 gint gnibbles_cworm_handle_keypress (GnibblesCWorm * worm, guint keyval);
 void gnibbles_cworm_draw_head (GnibblesCWorm * worm);
 gint gnibbles_cworm_can_move_to (GnibblesCWorm * worm, gint x, gint y);
