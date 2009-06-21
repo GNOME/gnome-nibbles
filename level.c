@@ -30,6 +30,7 @@
 extern GnibblesCWorm *cworms[];
 extern GnibblesProperties *properties;
 extern GnibblesWarpManager *warpmanager;
+
 GnibblesLevel *
 gnibbles_level_new (gint level)
 {
