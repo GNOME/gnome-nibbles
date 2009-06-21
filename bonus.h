@@ -23,6 +23,7 @@
 #include <config.h>
 
 #include <gtk/gtk.h>
+#include <clutter/clutter.h>
 
 #define BONUSNONE	0
 #define BONUSREGULAR	1
@@ -38,6 +39,7 @@ typedef struct {
   guint type;
   gint fake;
   gint countdown;
+  ClutterActor *actor;
 } GnibblesBonus;
 
 GnibblesBonus *gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,

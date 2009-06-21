@@ -22,9 +22,15 @@
 #include <stdlib.h>
 
 #include <gtk/gtk.h>
+#include <clutter/clutter.h>
+#include <clutter-gtk/clutter-gtk.h>
 
 #include "gnibbles.h"
 #include "bonus.h"
+#include "properties.h"
+
+extern GdkPixbuf *boni_pixmaps[];
+extern GnibblesProperties *properties;
 
 GnibblesBonus *
 gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
@@ -39,6 +45,7 @@ gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
   tmp->type = t_type;
   tmp->fake = t_fake;
   tmp->countdown = t_countdown;
+  tmp->actor = clutter_texture_new ();
 
   return (tmp);
 }
@@ -46,6 +53,12 @@ gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
 void
 gnibbles_bonus_draw (GnibblesBonus * bonus)
 {
+  gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (bonus->actor),
+                                       boni_pixmaps[bonus->type]);
+  clutter_actor_set_position (CLUTTER_ACTOR (bonus->actor),
+                              bonus->x * properties->tilesize,
+                              bonus->y * properties->tilesize);
+
   gnibbles_draw_big_pixmap (bonus->type, bonus->x, bonus->y);
 }
 
@@ -53,6 +66,8 @@ void
 gnibbles_bonus_erase (GnibblesBonus * bonus)
 {
   gnibbles_draw_big_pixmap (BONUSNONE, bonus->x, bonus->y);
+
+  clutter_actor_hide (bonus->actor);
 
   free (bonus);
 }

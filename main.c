@@ -1266,7 +1266,6 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
   const int elapsed_time = clutter_timeline_get_elapsed_time (timeline);
   const int duration = clutter_timeline_get_duration (timeline);
 
-
   if (!(elapsed_time == duration))
     return;
 
