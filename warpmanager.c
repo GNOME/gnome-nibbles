@@ -29,8 +29,10 @@
 #include "boni.h"
 #include "worm.h"
 #include "main.h"
+#include "level.h"
 
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
+extern GnibblesLevel *level;
 extern GnibblesBoni *boni;
 
 GnibblesWarpManager *
@@ -99,6 +101,13 @@ gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
     board[t_x + 1][t_y] = WARPLETTER;
     board[t_x][t_y + 1] = WARPLETTER;
     board[t_x + 1][t_y + 1] = WARPLETTER;
+
+    //gnibbles-clutter-level
+    level->walls[t_x][t_y] = WARPLETTER;
+    level->walls[t_x + 1][t_y] = WARPLETTER;
+    level->walls[t_x][t_y + 1] = WARPLETTER;
+    level->walls[t_x + 1][t_y + 1] = WARPLETTER;
+
     gnibbles_warp_draw_buffer (warpmanager->warps[draw]);
   }
 }
@@ -111,33 +120,41 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
 
   for (i = 0; i < warpmanager->numwarps; i++) {
     if ((worm->xhead == warpmanager->warps[i]->x &&
-	 worm->yhead == warpmanager->warps[i]->y) ||
-	(worm->xhead == warpmanager->warps[i]->x + 1 &&
-	 worm->yhead == warpmanager->warps[i]->y) ||
-	(worm->xhead == warpmanager->warps[i]->x &&
-	 worm->yhead == warpmanager->warps[i]->y + 1) ||
-	(worm->xhead == warpmanager->warps[i]->x + 1 &&
-	 worm->yhead == warpmanager->warps[i]->y + 1)) {
+	      worm->yhead == warpmanager->warps[i]->y) ||
+	      (worm->xhead == warpmanager->warps[i]->x + 1 &&
+	      worm->yhead == warpmanager->warps[i]->y) ||
+	      (worm->xhead == warpmanager->warps[i]->x &&
+	      worm->yhead == warpmanager->warps[i]->y + 1) ||
+	      (worm->xhead == warpmanager->warps[i]->x + 1 &&
+	      worm->yhead == warpmanager->warps[i]->y + 1)) {
+      
       if (warpmanager->warps[i]->wx == -1) {
-	good = 0;
-	while (!good) {
-	  /* In network games, warps should be fair. */
-	  if (ggz_network_mode) {
-	    x = 10 % BOARDWIDTH;
-	    y = 10 % BOARDHEIGHT;
-	  } else {
-	    x = rand () % BOARDWIDTH;
-	    y = rand () % BOARDHEIGHT;
-	  }
-	  if (board[x][y] == EMPTYCHAR)
-	    good = 1;
-	}
+	       good = 0;
+	      while (!good) {
+	      /* In network games, warps should be fair. */
+	        if (ggz_network_mode) {
+	          x = 10 % BOARDWIDTH;
+	          y = 10 % BOARDHEIGHT;
+	        } else {
+	          x = rand () % BOARDWIDTH;
+	          y = rand () % BOARDHEIGHT;
+	        }
+	        if (board[x][y] == EMPTYCHAR)
+	          good = 1;
+          //gnibbles-clutter-level
+	        if (level->walls[x][y] == EMPTYCHAR)
+	          good = 1;
+	      }
       } else {
-	x = warpmanager->warps[i]->wx;
-	y = warpmanager->warps[i]->wy;
-	if (board[x][y] != EMPTYCHAR)
-	  gnibbles_boni_remove_bonus (boni, x, y);
+	      x = warpmanager->warps[i]->wx;
+	      y = warpmanager->warps[i]->wy;
+	      if (board[x][y] != EMPTYCHAR)
+	        gnibbles_boni_remove_bonus (boni, x, y);
+        //gnibbles->clutter-level
+	      if (level->walls[x][y] != EMPTYCHAR)
+	        gnibbles_boni_remove_bonus (boni, x, y);
       }
+      //TODO: handle worm in wrap
       worm->xoff[worm->start] += worm->xhead - x;
       worm->yoff[worm->start] += worm->yhead - y;
 
