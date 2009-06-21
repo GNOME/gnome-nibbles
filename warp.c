@@ -20,10 +20,15 @@
 #include <config.h>
 
 #include <gtk/gtk.h>
+#include <clutter/clutter.h>
+#include <clutter-gtk/clutter-gtk.h>
 
 #include "gnibbles.h"
 #include "warp.h"
+#include "properties.h"
 
+extern GnibblesProperties *properties;
+extern GdkPixbuf *boni_pixmaps[];
 GnibblesWarp *
 gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
 {
@@ -35,6 +40,7 @@ gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
   tmp->y = t_y;
   tmp->wx = t_wx;
   tmp->wy = t_wy;
+  tmp->actor = clutter_texture_new ();
 
   return (tmp);
 }
@@ -42,5 +48,11 @@ gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
 void
 gnibbles_warp_draw_buffer (GnibblesWarp * warp)
 {
+  gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (warp->actor),
+                                      boni_pixmaps[WARP]) ;
+  clutter_actor_set_position (CLUTTER_ACTOR (warp->actor),
+                              properties->tilesize * warp->x,
+                              properties->tilesize * warp->y);
+
   gnibbles_draw_big_pixmap_buffer (WARP, warp->x, warp->y);
 }

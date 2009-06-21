@@ -23,12 +23,14 @@
 #include <config.h>
 
 #include <gtk/gtk.h>
+#include <clutter/clutter.h>
 
 #define WARP     8
 
 typedef struct {
   gint x, y;
   gint wx, wy;
+  ClutterActor *actor;
 } GnibblesWarp;
 
 GnibblesWarp *gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy);
