@@ -99,7 +99,7 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
   }
   
   if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT) {
-    worm->xtail = worm->xhead; 
+    //set the positoin of the head & tail
     if (worm->direction == WORMRIGHT)
       worm->xhead += size * properties->tilesize;
     else 
@@ -115,7 +115,7 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
 
     g_object_set_property (G_OBJECT (actor), "repeat-x", &val);
   } else if (worm->direction == WORMDOWN || worm->direction == WORMUP) {
-    worm->ytail = worm->ytail;
+    //set the position of the head
     if (worm->direction == WORMDOWN)
       worm->yhead += size * properties->tilesize;
     else 
@@ -132,7 +132,7 @@ gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm)
   }
 
   clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), actor);  
-  worm->list = g_list_append (worm->list, actor);
+  worm->list = g_list_prepend (worm->list, actor);
 }
 
 gint
@@ -140,7 +140,7 @@ gnibbles_cworm_get_next_actor_position (GnibblesCWorm *worm)
 {
   gfloat w,h;
   gfloat x1,y1,x2,y2;
-  gint dir;
+  gint dir = -1;
   gboolean is_horizontal;
   GValue val = {0,};
   g_value_init (&val, G_TYPE_BOOLEAN);
@@ -155,10 +155,17 @@ gnibbles_cworm_get_next_actor_position (GnibblesCWorm *worm)
   clutter_actor_get_size (CLUTTER_ACTOR (prev), &w, &h);
   clutter_actor_get_position (CLUTTER_ACTOR (tail), &x1, &y1);
   
-  if (is_horizontal)
-    dir = x2 > x1 ? WORMRIGHT : WORMLEFT;
-  else
-    dir = y2 > y1 ? WORMDOWN : WORMUP;
+  if (is_horizontal) {
+    if (x2 > x1)
+      dir = WORMRIGHT;
+    else if (x2 == x1)
+      dir = WORMLEFT;
+  } else {
+    if (y2 > y1)
+      dir = WORMDOWN;
+    else if (y2 == y1)
+      dir = WORMUP;
+  }
 
   return dir;
 }
@@ -308,7 +315,6 @@ gnibbles_cworm_move (ClutterTimeline *timeline, gint frame_num, gpointer data)
 void
 gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm)
 {
-  //g_return_if_fail (!(g_list_length (worm->list) == 1));
   if (!(g_list_length (worm->list) == 1))
     return;
 
@@ -320,22 +326,22 @@ gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm)
     case WORMRIGHT:
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
                                   x + properties->tilesize, y);
-      worm->xhead += properties->tilesize;
+      worm->xhead++;
       break;
     case WORMDOWN:
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
                                   x, y + properties->tilesize);
-      worm->yhead += properties->tilesize;
+      worm->yhead++;
       break;
     case WORMLEFT:
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
                                   x - properties->tilesize, y);
-      worm->xhead -= properties->tilesize;
+      worm->xhead--;
       break;
     case WORMUP:
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
                                   x, y - properties->tilesize);
-      worm->yhead -= properties->tilesize;
+      worm->yhead--;
       break;
     default:
       break;
@@ -345,7 +351,6 @@ gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm)
 void
 gnibbles_cworm_move_head (GnibblesCWorm *worm)
 {
-  //g_return_if_fail (g_list_length (worm->list) <= 1);
   if (g_list_length (worm->list) <= 1)
     return;
 
@@ -366,29 +371,29 @@ gnibbles_cworm_move_head (GnibblesCWorm *worm)
       clutter_actor_set_size (CLUTTER_ACTOR (head), 
                               size * properties->tilesize, 
                               properties->tilesize);
-      worm->xhead += properties->tilesize;
+      worm->xhead++;
       break;
     case WORMDOWN:
       clutter_actor_set_size (CLUTTER_ACTOR (head), 
                               properties->tilesize, 
                               size * properties->tilesize);
-      worm->yhead += properties->tilesize;
+      worm->yhead++;
       break;
     case WORMLEFT:
       clutter_actor_set_size (CLUTTER_ACTOR (head), 
-                              size * (2 * properties->tilesize), 
+                              size * properties->tilesize, 
                               properties->tilesize);
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
                                   x - properties->tilesize, y);
-      worm->xhead -= properties->tilesize;
+      worm->xhead--;
       break;
     case WORMUP:
       clutter_actor_set_size (CLUTTER_ACTOR (head), 
                               properties->tilesize, 
-                              size * (2 * properties->tilesize));
+                              size * properties->tilesize);
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
                                   x, y - properties->tilesize);
-      worm->yhead -= properties->tilesize;
+      worm->yhead--;
       break;
     default:
       break;
@@ -398,7 +403,6 @@ gnibbles_cworm_move_head (GnibblesCWorm *worm)
 void
 gnibbles_cworm_move_tail (GnibblesCWorm *worm)
 {
-  //g_return_if_fail ( g_list_length (worm->list) <= 1);
   if (g_list_length (worm->list) <= 1)
     return;
 
@@ -422,8 +426,8 @@ gnibbles_cworm_move_tail (GnibblesCWorm *worm)
                               size * properties->tilesize, 
                               properties->tilesize);
       clutter_actor_set_position (CLUTTER_ACTOR (tail), 
-                                x + properties->tilesize, y);
-      worm->xtail -= properties->tilesize;
+                                x - properties->tilesize, y);
+      worm->xtail--;
       break;
     case WORMDOWN:
       clutter_actor_set_size (CLUTTER_ACTOR (tail), 
@@ -431,23 +435,23 @@ gnibbles_cworm_move_tail (GnibblesCWorm *worm)
                               size * properties->tilesize);
       clutter_actor_set_position (CLUTTER_ACTOR (tail), 
                                 x, y + properties->tilesize);
-      worm->ytail -= properties->tilesize;
+      worm->ytail--;
       break;
     case WORMLEFT:
       clutter_actor_set_size (CLUTTER_ACTOR (tail), 
                               properties->tilesize * size, 
                               properties->tilesize);
-      clutter_actor_set_position (CLUTTER_ACTOR (tail), 
-                                x - properties->tilesize, y);
-      worm->xtail += properties->tilesize;
+      //clutter_actor_set_position (CLUTTER_ACTOR (tail), 
+      //                          x - properties->tilesize, y);
+      worm->xtail++;
       break;
     case WORMUP:
       clutter_actor_set_size (CLUTTER_ACTOR (tail), 
                               properties->tilesize, 
                               properties->tilesize * size);
-      clutter_actor_set_position (CLUTTER_ACTOR (tail), 
-                                  x, y - properties->tilesize);
-      worm->ytail += properties->tilesize;
+      //clutter_actor_set_position (CLUTTER_ACTOR (tail), 
+      //                            x, y - properties->tilesize);
+      worm->ytail++;
       break;
     default:
       break;

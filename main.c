@@ -1281,13 +1281,13 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
       gnibbles_cworm_add_straight_actor (cworms[i]);
 
     length = g_list_length (cworms[i]->list);
-    printf ("Worm ID: %d, Length:%d", i, length);
+    printf ("\nWorm ID: %d, Length:%d", i, length);
     //if there's only one actor in the list, just move the actor
     if (length == 1) {
       gnibbles_cworm_move_straight_worm (cworms[i]);
     } else if (length >= 2) {
-      gnibbles_cworm_move_head (cworms[i]);
       gnibbles_cworm_move_tail (cworms[i]);
+      gnibbles_cworm_move_head (cworms[i]);
     } else if ( length < 1) {
       //worm's dead
       return;
