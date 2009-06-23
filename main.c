@@ -1281,6 +1281,8 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
       gnibbles_cworm_add_actor (cworms[i]);
 
     length = g_list_length (cworms[i]->list);
+    printf ("\nWorm ID: %d, Length: %d, xhead: %d, yhead:%d",
+            i, length, cworms[i]->xhead, cworms[i]->yhead);
     //if there's only one actor in the list, just move the actor
     if (length == 1) {
       gnibbles_cworm_move_straight_worm (cworms[i]);
@@ -1374,7 +1376,7 @@ main (int argc, char **argv)
 
   int i;
 
-  level = gnibbles_level_new (1);
+  level = gnibbles_level_new (5);
 
   gnibbles_board_load_level (board, level);
  
