@@ -68,14 +68,16 @@ typedef struct {
 GnibblesCWorm * gnibbles_cworm_new (guint number, guint t_xhead,
 			                    guint t_yhead, gint t_direction);
                           
-void gnibbles_cworm_add_straight_actor (GnibblesCWorm *worm);
+void gnibbles_cworm_add_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_remove_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_destroy (GnibblesCWorm * worm);
 void gnibbles_cworm_inverse (GnibblesCWorm *worm);
+ClutterActor* gnibbles_cworm_get_head_actor (GnibblesCWorm *worm);
+ClutterActor* gnibbles_cworm_get_tail_actor (GnibblesCWorm *worm);
 gint gnibbles_cworm_lose_life (GnibblesCWorm * worm);
 void gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile);
 void gnibbles_cworm_move (ClutterTimeline *timeline, gint msecs, gpointer data);
-gint gnibbles_cworm_get_next_actor_position (GnibblesCWorm *worm);
+gint gnibbles_cworm_get_tail_direction (GnibblesCWorm *worm);
 
 void gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm);
 void gnibbles_cworm_move_head (GnibblesCWorm *worm);
