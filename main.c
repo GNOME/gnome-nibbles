@@ -1269,7 +1269,7 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
   if (!(elapsed_time == duration))
     return;
 
-  gint i, olddir, length;
+  gint i, olddir, length, nbr_actor;
 
   for (i = 0; i < properties->numworms; i++) {
     // get the current direction of the worm
@@ -1280,9 +1280,10 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
     if (olddir != cworms[i]->direction)
       gnibbles_cworm_add_actor (cworms[i]);
 
-    length = g_list_length (cworms[i]->list);
-    printf ("\nWorm ID: %d, Length: %d, xhead: %d, yhead:%d",
-            i, length, cworms[i]->xhead, cworms[i]->yhead);
+    nbr_actor = g_list_length (cworms[i]->list);
+    length = gnibbles_cworm_get_length (cworms[i]);
+    printf ("\nWorm ID: %d, Actors: %d, Length: %d,  xhead: %d, yhead:%d",
+            i, nbr_actor, length, cworms[i]->xhead, cworms[i]->yhead);
 
     if (cworms[i]->xhead >= BOARDWIDTH) {
       cworms[i]->xhead = 0;
@@ -1306,12 +1307,12 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
                                               cworms[i]->yhead);
     }
     //if there's only one actor in the list, just move the actor
-    if (length == 1) {
+    if (nbr_actor == 1) {
       gnibbles_cworm_move_straight_worm (cworms[i]);
-    } else if (length >= 2) {
+    } else if (nbr_actor >= 2) {
       gnibbles_cworm_move_tail (cworms[i]);
       gnibbles_cworm_move_head (cworms[i]);
-    } else if (length < 1) {
+    } else if (nbr_actor < 1) {
       //worm's dead
       return;
     }

@@ -80,7 +80,7 @@ gint gnibbles_cworm_lose_life (GnibblesCWorm * worm);
 void gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile);
 void gnibbles_cworm_move (ClutterTimeline *timeline, gint msecs, gpointer data);
 gint gnibbles_cworm_get_tail_direction (GnibblesCWorm *worm);
-
+gint gnibbles_cworm_get_length (GnibblesCWorm *worm);
 void gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm);
 void gnibbles_cworm_move_head (GnibblesCWorm *worm);
 void gnibbles_cworm_move_tail (GnibblesCWorm *worm);
