@@ -138,39 +138,34 @@ gnibbles_cworm_add_actor (GnibblesCWorm *worm)
   worm->list = g_list_prepend (worm->list, actor);
 }
 
-gint
-gnibbles_cworm_get_tail_direction (GnibblesCWorm *worm)
+void
+gnibbles_cworm_add_actor_with_position (GnibblesCWorm *worm, 
+                                        gint t_xhead, gint t_yhead)
 {
-  gfloat w,h;
-  gfloat x1,y1,x2,y2;
-  gint dir = -1;
-  gboolean is_horizontal;
+  ClutterActor *actor = NULL;
   GValue val = {0,};
+  printf ("\nCALLED\n");
+  actor = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps[worm->number]);
+
   g_value_init (&val, G_TYPE_BOOLEAN);
+  g_value_set_boolean (&val, TRUE);
 
-  ClutterActor *tail = gnibbles_cworm_get_tail_actor (worm);
-  ClutterActor *prev = g_list_previous (g_list_last (worm->list))->data;
-  
-  g_object_get_property (G_OBJECT (tail), "repeat-x", &val);
-  is_horizontal = g_value_get_boolean (&val);
+  clutter_actor_set_position (CLUTTER_ACTOR (actor),
+                              t_xhead * properties->tilesize,
+                              t_yhead * properties->tilesize);
 
-  clutter_actor_get_position (CLUTTER_ACTOR (prev), &x2, &y2);
-  clutter_actor_get_size (CLUTTER_ACTOR (prev), &w, &h);
-  clutter_actor_get_position (CLUTTER_ACTOR (tail), &x1, &y1);
+  g_object_set_property (G_OBJECT (actor), "keep-aspect-ratio", &val);
   
-  if (is_horizontal) {
-    if (x2 > x1)
-      dir = WORMRIGHT;
-    else if (x2 == x1)
-      dir = WORMLEFT;
-  } else {
-    if (y2 > y1)
-      dir = WORMDOWN;
-    else if (y2 == y1)
-      dir = WORMUP;
+  if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT) {    
+    clutter_actor_set_size (CLUTTER_ACTOR (actor), 0, properties->tilesize);
+    g_object_set_property (G_OBJECT (actor), "repeat-x", &val);
+  } else if (worm->direction == WORMDOWN || worm->direction == WORMUP) {
+    clutter_actor_set_size (CLUTTER_ACTOR (actor), properties->tilesize, 0);
+    g_object_set_property (G_OBJECT (actor), "repeat-y", &val);
   }
 
-  return dir;
+  clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), actor);  
+  worm->list = g_list_prepend (worm->list, actor);
 }
 
 void
@@ -210,16 +205,6 @@ gnibbles_cworm_remove_actor (GnibblesCWorm *worm)
   worm->list = g_list_delete_link (worm->list, g_list_last (worm->list));
 
   clutter_container_remove_actor (CLUTTER_CONTAINER (worm->actors), tmp);
-}
-
-gint
-gnibbles_cworm_lose_life (GnibblesCWorm * worm)
-{
-  worm->lives--;
-  if (worm->lives < 0)
-    return 1;
-
-  return 0;
 }
 
 void 
@@ -340,7 +325,7 @@ gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm)
   switch (worm->direction) {
     case WORMRIGHT:
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
-                                  x + properties->tilesize, y);
+                                 x + properties->tilesize, y);
       worm->xhead++;
       break;
     case WORMDOWN:
@@ -350,7 +335,7 @@ gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm)
       break;
     case WORMLEFT:
       clutter_actor_set_position (CLUTTER_ACTOR (head), 
-                                  x - properties->tilesize, y);
+                                 x - properties->tilesize, y);
       worm->xhead--;
       break;
     case WORMUP:
@@ -361,6 +346,7 @@ gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm)
     default:
       break;
   }
+
 }
 
 void
@@ -380,6 +366,7 @@ gnibbles_cworm_move_head (GnibblesCWorm *worm)
   size = w < h ? h : w;
   size = size + properties->tilesize;
   size = size / properties->tilesize;
+
   // set the size of the head actor 
   switch (worm->direction) {
     case WORMRIGHT:
@@ -441,7 +428,7 @@ gnibbles_cworm_move_tail (GnibblesCWorm *worm)
                               size * properties->tilesize, 
                               properties->tilesize);
       clutter_actor_set_position (CLUTTER_ACTOR (tail), 
-                                x - properties->tilesize, y);
+                                x + properties->tilesize, y);
       worm->xtail++;
       break;
     case WORMDOWN:
@@ -470,6 +457,51 @@ gnibbles_cworm_move_tail (GnibblesCWorm *worm)
 
   if (size <= 0)
      gnibbles_cworm_remove_actor (worm);
+}
+
+gint
+gnibbles_cworm_get_tail_direction (GnibblesCWorm *worm)
+{
+  gfloat w,h;
+  gfloat x1,y1,x2,y2;
+  gint dir = -1;
+  gboolean is_horizontal;
+  GValue val = {0,};
+  g_value_init (&val, G_TYPE_BOOLEAN);
+
+  ClutterActor *tail = gnibbles_cworm_get_tail_actor (worm);
+  ClutterActor *next = g_list_previous (g_list_last (worm->list))->data;
+  
+  g_object_get_property (G_OBJECT (tail), "repeat-x", &val);
+  is_horizontal = g_value_get_boolean (&val);
+
+  clutter_actor_get_position (CLUTTER_ACTOR (next), &x2, &y2);
+  clutter_actor_get_size (CLUTTER_ACTOR (next), &w, &h);
+  clutter_actor_get_position (CLUTTER_ACTOR (tail), &x1, &y1);
+  
+  if (is_horizontal) {
+    if (x2 > x1)
+      dir = WORMRIGHT;
+    else if (x2 == x1)
+      dir = WORMLEFT;
+  } else {
+    if (y2 > y1)
+      dir = WORMDOWN;
+    else if (y2 == y1)
+      dir = WORMUP;
+  }
+
+  return dir;
+}
+
+gint
+gnibbles_cworm_lose_life (GnibblesCWorm * worm)
+{
+  worm->lives--;
+  if (worm->lives < 0)
+    return 1;
+
+  return 0;
 }
 
 gint

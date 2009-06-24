@@ -1283,6 +1283,28 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
     length = g_list_length (cworms[i]->list);
     printf ("\nWorm ID: %d, Length: %d, xhead: %d, yhead:%d",
             i, length, cworms[i]->xhead, cworms[i]->yhead);
+
+    if (cworms[i]->xhead >= BOARDWIDTH) {
+      cworms[i]->xhead = 0;
+      gnibbles_cworm_add_actor_with_position (cworms[i],
+                                              cworms[i]->xhead,
+                                              cworms[i]->yhead);
+    } else if (cworms[i]->xhead < 0) {
+      cworms[i]->xhead = BOARDWIDTH;
+      gnibbles_cworm_add_actor_with_position (cworms[i],
+                                              cworms[i]->xhead,
+                                              cworms[i]->yhead);
+    } else if (cworms[i]->yhead >= BOARDHEIGHT) {
+      cworms[i]->yhead = 0;
+      gnibbles_cworm_add_actor_with_position (cworms[i],
+                                              cworms[i]->xhead,
+                                              cworms[i]->yhead);
+    } else if (cworms[i]->xhead < 0) {
+      cworms[i]->yhead = BOARDHEIGHT;
+      gnibbles_cworm_add_actor_with_position (cworms[i],
+                                              cworms[i]->xhead,
+                                              cworms[i]->yhead);
+    }
     //if there's only one actor in the list, just move the actor
     if (length == 1) {
       gnibbles_cworm_move_straight_worm (cworms[i]);

@@ -69,6 +69,8 @@ GnibblesCWorm * gnibbles_cworm_new (guint number, guint t_xhead,
 			                    guint t_yhead, gint t_direction);
                           
 void gnibbles_cworm_add_actor (GnibblesCWorm *worm);
+void gnibbles_cworm_add_actor_with_position (GnibblesCWorm *worm, 
+                                        gint t_xhead, gint t_yhead);
 void gnibbles_cworm_remove_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_destroy (GnibblesCWorm * worm);
 void gnibbles_cworm_inverse (GnibblesCWorm *worm);
