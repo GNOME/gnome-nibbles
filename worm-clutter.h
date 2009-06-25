@@ -66,27 +66,20 @@ typedef struct {
 } WormCorner;
 
 GnibblesCWorm * gnibbles_cworm_new (guint number, guint t_xhead,
-			                    guint t_yhead, gint t_direction);
-                          
+			                    guint t_yhead, gint t_direction);       
 void gnibbles_cworm_add_actor (GnibblesCWorm *worm);
-void gnibbles_cworm_add_actor_with_position (GnibblesCWorm *worm, 
-                                        gint t_xhead, gint t_yhead);
 void gnibbles_cworm_remove_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_destroy (GnibblesCWorm * worm);
 void gnibbles_cworm_inverse (GnibblesCWorm *worm);
-ClutterActor* gnibbles_cworm_get_head_actor (GnibblesCWorm *worm);
-ClutterActor* gnibbles_cworm_get_tail_actor (GnibblesCWorm *worm);
-gint gnibbles_cworm_lose_life (GnibblesCWorm * worm);
 void gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile);
-void gnibbles_cworm_move (ClutterTimeline *timeline, gint msecs, gpointer data);
-gint gnibbles_cworm_get_tail_direction (GnibblesCWorm *worm);
-gint gnibbles_cworm_get_length (GnibblesCWorm *worm);
+
 void gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm);
 void gnibbles_cworm_move_head (GnibblesCWorm *worm);
 void gnibbles_cworm_move_tail (GnibblesCWorm *worm);
 
-gint gnibbles_cworm_handle_keypress (GnibblesCWorm * worm, guint keyval);
-void gnibbles_cworm_draw_head (GnibblesCWorm * worm);
+gint gnibbles_cworm_get_length (GnibblesCWorm *worm);
+gint gnibbles_cworm_lose_life (GnibblesCWorm * worm);
+
 gint gnibbles_cworm_can_move_to (GnibblesCWorm * worm, gint x, gint y);
 void gnibbles_cworm_position_move_head (GnibblesCWorm * worm, gint *x, gint *y);
 gint gnibbles_cworm_test_move_head (GnibblesCWorm * worm);

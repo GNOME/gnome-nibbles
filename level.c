@@ -86,12 +86,12 @@ gnibbles_level_new (gint level)
         case 'n':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms)
-            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMDOWN);
+            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMLEFT);
           break;
         case 'o':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms)
-            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMLEFT);
+            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMDOWN);
           break;
         case 'p':
           lvl->walls[j][i] = EMPTYCHAR;
