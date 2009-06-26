@@ -26,9 +26,12 @@
 #include "gnibbles.h"
 #include "warp.h"
 #include "properties.h"
+#include "board.h"
 
 extern GnibblesProperties *properties;
 extern GdkPixbuf *boni_pixmaps[];
+extern GnibblesBoard *clutter_board;
+
 GnibblesWarp *
 gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
 {
@@ -53,6 +56,7 @@ gnibbles_warp_draw_buffer (GnibblesWarp * warp)
   clutter_actor_set_position (CLUTTER_ACTOR (warp->actor),
                               properties->tilesize * warp->x,
                               properties->tilesize * warp->y);
-
+  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
+  clutter_container_add_actor (CLUTTER_CONTAINER (stage), warp->actor);
   gnibbles_draw_big_pixmap_buffer (WARP, warp->x, warp->y);
 }

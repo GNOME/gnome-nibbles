@@ -86,22 +86,10 @@ extern GdkPixbuf *logo_pixmap;
 
 GnibblesProperties *properties;
 
+GnibblesBoard *clutter_board; 
 GnibblesLevel *level;
 
 GnibblesScoreboard *scoreboard;
-
-GdkPixbuf *wall_pixmaps[11] = { NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL, NULL, NULL, NULL,
-  NULL
-};
-
-GdkPixbuf *worm_pixmaps[7] = { NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL
-};
-
-GdkPixbuf *boni_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL, NULL, NULL
-};
 
 extern GnibblesCWorm *cworms[];
 extern GnibblesBoni *boni;
@@ -140,97 +128,6 @@ static GtkAction *preferences_action;
 static GtkAction *scores_action;
 static GtkAction *fullscreen_action;
 static GtkAction *leave_fullscreen_action;
-
-static GdkPixbuf *
-load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
-{
-  GdkPixbuf *image;
-  gchar *filename;
-  const char *dirname;
-
-  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
-  filename = g_build_filename (dirname, pixmap, NULL);
-
-  if (!filename) {
-    char *message =
-      g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
-			 "Please check your Nibbles installation"), pixmap);
-    //gnibbles_error (window, message;
-    g_free(message);
-  }
-
-  image = gdk_pixbuf_new_from_file_at_scale (filename, xsize, ysize, TRUE, NULL);
-  g_free (filename);
-
-  return image;
-}
-
-void 
-load_pixmap (gint tilesize)
-{
-  gchar *bonus_files[] = {
-    "blank.svg",
-    "diamond.svg",
-    "bonus1.svg",
-    "bonus2.svg",
-    "life.svg",
-    "bonus3.svg",
-    "bonus4.svg",
-    "bonus5.svg",
-    "questionmark.svg"
-  };
-
-  gchar *small_files[] = {
-    "wall-straight-up.svg",
-    "wall-straight-side.svg",
-    "wall-corner-bottom-left.svg",
-    "wall-corner-bottom-right.svg",
-    "wall-corner-top-left.svg",
-    "wall-corner-top-right.svg",
-    "wall-tee-up.svg",
-    "wall-tee-right.svg",
-    "wall-tee-left.svg",
-    "wall-tee-down.svg",
-    "wall-cross.svg"
-  };
-  
-  gchar *worm_files[] = {
-    "snake-red.svg",
-    "snake-green.svg",
-    "snake-blue.svg",
-    "snake-yellow.svg",
-    "snake-cyan.svg",
-    "snake-magenta.svg",
-    "snake-grey.svg"
-  };
-
-  int i;
-
-  for (i = 0; i < 9; i++) {
-    if (boni_pixmaps[i])
-      g_object_unref (boni_pixmaps[i]);
-
-    boni_pixmaps[i] = load_pixmap_file (bonus_files[i],
- 	 					                            4 * tilesize,
-                          						  4 * tilesize);
-  }
-
-  for (i = 0; i < 11; i++) {
-    if (wall_pixmaps[i])
-      g_object_unref (wall_pixmaps[i]);
-      
-    wall_pixmaps[i] = load_pixmap_file (small_files[i],
- 	 	  		                              2 * tilesize,
-                           						  2 * tilesize);
-  }
-
-  for (i = 0; i < 7; i++) {
-    if (worm_pixmaps[i])
-      g_object_unref (worm_pixmaps[i]);
-
-    worm_pixmaps[i] = load_pixmap_file (worm_files[i], tilesize,tilesize);
-  }
-}
 
 static void
 hide_cursor (void)
@@ -448,8 +345,8 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
 
   int i;
   if (data) {
-    GnibblesBoard *board = (GnibblesBoard *)data;
-    gnibbles_board_resize (board, tilesize);
+    GnibblesBoard *clutter_board = (GnibblesBoard *)data;
+    gnibbles_board_resize (clutter_board, tilesize);
     for (i=0; i<properties->numworms; i++)
       gnibbles_cworm_resize (cworms[i], tilesize);
   }
@@ -982,7 +879,7 @@ create_menus (GtkUIManager * ui_manager)
 }
 
 static void
-setup_window_clutter (GnibblesBoard *board)
+setup_window_clutter (GnibblesBoard *clutter_board)
 {
   GtkWidget *vbox;
   GtkWidget *main_vbox;
@@ -1025,14 +922,14 @@ setup_window_clutter (GnibblesBoard *board)
   gtk_widget_show (packing);
 
 
-  gtk_container_add (GTK_CONTAINER (packing), board->clutter_widget);
+  gtk_container_add (GTK_CONTAINER (packing), clutter_board->clutter_widget);
 #ifdef GGZ_CLIENT
   chat = create_chat_widget ();
   gtk_box_pack_start (GTK_BOX (vbox), chat, FALSE, TRUE, 0);
 #endif
 
-  g_signal_connect (G_OBJECT (board->clutter_widget), "configure_event",
-		    G_CALLBACK (configure_event_cb), board);
+  g_signal_connect (G_OBJECT (clutter_board->clutter_widget), "configure_event",
+		    G_CALLBACK (configure_event_cb), clutter_board);
 
   g_signal_connect (G_OBJECT (window), "focus_out_event",
 		    G_CALLBACK (show_cursor_cb), NULL);
@@ -1162,7 +1059,7 @@ setup_window (void)
 }
 
 static void 
-render_logo_clutter (GnibblesBoard *board)
+render_logo_clutter (GnibblesBoard *clutter_board)
 {
   
   guint width, height;
@@ -1171,7 +1068,7 @@ render_logo_clutter (GnibblesBoard *board)
   ClutterActor *desc;
   ClutterColor actor_color = {0xff,0xff,0xff,0xff};
 
-  ClutterActor *stage = gnibbles_board_get_stage (board);
+  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
 
   clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
   
@@ -1303,7 +1200,10 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
       gnibbles_cworm_move_straight_worm (cworms[i]);
     } else if (nbr_actor >= 2) {
       gnibbles_cworm_move_tail (cworms[i]);
-      gnibbles_cworm_move_head (cworms[i]);
+      if (g_list_length (cworms[i]->list) == 1)
+        gnibbles_cworm_move_straight_worm (cworms[i]);
+      else 
+        gnibbles_cworm_move_head (cworms[i]);
     } else if (nbr_actor < 1) {
       //worm's dead
       return;
@@ -1383,17 +1283,17 @@ main (int argc, char **argv)
   // clutter fun
   gtk_clutter_init (&argc, &argv);
 
-  load_pixmap (properties->tilesize);
-  GnibblesBoard *board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
-  setup_window_clutter (board);
+  gnibbles_clutter_load_pixmap (properties->tilesize);
+  clutter_board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
+  setup_window_clutter (clutter_board);
   
-  ClutterActor *stage = gnibbles_board_get_stage (board);
+  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
 
   int i;
 
   level = gnibbles_level_new (5);
 
-  gnibbles_board_load_level (board, level);
+  gnibbles_board_load_level (clutter_board, level);
  
   for (i = 0; i < properties->numworms; i++) {
     clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworms[i]->actors);
@@ -1406,7 +1306,7 @@ main (int argc, char **argv)
   g_signal_connect (timeline, "new-frame", G_CALLBACK (move_worm_cb), NULL);
 
   clutter_timeline_start (timeline);
-  //render_logo_clutter (board);
+  //render_logo_clutter (clutter_board);
 
   gtk_main ();
 

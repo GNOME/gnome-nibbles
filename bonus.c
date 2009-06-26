@@ -28,9 +28,11 @@
 #include "gnibbles.h"
 #include "bonus.h"
 #include "properties.h"
+#include "board.h"
 
 extern GdkPixbuf *boni_pixmaps[];
 extern GnibblesProperties *properties;
+extern GnibblesBoard *clutter_board;
 
 GnibblesBonus *
 gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
@@ -58,7 +60,8 @@ gnibbles_bonus_draw (GnibblesBonus * bonus)
   clutter_actor_set_position (CLUTTER_ACTOR (bonus->actor),
                               bonus->x * properties->tilesize,
                               bonus->y * properties->tilesize);
-
+  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
+  clutter_container_add_actor (CLUTTER_CONTAINER (stage), bonus->actor);
   gnibbles_draw_big_pixmap (bonus->type, bonus->x, bonus->y);
 }
 

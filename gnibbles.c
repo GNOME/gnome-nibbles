@@ -27,6 +27,7 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <clutter/clutter.h>
 
 #include <libgames-support/games-gtk-compat.h>
 #include <libgames-support/games-runtime.h>
@@ -42,6 +43,7 @@
 #include "warpmanager.h"
 #include "properties.h"
 #include "scoreboard.h"
+#include "level.h"
 
 #include "worm-clutter.h"
 
@@ -57,6 +59,7 @@ GnibblesWarpManager *warpmanager;
 
 GdkPixmap *buffer_pixmap = NULL;
 GdkPixbuf *logo_pixmap = NULL;
+//old pixbuf
 GdkPixbuf *bonus_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
   NULL, NULL, NULL, NULL
 };
@@ -66,9 +69,24 @@ GdkPixbuf *small_pixmaps[19] = { NULL, NULL, NULL, NULL, NULL,
   NULL, NULL, NULL, NULL
 };
 
+// clutter-related pixbuf
+GdkPixbuf *wall_pixmaps[11] = { NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL, NULL, NULL, NULL,
+  NULL
+};
+
+GdkPixbuf *worm_pixmaps[7] = { NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL
+};
+
+GdkPixbuf *boni_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL, NULL, NULL
+};
+
 extern GtkWidget *drawing_area;
 
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
+extern GnibblesLevel *level;
 
 extern GnibblesProperties *properties;
 
@@ -77,6 +95,98 @@ extern GnibblesScoreboard *scoreboard;
 /*
 extern guint properties->tilesize, properties->tilesize;
 */
+
+static GdkPixbuf *
+gnibbles_clutter_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
+{
+  GdkPixbuf *image;
+  gchar *filename;
+  const char *dirname;
+
+  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
+  filename = g_build_filename (dirname, pixmap, NULL);
+
+  if (!filename) {
+    char *message =
+      g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
+			 "Please check your Nibbles installation"), pixmap);
+    //gnibbles_error (window, message;
+    g_free(message);
+  }
+
+  image = gdk_pixbuf_new_from_file_at_scale (filename, xsize, ysize, TRUE, NULL);
+  g_free (filename);
+
+  return image;
+}
+
+void 
+gnibbles_clutter_load_pixmap (gint tilesize)
+{
+  gchar *bonus_files[] = {
+    "blank.svg",
+    "diamond.svg",
+    "bonus1.svg",
+    "bonus2.svg",
+    "life.svg",
+    "bonus3.svg",
+    "bonus4.svg",
+    "bonus5.svg",
+    "questionmark.svg"
+  };
+
+  gchar *small_files[] = {
+    "wall-straight-up.svg",
+    "wall-straight-side.svg",
+    "wall-corner-bottom-left.svg",
+    "wall-corner-bottom-right.svg",
+    "wall-corner-top-left.svg",
+    "wall-corner-top-right.svg",
+    "wall-tee-up.svg",
+    "wall-tee-right.svg",
+    "wall-tee-left.svg",
+    "wall-tee-down.svg",
+    "wall-cross.svg"
+  };
+  
+  gchar *worm_files[] = {
+    "snake-red.svg",
+    "snake-green.svg",
+    "snake-blue.svg",
+    "snake-yellow.svg",
+    "snake-cyan.svg",
+    "snake-magenta.svg",
+    "snake-grey.svg"
+  };
+
+  int i;
+
+  for (i = 0; i < 9; i++) {
+    if (boni_pixmaps[i])
+      g_object_unref (boni_pixmaps[i]);
+
+    boni_pixmaps[i] = gnibbles_clutter_load_pixmap_file (bonus_files[i],
+  					                                             4 * tilesize,
+                          						                   4 * tilesize);
+  }
+
+  for (i = 0; i < 11; i++) {
+    if (wall_pixmaps[i])
+      g_object_unref (wall_pixmaps[i]);
+      
+    wall_pixmaps[i] = gnibbles_clutter_load_pixmap_file (small_files[i],
+  	 	  		                                             2 * tilesize,
+                           						                   2 * tilesize);
+  }
+
+  for (i = 0; i < 7; i++) {
+    if (worm_pixmaps[i])
+      g_object_unref (worm_pixmaps[i]);
+
+    worm_pixmaps[i] = gnibbles_clutter_load_pixmap_file (worm_files[i], 
+                                                        tilesize, tilesize);
+  }
+}
 
 static void
 gnibbles_error (GtkWidget * window, gchar * message)
@@ -375,6 +485,103 @@ gnibbles_init (void)
   }
 
   gnibbles_scoreboard_update (scoreboard);
+}
+
+void
+gnibbles_clutter_add_bonus (gint regular)
+{
+  gint x, y, good;
+
+#ifdef GGZ_CLIENT
+  if (!network_is_host ()) {
+    return;
+  }
+#endif
+
+  if (regular) {
+    good = 0;
+  } else {
+    good = rand () % 50;
+    if (good)
+      return;
+  }
+
+  do {
+    good = 1;
+    x = rand () % (BOARDWIDTH - 1);
+    y = rand () % (BOARDHEIGHT - 1);
+    if (level->walls[x][y] != EMPTYCHAR)
+      good = 0;
+    if (level->walls[x + 1][y] != EMPTYCHAR)
+      good = 0;
+    if (level->walls[x][y + 1] != EMPTYCHAR)
+      good = 0;
+    if (level->walls[x + 1][y + 1] != EMPTYCHAR)
+      good = 0;
+  } while (!good);
+
+  if (regular) {
+    if ((rand () % 7 == 0) && properties->fakes)
+      gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 1, 300);
+    good = 0;
+    while (!good) {
+      good = 1;
+      x = rand () % (BOARDWIDTH - 1);
+      y = rand () % (BOARDHEIGHT - 1);
+      if (level->walls[x][y] != EMPTYCHAR)
+	good = 0;
+      if (level->walls[x + 1][y] != EMPTYCHAR)
+	good = 0;
+      if (level->walls[x][y + 1] != EMPTYCHAR)
+	good = 0;
+      if (level->walls[x + 1][y + 1] != EMPTYCHAR)
+	good = 0;
+    }
+    gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 0, 300);
+  } else if (boni->missed <= MAXMISSED) {
+    good = rand () % 7;
+
+    if (good)
+      good = 0;
+    else
+      good = 1;
+
+    if (good && !properties->fakes)
+      return;
+
+    switch (rand () % 21) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+      gnibbles_boni_add_bonus (boni, x, y, BONUSHALF, good, 200);
+      break;
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+      gnibbles_boni_add_bonus (boni, x, y, BONUSDOUBLE, good, 150);
+      break;
+    case 15:
+      gnibbles_boni_add_bonus (boni, x, y, BONUSLIFE, good, 100);
+      break;
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+      if (properties->numworms > 1)
+	      gnibbles_boni_add_bonus (boni, x, y, BONUSREVERSE, good, 150);
+      break;
+    }
+  }
 }
 
 void

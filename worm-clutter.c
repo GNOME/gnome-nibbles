@@ -171,7 +171,7 @@ gnibbles_cworm_add_actor (GnibblesCWorm *worm)
         worm->yhead -= size;
 
     } else {
-      clutter_actor_set_size (CLUTTER_ACTOR (actor), properties->tilesize, 0);                  
+      clutter_actor_set_size (CLUTTER_ACTOR (actor), properties->tilesize, 0);
     }
     
     g_object_set_property (G_OBJECT (actor), "repeat-y", &val);
@@ -180,7 +180,6 @@ gnibbles_cworm_add_actor (GnibblesCWorm *worm)
   clutter_actor_set_position (CLUTTER_ACTOR (actor),
                               worm->xhead * properties->tilesize,
                               worm->yhead * properties->tilesize);
-
 
   clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), actor);  
   worm->list = g_list_prepend (worm->list, actor);
@@ -231,7 +230,7 @@ gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile)
   ClutterActor *tmp;
 
   count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
-  load_pixmap (newtile);
+  gnibbles_clutter_load_pixmap (newtile);
 
   g_value_init (&val, G_TYPE_BOOLEAN);
 
@@ -380,8 +379,8 @@ gnibbles_cworm_move_head (GnibblesCWorm *worm)
 
   clutter_actor_get_size (CLUTTER_ACTOR (head), &w, &h);
   clutter_actor_get_position (CLUTTER_ACTOR (head), &x, &y);
-  size = w < h ? h : w;
-  size = size + properties->tilesize;
+  size = w < h ? floorf (h) : floorf (w);
+  size = floorf (size + properties->tilesize);
 
   // set the size of the head actor 
   switch (worm->direction) {
@@ -437,8 +436,8 @@ gnibbles_cworm_move_tail (GnibblesCWorm *worm)
 
   clutter_actor_get_size (CLUTTER_ACTOR (tail), &w, &h);
   clutter_actor_get_position (CLUTTER_ACTOR (tail), &x, &y);
-  size = w < h ? h : w;
-  size = size - properties->tilesize;
+  size = w < h ? floorf (h) : floorf (w);
+  size = floorf (size - properties->tilesize);
 
   if (size <= 0) {
      gnibbles_cworm_remove_actor (worm);
@@ -500,7 +499,6 @@ gnibbles_cworm_get_length (GnibblesCWorm *worm)
     tmp_size = w > h ? roundf(w) : roundf(h);
     size += roundf (tmp_size / properties->tilesize);
   }
-
   return size;
 }
 
