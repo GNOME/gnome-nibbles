@@ -403,6 +403,40 @@ network_loop (gpointer data)
 #endif
 
 static gint
+new_game_clutter_2_cb (GtkWidget * widget, gpointer data)
+{
+  if (!paused) {
+    if (!keyboard_id)
+      keyboard_id = g_signal_connect (G_OBJECT (window),
+				      "key_press_event",
+				      G_CALLBACK (key_press_cb), NULL);
+#ifdef GGZ_CLIENT
+    if (!main_id && ggz_network_mode && network_is_host ()) {
+      main_id = g_timeout_add (GAMEDELAY * (properties->gamespeed + NETDELAY),
+			       (GSourceFunc) network_loop, NULL);
+    } else
+#endif
+    if (!main_id && !ggz_network_mode) {
+      main_id = g_timeout_add (GAMEDELAY * properties->gamespeed,
+			       (GSourceFunc) main_loop, NULL);
+    }
+#ifdef GGZ_CLIENT
+    if (!add_bonus_id && network_is_host ()) {
+#else
+    if (!add_bonus_id) {
+#endif
+      add_bonus_id = g_timeout_add (BONUSDELAY *
+				    properties->gamespeed,
+				    (GSourceFunc) add_bonus_cb, NULL);
+    }
+  }
+
+  dummy_id = 0;
+
+  return (FALSE);
+}
+
+static gint
 new_game_2_cb (GtkWidget * widget, gpointer data)
 {
   if (!paused) {
@@ -434,6 +468,67 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
   dummy_id = 0;
 
   return (FALSE);
+}
+
+gint
+new_game_clutter (void)
+{
+  gtk_action_set_sensitive (new_network_action, FALSE);
+
+  if (ggz_network_mode) {
+    gtk_action_set_sensitive (pause_action, FALSE);
+  } else {
+    gtk_action_set_sensitive (pause_action, TRUE);
+  }
+  gtk_action_set_sensitive (end_game_action, TRUE);
+  gtk_action_set_sensitive (preferences_action, !ggz_network_mode);
+
+  if (game_running ()) {
+    end_game (FALSE);
+    main_id = 0;
+  }
+
+  gnibbles_clutter_init ();
+
+  if (ggz_network_mode || !properties->random) {
+    current_level = properties->startlevel;
+  } else {
+    current_level = rand () % MAXLEVEL + 1;
+  }
+
+  //zero_board ();
+  level = gnibbles_level_new (current_level);
+  gnibbles_board_load_level (clutter_board, level);
+  gnibbles_clutter_add_bonus (1);
+
+  paused = 0;
+  gtk_action_set_visible (pause_action, !paused);
+  gtk_action_set_visible (resume_action, paused);
+  gtk_action_set_visible (player_list_action, ggz_network_mode);
+
+  if (erase_id) {
+    g_source_remove (erase_id);
+    erase_id = 0;
+  }
+
+  if (restart_id) {
+    g_source_remove (restart_id);
+    restart_id = 0;
+  }
+
+  if (add_bonus_id) {
+    g_source_remove (add_bonus_id);
+    add_bonus_id = 0;
+  }
+
+  if (dummy_id)
+    g_source_remove (dummy_id);
+
+  dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_clutter_2_cb, NULL);
+
+  network_gui_update ();
+
+  return TRUE;
 }
 
 gint
@@ -503,7 +598,6 @@ new_game_cb (GtkAction * action, gpointer data)
   new_game ();
 }
 
-
 gint
 pause_game_cb (GtkAction * action, gpointer data)
 {
@@ -514,16 +608,16 @@ pause_game_cb (GtkAction * action, gpointer data)
     if (main_id || erase_id || restart_id || dummy_id) {
       paused = 1;
       if (main_id) {
-	g_source_remove (main_id);
-	main_id = 0;
+	      g_source_remove (main_id);
+	      main_id = 0;
       }
       if (keyboard_id) {
-	g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
-	keyboard_id = 0;
+	      g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
+	      keyboard_id = 0;
       }
       if (add_bonus_id) {
-	g_source_remove (add_bonus_id);
-	add_bonus_id = 0;
+	      g_source_remove (add_bonus_id);
+	      add_bonus_id = 0;
       }
     }
   }
@@ -607,10 +701,21 @@ static gint
 add_bonus_cb (gpointer data)
 {
   gnibbles_add_bonus (0);
-
+  gnibbles_clutter_add_bonus (0);
   return (TRUE);
 }
 
+static gint
+restart_game_clutter (gpointer data)
+{
+  level = gnibbles_level_new (current_level);
+  gnibbles_board_load_level (clutter_board, level);
+  gnibbles_clutter_add_bonus (1);
+  dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_2_cb, NULL);
+  restart_id = 0;
+  
+  return FALSE;
+}
 static gint
 restart_game (gpointer data)
 {
@@ -879,7 +984,7 @@ create_menus (GtkUIManager * ui_manager)
 }
 
 static void
-setup_window_clutter (GnibblesBoard *clutter_board)
+setup_window_clutter ()
 {
   GtkWidget *vbox;
   GtkWidget *main_vbox;
@@ -1285,7 +1390,7 @@ main (int argc, char **argv)
 
   gnibbles_clutter_load_pixmap (properties->tilesize);
   clutter_board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
-  setup_window_clutter (clutter_board);
+  setup_window_clutter ();
   
   ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
 

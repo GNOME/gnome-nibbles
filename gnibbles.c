@@ -43,6 +43,7 @@
 #include "warpmanager.h"
 #include "properties.h"
 #include "scoreboard.h"
+#include "board.h"
 #include "level.h"
 
 #include "worm-clutter.h"
@@ -87,6 +88,7 @@ extern GtkWidget *drawing_area;
 
 extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 extern GnibblesLevel *level;
+extern GnibblesBoard *clutter_board;
 
 extern GnibblesProperties *properties;
 
@@ -465,6 +467,32 @@ gnibbles_load_level (GtkWidget * window, gint level)
                      BOARDHEIGHT * properties->tilesize);
 
   fclose (in);
+}
+
+void
+gnibbles_clutter_init ()
+{
+  gint i;
+
+  for (i = 0; i < properties->numworms; i++)
+    if (cworms[i])
+      gnibbles_cworm_destroy (cworms[i]);
+
+  gnibbles_scoreboard_clear (scoreboard);
+
+  for (i = 0; i < properties->numworms; i++) {
+    worms[i] = gnibbles_worm_new (i);
+    gnibbles_scoreboard_register (scoreboard, worms[i], 
+	                 colorval_name (properties->wormprops[i]->color));
+  }
+
+  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
+  for (i = 0; i < properties->numworms; i++) {
+    clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworms[i]->actors);
+    clutter_actor_raise_top (cworms[i]->actors);
+  }
+
+  gnibbles_scoreboard_update (scoreboard);
 }
 
 void

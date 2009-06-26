@@ -482,6 +482,74 @@ gnibbles_cworm_move_tail (GnibblesCWorm *worm)
   }
 }
 
+void 
+gnibbles_cworm_shrink (GnibblesCWorm *worm, gint shrinksize)
+{
+  ClutterActor *tmp = NULL;
+  gint nbr_actor;
+  int i;
+  gfloat w,h;
+  gfloat actor_size;
+  gint dir;
+
+  nbr_actor = g_list_length (worm->list);
+
+  //TODO: add animation
+  for (i = 0; i < nbr_actor; i++) {
+    tmp = CLUTTER_ACTOR (g_list_last (worm->list)->data); 
+    clutter_actor_get_size (CLUTTER_ACTOR (tmp), &w, &h);
+    actor_size = w < h ? roundf (h) : roundf (w);
+    actor_size /= properties->tilesize;
+
+    if (actor_size > shrinksize) {
+      dir = gnibbles_cworm_get_tail_direction (worm);
+      switch (dir) {
+        case WORMDOWN:
+          worm->ytail += shrinksize;
+          clutter_actor_set_position (CLUTTER_ACTOR (tmp),
+                                      worm->xtail * properties->tilesize,
+                                      worm->ytail * properties->tilesize);
+          clutter_actor_set_size (CLUTTER_ACTOR (tmp),
+                                  properties->tilesize,
+                                  (actor_size - shrinksize) * properties->tilesize);
+          break;
+        case WORMUP:
+          worm->ytail -= shrinksize;
+          clutter_actor_set_size (CLUTTER_ACTOR (tmp),
+                                  (actor_size - shrinksize) * properties->tilesize,
+                                  properties->tilesize);
+          break;
+        case WORMRIGHT:
+          worm->xtail += shrinksize;
+          clutter_actor_set_position (CLUTTER_ACTOR (tmp),
+                                      worm->xtail * properties->tilesize,
+                                      worm->ytail * properties->tilesize);
+          clutter_actor_set_size (CLUTTER_ACTOR (tmp),
+                                 (actor_size - shrinksize) * properties->tilesize,
+                                 properties->tilesize);
+          break;
+        case WORMLEFT:
+          worm->xtail -= shrinksize;
+          clutter_actor_set_size (CLUTTER_ACTOR (tmp),
+                                  (actor_size - shrinksize) * properties->tilesize,
+                                  properties->tilesize);
+          break;
+        default:
+          break;
+      }
+      return;
+    } else if (actor_size == shrinksize) {
+      //remove tail
+      gnibbles_cworm_remove_actor (worm);
+      return;
+    } else {
+      //remove tail, reduce the shrinksize variable by the tail's size
+      gnibbles_cworm_remove_actor (worm);
+      shrinksize -= actor_size;
+    }
+  }
+}
+
 gint
 gnibbles_cworm_get_length (GnibblesCWorm *worm)
 {

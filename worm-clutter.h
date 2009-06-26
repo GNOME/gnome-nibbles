@@ -77,6 +77,8 @@ void gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm);
 void gnibbles_cworm_move_head (GnibblesCWorm *worm);
 void gnibbles_cworm_move_tail (GnibblesCWorm *worm);
 
+void gnibbles_cworm_grow (GnibblesCWorm *worm);
+void gnibbles_cworm_shrink (GnibblesCWorm *worm, gint shrinksize);
 gint gnibbles_cworm_get_length (GnibblesCWorm *worm);
 gint gnibbles_cworm_lose_life (GnibblesCWorm * worm);
 

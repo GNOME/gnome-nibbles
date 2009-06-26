@@ -65,6 +65,7 @@ void gnibbles_clutter_load_pixmap (gint tilesize);
 void gnibbles_load_pixmap (GtkWidget * window);
 void gnibbles_load_logo (GtkWidget * window);
 void gnibbles_load_level (GtkWidget * window, gint level);
+void gnibbles_clutter_init ();
 void gnibbles_init (void);
 void gnibbles_clutter_add_bonus (gint regular);
 void gnibbles_add_bonus (gint regular);

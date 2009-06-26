@@ -38,9 +38,9 @@ char names[NUMWORMS][17];
 gint game_running (void);
 gint pause_game_cb (GtkAction * action, gpointer data);
 void end_game (gboolean);
+gint new_game_clutter ();
 gint new_game (void);
 gint main_loop (gpointer data);
-void load_pixmap (gint tilesize);
 
 extern GamesScores *highscores;
 extern GtkWidget *notebook;
