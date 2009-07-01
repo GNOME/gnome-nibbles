@@ -286,18 +286,19 @@ gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 void
 gnibbles_load_logo (GtkWidget * window)
 {
-  GtkAllocation allocation;
+  gfloat width; 
+  gfloat height;
 
-  gtk_widget_get_allocation (window, &allocation);
-
-  if (GTK_WIDGET_REALIZED (drawing_area) == FALSE)
+  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
+  clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
+  if (GTK_WIDGET_REALIZED (clutter_board->clutter_widget) == FALSE)
     return;
 
   if (logo_pixmap)
     g_object_unref (logo_pixmap);
-  logo_pixmap =
-    gnibbles_load_pixmap_file (window, "gnibbles-logo.svg",
-			       allocation.width, allocation.height);
+
+  logo_pixmap = gnibbles_clutter_load_pixmap_file ("gnibbles-logo.svg",
+                               			       (gint)width, (gint)height);
 }
 
 void
@@ -314,6 +315,7 @@ gnibbles_load_pixmap (GtkWidget * window)
     "bonus5.svg",
     "questionmark.svg"
   };
+
   gchar *small_files[] = {
     "wall-empty.svg",
     "wall-straight-up.svg",
@@ -557,13 +559,13 @@ gnibbles_clutter_add_bonus (gint regular)
       x = rand () % (BOARDWIDTH - 1);
       y = rand () % (BOARDHEIGHT - 1);
       if (level->walls[x][y] != EMPTYCHAR)
-	good = 0;
+	      good = 0;
       if (level->walls[x + 1][y] != EMPTYCHAR)
-	good = 0;
+	      good = 0;
       if (level->walls[x][y + 1] != EMPTYCHAR)
-	good = 0;
+	      good = 0;
       if (level->walls[x + 1][y + 1] != EMPTYCHAR)
-	good = 0;
+	      good = 0;
     }
     gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 0, 300);
   } else if (boni->missed <= MAXMISSED) {

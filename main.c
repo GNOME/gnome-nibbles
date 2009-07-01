@@ -115,7 +115,7 @@ NULL};
 
 static gint add_bonus_cb (gpointer data);
 static void render_logo (void);
-static void render_logo_clutter (GnibblesBoard *board);
+static void render_logo_clutter ();
 static gint end_game_cb (GtkAction * action, gpointer data);
 
 static GtkAction *new_game_action;
@@ -329,6 +329,51 @@ draw_board (void)
 }
 
 static gboolean
+configure_clutter_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data)
+{
+  int tilesize, ts_x, ts_y;
+
+  /* Compute the new tile size based on the size of the
+   * drawing area, rounded down. */
+  ts_x = event->width / BOARDWIDTH;
+  ts_y = event->height / BOARDHEIGHT;
+  if (ts_x * BOARDWIDTH > event->width)
+    ts_x--;
+  if (ts_y * BOARDHEIGHT > event->height)
+    ts_y--;
+  tilesize = MIN (ts_x, ts_y);
+
+  int i;
+
+  if (game_running ()) {
+    if (data) {
+      GnibblesBoard *clutter_board = (GnibblesBoard *)data;
+      gnibbles_board_resize (clutter_board, tilesize);
+      for (i=0; i<properties->numworms; i++)
+        gnibbles_cworm_resize (cworms[i], tilesize);
+    }
+  } else {
+    render_logo_clutter ();
+  }
+
+  /* But, has the tile size changed? */
+  if (properties->tilesize == tilesize) {
+    /* We must always re-load the logo. */
+    gnibbles_load_logo (window);
+    return FALSE;
+  }
+
+  gnibbles_clutter_load_pixmap (tilesize);
+
+  properties->tilesize = tilesize;
+  gnibbles_properties_set_tile_size (tilesize);
+
+  gnibbles_load_logo (window);
+  
+  return FALSE;
+}
+
+static gboolean
 configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data)
 {
   int tilesize, ts_x, ts_y;
@@ -384,8 +429,6 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
     draw_board ();
   else {
     render_logo ();
-    /*if (data && !((GnibblesBoard*)data)->level)
-      render_logo_clutter ((GnibblesBoard*)data);*/
   }
   
   return FALSE;
@@ -470,6 +513,60 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
   return (FALSE);
 }
 
+static void
+move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
+{
+  const int elapsed_time = clutter_timeline_get_elapsed_time (timeline);
+  const int duration = clutter_timeline_get_duration (timeline);
+
+  if (!(elapsed_time == duration))
+    return;
+
+  gint i, olddir, length, nbr_actor;
+
+  for (i = 0; i < properties->numworms; i++) {
+    // get the current direction of the worm
+    olddir = cworms[i]->direction;
+    // determine the new direction the worm will take
+    gnibbles_cworm_ai_move (cworms[i]);
+    // Add an actor when we change direction
+    if (olddir != cworms[i]->direction)
+      gnibbles_cworm_add_actor (cworms[i]);
+
+    nbr_actor = g_list_length (cworms[i]->list);
+    length = gnibbles_cworm_get_length (cworms[i]);
+    printf ("\nWorm ID: %d, Actors: %d, Length: %d,  xhead: %d, yhead:%d",
+            i, nbr_actor, length, cworms[i]->xhead, cworms[i]->yhead);
+
+    if (cworms[i]->xhead >= BOARDWIDTH) {
+      cworms[i]->xhead = 0;
+      gnibbles_cworm_add_actor(cworms[i]);
+    } else if (cworms[i]->xhead < 0) {
+      cworms[i]->xhead = BOARDWIDTH;
+      gnibbles_cworm_add_actor (cworms[i]);
+    } else if (cworms[i]->yhead >= BOARDHEIGHT) {
+      cworms[i]->yhead = 0;
+      gnibbles_cworm_add_actor (cworms[i]);
+    } else if (cworms[i]->xhead < 0) {
+      cworms[i]->yhead = BOARDHEIGHT;
+      gnibbles_cworm_add_actor (cworms[i]);
+    }
+    //if there's only one actor in the list, just move the actor
+    if (nbr_actor == 1) {
+      gnibbles_cworm_move_straight_worm (cworms[i]);
+    } else if (nbr_actor >= 2) {
+      gnibbles_cworm_move_tail (cworms[i]);
+      if (g_list_length (cworms[i]->list) == 1)
+        gnibbles_cworm_move_straight_worm (cworms[i]);
+      else 
+        gnibbles_cworm_move_head (cworms[i]);
+    } else if (nbr_actor < 1) {
+      //worm's dead
+      return;
+    }
+  }
+}
+
 gint
 new_game_clutter (void)
 {
@@ -496,7 +593,6 @@ new_game_clutter (void)
     current_level = rand () % MAXLEVEL + 1;
   }
 
-  //zero_board ();
   level = gnibbles_level_new (current_level);
   gnibbles_board_load_level (clutter_board, level);
   gnibbles_clutter_add_bonus (1);
@@ -525,6 +621,14 @@ new_game_clutter (void)
     g_source_remove (dummy_id);
 
   dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_clutter_2_cb, NULL);
+
+  
+  ClutterTimeline *timeline = clutter_timeline_new (115);
+  clutter_timeline_set_loop (timeline, TRUE);
+ 
+  g_signal_connect (timeline, "new-frame", G_CALLBACK (move_worm_cb), NULL);
+
+  clutter_timeline_start (timeline);
 
   network_gui_update ();
 
@@ -595,7 +699,7 @@ new_game (void)
 static void
 new_game_cb (GtkAction * action, gpointer data)
 {
-  new_game ();
+  new_game_clutter ();
 }
 
 gint
@@ -716,6 +820,7 @@ restart_game_clutter (gpointer data)
   
   return FALSE;
 }
+
 static gint
 restart_game (gpointer data)
 {
@@ -791,8 +896,6 @@ main_loop (gpointer data)
     gnibbles_log_score (window);
 
     return FALSE;
-
-
   }
 
   if (status == GAMEOVER) {
@@ -863,7 +966,7 @@ main_loop (gpointer data)
     else if (properties->random && !ggz_network_mode) {
       tmp = rand () % MAXLEVEL + 1;
       while (tmp == current_level)
-	tmp = rand () % MAXLEVEL + 1;
+	      tmp = rand () % MAXLEVEL + 1;
       current_level = tmp;
     }
     restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
@@ -980,7 +1083,6 @@ create_menus (GtkUIManager * ui_manager)
   player_list_action =
     gtk_action_group_get_action (action_group, "PlayerList");
 
-
 }
 
 static void
@@ -996,10 +1098,12 @@ setup_window_clutter ()
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (window), _("Nibbles"));
 
-  gtk_window_set_default_size (GTK_WINDOW (window), DEFAULT_WIDTH, DEFAULT_HEIGHT);
+  gtk_window_set_default_size (GTK_WINDOW (window), 
+                               DEFAULT_WIDTH, DEFAULT_HEIGHT);
   games_conf_add_window (GTK_WINDOW (window), KEY_PREFERENCES_GROUP);
 
-  g_signal_connect (G_OBJECT (window), "destroy", G_CALLBACK (gtk_main_quit), NULL);
+  g_signal_connect (G_OBJECT (window), "destroy", 
+        G_CALLBACK (gtk_main_quit), NULL);
   g_signal_connect (G_OBJECT (window), "delete_event",
 		    G_CALLBACK (delete_cb), NULL);
   g_signal_connect (G_OBJECT (window), "window_state_event",
@@ -1034,7 +1138,7 @@ setup_window_clutter ()
 #endif
 
   g_signal_connect (G_OBJECT (clutter_board->clutter_widget), "configure_event",
-		    G_CALLBACK (configure_event_cb), clutter_board);
+		    G_CALLBACK (configure_clutter_event_cb), clutter_board);
 
   g_signal_connect (G_OBJECT (window), "focus_out_event",
 		    G_CALLBACK (show_cursor_cb), NULL);
@@ -1164,7 +1268,7 @@ setup_window (void)
 }
 
 static void 
-render_logo_clutter (GnibblesBoard *clutter_board)
+render_logo_clutter ()
 {
   
   guint width, height;
@@ -1261,61 +1365,6 @@ render_logo (void)
 
 
 }
-
-static void
-move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
-{
-  const int elapsed_time = clutter_timeline_get_elapsed_time (timeline);
-  const int duration = clutter_timeline_get_duration (timeline);
-
-  if (!(elapsed_time == duration))
-    return;
-
-  gint i, olddir, length, nbr_actor;
-
-  for (i = 0; i < properties->numworms; i++) {
-    // get the current direction of the worm
-    olddir = cworms[i]->direction;
-    // determine the new direction the worm will take
-    gnibbles_cworm_ai_move (cworms[i]);
-    // Add an actor when we change direction
-    if (olddir != cworms[i]->direction)
-      gnibbles_cworm_add_actor (cworms[i]);
-
-    nbr_actor = g_list_length (cworms[i]->list);
-    length = gnibbles_cworm_get_length (cworms[i]);
-    printf ("\nWorm ID: %d, Actors: %d, Length: %d,  xhead: %d, yhead:%d",
-            i, nbr_actor, length, cworms[i]->xhead, cworms[i]->yhead);
-
-    if (cworms[i]->xhead >= BOARDWIDTH) {
-      cworms[i]->xhead = 0;
-      gnibbles_cworm_add_actor(cworms[i]);
-    } else if (cworms[i]->xhead < 0) {
-      cworms[i]->xhead = BOARDWIDTH;
-      gnibbles_cworm_add_actor (cworms[i]);
-    } else if (cworms[i]->yhead >= BOARDHEIGHT) {
-      cworms[i]->yhead = 0;
-      gnibbles_cworm_add_actor (cworms[i]);
-    } else if (cworms[i]->xhead < 0) {
-      cworms[i]->yhead = BOARDHEIGHT;
-      gnibbles_cworm_add_actor (cworms[i]);
-    }
-    //if there's only one actor in the list, just move the actor
-    if (nbr_actor == 1) {
-      gnibbles_cworm_move_straight_worm (cworms[i]);
-    } else if (nbr_actor >= 2) {
-      gnibbles_cworm_move_tail (cworms[i]);
-      if (g_list_length (cworms[i]->list) == 1)
-        gnibbles_cworm_move_straight_worm (cworms[i]);
-      else 
-        gnibbles_cworm_move_head (cworms[i]);
-    } else if (nbr_actor < 1) {
-      //worm's dead
-      return;
-    }
-  }
-}
-
 int
 main (int argc, char **argv)
 {
@@ -1325,6 +1374,8 @@ main (int argc, char **argv)
 
   if (!games_runtime_init ("gnibbles"))
     return 1;
+
+  gtk_clutter_init (&argc, &argv);
 
 #ifdef ENABLE_SETGID
   setgid_io_init ();
@@ -1361,22 +1412,20 @@ main (int argc, char **argv)
 
   properties = gnibbles_properties_new ();
 
-  setup_window ();
-
-  gnibbles_load_logo (window);
-  gnibbles_load_pixmap (window);
+  gnibbles_clutter_load_pixmap (properties->tilesize);
+  clutter_board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
+  setup_window_clutter ();
+  
+  gnibbles_load_logo ();
 
   gtk_widget_show (window);
 
-  buffer_pixmap = gdk_pixmap_new (gtk_widget_get_window (drawing_area),
-				  BOARDWIDTH * properties->tilesize,
-				  BOARDHEIGHT * properties->tilesize, -1);
 #ifdef GGZ_CLIENT
   network_init ();
   network_gui_update ();
 #endif
 
-  render_logo ();
+  render_logo_clutter ();
 
   gtk_action_set_sensitive (pause_action, FALSE);
   gtk_action_set_sensitive (resume_action, FALSE);
@@ -1385,36 +1434,10 @@ main (int argc, char **argv)
   gtk_action_set_visible (new_game_action, !ggz_network_mode);
   gtk_action_set_visible (player_list_action, ggz_network_mode);
 
-  // clutter fun
-  gtk_clutter_init (&argc, &argv);
-
-  gnibbles_clutter_load_pixmap (properties->tilesize);
-  clutter_board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
-  setup_window_clutter ();
-  
-  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
-
-  int i;
-
-  level = gnibbles_level_new (5);
-
-  gnibbles_board_load_level (clutter_board, level);
- 
-  for (i = 0; i < properties->numworms; i++) {
-    clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworms[i]->actors);
-    clutter_actor_raise_top (cworms[i]->actors);
-  }
-
-  ClutterTimeline *timeline = clutter_timeline_new (115);
-  clutter_timeline_set_loop (timeline, TRUE);
- 
-  g_signal_connect (timeline, "new-frame", G_CALLBACK (move_worm_cb), NULL);
-
-  clutter_timeline_start (timeline);
-  //render_logo_clutter (clutter_board);
 
   gtk_main ();
 
+ // g_object_unref (timeline);
   gnibbles_properties_destroy (properties);
   games_conf_shutdown ();
 

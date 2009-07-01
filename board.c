@@ -169,7 +169,6 @@ gnibbles_board_load_level (GnibblesBoard *board, GnibblesLevel *level)
 
   ClutterActor *stage = gnibbles_board_get_stage (board);
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), board->level);
-  //raise the level above the surface
   clutter_actor_raise (board->level,board->surface);
 }
 

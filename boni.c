@@ -32,7 +32,7 @@
 #include "ggz-network.h"
 #include "level.h"
 
-extern gchar board[BOARDWIDTH][BOARDHEIGHT];
+//extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 extern GnibblesLevel *level;
 
 GnibblesBoni *
@@ -71,18 +71,21 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
   boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y,
 							                                          t_type, t_fake,
 							                                          t_countdown);
+/*
   board[t_x][t_y] = t_type + 'A';
   board[t_x + 1][t_y] = t_type + 'A';
   board[t_x][t_y + 1] = t_type + 'A';
   board[t_x + 1][t_y + 1] = t_type + 'A';
-
+*/
   //gnibbles-clutter-level
   level->walls[t_x][t_y] = t_type = 'A';
   level->walls[t_x + 1][t_y] = t_type + 'A';
   level->walls[t_x][t_y + 1] = t_type + 'A';
   level->walls[t_x + 1][t_y + 1] = t_type + 'A';
 
-  gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
+  //gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
+  gnibbles_bonus_draw_clutter (boni->bonuses[boni->numbonuses]);
+  
   boni->numbonuses++;
   if (t_type != BONUSREGULAR)
     games_sound_play ("appear");
@@ -91,7 +94,6 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
     network_add_bonus (t_x, t_y, t_type, t_fake, t_countdown);
   }
 #endif
-
 }
 
 void
@@ -103,18 +105,20 @@ gnibbles_boni_add_bonus_final (GnibblesBoni * boni, gint t_x, gint t_y,
   boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y,
 							t_type, t_fake,
 							t_countdown);
+/*
   board[t_x][t_y] = t_type + 'A';
   board[t_x + 1][t_y] = t_type + 'A';
   board[t_x][t_y + 1] = t_type + 'A';
   board[t_x + 1][t_y + 1] = t_type + 'A';
-
+*/
   //gnibbles-clutter-level
   level->walls[t_x][t_y] = t_type + 'A';
   level->walls[t_x + 1][t_y] = t_type + 'A';
   level->walls[t_x][t_y + 1] = t_type + 'A';
   level->walls[t_x + 1][t_y + 1] = t_type + 'A';
 
-  gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
+  //gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
+  gnibbles_bonus_draw_clutter (boni->bonuses[boni->numbonuses]);
   boni->numbonuses++;
   if (t_type != BONUSREGULAR)
     games_sound_play ("appear");
@@ -127,12 +131,12 @@ gnibbles_boni_fake (GnibblesBoni * boni, gint x, gint y)
 
   for (i = 0; i < boni->numbonuses; i++) {
     if ((x == boni->bonuses[i]->x &&
-	 y == boni->bonuses[i]->y) ||
-	(x == boni->bonuses[i]->x + 1 &&
-	 y == boni->bonuses[i]->y) ||
-	(x == boni->bonuses[i]->x &&
-	 y == boni->bonuses[i]->y + 1) ||
-	(x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
+	      y == boni->bonuses[i]->y) ||
+    	  (x == boni->bonuses[i]->x + 1 &&
+	      y == boni->bonuses[i]->y) ||
+	      (x == boni->bonuses[i]->x &&
+	      y == boni->bonuses[i]->y + 1) ||
+	      (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
       return (boni->bonuses[i]->fake);
     }
   }
@@ -152,24 +156,26 @@ gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
 #endif
   for (i = 0; i < boni->numbonuses; i++) {
     if ((x == boni->bonuses[i]->x &&
-	 y == boni->bonuses[i]->y) ||
-	(x == boni->bonuses[i]->x + 1 &&
-	 y == boni->bonuses[i]->y) ||
-	(x == boni->bonuses[i]->x &&
-	 y == boni->bonuses[i]->y + 1) ||
-	(x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
+	      y == boni->bonuses[i]->y) ||
+	      (x == boni->bonuses[i]->x + 1 &&
+	      y == boni->bonuses[i]->y) ||
+	      (x == boni->bonuses[i]->x &&
+	      y == boni->bonuses[i]->y + 1) ||
+	      (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
+/*      
       board[boni->bonuses[i]->x][boni->bonuses[i]->y] = EMPTYCHAR;
       board[boni->bonuses[i]->x + 1][boni->bonuses[i]->y] = EMPTYCHAR;
       board[boni->bonuses[i]->x][boni->bonuses[i]->y + 1] = EMPTYCHAR;
       board[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1]	= EMPTYCHAR;
-
+*/
       //gnibbles-clutter-level
       level->walls[boni->bonuses[i]->x][boni->bonuses[i]->y] = EMPTYCHAR;
       level->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y] = EMPTYCHAR;
       level->walls[boni->bonuses[i]->x][boni->bonuses[i]->y + 1] = EMPTYCHAR;
       level->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1]	= EMPTYCHAR;
 
-      gnibbles_bonus_erase (boni->bonuses[i]);
+      //gnibbles_bonus_erase (boni->bonuses[i]);
+      gnibbles_bonus_erase_clutter (boni->bonuses[i]);
       boni->bonuses[i] = boni->bonuses[--boni->numbonuses];
       return;
     }
@@ -183,24 +189,26 @@ gnibbles_boni_remove_bonus_final (GnibblesBoni * boni, gint x, gint y)
 
   for (i = 0; i < boni->numbonuses; i++) {
     if ((x == boni->bonuses[i]->x &&
-	 y == boni->bonuses[i]->y) ||
-	(x == boni->bonuses[i]->x + 1 &&
-	 y == boni->bonuses[i]->y) ||
-	(x == boni->bonuses[i]->x &&
-	 y == boni->bonuses[i]->y + 1) ||
-	(x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
+	      y == boni->bonuses[i]->y) ||
+	      (x == boni->bonuses[i]->x + 1 &&
+	      y == boni->bonuses[i]->y) ||
+	      (x == boni->bonuses[i]->x &&
+	      y == boni->bonuses[i]->y + 1) ||
+	      (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
+/*      
       board[boni->bonuses[i]->x][boni->bonuses[i]->y] = EMPTYCHAR;
       board[boni->bonuses[i]->x + 1][boni->bonuses[i]->y] = EMPTYCHAR;
       board[boni->bonuses[i]->x][boni->bonuses[i]->y + 1] = EMPTYCHAR;
       board[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1] = EMPTYCHAR;
-
+*/
       //gnibbles-clutter-level
       level->walls[boni->bonuses[i]->x][boni->bonuses[i]->y] = EMPTYCHAR;
       level->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y] = EMPTYCHAR;
       level->walls[boni->bonuses[i]->x][boni->bonuses[i]->y + 1] = EMPTYCHAR;
       level->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1] = EMPTYCHAR;
 
-      gnibbles_bonus_erase (boni->bonuses[i]);
+      //gnibbles_bonus_erase (boni->bonuses[i]);
+      gnibbles_bonus_erase_clutter (boni->bonuses[i]);
       boni->bonuses[i] = boni->bonuses[--boni->numbonuses];
       return;
     }

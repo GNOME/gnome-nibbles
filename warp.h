@@ -36,5 +36,6 @@ typedef struct {
 GnibblesWarp *gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy);
 
 void gnibbles_warp_draw_buffer (GnibblesWarp * warp);
+void gnibbles_warp_draw (GnibblesWarp *warp);
 
 #endif

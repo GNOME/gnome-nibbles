@@ -53,6 +53,7 @@ typedef struct {
   gint start;
   gint stop;
   gint change;
+  gint keypress;
 } GnibblesCWorm;
 
 typedef struct {
@@ -66,7 +67,9 @@ typedef struct {
 } WormCorner;
 
 GnibblesCWorm * gnibbles_cworm_new (guint number, guint t_xhead,
-			                    guint t_yhead, gint t_direction);       
+			                    guint t_yhead, gint t_direction); 
+gint gnibbles_cworm_handle_keypress (GnibblesCWorm * worm, guint keyval);
+
 void gnibbles_cworm_add_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_remove_actor (GnibblesCWorm *worm);
 void gnibbles_cworm_destroy (GnibblesCWorm * worm);

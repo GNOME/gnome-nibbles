@@ -46,7 +46,9 @@ GnibblesBonus *gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
 				   gint t_fake, gint t_countdown);
 
 void gnibbles_bonus_draw (GnibblesBonus * bonus);
+void gnibbles_bonus_draw_clutter (GnibblesBonus *bonus);
 
 void gnibbles_bonus_erase (GnibblesBonus * bonus);
+void gnibbles_bonus_erase_clutter (GnibblesBonus *bonus);
 
 #endif

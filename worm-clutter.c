@@ -35,6 +35,9 @@
 #include "bonus.h"
 #include "warpmanager.h"
 #include "properties.h"
+#ifdef GGZ_CLIENT
+#include "ggz-network.h"
+#endif
 
 #include "worm-clutter.h"
 
@@ -44,6 +47,110 @@ extern GnibblesLevel *level;
 extern GnibblesBoni *boni;
 extern GnibblesWarpManager *warpmanager;
 extern GnibblesCWorm *cworms[NUMWORMS];
+
+typedef struct _key_queue_entry {
+  GnibblesCWorm *worm;
+  guint dir;
+} key_queue_entry;
+
+static void cworm_handle_direction (int worm, int dir);
+static void cworm_set_direction (int worm, int dir);
+static void gnibbles_worm_dequeue_keypress (GnibblesCWorm *worm);
+static void gnibbles_worm_queue_keypress (GnibblesCWorm *worm, guint dir);
+static void gnibbles_worm_queue_empty (GnibblesCWorm *worm);
+
+static GQueue *key_queue[NUMWORMS] = { NULL, NULL, NULL, NULL };
+
+static void
+gnibbles_worm_queue_keypress (GnibblesCWorm * worm, guint dir)
+{
+  key_queue_entry *entry;
+  int n = worm->number;
+
+  if (key_queue[n] == NULL)
+    key_queue[n] = g_queue_new ();
+
+  /* Ignore duplicates in normal movement mode. This resolves the
+   * key repeat issue. We ignore this in relative mode because then
+   * you do want two keys that are the same in quick succession. */
+  if ((!properties->wormprops[worm->number]->relmove) &&
+      (!g_queue_is_empty (key_queue[n])) &&
+      (dir == ((key_queue_entry *) g_queue_peek_tail (key_queue[n]))->dir))
+    return;
+
+  entry = g_malloc (sizeof (key_queue_entry));
+  entry->worm = worm;
+  entry->dir = dir;
+  g_queue_push_tail (key_queue[n], (gpointer) entry);
+}
+
+static void
+cworm_handle_direction (int worm, int dir)
+{
+  if (ggz_network_mode) {
+#ifdef GGZ_CLIENT
+    network_game_move (dir);
+
+    cworms[0]->direction = dir;
+    cworms[0]->keypress = 1;
+#endif
+  } else {
+    cworm_set_direction (worm, dir);
+  }
+}
+
+static void
+cworm_set_direction (int worm, int dir)
+{
+
+  if (worm >= properties->human) {
+    return;
+  }
+
+  if (cworms[worm]) {
+
+    if (dir > 4)
+      dir = 1;
+    if (dir < 1)
+      dir = 4;
+
+    if (cworms[worm]->keypress) {
+      gnibbles_worm_queue_keypress (cworms[worm], dir);
+      return;
+    }
+
+    cworms[worm]->direction = dir;
+    cworms[worm]->keypress = 1;
+  }
+}
+
+static void
+gnibbles_worm_queue_empty (GnibblesCWorm * worm)
+{
+  key_queue_entry *entry;
+  int n = worm->number;
+
+  if (!key_queue[n])
+    return;
+
+  while (!g_queue_is_empty (key_queue[n])) {
+    entry = g_queue_pop_head (key_queue[n]);
+    g_free (entry);
+  }
+}
+
+static void
+gnibbles_worm_dequeue_keypress (GnibblesCWorm * worm)
+{
+  key_queue_entry *entry;
+  int n = worm->number;
+
+  entry = (key_queue_entry *) g_queue_pop_head (key_queue[n]);
+
+  cworm_set_direction (entry->worm->number, entry->dir);
+
+  g_free (entry);
+}
 
 static ClutterActor*
 gnibbles_cworm_get_head_actor (GnibblesCWorm *worm)
@@ -55,6 +162,56 @@ static ClutterActor*
 gnibbles_cworm_get_tail_actor (GnibblesCWorm *worm)
 {
   return CLUTTER_ACTOR (g_list_last (worm->list)->data);
+}
+
+gint
+gnibbles_cworm_handle_keypress (GnibblesCWorm * worm, guint keyval)
+{
+  GnibblesWormProps *props;
+  guint propsUp, propsLeft, propsDown, propsRight, keyvalUpper;
+/*	if (worm->keypress) {
+                gnibbles_worm_queue_keypress (worm, keyval);
+		return FALSE;
+	} */
+
+  props = properties->wormprops[ggz_network_mode ? 0 : worm->number];
+  propsUp = toupper(props->up);
+  propsLeft = toupper(props->left);
+  propsDown = toupper(props->down);
+  propsRight = toupper(props->right);
+  keyvalUpper = toupper(keyval);
+
+  if (properties->wormprops[worm->number]->relmove) {
+    if (keyvalUpper == propsLeft)
+      cworm_handle_direction (worm->number, worm->direction - 1);
+    else if (keyvalUpper == propsRight)
+      cworm_handle_direction (worm->number, worm->direction + 1);
+    else
+      return FALSE;
+    return TRUE;
+  } else {
+    if ((keyvalUpper == propsUp) && (worm->direction != WORMDOWN)) {
+      cworm_handle_direction (worm->number, WORMUP);
+      /*worm->keypress = 1; */
+      return TRUE;
+    }
+    if ((keyvalUpper == propsRight) && (worm->direction != WORMLEFT)) {
+      cworm_handle_direction (worm->number, WORMRIGHT);
+      /*worm->keypress = 1; */
+      return TRUE;
+    }
+    if ((keyvalUpper == propsDown) && (worm->direction != WORMUP)) {
+      cworm_handle_direction (worm->number, WORMDOWN);
+      /*worm->keypress = 1; */
+      return TRUE;
+    }
+    if ((keyvalUpper == propsLeft) && (worm->direction != WORMRIGHT)) {
+      cworm_handle_direction (worm->number, WORMLEFT);
+      /*worm->keypress = 1; */
+      return TRUE;
+    }
+  }
+  return FALSE;
 }
 
 static gint
@@ -210,6 +367,16 @@ void
 gnibbles_cworm_inverse (GnibblesCWorm *worm)
 {
   worm->list = g_list_reverse (worm->list);
+  
+  gint tmp;
+
+  tmp = worm->xhead;
+  worm->xhead = worm->xtail;
+  worm->xtail = tmp;
+  tmp = worm->yhead;
+  worm->yhead = worm->ytail;
+  worm->ytail = tmp;
+  tmp = worm->yhead;
 }
 
 void 
