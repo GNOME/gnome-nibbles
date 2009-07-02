@@ -268,6 +268,7 @@ gnibbles_cworm_new (guint number, guint t_xhead,
   worm->direction_start = t_direction;
 
   gnibbles_cworm_add_actor (worm);
+  gnibbles_worm_queue_empty (worm);
 
   return worm;
 }
@@ -530,6 +531,10 @@ gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm)
     default:
       break;
   }
+
+  if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
+    gnibbles_worm_dequeue_keypress (worm);
+  }
 }
 
 void
@@ -585,6 +590,10 @@ gnibbles_cworm_move_head (GnibblesCWorm *worm)
       break;
     default:
       break;
+  }
+
+  if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
+    gnibbles_worm_dequeue_keypress (worm);
   }
 }
 
@@ -1006,18 +1015,18 @@ gnibbles_cworm_ai_wander (gint x, gint y, gint dir, gint ox, gint oy)
     dir = 4;
 
   switch (dir) {
-  case WORMUP:
-    y -= 1;
-    break;
-  case WORMDOWN:
-    y += 1;
-    break;
-  case WORMLEFT:
-    x -= 1;
-    break;
-  case WORMRIGHT:
-    x += 1;
-    break;
+    case WORMUP:
+      y -= 1;
+      break;
+    case WORMDOWN:
+      y += 1;
+      break;
+    case WORMLEFT:
+      x -= 1;
+      break;
+    case WORMRIGHT:
+      x += 1;
+      break;
   }
 
   if (x >= BOARDWIDTH)

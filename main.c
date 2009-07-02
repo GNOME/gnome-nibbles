@@ -117,6 +117,7 @@ static gint add_bonus_cb (gpointer data);
 static void render_logo (void);
 static void render_logo_clutter (void);
 static gint end_game_cb (GtkAction * action, gpointer data);
+static void hide_logo (void);
 
 static GtkAction *new_game_action;
 static GtkAction *new_network_action;
@@ -128,6 +129,8 @@ static GtkAction *preferences_action;
 static GtkAction *scores_action;
 static GtkAction *fullscreen_action;
 static GtkAction *leave_fullscreen_action;
+
+static ClutterActor *landing_page;
 
 static void
 hide_cursor (void)
@@ -591,6 +594,7 @@ new_game_clutter (void)
     current_level = rand () % MAXLEVEL + 1;
   }
 
+  hide_logo ();
   level = gnibbles_level_new (current_level);
   gnibbles_board_load_level (clutter_board, level);
   //gnibbles_clutter_add_bonus (1);
@@ -1276,12 +1280,13 @@ render_logo_clutter (void)
   ClutterColor actor_color = {0xff,0xff,0xff,0xff};
 
   ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
-
+  landing_page = clutter_group_new ();
 
   clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
  
   if (!logo_pixmap)
     gnibbles_load_logo ();
+
   logo = gtk_clutter_texture_new_from_pixbuf (logo_pixmap);
 
   clutter_actor_set_size (CLUTTER_ACTOR (logo), width, height);
@@ -1296,10 +1301,26 @@ render_logo_clutter (void)
   clutter_actor_set_position (CLUTTER_ACTOR (desc), (width / 2) - 170, height - 40);
   clutter_actor_show (desc);
 
-  clutter_container_add (CLUTTER_CONTAINER (stage), logo, text, desc, NULL);
+  clutter_container_add (CLUTTER_CONTAINER (stage), 
+                         CLUTTER_ACTOR (logo), 
+                         CLUTTER_ACTOR (text),
+                         CLUTTER_ACTOR (desc),
+                         NULL);
   clutter_actor_raise_top (logo);
   clutter_actor_raise (text, logo);
   clutter_actor_raise (desc, logo);
+
+  clutter_container_add (CLUTTER_CONTAINER (landing_page),
+                         CLUTTER_ACTOR (logo),
+                         CLUTTER_ACTOR (text),
+                         CLUTTER_ACTOR (desc),
+                         NULL);
+}
+
+static void
+hide_logo (void)
+{
+  clutter_actor_hide (CLUTTER_ACTOR (landing_page));
 }
 
 static void
@@ -1364,8 +1385,6 @@ render_logo (void)
 		     fg_gc[gtk_widget_get_state (drawing_area)], buffer_pixmap, 
 		     0, 0, 0, 0, BOARDWIDTH * properties->tilesize,
 		     BOARDHEIGHT * properties->tilesize);
-
-
 }
 
 int
