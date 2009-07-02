@@ -61,8 +61,8 @@ gnibbles_board_new (gint t_w, gint t_h)
 
   clutter_stage_set_user_resizable (CLUTTER_STAGE(stage), FALSE); 
   clutter_actor_set_size (CLUTTER_ACTOR (stage), 
-                        properties->tilesize * BOARDWIDTH,
-                        properties->tilesize * BOARDHEIGHT);
+                          properties->tilesize * BOARDWIDTH,
+                          properties->tilesize * BOARDHEIGHT);
   clutter_stage_set_user_resizable (CLUTTER_STAGE (stage), FALSE);
   clutter_actor_show (stage);
 

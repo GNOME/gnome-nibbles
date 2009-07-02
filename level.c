@@ -80,23 +80,31 @@ gnibbles_level_new (gint level)
       switch (lvl->walls[j][i]) {
         case 'm':
           lvl->walls[j][i] = EMPTYCHAR;
-          if (count < properties->numworms)
-            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMUP);
+          if (count < properties->numworms) {
+            cworms[count] = gnibbles_cworm_new (count, j, i, WORMUP);
+            count++;
+          }
           break;
         case 'n':
           lvl->walls[j][i] = EMPTYCHAR;
-          if (count < properties->numworms)
-            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMLEFT);
+          if (count < properties->numworms) {
+            cworms[count] = gnibbles_cworm_new (count, j, i, WORMLEFT);
+            count++;
+          }
           break;
         case 'o':
           lvl->walls[j][i] = EMPTYCHAR;
-          if (count < properties->numworms)
-            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMDOWN);
+          if (count < properties->numworms) {
+            cworms[count] = gnibbles_cworm_new (count, j, i, WORMDOWN);
+            count++;
+          }
           break;
         case 'p':
           lvl->walls[j][i] = EMPTYCHAR;
-          if (count < properties->numworms)
-            cworms[count] = gnibbles_cworm_new (count++, j, i, WORMRIGHT);
+          if (count < properties->numworms) {
+            cworms[count] = gnibbles_cworm_new (count, j, i, WORMRIGHT);
+            count++;
+          }
           break;
         case 'Q':
           gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);

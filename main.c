@@ -115,7 +115,7 @@ NULL};
 
 static gint add_bonus_cb (gpointer data);
 static void render_logo (void);
-static void render_logo_clutter ();
+static void render_logo_clutter (void);
 static gint end_game_cb (GtkAction * action, gpointer data);
 
 static GtkAction *new_game_action;
@@ -346,8 +346,7 @@ configure_clutter_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpoin
   int i;
 
   if (game_running ()) {
-    if (data) {
-      GnibblesBoard *clutter_board = (GnibblesBoard *)data;
+    if (clutter_board) {
       gnibbles_board_resize (clutter_board, tilesize);
       for (i=0; i<properties->numworms; i++)
         gnibbles_cworm_resize (cworms[i], tilesize);
@@ -359,7 +358,7 @@ configure_clutter_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpoin
   /* But, has the tile size changed? */
   if (properties->tilesize == tilesize) {
     /* We must always re-load the logo. */
-    gnibbles_load_logo (window);
+    gnibbles_load_logo ();
     return FALSE;
   }
 
@@ -368,7 +367,7 @@ configure_clutter_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpoin
   properties->tilesize = tilesize;
   gnibbles_properties_set_tile_size (tilesize);
 
-  gnibbles_load_logo (window);
+  gnibbles_load_logo ();
   
   return FALSE;
 }
@@ -400,7 +399,7 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
   if (properties->tilesize == tilesize) {
 
     /* We must always re-load the logo. */
-    gnibbles_load_logo (window);
+    //gnibbles_load_logo (window);
     return FALSE;
   }
 
@@ -408,7 +407,7 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
   gnibbles_properties_set_tile_size (tilesize);
 
   /* Reload the images pixmap. */
-  gnibbles_load_logo (window);
+  //gnibbles_load_logo (window);
   gnibbles_load_pixmap (window);
 
   /* Recreate the buffer pixmap. */
@@ -585,7 +584,6 @@ new_game_clutter (void)
     main_id = 0;
   }
 
-  gnibbles_clutter_init ();
 
   if (ggz_network_mode || !properties->random) {
     current_level = properties->startlevel;
@@ -595,7 +593,8 @@ new_game_clutter (void)
 
   level = gnibbles_level_new (current_level);
   gnibbles_board_load_level (clutter_board, level);
-  gnibbles_clutter_add_bonus (1);
+  //gnibbles_clutter_add_bonus (1);
+  gnibbles_clutter_init ();
 
   paused = 0;
   gtk_action_set_visible (pause_action, !paused);
@@ -1138,10 +1137,10 @@ setup_window_clutter ()
 #endif
 
   g_signal_connect (G_OBJECT (clutter_board->clutter_widget), "configure_event",
-		    G_CALLBACK (configure_clutter_event_cb), clutter_board);
+		    G_CALLBACK (configure_clutter_event_cb), NULL);
 
-  g_signal_connect (G_OBJECT (window), "focus_out_event",
-		    G_CALLBACK (show_cursor_cb), NULL);
+  //g_signal_connect (G_OBJECT (window), "focus_out_event",
+	//	    G_CALLBACK (show_cursor_cb), NULL);
 
   main_vbox = gtk_vbox_new (FALSE, 0);
   gtk_box_pack_start (GTK_BOX (main_vbox), notebook, TRUE, TRUE, 0);
@@ -1152,7 +1151,6 @@ setup_window_clutter ()
   gtk_box_pack_start (GTK_BOX (main_vbox), statusbar, FALSE, FALSE, 0);
 
   gtk_container_add (GTK_CONTAINER (window), main_vbox);
-
 
   gtk_widget_show_all (window);
 #ifdef GGZ_CLIENT
@@ -1241,7 +1239,7 @@ setup_window (void)
 			       BOARDWIDTH * 5, BOARDHEIGHT * 5);
   g_signal_connect (G_OBJECT (drawing_area), "expose_event",
 		    G_CALLBACK (expose_event_cb), NULL);
-  /* We do our own double-buffering. */
+  // We do our own double-buffering. 
   gtk_widget_set_double_buffered (GTK_WIDGET (drawing_area), FALSE);
   gtk_widget_set_events (drawing_area, GDK_BUTTON_PRESS_MASK |
 			 GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK);
@@ -1268,7 +1266,7 @@ setup_window (void)
 }
 
 static void 
-render_logo_clutter ()
+render_logo_clutter (void)
 {
   
   guint width, height;
@@ -1279,9 +1277,13 @@ render_logo_clutter ()
 
   ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
 
+
   clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
-  
+ 
+  if (!logo_pixmap)
+    gnibbles_load_logo ();
   logo = gtk_clutter_texture_new_from_pixbuf (logo_pixmap);
+
   clutter_actor_set_size (CLUTTER_ACTOR (logo), width, height);
   clutter_actor_set_position (CLUTTER_ACTOR (logo), 0, 0);
   clutter_actor_show (logo);
@@ -1365,6 +1367,7 @@ render_logo (void)
 
 
 }
+
 int
 main (int argc, char **argv)
 {
@@ -1409,16 +1412,13 @@ main (int argc, char **argv)
                                  GAMES_SCORES_STYLE_PLAIN_DESCENDING);
 
   games_conf_initialise ("Gnibbles");
-
-  properties = gnibbles_properties_new ();
+  properties = gnibbles_properties_new (); 
 
   gnibbles_clutter_load_pixmap (properties->tilesize);
+
   clutter_board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
   setup_window_clutter ();
-  
   gnibbles_load_logo ();
-
-  gtk_widget_show (window);
 
 #ifdef GGZ_CLIENT
   network_init ();

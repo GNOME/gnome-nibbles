@@ -284,21 +284,14 @@ gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 }
 
 void
-gnibbles_load_logo (GtkWidget * window)
+gnibbles_load_logo (void)
 {
-  gfloat width; 
-  gfloat height;
-
-  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
-  clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
-  if (GTK_WIDGET_REALIZED (clutter_board->clutter_widget) == FALSE)
-    return;
-
   if (logo_pixmap)
     g_object_unref (logo_pixmap);
 
   logo_pixmap = gnibbles_clutter_load_pixmap_file ("gnibbles-logo.svg",
-                               			       (gint)width, (gint)height);
+                               			            clutter_board->width, 
+                                                clutter_board->height);
 }
 
 void
@@ -474,24 +467,29 @@ gnibbles_load_level (GtkWidget * window, gint level)
 void
 gnibbles_clutter_init ()
 {
-  gint i;
+  if (clutter_board == NULL)
+    return;
 
+  gint i;
+/*
   for (i = 0; i < properties->numworms; i++)
     if (cworms[i])
       gnibbles_cworm_destroy (cworms[i]);
-
+*/
   gnibbles_scoreboard_clear (scoreboard);
 
   for (i = 0; i < properties->numworms; i++) {
-    worms[i] = gnibbles_worm_new (i);
-    gnibbles_scoreboard_register (scoreboard, worms[i], 
-	                 colorval_name (properties->wormprops[i]->color));
+    //gnibbles_scoreboard_register (scoreboard, cworms[i], 
+	  //               colorval_name (properties->wormprops[i]->color));
   }
 
   ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
+
   for (i = 0; i < properties->numworms; i++) {
-    clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworms[i]->actors);
-    clutter_actor_raise_top (cworms[i]->actors);
+    if (cworms[i]) {
+      clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworms[i]->actors);
+      clutter_actor_raise_top (cworms[i]->actors);
+    }
   }
 
   gnibbles_scoreboard_update (scoreboard);
