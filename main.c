@@ -1301,20 +1301,18 @@ render_logo_clutter (void)
   clutter_actor_set_position (CLUTTER_ACTOR (desc), (width / 2) - 170, height - 40);
   clutter_actor_show (desc);
 
-  clutter_container_add (CLUTTER_CONTAINER (stage), 
-                         CLUTTER_ACTOR (logo), 
-                         CLUTTER_ACTOR (text),
-                         CLUTTER_ACTOR (desc),
-                         NULL);
-  clutter_actor_raise_top (logo);
-  clutter_actor_raise (text, logo);
-  clutter_actor_raise (desc, logo);
-
   clutter_container_add (CLUTTER_CONTAINER (landing_page),
                          CLUTTER_ACTOR (logo),
                          CLUTTER_ACTOR (text),
                          CLUTTER_ACTOR (desc),
                          NULL);
+  
+  clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
+                         CLUTTER_ACTOR (landing_page));
+  clutter_actor_raise_top (logo);
+  clutter_actor_raise (text, logo);
+  clutter_actor_raise (desc, logo);
+
 }
 
 static void

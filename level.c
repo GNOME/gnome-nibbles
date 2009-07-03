@@ -21,6 +21,7 @@
 
 #include <stdlib.h>
 #include <glib/gi18n.h>
+
 #include "level.h"
 #include "gnibbles.h"
 #include "worm-clutter.h"

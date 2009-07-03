@@ -20,14 +20,17 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 #include <config.h>
+
 #include <glib/gprintf.h>
 #include <ctype.h>
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
 #include <stdlib.h>
 #include <math.h>
+
 #include <libgames-support/games-runtime.h>
 #include <clutter-gtk/clutter-gtk.h>
+
 #include "main.h"
 #include "gnibbles.h"
 #include "level.h"
@@ -35,6 +38,7 @@
 #include "bonus.h"
 #include "warpmanager.h"
 #include "properties.h"
+
 #ifdef GGZ_CLIENT
 #include "ggz-network.h"
 #endif
@@ -52,12 +56,6 @@ typedef struct _key_queue_entry {
   GnibblesCWorm *worm;
   guint dir;
 } key_queue_entry;
-
-static void cworm_handle_direction (int worm, int dir);
-static void cworm_set_direction (int worm, int dir);
-static void gnibbles_worm_dequeue_keypress (GnibblesCWorm *worm);
-static void gnibbles_worm_queue_keypress (GnibblesCWorm *worm, guint dir);
-static void gnibbles_worm_queue_empty (GnibblesCWorm *worm);
 
 static GQueue *key_queue[NUMWORMS] = { NULL, NULL, NULL, NULL };
 
@@ -85,21 +83,6 @@ gnibbles_worm_queue_keypress (GnibblesCWorm * worm, guint dir)
 }
 
 static void
-cworm_handle_direction (int worm, int dir)
-{
-  if (ggz_network_mode) {
-#ifdef GGZ_CLIENT
-    network_game_move (dir);
-
-    cworms[0]->direction = dir;
-    cworms[0]->keypress = 1;
-#endif
-  } else {
-    cworm_set_direction (worm, dir);
-  }
-}
-
-static void
 cworm_set_direction (int worm, int dir)
 {
 
@@ -123,6 +106,22 @@ cworm_set_direction (int worm, int dir)
     cworms[worm]->keypress = 1;
   }
 }
+
+static void
+cworm_handle_direction (int worm, int dir)
+{
+  if (ggz_network_mode) {
+#ifdef GGZ_CLIENT
+    network_game_move (dir);
+
+    cworms[0]->direction = dir;
+    cworms[0]->keypress = 1;
+#endif
+  } else {
+    cworm_set_direction (worm, dir);
+  }
+}
+
 
 static void
 gnibbles_worm_queue_empty (GnibblesCWorm * worm)

@@ -45,7 +45,6 @@
 #include "scoreboard.h"
 #include "board.h"
 #include "level.h"
-
 #include "worm-clutter.h"
 
 #ifdef GGZ_CLIENT

@@ -26,8 +26,8 @@
 #include <glib/gprintf.h>
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
-#include <libgames-support/games-runtime.h>
 
+#include <libgames-support/games-runtime.h>
 #include <clutter-gtk/clutter-gtk.h>
 
 #include "main.h"
