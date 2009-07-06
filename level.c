@@ -27,11 +27,12 @@
 #include "worm-clutter.h"
 #include "main.h"
 #include "properties.h"
+#include "boni.h"
 
 extern GnibblesCWorm *cworms[];
 extern GnibblesProperties *properties;
 extern GnibblesWarpManager *warpmanager;
-
+extern GnibblesBoni *boni;
 GnibblesLevel *
 gnibbles_level_new (gint level)
 {
@@ -60,6 +61,11 @@ gnibbles_level_new (gint level)
     //gnibbles_error (window, message);
     g_free (message);
   }
+
+  if (boni)
+    gnibbles_boni_destroy (boni);
+
+  boni = gnibbles_boni_new ();
 
   for (i = 0; i < properties->numworms; i++)
     if (cworms[i])

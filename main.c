@@ -516,14 +516,8 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
 }
 
 static void
-move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
+move_worm_cb (void)
 {
-  const int elapsed_time = clutter_timeline_get_elapsed_time (timeline);
-  const int duration = clutter_timeline_get_duration (timeline);
-
-  if (!(elapsed_time == duration))
-    return;
-
   gint i, olddir, length, nbr_actor;
 
   for (i = 0; i < properties->numworms; i++) {
@@ -563,7 +557,7 @@ move_worm_cb (ClutterTimeline *timeline, gint msecs, gpointer data)
       else 
         gnibbles_cworm_move_head (cworms[i]);
     } else if (nbr_actor < 1) {
-      //worm's dead
+      //worm's dead, do something clever about it...
       return;
     }
   }
@@ -597,7 +591,7 @@ new_game_clutter (void)
   hide_logo ();
   level = gnibbles_level_new (current_level);
   gnibbles_board_load_level (clutter_board, level);
-  //gnibbles_clutter_add_bonus (1);
+  gnibbles_clutter_add_bonus (1);
   gnibbles_clutter_init ();
 
   paused = 0;
@@ -624,14 +618,6 @@ new_game_clutter (void)
     g_source_remove (dummy_id);
 
   dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_clutter_2_cb, NULL);
-
-  
-  ClutterTimeline *timeline = clutter_timeline_new (115);
-  clutter_timeline_set_loop (timeline, TRUE);
- 
-  g_signal_connect (timeline, "new-frame", G_CALLBACK (move_worm_cb), NULL);
-
-  clutter_timeline_start (timeline);
 
   network_gui_update ();
 
@@ -865,7 +851,8 @@ main_loop (gpointer data)
   gint tmp, winner;
   gchar *str = NULL;
 
-  status = gnibbles_move_worms ();
+  //status = gnibbles_move_worms ();
+  move_worm_cb ();
   gnibbles_scoreboard_update (scoreboard);
 
   if (status == VICTORY) {
