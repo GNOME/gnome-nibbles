@@ -515,54 +515,6 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
   return (FALSE);
 }
 
-static void
-move_worm_cb (void)
-{
-  gint i, olddir, length, nbr_actor;
-
-  for (i = 0; i < properties->numworms; i++) {
-    // get the current direction of the worm
-    olddir = cworms[i]->direction;
-    // determine the new direction the worm will take
-    gnibbles_cworm_ai_move (cworms[i]);
-    // Add an actor when we change direction
-    if (olddir != cworms[i]->direction)
-      gnibbles_cworm_add_actor (cworms[i]);
-
-    nbr_actor = g_list_length (cworms[i]->list);
-    length = gnibbles_cworm_get_length (cworms[i]);
-    printf ("\nWorm ID: %d, Actors: %d, Length: %d,  xhead: %d, yhead:%d",
-            i, nbr_actor, length, cworms[i]->xhead, cworms[i]->yhead);
-
-    if (cworms[i]->xhead >= BOARDWIDTH) {
-      cworms[i]->xhead = 0;
-      gnibbles_cworm_add_actor(cworms[i]);
-    } else if (cworms[i]->xhead < 0) {
-      cworms[i]->xhead = BOARDWIDTH;
-      gnibbles_cworm_add_actor (cworms[i]);
-    } else if (cworms[i]->yhead >= BOARDHEIGHT) {
-      cworms[i]->yhead = 0;
-      gnibbles_cworm_add_actor (cworms[i]);
-    } else if (cworms[i]->xhead < 0) {
-      cworms[i]->yhead = BOARDHEIGHT;
-      gnibbles_cworm_add_actor (cworms[i]);
-    }
-    //if there's only one actor in the list, just move the actor
-    if (nbr_actor == 1) {
-      gnibbles_cworm_move_straight_worm (cworms[i]);
-    } else if (nbr_actor >= 2) {
-      gnibbles_cworm_move_tail (cworms[i]);
-      if (g_list_length (cworms[i]->list) == 1)
-        gnibbles_cworm_move_straight_worm (cworms[i]);
-      else 
-        gnibbles_cworm_move_head (cworms[i]);
-    } else if (nbr_actor < 1) {
-      //worm's dead, do something clever about it...
-      return;
-    }
-  }
-}
-
 gint
 new_game_clutter (void)
 {
@@ -793,7 +745,7 @@ end_game_cb (GtkAction * action, gpointer data)
 static gint
 add_bonus_cb (gpointer data)
 {
-  gnibbles_add_bonus (0);
+  //gnibbles_add_bonus (0);
   gnibbles_clutter_add_bonus (0);
   return (TRUE);
 }
@@ -804,7 +756,7 @@ restart_game_clutter (gpointer data)
   level = gnibbles_level_new (current_level);
   gnibbles_board_load_level (clutter_board, level);
   gnibbles_clutter_add_bonus (1);
-  dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_2_cb, NULL);
+  dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_clutter_2_cb, NULL);
   restart_id = 0;
   
   return FALSE;
@@ -852,7 +804,7 @@ main_loop (gpointer data)
   gchar *str = NULL;
 
   //status = gnibbles_move_worms ();
-  move_worm_cb ();
+  status = gnibbles_move_worms_clutter ();
   gnibbles_scoreboard_update (scoreboard);
 
   if (status == VICTORY) {
@@ -930,7 +882,7 @@ main_loop (gpointer data)
     erase_id = g_timeout_add (ERASETIME / ERASESIZE,
 			      (GSourceFunc) erase_worms_cb,
 			      (gpointer) ERASESIZE);
-    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
+    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game_clutter, NULL);
     return (FALSE);
   }
 
@@ -959,7 +911,7 @@ main_loop (gpointer data)
 	      tmp = rand () % MAXLEVEL + 1;
       current_level = tmp;
     }
-    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
+    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game_clutter, NULL);
     return (FALSE);
   }
 

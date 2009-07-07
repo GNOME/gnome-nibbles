@@ -69,6 +69,7 @@ void gnibbles_clutter_init (void);
 void gnibbles_init (void);
 void gnibbles_clutter_add_bonus (gint regular);
 void gnibbles_add_bonus (gint regular);
+gint gnibbles_move_worms_clutter (void);
 gint gnibbles_move_worms (void);
 gint gnibbles_get_winner (void);
 gint gnibbles_keypress_worms (guint keyval);
