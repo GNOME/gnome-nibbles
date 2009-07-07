@@ -1,3 +1,9 @@
+SUBDIRS = pix
+
+if BUILD_HELP
+SUBDIRS += help
+endif
+
 NULL =
 
 bin_PROGRAMS = gnibbles
@@ -154,9 +160,6 @@ EXTRA_DIST = \
 	gnibbles-client.dsc.in \
 	gnibbles-server.dsc.in \
 	gnibbles.room.in
-
-SUBDIRS= help pix
-
 
 CLEANFILES = \
 	$(ggzroom_DATA) \
