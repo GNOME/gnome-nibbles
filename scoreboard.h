@@ -25,10 +25,11 @@
 #include <gtk/gtk.h>
 
 #include "gnibbles.h"
-#include "worm.h"
+//#include "worm.h"
+#include "worm-clutter.h"
 
 typedef struct {
-  GnibblesWorm *worms[NUMWORMS];
+  GnibblesCWorm *worms[NUMWORMS];
   GtkWidget *names[NUMWORMS];
   GtkWidget *data[NUMWORMS];
   gint count;
@@ -37,7 +38,7 @@ typedef struct {
 GnibblesScoreboard *gnibbles_scoreboard_new (GtkWidget * t_statusbar);
 
 void gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
-				   GnibblesWorm * t_worm,
+				   GnibblesCWorm * t_worm,
 			           gchar * colorname);
 
 void gnibbles_scoreboard_update (GnibblesScoreboard * scoreboard);

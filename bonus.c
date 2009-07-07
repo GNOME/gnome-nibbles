@@ -51,13 +51,13 @@ gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
 
   return (tmp);
 }
-
+/*
 void
 gnibbles_bonus_draw (GnibblesBonus * bonus)
 {
   gnibbles_draw_big_pixmap (bonus->type, bonus->x, bonus->y);
 }
-
+*/
 void
 gnibbles_bonus_draw_clutter (GnibblesBonus *bonus)
 {
@@ -69,7 +69,7 @@ gnibbles_bonus_draw_clutter (GnibblesBonus *bonus)
   ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), bonus->actor);
 }
-
+/*
 void
 gnibbles_bonus_erase (GnibblesBonus * bonus)
 {
@@ -79,7 +79,7 @@ gnibbles_bonus_erase (GnibblesBonus * bonus)
 
   free (bonus);
 }
-
+*/
 void
 gnibbles_bonus_erase_clutter (GnibblesBonus *bonus)
 {

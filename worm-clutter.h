@@ -35,7 +35,7 @@
 #define SLIVES    10
 #define ERASESIZE 6
 #define ERASETIME 500
-
+#define CAPACITY  BOARDWIDTH * BOARDHEIGHT
 #define GROWFACTOR 4
 
 typedef struct {
@@ -56,6 +56,8 @@ typedef struct {
   gint keypress;
 } GnibblesCWorm;
 
+void cworm_set_direction (int worm, int dir);
+void cworm_handle_direction (int worm, int dir);
 
 GnibblesCWorm* gnibbles_cworm_new (guint number, guint t_xhead,
 			                             guint t_yhead, gint t_direction);

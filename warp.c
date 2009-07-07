@@ -47,13 +47,13 @@ gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
 
   return (tmp);
 }
-
+/*
 void
 gnibbles_warp_draw_buffer (GnibblesWarp * warp)
 {
   gnibbles_draw_big_pixmap_buffer (WARP, warp->x, warp->y);
 }
-
+*/
 void
 gnibbles_warp_draw (GnibblesWarp *warp)
 {

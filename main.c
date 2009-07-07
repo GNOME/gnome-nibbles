@@ -39,7 +39,7 @@
 #include "main.h"
 #include "properties.h"
 #include "gnibbles.h"
-#include "worm.h"
+//#include "worm.h"
 #include "bonus.h"
 #include "boni.h"
 #include "preferences.h"
@@ -114,7 +114,7 @@ static struct _pointers {
 NULL};
 
 static gint add_bonus_cb (gpointer data);
-static void render_logo (void);
+//static void render_logo (void);
 static void render_logo_clutter (void);
 static gint end_game_cb (GtkAction * action, gpointer data);
 static void hide_logo (void);
@@ -160,6 +160,7 @@ fullscreen_cb (GtkAction * action)
     gtk_window_unfullscreen (GTK_WINDOW (window));
   }
 }
+
 static void
 network_gui_update (void)
 {
@@ -203,7 +204,7 @@ game_running (void)
 {
   return (main_id || erase_id || dummy_id || restart_id || paused);
 }
-
+/*
 static void
 zero_board (void)
 {
@@ -215,7 +216,7 @@ zero_board (void)
       gnibbles_draw_pixmap_buffer (0, i, j);
     }
 }
-
+*/
 static void
 on_player_list (void)
 {
@@ -295,7 +296,7 @@ key_press_cb (GtkWidget * widget, GdkEventKey * event)
 
   return gnibbles_keypress_worms (event->keyval);
 }
-
+/*
 static void
 draw_board (void)
 {
@@ -310,9 +311,9 @@ draw_board (void)
 	gnibbles_draw_pixmap_buffer (properties->wormprops
 				     [board[i][j] - WORMCHAR]->color, i, j);
       } else if (board[i][j] >= 'A' && board[i][j] < 'J') {
-	/* bonus */
+	// bonus
       } else {
-	/* Warp point. */
+	// Warp point. 
       }
     }
   }
@@ -330,7 +331,7 @@ draw_board (void)
 		     BOARDHEIGHT * properties->tilesize);
 
 }
-
+*/
 static gboolean
 configure_clutter_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data)
 {
@@ -374,14 +375,14 @@ configure_clutter_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpoin
   
   return FALSE;
 }
-
+/*
 static gboolean
 configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data)
 {
   int tilesize, ts_x, ts_y;
 
-  /* Compute the new tile size based on the size of the
-   * drawing area, rounded down. */
+  // Compute the new tile size based on the size of the
+  // drawing area, rounded down. 
   ts_x = event->width / BOARDWIDTH;
   ts_y = event->height / BOARDHEIGHT;
   if (ts_x * BOARDWIDTH > event->width)
@@ -398,10 +399,10 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
       gnibbles_cworm_resize (cworms[i], tilesize);
   }
 
-  /* But, has the tile size changed? */
+  // But, has the tile size changed? 
   if (properties->tilesize == tilesize) {
 
-    /* We must always re-load the logo. */
+    // We must always re-load the logo. 
     //gnibbles_load_logo (window);
     return FALSE;
   }
@@ -409,18 +410,18 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
   properties->tilesize = tilesize;
   gnibbles_properties_set_tile_size (tilesize);
 
-  /* Reload the images pixmap. */
+  // Reload the images pixmap. 
   //gnibbles_load_logo (window);
   gnibbles_load_pixmap (window);
 
-  /* Recreate the buffer pixmap. */
+  // Recreate the buffer pixmap. 
   if (buffer_pixmap)
     g_object_unref (G_OBJECT (buffer_pixmap));
   buffer_pixmap = gdk_pixmap_new (gtk_widget_get_window (drawing_area),
 				  BOARDWIDTH * properties->tilesize,
 				  BOARDHEIGHT * properties->tilesize, -1);
 
-  /* Erase the buffer pixmap. */
+  // Erase the buffer pixmap. 
   gdk_draw_rectangle (buffer_pixmap,
 		      gtk_widget_get_style (drawing_area)->black_gc,
 		      TRUE, 0, 0,
@@ -435,7 +436,7 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
   
   return FALSE;
 }
-
+*/
 #ifdef GGZ_CLIENT
 static gint
 network_loop (gpointer data)
@@ -480,7 +481,7 @@ new_game_clutter_2_cb (GtkWidget * widget, gpointer data)
 
   return (FALSE);
 }
-
+/*
 static gint
 new_game_2_cb (GtkWidget * widget, gpointer data)
 {
@@ -514,7 +515,7 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
 
   return (FALSE);
 }
-
+*/
 gint
 new_game_clutter (void)
 {
@@ -575,7 +576,7 @@ new_game_clutter (void)
 
   return TRUE;
 }
-
+/*
 gint
 new_game (void)
 {
@@ -636,7 +637,7 @@ new_game (void)
 
   return TRUE;
 }
-
+*/
 static void
 new_game_cb (GtkAction * action, gpointer data)
 {
@@ -648,7 +649,7 @@ pause_game_cb (GtkAction * action, gpointer data)
 {
   if (paused) {
     paused = 0;
-    dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
+    dummy_id = g_timeout_add (500, (GSourceFunc) new_game_clutter_2_cb, NULL);
   } else {
     if (main_id || erase_id || restart_id || dummy_id) {
       paused = 1;
@@ -714,7 +715,7 @@ end_game (gboolean show_splash)
   }
 
   if (show_splash) {
-    render_logo ();
+    render_logo_clutter ();
     gtk_action_set_sensitive (new_network_action, TRUE);
     gtk_action_set_sensitive (pause_action, FALSE);
     gtk_action_set_sensitive (resume_action, FALSE);
@@ -761,7 +762,7 @@ restart_game_clutter (gpointer data)
   
   return FALSE;
 }
-
+/*
 static gint
 restart_game (gpointer data)
 {
@@ -776,7 +777,7 @@ restart_game (gpointer data)
 
   return (FALSE);
 }
-
+*/
 static gint
 erase_worms_cb (gpointer datap)
 {
@@ -1102,7 +1103,7 @@ setup_window_clutter ()
 
   scoreboard = gnibbles_scoreboard_new (statusbar);
 }
-
+/*
 static void
 setup_window (void)
 {
@@ -1207,7 +1208,7 @@ setup_window (void)
   scoreboard = gnibbles_scoreboard_new (statusbar);
 
 }
-
+*/
 static void 
 render_logo_clutter (void)
 {
@@ -1259,7 +1260,7 @@ hide_logo (void)
 {
   clutter_actor_hide (CLUTTER_ACTOR (landing_page));
 }
-
+/*
 static void
 render_logo (void)
 {
@@ -1303,7 +1304,7 @@ render_logo (void)
 
   pango_font_description_set_size (pfd, (size * allocation.width) / 400);
   pango_layout_set_font_description (layout, pfd);
-  /* Translators: This string will be included in the intro screen, so don't make sure it fits! */
+  // Translators: This string will be included in the intro screen, so don't make sure it fits! 
   pango_layout_set_text (layout, _("A worm game for GNOME."), -1);
   pango_layout_get_pixel_size(layout, &width, &height);  
 
@@ -1323,7 +1324,7 @@ render_logo (void)
 		     0, 0, 0, 0, BOARDWIDTH * properties->tilesize,
 		     BOARDHEIGHT * properties->tilesize);
 }
-
+*/
 int
 main (int argc, char **argv)
 {

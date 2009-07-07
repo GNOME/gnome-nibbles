@@ -62,7 +62,7 @@ gnibbles_scoreboard_new (GtkWidget * t_statusbar)
 
 void
 gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
-			      GnibblesWorm * t_worm, gchar * colorname)
+			      GnibblesCWorm * t_worm, gchar * colorname)
 {
   GdkColor color;
 

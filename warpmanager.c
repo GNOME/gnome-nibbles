@@ -27,7 +27,7 @@
 #include "warp.h"
 #include "warpmanager.h"
 #include "boni.h"
-#include "worm.h"
+//#include "worm.h"
 #include "main.h"
 #include "level.h"
 
@@ -114,6 +114,7 @@ gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
   }
 }
 // useless ?
+/*
 void
 gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
 				                              GnibblesWorm * worm)
@@ -133,7 +134,7 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
       if (warpmanager->warps[i]->wx == -1) {
 	       good = 0;
 	      while (!good) {
-	      /* In network games, warps should be fair. */
+	      // In network games, warps should be fair. 
 	        if (ggz_network_mode) {
 	          x = 10 % BOARDWIDTH;
 	          y = 10 % BOARDHEIGHT;
@@ -165,3 +166,4 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
     }
   }
 }
+*/

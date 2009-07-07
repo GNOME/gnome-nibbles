@@ -82,7 +82,7 @@ gnibbles_worm_queue_keypress (GnibblesCWorm * worm, guint dir)
   g_queue_push_tail (key_queue[n], (gpointer) entry);
 }
 
-static void
+void
 cworm_set_direction (int worm, int dir)
 {
 
@@ -107,7 +107,7 @@ cworm_set_direction (int worm, int dir)
   }
 }
 
-static void
+void
 cworm_handle_direction (int worm, int dir)
 {
   if (ggz_network_mode) {

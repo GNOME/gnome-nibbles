@@ -45,7 +45,8 @@
 #include "gnibbles.h"
 #include "properties.h"
 #include "ggz-network.h"
-#include "worm.h"
+//#include "worm.h"
+#include "worm-clutter.h"
 
 
 static void
@@ -114,7 +115,7 @@ get_move (void)
   if (ggz_read_int (fd, &player) < 0 || ggz_read_int (fd, &move) < 0)
     return -1;
   /* show some kind of pregame thing....  */
-  worm_set_direction (player, move);
+  cworm_set_direction (player, move);
   return 0;
 }
 
@@ -189,7 +190,7 @@ game_handle_io (GGZMod * mod)
 
   case GN_MSG_START:
     gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
-    new_game ();
+    new_game_clutter ();
     break;
 
   case GN_MSG_SYNC:

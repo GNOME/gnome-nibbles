@@ -37,7 +37,7 @@
 
 #include "main.h"
 #include "gnibbles.h"
-#include "worm.h"
+//#include "worm.h"
 #include "boni.h"
 #include "bonus.h"
 #include "warpmanager.h"
@@ -53,7 +53,7 @@
 
 GnibblesCWorm *cworms[NUMWORMS];
 
-GnibblesWorm *worms[NUMWORMS];
+//GnibblesWorm *worms[NUMWORMS];
 GnibblesBoni *boni = NULL;
 GnibblesWarpManager *warpmanager;
 
@@ -188,7 +188,7 @@ gnibbles_clutter_load_pixmap (gint tilesize)
                                                         tilesize, tilesize);
   }
 }
-
+/*
 static void
 gnibbles_error (GtkWidget * window, gchar * message)
 {
@@ -217,8 +217,8 @@ gnibbles_load_pixmap_file (GtkWidget * window, const gchar * pixmap,
       g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
 			 "Please check your Nibbles installation"), pixmap);
     gnibbles_error (window, message);
-    /* We should never get here since the app exits in gnibbles_error. But let's
-     * free it anyway in case someone comes along and changes gnibbles_error */
+    // We should never get here since the app exits in gnibbles_error. But let's
+    // free it anyway in case someone comes along and changes gnibbles_error 
     g_free(message);
   }
 
@@ -281,7 +281,7 @@ gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 {
   gnibbles_copy_pixmap (buffer_pixmap, which, x, y, TRUE);
 }
-
+*/
 void
 gnibbles_load_logo (void)
 {
@@ -292,7 +292,7 @@ gnibbles_load_logo (void)
                                			            clutter_board->width, 
                                                 clutter_board->height);
 }
-
+/*
 void
 gnibbles_load_pixmap (GtkWidget * window)
 {
@@ -448,7 +448,7 @@ gnibbles_load_level (GtkWidget * window, gint level)
         board[j][i] = EMPTYCHAR;
         break;
       }
-      /* Warpmanager draws the warp points. Everything else gets drawn here. */
+      // Warpmanager draws the warp points. Everything else gets drawn here. 
       if (board[j][i] >= 'a')
         gnibbles_draw_pixmap_buffer (board[j][i] - 'a', j, i);
     }
@@ -462,7 +462,7 @@ gnibbles_load_level (GtkWidget * window, gint level)
 
   fclose (in);
 }
-
+*/
 void
 gnibbles_clutter_init ()
 {
@@ -494,6 +494,7 @@ gnibbles_clutter_init ()
   gnibbles_scoreboard_update (scoreboard);
 }
 
+/*
 void
 gnibbles_init (void)
 {
@@ -513,7 +514,7 @@ gnibbles_init (void)
 
   gnibbles_scoreboard_update (scoreboard);
 }
-
+*/
 void
 gnibbles_clutter_add_bonus (gint regular)
 {
@@ -610,7 +611,7 @@ gnibbles_clutter_add_bonus (gint regular)
     }
   }
 }
-
+/*
 void
 gnibbles_add_bonus (gint regular)
 {
@@ -707,7 +708,7 @@ gnibbles_add_bonus (gint regular)
     }
   }
 }
-
+*/
 gint
 gnibbles_move_worms_clutter (void)
 {
@@ -775,7 +776,7 @@ gnibbles_move_worms_clutter (void)
     //if there's only one actor in the list, just move the actor
     if (nbr_actor == 1 && !dead[i] && cworms[i]->lives > 0) {
       gnibbles_cworm_move_straight_worm (cworms[i]);
-    } else if (nbr_actor >= 2 && !dead[i] && worms[i]->lives > 0) {
+    } else if (nbr_actor >= 2 && !dead[i] && cworms[i]->lives > 0) {
       gnibbles_cworm_move_tail (cworms[i]);
       if (g_list_length (cworms[i]->list) == 1)
         gnibbles_cworm_move_straight_worm (cworms[i]);
@@ -836,7 +837,7 @@ gnibbles_move_worms_clutter (void)
   g_free (dead);
   return (CONTINUE);
 }
-
+/*
 gint
 gnibbles_move_worms (void)
 {
@@ -887,8 +888,8 @@ gnibbles_move_worms (void)
       gnibbles_worm_draw_head (worms[i]);
 
 
-  /* If one worm has died, me must make sure that an earlier worm was not
-   * supposed to die as well. */
+  // If one worm has died, me must make sure that an earlier worm was not
+  // supposed to die as well. 
 
   for (i = 0; i < properties->numworms; i++)
     for (j = 0; j < properties->numworms; j++) {
@@ -905,14 +906,14 @@ gnibbles_move_worms (void)
       if (properties->numworms > 1)
 	      worms[i]->score *= .7;
       if (!gnibbles_worm_lose_life (worms[i])) {
-        /* One of the worms lost one life, but the round continues. */
+        // One of the worms lost one life, but the round continues. 
         gnibbles_worm_reset (worms[i]);
         gnibbles_worm_set_start (worms[i],
 				  worms[i]->xstart,
 				  worms[i]->ystart,
 				  worms[i]->direction_start);
 	      games_sound_play ("crash");
-	/* Don't return here.  May need to reset more worms. */
+	// Don't return here.  May need to reset more worms. 
 	    }
     }
 
@@ -927,19 +928,19 @@ gnibbles_move_worms (void)
       nlives += 1;
   }
   if (nlives == 1 && (properties->ai + properties->human > 1)) {
-    /* There is one player left, the other AI players are dead, and that player has won! */
+    // There is one player left, the other AI players are dead, and that player has won! 
     return (VICTORY);
   } else if (nlives == 0) {
-    /* There was only one worm, and it died. */
+    // There was only one worm, and it died. 
     return (GAMEOVER);
   }
 
-   /* Noone died, so the round can continue. */
+   // Noone died, so the round can continue. 
 
   g_free (dead);
   return (CONTINUE);
 }
-
+*/
 
 gint
 gnibbles_get_winner (void)
@@ -947,7 +948,7 @@ gnibbles_get_winner (void)
   int i;
 
   for (i = 0; i < properties->numworms; i++) {
-    if (worms[i]->lives > 0) {
+    if (cworms[i]->lives > 0) {
       return i;
     }
   }
@@ -961,7 +962,7 @@ gnibbles_keypress_worms (guint keyval)
   gint numworms = ggz_network_mode ? 1 : properties->numworms;
 
   for (i = 0; i < numworms; i++)
-    if (gnibbles_worm_handle_keypress (worms[i], keyval)) {
+    if (gnibbles_cworm_handle_keypress (cworms[i], keyval)) {
       return TRUE;
     }
 
@@ -1023,10 +1024,10 @@ gnibbles_log_score (GtkWidget * window)
   if (properties->startlevel != 1)
     return;
 
-  if (!worms[0]->score)
+  if (!cworms[0]->score)
     return;
 
-  score.plain = worms[0]->score;
+  score.plain = cworms[0]->score;
   pos = games_scores_add_score (highscores, score);
 
   gnibbles_show_scores (window, pos);

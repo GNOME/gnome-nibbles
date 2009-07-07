@@ -18,8 +18,6 @@ gnibbles_SOURCES = \
 	warp.c \
 	warpmanager.h \
 	warpmanager.c \
-	worm.h \
-	worm.c \
 	gnibbles.h \
 	gnibbles.c \
 	properties.h \
