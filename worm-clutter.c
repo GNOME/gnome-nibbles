@@ -629,7 +629,7 @@ gnibbles_cworm_move_tail (GnibblesCWorm *worm)
                                 properties->tilesize);
         clutter_actor_set_position (CLUTTER_ACTOR (tail), 
                                     x + properties->tilesize, y);
-        //level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
+        level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
         worm->xtail++;
         break;
       case WORMDOWN:
@@ -638,21 +638,21 @@ gnibbles_cworm_move_tail (GnibblesCWorm *worm)
                                 size);
         clutter_actor_set_position (CLUTTER_ACTOR (tail), 
                                     x, y + properties->tilesize);
-        //level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
+        level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
         worm->ytail++;
         break;
       case WORMLEFT:
         clutter_actor_set_size (CLUTTER_ACTOR (tail), 
                                 size, 
                                 properties->tilesize);
-        //level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
+        level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
         worm->xtail--;
         break;
       case WORMUP:
         clutter_actor_set_size (CLUTTER_ACTOR (tail), 
                                 properties->tilesize, 
                                 size);
-        //level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
+        level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
         worm->ytail--;
         break;
       default:
