@@ -157,8 +157,8 @@ gnibbles_load_pixmap (gint tilesize)
       g_object_unref (boni_pixmaps[i]);
 
     boni_pixmaps[i] = gnibbles_load_pixmap_file (bonus_files[i],
-  					                                             4 * tilesize,
-                          						                   4 * tilesize);
+  					                                             2 * tilesize,
+                          						                   2 * tilesize);
   }
 
   for (i = 0; i < 11; i++) {
@@ -186,8 +186,8 @@ gnibbles_load_logo (void)
     g_object_unref (logo_pixmap);
 
   logo_pixmap = gnibbles_load_pixmap_file ("gnibbles-logo.svg",
-                               			            board->width, 
-                                                board->height);
+                               			            board->width * 8, 
+                                                board->height * 8);
 }
 /*
 void
@@ -539,18 +539,18 @@ gnibbles_move_worms (void)
 
   dead = g_new (gint, properties->numworms);
 
-  for (i = 0; i < properties->ai; i++) {
+  for (i = 1; i < properties->numworms; i++) {
     olddir = worms[i]->direction;
-    gnibbles_cworm_ai_move (worms[properties->human + i]);
+    gnibbles_cworm_ai_move (worms[i]);
 
     if (olddir != worms[i]->direction)
       gnibbles_cworm_add_actor (worms[i]);
   }
 
- if (boni->missed > MAXMISSED)
-   for (i = 0; i < properties->numworms; i++)
-     if (worms[i]->score)
-       worms[i]->score--;
+  if (boni->missed > MAXMISSED)
+    for (i = 0; i < properties->numworms; i++)
+      if (worms[i]->score)
+        worms[i]->score--;
 
   for (i = 0; i < boni->numbonuses; i++) {
     if (!(boni->bonuses[i]->countdown--)) {

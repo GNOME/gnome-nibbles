@@ -126,7 +126,7 @@ static GtkAction *scores_action;
 static GtkAction *fullscreen_action;
 static GtkAction *leave_fullscreen_action;
 
-static ClutterActor *landing_page;
+static ClutterGroup *landing_page;
 
 static void
 hide_cursor (void)
@@ -293,7 +293,7 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
         gnibbles_cworm_resize (worms[i], tilesize);
     }
   } else {
-    render_logo ();
+    //render_logo ();
   }
 
   /* But, has the tile size changed? */
@@ -497,7 +497,7 @@ end_game (gboolean show_splash)
   }
 
   if (show_splash) {
-    render_logo ();
+    //render_logo ();
     gtk_action_set_sensitive (new_network_action, TRUE);
     gtk_action_set_sensitive (pause_action, FALSE);
     gtk_action_set_sensitive (resume_action, FALSE);
@@ -880,7 +880,7 @@ render_logo (void)
   ClutterColor actor_color = {0xff,0xff,0xff,0xff};
 
   ClutterActor *stage = gnibbles_board_get_stage (board);
-  landing_page = clutter_group_new ();
+  landing_page = CLUTTER_GROUP (clutter_group_new ());
 
   clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
  
@@ -918,7 +918,9 @@ render_logo (void)
 static void
 hide_logo (void)
 {
-  clutter_actor_hide (CLUTTER_ACTOR (landing_page));
+  ClutterActor *tmp = gnibbles_board_get_stage (board);
+  clutter_container_remove_actor (CLUTTER_CONTAINER (tmp), 
+                                  CLUTTER_ACTOR (landing_page));
 }
 
 int
@@ -978,7 +980,7 @@ main (int argc, char **argv)
   network_gui_update ();
 #endif
 
-  render_logo ();
+  //render_logo ();
 
   gtk_action_set_sensitive (pause_action, FALSE);
   gtk_action_set_sensitive (resume_action, FALSE);
