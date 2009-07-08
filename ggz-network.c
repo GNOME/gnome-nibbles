@@ -45,7 +45,6 @@
 #include "gnibbles.h"
 #include "properties.h"
 #include "ggz-network.h"
-//#include "worm.h"
 #include "worm-clutter.h"
 
 
@@ -190,7 +189,7 @@ game_handle_io (GGZMod * mod)
 
   case GN_MSG_START:
     gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
-    new_game_clutter ();
+    new_game ();
     break;
 
   case GN_MSG_SYNC:

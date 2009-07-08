@@ -39,7 +39,6 @@ gint game_running (void);
 gint pause_game_cb (GtkAction * action, gpointer data);
 void end_game (gboolean);
 
-gint new_game_clutter (void);
 gint new_game (void);
 gint main_loop (gpointer data);
 

@@ -50,7 +50,7 @@ extern GdkPixbuf *worm_pixmaps[];
 extern GnibblesLevel *level;
 extern GnibblesBoni *boni;
 extern GnibblesWarpManager *warpmanager;
-extern GnibblesCWorm *cworms[NUMWORMS];
+extern GnibblesCWorm *worms[NUMWORMS];
 
 typedef struct _key_queue_entry {
   GnibblesCWorm *worm;
@@ -90,20 +90,20 @@ cworm_set_direction (int worm, int dir)
     return;
   }
 
-  if (cworms[worm]) {
+  if (worms[worm]) {
 
     if (dir > 4)
       dir = 1;
     if (dir < 1)
       dir = 4;
 
-    if (cworms[worm]->keypress) {
-      gnibbles_worm_queue_keypress (cworms[worm], dir);
+    if (worms[worm]->keypress) {
+      gnibbles_worm_queue_keypress (worms[worm], dir);
       return;
     }
 
-    cworms[worm]->direction = dir;
-    cworms[worm]->keypress = 1;
+    worms[worm]->direction = dir;
+    worms[worm]->keypress = 1;
   }
 }
 
@@ -114,8 +114,8 @@ cworm_handle_direction (int worm, int dir)
 #ifdef GGZ_CLIENT
     network_game_move (dir);
 
-    cworms[0]->direction = dir;
-    cworms[0]->keypress = 1;
+    worms[0]->direction = dir;
+    worms[0]->keypress = 1;
 #endif
   } else {
     cworm_set_direction (worm, dir);
@@ -397,7 +397,7 @@ gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile)
   ClutterActor *tmp;
 
   count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
-  gnibbles_clutter_load_pixmap (newtile);
+  gnibbles_load_pixmap (newtile);
 
   g_value_init (&val, G_TYPE_BOOLEAN);
 
@@ -818,7 +818,7 @@ gnibbles_cworm_is_move_safe (GnibblesCWorm * worm)
 
   for (i = 0; i < properties->numworms; i++) {
     if (i != worm->number) {
-      if (gnibbles_cworm_can_move_to (cworms[i], x, y))
+      if (gnibbles_cworm_can_move_to (worms[i], x, y))
         return (FALSE);
     }
   }
@@ -925,8 +925,8 @@ gnibbles_cworm_ai_deadend_after (gint x, gint y, gint dir, gint length)
 
   i = properties->numworms;
   while(i--) {
-    cx = cworms[i]->xhead;
-    cy = cworms[i]->yhead;
+    cx = worms[i]->xhead;
+    cy = worms[i]->yhead;
     if(cx != x || cy != y) {
       if(cx > 0) deadendboard[cx-1][cy] = deadend_runnumber;
       if(cy > 0) deadendboard[cx][cy-1] = deadend_runnumber;
@@ -980,8 +980,8 @@ gnibbles_cworm_ai_tooclose (GnibblesCWorm * worm)
   gint dx, dy;
   
   while (i--) {
-    dx = worm->xhead - cworms[i]->xhead;
-    dy = worm->yhead - cworms[i]->yhead;
+    dx = worm->xhead - worms[i]->xhead;
+    dy = worm->yhead - worms[i]->yhead;
     switch (worm->direction) {
       case WORMUP:
         if (dy > 0 && dy <= 3 && dx >= -1 && dx <= 1)

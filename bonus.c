@@ -32,7 +32,7 @@
 
 extern GdkPixbuf *boni_pixmaps[];
 extern GnibblesProperties *properties;
-extern GnibblesBoard *clutter_board;
+extern GnibblesBoard *board;
 
 GnibblesBonus *
 gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
@@ -66,7 +66,7 @@ gnibbles_bonus_draw_clutter (GnibblesBonus *bonus)
   clutter_actor_set_position (CLUTTER_ACTOR (bonus->actor),
                               bonus->x * properties->tilesize,
                               bonus->y * properties->tilesize);
-  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
+  ClutterActor *stage = gnibbles_board_get_stage (board);
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), bonus->actor);
 }
 /*

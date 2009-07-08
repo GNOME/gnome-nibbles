@@ -31,7 +31,7 @@
 #include "main.h"
 #include "level.h"
 
-extern gchar board[BOARDWIDTH][BOARDHEIGHT];
+//extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 extern GnibblesLevel *level;
 extern GnibblesBoni *boni;
 

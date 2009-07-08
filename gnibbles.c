@@ -37,7 +37,6 @@
 
 #include "main.h"
 #include "gnibbles.h"
-//#include "worm.h"
 #include "boni.h"
 #include "bonus.h"
 #include "warpmanager.h"
@@ -51,7 +50,7 @@
 #include "ggz-network.h"
 #endif
 
-GnibblesCWorm *cworms[NUMWORMS];
+GnibblesCWorm *worms[NUMWORMS];
 
 //GnibblesWorm *worms[NUMWORMS];
 GnibblesBoni *boni = NULL;
@@ -59,15 +58,6 @@ GnibblesWarpManager *warpmanager;
 
 GdkPixmap *buffer_pixmap = NULL;
 GdkPixbuf *logo_pixmap = NULL;
-//old pixbuf
-GdkPixbuf *bonus_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL, NULL, NULL
-};
-GdkPixbuf *small_pixmaps[19] = { NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL, NULL, NULL, NULL,
-  NULL, NULL, NULL, NULL
-};
 
 // clutter-related pixbuf
 GdkPixbuf *wall_pixmaps[11] = { NULL, NULL, NULL, NULL, NULL,
@@ -85,9 +75,9 @@ GdkPixbuf *boni_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
 
 extern GtkWidget *drawing_area;
 
-extern gchar board[BOARDWIDTH][BOARDHEIGHT];
+//extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 extern GnibblesLevel *level;
-extern GnibblesBoard *clutter_board;
+extern GnibblesBoard *board;
 
 extern GnibblesProperties *properties;
 
@@ -98,7 +88,7 @@ extern guint properties->tilesize, properties->tilesize;
 */
 
 static GdkPixbuf *
-gnibbles_clutter_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
+gnibbles_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
 {
   GdkPixbuf *image;
   gchar *filename;
@@ -122,7 +112,7 @@ gnibbles_clutter_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
 }
 
 void 
-gnibbles_clutter_load_pixmap (gint tilesize)
+gnibbles_load_pixmap (gint tilesize)
 {
   gchar *bonus_files[] = {
     "blank.svg",
@@ -166,7 +156,7 @@ gnibbles_clutter_load_pixmap (gint tilesize)
     if (boni_pixmaps[i])
       g_object_unref (boni_pixmaps[i]);
 
-    boni_pixmaps[i] = gnibbles_clutter_load_pixmap_file (bonus_files[i],
+    boni_pixmaps[i] = gnibbles_load_pixmap_file (bonus_files[i],
   					                                             4 * tilesize,
                           						                   4 * tilesize);
   }
@@ -175,7 +165,7 @@ gnibbles_clutter_load_pixmap (gint tilesize)
     if (wall_pixmaps[i])
       g_object_unref (wall_pixmaps[i]);
       
-    wall_pixmaps[i] = gnibbles_clutter_load_pixmap_file (small_files[i],
+    wall_pixmaps[i] = gnibbles_load_pixmap_file (small_files[i],
   	 	  		                                             2 * tilesize,
                            						                   2 * tilesize);
   }
@@ -184,170 +174,22 @@ gnibbles_clutter_load_pixmap (gint tilesize)
     if (worm_pixmaps[i])
       g_object_unref (worm_pixmaps[i]);
 
-    worm_pixmaps[i] = gnibbles_clutter_load_pixmap_file (worm_files[i], 
+    worm_pixmaps[i] = gnibbles_load_pixmap_file (worm_files[i], 
                                                         tilesize, tilesize);
   }
 }
-/*
-static void
-gnibbles_error (GtkWidget * window, gchar * message)
-{
-  GtkWidget *w =
-    gtk_message_dialog_new (GTK_WINDOW (window), GTK_DIALOG_MODAL,
-			    GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
-			    "%s", message);
-  gtk_dialog_run (GTK_DIALOG (w));
-  gtk_widget_destroy (GTK_WIDGET (w));
-  exit (1);
-}
 
-static GdkPixbuf *
-gnibbles_load_pixmap_file (GtkWidget * window, const gchar * pixmap,
-			   gint xsize, gint ysize)
-{
-  GdkPixbuf *image;
-  gchar *filename;
-  const char *dirname;
-
-  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
-  filename = g_build_filename (dirname, pixmap, NULL);
-
-  if (!filename) {
-    char *message =
-      g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
-			 "Please check your Nibbles installation"), pixmap);
-    gnibbles_error (window, message);
-    // We should never get here since the app exits in gnibbles_error. But let's
-    // free it anyway in case someone comes along and changes gnibbles_error 
-    g_free(message);
-  }
-
-  image = gdk_pixbuf_new_from_file_at_size (filename, xsize, ysize, NULL);
-  g_free (filename);
-
-  return image;
-}
-
-static void
-gnibbles_copy_pixmap (GdkDrawable * drawable, gint which, gint x, gint y,
-		      gboolean big)
-{
-  gint size = properties->tilesize * (big == TRUE ? 2 : 1);
-  GdkPixbuf *copy_buf;
-
-  if (big == TRUE) {
-    if (which < 0 || which > 8) {
-      g_warning ("Invalid bonus image %d\n", which);
-      return;
-    }
-    copy_buf = bonus_pixmaps[which];
-  } else {
-    if (which < 0 || which > 19) {
-      g_warning ("Invalid tile image %d\n", which);
-      return;
-    }
-    copy_buf = small_pixmaps[which];
-  }
-
-  gdk_draw_pixbuf (GDK_DRAWABLE (drawable),
-		   gtk_widget_get_style (drawing_area)->
-		   fg_gc[gtk_widget_get_state (drawing_area)], copy_buf, 0, 0,
-		   x * properties->tilesize, y * properties->tilesize, size,
-		   size, GDK_RGB_DITHER_NORMAL, 0, 0);
-}
-
-void
-gnibbles_draw_pixmap (gint which, gint x, gint y)
-{
-  gnibbles_copy_pixmap (gtk_widget_get_window (drawing_area), which, x, y, FALSE);
-  gnibbles_copy_pixmap (buffer_pixmap, which, x, y, FALSE);
-}
-
-void
-gnibbles_draw_big_pixmap (gint which, gint x, gint y)
-{
-  gnibbles_copy_pixmap (gtk_widget_get_window (drawing_area), which, x, y, TRUE);
-  gnibbles_copy_pixmap (buffer_pixmap, which, x, y, TRUE);
-}
-
-void
-gnibbles_draw_pixmap_buffer (gint which, gint x, gint y)
-{
-  gnibbles_copy_pixmap (buffer_pixmap, which, x, y, FALSE);
-}
-
-void
-gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
-{
-  gnibbles_copy_pixmap (buffer_pixmap, which, x, y, TRUE);
-}
-*/
 void
 gnibbles_load_logo (void)
 {
   if (logo_pixmap)
     g_object_unref (logo_pixmap);
 
-  logo_pixmap = gnibbles_clutter_load_pixmap_file ("gnibbles-logo.svg",
-                               			            clutter_board->width, 
-                                                clutter_board->height);
+  logo_pixmap = gnibbles_load_pixmap_file ("gnibbles-logo.svg",
+                               			            board->width, 
+                                                board->height);
 }
 /*
-void
-gnibbles_load_pixmap (GtkWidget * window)
-{
-  gchar *bonus_files[] = {
-    "blank.svg",
-    "diamond.svg",
-    "bonus1.svg",
-    "bonus2.svg",
-    "life.svg",
-    "bonus3.svg",
-    "bonus4.svg",
-    "bonus5.svg",
-    "questionmark.svg"
-  };
-
-  gchar *small_files[] = {
-    "wall-empty.svg",
-    "wall-straight-up.svg",
-    "wall-straight-side.svg",
-    "wall-corner-bottom-left.svg",
-    "wall-corner-bottom-right.svg",
-    "wall-corner-top-left.svg",
-    "wall-corner-top-right.svg",
-    "wall-tee-up.svg",
-    "wall-tee-right.svg",
-    "wall-tee-left.svg",
-    "wall-tee-down.svg",
-    "wall-cross.svg",
-    "snake-red.svg",
-    "snake-green.svg",
-    "snake-blue.svg",
-    "snake-yellow.svg",
-    "snake-cyan.svg",
-    "snake-magenta.svg",
-    "snake-grey.svg"
-  };
-  int i;
-
-  for (i = 0; i < 9; i++) {
-    if (bonus_pixmaps[i])
-      g_object_unref (bonus_pixmaps[i]);
-    bonus_pixmaps[i] = gnibbles_load_pixmap_file (window, bonus_files[i],
-						  2 * properties->tilesize,
-						  2 * properties->tilesize);
-  }
-
-  for (i = 0; i < 19; i++) {
-    if (small_pixmaps[i])
-      g_object_unref (small_pixmaps[i]);
-    small_pixmaps[i] = gnibbles_load_pixmap_file (window, small_files[i],
-						  properties->tilesize,
-						  properties->tilesize);
-  }
-}
-
 void
 gnibbles_load_level (GtkWidget * window, gint level)
 {
@@ -464,9 +306,9 @@ gnibbles_load_level (GtkWidget * window, gint level)
 }
 */
 void
-gnibbles_clutter_init ()
+gnibbles_init ()
 {
-  if (clutter_board == NULL)
+  if (board == NULL)
     return;
 
   gint i;
@@ -478,45 +320,24 @@ gnibbles_clutter_init ()
   gnibbles_scoreboard_clear (scoreboard);
 
   for (i = 0; i < properties->numworms; i++) {
-    //gnibbles_scoreboard_register (scoreboard, cworms[i], 
-	  //               colorval_name (properties->wormprops[i]->color));
+    gnibbles_scoreboard_register (scoreboard, worms[i], 
+	                 colorval_name (properties->wormprops[i]->color));
   }
 
-  ClutterActor *stage = gnibbles_board_get_stage (clutter_board);
+  ClutterActor *stage = gnibbles_board_get_stage (board);
 
   for (i = 0; i < properties->numworms; i++) {
-    if (cworms[i]) {
-      clutter_container_add_actor (CLUTTER_CONTAINER (stage), cworms[i]->actors);
-      clutter_actor_raise_top (cworms[i]->actors);
+    if (worms[i]) {
+      clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
+      clutter_actor_raise_top (worms[i]->actors);
     }
   }
 
   gnibbles_scoreboard_update (scoreboard);
 }
 
-/*
 void
-gnibbles_init (void)
-{
-  gint i;
-
-  for (i = 0; i < properties->numworms; i++)
-    if (worms[i])
-      gnibbles_worm_destroy (worms[i]);
-
-  gnibbles_scoreboard_clear (scoreboard);
-
-  for (i = 0; i < properties->numworms; i++) {
-    worms[i] = gnibbles_worm_new (i);
-    gnibbles_scoreboard_register (scoreboard, worms[i], 
-	                 colorval_name (properties->wormprops[i]->color));
-  }
-
-  gnibbles_scoreboard_update (scoreboard);
-}
-*/
-void
-gnibbles_clutter_add_bonus (gint regular)
+gnibbles_add_bonus (gint regular)
 {
   gint x, y, good;
 
@@ -710,7 +531,7 @@ gnibbles_add_bonus (gint regular)
 }
 */
 gint
-gnibbles_move_worms_clutter (void)
+gnibbles_move_worms (void)
 {
   gint i, j, olddir, length, nbr_actor;
   gint status = 1, nlives = 1;
@@ -719,17 +540,17 @@ gnibbles_move_worms_clutter (void)
   dead = g_new (gint, properties->numworms);
 
   for (i = 0; i < properties->ai; i++) {
-    olddir = cworms[i]->direction;
-    gnibbles_cworm_ai_move (cworms[properties->human + i]);
+    olddir = worms[i]->direction;
+    gnibbles_cworm_ai_move (worms[properties->human + i]);
 
-    if (olddir != cworms[i]->direction)
-      gnibbles_cworm_add_actor (cworms[i]);
+    if (olddir != worms[i]->direction)
+      gnibbles_cworm_add_actor (worms[i]);
   }
 
  if (boni->missed > MAXMISSED)
    for (i = 0; i < properties->numworms; i++)
-     if (cworms[i]->score)
-       cworms[i]->score--;
+     if (worms[i]->score)
+       worms[i]->score--;
 
   for (i = 0; i < boni->numbonuses; i++) {
     if (!(boni->bonuses[i]->countdown--)) {
@@ -738,7 +559,7 @@ gnibbles_move_worms_clutter (void)
                                     boni->bonuses[i]->x, 
                                     boni->bonuses[i]->y);
 	      boni->missed++;
-	      gnibbles_clutter_add_bonus (1);
+	      gnibbles_add_bonus (1);
       } else {
 	      gnibbles_boni_remove_bonus (boni, 
                                     boni->bonuses[i]->x, 
@@ -748,40 +569,40 @@ gnibbles_move_worms_clutter (void)
   }
 
   for (i = 0; i < properties->numworms; i++) {
-    dead[i] = !gnibbles_cworm_test_move_head (cworms[i]);
+    dead[i] = !gnibbles_cworm_test_move_head (worms[i]);
     status &= !dead[i];
   }
 
   for (i = 0; i < properties->numworms; i++) {
 
-    nbr_actor = g_list_length (cworms[i]->list);
-    length = gnibbles_cworm_get_length (cworms[i]);
+    nbr_actor = g_list_length (worms[i]->list);
+    length = gnibbles_cworm_get_length (worms[i]);
     printf ("\nWorm ID: %d, Actors: %d, Length: %d,  xhead: %d, yhead:%d",
-            i, nbr_actor, length, cworms[i]->xhead, cworms[i]->yhead);
+            i, nbr_actor, length, worms[i]->xhead, worms[i]->yhead);
 
-    if (cworms[i]->xhead >= BOARDWIDTH) {
-      cworms[i]->xhead = 0;
-      gnibbles_cworm_add_actor(cworms[i]);
-    } else if (cworms[i]->xhead < 0) {
-      cworms[i]->xhead = BOARDWIDTH;
-      gnibbles_cworm_add_actor (cworms[i]);
-    } else if (cworms[i]->yhead >= BOARDHEIGHT) {
-      cworms[i]->yhead = 0;
-      gnibbles_cworm_add_actor (cworms[i]);
-    } else if (cworms[i]->xhead < 0) {
-      cworms[i]->yhead = BOARDHEIGHT;
-      gnibbles_cworm_add_actor (cworms[i]);
+    if (worms[i]->xhead >= BOARDWIDTH) {
+      worms[i]->xhead = 0;
+      gnibbles_cworm_add_actor(worms[i]);
+    } else if (worms[i]->xhead < 0) {
+      worms[i]->xhead = BOARDWIDTH;
+      gnibbles_cworm_add_actor (worms[i]);
+    } else if (worms[i]->yhead >= BOARDHEIGHT) {
+      worms[i]->yhead = 0;
+      gnibbles_cworm_add_actor (worms[i]);
+    } else if (worms[i]->xhead < 0) {
+      worms[i]->yhead = BOARDHEIGHT;
+      gnibbles_cworm_add_actor (worms[i]);
     }
 
     //if there's only one actor in the list, just move the actor
-    if (nbr_actor == 1 && !dead[i] && cworms[i]->lives > 0) {
-      gnibbles_cworm_move_straight_worm (cworms[i]);
-    } else if (nbr_actor >= 2 && !dead[i] && cworms[i]->lives > 0) {
-      gnibbles_cworm_move_tail (cworms[i]);
-      if (g_list_length (cworms[i]->list) == 1)
-        gnibbles_cworm_move_straight_worm (cworms[i]);
+    if (nbr_actor == 1 && !dead[i] && worms[i]->lives > 0) {
+      gnibbles_cworm_move_straight_worm (worms[i]);
+    } else if (nbr_actor >= 2 && !dead[i] && worms[i]->lives > 0) {
+      gnibbles_cworm_move_tail (worms[i]);
+      if (g_list_length (worms[i]->list) == 1)
+        gnibbles_cworm_move_straight_worm (worms[i]);
       else 
-        gnibbles_cworm_move_head (cworms[i]);
+        gnibbles_cworm_move_head (worms[i]);
     } else if (dead[i]) {
       //worm's dead, do something clever about it...
     }
@@ -789,10 +610,10 @@ gnibbles_move_worms_clutter (void)
 
   for (i = 0; i < properties->numworms; i++) {
     for (j = 0; j < properties->numworms; j++) {
-      if (i != j && cworms[i]->xhead == cworms[j]->xhead
-	        && cworms[i]->yhead == cworms[j]->yhead
-	        && cworms[i]->lives > 0
-	        && cworms[j]->lives > 0)
+      if (i != j && worms[i]->xhead == worms[j]->xhead
+	        && worms[i]->yhead == worms[j]->yhead
+	        && worms[i]->lives > 0
+	        && worms[j]->lives > 0)
 	        dead[i] = TRUE;
     }
   }
@@ -800,8 +621,8 @@ gnibbles_move_worms_clutter (void)
   for (i = 0; i < properties->numworms; i++) {
     if (dead[i]) {
       if (properties->numworms > 1)
-	      cworms[i]->score *= .7;
-      if (!gnibbles_cworm_lose_life (cworms[i])) {
+	      worms[i]->score *= .7;
+      if (!gnibbles_cworm_lose_life (worms[i])) {
         /* One of the worms lost one life, but the round continues. */
         // TODO: reset worm state
         //gnibbles_worm_reset (cworms[i]);
@@ -821,7 +642,7 @@ gnibbles_move_worms_clutter (void)
   }
 
   for (i = 0; i < properties->numworms; i++) {
-    if (cworms[i]->lives > 0)
+    if (worms[i]->lives > 0)
       nlives += 1;
   }
   if (nlives == 1 && (properties->ai + properties->human > 1)) {
@@ -948,7 +769,7 @@ gnibbles_get_winner (void)
   int i;
 
   for (i = 0; i < properties->numworms; i++) {
-    if (cworms[i]->lives > 0) {
+    if (worms[i]->lives > 0) {
       return i;
     }
   }
@@ -962,7 +783,7 @@ gnibbles_keypress_worms (guint keyval)
   gint numworms = ggz_network_mode ? 1 : properties->numworms;
 
   for (i = 0; i < numworms; i++)
-    if (gnibbles_cworm_handle_keypress (cworms[i], keyval)) {
+    if (gnibbles_cworm_handle_keypress (worms[i], keyval)) {
       return TRUE;
     }
 
@@ -975,7 +796,7 @@ gnibbles_undraw_worms (gint data)
   gint i;
 
   for (i = 0; i < properties->numworms; i++)
-    gnibbles_cworm_shrink (cworms[i], data);
+    gnibbles_cworm_shrink (worms[i], data);
     //gnibbles_worm_undraw_nth (worms[i], data);
 }
 
@@ -1024,10 +845,10 @@ gnibbles_log_score (GtkWidget * window)
   if (properties->startlevel != 1)
     return;
 
-  if (!cworms[0]->score)
+  if (!worms[0]->score)
     return;
 
-  score.plain = cworms[0]->score;
+  score.plain = worms[0]->score;
   pos = games_scores_add_score (highscores, score);
 
   gnibbles_show_scores (window, pos);
