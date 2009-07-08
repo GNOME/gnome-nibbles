@@ -103,12 +103,6 @@ gint paused = 0;
 
 gint current_level;
 
-static struct _pointers {
-  GdkCursor *current;
-  GdkCursor *invisible;
-} pointers = {
-NULL};
-
 static gint add_bonus_cb (gpointer data);
 
 static void render_logo (void);
@@ -131,10 +125,8 @@ static ClutterGroup *landing_page;
 static void
 hide_cursor (void)
 {
-  if (pointers.current != pointers.invisible) {
-    gdk_window_set_cursor (board->clutter_widget->window, pointers.invisible);
-    pointers.current = pointers.invisible;
-  }
+  ClutterActor *stage = gnibbles_board_get_stage (board);
+  clutter_stage_hide_cursor (CLUTTER_STAGE (stage));
 }
 
 static void
@@ -189,10 +181,8 @@ window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
 static void
 show_cursor (void)
 {
-  if (pointers.current != NULL) {
-    gdk_window_set_cursor (board->clutter_widget->window, NULL);
-    pointers.current = NULL;
-  }
+  ClutterActor *stage = gnibbles_board_get_stage (board);
+  clutter_stage_show_cursor (CLUTTER_STAGE (stage));
 }
 
 gint
@@ -285,6 +275,8 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
   tilesize = MIN (ts_x, ts_y);
 
   int i;
+  
+  gnibbles_load_pixmap (tilesize);
 
   if (game_running ()) {
     if (board) {
@@ -302,8 +294,6 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
     gnibbles_load_logo ();
     return FALSE;
   }
-
-  gnibbles_load_pixmap (tilesize);
 
   properties->tilesize = tilesize;
   gnibbles_properties_set_tile_size (tilesize);
@@ -329,9 +319,9 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
 {
   if (!paused) {
     if (!keyboard_id)
-      keyboard_id = g_signal_connect (G_OBJECT (window),
-				      "key_press_event",
-				      G_CALLBACK (key_press_cb), NULL);
+      keyboard_id = g_signal_connect (G_OBJECT (gnibbles_board_get_stage (board)),
+				                              "key_press_event",
+                        				      G_CALLBACK (key_press_cb), NULL);
 #ifdef GGZ_CLIENT
     if (!main_id && ggz_network_mode && network_is_host ()) {
       main_id = g_timeout_add (GAMEDELAY * (properties->gamespeed + NETDELAY),
@@ -383,10 +373,10 @@ new_game (void)
     current_level = rand () % MAXLEVEL + 1;
   }
 
-  hide_logo ();
+  //hide_logo ();
   level = gnibbles_level_new (current_level);
   gnibbles_board_load_level (board, level);
-  gnibbles_add_bonus (1);
+  gnibbles_level_add_bonus (level, 1);
   gnibbles_init ();
 
   paused = 0;
@@ -528,7 +518,7 @@ end_game_cb (GtkAction * action, gpointer data)
 static gint
 add_bonus_cb (gpointer data)
 {
-  gnibbles_add_bonus (0);
+  gnibbles_level_add_bonus (level, 0);
   return (TRUE);
 }
 
@@ -537,7 +527,7 @@ restart_game (gpointer data)
 {
   level = gnibbles_level_new (current_level);
   gnibbles_board_load_level (board, level);
-  gnibbles_add_bonus (1);
+  gnibbles_level_add_bonus (level, 1);
   dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_2_cb, NULL);
   restart_id = 0;
   
@@ -918,9 +908,18 @@ render_logo (void)
 static void
 hide_logo (void)
 {
-  ClutterActor *tmp = gnibbles_board_get_stage (board);
-  clutter_container_remove_actor (CLUTTER_CONTAINER (tmp), 
-                                  CLUTTER_ACTOR (landing_page));
+  int count = clutter_group_get_n_children (CLUTTER_GROUP (landing_page));
+  int i;
+  ClutterActor *tmp = NULL;
+
+  //ClutterActor *stage = gnibbles_board_get_stage (board);
+  for (i = 0 ; i < count; i++) {
+    tmp = clutter_group_get_nth_child (landing_page, i);
+    clutter_actor_hide (CLUTTER_ACTOR (tmp));
+    clutter_container_remove_actor (CLUTTER_CONTAINER (landing_page), 
+                                  CLUTTER_ACTOR (tmp));
+  }
+  //clutter_actor_queue_redraw (CLUTTER_ACTOR (landing_page));
 }
 
 int

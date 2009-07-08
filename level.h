@@ -39,4 +39,6 @@ typedef struct {
 } GnibblesLevel;
 
 GnibblesLevel *gnibbles_level_new (gint level);
+void gnibbles_level_add_bonus (GnibblesLevel *level, gint regular);
+
 #endif

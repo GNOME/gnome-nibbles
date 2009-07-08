@@ -52,14 +52,12 @@
 
 GnibblesCWorm *worms[NUMWORMS];
 
-//GnibblesWorm *worms[NUMWORMS];
 GnibblesBoni *boni = NULL;
 GnibblesWarpManager *warpmanager;
 
 GdkPixmap *buffer_pixmap = NULL;
 GdkPixbuf *logo_pixmap = NULL;
 
-// clutter-related pixbuf
 GdkPixbuf *wall_pixmaps[11] = { NULL, NULL, NULL, NULL, NULL,
   NULL, NULL, NULL, NULL, NULL,
   NULL
@@ -75,17 +73,12 @@ GdkPixbuf *boni_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
 
 extern GtkWidget *drawing_area;
 
-//extern gchar board[BOARDWIDTH][BOARDHEIGHT];
 extern GnibblesLevel *level;
 extern GnibblesBoard *board;
 
 extern GnibblesProperties *properties;
 
 extern GnibblesScoreboard *scoreboard;
-
-/*
-extern guint properties->tilesize, properties->tilesize;
-*/
 
 static GdkPixbuf *
 gnibbles_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
@@ -186,125 +179,10 @@ gnibbles_load_logo (void)
     g_object_unref (logo_pixmap);
 
   logo_pixmap = gnibbles_load_pixmap_file ("gnibbles-logo.svg",
-                               			            board->width * 8, 
-                                                board->height * 8);
+                               			       board->width * properties->tilesize, 
+                                           board->height * properties->tilesize);
 }
-/*
-void
-gnibbles_load_level (GtkWidget * window, gint level)
-{
-  gchar *tmp = NULL;
-  const char *dirname;
-  gchar *filename;
-  FILE *in;
-  gchar tmpboard[BOARDWIDTH + 2];
-  gint i, j;
-  gint count = 0;
 
-  tmp = g_strdup_printf ("level%03d.gnl", level);
-
-  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_GAMES_DIRECTORY);
-  filename = g_build_filename (dirname, tmp, NULL);
-
-  g_free (tmp);
-  if ((in = fopen (filename, "r")) == NULL) {
-    char *message =
-      g_strdup_printf (_
-                       ("Nibbles couldn't load level file:\n%s\n\n"
-                        "Please check your Nibbles installation"), filename);
-    gnibbles_error (window, message);
-    g_free (message);
-  }
-
-  g_free (filename);
-
-  if (warpmanager)
-    gnibbles_warpmanager_destroy (warpmanager);
-
-  warpmanager = gnibbles_warpmanager_new ();
-
-  if (boni)
-    gnibbles_boni_destroy (boni);
-
-  boni = gnibbles_boni_new ();
-
-  for (i = 0; i < BOARDHEIGHT; i++) {
-    if (!fgets (tmpboard, sizeof (tmpboard), in)) {
-      char *message =
-        g_strdup_printf (_
-                         ("Level file appears to be damaged:\n%s\n\n"
-                         "Please check your Nibbles installation"), filename);
-      gnibbles_error (window, message);
-      g_free (message);
-      break;
-    }
-    for (j = 0; j < BOARDWIDTH; j++) {
-      board[j][i] = tmpboard[j];
-      switch (board[j][i]) {
-      case 'm':
-        board[j][i] = 'a';
-        if (count < properties->numworms)
-          gnibbles_worm_set_start (worms[count++], j, i, WORMUP);
-        break;
-      case 'n':
-        board[j][i] = 'a';
-        if (count < properties->numworms)
-          gnibbles_worm_set_start (worms[count++], j, i, WORMLEFT);
-        break;
-      case 'o':
-        board[j][i] = 'a';
-        if (count < properties->numworms)
-          gnibbles_worm_set_start (worms[count++], j, i, WORMDOWN);
-        break;
-      case 'p':
-        board[j][i] = 'a';
-        if (count < properties->numworms)
-          gnibbles_worm_set_start (worms[count++], j, i, WORMRIGHT);
-        break;
-      case 'Q':
-        gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);
-        break;
-      case 'R':
-      case 'S':
-      case 'T':
-      case 'U':
-      case 'V':
-      case 'W':
-      case 'X':
-      case 'Y':
-      case 'Z':
-        gnibbles_warpmanager_add_warp
-          (warpmanager, j - 1, i - 1, -board[j][i], 0);
-        break;
-      case 'r':
-      case 's':
-      case 't':
-      case 'u':
-      case 'v':
-      case 'w':
-      case 'x':
-      case 'y':
-      case 'z':
-        gnibbles_warpmanager_add_warp
-          (warpmanager, -(board[j][i] - 'a' + 'A'), 0, j, i);
-        board[j][i] = EMPTYCHAR;
-        break;
-      }
-      // Warpmanager draws the warp points. Everything else gets drawn here. 
-      if (board[j][i] >= 'a')
-        gnibbles_draw_pixmap_buffer (board[j][i] - 'a', j, i);
-    }
-  }
-
-  gdk_draw_drawable (GDK_DRAWABLE (gtk_widget_get_window (drawing_area)),
-                     gtk_widget_get_style (drawing_area)->
-                     fg_gc[gtk_widget_get_state (drawing_area)], buffer_pixmap,
-                     0, 0, 0, 0, BOARDWIDTH * properties->tilesize,
-                     BOARDHEIGHT * properties->tilesize);
-
-  fclose (in);
-}
-*/
 void
 gnibbles_init ()
 {
@@ -336,200 +214,6 @@ gnibbles_init ()
   gnibbles_scoreboard_update (scoreboard);
 }
 
-void
-gnibbles_add_bonus (gint regular)
-{
-  gint x, y, good;
-
-#ifdef GGZ_CLIENT
-  if (!network_is_host ()) {
-    return;
-  }
-#endif
-
-  if (regular) {
-    good = 0;
-  } else {
-    good = rand () % 50;
-    if (good)
-      return;
-  }
-
-  do {
-    good = 1;
-    x = rand () % (BOARDWIDTH - 1);
-    y = rand () % (BOARDHEIGHT - 1);
-    if (level->walls[x][y] != EMPTYCHAR)
-      good = 0;
-    if (level->walls[x + 1][y] != EMPTYCHAR)
-      good = 0;
-    if (level->walls[x][y + 1] != EMPTYCHAR)
-      good = 0;
-    if (level->walls[x + 1][y + 1] != EMPTYCHAR)
-      good = 0;
-  } while (!good);
-
-  if (regular) {
-    if ((rand () % 7 == 0) && properties->fakes)
-      gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 1, 300);
-    good = 0;
-    while (!good) {
-      good = 1;
-      x = rand () % (BOARDWIDTH - 1);
-      y = rand () % (BOARDHEIGHT - 1);
-      if (level->walls[x][y] != EMPTYCHAR)
-	      good = 0;
-      if (level->walls[x + 1][y] != EMPTYCHAR)
-	      good = 0;
-      if (level->walls[x][y + 1] != EMPTYCHAR)
-	      good = 0;
-      if (level->walls[x + 1][y + 1] != EMPTYCHAR)
-	      good = 0;
-    }
-    gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 0, 300);
-  } else if (boni->missed <= MAXMISSED) {
-    good = rand () % 7;
-
-    if (good)
-      good = 0;
-    else
-      good = 1;
-
-    if (good && !properties->fakes)
-      return;
-
-    switch (rand () % 21) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-      gnibbles_boni_add_bonus (boni, x, y, BONUSHALF, good, 200);
-      break;
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-      gnibbles_boni_add_bonus (boni, x, y, BONUSDOUBLE, good, 150);
-      break;
-    case 15:
-      gnibbles_boni_add_bonus (boni, x, y, BONUSLIFE, good, 100);
-      break;
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-    case 20:
-      if (properties->numworms > 1)
-	      gnibbles_boni_add_bonus (boni, x, y, BONUSREVERSE, good, 150);
-      break;
-    }
-  }
-}
-/*
-void
-gnibbles_add_bonus (gint regular)
-{
-  gint x, y, good;
-
-#ifdef GGZ_CLIENT
-  if (!network_is_host ()) {
-    return;
-  }
-#endif
-
-  if (regular) {
-    good = 0;
-  } else {
-    good = rand () % 50;
-    if (good)
-      return;
-  }
-
-  do {
-    good = 1;
-    x = rand () % (BOARDWIDTH - 1);
-    y = rand () % (BOARDHEIGHT - 1);
-    if (board[x][y] != EMPTYCHAR)
-      good = 0;
-    if (board[x + 1][y] != EMPTYCHAR)
-      good = 0;
-    if (board[x][y + 1] != EMPTYCHAR)
-      good = 0;
-    if (board[x + 1][y + 1] != EMPTYCHAR)
-      good = 0;
-  } while (!good);
-
-  if (regular) {
-    if ((rand () % 7 == 0) && properties->fakes)
-      gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 1, 300);
-    good = 0;
-    while (!good) {
-      good = 1;
-      x = rand () % (BOARDWIDTH - 1);
-      y = rand () % (BOARDHEIGHT - 1);
-      if (board[x][y] != EMPTYCHAR)
-	good = 0;
-      if (board[x + 1][y] != EMPTYCHAR)
-	good = 0;
-      if (board[x][y + 1] != EMPTYCHAR)
-	good = 0;
-      if (board[x + 1][y + 1] != EMPTYCHAR)
-	good = 0;
-    }
-    gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 0, 300);
-  } else if (boni->missed <= MAXMISSED) {
-    good = rand () % 7;
-
-    if (good)
-      good = 0;
-    else
-      good = 1;
-
-    if (good && !properties->fakes)
-      return;
-
-    switch (rand () % 21) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-      gnibbles_boni_add_bonus (boni, x, y, BONUSHALF, good, 200);
-      break;
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-      gnibbles_boni_add_bonus (boni, x, y, BONUSDOUBLE, good, 150);
-      break;
-    case 15:
-      gnibbles_boni_add_bonus (boni, x, y, BONUSLIFE, good, 100);
-      break;
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-    case 20:
-      if (properties->numworms > 1)
-	gnibbles_boni_add_bonus (boni, x, y, BONUSREVERSE, good, 150);
-      break;
-    }
-  }
-}
-*/
 gint
 gnibbles_move_worms (void)
 {
@@ -559,7 +243,7 @@ gnibbles_move_worms (void)
                                     boni->bonuses[i]->x, 
                                     boni->bonuses[i]->y);
 	      boni->missed++;
-	      gnibbles_add_bonus (1);
+	      gnibbles_level_add_bonus (level, 1);
       } else {
 	      gnibbles_boni_remove_bonus (boni, 
                                     boni->bonuses[i]->x, 
@@ -577,8 +261,8 @@ gnibbles_move_worms (void)
 
     nbr_actor = g_list_length (worms[i]->list);
     length = gnibbles_cworm_get_length (worms[i]);
-    printf ("\nWorm ID: %d, Actors: %d, Length: %d,  xhead: %d, yhead:%d",
-            i, nbr_actor, length, worms[i]->xhead, worms[i]->yhead);
+    //printf ("\nWorm ID: %d, Actors: %d, Length: %d,  xhead: %d, yhead:%d",
+    //        i, nbr_actor, length, worms[i]->xhead, worms[i]->yhead);
 
     if (worms[i]->xhead >= BOARDWIDTH) {
       worms[i]->xhead = 0;

@@ -29,6 +29,9 @@
 #include "properties.h"
 #include "boni.h"
 
+#ifdef GGZ_CLIENT
+#include "ggz-network.h"
+#endif
 extern GnibblesCWorm *worms[];
 extern GnibblesProperties *properties;
 extern GnibblesWarpManager *warpmanager;
@@ -151,4 +154,102 @@ gnibbles_level_new (gint level)
 
   return lvl;
 }
+
+void
+gnibbles_level_add_bonus (GnibblesLevel *level, gint regular)
+{
+  gint x, y, good;
+
+#ifdef GGZ_CLIENT
+  if (!network_is_host ()) {
+    return;
+  }
+#endif
+
+  if (regular) {
+    good = 0;
+  } else {
+    good = rand () % 50;
+    if (good)
+      return;
+  }
+
+  do {
+    good = 1;
+    x = rand () % (BOARDWIDTH - 1);
+    y = rand () % (BOARDHEIGHT - 1);
+    if (level->walls[x][y] != EMPTYCHAR)
+      good = 0;
+    if (level->walls[x + 1][y] != EMPTYCHAR)
+      good = 0;
+    if (level->walls[x][y + 1] != EMPTYCHAR)
+      good = 0;
+    if (level->walls[x + 1][y + 1] != EMPTYCHAR)
+      good = 0;
+  } while (!good);
+
+  if (regular) {
+    if ((rand () % 7 == 0) && properties->fakes)
+      gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 1, 300);
+    good = 0;
+    while (!good) {
+      good = 1;
+      x = rand () % (BOARDWIDTH - 1);
+      y = rand () % (BOARDHEIGHT - 1);
+      if (level->walls[x][y] != EMPTYCHAR)
+	      good = 0;
+      if (level->walls[x + 1][y] != EMPTYCHAR)
+	      good = 0;
+      if (level->walls[x][y + 1] != EMPTYCHAR)
+	      good = 0;
+      if (level->walls[x + 1][y + 1] != EMPTYCHAR)
+	      good = 0;
+    }
+    gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 0, 300);
+  } else if (boni->missed <= MAXMISSED) {
+    good = rand () % 7;
+
+    if (good)
+      good = 0;
+    else
+      good = 1;
+
+    if (good && !properties->fakes)
+      return;
+
+    switch (rand () % 21) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+      gnibbles_boni_add_bonus (boni, x, y, BONUSHALF, good, 200);
+      break;
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+      gnibbles_boni_add_bonus (boni, x, y, BONUSDOUBLE, good, 150);
+      break;
+    case 15:
+      gnibbles_boni_add_bonus (boni, x, y, BONUSLIFE, good, 100);
+      break;
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+      if (properties->numworms > 1)
+	      gnibbles_boni_add_bonus (boni, x, y, BONUSREVERSE, good, 150);
+      break;
+    }
+  }
+}
+
 
