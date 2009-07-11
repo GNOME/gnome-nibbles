@@ -114,9 +114,11 @@ desktopdir=$(datadir)/applications
 desktop_in_files = gnibbles.desktop.in.in
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 
-schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_in_files = gnibbles.schemas.in
+if HAVE_GNOME
+schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+endif
 
 if GGZ_SERVER
 ggzexecmod_PROGRAMS += gnibblesd
