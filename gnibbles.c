@@ -460,16 +460,17 @@ gnibbles_get_winner (void)
   return -1;
 }
 
-gint
+gboolean
 gnibbles_keypress_worms (guint keyval)
 {
   gint i;
   gint numworms = ggz_network_mode ? 1 : properties->numworms;
 
-  for (i = 0; i < numworms; i++)
+  for (i = 0; i < numworms; i++) {
     if (gnibbles_worm_handle_keypress (worms[i], keyval)) {
       return TRUE;
     }
+  }
 
   return FALSE;
 }

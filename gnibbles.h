@@ -69,7 +69,7 @@ void gnibbles_init (void);
 void gnibbles_add_bonus (gint regular);
 gint gnibbles_move_worms (void);
 gint gnibbles_get_winner (void);
-gint gnibbles_keypress_worms (guint keyval);
+gboolean gnibbles_keypress_worms (guint keyval);
 void gnibbles_undraw_worms (gint data);
 void gnibbles_show_scores (GtkWidget * window, gint pos);
 void gnibbles_log_score (GtkWidget * window);

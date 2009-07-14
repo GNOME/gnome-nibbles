@@ -68,7 +68,7 @@ void gnibbles_worm_destroy (GnibblesWorm * worm);
 
 void gnibbles_worm_inverse (gpointer data);
 void gnibbles_worm_resize (GnibblesWorm *worm, gint newtile);
-
+void gnibbles_worm_reset (GnibblesWorm *worm);
 void gnibbles_worm_move_straight_worm (GnibblesWorm *worm);
 void gnibbles_worm_move_head (GnibblesWorm *worm);
 void gnibbles_worm_move_tail (GnibblesWorm *worm);

@@ -252,12 +252,15 @@ about_cb (GtkAction * action, gpointer data)
   g_free (license);
 }
 
-static gint
-key_press_cb (GtkWidget * widget, GdkEventKey * event)
+static gboolean
+key_press_cb (ClutterActor *actor, ClutterEvent *event, gpointer data)
 {
   hide_cursor ();
 
-  return gnibbles_keypress_worms (event->keyval);
+  if (!(event->type == CLUTTER_KEY_PRESS))
+    return FALSE;
+
+  return gnibbles_keypress_worms (event->key.keyval);
 }
 
 static gboolean
@@ -321,7 +324,7 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
   if (!paused) {
     if (!keyboard_id)
       keyboard_id = g_signal_connect (G_OBJECT (gnibbles_board_get_stage (board)),
-				                              "key_press_event",
+				                              "key-press-event",
                         				      G_CALLBACK (key_press_cb), NULL);
 #ifdef GGZ_CLIENT
     if (!main_id && ggz_network_mode && network_is_host ()) {
