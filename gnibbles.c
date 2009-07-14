@@ -50,7 +50,7 @@
 #include "ggz-network.h"
 #endif
 
-GnibblesCWorm *worms[NUMWORMS];
+GnibblesWorm *worms[NUMWORMS];
 
 GnibblesBoni *boni = NULL;
 GnibblesWarpManager *warpmanager;
@@ -192,8 +192,8 @@ gnibbles_init ()
   gint i;
 /*
   for (i = 0; i < properties->numworms; i++)
-    if (cworms[i])
-      gnibbles_cworm_destroy (cworms[i]);
+    if (worms[i])
+      gnibbles_worm_destroy (worms[i]);
 */
   gnibbles_scoreboard_clear (scoreboard);
 
@@ -225,10 +225,10 @@ gnibbles_move_worms (void)
 
   for (i = 1; i < properties->numworms; i++) {
     olddir = worms[i]->direction;
-    gnibbles_cworm_ai_move (worms[i]);
+    gnibbles_worm_ai_move (worms[i]);
 
     if (olddir != worms[i]->direction)
-      gnibbles_cworm_add_actor (worms[i]);
+      gnibbles_worm_add_actor (worms[i]);
   }
 
   if (boni->missed > MAXMISSED)
@@ -253,40 +253,40 @@ gnibbles_move_worms (void)
   }
 
   for (i = 0; i < properties->numworms; i++) {
-    dead[i] = !gnibbles_cworm_test_move_head (worms[i]);
+    dead[i] = !gnibbles_worm_test_move_head (worms[i]);
     status &= !dead[i];
   }
 
   for (i = 0; i < properties->numworms; i++) {
 
     nbr_actor = g_list_length (worms[i]->list);
-    length = gnibbles_cworm_get_length (worms[i]);
+    length = gnibbles_worm_get_length (worms[i]);
     //printf ("\nWorm ID: %d, Actors: %d, Length: %d,  xhead: %d, yhead:%d",
     //        i, nbr_actor, length, worms[i]->xhead, worms[i]->yhead);
 
     if (worms[i]->xhead >= BOARDWIDTH) {
       worms[i]->xhead = 0;
-      gnibbles_cworm_add_actor(worms[i]);
+      gnibbles_worm_add_actor(worms[i]);
     } else if (worms[i]->xhead < 0) {
       worms[i]->xhead = BOARDWIDTH;
-      gnibbles_cworm_add_actor (worms[i]);
+      gnibbles_worm_add_actor (worms[i]);
     } else if (worms[i]->yhead >= BOARDHEIGHT) {
       worms[i]->yhead = 0;
-      gnibbles_cworm_add_actor (worms[i]);
+      gnibbles_worm_add_actor (worms[i]);
     } else if (worms[i]->xhead < 0) {
       worms[i]->yhead = BOARDHEIGHT;
-      gnibbles_cworm_add_actor (worms[i]);
+      gnibbles_worm_add_actor (worms[i]);
     }
 
     //if there's only one actor in the list, just move the actor
     if (nbr_actor == 1 && !dead[i] && worms[i]->lives > 0) {
-      gnibbles_cworm_move_straight_worm (worms[i]);
+      gnibbles_worm_move_straight_worm (worms[i]);
     } else if (nbr_actor >= 2 && !dead[i] && worms[i]->lives > 0) {
-      gnibbles_cworm_move_tail (worms[i]);
+      gnibbles_worm_move_tail (worms[i]);
       if (g_list_length (worms[i]->list) == 1)
-        gnibbles_cworm_move_straight_worm (worms[i]);
+        gnibbles_worm_move_straight_worm (worms[i]);
       else 
-        gnibbles_cworm_move_head (worms[i]);
+        gnibbles_worm_move_head (worms[i]);
     } else if (dead[i]) {
       //worm's dead, do something clever about it...
     }
@@ -306,14 +306,14 @@ gnibbles_move_worms (void)
     if (dead[i]) {
       if (properties->numworms > 1)
 	      worms[i]->score *= .7;
-      if (!gnibbles_cworm_lose_life (worms[i])) {
+      if (!gnibbles_worm_lose_life (worms[i])) {
         /* One of the worms lost one life, but the round continues. */
         // TODO: reset worm state
-        //gnibbles_worm_reset (cworms[i]);
-        //gnibbles_worm_set_start (cworms[i],
-				//                         cworms[i]->xstart,
-        //                				 cworms[i]->ystart,
-				//                         cworms[i]->direction_start);
+        //gnibbles_worm_reset (worms[i]);
+        //gnibbles_worm_set_start (worms[i],
+				//                         worms[i]->xstart,
+        //                				 worms[i]->ystart,
+				//                         worms[i]->direction_start);
 	      games_sound_play ("crash");
 	    }
     }
@@ -467,7 +467,7 @@ gnibbles_keypress_worms (guint keyval)
   gint numworms = ggz_network_mode ? 1 : properties->numworms;
 
   for (i = 0; i < numworms; i++)
-    if (gnibbles_cworm_handle_keypress (worms[i], keyval)) {
+    if (gnibbles_worm_handle_keypress (worms[i], keyval)) {
       return TRUE;
     }
 
@@ -480,7 +480,7 @@ gnibbles_undraw_worms (gint data)
   gint i;
 
   for (i = 0; i < properties->numworms; i++)
-    gnibbles_cworm_shrink (worms[i], data);
+    gnibbles_worm_shrink (worms[i], data);
     //gnibbles_worm_undraw_nth (worms[i], data);
 }
 

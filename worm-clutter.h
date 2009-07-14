@@ -54,35 +54,35 @@ typedef struct {
   gint stop;
   gint change;
   gint keypress;
-} GnibblesCWorm;
+} GnibblesWorm;
 
-void cworm_set_direction (int worm, int dir);
-void cworm_handle_direction (int worm, int dir);
+void worm_set_direction (int worm, int dir);
+void worm_handle_direction (int worm, int dir);
 
-GnibblesCWorm* gnibbles_cworm_new (guint number, guint t_xhead,
+GnibblesWorm* gnibbles_worm_new (guint number, guint t_xhead,
 			                             guint t_yhead, gint t_direction);
-gint gnibbles_cworm_handle_keypress (GnibblesCWorm * worm, guint keyval);
-void gnibbles_cworm_add_actor (GnibblesCWorm *worm);
-void gnibbles_cworm_remove_actor (GnibblesCWorm *worm);
-void gnibbles_cworm_destroy (GnibblesCWorm * worm);
+gint gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval);
+void gnibbles_worm_add_actor (GnibblesWorm *worm);
+void gnibbles_worm_remove_actor (GnibblesWorm *worm);
+void gnibbles_worm_destroy (GnibblesWorm * worm);
 
-void gnibbles_cworm_inverse (GnibblesCWorm *worm);
-void gnibbles_cworm_resize (GnibblesCWorm *worm, gint newtile);
+void gnibbles_worm_inverse (gpointer data);
+void gnibbles_worm_resize (GnibblesWorm *worm, gint newtile);
 
-void gnibbles_cworm_move_straight_worm (GnibblesCWorm *worm);
-void gnibbles_cworm_move_head (GnibblesCWorm *worm);
-void gnibbles_cworm_move_tail (GnibblesCWorm *worm);
-void gnibbles_cworm_shrink (GnibblesCWorm *worm, gint shrinksize);
+void gnibbles_worm_move_straight_worm (GnibblesWorm *worm);
+void gnibbles_worm_move_head (GnibblesWorm *worm);
+void gnibbles_worm_move_tail (GnibblesWorm *worm);
+void gnibbles_worm_shrink (GnibblesWorm *worm, gint shrinksize);
 
-gint gnibbles_cworm_get_length (GnibblesCWorm *worm);
+gint gnibbles_worm_get_length (GnibblesWorm *worm);
 
-gint gnibbles_cworm_lose_life (GnibblesCWorm * worm);
+gint gnibbles_worm_lose_life (GnibblesWorm * worm);
 
-gint gnibbles_cworm_can_move_to (GnibblesCWorm * worm, gint x, gint y);
-void gnibbles_cworm_position_move_head (GnibblesCWorm * worm, gint *x, gint *y);
-gint gnibbles_cworm_test_move_head (GnibblesCWorm * worm);
-gint gnibbles_cworm_is_move_safe (GnibblesCWorm * worm);
+gint gnibbles_worm_can_move_to (GnibblesWorm * worm, gint x, gint y);
+void gnibbles_worm_position_move_head (GnibblesWorm * worm, gint *x, gint *y);
+gint gnibbles_worm_test_move_head (GnibblesWorm * worm);
+gint gnibbles_worm_is_move_safe (GnibblesWorm * worm);
 
-void gnibbles_cworm_ai_move (GnibblesCWorm * worm);
+void gnibbles_worm_ai_move (GnibblesWorm * worm);
 
 #endif

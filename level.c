@@ -32,7 +32,7 @@
 #ifdef GGZ_CLIENT
 #include "ggz-network.h"
 #endif
-extern GnibblesCWorm *worms[];
+extern GnibblesWorm *worms[];
 extern GnibblesProperties *properties;
 extern GnibblesWarpManager *warpmanager;
 extern GnibblesBoni *boni;
@@ -73,7 +73,7 @@ gnibbles_level_new (gint level)
 
   for (i = 0; i < properties->numworms; i++)
     if (worms[i])
-      gnibbles_cworm_destroy (worms[i]);
+      gnibbles_worm_destroy (worms[i]);
 
   for (i = 0; i < BOARDHEIGHT; i++) {
     if (!fgets (tmpboard, sizeof (tmpboard), in)) {
@@ -92,28 +92,28 @@ gnibbles_level_new (gint level)
         case 'm':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms) {
-            worms[count] = gnibbles_cworm_new (count, j, i, WORMUP);
+            worms[count] = gnibbles_worm_new (count, j, i, WORMUP);
             count++;
           }
           break;
         case 'n':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms) {
-            worms[count] = gnibbles_cworm_new (count, j, i, WORMLEFT);
+            worms[count] = gnibbles_worm_new (count, j, i, WORMLEFT);
             count++;
           }
           break;
         case 'o':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms) {
-            worms[count] = gnibbles_cworm_new (count, j, i, WORMDOWN);
+            worms[count] = gnibbles_worm_new (count, j, i, WORMDOWN);
             count++;
           }
           break;
         case 'p':
           lvl->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms) {
-            worms[count] = gnibbles_cworm_new (count, j, i, WORMRIGHT);
+            worms[count] = gnibbles_worm_new (count, j, i, WORMRIGHT);
             count++;
           }
           break;

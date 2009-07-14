@@ -114,7 +114,7 @@ get_move (void)
   if (ggz_read_int (fd, &player) < 0 || ggz_read_int (fd, &move) < 0)
     return -1;
   /* show some kind of pregame thing....  */
-  cworm_set_direction (player, move);
+  worm_set_direction (player, move);
   return 0;
 }
 

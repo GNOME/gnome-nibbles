@@ -89,7 +89,7 @@ GnibblesLevel *level;
 
 GnibblesScoreboard *scoreboard;
 
-extern GnibblesCWorm *worms[];
+extern GnibblesWorm *worms[];
 extern GnibblesBoni *boni;
 
 gint main_id = 0;
@@ -226,14 +226,15 @@ quit_cb (GObject * object, gpointer data)
 static void
 about_cb (GtkAction * action, gpointer data)
 {
-  const gchar *authors[] = { "Sean MacIsaac", "Ian Peters", "Andreas Røsdal", NULL };
+  const gchar *authors[] = { "Sean MacIsaac", "Ian Peters", "Andreas Røsdal", 
+                             "Guillaume Beland", NULL };
 
   const gchar *documenters[] = { "Kevin Breit", NULL };
   gchar *license = games_get_license (_("Nibbles"));
 
   gtk_show_about_dialog (GTK_WINDOW (window),
 #if GTK_CHECK_VERSION (2, 11, 0)
-                         "program-name", _("Nibbles"),
+       "program-name", _("Nibbles"),
 #else
 			 "name", _("Nibbles"),
 #endif
@@ -282,7 +283,7 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
     if (board) {
       gnibbles_board_resize (board, tilesize);
       for (i=0; i<properties->numworms; i++)
-        gnibbles_cworm_resize (worms[i], tilesize);
+        gnibbles_worm_resize (worms[i], tilesize);
     }
   } else {
     //render_logo ();
