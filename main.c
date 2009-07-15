@@ -904,12 +904,19 @@ render_logo (void)
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
                          CLUTTER_ACTOR (logo));
 }
+static void
+on_hide_logo_completed (ClutterAnimation *animation, ClutterActor *actor)
+{
+  clutter_actor_hide (actor);
+}
 
 static void
 hide_logo (void)
 {
-  clutter_actor_hide (logo);
-  //clutter_actor_queue_redraw (CLUTTER_ACTOR (logo));
+  clutter_actor_animate (logo, CLUTTER_EASE_IN_QUAD, 100,
+                         "opacity", 0,
+                         "signal::completed", on_hide_logo_completed, logo,
+                         NULL);
 }
 
 int
