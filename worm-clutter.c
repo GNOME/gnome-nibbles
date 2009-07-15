@@ -272,12 +272,22 @@ gnibbles_worm_get_tail_direction (GnibblesWorm *worm)
   gboolean is_horizontal;
   GValue val = {0,};
   g_value_init (&val, G_TYPE_BOOLEAN);
+  ClutterActor *next = NULL;
 
   ClutterActor *tail = gnibbles_worm_get_tail_actor (worm);
-  ClutterActor *next = g_list_previous (g_list_last (worm->list))->data;
+
+  if (g_list_length (worm->list) >= 2)
+    next = g_list_previous (g_list_last (worm->list))->data;
+  else
+    return worm->direction;
   
   g_object_get_property (G_OBJECT (tail), "repeat-x", &val);
   is_horizontal = g_value_get_boolean (&val);
+
+  g_object_get_property (G_OBJECT (next), "repeat-x", &val);
+
+  if (is_horizontal == g_value_get_boolean (&val))
+    return worm->direction;
 
   clutter_actor_get_position (CLUTTER_ACTOR (next), &x2, &y2);
   clutter_actor_get_size (CLUTTER_ACTOR (next), &w, &h);
@@ -424,7 +434,7 @@ gnibbles_worm_destroy (GnibblesWorm *worm)
     gnibbles_worm_remove_actor (worm);
 
   g_list_free (worm->list);
-  g_free (worm->actors);
+  //g_free (worm->actors);
 }
 
 void
@@ -451,41 +461,46 @@ void
 gnibbles_worm_reset (GnibblesWorm * worm)
 {
   ClutterActor *tail_actor = NULL;
-  gint length = gnibbles_worm_get_length (worm);
-  gint actor_length;
+  gint tail_length;
   gint tail_dir;
-  gint i;
+  gint i,j;
 
-  while (length != 0) {
-    //while (actor_length != 0)
+  gint nbr_actor = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
+
+  for (j = 0; j < nbr_actor; j++) {
     tail_dir = gnibbles_worm_get_tail_direction (worm);
     tail_actor = gnibbles_worm_get_tail_actor (worm);
-    actor_length = gnibbles_worm_get_actor_length (tail_actor);
+    tail_length = gnibbles_worm_get_actor_length (tail_actor);
+    
     switch (tail_dir) {
       case WORMUP:
-        for (i = 0; i < actor_length; i++)
+        for (i = 0; i < tail_length; i++)
           level->walls[worm->xtail][worm->ytail--] = EMPTYCHAR;
         break;
       case WORMDOWN:
-        for (i = 0; i < actor_length; i++)
+        for (i = 0; i < tail_length; i++)
           level->walls[worm->xtail][worm->ytail++] = EMPTYCHAR;
         break;
       case WORMLEFT:
-        for (i = 0; i < actor_length; i++)
+        for (i = 0; i < tail_length; i++)
           level->walls[worm->xtail--][worm->ytail] = EMPTYCHAR;
         break;
       case WORMRIGHT:
-        for (i = 0; i < actor_length; i++)
+        for (i = 0; i < tail_length; i++)
           level->walls[worm->xtail++][worm->ytail] = EMPTYCHAR;
         break;
       default:
         break;
     }
-    length--;
-  }
-  gnibbles_worm_new (worm->number, worm->xstart, worm->ystart, worm->direction_start);
-  gnibbles_worm_destroy (worm);
 
+    gnibbles_worm_remove_actor (worm);
+  }
+
+  worms[worm->number] = gnibbles_worm_new (worm->number, 
+                                           worm->xstart, 
+                                           worm->ystart, 
+                                           worm->direction_start);
+  gnibbles_worm_destroy (worm);
 }
 
 void 
@@ -742,7 +757,7 @@ gnibbles_worm_move_tail (GnibblesWorm *worm)
   gfloat w,h;
   gfloat x,y;
   gfloat size;
-  gint tmp_dir;
+  gint tail_dir;
 
   ClutterActor *tail = gnibbles_worm_get_tail_actor (worm);
 
@@ -754,8 +769,8 @@ gnibbles_worm_move_tail (GnibblesWorm *worm)
   if (size <= 0) {
      gnibbles_worm_remove_actor (worm);
   } else {
-    tmp_dir = gnibbles_worm_get_tail_direction (worm);
-    switch (tmp_dir) {
+    tail_dir = gnibbles_worm_get_tail_direction (worm);
+    switch (tail_dir) {
       case WORMRIGHT:
         clutter_actor_set_size (CLUTTER_ACTOR (tail), 
                                 size, 

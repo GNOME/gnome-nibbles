@@ -309,11 +309,7 @@ gnibbles_move_worms (void)
       if (!gnibbles_worm_lose_life (worms[i])) {
         /* One of the worms lost one life, but the round continues. */
         // TODO: reset worm state
-        //gnibbles_worm_reset (worms[i]);
-        //gnibbles_worm_set_start (worms[i],
-				//                         worms[i]->xstart,
-        //                				 worms[i]->ystart,
-				//                         worms[i]->direction_start);
+        gnibbles_worm_reset (worms[i]);
 	      games_sound_play ("crash");
 	    }
     }
