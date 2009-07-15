@@ -120,7 +120,7 @@ static GtkAction *scores_action;
 static GtkAction *fullscreen_action;
 static GtkAction *leave_fullscreen_action;
 
-static ClutterGroup *landing_page;
+static ClutterActor *logo;
 
 static void
 hide_cursor (void)
@@ -377,7 +377,7 @@ new_game (void)
     current_level = rand () % MAXLEVEL + 1;
   }
 
-  //hide_logo ();
+  hide_logo ();
   level = gnibbles_level_new (current_level);
   gnibbles_board_load_level (board, level);
   gnibbles_level_add_bonus (level, 1);
@@ -491,7 +491,7 @@ end_game (gboolean show_splash)
   }
 
   if (show_splash) {
-    //render_logo ();
+    render_logo ();
     gtk_action_set_sensitive (new_network_action, TRUE);
     gtk_action_set_sensitive (pause_action, FALSE);
     gtk_action_set_sensitive (resume_action, FALSE);
@@ -867,25 +867,25 @@ static void
 render_logo (void)
 {
   
-  guint width, height;
-  ClutterActor *logo;
+  gfloat width, height;
+  ClutterActor *image;
   ClutterActor *text;
   ClutterActor *desc;
   ClutterColor actor_color = {0xff,0xff,0xff,0xff};
 
   ClutterActor *stage = gnibbles_board_get_stage (board);
-  landing_page = CLUTTER_GROUP (clutter_group_new ());
+  logo = clutter_group_new ();
 
   clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
  
   if (!logo_pixmap)
     gnibbles_load_logo ();
 
-  logo = gtk_clutter_texture_new_from_pixbuf (logo_pixmap);
+  image = gtk_clutter_texture_new_from_pixbuf (logo_pixmap);
 
-  clutter_actor_set_size (CLUTTER_ACTOR (logo), width, height);
-  clutter_actor_set_position (CLUTTER_ACTOR (logo), 0, 0);
-  clutter_actor_show (logo);
+  clutter_actor_set_size (CLUTTER_ACTOR (image), width, height);
+  clutter_actor_set_position (CLUTTER_ACTOR (image), 0, 0);
+  clutter_actor_show (image);
 
   text = clutter_text_new_full ("Sans Bold 70", _("Nibbles"), &actor_color);
   clutter_actor_set_position (CLUTTER_ACTOR (text), (width / 2) - 200, height - 130);
@@ -895,35 +895,21 @@ render_logo (void)
   clutter_actor_set_position (CLUTTER_ACTOR (desc), (width / 2) - 170, height - 40);
   clutter_actor_show (desc);
 
-  clutter_container_add (CLUTTER_CONTAINER (landing_page),
-                         CLUTTER_ACTOR (logo),
+  clutter_container_add (CLUTTER_CONTAINER (logo),
+                         CLUTTER_ACTOR (image),
                          CLUTTER_ACTOR (text),
                          CLUTTER_ACTOR (desc),
                          NULL);
   
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
-                         CLUTTER_ACTOR (landing_page));
-  clutter_actor_raise_top (logo);
-  clutter_actor_raise (text, logo);
-  clutter_actor_raise (desc, logo);
-
+                         CLUTTER_ACTOR (logo));
 }
 
 static void
 hide_logo (void)
 {
-  int count = clutter_group_get_n_children (CLUTTER_GROUP (landing_page));
-  int i;
-  ClutterActor *tmp = NULL;
-
-  //ClutterActor *stage = gnibbles_board_get_stage (board);
-  for (i = 0 ; i < count; i++) {
-    tmp = clutter_group_get_nth_child (landing_page, i);
-    clutter_actor_hide (CLUTTER_ACTOR (tmp));
-    clutter_container_remove_actor (CLUTTER_CONTAINER (landing_page), 
-                                  CLUTTER_ACTOR (tmp));
-  }
-  //clutter_actor_queue_redraw (CLUTTER_ACTOR (landing_page));
+  clutter_actor_hide (logo);
+  //clutter_actor_queue_redraw (CLUTTER_ACTOR (logo));
 }
 
 int
@@ -983,7 +969,7 @@ main (int argc, char **argv)
   network_gui_update ();
 #endif
 
-  //render_logo ();
+  render_logo ();
 
   gtk_action_set_sensitive (pause_action, FALSE);
   gtk_action_set_sensitive (resume_action, FALSE);
