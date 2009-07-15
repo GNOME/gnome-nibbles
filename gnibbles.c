@@ -267,13 +267,13 @@ gnibbles_move_worms (void)
     if (worms[i]->xhead >= BOARDWIDTH) {
       worms[i]->xhead = 0;
       gnibbles_worm_add_actor(worms[i]);
-    } else if (worms[i]->xhead < 0) {
+    } else if (worms[i]->xhead <= 0) {
       worms[i]->xhead = BOARDWIDTH;
       gnibbles_worm_add_actor (worms[i]);
     } else if (worms[i]->yhead >= BOARDHEIGHT) {
       worms[i]->yhead = 0;
       gnibbles_worm_add_actor (worms[i]);
-    } else if (worms[i]->xhead < 0) {
+    } else if (worms[i]->xhead <= 0) {
       worms[i]->yhead = BOARDHEIGHT;
       gnibbles_worm_add_actor (worms[i]);
     }

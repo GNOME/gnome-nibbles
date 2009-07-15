@@ -343,6 +343,11 @@ gnibbles_worm_new (guint number, guint t_xhead,
   gnibbles_worm_add_actor (worm);
   gnibbles_worm_queue_empty (worm);
 
+  clutter_actor_set_opacity (worm->actors, 0);
+  clutter_actor_animate (worm->actors, CLUTTER_EASE_IN_QUAD, 410,
+                         "opacity", 0xff,
+                         NULL);
+
   return worm;
 }
 
