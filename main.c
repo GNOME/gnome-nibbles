@@ -289,7 +289,10 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
         gnibbles_worm_resize (worms[i], tilesize);
     }
   } else {
-    //render_logo ();
+    if (logo)
+      hide_logo ();
+
+    render_logo ();
   }
 
   /* But, has the tile size changed? */
@@ -865,8 +868,7 @@ setup_window ()
 
 static void 
 render_logo (void)
-{
-  
+{ 
   gfloat width, height;
   ClutterActor *image;
   ClutterActor *text;
@@ -904,6 +906,7 @@ render_logo (void)
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
                          CLUTTER_ACTOR (logo));
 }
+
 static void
 on_hide_logo_completed (ClutterAnimation *animation, ClutterActor *actor)
 {
@@ -975,8 +978,6 @@ main (int argc, char **argv)
   network_init ();
   network_gui_update ();
 #endif
-
-  render_logo ();
 
   gtk_action_set_sensitive (pause_action, FALSE);
   gtk_action_set_sensitive (resume_action, FALSE);

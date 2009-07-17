@@ -325,7 +325,7 @@ gnibbles_worm_new (guint number, guint t_xhead,
 			                    guint t_yhead, gint t_direction)
 {
   GnibblesWorm *worm = g_new (GnibblesWorm, 1);
-  
+ 
   worm->actors = clutter_group_new ();
   worm->list = NULL;
   worm->number = number;
@@ -438,8 +438,10 @@ gnibbles_worm_destroy (GnibblesWorm *worm)
   while (worm->list)
     gnibbles_worm_remove_actor (worm);
 
-  g_list_free (worm->list);
-  //g_free (worm->actors);
+  if (worm->list)
+    g_list_free (worm->list);
+
+  g_free (worm);
 }
 
 void
@@ -501,11 +503,13 @@ gnibbles_worm_reset (GnibblesWorm * worm)
     gnibbles_worm_remove_actor (worm);
   }
 
-  worms[worm->number] = gnibbles_worm_new (worm->number, 
-                                           worm->xstart, 
-                                           worm->ystart, 
-                                           worm->direction_start);
-  gnibbles_worm_destroy (worm);
+  worm->xhead = worm->xstart;
+  worm->yhead = worm->ystart;
+  worm->xtail = worm->xhead;
+  worm->ytail = worm->yhead;
+  worm->direction = worm->direction_start;
+
+  gnibbles_worm_add_actor (worm);
 }
 
 void 
