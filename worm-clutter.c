@@ -79,7 +79,7 @@ gnibbles_worm_queue_keypress (GnibblesWorm * worm, guint dir)
       (dir == ((key_queue_entry *) g_queue_peek_tail (key_queue[n]))->dir))
     return;
 
-  entry = g_malloc (sizeof (key_queue_entry));
+  entry = g_new (key_queue_entry, 1);
   entry->worm = worm;
   entry->dir = dir;
   g_queue_push_tail (key_queue[n], (gpointer) entry);
@@ -88,10 +88,8 @@ gnibbles_worm_queue_keypress (GnibblesWorm * worm, guint dir)
 void
 worm_set_direction (int worm, int dir)
 {
-
-  if (worm >= properties->human) {
+  if (!worms[worm]->human)
     return;
-  }
 
   if (worms[worm]) {
 
@@ -171,10 +169,6 @@ gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
 {
   GnibblesWormProps *props;
   guint propsUp, propsLeft, propsDown, propsRight, keyvalUpper;
-/*	if (worm->keypress) {
-                gnibbles_worm_queue_keypress (worm, keyval);
-		return FALSE;
-	} */
 
   props = properties->wormprops[ggz_network_mode ? 0 : worm->number];
   propsUp = toupper(props->up);
@@ -196,22 +190,26 @@ gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
     return TRUE;
   } else {
     if ((keyvalUpper == propsUp) && (worm->direction != WORMDOWN)) {
-      worm_handle_direction (worm->number, WORMUP);
+      //worm_handle_direction (worm->number, WORMUP);
+      worm->direction = WORMUP;
       gnibbles_worm_add_actor (worm);
       return TRUE;
     }
     if ((keyvalUpper == propsRight) && (worm->direction != WORMLEFT)) {
-      worm_handle_direction (worm->number, WORMRIGHT);
+      //worm_handle_direction (worm->number, WORMRIGHT);
+      worm->direction = WORMRIGHT;
       gnibbles_worm_add_actor (worm);
       return TRUE;
     }
     if ((keyvalUpper == propsDown) && (worm->direction != WORMUP)) {
-      worm_handle_direction (worm->number, WORMDOWN);
+      //worm_handle_direction (worm->number, WORMDOWN);
+      worm->direction = WORMDOWN;
       gnibbles_worm_add_actor (worm);
       return TRUE;
     }
     if ((keyvalUpper == propsLeft) && (worm->direction != WORMRIGHT)) {
-      worm_handle_direction (worm->number, WORMLEFT);
+      //worm_handle_direction (worm->number, WORMLEFT);
+      worm->direction = WORMLEFT;
       gnibbles_worm_add_actor (worm);
       return TRUE;
     }

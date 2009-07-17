@@ -211,6 +211,9 @@ gnibbles_init ()
     }
   }
 
+  for (i = 0; i < properties->human; i++)
+    worms[i]->human = TRUE;
+
   gnibbles_scoreboard_update (scoreboard);
 }
 
@@ -463,9 +466,10 @@ gnibbles_keypress_worms (guint keyval)
   gint numworms = ggz_network_mode ? 1 : properties->numworms;
 
   for (i = 0; i < numworms; i++) {
-    if (gnibbles_worm_handle_keypress (worms[i], keyval)) {
-      return TRUE;
-    }
+    if (worms[i]->human)
+      if (gnibbles_worm_handle_keypress (worms[i], keyval)) {
+        return TRUE;
+      }
   }
 
   return FALSE;

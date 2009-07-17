@@ -54,6 +54,7 @@ typedef struct {
   gint stop;
   gint change;
   gint keypress;
+  gboolean human;
 } GnibblesWorm;
 
 void worm_set_direction (int worm, int dir);
