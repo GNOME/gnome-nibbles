@@ -47,13 +47,7 @@ gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
 
   return (tmp);
 }
-/*
-void
-gnibbles_warp_draw_buffer (GnibblesWarp * warp)
-{
-  gnibbles_draw_big_pixmap_buffer (WARP, warp->x, warp->y);
-}
-*/
+
 void
 gnibbles_warp_draw (GnibblesWarp *warp)
 {
@@ -64,5 +58,10 @@ gnibbles_warp_draw (GnibblesWarp *warp)
                               properties->tilesize * warp->y);
   ClutterActor *stage = gnibbles_board_get_stage (board);
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), warp->actor);
+  clutter_actor_set_opacity (warp->actor, 0);
+  clutter_actor_animate (warp->actor, CLUTTER_EASE_IN_QUAD, 410,
+                         "opacity", 0xff,
+                         NULL);
+
 
 }
