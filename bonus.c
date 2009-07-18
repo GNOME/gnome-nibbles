@@ -40,7 +40,7 @@ gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
 {
   GnibblesBonus *tmp;
 
-  tmp = (GnibblesBonus *) malloc (sizeof (GnibblesBonus));
+  tmp = g_new (GnibblesBonus, 1);
 
   tmp->x = t_x;
   tmp->y = t_y;
@@ -53,7 +53,7 @@ gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
 }
 
 void
-gnibbles_bonus_draw_clutter (GnibblesBonus *bonus)
+gnibbles_bonus_draw (GnibblesBonus *bonus)
 {
   gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (bonus->actor),
                                        boni_pixmaps[bonus->type]);
@@ -69,7 +69,7 @@ gnibbles_bonus_draw_clutter (GnibblesBonus *bonus)
 }
 
 void
-gnibbles_bonus_erase_clutter (GnibblesBonus *bonus)
+gnibbles_bonus_erase (GnibblesBonus *bonus)
 {
   clutter_actor_hide (bonus->actor);
 }

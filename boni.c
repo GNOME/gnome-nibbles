@@ -40,7 +40,7 @@ gnibbles_boni_new (void)
   int i;
   GnibblesBoni *tmp;
 
-  tmp = (GnibblesBoni *) g_malloc (sizeof (GnibblesBoni));
+  tmp = g_new (GnibblesBoni, 1);
   for (i = 0; i < MAXBONUSES; i++)
     tmp->bonuses[i] = NULL;
   tmp->numbonuses = 0;
@@ -76,7 +76,7 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
   level->walls[t_x][t_y + 1] = t_type + 'A';
   level->walls[t_x + 1][t_y + 1] = t_type + 'A';
 
-  gnibbles_bonus_draw_clutter (boni->bonuses[boni->numbonuses]);
+  gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
   
   boni->numbonuses++;
   if (t_type != BONUSREGULAR)
@@ -103,7 +103,7 @@ gnibbles_boni_add_bonus_final (GnibblesBoni * boni, gint t_x, gint t_y,
   level->walls[t_x][t_y + 1] = t_type + 'A';
   level->walls[t_x + 1][t_y + 1] = t_type + 'A';
 
-  gnibbles_bonus_draw_clutter (boni->bonuses[boni->numbonuses]);
+  gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
   boni->numbonuses++;
   if (t_type != BONUSREGULAR)
     games_sound_play ("appear");
@@ -153,7 +153,7 @@ gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
       level->walls[boni->bonuses[i]->x][boni->bonuses[i]->y + 1] = EMPTYCHAR;
       level->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1]	= EMPTYCHAR;
 
-      gnibbles_bonus_erase_clutter (boni->bonuses[i]);
+      gnibbles_bonus_erase (boni->bonuses[i]);
       boni->bonuses[i] = boni->bonuses[--boni->numbonuses];
       return;
     }
@@ -179,7 +179,7 @@ gnibbles_boni_remove_bonus_final (GnibblesBoni * boni, gint x, gint y)
       level->walls[boni->bonuses[i]->x][boni->bonuses[i]->y + 1] = EMPTYCHAR;
       level->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1] = EMPTYCHAR;
 
-      gnibbles_bonus_erase_clutter (boni->bonuses[i]);
+      gnibbles_bonus_erase (boni->bonuses[i]);
       boni->bonuses[i] = boni->bonuses[--boni->numbonuses];
       return;
     }

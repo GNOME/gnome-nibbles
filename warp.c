@@ -37,7 +37,7 @@ gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
 {
   GnibblesWarp *tmp;
 
-  tmp = (GnibblesWarp *) g_malloc (sizeof (GnibblesWarp));
+  tmp = g_new (GnibblesWarp, 1);
 
   tmp->x = t_x;
   tmp->y = t_y;
@@ -62,6 +62,4 @@ gnibbles_warp_draw (GnibblesWarp *warp)
   clutter_actor_animate (warp->actor, CLUTTER_EASE_IN_QUAD, 410,
                          "opacity", 0xff,
                          NULL);
-
-
 }

@@ -102,7 +102,6 @@ worm_set_direction (int worm, int dir)
       gnibbles_worm_queue_keypress (worms[worm], dir);
       return;
     }
-
     worms[worm]->direction = dir;
     worms[worm]->keypress = 1;
   }
@@ -190,26 +189,26 @@ gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
     return TRUE;
   } else {
     if ((keyvalUpper == propsUp) && (worm->direction != WORMDOWN)) {
-      //worm_handle_direction (worm->number, WORMUP);
-      worm->direction = WORMUP;
+      worm_handle_direction (worm->number, WORMUP);
+      //worm->direction = WORMUP;
       gnibbles_worm_add_actor (worm);
       return TRUE;
     }
     if ((keyvalUpper == propsRight) && (worm->direction != WORMLEFT)) {
-      //worm_handle_direction (worm->number, WORMRIGHT);
-      worm->direction = WORMRIGHT;
+      worm_handle_direction (worm->number, WORMRIGHT);
+      //worm->direction = WORMRIGHT;
       gnibbles_worm_add_actor (worm);
       return TRUE;
     }
     if ((keyvalUpper == propsDown) && (worm->direction != WORMUP)) {
-      //worm_handle_direction (worm->number, WORMDOWN);
-      worm->direction = WORMDOWN;
+      worm_handle_direction (worm->number, WORMDOWN);
+      //worm->direction = WORMDOWN;
       gnibbles_worm_add_actor (worm);
       return TRUE;
     }
     if ((keyvalUpper == propsLeft) && (worm->direction != WORMRIGHT)) {
-      //worm_handle_direction (worm->number, WORMLEFT);
-      worm->direction = WORMLEFT;
+      worm_handle_direction (worm->number, WORMLEFT);
+      //worm->direction = WORMLEFT;
       gnibbles_worm_add_actor (worm);
       return TRUE;
     }
@@ -620,6 +619,9 @@ gnibbles_worm_move_straight_worm (GnibblesWorm *worm)
   if (!(g_list_length (worm->list) == 1))
     return;
 
+  if (worm->human)
+    worm->keypress = 0;
+
   gfloat x,y;
   ClutterActor *head = gnibbles_worm_get_head_actor (worm);
 
@@ -687,6 +689,9 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
   if (g_list_length (worm->list) <= 1)
     return;
 
+  if (worm->human)
+    worm->keypress = 0;
+  
   gfloat w,h;
   gfloat x,y;
   gfloat size;
