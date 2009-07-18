@@ -2,8 +2,9 @@
 
 /* 
  *   Gnome Nibbles: Gnome Worm Game
- *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
- * 
+ *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>,
+ *              Guillaume Beland <guillaume.beland@gmail.com>
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -208,6 +209,7 @@ gnibbles_init ()
     if (worms[i]) {
       clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
       clutter_actor_raise_top (worms[i]->actors);
+      gnibbles_worm_show (worms[i]);
     }
   }
 

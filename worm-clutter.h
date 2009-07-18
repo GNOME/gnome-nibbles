@@ -2,7 +2,7 @@
 
 /* 
  *   Gnome Nibbles: Gnome Worm Game
- *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
+ *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>,
  *              Guillaume Béland <guillaume.beland@gmail.com>
  *
  *   This program is free software; you can redistribute it and/or modify
@@ -62,7 +62,8 @@ void worm_handle_direction (int worm, int dir);
 
 GnibblesWorm* gnibbles_worm_new (guint number, guint t_xhead,
 			                             guint t_yhead, gint t_direction);
-gint gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval);
+void gnibbles_worm_show (GnibblesWorm *worm);
+gboolean gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval);
 void gnibbles_worm_add_actor (GnibblesWorm *worm);
 void gnibbles_worm_remove_actor (GnibblesWorm *worm);
 void gnibbles_worm_destroy (GnibblesWorm * worm);
@@ -79,10 +80,10 @@ gint gnibbles_worm_get_length (GnibblesWorm *worm);
 
 gint gnibbles_worm_lose_life (GnibblesWorm * worm);
 
-gint gnibbles_worm_can_move_to (GnibblesWorm * worm, gint x, gint y);
+gboolean gnibbles_worm_can_move_to (GnibblesWorm * worm, gint x, gint y);
 void gnibbles_worm_position_move_head (GnibblesWorm * worm, gint *x, gint *y);
-gint gnibbles_worm_test_move_head (GnibblesWorm * worm);
-gint gnibbles_worm_is_move_safe (GnibblesWorm * worm);
+gboolean gnibbles_worm_test_move_head (GnibblesWorm * worm);
+gboolean gnibbles_worm_is_move_safe (GnibblesWorm * worm);
 
 void gnibbles_worm_ai_move (GnibblesWorm * worm);
 

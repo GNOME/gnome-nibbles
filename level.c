@@ -2,8 +2,9 @@
 
 /* 
  *   Gnome Nibbles: Gnome Worm Game
- *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
-                Guillaume Beland <guillaume.beland@gmail.com>
+ *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>,
+ *              Guillaume Beland <guillaume.beland@gmail.com>
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -152,7 +153,23 @@ gnibbles_level_new (gint level)
   g_free (filename);
   fclose (in);
 
-  return lvl;
+  for (i = 0; i < count; i++) {
+    if (worms[i]->direction == WORMRIGHT) {
+      for (j = 0; j < worms[i]->length; j++)
+        lvl->walls[worms[i]->xhead++][worms[i]->yhead] = WORMCHAR;
+    } else if ( worms[i]->direction == WORMLEFT) {
+      for (j = 0; j < worms[i]->length; j++)
+        lvl->walls[worms[i]->xhead--][worms[i]->yhead] = WORMCHAR;
+    } else if (worms[i]->direction == WORMDOWN) {
+      for (j = 0; j < worms[i]->length; j++)
+        lvl->walls[worms[i]->xhead][worms[i]->yhead++] = WORMCHAR;
+    } else if (worms[i]->direction == WORMUP) {
+      for (j = 0; j < worms[i]->length; j++)
+        lvl->walls[worms[i]->xhead][worms[i]->yhead--] = WORMCHAR;
+    }
+  }
+
+return lvl;
 }
 
 void
