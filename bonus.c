@@ -61,8 +61,7 @@ gnibbles_bonus_draw (GnibblesBonus *bonus)
   clutter_actor_set_position (CLUTTER_ACTOR (bonus->actor),
                               bonus->x * properties->tilesize,
                               bonus->y * properties->tilesize);
-  ClutterActor *stage = gnibbles_board_get_stage (board);
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), bonus->actor);
+  clutter_container_add_actor (CLUTTER_CONTAINER (board->stage), bonus->actor);
   clutter_actor_set_opacity (bonus->actor, 0);
   clutter_actor_animate (bonus->actor, CLUTTER_EASE_IN_QUAD, 410,
                          "opacity", 0xff,

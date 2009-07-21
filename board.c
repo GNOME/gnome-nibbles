@@ -40,7 +40,7 @@ extern GnibblesProperties *properties;
 extern GdkPixbuf *wall_pixmaps[];
 
 GnibblesBoard *
-gnibbles_board_new (gint t_w, gint t_h) 
+gnibbles_board_new (ClutterActor *stage) 
 {
   ClutterColor stage_color = {0x00,0x00,0x00,0xff};
   gchar *filename;
@@ -48,15 +48,12 @@ gnibbles_board_new (gint t_w, gint t_h)
   GValue val = {0,};
 
   GnibblesBoard *board = g_new (GnibblesBoard, 1);
-  board->width = t_w;
-  board->height = t_h;
+  board->width = BOARDWIDTH;
+  board->height = BOARDHEIGHT;
   board->level = NULL;
   board->surface = NULL;
-  board->clutter_widget = gtk_clutter_embed_new ();
+  board->stage = stage;
 
-  ClutterActor *stage;
-
-  stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (board->clutter_widget));
   clutter_stage_set_color (CLUTTER_STAGE(stage), &stage_color);
 
   clutter_stage_set_user_resizable (CLUTTER_STAGE(stage), FALSE); 
@@ -85,12 +82,6 @@ gnibbles_board_new (gint t_w, gint t_h)
   clutter_actor_show (board->surface);
 
   return board;
-}
-
-ClutterActor *
-gnibbles_board_get_stage (GnibblesBoard *board) 
-{
-  return gtk_clutter_embed_get_stage(GTK_CLUTTER_EMBED(board->clutter_widget));
 }
 
 void 
@@ -167,9 +158,8 @@ gnibbles_board_load_level (GnibblesBoard *board, GnibblesLevel *level)
     }
   }
 
-  ClutterActor *stage = gnibbles_board_get_stage (board);
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), board->level);
-  clutter_actor_raise (board->level,board->surface);
+  clutter_container_add_actor (CLUTTER_CONTAINER (board->stage), board->level);
+  clutter_actor_raise (board->level, board->surface);
 
   clutter_actor_set_opacity (board->level, 0);
   clutter_actor_animate (board->level, CLUTTER_EASE_IN_QUAD, 410,
@@ -192,9 +182,8 @@ gnibbles_board_resize (GnibblesBoard *board, gint newtile)
   int count;
 
   ClutterActor *tmp;
-  ClutterActor *stage = gnibbles_board_get_stage (board);
 
-  clutter_actor_set_size (stage, 
+  clutter_actor_set_size (board->stage, 
                           BOARDWIDTH * newtile,
                           BOARDHEIGHT * newtile);
   clutter_actor_set_size (board->surface,

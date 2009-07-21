@@ -57,8 +57,7 @@ gnibbles_warp_draw (GnibblesWarp *warp)
   clutter_actor_set_position (CLUTTER_ACTOR (warp->actor),
                               properties->tilesize * warp->x,
                               properties->tilesize * warp->y);
-  ClutterActor *stage = gnibbles_board_get_stage (board);
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), warp->actor);
+  clutter_container_add_actor (CLUTTER_CONTAINER (board->stage), warp->actor);
   clutter_actor_set_opacity (warp->actor, 0);
   clutter_actor_animate (warp->actor, CLUTTER_EASE_IN_QUAD, 410,
                          "opacity", 0xff,

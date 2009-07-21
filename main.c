@@ -90,6 +90,8 @@ GnibblesLevel *level;
 
 GnibblesScoreboard *scoreboard;
 
+GtkWidget *clutter_widget;
+
 extern GnibblesWorm *worms[];
 extern GnibblesBoni *boni;
 
@@ -126,8 +128,7 @@ static ClutterActor *logo;
 static void
 hide_cursor (void)
 {
-  ClutterActor *stage = gnibbles_board_get_stage (board);
-  clutter_stage_hide_cursor (CLUTTER_STAGE (stage));
+  clutter_stage_hide_cursor (CLUTTER_STAGE (board->stage));
 }
 
 static void
@@ -182,8 +183,7 @@ window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
 static void
 show_cursor (void)
 {
-  ClutterActor *stage = gnibbles_board_get_stage (board);
-  clutter_stage_show_cursor (CLUTTER_STAGE (stage));
+  clutter_stage_show_cursor (CLUTTER_STAGE (board->stage));
 }
 
 gint
@@ -327,7 +327,7 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
 {
   if (!paused) {
     if (!keyboard_id)
-      keyboard_id = g_signal_connect (G_OBJECT (gnibbles_board_get_stage (board)),
+      keyboard_id = g_signal_connect (G_OBJECT (board->stage),
 				                              "key-press-event",
                         				      G_CALLBACK (key_press_cb), NULL);
 #ifdef GGZ_CLIENT
@@ -798,10 +798,14 @@ setup_window ()
   GtkWidget *main_vbox;
   GtkWidget *packing;
   GtkWidget *menubar;
+
   GtkUIManager *ui_manager;
   GtkAccelGroup *accel_group;
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  clutter_widget = gtk_clutter_embed_new ();
+  board = gnibbles_board_new (gtk_clutter_embed_get_stage (
+                              GTK_CLUTTER_EMBED (clutter_widget)));
   gtk_window_set_title (GTK_WINDOW (window), _("Nibbles"));
 
   gtk_window_set_default_size (GTK_WINDOW (window), 
@@ -837,13 +841,13 @@ setup_window ()
   gtk_widget_show (packing);
 
 
-  gtk_container_add (GTK_CONTAINER (packing), board->clutter_widget);
+  gtk_container_add (GTK_CONTAINER (packing), clutter_widget);
 #ifdef GGZ_CLIENT
   chat = create_chat_widget ();
   gtk_box_pack_start (GTK_BOX (vbox), chat, FALSE, TRUE, 0);
 #endif
 
-  g_signal_connect (G_OBJECT (board->clutter_widget), "configure_event",
+  g_signal_connect (G_OBJECT (clutter_widget), "configure_event",
 		    G_CALLBACK (configure_event_cb), NULL);
 
   g_signal_connect (G_OBJECT (window), "focus_out_event",
@@ -876,10 +880,9 @@ render_logo (void)
   ClutterActor *desc;
   ClutterColor actor_color = {0xff,0xff,0xff,0xff};
 
-  ClutterActor *stage = gnibbles_board_get_stage (board);
   logo = clutter_group_new ();
 
-  clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
+  clutter_actor_get_size (CLUTTER_ACTOR (board->stage), &width, &height);
  
   if (!logo_pixmap)
     gnibbles_load_logo ();
@@ -904,7 +907,7 @@ render_logo (void)
                          CLUTTER_ACTOR (desc),
                          NULL);
   
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
+  clutter_container_add_actor (CLUTTER_CONTAINER (board->stage), 
                          CLUTTER_ACTOR (logo));
 }
 
@@ -968,11 +971,9 @@ main (int argc, char **argv)
 
   games_conf_initialise ("Gnibbles");
   properties = gnibbles_properties_new (); 
-
+  setup_window ();
   gnibbles_load_pixmap (properties->tilesize);
 
-  board = gnibbles_board_new (BOARDWIDTH, BOARDHEIGHT);
-  setup_window ();
   gnibbles_load_logo ();
 
 #ifdef GGZ_CLIENT
