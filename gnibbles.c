@@ -222,16 +222,18 @@ gnibbles_move_worms (void)
 {
   gint i, j, olddir, length, nbr_actor;
   gint status = 1, nlives = 1;
-  gint *dead;
+  gboolean *dead;
 
-  dead = g_new (gint, properties->numworms);
+  dead = g_new (gboolean, properties->numworms);
 
-  for (i = 1; i < properties->numworms; i++) {
+  for (i = 0; i < properties->numworms; i++) {
     olddir = worms[i]->direction;
-    gnibbles_worm_ai_move (worms[i]);
+    if (!worms[i]->human) {
+      gnibbles_worm_ai_move (worms[i]);
 
-    if (olddir != worms[i]->direction)
-      gnibbles_worm_add_actor (worms[i]);
+      if (olddir != worms[i]->direction)
+        gnibbles_worm_add_actor (worms[i]);
+    }
   }
 
   if (boni->missed > MAXMISSED)
@@ -260,13 +262,7 @@ gnibbles_move_worms (void)
     status &= !dead[i];
   }
 
-  for (i = 0; i < properties->numworms; i++) {
-
-    nbr_actor = g_list_length (worms[i]->list);
-    length = gnibbles_worm_get_length (worms[i]);
-    //printf ("\nWorm ID: %d, Actors: %d, Length: %d,  xhead: %d, yhead:%d",
-    //        i, nbr_actor, length, worms[i]->xhead, worms[i]->yhead);
-
+  for (i = 0; i < properties->numworms; i++) { 
     if (worms[i]->xhead >= BOARDWIDTH) {
       worms[i]->xhead = 0;
       gnibbles_worm_add_actor(worms[i]);
@@ -281,19 +277,23 @@ gnibbles_move_worms (void)
       gnibbles_worm_add_actor (worms[i]);
     }
 
-    //if there's only one actor in the list, just move the actor
-    if (nbr_actor == 1 && !dead[i] && worms[i]->lives > 0) {
-      gnibbles_worm_move_straight_worm (worms[i]);
-    } else if (nbr_actor >= 2 && !dead[i] && worms[i]->lives > 0) {
-      gnibbles_worm_move_tail (worms[i]);
-      if (g_list_length (worms[i]->list) == 1)
-        gnibbles_worm_move_straight_worm (worms[i]);
-      else 
-        gnibbles_worm_move_head (worms[i]);
-    } else if (dead[i]) {
-      //worm's dead, do something clever about it...
-    }
   }
+  
+  for (i = 0; i < properties->numworms; i++) {
+    if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
+      gnibbles_worm_move_tail (worms[i]);
+  }
+  
+  for (i = 0; i < properties->numworms; i++) {
+    if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
+      gnibbles_worm_move_head (worms[i]);
+  }
+
+  for (i = 0; i < properties->numworms; i++) {
+    if (g_list_length (worms[i]->list) == 1 && !dead[i] && worms[i]->lives > 0)
+      gnibbles_worm_move_straight_worm (worms[i]);
+  }
+
 
   for (i = 0; i < properties->numworms; i++) {
     for (j = 0; j < properties->numworms; j++) {
@@ -311,7 +311,6 @@ gnibbles_move_worms (void)
 	      worms[i]->score *= .7;
       if (!gnibbles_worm_lose_life (worms[i])) {
         /* One of the worms lost one life, but the round continues. */
-        // TODO: reset worm state
         gnibbles_worm_reset (worms[i]);
 	      games_sound_play ("crash");
 	    }
@@ -328,6 +327,7 @@ gnibbles_move_worms (void)
     if (worms[i]->lives > 0)
       nlives += 1;
   }
+
   if (nlives == 1 && (properties->ai + properties->human > 1)) {
     /* There is one player left, the other AI players are dead, and that player has won! */
     return (VICTORY);
@@ -335,7 +335,6 @@ gnibbles_move_worms (void)
     /* There was only one worm, and it died. */
     return (GAMEOVER);
   }
-
    /* Noone died, so the round can continue. */
 
   g_free (dead);

@@ -74,6 +74,7 @@ gnibbles_worm_queue_keypress (GnibblesWorm * worm, guint dir)
   /* Ignore duplicates in normal movement mode. This resolves the
    * key repeat issue. We ignore this in relative mode because then
    * you do want two keys that are the same in quick succession. */
+  printf ("\nfail here 1");
   if ((!properties->wormprops[worm->number]->relmove) &&
       (!g_queue_is_empty (key_queue[n])) &&
       (dir == ((key_queue_entry *) g_queue_peek_tail (key_queue[n]))->dir))
@@ -130,7 +131,7 @@ gnibbles_worm_queue_empty (GnibblesWorm * worm)
 
   if (!key_queue[n])
     return;
-
+  printf ("\nfail here 2");
   while (!g_queue_is_empty (key_queue[n])) {
     entry = g_queue_pop_head (key_queue[n]);
     g_free (entry);
@@ -325,6 +326,7 @@ gnibbles_worm_new (guint number, guint t_xhead,
   worm->list = NULL;
   worm->number = number;
   worm->lives = SLIVES;
+  worm->human = FALSE;
 
   worm->xhead = t_xhead;
   worm->xstart = t_xhead;
@@ -469,14 +471,14 @@ gnibbles_worm_reset (GnibblesWorm * worm)
   gint tail_length;
   gint tail_dir;
   gint i,j;
-
   gint nbr_actor = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
 
   for (j = 0; j < nbr_actor; j++) {
     tail_dir = gnibbles_worm_get_tail_direction (worm);
     tail_actor = gnibbles_worm_get_tail_actor (worm);
     tail_length = gnibbles_worm_get_actor_length (tail_actor);
-    
+   
+
     switch (tail_dir) {
       case WORMUP:
         for (i = 0; i < tail_length; i++)
@@ -673,7 +675,7 @@ gnibbles_worm_move_straight_worm (GnibblesWorm *worm)
       worm->xhead--;
       level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
       if (worm->xtail == 0)
-        worm->xtail = BOARDWIDTH;
+        worm->xtail = BOARDWIDTH - 1;
       else
         worm->xtail--;
       break;
@@ -684,14 +686,14 @@ gnibbles_worm_move_straight_worm (GnibblesWorm *worm)
       worm->yhead--;
       level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
       if (worm->ytail == 0)
-        worm->ytail = BOARDHEIGHT;
+        worm->ytail = BOARDHEIGHT - 1;
       else
         worm->ytail--;
       break;
     default:
       break;
   }
-
+  printf ("\nfail here 3");
   if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
     gnibbles_worm_dequeue_keypress (worm);
   }
@@ -769,6 +771,7 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
       break;
   }
 
+  printf ("\nfail here 4");
   if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
     gnibbles_worm_dequeue_keypress (worm);
   }
@@ -828,7 +831,7 @@ gnibbles_worm_move_tail (GnibblesWorm *worm)
                                 properties->tilesize);
         level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
         if (worm->xtail == 0)
-          worm->xtail = BOARDWIDTH;
+          worm->xtail = BOARDWIDTH - 1;
         else
           worm->xtail--;
         break;
@@ -838,7 +841,7 @@ gnibbles_worm_move_tail (GnibblesWorm *worm)
                                 size);
         level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
         if (worm->ytail == 0)
-          worm->ytail = BOARDHEIGHT;
+          worm->ytail = BOARDHEIGHT - 1;
         else
           worm->ytail--;
         break;
