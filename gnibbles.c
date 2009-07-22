@@ -220,7 +220,7 @@ gnibbles_init ()
 gint
 gnibbles_move_worms (void)
 {
-  gint i, j, olddir, length, nbr_actor;
+  gint i, j, olddir;
   gint status = 1, nlives = 1;
   gboolean *dead;
 
