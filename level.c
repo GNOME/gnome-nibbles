@@ -154,18 +154,20 @@ gnibbles_level_new (gint level)
   fclose (in);
 
   for (i = 0; i < count; i++) {
+    lvl->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR;
+
     if (worms[i]->direction == WORMRIGHT) {
       for (j = 0; j < worms[i]->length; j++)
-        lvl->walls[worms[i]->xhead++][worms[i]->yhead] = WORMCHAR;
+        lvl->walls[++worms[i]->xhead][worms[i]->yhead] = WORMCHAR;
     } else if ( worms[i]->direction == WORMLEFT) {
       for (j = 0; j < worms[i]->length; j++)
-        lvl->walls[worms[i]->xhead--][worms[i]->yhead] = WORMCHAR;
+        lvl->walls[--worms[i]->xhead][worms[i]->yhead] = WORMCHAR;
     } else if (worms[i]->direction == WORMDOWN) {
       for (j = 0; j < worms[i]->length; j++)
-        lvl->walls[worms[i]->xhead][worms[i]->yhead++] = WORMCHAR;
+        lvl->walls[worms[i]->xhead][++worms[i]->yhead] = WORMCHAR;
     } else if (worms[i]->direction == WORMUP) {
       for (j = 0; j < worms[i]->length; j++)
-        lvl->walls[worms[i]->xhead][worms[i]->yhead--] = WORMCHAR;
+        lvl->walls[worms[i]->xhead][--worms[i]->yhead] = WORMCHAR;
     }
   }
 

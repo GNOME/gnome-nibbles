@@ -369,14 +369,11 @@ gnibbles_worm_add_actor (GnibblesWorm *worm)
   if (worm->list) 
     head = gnibbles_worm_get_head_actor (worm);
 
-  gfloat x,y;
-  clutter_actor_get_position (CLUTTER_ACTOR (actor), &x, &y);
-
   if (worm->direction == WORMRIGHT || worm->direction == WORMLEFT) {
     // if it's the first actor, set its size
     if (!head) {
       clutter_actor_set_size (CLUTTER_ACTOR (actor),
-                              properties->tilesize * SLENGTH,
+                              properties->tilesize * worm->length,
                               properties->tilesize);
 
     } else {
@@ -389,7 +386,7 @@ gnibbles_worm_add_actor (GnibblesWorm *worm)
     if (!head) {
       clutter_actor_set_size (CLUTTER_ACTOR (actor),
                               properties->tilesize,
-                              properties->tilesize * SLENGTH);
+                              properties->tilesize * worm->length);
     } else {
       clutter_actor_set_size (CLUTTER_ACTOR (actor), properties->tilesize, 0);
     }
@@ -451,6 +448,17 @@ gnibbles_worm_inverse (gpointer data)
 
   worm->list = g_list_reverse (worm->list);
   
+  gint old_dir = gnibbles_worm_get_tail_direction (worm);
+
+  if (old_dir == WORMRIGHT)
+    worm->direction = WORMLEFT;
+  else if (old_dir == WORMLEFT)
+    worm->direction = WORMRIGHT;
+  else if (old_dir == WORMUP)
+    worm->direction = WORMDOWN;
+  else if (old_dir == WORMDOWN)
+    worm->direction = WORMUP;
+
   gint tmp;
 
   tmp = worm->xhead;
@@ -469,13 +477,12 @@ gnibbles_worm_reset (GnibblesWorm * worm)
   gint tail_length;
   gint tail_dir;
   gint i,j;
-  gint nbr_actor = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
+  gint nbr_actor = g_list_length (worm->list); 
 
   for (j = 0; j < nbr_actor; j++) {
     tail_dir = gnibbles_worm_get_tail_direction (worm);
     tail_actor = gnibbles_worm_get_tail_actor (worm);
-    tail_length = gnibbles_worm_get_actor_length (tail_actor);
-   
+    tail_length = gnibbles_worm_get_actor_length (tail_actor); 
 
     switch (tail_dir) {
       case WORMUP:
@@ -497,7 +504,7 @@ gnibbles_worm_reset (GnibblesWorm * worm)
       default:
         break;
     }
-
+    level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
     gnibbles_worm_remove_actor (worm);
   }
 
@@ -506,10 +513,40 @@ gnibbles_worm_reset (GnibblesWorm * worm)
   worm->xtail = worm->xhead;
   worm->ytail = worm->yhead;
   worm->direction = worm->direction_start;
-  worm->length = 0;
+  worm->length = SLENGTH;
 
-  if (!(worm->lives <= 0))
+  if (!(worm->lives <= 0)) {
     gnibbles_worm_add_actor (worm);
+
+    level->walls[worm->xhead][worm->yhead] = WORMCHAR;
+    if (worm->direction == WORMRIGHT) {
+      for (j = 0; j < worm->length; j++)
+        level->walls[++worm->xhead][worm->yhead] = WORMCHAR;
+    } else if ( worm->direction == WORMLEFT) {
+      for (j = 0; j < worm->length; j++)
+        level->walls[--worm->xhead][worm->yhead] = WORMCHAR;
+    } else if (worm->direction == WORMDOWN) {
+      for (j = 0; j < worm->length; j++)
+        level->walls[worm->xhead][++worm->yhead] = WORMCHAR;
+    } else if (worm->direction == WORMUP) {
+      for (j = 0; j < worm->length; j++)
+        level->walls[worm->xhead][--worm->yhead] = WORMCHAR;
+    }
+  }
+/*
+  FILE *fo;
+  fo = fopen ("output.txt", "w" );
+  for (i = 0; i < BOARDWIDTH; i++) {
+    for (j = 0; j < BOARDHEIGHT; j++) {
+      if (level->walls[i][j] == 'a')
+        fprintf(fo, "%c", ' ');
+      else
+        fprintf (fo , "%c", level->walls[i][j]);
+    }
+    fprintf (fo, "\n");
+  }
+  fclose (fo);
+ */   
 }
 
 void 

@@ -160,8 +160,8 @@ gnibbles_load_pixmap (gint tilesize)
       g_object_unref (wall_pixmaps[i]);
       
     wall_pixmaps[i] = gnibbles_load_pixmap_file (small_files[i],
-  	 	  		                                             2 * tilesize,
-                           						                   2 * tilesize);
+  	 	  		                                             tilesize,
+                           						                   tilesize);
   }
 
   for (i = 0; i < 7; i++) {
@@ -262,22 +262,6 @@ gnibbles_move_worms (void)
     status &= !dead[i];
   }
 
-  for (i = 0; i < properties->numworms; i++) { 
-    if (worms[i]->xhead >= BOARDWIDTH) {
-      worms[i]->xhead = 0;
-      gnibbles_worm_add_actor(worms[i]);
-    } else if (worms[i]->xhead <= 0) {
-      worms[i]->xhead = BOARDWIDTH;
-      gnibbles_worm_add_actor (worms[i]);
-    } else if (worms[i]->yhead >= BOARDHEIGHT) {
-      worms[i]->yhead = 0;
-      gnibbles_worm_add_actor (worms[i]);
-    } else if (worms[i]->xhead <= 0) {
-      worms[i]->yhead = BOARDHEIGHT;
-      gnibbles_worm_add_actor (worms[i]);
-    }
-
-  }
   
   for (i = 0; i < properties->numworms; i++) {
     if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
@@ -294,6 +278,21 @@ gnibbles_move_worms (void)
       gnibbles_worm_move_straight_worm (worms[i]);
   }
 
+  for (i = 0; i < properties->numworms; i++) { 
+    if (worms[i]->xhead >= BOARDWIDTH) {
+      worms[i]->xhead = 0;
+      gnibbles_worm_add_actor(worms[i]);
+    } else if (worms[i]->xhead <= 0) {
+      worms[i]->xhead = BOARDWIDTH;
+      gnibbles_worm_add_actor (worms[i]);
+    } else if (worms[i]->yhead >= BOARDHEIGHT) {
+      worms[i]->yhead = 0;
+      gnibbles_worm_add_actor (worms[i]);
+    } else if (worms[i]->xhead <= 0) {
+      worms[i]->yhead = BOARDHEIGHT;
+      gnibbles_worm_add_actor (worms[i]);
+    }
+  }
 
   for (i = 0; i < properties->numworms; i++) {
     for (j = 0; j < properties->numworms; j++) {
