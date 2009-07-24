@@ -61,7 +61,7 @@ animate_bonus (ClutterAnimation *animation, ClutterActor *actor)
   ClutterAnimation *anim;
 
   center = (ClutterVertex){(gfloat)properties->tilesize, 0, 0};
-  anim = clutter_actor_animate (actor, CLUTTER_LINEAR, 1300,
+  anim = clutter_actor_animate (actor, CLUTTER_LINEAR, 2000,
                          "rotation-angle-y", 360.f,
                          "fixed::rotation-center-y", &center,
                          NULL);
