@@ -315,6 +315,109 @@ gnibbles_worm_get_actor_length (ClutterActor *actor) {
   return size;
 }
 
+static void
+gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
+{
+  GnibblesWorm *worm = (GnibblesWorm *)data;
+
+  ClutterActor *tail_actor = NULL;
+  gint tail_length;
+  gint tail_dir;
+  gint i,j;
+  gint nbr_actor = g_list_length (worm->list);
+
+  for (j = 0; j < nbr_actor; j++) {
+    tail_dir = gnibbles_worm_get_tail_direction (worm);
+    tail_actor = gnibbles_worm_get_tail_actor (worm);
+    tail_length = gnibbles_worm_get_actor_length (tail_actor); 
+    
+    switch (tail_dir) {
+      case WORMUP:
+        for (i = 0; i < tail_length; i++)
+          level->walls[worm->xtail][worm->ytail--] = EMPTYCHAR;
+        break;
+      case WORMDOWN:
+        for (i = 0; i < tail_length; i++)
+          level->walls[worm->xtail][worm->ytail++] = EMPTYCHAR;
+        break;
+      case WORMLEFT:
+        for (i = 0; i < tail_length; i++)
+          level->walls[worm->xtail--][worm->ytail] = EMPTYCHAR;
+        break;
+      case WORMRIGHT:
+        for (i = 0; i < tail_length; i++)
+          level->walls[worm->xtail++][worm->ytail] = EMPTYCHAR;
+        break;
+      default:
+        break;
+    }
+    level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
+    gnibbles_worm_remove_actor (worm);
+  }
+
+  worm->xhead = worm->xstart;
+  worm->yhead = worm->ystart;
+  worm->xtail = worm->xhead;
+  worm->ytail = worm->yhead;
+  worm->direction = worm->direction_start;
+  worm->length = SLENGTH;
+
+  if (!(worm->lives <= 0)) {
+    gnibbles_worm_show (worm);
+    level->walls[worm->xhead][worm->yhead] = WORMCHAR;
+    if (worm->direction == WORMRIGHT) {
+      for (j = 0; j < worm->length; j++)
+        level->walls[++worm->xhead][worm->yhead] = WORMCHAR;
+    } else if ( worm->direction == WORMLEFT) {
+      for (j = 0; j < worm->length; j++)
+        level->walls[--worm->xhead][worm->yhead] = WORMCHAR;
+    } else if (worm->direction == WORMDOWN) {
+      for (j = 0; j < worm->length; j++)
+        level->walls[worm->xhead][++worm->yhead] = WORMCHAR;
+    } else if (worm->direction == WORMUP) {
+      for (j = 0; j < worm->length; j++)
+        level->walls[worm->xhead][--worm->yhead] = WORMCHAR;
+    }
+  }
+/*
+  FILE *fo;
+  fo = fopen ("output.txt", "w" );
+  for (i = 0; i < BOARDWIDTH; i++) {
+    for (j = 0; j < BOARDHEIGHT; j++) {
+      if (level->walls[i][j] == 'a')
+        fprintf(fo, "%c", ' ');
+      else
+        fprintf (fo , "%c", level->walls[i][j]);
+    }
+    fprintf (fo, "\n");
+  }
+  fclose (fo);
+ */   
+}
+
+static void *
+gnibbles_worm_animate (GnibblesWorm *worm)
+{
+  ClutterVertex center;
+  gint i, length;
+  ClutterActor *actor;
+  ClutterAnimation *animation = NULL;
+
+  gint count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
+  for (i = 0; i < count; i++) {
+    actor = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
+    length = gnibbles_worm_get_actor_length (actor);
+    center = (ClutterVertex) { length /2, 0, 0};
+    animation = clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUAD, 700,
+                           "opacity", 0,
+                           "rotation-angle-z", 360.f * 2,
+                           "fixed::rotation-center-z", &center,
+                           NULL);
+  }
+
+  return animation;
+}
+
 GnibblesWorm*
 gnibbles_worm_new (guint number, guint t_xhead,
 			                    guint t_yhead, gint t_direction)
@@ -469,109 +572,6 @@ gnibbles_worm_inverse (gpointer data)
   worm->yhead = worm->ytail;
   worm->ytail = tmp;
   tmp = worm->yhead;
-}
-
-static void
-gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
-{
-  GnibblesWorm *worm = (GnibblesWorm *)data;
-
-  ClutterActor *tail_actor = NULL;
-  gint tail_length;
-  gint tail_dir;
-  gint i,j;
-  gint nbr_actor = g_list_length (worm->list);
-
-  for (j = 0; j < nbr_actor; j++) {
-    tail_dir = gnibbles_worm_get_tail_direction (worm);
-    tail_actor = gnibbles_worm_get_tail_actor (worm);
-    tail_length = gnibbles_worm_get_actor_length (tail_actor); 
-    
-    switch (tail_dir) {
-      case WORMUP:
-        for (i = 0; i < tail_length; i++)
-          level->walls[worm->xtail][worm->ytail--] = EMPTYCHAR;
-        break;
-      case WORMDOWN:
-        for (i = 0; i < tail_length; i++)
-          level->walls[worm->xtail][worm->ytail++] = EMPTYCHAR;
-        break;
-      case WORMLEFT:
-        for (i = 0; i < tail_length; i++)
-          level->walls[worm->xtail--][worm->ytail] = EMPTYCHAR;
-        break;
-      case WORMRIGHT:
-        for (i = 0; i < tail_length; i++)
-          level->walls[worm->xtail++][worm->ytail] = EMPTYCHAR;
-        break;
-      default:
-        break;
-    }
-    level->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-    gnibbles_worm_remove_actor (worm);
-  }
-
-  worm->xhead = worm->xstart;
-  worm->yhead = worm->ystart;
-  worm->xtail = worm->xhead;
-  worm->ytail = worm->yhead;
-  worm->direction = worm->direction_start;
-  worm->length = SLENGTH;
-
-  if (!(worm->lives <= 0)) {
-    //gnibbles_worm_add_actor (worm);
-    gnibbles_worm_show (worm);
-    level->walls[worm->xhead][worm->yhead] = WORMCHAR;
-    if (worm->direction == WORMRIGHT) {
-      for (j = 0; j < worm->length; j++)
-        level->walls[++worm->xhead][worm->yhead] = WORMCHAR;
-    } else if ( worm->direction == WORMLEFT) {
-      for (j = 0; j < worm->length; j++)
-        level->walls[--worm->xhead][worm->yhead] = WORMCHAR;
-    } else if (worm->direction == WORMDOWN) {
-      for (j = 0; j < worm->length; j++)
-        level->walls[worm->xhead][++worm->yhead] = WORMCHAR;
-    } else if (worm->direction == WORMUP) {
-      for (j = 0; j < worm->length; j++)
-        level->walls[worm->xhead][--worm->yhead] = WORMCHAR;
-    }
-  }
-/*
-  FILE *fo;
-  fo = fopen ("output.txt", "w" );
-  for (i = 0; i < BOARDWIDTH; i++) {
-    for (j = 0; j < BOARDHEIGHT; j++) {
-      if (level->walls[i][j] == 'a')
-        fprintf(fo, "%c", ' ');
-      else
-        fprintf (fo , "%c", level->walls[i][j]);
-    }
-    fprintf (fo, "\n");
-  }
-  fclose (fo);
- */   
-}
-
-static void *
-gnibbles_worm_animate (GnibblesWorm *worm)
-{
-  ClutterVertex center;
-  gint i, length;
-  ClutterActor *actor;
-  ClutterAnimation *animation = NULL;
-
-  gint count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
-  for (i = 0; i < count; i++) {
-    actor = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
-    length = gnibbles_worm_get_actor_length (actor);
-    center = (ClutterVertex) { length /2, 0, 0};
-    animation = clutter_actor_animate (actor, CLUTTER_LINEAR, 700,
-                           "opacity", 0,
-                           "rotation-angle-z", 360.f * 2,
-                           "fixed::rotation-center-z", &center,
-                           NULL);
-  }
-  return animation;
 }
 
 void
