@@ -398,20 +398,18 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
 static void *
 gnibbles_worm_animate (GnibblesWorm *worm)
 {
-  ClutterVertex center;
-  gint i, length;
+  gint i;
   ClutterActor *actor;
   ClutterAnimation *animation = NULL;
 
   gint count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
   for (i = 0; i < count; i++) {
     actor = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
-    length = gnibbles_worm_get_actor_length (actor);
-    center = (ClutterVertex) { length /2, 0, 0};
-    animation = clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUAD, 700,
+    animation = clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUAD, 600,
                            "opacity", 0,
                            "rotation-angle-z", 360.f * 2,
-                           "fixed::rotation-center-z", &center,
+                           "fixed::rotation-center-z-gravity", 
+                           CLUTTER_GRAVITY_CENTER,
                            NULL);
   }
 
