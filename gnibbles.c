@@ -310,7 +310,7 @@ gnibbles_move_worms (void)
 	      worms[i]->score *= .7;
       if (!gnibbles_worm_lose_life (worms[i])) {
         /* One of the worms lost one life, but the round continues. */
-        gnibbles_worm_reset (worms[i]);
+        gnibbles_worm_kill (worms[i]);
 	      games_sound_play ("crash");
 	    }
     }

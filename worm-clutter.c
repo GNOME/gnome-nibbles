@@ -39,7 +39,7 @@
 #include "bonus.h"
 #include "warpmanager.h"
 #include "properties.h"
-
+#include "board.h"
 #ifdef GGZ_CLIENT
 #include "ggz-network.h"
 #endif
@@ -52,6 +52,7 @@ extern GnibblesLevel *level;
 extern GnibblesBoni *boni;
 extern GnibblesWarpManager *warpmanager;
 extern GnibblesWorm *worms[NUMWORMS];
+extern GnibblesBoard *board;
 
 extern gint current_level;
 
@@ -470,20 +471,22 @@ gnibbles_worm_inverse (gpointer data)
   tmp = worm->yhead;
 }
 
-void
-gnibbles_worm_reset (GnibblesWorm * worm)
+static void
+gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
 {
+  GnibblesWorm *worm = (GnibblesWorm *)data;
+
   ClutterActor *tail_actor = NULL;
   gint tail_length;
   gint tail_dir;
   gint i,j;
-  gint nbr_actor = g_list_length (worm->list); 
+  gint nbr_actor = g_list_length (worm->list);
 
   for (j = 0; j < nbr_actor; j++) {
     tail_dir = gnibbles_worm_get_tail_direction (worm);
     tail_actor = gnibbles_worm_get_tail_actor (worm);
     tail_length = gnibbles_worm_get_actor_length (tail_actor); 
-
+    
     switch (tail_dir) {
       case WORMUP:
         for (i = 0; i < tail_length; i++)
@@ -516,8 +519,8 @@ gnibbles_worm_reset (GnibblesWorm * worm)
   worm->length = SLENGTH;
 
   if (!(worm->lives <= 0)) {
-    gnibbles_worm_add_actor (worm);
-
+    //gnibbles_worm_add_actor (worm);
+    gnibbles_worm_show (worm);
     level->walls[worm->xhead][worm->yhead] = WORMCHAR;
     if (worm->direction == WORMRIGHT) {
       for (j = 0; j < worm->length; j++)
@@ -547,6 +550,36 @@ gnibbles_worm_reset (GnibblesWorm * worm)
   }
   fclose (fo);
  */   
+}
+
+static void *
+gnibbles_worm_animate (GnibblesWorm *worm)
+{
+  ClutterVertex center;
+  gint i, length;
+  ClutterActor *actor;
+  ClutterAnimation *animation = NULL;
+
+  gint count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
+  for (i = 0; i < count; i++) {
+    actor = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
+    length = gnibbles_worm_get_actor_length (actor);
+    center = (ClutterVertex) { length /2, 0, 0};
+    animation = clutter_actor_animate (actor, CLUTTER_LINEAR, 700,
+                           "opacity", 0,
+                           "rotation-angle-z", 360.f * 2,
+                           "fixed::rotation-center-z", &center,
+                           NULL);
+  }
+  return animation;
+}
+
+void
+gnibbles_worm_kill (GnibblesWorm *worm)
+{
+  g_signal_connect_after (
+    gnibbles_worm_animate (worm),
+    "completed", G_CALLBACK (gnibbles_worm_reset), (gpointer)worm);
 }
 
 void 

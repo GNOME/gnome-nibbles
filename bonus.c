@@ -54,41 +54,39 @@ gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
   return (tmp);
 }
 
+static void
+animate_bonus (ClutterAnimation *animation, ClutterActor *actor)
+{
+  ClutterVertex center;
+  ClutterAnimation *anim;
+
+  center = (ClutterVertex){(gfloat)properties->tilesize, 0, 0};
+  anim = clutter_actor_animate (actor, CLUTTER_LINEAR, 1300,
+                         "rotation-angle-y", 360.f,
+                         "fixed::rotation-center-y", &center,
+                         NULL);
+  clutter_animation_set_loop (anim, TRUE);
+  
+}
+
 void
 gnibbles_bonus_draw (GnibblesBonus *bonus)
 {
-  ClutterTimeline *timeline;
-  ClutterBehaviour *r_behave;
-
   clutter_actor_set_position (CLUTTER_ACTOR (bonus->actor),
                               bonus->x * properties->tilesize,
                               bonus->y * properties->tilesize);
-
-  clutter_actor_set_anchor_point (CLUTTER_ACTOR (bonus->actor), 
-                              properties->tilesize,
-                              0);
 
   gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (bonus->actor),
                                        boni_pixmaps[bonus->type]);
 
   clutter_container_add_actor (CLUTTER_CONTAINER (board->stage), bonus->actor);
-  
+
   clutter_actor_set_opacity (bonus->actor, 0);
-  clutter_actor_animate (bonus->actor, CLUTTER_EASE_IN_QUAD, 410,
+  g_signal_connect_after (
+    clutter_actor_animate (bonus->actor, CLUTTER_EASE_IN_QUAD, 500,
                          "opacity", 0xff,
-                         NULL);
-
-  timeline = clutter_timeline_new (4692);
-  clutter_timeline_set_loop (timeline, TRUE);
- 
-  r_behave =
-      clutter_behaviour_rotate_new (clutter_alpha_new_full (timeline, CLUTTER_LINEAR),
-                                    CLUTTER_Y_AXIS,
-                                    CLUTTER_ROTATE_CW,
-                                    0.0, 360.0);
-
-  clutter_behaviour_apply (r_behave, bonus->actor);
-  clutter_timeline_start (timeline);
+                          NULL),
+    "completed", G_CALLBACK (animate_bonus), bonus->actor);
 }
 
 void

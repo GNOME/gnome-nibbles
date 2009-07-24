@@ -67,7 +67,8 @@ gnibbles_board_new (ClutterActor *stage)
   filename = g_build_filename (dirname, "wall-small-empty.svg", NULL);
 
   board->surface = clutter_texture_new_from_file (filename, NULL);
-  
+ 
+  clutter_actor_set_opacity (board->surface, 215);
   g_value_init (&val, G_TYPE_BOOLEAN);
   g_value_set_boolean ( &val, TRUE);
 
@@ -165,7 +166,6 @@ gnibbles_board_load_level (GnibblesBoard *board, GnibblesLevel *level)
   clutter_actor_animate (board->level, CLUTTER_EASE_IN_QUAD, 410,
                          "opacity", 255,
                          NULL);
-
 }
 
 void
