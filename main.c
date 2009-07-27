@@ -86,7 +86,6 @@ extern GdkPixbuf *logo_pixmap;
 GnibblesProperties *properties;
 
 GnibblesBoard *board; 
-GnibblesLevel *level;
 
 GnibblesScoreboard *scoreboard;
 
@@ -382,9 +381,8 @@ new_game (void)
   }
 
   hide_logo ();
-  level = gnibbles_level_new (current_level);
-  gnibbles_board_load_level (board, level);
-  gnibbles_level_add_bonus (level, 1);
+  gnibbles_board_level_new (board, current_level);
+  gnibbles_board_level_add_bonus (board, 1);
   gnibbles_init ();
 
   paused = 0;
@@ -526,16 +524,15 @@ end_game_cb (GtkAction * action, gpointer data)
 static gint
 add_bonus_cb (gpointer data)
 {
-  gnibbles_level_add_bonus (level, 0);
+  gnibbles_board_level_add_bonus (board, 0);
   return (TRUE);
 }
 
 static gint
 restart_game (gpointer data)
 {
-  level = gnibbles_level_new (current_level);
-  gnibbles_board_load_level (board, level);
-  gnibbles_level_add_bonus (level, 1);
+  gnibbles_board_level_new (board, current_level);
+  gnibbles_board_level_add_bonus (board, 1);
   dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_2_cb, NULL);
   restart_id = 0;
   

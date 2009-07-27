@@ -29,9 +29,9 @@
 #include "warpmanager.h"
 #include "boni.h"
 #include "main.h"
-#include "level.h"
+#include "board.h"
 
-extern GnibblesLevel *level;
+extern GnibblesBoard *board;
 extern GnibblesBoni *boni;
 
 GnibblesWarpManager *
@@ -97,10 +97,10 @@ gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
       warpmanager->numwarps++;
     }
 
-    level->walls[t_x][t_y] = WARPLETTER;
-    level->walls[t_x + 1][t_y] = WARPLETTER;
-    level->walls[t_x][t_y + 1] = WARPLETTER;
-    level->walls[t_x + 1][t_y + 1] = WARPLETTER;
+    board->walls[t_x][t_y] = WARPLETTER;
+    board->walls[t_x + 1][t_y] = WARPLETTER;
+    board->walls[t_x][t_y + 1] = WARPLETTER;
+    board->walls[t_x + 1][t_y + 1] = WARPLETTER;
 
     gnibbles_warp_draw (warpmanager->warps[draw]);
   }

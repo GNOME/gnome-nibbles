@@ -34,9 +34,17 @@
 #include "gnibbles.h"
 #include "properties.h"
 #include "board.h"
+#include "worm-clutter.h"
+#include "boni.h"
 
+#ifdef GGZ_CLIENT
+#include "ggz-network.h"
+#endif
+
+extern GnibblesWorm *worms[];
 extern GnibblesProperties *properties;
-
+extern GnibblesWarpManager *warpmanager;
+extern GnibblesBoni *boni;
 extern GdkPixbuf *wall_pixmaps[];
 
 GnibblesBoard *
@@ -85,8 +93,8 @@ gnibbles_board_new (ClutterActor *stage)
   return board;
 }
 
-void 
-gnibbles_board_load_level (GnibblesBoard *board, GnibblesLevel *level) 
+static void 
+gnibbles_board_load_level (GnibblesBoard *board) 
 {
   gint i,j;
   gint x_pos, y_pos;
@@ -103,7 +111,7 @@ gnibbles_board_load_level (GnibblesBoard *board, GnibblesLevel *level)
     y_pos = i * properties->tilesize;
     for (j = 0; j < BOARDWIDTH; j++) {
       is_wall = TRUE;
-      switch (level->walls[j][i]) {
+      switch (board->walls[j][i]) {
         case 'a': // empty space
           is_wall = FALSE;
           break; // break right away
@@ -199,5 +207,240 @@ gnibbles_board_resize (GnibblesBoard *board, gint newtile)
                                 (x_pos / properties->tilesize) * newtile,
                                 (y_pos / properties->tilesize) * newtile);
     clutter_actor_set_size (tmp ,newtile, newtile);
+  }
+}
+
+void
+gnibbles_board_level_new (GnibblesBoard *board, gint level)
+{
+  //GnibblesLevel *board = g_new (GnibblesLevel, 1);
+  //board->level = level;
+  board->current_level = level;
+  gchar *tmp = NULL;
+  const char *dirname;
+  gchar *filename;
+  FILE *in;
+  gchar tmpboard [BOARDWIDTH +2];
+  gint i,j;
+  gint count = 0;
+
+  tmp = g_strdup_printf("level%03d.gnl", level);
+  
+  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_GAMES_DIRECTORY);
+  filename = g_build_filename (dirname, tmp, NULL);
+
+  g_free (tmp);
+
+  if ((in = fopen (filename, "r")) == NULL) {
+    char *message =
+      g_strdup_printf (_
+                        ("Nibbles couldn't load level file:\n%s\n\n"
+                        "Please check your Nibbles installation"), filename);
+    //gnibbles_error (window, message);
+    g_free (message);
+  }
+
+  if (boni)
+    gnibbles_boni_destroy (boni);
+
+  boni = gnibbles_boni_new ();
+
+  for (i = 0; i < properties->numworms; i++)
+    if (worms[i])
+      gnibbles_worm_destroy (worms[i]);
+
+  for (i = 0; i < BOARDHEIGHT; i++) {
+    if (!fgets (tmpboard, sizeof (tmpboard), in)) {
+      char *message =
+        g_strdup_printf (_
+                         ("Level file appears to be damaged:\n%s\n\n"
+                         "Please check your Nibbles installation"), filename);
+      //gnibbles_error (window, message);
+      g_free (message);
+      break;
+    }
+
+    for (j = 0; j < BOARDWIDTH; j++) {
+      board->walls[j][i] = tmpboard[j];
+      switch (board->walls[j][i]) {
+        case 'm':
+          board->walls[j][i] = EMPTYCHAR;
+          if (count < properties->numworms) {
+            worms[count] = gnibbles_worm_new (count, j, i, WORMUP);
+            count++;
+          }
+          break;
+        case 'n':
+          board->walls[j][i] = EMPTYCHAR;
+          if (count < properties->numworms) {
+            worms[count] = gnibbles_worm_new (count, j, i, WORMLEFT);
+            count++;
+          }
+          break;
+        case 'o':
+          board->walls[j][i] = EMPTYCHAR;
+          if (count < properties->numworms) {
+            worms[count] = gnibbles_worm_new (count, j, i, WORMDOWN);
+            count++;
+          }
+          break;
+        case 'p':
+          board->walls[j][i] = EMPTYCHAR;
+          if (count < properties->numworms) {
+            worms[count] = gnibbles_worm_new (count, j, i, WORMRIGHT);
+            count++;
+          }
+          break;
+        case 'Q':
+          gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);
+          break;
+        case 'R':
+        case 'S':
+        case 'T':
+        case 'U':
+        case 'V':
+        case 'W':
+        case 'X':
+        case 'Y':
+        case 'Z':
+          gnibbles_warpmanager_add_warp
+            (warpmanager, j - 1, i - 1, -(board->walls[j][i]), 0);
+          break;
+        case 'r':
+        case 's':
+        case 't':
+        case 'u':
+        case 'v':
+        case 'w':
+        case 'x':
+        case 'y':
+        case 'z':
+          gnibbles_warpmanager_add_warp
+            (warpmanager, -(board->walls[j][i] - 'a' + 'A'), 0, j, i);
+          board->walls[j][i] = EMPTYCHAR;
+          break;
+       }
+    }
+  }
+
+  g_free (filename);
+  fclose (in);
+
+  for (i = 0; i < count; i++) {
+    board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR;
+
+    if (worms[i]->direction == WORMRIGHT) {
+      for (j = 0; j < worms[i]->length; j++)
+        board->walls[++worms[i]->xhead][worms[i]->yhead] = WORMCHAR;
+    } else if ( worms[i]->direction == WORMLEFT) {
+      for (j = 0; j < worms[i]->length; j++)
+        board->walls[--worms[i]->xhead][worms[i]->yhead] = WORMCHAR;
+    } else if (worms[i]->direction == WORMDOWN) {
+      for (j = 0; j < worms[i]->length; j++)
+        board->walls[worms[i]->xhead][++worms[i]->yhead] = WORMCHAR;
+    } else if (worms[i]->direction == WORMUP) {
+      for (j = 0; j < worms[i]->length; j++)
+        board->walls[worms[i]->xhead][--worms[i]->yhead] = WORMCHAR;
+    }
+  }
+
+  gnibbles_board_load_level (board); 
+
+}
+
+void
+gnibbles_board_level_add_bonus (GnibblesBoard *board, gint regular)
+{
+  gint x, y, good;
+
+#ifdef GGZ_CLIENT
+  if (!network_is_host ()) {
+    return;
+  }
+#endif
+
+  if (regular) {
+    good = 0;
+  } else {
+    good = rand () % 50;
+    if (good)
+      return;
+  }
+
+  do {
+    good = 1;
+    x = rand () % (BOARDWIDTH - 1);
+    y = rand () % (BOARDHEIGHT - 1);
+    if (board->walls[x][y] != EMPTYCHAR)
+      good = 0;
+    if (board->walls[x + 1][y] != EMPTYCHAR)
+      good = 0;
+    if (board->walls[x][y + 1] != EMPTYCHAR)
+      good = 0;
+    if (board->walls[x + 1][y + 1] != EMPTYCHAR)
+      good = 0;
+  } while (!good);
+
+  if (regular) {
+    if ((rand () % 7 == 0) && properties->fakes)
+      gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 1, 300);
+    good = 0;
+    while (!good) {
+      good = 1;
+      x = rand () % (BOARDWIDTH - 1);
+      y = rand () % (BOARDHEIGHT - 1);
+      if (board->walls[x][y] != EMPTYCHAR)
+	      good = 0;
+      if (board->walls[x + 1][y] != EMPTYCHAR)
+	      good = 0;
+      if (board->walls[x][y + 1] != EMPTYCHAR)
+	      good = 0;
+      if (board->walls[x + 1][y + 1] != EMPTYCHAR)
+	      good = 0;
+    }
+    gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 0, 300);
+  } else if (boni->missed <= MAXMISSED) {
+    good = rand () % 7;
+
+    if (good)
+      good = 0;
+    else
+      good = 1;
+
+    if (good && !properties->fakes)
+      return;
+
+    switch (rand () % 21) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+      gnibbles_boni_add_bonus (boni, x, y, BONUSHALF, good, 200);
+      break;
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+      gnibbles_boni_add_bonus (boni, x, y, BONUSDOUBLE, good, 150);
+      break;
+    case 15:
+      gnibbles_boni_add_bonus (boni, x, y, BONUSLIFE, good, 100);
+      break;
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+      if (properties->numworms > 1)
+	      gnibbles_boni_add_bonus (boni, x, y, BONUSREVERSE, good, 150);
+      break;
+    }
   }
 }

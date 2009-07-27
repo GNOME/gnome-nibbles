@@ -30,8 +30,6 @@ gnibbles_SOURCES = \
 	main.h \
 	board.c \
 	board.h \
-	level.c \
-	level.h \
 	worm-clutter.c \
 	worm-clutter.h \
 	$(NULL)

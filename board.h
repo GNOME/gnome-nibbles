@@ -23,10 +23,17 @@
 #ifndef BOARD_H_
 #define BOARD_H_
 
+#include <config.h>
+
 #include <gtk/gtk.h>
 #include <clutter/clutter.h>
 
-#include "level.h"
+#define BOARDWIDTH 92
+#define BOARDHEIGHT 66
+
+#define EMPTYCHAR 'a'
+#define WORMCHAR 'w'
+
 
 typedef struct {
   gint width;
@@ -34,10 +41,13 @@ typedef struct {
   ClutterActor *stage;
   ClutterActor *surface;
   ClutterActor *level;
+
+  gchar walls[BOARDWIDTH][BOARDHEIGHT];
+  gint current_level;
 } GnibblesBoard;
 
 GnibblesBoard* gnibbles_board_new (ClutterActor *stage);
-void gnibbles_board_load_level (GnibblesBoard *board, GnibblesLevel *level);
 void gnibbles_board_resize (GnibblesBoard *board, gint newtile);
-
+void gnibbles_board_level_new (GnibblesBoard *board, gint level);
+void gnibbles_board_level_add_bonus (GnibblesBoard *board, gint regular);
 #endif

@@ -44,7 +44,6 @@
 #include "properties.h"
 #include "scoreboard.h"
 #include "board.h"
-#include "level.h"
 #include "worm-clutter.h"
 
 #ifdef GGZ_CLIENT
@@ -74,7 +73,6 @@ GdkPixbuf *boni_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
 
 extern GtkWidget *drawing_area;
 
-extern GnibblesLevel *level;
 extern GnibblesBoard *board;
 
 extern GnibblesProperties *properties;
@@ -248,7 +246,7 @@ gnibbles_move_worms (void)
                                     boni->bonuses[i]->x, 
                                     boni->bonuses[i]->y);
 	      boni->missed++;
-	      gnibbles_level_add_bonus (level, 1);
+	      gnibbles_board_level_add_bonus (board, 1);
       } else {
 	      gnibbles_boni_remove_bonus (boni, 
                                     boni->bonuses[i]->x, 
