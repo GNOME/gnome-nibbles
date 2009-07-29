@@ -44,14 +44,12 @@ typedef struct {
   gint xstart, ystart;
   guint xhead, yhead;
   guint xtail, ytail;
-  gint direction;
-  gint direction_start;
+  gint direction, direction_start;
   gint length;
   gint lives;
   guint score;
   guint number;
-  gint start;
-  gint stop;
+  gint start, stop;
   gint change;
   gint keypress;
   gboolean human;

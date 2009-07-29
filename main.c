@@ -332,12 +332,12 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
 #ifdef GGZ_CLIENT
     if (!main_id && ggz_network_mode && network_is_host ()) {
       main_id = g_timeout_add (GAMEDELAY * (properties->gamespeed + NETDELAY),
-			       (GSourceFunc) network_loop, NULL);
+			                         (GSourceFunc) network_loop, NULL);
     } else
 #endif
     if (!main_id && !ggz_network_mode) {
       main_id = g_timeout_add (GAMEDELAY * properties->gamespeed,
-			       (GSourceFunc) main_loop, NULL);
+			                         (GSourceFunc) main_loop, NULL);
     }
 #ifdef GGZ_CLIENT
     if (!add_bonus_id && network_is_host ()) {
@@ -345,8 +345,8 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
     if (!add_bonus_id) {
 #endif
       add_bonus_id = g_timeout_add (BONUSDELAY *
-				    properties->gamespeed,
-				    (GSourceFunc) add_bonus_cb, NULL);
+				                            properties->gamespeed,
+                            		    (GSourceFunc) add_bonus_cb, NULL);
     }
   }
 
@@ -551,8 +551,8 @@ erase_worms_cb (gpointer datap)
   } else {
     gnibbles_undraw_worms (ERASESIZE - data);
     erase_id = g_timeout_add (ERASETIME / ERASESIZE,
-			      (GSourceFunc) erase_worms_cb,
-			      GINT_TO_POINTER (data - 1));
+                              (GSourceFunc) erase_worms_cb,
+                  			      GINT_TO_POINTER (data - 1));
   }
 
   return (FALSE);
@@ -575,7 +575,7 @@ main_loop (gpointer data)
       return FALSE;
 
     str = g_strdup_printf (_("Game over! The game has been won by %s!"),
-			   names[winner]);
+			                     names[winner]);
 #ifdef GGZ_CLIENT
     add_chat_text (str);
 #endif
@@ -594,8 +594,8 @@ main_loop (gpointer data)
     }
     add_bonus_id = 0;
     erase_id = g_timeout_add_seconds (3,
-			      (GSourceFunc) erase_worms_cb,
-			      (gpointer) ERASESIZE);
+			                                (GSourceFunc) erase_worms_cb,
+                          			      (gpointer) ERASESIZE);
     gnibbles_log_score (window);
 
     return FALSE;
@@ -613,8 +613,8 @@ main_loop (gpointer data)
     }
     add_bonus_id = 0;
     erase_id = g_timeout_add_seconds (3,
-			      (GSourceFunc) erase_worms_cb,
-			      (gpointer) ERASESIZE);
+			                                (GSourceFunc) erase_worms_cb,
+                          			      (gpointer) ERASESIZE);
     gnibbles_log_score (window);
     return (FALSE);
   }
@@ -664,7 +664,7 @@ main_loop (gpointer data)
       main_id = 0;
     }
     if ((current_level < MAXLEVEL) && (!properties->random
-				       || ggz_network_mode))
+				                               || ggz_network_mode))
       current_level++;
     else if (properties->random && !ggz_network_mode) {
       tmp = rand () % MAXLEVEL + 1;

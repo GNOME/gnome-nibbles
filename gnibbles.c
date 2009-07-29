@@ -255,11 +255,12 @@ gnibbles_move_worms (void)
     }
   }
 
+  //TODO: erase tail here
+
   for (i = 0; i < properties->numworms; i++) {
     dead[i] = !gnibbles_worm_test_move_head (worms[i]);
     status &= !dead[i];
   }
-
   
   for (i = 0; i < properties->numworms; i++) {
     if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
@@ -270,7 +271,7 @@ gnibbles_move_worms (void)
     if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
       gnibbles_worm_move_head (worms[i]);
   }
-
+  
   for (i = 0; i < properties->numworms; i++) {
     if (g_list_length (worms[i]->list) == 1 && !dead[i] && worms[i]->lives > 0)
       gnibbles_worm_move_straight_worm (worms[i]);

@@ -353,6 +353,8 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     gnibbles_worm_remove_actor (worm);
   }
 
+  //printf ("\n\n %d)XHEAD %d, YHEAD %d",worm->number, worm->xhead, worm->yhead);
+  //printf ("\n\n %d)XTAIL %d, YTAIL %d",worm->number, worm->xtail, worm->ytail);
   worm->xhead = worm->xstart;
   worm->yhead = worm->ystart;
   worm->xtail = worm->xhead;
@@ -362,35 +364,42 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
 
   if (!(worm->lives <= 0)) {
     gnibbles_worm_show (worm);
-    board->walls[worm->xhead][worm->yhead] = WORMCHAR;
     if (worm->direction == WORMRIGHT) {
-      for (j = 0; j < worm->length; j++)
-        board->walls[++worm->xhead][worm->yhead] = WORMCHAR;
+      for (j = 0; j < worm->length; j++) {
+        board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
+        worm->xhead++;
+      }
     } else if ( worm->direction == WORMLEFT) {
-      for (j = 0; j < worm->length; j++)
-        board->walls[--worm->xhead][worm->yhead] = WORMCHAR;
+      for (j = 0; j < worm->length; j++) {
+        board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
+        worm->yhead--;
+      }
     } else if (worm->direction == WORMDOWN) {
-      for (j = 0; j < worm->length; j++)
-        board->walls[worm->xhead][++worm->yhead] = WORMCHAR;
+      for (j = 0; j < worm->length; j++) {
+        board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
+        worm->yhead++;
+      }
     } else if (worm->direction == WORMUP) {
-      for (j = 0; j < worm->length; j++)
-        board->walls[worm->xhead][--worm->yhead] = WORMCHAR;
+      for (j = 0; j < worm->length; j++) {
+        board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
+        worm->yhead--;
+      }
     }
   }
 /*
   FILE *fo;
   fo = fopen ("output.txt", "w" );
-  for (i = 0; i < BOARDWIDTH; i++) {
-    for (j = 0; j < BOARDHEIGHT; j++) {
-      if (board->walls[i][j] == 'a')
+  for (i = 0; i < BOARDHEIGHT; i++) {
+    for (j = 0; j < BOARDWIDTH; j++) {
+      if (board->walls[j][i] == 'a')
         fprintf(fo, "%c", ' ');
       else
-        fprintf (fo , "%c", board->walls[i][j]);
+        fprintf (fo , "%c", board->walls[j][i]);
     }
     fprintf (fo, "\n");
   }
   fclose (fo);
- */   
+*/
 }
 
 static void *
@@ -437,9 +446,13 @@ gnibbles_worm_new (guint number, guint t_xhead,
   worm->ystart = t_yhead;
   worm->xtail = t_xhead;
   worm->ytail = t_yhead;
+
+  worm->start = 0;
+  worm->stop = 0;
   worm->direction = t_direction;
   worm->direction_start = t_direction;
   worm->length = SLENGTH;
+  worm->change = 1; //SLENGTH - 1;
 
   gnibbles_worm_queue_empty (worm);
 
@@ -548,7 +561,6 @@ void
 gnibbles_worm_inverse (gpointer data)
 {
   GnibblesWorm *worm;
-
   worm = (GnibblesWorm *) data;
 
   worm->list = g_list_reverse (worm->list);
@@ -573,6 +585,7 @@ gnibbles_worm_inverse (gpointer data)
   worm->yhead = worm->ytail;
   worm->ytail = tmp;
   tmp = worm->yhead;
+
 }
 
 void
@@ -701,63 +714,137 @@ gnibbles_worm_move_straight_worm (GnibblesWorm *worm)
 
   clutter_actor_get_position (CLUTTER_ACTOR (head), &x, &y);
 
-  if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
-      (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
-    
-    gnibbles_worm_grok_bonus (worm);
-    
-    if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
-	      !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
-      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-      if (boni->numleft != 0)
-	      gnibbles_board_level_add_bonus (board, 1);
-    } else
-      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-  }
-
-  switch (worm->direction) {
-    case WORMRIGHT:
-      clutter_actor_set_x (CLUTTER_ACTOR (head), 
-                                 x + properties->tilesize);
-      board->walls[++worm->xhead][worm->yhead] = WORMCHAR;
-      board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-      if (worm->xtail == BOARDWIDTH)
-        worm->xtail = 0;
-      else 
-         worm->xtail++;
-      break;
-    case WORMDOWN:
-      clutter_actor_set_y (CLUTTER_ACTOR (head), 
-                                  y + properties->tilesize);
-      board->walls[worm->xhead][++worm->yhead] = WORMCHAR;
-      board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-      if (worm->ytail == BOARDHEIGHT)
-        worm->ytail = 0;
-      else
+  if (worm->change <= 0) {
+    switch (worm->direction) {
+      case WORMRIGHT:
+        clutter_actor_set_x (CLUTTER_ACTOR (head), 
+                             x + properties->tilesize);
+        worm->xhead++;
+        worm->xtail++;
+        break;
+      case WORMDOWN:
+        clutter_actor_set_y (CLUTTER_ACTOR (head), 
+                             y + properties->tilesize);
+        worm->yhead++;
         worm->ytail++;
-      break;
-    case WORMLEFT:
-      clutter_actor_set_x (CLUTTER_ACTOR (head), 
-                                 x - properties->tilesize);
-      board->walls[--worm->xhead][worm->yhead] = WORMCHAR;
-      board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-      if (worm->xtail == 0)
-        worm->xtail = BOARDWIDTH - 1;
-      else
+        break;
+      case WORMLEFT:
+        clutter_actor_set_x (CLUTTER_ACTOR (head), 
+                             x - properties->tilesize);
+        worm->xhead--;
         worm->xtail--;
-      break;
-    case WORMUP:
-      clutter_actor_set_y (CLUTTER_ACTOR (head), 
-                                  y - properties->tilesize);
-      board->walls[worm->xhead][--worm->yhead] = WORMCHAR;
-      board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-      if (worm->ytail == 0)
-        worm->ytail = BOARDHEIGHT - 1;
-      else
+        break;
+      case WORMUP:
+        clutter_actor_set_y (CLUTTER_ACTOR (head), 
+                             y - properties->tilesize);
+        worm->yhead--;
         worm->ytail--;
-      break;
-    default:
-      break;
+        break;
+      default:
+        break;
+    }
+    if (worm->xhead == BOARDWIDTH) {
+      worm->xhead = 0;
+    }
+    if (worm->xhead < 0) {
+      worm->xhead = BOARDWIDTH - 1;
+    }
+    if (worm->yhead == BOARDHEIGHT) {
+      worm->yhead = 0;
+    }
+    if (worm->yhead < 0) {
+      worm->yhead = BOARDHEIGHT - 1;
+    }
+
+    if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
+        (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
+
+      gnibbles_worm_grok_bonus (worm);
+    
+      if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
+	        !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
+
+        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+      
+        if (boni->numleft != 0)
+	        gnibbles_board_level_add_bonus (board, 1);
+
+      } else
+        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+    }
+
+    board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
+
+    if (worm->change) {
+      switch (worm->direction) {
+        case WORMRIGHT:
+          clutter_actor_set_x (CLUTTER_ACTOR (head), 
+                               x + properties->tilesize);
+          worm->xhead++;
+          worm->xtail++;
+          break;
+        case WORMDOWN:
+          clutter_actor_set_y (CLUTTER_ACTOR (head), 
+                               y + properties->tilesize);
+          worm->yhead++;
+          worm->ytail++;
+          break;
+        case WORMLEFT:
+          clutter_actor_set_x (CLUTTER_ACTOR (head), 
+                               x - properties->tilesize);
+          worm->xhead--;
+          worm->xtail--;
+          break;
+        case WORMUP:
+          clutter_actor_set_y (CLUTTER_ACTOR (head), 
+                               y - properties->tilesize);
+          worm->yhead--;
+          worm->ytail--;
+          break;
+        default:
+          break;
+      }
+
+      if (worm->xhead == BOARDWIDTH) {
+        worm->xhead = 0;
+      }
+      if (worm->xhead < 0) {
+        worm->xhead = BOARDWIDTH - 1;
+      }
+      if (worm->yhead == BOARDHEIGHT) {
+        worm->yhead = 0;
+      }
+      if (worm->yhead < 0) {
+        worm->yhead = BOARDHEIGHT - 1;
+      }
+      
+      if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
+          (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
+
+        gnibbles_worm_grok_bonus (worm);
+    
+        if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
+	          !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
+
+          gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+      
+        if (boni->numleft != 0)
+	        gnibbles_board_level_add_bonus (board, 1);
+
+      } else
+        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+      }
+
+      board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
+
+      board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
+
+      worm->change++;
+      worm->length--; 
+    }
+  } else {
+    worm->change--;
+    worm->length++;
   }
 
   if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
@@ -785,6 +872,45 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
   size = w < h ? floorf (h) : floorf (w);
   size = floorf (size + properties->tilesize);
 
+  // set the size of the head actor
+  switch (worm->direction) {
+    case WORMRIGHT:
+      clutter_actor_set_width (CLUTTER_ACTOR (head), size);
+      worm->xhead++;
+      break;
+    case WORMDOWN:
+      clutter_actor_set_height (CLUTTER_ACTOR (head), size);
+      worm->yhead++;
+      break;
+    case WORMLEFT:
+      clutter_actor_set_width (CLUTTER_ACTOR (head), size);
+      clutter_actor_set_x (CLUTTER_ACTOR (head), 
+                           x - properties->tilesize);
+      worm->xhead--;
+      break;
+    case WORMUP:
+      clutter_actor_set_height (CLUTTER_ACTOR (head), size);
+      clutter_actor_set_y (CLUTTER_ACTOR (head), 
+                           y - properties->tilesize);
+      worm->yhead--;
+      break;
+    default:
+      break;
+  }
+
+  if (worm->xhead == BOARDWIDTH) {
+    worm->xhead = 0;
+  }
+  if (worm->xhead < 0) {
+    worm->xhead = BOARDWIDTH - 1;
+  }
+  if (worm->yhead == BOARDHEIGHT) {
+    worm->yhead = 0;
+  }
+  if (worm->yhead < 0) {
+    worm->yhead = BOARDHEIGHT - 1;
+  }
+
   if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
       (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
     
@@ -799,33 +925,10 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
       gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
   }
 
-  // set the size of the head actor
-  switch (worm->direction) {
-    case WORMRIGHT:
-      clutter_actor_set_width (CLUTTER_ACTOR (head), size);
-      board->walls[++worm->xhead][worm->yhead] = WORMCHAR;
-      break;
-    case WORMDOWN:
-      clutter_actor_set_height (CLUTTER_ACTOR (head), size);
-      board->walls[worm->xhead][++worm->yhead] = WORMCHAR;
-      break;
-    case WORMLEFT:
-      clutter_actor_set_width (CLUTTER_ACTOR (head), size);
-      clutter_actor_set_x (CLUTTER_ACTOR (head), 
-                                  x - properties->tilesize);
-      board->walls[--worm->xhead][worm->yhead] = WORMCHAR;
-      break;
-    case WORMUP:
-      clutter_actor_set_height (CLUTTER_ACTOR (head), size);
-      clutter_actor_set_y (CLUTTER_ACTOR (head), 
-                                  y - properties->tilesize);
-      board->walls[worm->xhead][--worm->yhead] = WORMCHAR;
-      break;
-    default:
-      break;
-  }
+  board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
 
   worm->length++;
+
   if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
     gnibbles_worm_dequeue_keypress (worm);
   }
@@ -848,54 +951,74 @@ gnibbles_worm_move_tail (GnibblesWorm *worm)
   clutter_actor_get_position (CLUTTER_ACTOR (tail), &x, &y);
   size = MAX (w, h);
   size = floorf (size - properties->tilesize);
-
-  if (size <= 0) {
-     gnibbles_worm_remove_actor (worm);
-  } else {
-    tail_dir = gnibbles_worm_get_tail_direction (worm);
-    switch (tail_dir) {
-      case WORMRIGHT:
-        clutter_actor_set_width (CLUTTER_ACTOR (tail), size);
-        clutter_actor_set_x (CLUTTER_ACTOR (tail), 
-                                    x + properties->tilesize);
-
-        board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-        if (worm->xtail == BOARDWIDTH) 
-          worm->xtail = 0;
-        else 
+  
+  if (worm->change <= 0) {
+    if (size <= 0) {
+       gnibbles_worm_remove_actor (worm);
+    } else {
+      tail_dir = gnibbles_worm_get_tail_direction (worm);
+      switch (tail_dir) {
+        case WORMRIGHT:
+          clutter_actor_set_width (CLUTTER_ACTOR (tail), size);
+          clutter_actor_set_x (CLUTTER_ACTOR (tail), 
+                               x + properties->tilesize);
           worm->xtail++;
-        break;
-      case WORMDOWN:
-        clutter_actor_set_height (CLUTTER_ACTOR (tail), size);
-        clutter_actor_set_y (CLUTTER_ACTOR (tail), 
-                                    y + properties->tilesize);
-        board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-        if (worm->ytail == BOARDHEIGHT)
-          worm->ytail = 0;
-        else
+       case WORMDOWN:
+          clutter_actor_set_height (CLUTTER_ACTOR (tail), size);
+          clutter_actor_set_y (CLUTTER_ACTOR (tail), 
+                               y + properties->tilesize);
           worm->ytail++;
-        break;
-      case WORMLEFT:
-        clutter_actor_set_width (CLUTTER_ACTOR (tail), size);
-        board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-        if (worm->xtail == 0)
-          worm->xtail = BOARDWIDTH - 1;
-        else
+          break;
+        case WORMLEFT:
+          clutter_actor_set_width (CLUTTER_ACTOR (tail), size);
           worm->xtail--;
-        break;
-      case WORMUP:
-        clutter_actor_set_height (CLUTTER_ACTOR (tail), size);
-        board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-        if (worm->ytail == 0)
-          worm->ytail = BOARDHEIGHT - 1;
-        else
+          break;
+        case WORMUP:
+          clutter_actor_set_height (CLUTTER_ACTOR (tail), size);
           worm->ytail--;
-        break;
-      default:
-        break;
+          break;
+        default:
+          break;
+      }
     }
+    
+    if (worm->change) {
+      if (size <= 0) {
+        gnibbles_worm_remove_actor (worm);
+      } else {
+        tail_dir = gnibbles_worm_get_tail_direction (worm);
+        switch (tail_dir) {
+          case WORMRIGHT:
+            clutter_actor_set_width (CLUTTER_ACTOR (tail), size);
+            clutter_actor_set_x (CLUTTER_ACTOR (tail), 
+                                 x + properties->tilesize);
+            worm->xtail++;
+          case WORMDOWN:
+            clutter_actor_set_height (CLUTTER_ACTOR (tail), size);
+            clutter_actor_set_y (CLUTTER_ACTOR (tail), 
+                                 y + properties->tilesize);
+            worm->ytail++;
+            break;
+         case WORMLEFT:
+            clutter_actor_set_width (CLUTTER_ACTOR (tail), size);
+            worm->ytail--;
+            break;
+          case WORMUP:
+            clutter_actor_set_height (CLUTTER_ACTOR (tail), size);
+            worm->ytail--;
+            break;
+          default:
+            break;
+        }
+      }
+      board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
+      worm->change++;
+      worm->length--;
+    }
+  } else {
+    worm->change--;
+    worm->length++;
   }
-  worm->length--;
 }
 
 void 

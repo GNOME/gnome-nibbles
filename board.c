@@ -213,8 +213,7 @@ gnibbles_board_resize (GnibblesBoard *board, gint newtile)
 void
 gnibbles_board_level_new (GnibblesBoard *board, gint level)
 {
-  //GnibblesLevel *board = g_new (GnibblesLevel, 1);
-  //board->level = level;
+
   board->current_level = level;
   gchar *tmp = NULL;
   const char *dirname;
@@ -327,25 +326,29 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
   fclose (in);
 
   for (i = 0; i < count; i++) {
-    board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR;
-
     if (worms[i]->direction == WORMRIGHT) {
-      for (j = 0; j < worms[i]->length; j++)
-        board->walls[++worms[i]->xhead][worms[i]->yhead] = WORMCHAR;
+      for (j = 0; j < worms[i]->length; j++) {
+        board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
+        worms[i]->xhead++;
+      }
     } else if ( worms[i]->direction == WORMLEFT) {
-      for (j = 0; j < worms[i]->length; j++)
-        board->walls[--worms[i]->xhead][worms[i]->yhead] = WORMCHAR;
+      for (j = 0; j < worms[i]->length; j++){
+        board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
+        worms[i]->xhead--;
+      }
     } else if (worms[i]->direction == WORMDOWN) {
-      for (j = 0; j < worms[i]->length; j++)
-        board->walls[worms[i]->xhead][++worms[i]->yhead] = WORMCHAR;
+      for (j = 0; j < worms[i]->length; j++) {
+        board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
+        worms[i]->yhead++;
+      }
     } else if (worms[i]->direction == WORMUP) {
-      for (j = 0; j < worms[i]->length; j++)
-        board->walls[worms[i]->xhead][--worms[i]->yhead] = WORMCHAR;
+      for (j = 0; j < worms[i]->length; j++) {
+        board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
+        worms[i]->yhead--;
+      }
     }
   }
-
   gnibbles_board_load_level (board); 
-
 }
 
 void
