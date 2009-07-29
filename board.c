@@ -347,6 +347,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
         worms[i]->yhead--;
       }
     }
+    board->walls[worms[i]->xtail][worms[i]->ytail] = EMPTYCHAR;
   }
   gnibbles_board_load_level (board); 
 }
