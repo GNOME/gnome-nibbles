@@ -79,6 +79,7 @@ extern GnibblesProperties *properties;
 
 extern GnibblesScoreboard *scoreboard;
 
+
 static GdkPixbuf *
 gnibbles_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
 {
@@ -93,7 +94,7 @@ gnibbles_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
     char *message =
       g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
 			 "Please check your Nibbles installation"), pixmap);
-    //gnibbles_error (window, message;
+    gnibbles_error (message);
     g_free(message);
   }
 
@@ -169,6 +170,17 @@ gnibbles_load_pixmap (gint tilesize)
     worm_pixmaps[i] = gnibbles_load_pixmap_file (worm_files[i], 
                                                         tilesize, tilesize);
   }
+}
+
+void
+gnibbles_error (gchar *message)
+{
+  GtkWidget *w = gtk_message_dialog_new (GTK_WINDOW (window), GTK_DIALOG_MODAL,
+                                         GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
+                                         "%s", message);
+  gtk_dialog_run (GTK_DIALOG (w));
+  gtk_widget_destroy (GTK_WIDGET (w));
+  exit (1);
 }
 
 void

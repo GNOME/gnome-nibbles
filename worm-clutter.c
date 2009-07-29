@@ -415,12 +415,12 @@ gnibbles_worm_animate (GnibblesWorm *worm)
     actor = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
     clutter_actor_get_size (actor, &w, &h);
 
-    animation = clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUAD, 600,
+    animation = clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUAD, 400,
                            "opacity", 0,
                            "width", w * 1.5,
                            "height", h * 1.5,
-                           "rotation-angle-z", 360.f * 2,
-                           "fixed::rotation-center-z-gravity", 
+                           "rotation-angle-z", 360.f * 1.75,
+                           "fixed::rotation-center-z-gravity",
                            CLUTTER_GRAVITY_CENTER,
                            NULL);
   }

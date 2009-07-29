@@ -76,7 +76,7 @@ gnibbles_board_new (ClutterActor *stage)
 
   board->surface = clutter_texture_new_from_file (filename, NULL);
  
-  clutter_actor_set_opacity (board->surface, 215);
+  clutter_actor_set_opacity (board->surface, 0xff);
   g_value_init (&val, G_TYPE_BOOLEAN);
   g_value_set_boolean ( &val, TRUE);
 
@@ -235,7 +235,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
       g_strdup_printf (_
                         ("Nibbles couldn't load level file:\n%s\n\n"
                         "Please check your Nibbles installation"), filename);
-    //gnibbles_error (window, message);
+    gnibbles_error (message);
     g_free (message);
   }
 
@@ -254,7 +254,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
         g_strdup_printf (_
                          ("Level file appears to be damaged:\n%s\n\n"
                          "Please check your Nibbles installation"), filename);
-      //gnibbles_error (window, message);
+      gnibbles_error (message);
       g_free (message);
       break;
     }

@@ -57,14 +57,9 @@
 
 extern GnibblesWarpManager *warpmanager;
 
-//void gnibbles_draw_pixmap (gint which, gint x, gint y);
-//void gnibbles_draw_big_pixmap (gint which, gint x, gint y);
-//void gnibbles_draw_pixmap_buffer (gint which, gint x, gint y);
-//void gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y);
 void gnibbles_load_pixmap (gint tilesize);
-//void gnibbles_load_pixmap (GtkWidget * window);
+void gnibbles_error (gchar *message);
 void gnibbles_load_logo (void);
-//void gnibbles_load_level (GtkWidget * window, gint level);
 void gnibbles_init (void);
 void gnibbles_add_bonus (gint regular);
 gint gnibbles_move_worms (void);
