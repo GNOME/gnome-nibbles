@@ -480,6 +480,26 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
   }
 }
 
+static void
+gnibbles_worm_handle_bonus (GnibblesWorm *worm)
+{
+  if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
+    (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
+   gnibbles_worm_grok_bonus (worm);
+ 
+    if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
+	      !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
+
+      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+      
+      if (boni->numleft != 0)
+	      gnibbles_board_level_add_bonus (board, 1);
+
+    } else
+        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+  }
+}
+
 GnibblesWorm*
 gnibbles_worm_new (guint number, guint t_xhead,
 			                    guint t_yhead, gint t_direction)
@@ -788,25 +808,11 @@ gnibbles_worm_move_straight_worm (GnibblesWorm *worm)
         break;
     }
 
-    gnibbles_worm_move_head_pointer (worm);
     gnibbles_worm_move_tail_pointer (worm);
+    gnibbles_worm_move_head_pointer (worm);
 
-    if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
-        (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
+    gnibbles_worm_handle_bonus (worm);
 
-      gnibbles_worm_grok_bonus (worm);
-    
-      if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
-	        !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
-
-        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-      
-        if (boni->numleft != 0)
-	        gnibbles_board_level_add_bonus (board, 1);
-
-      } else
-        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-    }
     board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
 
     if (worm->change) {
@@ -830,35 +836,19 @@ gnibbles_worm_move_straight_worm (GnibblesWorm *worm)
         default:
           break;
       }
-      
-      gnibbles_worm_move_head_pointer (worm);
+
       gnibbles_worm_move_tail_pointer (worm);
+      gnibbles_worm_move_head_pointer (worm);
       
-      if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
-          (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
-
-        gnibbles_worm_grok_bonus (worm);
-    
-        if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
-	          !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
-
-          gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-      
-        if (boni->numleft != 0)
-	        gnibbles_board_level_add_bonus (board, 1);
-
-      } else
-        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-      }
+      gnibbles_worm_handle_bonus (worm);
 
       board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
-
       board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
 
       worm->change++;
       worm->length--; 
     }
-      board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
+    board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
   } else {
     worm->change--;
     worm->length++;
@@ -889,7 +879,6 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
   size = w < h ? floorf (h) : floorf (w);
   size = floorf (size + properties->tilesize);
 
-  // set the size of the head actor
   switch (worm->direction) {
     case WORMRIGHT:
       clutter_actor_set_width (CLUTTER_ACTOR (head), size);
@@ -913,22 +902,9 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
 
   gnibbles_worm_move_head_pointer (worm);
 
-  if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
-      (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
-    
-    gnibbles_worm_grok_bonus (worm);
-    
-    if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
-	      !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
-      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-      if (boni->numleft != 0)
-	      gnibbles_board_level_add_bonus (board, 1);
-    } else
-      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-  }
+  gnibbles_worm_handle_bonus (worm);
 
   board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
-
   worm->length++;
 
   if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
