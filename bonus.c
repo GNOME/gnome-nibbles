@@ -77,7 +77,8 @@ gnibbles_bonus_draw (GnibblesBonus *bonus)
                               bonus->y * properties->tilesize);
 
   gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (bonus->actor),
-                                       boni_pixmaps[bonus->type]);
+                                       boni_pixmaps[bonus->type],
+                                       NULL);
 
   clutter_container_add_actor (CLUTTER_CONTAINER (board->stage), bonus->actor);
 

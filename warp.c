@@ -53,7 +53,8 @@ void
 gnibbles_warp_draw (GnibblesWarp *warp)
 {
   gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (warp->actor),
-                                      boni_pixmaps[WARP]) ;
+                                      boni_pixmaps[WARP],
+                                      NULL);
   clutter_actor_set_position (CLUTTER_ACTOR (warp->actor),
                               properties->tilesize * warp->x,
                               properties->tilesize * warp->y);

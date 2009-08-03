@@ -710,7 +710,8 @@ gnibbles_worm_resize (GnibblesWorm *worm, gint newtile)
       clutter_actor_set_size (tmp, newtile, newtile * size);
 
     gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (tmp), 
-                                         worm_pixmaps[worm->number]);
+                                         worm_pixmaps[worm->number],
+                                         NULL);
   }
 
 }
