@@ -812,7 +812,6 @@ setup_window ()
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
   clutter_stage_set_user_resizable (CLUTTER_STAGE (stage), FALSE);
-  clutter_actor_show (stage);
   
   board = gnibbles_board_new ();
 
@@ -850,18 +849,18 @@ setup_window ()
   gtk_box_pack_start (GTK_BOX (vbox), packing, TRUE, TRUE, 0);
   gtk_widget_show (packing);
 
-
   gtk_container_add (GTK_CONTAINER (packing), clutter_widget);
+
 #ifdef GGZ_CLIENT
   chat = create_chat_widget ();
   gtk_box_pack_start (GTK_BOX (vbox), chat, FALSE, TRUE, 0);
 #endif
 
   g_signal_connect (G_OBJECT (clutter_widget), "configure_event",
-		    G_CALLBACK (configure_event_cb), NULL);
+		                G_CALLBACK (configure_event_cb), NULL);
 
   g_signal_connect (G_OBJECT (window), "focus_out_event",
-		    G_CALLBACK (show_cursor_cb), NULL);
+		                G_CALLBACK (show_cursor_cb), NULL);
 
   main_vbox = gtk_vbox_new (FALSE, 0);
   gtk_box_pack_start (GTK_BOX (main_vbox), notebook, TRUE, TRUE, 0);
