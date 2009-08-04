@@ -805,7 +805,7 @@ setup_window ()
   clutter_widget = gtk_clutter_embed_new ();
   stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter_widget));
 
-  clutter_stage_set_color (CLUTTER_STAGE(stage), &stage_color);
+  clutter_stage_set_color (CLUTTER_STAGE (stage), &stage_color);
 
   clutter_stage_set_user_resizable (CLUTTER_STAGE(stage), FALSE); 
   clutter_actor_set_size (CLUTTER_ACTOR (stage), 
@@ -823,11 +823,11 @@ setup_window ()
   games_conf_add_window (GTK_WINDOW (window), KEY_PREFERENCES_GROUP);
 
   g_signal_connect (G_OBJECT (window), "destroy", 
-        G_CALLBACK (gtk_main_quit), NULL);
+                    G_CALLBACK (gtk_main_quit), NULL);
   g_signal_connect (G_OBJECT (window), "delete_event",
-		    G_CALLBACK (delete_cb), NULL);
+            		    G_CALLBACK (delete_cb), NULL);
   g_signal_connect (G_OBJECT (window), "window_state_event",
-		    G_CALLBACK (window_state_cb), NULL);
+		                G_CALLBACK (window_state_cb), NULL);
 
   gtk_widget_realize (window);
 

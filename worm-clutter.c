@@ -524,7 +524,7 @@ gnibbles_worm_new (guint number, guint t_xhead,
   worm->direction = t_direction;
   worm->direction_start = t_direction;
   worm->length = SLENGTH;
-  worm->change = 1; //SLENGTH - 1;
+  worm->change = 1; 
 
   gnibbles_worm_queue_empty (worm);
 
@@ -684,6 +684,7 @@ gnibbles_worm_resize (GnibblesWorm *worm, gint newtile)
   gboolean direction;
   GValue val = {0,};
   ClutterActor *tmp;
+  GError *err = NULL;
 
   count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
 
@@ -711,7 +712,10 @@ gnibbles_worm_resize (GnibblesWorm *worm, gint newtile)
 
     gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (tmp), 
                                          worm_pixmaps[worm->number],
-                                         NULL);
+                                         &err);
+
+    if (err)
+      gnibbles_error (err->message);
   }
 
 }

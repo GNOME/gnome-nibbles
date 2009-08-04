@@ -73,13 +73,17 @@ animate_bonus (ClutterAnimation *animation, ClutterActor *actor)
 void
 gnibbles_bonus_draw (GnibblesBonus *bonus)
 {
+  GError *err = NULL;
+
   clutter_actor_set_position (CLUTTER_ACTOR (bonus->actor),
                               bonus->x * properties->tilesize,
                               bonus->y * properties->tilesize);
 
   gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (bonus->actor),
                                        boni_pixmaps[bonus->type],
-                                       NULL);
+                                       &err);
+  if (err)
+    gnibbles_error (err->message);
 
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), bonus->actor);
 
