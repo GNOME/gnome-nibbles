@@ -1065,10 +1065,16 @@ gnibbles_worm_shrink (GnibblesWorm *worm, gint shrinksize)
       return;
     } else if (actor_size == shrinksize) {
       //remove tail
+      clutter_actor_animate (tmp, CLUTTER_EASE_IN_ELASTIC, 420,
+                            "opacity", 0,
+                            NULL);
       gnibbles_worm_remove_actor (worm);
       return;
     } else {
       //remove tail, reduce the shrinksize variable by the tail's size
+      clutter_actor_animate (tmp, CLUTTER_EASE_IN_ELASTIC, 420,
+                            "opacity", 0,
+                            NULL);
       gnibbles_worm_remove_actor (worm);
       shrinksize -= actor_size;
     }
