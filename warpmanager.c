@@ -105,8 +105,7 @@ gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
     gnibbles_warp_draw (warpmanager->warps[draw]);
   }
 }
-// useless ?
-/*
+
 void
 gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
 				                              GnibblesWorm * worm)
@@ -134,28 +133,18 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
 	          x = rand () % BOARDWIDTH;
 	          y = rand () % BOARDHEIGHT;
 	        }
-	        if (board[x][y] == EMPTYCHAR)
-	          good = 1;
-          //gnibbles-clutter-level
-	        if (level->walls[x][y] == EMPTYCHAR)
+	        if (board->walls[x][y] == EMPTYCHAR)
 	          good = 1;
 	      }
       } else {
 	      x = warpmanager->warps[i]->wx;
 	      y = warpmanager->warps[i]->wy;
-	      if (board[x][y] != EMPTYCHAR)
-	        gnibbles_boni_remove_bonus (boni, x, y);
-        //gnibbles->clutter-level
-	      if (level->walls[x][y] != EMPTYCHAR)
+	      if (board->walls[x][y] != EMPTYCHAR)
 	        gnibbles_boni_remove_bonus (boni, x, y);
       }
-      //TODO: handle worm in wrap
-      worm->xoff[worm->start] += worm->xhead - x;
-      worm->yoff[worm->start] += worm->yhead - y;
 
       worm->xhead = x;
       worm->yhead = y;
     }
   }
 }
-*/

@@ -455,6 +455,7 @@ gnibbles_worm_move_head_pointer (GnibblesWorm *worm)
     worm->yhead = 0;
   if (worm->yhead < 0) 
     worm->yhead = BOARDHEIGHT - 1;
+
 }
 
 static void
@@ -497,6 +498,11 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
 
     } else
         gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+  }
+
+  if (board->walls[worm->xhead][worm->yhead] == WARPLETTER) {
+    gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
+    games_sound_play ("teleport");
   }
 }
 

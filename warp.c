@@ -33,6 +33,7 @@ extern GnibblesProperties *properties;
 extern GdkPixbuf *boni_pixmaps[];
 extern GnibblesBoard *board;
 extern ClutterActor *stage;
+
 GnibblesWarp *
 gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
 {

@@ -38,6 +38,21 @@ extern GnibblesProperties *properties;
 extern GnibblesBoard *board;
 extern ClutterActor *stage;
 
+static void
+animate_bonus (ClutterAnimation *animation, ClutterActor *actor)
+{
+  ClutterVertex center;
+  ClutterAnimation *anim;
+
+  center = (ClutterVertex){(gfloat)properties->tilesize, 0, 0};
+  anim = clutter_actor_animate (actor, CLUTTER_LINEAR, 2000,
+                         "rotation-angle-y", 360.f,
+                         "fixed::rotation-center-y", &center,
+                         NULL);
+  clutter_animation_set_loop (anim, TRUE);
+  
+}
+
 GnibblesBonus *
 gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
 		    gint t_fake, gint t_countdown)
@@ -53,21 +68,6 @@ gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
   tmp->countdown = t_countdown;
   tmp->actor = clutter_texture_new ();
   return (tmp);
-}
-
-static void
-animate_bonus (ClutterAnimation *animation, ClutterActor *actor)
-{
-  ClutterVertex center;
-  ClutterAnimation *anim;
-
-  center = (ClutterVertex){(gfloat)properties->tilesize, 0, 0};
-  anim = clutter_actor_animate (actor, CLUTTER_LINEAR, 2000,
-                         "rotation-angle-y", 360.f,
-                         "fixed::rotation-center-y", &center,
-                         NULL);
-  clutter_animation_set_loop (anim, TRUE);
-  
 }
 
 void
