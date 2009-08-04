@@ -90,6 +90,7 @@ GnibblesBoard *board;
 GnibblesScoreboard *scoreboard;
 
 GtkWidget *clutter_widget;
+ClutterActor *stage;
 
 extern GnibblesWorm *worms[];
 extern GnibblesBoni *boni;
@@ -127,7 +128,7 @@ static ClutterActor *logo;
 static void
 hide_cursor (void)
 {
-  clutter_stage_hide_cursor (CLUTTER_STAGE (board->stage));
+  clutter_stage_hide_cursor (CLUTTER_STAGE (stage));
 }
 
 static void
@@ -182,7 +183,7 @@ window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
 static void
 show_cursor (void)
 {
-  clutter_stage_show_cursor (CLUTTER_STAGE (board->stage));
+  clutter_stage_show_cursor (CLUTTER_STAGE (stage));
 }
 
 gint
@@ -326,7 +327,7 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
 {
   if (!paused) {
     if (!keyboard_id)
-      keyboard_id = g_signal_connect (G_OBJECT (board->stage),
+      keyboard_id = g_signal_connect (G_OBJECT (stage),
 				                              "key-press-event",
                         				      G_CALLBACK (key_press_cb), NULL);
 #ifdef GGZ_CLIENT
@@ -798,11 +799,23 @@ setup_window ()
 
   GtkUIManager *ui_manager;
   GtkAccelGroup *accel_group;
+  ClutterColor stage_color = {0x00,0x00,0x00,0xff};
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   clutter_widget = gtk_clutter_embed_new ();
-  board = gnibbles_board_new (gtk_clutter_embed_get_stage (
-                              GTK_CLUTTER_EMBED (clutter_widget)));
+  stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter_widget));
+
+  clutter_stage_set_color (CLUTTER_STAGE(stage), &stage_color);
+
+  clutter_stage_set_user_resizable (CLUTTER_STAGE(stage), FALSE); 
+  clutter_actor_set_size (CLUTTER_ACTOR (stage), 
+                          properties->tilesize * BOARDWIDTH,
+                          properties->tilesize * BOARDHEIGHT);
+  clutter_stage_set_user_resizable (CLUTTER_STAGE (stage), FALSE);
+  clutter_actor_show (stage);
+  
+  board = gnibbles_board_new ();
+
   gtk_window_set_title (GTK_WINDOW (window), _("Nibbles"));
 
   gtk_window_set_default_size (GTK_WINDOW (window), 
@@ -879,7 +892,7 @@ render_logo (void)
 
   logo = clutter_group_new ();
 
-  clutter_actor_get_size (CLUTTER_ACTOR (board->stage), &width, &height);
+  clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
  
   if (!logo_pixmap)
     gnibbles_load_logo ();
@@ -904,7 +917,7 @@ render_logo (void)
                          CLUTTER_ACTOR (desc),
                          NULL);
   
-  clutter_container_add_actor (CLUTTER_CONTAINER (board->stage), 
+  clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
                          CLUTTER_ACTOR (logo));
 }
 

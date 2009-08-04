@@ -79,6 +79,7 @@ extern GnibblesProperties *properties;
 
 extern GnibblesScoreboard *scoreboard;
 
+extern ClutterActor *stage;
 
 static GdkPixbuf *
 gnibbles_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
@@ -215,7 +216,7 @@ gnibbles_init ()
 
   for (i = 0; i < properties->numworms; i++) {
     if (worms[i]) {
-      clutter_container_add_actor (CLUTTER_CONTAINER (board->stage), worms[i]->actors);
+      clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
       clutter_actor_raise_top (worms[i]->actors);
       gnibbles_worm_show (worms[i]);
     }

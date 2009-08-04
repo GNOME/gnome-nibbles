@@ -46,11 +46,11 @@ extern GnibblesProperties *properties;
 extern GnibblesWarpManager *warpmanager;
 extern GnibblesBoni *boni;
 extern GdkPixbuf *wall_pixmaps[];
+extern ClutterActor *stage;
 
 GnibblesBoard *
-gnibbles_board_new (ClutterActor *stage) 
+gnibbles_board_new (void) 
 {
-  ClutterColor stage_color = {0x00,0x00,0x00,0xff};
   gchar *filename;
   const char *dirname;
   GValue val = {0,};
@@ -60,23 +60,13 @@ gnibbles_board_new (ClutterActor *stage)
   board->height = BOARDHEIGHT;
   board->level = NULL;
   board->surface = NULL;
-  board->stage = stage;
-
-  clutter_stage_set_color (CLUTTER_STAGE(stage), &stage_color);
-
-  clutter_stage_set_user_resizable (CLUTTER_STAGE(stage), FALSE); 
-  clutter_actor_set_size (CLUTTER_ACTOR (stage), 
-                          properties->tilesize * BOARDWIDTH,
-                          properties->tilesize * BOARDHEIGHT);
-  clutter_stage_set_user_resizable (CLUTTER_STAGE (stage), FALSE);
-  clutter_actor_show (stage);
 
   dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
   filename = g_build_filename (dirname, "wall-small-empty.svg", NULL);
 
   board->surface = clutter_texture_new_from_file (filename, NULL);
  
-  clutter_actor_set_opacity (board->surface, 0xff);
+  clutter_actor_set_opacity (CLUTTER_ACTOR (board->surface), 0xff);
   g_value_init (&val, G_TYPE_BOOLEAN);
   g_value_set_boolean ( &val, TRUE);
 
@@ -87,8 +77,9 @@ gnibbles_board_new (ClutterActor *stage)
   clutter_actor_set_size (CLUTTER_ACTOR (board->surface),
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), board->surface);
-  clutter_actor_show (board->surface);
+  clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
+                               CLUTTER_ACTOR (board->surface));
+  clutter_actor_show (CLUTTER_ACTOR (board->surface));
 
   return board;
 }
@@ -167,7 +158,7 @@ gnibbles_board_load_level (GnibblesBoard *board)
     }
   }
 
-  clutter_container_add_actor (CLUTTER_CONTAINER (board->stage), board->level);
+  clutter_container_add_actor (CLUTTER_CONTAINER (stage), board->level);
   clutter_actor_raise (board->level, board->surface);
 
   clutter_actor_set_opacity (board->level, 0);
@@ -191,7 +182,7 @@ gnibbles_board_resize (GnibblesBoard *board, gint newtile)
 
   ClutterActor *tmp;
 
-  clutter_actor_set_size (board->stage, 
+  clutter_actor_set_size (stage, 
                           BOARDWIDTH * newtile,
                           BOARDHEIGHT * newtile);
   clutter_actor_set_size (board->surface,
