@@ -929,11 +929,11 @@ main (int argc, char **argv)
   GOptionContext *context;
   gboolean retval;
   GError *error = NULL;
+  
+  gtk_clutter_init (&argc, &argv);
 
   if (!games_runtime_init ("gnibbles"))
     return 1;
-
-  gtk_clutter_init (&argc, &argv);
 
 #ifdef ENABLE_SETGID
   setgid_io_init ();

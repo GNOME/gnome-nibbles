@@ -308,7 +308,7 @@ gnibbles_worm_get_actor_length (ClutterActor *actor) {
 
   clutter_actor_get_size (CLUTTER_ACTOR (actor), &w, &h);
   size = MAX (w,h);
-  size = roundf (size / properties->tilesize);
+  size = size / properties->tilesize;
 
   return size;
 }
@@ -701,8 +701,8 @@ gnibbles_worm_resize (GnibblesWorm *worm, gint newtile)
     direction = g_value_get_boolean (&val);
 
     clutter_actor_get_size (CLUTTER_ACTOR (tmp), &w, &h);
-    size = w < h ? roundf(h) : roundf(w);
-    size = roundf (size / properties->tilesize);
+    size = MAX (w,h);
+    size = size / properties->tilesize;
 
     if (direction)
       clutter_actor_set_size (tmp, newtile * size, newtile);
@@ -877,8 +877,8 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
 
   clutter_actor_get_size (CLUTTER_ACTOR (head), &w, &h);
   clutter_actor_get_position (CLUTTER_ACTOR (head), &x, &y);
-  size = w < h ? floorf (h) : floorf (w);
-  size = floorf (size + properties->tilesize);
+  size = MAX (w, h);
+  size = size + properties->tilesize;
 
   switch (worm->direction) {
     case WORMRIGHT:
@@ -929,7 +929,7 @@ gnibbles_worm_move_tail (GnibblesWorm *worm)
   clutter_actor_get_size (CLUTTER_ACTOR (tail), &w, &h);
   clutter_actor_get_position (CLUTTER_ACTOR (tail), &x, &y);
   size = MAX (w, h);
-  size = floorf (size - properties->tilesize);
+  size = size - properties->tilesize;
   
   if (worm->change <= 0) {
     if (size <= 0) {
@@ -1075,8 +1075,8 @@ gnibbles_worm_get_length (GnibblesWorm *worm)
   for (i = 0; i < nbr_actor; i++) {
     tmp = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
     clutter_actor_get_size (CLUTTER_ACTOR (tmp), &w, &h);
-    tmp_size = w > h ? roundf(w) : roundf(h);
-    size += roundf (tmp_size / properties->tilesize);
+    tmp_size = MAX (w, h);
+    size += tmp_size / properties->tilesize;
   }
   return size;
 }
