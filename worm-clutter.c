@@ -385,7 +385,7 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     }
     board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
   }
-
+/*
   FILE *fo;
   fo = fopen ("output.txt", "w" );
   for (i = 0; i < BOARDHEIGHT; i++) {
@@ -398,7 +398,7 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     fprintf (fo, "\n");
   }
   fclose (fo);
-
+*/
 }
 
 static void *
@@ -484,10 +484,11 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
 static void
 gnibbles_worm_handle_bonus (GnibblesWorm *worm)
 {
+  ClutterActor *actor = NULL;
   if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
     (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
-   gnibbles_worm_grok_bonus (worm);
- 
+    gnibbles_worm_grok_bonus (worm);
+
     if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
 	      !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
 
@@ -622,8 +623,8 @@ gnibbles_worm_remove_actor (GnibblesWorm *worm)
   g_return_if_fail (worm->list);
 
   ClutterActor *tmp = gnibbles_worm_get_tail_actor (worm);
+  
   worm->list = g_list_delete_link (worm->list, g_list_last (worm->list));
-
   clutter_container_remove_actor (CLUTTER_CONTAINER (worm->actors), tmp);
 }
 
@@ -1023,7 +1024,6 @@ gnibbles_worm_shrink (GnibblesWorm *worm, gint shrinksize)
 
   nbr_actor = g_list_length (worm->list);
 
-  //TODO: add animation
   for (i = 0; i < nbr_actor; i++) {
     tmp = CLUTTER_ACTOR (g_list_last (worm->list)->data); 
     clutter_actor_get_size (CLUTTER_ACTOR (tmp), &w, &h);

@@ -38,20 +38,47 @@ extern GnibblesProperties *properties;
 extern GnibblesBoard *board;
 extern ClutterActor *stage;
 
+static void animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor);
+static void animate_bonus2 (ClutterAnimation *animation, ClutterActor *actor);
+
 static void
-animate_bonus (ClutterAnimation *animation, ClutterActor *actor)
+animate_bonus_rotate (ClutterAnimation *animation, ClutterActor *actor)
 {
   ClutterVertex center;
   ClutterAnimation *anim;
 
   center = (ClutterVertex){(gfloat)properties->tilesize, 0, 0};
   anim = clutter_actor_animate (actor, CLUTTER_LINEAR, 2000,
-                         "rotation-angle-y", 360.f,
-                         "fixed::rotation-center-y", &center,
-                         NULL);
+                                "rotation-angle-y", 360.f,
+                                "fixed::rotation-center-y", &center,
+                                NULL);
   clutter_animation_set_loop (anim, TRUE);
-  
 }
+
+static void
+animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor)
+{
+  g_signal_connect_after (
+    clutter_actor_animate (actor, CLUTTER_LINEAR, 1100,
+                                "scale-x", 1.2, "scale-y", 1.2,
+                                "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                                NULL),
+      "completed", G_CALLBACK (animate_bonus2), actor);
+
+}
+
+static void
+animate_bonus2 (ClutterAnimation *animation, ClutterActor *actor)
+{
+  g_signal_connect_after (
+    clutter_actor_animate (actor, CLUTTER_LINEAR, 1100,
+                                "scale-x", 0.9, "scale-y", 0.9,
+                                "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                                NULL),
+      "completed", G_CALLBACK (animate_bonus1), actor);
+
+}
+
 
 GnibblesBonus *
 gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
@@ -92,7 +119,7 @@ gnibbles_bonus_draw (GnibblesBonus *bonus)
     clutter_actor_animate (bonus->actor, CLUTTER_EASE_IN_QUAD, 500,
                          "opacity", 0xff,
                           NULL),
-    "completed", G_CALLBACK (animate_bonus), bonus->actor);
+    "completed", G_CALLBACK (animate_bonus1), bonus->actor);
 }
 
 void
