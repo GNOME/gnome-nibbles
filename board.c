@@ -326,25 +326,25 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
       for (j = 0; j < worms[i]->length; j++) {
         board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
         worms[i]->xhead++;
-        gnibbles_worm_add_single_actor (worms[i]);
+        gnibbles_worm_add_actor (worms[i]);
       }
     } else if ( worms[i]->direction == WORMLEFT) {
       for (j = 0; j < worms[i]->length; j++){
         board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
         worms[i]->xhead--;
-        gnibbles_worm_add_single_actor (worms[i]);
+        gnibbles_worm_add_actor (worms[i]);
       }
     } else if (worms[i]->direction == WORMDOWN) {
       for (j = 0; j < worms[i]->length; j++) {
         board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
         worms[i]->yhead++;
-        gnibbles_worm_add_single_actor (worms[i]);
+        gnibbles_worm_add_actor (worms[i]);
       }
     } else if (worms[i]->direction == WORMUP) {
       for (j = 0; j < worms[i]->length; j++) {
         board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
         worms[i]->yhead--;
-        gnibbles_worm_add_single_actor (worms[i]);
+        gnibbles_worm_add_actor (worms[i]);
       }
     }
     board->walls[worms[i]->xtail][worms[i]->ytail] = EMPTYCHAR;

@@ -60,7 +60,7 @@ animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor)
 {
   g_signal_connect_after (
     clutter_actor_animate (actor, CLUTTER_LINEAR, 1100,
-                                "scale-x", 1.2, "scale-y", 1.2,
+                                "scale-x", 1.22, "scale-y", 1.22,
                                 "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                                 NULL),
       "completed", G_CALLBACK (animate_bonus2), actor);
