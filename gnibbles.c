@@ -241,9 +241,6 @@ gnibbles_move_worms (void)
     olddir = worms[i]->direction;
     if (!worms[i]->human) {
       gnibbles_worm_ai_move (worms[i]);
-
-      if (olddir != worms[i]->direction)
-        gnibbles_worm_add_actor (worms[i]);
     }
   }
 
@@ -284,25 +281,21 @@ gnibbles_move_worms (void)
     if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
       gnibbles_worm_move_head (worms[i]);
   }
-  
+/*
   for (i = 0; i < properties->numworms; i++) {
     if (g_list_length (worms[i]->list) == 1 && !dead[i] && worms[i]->lives > 0)
       gnibbles_worm_move_straight_worm (worms[i]);
   }
-
+*/
   for (i = 0; i < properties->numworms; i++) { 
     if (worms[i]->xhead >= BOARDWIDTH) {
       worms[i]->xhead = 0;
-      gnibbles_worm_add_actor(worms[i]);
     } else if (worms[i]->xhead <= 0) {
       worms[i]->xhead = BOARDWIDTH;
-      gnibbles_worm_add_actor (worms[i]);
     } else if (worms[i]->yhead >= BOARDHEIGHT) {
       worms[i]->yhead = 0;
-      gnibbles_worm_add_actor (worms[i]);
     } else if (worms[i]->xhead <= 0) {
       worms[i]->yhead = BOARDHEIGHT;
-      gnibbles_worm_add_actor (worms[i]);
     }
   }
 

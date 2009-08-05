@@ -62,6 +62,7 @@ GnibblesWorm* gnibbles_worm_new (guint number, guint t_xhead,
 			                             guint t_yhead, gint t_direction);
 void gnibbles_worm_show (GnibblesWorm *worm);
 gboolean gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval);
+void gnibbles_worm_add_single_actor (GnibblesWorm *worm);
 void gnibbles_worm_add_actor (GnibblesWorm *worm);
 void gnibbles_worm_remove_actor (GnibblesWorm *worm);
 void gnibbles_worm_destroy (GnibblesWorm * worm);
