@@ -40,7 +40,7 @@ extern ClutterActor *stage;
 
 static void animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor);
 static void animate_bonus2 (ClutterAnimation *animation, ClutterActor *actor);
-
+/*
 static void
 animate_bonus_rotate (ClutterAnimation *animation, ClutterActor *actor)
 {
@@ -54,7 +54,7 @@ animate_bonus_rotate (ClutterAnimation *animation, ClutterActor *actor)
                                 NULL);
   clutter_animation_set_loop (anim, TRUE);
 }
-
+*/
 static void
 animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor)
 {
@@ -115,8 +115,11 @@ gnibbles_bonus_draw (GnibblesBonus *bonus)
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), bonus->actor);
 
   clutter_actor_set_opacity (bonus->actor, 0);
+  clutter_actor_set_scale (bonus->actor, 2.0, 2.0);
   g_signal_connect_after (
-    clutter_actor_animate (bonus->actor, CLUTTER_EASE_IN_QUAD, 500,
+    clutter_actor_animate (bonus->actor, CLUTTER_EASE_OUT_CIRC, 500,
+                         "scale-x", 1.0, "scale-y", 1.0,
+                         "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                          "opacity", 0xff,
                           NULL),
     "completed", G_CALLBACK (animate_bonus1), bonus->actor);

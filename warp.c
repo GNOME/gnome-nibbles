@@ -66,7 +66,10 @@ gnibbles_warp_draw (GnibblesWarp *warp)
                               properties->tilesize * warp->y);
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), warp->actor);
   clutter_actor_set_opacity (warp->actor, 0);
-  clutter_actor_animate (warp->actor, CLUTTER_EASE_IN_QUAD, 410,
+  clutter_actor_set_scale (warp->actor, 2.0, 2.0);
+  clutter_actor_animate (warp->actor, CLUTTER_EASE_OUT_CIRC, 410,
+                         "scale-x", 1.0, "scale-y", 1.0,
+                         "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                          "opacity", 0xff,
                          NULL);
 }
