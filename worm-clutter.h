@@ -63,7 +63,6 @@ GnibblesWorm* gnibbles_worm_new (guint number, guint t_xhead,
 void gnibbles_worm_show (GnibblesWorm *worm);
 gboolean gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval);
 void gnibbles_worm_add_single_actor (GnibblesWorm *worm);
-void gnibbles_worm_add_actor (GnibblesWorm *worm);
 void gnibbles_worm_remove_actor (GnibblesWorm *worm);
 void gnibbles_worm_destroy (GnibblesWorm * worm);
 
@@ -71,7 +70,6 @@ void gnibbles_worm_inverse (gpointer data);
 void gnibbles_worm_resize (GnibblesWorm *worm, gint newtile);
 
 void gnibbles_worm_kill (GnibblesWorm *worm);
-void gnibbles_worm_move_straight_worm (GnibblesWorm *worm);
 void gnibbles_worm_move_head (GnibblesWorm *worm);
 void gnibbles_worm_move_tail (GnibblesWorm *worm);
 void gnibbles_worm_shrink (GnibblesWorm *worm, gint shrinksize);
