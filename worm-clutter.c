@@ -423,6 +423,8 @@ gnibbles_worm_move_head_pointer (GnibblesWorm *worm)
   if (worm->yhead <= 0) 
     worm->yhead = BOARDHEIGHT - 1;
 
+  gnibbles_worm_add_actor (worm);
+  board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
 }
 
 static void
@@ -446,6 +448,9 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
     default:
       break;
   }
+
+  gnibbles_worm_remove_actor (worm);
+  board->walls[worm->xhead][worm->yhead] = EMPTYCHAR;
 }
 
 static void
@@ -668,10 +673,8 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
     worm->keypress = 0;
   
   gnibbles_worm_move_head_pointer (worm);
-  gnibbles_worm_add_actor (worm);
   gnibbles_worm_handle_bonus (worm);
 
-  board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
   worm->length++;
 
   if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {
@@ -687,17 +690,11 @@ gnibbles_worm_move_tail (GnibblesWorm *worm)
 
   if (worm->change <= 0) {
     gnibbles_worm_move_tail_pointer (worm);
-    gnibbles_worm_remove_actor (worm);
-    
     if (worm->change) {
-
       gnibbles_worm_move_tail_pointer (worm);
-      gnibbles_worm_remove_actor (worm);
-      board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
       worm->change++;
       worm->length--;
     }
-    board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
   } else {
     worm->change--;
     worm->length++;
