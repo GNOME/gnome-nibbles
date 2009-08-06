@@ -60,9 +60,11 @@ void worm_handle_direction (int worm, int dir);
 
 GnibblesWorm* gnibbles_worm_new (guint number, guint t_xhead,
 			                             guint t_yhead, gint t_direction);
+
 void gnibbles_worm_show (GnibblesWorm *worm);
 gboolean gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval);
-void gnibbles_worm_add_actor (GnibblesWorm *worm);
+void gnibbles_worm_move_head_pointer (GnibblesWorm *worm);
+
 void gnibbles_worm_destroy (GnibblesWorm * worm);
 
 void gnibbles_worm_inverse (gpointer data);
@@ -72,8 +74,6 @@ void gnibbles_worm_kill (GnibblesWorm *worm);
 void gnibbles_worm_move_head (GnibblesWorm *worm);
 void gnibbles_worm_move_tail (GnibblesWorm *worm);
 void gnibbles_worm_shrink (GnibblesWorm *worm, gint shrinksize);
-
-gint gnibbles_worm_get_length (GnibblesWorm *worm);
 
 gint gnibbles_worm_lose_life (GnibblesWorm * worm);
 

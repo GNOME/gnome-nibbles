@@ -323,29 +323,17 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
 
   for (i = 0; i < count; i++) {
     if (worms[i]->direction == WORMRIGHT) {
-      for (j = 0; j < worms[i]->length; j++) {
-        board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
-        worms[i]->xhead++;
-        gnibbles_worm_add_actor (worms[i]);
-      }
+      for (j = 0; j < worms[i]->length; j++) 
+        gnibbles_worm_move_head_pointer (worms[i]);
     } else if ( worms[i]->direction == WORMLEFT) {
-      for (j = 0; j < worms[i]->length; j++){
-        board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
-        worms[i]->xhead--;
-        gnibbles_worm_add_actor (worms[i]);
-      }
+      for (j = 0; j < worms[i]->length; j++)
+        gnibbles_worm_move_head_pointer (worms[i]);
     } else if (worms[i]->direction == WORMDOWN) {
-      for (j = 0; j < worms[i]->length; j++) {
-        board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
-        worms[i]->yhead++;
-        gnibbles_worm_add_actor (worms[i]);
-      }
+      for (j = 0; j < worms[i]->length; j++) 
+        gnibbles_worm_move_head_pointer (worms[i]); 
     } else if (worms[i]->direction == WORMUP) {
-      for (j = 0; j < worms[i]->length; j++) {
-        board->walls[worms[i]->xhead][worms[i]->yhead] = WORMCHAR + worms[i]->number;
-        worms[i]->yhead--;
-        gnibbles_worm_add_actor (worms[i]);
-      }
+      for (j = 0; j < worms[i]->length; j++) 
+        gnibbles_worm_move_head_pointer (worms[i]);
     }
     board->walls[worms[i]->xtail][worms[i]->ytail] = EMPTYCHAR;
   }
