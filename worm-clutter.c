@@ -356,6 +356,7 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     }
     board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
   }
+  /* DEBUG *//*
   gint i;
   FILE *fo;
   fo = fopen ("output.txt", "w" );
@@ -369,27 +370,23 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     fprintf (fo, "\n");
   }
   fclose (fo);
+  */
 }
 
 static void *
 gnibbles_worm_animate_death (GnibblesWorm *worm)
 {
-  gint i;
-  ClutterActor *actor;
   ClutterAnimation *animation = NULL;
-  gfloat w,h;
-  gint count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
 
-  for (i = 0; i < count; i++) {
-    actor = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
-    clutter_actor_get_size (actor, &w, &h);
-
-    animation = clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUAD, 210,
-                           "opacity", 0,
-                           "height", h * 1.7,
-                           "width", w * 1.7,
-                           NULL);
-  }
+  animation = clutter_actor_animate (worm->actors, CLUTTER_EASE_OUT_QUAD, 210,
+                                     "opacity", 0,
+                                     "scale-x", 2.0,
+                                     "scale-y", 2.0,
+                                     "fixed::scale-center-x", 
+                                     (gfloat) worm->xhead * properties->tilesize,
+                                     "fixed::scale-center-y",
+                                     (gfloat) worm->yhead * properties->tilesize,
+                                     NULL);
 
   return animation;
 }
