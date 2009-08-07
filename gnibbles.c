@@ -271,7 +271,7 @@ gnibbles_move_worms (void)
     dead[i] = !gnibbles_worm_test_move_head (worms[i]);
     status &= !dead[i];
   }
-  
+ 
   for (i = 0; i < properties->numworms; i++) {
     if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
       gnibbles_worm_move_tail (worms[i]);
@@ -281,12 +281,9 @@ gnibbles_move_worms (void)
     if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
       gnibbles_worm_move_head (worms[i]);
   }
-/*
-  for (i = 0; i < properties->numworms; i++) {
-    if (g_list_length (worms[i]->list) == 1 && !dead[i] && worms[i]->lives > 0)
-      gnibbles_worm_move_straight_worm (worms[i]);
-  }
-*/
+
+  //printf ("XHEAD: %d, YHEAD %d \n", worms[0]->xhead, worms[0]->yhead);
+  //printf ("XTAIL: %d, YTAIL %d \n", worms[0]->xtail, worms[0]->ytail);
   for (i = 0; i < properties->numworms; i++) { 
     if (worms[i]->xhead >= BOARDWIDTH) {
       worms[i]->xhead = 0;

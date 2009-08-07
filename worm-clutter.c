@@ -343,7 +343,7 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     }
     board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
   }
-  /* DEBUG */
+  /* DEBUG *//*
   gint i;
   FILE *fo;
   fo = fopen ("output.txt", "w" );
@@ -357,6 +357,7 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     fprintf (fo, "\n");
   }
   fclose (fo);
+  */
 }
 
 static void *
@@ -415,6 +416,7 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
   gint tail_dir = gnibbles_worm_get_tail_direction (worm);
 
   gnibbles_worm_remove_actor (worm);
+
   switch (tail_dir) {
     case WORMRIGHT:
       worm->xtail++;
@@ -477,12 +479,10 @@ gnibbles_worm_new (guint number, guint t_xhead,
   worm->xtail = t_xhead;
   worm->ytail = t_yhead;
 
-  worm->start = 0;
-  worm->stop = 0;
   worm->direction = t_direction;
   worm->direction_start = t_direction;
   worm->length = SLENGTH;
-  worm->change = 0; 
+  worm->change = 0;
 
   gnibbles_worm_queue_empty (worm);
 
@@ -1063,6 +1063,7 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
           if (dir < 1)
             dir = 4;
           worm->direction = dir;
+          
         }
       }
     }

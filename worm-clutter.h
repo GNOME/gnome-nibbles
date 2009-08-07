@@ -49,7 +49,6 @@ typedef struct {
   gint lives;
   guint score;
   guint number;
-  gint start, stop;
   gint change;
   gint keypress;
   gboolean human;

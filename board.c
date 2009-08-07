@@ -325,15 +325,19 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
     if (worms[i]->direction == WORMRIGHT) {
       for (j = 0; j < worms[i]->length; j++) 
         gnibbles_worm_move_head_pointer (worms[i]);
+      worms[i]->xtail++;
     } else if ( worms[i]->direction == WORMLEFT) {
       for (j = 0; j < worms[i]->length; j++)
         gnibbles_worm_move_head_pointer (worms[i]);
+      worms[i]->xtail--;
     } else if (worms[i]->direction == WORMDOWN) {
       for (j = 0; j < worms[i]->length; j++) 
-        gnibbles_worm_move_head_pointer (worms[i]); 
+        gnibbles_worm_move_head_pointer (worms[i]);
+      worms[i]->ytail++;
     } else if (worms[i]->direction == WORMUP) {
       for (j = 0; j < worms[i]->length; j++) 
         gnibbles_worm_move_head_pointer (worms[i]);
+      worms[i]->ytail--;
     }
     board->walls[worms[i]->xtail][worms[i]->ytail] = EMPTYCHAR;
   }
