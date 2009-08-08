@@ -361,7 +361,7 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     gnibbles_worm_move_head_pointer (worm);
     gnibbles_worm_show (worm);
   }
-  /* DEBUG *//*
+  /* DEBUG */
   gint i;
   FILE *fo;
   fo = fopen ("output.txt", "w" );
@@ -374,8 +374,7 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     }
     fprintf (fo, "\n");
   }
-  fclose (fo);
-  */ 
+  fclose (fo); 
 }
 
 static void
@@ -386,8 +385,9 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
   if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
     (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
     gnibbles_worm_grok_bonus (worm);
+
     actor = gnibbles_worm_get_head_actor (worm);
-    clutter_actor_animate (actor, CLUTTER_LINEAR, 300,
+    clutter_actor_animate (actor, CLUTTER_LINEAR, 220,
                            "scale-x", 1.45, "scale-y", 1.45,
                            "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                            NULL);
@@ -456,6 +456,7 @@ gnibbles_worm_move_head_pointer (GnibblesWorm *worm)
     worm->xhead = 0;
   if (worm->yhead >= BOARDHEIGHT) 
     worm->yhead = 0;
+
   gnibbles_worm_handle_bonus (worm);
   gnibbles_worm_add_actor (worm);
 }
@@ -483,6 +484,16 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
     default:
       break;
   }
+
+  if (worm->xtail <= 0)
+    worm->xtail = BOARDWIDTH - 1;
+  if (worm->ytail <= 0)
+    worm->ytail = BOARDHEIGHT - 1;
+  if (worm->xtail >= BOARDWIDTH)
+    worm->xtail = 0;
+  if (worm->ytail >= BOARDHEIGHT) 
+    worm->ytail = 0;
+
 }
 
 GnibblesWorm*

@@ -752,14 +752,17 @@ static const char ui_description[] =
   "    </menu>"
   "    <menu action='HelpMenu'>"
   "      <menuitem action='Contents'/>"
-  "      <menuitem action='About'/>" "    </menu>" "  </menubar>" "</ui>";
+  "      <menuitem action='About'/>" 
+  "    </menu>" 
+  "  </menubar>" 
+  "</ui>";
 
 static void
 create_menus (GtkUIManager * ui_manager)
 {
   GtkActionGroup *action_group;
 
-  action_group = gtk_action_group_new ("group");
+  action_group = gtk_action_group_new ("MenuActions");
 
   gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
   gtk_action_group_add_actions (action_group, action_entry,
@@ -773,19 +776,19 @@ create_menus (GtkUIManager * ui_manager)
   end_game_action = gtk_action_group_get_action (action_group, "EndGame");
   pause_action = gtk_action_group_get_action (action_group, "Pause");
   resume_action = gtk_action_group_get_action (action_group, "Resume");
-  preferences_action =
-    gtk_action_group_get_action (action_group, "Preferences");
-  fullscreen_action =
-    gtk_action_group_get_action (action_group, "Fullscreen");
-  leave_fullscreen_action =
-    gtk_action_group_get_action (action_group, "LeaveFullscreen");
-  new_network_action =
-    gtk_action_group_get_action (action_group, "NewNetworkGame");
+
+  preferences_action = gtk_action_group_get_action (action_group, 
+                                                    "Preferences");
+  fullscreen_action = gtk_action_group_get_action (action_group, 
+                                                   "Fullscreen");
+  leave_fullscreen_action = gtk_action_group_get_action (action_group,
+                                                         "LeaveFullscreen");
+  new_network_action = gtk_action_group_get_action (action_group, 
+                                                    "NewNetworkGame");
 #ifndef GGZ_CLIENT
   gtk_action_set_sensitive (new_network_action, FALSE);
 #endif
-  player_list_action =
-    gtk_action_group_get_action (action_group, "PlayerList");
+  player_list_action = gtk_action_group_get_action (action_group, "PlayerList");
 
 }
 
@@ -793,7 +796,6 @@ static void
 setup_window ()
 {
   GtkWidget *vbox;
-  GtkWidget *main_vbox;
   GtkWidget *packing;
   GtkWidget *menubar;
 
@@ -843,10 +845,10 @@ setup_window ()
   gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
 
   menubar = gtk_ui_manager_get_widget (ui_manager, "/MainMenu");
+
   gtk_box_pack_start (GTK_BOX (vbox), menubar, FALSE, FALSE, 0);
 
   packing = games_grid_frame_new (BOARDWIDTH, BOARDHEIGHT);
-  gtk_box_pack_start (GTK_BOX (vbox), packing, TRUE, TRUE, 0);
   gtk_widget_show (packing);
 
   gtk_container_add (GTK_CONTAINER (packing), clutter_widget);
@@ -862,15 +864,14 @@ setup_window ()
   g_signal_connect (G_OBJECT (window), "focus_out_event",
 		                G_CALLBACK (show_cursor_cb), NULL);
 
-  main_vbox = gtk_vbox_new (FALSE, 0);
-  gtk_box_pack_start (GTK_BOX (main_vbox), notebook, TRUE, TRUE, 0);
-  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox, NULL);
+  gtk_box_pack_start (GTK_BOX (vbox), notebook, TRUE, TRUE, 0);
+  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), packing, NULL);
   gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
 
   statusbar = gtk_statusbar_new ();
-  gtk_box_pack_start (GTK_BOX (main_vbox), statusbar, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), statusbar, FALSE, FALSE, 0);
 
-  gtk_container_add (GTK_CONTAINER (window), main_vbox);
+  gtk_container_add (GTK_CONTAINER (window), vbox);
 
   gtk_widget_show_all (window);
 #ifdef GGZ_CLIENT
