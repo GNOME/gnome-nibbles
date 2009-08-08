@@ -375,7 +375,39 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     fprintf (fo, "\n");
   }
   fclose (fo);
-  */
+  */ 
+}
+
+static void
+gnibbles_worm_handle_bonus (GnibblesWorm *worm)
+{
+  ClutterActor *actor = NULL;
+
+  if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
+    (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
+    gnibbles_worm_grok_bonus (worm);
+    actor = gnibbles_worm_get_head_actor (worm);
+    clutter_actor_animate (actor, CLUTTER_LINEAR, 300,
+                           "scale-x", 1.45, "scale-y", 1.45,
+                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                           NULL);
+
+    if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
+	      !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
+      
+      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+      
+      if (boni->numleft != 0)
+	      gnibbles_board_level_add_bonus (board, 1);
+
+    } else
+        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+  }
+
+  if (board->walls[worm->xhead][worm->yhead] == WARPLETTER) {
+    gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
+    games_sound_play ("teleport");
+  }
 }
 
 static void *
@@ -417,14 +449,14 @@ gnibbles_worm_move_head_pointer (GnibblesWorm *worm)
   }
 
   if (worm->xhead <= 0)
-    worm->xhead = BOARDWIDTH;
+    worm->xhead = BOARDWIDTH - 1;
   if (worm->yhead <= 0)
-    worm->yhead = BOARDHEIGHT;
+    worm->yhead = BOARDHEIGHT - 1;
   if (worm->xhead >= BOARDWIDTH)
     worm->xhead = 0;
   if (worm->yhead >= BOARDHEIGHT) 
     worm->yhead = 0;
-
+  gnibbles_worm_handle_bonus (worm);
   gnibbles_worm_add_actor (worm);
 }
 
@@ -450,35 +482,6 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
       break;
     default:
       break;
-  }
-}
-
-static void
-gnibbles_worm_handle_bonus (GnibblesWorm *worm)
-{
-  if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
-    (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
-    gnibbles_worm_grok_bonus (worm);
-
-    if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
-	      !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
-      ClutterActor *actor = gnibbles_worm_get_head_actor (worm);
-    clutter_actor_animate (actor, CLUTTER_LINEAR, 300,
-                         "scale-x", 1.3, "scale-y", 1.3,
-                         "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                         NULL);
-      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-      
-      if (boni->numleft != 0)
-	      gnibbles_board_level_add_bonus (board, 1);
-
-    } else
-        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
-  }
-
-  if (board->walls[worm->xhead][worm->yhead] == WARPLETTER) {
-    gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
-    games_sound_play ("teleport");
   }
 }
 
@@ -644,8 +647,6 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
     worm->keypress = 0;
   
   gnibbles_worm_move_head_pointer (worm);
-  gnibbles_worm_handle_bonus (worm);
-
   worm->length++;
 
   if (key_queue[worm->number] && !g_queue_is_empty (key_queue[worm->number])) {

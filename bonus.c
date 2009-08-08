@@ -60,10 +60,10 @@ animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor)
 {
   g_signal_connect_after (
     clutter_actor_animate (actor, CLUTTER_LINEAR, 1100,
-                                "scale-x", 1.22, "scale-y", 1.22,
-                                "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                                "opacity", 0xDC,
-                                NULL),
+                           "scale-x", 1.22, "scale-y", 1.22,
+                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                           "opacity", 0xDC,
+                           NULL),
       "completed", G_CALLBACK (animate_bonus2), actor);
 
 }
@@ -73,10 +73,10 @@ animate_bonus2 (ClutterAnimation *animation, ClutterActor *actor)
 {
   g_signal_connect_after (
     clutter_actor_animate (actor, CLUTTER_LINEAR, 1100,
-                                "scale-x", 0.9, "scale-y", 0.9,
-                                "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                                "opacity", 0xFF,
-                                NULL),
+                           "scale-x", 0.9, "scale-y", 0.9,
+                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                           "opacity", 0xFF,
+                           NULL),
       "completed", G_CALLBACK (animate_bonus1), actor);
 
 }
