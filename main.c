@@ -929,10 +929,11 @@ on_hide_logo_completed (ClutterAnimation *animation, ClutterActor *actor)
 static void
 hide_logo (void)
 {
-  clutter_actor_animate (logo, CLUTTER_EASE_IN_QUAD, 100,
+  g_signal_connect_after (
+    clutter_actor_animate (logo, CLUTTER_EASE_IN_QUAD, 150,
                          "opacity", 0,
-                         "signal::completed", on_hide_logo_completed, logo,
-                         NULL);
+                         NULL),
+    "completed", G_CALLBACK (on_hide_logo_completed), logo);
 }
 
 int

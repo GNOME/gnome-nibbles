@@ -265,44 +265,29 @@ gnibbles_move_worms (void)
     }
   }
 
-  //TODO: erase tail here
-
   for (i = 0; i < properties->numworms; i++) {
     dead[i] = !gnibbles_worm_test_move_head (worms[i]);
     status &= !dead[i];
   }
  
   for (i = 0; i < properties->numworms; i++) {
-    if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
+    if (!dead[i] && worms[i]->lives > 0)
       gnibbles_worm_move_tail (worms[i]);
   }
   
   for (i = 0; i < properties->numworms; i++) {
-    if (g_list_length (worms[i]->list) > 1 && !dead[i] && worms[i]->lives > 0)
+    if (!dead[i] && worms[i]->lives > 0)
       gnibbles_worm_move_head (worms[i]);
-  }
-
-  //printf ("XHEAD: %d, YHEAD %d \n", worms[0]->xhead, worms[0]->yhead);
-  //printf ("XTAIL: %d, YTAIL %d \n", worms[0]->xtail, worms[0]->ytail);
-  for (i = 0; i < properties->numworms; i++) { 
-    if (worms[i]->xhead >= BOARDWIDTH) {
-      worms[i]->xhead = 0;
-    } else if (worms[i]->xhead <= 0) {
-      worms[i]->xhead = BOARDWIDTH;
-    } else if (worms[i]->yhead >= BOARDHEIGHT) {
-      worms[i]->yhead = 0;
-    } else if (worms[i]->xhead <= 0) {
-      worms[i]->yhead = BOARDHEIGHT;
-    }
   }
 
   for (i = 0; i < properties->numworms; i++) {
     for (j = 0; j < properties->numworms; j++) {
-      if (i != j && worms[i]->xhead == worms[j]->xhead
+      if (i != j 
+          && worms[i]->xhead == worms[j]->xhead
 	        && worms[i]->yhead == worms[j]->yhead
 	        && worms[i]->lives > 0
 	        && worms[j]->lives > 0)
-	        dead[i] = TRUE;
+	      dead[i] = TRUE;
     }
   }
 
@@ -377,7 +362,7 @@ gnibbles_undraw_worms (gint data)
   gint i;
 
   for (i = 0; i < properties->numworms; i++)
-    gnibbles_worm_shrink (worms[i], data);
+    gnibbles_worm_reduce_tail (worms[i], data);
     //gnibbles_worm_undraw_nth (worms[i], data);
 }
 

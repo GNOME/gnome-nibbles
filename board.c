@@ -235,6 +235,11 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
     g_free (message);
   }
 
+  if (warpmanager)
+    gnibbles_warpmanager_destroy (warpmanager);
+
+  warpmanager = gnibbles_warpmanager_new ();
+
   if (boni)
     gnibbles_boni_destroy (boni);
 
