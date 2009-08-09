@@ -916,7 +916,23 @@ render_logo (void)
                          CLUTTER_ACTOR (text),
                          CLUTTER_ACTOR (desc),
                          NULL);
-  
+ 
+  clutter_actor_set_opacity (desc, 0);
+  clutter_actor_set_opacity (text, 0);
+  clutter_actor_set_scale (text, 0.0, 0.0);
+  clutter_actor_set_scale (desc, 0.0, 0.0);
+  clutter_actor_animate (text, CLUTTER_EASE_OUT_CIRC, 1000,
+                          "opacity", 0xff,
+                          "scale-x", 1.0,
+                          "scale-y", 1.0,
+                          "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                          NULL);
+  clutter_actor_animate (desc, CLUTTER_EASE_OUT_CIRC, 1300,
+                          "opacity", 0xff,
+                          "scale-x", 1.0,
+                          "scale-y", 1.0,
+                          "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                          NULL);
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
                          CLUTTER_ACTOR (logo));
 }

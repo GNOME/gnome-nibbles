@@ -64,14 +64,13 @@ gnibbles_boni_destroy (GnibblesBoni * boni)
 
 void
 gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
-			 gint t_type, gint t_fake, gint t_countdown)
+                         gint t_type, gint t_fake, gint t_countdown)
 {
   if (boni->numbonuses == MAXBONUSES)
     return;
   boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y,
 							                                          t_type, t_fake,
 							                                          t_countdown);
-
   board->walls[t_x][t_y] = t_type = 'A';
   board->walls[t_x + 1][t_y] = t_type + 'A';
   board->walls[t_x][t_y + 1] = t_type + 'A';
@@ -91,14 +90,13 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
 
 void
 gnibbles_boni_add_bonus_final (GnibblesBoni * boni, gint t_x, gint t_y,
-			       gint t_type, gint t_fake, gint t_countdown)
+			                         gint t_type, gint t_fake, gint t_countdown)
 {
   if (boni->numbonuses == MAXBONUSES)
     return;
-  boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y,
-							t_type, t_fake,
-							t_countdown);
-
+  boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y, 
+                                                        t_type, t_fake, 
+                                                        t_countdown);
   board->walls[t_x][t_y] = t_type + 'A';
   board->walls[t_x + 1][t_y] = t_type + 'A';
   board->walls[t_x][t_y + 1] = t_type + 'A';
@@ -152,7 +150,7 @@ gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
       board->walls[boni->bonuses[i]->x][boni->bonuses[i]->y] = EMPTYCHAR;
       board->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y] = EMPTYCHAR;
       board->walls[boni->bonuses[i]->x][boni->bonuses[i]->y + 1] = EMPTYCHAR;
-      board->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1]	= EMPTYCHAR;
+      board->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1] = EMPTYCHAR;
 
       gnibbles_bonus_erase (boni->bonuses[i]);
       boni->bonuses[i] = boni->bonuses[--boni->numbonuses];

@@ -151,8 +151,7 @@ gnibbles_load_pixmap (gint tilesize)
       g_object_unref (boni_pixmaps[i]);
 
     boni_pixmaps[i] = gnibbles_load_pixmap_file (bonus_files[i],
-  					                                             2 * tilesize,
-                          						                   2 * tilesize);
+  					                                     2 * tilesize, 2 * tilesize);
   }
 
   for (i = 0; i < 11; i++) {
@@ -160,8 +159,7 @@ gnibbles_load_pixmap (gint tilesize)
       g_object_unref (wall_pixmaps[i]);
       
     wall_pixmaps[i] = gnibbles_load_pixmap_file (small_files[i],
-  	 	  		                                             tilesize,
-                           						                   tilesize);
+  	 	  		                                     2 * tilesize, 2 * tilesize);
   }
 
   for (i = 0; i < 7; i++) {
@@ -169,7 +167,7 @@ gnibbles_load_pixmap (gint tilesize)
       g_object_unref (worm_pixmaps[i]);
 
     worm_pixmaps[i] = gnibbles_load_pixmap_file (worm_files[i], 
-                                                        tilesize, tilesize);
+                                                 tilesize, tilesize);
   }
 }
 
@@ -363,7 +361,6 @@ gnibbles_undraw_worms (gint data)
 
   for (i = 0; i < properties->numworms; i++)
     gnibbles_worm_reduce_tail (worms[i], data);
-    //gnibbles_worm_undraw_nth (worms[i], data);
 }
 
 void
@@ -373,7 +370,9 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
   gchar *message;
 
   if (!scoresdialog) {
-    scoresdialog = games_scores_dialog_new (GTK_WINDOW (window), highscores, _("Nibbles Scores"));
+    scoresdialog = games_scores_dialog_new (GTK_WINDOW (window), 
+                                            highscores, 
+                                            _("Nibbles Scores"));
     games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG
 						  (scoresdialog),
 						  _("Speed:"));
@@ -381,15 +380,15 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
   if (pos > 0) {
     games_scores_dialog_set_hilight (GAMES_SCORES_DIALOG (scoresdialog), pos);
     message = g_strdup_printf ("<b>%s</b>\n\n%s",
-			       _("Congratulations!"),
+			                         _("Congratulations!"),
                                pos == 1 ? _("Your score is the best!") :
-			       _("Your score has made the top ten."));
+			                         _("Your score has made the top ten."));
     games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
 				     message);
     g_free (message);
   } else {
     games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
-				     NULL);
+				                             NULL);
   }
 
   gtk_dialog_run (GTK_DIALOG (scoresdialog));
@@ -423,7 +422,7 @@ gnibbles_log_score (GtkWidget * window)
 
 void
 gnibbles_add_spec_bonus (gint t_x, gint t_y,
-			 gint t_type, gint t_fake, gint t_countdown)
+			                   gint t_type, gint t_fake, gint t_countdown)
 {
   gnibbles_boni_add_bonus_final (boni, t_x, t_y, t_type, t_fake, t_countdown);
 }

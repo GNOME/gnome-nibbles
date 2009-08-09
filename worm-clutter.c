@@ -301,37 +301,37 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
     games_sound_play ("reverse");
     return;
   }
-
+  
   switch (board->walls[worm->xhead][worm->yhead] - 'A') {
-  case BONUSREGULAR:
-    boni->numleft--;
-    worm->change += (NUMBONI - boni->numleft) * GROWFACTOR;
-    worm->score += (NUMBONI - boni->numleft) * current_level;
-    games_sound_play ("gobble");
-    break;
-  case BONUSDOUBLE:
-    worm->score += (worm->length + worm->change) * current_level;
-    worm->change += worm->length + worm->change;
-    games_sound_play ("bonus");
-    break;
-  case BONUSHALF:
-    if (worm->length + worm->change > 2) {
-      worm->score += ((worm->length + worm->change) / 2) * current_level;
-      worm->change -= (worm->length + worm->change) / 2;
+    case BONUSREGULAR:
+      boni->numleft--;
+      worm->change += (NUMBONI - boni->numleft) * GROWFACTOR;
+      worm->score += (NUMBONI - boni->numleft) * current_level;
+      games_sound_play ("gobble");
+      break;
+    case BONUSDOUBLE:
+      worm->score += (worm->length + worm->change) * current_level;
+      worm->change += worm->length + worm->change;
       games_sound_play ("bonus");
-    }
-    break;
-  case BONUSLIFE:
-    worm->lives += 1;
-    games_sound_play ("life");
-    break;
-  case BONUSREVERSE:
-    for (i = 0; i < properties->numworms; i++)
-      if (worm != worms[i])
-	      g_timeout_add (1, (GSourceFunc)
-		                   gnibbles_worm_inverse, worms[i]);
-    games_sound_play ("reverse");
-    break;
+      break;
+    case BONUSHALF:
+      if (worm->length + worm->change > 2) {
+        worm->score += ((worm->length + worm->change) / 2) * current_level;
+        worm->change -= (worm->length + worm->change) / 2;
+        games_sound_play ("bonus");
+      }
+      break;
+    case BONUSLIFE:
+      worm->lives += 1;
+      games_sound_play ("life");
+      break;
+    case BONUSREVERSE:
+      for (i = 0; i < properties->numworms; i++)
+        if (worm != worms[i])
+	        g_timeout_add (1, (GSourceFunc)
+		                     gnibbles_worm_inverse, worms[i]);
+      games_sound_play ("reverse");
+      break;
   }
 }
 
@@ -361,7 +361,7 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     gnibbles_worm_move_head_pointer (worm);
     gnibbles_worm_show (worm);
   }
-  /* DEBUG */
+  /* DEBUG *//*
   gint i;
   FILE *fo;
   fo = fopen ("output.txt", "w" );
@@ -375,6 +375,7 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
     fprintf (fo, "\n");
   }
   fclose (fo); 
+  */
 }
 
 static void
@@ -387,8 +388,8 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
     gnibbles_worm_grok_bonus (worm);
 
     actor = gnibbles_worm_get_head_actor (worm);
-    clutter_actor_animate (actor, CLUTTER_LINEAR, 220,
-                           "scale-x", 1.45, "scale-y", 1.45,
+    clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUINT, 220,
+                           "scale-x", 1.35, "scale-y", 1.35,
                            "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                            NULL);
 

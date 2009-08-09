@@ -148,8 +148,8 @@ gnibbles_board_load_level (GnibblesBoard *board)
         x_pos = j * properties->tilesize;
 
         clutter_actor_set_size (CLUTTER_ACTOR(tmp),
-                                 properties->tilesize,
-                                 properties->tilesize);
+                                properties->tilesize,
+                                properties->tilesize);
 
         clutter_actor_set_position (CLUTTER_ACTOR (tmp), x_pos, y_pos);
         clutter_actor_show (CLUTTER_ACTOR (tmp));
