@@ -23,6 +23,7 @@
 #include <stdlib.h>
 
 #include <gtk/gtk.h>
+#include <clutter-gtk/clutter-gtk.h>
 
 #include "gnibbles.h"
 #include "warp.h"
@@ -30,9 +31,13 @@
 #include "boni.h"
 #include "main.h"
 #include "board.h"
+#include "properties.h"
 
 extern GnibblesBoard *board;
 extern GnibblesBoni *boni;
+
+extern GnibblesProperties *properties;
+extern GdkPixbuf *boni_pixmaps[];
 
 GnibblesWarpManager *
 gnibbles_warpmanager_new (void)
@@ -146,5 +151,25 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
       worm->xhead = x;
       worm->yhead = y;
     }
+  }
+}
+
+void 
+gnibbles_warpmanager_resize (GnibblesWarpManager *warpmanager, gint newtile)
+{
+  int i;
+  gfloat x_pos, y_pos;  
+  GError *err = NULL;
+
+  for (i = 0; i < warpmanager->numwarps; i++) {
+    clutter_actor_get_position (warpmanager->warps[i]->actor, &x_pos, &y_pos);
+    clutter_actor_set_position (warpmanager->warps[i]->actor,
+                                (x_pos / properties->tilesize) * newtile,
+                                (y_pos / properties->tilesize) * newtile);
+    gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (warpmanager->warps[i]->actor), 
+                                         boni_pixmaps[WARP],
+                                         &err);
+    if (err)
+      gnibbles_error (err->message);
   }
 }

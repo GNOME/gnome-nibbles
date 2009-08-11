@@ -44,5 +44,7 @@ void gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager,
 
 void gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
 					                                 GnibblesWorm * worm);
+void gnibbles_warpmanager_resize (GnibblesWarpManager *warpmanager, 
+                                  gint tilesize);
 
 #endif

@@ -198,11 +198,9 @@ gnibbles_boni_resize (GnibblesBoni *boni, gint newtile)
 
   for (i = 0; i < boni->numbonuses; i++) {
     clutter_actor_get_position (boni->bonuses[i]->actor, &x_pos, &y_pos);
-
     clutter_actor_set_position (boni->bonuses[i]->actor,
                                 (x_pos / properties->tilesize) * newtile,
                                 (y_pos / properties->tilesize) * newtile);
-
     gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE(boni->bonuses[i]->actor), 
                                          boni_pixmaps[boni->bonuses[i]->type],
                                          &err);
