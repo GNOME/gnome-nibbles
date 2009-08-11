@@ -98,7 +98,7 @@ start_level_cb (GtkWidget * widget, gpointer data)
   if (!pref_dialog)
     return;
 
-  end_game (1);
+  end_game (FALSE);
 
   level = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (data));
   gnibbles_properties_set_start_level (level);
