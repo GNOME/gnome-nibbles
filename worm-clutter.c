@@ -261,7 +261,7 @@ gnibbles_worm_get_tail_direction (GnibblesWorm *worm)
     return -1;
 }
 
-static void
+static gboolean
 gnibbles_worm_inverse (gpointer data)
 {
   GnibblesWorm *worm;
@@ -270,15 +270,6 @@ gnibbles_worm_inverse (gpointer data)
   worm->list = g_list_reverse (worm->list);
   
   gint old_dir = gnibbles_worm_get_tail_direction (worm);
-
-  if (old_dir == WORMRIGHT)
-    worm->direction = WORMLEFT;
-  else if (old_dir == WORMLEFT)
-    worm->direction = WORMRIGHT;
-  else if (old_dir == WORMUP)
-    worm->direction = WORMDOWN;
-  else if (old_dir == WORMDOWN)
-    worm->direction = WORMUP;
 
   gint tmp;
 
@@ -289,6 +280,17 @@ gnibbles_worm_inverse (gpointer data)
   worm->yhead = worm->ytail;
   worm->ytail = tmp;
   tmp = worm->yhead;
+
+  if (old_dir == WORMRIGHT)
+    worm->direction = WORMLEFT;
+  else if (old_dir == WORMLEFT)
+    worm->direction = WORMRIGHT;
+  else if (old_dir == WORMUP)
+    worm->direction = WORMDOWN;
+  else if (old_dir == WORMDOWN)
+    worm->direction = WORMUP;
+
+  return FALSE;
 }
 
 static void
@@ -379,6 +381,15 @@ gnibbles_worm_reset (ClutterAnimation *animation, gpointer data)
 }
 
 static void
+worm_grok_scale_down (ClutterAnimation *animation, ClutterActor *actor)
+{
+  clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUINT, 420,
+                         "scale-x", 1.0, "scale-y", 1.0,
+                         "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                         NULL);
+}
+
+static void
 gnibbles_worm_handle_bonus (GnibblesWorm *worm)
 {
   ClutterActor *actor = NULL;
@@ -388,10 +399,12 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
     gnibbles_worm_grok_bonus (worm);
 
     actor = gnibbles_worm_get_head_actor (worm);
-    clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUINT, 220,
-                           "scale-x", 1.35, "scale-y", 1.35,
-                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                           NULL);
+    g_signal_connect_after (
+      clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUINT, 420,
+                            "scale-x", 1.45, "scale-y", 1.45,
+                            "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                            NULL),
+      "completed", G_CALLBACK (worm_grok_scale_down), actor);
 
     if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
 	      !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {

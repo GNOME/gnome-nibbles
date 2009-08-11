@@ -537,6 +537,15 @@ restart_game (gpointer data)
 {
   gnibbles_board_level_new (board, current_level);
   gnibbles_board_level_add_bonus (board, 1);
+  int i;
+  for (i = 0; i < properties->numworms; i++) {
+    clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
+    gnibbles_worm_show (worms[i]);
+  }
+
+  for (i = 0; i < properties->human; i++)
+    worms[i]->human = TRUE;
+
   dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_2_cb, NULL);
   restart_id = 0;
   
