@@ -301,7 +301,7 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
     games_sound_play ("reverse");
     return;
   }
-  
+ 
   switch (board->walls[worm->xhead][worm->yhead] - 'A') {
     case BONUSREGULAR:
       boni->numleft--;
