@@ -286,6 +286,7 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data
   if (game_running ()) {
     if (board) {
       gnibbles_board_resize (board, tilesize);
+      gnibbles_boni_resize (boni, tilesize);
       for (i=0; i<properties->numworms; i++)
         gnibbles_worm_resize (worms[i], tilesize);
     }

@@ -25,6 +25,7 @@
 #include <gtk/gtk.h>
 
 #include <libgames-support/games-sound.h>
+#include <clutter-gtk/clutter-gtk.h>
 
 #include "gnibbles.h"
 #include "main.h"
@@ -32,8 +33,11 @@
 #include "boni.h"
 #include "ggz-network.h"
 #include "board.h"
+#include "properties.h"
 
 extern GnibblesBoard *board;
+extern GnibblesProperties *properties;
+extern GdkPixbuf *boni_pixmaps[];
 
 GnibblesBoni *
 gnibbles_boni_new (void)
@@ -182,5 +186,27 @@ gnibbles_boni_remove_bonus_final (GnibblesBoni * boni, gint x, gint y)
       boni->bonuses[i] = boni->bonuses[--boni->numbonuses];
       return;
     }
+  }
+}
+
+void 
+gnibbles_boni_resize (GnibblesBoni *boni, gint newtile)
+{
+  int i;
+  gfloat x_pos, y_pos;  
+  GError *err = NULL;
+
+  for (i = 0; i < boni->numbonuses; i++) {
+    clutter_actor_get_position (boni->bonuses[i]->actor, &x_pos, &y_pos);
+
+    clutter_actor_set_position (boni->bonuses[i]->actor,
+                                (x_pos / properties->tilesize) * newtile,
+                                (y_pos / properties->tilesize) * newtile);
+
+    gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE(boni->bonuses[i]->actor), 
+                                         boni_pixmaps[boni->bonuses[i]->type],
+                                         &err);
+    if (err)
+      gnibbles_error (err->message);
   }
 }
