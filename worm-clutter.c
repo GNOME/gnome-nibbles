@@ -492,7 +492,7 @@ gnibbles_worm_reset (ClutterAnimation *anim, GnibblesWorm *worm)
     worm->change = SLENGTH - 1;
     gnibbles_worm_show (worm);
   }
-  /* DEBUG */
+  /* DEBUG *//*
   gint i;
   FILE *fo;
   fo = fopen ("output.txt", "w" );
@@ -506,7 +506,7 @@ gnibbles_worm_reset (ClutterAnimation *anim, GnibblesWorm *worm)
     fprintf (fo, "\n");
   }
   fclose (fo); 
-  
+  */
 }
 
 GnibblesWorm*
