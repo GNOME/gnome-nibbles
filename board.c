@@ -34,7 +34,7 @@
 #include "gnibbles.h"
 #include "properties.h"
 #include "board.h"
-#include "worm-clutter.h"
+#include "worm.h"
 #include "boni.h"
 
 #ifdef GGZ_CLIENT

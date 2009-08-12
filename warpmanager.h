@@ -25,7 +25,7 @@
 #include <gtk/gtk.h>
 
 #include "warp.h"
-#include "worm-clutter.h"
+#include "worm.h"
 
 #define MAXWARPS 200
 #define WARPLETTER 'W'

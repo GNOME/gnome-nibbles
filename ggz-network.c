@@ -45,7 +45,7 @@
 #include "gnibbles.h"
 #include "properties.h"
 #include "ggz-network.h"
-#include "worm-clutter.h"
+#include "worm.h"
 
 
 static void

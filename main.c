@@ -50,7 +50,7 @@
 #include <clutter/clutter.h>
 
 #include "board.h"
-#include "worm-clutter.h"
+#include "worm.h"
 
 #ifdef GGZ_CLIENT
 #include <libgames-support/games-dlg-chat.h>

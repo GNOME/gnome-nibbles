@@ -25,7 +25,6 @@
 
 #include <gtk/gtk.h>
 #include <clutter/clutter.h>
-#include <cogl/cogl.h>
 
 #define BONUSNONE	0
 #define BONUSREGULAR	1

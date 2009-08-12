@@ -30,8 +30,8 @@ gnibbles_SOURCES = \
 	main.h \
 	board.c \
 	board.h \
-	worm-clutter.c \
-	worm-clutter.h \
+	worm.c \
+	worm.h \
 	$(NULL)
 
 gnibbles_CPPFLAGS = \

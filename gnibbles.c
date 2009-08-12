@@ -44,7 +44,7 @@
 #include "properties.h"
 #include "scoreboard.h"
 #include "board.h"
-#include "worm-clutter.h"
+#include "worm.h"
 
 #ifdef GGZ_CLIENT
 #include "ggz-network.h"

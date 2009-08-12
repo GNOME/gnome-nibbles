@@ -25,8 +25,7 @@
 #include <gtk/gtk.h>
 
 #include "gnibbles.h"
-//#include "worm.h"
-#include "worm-clutter.h"
+#include "worm.h"
 
 typedef struct {
   GnibblesWorm *worms[NUMWORMS];

@@ -43,7 +43,7 @@
 #include "ggz-network.h"
 #endif
 
-#include "worm-clutter.h"
+#include "worm.h"
 
 extern GnibblesProperties *properties;
 extern GdkPixbuf *worm_pixmaps[];
