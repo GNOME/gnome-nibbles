@@ -477,9 +477,8 @@ gnibbles_worm_reset (ClutterAnimation *anim, GnibblesWorm *worm)
 {
   gint j;
 
-  for (j = 0; j < g_list_length(worm->list); j++) {
+  for (j = 0; j < g_list_length(worm->list); j++)
     gnibbles_worm_move_tail_pointer (worm);
-  }
 
   worm->xhead = worm->xstart;
   worm->yhead = worm->ystart;
@@ -492,21 +491,6 @@ gnibbles_worm_reset (ClutterAnimation *anim, GnibblesWorm *worm)
     worm->change = SLENGTH - 1;
     gnibbles_worm_show (worm);
   }
-  /* DEBUG *//*
-  gint i;
-  FILE *fo;
-  fo = fopen ("output.txt", "w" );
-  for (i = 0; i < BOARDHEIGHT; i++) {
-    for (j = 0; j < BOARDWIDTH; j++) {
-      if (board->walls[j][i] == 'a')
-        fprintf(fo, "%c", ' ');
-      else
-        fprintf (fo , "%c", board->walls[j][i]);
-    }
-    fprintf (fo, "\n");
-  }
-  fclose (fo); 
-  */
 }
 
 GnibblesWorm*
@@ -556,11 +540,6 @@ gnibbles_worm_destroy (GnibblesWorm *worm)
 {
   while (worm->list)
     gnibbles_worm_remove_actor (worm);
-
-  //if (worm->list)
-  //  g_list_free (worm->list);
-
-  //g_free (worm);
 }
 
 void
@@ -832,18 +811,18 @@ gnibbles_worm_ai_deadend (gint x, gint y, gint lengthleft)
     cx = x;
     cy = y;
     switch (cdir) {
-    case WORMUP:
-      cy -= 1;
-      break;
-    case WORMDOWN:
-      cy += 1;
-      break;
-    case WORMLEFT:
-      cx -= 1;
-      break;
-    case WORMRIGHT:
-      cx += 1;
-      break;
+      case WORMUP:
+        cy -= 1;
+        break;
+      case WORMDOWN:
+        cy += 1;
+        break;
+      case WORMLEFT:
+        cx -= 1;
+        break;
+      case WORMRIGHT:
+        cx += 1;
+        break;
     }
 
     if (cx >= BOARDWIDTH)
@@ -897,28 +876,32 @@ gnibbles_worm_ai_deadend_after (gint x, gint y, gint dir, gint length)
     cx = worms[i]->xhead;
     cy = worms[i]->yhead;
     if(cx != x || cy != y) {
-      if(cx > 0) deadendboard[cx-1][cy] = deadend_runnumber;
-      if(cy > 0) deadendboard[cx][cy-1] = deadend_runnumber;
-      if(cx < BOARDWIDTH-1) deadendboard[cx+1][cy] = deadend_runnumber;
-      if(cy < BOARDHEIGHT-1) deadendboard[cx][cy+1] = deadend_runnumber;
+      if(cx > 0) 
+        deadendboard[cx-1][cy] = deadend_runnumber;
+      if(cy > 0) 
+        deadendboard[cx][cy-1] = deadend_runnumber;
+      if(cx < BOARDWIDTH-1) 
+        deadendboard[cx+1][cy] = deadend_runnumber;
+      if(cy < BOARDHEIGHT-1) 
+        deadendboard[cx][cy+1] = deadend_runnumber;
     }
   }
 
   cx = x;
   cy = y;
   switch (dir) {
-  case WORMUP:
-    cy -= 1;
-    break;
-  case WORMDOWN:
-    cy += 1;
-    break;
-  case WORMLEFT:
-    cx -= 1;
-    break;
-  case WORMRIGHT:
-    cx += 1;
-    break;
+    case WORMUP:
+      cy -= 1;
+      break;
+    case WORMDOWN:
+      cy += 1;
+      break;
+    case WORMLEFT:
+      cx -= 1;
+      break;
+    case WORMRIGHT:
+      cx += 1;
+      break;
   }
 
   if (cx >= BOARDWIDTH)
@@ -1017,7 +1000,8 @@ gnibbles_worm_ai_wander (gint x, gint y, gint dir, gint ox, gint oy)
       return 0;
       break;
     default: 
-      if (board->walls[x][y] > EMPTYCHAR && board->walls[x][y] < 'z' + properties->numworms) {
+      if (board->walls[x][y] > EMPTYCHAR 
+          && board->walls[x][y] < 'z' + properties->numworms) {
         return 0;
       } else {
         if (ox == x && oy == y)
@@ -1037,12 +1021,14 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
 
   opposite = (worm->direction + 1) % 4 + 1;
 
-  front = gnibbles_worm_ai_wander
-    (worm->xhead, worm->yhead, worm->direction, worm->xhead, worm->yhead);
-  left = gnibbles_worm_ai_wander
-    (worm->xhead, worm->yhead, worm->direction - 1, worm->xhead, worm->yhead);
-  right = gnibbles_worm_ai_wander
-    (worm->xhead, worm->yhead, worm->direction + 1, worm->xhead, worm->yhead);
+  front = gnibbles_worm_ai_wander (worm->xhead, worm->yhead,
+                                   worm->direction, worm->xhead, worm->yhead);
+  left = gnibbles_worm_ai_wander (worm->xhead, worm->yhead, 
+                                  worm->direction - 1, 
+                                  worm->xhead, worm->yhead);
+  right = gnibbles_worm_ai_wander (worm->xhead, worm->yhead, 
+                                   worm->direction + 1, 
+                                   worm->xhead, worm->yhead);
 
   if (!front) {
     if (left) {
@@ -1103,8 +1089,8 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
     if(!gnibbles_worm_is_move_safe (worm))
       thislen += 4;
 
-    thislen += gnibbles_worm_ai_deadend_after
-      (worm->xhead, worm->yhead, dir, worm->length + worm->change);
+    thislen += gnibbles_worm_ai_deadend_after (worm->xhead, worm->yhead, dir,
+                                               worm->length + worm->change);
 
     if (dir == olddir && !thislen)
       thislen -= 100;
@@ -1130,10 +1116,9 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
   for (dir = 1; dir <= 4; dir++) {
     if (dir == opposite) 
       continue;
-    if (!gnibbles_worm_test_move_head (worm)) {
+    if (!gnibbles_worm_test_move_head (worm))
       worm->direction = dir;
-    } else {
+    else
       continue;
-    }
   }
 }
