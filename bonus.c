@@ -40,21 +40,7 @@ extern ClutterActor *stage;
 
 static void animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor);
 static void animate_bonus2 (ClutterAnimation *animation, ClutterActor *actor);
-/*
-static void
-animate_bonus_rotate (ClutterAnimation *animation, ClutterActor *actor)
-{
-  ClutterVertex center;
-  ClutterAnimation *anim;
 
-  center = (ClutterVertex){(gfloat)properties->tilesize, 0, 0};
-  anim = clutter_actor_animate (actor, CLUTTER_LINEAR, 2000,
-                                "rotation-angle-y", 360.f,
-                                "fixed::rotation-center-y", &center,
-                                NULL);
-  clutter_animation_set_loop (anim, TRUE);
-}
-*/
 static void
 animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor)
 {
@@ -64,7 +50,7 @@ animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor)
                            "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                            "opacity", 0xDC,
                            NULL),
-      "completed", G_CALLBACK (animate_bonus2), actor);
+     "completed", G_CALLBACK (animate_bonus2), actor);
 
 }
 
@@ -77,7 +63,7 @@ animate_bonus2 (ClutterAnimation *animation, ClutterActor *actor)
                            "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                            "opacity", 0xFF,
                            NULL),
-      "completed", G_CALLBACK (animate_bonus1), actor);
+     "completed", G_CALLBACK (animate_bonus1), actor);
 
 }
 
