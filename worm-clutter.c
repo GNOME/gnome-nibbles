@@ -238,6 +238,8 @@ static gint
 gnibbles_worm_get_tail_direction (GnibblesWorm *worm)
 {
   gfloat x1,y1,x2,y2;
+  gfloat xdiff, ydiff;
+
   ClutterActor *next = NULL;
   ClutterActor *tail = gnibbles_worm_get_tail_actor (worm);
 
@@ -249,14 +251,17 @@ gnibbles_worm_get_tail_direction (GnibblesWorm *worm)
   clutter_actor_get_position (CLUTTER_ACTOR (next), &x2, &y2);
   clutter_actor_get_position (CLUTTER_ACTOR (tail), &x1, &y1);
 
+  xdiff = MAX (x2,x1) - MIN (x2,x1);
+  ydiff = MAX (y2,y1) - MIN (y2,y1);
+  
   if (x2 > x1 && y1 == y2)
-    return WORMRIGHT;
+    return xdiff > properties->tilesize ? WORMLEFT : WORMRIGHT;
   else if (x2 < x1 && y1 == y2)
-    return WORMLEFT;
+    return xdiff > properties->tilesize ? WORMRIGHT : WORMLEFT;
   else if (y2 > y1 && x1 == x2)
-    return WORMDOWN;
+    return ydiff > properties->tilesize ? WORMUP: WORMDOWN;
   else if (y2 < y1 && x1 == x2)
-    return WORMUP;
+    return ydiff > properties->tilesize ? WORMDOWN : WORMUP;
   else 
     return -1;
 }
@@ -420,7 +425,6 @@ static void
 gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
 {
   gint tail_dir = gnibbles_worm_get_tail_direction (worm);
-
   gnibbles_worm_remove_actor (worm);
 
   switch (tail_dir) {
@@ -488,7 +492,7 @@ gnibbles_worm_reset (ClutterAnimation *anim, GnibblesWorm *worm)
     worm->change = SLENGTH - 1;
     gnibbles_worm_show (worm);
   }
-  /* DEBUG *//*
+  /* DEBUG */
   gint i;
   FILE *fo;
   fo = fopen ("output.txt", "w" );
@@ -502,7 +506,7 @@ gnibbles_worm_reset (ClutterAnimation *anim, GnibblesWorm *worm)
     fprintf (fo, "\n");
   }
   fclose (fo); 
-  */
+  
 }
 
 GnibblesWorm*
@@ -705,6 +709,7 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
 
     for (i = 0; i < erasesize; i++) {
       gnibbles_worm_move_tail_pointer (worm);
+      worm->length--;
     }
   }
 }

@@ -263,6 +263,9 @@ gnibbles_move_worms (void)
     }
   }
 
+  printf ("head: (%d,%d), tail (%d,%d)\n", 
+          worms[0]->xhead, worms[0]->yhead, 
+          worms[0]->xtail, worms[0]->ytail);
   for (i = 0; i < properties->numworms; i++) {
     dead[i] = !gnibbles_worm_test_move_head (worms[i]);
     status &= !dead[i];
