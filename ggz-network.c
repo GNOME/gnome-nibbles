@@ -321,7 +321,7 @@ network_game_move (guint x)
 
 void
 network_add_bonus (gint t_x, gint t_y,
-		   gint t_type, gint t_fake, gint t_countdown)
+                   gint t_type, gint t_fake, gint t_countdown)
 {
   if (ggz_write_int (fd, GN_REQ_BONI) < 0
       || ggz_write_int (fd, t_x) < 0

@@ -265,7 +265,7 @@ key_press_cb (ClutterActor *actor, ClutterEvent *event, gpointer data)
 }
 
 static gboolean
-configure_event_cb (GtkWidget * widget, GdkEventConfigure * event, gpointer data)
+configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
 {
   int tilesize, ts_x, ts_y;
 
@@ -693,7 +693,7 @@ main_loop (gpointer data)
 }
 
 static gboolean
-show_cursor_cb (GtkWidget * widget, GdkEventMotion * event, gpointer data)
+show_cursor_cb (GtkWidget * widget, GdkEventMotion *event, gpointer data)
 {
   show_cursor ();
   return FALSE;

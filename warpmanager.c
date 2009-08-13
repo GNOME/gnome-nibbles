@@ -66,7 +66,7 @@ gnibbles_warpmanager_destroy (GnibblesWarpManager * warpmanager)
 
 void
 gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
-			                         gint t_y, gint t_wx, gint t_wy)
+                               gint t_y, gint t_wx, gint t_wy)
 {
   gint i, add = 1, draw = 0;
 
@@ -113,7 +113,7 @@ gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
 
 void
 gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
-				                              GnibblesWorm * worm)
+                                      GnibblesWorm * worm)
 {
   int i, x, y, good;
 
@@ -166,9 +166,8 @@ gnibbles_warpmanager_resize (GnibblesWarpManager *warpmanager, gint newtile)
     clutter_actor_set_position (warpmanager->warps[i]->actor,
                                 (x_pos / properties->tilesize) * newtile,
                                 (y_pos / properties->tilesize) * newtile);
-    gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (warpmanager->warps[i]->actor), 
-                                         boni_pixmaps[WARP],
-                                         &err);
+    gtk_clutter_texture_set_from_pixbuf 
+      (CLUTTER_TEXTURE (warpmanager->warps[i]->actor), boni_pixmaps[WARP], &err);
     if (err)
       gnibbles_error (err->message);
   }

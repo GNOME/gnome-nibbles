@@ -94,7 +94,7 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
 
 void
 gnibbles_boni_add_bonus_final (GnibblesBoni * boni, gint t_x, gint t_y,
-			                         gint t_type, gint t_fake, gint t_countdown)
+                               gint t_type, gint t_fake, gint t_countdown)
 {
   if (boni->numbonuses == MAXBONUSES)
     return;

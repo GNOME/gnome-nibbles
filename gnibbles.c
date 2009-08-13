@@ -422,7 +422,7 @@ gnibbles_log_score (GtkWidget * window)
 
 void
 gnibbles_add_spec_bonus (gint t_x, gint t_y,
-			                   gint t_type, gint t_fake, gint t_countdown)
+                         gint t_type, gint t_fake, gint t_countdown)
 {
   gnibbles_boni_add_bonus_final (boni, t_x, t_y, t_type, t_fake, t_countdown);
 }

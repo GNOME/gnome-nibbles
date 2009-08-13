@@ -269,8 +269,7 @@ gnibbles_worm_get_tail_direction (GnibblesWorm *worm)
 static gboolean
 gnibbles_worm_reverse (gpointer data)
 {
-  GnibblesWorm *worm;
-  worm = (GnibblesWorm *) data;
+  GnibblesWorm *worm = (GnibblesWorm *) data;
 
   worm->list = g_list_reverse (worm->list);
   
@@ -495,7 +494,7 @@ gnibbles_worm_reset (ClutterAnimation *anim, GnibblesWorm *worm)
 
 GnibblesWorm*
 gnibbles_worm_new (guint number, guint t_xhead,
-			                    guint t_yhead, gint t_direction)
+                   guint t_yhead, gint t_direction)
 {
   GnibblesWorm *worm = g_new (GnibblesWorm, 1);
  
