@@ -52,6 +52,7 @@ typedef struct {
   gint change;
   gint keypress;
   gboolean human;
+  gboolean stop;
 } GnibblesWorm;
 
 void worm_set_direction (int worm, int dir);
@@ -68,7 +69,7 @@ void gnibbles_worm_destroy (GnibblesWorm * worm);
 
 void gnibbles_worm_resize (GnibblesWorm *worm, gint newtile);
 
-void gnibbles_worm_kill (GnibblesWorm *worm);
+void gnibbles_worm_reset (GnibblesWorm *worm);
 void gnibbles_worm_move_head (GnibblesWorm *worm);
 void gnibbles_worm_move_tail (GnibblesWorm *worm);
 void gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize);

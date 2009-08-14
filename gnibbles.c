@@ -196,7 +196,7 @@ gnibbles_load_logo (void)
 void
 gnibbles_init ()
 {
-  if (board == NULL)
+  if (!board)
     return;
 
   gint i;
@@ -291,7 +291,7 @@ gnibbles_move_worms (void)
 	      worms[i]->score *= .7;
       if (!gnibbles_worm_lose_life (worms[i])) {
         /* One of the worms lost one life, but the round continues. */
-        gnibbles_worm_kill (worms[i]);
+        gnibbles_worm_reset (worms[i]);
 	      games_sound_play ("crash");
 	    }
     }
@@ -310,15 +310,15 @@ gnibbles_move_worms (void)
 
   if (nlives == 1 && (properties->ai + properties->human > 1)) {
     /* There is one player left, the other AI players are dead, and that player has won! */
-    return (VICTORY);
+    return VICTORY;
   } else if (nlives == 0) {
     /* There was only one worm, and it died. */
-    return (GAMEOVER);
+    return GAMEOVER;
   }
    /* Noone died, so the round can continue. */
 
   g_free (dead);
-  return (CONTINUE);
+  return CONTINUE;
 }
 
 gint
@@ -370,15 +370,15 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
                                             highscores, 
                                             _("Nibbles Scores"));
     games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG
-						  (scoresdialog),
-						  _("Speed:"));
+	                                                (scoresdialog),
+                                                  _("Speed:"));
   }
   if (pos > 0) {
     games_scores_dialog_set_hilight (GAMES_SCORES_DIALOG (scoresdialog), pos);
     message = g_strdup_printf ("<b>%s</b>\n\n%s",
-			                         _("Congratulations!"),
+                               _("Congratulations!"),
                                pos == 1 ? _("Your score is the best!") :
-			                         _("Your score has made the top ten."));
+                               _("Your score has made the top ten."));
     games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
 				     message);
     g_free (message);
