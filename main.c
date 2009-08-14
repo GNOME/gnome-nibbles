@@ -315,7 +315,7 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
 }
 
 #ifdef GGZ_CLIENT
-static gint
+static gboolean
 network_loop (gpointer data)
 {
   if (ggz_network_mode) { 
@@ -325,7 +325,7 @@ network_loop (gpointer data)
 }
 #endif
 
-static gint
+static gboolean
 new_game_2_cb (GtkWidget * widget, gpointer data)
 {
   if (!paused) {
@@ -356,10 +356,10 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
 
   dummy_id = 0;
 
-  return (FALSE);
+  return FALSE;
 }
 
-gint
+gboolean
 new_game (void)
 {
   gtk_action_set_sensitive (new_network_action, FALSE);
@@ -425,7 +425,7 @@ new_game_cb (GtkAction * action, gpointer data)
   new_game ();
 }
 
-gint
+gboolean
 pause_game_cb (GtkAction * action, gpointer data)
 {
   if (paused) {
@@ -439,7 +439,7 @@ pause_game_cb (GtkAction * action, gpointer data)
 	      main_id = 0;
       }
       if (keyboard_id) {
-	      g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
+	      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
 	      keyboard_id = 0;
       }
       if (add_bonus_id) {
@@ -472,7 +472,7 @@ end_game (gboolean show_splash)
   }
 
   if (keyboard_id) {
-    g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
+    g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
     keyboard_id = 0;
   }
 
@@ -510,7 +510,7 @@ end_game (gboolean show_splash)
 
 }
 
-static gint
+static gboolean
 end_game_cb (GtkAction * action, gpointer data)
 {
 
@@ -522,22 +522,24 @@ end_game_cb (GtkAction * action, gpointer data)
 #endif
 
   end_game (TRUE);
-  return (FALSE);
+  return FALSE;
 }
 
-static gint
+static gboolean
 add_bonus_cb (gpointer data)
 {
   gnibbles_board_level_add_bonus (board, 0);
-  return (TRUE);
+  return TRUE;
 }
 
-static gint
+static gboolean
 restart_game (gpointer data)
 {
+  int i;
+
   gnibbles_board_level_new (board, current_level);
   gnibbles_board_level_add_bonus (board, 1);
-  int i;
+  
   for (i = 0; i < properties->numworms; i++) {
     clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
     gnibbles_worm_show (worms[i]);
@@ -552,7 +554,7 @@ restart_game (gpointer data)
   return FALSE;
 }
 
-static gint
+static gboolean
 erase_worms_cb (gpointer datap)
 {
   gint data = GPOINTER_TO_INT (datap);
@@ -568,10 +570,10 @@ erase_worms_cb (gpointer datap)
                   			      GINT_TO_POINTER (data - 1));
   }
 
-  return (FALSE);
+  return FALSE;
 }
 
-gint
+gboolean
 main_loop (gpointer data)
 {
   gint status;
@@ -584,6 +586,7 @@ main_loop (gpointer data)
   if (status == VICTORY) {
     end_game (TRUE);
     winner = gnibbles_get_winner ();
+
     if (winner == -1)
       return FALSE;
 
@@ -595,16 +598,16 @@ main_loop (gpointer data)
     g_free (str);
 
     if (keyboard_id) {
-      g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
+      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
       keyboard_id = 0;
     }
     if (main_id) {
       g_source_remove (main_id);
       main_id = 0;
     }
-    if (add_bonus_id) {
+    if (add_bonus_id) 
       g_source_remove (add_bonus_id);
-    }
+
     add_bonus_id = 0;
     erase_id = g_timeout_add_seconds (3,
 			                                (GSourceFunc) erase_worms_cb,
@@ -617,13 +620,13 @@ main_loop (gpointer data)
   if (status == GAMEOVER) {
 
     if (keyboard_id) {
-      g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
+      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
       keyboard_id = 0;
     }
     main_id = 0;
-    if (add_bonus_id) {
+    if (add_bonus_id)
       g_source_remove (add_bonus_id);
-    }
+    
     add_bonus_id = 0;
     erase_id = g_timeout_add_seconds (3,
 			                                (GSourceFunc) erase_worms_cb,
@@ -632,7 +635,38 @@ main_loop (gpointer data)
     return (FALSE);
   }
 
+  if (boni->numleft == 0) {
+    if (restart_id)
+      return TRUE;
+
+    if (keyboard_id) 
+      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
+
+    keyboard_id = 0;
+
+    if (add_bonus_id)
+      g_source_remove (add_bonus_id);
+
+    add_bonus_id = 0;
+    if (main_id) {
+      g_source_remove (main_id);
+      main_id = 0;
+    }
+    if ((current_level < MAXLEVEL) && (!properties->random
+				                               || ggz_network_mode)) {
+      current_level++;
+    } else if (properties->random && !ggz_network_mode) {
+      tmp = rand () % MAXLEVEL + 1;
+      while (tmp == current_level)
+	      tmp = rand () % MAXLEVEL + 1;
+      current_level = tmp;
+    }
+    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
+    return FALSE;
+  }
+
   if (status == NEWROUND) {
+
 #ifdef GGZ_CLIENT
     if (ggz_network_mode) {
       end_game (TRUE);
@@ -642,54 +676,25 @@ main_loop (gpointer data)
 #endif
 
     if (keyboard_id) {
-      g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
+      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
       keyboard_id = 0;
     }
-    if (add_bonus_id) {
+    if (add_bonus_id)
       g_source_remove (add_bonus_id);
-    }
+    
     if (main_id) {
       g_source_remove (main_id);
       main_id = 0;
     }
     add_bonus_id = 0;
     erase_id = g_timeout_add (ERASETIME / ERASESIZE,
-			      (GSourceFunc) erase_worms_cb,
-			      (gpointer) ERASESIZE);
+			                       (GSourceFunc) erase_worms_cb,
+			                       (gpointer) ERASESIZE);
     restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
-    return (FALSE);
+    return FALSE;
   }
 
-  if (boni->numleft == 0) {
-    if (restart_id) {
-      return TRUE;
-    }
-    if (keyboard_id) {
-      g_signal_handler_disconnect (G_OBJECT (window), keyboard_id);
-    }
-    keyboard_id = 0;
-    if (add_bonus_id) {
-      g_source_remove (add_bonus_id);
-    }
-    add_bonus_id = 0;
-    if (main_id) {
-      g_source_remove (main_id);
-      main_id = 0;
-    }
-    if ((current_level < MAXLEVEL) && (!properties->random
-				                               || ggz_network_mode))
-      current_level++;
-    else if (properties->random && !ggz_network_mode) {
-      tmp = rand () % MAXLEVEL + 1;
-      while (tmp == current_level)
-	      tmp = rand () % MAXLEVEL + 1;
-      current_level = tmp;
-    }
-    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
-    return (FALSE);
-  }
-
-  return (TRUE);
+  return TRUE;
 }
 
 static gboolean

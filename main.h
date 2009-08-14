@@ -36,12 +36,12 @@ int seat;
 int seats[NUMWORMS];
 char names[NUMWORMS][17];
 
-gint game_running (void);
-gint pause_game_cb (GtkAction * action, gpointer data);
+gboolean game_running (void);
+gboolean pause_game_cb (GtkAction * action, gpointer data);
 void end_game (gboolean);
 
-gint new_game (void);
-gint main_loop (gpointer data);
+gboolean new_game (void);
+gboolean main_loop (gpointer data);
 
 extern GamesScores *highscores;
 extern GtkWidget *notebook;

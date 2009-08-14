@@ -60,8 +60,10 @@ gnibbles_boni_destroy (GnibblesBoni * boni)
 {
   int i;
 
-  for (i = 0; i < boni->numbonuses; i++)
+  for (i = 0; i < boni->numbonuses; i++) {
+    clutter_actor_hide (boni->bonuses[i]->actor);
     free (boni->bonuses[i]);
+  }
   boni->numbonuses = 0;
   free (boni);
 }

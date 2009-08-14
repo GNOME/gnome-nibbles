@@ -58,8 +58,10 @@ gnibbles_warpmanager_destroy (GnibblesWarpManager * warpmanager)
 {
   gint i;
 
-  for (i = 0; i < warpmanager->numwarps; i++)
+  for (i = 0; i < warpmanager->numwarps; i++) {
+    clutter_actor_hide (warpmanager->warps[i]->actor);
     free (warpmanager->warps[i]);
+  }
   warpmanager->numwarps = 0;
   free (warpmanager);
 }

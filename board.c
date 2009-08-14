@@ -92,9 +92,11 @@ gnibbles_board_load_level (GnibblesBoard *board)
   ClutterActor *tmp;  
   gboolean is_wall = TRUE;
 
-  if (board->level)
-    g_object_unref (board->level);
-
+  if (board->level) {
+    clutter_group_remove_all (CLUTTER_GROUP (board->level));
+    clutter_container_remove_actor (CLUTTER_CONTAINER (stage), board->level);
+  }
+  
   board->level = clutter_group_new ();
 
   /* Load wall_pixmaps onto the surface*/
