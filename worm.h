@@ -73,7 +73,7 @@ void gnibbles_worm_move_head (GnibblesWorm *worm);
 void gnibbles_worm_move_tail (GnibblesWorm *worm);
 void gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize);
 
-gint gnibbles_worm_lose_life (GnibblesWorm * worm);
+gboolean gnibbles_worm_lose_life (GnibblesWorm * worm);
 
 gboolean gnibbles_worm_can_move_to (GnibblesWorm * worm, gint x, gint y);
 void gnibbles_worm_position_move_head (GnibblesWorm * worm, gint *x, gint *y);

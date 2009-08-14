@@ -539,6 +539,10 @@ gnibbles_worm_destroy (GnibblesWorm *worm)
 {
   while (worm->list)
     gnibbles_worm_remove_actor (worm);
+
+  clutter_group_remove_all (CLUTTER_GROUP (worm->actors));
+
+  g_free (worm);
 }
 
 void
@@ -692,7 +696,7 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
   }
 }
 
-gint
+gboolean
 gnibbles_worm_lose_life (GnibblesWorm * worm)
 {
   worm->lives--;

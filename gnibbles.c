@@ -200,11 +200,7 @@ gnibbles_init ()
     return;
 
   gint i;
-/*
-  for (i = 0; i < properties->numworms; i++)
-    if (worms[i])
-      gnibbles_worm_destroy (worms[i]);
-*/
+
   gnibbles_scoreboard_clear (scoreboard);
 
   for (i = 0; i < properties->numworms; i++) {
