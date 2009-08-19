@@ -66,7 +66,7 @@ gnibbles_board_new (void)
 
   board->surface = clutter_texture_new_from_file (filename, NULL);
  
-  clutter_actor_set_opacity (CLUTTER_ACTOR (board->surface), 80);
+  clutter_actor_set_opacity (CLUTTER_ACTOR (board->surface), 100);
   g_value_init (&val, G_TYPE_BOOLEAN);
   g_value_set_boolean ( &val, TRUE);
 
@@ -165,8 +165,8 @@ gnibbles_board_load_level (GnibblesBoard *board)
   clutter_actor_raise (board->level, board->surface);
 
   clutter_actor_set_opacity (board->level, 0);
-  clutter_actor_set_scale (CLUTTER_ACTOR (board->level), 2.0, 2.0);
-  clutter_actor_animate (board->level, CLUTTER_EASE_OUT_CIRC, 510,
+  clutter_actor_set_scale (CLUTTER_ACTOR (board->level), 0.2, 0.2);
+  clutter_actor_animate (board->level, CLUTTER_EASE_OUT_BOUNCE, 1210,
                          "opacity", 0xff,
                          "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                          "scale-x", 1.0,

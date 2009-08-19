@@ -581,7 +581,7 @@ gnibbles_worm_reset (GnibblesWorm *worm)
 */
   //if (worm->lives > 0) 
     //gnibbles_worm_show (worm);
-  gnibbles_worm_move_head_pointer (worm);
+  //gnibbles_worm_move_head_pointer (worm);
   worm->stop = FALSE;
 }
 
@@ -689,7 +689,7 @@ gnibbles_cworm_move (ClutterTimeline *timeline, gint frame_num, gpointer data)
 void
 gnibbles_worm_move_head (GnibblesWorm *worm)
 {
-  if (g_list_length (worm->list) <= 1)
+  if (g_list_length (worm->list) < 0)
     return;
 
   if (worm->human)
@@ -720,6 +720,9 @@ void
 gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
 {
   gint i;
+  gfloat x,y;
+  ClutterActor *tmp = NULL;
+  ClutterActor *group = clutter_group_new ();
 
   if (erasesize) {
     if (g_list_length (worm->list) <= erasesize) {
@@ -728,9 +731,23 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
     }
 
     for (i = 0; i < erasesize; i++) {
+      tmp = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps[worm->number]);
+      clutter_actor_get_position 
+        (CLUTTER_ACTOR (g_list_last (worm->list)->data), &x, &y);
+      clutter_actor_set_position (CLUTTER_ACTOR (tmp), x, y);
+      clutter_actor_set_size (CLUTTER_ACTOR (tmp),
+                              properties->tilesize,
+                              properties->tilesize);
+      clutter_container_add_actor (CLUTTER_CONTAINER (group), tmp);
+
       gnibbles_worm_move_tail_pointer (worm);
-      worm->length--;
     }
+    worm->length -= erasesize;
+    clutter_container_add_actor (CLUTTER_CONTAINER (stage), group);
+
+    clutter_actor_animate (group, CLUTTER_EASE_OUT_ELASTIC, 450,
+                           "opacity", 0,
+                           NULL);
   }
 }
 
