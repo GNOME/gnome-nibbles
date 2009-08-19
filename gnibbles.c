@@ -183,14 +183,14 @@ gnibbles_error (gchar *message)
 }
 
 void
-gnibbles_load_logo (void)
+gnibbles_load_logo (gint tilesize)
 {
   if (logo_pixmap)
     g_object_unref (logo_pixmap);
 
   logo_pixmap = gnibbles_load_pixmap_file ("gnibbles-logo.svg",
-                               			       board->width * properties->tilesize, 
-                                           board->height * properties->tilesize);
+                               			       board->width * tilesize, 
+                                           board->height * tilesize);
 }
 
 void

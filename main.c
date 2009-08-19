@@ -282,6 +282,7 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
   int i;
   
   gnibbles_load_pixmap (tilesize);
+  gnibbles_load_logo (tilesize);
 
   if (game_running ()) {
     if (board) {
@@ -302,14 +303,12 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
   /* But, has the tile size changed? */
   if (properties->tilesize == tilesize) {
     /* We must always re-load the logo. */
-    gnibbles_load_logo ();
+    gnibbles_load_logo (tilesize);
     return FALSE;
   }
 
   properties->tilesize = tilesize;
   gnibbles_properties_set_tile_size (tilesize);
-
-  gnibbles_load_logo ();
   
   return FALSE;
 }
@@ -912,7 +911,7 @@ render_logo (void)
   clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
  
   if (!logo_pixmap)
-    gnibbles_load_logo ();
+    gnibbles_load_logo (properties->tilesize);
 
   image = gtk_clutter_texture_new_from_pixbuf (logo_pixmap);
 
@@ -921,12 +920,15 @@ render_logo (void)
   clutter_actor_show (image);
 
   text = clutter_text_new_full ("Sans Bold 70", _("Nibbles"), &actor_color);
-  clutter_actor_set_position (CLUTTER_ACTOR (text), (width / 2) - 200, height - 130);
-  clutter_actor_show (text);
+  clutter_actor_set_position (CLUTTER_ACTOR (text), 
+                              (width / 2) - 200, 
+                              height - 130);
 
-  desc = clutter_text_new_full ("Sans Bold 18", _("A worm game for GNOME."), &actor_color);
-  clutter_actor_set_position (CLUTTER_ACTOR (desc), (width / 2) - 170, height - 40);
-  clutter_actor_show (desc);
+  desc = clutter_text_new_full ("Sans Bold 18", _("A worm game for GNOME."), 
+                                &actor_color);
+  clutter_actor_set_position (CLUTTER_ACTOR (desc), 
+                              (width / 2) - 170,
+                              height - 40);
 
   clutter_container_add (CLUTTER_CONTAINER (logo),
                          CLUTTER_ACTOR (image),
@@ -934,10 +936,10 @@ render_logo (void)
                          CLUTTER_ACTOR (desc),
                          NULL);
  
-  clutter_actor_set_opacity (desc, 0);
-  clutter_actor_set_opacity (text, 0);
-  clutter_actor_set_scale (text, 0.0, 0.0);
-  clutter_actor_set_scale (desc, 0.0, 0.0);
+  clutter_actor_set_opacity (CLUTTER_ACTOR (desc), 0);
+  clutter_actor_set_opacity (CLUTTER_ACTOR (text), 0);
+  clutter_actor_set_scale (CLUTTER_ACTOR (text), 0.0, 0.0);
+  clutter_actor_set_scale (CLUTTER_ACTOR (desc), 0.0, 0.0);
   clutter_actor_animate (text, CLUTTER_EASE_OUT_CIRC, 1000,
                           "opacity", 0xff,
                           "scale-x", 1.0,
@@ -951,13 +953,14 @@ render_logo (void)
                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                           NULL);
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
-                         CLUTTER_ACTOR (logo));
+                               CLUTTER_ACTOR (logo));
 }
 
 static void
 on_hide_logo_completed (ClutterAnimation *animation, ClutterActor *actor)
 {
   clutter_actor_hide (actor);
+  clutter_group_remove_all (CLUTTER_GROUP (actor));
 }
 
 static void
@@ -1018,7 +1021,7 @@ main (int argc, char **argv)
   setup_window ();
   gnibbles_load_pixmap (properties->tilesize);
 
-  gnibbles_load_logo ();
+  gnibbles_load_logo (properties->tilesize);
 
 #ifdef GGZ_CLIENT
   network_init ();

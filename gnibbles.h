@@ -59,7 +59,7 @@ extern GnibblesWarpManager *warpmanager;
 
 void gnibbles_load_pixmap (gint tilesize);
 void gnibbles_error (gchar *message);
-void gnibbles_load_logo (void);
+void gnibbles_load_logo (gint tilesize);
 void gnibbles_init (void);
 void gnibbles_add_bonus (gint regular);
 gint gnibbles_move_worms (void);

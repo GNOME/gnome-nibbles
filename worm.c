@@ -531,8 +531,8 @@ void
 gnibbles_worm_show (GnibblesWorm *worm)
 {
   clutter_actor_set_opacity (worm->actors, 0);
-  clutter_actor_set_scale (worm->actors, 4.0, 4.0);
-  clutter_actor_animate (worm->actors, CLUTTER_EASE_OUT_CIRC, 510,
+  clutter_actor_set_scale (worm->actors, 3.0, 3.0);
+  clutter_actor_animate (worm->actors, CLUTTER_EASE_OUT_CIRC, 910,
                          "scale-x", 1.0,
                          "scale-y", 1.0,
                          "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
@@ -745,7 +745,7 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
     worm->length -= erasesize;
     clutter_container_add_actor (CLUTTER_CONTAINER (stage), group);
 
-    clutter_actor_animate (group, CLUTTER_EASE_OUT_ELASTIC, 450,
+    clutter_actor_animate (group, CLUTTER_EASE_OUT_ELASTIC, 850,
                            "opacity", 0,
                            NULL);
   }
