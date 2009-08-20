@@ -548,23 +548,6 @@ gnibbles_worm_reset (GnibblesWorm *worm)
   gnibbles_worm_animate_death (worm);
 
   gint i,j;
-
-  for (i = 0; i < BOARDHEIGHT; i++)
-    for (j = 0; j < BOARDWIDTH; j++)
-      if (board->walls[j][i] == WORMCHAR + worm->number)
-        board->walls[j][i] = EMPTYCHAR;
-
-  worm->xhead = worm->xstart;
-  worm->yhead = worm->ystart;
-  worm->xtail = worm->xhead;
-  worm->ytail = worm->yhead;
-  worm->direction = worm->direction_start;
-  worm->length = 1;
-  worm->change = SLENGTH - 1;
-
-  gnibbles_worm_queue_empty (worm);
-  clutter_actor_set_opacity (CLUTTER_ACTOR (worm->actors), 0xFF);
-  board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
 /*
   FILE *fo;
   fo = fopen ("output.txt", "w");
@@ -579,9 +562,40 @@ gnibbles_worm_reset (GnibblesWorm *worm)
   }
   fclose (fo);
 */
-  //if (worm->lives > 0) 
-    //gnibbles_worm_show (worm);
-  //gnibbles_worm_move_head_pointer (worm);
+  for (i = 0; i < BOARDHEIGHT; i++)
+    for (j = 0; j < BOARDWIDTH; j++)
+      if (board->walls[j][i] == WORMCHAR + worm->number)
+        board->walls[j][i] = EMPTYCHAR;
+
+  worm->xhead = worm->xstart;
+  worm->yhead = worm->ystart;
+  worm->xtail = worm->xhead;
+  worm->ytail = worm->yhead;
+  worm->direction = worm->direction_start;
+  worm->length = 1;
+  worm->change = SLENGTH - 1;
+
+  switch (worm->direction) {
+    case WORMRIGHT:
+      worm->xtail++;
+      break;
+    case WORMLEFT:
+      worm->xtail--;
+      break;
+    case WORMDOWN:
+      worm->ytail++;
+      break;
+    case WORMUP:
+      worm->ytail--;
+      break;
+    default:
+      break;
+  }
+
+  gnibbles_worm_queue_empty (worm);
+  clutter_actor_set_opacity (CLUTTER_ACTOR (worm->actors), 0xFF);
+  board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
+
   worm->stop = FALSE;
 }
 
