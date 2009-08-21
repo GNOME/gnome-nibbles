@@ -85,9 +85,9 @@ gnibbles_scoreboard_update (GnibblesScoreboard * scoreboard)
 
   for (i = 0; i < scoreboard->count; i++) {
     buffer = g_strdup_printf ("%02d, %04d",
-            (scoreboard->worms[i]->lives > -1) ?
-            scoreboard->worms[i]->lives : 0,
-            scoreboard->worms[i]->score);
+                              (scoreboard->worms[i]->lives > -1) ?
+                              scoreboard->worms[i]->lives : 0,
+                              scoreboard->worms[i]->score);
     buffer2 = gtk_label_get_text (GTK_LABEL (scoreboard->data[i]));
     if (strcmp (buffer, buffer2))
       gtk_label_set_text (GTK_LABEL (scoreboard->data[i]), buffer);

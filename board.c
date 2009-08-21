@@ -248,8 +248,8 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
   boni = gnibbles_boni_new ();
 
   for (i = 0; i < properties->numworms; i++)
-    if (worms[i])
-      gnibbles_worm_destroy (worms[i]);
+    if (!worms[i])
+      worms[i] = gnibbles_worm_new (i);
 
   for (i = 0; i < BOARDHEIGHT; i++) {
     if (!fgets (tmpboard, sizeof (tmpboard), in)) {
@@ -267,31 +267,23 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
       switch (board->walls[j][i]) {
         case 'm':
           board->walls[j][i] = EMPTYCHAR;
-          if (count < properties->numworms) {
-            worms[count] = gnibbles_worm_new (count, j, i, WORMUP);
-            count++;
-          }
+          if (count < properties->numworms)
+            gnibbles_worm_set_start (worms[count++], j, i, WORMUP);
           break;
         case 'n':
           board->walls[j][i] = EMPTYCHAR;
-          if (count < properties->numworms) {
-            worms[count] = gnibbles_worm_new (count, j, i, WORMLEFT);
-            count++;
-          }
+          if (count < properties->numworms) 
+            gnibbles_worm_set_start(worms[count++], j, i, WORMLEFT);
           break;
         case 'o':
           board->walls[j][i] = EMPTYCHAR;
-          if (count < properties->numworms) {
-            worms[count] = gnibbles_worm_new (count, j, i, WORMDOWN);
-            count++;
-          }
+          if (count < properties->numworms)
+            gnibbles_worm_set_start (worms[count++], j, i, WORMDOWN);
           break;
         case 'p':
           board->walls[j][i] = EMPTYCHAR;
-          if (count < properties->numworms) {
-            worms[count] = gnibbles_worm_new (count, j, i, WORMRIGHT);
-            count++;
-          }
+          if (count < properties->numworms)
+            gnibbles_worm_set_start (worms[count++], j, i, WORMRIGHT);
           break;
         case 'Q':
           gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);

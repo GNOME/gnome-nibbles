@@ -210,8 +210,10 @@ gnibbles_init ()
 
   for (i = 0; i < properties->numworms; i++) {
     if (worms[i]) {
-      clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
-      clutter_actor_raise_top (worms[i]->actors);
+      if (!clutter_actor_get_stage (worms[i]->actors)) {
+        clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
+        clutter_actor_raise_top (worms[i]->actors);
+      }
       gnibbles_worm_show (worms[i]);
     }
   }

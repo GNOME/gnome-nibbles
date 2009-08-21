@@ -58,9 +58,9 @@ typedef struct {
 void worm_set_direction (int worm, int dir);
 void worm_handle_direction (int worm, int dir);
 
-GnibblesWorm* gnibbles_worm_new (guint number, guint t_xhead,
-                                 guint t_yhead, gint t_direction);
-
+GnibblesWorm* gnibbles_worm_new (guint number);
+void gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead,
+                              guint t_yhead, gint t_direction);
 void gnibbles_worm_show (GnibblesWorm *worm);
 gboolean gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval);
 void gnibbles_worm_move_head_pointer (GnibblesWorm *worm);

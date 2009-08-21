@@ -541,7 +541,8 @@ restart_game (gpointer data)
   gnibbles_board_level_add_bonus (board, 1);
   
   for (i = 0; i < properties->numworms; i++) {
-    clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
+    if (!clutter_actor_get_stage (worms[i]->actors))
+      clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
     gnibbles_worm_show (worms[i]);
   }
 
@@ -611,7 +612,7 @@ main_loop (gpointer data)
     add_bonus_id = 0;
     erase_id = g_timeout_add_seconds (3,
                                       (GSourceFunc) erase_worms_cb,
-                          			      (gpointer) ERASESIZE);
+                                      (gpointer) ERASESIZE);
     gnibbles_log_score (window);
 
     return FALSE;

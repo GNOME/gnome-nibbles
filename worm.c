@@ -337,8 +337,8 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
     case BONUSREVERSE:
       for (i = 0; i < properties->numworms; i++)
         if (worm != worms[i])
-	        g_timeout_add (1, (GSourceFunc)
-		                     gnibbles_worm_reverse, worms[i]);
+          g_timeout_add (1, (GSourceFunc)
+                         gnibbles_worm_reverse, worms[i]);
       games_sound_play ("reverse");
       break;
   }
@@ -370,12 +370,12 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
     gnibbles_worm_grok_bonus (worm);
 
     if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
-	      !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
+        !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
       
       gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
       
       if (boni->numleft != 0)
-	      gnibbles_board_level_add_bonus (board, 1);
+        gnibbles_board_level_add_bonus (board, 1);
 
     } else
         gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
@@ -475,7 +475,8 @@ gnibbles_worm_animate_death (GnibblesWorm *worm)
     clutter_container_add_actor (CLUTTER_CONTAINER (group), tmp);
   }
 
-  for (i = 0; i < g_list_length (worm->list); i++)
+  worm->length = g_list_length (worm->list);
+  for (i = 0; i < worm->length ; i++)
     worm->list = g_list_remove (worm->list, g_list_nth_data (worm->list, i));
 
   clutter_actor_set_opacity (CLUTTER_ACTOR (worm->actors), 0x00);
@@ -498,8 +499,7 @@ gnibbles_worm_animate_death (GnibblesWorm *worm)
 }
 
 GnibblesWorm*
-gnibbles_worm_new (guint number, guint t_xhead,
-                   guint t_yhead, gint t_direction)
+gnibbles_worm_new (guint number)
 {
   GnibblesWorm *worm = g_new (GnibblesWorm, 1);
  
@@ -508,14 +508,30 @@ gnibbles_worm_new (guint number, guint t_xhead,
   worm->number = number;
   worm->lives = SLIVES;
   worm->human = FALSE;
-  worm->stop = FALSE;
+  worm->score = 0;
+
+  return worm;
+}
+
+void
+gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead,
+                         guint t_yhead, gint t_direction) 
+{
+  int i;
+  worm->length = g_list_length (worm->list);
+  for (i = 0; i < worm->length ; i++)
+    worm->list = g_list_remove (worm->list, g_list_nth_data (worm->list, i));
+  g_list_free (worm->list);
+  worm->list = NULL;
+
+  clutter_group_remove_all (CLUTTER_GROUP (worm->actors));
 
   worm->xhead = t_xhead;
-  worm->xstart = t_xhead;
   worm->yhead = t_yhead;
-  worm->ystart = t_yhead;
   worm->xtail = t_xhead;
   worm->ytail = t_yhead;
+  worm->xstart = t_xhead;
+  worm->ystart = t_yhead;
 
   worm->direction = t_direction;
   worm->direction_start = t_direction;
@@ -523,8 +539,6 @@ gnibbles_worm_new (guint number, guint t_xhead,
   worm->change = 0;
 
   gnibbles_worm_queue_empty (worm);
-
-  return worm;
 }
 
 void
