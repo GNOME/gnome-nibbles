@@ -174,7 +174,7 @@ window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
   /* Handle fullscreen, in case something else takes us to/from fullscreen. */
   if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
     set_fullscreen_actions (event->new_window_state
-			    & GDK_WINDOW_STATE_FULLSCREEN);
+                            & GDK_WINDOW_STATE_FULLSCREEN);
     
   return FALSE;
 }
@@ -237,19 +237,20 @@ about_cb (GtkAction * action, gpointer data)
 #if GTK_CHECK_VERSION (2, 11, 0)
        "program-name", _("Nibbles"),
 #else
-			 "name", _("Nibbles"),
+       "name", _("Nibbles"),
 #endif
-			 "version", VERSION,
-			 "copyright",
-			 "Copyright \xc2\xa9 1999-2008 Sean MacIsaac, Ian Peters, Andreas Røsdal",
-			 "license", license, "comments",
-			 _("A worm game for GNOME.\n\nNibbles is a part of GNOME Games."), "authors", authors,
-			 "documenters", documenters, "translator-credits",
-			 _("translator-credits"), "logo-icon-name",
-			 "gnome-gnibbles", "website",
-			 "http://www.gnome.org/projects/gnome-games/",
-			 "website-label", _("GNOME Games web site"),
-			 "wrap-license", TRUE, NULL);
+       "version", VERSION,
+       "copyright",
+       "Copyright \xc2\xa9 1999-2008 Sean MacIsaac, Ian Peters, Andreas Røsdal",
+       "license", license, "comments",
+       _("A worm game for GNOME.\n\nNibbles is a part of GNOME Games."), 
+       "authors", authors,
+       "documenters", documenters, "translator-credits",
+       _("translator-credits"), "logo-icon-name",
+       "gnome-gnibbles", "website",
+       "http://www.gnome.org/projects/gnome-games/",
+       "website-label", _("GNOME Games web site"),
+       "wrap-license", TRUE, NULL);
   g_free (license);
 }
 
@@ -330,17 +331,17 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
   if (!paused) {
     if (!keyboard_id)
       keyboard_id = g_signal_connect (G_OBJECT (stage),
-				                              "key-press-event",
-                        				      G_CALLBACK (key_press_cb), NULL);
+                                      "key-press-event",
+                                      G_CALLBACK (key_press_cb), NULL);
 #ifdef GGZ_CLIENT
     if (!main_id && ggz_network_mode && network_is_host ()) {
       main_id = g_timeout_add (GAMEDELAY * (properties->gamespeed + NETDELAY),
-			                         (GSourceFunc) network_loop, NULL);
+                               (GSourceFunc) network_loop, NULL);
     } else
 #endif
     if (!main_id && !ggz_network_mode) {
       main_id = g_timeout_add (GAMEDELAY * properties->gamespeed,
-			                         (GSourceFunc) main_loop, NULL);
+                               (GSourceFunc) main_loop, NULL);
     }
 #ifdef GGZ_CLIENT
     if (!add_bonus_id && network_is_host ()) {
@@ -348,8 +349,8 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
     if (!add_bonus_id) {
 #endif
       add_bonus_id = g_timeout_add (BONUSDELAY *
-				                            properties->gamespeed,
-                            		    (GSourceFunc) add_bonus_cb, NULL);
+                                    properties->gamespeed,
+                                    (GSourceFunc) add_bonus_cb, NULL);
     }
   }
 
@@ -434,16 +435,16 @@ pause_game_cb (GtkAction * action, gpointer data)
     if (main_id || erase_id || restart_id || dummy_id) {
       paused = 1;
       if (main_id) {
-	      g_source_remove (main_id);
-	      main_id = 0;
+        g_source_remove (main_id);
+        main_id = 0;
       }
       if (keyboard_id) {
-	      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
-	      keyboard_id = 0;
+        g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
+        keyboard_id = 0;
       }
       if (add_bonus_id) {
-	      g_source_remove (add_bonus_id);
-	      add_bonus_id = 0;
+        g_source_remove (add_bonus_id);
+        add_bonus_id = 0;
       }
     }
   }
@@ -566,7 +567,7 @@ erase_worms_cb (gpointer datap)
     gnibbles_undraw_worms (ERASESIZE - data);
     erase_id = g_timeout_add (ERASETIME / ERASESIZE,
                               (GSourceFunc) erase_worms_cb,
-                  			      GINT_TO_POINTER (data - 1));
+                              GINT_TO_POINTER (data - 1));
   }
 
   return FALSE;
@@ -590,7 +591,7 @@ main_loop (gpointer data)
       return FALSE;
 
     str = g_strdup_printf (_("Game over! The game has been won by %s!"),
-			                     names[winner]);
+                           names[winner]);
 #ifdef GGZ_CLIENT
     add_chat_text (str);
 #endif
@@ -609,7 +610,7 @@ main_loop (gpointer data)
 
     add_bonus_id = 0;
     erase_id = g_timeout_add_seconds (3,
-			                                (GSourceFunc) erase_worms_cb,
+                                      (GSourceFunc) erase_worms_cb,
                           			      (gpointer) ERASESIZE);
     gnibbles_log_score (window);
 
@@ -628,8 +629,8 @@ main_loop (gpointer data)
     
     add_bonus_id = 0;
     erase_id = g_timeout_add_seconds (3,
-			                                (GSourceFunc) erase_worms_cb,
-                          			      (gpointer) ERASESIZE);
+                                      (GSourceFunc) erase_worms_cb,
+                                      (gpointer) ERASESIZE);
     gnibbles_log_score (window);
     return (FALSE);
   }
@@ -652,12 +653,12 @@ main_loop (gpointer data)
       main_id = 0;
     }
     if ((current_level < MAXLEVEL) && (!properties->random
-				                               || ggz_network_mode)) {
+                                       || ggz_network_mode)) {
       current_level++;
     } else if (properties->random && !ggz_network_mode) {
       tmp = rand () % MAXLEVEL + 1;
       while (tmp == current_level)
-	      tmp = rand () % MAXLEVEL + 1;
+        tmp = rand () % MAXLEVEL + 1;
       current_level = tmp;
     }
     restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
@@ -687,8 +688,8 @@ main_loop (gpointer data)
     }
     add_bonus_id = 0;
     erase_id = g_timeout_add (ERASETIME / ERASESIZE,
-			                       (GSourceFunc) erase_worms_cb,
-			                       (gpointer) ERASESIZE);
+                             (GSourceFunc) erase_worms_cb,
+                             (gpointer) ERASESIZE);
     restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
     return FALSE;
   }
@@ -782,7 +783,7 @@ create_menus (GtkUIManager * ui_manager)
 
   gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
   gtk_action_group_add_actions (action_group, action_entry,
-				G_N_ELEMENTS (action_entry), window);
+                                G_N_ELEMENTS (action_entry), window);
 
   gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
   gtk_ui_manager_add_ui_from_string (ui_manager, ui_description, -1, NULL);
@@ -842,9 +843,9 @@ setup_window ()
   g_signal_connect (G_OBJECT (window), "destroy", 
                     G_CALLBACK (gtk_main_quit), NULL);
   g_signal_connect (G_OBJECT (window), "delete_event",
-            		    G_CALLBACK (delete_cb), NULL);
+                    G_CALLBACK (delete_cb), NULL);
   g_signal_connect (G_OBJECT (window), "window_state_event",
-		                G_CALLBACK (window_state_cb), NULL);
+                    G_CALLBACK (window_state_cb), NULL);
 
   gtk_widget_realize (window);
 
@@ -875,10 +876,10 @@ setup_window ()
 #endif
 
   g_signal_connect (G_OBJECT (clutter_widget), "configure_event",
-		                G_CALLBACK (configure_event_cb), NULL);
+                    G_CALLBACK (configure_event_cb), NULL);
 
   g_signal_connect (G_OBJECT (window), "focus_out_event",
-		                G_CALLBACK (show_cursor_cb), NULL);
+                    G_CALLBACK (show_cursor_cb), NULL);
 
   gtk_box_pack_start (GTK_BOX (vbox), notebook, TRUE, TRUE, 0);
   gtk_notebook_append_page (GTK_NOTEBOOK (notebook), packing, NULL);
@@ -968,8 +969,8 @@ hide_logo (void)
 {
   g_signal_connect_after (
     clutter_actor_animate (logo, CLUTTER_EASE_IN_QUAD, 150,
-                         "opacity", 0,
-                         NULL),
+                           "opacity", 0,
+                           NULL),
     "completed", G_CALLBACK (on_hide_logo_completed), logo);
 }
 

@@ -94,7 +94,7 @@ gnibbles_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
   if (!filename) {
     char *message =
       g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
-			 "Please check your Nibbles installation"), pixmap);
+                       "Please check your Nibbles installation"), pixmap);
     gnibbles_error (message);
     g_free(message);
   }
@@ -151,7 +151,7 @@ gnibbles_load_pixmap (gint tilesize)
       g_object_unref (boni_pixmaps[i]);
 
     boni_pixmaps[i] = gnibbles_load_pixmap_file (bonus_files[i],
-  					                                     2 * tilesize, 2 * tilesize);
+                                                 2 * tilesize, 2 * tilesize);
   }
 
   for (i = 0; i < 11; i++) {
@@ -159,7 +159,7 @@ gnibbles_load_pixmap (gint tilesize)
       g_object_unref (wall_pixmaps[i]);
       
     wall_pixmaps[i] = gnibbles_load_pixmap_file (small_files[i],
-  	 	  		                                     2 * tilesize, 2 * tilesize);
+                                                 2 * tilesize, 2 * tilesize);
   }
 
   for (i = 0; i < 7; i++) {
@@ -189,7 +189,7 @@ gnibbles_load_logo (gint tilesize)
     g_object_unref (logo_pixmap);
 
   logo_pixmap = gnibbles_load_pixmap_file ("gnibbles-logo.svg",
-                               			       board->width * tilesize, 
+                                           board->width * tilesize, 
                                            board->height * tilesize);
 }
 
@@ -205,7 +205,7 @@ gnibbles_init ()
 
   for (i = 0; i < properties->numworms; i++) {
     gnibbles_scoreboard_register (scoreboard, worms[i], 
-	                 colorval_name (properties->wormprops[i]->color));
+                   colorval_name (properties->wormprops[i]->color));
   }
 
   for (i = 0; i < properties->numworms; i++) {
@@ -246,13 +246,13 @@ gnibbles_move_worms (void)
   for (i = 0; i < boni->numbonuses; i++) {
     if (!(boni->bonuses[i]->countdown--)) {
       if (boni->bonuses[i]->type == BONUSREGULAR && !boni->bonuses[i]->fake) {
-	      gnibbles_boni_remove_bonus (boni, 
+        gnibbles_boni_remove_bonus (boni, 
                                     boni->bonuses[i]->x, 
                                     boni->bonuses[i]->y);
-	      boni->missed++;
-	      gnibbles_board_level_add_bonus (board, 1);
+        boni->missed++;
+        gnibbles_board_level_add_bonus (board, 1);
       } else {
-	      gnibbles_boni_remove_bonus (boni, 
+        gnibbles_boni_remove_bonus (boni, 
                                     boni->bonuses[i]->x, 
                                     boni->bonuses[i]->y);
       }
@@ -284,23 +284,23 @@ gnibbles_move_worms (void)
     for (j = 0; j < properties->numworms; j++) {
       if (i != j 
           && worms[i]->xhead == worms[j]->xhead
-	        && worms[i]->yhead == worms[j]->yhead
-	        && worms[i]->lives > 0
-	        && worms[j]->lives > 0
+          && worms[i]->yhead == worms[j]->yhead
+          && worms[i]->lives > 0
+          && worms[j]->lives > 0
           && !worms[i]->stop)
-	      dead[i] = TRUE;
+        dead[i] = TRUE;
     }
   }
 
   for (i = 0; i < properties->numworms; i++) {
     if (dead[i]) {
       if (properties->numworms > 1)
-	      worms[i]->score *= .7;
+        worms[i]->score *= .7;
       if (!gnibbles_worm_lose_life (worms[i])) {
         /* One of the worms lost one life, but the round continues. */
         gnibbles_worm_reset (worms[i]);
-	      games_sound_play ("crash");
-	    }
+        games_sound_play ("crash");
+      }
     }
   }
 
@@ -377,7 +377,7 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
                                             highscores, 
                                             _("Nibbles Scores"));
     games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG
-	                                                (scoresdialog),
+                                                  (scoresdialog),
                                                   _("Speed:"));
   }
   if (pos > 0) {
@@ -387,11 +387,11 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
                                pos == 1 ? _("Your score is the best!") :
                                _("Your score has made the top ten."));
     games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
-				     message);
+                                     message);
     g_free (message);
   } else {
     games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
-				                             NULL);
+                                     NULL);
   }
 
   gtk_dialog_run (GTK_DIALOG (scoresdialog));

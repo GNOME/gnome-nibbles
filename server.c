@@ -170,12 +170,12 @@ game_send_players (void)
     for (i = 0; i < ggzdmod_get_num_seats (game.ggz); i++) {
       GGZSeat seat = ggzdmod_get_seat (game.ggz, i);
       if (ggz_write_int (mfd, seat.type) < 0)
-	return -1;
+        return -1;
       if (seat.type != GGZ_SEAT_OPEN
-	  /* FIXME: This is a problem since seat.name
-	   * can in theory be NULL. --JDS */
-	  && ggz_write_string (mfd, seat.name) < 0)
-	return -1;
+    /* FIXME: This is a problem since seat.name
+     * can in theory be NULL. --JDS */
+          && ggz_write_string (mfd, seat.name) < 0)
+        return -1;
     }
   }
   return 0;
@@ -270,7 +270,7 @@ game_handle_noboni (int seat)
     if (fd == -1)
       continue;
     if (ggz_write_int (fd, GN_MSG_NOBONI) < 0 || ggz_write_int (fd, x) < 0
-	|| ggz_write_int (fd, y) < 0)
+        || ggz_write_int (fd, y) < 0)
       return -1;
   }
 
@@ -298,9 +298,9 @@ game_handle_boni (int seat)
     if (fd == -1)
       continue;
     if (ggz_write_int (fd, GN_MSG_BONI) < 0 || ggz_write_int (fd, x) < 0
-	|| ggz_write_int (fd, y) < 0
-	|| ggz_write_int (fd, type) < 0
-	|| ggz_write_int (fd, fake) < 0 || ggz_write_int (fd, countdown) < 0)
+        || ggz_write_int (fd, y) < 0
+        || ggz_write_int (fd, type) < 0 
+        || ggz_write_int (fd, fake) < 0 || ggz_write_int (fd, countdown) < 0)
       return -1;
   }
 
@@ -326,8 +326,8 @@ game_handle_settings (int seat)
     if (fd == -1)
       continue;
     if (ggz_write_int (fd, GN_MSG_SETTINGS) < 0
-	|| ggz_write_int (fd, speed) < 0 || ggz_write_int (fd, fakes) < 0
-	|| ggz_write_int (fd, startlevel) < 0)
+        || ggz_write_int (fd, speed) < 0 || ggz_write_int (fd, fakes) < 0
+        || ggz_write_int (fd, startlevel) < 0)
       return -1;
   }
 
@@ -352,7 +352,7 @@ game_handle_move (int seat)
     if (fd == -1)
       continue;
     if (ggz_write_int (fd, GN_MSG_MOVE) < 0 || ggz_write_int (fd, seat) < 0
-	|| ggz_write_int (fd, move) < 0)
+        || ggz_write_int (fd, move) < 0)
       return -1;
   }
 

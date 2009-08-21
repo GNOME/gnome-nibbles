@@ -75,8 +75,8 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
   if (boni->numbonuses == MAXBONUSES)
     return;
   boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y,
-							                                          t_type, t_fake,
-							                                          t_countdown);
+                                                        t_type, t_fake,
+                                                        t_countdown);
   board->walls[t_x][t_y] = (gchar) t_type + 'A';
   board->walls[t_x + 1][t_y] = (gchar) t_type + 'A';
   board->walls[t_x][t_y + 1] = (gchar) t_type + 'A';
@@ -121,12 +121,12 @@ gnibbles_boni_fake (GnibblesBoni * boni, gint x, gint y)
 
   for (i = 0; i < boni->numbonuses; i++) {
     if ((x == boni->bonuses[i]->x &&
-	      y == boni->bonuses[i]->y) ||
-    	  (x == boni->bonuses[i]->x + 1 &&
-	      y == boni->bonuses[i]->y) ||
-	      (x == boni->bonuses[i]->x &&
-	      y == boni->bonuses[i]->y + 1) ||
-	      (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
+        y == boni->bonuses[i]->y) ||
+        (x == boni->bonuses[i]->x + 1 &&
+        y == boni->bonuses[i]->y) ||
+        (x == boni->bonuses[i]->x &&
+        y == boni->bonuses[i]->y + 1) ||
+        (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
       return (boni->bonuses[i]->fake);
     }
   }
@@ -146,12 +146,12 @@ gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
 #endif
   for (i = 0; i < boni->numbonuses; i++) {
     if ((x == boni->bonuses[i]->x &&
-	      y == boni->bonuses[i]->y) ||
-	      (x == boni->bonuses[i]->x + 1 &&
-	      y == boni->bonuses[i]->y) ||
-	      (x == boni->bonuses[i]->x &&
-	      y == boni->bonuses[i]->y + 1) ||
-	      (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
+        y == boni->bonuses[i]->y) ||
+        (x == boni->bonuses[i]->x + 1 &&
+        y == boni->bonuses[i]->y) ||
+        (x == boni->bonuses[i]->x &&
+        y == boni->bonuses[i]->y + 1) ||
+        (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
 
       board->walls[boni->bonuses[i]->x][boni->bonuses[i]->y] = EMPTYCHAR;
       board->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y] = EMPTYCHAR;
@@ -172,12 +172,12 @@ gnibbles_boni_remove_bonus_final (GnibblesBoni * boni, gint x, gint y)
 
   for (i = 0; i < boni->numbonuses; i++) {
     if ((x == boni->bonuses[i]->x &&
-	      y == boni->bonuses[i]->y) ||
-	      (x == boni->bonuses[i]->x + 1 &&
-	      y == boni->bonuses[i]->y) ||
-	      (x == boni->bonuses[i]->x &&
-	      y == boni->bonuses[i]->y + 1) ||
-	      (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
+        y == boni->bonuses[i]->y) ||
+        (x == boni->bonuses[i]->x + 1 &&
+        y == boni->bonuses[i]->y) ||
+        (x == boni->bonuses[i]->x &&
+        y == boni->bonuses[i]->y + 1) ||
+        (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
 
       board->walls[boni->bonuses[i]->x][boni->bonuses[i]->y] = EMPTYCHAR;
       board->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y] = EMPTYCHAR;

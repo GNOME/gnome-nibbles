@@ -393,13 +393,13 @@ gnibbles_board_level_add_bonus (GnibblesBoard *board, gint regular)
       x = rand () % (BOARDWIDTH - 1);
       y = rand () % (BOARDHEIGHT - 1);
       if (board->walls[x][y] != EMPTYCHAR)
-	      good = 0;
+        good = 0;
       if (board->walls[x + 1][y] != EMPTYCHAR)
-	      good = 0;
+        good = 0;
       if (board->walls[x][y + 1] != EMPTYCHAR)
-	      good = 0;
+        good = 0;
       if (board->walls[x + 1][y + 1] != EMPTYCHAR)
-	      good = 0;
+        good = 0;
     }
     gnibbles_boni_add_bonus (boni, x, y, BONUSREGULAR, 0, 300);
   } else if (boni->missed <= MAXMISSED) {
@@ -442,7 +442,7 @@ gnibbles_board_level_add_bonus (GnibblesBoard *board, gint regular)
     case 19:
     case 20:
       if (properties->numworms > 1)
-	      gnibbles_boni_add_bonus (boni, x, y, BONUSREVERSE, good, 150);
+        gnibbles_boni_add_bonus (boni, x, y, BONUSREVERSE, good, 150);
       break;
     }
   }

@@ -70,7 +70,7 @@ animate_bonus2 (ClutterAnimation *animation, ClutterActor *actor)
 
 GnibblesBonus *
 gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
-		    gint t_fake, gint t_countdown)
+                    gint t_fake, gint t_countdown)
 {
   GnibblesBonus *tmp;
 

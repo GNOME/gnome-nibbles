@@ -75,9 +75,9 @@ gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
   if (t_x < 0) {
     for (i = 0; i < warpmanager->numwarps; i++) {
       if (warpmanager->warps[i]->wx == t_x) {
-	      warpmanager->warps[i]->wx = t_wx;
-	      warpmanager->warps[i]->wy = t_wy;
-	      return;
+        warpmanager->warps[i]->wx = t_wx;
+        warpmanager->warps[i]->wy = t_wy;
+        return;
       }
     }
 
@@ -89,15 +89,15 @@ gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
   } else {
     for (i = 0; i < warpmanager->numwarps; i++) {
       if (warpmanager->warps[i]->x == t_wx) {
-	      warpmanager->warps[i]->x = t_x;
-	      warpmanager->warps[i]->y = t_y;
-	      draw = i;
-	      add = 0;
+        warpmanager->warps[i]->x = t_x;
+        warpmanager->warps[i]->y = t_y;
+        draw = i;
+        add = 0;
       }
     }
     if (add) {
       if (warpmanager->numwarps == MAXWARPS)
-	      return;
+        return;
       warpmanager->warps[warpmanager->numwarps] = 
                     gnibbles_warp_new (t_x, t_y, t_wx, t_wy);
       draw = warpmanager->numwarps;
@@ -121,33 +121,33 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
 
   for (i = 0; i < warpmanager->numwarps; i++) {
     if ((worm->xhead == warpmanager->warps[i]->x &&
-	      worm->yhead == warpmanager->warps[i]->y) ||
-	      (worm->xhead == warpmanager->warps[i]->x + 1 &&
-	      worm->yhead == warpmanager->warps[i]->y) ||
-	      (worm->xhead == warpmanager->warps[i]->x &&
-	      worm->yhead == warpmanager->warps[i]->y + 1) ||
-	      (worm->xhead == warpmanager->warps[i]->x + 1 &&
-	      worm->yhead == warpmanager->warps[i]->y + 1)) {
+        worm->yhead == warpmanager->warps[i]->y) ||
+        (worm->xhead == warpmanager->warps[i]->x + 1 &&
+        worm->yhead == warpmanager->warps[i]->y) ||
+        (worm->xhead == warpmanager->warps[i]->x &&
+        worm->yhead == warpmanager->warps[i]->y + 1) ||
+        (worm->xhead == warpmanager->warps[i]->x + 1 &&
+        worm->yhead == warpmanager->warps[i]->y + 1)) {
       
       if (warpmanager->warps[i]->wx == -1) {
-	       good = 0;
-	      while (!good) {
-	      // In network games, warps should be fair. 
-	        if (ggz_network_mode) {
-	          x = 10 % BOARDWIDTH;
-	          y = 10 % BOARDHEIGHT;
-	        } else {
-	          x = rand () % BOARDWIDTH;
-	          y = rand () % BOARDHEIGHT;
-	        }
-	        if (board->walls[x][y] == EMPTYCHAR)
-	          good = 1;
-	      }
+         good = 0;
+        while (!good) {
+        // In network games, warps should be fair. 
+          if (ggz_network_mode) {
+            x = 10 % BOARDWIDTH;
+            y = 10 % BOARDHEIGHT;
+          } else {
+            x = rand () % BOARDWIDTH;
+            y = rand () % BOARDHEIGHT;
+          }
+          if (board->walls[x][y] == EMPTYCHAR)
+            good = 1;
+        }
       } else {
-	      x = warpmanager->warps[i]->wx;
-	      y = warpmanager->warps[i]->wy;
-	      if (board->walls[x][y] != EMPTYCHAR)
-	        gnibbles_boni_remove_bonus (boni, x, y);
+        x = warpmanager->warps[i]->wx;
+        y = warpmanager->warps[i]->wy;
+        if (board->walls[x][y] != EMPTYCHAR)
+          gnibbles_boni_remove_bonus (boni, x, y);
       }
 
       worm->xhead = x;

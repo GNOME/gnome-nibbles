@@ -37,8 +37,7 @@ gnibbles_scoreboard_new (GtkWidget * t_statusbar)
   char buffer[255];
   GtkWidget *hbox;
 
-  GnibblesScoreboard *tmp = (GnibblesScoreboard *) malloc (sizeof
-							   (GnibblesScoreboard));
+  GnibblesScoreboard *tmp = g_new (GnibblesScoreboard, 1);
 
   tmp->count = 0;
 
@@ -62,7 +61,7 @@ gnibbles_scoreboard_new (GtkWidget * t_statusbar)
 
 void
 gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
-			      GnibblesWorm * t_worm, gchar * colorname)
+                              GnibblesWorm * t_worm, gchar * colorname)
 {
   GdkColor color;
 
@@ -86,9 +85,9 @@ gnibbles_scoreboard_update (GnibblesScoreboard * scoreboard)
 
   for (i = 0; i < scoreboard->count; i++) {
     buffer = g_strdup_printf ("%02d, %04d",
-			      (scoreboard->worms[i]->lives > -1) ?
-			      scoreboard->worms[i]->lives : 0,
-			      scoreboard->worms[i]->score);
+            (scoreboard->worms[i]->lives > -1) ?
+            scoreboard->worms[i]->lives : 0,
+            scoreboard->worms[i]->score);
     buffer2 = gtk_label_get_text (GTK_LABEL (scoreboard->data[i]));
     if (strcmp (buffer, buffer2))
       gtk_label_set_text (GTK_LABEL (scoreboard->data[i]), buffer);

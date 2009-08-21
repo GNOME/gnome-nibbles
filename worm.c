@@ -823,7 +823,8 @@ gnibbles_worm_test_move_head (GnibblesWorm * worm)
 
   gnibbles_worm_position_move_head(worm, &x, &y);
 
-  if (board->walls[x][y] > EMPTYCHAR && board->walls[x][y] < 'z' + properties->numworms)
+  if (board->walls[x][y] > EMPTYCHAR 
+      && board->walls[x][y] < 'z' + properties->numworms)
     return (FALSE);
 
   return TRUE;
@@ -907,13 +908,13 @@ gnibbles_worm_ai_deadend (gint x, gint y, gint lengthleft)
       cy = BOARDHEIGHT - 1;
 
     if ((board->walls[cx][cy] <= EMPTYCHAR
-	      || board->walls[x][y] >= 'z' + properties->numworms)
-	      && deadendboard[cx][cy] != deadend_runnumber) {
+        || board->walls[x][y] >= 'z' + properties->numworms)
+        && deadendboard[cx][cy] != deadend_runnumber) {
        
       deadendboard[cx][cy] = deadend_runnumber;
       lengthleft = gnibbles_worm_ai_deadend(cx, cy, lengthleft - 1);
       if (!lengthleft)
-	      return 0;
+        return 0;
     }
   }
   return lengthleft;
@@ -1009,19 +1010,19 @@ gnibbles_worm_ai_tooclose (GnibblesWorm * worm)
     switch (worm->direction) {
       case WORMUP:
         if (dy > 0 && dy <= 3 && dx >= -1 && dx <= 1)
- 	        return 1;
+          return 1;
         break;
       case WORMDOWN:
         if (dy < 0 && dy >= -3 && dx >= -1 && dx <= 1)
-	        return 1;
+          return 1;
         break;
       case WORMLEFT:
         if (dx > 0 && dx <= 3 && dy >= -1 && dy <= 1)
-	        return 1;
+          return 1;
         break;
       case WORMRIGHT:
         if (dx < 0 && dx >= -3 && dy >= -1 && dy <= 1)
-	        return 1;
+          return 1;
         break;
     }
   }
@@ -1077,7 +1078,7 @@ gnibbles_worm_ai_wander (gint x, gint y, gint dir, gint ox, gint oy)
         return 0;
       } else {
         if (ox == x && oy == y)
-	        return 0;
+          return 0;
         return gnibbles_worm_ai_wander (x, y, dir, ox, oy);
       }
     break;

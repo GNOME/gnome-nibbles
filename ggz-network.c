@@ -133,29 +133,29 @@ get_players (void)
       return -1;
     if (seats[i] != GGZ_SEAT_OPEN) {
       if (ggz_read_string (fd, (char *) &names[i], 17) < 0)
-	return -1;
+        return -1;
       /*display_set_name(i, game.names[i]); */
       if (old == GGZ_SEAT_OPEN && !firsttime) {
-	tmp = g_strdup_printf (_("%s joined the game.\n"), names[i]);
-	add_chat_text (tmp);
-	g_free (tmp);
+        tmp = g_strdup_printf (_("%s joined the game.\n"), names[i]);
+        add_chat_text (tmp);
+        g_free (tmp);
       }
     } 
 
     if (seats[i] == GGZ_SEAT_ABANDONED) {
       if (i == 0) {
-	tmp =
-	  g_strdup_printf (_
-			   ("The game ended because the host %s left the game.\n"),
-			   names[i]);
-	add_chat_text (tmp);
-	g_free (tmp);
+        tmp =
+          g_strdup_printf (_
+            ("The game ended because the host %s left the game.\n"),
+            names[i]);
+        add_chat_text (tmp);
+        g_free (tmp);
       } else {
-	tmp =
-	  g_strdup_printf (_("%s left the game.\n"),
-			   names[i]);
-	add_chat_text (tmp);
-	g_free (tmp);
+        tmp =
+          g_strdup_printf (_("%s left the game.\n"),
+                           names[i]);
+                           add_chat_text (tmp);
+                           g_free (tmp);
       }
     }
   }
@@ -370,7 +370,7 @@ ggz_game_launched (void)
   end_game (TRUE);
 
   str = g_strdup_printf (_("Welcome to a network game of %s."),
-			 NETWORK_ENGINE);
+                         NETWORK_ENGINE);
   add_chat_text (str);
   add_chat_text ("\n");
   g_free (str);
@@ -405,16 +405,16 @@ on_network_game (void)
   if (ggz_initialized == FALSE) {
     ggz_initialized = TRUE;
     ggz_gtk_initialize (FALSE,
-		      ggz_connected, ggz_game_launched, ggz_closed,
-		      NETWORK_ENGINE, NETWORK_VERSION, "gnibbles.xml",
-		      "GGZ Gaming Zone");
+                        ggz_connected, ggz_game_launched, ggz_closed,
+                        NETWORK_ENGINE, NETWORK_VERSION, "gnibbles.xml",
+                        "GGZ Gaming Zone");
 
     ggzbox = ggz_gtk_create_main_area (window);
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), ggzbox, NULL);
   }
   pwent = getpwuid(getuid());
   ggz_embed_ensure_server ("GGZ Gaming Zone", "gnome.ggzgamingzone.org",
-			   5688, pwent->pw_name);
+                           5688, pwent->pw_name);
 
   gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), NETWORK_PAGE);
 }
