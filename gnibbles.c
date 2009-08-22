@@ -364,15 +364,6 @@ gnibbles_keypress_worms (guint keyval)
 }
 
 void
-gnibbles_undraw_worms (gint data)
-{
-  gint i;
-
-  for (i = 0; i < properties->numworms; i++)
-    gnibbles_worm_reduce_tail (worms[i], data);
-}
-
-void
 gnibbles_show_scores (GtkWidget * window, gint pos)
 {
   static GtkWidget *scoresdialog = NULL;

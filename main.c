@@ -98,7 +98,6 @@ extern GnibblesBoni *boni;
 gint main_id = 0;
 gint dummy_id = 0;
 gint keyboard_id = 0;
-gint erase_id = 0;
 gint add_bonus_id = 0;
 gint restart_id = 0;
 
@@ -189,7 +188,7 @@ show_cursor (void)
 gint
 game_running (void)
 {
-  return (main_id || erase_id || dummy_id || restart_id || paused);
+  return (main_id || dummy_id || restart_id || paused);
 }
 
 static void
@@ -208,8 +207,6 @@ delete_cb (GtkWidget * widget, gpointer data)
 {
   if (main_id)
     g_source_remove (main_id);
-  if (erase_id)
-    g_source_remove (erase_id);
   if (dummy_id)
     g_source_remove (dummy_id);
   if (restart_id)
@@ -394,11 +391,6 @@ new_game (void)
   gtk_action_set_visible (resume_action, paused);
   gtk_action_set_visible (player_list_action, ggz_network_mode);
 
-  if (erase_id) {
-    g_source_remove (erase_id);
-    erase_id = 0;
-  }
-
   if (restart_id) {
     g_source_remove (restart_id);
     restart_id = 0;
@@ -432,7 +424,7 @@ pause_game_cb (GtkAction * action, gpointer data)
     paused = 0;
     dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
   } else {
-    if (main_id || erase_id || restart_id || dummy_id) {
+    if (main_id || restart_id || dummy_id) {
       paused = 1;
       if (main_id) {
         g_source_remove (main_id);
@@ -479,11 +471,6 @@ end_game (gboolean show_splash)
   if (add_bonus_id) {
     g_source_remove (add_bonus_id);
     add_bonus_id = 0;
-  }
-
-  if (erase_id) {
-    g_source_remove (erase_id);
-    erase_id = 0;
   }
 
   if (dummy_id) {
@@ -555,23 +542,45 @@ restart_game (gpointer data)
   return FALSE;
 }
 
-static gboolean
-erase_worms_cb (gpointer datap)
+static void
+end_game_anim_cb (ClutterAnimation *animation, ClutterActor *actor) 
 {
-  gint data = GPOINTER_TO_INT (datap);
+  if (!restart_id)
+    end_game (TRUE);
+}
 
-  if (data == 0) {
-    erase_id = 0;
-    if (!restart_id)
-      end_game (TRUE);
-  } else {
-    gnibbles_undraw_worms (ERASESIZE - data);
-    erase_id = g_timeout_add (ERASETIME / ERASESIZE,
-                              (GSourceFunc) erase_worms_cb,
-                              GINT_TO_POINTER (data - 1));
+static void
+animate_end_game (void)
+{
+  int i;
+  for (i = 0; i < properties->numworms; i++) {
+    clutter_actor_animate (worms[i]->actors, CLUTTER_EASE_IN_QUAD, 500,
+                           "opacity", 0,
+                           "scale-x", 0.4, "scale-y", 0.4,
+                           "fixed::scale-center-x", 
+                           (gfloat) worms[i]->xhead * properties->tilesize,
+                           "fixed::scale-center-y",
+                           (gfloat) worms[i]->yhead * properties->tilesize,
+                           NULL);
   }
 
-  return FALSE;
+  for ( i = 0; i < boni->numbonuses; i++) {
+    clutter_actor_animate (boni->bonuses[i]->actor, CLUTTER_EASE_IN_QUAD, 500,
+                           "opacity", 0,
+                           "scale-x", 0.4, "scale-y", 0.4,
+                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                           NULL);
+
+  }
+
+  g_signal_connect_after (
+    clutter_actor_animate (board->level, CLUTTER_EASE_IN_QUAD, 700,
+                           "scale-x", 0.4, "scale-y", 0.4,
+                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                           "opacity", 0,
+                           NULL),
+    "completed", G_CALLBACK (end_game_anim_cb), NULL);
+
 }
 
 gboolean
@@ -610,9 +619,7 @@ main_loop (gpointer data)
       g_source_remove (add_bonus_id);
 
     add_bonus_id = 0;
-    erase_id = g_timeout_add_seconds (3,
-                                      (GSourceFunc) erase_worms_cb,
-                                      (gpointer) ERASESIZE);
+
     gnibbles_log_score (window);
 
     return FALSE;
@@ -629,9 +636,9 @@ main_loop (gpointer data)
       g_source_remove (add_bonus_id);
     
     add_bonus_id = 0;
-    erase_id = g_timeout_add_seconds (3,
-                                      (GSourceFunc) erase_worms_cb,
-                                      (gpointer) ERASESIZE);
+
+    animate_end_game ();
+
     gnibbles_log_score (window);
     return FALSE;
   }
@@ -657,9 +664,8 @@ main_loop (gpointer data)
       main_id = 0;
     }
     add_bonus_id = 0;
-    erase_id = g_timeout_add (ERASETIME / ERASESIZE,
-                             (GSourceFunc) erase_worms_cb,
-                             (gpointer) ERASESIZE);
+    animate_end_game ();
+
     restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
     return FALSE;
   }
