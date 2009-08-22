@@ -537,6 +537,7 @@ gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead,
   worm->direction_start = t_direction;
   worm->length = SLENGTH;
   worm->change = 0;
+  worm->stop = FALSE;
 
   gnibbles_worm_queue_empty (worm);
 }
@@ -839,7 +840,7 @@ gnibbles_worm_test_move_head (GnibblesWorm * worm)
 
   if (board->walls[x][y] > EMPTYCHAR 
       && board->walls[x][y] < 'z' + properties->numworms)
-    return (FALSE);
+    return FALSE;
 
   return TRUE;
 }

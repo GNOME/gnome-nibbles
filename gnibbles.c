@@ -229,9 +229,9 @@ gnibbles_move_worms (void)
 {
   gint i, j, olddir;
   gint status = 1, nlives = 1;
-  gboolean *dead;
+  gint *dead;
 
-  dead = g_new (gboolean, properties->numworms);
+  dead = g_new (gint, properties->numworms);
 
   for (i = 0; i < properties->numworms; i++) {
     olddir = worms[i]->direction;
@@ -266,10 +266,8 @@ gnibbles_move_worms (void)
           worms[0]->xtail, worms[0]->ytail);
 */
   for (i = 0; i < properties->numworms; i++) {
-    if (!worms[i]->stop) {
-      dead[i] = !gnibbles_worm_test_move_head (worms[i]);
-      status &= !dead[i];
-    }
+    dead[i] = !gnibbles_worm_test_move_head (worms[i]);
+    status &= !dead[i];
   }
  
   for (i = 0; i < properties->numworms; i++) {
@@ -309,7 +307,12 @@ gnibbles_move_worms (void)
   if (status & GAMEOVER) {
     games_sound_play ("crash");
     games_sound_play ("gameover");
-    return (GAMEOVER);
+    return GAMEOVER;
+  }
+
+  for (i = 0; i < properties->numworms; i++) {
+    if (worms[i]->human && worms[i]->lives <= 0)
+      return GAMEOVER;
   }
 
   for (i = 0; i < properties->numworms; i++) {
@@ -318,7 +321,8 @@ gnibbles_move_worms (void)
   }
 
   if (nlives == 1 && (properties->ai + properties->human > 1)) {
-    /* There is one player left, the other AI players are dead, and that player has won! */
+    /* There is one player left, the other AI players are dead, 
+     * and that player has won! */
     return VICTORY;
   } else if (nlives == 0) {
     /* There was only one worm, and it died. */

@@ -633,7 +633,35 @@ main_loop (gpointer data)
                                       (GSourceFunc) erase_worms_cb,
                                       (gpointer) ERASESIZE);
     gnibbles_log_score (window);
-    return (FALSE);
+    return FALSE;
+  }
+
+  if (status == NEWROUND) {
+#ifdef GGZ_CLIENT
+    if (ggz_network_mode) {
+      end_game (TRUE);
+      add_chat_text (_("The game is over."));
+      return FALSE;
+    }
+#endif
+
+    if (keyboard_id) {
+      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
+      keyboard_id = 0;
+    }
+    if (add_bonus_id)
+      g_source_remove (add_bonus_id);
+    
+    if (main_id) {
+      g_source_remove (main_id);
+      main_id = 0;
+    }
+    add_bonus_id = 0;
+    erase_id = g_timeout_add (ERASETIME / ERASESIZE,
+                             (GSourceFunc) erase_worms_cb,
+                             (gpointer) ERASESIZE);
+    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
+    return FALSE;
   }
 
   if (boni->numleft == 0) {
@@ -662,35 +690,6 @@ main_loop (gpointer data)
         tmp = rand () % MAXLEVEL + 1;
       current_level = tmp;
     }
-    restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
-    return FALSE;
-  }
-
-  if (status == NEWROUND) {
-
-#ifdef GGZ_CLIENT
-    if (ggz_network_mode) {
-      end_game (TRUE);
-      add_chat_text (_("The game is over."));
-      return FALSE;
-    }
-#endif
-
-    if (keyboard_id) {
-      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
-      keyboard_id = 0;
-    }
-    if (add_bonus_id)
-      g_source_remove (add_bonus_id);
-    
-    if (main_id) {
-      g_source_remove (main_id);
-      main_id = 0;
-    }
-    add_bonus_id = 0;
-    erase_id = g_timeout_add (ERASETIME / ERASESIZE,
-                             (GSourceFunc) erase_worms_cb,
-                             (gpointer) ERASESIZE);
     restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
     return FALSE;
   }
