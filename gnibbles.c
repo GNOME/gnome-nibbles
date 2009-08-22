@@ -201,21 +201,17 @@ gnibbles_init ()
 
   gint i;
 
+  for (i = 0; i < properties->numworms; i++) {
+    if (worms[i])
+      gnibbles_worm_destroy (worms[i]);
+  }
+
   gnibbles_scoreboard_clear (scoreboard);
 
   for (i = 0; i < properties->numworms; i++) {
+    worms[i] = gnibbles_worm_new (i);
     gnibbles_scoreboard_register (scoreboard, worms[i], 
                    colorval_name (properties->wormprops[i]->color));
-  }
-
-  for (i = 0; i < properties->numworms; i++) {
-    if (worms[i]) {
-      if (!clutter_actor_get_stage (worms[i]->actors)) {
-        clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
-        clutter_actor_raise_top (worms[i]->actors);
-      }
-      gnibbles_worm_show (worms[i]);
-    }
   }
 
   for (i = 0; i < properties->human; i++)

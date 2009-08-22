@@ -247,10 +247,6 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
 
   boni = gnibbles_boni_new ();
 
-  for (i = 0; i < properties->numworms; i++)
-    if (!worms[i])
-      worms[i] = gnibbles_worm_new (i);
-
   for (i = 0; i < BOARDHEIGHT; i++) {
     if (!fgets (tmpboard, sizeof (tmpboard), in)) {
       char *message =

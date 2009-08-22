@@ -359,6 +359,8 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
 gboolean
 new_game (void)
 {
+  int i;
+
   gtk_action_set_sensitive (new_network_action, FALSE);
 
   if (ggz_network_mode) {
@@ -374,7 +376,6 @@ new_game (void)
     main_id = 0;
   }
 
-
   if (ggz_network_mode || !properties->random) {
     current_level = properties->startlevel;
   } else {
@@ -382,10 +383,16 @@ new_game (void)
   }
 
   hide_logo ();
+  gnibbles_init ();
   gnibbles_board_level_new (board, current_level);
   gnibbles_board_level_add_bonus (board, 1);
-  gnibbles_init ();
 
+  for (i = 0; i < properties->numworms; i++) {
+    if (!clutter_actor_get_stage (worms[i]->actors))
+      clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
+    gnibbles_worm_show (worms[i]);
+  }
+  
   paused = 0;
   gtk_action_set_visible (pause_action, !paused);
   gtk_action_set_visible (resume_action, paused);
@@ -526,7 +533,7 @@ restart_game (gpointer data)
 
   gnibbles_board_level_new (board, current_level);
   gnibbles_board_level_add_bonus (board, 1);
-  
+ 
   for (i = 0; i < properties->numworms; i++) {
     if (!clutter_actor_get_stage (worms[i]->actors))
       clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
