@@ -620,6 +620,7 @@ main_loop (gpointer data)
 
     add_bonus_id = 0;
 
+    animate_end_game ();
     gnibbles_log_score (window);
 
     return FALSE;
@@ -638,8 +639,8 @@ main_loop (gpointer data)
     add_bonus_id = 0;
 
     animate_end_game ();
-
     gnibbles_log_score (window);
+
     return FALSE;
   }
 
@@ -664,9 +665,10 @@ main_loop (gpointer data)
       main_id = 0;
     }
     add_bonus_id = 0;
-    animate_end_game ();
 
+    animate_end_game ();
     restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
+
     return FALSE;
   }
 
@@ -696,6 +698,7 @@ main_loop (gpointer data)
         tmp = rand () % MAXLEVEL + 1;
       current_level = tmp;
     }
+    animate_end_game ();
     restart_id = g_timeout_add_seconds (1, (GSourceFunc) restart_game, NULL);
     return FALSE;
   }
