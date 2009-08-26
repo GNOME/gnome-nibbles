@@ -166,8 +166,9 @@ static void
 gnibbles_worm_add_actor (GnibblesWorm *worm)
 {
   ClutterActor *actor;
-
-  actor = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps[worm->number]);
+  
+  actor = gtk_clutter_texture_new_from_pixbuf (
+            worm_pixmaps[properties->wormprops[worm->number]->color - 12]);
   clutter_actor_set_size (actor, properties->tilesize, properties->tilesize);
   clutter_actor_set_position (actor, 
                               worm->xhead * properties->tilesize, 
@@ -485,7 +486,8 @@ gnibbles_worm_animate_death (GnibblesWorm *worm)
   gfloat x,y;
 
   for (i = 0; i < g_list_length (worm->list); i++) {
-    tmp = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps [worm->number]);
+    tmp = gtk_clutter_texture_new_from_pixbuf (
+            worm_pixmaps [properties->wormprops[worm->number]->color - 12]);
 
     clutter_actor_get_position (CLUTTER_ACTOR (g_list_nth_data (worm->list, i)),
                                 &x, &y);
@@ -671,9 +673,10 @@ gnibbles_worm_resize (GnibblesWorm *worm, gint newtile)
                                 (x_pos / properties->tilesize) * newtile,
                                 (y_pos / properties->tilesize) * newtile);
 
-    gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (tmp), 
-                                         worm_pixmaps[worm->number],
-                                         &err);
+    gtk_clutter_texture_set_from_pixbuf (
+       CLUTTER_TEXTURE (tmp), 
+       worm_pixmaps[properties->wormprops[worm->number]->color - 12],
+       &err);
     if (err)
       gnibbles_error (err->message);
   }
@@ -782,7 +785,8 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
     }
 
     for (i = 0; i < erasesize; i++) {
-      tmp = gtk_clutter_texture_new_from_pixbuf (worm_pixmaps[worm->number]);
+      tmp = gtk_clutter_texture_new_from_pixbuf (
+              worm_pixmaps[properties->wormprops[worm->number]->color - 12]);
       clutter_actor_get_position 
         (CLUTTER_ACTOR (g_list_last (worm->list)->data), &x, &y);
       clutter_actor_set_position (CLUTTER_ACTOR (tmp), x, y);
