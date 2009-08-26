@@ -244,7 +244,7 @@ gnibbles_worm_get_tail_direction (GnibblesWorm *worm)
   ClutterActor *tail = gnibbles_worm_get_tail_actor (worm);
 
   if (g_list_length (worm->list) >= 2)
-    next = g_list_previous (g_list_last (worm->list))->data;
+    next = CLUTTER_ACTOR (g_list_previous (g_list_last (worm->list))->data);
   else
     return worm->direction;
 
@@ -451,6 +451,28 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
     worm->xtail = 0;
   if (worm->ytail >= BOARDHEIGHT) 
     worm->ytail = 0;
+ 
+  if (board->walls[worm->xtail][worm->ytail] == WARPLETTER) {
+    gnibbles_warpmanager_worm_change_tail_pos (warpmanager, worm);
+    //FIXME: this solution is ugly
+    switch (tail_dir) {
+      case WORMRIGHT:
+        worm->xtail++;
+        break;
+      case WORMDOWN:
+        worm->ytail++;
+        break;
+      case WORMLEFT:
+        worm->xtail--;
+        break;
+      case WORMUP:
+        worm->ytail--;
+        break;
+      default:
+        break;
+      }
+  }
+
 }
 
 static void 

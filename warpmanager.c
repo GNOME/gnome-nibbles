@@ -149,9 +149,70 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
         if (board->walls[x][y] != EMPTYCHAR)
           gnibbles_boni_remove_bonus (boni, x, y);
       }
+      //reset warps
+      board->walls
+        [warpmanager->warps[i]->x][warpmanager->warps[i]->y] = WARPLETTER;
+      board->walls
+        [warpmanager->warps[i]->x + 1][warpmanager->warps[i]->y] = WARPLETTER;
+      board->walls
+        [warpmanager->warps[i]->x][warpmanager->warps[i]->y + 1] = WARPLETTER;
+      board->walls
+        [warpmanager->warps[i]->x+1][warpmanager->warps[i]->y+1] = WARPLETTER;
 
       worm->xhead = x;
       worm->yhead = y;
+    }
+  }
+}
+
+void
+gnibbles_warpmanager_worm_change_tail_pos (GnibblesWarpManager * warpmanager,
+                                           GnibblesWorm * worm)
+{
+  int i, x, y, good;
+
+  for (i = 0; i < warpmanager->numwarps; i++) {
+    if ((worm->xtail == warpmanager->warps[i]->x &&
+        worm->ytail == warpmanager->warps[i]->y) ||
+        (worm->xtail == warpmanager->warps[i]->x + 1 &&
+        worm->ytail == warpmanager->warps[i]->y) ||
+        (worm->xtail == warpmanager->warps[i]->x &&
+        worm->ytail == warpmanager->warps[i]->y + 1) ||
+        (worm->xtail == warpmanager->warps[i]->x + 1 &&
+        worm->ytail == warpmanager->warps[i]->y + 1)) {
+      
+      if (warpmanager->warps[i]->wx == -1) {
+         good = 0;
+        while (!good) {
+        // In network games, warps should be fair. 
+          if (ggz_network_mode) {
+            x = 10 % BOARDWIDTH;
+            y = 10 % BOARDHEIGHT;
+          } else {
+            x = rand () % BOARDWIDTH;
+            y = rand () % BOARDHEIGHT;
+          }
+          if (board->walls[x][y] == EMPTYCHAR)
+            good = 1;
+        }
+      } else {
+        x = warpmanager->warps[i]->wx;
+        y = warpmanager->warps[i]->wy;
+        if (board->walls[x][y] != EMPTYCHAR)
+          gnibbles_boni_remove_bonus (boni, x, y);
+      }
+      //reset warps
+      board->walls
+        [warpmanager->warps[i]->x][warpmanager->warps[i]->y] = WARPLETTER;
+      board->walls
+        [warpmanager->warps[i]->x + 1][warpmanager->warps[i]->y] = WARPLETTER;
+      board->walls
+        [warpmanager->warps[i]->x][warpmanager->warps[i]->y + 1] = WARPLETTER;
+      board->walls
+        [warpmanager->warps[i]->x+1][warpmanager->warps[i]->y+1] = WARPLETTER;
+
+      worm->xtail = x;
+      worm->ytail = y;
     }
   }
 }
