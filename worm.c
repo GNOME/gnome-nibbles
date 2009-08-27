@@ -455,7 +455,8 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
  
   if (board->walls[worm->xtail][worm->ytail] == WARPLETTER) {
     gnibbles_warpmanager_worm_change_tail_pos (warpmanager, worm);
-    //FIXME: this solution is ugly
+    tail_dir = gnibbles_worm_get_tail_direction (worm);
+    board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
     switch (tail_dir) {
       case WORMRIGHT:
         worm->xtail++;
