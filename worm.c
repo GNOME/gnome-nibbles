@@ -587,20 +587,7 @@ gnibbles_worm_reset (GnibblesWorm *worm)
   gnibbles_worm_animate_death (worm);
 
   gint i,j;
-/*
-  FILE *fo;
-  fo = fopen ("output.txt", "w");
-  for (i = 0; i < BOARDHEIGHT; i++) {
-    for (j = 0; j < BOARDWIDTH; j++) {
-      if (board->walls[j][i] == EMPTYCHAR)
-        fprintf (fo, "%c", ' ');
-      else
-        fprintf (fo, "%c", board->walls[j][i]);
-    }
-    fprintf (fo, "\n");
-  }
-  fclose (fo);
-*/
+
   for (i = 0; i < BOARDHEIGHT; i++)
     for (j = 0; j < BOARDWIDTH; j++)
       if (board->walls[j][i] == WORMCHAR + worm->number)

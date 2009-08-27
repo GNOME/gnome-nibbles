@@ -230,8 +230,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
 
   if ((in = fopen (filename, "r")) == NULL) {
     char *message =
-      g_strdup_printf (_
-                        ("Nibbles couldn't load level file:\n%s\n\n"
+      g_strdup_printf (_("Nibbles couldn't load level file:\n%s\n\n"
                         "Please check your Nibbles installation"), filename);
     gnibbles_error (message);
     g_free (message);
@@ -250,8 +249,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
   for (i = 0; i < BOARDHEIGHT; i++) {
     if (!fgets (tmpboard, sizeof (tmpboard), in)) {
       char *message =
-        g_strdup_printf (_
-                         ("Level file appears to be damaged:\n%s\n\n"
+        g_strdup_printf (_("Level file appears to be damaged:\n%s\n\n"
                          "Please check your Nibbles installation"), filename);
       gnibbles_error (message);
       g_free (message);
