@@ -284,12 +284,12 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
 
   if (game_running ()) {
     if (board) {
-      gnibbles_board_resize (board, tilesize);
-      gnibbles_boni_resize (boni, tilesize);
+      gnibbles_board_rescale (board, tilesize);
+      gnibbles_boni_rescale (boni, tilesize);
       if (warpmanager)
-        gnibbles_warpmanager_resize (warpmanager, tilesize);
+        gnibbles_warpmanager_rescale (warpmanager, tilesize);
       for (i=0; i<properties->numworms; i++)
-        gnibbles_worm_resize (worms[i], tilesize);
+        gnibbles_worm_rescale (worms[i], tilesize);
     }
   } else {
     if (logo)

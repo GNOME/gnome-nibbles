@@ -638,7 +638,7 @@ gnibbles_worm_destroy (GnibblesWorm *worm)
 }
 
 void 
-gnibbles_worm_resize (GnibblesWorm *worm, gint newtile)
+gnibbles_worm_rescale (GnibblesWorm *worm, gint tilesize)
 {
   if (!worm)
     return;
@@ -658,8 +658,8 @@ gnibbles_worm_resize (GnibblesWorm *worm, gint newtile)
     clutter_actor_get_position (tmp, &x_pos, &y_pos);
 
     clutter_actor_set_position (tmp,
-                                (x_pos / properties->tilesize) * newtile,
-                                (y_pos / properties->tilesize) * newtile);
+                                (x_pos / properties->tilesize) * tilesize,
+                                (y_pos / properties->tilesize) * tilesize);
 
     gtk_clutter_texture_set_from_pixbuf (
        CLUTTER_TEXTURE (tmp), 

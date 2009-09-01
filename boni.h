@@ -51,6 +51,6 @@ void gnibbles_boni_remove_bonus_final (GnibblesBoni * boni, gint x, gint y);
 
 int gnibbles_boni_fake (GnibblesBoni * boni, gint x, gint y);
 
-void gnibbles_boni_resize (GnibblesBoni *boni, gint newtile);
+void gnibbles_boni_rescale (GnibblesBoni *boni, gint tilesize);
 
 #endif

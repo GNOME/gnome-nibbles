@@ -218,7 +218,7 @@ gnibbles_warpmanager_worm_change_tail_pos (GnibblesWarpManager * warpmanager,
 }
 
 void 
-gnibbles_warpmanager_resize (GnibblesWarpManager *warpmanager, gint newtile)
+gnibbles_warpmanager_rescale (GnibblesWarpManager *warpmanager, gint tilesize)
 {
   int i;
   gfloat x_pos, y_pos;  
@@ -227,8 +227,8 @@ gnibbles_warpmanager_resize (GnibblesWarpManager *warpmanager, gint newtile)
   for (i = 0; i < warpmanager->numwarps; i++) {
     clutter_actor_get_position (warpmanager->warps[i]->actor, &x_pos, &y_pos);
     clutter_actor_set_position (warpmanager->warps[i]->actor,
-                                (x_pos / properties->tilesize) * newtile,
-                                (y_pos / properties->tilesize) * newtile);
+                                (x_pos / properties->tilesize) * tilesize,
+                                (y_pos / properties->tilesize) * tilesize);
     gtk_clutter_texture_set_from_pixbuf 
       (CLUTTER_TEXTURE (warpmanager->warps[i]->actor), boni_pixmaps[WARP], &err);
     if (err)

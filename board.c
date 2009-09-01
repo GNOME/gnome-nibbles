@@ -175,7 +175,7 @@ gnibbles_board_load_level (GnibblesBoard *board)
 }
 
 void
-gnibbles_board_resize (GnibblesBoard *board, gint newtile)
+gnibbles_board_rescale (GnibblesBoard *board, gint tilesize)
 {
   if (!board->level)
     return;
@@ -190,11 +190,11 @@ gnibbles_board_resize (GnibblesBoard *board, gint newtile)
   ClutterActor *tmp;
 
   clutter_actor_set_size (CLUTTER_ACTOR (stage), 
-                          BOARDWIDTH * newtile,
-                          BOARDHEIGHT * newtile);
+                          BOARDWIDTH * tilesize,
+                          BOARDHEIGHT * tilesize);
   clutter_actor_set_size (CLUTTER_ACTOR (board->surface),
-                          BOARDWIDTH * newtile,
-                          BOARDHEIGHT * newtile);
+                          BOARDWIDTH * tilesize,
+                          BOARDHEIGHT * tilesize);
 
   count = clutter_group_get_n_children (CLUTTER_GROUP (board->level));
 
@@ -202,9 +202,9 @@ gnibbles_board_resize (GnibblesBoard *board, gint newtile)
     tmp = clutter_group_get_nth_child (CLUTTER_GROUP (board->level), i);
     clutter_actor_get_position (CLUTTER_ACTOR (tmp), &x_pos, &y_pos);
     clutter_actor_set_position (CLUTTER_ACTOR (tmp),
-                                (x_pos / properties->tilesize) * newtile,
-                                (y_pos / properties->tilesize) * newtile);
-    clutter_actor_set_size (CLUTTER_ACTOR (tmp), newtile, newtile);
+                                (x_pos / properties->tilesize) * tilesize,
+                                (y_pos / properties->tilesize) * tilesize);
+    clutter_actor_set_size (CLUTTER_ACTOR (tmp), tilesize, tilesize);
   }
 }
 

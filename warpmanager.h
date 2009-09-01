@@ -43,7 +43,7 @@ void gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager *warpmanager,
 					                                 GnibblesWorm *worm);
 void gnibbles_warpmanager_worm_change_tail_pos (GnibblesWarpManager *warpmanager,
                                                 GnibblesWorm *worm);
-void gnibbles_warpmanager_resize (GnibblesWarpManager *warpmanager, 
+void gnibbles_warpmanager_rescale (GnibblesWarpManager *warpmanager, 
                                   gint tilesize);
 
 #endif

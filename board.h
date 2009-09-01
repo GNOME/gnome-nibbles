@@ -45,7 +45,7 @@ typedef struct {
 } GnibblesBoard;
 
 GnibblesBoard* gnibbles_board_new (void);
-void gnibbles_board_resize (GnibblesBoard *board, gint newtile);
+void gnibbles_board_rescale (GnibblesBoard *board, gint tilesize);
 void gnibbles_board_level_new (GnibblesBoard *board, gint level);
 void gnibbles_board_level_add_bonus (GnibblesBoard *board, gint regular);
 
