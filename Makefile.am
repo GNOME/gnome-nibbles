@@ -120,6 +120,8 @@ schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 endif
 
+man_MANS = gnibbles.6
+
 if GGZ_SERVER
 ggzexecmod_PROGRAMS += gnibblesd
 
@@ -159,6 +161,7 @@ EXTRA_DIST = \
 	$(pixmap_DATA) 	\
 	$(config_DATA) \
 	$(schema_in_files) \
+	$(man_MANS) \
 	gnibbles-client.dsc.in \
 	gnibbles-server.dsc.in \
 	gnibbles.room.in
