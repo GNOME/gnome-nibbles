@@ -996,8 +996,6 @@ main (int argc, char **argv)
   GOptionContext *context;
   gboolean retval;
   GError *error = NULL;
-  
-  gtk_clutter_init (&argc, &argv);
 
   if (!games_runtime_init ("gnibbles"))
     return 1;
@@ -1006,6 +1004,7 @@ main (int argc, char **argv)
   setgid_io_init ();
 #endif
 
+  gtk_clutter_init (&argc, &argv);
   context = g_option_context_new (NULL);
 
 #if GLIB_CHECK_VERSION (2, 12, 0)
