@@ -163,20 +163,6 @@ gnibbles_worm_get_tail_actor (GnibblesWorm *worm)
 }
 
 static void
-gnibbles_worm_move_actor (GnibblesWorm *worm)
-{
-  ClutterActor *tmp;
-  tmp = gnibbles_worm_get_tail_actor (worm);
-  clutter_actor_set_position (tmp,
-                             worm->xhead * properties->tilesize,
-                             worm->yhead * properties->tilesize);
-  worm->list = g_list_prepend (worm->list, tmp);
-  worm->list = g_list_delete_link (worm->list, g_list_last (worm->list));
-  board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-  board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
-}
-
-static void
 gnibbles_worm_add_actor (GnibblesWorm *worm)
 {
   ClutterActor *actor;
@@ -431,9 +417,8 @@ gnibbles_worm_move_head_pointer (GnibblesWorm *worm)
   if (worm->yhead >= BOARDHEIGHT) 
     worm->yhead = 0;
 
-  gnibbles_worm_handle_bonus (worm);
+  gnibbles_worm_handle_bonus (worm);  
   gnibbles_worm_add_actor (worm);
-  //gnibbles_worm_move_actor (worm);
 }
 
 static void
