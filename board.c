@@ -186,7 +186,6 @@ gnibbles_board_rescale (GnibblesBoard *board, gint tilesize)
   int x_pos;
   int y_pos;
   int count;
-
   ClutterActor *tmp;
 
   clutter_actor_set_size (CLUTTER_ACTOR (stage), 

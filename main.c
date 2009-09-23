@@ -107,7 +107,7 @@ gint current_level;
 
 static gint add_bonus_cb (gpointer data);
 
-static void render_logo (void);
+static void render_logo (gint width, gint height);
 static gint end_game_cb (GtkAction * action, gpointer data);
 static void hide_logo (void);
 
@@ -127,7 +127,7 @@ static ClutterActor *logo;
 static void
 hide_cursor (void)
 {
-  clutter_stage_hide_cursor (CLUTTER_STAGE (stage));
+  //clutter_stage_hide_cursor (CLUTTER_STAGE (stage));
 }
 
 static void
@@ -238,7 +238,8 @@ about_cb (GtkAction * action, gpointer data)
 #endif
        "version", VERSION,
        "copyright",
-       "Copyright \xc2\xa9 1999-2008 Sean MacIsaac, Ian Peters, Andreas Røsdal",
+       "Copyright \xc2\xa9 1999-2008 Sean MacIsaac, Ian Peters, Andreas Røsdal"
+       "2009 Guillaume Beland",
        "license", license, "comments",
        _("A worm game for GNOME.\n\nNibbles is a part of GNOME Games."), 
        "authors", authors,
@@ -266,6 +267,7 @@ static gboolean
 configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
 {
   int tilesize, ts_x, ts_y;
+  int i;
 
   /* Compute the new tile size based on the size of the
    * drawing area, rounded down. */
@@ -277,8 +279,6 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
     ts_y--;
   tilesize = MIN (ts_x, ts_y);
 
-  int i;
-  
   gnibbles_load_pixmap (tilesize);
   gnibbles_load_logo (tilesize);
 
@@ -286,16 +286,18 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
     if (board) {
       gnibbles_board_rescale (board, tilesize);
       gnibbles_boni_rescale (boni, tilesize);
-      if (warpmanager)
-        gnibbles_warpmanager_rescale (warpmanager, tilesize);
+      
       for (i=0; i<properties->numworms; i++)
         gnibbles_worm_rescale (worms[i], tilesize);
+
+      if (warpmanager)
+        gnibbles_warpmanager_rescale (warpmanager, tilesize);
     }
   } else {
     if (logo)
       hide_logo ();
 
-    render_logo ();
+    render_logo (event->width, event->height);
   }
 
   /* But, has the tile size changed? */
@@ -491,7 +493,7 @@ end_game (gboolean show_splash)
   }
 
   if (show_splash) {
-    render_logo ();
+    render_logo (CLUTTER_STAGE_WIDTH(), CLUTTER_STAGE_HEIGHT());
     gtk_action_set_sensitive (new_network_action, TRUE);
     gtk_action_set_sensitive (pause_action, FALSE);
     gtk_action_set_sensitive (resume_action, FALSE);
@@ -608,7 +610,7 @@ main_loop (gpointer data)
       return FALSE;
 
     str = g_strdup_printf (_("Game over! The game has been won by %s!"),
-                           names[winner]);
+                             names[winner]);
 #ifdef GGZ_CLIENT
     add_chat_text (str);
 #endif
@@ -840,9 +842,8 @@ setup_window ()
   clutter_widget = gtk_clutter_embed_new ();
   stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter_widget));
 
-  clutter_stage_set_color (CLUTTER_STAGE (stage), &stage_color);
+  clutter_stage_set_color (CLUTTER_STAGE(stage), &stage_color);
 
-  clutter_stage_set_user_resizable (CLUTTER_STAGE(stage), FALSE); 
   clutter_actor_set_size (CLUTTER_ACTOR (stage), 
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
@@ -915,9 +916,9 @@ setup_window ()
 }
 
 static void 
-render_logo (void)
+render_logo (gint width, gint height)
 { 
-  gfloat width, height;
+  //gfloat width, height;
   ClutterActor *image;
   ClutterActor *text;
   ClutterActor *desc;
@@ -925,7 +926,7 @@ render_logo (void)
 
   logo = clutter_group_new ();
 
-  clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
+  //clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
  
   if (!logo_pixmap)
     gnibbles_load_logo (properties->tilesize);
@@ -1033,10 +1034,9 @@ main (int argc, char **argv)
                                  GAMES_SCORES_STYLE_PLAIN_DESCENDING);
 
   games_conf_initialise ("Gnibbles");
-  properties = gnibbles_properties_new (); 
+  properties = gnibbles_properties_new ();
   setup_window ();
   gnibbles_load_pixmap (properties->tilesize);
-
   gnibbles_load_logo (properties->tilesize);
 
 #ifdef GGZ_CLIENT
