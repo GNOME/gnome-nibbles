@@ -31,7 +31,6 @@
 #include "main.h"
 #include "bonus.h"
 #include "boni.h"
-#include "ggz-network.h"
 #include "board.h"
 #include "properties.h"
 
