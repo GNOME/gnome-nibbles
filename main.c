@@ -122,7 +122,7 @@ static void
 hide_cursor (void)
 {
   if (pointers.current != pointers.invisible) {
-    gdk_window_set_cursor (drawing_area->window, pointers.invisible);
+    gdk_window_set_cursor (gtk_widget_get_window (drawing_area), pointers.invisible);
     pointers.current = pointers.invisible;
   }
 }
@@ -179,7 +179,7 @@ static void
 show_cursor (void)
 {
   if (pointers.current != NULL) {
-    gdk_window_set_cursor (drawing_area->window, NULL);
+    gdk_window_set_cursor (gtk_widget_get_window (drawing_area), NULL);
     pointers.current = NULL;
   }
 }
@@ -265,8 +265,8 @@ about_cb (GtkAction * action, gpointer data)
 static gint
 expose_event_cb (GtkWidget * widget, GdkEventExpose * event)
 {
-  gdk_draw_drawable (GDK_DRAWABLE (widget->window),
-		     widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
+  gdk_draw_drawable (GDK_DRAWABLE (gtk_widget_get_window (widget)),
+		     gtk_widget_get_style (widget)->fg_gc[gtk_widget_get_state (widget)],
 		     buffer_pixmap, event->area.x, event->area.y,
 		     event->area.x, event->area.y, event->area.width,
 		     event->area.height);
@@ -309,9 +309,9 @@ draw_board (void)
   for (i = 0; i < warpmanager->numwarps; i++)
     gnibbles_warp_draw_buffer (warpmanager->warps[i]);
 
-  gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
-		     drawing_area->style->
-		     fg_gc[GTK_WIDGET_STATE (drawing_area)], buffer_pixmap, 0,
+  gdk_draw_drawable (GDK_DRAWABLE (gtk_widget_get_window (drawing_area)),
+		     gtk_widget_get_style (drawing_area)->
+		     fg_gc[gtk_widget_get_state (drawing_area)], buffer_pixmap, 0,
 		     0, 0, 0, BOARDWIDTH * properties->tilesize,
 		     BOARDHEIGHT * properties->tilesize);
 
@@ -350,13 +350,13 @@ configure_event_cb (GtkWidget * widget, GdkEventConfigure * event)
   /* Recreate the buffer pixmap. */
   if (buffer_pixmap)
     g_object_unref (G_OBJECT (buffer_pixmap));
-  buffer_pixmap = gdk_pixmap_new (drawing_area->window,
+  buffer_pixmap = gdk_pixmap_new (gtk_widget_get_window (drawing_area),
 				  BOARDWIDTH * properties->tilesize,
 				  BOARDHEIGHT * properties->tilesize, -1);
 
   /* Erase the buffer pixmap. */
   gdk_draw_rectangle (buffer_pixmap,
-		      drawing_area->style->black_gc,
+		      gtk_widget_get_style (drawing_area)->black_gc,
 		      TRUE, 0, 0,
 		      BOARDWIDTH * properties->tilesize,
 		      BOARDHEIGHT * properties->tilesize);
@@ -903,17 +903,18 @@ setup_window (void)
 
   drawing_area = gtk_drawing_area_new ();
 
-  cursor_dot_pm = gdk_pixmap_create_from_data (window->window, "\0", 1, 1, 1,
-					       &drawing_area->style->
+  cursor_dot_pm = gdk_pixmap_create_from_data (gtk_widget_get_window (window),
+					       "\0", 1, 1, 1,
+					       &gtk_widget_get_style (drawing_area)->
 					       fg[GTK_STATE_ACTIVE],
-					       &drawing_area->style->
+					       &gtk_widget_get_style (drawing_area)->
 					       bg[GTK_STATE_ACTIVE]);
 
   pointers.invisible =
     gdk_cursor_new_from_pixmap (cursor_dot_pm, cursor_dot_pm,
-				&drawing_area->style->fg[GTK_STATE_ACTIVE],
-				&drawing_area->style->bg[GTK_STATE_ACTIVE], 0,
-				0);
+				&gtk_widget_get_style (drawing_area)->fg[GTK_STATE_ACTIVE],
+				&gtk_widget_get_style (drawing_area)->bg[GTK_STATE_ACTIVE],
+				0, 0);
 
   gtk_container_add (GTK_CONTAINER (packing), drawing_area);
 #ifdef GGZ_CLIENT
@@ -968,12 +969,15 @@ render_logo (void)
   PangoFontDescription * pfd;
   int size;
   static int width, height;
+  GtkAllocation allocation;
+
+  gtk_widget_get_allocation (drawing_area, &allocation);
 
   zero_board ();
 
   gdk_draw_pixbuf (GDK_DRAWABLE (buffer_pixmap),
-		   drawing_area->style->
-		   fg_gc[GTK_WIDGET_STATE (drawing_area)], logo_pixmap, 0, 0,
+		   gtk_widget_get_style (drawing_area)->
+		   fg_gc[gtk_widget_get_state (drawing_area)], logo_pixmap, 0, 0,
 		   0, 0, BOARDWIDTH * properties->tilesize,
 		   BOARDHEIGHT * properties->tilesize, GDK_RGB_DITHER_NORMAL,
 		   0, 0);
@@ -982,39 +986,41 @@ render_logo (void)
   layout = pango_layout_new (context);
   pfd = pango_context_get_font_description (context);
   size = pango_font_description_get_size (pfd);
-  pango_font_description_set_size (pfd, 
-		(size * drawing_area->allocation.width) / 100);
+  pango_font_description_set_size (pfd, (size * allocation.width) / 100);
   pango_font_description_set_family (pfd, "Sans");
   pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD); 
   pango_layout_set_font_description (layout, pfd);
   pango_layout_set_text (layout, _("Nibbles"), -1);
   pango_layout_get_pixel_size(layout, &width, &height);  
 
-  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->black_gc,  
-		   (drawing_area->allocation.width - width) * 0.5 + 3, 
-		   (drawing_area->allocation.height * 0.72) + 3, layout);
-  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->white_gc,  
-		   (drawing_area->allocation.width - width) * 0.5, 
-		   (drawing_area->allocation.height * 0.72), layout);
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap),
+		   gtk_widget_get_style (drawing_area)->black_gc,
+		   (allocation.width - width) * 0.5 + 3,
+		   (allocation.height * 0.72) + 3, layout);
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap),
+		   gtk_widget_get_style (drawing_area)->white_gc,
+		   (allocation.width - width) * 0.5,
+		   (allocation.height * 0.72), layout);
 
-  pango_font_description_set_size (pfd, 
-		(size * drawing_area->allocation.width) / 400);
+  pango_font_description_set_size (pfd, (size * allocation.width) / 400);
   pango_layout_set_font_description (layout, pfd);
   /* Translators: This string will be included in the intro screen, so don't make sure it fits! */
   pango_layout_set_text (layout, _("A worm game for GNOME."), -1);
   pango_layout_get_pixel_size(layout, &width, &height);  
 
-  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->black_gc,
-		   (drawing_area->allocation.width - width) * 0.5 + 2, 
-                   (drawing_area->allocation.height * 0.94) + 2, layout);
-  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap), drawing_area->style->white_gc,
-		   (drawing_area->allocation.width - width) * 0.5,
-                   (drawing_area->allocation.height * 0.94), layout);
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap),
+		   gtk_widget_get_style (drawing_area)->black_gc,
+		   (allocation.width - width) * 0.5 + 2,
+                   (allocation.height * 0.94) + 2, layout);
+  gdk_draw_layout (GDK_DRAWABLE (buffer_pixmap),
+		   gtk_widget_get_style (drawing_area)->white_gc,
+		   (allocation.width - width) * 0.5,
+                   (allocation.height * 0.94), layout);
 
 
-  gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
-		     drawing_area->style->
-		     fg_gc[GTK_WIDGET_STATE (drawing_area)], buffer_pixmap, 
+  gdk_draw_drawable (GDK_DRAWABLE (gtk_widget_get_window (drawing_area)),
+		     gtk_widget_get_style (drawing_area)->
+		     fg_gc[gtk_widget_get_state (drawing_area)], buffer_pixmap, 
 		     0, 0, 0, 0, BOARDWIDTH * properties->tilesize,
 		     BOARDHEIGHT * properties->tilesize);
 
@@ -1073,7 +1079,7 @@ main (int argc, char **argv)
 
   gtk_widget_show (window);
 
-  buffer_pixmap = gdk_pixmap_new (drawing_area->window,
+  buffer_pixmap = gdk_pixmap_new (gtk_widget_get_window (drawing_area),
 				  BOARDWIDTH * properties->tilesize,
 				  BOARDHEIGHT * properties->tilesize, -1);
 #ifdef GGZ_CLIENT

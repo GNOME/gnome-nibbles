@@ -85,7 +85,7 @@ game_speed_cb (GtkWidget * widget, gpointer data)
   if (!pref_dialog)
     return;
 
-  if (GTK_TOGGLE_BUTTON (widget)->active) {
+  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
     gnibbles_properties_set_speed (GPOINTER_TO_INT (data));
   }
 }
@@ -112,7 +112,7 @@ random_order_cb (GtkWidget * widget, gpointer data)
   if (!pref_dialog)
     return;
 
-  value = GTK_TOGGLE_BUTTON (widget)->active;
+  value = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
 
   gtk_widget_set_sensitive (start_level_label, !value);
   gtk_widget_set_sensitive (start_level_spin_button, !value);
@@ -128,7 +128,7 @@ fake_bonus_cb (GtkWidget * widget, gpointer data)
   if (!pref_dialog)
     return;
 
-  value = GTK_TOGGLE_BUTTON (widget)->active;
+  value = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
 
   gnibbles_properties_set_fakes (value);
 }
@@ -141,7 +141,7 @@ sound_cb (GtkWidget * widget, gpointer data)
   if (!pref_dialog)
     return;
 
-  value = GTK_TOGGLE_BUTTON (widget)->active;
+  value = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
 
   gnibbles_properties_set_sound (value);
 }
@@ -200,10 +200,11 @@ worm_relative_movement_cb (GtkWidget * widget, gpointer data)
 
   i = GPOINTER_TO_INT (data);
 
-  set_worm_controls_sensitivity (i, GTK_TOGGLE_BUTTON (widget)->active);
+  set_worm_controls_sensitivity
+    (i, gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)));
 
   gnibbles_properties_set_worm_relative_movement
-    (i, GTK_TOGGLE_BUTTON (widget)->active);
+    (i, gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)));
 }
 
 void
@@ -243,12 +244,14 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 					     GTK_RESPONSE_CLOSE, NULL);
   gtk_dialog_set_has_separator (GTK_DIALOG (pref_dialog), FALSE);
   gtk_container_set_border_width (GTK_CONTAINER (pref_dialog), 5);
-  gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (pref_dialog)->vbox), 2);
+  gtk_box_set_spacing
+    (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (pref_dialog))), 2);
 
   notebook = gtk_notebook_new ();
   gtk_container_set_border_width (GTK_CONTAINER (notebook), 5);
-  gtk_container_add (GTK_CONTAINER (GTK_DIALOG (pref_dialog)->vbox),
-		     notebook);
+  gtk_container_add
+    (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (pref_dialog))),
+     notebook);
 
   label = gtk_label_new (_("Game"));
   table = gtk_table_new (1, 2, FALSE);

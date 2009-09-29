@@ -28,6 +28,7 @@
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
+#include <libgames-support/games-gtk-compat.h>
 #include <libgames-support/games-runtime.h>
 #include <libgames-support/games-scores-dialog.h>
 #include <libgames-support/games-scores.h>
@@ -134,8 +135,8 @@ gnibbles_copy_pixmap (GdkDrawable * drawable, gint which, gint x, gint y,
   }
 
   gdk_draw_pixbuf (GDK_DRAWABLE (drawable),
-		   drawing_area->style->
-		   fg_gc[GTK_WIDGET_STATE (drawing_area)], copy_buf, 0, 0,
+		   gtk_widget_get_style (drawing_area)->
+		   fg_gc[gtk_widget_get_state (drawing_area)], copy_buf, 0, 0,
 		   x * properties->tilesize, y * properties->tilesize, size,
 		   size, GDK_RGB_DITHER_NORMAL, 0, 0);
 }
@@ -143,14 +144,14 @@ gnibbles_copy_pixmap (GdkDrawable * drawable, gint which, gint x, gint y,
 void
 gnibbles_draw_pixmap (gint which, gint x, gint y)
 {
-  gnibbles_copy_pixmap (drawing_area->window, which, x, y, FALSE);
+  gnibbles_copy_pixmap (gtk_widget_get_window (drawing_area), which, x, y, FALSE);
   gnibbles_copy_pixmap (buffer_pixmap, which, x, y, FALSE);
 }
 
 void
 gnibbles_draw_big_pixmap (gint which, gint x, gint y)
 {
-  gnibbles_copy_pixmap (drawing_area->window, which, x, y, TRUE);
+  gnibbles_copy_pixmap (gtk_widget_get_window (drawing_area), which, x, y, TRUE);
   gnibbles_copy_pixmap (buffer_pixmap, which, x, y, TRUE);
 }
 
@@ -169,8 +170,9 @@ gnibbles_draw_big_pixmap_buffer (gint which, gint x, gint y)
 void
 gnibbles_load_logo (GtkWidget * window)
 {
-  gint width = drawing_area->allocation.width;
-  gint height = drawing_area->allocation.height;
+  GtkAllocation allocation;
+
+  gtk_widget_get_allocation (window, &allocation);
 
   if (GTK_WIDGET_REALIZED (drawing_area) == FALSE)
     return;
@@ -179,7 +181,7 @@ gnibbles_load_logo (GtkWidget * window)
     g_object_unref (logo_pixmap);
   logo_pixmap =
     gnibbles_load_pixmap_file (window, "gnibbles-logo.svg",
-			       width, height);
+			       allocation.width, allocation.height);
 }
 
 void
@@ -342,10 +344,10 @@ gnibbles_load_level (GtkWidget * window, gint level)
     }
   }
 
-  gdk_draw_drawable (GDK_DRAWABLE (drawing_area->window),
-                     drawing_area->style->
-                     fg_gc[GTK_WIDGET_STATE (drawing_area)], buffer_pixmap, 0,
-                     0, 0, 0, BOARDWIDTH * properties->tilesize,
+  gdk_draw_drawable (GDK_DRAWABLE (gtk_widget_get_window (drawing_area)),
+                     gtk_widget_get_style (drawing_area)->
+                     fg_gc[gtk_widget_get_state (drawing_area)], buffer_pixmap,
+                     0, 0, 0, 0, BOARDWIDTH * properties->tilesize,
                      BOARDHEIGHT * properties->tilesize);
 
   fclose (in);
