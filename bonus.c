@@ -104,13 +104,13 @@ gnibbles_bonus_draw (GnibblesBonus *bonus)
 
   clutter_actor_set_opacity (bonus->actor, 0);
   clutter_actor_set_scale (bonus->actor, 3.0, 3.0);
-  g_signal_connect_after (
+  //g_signal_connect_after (
     clutter_actor_animate (bonus->actor, CLUTTER_EASE_OUT_BOUNCE, 800,
                          "scale-x", 1.0, "scale-y", 1.0,
                          "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                          "opacity", 0xff,
-                          NULL),
-    "completed", G_CALLBACK (animate_bonus1), bonus->actor);
+                          NULL);
+  //"completed", G_CALLBACK (animate_bonus1), bonus->actor);
 }
 
 void

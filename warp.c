@@ -93,11 +93,11 @@ gnibbles_warp_draw (GnibblesWarp *warp)
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), warp->actor);
   clutter_actor_set_opacity (warp->actor, 0);
   clutter_actor_set_scale (warp->actor, 2.0, 2.0);
-  g_signal_connect_after (
+  //g_signal_connect_after (
     clutter_actor_animate (warp->actor, CLUTTER_EASE_OUT_CIRC, 410,
                           "scale-x", 1.0, "scale-y", 1.0,
                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                           "opacity", 0xff,
-                          NULL),
-    "completed", G_CALLBACK (animate_warp1), warp->actor);
+                          NULL);
+   //"completed", G_CALLBACK (animate_warp1), warp->actor);
 }
