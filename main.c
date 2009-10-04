@@ -107,7 +107,7 @@ gint current_level;
 
 static gint add_bonus_cb (gpointer data);
 
-static void render_logo (gint width, gint height);
+static void render_logo (void);
 static gint end_game_cb (GtkAction * action, gpointer data);
 static void hide_logo (void);
 
@@ -127,7 +127,7 @@ static ClutterActor *logo;
 static void
 hide_cursor (void)
 {
-  //clutter_stage_hide_cursor (CLUTTER_STAGE (stage));
+  clutter_stage_hide_cursor (CLUTTER_STAGE (stage));
 }
 
 static void
@@ -282,6 +282,9 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
   gnibbles_load_pixmap (tilesize);
   gnibbles_load_logo (tilesize);
 
+  clutter_actor_set_size (CLUTTER_ACTOR (stage), 
+                          BOARDWIDTH * tilesize,
+                          BOARDWIDTH * tilesize);
   if (game_running ()) {
     if (board) {
       gnibbles_board_rescale (board, tilesize);
@@ -297,7 +300,10 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
     if (logo)
       hide_logo ();
 
-    render_logo (event->width, event->height);
+    if (board)
+      gnibbles_board_rescale (board, tilesize);
+
+    render_logo ();
   }
 
   /* But, has the tile size changed? */
@@ -493,7 +499,7 @@ end_game (gboolean show_splash)
   }
 
   if (show_splash) {
-    render_logo (CLUTTER_STAGE_WIDTH(), CLUTTER_STAGE_HEIGHT());
+    render_logo ();
     gtk_action_set_sensitive (new_network_action, TRUE);
     gtk_action_set_sensitive (pause_action, FALSE);
     gtk_action_set_sensitive (resume_action, FALSE);
@@ -916,60 +922,113 @@ setup_window ()
 }
 
 static void 
-render_logo (gint width, gint height)
+render_logo (void)
 { 
-  //gfloat width, height;
   ClutterActor *image;
-  ClutterActor *text;
-  ClutterActor *desc;
+  ClutterActor *text, *text_shadow;
+  ClutterActor *desc, *desc_shadow;
   ClutterColor actor_color = {0xff,0xff,0xff,0xff};
+  ClutterColor shadow_color = {0x00, 0x00, 0x00, 0x88};
+  ClutterActor *text_group;
+  static gint width, height;
+  gint size;
+  PangoFontDescription *pfd;
+  PangoLayout *layout;
+  PangoContext *context;
+  
+  gchar *nibbles = _("Nibbles");
+  /* Translators: This string will be included in the intro screen, so don't make sure it fits! */
+  gchar *description = _("A worm game for GNOME.");
 
   logo = clutter_group_new ();
-
-  //clutter_actor_get_size (CLUTTER_ACTOR (stage), &width, &height);
+  text_group = clutter_group_new ();
  
   if (!logo_pixmap)
     gnibbles_load_logo (properties->tilesize);
 
   image = gtk_clutter_texture_new_from_pixbuf (logo_pixmap);
 
-  clutter_actor_set_size (CLUTTER_ACTOR (image), width, height);
+  clutter_actor_set_size (CLUTTER_ACTOR (image),
+                          board->width * properties->tilesize, 
+                          board->height * properties->tilesize);
+
   clutter_actor_set_position (CLUTTER_ACTOR (image), 0, 0);
   clutter_actor_show (image);
 
-  text = clutter_text_new_full ("Sans Bold 70", _("Nibbles"), &actor_color);
+  text = clutter_text_new ();
+  clutter_text_set_color (CLUTTER_TEXT (text), &actor_color);
+  
+  context = gdk_pango_context_get ();
+  layout = clutter_text_get_layout (CLUTTER_TEXT (text));
+  pfd = pango_context_get_font_description (context);
+  size = pango_font_description_get_size (pfd);
+  
+  pango_font_description_set_size (pfd, (size * CLUTTER_STAGE_WIDTH ()) / 100);
+  pango_font_description_set_family (pfd, "Sans");
+  pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD); 
+  pango_layout_set_font_description (layout, pfd);
+  pango_layout_set_text (layout, nibbles, -1);
+  pango_layout_get_pixel_size (layout, &width, &height);
+
+  text_shadow = clutter_text_new ();
+  clutter_text_set_color (CLUTTER_TEXT (text_shadow), &shadow_color);
+
+  layout = clutter_text_get_layout (CLUTTER_TEXT (text_shadow));
+  pango_layout_set_font_description (layout, pfd);
+  pango_layout_set_text (layout, nibbles, -1);
+
   clutter_actor_set_position (CLUTTER_ACTOR (text), 
-                              (width / 2) - 200, 
-                              height - 130);
+                              (CLUTTER_STAGE_WIDTH () - width) * 0.5 + 60, 
+                              CLUTTER_STAGE_HEIGHT () * .80);
+  clutter_actor_set_position (CLUTTER_ACTOR (text_shadow),
+                              (CLUTTER_STAGE_WIDTH () - width) * 0.5 + 65,
+                              CLUTTER_STAGE_HEIGHT () * .80 + 5);
 
-  desc = clutter_text_new_full ("Sans Bold 18", _("A worm game for GNOME."), 
-                                &actor_color);
+  desc = clutter_text_new ();
+  layout = clutter_text_get_layout (CLUTTER_TEXT (desc));
+  
+  clutter_text_set_color (CLUTTER_TEXT (desc), &actor_color);
+  pango_font_description_set_size (pfd, (size * CLUTTER_STAGE_WIDTH ()) / 400);
+  pango_layout_set_font_description (layout, pfd);
+  pango_layout_set_text (layout, description, -1);
+  pango_layout_get_pixel_size(layout, &width, &height); 
+
+  desc_shadow = clutter_text_new ();
+  layout = clutter_text_get_layout (CLUTTER_TEXT (desc_shadow));
+  clutter_text_set_color (CLUTTER_TEXT (desc_shadow), &shadow_color);
+
+  pango_font_description_set_size (pfd, (size * CLUTTER_STAGE_WIDTH ()) / 400);
+  pango_layout_set_font_description (layout, pfd);
+  pango_layout_set_text (layout, description, -1);
+
   clutter_actor_set_position (CLUTTER_ACTOR (desc), 
-                              (width / 2) - 170,
-                              height - 40);
+                              (CLUTTER_STAGE_WIDTH () - width) * 0.5 + 50,
+                              CLUTTER_STAGE_HEIGHT ());
+  clutter_actor_set_position (CLUTTER_ACTOR (desc_shadow),
+                              (CLUTTER_STAGE_WIDTH () - width) * 0.5 + 53,
+                              CLUTTER_STAGE_HEIGHT () + 3);  
 
-  clutter_container_add (CLUTTER_CONTAINER (logo),
-                         CLUTTER_ACTOR (image),
+  clutter_container_add (CLUTTER_CONTAINER (text_group),
+                         CLUTTER_ACTOR (text_shadow),
                          CLUTTER_ACTOR (text),
+                         CLUTTER_ACTOR (desc_shadow),
                          CLUTTER_ACTOR (desc),
                          NULL);
+  clutter_container_add (CLUTTER_CONTAINER (logo),
+                         CLUTTER_ACTOR (image),
+                         CLUTTER_ACTOR (text_group),
+                         NULL);
  
-  clutter_actor_set_opacity (CLUTTER_ACTOR (desc), 0);
-  clutter_actor_set_opacity (CLUTTER_ACTOR (text), 0);
-  clutter_actor_set_scale (CLUTTER_ACTOR (text), 0.0, 0.0);
-  clutter_actor_set_scale (CLUTTER_ACTOR (desc), 0.0, 0.0);
-  clutter_actor_animate (text, CLUTTER_EASE_OUT_CIRC, 1000,
+  clutter_actor_set_opacity (CLUTTER_ACTOR (text_group), 0);
+  clutter_actor_set_scale (CLUTTER_ACTOR (text_group), 0.0, 0.0);
+  clutter_actor_animate (text_group, CLUTTER_EASE_OUT_CIRC, 800,
                           "opacity", 0xff,
                           "scale-x", 1.0,
                           "scale-y", 1.0,
-                          "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                          "fixed::scale-center-y", CLUTTER_STAGE_WIDTH () / 2,
+                          "fixed::scale-center-x", CLUTTER_STAGE_HEIGHT () / 2,
                           NULL);
-  clutter_actor_animate (desc, CLUTTER_EASE_OUT_CIRC, 1300,
-                          "opacity", 0xff,
-                          "scale-x", 1.0,
-                          "scale-y", 1.0,
-                          "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                          NULL);
+
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
                                CLUTTER_ACTOR (logo));
 }

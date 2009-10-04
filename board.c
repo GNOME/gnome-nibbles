@@ -182,18 +182,16 @@ gnibbles_board_rescale (GnibblesBoard *board, gint tilesize)
   if (!board->surface)
     return;
 
-  int i;
-  int x_pos;
-  int y_pos;
-  int count;
+  gint i, count;
+  gfloat x_pos, y_pos;
   ClutterActor *tmp;
 
-  clutter_actor_set_size (CLUTTER_ACTOR (stage), 
-                          BOARDWIDTH * tilesize,
-                          BOARDHEIGHT * tilesize);
+  board->width = BOARDWIDTH * tilesize;
+  board->height = BOARDHEIGHT * tilesize;
+
   clutter_actor_set_size (CLUTTER_ACTOR (board->surface),
-                          BOARDWIDTH * tilesize,
-                          BOARDHEIGHT * tilesize);
+                          board->width,
+                          board->height);
 
   count = clutter_group_get_n_children (CLUTTER_GROUP (board->level));
 
