@@ -931,7 +931,8 @@ render_logo (void)
   ClutterColor shadow_color = {0x00, 0x00, 0x00, 0x88};
   ClutterActor *text_group;
   static gint width, height;
-  gint size;
+  gint size; 
+  gfloat stage_w, stage_h;
   PangoFontDescription *pfd;
   PangoLayout *layout;
   PangoContext *context;
@@ -947,10 +948,11 @@ render_logo (void)
     gnibbles_load_logo (properties->tilesize);
 
   image = gtk_clutter_texture_new_from_pixbuf (logo_pixmap);
+  
+  stage_w = board->width * properties->tilesize;
+  stage_h = board->height * properties->tilesize;
 
-  clutter_actor_set_size (CLUTTER_ACTOR (image),
-                          board->width * properties->tilesize, 
-                          board->height * properties->tilesize);
+  clutter_actor_set_size (CLUTTER_ACTOR (image), stage_w, stage_h);
 
   clutter_actor_set_position (CLUTTER_ACTOR (image), 0, 0);
   clutter_actor_show (image);
@@ -963,7 +965,7 @@ render_logo (void)
   pfd = pango_context_get_font_description (context);
   size = pango_font_description_get_size (pfd);
   
-  pango_font_description_set_size (pfd, (size * CLUTTER_STAGE_WIDTH ()) / 100);
+  pango_font_description_set_size (pfd, (size * stage_w) / 100);
   pango_font_description_set_family (pfd, "Sans");
   pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD); 
   pango_layout_set_font_description (layout, pfd);
@@ -978,17 +980,17 @@ render_logo (void)
   pango_layout_set_text (layout, nibbles, -1);
 
   clutter_actor_set_position (CLUTTER_ACTOR (text), 
-                              (CLUTTER_STAGE_WIDTH () - width) * 0.5 + 60, 
-                              CLUTTER_STAGE_HEIGHT () * .80);
+                              (stage_w - width) * 0.5 + 60, 
+                              stage_h * .80);
   clutter_actor_set_position (CLUTTER_ACTOR (text_shadow),
-                              (CLUTTER_STAGE_WIDTH () - width) * 0.5 + 65,
-                              CLUTTER_STAGE_HEIGHT () * .80 + 5);
+                              (stage_w - width) * 0.5 + 65,
+                              stage_h * .80 + 5);
 
   desc = clutter_text_new ();
   layout = clutter_text_get_layout (CLUTTER_TEXT (desc));
   
   clutter_text_set_color (CLUTTER_TEXT (desc), &actor_color);
-  pango_font_description_set_size (pfd, (size * CLUTTER_STAGE_WIDTH ()) / 400);
+  pango_font_description_set_size (pfd, (size * stage_w) / 400);
   pango_layout_set_font_description (layout, pfd);
   pango_layout_set_text (layout, description, -1);
   pango_layout_get_pixel_size(layout, &width, &height); 
@@ -997,16 +999,16 @@ render_logo (void)
   layout = clutter_text_get_layout (CLUTTER_TEXT (desc_shadow));
   clutter_text_set_color (CLUTTER_TEXT (desc_shadow), &shadow_color);
 
-  pango_font_description_set_size (pfd, (size * CLUTTER_STAGE_WIDTH ()) / 400);
+  pango_font_description_set_size (pfd, (size * stage_w) / 400);
   pango_layout_set_font_description (layout, pfd);
   pango_layout_set_text (layout, description, -1);
 
   clutter_actor_set_position (CLUTTER_ACTOR (desc), 
-                              (CLUTTER_STAGE_WIDTH () - width) * 0.5 + 50,
-                              CLUTTER_STAGE_HEIGHT ());
+                              (stage_w - width) * 0.5 + 50,
+                              stage_h);
   clutter_actor_set_position (CLUTTER_ACTOR (desc_shadow),
-                              (CLUTTER_STAGE_WIDTH () - width) * 0.5 + 53,
-                              CLUTTER_STAGE_HEIGHT () + 3);  
+                              (stage_w - width) * 0.5 + 53,
+                              stage_h + 3);  
 
   clutter_container_add (CLUTTER_CONTAINER (text_group),
                          CLUTTER_ACTOR (text_shadow),
@@ -1025,8 +1027,8 @@ render_logo (void)
                           "opacity", 0xff,
                           "scale-x", 1.0,
                           "scale-y", 1.0,
-                          "fixed::scale-center-y", CLUTTER_STAGE_WIDTH () / 2,
-                          "fixed::scale-center-x", CLUTTER_STAGE_HEIGHT () / 2,
+                          "fixed::scale-center-y", stage_w / 2,
+                          "fixed::scale-center-x", stage_h / 2,
                           NULL);
 
   clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
