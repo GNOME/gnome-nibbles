@@ -980,11 +980,11 @@ render_logo (void)
   pango_layout_set_text (layout, nibbles, -1);
 
   clutter_actor_set_position (CLUTTER_ACTOR (text), 
-                              (stage_w - width) * 0.5 + 60, 
-                              stage_h * .80);
+                              (stage_w - width) * 0.5 , 
+                              stage_h * .72);
   clutter_actor_set_position (CLUTTER_ACTOR (text_shadow),
-                              (stage_w - width) * 0.5 + 65,
-                              stage_h * .80 + 5);
+                              (stage_w - width) * 0.5 + 5,
+                              stage_h * .72 + 5);
 
   desc = clutter_text_new ();
   layout = clutter_text_get_layout (CLUTTER_TEXT (desc));
@@ -1004,11 +1004,11 @@ render_logo (void)
   pango_layout_set_text (layout, description, -1);
 
   clutter_actor_set_position (CLUTTER_ACTOR (desc), 
-                              (stage_w - width) * 0.5 + 50,
-                              stage_h);
+                              (stage_w - width) * 0.5,
+                              stage_h* .93);
   clutter_actor_set_position (CLUTTER_ACTOR (desc_shadow),
-                              (stage_w - width) * 0.5 + 53,
-                              stage_h + 3);  
+                              (stage_w - width) * 0.5 + 3,
+                              stage_h * .93 + 3);  
 
   clutter_container_add (CLUTTER_CONTAINER (text_group),
                          CLUTTER_ACTOR (text_shadow),
