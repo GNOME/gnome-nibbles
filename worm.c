@@ -672,63 +672,6 @@ gnibbles_worm_rescale (GnibblesWorm *worm, gint tilesize)
 }
 
 void
-gnibbles_cworm_move (ClutterTimeline *timeline, gint frame_num, gpointer data)
-{
-  guint w,h;
-  gint x,y;
-  guint size;
-  gboolean direction;
-  GValue val = {0,};
-
-  GnibblesCWorm *worm = (GnibblesCWorm *)data;
-
-  ClutterActor *first = g_list_first (worm->list)->data;
-  ClutterActor *last = g_list_last (worm->list)->data;
-
-  g_value_init (&val, G_TYPE_BOOLEAN);
-  g_object_get_property (G_OBJECT (first), "repeat-x", &val);
-  direction = g_value_get_boolean (&val);
-
-  if (first == last) {
-    clutter_actor_get_position (CLUTTER_ACTOR (first), &x, &y);
-    if (direction)
-      clutter_actor_set_position (CLUTTER_ACTOR (first), x + properties->tilesize, y);
-    else
-      clutter_actor_set_position (CLUTTER_ACTOR (first), x, y + properties->tilesize);
-  } else {
-
-    clutter_actor_get_size (CLUTTER_ACTOR (first), &w, &h);
-    size = w < h ? h : w;
-
-    if (direction)
-      clutter_actor_set_size (first, properties->tilesize + size, properties->tilesize);
-    else
-      clutter_actor_set_size (first, properties->tilesize, properties->tilesize + size);
-
-    g_object_get_property (G_OBJECT (last), "repeat-x", &val);
-    direction = g_value_get_boolean (&val);
-    clutter_actor_get_size (CLUTTER_ACTOR (last), &w, &h);
-    clutter_actor_get_position (CLUTTER_ACTOR (last), &x, &y);
-    size = w < h ? h : w;
-    size = size / (properties->tilesize + 1);
-
-    //TODO: Set move UP/DOWn RIGHT/LEFT
-    if (direction) {
-      clutter_actor_set_size (last, properties->tilesize * size, properties->tilesize);
-      clutter_actor_set_position (last, x + properties->tilesize, y);
-      worm->xhead += properties->tilesize;
-    } else {
-      clutter_actor_set_size (last, properties->tilesize, properties->tilesize * size);
-      clutter_actor_set_position (last, x, y + properties->tilesize);
-      worm->yhead += properties->tilesize;
-    }
-   
-    if (size <= 0)
-      gnibbles_cworm_remove_actor (worm);
-  }
-}
-
-void
 gnibbles_worm_move_head (GnibblesWorm *worm)
 {
   if (g_list_length (worm->list) < 0)
