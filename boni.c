@@ -1,4 +1,4 @@
-/* 
+/*
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>,
  *              Guillaume Beland <guillaume.beland@gmail.com>
@@ -83,12 +83,12 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
   board->walls[t_x + 1][t_y + 1] = (gchar) t_type + 'A';
 
   gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
-  
+
   boni->numbonuses++;
   if (t_type != BONUSREGULAR)
     games_sound_play ("appear");
 #ifdef GGZ_CLIENT
-  if (ggz_network_mode) { 
+  if (ggz_network_mode) {
     network_add_bonus (t_x, t_y, t_type, t_fake, t_countdown);
   }
 #endif
@@ -100,8 +100,8 @@ gnibbles_boni_add_bonus_final (GnibblesBoni * boni, gint t_x, gint t_y,
 {
   if (boni->numbonuses == MAXBONUSES)
     return;
-  boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y, 
-                                                        t_type, t_fake, 
+  boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y,
+                                                        t_type, t_fake,
                                                         t_countdown);
   board->walls[t_x][t_y] = (gchar) t_type + 'A';
   board->walls[t_x + 1][t_y] = (gchar) t_type + 'A';
@@ -140,7 +140,7 @@ gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
   int i;
 
 #ifdef GGZ_CLIENT
-  if (ggz_network_mode) { 
+  if (ggz_network_mode) {
     network_remove_bonus (x, y);
   }
 #endif
@@ -191,11 +191,11 @@ gnibbles_boni_remove_bonus_final (GnibblesBoni * boni, gint x, gint y)
   }
 }
 
-void 
+void
 gnibbles_boni_rescale (GnibblesBoni *boni, gint tilesize)
 {
   int i;
-  gfloat x_pos, y_pos;  
+  gfloat x_pos, y_pos;
   GError *err = NULL;
 
   for (i = 0; i < boni->numbonuses; i++) {
@@ -203,7 +203,7 @@ gnibbles_boni_rescale (GnibblesBoni *boni, gint tilesize)
     clutter_actor_set_position (boni->bonuses[i]->actor,
                                 (x_pos / properties->tilesize) * tilesize,
                                 (y_pos / properties->tilesize) * tilesize);
-    gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE(boni->bonuses[i]->actor), 
+    gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE(boni->bonuses[i]->actor),
                                          boni_pixmaps[boni->bonuses[i]->type],
                                          &err);
     if (err)

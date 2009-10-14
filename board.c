@@ -1,10 +1,10 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
-/* 
+/*
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>,
  *              Guillaume Beland <guillaume.beland@gmail.com>
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -49,7 +49,7 @@ extern GdkPixbuf *wall_pixmaps[];
 extern ClutterActor *stage;
 
 GnibblesBoard *
-gnibbles_board_new (void) 
+gnibbles_board_new (void)
 {
   gchar *filename;
   const char *dirname;
@@ -65,7 +65,7 @@ gnibbles_board_new (void)
   filename = g_build_filename (dirname, "wall-small-empty.svg", NULL);
 
   board->surface = clutter_texture_new_from_file (filename, NULL);
- 
+
   clutter_actor_set_opacity (CLUTTER_ACTOR (board->surface), 100);
   g_value_init (&val, G_TYPE_BOOLEAN);
   g_value_set_boolean ( &val, TRUE);
@@ -77,26 +77,26 @@ gnibbles_board_new (void)
   clutter_actor_set_size (CLUTTER_ACTOR (board->surface),
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
+  clutter_container_add_actor (CLUTTER_CONTAINER (stage),
                                CLUTTER_ACTOR (board->surface));
   clutter_actor_show (CLUTTER_ACTOR (board->surface));
 
   return board;
 }
 
-static void 
-gnibbles_board_load_level (GnibblesBoard *board) 
+static void
+gnibbles_board_load_level (GnibblesBoard *board)
 {
   gint i,j;
   gint x_pos, y_pos;
-  ClutterActor *tmp;  
+  ClutterActor *tmp;
   gboolean is_wall = TRUE;
 
   if (board->level) {
     clutter_group_remove_all (CLUTTER_GROUP (board->level));
     clutter_container_remove_actor (CLUTTER_CONTAINER (stage), board->level);
   }
-  
+
   board->level = clutter_group_new ();
 
   /* Load wall_pixmaps onto the surface*/
@@ -155,7 +155,7 @@ gnibbles_board_load_level (GnibblesBoard *board)
 
         clutter_actor_set_position (CLUTTER_ACTOR (tmp), x_pos, y_pos);
         clutter_actor_show (CLUTTER_ACTOR (tmp));
-        clutter_container_add_actor (CLUTTER_CONTAINER (board->level), 
+        clutter_container_add_actor (CLUTTER_CONTAINER (board->level),
                                      CLUTTER_ACTOR (tmp));
       }
     }
@@ -219,7 +219,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
   gint count = 0;
 
   tmp = g_strdup_printf("level%03d.gnl", level);
-  
+
   dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_GAMES_DIRECTORY);
   filename = g_build_filename (dirname, tmp, NULL);
 
@@ -263,7 +263,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
           break;
         case 'n':
           board->walls[j][i] = EMPTYCHAR;
-          if (count < properties->numworms) 
+          if (count < properties->numworms)
             gnibbles_worm_set_start(worms[count++], j, i, WORMLEFT);
           break;
         case 'o':
@@ -313,7 +313,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
 
   for (i = 0; i < count; i++) {
     if (worms[i]->direction == WORMRIGHT) {
-      for (j = 0; j < worms[i]->length; j++) 
+      for (j = 0; j < worms[i]->length; j++)
         gnibbles_worm_move_head_pointer (worms[i]);
       worms[i]->xtail++;
     } else if ( worms[i]->direction == WORMLEFT) {
@@ -321,17 +321,17 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
         gnibbles_worm_move_head_pointer (worms[i]);
       worms[i]->xtail--;
     } else if (worms[i]->direction == WORMDOWN) {
-      for (j = 0; j < worms[i]->length; j++) 
+      for (j = 0; j < worms[i]->length; j++)
         gnibbles_worm_move_head_pointer (worms[i]);
       worms[i]->ytail++;
     } else if (worms[i]->direction == WORMUP) {
-      for (j = 0; j < worms[i]->length; j++) 
+      for (j = 0; j < worms[i]->length; j++)
         gnibbles_worm_move_head_pointer (worms[i]);
       worms[i]->ytail--;
     }
     board->walls[worms[i]->xtail][worms[i]->ytail] = EMPTYCHAR;
   }
-  gnibbles_board_load_level (board); 
+  gnibbles_board_load_level (board);
 }
 
 void

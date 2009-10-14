@@ -1,6 +1,6 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
-/* 
+/*
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>,
  *              Guillaume Beland <guillaume.beland@gmail.com>
@@ -105,7 +105,7 @@ gnibbles_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
   return image;
 }
 
-void 
+void
 gnibbles_load_pixmap (gint tilesize)
 {
   gchar *bonus_files[] = {
@@ -133,7 +133,7 @@ gnibbles_load_pixmap (gint tilesize)
     "wall-tee-down.svg",
     "wall-cross.svg"
   };
-  
+
   gchar *worm_files[] = {
     "snake-red.svg",
     "snake-green.svg",
@@ -157,7 +157,7 @@ gnibbles_load_pixmap (gint tilesize)
   for (i = 0; i < 11; i++) {
     if (wall_pixmaps[i])
       g_object_unref (wall_pixmaps[i]);
-      
+
     wall_pixmaps[i] = gnibbles_load_pixmap_file (small_files[i],
                                                  2 * tilesize, 2 * tilesize);
   }
@@ -166,7 +166,7 @@ gnibbles_load_pixmap (gint tilesize)
     if (worm_pixmaps[i])
       g_object_unref (worm_pixmaps[i]);
 
-    worm_pixmaps[i] = gnibbles_load_pixmap_file (worm_files[i], 
+    worm_pixmaps[i] = gnibbles_load_pixmap_file (worm_files[i],
                                                  tilesize, tilesize);
   }
 }
@@ -189,7 +189,7 @@ gnibbles_load_logo (gint tilesize)
     g_object_unref (logo_pixmap);
 
   logo_pixmap = gnibbles_load_pixmap_file ("gnibbles-logo.svg",
-                                           board->width * tilesize, 
+                                           board->width * tilesize,
                                            board->height * tilesize);
 }
 
@@ -210,7 +210,7 @@ gnibbles_init ()
 
   for (i = 0; i < properties->numworms; i++) {
     worms[i] = gnibbles_worm_new (i);
-    gnibbles_scoreboard_register (scoreboard, worms[i], 
+    gnibbles_scoreboard_register (scoreboard, worms[i],
                    colorval_name (properties->wormprops[i]->color));
   }
 
@@ -244,14 +244,14 @@ gnibbles_move_worms (void)
   for (i = 0; i < boni->numbonuses; i++) {
     if (!(boni->bonuses[i]->countdown--)) {
       if (boni->bonuses[i]->type == BONUSREGULAR && !boni->bonuses[i]->fake) {
-        gnibbles_boni_remove_bonus (boni, 
-                                    boni->bonuses[i]->x, 
+        gnibbles_boni_remove_bonus (boni,
+                                    boni->bonuses[i]->x,
                                     boni->bonuses[i]->y);
         boni->missed++;
         gnibbles_board_level_add_bonus (board, 1);
       } else {
-        gnibbles_boni_remove_bonus (boni, 
-                                    boni->bonuses[i]->x, 
+        gnibbles_boni_remove_bonus (boni,
+                                    boni->bonuses[i]->x,
                                     boni->bonuses[i]->y);
       }
     }
@@ -261,12 +261,12 @@ gnibbles_move_worms (void)
     dead[i] = !gnibbles_worm_test_move_head (worms[i]);
     status &= !dead[i];
   }
- 
+
   for (i = 0; i < properties->numworms; i++) {
     if (!dead[i] && worms[i]->lives > 0 && !worms[i]->stop)
       gnibbles_worm_move_tail (worms[i]);
   }
-  
+
   for (i = 0; i < properties->numworms; i++) {
     if (!dead[i] && worms[i]->lives > 0 && !worms[i]->stop)
       gnibbles_worm_move_head (worms[i]);
@@ -274,7 +274,7 @@ gnibbles_move_worms (void)
 
   for (i = 0; i < properties->numworms; i++) {
     for (j = 0; j < properties->numworms; j++) {
-      if (i != j 
+      if (i != j
           && worms[i]->xhead == worms[j]->xhead
           && worms[i]->yhead == worms[j]->yhead
           && worms[i]->lives > 0
@@ -313,7 +313,7 @@ gnibbles_move_worms (void)
   }
 
   if (nlives == 1 && (properties->ai + properties->human > 1)) {
-    /* There is one player left, the other AI players are dead, 
+    /* There is one player left, the other AI players are dead,
      * and that player has won! */
     return VICTORY;
   } else if (nlives == 0) {
@@ -362,8 +362,8 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
   gchar *message;
 
   if (!scoresdialog) {
-    scoresdialog = games_scores_dialog_new (GTK_WINDOW (window), 
-                                            highscores, 
+    scoresdialog = games_scores_dialog_new (GTK_WINDOW (window),
+                                            highscores,
                                             _("Nibbles Scores"));
     games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG
                                                   (scoresdialog),

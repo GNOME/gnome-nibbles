@@ -1,4 +1,4 @@
-/* 
+/*
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>,
  *              Guillaume Beland <guillaume.beland@gmail.com>

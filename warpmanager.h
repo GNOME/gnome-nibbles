@@ -1,7 +1,7 @@
-/* 
+/*
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -43,7 +43,7 @@ void gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager *warpmanager,
 					                                 GnibblesWorm *worm);
 void gnibbles_warpmanager_worm_change_tail_pos (GnibblesWarpManager *warpmanager,
                                                 GnibblesWorm *worm);
-void gnibbles_warpmanager_rescale (GnibblesWarpManager *warpmanager, 
+void gnibbles_warpmanager_rescale (GnibblesWarpManager *warpmanager,
                                   gint tilesize);
 
 #endif

@@ -1,9 +1,9 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
-/* 
+/*
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -69,7 +69,7 @@ gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
 
   scoreboard->worms[scoreboard->count] = t_worm;
   gtk_widget_set_sensitive (scoreboard->names[scoreboard->count], TRUE);
-  gtk_widget_modify_fg (scoreboard->names[scoreboard->count], GTK_STATE_NORMAL, &color); 
+  gtk_widget_modify_fg (scoreboard->names[scoreboard->count], GTK_STATE_NORMAL, &color);
   gtk_widget_set_sensitive (scoreboard->data[scoreboard->count], TRUE);
   gtk_widget_show (scoreboard->names[scoreboard->count]);
   gtk_widget_show (scoreboard->data[scoreboard->count]);

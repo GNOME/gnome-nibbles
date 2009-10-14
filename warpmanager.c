@@ -1,8 +1,8 @@
-/* 
+/*
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>,
  *              Guillaume Beland <guillaume.beland@gmail.com>
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -83,7 +83,7 @@ gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
 
     if (warpmanager->numwarps == MAXWARPS)
       return;
-    warpmanager->warps[warpmanager->numwarps] = 
+    warpmanager->warps[warpmanager->numwarps] =
                 gnibbles_warp_new (t_x, t_y, t_wx, t_wy);
     warpmanager->numwarps++;
   } else {
@@ -98,7 +98,7 @@ gnibbles_warpmanager_add_warp (GnibblesWarpManager * warpmanager, gint t_x,
     if (add) {
       if (warpmanager->numwarps == MAXWARPS)
         return;
-      warpmanager->warps[warpmanager->numwarps] = 
+      warpmanager->warps[warpmanager->numwarps] =
                     gnibbles_warp_new (t_x, t_y, t_wx, t_wy);
       draw = warpmanager->numwarps;
       warpmanager->numwarps++;
@@ -128,11 +128,11 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
         worm->yhead == warpmanager->warps[i]->y + 1) ||
         (worm->xhead == warpmanager->warps[i]->x + 1 &&
         worm->yhead == warpmanager->warps[i]->y + 1)) {
-      
+
       if (warpmanager->warps[i]->wx == -1) {
          good = 0;
         while (!good) {
-        // In network games, warps should be fair. 
+        // In network games, warps should be fair.
           if (ggz_network_mode) {
             x = 10 % BOARDWIDTH;
             y = 10 % BOARDHEIGHT;
@@ -180,11 +180,11 @@ gnibbles_warpmanager_worm_change_tail_pos (GnibblesWarpManager * warpmanager,
         worm->ytail == warpmanager->warps[i]->y + 1) ||
         (worm->xtail == warpmanager->warps[i]->x + 1 &&
         worm->ytail == warpmanager->warps[i]->y + 1)) {
-      
+
       if (warpmanager->warps[i]->wx == -1) {
          good = 0;
         while (!good) {
-        // In network games, warps should be fair. 
+        // In network games, warps should be fair.
           if (ggz_network_mode) {
             x = 10 % BOARDWIDTH;
             y = 10 % BOARDHEIGHT;
@@ -217,11 +217,11 @@ gnibbles_warpmanager_worm_change_tail_pos (GnibblesWarpManager * warpmanager,
   }
 }
 
-void 
+void
 gnibbles_warpmanager_rescale (GnibblesWarpManager *warpmanager, gint tilesize)
 {
   int i;
-  gfloat x_pos, y_pos;  
+  gfloat x_pos, y_pos;
   GError *err = NULL;
 
   for (i = 0; i < warpmanager->numwarps; i++) {
@@ -229,7 +229,7 @@ gnibbles_warpmanager_rescale (GnibblesWarpManager *warpmanager, gint tilesize)
     clutter_actor_set_position (warpmanager->warps[i]->actor,
                                 (x_pos / properties->tilesize) * tilesize,
                                 (y_pos / properties->tilesize) * tilesize);
-    gtk_clutter_texture_set_from_pixbuf 
+    gtk_clutter_texture_set_from_pixbuf
       (CLUTTER_TEXTURE (warpmanager->warps[i]->actor), boni_pixmaps[WARP], &err);
     if (err)
       gnibbles_error (err->message);

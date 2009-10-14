@@ -299,7 +299,7 @@ game_handle_boni (int seat)
       continue;
     if (ggz_write_int (fd, GN_MSG_BONI) < 0 || ggz_write_int (fd, x) < 0
         || ggz_write_int (fd, y) < 0
-        || ggz_write_int (fd, type) < 0 
+        || ggz_write_int (fd, type) < 0
         || ggz_write_int (fd, fake) < 0 || ggz_write_int (fd, countdown) < 0)
       return -1;
   }

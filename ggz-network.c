@@ -140,7 +140,7 @@ get_players (void)
         add_chat_text (tmp);
         g_free (tmp);
       }
-    } 
+    }
 
     if (seats[i] == GGZ_SEAT_ABANDONED) {
       if (i == 0) {
@@ -392,7 +392,7 @@ void
 on_network_game (void)
 {
   GtkWidget *ggzbox;
-  struct passwd *pwent;  
+  struct passwd *pwent;
   static gboolean ggz_initialized = FALSE;
 
   if (ggz_network_mode) {

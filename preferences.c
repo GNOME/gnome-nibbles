@@ -3,7 +3,7 @@
 /*
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -184,7 +184,7 @@ set_worm_controls_sensitivity (gint i, gboolean value)
 {
   /* FIXME */
 
-  /* This is meant to make the up and down controls 
+  /* This is meant to make the up and down controls
    * unavailable if we are in relative mode. However
    * The new key selection API doesn't support this
    * yet. */
@@ -239,7 +239,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     running = 1;
 
   pref_dialog = gtk_dialog_new_with_buttons (_("Nibbles Preferences"),
-                                             GTK_WINDOW (window), 0,  
+                                             GTK_WINDOW (window), 0,
                                              GTK_STOCK_CLOSE,
                                              GTK_RESPONSE_CLOSE, NULL);
   gtk_dialog_set_has_separator (GTK_DIALOG (pref_dialog), FALSE);
@@ -445,7 +445,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                                       left_key, _("Move left"), GDK_Left,
                                       right_key, _("Move right"), GDK_Right,
                                       up_key, _("Move up"), GDK_Up,
-                                      down_key, _("Move down"), GDK_Down, 
+                                      down_key, _("Move down"), GDK_Down,
                                       NULL);
     gtk_container_add (GTK_CONTAINER (frame), controls);
 

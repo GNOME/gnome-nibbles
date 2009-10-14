@@ -1,6 +1,6 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
-/* 
+/*
  *   Gnome Nibbles: Gnome Worm Game
  *   Written by Sean MacIsaac <sjm@acm.org>, Ian Peters <itp@gnu.org>,
  *              Guillaume Beland <guillaume.beland@gmail.com>
@@ -85,7 +85,7 @@ extern GdkPixbuf *logo_pixmap;
 
 GnibblesProperties *properties;
 
-GnibblesBoard *board; 
+GnibblesBoard *board;
 
 GnibblesScoreboard *scoreboard;
 
@@ -174,7 +174,7 @@ window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
   if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
     set_fullscreen_actions (event->new_window_state
                             & GDK_WINDOW_STATE_FULLSCREEN);
-    
+
   return FALSE;
 }
 
@@ -224,7 +224,7 @@ quit_cb (GObject * object, gpointer data)
 static void
 about_cb (GtkAction * action, gpointer data)
 {
-  const gchar *authors[] = { "Sean MacIsaac", "Ian Peters", "Andreas Røsdal", 
+  const gchar *authors[] = { "Sean MacIsaac", "Ian Peters", "Andreas Røsdal",
                              "Guillaume Beland", NULL };
 
   const gchar *documenters[] = { "Kevin Breit", NULL };
@@ -241,7 +241,7 @@ about_cb (GtkAction * action, gpointer data)
        "Copyright \xc2\xa9 1999-2008 Sean MacIsaac, Ian Peters, Andreas Røsdal"
        "2009 Guillaume Beland",
        "license", license, "comments",
-       _("A worm game for GNOME.\n\nNibbles is a part of GNOME Games."), 
+       _("A worm game for GNOME.\n\nNibbles is a part of GNOME Games."),
        "authors", authors,
        "documenters", documenters, "translator-credits",
        _("translator-credits"), "logo-icon-name",
@@ -282,14 +282,14 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
   gnibbles_load_pixmap (tilesize);
   gnibbles_load_logo (tilesize);
 
-  clutter_actor_set_size (CLUTTER_ACTOR (stage), 
+  clutter_actor_set_size (CLUTTER_ACTOR (stage),
                           BOARDWIDTH * tilesize,
                           BOARDWIDTH * tilesize);
   if (game_running ()) {
     if (board) {
       gnibbles_board_rescale (board, tilesize);
       gnibbles_boni_rescale (boni, tilesize);
-      
+
       for (i=0; i<properties->numworms; i++)
         gnibbles_worm_rescale (worms[i], tilesize);
 
@@ -315,7 +315,7 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
 
   properties->tilesize = tilesize;
   gnibbles_properties_set_tile_size (tilesize);
-  
+
   return FALSE;
 }
 
@@ -323,7 +323,7 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
 static gboolean
 network_loop (gpointer data)
 {
-  if (ggz_network_mode) { 
+  if (ggz_network_mode) {
     network_move_worms ();
   }
   return TRUE;
@@ -400,7 +400,7 @@ new_game (void)
       clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
     gnibbles_worm_show (worms[i]);
   }
-  
+
   paused = 0;
   gtk_action_set_visible (pause_action, !paused);
   gtk_action_set_visible (resume_action, paused);
@@ -541,7 +541,7 @@ restart_game (gpointer data)
 
   gnibbles_board_level_new (board, current_level);
   gnibbles_board_level_add_bonus (board, 1);
- 
+
   for (i = 0; i < properties->numworms; i++) {
     if (!clutter_actor_get_stage (worms[i]->actors))
       clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
@@ -553,12 +553,12 @@ restart_game (gpointer data)
 
   dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_2_cb, NULL);
   restart_id = 0;
-  
+
   return FALSE;
 }
 
 static void
-end_game_anim_cb (ClutterAnimation *animation, ClutterActor *actor) 
+end_game_anim_cb (ClutterAnimation *animation, ClutterActor *actor)
 {
   if (!restart_id)
     end_game (TRUE);
@@ -572,7 +572,7 @@ animate_end_game (void)
     clutter_actor_animate (worms[i]->actors, CLUTTER_EASE_IN_QUAD, 500,
                            "opacity", 0,
                            "scale-x", 0.4, "scale-y", 0.4,
-                           "fixed::scale-center-x", 
+                           "fixed::scale-center-x",
                            (gfloat) worms[i]->xhead * properties->tilesize,
                            "fixed::scale-center-y",
                            (gfloat) worms[i]->yhead * properties->tilesize,
@@ -630,7 +630,7 @@ main_loop (gpointer data)
       g_source_remove (main_id);
       main_id = 0;
     }
-    if (add_bonus_id) 
+    if (add_bonus_id)
       g_source_remove (add_bonus_id);
 
     add_bonus_id = 0;
@@ -650,7 +650,7 @@ main_loop (gpointer data)
     main_id = 0;
     if (add_bonus_id)
       g_source_remove (add_bonus_id);
-    
+
     add_bonus_id = 0;
 
     animate_end_game ();
@@ -674,7 +674,7 @@ main_loop (gpointer data)
     }
     if (add_bonus_id)
       g_source_remove (add_bonus_id);
-    
+
     if (main_id) {
       g_source_remove (main_id);
       main_id = 0;
@@ -691,7 +691,7 @@ main_loop (gpointer data)
     if (restart_id)
       return TRUE;
 
-    if (keyboard_id) 
+    if (keyboard_id)
       g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
 
     keyboard_id = 0;
@@ -793,9 +793,9 @@ static const char ui_description[] =
   "    </menu>"
   "    <menu action='HelpMenu'>"
   "      <menuitem action='Contents'/>"
-  "      <menuitem action='About'/>" 
-  "    </menu>" 
-  "  </menubar>" 
+  "      <menuitem action='About'/>"
+  "    </menu>"
+  "  </menubar>"
   "</ui>";
 
 static void
@@ -818,13 +818,13 @@ create_menus (GtkUIManager * ui_manager)
   pause_action = gtk_action_group_get_action (action_group, "Pause");
   resume_action = gtk_action_group_get_action (action_group, "Resume");
 
-  preferences_action = gtk_action_group_get_action (action_group, 
+  preferences_action = gtk_action_group_get_action (action_group,
                                                     "Preferences");
-  fullscreen_action = gtk_action_group_get_action (action_group, 
+  fullscreen_action = gtk_action_group_get_action (action_group,
                                                    "Fullscreen");
   leave_fullscreen_action = gtk_action_group_get_action (action_group,
                                                          "LeaveFullscreen");
-  new_network_action = gtk_action_group_get_action (action_group, 
+  new_network_action = gtk_action_group_get_action (action_group,
                                                     "NewNetworkGame");
 #ifndef GGZ_CLIENT
   gtk_action_set_sensitive (new_network_action, FALSE);
@@ -850,20 +850,20 @@ setup_window ()
 
   clutter_stage_set_color (CLUTTER_STAGE(stage), &stage_color);
 
-  clutter_actor_set_size (CLUTTER_ACTOR (stage), 
+  clutter_actor_set_size (CLUTTER_ACTOR (stage),
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
   clutter_stage_set_user_resizable (CLUTTER_STAGE (stage), FALSE);
-  
+
   board = gnibbles_board_new ();
 
   gtk_window_set_title (GTK_WINDOW (window), _("Nibbles"));
 
-  gtk_window_set_default_size (GTK_WINDOW (window), 
+  gtk_window_set_default_size (GTK_WINDOW (window),
                                DEFAULT_WIDTH, DEFAULT_HEIGHT);
   games_conf_add_window (GTK_WINDOW (window), KEY_PREFERENCES_GROUP);
 
-  g_signal_connect (G_OBJECT (window), "destroy", 
+  g_signal_connect (G_OBJECT (window), "destroy",
                     G_CALLBACK (gtk_main_quit), NULL);
   g_signal_connect (G_OBJECT (window), "delete_event",
                     G_CALLBACK (delete_cb), NULL);
@@ -921,9 +921,9 @@ setup_window ()
   scoreboard = gnibbles_scoreboard_new (statusbar);
 }
 
-static void 
+static void
 render_logo (void)
-{ 
+{
   ClutterActor *image;
   ClutterActor *text, *text_shadow;
   ClutterActor *desc, *desc_shadow;
@@ -931,24 +931,24 @@ render_logo (void)
   ClutterColor shadow_color = {0x00, 0x00, 0x00, 0x88};
   ClutterActor *text_group;
   static gint width, height;
-  gint size; 
+  gint size;
   gfloat stage_w, stage_h;
   PangoFontDescription *pfd;
   PangoLayout *layout;
   PangoContext *context;
-  
+
   gchar *nibbles = _("Nibbles");
   /* Translators: This string will be included in the intro screen, so don't make sure it fits! */
   gchar *description = _("A worm game for GNOME.");
 
   logo = clutter_group_new ();
   text_group = clutter_group_new ();
- 
+
   if (!logo_pixmap)
     gnibbles_load_logo (properties->tilesize);
 
   image = gtk_clutter_texture_new_from_pixbuf (logo_pixmap);
-  
+
   stage_w = board->width * properties->tilesize;
   stage_h = board->height * properties->tilesize;
 
@@ -959,15 +959,15 @@ render_logo (void)
 
   text = clutter_text_new ();
   clutter_text_set_color (CLUTTER_TEXT (text), &actor_color);
-  
+
   context = gdk_pango_context_get ();
   layout = clutter_text_get_layout (CLUTTER_TEXT (text));
   pfd = pango_context_get_font_description (context);
   size = pango_font_description_get_size (pfd);
-  
+
   pango_font_description_set_size (pfd, (size * stage_w) / 100);
   pango_font_description_set_family (pfd, "Sans");
-  pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD); 
+  pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
   pango_layout_set_font_description (layout, pfd);
   pango_layout_set_text (layout, nibbles, -1);
   pango_layout_get_pixel_size (layout, &width, &height);
@@ -979,8 +979,8 @@ render_logo (void)
   pango_layout_set_font_description (layout, pfd);
   pango_layout_set_text (layout, nibbles, -1);
 
-  clutter_actor_set_position (CLUTTER_ACTOR (text), 
-                              (stage_w - width) * 0.5 , 
+  clutter_actor_set_position (CLUTTER_ACTOR (text),
+                              (stage_w - width) * 0.5 ,
                               stage_h * .72);
   clutter_actor_set_position (CLUTTER_ACTOR (text_shadow),
                               (stage_w - width) * 0.5 + 5,
@@ -988,12 +988,12 @@ render_logo (void)
 
   desc = clutter_text_new ();
   layout = clutter_text_get_layout (CLUTTER_TEXT (desc));
-  
+
   clutter_text_set_color (CLUTTER_TEXT (desc), &actor_color);
   pango_font_description_set_size (pfd, (size * stage_w) / 400);
   pango_layout_set_font_description (layout, pfd);
   pango_layout_set_text (layout, description, -1);
-  pango_layout_get_pixel_size(layout, &width, &height); 
+  pango_layout_get_pixel_size(layout, &width, &height);
 
   desc_shadow = clutter_text_new ();
   layout = clutter_text_get_layout (CLUTTER_TEXT (desc_shadow));
@@ -1003,12 +1003,12 @@ render_logo (void)
   pango_layout_set_font_description (layout, pfd);
   pango_layout_set_text (layout, description, -1);
 
-  clutter_actor_set_position (CLUTTER_ACTOR (desc), 
+  clutter_actor_set_position (CLUTTER_ACTOR (desc),
                               (stage_w - width) * 0.5,
                               stage_h* .93);
   clutter_actor_set_position (CLUTTER_ACTOR (desc_shadow),
                               (stage_w - width) * 0.5 + 3,
-                              stage_h * .93 + 3);  
+                              stage_h * .93 + 3);
 
   clutter_container_add (CLUTTER_CONTAINER (text_group),
                          CLUTTER_ACTOR (text_shadow),
@@ -1020,7 +1020,7 @@ render_logo (void)
                          CLUTTER_ACTOR (image),
                          CLUTTER_ACTOR (text_group),
                          NULL);
- 
+
   clutter_actor_set_opacity (CLUTTER_ACTOR (text_group), 0);
   clutter_actor_set_scale (CLUTTER_ACTOR (text_group), 0.0, 0.0);
   clutter_actor_animate (text_group, CLUTTER_EASE_OUT_CIRC, 800,
@@ -1031,7 +1031,7 @@ render_logo (void)
                           "fixed::scale-center-x", stage_h / 2,
                           NULL);
 
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), 
+  clutter_container_add_actor (CLUTTER_CONTAINER (stage),
                                CLUTTER_ACTOR (logo));
 }
 
@@ -1071,7 +1071,7 @@ main (int argc, char **argv)
 
 #if GLIB_CHECK_VERSION (2, 12, 0)
   g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
-#endif 
+#endif
 
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
 
