@@ -673,9 +673,6 @@ gnibbles_worm_rescale (GnibblesWorm *worm, gint tilesize)
 void
 gnibbles_worm_move_head (GnibblesWorm *worm)
 {
-  if (g_list_length (worm->list) < 0)
-    return;
-
   if (worm->human)
     worm->keypress = 0;
 
