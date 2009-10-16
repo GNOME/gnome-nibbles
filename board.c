@@ -177,14 +177,14 @@ gnibbles_board_load_level (GnibblesBoard *board)
 void
 gnibbles_board_rescale (GnibblesBoard *board, gint tilesize)
 {
+  gint i, count;
+  gfloat x_pos, y_pos;
+  ClutterActor *tmp;
+
   if (!board->level)
     return;
   if (!board->surface)
     return;
-
-  gint i, count;
-  gfloat x_pos, y_pos;
-  ClutterActor *tmp;
 
   board->width = BOARDWIDTH * tilesize;
   board->height = BOARDHEIGHT * tilesize;
@@ -209,7 +209,6 @@ void
 gnibbles_board_level_new (GnibblesBoard *board, gint level)
 {
 
-  board->current_level = level;
   gchar *tmp = NULL;
   const char *dirname;
   gchar *filename;
@@ -217,6 +216,8 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
   gchar tmpboard [BOARDWIDTH +2];
   gint i,j;
   gint count = 0;
+
+  board->current_level = level;
 
   tmp = g_strdup_printf("level%03d.gnl", level);
 

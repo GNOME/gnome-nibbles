@@ -192,11 +192,11 @@ gnibbles_worm_remove_actor (GnibblesWorm *worm)
 gboolean
 gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
 {
-  if (worm->lives <= 0)
-    return FALSE;
-
   GnibblesWormProps *props;
   guint propsUp, propsLeft, propsDown, propsRight, keyvalUpper;
+
+  if (worm->lives <= 0)
+    return FALSE;
 
   props = properties->wormprops[ggz_network_mode ? 0 : worm->number];
   propsUp = toupper(props->up);
@@ -271,12 +271,11 @@ static gboolean
 gnibbles_worm_reverse (gpointer data)
 {
   GnibblesWorm *worm = (GnibblesWorm *) data;
+  gint tmp, old_dir;
 
   worm->list = g_list_reverse (worm->list);
 
-  gint old_dir = gnibbles_worm_get_tail_direction (worm);
-
-  gint tmp;
+  old_dir = gnibbles_worm_get_tail_direction (worm);
 
   tmp = worm->xhead;
   worm->xhead = worm->xtail;
@@ -584,10 +583,10 @@ gnibbles_worm_show (GnibblesWorm *worm)
 void
 gnibbles_worm_reset (GnibblesWorm *worm)
 {
+  gint i,j;
+
   worm->stop = TRUE;
   gnibbles_worm_animate_death (worm);
-
-  gint i,j;
 
   for (i = 0; i < BOARDHEIGHT; i++)
     for (j = 0; j < BOARDWIDTH; j++)
@@ -640,16 +639,16 @@ gnibbles_worm_destroy (GnibblesWorm *worm)
 void
 gnibbles_worm_rescale (GnibblesWorm *worm, gint tilesize)
 {
-  if (!worm)
-    return;
-  if (!worm->actors)
-    return;
-
   int i;
   gfloat x_pos, y_pos;
   gint count;
   ClutterActor *tmp;
   GError *err = NULL;
+
+  if (!worm)
+    return;
+  if (!worm->actors)
+    return;
 
   count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
 

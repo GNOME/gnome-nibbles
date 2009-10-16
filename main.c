@@ -834,7 +834,7 @@ create_menus (GtkUIManager * ui_manager)
 }
 
 static void
-setup_window ()
+setup_window (void)
 {
   GtkWidget *vbox;
   GtkWidget *packing;

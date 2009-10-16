@@ -194,12 +194,12 @@ gnibbles_load_logo (gint tilesize)
 }
 
 void
-gnibbles_init ()
+gnibbles_init (void)
 {
+  gint i;
+
   if (!board)
     return;
-
-  gint i;
 
   for (i = 0; i < properties->numworms; i++) {
     if (worms[i])
