@@ -17,3 +17,5 @@ DOC_FIGURES = \
 	figures/worm_op.png
 
 dist-hook: doc-dist-hook
+
+-include $(top_srcdir)/git.mk

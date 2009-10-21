@@ -36,3 +36,5 @@ SMALL_PIX = \
 pixmap_DATA = ${BONUS_PIX} ${SMALL_PIX}
 
 EXTRA_DIST = $(pixmap_DATA)
+
+-include $(top_srcdir)/git.mk
