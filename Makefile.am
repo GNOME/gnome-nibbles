@@ -114,10 +114,7 @@ EXTRA_DIST = \
 	$(pixmap_DATA) 	\
 	$(config_DATA) \
 	$(schema_in_files) \
-	$(man_MANS) \
-	gnibbles-client.dsc.in \
-	gnibbles-server.dsc.in \
-	gnibbles.room.in
+	$(man_MANS)
 
 CLEANFILES = \
 	$(NULL)
