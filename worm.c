@@ -255,13 +255,13 @@ gnibbles_worm_get_tail_direction (GnibblesWorm *worm)
   xdiff = MAX (x2,x1) - MIN (x2,x1);
   ydiff = MAX (y2,y1) - MIN (y2,y1);
 
-  if (x2 > x1 && fabs (y1 - y2) <= 0)
+  if (x2 > x1 && fabs (y1 - y2) < 0.0001)
     return xdiff > properties->tilesize ? WORMLEFT : WORMRIGHT;
-  else if (x2 < x1 && fabs (y1 - y2) <= 0)
+  else if (x2 < x1 && fabs (y1 - y2) < 0.0001)
     return xdiff > properties->tilesize ? WORMRIGHT : WORMLEFT;
-  else if (y2 > y1 && fabs (x1 - x2) <= 0)
+  else if (y2 > y1 && fabs (x1 - x2) < 0.0001)
     return ydiff > properties->tilesize ? WORMUP: WORMDOWN;
-  else if (y2 < y1 && fabs (x1 - x2) <= 0)
+  else if (y2 < y1 && fabs (x1 - x2) < 0.0001)
     return ydiff > properties->tilesize ? WORMDOWN : WORMUP;
   else
     return -1;
