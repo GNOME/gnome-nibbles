@@ -171,6 +171,7 @@ gnibbles_load_pixmap (gint tilesize)
   }
 }
 
+G_GNUC_NORETURN
 void
 gnibbles_error (gchar *message)
 {
