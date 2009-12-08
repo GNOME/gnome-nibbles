@@ -249,7 +249,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
   notebook = gtk_notebook_new ();
   gtk_container_set_border_width (GTK_CONTAINER (notebook), 5);
-  gtk_container_add (GTK_CONTAINER (GTK_DIALOG (pref_dialog)->vbox),
+  gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (pref_dialog))),
                      notebook);
 
   label = gtk_label_new (_("Game"));
