@@ -37,6 +37,7 @@
 #include <libgames-support/games-scores.h>
 #include <libgames-support/games-stock.h>
 #include <libgames-support/games-pause-action.h>
+#include <libgames-support/games-fullscreen-action.h>
 
 #include "main.h"
 #include "properties.h"
@@ -118,7 +119,6 @@ static GtkAction *end_game_action;
 static GtkAction *preferences_action;
 static GtkAction *scores_action;
 static GtkAction *fullscreen_action;
-static GtkAction *leave_fullscreen_action;
 
 static ClutterActor *logo;
 
@@ -126,26 +126,6 @@ static void
 hide_cursor (void)
 {
   clutter_stage_hide_cursor (CLUTTER_STAGE (stage));
-}
-
-static void
-set_fullscreen_actions (gboolean is_fullscreen)
-{
-  gtk_action_set_sensitive (leave_fullscreen_action, is_fullscreen);
-  gtk_action_set_visible (leave_fullscreen_action, is_fullscreen);
-
-  gtk_action_set_sensitive (fullscreen_action, !is_fullscreen);
-  gtk_action_set_visible (fullscreen_action, !is_fullscreen);
-}
-
-static void
-fullscreen_cb (GtkAction * action)
-{
-  if (action == fullscreen_action) {
-    gtk_window_fullscreen (GTK_WINDOW (window));
-  } else {
-    gtk_window_unfullscreen (GTK_WINDOW (window));
-  }
 }
 
 static void
@@ -164,18 +144,6 @@ network_gui_update (void)
 
 #endif
 }
-
-static gboolean
-window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
-{
-  /* Handle fullscreen, in case something else takes us to/from fullscreen. */
-  if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
-    set_fullscreen_actions (event->new_window_state
-                            & GDK_WINDOW_STATE_FULLSCREEN);
-
-  return FALSE;
-}
-
 
 static void
 show_cursor (void)
@@ -740,10 +708,6 @@ static const GtkActionEntry action_entry[] = {
   {"Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL,
    G_CALLBACK (show_scores_cb)},
   {"Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_cb)},
-  {"Fullscreen", GAMES_STOCK_FULLSCREEN, NULL, NULL, NULL,
-   G_CALLBACK (fullscreen_cb)},
-  {"LeaveFullscreen", GAMES_STOCK_LEAVE_FULLSCREEN, NULL, NULL, NULL,
-   G_CALLBACK (fullscreen_cb)},
   {"Preferences", GTK_STOCK_PREFERENCES, NULL, NULL, NULL,
    G_CALLBACK (gnibbles_preferences_cb)},
   {"Contents", GAMES_STOCK_CONTENTS, NULL, NULL, NULL, G_CALLBACK (help_cb)},
@@ -767,7 +731,6 @@ static const char ui_description[] =
   "    </menu>"
   "    <menu action='ViewMenu'>"
   "      <menuitem action='Fullscreen'/>"
-  "      <menuitem action='LeaveFullscreen'/>"
   "    </menu>"
   "    <menu action='SettingsMenu'>"
   "      <menuitem action='Preferences'/>"
@@ -802,10 +765,8 @@ create_menus (GtkUIManager * ui_manager)
 
   preferences_action = gtk_action_group_get_action (action_group,
                                                     "Preferences");
-  fullscreen_action = gtk_action_group_get_action (action_group,
-                                                   "Fullscreen");
-  leave_fullscreen_action = gtk_action_group_get_action (action_group,
-                                                         "LeaveFullscreen");
+  fullscreen_action = GTK_ACTION (games_fullscreen_action_new ("Fullscreen", GTK_WINDOW(window)));
+  gtk_action_group_add_action_with_accel (action_group, fullscreen_action, NULL);
   new_network_action = gtk_action_group_get_action (action_group,
                                                     "NewNetworkGame");
 #ifndef GGZ_CLIENT
@@ -849,8 +810,6 @@ setup_window (void)
                     G_CALLBACK (gtk_main_quit), NULL);
   g_signal_connect (G_OBJECT (window), "delete_event",
                     G_CALLBACK (delete_cb), NULL);
-  g_signal_connect (G_OBJECT (window), "window_state_event",
-                    G_CALLBACK (window_state_cb), NULL);
 
   gtk_widget_realize (window);
 
@@ -859,7 +818,6 @@ setup_window (void)
   games_stock_init ();
   ui_manager = gtk_ui_manager_new ();
   create_menus (ui_manager);
-  set_fullscreen_actions (FALSE);
   notebook = gtk_notebook_new ();
   gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
   gtk_notebook_set_show_border (GTK_NOTEBOOK (notebook), FALSE);
