@@ -36,6 +36,7 @@
 #include <libgames-support/games-runtime.h>
 #include <libgames-support/games-scores.h>
 #include <libgames-support/games-stock.h>
+#include <libgames-support/games-pause-action.h>
 
 #include "main.h"
 #include "properties.h"
@@ -101,8 +102,6 @@ gint keyboard_id = 0;
 gint add_bonus_id = 0;
 gint restart_id = 0;
 
-gint paused = 0;
-
 gint current_level;
 
 static gint add_bonus_cb (gpointer data);
@@ -114,8 +113,7 @@ static void hide_logo (void);
 static GtkAction *new_game_action;
 static GtkAction *new_network_action;
 static GtkAction *player_list_action;
-static GtkAction *pause_action;
-static GtkAction *resume_action;
+GtkAction *pause_action;
 static GtkAction *end_game_action;
 static GtkAction *preferences_action;
 static GtkAction *scores_action;
@@ -188,7 +186,7 @@ show_cursor (void)
 gint
 game_running (void)
 {
-  return (main_id || dummy_id || restart_id || paused);
+  return (main_id || dummy_id || restart_id || games_pause_action_get_is_paused (GAMES_PAUSE_ACTION (pause_action)));
 }
 
 static void
@@ -333,7 +331,7 @@ network_loop (gpointer data)
 static gboolean
 new_game_2_cb (GtkWidget * widget, gpointer data)
 {
-  if (!paused) {
+  if (!games_pause_action_get_is_paused (GAMES_PAUSE_ACTION (pause_action))) {
     if (!keyboard_id)
       keyboard_id = g_signal_connect (G_OBJECT (stage),
                                       "key-press-event",
@@ -401,9 +399,7 @@ new_game (void)
     gnibbles_worm_show (worms[i]);
   }
 
-  paused = 0;
-  gtk_action_set_visible (pause_action, !paused);
-  gtk_action_set_visible (resume_action, paused);
+  games_pause_action_set_is_paused (GAMES_PAUSE_ACTION (pause_action), FALSE);
   gtk_action_set_visible (player_list_action, ggz_network_mode);
 
   if (restart_id) {
@@ -432,15 +428,11 @@ new_game_cb (GtkAction * action, gpointer data)
   new_game ();
 }
 
-gboolean
+static void
 pause_game_cb (GtkAction * action, gpointer data)
 {
-  if (paused) {
-    paused = 0;
-    dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
-  } else {
+  if (games_pause_action_get_is_paused (GAMES_PAUSE_ACTION (action))) {
     if (main_id || restart_id || dummy_id) {
-      paused = 1;
       if (main_id) {
         g_source_remove (main_id);
         main_id = 0;
@@ -455,13 +447,9 @@ pause_game_cb (GtkAction * action, gpointer data)
       }
     }
   }
-
-  gtk_action_set_sensitive (pause_action, !paused);
-  gtk_action_set_sensitive (resume_action, paused);
-  gtk_action_set_visible (pause_action, !paused);
-  gtk_action_set_visible (resume_action, paused);
-
-  return TRUE;
+  else {
+    dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
+  }
 }
 
 static void
@@ -502,14 +490,12 @@ end_game (gboolean show_splash)
     render_logo ();
     gtk_action_set_sensitive (new_network_action, TRUE);
     gtk_action_set_sensitive (pause_action, FALSE);
-    gtk_action_set_sensitive (resume_action, FALSE);
     gtk_action_set_sensitive (end_game_action, FALSE);
     gtk_action_set_sensitive (preferences_action, TRUE);
   }
 
   network_gui_update ();
-  paused = 0;
-
+  games_pause_action_set_is_paused (GAMES_PAUSE_ACTION (pause_action), FALSE);
 }
 
 static gboolean
@@ -749,10 +735,6 @@ static const GtkActionEntry action_entry[] = {
 #endif
   {"PlayerList", GAMES_STOCK_PLAYER_LIST, NULL, NULL, NULL,
    G_CALLBACK (on_player_list)},
-  {"Pause", GAMES_STOCK_PAUSE_GAME, NULL, NULL, NULL,
-   G_CALLBACK (pause_game_cb)},
-  {"Resume", GAMES_STOCK_RESUME_GAME, NULL, NULL, NULL,
-   G_CALLBACK (pause_game_cb)},
   {"EndGame", GAMES_STOCK_END_GAME, NULL, NULL, NULL,
    G_CALLBACK (end_game_cb)},
   {"Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL,
@@ -778,7 +760,6 @@ static const char ui_description[] =
   "      <menuitem action='EndGame'/>"
   "      <separator/>"
   "      <menuitem action='Pause'/>"
-  "      <menuitem action='Resume'/>"
   "      <separator/>"
   "      <menuitem action='Scores'/>"
   "      <separator/>"
@@ -815,8 +796,9 @@ create_menus (GtkUIManager * ui_manager)
   new_game_action = gtk_action_group_get_action (action_group, "NewGame");
   scores_action = gtk_action_group_get_action (action_group, "Scores");
   end_game_action = gtk_action_group_get_action (action_group, "EndGame");
-  pause_action = gtk_action_group_get_action (action_group, "Pause");
-  resume_action = gtk_action_group_get_action (action_group, "Resume");
+  pause_action = GTK_ACTION (games_pause_action_new ("Pause"));
+  g_signal_connect (G_OBJECT (pause_action), "state-changed", G_CALLBACK (pause_game_cb), NULL);
+  gtk_action_group_add_action_with_accel (action_group, pause_action, NULL);
 
   preferences_action = gtk_action_group_get_action (action_group,
                                                     "Preferences");
@@ -1107,9 +1089,7 @@ main (int argc, char **argv)
 #endif
 
   gtk_action_set_sensitive (pause_action, FALSE);
-  gtk_action_set_sensitive (resume_action, FALSE);
   gtk_action_set_sensitive (end_game_action, FALSE);
-  gtk_action_set_visible (resume_action, paused);
   gtk_action_set_visible (new_game_action, !ggz_network_mode);
   gtk_action_set_visible (player_list_action, ggz_network_mode);
 

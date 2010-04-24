@@ -35,9 +35,9 @@ int num_players;
 int seat;
 int seats[NUMWORMS];
 char names[NUMWORMS][17];
+extern GtkAction *pause_action;
 
 gboolean game_running (void);
-gboolean pause_game_cb (GtkAction * action, gpointer data);
 void end_game (gboolean);
 
 gboolean new_game (void);

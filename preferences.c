@@ -28,6 +28,7 @@
 
 #include <libgames-support/games-frame.h>
 #include <libgames-support/games-controls.h>
+#include <libgames-support/games-pause-action.h>
 
 #ifdef GGZ_CLIENT
 #include "ggz-network.h"
@@ -45,7 +46,6 @@ static GtkWidget *pref_dialog = NULL;
 static gint unpause = 0;
 extern GtkWidget *window;
 extern GnibblesProperties *properties;
-extern gint paused;
 
 GtkWidget *start_level_label, *start_level_spin_button;
 GtkWidget *num_human, *num_ai;
@@ -66,7 +66,7 @@ static void
 destroy_cb (GtkWidget * widget, gpointer data)
 {
   if (unpause) {
-    pause_game_cb (NULL, 0);
+    gtk_action_activate (pause_action);
     unpause = 0;
   }
   network_set_preferences ();
@@ -230,9 +230,9 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     return;
   }
 
-  if (!paused) {
+  if (!games_pause_action_get_is_paused (GAMES_PAUSE_ACTION (pause_action))) {
     unpause = 1;
-    pause_game_cb (NULL, 0);
+    gtk_action_activate (pause_action);
   }
 
   if (game_running ())
