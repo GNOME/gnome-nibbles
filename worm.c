@@ -273,9 +273,9 @@ gnibbles_worm_reverse (gpointer data)
   GnibblesWorm *worm = (GnibblesWorm *) data;
   gint tmp, old_dir;
 
-  worm->list = g_list_reverse (worm->list);
-
   old_dir = gnibbles_worm_get_tail_direction (worm);
+
+  worm->list = g_list_reverse (worm->list);
 
   tmp = worm->xhead;
   worm->xhead = worm->xtail;
