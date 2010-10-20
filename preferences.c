@@ -468,15 +468,15 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
     gtk_table_attach (GTK_TABLE (table2), label2, 0, 1, 0, 1, 0, 0, 0, 0);
 
-    omenu = gtk_combo_box_new_text ();
+    omenu = gtk_combo_box_text_new ();
     gtk_label_set_mnemonic_widget (GTK_LABEL (label2), omenu);
-    gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Red"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Green"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Blue"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Yellow"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Cyan"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Purple"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX (omenu), _("Gray"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (omenu), _("Red"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (omenu), _("Green"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (omenu), _("Blue"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (omenu), _("Yellow"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (omenu), _("Cyan"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (omenu), _("Purple"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (omenu), _("Gray"));
     g_signal_connect (GTK_OBJECT (omenu), "changed",
                       G_CALLBACK (set_worm_color_cb),
                       GINT_TO_POINTER (i));
