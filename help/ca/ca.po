@@ -691,7 +691,7 @@ msgid ""
 "guimenu><guimenuitem>Network Game</guimenuitem></menuchoice> on the Nibbles "
 "menu."
 msgstr ""
-"Per a iniciar la partida multijudaor del Nibbles, seleccioneu "
+"Per a iniciar la partida multijugador del Nibbles, seleccioneu "
 "<menuchoice><guimenu>Partida</guimenu><guimenuitem>Joc en xarxa</"
 "guimenuitem></menuchoice> en el menú del Nibbles."
 
