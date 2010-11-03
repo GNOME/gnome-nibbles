@@ -82,7 +82,6 @@ static const GamesScoresCategory scorecats[] = {
 
 GamesScores *highscores;
 
-extern GdkPixmap *buffer_pixmap;
 extern GdkPixbuf *logo_pixmap;
 
 GnibblesProperties *properties;

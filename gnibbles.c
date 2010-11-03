@@ -55,7 +55,6 @@ GnibblesWorm *worms[NUMWORMS];
 GnibblesBoni *boni = NULL;
 GnibblesWarpManager *warpmanager;
 
-GdkPixmap *buffer_pixmap = NULL;
 GdkPixbuf *logo_pixmap = NULL;
 
 GdkPixbuf *wall_pixmaps[11] = { NULL, NULL, NULL, NULL, NULL,

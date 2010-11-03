@@ -151,22 +151,22 @@ gnibbles_properties_update (GnibblesProperties * tmp)
     g_snprintf (buffer, sizeof (buffer), KEY_WORM_UP, i);
     tmp->wormprops[i]->up =
                  games_conf_get_keyval_with_default (KEY_PREFERENCES_GROUP,
-                                                     buffer, GDK_Up);
+                                                     buffer, GDK_KEY_Up);
 
     g_snprintf (buffer, sizeof (buffer), KEY_WORM_DOWN, i);
     tmp->wormprops[i]->down =
                  games_conf_get_keyval_with_default (KEY_PREFERENCES_GROUP,
-                                                     buffer, GDK_Down);
+                                                     buffer, GDK_KEY_Down);
 
     g_snprintf (buffer, sizeof (buffer), KEY_WORM_LEFT, i);
     tmp->wormprops[i]->left =
                  games_conf_get_keyval_with_default (KEY_PREFERENCES_GROUP,
-                                                     buffer, GDK_Left);
+                                                     buffer, GDK_KEY_Left);
 
     g_snprintf (buffer, sizeof (buffer), KEY_WORM_RIGHT, i);
     tmp->wormprops[i]->right =
                  games_conf_get_keyval_with_default (KEY_PREFERENCES_GROUP,
-                                                     buffer, GDK_Right);
+                                                     buffer, GDK_KEY_Right);
   }
 
   category = g_strdup_printf ("%d.%d", tmp->gamespeed, tmp->fakes);
