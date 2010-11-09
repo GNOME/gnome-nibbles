@@ -196,11 +196,7 @@ about_cb (GtkAction * action, gpointer data)
   gchar *license = games_get_license (_("Nibbles"));
 
   gtk_show_about_dialog (GTK_WINDOW (window),
-#if GTK_CHECK_VERSION (2, 11, 0)
        "program-name", _("Nibbles"),
-#else
-       "name", _("Nibbles"),
-#endif
        "version", VERSION,
        "copyright",
        "Copyright \xc2\xa9 1999-2008 Sean MacIsaac, Ian Peters, Andreas Røsdal"
