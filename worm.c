@@ -303,7 +303,7 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
   int i;
 
   if (gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
-    g_timeout_add (1, (GtkFunction) gnibbles_worm_reverse, worm);
+    g_timeout_add (1, (GSourceFunc) gnibbles_worm_reverse, worm);
     games_sound_play ("reverse");
     return;
   }
