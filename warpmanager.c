@@ -230,7 +230,7 @@ gnibbles_warpmanager_rescale (GnibblesWarpManager *warpmanager, gint tilesize)
                                 (x_pos / properties->tilesize) * tilesize,
                                 (y_pos / properties->tilesize) * tilesize);
     gtk_clutter_texture_set_from_pixbuf
-      (CLUTTER_TEXTURE (warpmanager->warps[i]->actor), boni_pixmaps[WARP], &err);
+      (GTK_CLUTTER_TEXTURE (warpmanager->warps[i]->actor), boni_pixmaps[WARP], &err);
     if (err)
       gnibbles_error (err->message);
   }
