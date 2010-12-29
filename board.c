@@ -91,6 +91,7 @@ gnibbles_board_load_level (GnibblesBoard *board)
   gint x_pos, y_pos;
   ClutterActor *tmp;
   gboolean is_wall = TRUE;
+  GError *error = NULL;
 
   if (board->level) {
     clutter_group_remove_all (CLUTTER_GROUP (board->level));
@@ -109,37 +110,59 @@ gnibbles_board_load_level (GnibblesBoard *board)
           is_wall = FALSE;
           break; // break right away
         case 'b': // straight up
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[0]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[0], &error);
           break;
         case 'c': // straight side
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[1]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[1], &error);
           break;
         case 'd': // corner bottom left
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[2]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[2], &error);
           break;
         case 'e': // corner bottom right
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[3]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[3], &error);
           break;
           case 'f': // corner up left
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[4]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[4], &error);
           break;
         case 'g': // corner up right
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[5]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[5], &error);
           break;
         case 'h': // tee up
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[6]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[6], &error);
           break;
         case 'i': // tee right
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[7]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[7], &error);
           break;
         case 'j': // tee left
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[8]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[8], &error);
           break;
         case 'k': // tee down
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[9]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[9], &error);
           break;
         case 'l': // cross
-          tmp = gtk_clutter_texture_new_from_pixbuf (wall_pixmaps[10]);
+          tmp = gtk_clutter_texture_new ();
+          gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (tmp),
+                                               wall_pixmaps[10], &error);
           break;
         default:
           is_wall = FALSE;

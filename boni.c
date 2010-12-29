@@ -202,7 +202,7 @@ gnibbles_boni_rescale (GnibblesBoni *boni, gint tilesize)
     clutter_actor_set_position (boni->bonuses[i]->actor,
                                 (x_pos / properties->tilesize) * tilesize,
                                 (y_pos / properties->tilesize) * tilesize);
-    gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE(boni->bonuses[i]->actor),
+    gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE(boni->bonuses[i]->actor),
                                          boni_pixmaps[boni->bonuses[i]->type],
                                          &err);
     if (err)

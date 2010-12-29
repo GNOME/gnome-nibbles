@@ -71,7 +71,7 @@ gnibbles_warp_new (gint t_x, gint t_y, gint t_wx, gint t_wy)
   tmp->y = t_y;
   tmp->wx = t_wx;
   tmp->wy = t_wy;
-  tmp->actor = clutter_texture_new ();
+  tmp->actor = gtk_clutter_texture_new ();
 
   return (tmp);
 }
@@ -81,7 +81,7 @@ gnibbles_warp_draw (GnibblesWarp *warp)
 {
   GError *err = NULL;
 
-  gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (warp->actor),
+  gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (warp->actor),
                                       boni_pixmaps[WARP],
                                       &err);
   if (err)

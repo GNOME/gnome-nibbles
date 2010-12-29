@@ -81,7 +81,7 @@ gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
   tmp->type = t_type;
   tmp->fake = t_fake;
   tmp->countdown = t_countdown;
-  tmp->actor = clutter_texture_new ();
+  tmp->actor = gtk_clutter_texture_new ();
   return (tmp);
 }
 
@@ -94,7 +94,7 @@ gnibbles_bonus_draw (GnibblesBonus *bonus)
                               bonus->x * properties->tilesize,
                               bonus->y * properties->tilesize);
 
-  gtk_clutter_texture_set_from_pixbuf (CLUTTER_TEXTURE (bonus->actor),
+  gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (bonus->actor),
                                        boni_pixmaps[bonus->type],
                                        &err);
   if (err)

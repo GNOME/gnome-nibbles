@@ -872,6 +872,7 @@ render_logo (void)
   PangoFontDescription *pfd;
   PangoLayout *layout;
   PangoContext *context;
+  GError *error = NULL;
 
   gchar *nibbles = _("Nibbles");
   /* Translators: This string will be included in the intro screen, so don't make sure it fits! */
@@ -883,7 +884,8 @@ render_logo (void)
   if (!logo_pixmap)
     gnibbles_load_logo (properties->tilesize);
 
-  image = gtk_clutter_texture_new_from_pixbuf (logo_pixmap);
+  image = gtk_clutter_texture_new ();
+  gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (image), logo_pixmap, &error);
 
   stage_w = board->width * properties->tilesize;
   stage_h = board->height * properties->tilesize;
