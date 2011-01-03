@@ -245,7 +245,7 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
 
   clutter_actor_set_size (CLUTTER_ACTOR (stage),
                           BOARDWIDTH * tilesize,
-                          BOARDWIDTH * tilesize);
+                          BOARDHEIGHT * tilesize);
   if (game_running ()) {
     if (board) {
       gnibbles_board_rescale (board, tilesize);
