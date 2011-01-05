@@ -736,7 +736,7 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
     worm->length -= erasesize;
     clutter_container_add_actor (CLUTTER_CONTAINER (stage), group);
 
-    clutter_actor_animate (group, CLUTTER_EASE_OUT_ELASTIC, 850,
+    clutter_actor_animate (group, CLUTTER_EASE_OUT_EXPO, 850,
                            "opacity", 0,
                            NULL);
   }
