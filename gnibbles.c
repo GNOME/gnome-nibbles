@@ -390,7 +390,6 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
 void
 gnibbles_log_score (GtkWidget * window)
 {
-  GamesScoreValue score;
   gint pos;
 
   if (properties->numworms > 1)
@@ -405,8 +404,7 @@ gnibbles_log_score (GtkWidget * window)
   if (!worms[0]->score)
     return;
 
-  score.plain = worms[0]->score;
-  pos = games_scores_add_score (highscores, score);
+  pos = games_scores_add_plain_score (highscores, worms[0]->score);
 
   gnibbles_show_scores (window, pos);
 }
