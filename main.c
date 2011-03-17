@@ -1004,7 +1004,19 @@ main (int argc, char **argv)
   setgid_io_init ();
 #endif
 
-  gtk_clutter_init (&argc, &argv);
+  g_set_application_name (_("Nibbles"));
+
+  if (gtk_clutter_init (&argc, &argv) != CLUTTER_INIT_SUCCESS) {
+    GtkWidget *dialog = gtk_message_dialog_new (NULL,
+                                                GTK_DIALOG_MODAL,
+                                                GTK_MESSAGE_ERROR,
+                                                GTK_BUTTONS_NONE,
+                                                "%s", "Unable to initialize Clutter.");
+    gtk_window_set_title (GTK_WINDOW (dialog), g_get_application_name ());
+    gtk_dialog_run (GTK_DIALOG (dialog));
+    gtk_widget_destroy (dialog);
+    exit (1);
+  }
 
   context = g_option_context_new (NULL);
   g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
@@ -1017,8 +1029,6 @@ main (int argc, char **argv)
     g_error_free (error);
     exit (1);
   }
-
-  g_set_application_name (_("Nibbles"));
 
   gtk_window_set_default_icon_name ("gnome-gnibbles");
   srand (time (NULL));
