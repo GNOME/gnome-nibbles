@@ -20,8 +20,6 @@
 #ifndef _BONI_H_
 #define _BONI_H_
 
-#include <config.h>
-
 #include <gtk/gtk.h>
 
 #include "bonus.h"

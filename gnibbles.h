@@ -20,8 +20,6 @@
 #ifndef _GNIBBLES_H_
 #define _GNIBBLES_H_
 
-#include <config.h>
-
 #include <gtk/gtk.h>
 
 #include "warpmanager.h"

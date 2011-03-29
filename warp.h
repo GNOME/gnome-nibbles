@@ -20,8 +20,6 @@
 #ifndef _WARP_H_
 #define _WARP_H_
 
-#include <config.h>
-
 #include <gtk/gtk.h>
 #include <clutter/clutter.h>
 

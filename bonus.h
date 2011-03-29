@@ -21,8 +21,6 @@
 #ifndef _BONUS_H_
 #define _BONUS_H_
 
-#include <config.h>
-
 #include <gtk/gtk.h>
 #include <clutter/clutter.h>
 

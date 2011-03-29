@@ -20,8 +20,6 @@
 #ifndef _WARPMANAGER_H_
 #define _WARPMANAGER_H_
 
-#include <config.h>
-
 #include <gtk/gtk.h>
 
 #include "warp.h"

@@ -20,8 +20,6 @@
 #ifndef _SCOREBOARD_H_
 #define _SCOREBOARD_H_
 
-#include <config.h>
-
 #include <gtk/gtk.h>
 
 #include "gnibbles.h"
