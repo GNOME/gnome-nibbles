@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnibbles\n"
-"POT-Creation-Date: 2008-03-02 03:47+0000\n"
-"PO-Revision-Date: 2008-08-05 18:04+0100\n"
+"POT-Creation-Date: 2011-03-18 18:26+0000\n"
+"PO-Revision-Date: 2011-04-02 18:49+0200\n"
 "Last-Translator: Joan Duran <jodufi@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,25 +16,25 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:186(None)
+#: C/gnibbles.xml:188(None)
 msgid "@@image: 'figures/intro.png'; md5=fba0b0fc807a1eed13d9b5bba6a8d9fa"
 msgstr "@@image: 'figures/intro.png'; md5=fba0b0fc807a1eed13d9b5bba6a8d9fa"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:209(None)
+#: C/gnibbles.xml:211(None)
 msgid "@@image: 'figures/playing.png'; md5=68c63b494278113a82ac864a277891c4"
 msgstr "@@image: 'figures/playing.png'; md5=68c63b494278113a82ac864a277891c4"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:409(None)
+#: C/gnibbles.xml:411(None)
 msgid "@@image: 'figures/game.png'; md5=3103fe2ce969c658bf74cbf66fb2ec64"
 msgstr "@@image: 'figures/game.png'; md5=3103fe2ce969c658bf74cbf66fb2ec64"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:491(None)
+#: C/gnibbles.xml:493(None)
 msgid "@@image: 'figures/worm_op.png'; md5=b6ccbcdd5d11fe28a75fd23c0d96483a"
 msgstr "@@image: 'figures/worm_op.png'; md5=b6ccbcdd5d11fe28a75fd23c0d96483a"
 
@@ -62,8 +62,8 @@ msgid ""
 msgstr ""
 "El Nibbles és un joc de cucs per al GNOME. El jugador controla un cuc en 2D "
 "mentre intenta aconseguir menjar. Aconseguir menjar dóna punts, però xocar "
-"contra qualsevol cosa en provoca la pèrdua. Quan s'han perdut tots els punts, "
-"el jugador perd."
+"contra qualsevol cosa en provoca la pèrdua. Quan s'han perdut tots els "
+"punts, el jugador perd."
 
 #: C/gnibbles.xml:40(year)
 msgid "2000"
@@ -74,7 +74,7 @@ msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #: C/gnibbles.xml:57(publishername) C/gnibbles.xml:70(orgname)
-#: C/gnibbles.xml:96(para)
+#: C/gnibbles.xml:98(para)
 msgid "GNOME Documentation Project"
 msgstr "Projecte de documentació del GNOME"
 
@@ -135,9 +135,9 @@ msgid ""
 "ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION "
 "OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
 msgstr ""
-"EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI "
-"EXPLÍCITA NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE "
-"EL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI "
+"EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI EXPLÍCITA "
+"NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE EL DOCUMENT "
+"O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI "
 "COMERCIALITZABLE, SIGUI ADEQUAT PER A UN ÚS CONCRET O NO INFRINGEIXI CAP "
 "LLEI. TOT EL RISC PEL QUE FA A LA QUALITAT, EXACTITUD I RENDIMENT DEL "
 "DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT ÉS VOSTRE. EN CAS QUE EL "
@@ -194,56 +194,57 @@ msgstr "Breit"
 msgid "battery841@mypad.com"
 msgstr "battery841@mypad.com"
 
-#: C/gnibbles.xml:90(revnumber)
+#: C/gnibbles.xml:92(revnumber)
 msgid "Nibbles Manual V2.20"
 msgstr "Manual del Nibbles (versió 2.20)"
 
-#: C/gnibbles.xml:91(date)
+#: C/gnibbles.xml:93(date)
 msgid "May 2007"
 msgstr "Maig de 2007"
 
-#: C/gnibbles.xml:93(para)
+#: C/gnibbles.xml:95(para)
 msgid "Kevin Breit <email>battery841@mypad.com</email>"
 msgstr "Kevin Breit <email>battery841@mypad.com</email>"
 
-#: C/gnibbles.xml:101(releaseinfo)
+#: C/gnibbles.xml:103(releaseinfo)
 msgid "This manual describes version 2.20 of Nibbles."
 msgstr "Aquest manual descriu la versió 2.20 del Nibbles."
 
-#: C/gnibbles.xml:108(title)
+#: C/gnibbles.xml:110(title)
 msgid "Feedback"
 msgstr "Comentaris"
 
-#: C/gnibbles.xml:109(para)
+#: C/gnibbles.xml:111(para)
 msgid ""
 "To report a bug or make a suggestion regarding the <application>Nibbles</"
 "application> application or this manual, follow the directions in the <ulink "
-"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
+"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</"
+"ulink>."
 msgstr ""
 "Per a informar d'un error o fer algun suggeriment quant al "
 "<application>Nibbles</application> o aquest manual, seguiu les indicacions a "
-"la <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">pàgina de comentaris "
-"del GNOME</ulink>."
+"la <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">pàgina de "
+"comentaris del GNOME</ulink>."
 
-#: C/gnibbles.xml:119(primary)
+#: C/gnibbles.xml:121(primary)
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: C/gnibbles.xml:126(title)
+#: C/gnibbles.xml:128(title)
 msgid "Introduction"
 msgstr "Introducció"
 
-#: C/gnibbles.xml:128(para)
+#: C/gnibbles.xml:130(para)
 msgid ""
 "<application>Nibbles</application> is a game where the user controls a worm. "
 "The worm moves around the board, eating diamonds while avoiding the walls "
 "placed around it."
 msgstr ""
-"El <application>Nibbles</application> és un joc on l'usuari controla un "
-"cuc. Aquest es mou al voltant del tauler menjant diamants mentre evita les "
-"parets que hi ha al voltant."
+"El <application>Nibbles</application> és un joc on l'usuari controla un cuc. "
+"Aquest es mou al voltant del tauler menjant diamants mentre evita les parets "
+"que hi ha al voltant."
 
-#: C/gnibbles.xml:132(para)
+#: C/gnibbles.xml:134(para)
 msgid ""
 "To run <application>Nibbles</application>, select "
 "<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Nibbles</"
@@ -255,7 +256,7 @@ msgstr ""
 "menuchoice> en el menú <guimenu>Aplicacions</guimenu> o introduïu "
 "<command>gnibbles</command> en la línia d'ordres."
 
-#: C/gnibbles.xml:142(para)
+#: C/gnibbles.xml:144(para)
 msgid ""
 "<application>Nibbles</application> is included in the <filename>gnome-games</"
 "filename> package, which is part of the GNOME desktop environment. This "
@@ -266,11 +267,11 @@ msgstr ""
 "GNOME. Aquest document descriu la versió 2.20 del <application>Nibbles</"
 "application>."
 
-#: C/gnibbles.xml:151(title)
+#: C/gnibbles.xml:153(title)
 msgid "Nibbles Objective"
 msgstr "Objectiu del Nibbles"
 
-#: C/gnibbles.xml:152(para)
+#: C/gnibbles.xml:154(para)
 msgid ""
 "The objective of Nibbles is quite simple. You control the worm and if the "
 "worm runs into a wall or runs into itself, you die. You get ten lives before "
@@ -279,12 +280,12 @@ msgid ""
 "against worms with artificial intelligence."
 msgstr ""
 "L'objectiu del Nibbles és bastant senzill. Heu de controlar el cuc i si "
-"aquest xoca contra una paret o contra ell mateix, mor. Teniu deu vides "
-"abans que s'acabi la partida. Guanyareu quan supereu la vostra puntuació "
-"màxima (o d'un amic) o en completar tots els nivells. També és possible "
-"jugar contra cucs amb intel·ligència artificial."
+"aquest xoca contra una paret o contra ell mateix, mor. Teniu deu vides abans "
+"que s'acabi la partida. Guanyareu quan supereu la vostra puntuació màxima (o "
+"d'un amic) o en completar tots els nivells. També és possible jugar contra "
+"cucs amb intel·ligència artificial."
 
-#: C/gnibbles.xml:159(para)
+#: C/gnibbles.xml:161(para)
 msgid ""
 "Nibbles also features <link linkend=\"network-games\">multiplayer</link> "
 "support with up to six competing human players in hotseat or network mode."
@@ -293,11 +294,11 @@ msgstr ""
 "\">multijugador</link> amb fins a sis jugadors humans en mode cadira-calenta "
 "o en xarxa."
 
-#: C/gnibbles.xml:169(title)
+#: C/gnibbles.xml:171(title)
 msgid "Using Nibbles"
 msgstr "Utilitzar el Nibbles"
 
-#: C/gnibbles.xml:170(para)
+#: C/gnibbles.xml:172(para)
 msgid ""
 "<application>Nibbles</application> is a simple game to play. The only keys "
 "that are needed are the arrow keys."
@@ -305,19 +306,19 @@ msgstr ""
 "El <application>Nibbles</application> és un joc fàcil de jugar. Les úniques "
 "tecles que necessiteu són les tecles de cursor."
 
-#: C/gnibbles.xml:177(title)
+#: C/gnibbles.xml:179(title)
 msgid "Basic usage"
 msgstr "Utilització bàsica"
 
-#: C/gnibbles.xml:182(title)
+#: C/gnibbles.xml:184(title)
 msgid "Nibbles Introduction Window"
 msgstr "Finestra d'introducció del Nibbles"
 
-#: C/gnibbles.xml:189(phrase)
+#: C/gnibbles.xml:191(phrase)
 msgid "Nibbles Introduction Window."
 msgstr "Finestra d'introducció del Nibbles."
 
-#: C/gnibbles.xml:178(para)
+#: C/gnibbles.xml:180(para)
 msgid ""
 "Starting <application>Nibbles</application> opens the <interface>main "
 "window</interface> shown below. <placeholder-1/>"
@@ -326,7 +327,7 @@ msgstr ""
 "<interface>finestra principal</interface> com es mostra a sota. <placeholder-"
 "1/>"
 
-#: C/gnibbles.xml:195(para)
+#: C/gnibbles.xml:197(para)
 msgid ""
 "To start the game, select <menuchoice><guimenu>Game</"
 "guimenu><guimenuitem>New Game</guimenuitem></menuchoice>."
@@ -334,15 +335,15 @@ msgstr ""
 "Per a iniciar una partida, seleccioneu <menuchoice><guimenu>Partida</"
 "guimenu><guimenuitem>Nova</guimenuitem></menuchoice>."
 
-#: C/gnibbles.xml:205(title)
+#: C/gnibbles.xml:207(title)
 msgid "Nibbles During Gameplay"
 msgstr "El Nibbles en una partida"
 
-#: C/gnibbles.xml:212(phrase)
+#: C/gnibbles.xml:214(phrase)
 msgid "Nibbles During Gameplay."
 msgstr "El Nibbles en una partida."
 
-#: C/gnibbles.xml:199(para)
+#: C/gnibbles.xml:201(para)
 msgid ""
 "When the game starts, the worm will come out of the left side of the screen. "
 "You use the up arrow to make the direction of the worm go up. Use the right "
@@ -355,11 +356,11 @@ msgstr ""
 "esquerra per a girar el cuc a l'esquerra i la fletxa avall per a girar el "
 "cuc avall. <placeholder-1/>"
 
-#: C/gnibbles.xml:228(title)
+#: C/gnibbles.xml:230(title)
 msgid "Menus"
 msgstr "Menús"
 
-#: C/gnibbles.xml:229(para)
+#: C/gnibbles.xml:231(para)
 msgid ""
 "The menu bar, located at the top of the <interface>Main Window</interface>, "
 "contains the following menus:"
@@ -367,11 +368,11 @@ msgstr ""
 "La barra de menú, situada a la part superior de la <interface>finestra "
 "principal</interface>, conté els menús següents:"
 
-#: C/gnibbles.xml:236(guimenu)
+#: C/gnibbles.xml:238(guimenu)
 msgid "Game"
 msgstr "Partida"
 
-#: C/gnibbles.xml:242(para)
+#: C/gnibbles.xml:244(para)
 msgid ""
 "<menuchoice><shortcut><keysym>Ctrl+N</keysym></shortcut><guimenuitem>New "
 "Game</guimenuitem></menuchoice> This starts a new game of "
@@ -381,7 +382,7 @@ msgstr ""
 "guimenuitem></menuchoice> Inicia una partida nova del <application>Nibbles</"
 "application>."
 
-#: C/gnibbles.xml:253(para)
+#: C/gnibbles.xml:255(para)
 msgid ""
 "<menuchoice><shortcut><keysym>Ctrl+G</keysym></shortcut><guimenuitem>Network "
 "Game</guimenuitem></menuchoice> This starts a network multiplayer game using "
@@ -391,7 +392,7 @@ msgstr ""
 "xarxa</guimenuitem></menuchoice> Inicia una partida multijugador en xarxa "
 "utilitzant el GGZ Gaming Zone."
 
-#: C/gnibbles.xml:264(para)
+#: C/gnibbles.xml:266(para)
 msgid ""
 "<menuchoice><guimenuitem>Scores</guimenuitem></menuchoice> This shows the "
 "high scores."
@@ -399,7 +400,7 @@ msgstr ""
 "<menuchoice><guimenuitem>Puntuacions</guimenuitem></menuchoice> Mostra les "
 "puntuacions màximes."
 
-#: C/gnibbles.xml:272(para)
+#: C/gnibbles.xml:274(para)
 msgid ""
 "<menuchoice><guimenuitem>Pause game</guimenuitem></menuchoice> This will "
 "pause your game. Click on the <quote>Pause Game </quote> menu option to "
@@ -409,7 +410,7 @@ msgstr ""
 "pausa a la partida. Feu clic en la opció del menú <quote>Fes una pausa</"
 "quote> per a reprendre la partida."
 
-#: C/gnibbles.xml:281(para)
+#: C/gnibbles.xml:283(para)
 msgid ""
 "<menuchoice><guimenuitem>End Game</guimenuitem></menuchoice> End the current "
 "game and return to the title screen."
@@ -417,7 +418,7 @@ msgstr ""
 "<menuchoice><guimenuitem>Acaba el joc</guimenuitem></menuchoice> Acaba la "
 "partida actual i torna a la pantalla del títol."
 
-#: C/gnibbles.xml:289(para)
+#: C/gnibbles.xml:291(para)
 msgid ""
 "<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Exit</"
 "guimenuitem></menuchoice> This quits the application."
@@ -425,16 +426,16 @@ msgstr ""
 "<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Surt</"
 "guimenuitem></menuchoice> Surt de l'aplicació."
 
-#: C/gnibbles.xml:238(para) C/gnibbles.xml:307(para) C/gnibbles.xml:326(para)
-#: C/gnibbles.xml:346(para)
+#: C/gnibbles.xml:240(para) C/gnibbles.xml:309(para) C/gnibbles.xml:328(para)
+#: C/gnibbles.xml:348(para)
 msgid "This menu contains: <placeholder-1/>"
 msgstr "Aquest menú conté: <placeholder-1/>"
 
-#: C/gnibbles.xml:305(guimenu)
+#: C/gnibbles.xml:307(guimenu)
 msgid "View"
 msgstr "Visualitza"
 
-#: C/gnibbles.xml:311(para)
+#: C/gnibbles.xml:313(para)
 msgid ""
 "<menuchoice><guimenuitem>Fullscreen</guimenuitem></menuchoice> This toggles "
 "your game window to be fullscreen."
@@ -442,11 +443,11 @@ msgstr ""
 "<menuchoice><guimenuitem>Pantalla completa</guimenuitem></menuchoice> "
 "Commuta la finestra de partida a pantalla completa."
 
-#: C/gnibbles.xml:324(guimenu)
+#: C/gnibbles.xml:326(guimenu)
 msgid "Settings"
 msgstr "Paràmetres"
 
-#: C/gnibbles.xml:330(para)
+#: C/gnibbles.xml:332(para)
 msgid ""
 "<menuchoice><guimenuitem>Preferences</guimenuitem></menuchoice> This opens "
 "your window to edit <link linkend=\"prefs\"> preferences.</link>"
@@ -454,11 +455,11 @@ msgstr ""
 "<menuchoice><guimenuitem>Preferències</guimenuitem></menuchoice> Obre la "
 "finestra per a editar les <link linkend=\"prefs\">preferències</link>."
 
-#: C/gnibbles.xml:344(guimenu)
+#: C/gnibbles.xml:346(guimenu)
 msgid "Help"
 msgstr "Ajuda"
 
-#: C/gnibbles.xml:350(para)
+#: C/gnibbles.xml:352(para)
 msgid ""
 "<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Contents</"
 "guimenuitem></menuchoice> Display this manual."
@@ -466,7 +467,7 @@ msgstr ""
 "<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Continguts</"
 "guimenuitem></menuchoice> Mostra aquest manual."
 
-#: C/gnibbles.xml:359(para)
+#: C/gnibbles.xml:361(para)
 msgid ""
 "<guimenuitem>About</guimenuitem> This opens the <interface>About</interface> "
 "dialog which shows basic information about <application>Nibbles</"
@@ -476,11 +477,11 @@ msgstr ""
 "interface> que mostra informació bàsica quant al <application>Nibbles</"
 "application>, com el nom dels autors i el número de versió de l'aplicació."
 
-#: C/gnibbles.xml:374(title)
+#: C/gnibbles.xml:376(title)
 msgid "Diamonds"
 msgstr "Diamants"
 
-#: C/gnibbles.xml:375(para)
+#: C/gnibbles.xml:377(para)
 msgid ""
 "<application>Nibbles</application> has numerous different diamonds to eat. "
 "They are each a different color and serve a different function. Only the "
@@ -502,11 +503,11 @@ msgstr ""
 "diamants amb bonificació, no us oblideu dels diamants ordinaris que "
 "necessiteu per a finalitzar el nivell."
 
-#: C/gnibbles.xml:393(title)
+#: C/gnibbles.xml:395(title)
 msgid "Customization"
 msgstr "Personalització"
 
-#: C/gnibbles.xml:394(para)
+#: C/gnibbles.xml:396(para)
 msgid ""
 "To change the application settings, select <menuchoice><guimenu>Settings</"
 "guimenu><guimenuitem>Preferences</guimenuitem></menuchoice>. This opens the "
@@ -519,35 +520,35 @@ msgstr ""
 "interface>. Totes les preferències s'apliquen i es desen automàticament quan "
 "es canvien."
 
-#: C/gnibbles.xml:405(title)
+#: C/gnibbles.xml:407(title)
 msgid "Game Preferences Tab"
 msgstr "Pestanya de preferències de la partida"
 
-#: C/gnibbles.xml:412(phrase)
+#: C/gnibbles.xml:414(phrase)
 msgid "Game Preferences Tab."
 msgstr "Pestanya de preferències de la partida."
 
-#: C/gnibbles.xml:422(term)
+#: C/gnibbles.xml:424(term)
 msgid "Speed"
 msgstr "Velocitat"
 
-#: C/gnibbles.xml:424(para)
+#: C/gnibbles.xml:426(para)
 msgid "This controls the speed of the worm."
 msgstr "Controla la velocitat del cuc."
 
-#: C/gnibbles.xml:430(term)
+#: C/gnibbles.xml:432(term)
 msgid "Play levels in random order"
 msgstr "Juga els nivells en ordre aleatori"
 
-#: C/gnibbles.xml:432(para)
+#: C/gnibbles.xml:434(para)
 msgid "Selecting this causes the level advancement to happen in random order."
 msgstr "Seleccionant-ho fa que l'avanç de nivell sigui en ordre aleatori."
 
-#: C/gnibbles.xml:439(term)
+#: C/gnibbles.xml:441(term)
 msgid "Enable fake bonuses"
 msgstr "Habilita les bonificacions falses"
 
-#: C/gnibbles.xml:441(para)
+#: C/gnibbles.xml:443(para)
 msgid ""
 "When enabled, this allows for two blue diamonds on the screen at a time. One "
 "diamond makes you shrink instead of grow when eaten."
@@ -556,19 +557,19 @@ msgstr ""
 "mateix temps. Un dels diamants us fa encongir enlloc de créixer quan us el "
 "mengeu."
 
-#: C/gnibbles.xml:449(term)
+#: C/gnibbles.xml:451(term)
 msgid "Enable sounds"
 msgstr "Habilita el so"
 
-#: C/gnibbles.xml:451(para)
+#: C/gnibbles.xml:453(para)
 msgid "Controls the use of sound in the game."
 msgstr "Controla la utilització del so en el joc."
 
-#: C/gnibbles.xml:457(term)
+#: C/gnibbles.xml:459(term)
 msgid "Starting level"
 msgstr "Nivell inicial"
 
-#: C/gnibbles.xml:459(para)
+#: C/gnibbles.xml:461(para)
 msgid ""
 "Which level to start with. Use this if you want to jump immediately to a "
 "challenging level."
@@ -576,19 +577,19 @@ msgstr ""
 "En quin nivell es comença. Utilitzeu aquesta opció si voleu saltar "
 "immediatament a un nivell de competició predeterminat."
 
-#: C/gnibbles.xml:466(term)
+#: C/gnibbles.xml:468(term)
 msgid "Number of human players"
 msgstr "Número de jugadors humans"
 
-#: C/gnibbles.xml:468(para)
+#: C/gnibbles.xml:470(para)
 msgid "There is room for up to six players."
 msgstr "Hi ha espai fins a sis jugadors humans."
 
-#: C/gnibbles.xml:474(term)
+#: C/gnibbles.xml:476(term)
 msgid "Number of AI players"
 msgstr "Número de jugadors IA"
 
-#: C/gnibbles.xml:476(para)
+#: C/gnibbles.xml:478(para)
 msgid ""
 "There is room for up to six AI players. Note that the total number of human "
 "and AI players must be less than or equal to six."
@@ -596,26 +597,26 @@ msgstr ""
 "Hi ha espai fins a sis jugadors IA. Tingueu en compte que el número total de "
 "jugadors humans i IA ha de ser inferior o igual a sis."
 
-#: C/gnibbles.xml:418(para)
+#: C/gnibbles.xml:420(para)
 msgid ""
 "The properties in the <guilabel>Game</guilabel> tab are: <placeholder-1/>"
 msgstr ""
 "Les propietats en la pestanya <guilabel>Partida</guilabel> són: <placeholder-"
 "1/>"
 
-#: C/gnibbles.xml:487(title)
+#: C/gnibbles.xml:489(title)
 msgid "Worm Preferences Tab"
 msgstr "Pestanya de preferències de cuc"
 
-#: C/gnibbles.xml:494(phrase)
+#: C/gnibbles.xml:496(phrase)
 msgid "Worm Preferences Tab."
 msgstr "Pestanya de preferències de cuc."
 
-#: C/gnibbles.xml:505(term)
+#: C/gnibbles.xml:507(term)
 msgid "Keyboard controls"
 msgstr "Controls del teclat"
 
-#: C/gnibbles.xml:507(para)
+#: C/gnibbles.xml:509(para)
 msgid ""
 "This list let you change the keyboard controls for the given worm. To change "
 "a control, double click on the appropriate entry and then press the key you "
@@ -625,11 +626,11 @@ msgstr ""
 "concret. Per a canviar un control, feu doble clic en l'entrada apropiada i "
 "premeu la tecla que voleu utilitzar per a aquest."
 
-#: C/gnibbles.xml:515(term)
+#: C/gnibbles.xml:517(term)
 msgid "Use relative motion"
 msgstr "Utilitza un moviment relatiu"
 
-#: C/gnibbles.xml:517(para)
+#: C/gnibbles.xml:519(para)
 msgid ""
 "Rather than left sending your worm toward the left of the screen, right "
 "toward the right and so on, the left and right keys make the worm perform a "
@@ -642,11 +643,11 @@ msgstr ""
 "es mou cap a l'esquerra i premeu la fletxa esquerra farà que giri el cap cap "
 "a la part inferior de la pantalla."
 
-#: C/gnibbles.xml:527(term)
+#: C/gnibbles.xml:529(term)
 msgid "Worm color"
 msgstr "Color del cuc"
 
-#: C/gnibbles.xml:529(para)
+#: C/gnibbles.xml:531(para)
 msgid ""
 "Customize the color of your worm so you can tell it from your opponent's "
 "worm in multi-player mode."
@@ -654,7 +655,7 @@ msgstr ""
 "Personalitzeu el color del cuc per a poder-lo diferenciar dels adversaris en "
 "el mode multijugador."
 
-#: C/gnibbles.xml:484(para)
+#: C/gnibbles.xml:486(para)
 msgid ""
 "<placeholder-1/> The properties in the <guilabel>Worm 1 </guilabel>through "
 "<guilabel> Worm 6</guilabel> tabs let you set individual preferences for the "
@@ -849,11 +850,11 @@ msgstr ""
 "pantalla inicial de joc en xarxa. Llavors podeu jugar una altra partida "
 "addictiva multijugador del Nibbles."
 
-#: C/gnibbles.xml:553(title)
+#: C/gnibbles.xml:555(title)
 msgid "Authors"
 msgstr "Autors"
 
-#: C/gnibbles.xml:554(para)
+#: C/gnibbles.xml:556(para)
 msgid ""
 "<application>Nibbles</application> was written by Sean MacIsaac "
 "<email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This "
@@ -863,20 +864,20 @@ msgid ""
 "regarding this application or this manual, follow the directions in this "
 "<ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
 msgstr ""
-"En Sean MacIsaac (email>sjm@acm.org</email>) i en Ian Peters (<email>itp@gnu."
+"En Sean MacIsaac (<email>sjm@acm.org</email>) i en Ian Peters (<email>itp@gnu."
 "org</email>) han escrit el <application>Nibbles</application>. En Kevin "
 "Breit (<email>battery841@mypad.com</email>) ha escrit aquest manual. "
 "L'Andreas Røsdal (<email>andreasr@gnome.org</email>) ha afegit la "
 "funcionalitat de joc en xarxa del Nibbles. Per a informar d'un error o fer "
 "algun suggeriment d'aquesta aplicació o aquest manual, seguiu les "
-"indicacions d'aquest <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
-"\">document</ulink>."
+"indicacions d'aquest <ulink url=\"ghelp:user-guide?feedback-bugs\" type="
+"\"help\">document</ulink>."
 
-#: C/gnibbles.xml:580(title)
+#: C/gnibbles.xml:582(title)
 msgid "License"
 msgstr "Llicència"
 
-#: C/gnibbles.xml:581(para)
+#: C/gnibbles.xml:583(para)
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
 "under the terms of the <ulink type=\"help\" url=\"gnome-help:gpl"
@@ -890,7 +891,7 @@ msgstr ""
 "publica la Free Software Foundation; tant en la versió 2 de la llicència, o "
 "(a la vostra opció) una versió posterior."
 
-#: C/gnibbles.xml:589(para)
+#: C/gnibbles.xml:591(para)
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -902,7 +903,7 @@ msgstr ""
 "ADEQUACIÓ A UN ÚS CONCRET. Per a més detalls vegeu la <citetitle>Llicència "
 "pública general de GNU</citetitle>."
 
-#: C/gnibbles.xml:595(para)
+#: C/gnibbles.xml:597(para)
 msgid ""
 "A copy of the <citetitle>GNU General Public License</citetitle> is included "
 "as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
@@ -921,7 +922,7 @@ msgstr ""
 "Suite 330 <city>Boston</city>, <state>MA</state><postcode>02111-1307</"
 "postcode><country>USA</country></address>"
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/gnibbles.xml:0(None)
 msgid "translator-credits"
 msgstr "Joan Duran <jodufi@gmail.com>, 2008"
