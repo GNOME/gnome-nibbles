@@ -30,7 +30,6 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <clutter/clutter.h>
 
-#include <libgames-support/games-gtk-compat.h>
 #include <libgames-support/games-runtime.h>
 #include <libgames-support/games-scores-dialog.h>
 #include <libgames-support/games-scores.h>
