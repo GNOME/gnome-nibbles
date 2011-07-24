@@ -26,10 +26,8 @@
 #include "gnibbles.h"
 
 #define MAIN_PAGE 0
-#define NETWORK_PAGE 1
 
 
-gboolean ggz_network_mode;
 int player_id;
 int num_players;
 int seat;

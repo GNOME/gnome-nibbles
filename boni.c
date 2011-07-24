@@ -86,11 +86,6 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
   boni->numbonuses++;
   if (t_type != BONUSREGULAR)
     games_sound_play ("appear");
-#ifdef GGZ_CLIENT
-  if (ggz_network_mode) {
-    network_add_bonus (t_x, t_y, t_type, t_fake, t_countdown);
-  }
-#endif
 }
 
 void
@@ -138,11 +133,6 @@ gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
 {
   int i;
 
-#ifdef GGZ_CLIENT
-  if (ggz_network_mode) {
-    network_remove_bonus (x, y);
-  }
-#endif
   for (i = 0; i < boni->numbonuses; i++) {
     if ((x == boni->bonuses[i]->x &&
         y == boni->bonuses[i]->y) ||

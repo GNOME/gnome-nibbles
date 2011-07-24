@@ -132,14 +132,8 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
       if (warpmanager->warps[i]->wx == -1) {
          good = 0;
         while (!good) {
-        // In network games, warps should be fair.
-          if (ggz_network_mode) {
-            x = 10 % BOARDWIDTH;
-            y = 10 % BOARDHEIGHT;
-          } else {
-            x = rand () % BOARDWIDTH;
-            y = rand () % BOARDHEIGHT;
-          }
+          x = rand () % BOARDWIDTH;
+          y = rand () % BOARDHEIGHT;
           if (board->walls[x][y] == EMPTYCHAR)
             good = 1;
         }
@@ -184,14 +178,8 @@ gnibbles_warpmanager_worm_change_tail_pos (GnibblesWarpManager * warpmanager,
       if (warpmanager->warps[i]->wx == -1) {
          good = 0;
         while (!good) {
-        // In network games, warps should be fair.
-          if (ggz_network_mode) {
-            x = 10 % BOARDWIDTH;
-            y = 10 % BOARDHEIGHT;
-          } else {
-            x = rand () % BOARDWIDTH;
-            y = rand () % BOARDHEIGHT;
-          }
+          x = rand () % BOARDWIDTH;
+          y = rand () % BOARDHEIGHT;
           if (board->walls[x][y] == EMPTYCHAR)
             good = 1;
         }

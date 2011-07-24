@@ -37,10 +37,6 @@
 #include "worm.h"
 #include "boni.h"
 
-#ifdef GGZ_CLIENT
-#include "ggz-network.h"
-#endif
-
 extern GnibblesWorm *worms[];
 extern GnibblesProperties *properties;
 extern GnibblesWarpManager *warpmanager;
@@ -362,12 +358,6 @@ void
 gnibbles_board_level_add_bonus (GnibblesBoard *board, gint regular)
 {
   gint x, y, good;
-
-#ifdef GGZ_CLIENT
-  if (!network_is_host ()) {
-    return;
-  }
-#endif
 
   if (regular) {
     good = 0;

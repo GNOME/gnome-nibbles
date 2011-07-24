@@ -39,9 +39,6 @@
 #include "warpmanager.h"
 #include "properties.h"
 #include "board.h"
-#ifdef GGZ_CLIENT
-#include "ggz-network.h"
-#endif
 
 #include "worm.h"
 
@@ -111,16 +108,7 @@ worm_set_direction (int worm, int dir)
 void
 worm_handle_direction (int worm, int dir)
 {
-  if (ggz_network_mode) {
-#ifdef GGZ_CLIENT
-    network_game_move (dir);
-
-    worms[0]->direction = dir;
-    worms[0]->keypress = 1;
-#endif
-  } else {
-    worm_set_direction (worm, dir);
-  }
+  worm_set_direction (worm, dir);
 }
 
 static void
@@ -201,7 +189,7 @@ gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
   if (worm->lives <= 0)
     return FALSE;
 
-  props = properties->wormprops[ggz_network_mode ? 0 : worm->number];
+  props = properties->wormprops[worm->number];
   propsUp = toupper(props->up);
   propsLeft = toupper(props->left);
   propsDown = toupper(props->down);

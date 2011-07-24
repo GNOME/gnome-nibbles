@@ -45,10 +45,6 @@
 #include "board.h"
 #include "worm.h"
 
-#ifdef GGZ_CLIENT
-#include "ggz-network.h"
-#endif
-
 GnibblesWorm *worms[NUMWORMS];
 
 GnibblesBoni *boni = NULL;
@@ -342,7 +338,7 @@ gboolean
 gnibbles_keypress_worms (guint keyval)
 {
   gint i;
-  gint numworms = ggz_network_mode ? 1 : properties->numworms;
+  gint numworms = properties->numworms;
 
   for (i = 0; i < numworms; i++) {
     if (worms[i]->human)

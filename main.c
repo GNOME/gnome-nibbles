@@ -54,13 +54,6 @@
 #include "board.h"
 #include "worm.h"
 
-#ifdef GGZ_CLIENT
-#include <libgames-support/games-dlg-chat.h>
-#include <libgames-support/games-dlg-players.h>
-#include "ggz-network.h"
-#include <ggz-embed.h>
-#endif
-
 #define DEFAULT_WIDTH 650
 #define DEFAULT_HEIGHT 520
 
@@ -111,8 +104,6 @@ static gint end_game_cb (GtkAction * action, gpointer data);
 static void hide_logo (void);
 
 static GtkAction *new_game_action;
-static GtkAction *new_network_action;
-static GtkAction *player_list_action;
 GtkAction *pause_action;
 static GtkAction *end_game_action;
 static GtkAction *preferences_action;
@@ -128,23 +119,6 @@ hide_cursor (void)
 }
 
 static void
-network_gui_update (void)
-{
-
-#ifdef GGZ_CLIENT
-  if (ggz_network_mode) {
-    gtk_widget_show (chat);
-  } else {
-    gtk_widget_hide (chat);
-  }
-  gtk_action_set_visible (new_game_action, !ggz_network_mode);
-  gtk_action_set_visible (player_list_action, ggz_network_mode);
-  gtk_container_check_resize (GTK_CONTAINER (window));
-
-#endif
-}
-
-static void
 show_cursor (void)
 {
   clutter_stage_show_cursor (CLUTTER_STAGE (stage));
@@ -154,14 +128,6 @@ gint
 game_running (void)
 {
   return (main_id || dummy_id || restart_id || games_pause_action_get_is_paused (GAMES_PAUSE_ACTION (pause_action)));
-}
-
-static void
-on_player_list (void)
-{
-#ifdef GGZ_CLIENT
-  create_or_raise_dlg_players (GTK_WINDOW (window));
-#endif
 }
 
 /* Avoid a race condition where a redraw is attempted
@@ -280,17 +246,6 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
   return FALSE;
 }
 
-#ifdef GGZ_CLIENT
-static gboolean
-network_loop (gpointer data)
-{
-  if (ggz_network_mode) {
-    network_move_worms ();
-  }
-  return TRUE;
-}
-#endif
-
 static gboolean
 new_game_2_cb (GtkWidget * widget, gpointer data)
 {
@@ -299,21 +254,11 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
       keyboard_id = g_signal_connect (G_OBJECT (stage),
                                       "key-press-event",
                                       G_CALLBACK (key_press_cb), NULL);
-#ifdef GGZ_CLIENT
-    if (!main_id && ggz_network_mode && network_is_host ()) {
-      main_id = g_timeout_add (GAMEDELAY * (properties->gamespeed + NETDELAY),
-                               (GSourceFunc) network_loop, NULL);
-    } else
-#endif
-    if (!main_id && !ggz_network_mode) {
+    if (!main_id) {
       main_id = g_timeout_add (GAMEDELAY * properties->gamespeed,
                                (GSourceFunc) main_loop, NULL);
     }
-#ifdef GGZ_CLIENT
-    if (!add_bonus_id && network_is_host ()) {
-#else
     if (!add_bonus_id) {
-#endif
       add_bonus_id = g_timeout_add (BONUSDELAY *
                                     properties->gamespeed,
                                     (GSourceFunc) add_bonus_cb, NULL);
@@ -329,23 +274,16 @@ gboolean
 new_game (void)
 {
   int i;
-
-  gtk_action_set_sensitive (new_network_action, FALSE);
-
-  if (ggz_network_mode) {
-    gtk_action_set_sensitive (pause_action, FALSE);
-  } else {
-    gtk_action_set_sensitive (pause_action, TRUE);
-  }
+  gtk_action_set_sensitive (pause_action, TRUE);
   gtk_action_set_sensitive (end_game_action, TRUE);
-  gtk_action_set_sensitive (preferences_action, !ggz_network_mode);
+  gtk_action_set_sensitive (preferences_action, TRUE);
 
   if (game_running ()) {
     end_game (FALSE);
     main_id = 0;
   }
 
-  if (ggz_network_mode || !properties->random) {
+  if (!properties->random) {
     current_level = properties->startlevel;
   } else {
     current_level = rand () % MAXLEVEL + 1;
@@ -363,7 +301,6 @@ new_game (void)
   }
 
   games_pause_action_set_is_paused (GAMES_PAUSE_ACTION (pause_action), FALSE);
-  gtk_action_set_visible (player_list_action, ggz_network_mode);
 
   if (restart_id) {
     g_source_remove (restart_id);
@@ -379,8 +316,6 @@ new_game (void)
     g_source_remove (dummy_id);
 
   dummy_id = g_timeout_add_seconds (1, (GSourceFunc) new_game_2_cb, NULL);
-
-  network_gui_update ();
 
   return TRUE;
 }
@@ -451,27 +386,17 @@ end_game (gboolean show_splash)
 
   if (show_splash) {
     render_logo ();
-    gtk_action_set_sensitive (new_network_action, TRUE);
     gtk_action_set_sensitive (pause_action, FALSE);
     gtk_action_set_sensitive (end_game_action, FALSE);
     gtk_action_set_sensitive (preferences_action, TRUE);
   }
 
-  network_gui_update ();
   games_pause_action_set_is_paused (GAMES_PAUSE_ACTION (pause_action), FALSE);
 }
 
 static gboolean
 end_game_cb (GtkAction * action, gpointer data)
 {
-
-#ifdef GGZ_CLIENT
-  if (ggz_network_mode) {
-    ggz_embed_leave_table ();
-    gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), NETWORK_PAGE);
-  }
-#endif
-
   end_game (TRUE);
   return FALSE;
 }
@@ -566,9 +491,6 @@ main_loop (gpointer data)
 
     str = g_strdup_printf (_("Game over! The game has been won by %s!"),
                              names[winner]);
-#ifdef GGZ_CLIENT
-    add_chat_text (str);
-#endif
     g_free (str);
 
     if (keyboard_id) {
@@ -609,14 +531,6 @@ main_loop (gpointer data)
   }
 
   if (status == NEWROUND) {
-#ifdef GGZ_CLIENT
-    if (ggz_network_mode) {
-      end_game (TRUE);
-      add_chat_text (_("The game is over."));
-      return FALSE;
-    }
-#endif
-
     if (keyboard_id) {
       g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
       keyboard_id = 0;
@@ -653,10 +567,9 @@ main_loop (gpointer data)
       g_source_remove (main_id);
       main_id = 0;
     }
-    if ((current_level < MAXLEVEL) && (!properties->random
-                                       || ggz_network_mode)) {
+    if ((current_level < MAXLEVEL) && (!properties->random)) {
       current_level++;
-    } else if (properties->random && !ggz_network_mode) {
+    } else if (properties->random) {
       tmp = rand () % MAXLEVEL + 1;
       while (tmp == current_level)
         tmp = rand () % MAXLEVEL + 1;
@@ -690,14 +603,6 @@ static const GtkActionEntry action_entry[] = {
   {"HelpMenu", NULL, N_("_Help")},
   {"NewGame", GAMES_STOCK_NEW_GAME, NULL, NULL, NULL,
    G_CALLBACK (new_game_cb)},
-#ifdef GGZ_CLIENT
-  {"NewNetworkGame", GAMES_STOCK_NETWORK_GAME, NULL, NULL, NULL,
-   G_CALLBACK (on_network_game)},
-#else
-  {"NewNetworkGame", GAMES_STOCK_NETWORK_GAME, NULL, NULL, NULL, NULL},
-#endif
-  {"PlayerList", GAMES_STOCK_PLAYER_LIST, NULL, NULL, NULL,
-   G_CALLBACK (on_player_list)},
   {"EndGame", GAMES_STOCK_END_GAME, NULL, NULL, NULL,
    G_CALLBACK (end_game_cb)},
   {"Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL,
@@ -714,8 +619,6 @@ static const char ui_description[] =
   "  <menubar name='MainMenu'>"
   "    <menu action='GameMenu'>"
   "      <menuitem action='NewGame'/>"
-  "      <menuitem action='NewNetworkGame'/>"
-  "      <menuitem action='PlayerList'/>"
   "      <menuitem action='EndGame'/>"
   "      <separator/>"
   "      <menuitem action='Pause'/>"
@@ -762,12 +665,6 @@ create_menus (GtkUIManager * ui_manager)
                                                     "Preferences");
   fullscreen_action = GTK_ACTION (games_fullscreen_action_new ("Fullscreen", GTK_WINDOW(window)));
   gtk_action_group_add_action_with_accel (action_group, fullscreen_action, NULL);
-  new_network_action = gtk_action_group_get_action (action_group,
-                                                    "NewNetworkGame");
-#ifndef GGZ_CLIENT
-  gtk_action_set_sensitive (new_network_action, FALSE);
-#endif
-  player_list_action = gtk_action_group_get_action (action_group, "PlayerList");
 
 }
 
@@ -829,11 +726,6 @@ setup_window (void)
 
   gtk_container_add (GTK_CONTAINER (packing), clutter_widget);
 
-#ifdef GGZ_CLIENT
-  chat = create_chat_widget ();
-  gtk_box_pack_start (GTK_BOX (vbox), chat, FALSE, TRUE, 0);
-#endif
-
   g_signal_connect (G_OBJECT (clutter_widget), "configure_event",
                     G_CALLBACK (configure_event_cb), NULL);
 
@@ -850,9 +742,6 @@ setup_window (void)
   gtk_container_add (GTK_CONTAINER (window), vbox);
 
   gtk_widget_show_all (window);
-#ifdef GGZ_CLIENT
-  gtk_widget_hide (chat);
-#endif
 
   scoreboard = gnibbles_scoreboard_new (statusbar);
 }
@@ -1045,15 +934,9 @@ main (int argc, char **argv)
   gnibbles_load_pixmap (properties->tilesize);
   gnibbles_load_logo (properties->tilesize);
 
-#ifdef GGZ_CLIENT
-  network_init ();
-  network_gui_update ();
-#endif
-
   gtk_action_set_sensitive (pause_action, FALSE);
   gtk_action_set_sensitive (end_game_action, FALSE);
-  gtk_action_set_visible (new_game_action, !ggz_network_mode);
-  gtk_action_set_visible (player_list_action, ggz_network_mode);
+  gtk_action_set_visible (new_game_action, TRUE);
 
   gtk_main ();
 

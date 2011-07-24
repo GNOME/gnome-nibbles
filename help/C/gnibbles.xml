@@ -2,7 +2,6 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
-  <!ENTITY NETWORKGAMES SYSTEM "network-games.xml"> 
   <!ENTITY appversion "2.20">
   <!ENTITY manrevision "2.20">
   <!ENTITY date "May 2007">
@@ -159,8 +158,8 @@
     possible to play against worms with artificial intelligence.
   </para>
   <para>
-    &appname; also features <link linkend="network-games">multiplayer</link> support with up to six competing
-    human players in hotseat or network mode.
+    &appname; also features multiplayer support with up to six competing
+    human players in hotseat mode.
   </para>
  </sect1>
 
@@ -249,17 +248,6 @@ section. For example -->
            <guimenuitem>New Game</guimenuitem>
           </menuchoice>
            This starts a new game of <application>Nibbles</application>.
-         </para>
-        </listitem>
-        <listitem>
-         <para>
-          <menuchoice>
-           <shortcut>
-            <keysym>Ctrl+G</keysym>
-           </shortcut>
-           <guimenuitem>Network Game</guimenuitem>
-          </menuchoice>
-           This starts a network multiplayer game using GGZ Gaming Zone.
          </para>
         </listitem>
         <listitem>
@@ -539,15 +527,6 @@ section. For example -->
   </para>
 
  </sect1>
-
-<!-- ============= Network games  ===============================================
- This doc is common to gnome-games. The file is pulled in from gnibbles directory
- as a SVN symlink, and included here. Therefore translators only have to translate 
- the network stuff once, instead of one time for each game. 
- ================================ -->
-
- &NETWORKGAMES;
-
 
 <!-- ============= Authors ================================ -->
 
