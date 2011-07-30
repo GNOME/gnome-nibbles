@@ -218,14 +218,13 @@ gnibbles_init (void)
 gint
 gnibbles_move_worms (void)
 {
-  gint i, j, olddir;
+  gint i, j;
   gint status = 1, nlives = 1;
   gint *dead;
 
   dead = g_new (gint, properties->numworms);
 
   for (i = 0; i < properties->numworms; i++) {
-    olddir = worms[i]->direction;
     if (!worms[i]->human) {
       gnibbles_worm_ai_move (worms[i]);
     }
