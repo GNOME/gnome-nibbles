@@ -1,59 +1,48 @@
-# Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
+# German translation of the Nibbles manual.
+# Mario Blättermann <mariobl@freenet.de>, 2008, 2011.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2008-08-30 03:53+0000\n"
-"PO-Revision-Date: 2008-11-09 20:11+0100\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
+"Project-Id-Version: gnome-games nibbles master\n"
+"POT-Creation-Date: 2011-07-25 04:23+0000\n"
+"PO-Revision-Date: 2011-08-04 14:39+0100\n"
+"Last-Translator: Mario Blättermann <mariobl@freenet.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:186(None)
+#: C/gnibbles.xml:187(None)
 msgid "@@image: 'figures/intro.png'; md5=fba0b0fc807a1eed13d9b5bba6a8d9fa"
 msgstr "translated"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:209(None)
+#: C/gnibbles.xml:210(None)
 msgid "@@image: 'figures/playing.png'; md5=68c63b494278113a82ac864a277891c4"
 msgstr "translated"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:409(None)
+#: C/gnibbles.xml:399(None)
 msgid "@@image: 'figures/game.png'; md5=3103fe2ce969c658bf74cbf66fb2ec64"
 msgstr "translated"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:491(None)
+#: C/gnibbles.xml:481(None)
 msgid "@@image: 'figures/worm_op.png'; md5=b6ccbcdd5d11fe28a75fd23c0d96483a"
 msgstr "translated"
 
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:54(None)
-msgid "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
-msgstr "translated"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:77(None)
-msgid "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
-msgstr "translated"
-
-#: C/gnibbles.xml:28(title)
+#: C/gnibbles.xml:27(title)
 msgid "<application>Nibbles</application> Manual"
 msgstr "<application>Nibbles</application>-Handbuch"
 
-#: C/gnibbles.xml:31(para)
+#: C/gnibbles.xml:30(para)
 msgid ""
 "Nibbles is a worm game for GNOME. The player controls a 2D worm while trying "
 "to get food. Getting food gives points, but hitting anything causes a loss of "
@@ -65,16 +54,16 @@ msgstr ""
 "kann Sie dagegen viele Punkte kosten. Wenn Sie alle Punkte verloren haben, "
 "ist auch das Spiel für Sie verloren."
 
-#: C/gnibbles.xml:40(year)
+#: C/gnibbles.xml:39(year)
 msgid "2000"
 msgstr "2000"
 
-#: C/gnibbles.xml:41(holder)
+#: C/gnibbles.xml:40(holder)
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
-#: C/gnibbles.xml:57(publishername) C/gnibbles.xml:70(orgname)
-#: C/gnibbles.xml:96(para)
+#: C/gnibbles.xml:56(publishername) C/gnibbles.xml:69(orgname)
+#: C/gnibbles.xml:97(para)
 msgid "GNOME Documentation Project"
 msgstr "GNOME-Dokumentationsprojekt"
 
@@ -187,58 +176,59 @@ msgstr ""
 "BEDINGUNGEN DER GNU FREE DOCUMENTATION LICENSE ZUR VERFÜGUNG GESTELLT MIT DEM "
 "WEITERGEHENDEN VERSTÄNDNIS, DASS: <placeholder-1/>"
 
-#: C/gnibbles.xml:67(firstname)
+#: C/gnibbles.xml:66(firstname)
 msgid "Kevin"
 msgstr "Kevin"
 
-#: C/gnibbles.xml:68(surname)
+#: C/gnibbles.xml:67(surname)
 msgid "Breit"
 msgstr "Breit"
 
-#: C/gnibbles.xml:71(email)
+#: C/gnibbles.xml:70(email)
 msgid "battery841@mypad.com"
 msgstr "battery841@mypad.com"
 
-#: C/gnibbles.xml:90(revnumber)
+#: C/gnibbles.xml:91(revnumber)
 msgid "Nibbles Manual V2.20"
 msgstr "Nibbles-Handbuch V2.20"
 
-#: C/gnibbles.xml:91(date)
+#: C/gnibbles.xml:92(date)
 msgid "May 2007"
 msgstr "Mai 2007"
 
-#: C/gnibbles.xml:93(para)
+#: C/gnibbles.xml:94(para)
 msgid "Kevin Breit <email>battery841@mypad.com</email>"
 msgstr "Kevin Breit <email>battery841@mypad.com</email>"
 
-#: C/gnibbles.xml:101(releaseinfo)
+#: C/gnibbles.xml:102(releaseinfo)
 msgid "This manual describes version 2.20 of Nibbles."
 msgstr "Dieses Handbuch beschreibt Version 2.20 von Nibbles."
 
-#: C/gnibbles.xml:108(title)
+#: C/gnibbles.xml:109(title)
 msgid "Feedback"
 msgstr "Rückmeldungen"
 
-#: C/gnibbles.xml:109(para)
+#: C/gnibbles.xml:110(para)
 msgid ""
 "To report a bug or make a suggestion regarding the <application>Nibbles</"
 "application> application or this manual, follow the directions in the <ulink "
-"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
+"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</"
+"ulink>."
 msgstr ""
 "Um Fehler zu melden oder einen Vorschlag zur Anwendung <application>Nibbles</"
 "application> oder zu diesem Handbuch zu machen, folgen Sie den Anweisungen "
-"auf der <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME-Seite für "
-"Rückmeldungen</ulink>."
+"auf der <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME-"
+"Seite für Rückmeldungen</ulink>."
 
-#: C/gnibbles.xml:119(primary)
+#: C/gnibbles.xml:120(primary)
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: C/gnibbles.xml:126(title)
+#: C/gnibbles.xml:127(title)
 msgid "Introduction"
 msgstr "Einführung"
 
-#: C/gnibbles.xml:128(para)
+#: C/gnibbles.xml:129(para)
 msgid ""
 "<application>Nibbles</application> is a game where the user controls a worm. "
 "The worm moves around the board, eating diamonds while avoiding the walls "
@@ -249,7 +239,7 @@ msgstr ""
 "aufnimmt. Sie haben zu verhindern, dass der Wurm die rundum platzierten Wände "
 "berührt."
 
-#: C/gnibbles.xml:132(para)
+#: C/gnibbles.xml:133(para)
 msgid ""
 "To run <application>Nibbles</application>, select "
 "<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Nibbles</guimenuitem></"
@@ -261,7 +251,7 @@ msgstr ""
 "guimenuitem></menuchoice> im Menü <guimenu>Anwendungen</guimenu>, oder geben "
 "Sie <command>gnibbles</command> in einer Befehlszeile ein."
 
-#: C/gnibbles.xml:142(para)
+#: C/gnibbles.xml:143(para)
 msgid ""
 "<application>Nibbles</application> is included in the <filename>gnome-games</"
 "filename> package, which is part of the GNOME desktop environment. This "
@@ -271,11 +261,11 @@ msgstr ""
 "filename>, das Teil der GNOME-Desktopumgebung ist. Dieses Dokument beschreibt "
 "Version 2.20 von <application>Robots</application>."
 
-#: C/gnibbles.xml:151(title)
+#: C/gnibbles.xml:152(title)
 msgid "Nibbles Objective"
 msgstr "Ziel von Nibbles"
 
-#: C/gnibbles.xml:152(para)
+#: C/gnibbles.xml:153(para)
 msgid ""
 "The objective of Nibbles is quite simple. You control the worm and if the "
 "worm runs into a wall or runs into itself, you die. You get ten lives before "
@@ -291,20 +281,19 @@ msgstr ""
 "durchspielen. Es ist ebenso möglich, gegen Würmer mit künstlicher Intelligenz "
 "zu spielen."
 
-#: C/gnibbles.xml:159(para)
+#: C/gnibbles.xml:160(para)
 msgid ""
-"Nibbles also features <link linkend=\"network-games\">multiplayer</link> "
-"support with up to six competing human players in hotseat or network mode."
+"Nibbles also features multiplayer support with up to six competing human "
+"players in hotseat mode."
 msgstr ""
-"Nibbles unterstützt auch einen <link linkend=\"network-games\">Mehrspieler-"
-"Modus</link> für bis zu sechs gegeneinander antretende menschliche Spieler im "
-"Hotseat- oder Netzwerk-Modus."
+"Nibbles unterstützt auch einen Mehrspieler-Modus für bis zu sechs "
+"gegeneinander antretende menschliche Spieler im Hotseat-Modus."
 
-#: C/gnibbles.xml:169(title)
+#: C/gnibbles.xml:170(title)
 msgid "Using Nibbles"
 msgstr "Nibbles spielen"
 
-#: C/gnibbles.xml:170(para)
+#: C/gnibbles.xml:171(para)
 msgid ""
 "<application>Nibbles</application> is a simple game to play. The only keys "
 "that are needed are the arrow keys."
@@ -312,19 +301,19 @@ msgstr ""
 "<application>Nibbles</application> ist einfach zu bedienen. Die einzigen "
 "notwendigen Tasten sind die Pfeiltasten."
 
-#: C/gnibbles.xml:177(title)
+#: C/gnibbles.xml:178(title)
 msgid "Basic usage"
 msgstr "Grundlagen der Bedienung"
 
-#: C/gnibbles.xml:182(title)
+#: C/gnibbles.xml:183(title)
 msgid "Nibbles Introduction Window"
 msgstr "Startfenster von Nibbles"
 
-#: C/gnibbles.xml:189(phrase)
+#: C/gnibbles.xml:190(phrase)
 msgid "Nibbles Introduction Window."
 msgstr "Startfenster von Nibbles."
 
-#: C/gnibbles.xml:178(para)
+#: C/gnibbles.xml:179(para)
 msgid ""
 "Starting <application>Nibbles</application> opens the <interface>main window</"
 "interface> shown below. <placeholder-1/>"
@@ -332,7 +321,7 @@ msgstr ""
 "Beim Start von <application>Nibbles</application> wird das unten angezeigte "
 "<interface>Hauptfenster</interface> geöffnet. <placeholder-1/>"
 
-#: C/gnibbles.xml:195(para)
+#: C/gnibbles.xml:196(para)
 msgid ""
 "To start the game, select <menuchoice><guimenu>Game</guimenu><guimenuitem>New "
 "Game</guimenuitem></menuchoice>."
@@ -340,16 +329,16 @@ msgstr ""
 "Um das Spiel zu starten, wählen Sie <menuchoice><guimenu>Spiel</"
 "guimenu><guimenuitem>Neu</guimenuitem></menuchoice>."
 
-#: C/gnibbles.xml:205(title)
+#: C/gnibbles.xml:206(title)
 msgid "Nibbles During Gameplay"
 msgstr "Nibbles während des Spiels"
 
-#: C/gnibbles.xml:212(phrase)
+#: C/gnibbles.xml:213(phrase)
 msgid "Nibbles During Gameplay."
 msgstr "Nibbles währen des Spiels."
 
 # Die keycap-Tags in der Übersetzung dienen hier der besseren Lesbarkeit.
-#: C/gnibbles.xml:199(para)
+#: C/gnibbles.xml:200(para)
 msgid ""
 "When the game starts, the worm will come out of the left side of the screen. "
 "You use the up arrow to make the direction of the worm go up. Use the right "
@@ -364,11 +353,11 @@ msgstr ""
 "<keycap>Pfeiltaste nach unten</keycap> den Wurm nach unten schicken. "
 "<placeholder-1/>"
 
-#: C/gnibbles.xml:228(title)
+#: C/gnibbles.xml:229(title)
 msgid "Menus"
 msgstr "Menüs"
 
-#: C/gnibbles.xml:229(para)
+#: C/gnibbles.xml:230(para)
 msgid ""
 "The menu bar, located at the top of the <interface>Main Window</interface>, "
 "contains the following menus:"
@@ -376,11 +365,11 @@ msgstr ""
 "Die Menüleiste am oberen Rand des <interface>Hauptfensters</interface> "
 "enthält folgende Menüs:"
 
-#: C/gnibbles.xml:236(guimenu)
+#: C/gnibbles.xml:237(guimenu)
 msgid "Game"
 msgstr "Spiel"
 
-#: C/gnibbles.xml:242(para)
+#: C/gnibbles.xml:243(para)
 msgid ""
 "<menuchoice><shortcut><keysym>Ctrl+N</keysym></shortcut><guimenuitem>New "
 "Game</guimenuitem></menuchoice> This starts a new game of "
@@ -390,17 +379,7 @@ msgstr ""
 "guimenuitem></menuchoice>. Dies startet ein neues <application>Nibbles</"
 "application>-Spiel."
 
-#: C/gnibbles.xml:253(para)
-msgid ""
-"<menuchoice><shortcut><keysym>Ctrl+G</keysym></shortcut><guimenuitem>Network "
-"Game</guimenuitem></menuchoice> This starts a network multiplayer game using "
-"GGZ Gaming Zone."
-msgstr ""
-"<menuchoice><shortcut><keysym>Strg+G</keysym></"
-"shortcut><guimenuitem>Netzwerkspiel</guimenuitem></menuchoice> Dies startet "
-"ein Netzwerkspiel im Mehrspieler-Modus in der »GGZ Gaming Zone«."
-
-#: C/gnibbles.xml:264(para)
+#: C/gnibbles.xml:254(para)
 msgid ""
 "<menuchoice><guimenuitem>Scores</guimenuitem></menuchoice> This shows the "
 "high scores."
@@ -408,7 +387,7 @@ msgstr ""
 "<menuchoice><guimenuitem>Ergebnisse</guimenuitem></menuchoice> zeigt die "
 "besten Ergebnisse."
 
-#: C/gnibbles.xml:272(para)
+#: C/gnibbles.xml:262(para)
 msgid ""
 "<menuchoice><guimenuitem>Pause game</guimenuitem></menuchoice> This will "
 "pause your game. Click on the <quote>Pause Game </quote> menu option to "
@@ -418,7 +397,7 @@ msgstr ""
 "Ihr Spiel. Klicken Sie auf den Menüeintrag <quote>Fortsetzen</quote>, um das "
 "Spiel fortzusetzen."
 
-#: C/gnibbles.xml:281(para)
+#: C/gnibbles.xml:271(para)
 msgid ""
 "<menuchoice><guimenuitem>End Game</guimenuitem></menuchoice> End the current "
 "game and return to the title screen."
@@ -426,7 +405,7 @@ msgstr ""
 "<menuchoice><guimenuitem>Spiel beenden</guimenuitem></menuchoice> Dies "
 "beendet das aktuelle Spiel und zeigt wieder das Startfenster an."
 
-#: C/gnibbles.xml:289(para)
+#: C/gnibbles.xml:279(para)
 msgid ""
 "<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Exit</"
 "guimenuitem></menuchoice> This quits the application."
@@ -434,16 +413,16 @@ msgstr ""
 "<menuchoice><shortcut><keysym>Strg-Q</keysym></shortcut><guimenuitem>Beenden</"
 "guimenuitem></menuchoice> Dies beendet die Anwendung."
 
-#: C/gnibbles.xml:238(para) C/gnibbles.xml:307(para) C/gnibbles.xml:326(para)
-#: C/gnibbles.xml:346(para)
+#: C/gnibbles.xml:239(para) C/gnibbles.xml:297(para) C/gnibbles.xml:316(para)
+#: C/gnibbles.xml:336(para)
 msgid "This menu contains: <placeholder-1/>"
 msgstr "Dieses Menü enthält: <placeholder-1/>"
 
-#: C/gnibbles.xml:305(guimenu)
+#: C/gnibbles.xml:295(guimenu)
 msgid "View"
 msgstr "Ansicht"
 
-#: C/gnibbles.xml:311(para)
+#: C/gnibbles.xml:301(para)
 msgid ""
 "<menuchoice><guimenuitem>Fullscreen</guimenuitem></menuchoice> This toggles "
 "your game window to be fullscreen."
@@ -451,11 +430,11 @@ msgstr ""
 "<menuchoice><guimenuitem>Vollbild</guimenuitem></menuchoice> Dies schaltet "
 "den Vollbildmodus für das Fenster an oder aus."
 
-#: C/gnibbles.xml:324(guimenu)
+#: C/gnibbles.xml:314(guimenu)
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: C/gnibbles.xml:330(para)
+#: C/gnibbles.xml:320(para)
 msgid ""
 "<menuchoice><guimenuitem>Preferences</guimenuitem></menuchoice> This opens "
 "your window to edit <link linkend=\"prefs\"> preferences.</link>"
@@ -463,11 +442,11 @@ msgstr ""
 "<menuchoice><guimenuitem>Einstellungen</guimenuitem></menuchoice> Dies öffnet "
 "ein Fenster zum Bearbeiten der <link linkend=\"prefs\"> Einstellungen.</link>"
 
-#: C/gnibbles.xml:344(guimenu)
+#: C/gnibbles.xml:334(guimenu)
 msgid "Help"
 msgstr "Hilfe"
 
-#: C/gnibbles.xml:350(para)
+#: C/gnibbles.xml:340(para)
 msgid ""
 "<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Contents</"
 "guimenuitem></menuchoice> Display this manual."
@@ -475,7 +454,7 @@ msgstr ""
 "<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Inhalte</"
 "guimenuitem></menuchoice> Dieser Eintrag zeigt dieses Handbuch an."
 
-#: C/gnibbles.xml:359(para)
+#: C/gnibbles.xml:349(para)
 msgid ""
 "<guimenuitem>About</guimenuitem> This opens the <interface>About</interface> "
 "dialog which shows basic information about <application>Nibbles</"
@@ -486,11 +465,11 @@ msgstr ""
 "application> anzeigt, wie beispielsweise den Namen des Autors oder die "
 "Versionsnummer des Spiels."
 
-#: C/gnibbles.xml:374(title)
+#: C/gnibbles.xml:364(title)
 msgid "Diamonds"
 msgstr "Diamanten"
 
-#: C/gnibbles.xml:375(para)
+#: C/gnibbles.xml:365(para)
 msgid ""
 "<application>Nibbles</application> has numerous different diamonds to eat. "
 "They are each a different color and serve a different function. Only the pale "
@@ -513,11 +492,11 @@ msgstr ""
 "Seien Sie vorsichtig mit diesen Bonus-Diamanten, schneiden Sie sich nicht den "
 "Weg zu den anderen Diamanten ab, die Sie zum Beenden des Levels benötigen."
 
-#: C/gnibbles.xml:393(title)
+#: C/gnibbles.xml:383(title)
 msgid "Customization"
 msgstr "Anpassen"
 
-#: C/gnibbles.xml:394(para)
+#: C/gnibbles.xml:384(para)
 msgid ""
 "To change the application settings, select <menuchoice><guimenu>Settings</"
 "guimenu><guimenuitem>Preferences</guimenuitem></menuchoice>. This opens the "
@@ -530,37 +509,37 @@ msgstr ""
 "interface>-Dialog geöffnet. Alle Änderungen der Einstellungen werden "
 "automatisch gespeichert und unmittelbar angewendet."
 
-#: C/gnibbles.xml:405(title)
+#: C/gnibbles.xml:395(title)
 msgid "Game Preferences Tab"
 msgstr "Einstellungsreiter »Spiel«"
 
-#: C/gnibbles.xml:412(phrase)
+#: C/gnibbles.xml:402(phrase)
 msgid "Game Preferences Tab."
 msgstr "Einstellungsreiter »Spiel«."
 
-#: C/gnibbles.xml:422(term)
+#: C/gnibbles.xml:412(term)
 msgid "Speed"
 msgstr "Geschwindigkeit"
 
-#: C/gnibbles.xml:424(para)
+#: C/gnibbles.xml:414(para)
 msgid "This controls the speed of the worm."
 msgstr "Dies steuert die Geschwindigkeit des Wurms."
 
-#: C/gnibbles.xml:430(term)
+#: C/gnibbles.xml:420(term)
 msgid "Play levels in random order"
 msgstr "Level in zufälliger Reihenfolge spielen"
 
-#: C/gnibbles.xml:432(para)
+#: C/gnibbles.xml:422(para)
 msgid "Selecting this causes the level advancement to happen in random order."
 msgstr ""
 "Wählen Sie dies aus, um die Level in zufälliger Ordnung aufeinanderfolgen zu "
 "lassen."
 
-#: C/gnibbles.xml:439(term)
+#: C/gnibbles.xml:429(term)
 msgid "Enable fake bonuses"
 msgstr "Unechte Boni aktivieren"
 
-#: C/gnibbles.xml:441(para)
+#: C/gnibbles.xml:431(para)
 msgid ""
 "When enabled, this allows for two blue diamonds on the screen at a time. One "
 "diamond makes you shrink instead of grow when eaten."
@@ -569,19 +548,19 @@ msgstr ""
 "Spielfeld angezeigt werden. Einer der Diamanten lässt Sie schrumpfen anstatt "
 "wachsen, wenn Sie ihn aufnehmen."
 
-#: C/gnibbles.xml:449(term)
+#: C/gnibbles.xml:439(term)
 msgid "Enable sounds"
 msgstr "Klang aktivieren"
 
-#: C/gnibbles.xml:451(para)
+#: C/gnibbles.xml:441(para)
 msgid "Controls the use of sound in the game."
 msgstr "Dies steuert die Ausgabe von Klängen im Spiel."
 
-#: C/gnibbles.xml:457(term)
+#: C/gnibbles.xml:447(term)
 msgid "Starting level"
 msgstr "Anfangslevel"
 
-#: C/gnibbles.xml:459(para)
+#: C/gnibbles.xml:449(para)
 msgid ""
 "Which level to start with. Use this if you want to jump immediately to a "
 "challenging level."
@@ -589,19 +568,19 @@ msgstr ""
 "Legt den Level fest, mit dem Sie starten wollen. Verwenden Sie diese "
 "Einstellung, um unmittelbar zu einem schwierigeren Level zu springen."
 
-#: C/gnibbles.xml:466(term)
+#: C/gnibbles.xml:456(term)
 msgid "Number of human players"
 msgstr "Anzahl der menschlichen Spieler"
 
-#: C/gnibbles.xml:468(para)
+#: C/gnibbles.xml:458(para)
 msgid "There is room for up to six players."
 msgstr "Der Raum bietet bis zu sechs Spielern Platz."
 
-#: C/gnibbles.xml:474(term)
+#: C/gnibbles.xml:464(term)
 msgid "Number of AI players"
 msgstr "Anzahl der Computerspieler"
 
-#: C/gnibbles.xml:476(para)
+#: C/gnibbles.xml:466(para)
 msgid ""
 "There is room for up to six AI players. Note that the total number of human "
 "and AI players must be less than or equal to six."
@@ -610,26 +589,26 @@ msgstr ""
 "Gesamtzahl der menschlichen und Computerspieler kleiner oder gleich sechs "
 "sein muss."
 
-#: C/gnibbles.xml:418(para)
+#: C/gnibbles.xml:408(para)
 msgid ""
 "The properties in the <guilabel>Game</guilabel> tab are: <placeholder-1/>"
 msgstr ""
 "Die Einstellungsoptionen im Reiter <guilabel>Spiel</guilabel> sind: "
 "<placeholder-1/>"
 
-#: C/gnibbles.xml:487(title)
+#: C/gnibbles.xml:477(title)
 msgid "Worm Preferences Tab"
 msgstr "Wurm-Einstellungsreiter"
 
-#: C/gnibbles.xml:494(phrase)
+#: C/gnibbles.xml:484(phrase)
 msgid "Worm Preferences Tab."
 msgstr "Wurm-Einstellungsreiter."
 
-#: C/gnibbles.xml:505(term)
+#: C/gnibbles.xml:495(term)
 msgid "Keyboard controls"
 msgstr "Tastatursteuerung"
 
-#: C/gnibbles.xml:507(para)
+#: C/gnibbles.xml:497(para)
 msgid ""
 "This list let you change the keyboard controls for the given worm. To change "
 "a control, double click on the appropriate entry and then press the key you "
@@ -639,11 +618,11 @@ msgstr ""
 "Tasten zu ändern, doppelklicken Sie auf den entsprechenden Eintrag. Drücken "
 "Sie anschließend die Taste, die Sie für diese Funktion verwenden wollen."
 
-#: C/gnibbles.xml:515(term)
+#: C/gnibbles.xml:505(term)
 msgid "Use relative motion"
 msgstr "Relative Bewegungen verwenden"
 
-#: C/gnibbles.xml:517(para)
+#: C/gnibbles.xml:507(para)
 msgid ""
 "Rather than left sending your worm toward the left of the screen, right "
 "toward the right and so on, the left and right keys make the worm perform a "
@@ -658,11 +637,11 @@ msgstr ""
 "links bewegte, und Sie die Pfeiltaste links drücken, bewegt er sich von nun "
 "an nach unten."
 
-#: C/gnibbles.xml:527(term)
+#: C/gnibbles.xml:517(term)
 msgid "Worm color"
 msgstr "Wurmfarbe"
 
-#: C/gnibbles.xml:529(para)
+#: C/gnibbles.xml:519(para)
 msgid ""
 "Customize the color of your worm so you can tell it from your opponent's worm "
 "in multi-player mode."
@@ -670,7 +649,7 @@ msgstr ""
 "Ändern Sie die Farbe Ihres Wurms, so dass Sie ihn im Mehrspieler-Modus vom "
 "Wurm Ihres Gegners unterscheiden können."
 
-#: C/gnibbles.xml:484(para)
+#: C/gnibbles.xml:474(para)
 msgid ""
 "<placeholder-1/> The properties in the <guilabel>Worm 1 </guilabel>through "
 "<guilabel> Worm 6</guilabel> tabs let you set individual preferences for the "
@@ -680,198 +659,11 @@ msgstr ""
 "bis <guilabel>Wurm 6</guilabel> ermöglichen Ihnen die Anpassung der "
 "Eigenschaften der verschiedenen Würmer. <placeholder-2/>"
 
-#: C/gnibbles.xml:10(title)
-msgid "Network Games"
-msgstr "Netzwerkspiele"
-
-#: C/gnibbles.xml:11(para)
-msgid ""
-"Nibbles support networked multiplayer games which is provided by <ulink type="
-"\"http\" url=\"http://www.ggzgamingzone.org\">GGZ Gaming Zone</ulink>. By "
-"connecting to a Nibbles server on the Internet, you can challenge other "
-"players in multiplayer games. For news, updates and a list of servers to "
-"connect to, see the <ulink type=\"http\" url=\"http://www.gnome.org/projects/"
-"gnome-games/\">gnome-games website</ulink>."
-msgstr ""
-"Nibbles unterstützt den Netzwerk-Mehrspielermodus für Spiele, die von <ulink "
-"type=\"http\" url=\"http://www.ggzgamingzone.org\">GGZ Gaming Zone</ulink> "
-"bereitgestellt werden. Wenn Sie sich im Internet mit einem Nibbles-Server "
-"verbinden, können Sie im Mehrspieler-Modus andere Spieler herausfordern. Über "
-"Neuigkeiten, Aktualisierungen und eine Liste der Server, mit denen Sie sich "
-"verbinden können, informiert Sie die <ulink type=\"http\" url=\"http://www."
-"gnome.org/projects/gnome-games/\">Website der GNOME-Spiele</ulink>."
-
-#: C/gnibbles.xml:18(para)
-msgid ""
-"To start the multiplayer game of Nibbles, select <menuchoice><guimenu>Game</"
-"guimenu><guimenuitem>Network Game</guimenuitem></menuchoice> on the Nibbles "
-"menu."
-msgstr ""
-"Um Nibbles im Mehrspieler-Modus zu starten, wählen Sie "
-"<menuchoice><guimenu>Spiel</guimenu><guimenuitem>Netzwerkspiel</guimenuitem></"
-"menuchoice> im Nibbles-Menü."
-
-#: C/gnibbles.xml:24(title)
-msgid "Connecting to a Nibbles network server"
-msgstr "Verbindung zu einem Nibbles-Netzwerkserver"
-
-#: C/gnibbles.xml:25(para)
-msgid ""
-"The Nibbles connection dialog is shown initially when starting a new network "
-"game. This dialog allows you to select a server to connect to, and the "
-"username that you will have while connected to that server."
-msgstr ""
-"Der Verbindungsdialog von Nibbles wird beim Start eines Netzwerkspiels "
-"angezeigt. Dieser Dialog ermöglicht Ihnen, einen Server für die Verbindung "
-"und einen Benutzernamen für die Zeit der Verbindung zum Server auszuwählen."
-
-#: C/gnibbles.xml:31(para)
-msgid ""
-"It is possible to connect to a server with either a guest account or a normal "
-"registered account. Guest accounts allows you to anonymously login, while a "
-"normal login account allows you to reserve your own username which is "
-"protected by the password that you choose."
-msgstr ""
-"Es ist möglich, sich entweder über einen Gastzugang oder einen normal "
-"registrierten Zugang mit einem Server zu verbinden. Gastzugänge ermöglichen "
-"die anonyme Anmeldung, während ein normaler Zugang die Anmeldung mit Ihrem "
-"registrierten Benutzernamen erlaubt, der durch das von Ihnen gewählte "
-"Passwort geschützt ist."
-
-#: C/gnibbles.xml:38(para)
-msgid ""
-"The <guimenuitem>Guest Login</guimenuitem> option should be selected if you "
-"want an anonymous guest account. If you want to create a new login account, "
-"then select the <guimenuitem>First-time Login</guimenuitem> option, with the "
-"username, password and email of your choice. If you have already created your "
-"account, you can connect by selecting the <guimenuitem>Normal Login</"
-"guimenuitem> option, and enter the username and password that you have chosen."
-msgstr ""
-"Die Option <guimenuitem>Gast-Anmeldung</guimenuitem> sollte ausgewählt "
-"werden, wenn Sie einen anonymen Gastzugang wünschen. Wenn Sie einen neuen "
-"Anmeldezugang anlegen wollen, wählen Sie die Option "
-"<guimenuitem>Erstanmeldung</guimenuitem>, mit Benutzername, Passwort und E-"
-"Mail-Adresse Ihrer Wahl. Falls Sie bereits einen Zugang angelegt haben, "
-"können Sie sich mit der Option <guimenuitem>Normale Anmeldung</guimenuitem> "
-"unter Angabe des Benutzernamens und des gewählten Passworts verbinden."
-
-#: C/gnibbles.xml:46(para)
-msgid ""
-"To connect to a server, click on the <guimenuitem>Connect</guimenuitem> "
-"button."
-msgstr ""
-"Um zum Server zu verbinden, klicken Sie auf die Schaltfläche "
-"<guimenuitem>Verbinden</guimenuitem>."
-
-#: C/gnibbles.xml:50(title) C/gnibbles.xml:57(phrase)
-msgid "The Nibbles network connection dialog."
-msgstr "Der Netzwerkverbindungsdialog von Nibbles."
-
-#: C/gnibbles.xml:65(title)
-msgid "Joining a game room"
-msgstr "Betreten des Spielraumes"
-
-#: C/gnibbles.xml:66(para)
-msgid ""
-"Once you have successfully connected to a server, you can choose which game "
-"room to join. To play a multiplayer game of Nibbles, select the Nibbles room. "
-"If you want to host your own game, then click on the Launch button. This "
-"creates a new table where other players can participate in a game against "
-"you. If there are any other games already started, then you can double-click "
-"on an existing game table to join it. The list of game tables on the right "
-"shows you the number of available seats, which means the number of players "
-"that can join the game table."
-msgstr ""
-"Sobald Sie sich erfolgreich mit einem Server verbunden haben, können Sie "
-"wählen, welchen Raum Sie betreten wollen. Um Nibbles im Mehrspieler-Modus zu "
-"spielen, wählen sie einen Nibbles-Raum. Wenn Sie ein eigenes Spiel "
-"bereitstellen wollen, klicken Sie auf die Schaltfläche »Starten«. Dies "
-"erstellt einen neuen Spieltisch, an dem andere Spieler Platz nehmen können, "
-"um gegen Sie zu spielen. Falls einige andere Spiele bereits gestartet wurden, "
-"doppelklicken Sie auf eines der vorhandenen Spiele, um daran teilzunehmen. "
-"Die Liste der Spieltische rechts zeigt Ihnen die Anzahl der verfügbaren "
-"Plätze, das heißt die Anzahl der Spieler. die noch an diesem Spieltisch "
-"teilnehmen können."
-
-#: C/gnibbles.xml:73(title) C/gnibbles.xml:80(phrase)
-msgid ""
-"This Nibbles network dialog allows you to join a game room to find other "
-"players."
-msgstr ""
-"Der Netzwerkdialog von Nibbles erlaubt Ihnen, einem Spiele-Raum beizutreten, "
-"um andere Spieler zu finden."
-
-#: C/gnibbles.xml:85(para)
-msgid ""
-"When creating a new table for Nibbles games, a preference dialog is displayed "
-"which allows you to customize the game, such as set the minimum number of "
-"players for the game. Once the total number of seats have been taken, then no "
-"more players are allowed to join that game table."
-msgstr ""
-"Wenn Sie einen neuen spieltisch für Nibbles-spiele erstellen, wird ein "
-"Einstellungsdialog angezeigt, der Ihnen die Anpassung des Spiels ermöglicht, "
-"wie beispielsweise die Mindeszanzahl von Spielern für dieses Spiel. Wenn "
-"diese Anzahl an Spielern Platz genommen hat, ist es keinen weiteren Spielern "
-"erlaubt, an diesem Tisch Platz zu nehmen."
-
-#: C/gnibbles.xml:90(para)
-msgid ""
-"It is possible to chat with other players in network games. Ask for advice or "
-"help playing the games, but please be polite against other players."
-msgstr ""
-"Es ist möglich, mit anderen Spielern in Netzwerkspielen Sofortnachrichten "
-"auszutauschen. Bitten Sie um Ratschläge oder Hilfe für die Spiele, aber seien "
-"Sie bitte höflich gegenüber anderen Spielern."
-
-#: C/gnibbles.xml:97(title)
-msgid "Waiting for other players to join the game"
-msgstr "Warten, bis andere Spieler den Raum betreten"
-
-#: C/gnibbles.xml:98(para)
-msgid ""
-"Once you have successfully joined a game table, then you have to wait until "
-"enough players have joined the table. The <guimenuitem>Players List</"
-"guimenuitem> menu item allows you to see a list of the players who have "
-"joined the game. The game will begin immediately when the total number of "
-"players in the the game have been reached."
-msgstr ""
-"Sobald Sie erfolgreich an einem Spieltisch Platz genommen haben, warten Sie "
-"bitte, bis genug Spieler ebenfalls Platz genommen haben. Der Menüeintrag "
-"<guimenuitem>Spielerliste</guimenuitem> ermöglicht Ihnen zu sehen, welche "
-"Spieler am Spiel teilnehmen wollen. Das Spiel beginnt sofort, wenn die "
-"Gesamtzahl der Spieler erreicht ist."
-
-#: C/gnibbles.xml:107(title)
-msgid "Playing multiplayer Nibbles games"
-msgstr "Nibbles im Mehrspieler-Modus spielen"
-
-#: C/gnibbles.xml:108(para)
-msgid ""
-"Multiplayer Nibbles games have pretty much the same rules as normal Nibbles "
-"games, except that you are now playing against human players. This means that "
-"other strategies might possibly be better than when playing against AI "
-"players."
-msgstr ""
-"Nibbles-Spiele im Mehrspielermodus folgen so ziemlich den gleichen Regeln wie "
-"gewöhnliche Nibbles-Spiele, mit dem Unterschied, dass Sie nun gegen "
-"menschliche Gegner spielen. Das bedeutet, dass Sie möglicherweise andere "
-"Strategien anwenden müssen als bei Computergegnern."
-
-#: C/gnibbles.xml:113(para)
-msgid ""
-"Once a player has won, the game ends and you can return to the initial "
-"network game screen. Then you can play yet another game of addictive Nibbles "
-"multiplayer!"
-msgstr ""
-"Wen einer der Spieler gewonnen hat, endet das Spiel und Sie können zum "
-"ursprünglichen Netzwerkspiel-Bildschirm zurückkehren. Dann können Sie ein "
-"weiteres süchtig machendes Spiel im Nibbles-Mehrspieler-Modus beginnen!"
-
-#: C/gnibbles.xml:553(title)
+#: C/gnibbles.xml:534(title)
 msgid "Authors"
 msgstr "Autoren"
 
-#: C/gnibbles.xml:554(para)
+#: C/gnibbles.xml:535(para)
 msgid ""
 "<application>Nibbles</application> was written by Sean MacIsaac "
 "<email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This "
@@ -887,14 +679,14 @@ msgstr ""
 "geschrieben. Die Netzwerkunterstützung für Nibbles fügte Andreas Røsdal "
 "<email>andreasr@gnome.org</email> hinzu. Um einen Fehler zu melden oder einen "
 "Vorschlag zu dieser Anwendung oder zu diesem Handbuch zu machen, folgen Sie "
-"den Anweisungen in diesem <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
-"\">Dokument</ulink>."
+"den Anweisungen in diesem <ulink url=\"ghelp:user-guide?feedback-bugs\" type="
+"\"help\">Dokument</ulink>."
 
-#: C/gnibbles.xml:580(title)
+#: C/gnibbles.xml:561(title)
 msgid "License"
 msgstr "Lizenz"
 
-#: C/gnibbles.xml:581(para)
+#: C/gnibbles.xml:562(para)
 msgid ""
 "This program is free software; you can redistribute it and/or modify it under "
 "the terms of the <ulink type=\"help\" url=\"gnome-help:gpl\"><citetitle>GNU "
@@ -909,7 +701,7 @@ msgstr ""
 "ulink> veröffentlicht wurde; entweder in Version 2 der Lizenz oder (nach "
 "Ihrer Wahl) jeder neueren Version."
 
-#: C/gnibbles.xml:589(para)
+#: C/gnibbles.xml:570(para)
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -922,7 +714,7 @@ msgstr ""
 "<citetitle><ulink type=\"help\" url=\"gnome-help:gpl\">GNU General Public "
 "License</ulink></citetitle> für genauere Hinweise."
 
-#: C/gnibbles.xml:595(para)
+#: C/gnibbles.xml:576(para)
 msgid ""
 "A copy of the <citetitle>GNU General Public License</citetitle> is included "
 "as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
@@ -940,7 +732,8 @@ msgstr ""
 "Software Foundation, Inc. 59 Temple Place - Suite 330 Boston, MA 02111-1307 "
 "USA </address> schreiben."
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/gnibbles.xml:0(None)
 msgid "translator-credits"
-msgstr "Mario Blättermann <mario.blaettermann@t-online.de>, 2008"
+msgstr "Mario Blättermann <mariobl@freenet.de>, 2008, 2011"
+
