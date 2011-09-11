@@ -248,7 +248,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_table_attach (GTK_TABLE (table), frame, 0, 1, 0, 1, 0,
                     GTK_FILL | GTK_EXPAND, 0, 0);
 
-  vbox = gtk_vbox_new (FALSE, 6);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL 6);
   gtk_container_add (GTK_CONTAINER (frame), vbox);
 
   button = gtk_radio_button_new_with_label (NULL, _("Nibbles newbie"));
@@ -294,7 +294,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   frame = games_frame_new (_("Options"));
   gtk_table_attach_defaults (GTK_TABLE (table), frame, 1, 2, 0, 1);
 
-  vbox = gtk_vbox_new (FALSE, 6);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_container_add (GTK_CONTAINER (frame), vbox);
 
   button =
@@ -409,7 +409,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     label = gtk_label_new (buffer);
     g_free (buffer);
 
-    vbox = gtk_vbox_new (FALSE, 18);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 18);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
 
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox, label);
@@ -436,7 +436,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     frame = games_frame_new (_("Options"));
     gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
 
-    vbox2 = gtk_vbox_new (FALSE, 6);
+    vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     gtk_container_add (GTK_CONTAINER (frame), vbox2);
 
     button = gtk_check_button_new_with_mnemonic (_("_Use relative movement"));

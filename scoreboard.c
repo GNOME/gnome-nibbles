@@ -42,7 +42,7 @@ gnibbles_scoreboard_new (GtkWidget * t_statusbar)
   tmp->count = 0;
 
   for (i = 0; i < NUMWORMS; i++) {
-    hbox = gtk_hbox_new (FALSE, 8);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
     gtk_widget_show (hbox);
 
     sprintf (buffer, _("Worm %d:"), i + 1);
@@ -63,13 +63,13 @@ void
 gnibbles_scoreboard_register (GnibblesScoreboard * scoreboard,
                               GnibblesWorm * t_worm, gchar * colorname)
 {
-  GdkColor color;
+  GdkRGBA color;
 
-  gdk_color_parse (colorname, &color);
+  gdk_rgba_parse (&color, colorname);
 
   scoreboard->worms[scoreboard->count] = t_worm;
   gtk_widget_set_sensitive (scoreboard->names[scoreboard->count], TRUE);
-  gtk_widget_modify_fg (scoreboard->names[scoreboard->count], GTK_STATE_NORMAL, &color);
+  gtk_widget_override_color (scoreboard->names[scoreboard->count], GTK_STATE_NORMAL, &color);
   gtk_widget_set_sensitive (scoreboard->data[scoreboard->count], TRUE);
   gtk_widget_show (scoreboard->names[scoreboard->count]);
   gtk_widget_show (scoreboard->data[scoreboard->count]);

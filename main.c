@@ -705,7 +705,7 @@ setup_window (void)
 
   gtk_widget_realize (window);
 
-  vbox = gtk_vbox_new (FALSE, 0);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
   games_stock_init ();
   ui_manager = gtk_ui_manager_new ();
