@@ -248,7 +248,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_table_attach (GTK_TABLE (table), frame, 0, 1, 0, 1, 0,
                     GTK_FILL | GTK_EXPAND, 0, 0);
 
-  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL 6);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_container_add (GTK_CONTAINER (frame), vbox);
 
   button = gtk_radio_button_new_with_label (NULL, _("Nibbles newbie"));
