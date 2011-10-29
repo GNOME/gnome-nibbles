@@ -27,10 +27,10 @@
 #define MAXBONUSES 100
 #define MAXMISSED 2
 
-#define NUMBONI 10
 
 typedef struct {
   GnibblesBonus *bonuses[MAXBONUSES];
+  gint numboni;
   gint numbonuses;
   gint numleft;
   gint missed;

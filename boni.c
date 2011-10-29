@@ -47,10 +47,10 @@ gnibbles_boni_new (void)
   tmp = g_new (GnibblesBoni, 1);
   for (i = 0; i < MAXBONUSES; i++)
     tmp->bonuses[i] = NULL;
+  tmp->numboni = 8 + properties->numworms;
   tmp->numbonuses = 0;
-  tmp->numleft = NUMBONI;
+  tmp->numleft = tmp->numboni;
   tmp->missed = 0;
-
   return tmp;
 }
 

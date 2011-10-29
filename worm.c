@@ -302,8 +302,8 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
   switch (board->walls[worm->xhead][worm->yhead] - 'A') {
     case BONUSREGULAR:
       boni->numleft--;
-      worm->change += (NUMBONI - boni->numleft) * GROWFACTOR;
-      worm->score += (NUMBONI - boni->numleft) * current_level;
+      worm->change += (boni->numboni - boni->numleft) * GROWFACTOR;
+      worm->score += (boni->numboni - boni->numleft) * current_level;
       games_sound_play ("gobble");
       break;
     case BONUSDOUBLE:
