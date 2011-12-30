@@ -201,7 +201,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   GtkWidget *vbox, *vbox2;
   GtkAdjustment *adjustment;
   GtkWidget *label2;
-  GtkWidget *table, *table2;
+  GtkWidget *grid, *grid2;
   GtkWidget *omenu;
   GtkWidget *controls;
   gchar *buffer;
@@ -235,18 +235,18 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                      notebook);
 
   label = gtk_label_new (_("Game"));
-  table = gtk_table_new (1, 2, FALSE);
-  gtk_table_set_col_spacings (GTK_TABLE (table), 18);
-  gtk_container_set_border_width (GTK_CONTAINER (table), 12);
+  grid = gtk_grid_new ();
+  gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
+  gtk_container_set_border_width (GTK_CONTAINER (grid), 12);
 
-  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
+  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), grid, label);
 
   frame = games_frame_new (_("Speed"));
   if (running)
     gtk_widget_set_sensitive (frame, FALSE);
 
-  gtk_table_attach (GTK_TABLE (table), frame, 0, 1, 0, 1, 0,
-                    GTK_FILL | GTK_EXPAND, 0, 0);
+  gtk_widget_set_vexpand (frame, TRUE);
+  gtk_grid_attach (GTK_GRID (grid), frame, 0, 0, 1, 1);
 
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_container_add (GTK_CONTAINER (frame), vbox);
@@ -292,7 +292,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
   /* Options */
   frame = games_frame_new (_("Options"));
-  gtk_table_attach_defaults (GTK_TABLE (table), frame, 1, 2, 0, 1);
+  gtk_grid_attach (GTK_GRID (grid), frame, 1, 0, 1, 1);
 
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_container_add (GTK_CONTAINER (frame), vbox);
@@ -325,11 +325,11 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   g_signal_connect (GTK_WIDGET (button), "toggled", G_CALLBACK
                     (sound_cb), NULL);
 
-  table2 = gtk_table_new (3, 2, FALSE);
-  gtk_box_pack_start (GTK_BOX (vbox), table2, FALSE, FALSE, 0);
-  gtk_table_set_row_spacings (GTK_TABLE (table2), 6);
-  gtk_table_set_col_spacings (GTK_TABLE (table2), 12);
-  gtk_container_set_border_width (GTK_CONTAINER (table2), 0);
+  grid2 = gtk_grid_new ();
+  gtk_box_pack_start (GTK_BOX (vbox), grid2, FALSE, FALSE, 0);
+  gtk_grid_set_row_spacing (GTK_GRID (grid2), 6);
+  gtk_grid_set_column_spacing (GTK_GRID (grid2), 12);
+  gtk_container_set_border_width (GTK_CONTAINER (grid2), 0);
 
   label2 = gtk_label_new_with_mnemonic (_("_Starting level:"));
   start_level_label = label2;
@@ -340,7 +340,8 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_widget_set_sensitive (GTK_WIDGET (label2), FALSE);
   if (running)
     gtk_widget_set_sensitive (GTK_WIDGET (label2), FALSE);
-  gtk_table_attach (GTK_TABLE (table2), label2, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
+  gtk_widget_set_hexpand (label2, TRUE);
+  gtk_grid_attach (GTK_GRID (grid2), label2, 0, 0, 1, 1);
 
   adjustment = gtk_adjustment_new ((gfloat) properties->startlevel, 1.0,
                                    MAXLEVEL, 1.0, 5.0, 0.0);
@@ -355,14 +356,15 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_widget_set_sensitive (GTK_WIDGET (levelspinner), FALSE);
   if (running)
     gtk_widget_set_sensitive (GTK_WIDGET (levelspinner), FALSE);
-  gtk_table_attach_defaults (GTK_TABLE (table2), levelspinner, 1, 2, 0, 1);
+  gtk_grid_attach (GTK_GRID (grid2), levelspinner, 1, 0, 1, 1);
   g_signal_connect (GTK_ADJUSTMENT (adjustment), "value_changed",
                     G_CALLBACK (start_level_cb), levelspinner);
 
   label2 = gtk_label_new_with_mnemonic (_("Number of _human players:"));
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
-  gtk_table_attach (GTK_TABLE (table2), label2, 0, 1, 1, 2, GTK_FILL, 0, 0,  0);
+  gtk_widget_set_hexpand (label2, TRUE);
+  gtk_grid_attach (GTK_GRID (grid2), label2, 0, 1, 1, 1);
   if (running)
     gtk_widget_set_sensitive (label2, FALSE);
 
@@ -373,7 +375,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_spin_button_set_wrap (GTK_SPIN_BUTTON (num_human), FALSE);
   gtk_label_set_mnemonic_widget (GTK_LABEL (label2), num_human);
 
-  gtk_table_attach_defaults (GTK_TABLE (table2), num_human, 1, 2, 1, 2);
+  gtk_grid_attach (GTK_GRID (grid2), num_human, 1, 1, 1, 1);
   if (running)
     gtk_widget_set_sensitive (num_human, FALSE);
   g_signal_connect (GTK_ADJUSTMENT (adjustment), "value_changed",
@@ -382,7 +384,8 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   label2 = gtk_label_new_with_mnemonic (_("Number of _AI players:"));
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
-  gtk_table_attach (GTK_TABLE (table2), label2, 0, 1, 2, 3, GTK_FILL, 0, 0, 0);
+  gtk_widget_set_hexpand (label2, TRUE);  
+  gtk_grid_attach (GTK_GRID (grid2), label2, 0, 2, 1, 1);
   if (running)
     gtk_widget_set_sensitive (label2, FALSE);
 
@@ -393,7 +396,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_spin_button_set_wrap (GTK_SPIN_BUTTON (num_ai), FALSE);
   gtk_label_set_mnemonic_widget (GTK_LABEL (label2), num_ai);
 
-  gtk_table_attach_defaults (GTK_TABLE (table2), num_ai, 1, 2, 2, 3);
+  gtk_grid_attach (GTK_GRID (grid2), num_ai, 1, 2, 1, 1);
   if (running)
     gtk_widget_set_sensitive (num_ai, FALSE);
   g_signal_connect (GTK_ADJUSTMENT (adjustment), "value_changed",
@@ -442,13 +445,13 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     button = gtk_check_button_new_with_mnemonic (_("_Use relative movement"));
     gtk_box_pack_start (GTK_BOX (vbox2), button, FALSE, FALSE, 0);
 
-    table2 = gtk_table_new (1, 2, FALSE);
-    gtk_table_set_col_spacings (GTK_TABLE (table2), 12);
-    gtk_box_pack_start (GTK_BOX (vbox2), table2, FALSE, FALSE, 0);
+    grid2 = gtk_grid_new ();
+    gtk_grid_set_column_spacing (GTK_GRID (grid2), 12);
+    gtk_box_pack_start (GTK_BOX (vbox2), grid2, FALSE, FALSE, 0);
 
     label2 = gtk_label_new_with_mnemonic (_("_Worm color:"));
     gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
-    gtk_table_attach (GTK_TABLE (table2), label2, 0, 1, 0, 1, 0, 0, 0, 0);
+    gtk_grid_attach (GTK_GRID (grid2), label2, 0, 0, 1, 1);
 
     omenu = gtk_combo_box_text_new ();
     gtk_label_set_mnemonic_widget (GTK_LABEL (label2), omenu);
@@ -464,7 +467,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                       GINT_TO_POINTER (i));
     gtk_combo_box_set_active (GTK_COMBO_BOX (omenu),
                               properties->wormprops[i]->color - WORMRED);
-    gtk_table_attach_defaults (GTK_TABLE (table2), omenu, 1, 2, 0, 1);
+    gtk_grid_attach (GTK_GRID (grid2), omenu, 1, 0, 1, 1);
 
     set_worm_controls_sensitivity (i, properties->wormprops[i]->relmove);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
