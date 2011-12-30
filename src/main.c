@@ -172,7 +172,7 @@ about_cb (GtkAction * action, gpointer data)
        "authors", authors,
        "documenters", documenters, "translator-credits",
        _("translator-credits"), "logo-icon-name",
-       "gnome-gnibbles", "website",
+       "gnibbles", "website",
        "http://www.gnome.org/projects/gnome-games/",
        "website-label", _("GNOME Games web site"),
        "wrap-license", TRUE, NULL);
@@ -919,7 +919,7 @@ main (int argc, char **argv)
     exit (1);
   }
 
-  gtk_window_set_default_icon_name ("gnome-gnibbles");
+  gtk_window_set_default_icon_name ("gnibbles");
   srand (time (NULL));
 
   highscores = games_scores_new ("gnibbles",

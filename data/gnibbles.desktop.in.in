@@ -2,7 +2,7 @@
 _Name=Nibbles
 _Comment=Guide a worm around a maze
 Exec=gnibbles
-Icon=gnome-gnibbles
+Icon=gnibbles
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Game;ArcadeGame;

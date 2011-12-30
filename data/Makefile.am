@@ -1,4 +1,4 @@
-SUBDIRS = levels pix
+SUBDIRS = icons levels pix
 
 pixmapdir = $(datadir)/gnome-games/gnibbles/pixmaps
 pixmap_DATA = gnibbles-logo.svg
