@@ -11,3 +11,5 @@ icon24_DATA = 24x24/gnibbles.png
 icon32_DATA = 32x32/gnibbles.png
 icon48_DATA = 48x48/gnibbles.png
 iconscalable_DATA = scalable/gnibbles.svg
+
+EXTRA_DIST = $(icon16_DATA) $(icon22_DATA) $(icon24_DATA) $(icon32_DATA) $(icon48_DATA) $(icon256_DATA) $(iconscalable_DATA)
