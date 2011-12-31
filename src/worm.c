@@ -28,7 +28,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include <libgames-support/games-sound.h>
 #include <libgames-support/games-runtime.h>
 #include <clutter-gtk/clutter-gtk.h>
 
@@ -39,6 +38,7 @@
 #include "warpmanager.h"
 #include "properties.h"
 #include "board.h"
+#include "sound.h"
 
 #include "worm.h"
 
@@ -295,7 +295,7 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 
   if (gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
     g_timeout_add (1, (GSourceFunc) gnibbles_worm_reverse, worm);
-    games_sound_play ("reverse");
+    play_sound ("reverse");
     return;
   }
 
@@ -304,12 +304,12 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
       boni->numleft--;
       worm->change += (boni->numboni - boni->numleft) * GROWFACTOR;
       worm->score += (boni->numboni - boni->numleft) * current_level;
-      games_sound_play ("gobble");
+      play_sound ("gobble");
       break;
     case BONUSDOUBLE:
       worm->score += (worm->length + worm->change) * current_level;
       worm->change += worm->length + worm->change;
-      games_sound_play ("bonus");
+      play_sound ("bonus");
       break;
     case BONUSHALF:
       if (worm->length + worm->change > 2) {
@@ -318,19 +318,19 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
                                   (g_list_length (worm->list)
                                   + worm->change) / 2);
         worm->change -= (g_list_length (worm->list) + worm->change) / 2;
-        games_sound_play ("bonus");
+        play_sound ("bonus");
       }
       break;
     case BONUSLIFE:
       worm->lives += 1;
-      games_sound_play ("life");
+      play_sound ("life");
       break;
     case BONUSREVERSE:
       for (i = 0; i < properties->numworms; i++)
         if (worm != worms[i])
           g_timeout_add (1, (GSourceFunc)
                          gnibbles_worm_reverse, worms[i]);
-      games_sound_play ("reverse");
+      play_sound ("reverse");
       break;
   }
 }
@@ -374,7 +374,7 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
 
   if (board->walls[worm->xhead][worm->yhead] == WARPLETTER) {
     gnibbles_warpmanager_worm_change_pos (warpmanager, worm);
-    games_sound_play ("teleport");
+    play_sound ("teleport");
   }
 }
 

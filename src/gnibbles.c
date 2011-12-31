@@ -33,7 +33,6 @@
 #include <libgames-support/games-runtime.h>
 #include <libgames-support/games-scores-dialog.h>
 #include <libgames-support/games-scores.h>
-#include <libgames-support/games-sound.h>
 
 #include "main.h"
 #include "gnibbles.h"
@@ -43,6 +42,7 @@
 #include "properties.h"
 #include "scoreboard.h"
 #include "board.h"
+#include "sound.h"
 #include "worm.h"
 
 GnibblesWorm *worms[NUMWORMS];
@@ -285,14 +285,14 @@ gnibbles_move_worms (void)
       if (!gnibbles_worm_lose_life (worms[i])) {
         /* One of the worms lost one life, but the round continues. */
         gnibbles_worm_reset (worms[i]);
-        games_sound_play ("crash");
+        play_sound ("crash");
       }
     }
   }
 
   if (status & GAMEOVER) {
-    games_sound_play ("crash");
-    games_sound_play ("gameover");
+    play_sound ("crash");
+    play_sound ("gameover");
     return GAMEOVER;
   }
 

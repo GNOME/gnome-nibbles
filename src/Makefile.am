@@ -21,6 +21,8 @@ gnibbles_SOURCES = \
 	main.h \
 	board.c \
 	board.h \
+	sound.c \
+	sound.h \
 	worm.c \
 	worm.h
 
@@ -29,7 +31,9 @@ gnibbles_CPPFLAGS = \
 	$(AM_CPPFLAGS)
 
 gnibbles_CFLAGS = \
+	-DSOUND_DIRECTORY=\"$(pkgdatadir)/sounds\" \
 	$(GTK_CFLAGS) \
+	$(CANBERRA_GTK_CFLAGS) \
 	$(CLUTTER_GTK_CFLAGS) \
 	$(CLUTTER_CFLAGS) \
 	$(AM_CFLAGS)
@@ -37,6 +41,7 @@ gnibbles_CFLAGS = \
 gnibbles_LDADD = \
 	$(top_builddir)/libgames-support/libgames-support.la \
 	$(GTK_LIBS) \
+	$(CANBERRA_GTK_LIBS) \
 	$(CLUTTER_GTK_LIBS) \
 	$(CLUTTER_LIBS) \
 	$(INTLLIBS)

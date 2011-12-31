@@ -24,7 +24,6 @@
 
 #include <gtk/gtk.h>
 
-#include <libgames-support/games-sound.h>
 #include <clutter-gtk/clutter-gtk.h>
 
 #include "gnibbles.h"
@@ -33,6 +32,7 @@
 #include "boni.h"
 #include "board.h"
 #include "properties.h"
+#include "sound.h"
 
 extern GnibblesBoard *board;
 extern GnibblesProperties *properties;
@@ -85,7 +85,7 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
 
   boni->numbonuses++;
   if (t_type != BONUSREGULAR)
-    games_sound_play ("appear");
+    play_sound ("appear");
 }
 
 void
@@ -105,7 +105,7 @@ gnibbles_boni_add_bonus_final (GnibblesBoni * boni, gint t_x, gint t_y,
   gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
   boni->numbonuses++;
   if (t_type != BONUSREGULAR)
-    games_sound_play ("appear");
+    play_sound ("appear");
 }
 
 int

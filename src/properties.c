@@ -26,12 +26,12 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-#include <libgames-support/games-sound.h>
 #include <libgames-support/games-scores.h>
 #include <libgames-support/games-conf.h>
 
 #include "properties.h"
 #include "main.h"
+#include "sound.h"
 
 #define MAX_SPEED 4
 
@@ -120,7 +120,7 @@ gnibbles_properties_update (GnibblesProperties * tmp)
     tmp->startlevel = MAXLEVEL;
 
   tmp->sound = games_conf_get_boolean (KEY_PREFERENCES_GROUP, KEY_SOUND, NULL);
-  games_sound_enable (tmp->sound);
+  sound_enable (tmp->sound);
 
   tmp->tilesize = games_conf_get_integer (KEY_PREFERENCES_GROUP,
                                           KEY_TILE_SIZE, NULL);
