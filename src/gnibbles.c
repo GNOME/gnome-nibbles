@@ -65,8 +65,6 @@ GdkPixbuf *boni_pixmaps[9] = { NULL, NULL, NULL, NULL, NULL,
   NULL, NULL, NULL, NULL
 };
 
-extern GtkWidget *drawing_area;
-
 extern GnibblesBoard *board;
 
 extern GnibblesProperties *properties;

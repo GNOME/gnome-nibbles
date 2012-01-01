@@ -37,7 +37,6 @@
 #define KB_TEXT_HEIGHT 32
 #define KB_TEXT_NCHARS 8
 
-extern GtkWidget *drawing_area;
 static GtkWidget *pref_dialog = NULL;
 static gint unpause = 0;
 extern GtkWidget *window;
