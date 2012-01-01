@@ -26,8 +26,6 @@
 #include <clutter/clutter.h>
 #include <clutter-gtk/clutter-gtk.h>
 
-#include <libgames-support/games-runtime.h>
-
 #include "gnibbles.h"
 #include "bonus.h"
 #include "properties.h"

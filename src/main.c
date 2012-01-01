@@ -32,7 +32,6 @@
 
 #include <libgames-support/games-conf.h>
 #include <libgames-support/games-gridframe.h>
-#include <libgames-support/games-runtime.h>
 #include <libgames-support/games-scores.h>
 #include <libgames-support/games-stock.h>
 #include <libgames-support/games-pause-action.h>
@@ -890,9 +889,6 @@ main (int argc, char **argv)
   gboolean retval;
   GError *error = NULL;
 
-  if (!games_runtime_init ("gnibbles"))
-    return 1;
-
 #ifdef ENABLE_SETGID
   setgid_io_init ();
 #endif
@@ -946,8 +942,6 @@ main (int argc, char **argv)
 
   gnibbles_properties_destroy (properties);
   games_conf_shutdown ();
-
-  games_runtime_shutdown ();
 
   return 0;
 }

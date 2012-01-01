@@ -28,7 +28,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include <libgames-support/games-runtime.h>
 #include <clutter-gtk/clutter-gtk.h>
 
 #include "main.h"
