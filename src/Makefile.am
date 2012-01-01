@@ -31,6 +31,7 @@ gnibbles_CPPFLAGS = \
 	$(AM_CPPFLAGS)
 
 gnibbles_CFLAGS = \
+	-DDATA_DIRECTORY=\"$(datadir)/gnibbles\" \
 	-DSOUND_DIRECTORY=\"$(pkgdatadir)/sounds\" \
 	$(GTK_CFLAGS) \
 	$(CANBERRA_GTK_CFLAGS) \

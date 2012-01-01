@@ -1,4 +1,4 @@
-configdir = $(datadir)/gnome-games/gnibbles/games
+configdir = $(datadir)/gnibbles/games
 config_DATA = \
 	level001.gnl \
 	level002.gnl \

@@ -78,10 +78,8 @@ gnibbles_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
 {
   GdkPixbuf *image;
   gchar *filename;
-  const char *dirname;
 
-  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
-  filename = g_build_filename (dirname, pixmap, NULL);
+  filename = g_build_filename (DATA_DIRECTORY, "pixmaps", pixmap, NULL);
 
   if (!filename) {
     char *message =

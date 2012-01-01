@@ -27,7 +27,6 @@
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
 
-#include <libgames-support/games-runtime.h>
 #include <clutter-gtk/clutter-gtk.h>
 
 #include "main.h"
@@ -48,7 +47,6 @@ GnibblesBoard *
 gnibbles_board_new (void)
 {
   gchar *filename;
-  const char *dirname;
   GValue val = {0,};
 
   GnibblesBoard *board = g_new (GnibblesBoard, 1);
@@ -57,8 +55,7 @@ gnibbles_board_new (void)
   board->level = NULL;
   board->surface = NULL;
 
-  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
-  filename = g_build_filename (dirname, "wall-small-empty.svg", NULL);
+  filename = g_build_filename (DATA_DIRECTORY, "pixmaps", "wall-small-empty.svg", NULL);
 
   board->surface = clutter_texture_new_from_file (filename, NULL);
 
@@ -229,7 +226,6 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
 {
 
   gchar *tmp = NULL;
-  const char *dirname;
   gchar *filename;
   FILE *in;
   gchar tmpboard [BOARDWIDTH +2];
@@ -240,8 +236,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
 
   tmp = g_strdup_printf("level%03d.gnl", level);
 
-  dirname = games_runtime_get_directory (GAMES_RUNTIME_GAME_GAMES_DIRECTORY);
-  filename = g_build_filename (dirname, tmp, NULL);
+  filename = g_build_filename (DATA_DIRECTORY, "games", tmp, NULL);
 
   g_free (tmp);
 

@@ -1,4 +1,4 @@
-pixmapdir = $(pkgdatadir)/gnibbles/pixmaps
+pixmapdir = $(datadir)/gnibbles/pixmaps
 
 BONUS_PIX = \
 	blank.svg \
