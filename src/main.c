@@ -889,10 +889,6 @@ main (int argc, char **argv)
   gboolean retval;
   GError *error = NULL;
 
-#ifdef ENABLE_SETGID
-  setgid_io_init ();
-#endif
-
   g_set_application_name (_("Nibbles"));
 
   if (gtk_clutter_init (&argc, &argv) != CLUTTER_INIT_SUCCESS) {
