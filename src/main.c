@@ -32,7 +32,6 @@
 
 #include <libgames-support/games-conf.h>
 #include <libgames-support/games-gridframe.h>
-#include <libgames-support/games-help.h>
 #include <libgames-support/games-runtime.h>
 #include <libgames-support/games-scores.h>
 #include <libgames-support/games-stock.h>
@@ -593,7 +592,12 @@ show_cursor_cb (GtkWidget * widget, GdkEventMotion *event, gpointer data)
 static void
 help_cb (GtkAction * action, gpointer data)
 {
-  games_help_display (window, "gnibbles", NULL);
+  GError *error = NULL;
+
+  gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (window)), "ghelp:gnibbles", gtk_get_current_event_time (), &error);
+  if (error)
+    g_warning ("Failed to show help: %s", error->message);
+  g_clear_error (&error);
 }
 
 static const GtkActionEntry action_entry[] = {
