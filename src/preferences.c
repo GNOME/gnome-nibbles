@@ -415,7 +415,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
     frame = games_frame_new (_("Keyboard Controls"));
 
-    controls = games_controls_list_new_settings (worm_settings[i]);
+    controls = games_controls_list_new (worm_settings[i]);
 
     games_controls_list_add_controls (GAMES_CONTROLS_LIST (controls),
                                       "key-left", _("Move left"), GDK_KEY_Left,
