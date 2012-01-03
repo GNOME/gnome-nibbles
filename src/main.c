@@ -30,7 +30,6 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-#include <libgames-support/games-conf.h>
 #include <libgames-support/games-gridframe.h>
 #include <libgames-support/games-scores.h>
 #include <libgames-support/games-stock.h>
@@ -699,7 +698,7 @@ setup_window (void)
 
   gtk_window_set_default_size (GTK_WINDOW (window),
                                DEFAULT_WIDTH, DEFAULT_HEIGHT);
-  games_conf_add_window (GTK_WINDOW (window), KEY_PREFERENCES_GROUP);
+  //games_conf_add_window (GTK_WINDOW (window), KEY_PREFERENCES_GROUP);
 
   g_signal_connect (G_OBJECT (window), "destroy",
                     G_CALLBACK (gtk_main_quit), NULL);
@@ -924,7 +923,6 @@ main (int argc, char **argv)
                                  0 /* default category */,
                                  GAMES_SCORES_STYLE_PLAIN_DESCENDING);
 
-  games_conf_initialise ("Gnibbles");
   properties = gnibbles_properties_new ();
   setup_window ();
   gnibbles_load_pixmap (properties->tilesize);
@@ -937,7 +935,6 @@ main (int argc, char **argv)
   gtk_main ();
 
   gnibbles_properties_destroy (properties);
-  games_conf_shutdown ();
 
   return 0;
 }

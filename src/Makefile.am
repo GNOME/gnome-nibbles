@@ -47,11 +47,6 @@ gnibbles_LDADD = \
 	$(CLUTTER_LIBS) \
 	$(INTLLIBS)
 
-if HAVE_GNOME
-gnibbles_CFLAGS += $(GNOME_CFLAGS)
-gnibbles_LDADD += $(GNOME_LIBS)
-endif
-
 if HAVE_RSVG
 gnibbles_CFLAGS += $(RSVG_CFLAGS)
 gnibbles_LDADD += $(RSVG_LIBS)

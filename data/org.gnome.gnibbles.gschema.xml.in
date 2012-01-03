@@ -1,0 +1,245 @@
+<schemalist>
+  <schema id="org.gnome.gnibbles" path="/org/gnome/gnibbles/">
+    <key name="players" type="i">
+      <default>1</default>
+      <_summary>Number of human players</_summary>
+      <_description>Number of human players.</_description>
+    </key>
+    <key name="ai" type="i">
+      <default>3</default>
+      <_summary>Number of AI players</_summary>
+      <_description>Number of AI players.</_description>
+    </key>
+    <key name="speed" type="i">
+      <default>3</default>
+      <_summary>Game speed</_summary>
+      <_description>Game speed (1=fast, 4=slow).</_description>
+    </key>
+    <key name="fakes" type="b">
+      <default>false</default>
+      <_summary>Enable fake bonuses</_summary>
+      <_description>Enable fake bonuses.</_description>
+    </key>
+    <key name="random" type="b">
+      <default>false</default>
+      <_summary>Play levels in random order</_summary>
+      <_description>Play levels in random order.</_description>
+    </key>
+    <key name="start-level" type="i">
+      <default>1</default>
+      <_summary>Game level to start on</_summary>
+      <_description>Game level to start on.</_description>
+    </key>
+    <key name="sound" type="b">
+      <default>false</default>
+      <_summary>Enable sounds</_summary>
+      <_description>Enable sounds.</_description>
+    </key>
+    <key name="tile-size" type="i">
+      <default>7</default>
+      <_summary>Size of game tiles</_summary>
+      <_description>Size of game tiles.</_description>
+    </key>
+    <child name="worm" schema="org.gnome.gnibbles.worm"/>
+  </schema>
+  <schema id="org.gnome.gnibbles.worm" path="/org/gnome/gnibbles/worm/">
+    <child name="0" schema="org.gnome.gnibbles.worm.0"/>
+    <child name="1" schema="org.gnome.gnibbles.worm.1"/>
+    <child name="2" schema="org.gnome.gnibbles.worm.2"/>
+    <child name="3" schema="org.gnome.gnibbles.worm.3"/>
+    <child name="4" schema="org.gnome.gnibbles.worm.4"/>
+    <child name="5" schema="org.gnome.gnibbles.worm.5"/>
+  </schema>
+  <schema id="org.gnome.gnibbles.worm.0" path="/org/gnome/gnibbles/worm/0/">
+    <key name="color" type="s">
+      <default>'red'</default>
+      <_summary>Color to use for worm</_summary>
+      <_description>Color to use for worm.</_description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <_summary>Use relative movement</_summary>
+      <_description>Use relative movement (ie. left or right only).</_description>
+    </key>
+    <key name="key-up" type="s">
+      <default>'Up'</default>
+      <_summary>Move up</_summary>
+      <_description>Key to use for motion up.</_description>
+    </key>
+    <key name="key-down" type="s">
+      <default>'Down'</default>
+      <_summary>Move down</_summary>
+      <_description>Key to use for motion down.</_description>
+    </key>
+    <key name="key-left" type="s">
+      <default>'Left'</default>
+      <_summary>Move left</_summary>
+      <_description>Key to use for motion left.</_description>
+    </key>
+    <key name="key-right" type="s">
+      <default>'Right'</default>
+      <_summary>Move right</_summary>
+      <_description>Key to use for motion right.</_description>
+    </key>
+  </schema>
+  <schema id="org.gnome.gnibbles.worm.1" path="/org/gnome/gnibbles/worm/1/">
+    <key name="color" type="s">
+      <default>'green'</default>
+      <_summary>Color to use for worm</_summary>
+      <_description>Color to use for worm.</_description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <_summary>Use relative movement</_summary>
+      <_description>Use relative movement (ie. left or right only).</_description>
+    </key>
+    <key name="key-up" type="s">
+      <default>'Up'</default>
+      <_summary>Move up</_summary>
+      <_description>Key to use for motion up.</_description>
+    </key>
+    <key name="key-down" type="s">
+      <default>'Down'</default>
+      <_summary>Move down</_summary>
+      <_description>Key to use for motion down.</_description>
+    </key>
+    <key name="key-left" type="s">
+      <default>'Left'</default>
+      <_summary>Move left</_summary>
+      <_description>Key to use for motion left.</_description>
+    </key>
+    <key name="key-right" type="s">
+      <default>'Right'</default>
+      <_summary>Move right</_summary>
+      <_description>Key to use for motion right.</_description>
+    </key>
+  </schema>
+  <schema id="org.gnome.gnibbles.worm.2" path="/org/gnome/gnibbles/worm/2/">
+    <key name="color" type="s">
+      <default>'blue'</default>
+      <_summary>Color to use for worm</_summary>
+      <_description>Color to use for worm.</_description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <_summary>Use relative movement</_summary>
+      <_description>Use relative movement (ie. left or right only).</_description>
+    </key>
+    <key name="key-up" type="s">
+      <default>'Up'</default>
+      <_summary>Move up</_summary>
+      <_description>Key to use for motion up.</_description>
+    </key>
+    <key name="key-down" type="s">
+      <default>'Down'</default>
+      <_summary>Move down</_summary>
+      <_description>Key to use for motion down.</_description>
+    </key>
+    <key name="key-left" type="s">
+      <default>'Left'</default>
+      <_summary>Move left</_summary>
+      <_description>Key to use for motion left.</_description>
+    </key>
+    <key name="key-right" type="s">
+      <default>'Right'</default>
+      <_summary>Move right</_summary>
+      <_description>Key to use for motion right.</_description>
+    </key>
+  </schema>
+  <schema id="org.gnome.gnibbles.worm.3" path="/org/gnome/gnibbles/worm/3/">
+    <key name="color" type="s">
+      <default>'yellow'</default>
+      <_summary>Color to use for worm</_summary>
+      <_description>Color to use for worm.</_description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <_summary>Use relative movement</_summary>
+      <_description>Use relative movement (ie. left or right only).</_description>
+    </key>
+    <key name="key-up" type="s">
+      <default>'Up'</default>
+      <_summary>Move up</_summary>
+      <_description>Key to use for motion up.</_description>
+    </key>
+    <key name="key-down" type="s">
+      <default>'Down'</default>
+      <_summary>Move down</_summary>
+      <_description>Key to use for motion down.</_description>
+    </key>
+    <key name="key-left" type="s">
+      <default>'Left'</default>
+      <_summary>Move left</_summary>
+      <_description>Key to use for motion left.</_description>
+    </key>
+    <key name="key-right" type="s">
+      <default>'Right'</default>
+      <_summary>Move right</_summary>
+      <_description>Key to use for motion right.</_description>
+    </key>
+  </schema>
+  <schema id="org.gnome.gnibbles.worm.4" path="/org/gnome/gnibbles/worm/4/">
+    <key name="color" type="s">
+      <default>'cyan'</default>
+      <_summary>Color to use for worm</_summary>
+      <_description>Color to use for worm.</_description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <_summary>Use relative movement</_summary>
+      <_description>Use relative movement (ie. left or right only).</_description>
+    </key>
+    <key name="key-up" type="s">
+      <default>'Up'</default>
+      <_summary>Move up</_summary>
+      <_description>Key to use for motion up.</_description>
+    </key>
+    <key name="key-down" type="s">
+      <default>'Down'</default>
+      <_summary>Move down</_summary>
+      <_description>Key to use for motion down.</_description>
+    </key>
+    <key name="key-left" type="s">
+      <default>'Left'</default>
+      <_summary>Move left</_summary>
+      <_description>Key to use for motion left.</_description>
+    </key>
+    <key name="key-right" type="s">
+      <default>'Right'</default>
+      <_summary>Move right</_summary>
+      <_description>Key to use for motion right.</_description>
+    </key>
+  </schema>
+  <schema id="org.gnome.gnibbles.worm.5" path="/org/gnome/gnibbles/worm/5/">
+    <key name="color" type="s">
+      <default>'purple'</default>
+      <_summary>Color to use for worm</_summary>
+      <_description>Color to use for worm.</_description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <_summary>Use relative movement</_summary>
+      <_description>Use relative movement (ie. left or right only).</_description>
+    </key>
+    <key name="key-up" type="s">
+      <default>'Up'</default>
+      <_summary>Move up</_summary>
+      <_description>Key to use for motion up.</_description>
+    </key>
+    <key name="key-down" type="s">
+      <default>'Down'</default>
+      <_summary>Move down</_summary>
+      <_description>Key to use for motion down.</_description>
+    </key>
+    <key name="key-left" type="s">
+      <default>'Left'</default>
+      <_summary>Move left</_summary>
+      <_description>Key to use for motion left.</_description>
+    </key>
+    <key name="key-right" type="s">
+      <default>'Right'</default>
+      <_summary>Move right</_summary>
+      <_description>Key to use for motion right.</_description>
+    </key>
+  </schema>
+</schemalist>
