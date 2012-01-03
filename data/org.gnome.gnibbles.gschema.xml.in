@@ -42,15 +42,7 @@
     </key>
     <child name="worm" schema="org.gnome.gnibbles.worm"/>
   </schema>
-  <schema id="org.gnome.gnibbles.worm" path="/org/gnome/gnibbles/worm/">
-    <child name="0" schema="org.gnome.gnibbles.worm.0"/>
-    <child name="1" schema="org.gnome.gnibbles.worm.1"/>
-    <child name="2" schema="org.gnome.gnibbles.worm.2"/>
-    <child name="3" schema="org.gnome.gnibbles.worm.3"/>
-    <child name="4" schema="org.gnome.gnibbles.worm.4"/>
-    <child name="5" schema="org.gnome.gnibbles.worm.5"/>
-  </schema>
-  <schema id="org.gnome.gnibbles.worm.0" path="/org/gnome/gnibbles/worm/0/">
+  <schema id="org.gnome.gnibbles.worm0" path="/org/gnome/gnibbles/worm0/">
     <key name="color" type="s">
       <default>'red'</default>
       <_summary>Color to use for worm</_summary>
@@ -61,28 +53,28 @@
       <_summary>Use relative movement</_summary>
       <_description>Use relative movement (ie. left or right only).</_description>
     </key>
-    <key name="key-up" type="s">
-      <default>'Up'</default>
+    <key name="key-up" type="i">
+      <default>65362</default>
       <_summary>Move up</_summary>
       <_description>Key to use for motion up.</_description>
     </key>
-    <key name="key-down" type="s">
-      <default>'Down'</default>
+    <key name="key-down" type="i">
+      <default>65364</default>
       <_summary>Move down</_summary>
       <_description>Key to use for motion down.</_description>
     </key>
-    <key name="key-left" type="s">
-      <default>'Left'</default>
+    <key name="key-left" type="i">
+      <default>65361</default>
       <_summary>Move left</_summary>
       <_description>Key to use for motion left.</_description>
     </key>
-    <key name="key-right" type="s">
-      <default>'Right'</default>
+    <key name="key-right" type="i">
+      <default>65363</default>
       <_summary>Move right</_summary>
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm.1" path="/org/gnome/gnibbles/worm/1/">
+  <schema id="org.gnome.gnibbles.worm1" path="/org/gnome/gnibbles/worm1/">
     <key name="color" type="s">
       <default>'green'</default>
       <_summary>Color to use for worm</_summary>
@@ -93,28 +85,28 @@
       <_summary>Use relative movement</_summary>
       <_description>Use relative movement (ie. left or right only).</_description>
     </key>
-    <key name="key-up" type="s">
-      <default>'Up'</default>
+    <key name="key-up" type="i">
+      <default>65362</default>
       <_summary>Move up</_summary>
       <_description>Key to use for motion up.</_description>
     </key>
-    <key name="key-down" type="s">
-      <default>'Down'</default>
+    <key name="key-down" type="i">
+      <default>65364</default>
       <_summary>Move down</_summary>
       <_description>Key to use for motion down.</_description>
     </key>
-    <key name="key-left" type="s">
-      <default>'Left'</default>
+    <key name="key-left" type="i">
+      <default>65361</default>
       <_summary>Move left</_summary>
       <_description>Key to use for motion left.</_description>
     </key>
-    <key name="key-right" type="s">
-      <default>'Right'</default>
+    <key name="key-right" type="i">
+      <default>65363</default>
       <_summary>Move right</_summary>
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm.2" path="/org/gnome/gnibbles/worm/2/">
+  <schema id="org.gnome.gnibbles.worm2" path="/org/gnome/gnibbles/worm2/">
     <key name="color" type="s">
       <default>'blue'</default>
       <_summary>Color to use for worm</_summary>
@@ -125,28 +117,28 @@
       <_summary>Use relative movement</_summary>
       <_description>Use relative movement (ie. left or right only).</_description>
     </key>
-    <key name="key-up" type="s">
-      <default>'Up'</default>
+    <key name="key-up" type="i">
+      <default>65362</default>
       <_summary>Move up</_summary>
       <_description>Key to use for motion up.</_description>
     </key>
-    <key name="key-down" type="s">
-      <default>'Down'</default>
+    <key name="key-down" type="i">
+      <default>65364</default>
       <_summary>Move down</_summary>
       <_description>Key to use for motion down.</_description>
     </key>
-    <key name="key-left" type="s">
-      <default>'Left'</default>
+    <key name="key-left" type="i">
+      <default>65361</default>
       <_summary>Move left</_summary>
       <_description>Key to use for motion left.</_description>
     </key>
-    <key name="key-right" type="s">
-      <default>'Right'</default>
+    <key name="key-right" type="i">
+      <default>65363</default>
       <_summary>Move right</_summary>
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm.3" path="/org/gnome/gnibbles/worm/3/">
+  <schema id="org.gnome.gnibbles.worm3" path="/org/gnome/gnibbles/worm3/">
     <key name="color" type="s">
       <default>'yellow'</default>
       <_summary>Color to use for worm</_summary>
@@ -157,28 +149,28 @@
       <_summary>Use relative movement</_summary>
       <_description>Use relative movement (ie. left or right only).</_description>
     </key>
-    <key name="key-up" type="s">
-      <default>'Up'</default>
+    <key name="key-up" type="i">
+      <default>65362</default>
       <_summary>Move up</_summary>
       <_description>Key to use for motion up.</_description>
     </key>
-    <key name="key-down" type="s">
-      <default>'Down'</default>
+    <key name="key-down" type="i">
+      <default>65364</default>
       <_summary>Move down</_summary>
       <_description>Key to use for motion down.</_description>
     </key>
-    <key name="key-left" type="s">
-      <default>'Left'</default>
+    <key name="key-left" type="i">
+      <default>65361</default>
       <_summary>Move left</_summary>
       <_description>Key to use for motion left.</_description>
     </key>
-    <key name="key-right" type="s">
-      <default>'Right'</default>
+    <key name="key-right" type="i">
+      <default>65363</default>
       <_summary>Move right</_summary>
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm.4" path="/org/gnome/gnibbles/worm/4/">
+  <schema id="org.gnome.gnibbles.worm4" path="/org/gnome/gnibbles/worm4/">
     <key name="color" type="s">
       <default>'cyan'</default>
       <_summary>Color to use for worm</_summary>
@@ -189,28 +181,28 @@
       <_summary>Use relative movement</_summary>
       <_description>Use relative movement (ie. left or right only).</_description>
     </key>
-    <key name="key-up" type="s">
-      <default>'Up'</default>
+    <key name="key-up" type="i">
+      <default>65362</default>
       <_summary>Move up</_summary>
       <_description>Key to use for motion up.</_description>
     </key>
-    <key name="key-down" type="s">
-      <default>'Down'</default>
+    <key name="key-down" type="i">
+      <default>65364</default>
       <_summary>Move down</_summary>
       <_description>Key to use for motion down.</_description>
     </key>
-    <key name="key-left" type="s">
-      <default>'Left'</default>
+    <key name="key-left" type="i">
+      <default>65361</default>
       <_summary>Move left</_summary>
       <_description>Key to use for motion left.</_description>
     </key>
-    <key name="key-right" type="s">
-      <default>'Right'</default>
+    <key name="key-right" type="i">
+      <default>65363</default>
       <_summary>Move right</_summary>
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm.5" path="/org/gnome/gnibbles/worm/5/">
+  <schema id="org.gnome.gnibbles.worm5" path="/org/gnome/gnibbles/worm5/">
     <key name="color" type="s">
       <default>'purple'</default>
       <_summary>Color to use for worm</_summary>
@@ -221,23 +213,23 @@
       <_summary>Use relative movement</_summary>
       <_description>Use relative movement (ie. left or right only).</_description>
     </key>
-    <key name="key-up" type="s">
-      <default>'Up'</default>
+    <key name="key-up" type="i">
+      <default>65362</default>
       <_summary>Move up</_summary>
       <_description>Key to use for motion up.</_description>
     </key>
-    <key name="key-down" type="s">
-      <default>'Down'</default>
+    <key name="key-down" type="i">
+      <default>65364</default>
       <_summary>Move down</_summary>
       <_description>Key to use for motion down.</_description>
     </key>
-    <key name="key-left" type="s">
-      <default>'Left'</default>
+    <key name="key-left" type="i">
+      <default>65361</default>
       <_summary>Move left</_summary>
       <_description>Key to use for motion left.</_description>
     </key>
-    <key name="key-right" type="s">
-      <default>'Right'</default>
+    <key name="key-right" type="i">
+      <default>65363</default>
       <_summary>Move right</_summary>
       <_description>Key to use for motion right.</_description>
     </key>

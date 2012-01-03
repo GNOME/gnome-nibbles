@@ -37,6 +37,8 @@
 #define KB_TEXT_HEIGHT 32
 #define KB_TEXT_NCHARS 8
 
+extern GSettings *settings;
+extern GSettings *worm_settings[NUMWORMS];
 static GtkWidget *pref_dialog = NULL;
 static gint unpause = 0;
 extern GtkWidget *window;
@@ -402,11 +404,6 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                     G_CALLBACK (num_worms_cb), num_ai);
 
   for (i = 0; i < NUMWORMS; i++) {
-    char up_key[64];
-    char down_key[64];
-    char left_key[64];
-    char right_key[64];
-
     buffer = g_strdup_printf ("%s %d", _("Worm"), i + 1);
     label = gtk_label_new (buffer);
     g_free (buffer);
@@ -418,18 +415,13 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
     frame = games_frame_new (_("Keyboard Controls"));
 
-    controls = games_controls_list_new (KEY_PREFERENCES_GROUP);
-
-    g_snprintf (left_key, sizeof (left_key), KEY_WORM_LEFT, i);
-    g_snprintf (right_key, sizeof (right_key), KEY_WORM_RIGHT, i);
-    g_snprintf (up_key, sizeof (up_key), KEY_WORM_UP, i);
-    g_snprintf (down_key, sizeof (down_key), KEY_WORM_DOWN, i);
+    controls = games_controls_list_new_settings (worm_settings[i]);
 
     games_controls_list_add_controls (GAMES_CONTROLS_LIST (controls),
-                                      left_key, _("Move left"), GDK_KEY_Left,
-                                      right_key, _("Move right"), GDK_KEY_Right,
-                                      up_key, _("Move up"), GDK_KEY_Up,
-                                      down_key, _("Move down"), GDK_KEY_Down,
+                                      "key-left", _("Move left"), GDK_KEY_Left,
+                                      "key-right", _("Move right"), GDK_KEY_Right,
+                                      "key-up", _("Move up"), GDK_KEY_Up,
+                                      "key-down", _("Move down"), GDK_KEY_Down,
                                       NULL);
     gtk_container_add (GTK_CONTAINER (frame), controls);
 

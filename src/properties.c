@@ -34,6 +34,9 @@
 
 #define MAX_SPEED 4
 
+extern GSettings *settings;
+extern GSettings *worm_settings[NUMWORMS];
+
 typedef struct _ColorLookup ColorLookup;
 
 struct _ColorLookup {
@@ -79,17 +82,16 @@ void
 gnibbles_properties_update (GnibblesProperties * tmp)
 {
   gint i;
-  gchar buffer[256];
   gchar *category;
   gchar *color_name;
 
-  tmp->human = g_settings_get_integer (settings, KEY_NUM_WORMS, NULL);
+  tmp->human = g_settings_get_int (settings, "players");
   if (tmp->human < 0)
     tmp->human = 0;
   else if (tmp->human > NUMWORMS)
     tmp->human = NUMWORMS;
 
-  tmp->ai = g_settings_get_integer (settings, KEY_NUM_AI, NULL);
+  tmp->ai = g_settings_get_int (settings, "ai");
   if (tmp->ai < 0)
     tmp->ai = 0;
   else if (tmp->ai > NUMWORMS)
@@ -97,31 +99,26 @@ gnibbles_properties_update (GnibblesProperties * tmp)
 
   tmp->numworms = tmp->human + tmp->ai;
 
-  tmp->gamespeed = g_settings_get_integer (settings,
-                                           KEY_SPEED, NULL);
+  tmp->gamespeed = g_settings_get_int (settings, "speed");
   if (tmp->gamespeed < 1)
     tmp->gamespeed = 2;
   else if (tmp->gamespeed > MAX_SPEED)
     tmp->gamespeed = MAX_SPEED;
 
-  tmp->fakes = g_settings_get_boolean (settings,
-                                       KEY_FAKES, NULL);
+  tmp->fakes = g_settings_get_boolean (settings, "fakes");
 
-  tmp->random = g_settings_get_boolean (settings,
-                                        KEY_RANDOM, NULL);
+  tmp->random = g_settings_get_boolean (settings, "random");
 
-  tmp->startlevel = g_settings_get_integer (settings,
-                                            KEY_START_LEVEL, NULL);
+  tmp->startlevel = g_settings_get_int (settings, "start-level");
   if (tmp->startlevel < 1)
     tmp->startlevel = 1;
   if (tmp->startlevel > MAXLEVEL)
     tmp->startlevel = MAXLEVEL;
 
-  tmp->sound = g_settings_get_boolean (settings, KEY_SOUND, NULL);
+  tmp->sound = g_settings_get_boolean (settings, "sound");
   sound_enable (tmp->sound);
 
-  tmp->tilesize = g_settings_get_integer (settings,
-                                          KEY_TILE_SIZE, NULL);
+  tmp->tilesize = g_settings_get_int (settings, "tile-size");
   if (tmp->tilesize < 1)
     tmp->tilesize = 5;
   if (tmp->tilesize > 30)
@@ -130,9 +127,7 @@ gnibbles_properties_update (GnibblesProperties * tmp)
   for (i = 0; i < NUMWORMS; i++) {
     tmp->wormprops[i] = g_slice_new0 (GnibblesWormProps);
 
-    g_snprintf (buffer, sizeof (buffer), KEY_WORM_COLOR, i);
-    color_name = g_settings_get_string_with_default (settings,
-                                                     buffer, "red");
+    color_name = g_settings_get_string (worm_settings[i], "color");
     tmp->wormprops[i]->color = colorval_from_name (color_name);
     g_free (color_name);
 
@@ -141,20 +136,11 @@ gnibbles_properties_update (GnibblesProperties * tmp)
     if (tmp->wormprops[i]->color > WORMRED + NUM_COLORS)
       tmp->wormprops[i]->color = (i % NUM_COLORS) + WORMRED;
 
-    g_snprintf (buffer, sizeof (buffer), KEY_WORM_REL_MOVE, i);
-    tmp->wormprops[i]->relmove = g_settings_get_boolean (settings, buffer);
-
-    g_snprintf (buffer, sizeof (buffer), KEY_WORM_UP, i);
-    tmp->wormprops[i]->up = g_settings_get_int (settings, buffer);
-
-    g_snprintf (buffer, sizeof (buffer), KEY_WORM_DOWN, i);
-    tmp->wormprops[i]->down = g_settings_get_int (settings, buffer);
-
-    g_snprintf (buffer, sizeof (buffer), KEY_WORM_LEFT, i);
-    tmp->wormprops[i]->left = g_settings_get_int (settings, buffer);
-
-    g_snprintf (buffer, sizeof (buffer), KEY_WORM_RIGHT, i);
-    tmp->wormprops[i]->right = g_settings_get_int (settings, buffer);
+    tmp->wormprops[i]->relmove = g_settings_get_boolean (worm_settings[i], "move-relative");
+    tmp->wormprops[i]->up = g_settings_get_int (worm_settings[i], "key-up");
+    tmp->wormprops[i]->down = g_settings_get_int (worm_settings[i], "key-down");
+    tmp->wormprops[i]->left = g_settings_get_int (worm_settings[i], "key-left");
+    tmp->wormprops[i]->right = g_settings_get_int (worm_settings[i], "key-right");
   }
 
   category = g_strdup_printf ("%d.%d", tmp->gamespeed, tmp->fakes);
@@ -163,15 +149,11 @@ gnibbles_properties_update (GnibblesProperties * tmp)
 }
 
 static void
-conf_value_changed_cb (GamesConf *conf,
-                       const char *group,
-                       const char *key,
-                       gpointer data)
+settings_changed_cb (GSettings *settings,
+                     const char *key,
+                     gpointer data)
 {
   GnibblesProperties *props = (GnibblesProperties *) data;
-
-  if (!group || strcmp (group, settings) != 0)
-    return;
 
   gnibbles_properties_update (props);
 }
@@ -183,10 +165,7 @@ gnibbles_properties_new (void)
 
   props = g_slice_new0 (GnibblesProperties);
 
-  props->conf_notify_id = g_signal_connect (g_settings_get_default (),
-                                            "value-changed",
-                                            G_CALLBACK (conf_value_changed_cb),
-                                            props);
+  props->conf_notify_id = g_signal_connect (settings, "changed", G_CALLBACK (settings_changed_cb), props);
 
   gnibbles_properties_update (props);
 
@@ -201,8 +180,7 @@ gnibbles_properties_destroy (GnibblesProperties * props)
   for (i = 0; i < NUMWORMS; i++)
     g_slice_free (GnibblesWormProps, props->wormprops[i]);
 
-  g_signal_handler_disconnect (g_settings_get_default (),
-                               props->conf_notify_id);
+  g_signal_handler_disconnect (settings, props->conf_notify_id);
 
   g_slice_free (GnibblesProperties, props);
 }
@@ -212,69 +190,64 @@ gnibbles_properties_destroy (GnibblesProperties * props)
 void
 gnibbles_properties_set_worms_number (gint value)
 {
-  g_settings_set_integer (settings, KEY_NUM_WORMS, value);
+  g_settings_set_int (settings, "players", value);
 }
 
 void
 gnibbles_properties_set_ai_number (gint value)
 {
-  g_settings_set_integer (settings, KEY_NUM_AI, value);
+  g_settings_set_int (settings, "ai", value);
 }
 
 void
 gnibbles_properties_set_speed (gint value)
 {
-  g_settings_set_integer (settings, KEY_SPEED, value);
+  g_settings_set_int (settings, "speed", value);
 }
 
 void
 gnibbles_properties_set_fakes (gboolean value)
 {
-  g_settings_set_boolean (settings, KEY_FAKES, value);
+  g_settings_set_boolean (settings, "fakes", value);
 }
 
 void
 gnibbles_properties_set_random (gboolean value)
 {
-  g_settings_set_boolean (settings, KEY_RANDOM, value);
+  g_settings_set_boolean (settings, "random", value);
 }
 
 void
 gnibbles_properties_set_start_level (gint value)
 {
-  g_settings_set_integer (settings, KEY_START_LEVEL, value);
+  g_settings_set_int (settings, "start-level", value);
 }
 
 void
 gnibbles_properties_set_sound (gboolean value)
 {
-  g_settings_set_boolean (settings, KEY_SOUND, value);
+  g_settings_set_boolean (settings, "sound", value);
 }
 
 void
 gnibbles_properties_set_tile_size (gint value)
 {
-  g_settings_set_integer (settings, KEY_TILE_SIZE, value);
+  g_settings_set_int (settings, "tile-size", value);
 }
 
 void
 gnibbles_properties_set_worm_relative_movement (gint i, gboolean value)
 {
-  char key[64];
-  g_snprintf (key, sizeof (key), KEY_WORM_REL_MOVE, i);
-  g_settings_set_boolean (settings, key, value);
+  g_settings_set_boolean (worm_settings[i], "move-relative", value);
 }
 
 void
 gnibbles_properties_set_worm_color (gint i, gint value)
 {
-  char key[64];
   char *color_name;
 
-  g_snprintf (key, sizeof (key), KEY_WORM_COLOR, i);
-
   color_name = colorval_name (value);
-  g_settings_set_string (settings, key, color_name);
+  g_settings_set_string (worm_settings[i], "color", color_name);
 }
 
 void

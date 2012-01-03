@@ -54,6 +54,8 @@
 #define DEFAULT_WIDTH 650
 #define DEFAULT_HEIGHT 520
 
+GSettings *settings;
+GSettings *worm_settings[NUMWORMS];
 GtkWidget *window;
 GtkWidget *statusbar;
 GtkWidget *notebook;
@@ -886,10 +888,11 @@ main (int argc, char **argv)
 {
   GOptionContext *context;
   gboolean retval;
+  int i;
   GError *error = NULL;
 
   g_set_application_name (_("Nibbles"));
-
+  
   if (gtk_clutter_init (&argc, &argv) != CLUTTER_INIT_SUCCESS) {
     GtkWidget *dialog = gtk_message_dialog_new (NULL,
                                                 GTK_DIALOG_MODAL,
@@ -900,6 +903,14 @@ main (int argc, char **argv)
     gtk_dialog_run (GTK_DIALOG (dialog));
     gtk_widget_destroy (dialog);
     exit (1);
+  }
+
+  settings = g_settings_new ("org.gnome.gnibbles");
+  for (i = 0; i < NUMWORMS; i++)
+  {
+    gchar *name = g_strdup_printf ("org.gnome.gnibbles.worm%d", i);
+    worm_settings[i] = g_settings_new (name);
+    g_free (name);
   }
 
   context = g_option_context_new (NULL);

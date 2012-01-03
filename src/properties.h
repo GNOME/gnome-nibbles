@@ -26,25 +26,6 @@
 
 #include "gnibbles.h"
 
-#define KEY_PREFERENCES_GROUP "preferences"
-
-#define KEY_NUM_WORMS "players"
-#define KEY_NUM_AI "ai"
-#define KEY_SPEED "speed"
-#define KEY_FAKES "fakes"
-#define KEY_RANDOM "random"
-#define KEY_START_LEVEL "start_level"
-#define KEY_SOUND "sound"
-#define KEY_TILE_SIZE "tile_size"
-
-#define KEY_WORM_DIR "worm/%d"
-#define KEY_WORM_COLOR "worm/%d/color"
-#define KEY_WORM_REL_MOVE "worm/%d/move_relative"
-#define KEY_WORM_UP "worm/%d/key_up"
-#define KEY_WORM_DOWN "worm/%d/key_down"
-#define KEY_WORM_LEFT "worm/%d/key_left"
-#define KEY_WORM_RIGHT "worm/%d/key_right"
-
 typedef struct {
   gint color;
   gboolean relmove;
