@@ -891,6 +891,8 @@ main (int argc, char **argv)
   int i;
   GError *error = NULL;
 
+  games_scores_startup ();
+
   g_set_application_name (_("Nibbles"));
   
   if (gtk_clutter_init (&argc, &argv) != CLUTTER_INIT_SUCCESS) {
