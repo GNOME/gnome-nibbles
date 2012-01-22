@@ -1,13 +1,7 @@
-include $(top_srcdir)/gnome-doc-utils.make
+@YELP_HELP_RULES@
+HELP_ID = gnibbles
 
-DOC_LINGUAS = ca cs de el en_GB es eu fr it oc sl sr sr@latin sv zh_CN
-
-DOC_MODULE = gnibbles
-
-DOC_ENTITIES = \
-	legal.xml
-
-DOC_FIGURES = \
+HELP_MEDIA = \
 	figures/game.png \
 	figures/intro.png \
 	figures/playing.png \
@@ -15,6 +9,10 @@ DOC_FIGURES = \
 	figures/tables.png \
 	figures/worm_op.png
 
-dist-hook: doc-dist-hook
+HELP_FILES = \
+	gnibbles.xml \
+	legal.xml
+
+HELP_LINGUAS = ca cs de el en_GB es eu fr it oc sl sr sr@latin sv zh_CN
 
 -include $(top_srcdir)/git.mk
