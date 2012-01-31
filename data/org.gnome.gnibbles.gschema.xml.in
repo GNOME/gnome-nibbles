@@ -31,7 +31,7 @@
       <_description>Game level to start on.</_description>
     </key>
     <key name="sound" type="b">
-      <default>false</default>
+      <default>true</default>
       <_summary>Enable sounds</_summary>
       <_description>Enable sounds.</_description>
     </key>
