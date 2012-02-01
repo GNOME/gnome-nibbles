@@ -32,7 +32,7 @@ gnibbles_CPPFLAGS = \
 
 gnibbles_CFLAGS = \
 	-DDATA_DIRECTORY=\"$(datadir)/gnibbles\" \
-	-DSOUND_DIRECTORY=\"$(pkgdatadir)/sounds\" \
+	-DSOUND_DIRECTORY=\"$(datadir)/gnibbles/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	$(GTK_CFLAGS) \
 	$(CANBERRA_GTK_CFLAGS) \

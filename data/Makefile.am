@@ -8,6 +8,17 @@ gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 pixmapdir = $(datadir)/gnibbles/pixmaps
 pixmap_DATA = gnibbles-logo.svg
 
+soundsdir = $(datadir)/gnibbles/sounds
+sounds_DATA = \
+	appear.ogg \
+	bonus.ogg \
+	crash.ogg \
+	gameover.ogg \
+	gobble.ogg \
+	life.ogg \
+	reverse.ogg \
+	teleport.ogg
+
 desktopdir=$(datadir)/applications
 desktop_in_files = gnibbles.desktop.in.in
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
@@ -16,7 +27,8 @@ desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 man_MANS = gnibbles.6
 
 EXTRA_DIST = \
-	$(pixmap_DATA) 	\
+	$(pixmap_DATA) \
+	$(sounds_DATA) \
 	$(gsettings_in_file) \
 	$(man_MANS)
 
