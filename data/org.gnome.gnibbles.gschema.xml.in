@@ -40,7 +40,6 @@
       <_summary>Size of game tiles</_summary>
       <_description>Size of game tiles.</_description>
     </key>
-    <child name="worm" schema="org.gnome.gnibbles.worm"/>
   </schema>
   <schema id="org.gnome.gnibbles.worm0" path="/org/gnome/gnibbles/worm0/">
     <key name="color" type="s">
