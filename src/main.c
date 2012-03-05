@@ -166,7 +166,7 @@ about_cb (GtkAction * action, gpointer data)
        "version", VERSION,
        "copyright",
        "Copyright \xc2\xa9 1999-2008 Sean MacIsaac, Ian Peters, Andreas Røsdal"
-       "2009 Guillaume Beland",
+       " 2009 Guillaume Beland",
        "license", license, "comments",
        _("A worm game for GNOME.\n\nNibbles is a part of GNOME Games."),
        "authors", authors,
