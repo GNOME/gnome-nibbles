@@ -35,6 +35,7 @@ gnibbles_CFLAGS = \
 	-DSOUND_DIRECTORY=\"$(datadir)/gnibbles/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	$(GTK_CFLAGS) \
+	$(RSVG_CFLAGS) \
 	$(CANBERRA_GTK_CFLAGS) \
 	$(CLUTTER_GTK_CFLAGS) \
 	$(CLUTTER_CFLAGS) \
@@ -43,15 +44,11 @@ gnibbles_CFLAGS = \
 gnibbles_LDADD = \
 	$(top_builddir)/libgames-support/libgames-support.la \
 	$(GTK_LIBS) \
+	$(RSVG_LIBS) \
 	$(CANBERRA_GTK_LIBS) \
 	$(CLUTTER_GTK_LIBS) \
 	$(CLUTTER_LIBS) \
 	$(INTLLIBS)
-
-if HAVE_RSVG
-gnibbles_CFLAGS += $(RSVG_CFLAGS)
-gnibbles_LDADD += $(RSVG_LIBS)
-endif
 
 install-exec-hook:
 	-if test "$(setgid)" = "true"; then \
