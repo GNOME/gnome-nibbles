@@ -1,84 +1,72 @@
 # Serbian translation of gnome-games
 # Courtesy of Prevod.org team (http://prevod.org/) -- 2009.
-#
 # This file is distributed under the same license as the gnome-games package.
-#
 # Translated on 2009-11-29 by Бранко Кокановић <branko.kokanovic@gmail.com>
-#
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-29 10:32+0000\n"
-"PO-Revision-Date: 2009-11-29 13:09+0100\n"
-"Last-Translator: Бранко Кокановић <branko.kokanovic@gmail.com>\n"
+"POT-Creation-Date: 2011-12-03 18:36+0000\n"
+"PO-Revision-Date: 2012-03-23 09:52+0200\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n%"
-"10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Project-Style: gnome\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:188(None)
+#: C/gnibbles.xml:187(None)
 msgid "@@image: 'figures/intro.png'; md5=fba0b0fc807a1eed13d9b5bba6a8d9fa"
 msgstr "@@image: 'figures/intro.png'; md5=fba0b0fc807a1eed13d9b5bba6a8d9fa"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:211(None)
+#: C/gnibbles.xml:210(None)
 msgid "@@image: 'figures/playing.png'; md5=68c63b494278113a82ac864a277891c4"
 msgstr "@@image: 'figures/playing.png'; md5=68c63b494278113a82ac864a277891c4"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:411(None)
+#: C/gnibbles.xml:399(None)
 msgid "@@image: 'figures/game.png'; md5=3103fe2ce969c658bf74cbf66fb2ec64"
 msgstr "@@image: 'figures/game.png'; md5=3103fe2ce969c658bf74cbf66fb2ec64"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:493(None)
+#: C/gnibbles.xml:481(None)
 msgid "@@image: 'figures/worm_op.png'; md5=b6ccbcdd5d11fe28a75fd23c0d96483a"
 msgstr "@@image: 'figures/worm_op.png'; md5=b6ccbcdd5d11fe28a75fd23c0d96483a"
 
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:54(None)
-msgid "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
-msgstr "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:77(None)
-msgid "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
-msgstr "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
-
-#: C/gnibbles.xml:28(title)
+#: C/gnibbles.xml:27(title)
 msgid "<application>Nibbles</application> Manual"
 msgstr "Упутство за <application>Змије</application>"
 
-#: C/gnibbles.xml:31(para)
+#: C/gnibbles.xml:30(para)
 msgid ""
 "Nibbles is a worm game for GNOME. The player controls a 2D worm while trying "
 "to get food. Getting food gives points, but hitting anything causes a loss "
 "of points. When all points are lost, the player loses."
 msgstr ""
-"Змије су копија игре са црвићима за Гном. Играч управља 2D црвом и покушава "
-"да узме храну. Узимање хране доноси поене, али се они губе ако ударите у било "
+"Змије су копија игре црвића за Гном. Играч управља 2D црвом и покушава да "
+"узме храну. Узимање хране доноси поене, али се они губе ако ударите у било "
 "шта. Када изгубите све поене, губите партију."
 
-#: C/gnibbles.xml:40(year)
+#: C/gnibbles.xml:39(year)
 msgid "2000"
 msgstr "2000"
 
-#: C/gnibbles.xml:41(holder)
+#: C/gnibbles.xml:40(holder)
 msgid "Kevin Breit"
-msgstr "Kevin Breit"
+msgstr "Кевин Брајт"
 
-#: C/gnibbles.xml:57(publishername) C/gnibbles.xml:70(orgname)
-#: C/gnibbles.xml:98(para)
+#: C/gnibbles.xml:56(publishername) C/gnibbles.xml:69(orgname)
+#: C/gnibbles.xml:97(para)
 msgid "GNOME Documentation Project"
 msgstr "Пројекат Гномове документације"
 
@@ -91,12 +79,12 @@ msgid ""
 "of the GFDL at this <ulink type=\"help\" url=\"ghelp:fdl\">link</ulink> or "
 "in the file COPYING-DOCS distributed with this manual."
 msgstr ""
-"Дозвољено је умножавање, ширење, вршење измена овог документа под условима Гну-"
-"ове Слободне Документационе Дозволе (ГСДД), верзије 1.1 или било које "
+"Дозвољено је умножавање, ширење, вршење измена овог документа под условима "
+"Гну-ове Слободне Документационе Дозволе (ГСДД), верзије 1.1 или било које "
 "накнадне верзије без непромењивих одељака, текста на насловној и последњој "
 "страни, а коју је објавила Задужбина Слободног Софтвера. Примерак ГСДД-е "
-"можете пронаћи на овој <ulink type=\"help\" url=\"ghelp:fdl\">адреси</ulink> "
-"или у датотеци COPYING-DOCS која је приложена уз ово упутство."
+"можете пронаћи на овој <ulink type=\"help\" url=\"ghelp:fdl\">адреси</ulink> или "
+"у датотеци COPYING-DOCS која је приложена уз ово упутство."
 
 #: C/gnibbles.xml:12(para)
 msgid ""
@@ -183,39 +171,39 @@ msgstr ""
 "ОВАЈ ДОКУМЕНТ И ЊЕГОВЕ ИЗМЕЊЕНЕ ВЕРЗИЈЕ СУ ДОСТУПНЕ ПОД УСЛОВИМА ГНУ-ОВЕ "
 "СЛОБОДНЕ ДОКУМЕНТАЦИОНЕ ДОЗВОЛЕ УЗ ДОДАТНУ САГЛАСНОСТ ДА: <placeholder-1/>"
 
-#: C/gnibbles.xml:67(firstname)
+#: C/gnibbles.xml:66(firstname)
 msgid "Kevin"
-msgstr "Kevin"
+msgstr "Кевин"
 
-#: C/gnibbles.xml:68(surname)
+#: C/gnibbles.xml:67(surname)
 msgid "Breit"
-msgstr "Breit"
+msgstr "Брајт"
 
-#: C/gnibbles.xml:71(email)
+#: C/gnibbles.xml:70(email)
 msgid "battery841@mypad.com"
 msgstr "battery841@mypad.com"
 
-#: C/gnibbles.xml:92(revnumber)
+#: C/gnibbles.xml:91(revnumber)
 msgid "Nibbles Manual V2.20"
 msgstr "Упутство за Змије v2.20"
 
-#: C/gnibbles.xml:93(date)
+#: C/gnibbles.xml:92(date)
 msgid "May 2007"
 msgstr "Мај 2007."
 
-#: C/gnibbles.xml:95(para)
+#: C/gnibbles.xml:94(para)
 msgid "Kevin Breit <email>battery841@mypad.com</email>"
 msgstr "Kevin Breit <email>battery841@mypad.com</email>"
 
-#: C/gnibbles.xml:103(releaseinfo)
+#: C/gnibbles.xml:102(releaseinfo)
 msgid "This manual describes version 2.20 of Nibbles."
 msgstr "Ово упуство је написано за Змије 2.20."
 
-#: C/gnibbles.xml:110(title)
+#: C/gnibbles.xml:109(title)
 msgid "Feedback"
 msgstr "Примедбе"
 
-#: C/gnibbles.xml:111(para)
+#: C/gnibbles.xml:110(para)
 msgid ""
 "To report a bug or make a suggestion regarding the <application>Nibbles</"
 "application> application or this manual, follow the directions in the <ulink "
@@ -227,15 +215,15 @@ msgstr ""
 "<ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">Гномовој страни "
 "за примедбе</ulink>."
 
-#: C/gnibbles.xml:121(primary)
+#: C/gnibbles.xml:120(primary)
 msgid "Nibbles"
 msgstr "Змије"
 
-#: C/gnibbles.xml:128(title)
+#: C/gnibbles.xml:127(title)
 msgid "Introduction"
 msgstr "Увод"
 
-#: C/gnibbles.xml:130(para)
+#: C/gnibbles.xml:129(para)
 msgid ""
 "<application>Nibbles</application> is a game where the user controls a worm. "
 "The worm moves around the board, eating diamonds while avoiding the walls "
@@ -244,7 +232,7 @@ msgstr ""
 "<application>Змије</application> су игра у којој управљате црвом. Црв се "
 "помера по табли, једе дијаманте и избегава зидове постављене по табли."
 
-#: C/gnibbles.xml:134(para)
+#: C/gnibbles.xml:133(para)
 msgid ""
 "To run <application>Nibbles</application>, select "
 "<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Nibbles</"
@@ -256,7 +244,7 @@ msgstr ""
 "menuchoice> из менија <guimenu>Програми</guimenu>, или откуцајте "
 "<command>gnibbles</command> на командној линији."
 
-#: C/gnibbles.xml:144(para)
+#: C/gnibbles.xml:143(para)
 msgid ""
 "<application>Nibbles</application> is included in the <filename>gnome-games</"
 "filename> package, which is part of the GNOME desktop environment. This "
@@ -266,11 +254,11 @@ msgstr ""
 "filename> пакет, који је део Гномовог радног окружења. Овај документ је "
 "написан за издање 2.20 програма <application>Змије</application>."
 
-#: C/gnibbles.xml:153(title)
+#: C/gnibbles.xml:152(title)
 msgid "Nibbles Objective"
 msgstr "Циљ Змија"
 
-#: C/gnibbles.xml:154(para)
+#: C/gnibbles.xml:153(para)
 msgid ""
 "The objective of Nibbles is quite simple. You control the worm and if the "
 "worm runs into a wall or runs into itself, you die. You get ten lives before "
@@ -284,20 +272,22 @@ msgstr ""
 "или прелазећи све нивое. Такође можете да играте и против других црва са "
 "вештачком интелигенцијом."
 
-#: C/gnibbles.xml:161(para)
+#: C/gnibbles.xml:160(para)
+#| msgid ""
+#| "Nibbles also features <link linkend=\"network-games\">multiplayer</link> "
+#| "support with up to six competing human players in hotseat or network mode."
 msgid ""
-"Nibbles also features <link linkend=\"network-games\">multiplayer</link> "
-"support with up to six competing human players in hotseat or network mode."
+"Nibbles also features multiplayer support with up to six competing human "
+"players in hotseat mode."
 msgstr ""
-"Змије подржавају и играње до шест играча <link linkend=\"network-games"
-"\">преко мреже</link> или на истом рачунару где наизменично игра један, па "
-"други."
+"Змије подржавају и играње до шест играча преко мреже или на истом рачунару "
+"где наизменично игра један, па други."
 
-#: C/gnibbles.xml:171(title)
+#: C/gnibbles.xml:170(title)
 msgid "Using Nibbles"
 msgstr "Коришћење змија"
 
-#: C/gnibbles.xml:172(para)
+#: C/gnibbles.xml:171(para)
 msgid ""
 "<application>Nibbles</application> is a simple game to play. The only keys "
 "that are needed are the arrow keys."
@@ -305,19 +295,19 @@ msgstr ""
 "<application>Змије</application> су јако лаке за играње. Једини тастери "
 "потребни за играње су тастери са стрелицама."
 
-#: C/gnibbles.xml:179(title)
+#: C/gnibbles.xml:178(title)
 msgid "Basic usage"
 msgstr "Основна употреба"
 
-#: C/gnibbles.xml:184(title)
+#: C/gnibbles.xml:183(title)
 msgid "Nibbles Introduction Window"
 msgstr "Уводни прозор Змија"
 
-#: C/gnibbles.xml:191(phrase)
+#: C/gnibbles.xml:190(phrase)
 msgid "Nibbles Introduction Window."
 msgstr "Уводни прозор Змија."
 
-#: C/gnibbles.xml:180(para)
+#: C/gnibbles.xml:179(para)
 msgid ""
 "Starting <application>Nibbles</application> opens the <interface>main "
 "window</interface> shown below. <placeholder-1/>"
@@ -325,7 +315,7 @@ msgstr ""
 "Покретањем <application>Змија</application> се отвара <interface>главни "
 "прозор</interface> приказан испод. <placeholder-1/>"
 
-#: C/gnibbles.xml:197(para)
+#: C/gnibbles.xml:196(para)
 msgid ""
 "To start the game, select <menuchoice><guimenu>Game</"
 "guimenu><guimenuitem>New Game</guimenuitem></menuchoice>."
@@ -333,15 +323,15 @@ msgstr ""
 "Да бисте покренули нову игру, одаберите <menuchoice><guimenu>Игра</"
 "guimenu><guimenuitem>Нова</guimenuitem></menuchoice>."
 
-#: C/gnibbles.xml:207(title)
+#: C/gnibbles.xml:206(title)
 msgid "Nibbles During Gameplay"
 msgstr "Змије за време игре"
 
-#: C/gnibbles.xml:214(phrase)
+#: C/gnibbles.xml:213(phrase)
 msgid "Nibbles During Gameplay."
 msgstr "Змије за време игре."
 
-#: C/gnibbles.xml:201(para)
+#: C/gnibbles.xml:200(para)
 msgid ""
 "When the game starts, the worm will come out of the left side of the screen. "
 "You use the up arrow to make the direction of the worm go up. Use the right "
@@ -353,23 +343,23 @@ msgstr ""
 "десно, леву стрелицу да га окренете лево и стрелицу за доле да га окренете "
 "ка доле. <placeholder-1/>"
 
-#: C/gnibbles.xml:230(title)
+#: C/gnibbles.xml:229(title)
 msgid "Menus"
-msgstr "Менији"
+msgstr "Изборници"
 
-#: C/gnibbles.xml:231(para)
+#: C/gnibbles.xml:230(para)
 msgid ""
 "The menu bar, located at the top of the <interface>Main Window</interface>, "
 "contains the following menus:"
 msgstr ""
-"Трака менија, која се налази на врху <interface>главног прозора</interface>, "
-"садржи следеће меније:"
+"Линија изборника, која се налази на врху <interface>главног "
+"прозора</interface>, садржи следеће изборнике:"
 
-#: C/gnibbles.xml:238(guimenu)
+#: C/gnibbles.xml:237(guimenu)
 msgid "Game"
 msgstr "Игра"
 
-#: C/gnibbles.xml:244(para)
+#: C/gnibbles.xml:243(para)
 msgid ""
 "<menuchoice><shortcut><keysym>Ctrl+N</keysym></shortcut><guimenuitem>New "
 "Game</guimenuitem></menuchoice> This starts a new game of "
@@ -379,17 +369,7 @@ msgstr ""
 "guimenuitem></menuchoice> Овим се покреће нова игра <application>Змија</"
 "application>."
 
-#: C/gnibbles.xml:255(para)
-msgid ""
-"<menuchoice><shortcut><keysym>Ctrl+G</keysym></shortcut><guimenuitem>Network "
-"Game</guimenuitem></menuchoice> This starts a network multiplayer game using "
-"GGZ Gaming Zone."
-msgstr ""
-"<menuchoice><shortcut><keysym>Ctrl+G</keysym></shortcut><guimenuitem>Мрежна "
-"игра</guimenuitem></menuchoice> Овим се покреће мрежна игра коришћењем ГГЗ "
-"Зоне игре."
-
-#: C/gnibbles.xml:266(para)
+#: C/gnibbles.xml:254(para)
 msgid ""
 "<menuchoice><guimenuitem>Scores</guimenuitem></menuchoice> This shows the "
 "high scores."
@@ -397,7 +377,7 @@ msgstr ""
 "<menuchoice><guimenuitem>Резултати</guimenuitem></menuchoice> Овим се "
 "приказују најбољи резултати."
 
-#: C/gnibbles.xml:274(para)
+#: C/gnibbles.xml:262(para)
 msgid ""
 "<menuchoice><guimenuitem>Pause game</guimenuitem></menuchoice> This will "
 "pause your game. Click on the <quote>Pause Game </quote> menu option to "
@@ -407,7 +387,7 @@ msgstr ""
 "паузира. Кликните на мени <quote>Настави</quote> да бисте наставили "
 "паузирану игру."
 
-#: C/gnibbles.xml:283(para)
+#: C/gnibbles.xml:271(para)
 msgid ""
 "<menuchoice><guimenuitem>End Game</guimenuitem></menuchoice> End the current "
 "game and return to the title screen."
@@ -415,7 +395,7 @@ msgstr ""
 "<menuchoice><guimenuitem>Заврши игру</guimenuitem></menuchoice> Овим се "
 "завршава тренутна игра и враћате се на почетни екран."
 
-#: C/gnibbles.xml:291(para)
+#: C/gnibbles.xml:279(para)
 msgid ""
 "<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Exit</"
 "guimenuitem></menuchoice> This quits the application."
@@ -423,16 +403,16 @@ msgstr ""
 "<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Изађи</"
 "guimenuitem></menuchoice> Овим се излази из програма."
 
-#: C/gnibbles.xml:240(para) C/gnibbles.xml:309(para) C/gnibbles.xml:328(para)
-#: C/gnibbles.xml:348(para)
+#: C/gnibbles.xml:239(para) C/gnibbles.xml:297(para) C/gnibbles.xml:316(para)
+#: C/gnibbles.xml:336(para)
 msgid "This menu contains: <placeholder-1/>"
 msgstr "Овај мени садржи: <placeholder-1/>"
 
-#: C/gnibbles.xml:307(guimenu)
+#: C/gnibbles.xml:295(guimenu)
 msgid "View"
 msgstr "Преглед"
 
-#: C/gnibbles.xml:313(para)
+#: C/gnibbles.xml:301(para)
 msgid ""
 "<menuchoice><guimenuitem>Fullscreen</guimenuitem></menuchoice> This toggles "
 "your game window to be fullscreen."
@@ -440,11 +420,11 @@ msgstr ""
 "<menuchoice><guimenuitem>Цео екран</guimenuitem></menuchoice> Овим се "
 "укључује и искључује да прозор игре буде преко целог екрана."
 
-#: C/gnibbles.xml:326(guimenu)
+#: C/gnibbles.xml:314(guimenu)
 msgid "Settings"
 msgstr "Подешавања"
 
-#: C/gnibbles.xml:332(para)
+#: C/gnibbles.xml:320(para)
 msgid ""
 "<menuchoice><guimenuitem>Preferences</guimenuitem></menuchoice> This opens "
 "your window to edit <link linkend=\"prefs\"> preferences.</link>"
@@ -452,11 +432,11 @@ msgstr ""
 "<menuchoice><guimenuitem>Опције</guimenuitem></menuchoice> Овим се отвара "
 "прозор за измену <link linkend=\"prefs\">поставки.</link>"
 
-#: C/gnibbles.xml:346(guimenu)
+#: C/gnibbles.xml:334(guimenu)
 msgid "Help"
 msgstr "Помоћ"
 
-#: C/gnibbles.xml:352(para)
+#: C/gnibbles.xml:340(para)
 msgid ""
 "<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Contents</"
 "guimenuitem></menuchoice> Display this manual."
@@ -464,7 +444,7 @@ msgstr ""
 "<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Садржај</"
 "guimenuitem></menuchoice> Приказује ово упутство."
 
-#: C/gnibbles.xml:361(para)
+#: C/gnibbles.xml:349(para)
 msgid ""
 "<guimenuitem>About</guimenuitem> This opens the <interface>About</interface> "
 "dialog which shows basic information about <application>Nibbles</"
@@ -474,11 +454,11 @@ msgstr ""
 "interface> које приказује основне податке о <application>Змијама</"
 "application>, као што су имена аутора, број издања игре."
 
-#: C/gnibbles.xml:376(title)
+#: C/gnibbles.xml:364(title)
 msgid "Diamonds"
 msgstr "Дијаманти"
 
-#: C/gnibbles.xml:377(para)
+#: C/gnibbles.xml:365(para)
 msgid ""
 "<application>Nibbles</application> has numerous different diamonds to eat. "
 "They are each a different color and serve a different function. Only the "
@@ -499,11 +479,11 @@ msgstr ""
 "опрезни када идете на ове бонус дијаманте, не дозволите да вам они одсеку "
 "пут ка дијамантима са којима завршавате ниво."
 
-#: C/gnibbles.xml:395(title)
+#: C/gnibbles.xml:383(title)
 msgid "Customization"
 msgstr "Прилагођавање"
 
-#: C/gnibbles.xml:396(para)
+#: C/gnibbles.xml:384(para)
 msgid ""
 "To change the application settings, select <menuchoice><guimenu>Settings</"
 "guimenu><guimenuitem>Preferences</guimenuitem></menuchoice>. This opens the "
@@ -515,37 +495,37 @@ msgstr ""
 "menuchoice>. Овим се отвара прозорче за <interface>поставке</interface>. Све "
 "поставке се аутоматски чувају и одмах се примењују."
 
-#: C/gnibbles.xml:407(title)
+#: C/gnibbles.xml:395(title)
 msgid "Game Preferences Tab"
 msgstr "Језичак поставки игре"
 
-#: C/gnibbles.xml:414(phrase)
+#: C/gnibbles.xml:402(phrase)
 msgid "Game Preferences Tab."
 msgstr "Језичак поставки игре."
 
-#: C/gnibbles.xml:424(term)
+#: C/gnibbles.xml:412(term)
 msgid "Speed"
 msgstr "Брзина"
 
-#: C/gnibbles.xml:426(para)
+#: C/gnibbles.xml:414(para)
 msgid "This controls the speed of the worm."
 msgstr "Овим се контролише брзина црва."
 
-#: C/gnibbles.xml:432(term)
+#: C/gnibbles.xml:420(term)
 msgid "Play levels in random order"
 msgstr "Играј нивое у насумичном поретку"
 
-#: C/gnibbles.xml:434(para)
+#: C/gnibbles.xml:422(para)
 msgid "Selecting this causes the level advancement to happen in random order."
 msgstr ""
 "Ако штиклирате ово, онда се напредовање кроз нивое одвија у насумичном "
 "поретку."
 
-#: C/gnibbles.xml:441(term)
+#: C/gnibbles.xml:429(term)
 msgid "Enable fake bonuses"
 msgstr "Укључи лажне бонусе"
 
-#: C/gnibbles.xml:443(para)
+#: C/gnibbles.xml:431(para)
 msgid ""
 "When enabled, this allows for two blue diamonds on the screen at a time. One "
 "diamond makes you shrink instead of grow when eaten."
@@ -553,19 +533,19 @@ msgstr ""
 "Када ово штиклирате, уместо једног се појављују два плава дијаманта. Од "
 "једног дијаманта се црв смањује ако се поједе, а од другог црв расте."
 
-#: C/gnibbles.xml:451(term)
+#: C/gnibbles.xml:439(term)
 msgid "Enable sounds"
 msgstr "Укључи звуке"
 
-#: C/gnibbles.xml:453(para)
+#: C/gnibbles.xml:441(para)
 msgid "Controls the use of sound in the game."
 msgstr "Контролише употребу звукова у игри."
 
-#: C/gnibbles.xml:459(term)
+#: C/gnibbles.xml:447(term)
 msgid "Starting level"
 msgstr "Почетни ниво"
 
-#: C/gnibbles.xml:461(para)
+#: C/gnibbles.xml:449(para)
 msgid ""
 "Which level to start with. Use this if you want to jump immediately to a "
 "challenging level."
@@ -573,19 +553,19 @@ msgstr ""
 "Са ког нивоа се почиње. Користите ово ако желите одмах да скочите на "
 "изазовније нивое."
 
-#: C/gnibbles.xml:468(term)
+#: C/gnibbles.xml:456(term)
 msgid "Number of human players"
 msgstr "Број људских играча"
 
-#: C/gnibbles.xml:470(para)
+#: C/gnibbles.xml:458(para)
 msgid "There is room for up to six players."
 msgstr "Има места за највише шест играча."
 
-#: C/gnibbles.xml:476(term)
+#: C/gnibbles.xml:464(term)
 msgid "Number of AI players"
 msgstr "Број играча са вештачком интелигенцијом"
 
-#: C/gnibbles.xml:478(para)
+#: C/gnibbles.xml:466(para)
 msgid ""
 "There is room for up to six AI players. Note that the total number of human "
 "and AI players must be less than or equal to six."
@@ -594,24 +574,24 @@ msgstr ""
 "такође и да збир броја људских играча и играча са вештачком интелигенцијом "
 "мора бити мањи или једнак шест."
 
-#: C/gnibbles.xml:420(para)
+#: C/gnibbles.xml:408(para)
 msgid ""
 "The properties in the <guilabel>Game</guilabel> tab are: <placeholder-1/>"
 msgstr "Својства на језичку <guilabel>Игра</guilabel> су: <placeholder-1/>"
 
-#: C/gnibbles.xml:489(title)
+#: C/gnibbles.xml:477(title)
 msgid "Worm Preferences Tab"
 msgstr "Језичак поставки црва"
 
-#: C/gnibbles.xml:496(phrase)
+#: C/gnibbles.xml:484(phrase)
 msgid "Worm Preferences Tab."
 msgstr "Језичак поставки црва."
 
-#: C/gnibbles.xml:507(term)
+#: C/gnibbles.xml:495(term)
 msgid "Keyboard controls"
 msgstr "Контроле на тастатури"
 
-#: C/gnibbles.xml:509(para)
+#: C/gnibbles.xml:497(para)
 msgid ""
 "This list let you change the keyboard controls for the given worm. To change "
 "a control, double click on the appropriate entry and then press the key you "
@@ -621,11 +601,11 @@ msgstr ""
 "бисте измени контролу, кликните дуплим кликом на одговарајућу ставку и онда "
 "притисните тастер који желите за ту контролу."
 
-#: C/gnibbles.xml:517(term)
+#: C/gnibbles.xml:505(term)
 msgid "Use relative motion"
 msgstr "Користи релативно кретање"
 
-#: C/gnibbles.xml:519(para)
+#: C/gnibbles.xml:507(para)
 msgid ""
 "Rather than left sending your worm toward the left of the screen, right "
 "toward the right and so on, the left and right keys make the worm perform a "
@@ -637,11 +617,11 @@ msgstr ""
 "лево и десно. На пример, ако се црв помера на лево, а ви притиснете тастер "
 "за лево, црв ће кренути ка дну екрана."
 
-#: C/gnibbles.xml:529(term)
+#: C/gnibbles.xml:517(term)
 msgid "Worm color"
 msgstr "Боја црва"
 
-#: C/gnibbles.xml:531(para)
+#: C/gnibbles.xml:519(para)
 msgid ""
 "Customize the color of your worm so you can tell it from your opponent's "
 "worm in multi-player mode."
@@ -649,7 +629,7 @@ msgstr ""
 "Прилагођава боју вашег црва да бисте их могли разликовати од противничких "
 "црва када играте против више играча."
 
-#: C/gnibbles.xml:486(para)
+#: C/gnibbles.xml:474(para)
 msgid ""
 "<placeholder-1/> The properties in the <guilabel>Worm 1 </guilabel>through "
 "<guilabel> Worm 6</guilabel> tabs let you set individual preferences for the "
@@ -659,189 +639,11 @@ msgstr ""
 "<guilabel> Црв 6</guilabel> вам омогућавају да подесите појединачна "
 "подешавања за различите црве. <placeholder-2/>"
 
-#: C/gnibbles.xml:10(title)
-msgid "Network Games"
-msgstr "Мрежне игре"
-
-#: C/gnibbles.xml:11(para)
-msgid ""
-"Nibbles support networked multiplayer games which is provided by <ulink type="
-"\"http\" url=\"http://www.ggzgamingzone.org\">GGZ Gaming Zone</ulink>. By "
-"connecting to a Nibbles server on the Internet, you can challenge other "
-"players in multiplayer games. For news, updates and a list of servers to "
-"connect to, see the <ulink type=\"http\" url=\"http://www.gnome.org/projects/"
-"gnome-games/\">gnome-games website</ulink>."
-msgstr ""
-"Змије подржавају и мрежне игре за више играча коју обезбеђује <ulink type="
-"\"http\" url=\"http://www.ggzgamingzone.org\">ГГЗ Зона игре</ulink>. "
-"Повезивањем на сервер Змија на интернету, можете изазвати друге играче у "
-"играма са више играча. За вести, ажурирања и списак сервера за повезивање, "
-"погледајте <ulink type=\"http\" url=\"http://www.gnome.org/projects/gnome-"
-"games/\">веб страну Гномових игара</ulink>."
-
-#: C/gnibbles.xml:18(para)
-msgid ""
-"To start the multiplayer game of Nibbles, select <menuchoice><guimenu>Game</"
-"guimenu><guimenuitem>Network Game</guimenuitem></menuchoice> on the Nibbles "
-"menu."
-msgstr ""
-"Да покренете игру Змија за више играча, одаберите <menuchoice><guimenu>Игра</"
-"guimenu><guimenuitem>Мрежна игра</guimenuitem></menuchoice> из главног "
-"менија."
-
-#: C/gnibbles.xml:24(title)
-msgid "Connecting to a Nibbles network server"
-msgstr "Повезивање на мрежни сервер Змија"
-
-#: C/gnibbles.xml:25(para)
-msgid ""
-"The Nibbles connection dialog is shown initially when starting a new network "
-"game. This dialog allows you to select a server to connect to, and the "
-"username that you will have while connected to that server."
-msgstr ""
-"При покретању нове мрежне игре, прво се показује прозорче за повезивање. У "
-"овом прозорчету можете одабрати сервер за повезивање и корисничко име које "
-"ћете имати када се повежете."
-
-#: C/gnibbles.xml:31(para)
-msgid ""
-"It is possible to connect to a server with either a guest account or a "
-"normal registered account. Guest accounts allows you to anonymously login, "
-"while a normal login account allows you to reserve your own username which "
-"is protected by the password that you choose."
-msgstr ""
-"Могуће је повезати се на сервер са било гостинског налога или као нормални "
-"регистровани налог. Гостински налози вам омогућују анонимну пријаву, док вам "
-"нормални налози дозвољавају да резервишете ваше корисничко име заштићено са "
-"лозинком коју одаберете."
-
-#: C/gnibbles.xml:38(para)
-msgid ""
-"The <guimenuitem>Guest Login</guimenuitem> option should be selected if you "
-"want an anonymous guest account. If you want to create a new login account, "
-"then select the <guimenuitem>First-time Login</guimenuitem> option, with the "
-"username, password and email of your choice. If you have already created "
-"your account, you can connect by selecting the <guimenuitem>Normal Login</"
-"guimenuitem> option, and enter the username and password that you have "
-"chosen."
-msgstr ""
-"Опција <guimenuitem>Пријава као гост</guimenuitem> треба да буде укључена "
-"ако желите анонимну пријаву. Ако желите да направите нови налог за "
-"пријављивање, одаберите <guimenuitem>Прва пријава</guimenuitem>, са жељеним "
-"корисничким именом, лозинком и е-адресом. Ако већ имате налог, можете се "
-"повезати избором опције <guimenuitem>Нормална пријава</guimenuitem> и "
-"затим унети ваше корисничко име и лозинку."
-
-#: C/gnibbles.xml:46(para)
-msgid ""
-"To connect to a server, click on the <guimenuitem>Connect</guimenuitem> "
-"button."
-msgstr ""
-"Да бисте се повезали на сервер, кликните на дугме <guimenuitem>Повежи се</"
-"guimenuitem>."
-
-#: C/gnibbles.xml:50(title) C/gnibbles.xml:57(phrase)
-msgid "The Nibbles network connection dialog."
-msgstr "Прозорче Змија за мрежно повезивање."
-
-#: C/gnibbles.xml:65(title)
-msgid "Joining a game room"
-msgstr "Придруживање соби за игру"
-
-#: C/gnibbles.xml:66(para)
-msgid ""
-"Once you have successfully connected to a server, you can choose which game "
-"room to join. To play a multiplayer game of Nibbles, select the Nibbles "
-"room. If you want to host your own game, then click on the Launch button. "
-"This creates a new table where other players can participate in a game "
-"against you. If there are any other games already started, then you can "
-"double-click on an existing game table to join it. The list of game tables "
-"on the right shows you the number of available seats, which means the number "
-"of players that can join the game table."
-msgstr ""
-"Кад сте се успешно повезали на сервер, можете одабрати собу којој желите да "
-"се придружите. Да бисте играли Змије, одаберите собу Nibbles. Ако желите да "
-"ви започнете игру, кликните дугме „Покрени“. Овим се прави нова табла где "
-"други могу да играју против вас. Ако има већ покренутих игара, можете "
-"кликнути дуплим кликом на постојећу игру да бисте јој се придружили. Списак "
-"табли за игру са десне стране вам показује број слободних места, што "
-"означава број играча који се могу придружити."
-
-#: C/gnibbles.xml:73(title) C/gnibbles.xml:80(phrase)
-msgid ""
-"This Nibbles network dialog allows you to join a game room to find other "
-"players."
-msgstr ""
-"Мрежно прозорче Змија вам омогућава да се придружите соби за игру и "
-"нађете друге играче."
-
-#: C/gnibbles.xml:85(para)
-msgid ""
-"When creating a new table for Nibbles games, a preference dialog is "
-"displayed which allows you to customize the game, such as set the minimum "
-"number of players for the game. Once the total number of seats have been "
-"taken, then no more players are allowed to join that game table."
-msgstr ""
-"При прављењу нове табле за игру Змија, приказује се прозорче са поставкама које "
-"вам омогућава да прилагодите игру, као нпр. најмањи број играча за игру. "
-"Када је укупни број места заузет, играчи се више не могу придружити табли за "
-"игру."
-
-#: C/gnibbles.xml:90(para)
-msgid ""
-"It is possible to chat with other players in network games. Ask for advice "
-"or help playing the games, but please be polite against other players."
-msgstr ""
-"Могуће је ћаскати са осталим играчима у мрежним играма. Питајте за савет или "
-"помоћ при игрању игре, али молимо, будите љубазни према осталим играчима."
-
-#: C/gnibbles.xml:97(title)
-msgid "Waiting for other players to join the game"
-msgstr "Чекање да се остали играчи придруже игри"
-
-#: C/gnibbles.xml:98(para)
-msgid ""
-"Once you have successfully joined a game table, then you have to wait until "
-"enough players have joined the table. The <guimenuitem>Players List</"
-"guimenuitem> menu item allows you to see a list of the players who have "
-"joined the game. The game will begin immediately when the total number of "
-"players in the the game have been reached."
-msgstr ""
-"Када сте се успешно придружили табли за игру, морате сачекати да се потребан "
-"број играча придружи. Ставка менија <guimenuitem>Списак играча</guimenuitem> "
-"вам омогућава да видите играче који су се придружили игри. Игра ће почети "
-"одмах пошто се достигне потребан број играча."
-
-#: C/gnibbles.xml:107(title)
-msgid "Playing multiplayer Nibbles games"
-msgstr "Играње Змија са више играча"
-
-#: C/gnibbles.xml:108(para)
-msgid ""
-"Multiplayer Nibbles games have pretty much the same rules as normal Nibbles "
-"games, except that you are now playing against human players. This means "
-"that other strategies might possibly be better than when playing against AI "
-"players."
-msgstr ""
-"Играње Змија са више играча има иста правила као обична игра, осим што "
-"сада играте против других људи. То значи да неке друге стратегије игре могу "
-"бити боље у односу на то кад играте против рачунара."
-
-#: C/gnibbles.xml:113(para)
-msgid ""
-"Once a player has won, the game ends and you can return to the initial "
-"network game screen. Then you can play yet another game of addictive Nibbles "
-"multiplayer!"
-msgstr ""
-"Када неки играч победи, игра се завршава и можете се вратити на почетни "
-"екран мрежне игре. Онда можете играти још једну занимљиву игру Змија са више "
-"играча!"
-
-#: C/gnibbles.xml:555(title)
+#: C/gnibbles.xml:534(title)
 msgid "Authors"
 msgstr "Аутори"
 
-#: C/gnibbles.xml:556(para)
+#: C/gnibbles.xml:535(para)
 msgid ""
 "<application>Nibbles</application> was written by Sean MacIsaac "
 "<email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This "
@@ -851,18 +653,18 @@ msgid ""
 "regarding this application or this manual, follow the directions in this "
 "<ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
 msgstr ""
-"<application>Змије</application>су написали Sean MacIsaac <email>sjm@acm."
-"org</email> и Ian Peters <email>itp@gnu.org</email>. Ово упутство је написао "
-"Kevin Breit <email>battery841@mypad.com</email>. Andreas Røsdal је додао "
-"подршку за мрежне игре. Да бисте пријавили грешке или дали предлог у вези "
-"овог програма или његовог упутства, пратите смернице из <ulink url=\"ghelp:"
-"user-guide?feedback-bugs\" type=\"help\">документа</ulink>."
+"<application>Змије</application>су написали Sean MacIsaac "
+"<email>sjm@acm.org</email> и Ian Peters <email>itp@gnu.org</email>. Ово "
+"упутство је написао Kevin Breit <email>battery841@mypad.com</email>. Andreas "
+"Røsdal је додао подршку за мрежне игре. Да бисте пријавили грешке или дали "
+"предлог у вези овог програма или његовог упутства, пратите смернице из "
+"<ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">документа</ulink>."
 
-#: C/gnibbles.xml:582(title)
+#: C/gnibbles.xml:561(title)
 msgid "License"
 msgstr "Лиценца"
 
-#: C/gnibbles.xml:583(para)
+#: C/gnibbles.xml:562(para)
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
 "under the terms of the <ulink type=\"help\" url=\"gnome-help:gpl"
@@ -875,7 +677,7 @@ msgstr ""
 "је објављује Задужбина за Слободни Софтвер (FSF); било верзије 2 те Лиценце, "
 "било (по вашем нахођењу) било које новије верзије."
 
-#: C/gnibbles.xml:591(para)
+#: C/gnibbles.xml:570(para)
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -887,7 +689,7 @@ msgstr ""
 "ОДРЕЂЕНОЈ НАМЕНИ.  Видите <citetitle>ГНУ Општу Јавну Лиценцу</citetitle> за "
 "више детаља."
 
-#: C/gnibbles.xml:597(para)
+#: C/gnibbles.xml:576(para)
 msgid ""
 "A copy of the <citetitle>GNU General Public License</citetitle> is included "
 "as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
@@ -900,11 +702,10 @@ msgstr ""
 "Примерак <citetitle>ГНУ Опште Јавне Лиценце</citetitle> је укључен у додатку "
 "<citetitle>Гномовог корисничког водича</citetitle>. Такође можете набавити "
 "примерак <citetitle>ГНУ Опште Јавне Лиценце</citetitle> од Задужбине за "
-"Слободни Софтвер на <ulink url=\"http://www.fsf.org\" type=\"http"
-"\">њиховој веб адреси</ulink> или пишите на <address> Free Software "
-"Foundation, Inc. <street>59 Temple Place</street> - Suite 330 <city>Boston</"
-"city>, <state>MA</state><postcode>02111-1307</postcode><country>USA</"
-"country></address>"
+"Слободни Софтвер на <ulink url=\"http://www.fsf.org\" type=\"http\">њиховој "
+"веб адреси</ulink> или пишите на <address> Free Software Foundation, Inc. "
+"<street>59 Temple Place</street> - Suite 330 <city>Boston</city>, <state>MA</"
+"state><postcode>02111-1307</postcode><country>USA</country></address>"
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/gnibbles.xml:0(None)
@@ -913,3 +714,180 @@ msgstr ""
 "Бранко Кокановић <branko.kokanovic@gmail.com>\n"
 "\n"
 "Prevod.org — превод на српски језик"
+
+#~ msgid "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
+#~ msgstr ""
+#~ "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
+
+#~ msgid "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
+#~ msgstr "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
+
+#~ msgid ""
+#~ "<menuchoice><shortcut><keysym>Ctrl+G</keysym></"
+#~ "shortcut><guimenuitem>Network Game</guimenuitem></menuchoice> This starts "
+#~ "a network multiplayer game using GGZ Gaming Zone."
+#~ msgstr ""
+#~ "<menuchoice><shortcut><keysym>Ctrl+G</keysym></"
+#~ "shortcut><guimenuitem>Мрежна игра</guimenuitem></menuchoice> Овим се "
+#~ "покреће мрежна игра коришћењем ГГЗ Зоне игре."
+
+#~ msgid "Network Games"
+#~ msgstr "Мрежне игре"
+
+#~ msgid ""
+#~ "Nibbles support networked multiplayer games which is provided by <ulink "
+#~ "type=\"http\" url=\"http://www.ggzgamingzone.org\">GGZ Gaming Zone</"
+#~ "ulink>. By connecting to a Nibbles server on the Internet, you can "
+#~ "challenge other players in multiplayer games. For news, updates and a "
+#~ "list of servers to connect to, see the <ulink type=\"http\" url=\"http://"
+#~ "www.gnome.org/projects/gnome-games/\">gnome-games website</ulink>."
+#~ msgstr ""
+#~ "Змије подржавају и мрежне игре за више играча коју обезбеђује <ulink type="
+#~ "\"http\" url=\"http://www.ggzgamingzone.org\">ГГЗ Зона игре</ulink>. "
+#~ "Повезивањем на сервер Змија на интернету, можете изазвати друге играче у "
+#~ "играма са више играча. За вести, ажурирања и списак сервера за "
+#~ "повезивање, погледајте <ulink type=\"http\" url=\"http://www.gnome.org/"
+#~ "projects/gnome-games/\">веб страну Гномових игара</ulink>."
+
+#~ msgid ""
+#~ "To start the multiplayer game of Nibbles, select "
+#~ "<menuchoice><guimenu>Game</guimenu><guimenuitem>Network Game</"
+#~ "guimenuitem></menuchoice> on the Nibbles menu."
+#~ msgstr ""
+#~ "Да покренете игру Змија за више играча, одаберите "
+#~ "<menuchoice><guimenu>Игра</guimenu><guimenuitem>Мрежна игра</"
+#~ "guimenuitem></menuchoice> из главног менија."
+
+#~ msgid "Connecting to a Nibbles network server"
+#~ msgstr "Повезивање на мрежни сервер Змија"
+
+#~ msgid ""
+#~ "The Nibbles connection dialog is shown initially when starting a new "
+#~ "network game. This dialog allows you to select a server to connect to, "
+#~ "and the username that you will have while connected to that server."
+#~ msgstr ""
+#~ "При покретању нове мрежне игре, прво се показује прозорче за повезивање. "
+#~ "У овом прозорчету можете одабрати сервер за повезивање и корисничко име "
+#~ "које ћете имати када се повежете."
+
+#~ msgid ""
+#~ "It is possible to connect to a server with either a guest account or a "
+#~ "normal registered account. Guest accounts allows you to anonymously "
+#~ "login, while a normal login account allows you to reserve your own "
+#~ "username which is protected by the password that you choose."
+#~ msgstr ""
+#~ "Могуће је повезати се на сервер са било гостинског налога или као "
+#~ "нормални регистровани налог. Гостински налози вам омогућују анонимну "
+#~ "пријаву, док вам нормални налози дозвољавају да резервишете ваше "
+#~ "корисничко име заштићено са лозинком коју одаберете."
+
+#~ msgid ""
+#~ "The <guimenuitem>Guest Login</guimenuitem> option should be selected if "
+#~ "you want an anonymous guest account. If you want to create a new login "
+#~ "account, then select the <guimenuitem>First-time Login</guimenuitem> "
+#~ "option, with the username, password and email of your choice. If you have "
+#~ "already created your account, you can connect by selecting the "
+#~ "<guimenuitem>Normal Login</guimenuitem> option, and enter the username "
+#~ "and password that you have chosen."
+#~ msgstr ""
+#~ "Опција <guimenuitem>Пријава као гост</guimenuitem> треба да буде укључена "
+#~ "ако желите анонимну пријаву. Ако желите да направите нови налог за "
+#~ "пријављивање, одаберите <guimenuitem>Прва пријава</guimenuitem>, са "
+#~ "жељеним корисничким именом, лозинком и е-адресом. Ако већ имате налог, "
+#~ "можете се повезати избором опције <guimenuitem>Нормална пријава</"
+#~ "guimenuitem> и затим унети ваше корисничко име и лозинку."
+
+#~ msgid ""
+#~ "To connect to a server, click on the <guimenuitem>Connect</guimenuitem> "
+#~ "button."
+#~ msgstr ""
+#~ "Да бисте се повезали на сервер, кликните на дугме <guimenuitem>Повежи се</"
+#~ "guimenuitem>."
+
+#~ msgid "The Nibbles network connection dialog."
+#~ msgstr "Прозорче Змија за мрежно повезивање."
+
+#~ msgid "Joining a game room"
+#~ msgstr "Придруживање соби за игру"
+
+#~ msgid ""
+#~ "Once you have successfully connected to a server, you can choose which "
+#~ "game room to join. To play a multiplayer game of Nibbles, select the "
+#~ "Nibbles room. If you want to host your own game, then click on the Launch "
+#~ "button. This creates a new table where other players can participate in a "
+#~ "game against you. If there are any other games already started, then you "
+#~ "can double-click on an existing game table to join it. The list of game "
+#~ "tables on the right shows you the number of available seats, which means "
+#~ "the number of players that can join the game table."
+#~ msgstr ""
+#~ "Кад сте се успешно повезали на сервер, можете одабрати собу којој желите "
+#~ "да се придружите. Да бисте играли Змије, одаберите собу Nibbles. Ако "
+#~ "желите да ви започнете игру, кликните дугме „Покрени“. Овим се прави нова "
+#~ "табла где други могу да играју против вас. Ако има већ покренутих игара, "
+#~ "можете кликнути дуплим кликом на постојећу игру да бисте јој се "
+#~ "придружили. Списак табли за игру са десне стране вам показује број "
+#~ "слободних места, што означава број играча који се могу придружити."
+
+#~ msgid ""
+#~ "This Nibbles network dialog allows you to join a game room to find other "
+#~ "players."
+#~ msgstr ""
+#~ "Мрежно прозорче Змија вам омогућава да се придружите соби за игру и "
+#~ "нађете друге играче."
+
+#~ msgid ""
+#~ "When creating a new table for Nibbles games, a preference dialog is "
+#~ "displayed which allows you to customize the game, such as set the minimum "
+#~ "number of players for the game. Once the total number of seats have been "
+#~ "taken, then no more players are allowed to join that game table."
+#~ msgstr ""
+#~ "При прављењу нове табле за игру Змија, приказује се прозорче са "
+#~ "поставкама које вам омогућава да прилагодите игру, као нпр. најмањи број "
+#~ "играча за игру. Када је укупни број места заузет, играчи се више не могу "
+#~ "придружити табли за игру."
+
+#~ msgid ""
+#~ "It is possible to chat with other players in network games. Ask for "
+#~ "advice or help playing the games, but please be polite against other "
+#~ "players."
+#~ msgstr ""
+#~ "Могуће је ћаскати са осталим играчима у мрежним играма. Питајте за савет "
+#~ "или помоћ при игрању игре, али молимо, будите љубазни према осталим "
+#~ "играчима."
+
+#~ msgid "Waiting for other players to join the game"
+#~ msgstr "Чекање да се остали играчи придруже игри"
+
+#~ msgid ""
+#~ "Once you have successfully joined a game table, then you have to wait "
+#~ "until enough players have joined the table. The <guimenuitem>Players "
+#~ "List</guimenuitem> menu item allows you to see a list of the players who "
+#~ "have joined the game. The game will begin immediately when the total "
+#~ "number of players in the the game have been reached."
+#~ msgstr ""
+#~ "Када сте се успешно придружили табли за игру, морате сачекати да се "
+#~ "потребан број играча придружи. Ставка менија <guimenuitem>Списак играча</"
+#~ "guimenuitem> вам омогућава да видите играче који су се придружили игри. "
+#~ "Игра ће почети одмах пошто се достигне потребан број играча."
+
+#~ msgid "Playing multiplayer Nibbles games"
+#~ msgstr "Играње Змија са више играча"
+
+#~ msgid ""
+#~ "Multiplayer Nibbles games have pretty much the same rules as normal "
+#~ "Nibbles games, except that you are now playing against human players. "
+#~ "This means that other strategies might possibly be better than when "
+#~ "playing against AI players."
+#~ msgstr ""
+#~ "Играње Змија са више играча има иста правила као обична игра, осим што "
+#~ "сада играте против других људи. То значи да неке друге стратегије игре "
+#~ "могу бити боље у односу на то кад играте против рачунара."
+
+#~ msgid ""
+#~ "Once a player has won, the game ends and you can return to the initial "
+#~ "network game screen. Then you can play yet another game of addictive "
+#~ "Nibbles multiplayer!"
+#~ msgstr ""
+#~ "Када неки играч победи, игра се завршава и можете се вратити на почетни "
+#~ "екран мрежне игре. Онда можете играти још једну занимљиву игру Змија са "
+#~ "више играча!"
