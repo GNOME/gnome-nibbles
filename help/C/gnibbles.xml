@@ -184,7 +184,7 @@ the <interface>main window</interface> shown below.
 <screenshot>
  <mediaobject> 
     <imageobject>
-<imagedata fileref="figures/intro.png" format="PNG" srccredit="Andreas Røsdal"/>
+<imagedata fileref="figures/intro.png" format="PNG"/>
     </imageobject>
     <textobject> 
       <phrase>Nibbles Introduction Window.</phrase> 
@@ -207,7 +207,7 @@ left, and down arrow to turn the worm down.
 <screenshot>
   <mediaobject> 
     <imageobject>
-  <imagedata fileref="figures/playing.png" format="PNG" srccredit="Andreas Røsdal"/>
+  <imagedata fileref="figures/playing.png" format="PNG"/>
     </imageobject>
     <textobject> 
       <phrase>Nibbles During Gameplay.</phrase> 
