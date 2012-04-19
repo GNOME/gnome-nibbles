@@ -5,12 +5,10 @@ HELP_MEDIA = \
 	figures/game.png \
 	figures/intro.png \
 	figures/playing.png \
-	figures/connect.png \
-	figures/tables.png \
 	figures/worm_op.png
 
 HELP_FILES = \
-	gnibbles.xml \
+	index.docbook \
 	legal.xml
 
 HELP_LINGUAS = ca cs de el en_GB es eu fr it oc sl sr sr@latin sv zh_CN
