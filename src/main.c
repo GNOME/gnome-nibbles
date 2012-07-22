@@ -900,6 +900,18 @@ main (int argc, char **argv)
   games_scores_startup ();
 
   g_set_application_name (_("Nibbles"));
+
+  context = g_option_context_new (NULL);
+  g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
+  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+
+  retval = g_option_context_parse (context, &argc, &argv, &error);
+  g_option_context_free (context);
+  if (!retval) {
+    g_print ("%s\n", error->message);
+    g_error_free (error);
+    exit (1);
+  }
   
   if (gtk_clutter_init (&argc, &argv) != CLUTTER_INIT_SUCCESS) {
     GtkWidget *dialog = gtk_message_dialog_new (NULL,
@@ -919,18 +931,6 @@ main (int argc, char **argv)
     gchar *name = g_strdup_printf ("org.gnome.gnibbles.worm%d", i);
     worm_settings[i] = g_settings_new (name);
     g_free (name);
-  }
-
-  context = g_option_context_new (NULL);
-  g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
-  g_option_context_add_group (context, gtk_get_option_group (TRUE));
-
-  retval = g_option_context_parse (context, &argc, &argv, &error);
-  g_option_context_free (context);
-  if (!retval) {
-    g_print ("%s", error->message);
-    g_error_free (error);
-    exit (1);
   }
 
   gtk_window_set_default_icon_name ("gnibbles");
