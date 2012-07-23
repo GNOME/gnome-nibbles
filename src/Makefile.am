@@ -24,7 +24,9 @@ gnibbles_SOURCES = \
 	sound.c \
 	sound.h \
 	worm.c \
-	worm.h
+	worm.h \
+	games-frame.c \
+	games-frame.h
 
 gnibbles_CPPFLAGS = \
 	-I$(top_srcdir) \
