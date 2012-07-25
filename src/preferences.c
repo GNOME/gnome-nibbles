@@ -30,7 +30,6 @@
 #include <libgames-support/games-pause-action.h>
 
 #include "preferences.h"
-#include "games-frame.h"
 #include "main.h"
 
 #define KB_TEXT_WIDTH 60
@@ -191,15 +190,32 @@ worm_relative_movement_cb (GtkWidget * widget, gpointer data)
     (i, gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)));
 }
 
+static void
+set_label_bold (GtkLabel * label)
+{
+  PangoAttrList *attrlist;
+  PangoAttribute *attr;
+
+  g_assert (label != NULL);
+
+  attrlist = pango_attr_list_new ();
+
+  attr = pango_attr_weight_new (PANGO_WEIGHT_BOLD);
+  attr->start_index = 0;
+  attr->end_index = -1;
+  pango_attr_list_change (attrlist, attr);
+
+  gtk_label_set_attributes (label, attrlist);
+}
+
 void
 gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 {
   GtkWidget *notebook;
   GtkWidget *label;
-  GtkWidget *frame;
   GtkWidget *button;
   GtkWidget *levelspinner;
-  GtkWidget *vbox, *vbox2;
+  GtkWidget *vbox_game, *vbox_speed, *vbox_options, *vbox_wormx;
   GtkAdjustment *adjustment;
   GtkWidget *label2;
   GtkWidget *grid, *grid2;
@@ -236,25 +252,29 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                      notebook);
 
   label = gtk_label_new (_("Game"));
-  grid = gtk_grid_new ();
-  gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
-  gtk_container_set_border_width (GTK_CONTAINER (grid), 12);
+ 
 
-  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), grid, label);
+  vbox_game = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox_game), 12);
+  gtk_box_set_spacing (GTK_BOX(vbox_game), 18);
 
-  frame = games_frame_new (_("Speed"));
-  if (running)
-    gtk_widget_set_sensitive (frame, FALSE);
+  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox_game, label);
 
-  gtk_widget_set_vexpand (frame, TRUE);
-  gtk_grid_attach (GTK_GRID (grid), frame, 0, 0, 1, 1);
+  vbox_speed   = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
+  vbox_options = gtk_box_new (GTK_ORIENTATION_VERTICAL, 7);
 
-  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-  gtk_container_add (GTK_CONTAINER (frame), vbox);
+  gtk_box_pack_start (GTK_BOX (vbox_game), vbox_speed, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox_game), vbox_options, FALSE, FALSE, 0);
+
+  /* Speed */
+  label = gtk_label_new (_("Speed"));
+  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+  set_label_bold (GTK_LABEL(label));
+  gtk_box_pack_start (GTK_BOX (vbox_speed), label, FALSE, FALSE, 0);
 
   button = gtk_radio_button_new_with_label (NULL, _("Nibbles newbie"));
 
-  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox_speed), button, FALSE, FALSE, 0);
   if (properties->gamespeed == 4)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
   g_signal_connect (GTK_WIDGET (button), "toggled", G_CALLBACK
@@ -264,7 +284,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                                             (GTK_RADIO_BUTTON (button)),
                                             _("My second day"));
 
-  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox_speed), button, FALSE, FALSE, 0);
   if (properties->gamespeed == 3)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
   g_signal_connect (GTK_WIDGET (button), "toggled", G_CALLBACK
@@ -274,7 +294,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                                             (GTK_RADIO_BUTTON (button)),
                                             _("Not too shabby"));
 
-  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox_speed), button, FALSE, FALSE, 0);
   if (properties->gamespeed == 2)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
   g_signal_connect (GTK_WIDGET (button), "toggled", G_CALLBACK
@@ -284,7 +304,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                                             (GTK_RADIO_BUTTON (button)),
                                             _("Finger-twitching good"));
 
-  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox_speed), button, FALSE, FALSE, 0);
   if (properties->gamespeed == 1)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
   g_signal_connect (GTK_WIDGET (button), "toggled", G_CALLBACK
@@ -292,15 +312,19 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
 
   /* Options */
-  frame = games_frame_new (_("Options"));
-  gtk_grid_attach (GTK_GRID (grid), frame, 1, 0, 1, 1);
+  grid = gtk_grid_new ();
+  gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+  gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
 
-  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-  gtk_container_add (GTK_CONTAINER (frame), vbox);
+  label = gtk_label_new (_("Options"));
+  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+  set_label_bold (GTK_LABEL(label));
+  gtk_box_pack_start (GTK_BOX (vbox_options), label, FALSE, FALSE, 0);
+
 
   button =
     gtk_check_button_new_with_mnemonic (_("_Play levels in random order"));
-  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox_options), button, FALSE, FALSE, 0);
 
   if (running)
     gtk_widget_set_sensitive (button, FALSE);
@@ -310,7 +334,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                     (random_order_cb), NULL);
 
   button = gtk_check_button_new_with_mnemonic (_("_Enable fake bonuses"));
-  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox_options), button, FALSE, FALSE, 0);
 
   if (running)
     gtk_widget_set_sensitive (button, FALSE);
@@ -320,14 +344,14 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                     (fake_bonus_cb), NULL);
 
   button = gtk_check_button_new_with_mnemonic (_("E_nable sounds"));
-  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox_options), button, FALSE, FALSE, 0);
   if (properties->sound)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
   g_signal_connect (GTK_WIDGET (button), "toggled", G_CALLBACK
                     (sound_cb), NULL);
 
   grid2 = gtk_grid_new ();
-  gtk_box_pack_start (GTK_BOX (vbox), grid2, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox_options), grid2, FALSE, FALSE, 0);
   gtk_grid_set_row_spacing (GTK_GRID (grid2), 6);
   gtk_grid_set_column_spacing (GTK_GRID (grid2), 12);
   gtk_container_set_border_width (GTK_CONTAINER (grid2), 0);
@@ -403,17 +427,23 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   g_signal_connect (GTK_ADJUSTMENT (adjustment), "value_changed",
                     G_CALLBACK (num_worms_cb), num_ai);
 
+  
+
+  /* Per worm options */
   for (i = 0; i < NUMWORMS; i++) {
     buffer = g_strdup_printf ("%s %d", _("Worm"), i + 1);
     label = gtk_label_new (buffer);
     g_free (buffer);
 
-    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 18);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
+    vbox_wormx = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox_wormx), 12);
 
-    gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox, label);
+    gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox_wormx, label);
 
-    frame = games_frame_new (_("Keyboard Controls"));
+    label2 = gtk_label_new (_("Keyboard Options"));
+    gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+    set_label_bold (GTK_LABEL(label2));
+    gtk_box_pack_start (GTK_BOX (vbox_wormx), label2, FALSE, FALSE, 0);
 
     controls = games_controls_list_new (worm_settings[i]);
 
@@ -423,22 +453,19 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                                       "key-up", _("Move up"), GDK_KEY_Up,
                                       "key-down", _("Move down"), GDK_KEY_Down,
                                       NULL);
-    gtk_container_add (GTK_CONTAINER (frame), controls);
+    gtk_box_pack_start (GTK_BOX (vbox_wormx), controls, TRUE, TRUE, 0);
 
-    gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
-
-    frame = games_frame_new (_("Options"));
-    gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
-
-    vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-    gtk_container_add (GTK_CONTAINER (frame), vbox2);
+    label2 = gtk_label_new (_("Options"));
+    gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+    set_label_bold (GTK_LABEL(label2));
+    gtk_box_pack_start (GTK_BOX (vbox_wormx), label2, FALSE, FALSE, 0);
 
     button = gtk_check_button_new_with_mnemonic (_("_Use relative movement"));
-    gtk_box_pack_start (GTK_BOX (vbox2), button, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox_wormx), button, FALSE, FALSE, 0);
 
     grid2 = gtk_grid_new ();
     gtk_grid_set_column_spacing (GTK_GRID (grid2), 12);
-    gtk_box_pack_start (GTK_BOX (vbox2), grid2, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox_wormx), grid2, FALSE, FALSE, 0);
 
     label2 = gtk_label_new_with_mnemonic (_("_Worm color:"));
     gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
