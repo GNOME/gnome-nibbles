@@ -33,7 +33,6 @@
 
 #include <libgames-support/games-scores.h>
 #include <libgames-support/games-stock.h>
-#include <libgames-support/games-pause-action.h>
 #include <libgames-support/games-fullscreen-action.h>
 
 #include "main.h"
@@ -45,6 +44,7 @@
 #include "scoreboard.h"
 #include "warp.h"
 #include "games-gridframe.h"
+#include "games-pause-action.h"
 
 #include <clutter-gtk/clutter-gtk.h>
 #include <clutter/clutter.h>

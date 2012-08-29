@@ -27,10 +27,10 @@
 #include <gdk/gdkkeysyms.h>
 
 #include <libgames-support/games-controls.h>
-#include <libgames-support/games-pause-action.h>
 
 #include "preferences.h"
 #include "main.h"
+#include "games-pause-action.h"
 
 #define KB_TEXT_WIDTH 60
 #define KB_TEXT_HEIGHT 32

@@ -11,6 +11,8 @@ gnibbles_SOURCES = \
 	warpmanager.c \
 	games-gridframe.h \
 	games-gridframe.c \
+	games-pause-action.h \
+	games-pause-action.c \
 	gnibbles.h \
 	gnibbles.c \
 	properties.h \
