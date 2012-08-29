@@ -32,7 +32,6 @@
 #include <gdk/gdkkeysyms.h>
 
 #include <libgames-support/games-scores.h>
-#include <libgames-support/games-stock.h>
 
 #include "main.h"
 #include "properties.h"
@@ -45,6 +44,7 @@
 #include "games-gridframe.h"
 #include "games-pause-action.h"
 #include "games-fullscreen-action.h"
+#include "games-stock.h"
 
 #include <clutter-gtk/clutter-gtk.h>
 #include <clutter/clutter.h>

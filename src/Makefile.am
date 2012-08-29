@@ -15,6 +15,8 @@ gnibbles_SOURCES = \
 	games-gridframe.c \
 	games-pause-action.h \
 	games-pause-action.c \
+	games-stock.h \
+	games-stock.c \
 	gnibbles.h \
 	gnibbles.c \
 	properties.h \
@@ -40,6 +42,7 @@ gnibbles_CFLAGS = \
 	-DDATA_DIRECTORY=\"$(datadir)/gnibbles\" \
 	-DSOUND_DIRECTORY=\"$(datadir)/gnibbles/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
+	-DICON_THEME_DIRECTORY="\"$(datadir)/icons\"" \
 	$(GTK_CFLAGS) \
 	$(RSVG_CFLAGS) \
 	$(CANBERRA_GTK_CFLAGS) \

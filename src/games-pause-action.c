@@ -19,9 +19,8 @@
  *      Robert Ancell <robert.ancell@gmail.com>
  */
 
-#include <libgames-support/games-stock.h>
-
 #include "games-pause-action.h"
+#include "games-stock.h"
 
 enum {
     PROP_0,
