@@ -9,6 +9,8 @@ gnibbles_SOURCES = \
 	warp.c \
 	warpmanager.h \
 	warpmanager.c \
+	games-fullscreen-action.h \
+	games-fullscreen-action.c \
 	games-gridframe.h \
 	games-gridframe.c \
 	games-pause-action.h \
