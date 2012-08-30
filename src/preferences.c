@@ -26,11 +26,10 @@
 #include <glib/gi18n.h>
 #include <gdk/gdkkeysyms.h>
 
-#include <libgames-support/games-controls.h>
-
 #include "preferences.h"
 #include "main.h"
 #include "games-pause-action.h"
+#include "games-controls.h"
 
 #define KB_TEXT_WIDTH 60
 #define KB_TEXT_HEIGHT 32
