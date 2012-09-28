@@ -17,6 +17,14 @@ gnibbles_SOURCES = \
 	games-gridframe.c \
 	games-pause-action.h \
 	games-pause-action.c \
+	games-score.h			\
+	games-score.c			\
+	games-scores.c			\
+	games-scores.h			\
+	games-scores-dialog.c	\
+	games-scores-dialog.h	\
+	games-scores-backend.c	\
+	games-scores-backend.h	\
 	games-stock.h \
 	games-stock.c \
 	gnibbles.h \
@@ -36,6 +44,12 @@ gnibbles_SOURCES = \
 	worm.c \
 	worm.h
 
+if ENABLE_SETGID
+gnibbles_SOURCES +=		\
+	games-setgid-io.c		\
+	games-setgid-io.h
+endif # ENABLE_SETGID
+
 gnibbles_CPPFLAGS = \
 	-I$(top_srcdir) \
 	$(AM_CPPFLAGS)
@@ -45,6 +59,7 @@ gnibbles_CFLAGS = \
 	-DSOUND_DIRECTORY=\"$(datadir)/gnibbles/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	-DICON_THEME_DIRECTORY="\"$(datadir)/icons\"" \
+	-DSCORESDIR="\"$(scoredir)\""				\
 	$(GTK_CFLAGS) \
 	$(RSVG_CFLAGS) \
 	$(CANBERRA_GTK_CFLAGS) \
@@ -53,7 +68,6 @@ gnibbles_CFLAGS = \
 	$(AM_CFLAGS)
 
 gnibbles_LDADD = \
-	$(top_builddir)/libgames-support/libgames-support.la \
 	$(GTK_LIBS) \
 	$(RSVG_LIBS) \
 	$(CANBERRA_GTK_LIBS) \

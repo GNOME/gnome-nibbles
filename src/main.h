@@ -21,9 +21,8 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-#include <libgames-support/games-scores.h>
-
 #include "gnibbles.h"
+#include "games-scores.h"
 
 #define MAIN_PAGE 0
 

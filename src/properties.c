@@ -26,11 +26,10 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-#include <libgames-support/games-scores.h>
-
 #include "properties.h"
 #include "main.h"
 #include "sound.h"
+#include "games-scores.h"
 
 #define MAX_SPEED 4
 

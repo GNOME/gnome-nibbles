@@ -31,8 +31,6 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-#include <libgames-support/games-scores.h>
-
 #include "main.h"
 #include "properties.h"
 #include "gnibbles.h"
@@ -44,6 +42,7 @@
 #include "games-gridframe.h"
 #include "games-pause-action.h"
 #include "games-fullscreen-action.h"
+#include "games-scores.h"
 #include "games-stock.h"
 
 #include <clutter-gtk/clutter-gtk.h>

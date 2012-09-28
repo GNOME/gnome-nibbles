@@ -30,9 +30,6 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <clutter/clutter.h>
 
-#include <libgames-support/games-scores-dialog.h>
-#include <libgames-support/games-scores.h>
-
 #include "main.h"
 #include "gnibbles.h"
 #include "boni.h"
@@ -43,6 +40,8 @@
 #include "board.h"
 #include "sound.h"
 #include "worm.h"
+#include "games-scores-dialog.h"
+#include "games-scores.h"
 
 GnibblesWorm *worms[NUMWORMS];
 
