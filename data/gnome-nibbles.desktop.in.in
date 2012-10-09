@@ -1,8 +1,8 @@
 [Desktop Entry]
 _Name=Nibbles
 _Comment=Guide a worm around a maze
-Exec=gnibbles
-Icon=gnibbles
+Exec=gnome-nibbles
+Icon=gnome-nibbles
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Game;ArcadeGame;

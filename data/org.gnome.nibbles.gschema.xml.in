@@ -1,5 +1,5 @@
 <schemalist>
-  <schema id="org.gnome.gnibbles" path="/org/gnome/gnibbles/">
+  <schema id="org.gnome.nibbles" path="/org/gnome/nibbles/">
     <key name="players" type="i">
       <default>1</default>
       <_summary>Number of human players</_summary>
@@ -41,7 +41,7 @@
       <_description>Size of game tiles.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm0" path="/org/gnome/gnibbles/worm0/">
+  <schema id="org.gnome.nibbles.worm0" path="/org/gnome/nibbles/worm0/">
     <key name="color" type="s">
       <default>'red'</default>
       <_summary>Color to use for worm</_summary>
@@ -73,7 +73,7 @@
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm1" path="/org/gnome/gnibbles/worm1/">
+  <schema id="org.gnome.nibbles.worm1" path="/org/gnome/nibbles/worm1/">
     <key name="color" type="s">
       <default>'green'</default>
       <_summary>Color to use for worm</_summary>
@@ -105,7 +105,7 @@
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm2" path="/org/gnome/gnibbles/worm2/">
+  <schema id="org.gnome.nibbles.worm2" path="/org/gnome/nibbles/worm2/">
     <key name="color" type="s">
       <default>'blue'</default>
       <_summary>Color to use for worm</_summary>
@@ -137,7 +137,7 @@
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm3" path="/org/gnome/gnibbles/worm3/">
+  <schema id="org.gnome.nibbles.worm3" path="/org/gnome/nibbles/worm3/">
     <key name="color" type="s">
       <default>'yellow'</default>
       <_summary>Color to use for worm</_summary>
@@ -169,7 +169,7 @@
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm4" path="/org/gnome/gnibbles/worm4/">
+  <schema id="org.gnome.nibbles.worm4" path="/org/gnome/nibbles/worm4/">
     <key name="color" type="s">
       <default>'cyan'</default>
       <_summary>Color to use for worm</_summary>
@@ -201,7 +201,7 @@
       <_description>Key to use for motion right.</_description>
     </key>
   </schema>
-  <schema id="org.gnome.gnibbles.worm5" path="/org/gnome/gnibbles/worm5/">
+  <schema id="org.gnome.nibbles.worm5" path="/org/gnome/nibbles/worm5/">
     <key name="color" type="s">
       <default>'purple'</default>
       <_summary>Color to use for worm</_summary>

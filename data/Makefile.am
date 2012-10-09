@@ -1,14 +1,14 @@
 SUBDIRS = icons levels pix
 
-gsettings_in_file = org.gnome.gnibbles.gschema.xml.in
+gsettings_in_file = org.gnome.nibbles.gschema.xml.in
 gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 @INTLTOOL_XML_NOMERGE_RULE@
 @GSETTINGS_RULES@
 
-pixmapdir = $(datadir)/gnibbles/pixmaps
-pixmap_DATA = gnibbles-logo.svg
+pixmapdir = $(datadir)/gnome-nibbles/pixmaps
+pixmap_DATA = gnome-nibbles-logo.svg
 
-soundsdir = $(datadir)/gnibbles/sounds
+soundsdir = $(datadir)/gnome-nibbles/sounds
 sounds_DATA = \
 	appear.ogg \
 	bonus.ogg \
@@ -20,11 +20,11 @@ sounds_DATA = \
 	teleport.ogg
 
 desktopdir=$(datadir)/applications
-desktop_in_files = gnibbles.desktop.in.in
+desktop_in_files = gnome-nibbles.desktop.in.in
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-man_MANS = gnibbles.6
+man_MANS = gnome-nibbles.6
 
 EXTRA_DIST = \
 	$(pixmap_DATA) \
@@ -37,7 +37,7 @@ DISTCLEANFILES = $(desktop_DATA) $(gsettings_SCHEMAS)
 
 install-exec-hook:
 	-if test "$(setgid)" = "true"; then \
-	  chgrp $(scores_group) $(DESTDIR)$(bindir)/gnibbles && chmod 2555 $(DESTDIR)$(bindir)/gnibbles ;\
+	  chgrp $(scores_group) $(DESTDIR)$(bindir)/gnome-nibbles && chmod 2555 $(DESTDIR)$(bindir)/gnome-nibbles ;\
 	fi
 
 -include $(top_srcdir)/git.mk

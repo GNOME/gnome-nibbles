@@ -1,5 +1,5 @@
 @YELP_HELP_RULES@
-HELP_ID = gnibbles
+HELP_ID = gnome-nibbles
 
 HELP_MEDIA = \
 	figures/game.png \

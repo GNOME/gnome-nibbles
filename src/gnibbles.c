@@ -177,7 +177,7 @@ gnibbles_load_logo (gint tilesize)
   if (logo_pixmap)
     g_object_unref (logo_pixmap);
 
-  logo_pixmap = gnibbles_load_pixmap_file ("gnibbles-logo.svg",
+  logo_pixmap = gnibbles_load_pixmap_file ("gnome-nibbles-logo.svg",
                                            board->width * tilesize,
                                            board->height * tilesize);
 }

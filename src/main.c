@@ -171,7 +171,7 @@ about_cb (GtkAction * action, gpointer data)
        "authors", authors,
        "documenters", documenters, "translator-credits",
        _("translator-credits"), "logo-icon-name",
-       "gnibbles", "website",
+       "gnome-nibbles", "website",
        "http://www.gnome.org/projects/gnome-games/",
        "website-label", _("GNOME Games web site"),
        "wrap-license", TRUE, NULL);
@@ -594,7 +594,7 @@ help_cb (GtkAction * action, gpointer data)
 {
   GError *error = NULL;
 
-  gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (window)), "help:gnibbles", gtk_get_current_event_time (), &error);
+  gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (window)), "help:gnome-nibbles", gtk_get_current_event_time (), &error);
   if (error)
     g_warning ("Failed to show help: %s", error->message);
   g_clear_error (&error);
@@ -924,18 +924,18 @@ main (int argc, char **argv)
     exit (1);
   }
 
-  settings = g_settings_new ("org.gnome.gnibbles");
+  settings = g_settings_new ("org.gnome.nibbles");
   for (i = 0; i < NUMWORMS; i++)
   {
-    gchar *name = g_strdup_printf ("org.gnome.gnibbles.worm%d", i);
+    gchar *name = g_strdup_printf ("org.gnome.nibbles.worm%d", i);
     worm_settings[i] = g_settings_new (name);
     g_free (name);
   }
 
-  gtk_window_set_default_icon_name ("gnibbles");
+  gtk_window_set_default_icon_name ("gnome-nibbles");
   srand (time (NULL));
 
-  highscores = games_scores_new ("gnibbles",
+  highscores = games_scores_new ("gnome-nibbles",
                                  scorecats, G_N_ELEMENTS (scorecats),
                                  "game speed", NULL,
                                  0 /* default category */,

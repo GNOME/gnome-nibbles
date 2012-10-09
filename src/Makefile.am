@@ -1,6 +1,6 @@
-bin_PROGRAMS = gnibbles
+bin_PROGRAMS = gnome-nibbles
 
-gnibbles_SOURCES = \
+gnome_nibbles_SOURCES = \
 	bonus.h \
 	bonus.c \
 	boni.h \
@@ -45,39 +45,29 @@ gnibbles_SOURCES = \
 	worm.h
 
 if ENABLE_SETGID
-gnibbles_SOURCES +=		\
+gnome_nibbles_SOURCES +=		\
 	games-setgid-io.c		\
 	games-setgid-io.h
 endif # ENABLE_SETGID
 
-gnibbles_CPPFLAGS = \
+gnome_nibbles_CPPFLAGS = \
 	-I$(top_srcdir) \
 	$(AM_CPPFLAGS)
 
-gnibbles_CFLAGS = \
-	-DDATA_DIRECTORY=\"$(datadir)/gnibbles\" \
-	-DSOUND_DIRECTORY=\"$(datadir)/gnibbles/sounds\" \
+gnome_nibbles_CFLAGS = \
+	-DDATA_DIRECTORY=\"$(datadir)/gnome-nibbles\" \
+	-DSOUND_DIRECTORY=\"$(datadir)/gnome-nibbles/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	-DICON_THEME_DIRECTORY="\"$(datadir)/icons\"" \
 	-DSCORESDIR="\"$(scoredir)\""				\
-	$(GTK_CFLAGS) \
-	$(RSVG_CFLAGS) \
-	$(CANBERRA_GTK_CFLAGS) \
-	$(CLUTTER_GTK_CFLAGS) \
-	$(CLUTTER_CFLAGS) \
-	$(AM_CFLAGS)
+	$(GNOME_NIBBLES_CFLAGS)
 
-gnibbles_LDADD = \
-	$(GTK_LIBS) \
-	$(RSVG_LIBS) \
-	$(CANBERRA_GTK_LIBS) \
-	$(CLUTTER_GTK_LIBS) \
-	$(CLUTTER_LIBS) \
-	$(INTLLIBS)
+gnome_nibbles_LDADD = \
+	$(GNOME_NIBBLES_LIBS)
 
 install-exec-hook:
 	-if test "$(setgid)" = "true"; then \
-	  chgrp $(scores_group) $(DESTDIR)$(bindir)/gnibbles && chmod 2555 $(DESTDIR)$(bindir)/gnibbles ;\
+	  chgrp $(scores_group) $(DESTDIR)$(bindir)/gnome-nibbles && chmod 2555 $(DESTDIR)$(bindir)/gnome-nibbles ;\
 	fi
 
 -include $(top_srcdir)/git.mk
