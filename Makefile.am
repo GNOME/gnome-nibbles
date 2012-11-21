@@ -10,4 +10,9 @@ install-data-local:
 	   chmod 664 $(DESTDIR)$(scoredir)/gnome-nibbles.$$i.scores; \
 	 done
 
+uninstall-local:
+	-for i in ${SCOREFILES} ; do \
+	   rm -f $(DESTDIR)$(scoredir)/gnome-nibbles.$$i.scores; \
+	 done
+
 -include $(top_srcdir)/git.mk
