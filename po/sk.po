@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-15 01:10+0000\n"
-"PO-Revision-Date: 2013-01-18 10:04+0100\n"
+"POT-Creation-Date: 2013-01-30 21:37+0000\n"
+"PO-Revision-Date: 2013-01-31 11:26+0100\n"
 "Last-Translator: Ján Kyselica <kyselica.jan@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -29,6 +29,10 @@ msgstr "Červíci"
 #: ../data/gnome-nibbles.desktop.in.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Ovládajte červíka v bludisku"
+
+#: ../data/gnome-nibbles.desktop.in.in.h:3
+msgid "game;snake;board;"
+msgstr "hra;had;stolová;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:1
 msgid "Number of human players"
