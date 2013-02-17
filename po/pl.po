@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-02 23:33+0100\n"
-"PO-Revision-Date: 2013-02-02 23:34+0100\n"
+"POT-Creation-Date: 2013-02-17 18:07+0100\n"
+"PO-Revision-Date: 2013-02-17 18:08+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -170,7 +170,7 @@ msgstr ""
 "Nie można odczytać pliku opisującego poziom:\n"
 "%s\n"
 "\n"
-"Proszę się upewnić, że gra Robaki została prawidłowo zainstalowana."
+"Proszę się upewnić, że gra Robaki została prawidłowo zainstalowana"
 
 #: ../src/board.c:264
 #, c-format
@@ -183,7 +183,7 @@ msgstr ""
 "Plik opisujący poziom wygląda na uszkodzony:\n"
 "%s\n"
 "\n"
-"Proszę się upewnić, że gra Robaki została prawidłowo zainstalowana."
+"Proszę się upewnić, że gra Robaki została prawidłowo zainstalowana"
 
 #: ../src/games-controls.c:288
 msgid "Unknown Command"
@@ -400,8 +400,7 @@ msgstr ""
 "Program %s rozpowszechniany jest z nadzieją, iż będzie on użyteczny - jednak "
 "BEZ JAKIEJKOLWIEK GWARANCJI, nawet domyślnej gwarancji PRZYDATNOŚCI "
 "HANDLOWEJ albo PRZYDATNOŚCI DO OKREŚLONYCH ZASTOSOWAŃ. W celu uzyskania "
-"bliższych informacji należy zapoznać się z Powszechną Licencją Publiczną "
-"GNU. "
+"bliższych informacji należy zapoznać się z Powszechną Licencją Publiczną GNU."
 
 #: ../src/games-stock.c:327
 #, c-format
@@ -435,7 +434,7 @@ msgstr ""
 "Nie można odnaleźć pliku z piksmapą:\n"
 "%s\n"
 "\n"
-"Proszę się upewnić, że gra Robaki została prawidłowo zainstalowana."
+"Proszę się upewnić, że gra Robaki została prawidłowo zainstalowana"
 
 #: ../src/gnibbles.c:355
 msgid "Nibbles Scores"
