@@ -1,0 +1,125 @@
+<page xmlns="http://projectmallard.org/1.0/"
+	type="topic" style="task"
+	id="preferences">
+
+  <info>
+    <link type="guide" xref="index#preferences"/>
+
+    <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <credit type="author">
+    <name>Aruna Sankaranarayanan</name>
+    <email>safincrazy@gmail.com</email>
+    </credit>
+
+    <desc>Change default speed and worm color.</desc>
+  </info>
+
+  <title>Change general preferences</title>
+  <p>The general preferences for <app>Nibbles</app> can be changed by
+  selecting <guiseq><gui style="menu">Settings</gui>
+  <gui style="menuitem">Preferences</gui></guiseq>.</p>
+
+<section id="speed">
+  <title>Speed</title>
+
+  <p>There are four available speeds on <app>Nibbles</app>. These are, in
+  increasing order:</p>
+  <list>
+    <item>
+      <p>Nibbles Newbie</p>
+    </item>
+    <item>
+      <p>My Second Day</p>
+    </item>
+    <item>
+      <p>Not too shabby</p>
+    </item>
+    <item>
+      <p>Finger twitching good</p>
+    </item>
+  </list>
+
+  <p>Speed can be changed in <guiseq><gui style="menu">Settings</gui>
+  <gui style="menuitem">Preferences</gui></guiseq> by selecting one of
+  the four speed choices given on the left hand side.</p>
+
+</section>
+
+<section id="colours">
+  <title>Change worm colors</title>
+
+  <p>There are seven available worm colors:</p>
+  <list>
+    <item>
+      <p><media type="image" src="figures/snake-red.svg" height="20"
+      width="20"/> Red</p>
+    </item>
+    <item>
+      <p><media type="image" src="figures/snake-green.svg" height="20"
+      width="20"/> Green</p>
+    </item>
+    <item>
+      <p><media type="image" src="figures/snake-blue.svg" height="20"
+      width="20"/> Blue</p>
+    </item>
+    <item>
+      <p><media type="image" src="figures/snake-yellow.svg" height="20"
+      width="20"/> Yellow</p>
+    </item>
+    <item>
+      <p><media type="image" src="figures/snake-cyan.svg" height="20"
+      width="20"/> Cyan</p>
+    </item>
+    <item>
+      <p><media type="image" src="figures/snake-magenta.svg" height="20"
+      width="20"/> Purple</p>
+    </item>
+    <item>
+      <p><media type="image" src="figures/snake-grey.svg" height="20"
+      width="20"/> Gray</p>
+    </item>
+  </list>
+
+  <p>These can be changed in <guiseq><gui style="menu">Settings</gui>
+  <gui style="menuitem">Preferences</gui></guiseq>.</p>
+  <steps>
+    <item>
+      <p>Select any of the <gui>Worm</gui> tabs to choose the worm whose
+      colour you want to change.</p>
+    </item>
+    <item>
+      <p>On your left hand side you will see
+      <gui style="group">Worm color</gui>. Pick a color out of the
+      available colors in the
+      drop-down menu to change the appearance of the worm.</p>
+    </item>
+  </steps>
+
+</section>
+
+<section id="sound">
+  <title>Sounds</title>
+
+  <p>You can enable or disable sounds in <app>Nibbles</app> by checking or
+  unchecking the <gui style="checkbox">Enable sounds</gui> checkbox in
+  <guiseq><gui style="menu">Settings</gui>
+  <gui style="menuitem">Preferences</gui></guiseq>.
+  This is checked by default.</p>
+
+</section>
+
+<section id="random-levels">
+  <title>Play levels in random order</title>
+
+  <p>Check or uncheck the <gui style="checkbox">Play levels in random
+  order</gui> checkbox in <guiseq><gui style="menu">Settings</gui>
+  <gui style="menuitem">Preferences</gui></guiseq>
+  to play the different levels in <app>Nibbles</app> in random order.
+  This is unchecked by default.</p>
+
+</section>
+
+</page>

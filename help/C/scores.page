@@ -1,0 +1,89 @@
+<page xmlns="http://projectmallard.org/1.0/"
+	type="topic" style="task"
+	id="scores">
+
+  <info>
+    <link type="guide" xref="index#play"/>
+
+    <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <credit type="author">
+    <name>Aruna Sankaranarayanan</name>
+    <email>safincrazy@gmail.com</email>
+    </credit>
+
+    <desc>Swallow different bonuses to score points.</desc>
+  </info>
+
+  <title>Scoring points in <app>Nibbles</app></title>
+
+    <p>You can score points in <app>Nibbles</app> by eating bonuses. There are
+    5 different kinds of bonuses in Nibbles:</p>
+    <list>
+      <item>
+        <p>The donut-shaped bonus
+	<media type="image" src="figures/donut.svg" height="22" width="22"/> :
+	This bonus causes an increase in the length of the worm.
+	The points you gain on eating the donut vary from level to
+	level and are multiples of the level number. In level 1, the first
+	donut will give you 1 point, the second donut will give you 2 points,
+	the third donut will give you 3 points and so on. In level 2, the first
+	donut will give you 2 points, the second donut will give you 4 points,
+	the third donut will give you 6 points and so on. In level 26,
+	therefore, the first donut will give you 26 points, the second donut
+	will give you 52 points and so on.</p>
+	<note style="info">
+	  <p>The donut order count does not depend on the number of donuts
+	  already eaten by a worm. If the game is in level 1 and if player 1
+	  eats the first donut, he scores 1 point, if player 2 eats the second
+	  donut, he scores 2 points; a third player may choose to not eat any
+	  donuts till the tenth donut and score 10 points at once.</p>
+	</note>
+      </item>
+      <item>
+        <p>The heart-shaped bonus
+	<media type="image" src="figures/life.svg" height="22" width="22"/> :
+	This bonus gives you an extra life and does not cause an increase in
+	the length of your worm.</p>
+        <note style="info">
+          <p>The number of lives remaining for a worm is given by the number
+	  on the left of the comma in a worm's score. If a worm's score is
+	  10,005, the worm has 10 lives remaining.</p>
+	</note>
+	<note style="tip">
+	  <p>You cannot get extra lives by scoring 10,000 points or more. If
+	  you have scored 12345 points with 10 lives remaining, your score will
+	  be 10,12345.</p>
+	</note>
+      </item>
+      <item>
+	<p>The diamond-shaped bonus
+	<media type="image" src="figures/diamond.svg" height="22" width="22"/> :
+	This bonus does	not cause an increase in the length of the worm and
+	does not give you any points. It causes a reversal in the movement
+	of all the other worms in the game.</p>
+	<note style="info">
+	  <p>This bonus has no effect in a single-player game.</p>
+	</note>
+      </item>
+      <item>
+	<p>The ice-cream-shaped bonus
+	<media type="image" src="figures/ice-cream.svg" height="22" width="22"/> 	: This bonus
+	causes a greater increase in the length of the worm than the
+	donut-shaped bonus. The points given by this bonus vary depending on
+	the level number and the length of the worm. Higher the level number
+	and longer the worm, more the points scored on eating this bonus.</p>
+      </item>
+      <item>
+	<p>The cherry-shaped bonus
+	<media type="image" src="figures/cherry.svg" height="22" width="22"/> : 	This bonus causes a
+	decrease in the length of the worm. The points given by this bonus
+	depend on the level number and the length of the worm. Higher the level
+	number and longer the worm, more the points scored on eating this
+	bonus.</p>
+      </item>
+    </list>
+
+</page>

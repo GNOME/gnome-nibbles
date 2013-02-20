@@ -1,0 +1,71 @@
+<page xmlns="http://projectmallard.org/1.0/"
+	type="topic" style="task"
+	id="change-controls">
+
+  <info>
+    <link type="guide" xref="index#preferences"/>
+
+    <link type="seealso" xref="controls"/>
+
+    <link type="seealso" xref="multi-player"/>
+
+    <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <credit type="author">
+    <name>Aruna Sankaranarayanan</name>
+    <email>safincrazy@gmail.com</email>
+    </credit>
+
+    <desc>Set custom control keys.</desc>
+  </info>
+
+  <title>Change the default controls</title>
+
+  <p>The default <link xref="controls">controls</link> can be changed in
+  <app>Nibbles</app> to suit your preference or for
+  <link xref="multi-player">multi-player</link> games, when having
+  more than one  set of controls becomes necessary.
+  To change the default controls:</p>
+    <steps>
+      <item>
+        <p>Select <guiseq><gui style="menu">Settings</gui>
+        <gui style="menuitem">Preferences</gui></guiseq>.</p>
+      </item>
+      <item>
+	<p>Select the tab for the player whose controls you want to
+	change.</p>
+	<note style="info">
+          <p>Player 1 controls <gui>Worm 1</gui>, player 2 controls
+	  <gui>Worm 2</gui>, player 3 controls <gui>Worm 3</gui> and so on.</p>
+        </note>
+      </item>
+      <item>
+	<p>In the <gui style="group">Keyboard Controls</gui> list, select the
+	line, then click on the control. This highlights the line and the words
+	<gui>New accelerator…</gui> are now present in place of the old
+	control.</p>
+      </item>
+      <item>
+        <p>Press the key you want to use instead of the default key.</p>
+        <note style="info">
+	  <p>For example, to use <key>A</key> to <gui>Move Left</gui>, select
+	  the <gui>Left</gui> control line and click it, then press
+	  <key>A</key> on your keyboard when you see <gui>New
+	  accelerator…</gui> on the line.</p>
+	</note>
+	<note style="tip">
+	  <p>To keep the old setting click <gui>New accelerator…</gui> again,
+	  right click on <gui>New accelerator…</gui>, press <key>Esc</key> or
+	  click anywhere else inside the <gui>Nibbles Preferences</gui> box.</p>
+	</note>
+      </item>
+      <item>
+	<p>Repeat the above step to change the other default keys for the
+	current player, then select the tab for the next player whose controls
+	you want to change and repeat the process.</p>
+      </item>
+    </steps>
+
+</page>

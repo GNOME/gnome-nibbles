@@ -1,0 +1,33 @@
+<page xmlns="http://projectmallard.org/1.0/"
+	type="guide" style="task"
+	id="index">
+
+  <info>
+    <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <credit type="author">
+    <name>Aruna Sankaranarayanan</name>
+    <email>safincrazy@gmail.com</email>
+    </credit>
+
+    <desc>Index</desc>
+  </info>
+
+  <title><media type="image" src="figures/nibbles.png" width="22" height="22">
+  </media><app>Nibbles</app></title>
+
+  <p><app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to
+  swallow as many objects as you can while avoiding maze walls and other worms.
+  You have to complete 26 levels to finish the game.</p>
+
+  <section id="play" style="2column">
+    <title>Play</title>
+  </section>
+
+  <section id="preferences" style="2column">
+    <title>Preferences</title>
+  </section>
+
+</page>
