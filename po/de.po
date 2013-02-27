@@ -1,4 +1,4 @@
-# German gnome-games translation
+# German gnome-nibbles translation
 # Copyright (C) 1998-2005 Free Software Foundation, Inc.
 #
 # Carsten Schaar <nhadcasc@fs-maphy.uni-hannover.de>, 1998.
@@ -20,7 +20,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games master\n"
+"Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-01-28 23:16+0000\n"
