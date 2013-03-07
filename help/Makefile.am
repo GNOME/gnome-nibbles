@@ -21,14 +21,14 @@ HELP_MEDIA = \
 
 HELP_FILES = \
 	basics.page \
-	change-controls.page \
+	controls-change.page \
+	controls-default.page \
 	fake-bonus.page \
-	preferences.page \
 	index.page \
-	controls.page \
 	multi-player.page \
-	scores.page \
+	preferences.page \
 	rel-movement.page \
+	scores.page \
 	legal.xml
 
 HELP_LINGUAS = ca cs de el en_GB es eu fr it oc sl sr sr@latin sv zh_CN

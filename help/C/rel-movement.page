@@ -10,77 +10,75 @@
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
     <credit type="author">
-    <name>Aruna Sankaranarayanan</name>
-    <email>safincrazy@gmail.com</email>
+      <name>Aruna Sankaranarayanan</name>
+      <email>safincrazy@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
     </credit>
 
     <desc>Enable relative movement.</desc>
   </info>
 
-
   <title>Relative movement</title>
 
-    <p>When relative movement is enabled, the worm is manouvered using just the
-    default <key>Left</key> and <key>Right</key> keys or other
-    <link xref="change-controls">customized keys</link> that control the
-    leftward
-    and rightward movement of a worm. When the <key>Left</key> key is pressed,
-    the worm turns left, instead of moving towards the left of the screen.
-    Similarly, when the <key>Right</key> key is pressed, the worm turns right
-    instead of moving towards the right of the screen. The worm's upward and
-    downward movement are also controlled using the <key>Left</key> and
-    <key>Right</key> keys.</p>
+  <p>When relative movement is enabled, the worm is manouvered using just the
+  default <key>Left</key> and <key>Right</key> keys or other
+  <link xref="controls-change">customized keys</link> that control the leftward
+  and rightward movement of a worm. When the <key>Left</key> key is pressed,
+  the worm turns left, instead of moving towards the left of the screen.
+  Similarly, when the <key>Right</key> key is pressed, the worm turns right
+  instead of moving towards the right of the screen.</p>
 
-  <section id="rel-table">
-    <title>What happens when relative movement is enabled</title>
+<!--
+  <table frame="all">
+    <tr>
+      <td>
+        <figure>
+          <title>Starting postion:</title>
+          <desc>The location of the worm before you decide to move it.</desc>
+          <media type="image" src="figures/before-rel.png"/>
+        </figure>
+      </td>
+      <td>
+        <figure>
+          <title>On pressing the <key>Right</key> key:</title>
+          <desc>The worm turns right and begins to move downwards.</desc>
+          <media type="image" src="figures/after-rel.png"/>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <note style="info">
+          <p>If relative movement was not enabled, you would press the
+          <key>Down</key> key to achieve the above result.</p>
+        </note>
+      </td>
+    </tr>
+  </table>
+-->
 
-    <table frame="all">
-      <tr>
-        <td>
-          <figure>
-            <title>Before :</title>
-            <desc>The worm's location before you decide to move it.</desc>
-            <media type="image" height="148" width="175" src="figures/before-rel.png"/>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <title>On pressing the <key>Right</key> key :</title>
-            <desc>The worm turns right and begins to move downwards.</desc>
-            <media type="image" height="148" width="175" src="figures/after-rel.png"/>
-          </figure>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <note style="info">
-            <p>If relative movement was not enabled, you would press the
-	    <key>Down</key> key to achieve the above result.</p>
-          </note>
-        </td>
-      </tr>
-    </table>
+  <p>To enable relative movement:</p>
 
-    <p>To enable relative movement:</p>
-      <steps>
-        <item>
-          <p>Select <guiseq><gui style="menu">Settings</gui>
-	  <gui style="menuitem">Preferences</gui></guiseq>.</p>
-        </item>
-        <item>
-          <p>Select the worm for which relative movement has to be enabled by
-	  clicking the appropriate <gui>Worm</gui> tab.</p>
-        </item>
-        <item>
-          <p>Check the <gui style="checkbox">Use relative movement</gui>
-	  checkbox if it is unchecked.</p>
-        </item>
-        <item>
-          <p>Click <gui style="button">Close</gui>.</p>
-        </item>
-      </steps>
-
-  </section>
+  <steps>
+    <item>
+      <p>Select <guiseq><gui style="menu">Settings</gui>
+      <gui style="menuitem">Preferences</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Select the worm for which relative movement has to be enabled by
+      clicking the appropriate <gui>Worm</gui> tab.</p>
+    </item>
+    <item>
+      <p>Check the <gui style="checkbox">Use relative movement</gui> checkbox
+      if it is unchecked.</p>
+    </item>
+    <item>
+      <p>Click <gui style="button">Close</gui>.</p>
+    </item>
+  </steps>
 
 </page>
 

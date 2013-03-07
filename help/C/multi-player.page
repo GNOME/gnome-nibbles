@@ -7,43 +7,50 @@
 
     <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
 
+    <link type="seealso" xref="controls-change"/>
+
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
     <credit type="author">
-    <name>Aruna Sankaranarayanan</name>
-    <email>safincrazy@gmail.com</email>
+      <name>Aruna Sankaranarayanan</name>
+      <email>safincrazy@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
     </credit>
 
     <desc>Play <app>Nibbles</app> with additional players.</desc>
   </info>
 
   <title>Multi-player games</title>
-  <p><app>Nibbles</app> can involve up to six players. While a player controls
-  <gui>Worm 1</gui> in a single-player game, players can additionally control
-  <gui>Worm 2</gui> - <gui>Worm 6</gui> in a multi-player game. A two-player
-  game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>, a three
-  player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> and
-  <gui>Worm 3</gui> and so on.</p>
+
+  <p><app>Nibbles</app> can be played with up to six players. While a player
+  controls <gui>Worm 1</gui> in a single-player game, players can additionally
+  control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A
+  two-player game allows you to control <gui>Worm 1</gui> and <gui>Worm
+  2</gui>, a three player game allows you to control <gui>Worm 1</gui>,
+  <gui>Worm 2</gui> and <gui>Worm 3</gui> and so on.</p>
 
 <section id="number-of-players">
-  <title>Choosing the number of players</title>
+  <title>Choose the number of players</title>
 
   <p><app>Nibbles</app> can be played by up to six players. To set the number
   of players:</p>
-    <steps>
-      <item>
-        <p>Select <guiseq><gui style="menu">Settings</gui>
-        <gui style="menuitem">Preferences</gui></guiseq>.</p>
-      </item>
-      <item>
-	<p>On your right side, set the
-	<gui style="input">Number of human players</gui>
-	to the required number, a maximum of 6. You can do this
-	by using the <gui style="button">+</gui> or <gui style="button">-</gui>
-	buttons or by entering the number of players from the keyboard in the
-	space provided.</p>
-      </item>
-    </steps>
+
+  <steps>
+    <item>
+      <p>Select <guiseq><gui style="menu">Settings</gui>
+      <gui style="menuitem">Preferences</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Set the <gui style="input">Number of human players</gui> to the
+      required number, a maximum of 6. You can do this by using the
+      <gui style="button">+</gui> or <gui style="button">-</gui> buttons or by
+      entering the number of players from the keyboard in the space
+      provided.</p>
+    </item>
+  </steps>
 
   <note style="info">
     <p>You can watch a <app>Nibbles</app> game without participating. To
@@ -53,10 +60,5 @@
   </note>
 
 </section>
-
-  <note style="tip">
-    <p>You may have to <link xref="change-controls">change</link> the default
-    keys for multi-player games.</p>
-  </note>
 
 </page>

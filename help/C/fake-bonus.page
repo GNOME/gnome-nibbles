@@ -10,8 +10,12 @@
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
     <credit type="author">
-    <name>Aruna Sankaranarayanan</name>
-    <email>safincrazy@gmail.com</email>
+      <name>Aruna Sankaranarayanan</name>
+      <email>safincrazy@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
     </credit>
 
     <desc>Use fake bonuses in a <app>Nibbles</app> game to make it more
@@ -24,6 +28,7 @@
   points when your worm swallows them. They cause a reversal in the movement of
   your worm.</p>
 
+<!--
   <table frame="all">
     <title>What happens when the worm swallows a fake bonus</title>
       <tr>
@@ -42,6 +47,7 @@
         </td>
       </tr>
     </table>
+-->
 
   <p>To enable fake bonuses:</p>
   <steps>
