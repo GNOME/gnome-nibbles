@@ -62,7 +62,7 @@
       you want to change and repeat the process.</p>
     </item>
   </steps>
-  
+
   <p>For example, to use <key>A</key> to <gui>Move Left</gui>, select the
   <gui>Left</gui> control line and click it, then press <key>A</key> on your
   keyboard when you see <gui>New accelerator…</gui> on the line.</p>

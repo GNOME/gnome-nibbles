@@ -31,7 +31,6 @@
   Similarly, when the <key>Right</key> key is pressed, the worm turns right
   instead of moving towards the right of the screen.</p>
 
-<!--
   <table frame="all">
     <tr>
       <td>
@@ -43,8 +42,8 @@
       </td>
       <td>
         <figure>
-          <title>On pressing the <key>Right</key> key:</title>
-          <desc>The worm turns right and begins to move downwards.</desc>
+          <title>On pressing the <key>Left</key> key:</title>
+          <desc>The worm turns left and begins to move downwards.</desc>
           <media type="image" src="figures/after-rel.png"/>
         </figure>
       </td>
@@ -58,7 +57,6 @@
       </td>
     </tr>
   </table>
--->
 
   <p>To enable relative movement:</p>
 

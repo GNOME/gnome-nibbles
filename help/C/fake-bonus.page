@@ -28,27 +28,6 @@
   points when your worm swallows them. They cause a reversal in the movement of
   your worm.</p>
 
-<!--
-  <table frame="all">
-    <title>What happens when the worm swallows a fake bonus</title>
-      <tr>
-        <td>
-          <figure>
-            <title>Before the worm swallows the bonus</title>
-            <media type="image" height="148" width="175" src="figures/before-fake.png"/>
-          </figure>
-        </td>
-        <td>
-          <figure>
-            <title>After the worm swallows the bonus</title>
-            <desc>The worm starts moving in the opposite direction.</desc>
-            <media type="image" height="148" width="175" src="figures/after-fake.png"/>
-          </figure>
-        </td>
-      </tr>
-    </table>
--->
-
   <p>To enable fake bonuses:</p>
   <steps>
     <item>

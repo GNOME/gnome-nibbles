@@ -25,7 +25,7 @@
 
   <title>Multi-player games</title>
 
-  <p><app>Nibbles</app> can be played with up to six players. While a player
+  <p><app>Nibbles</app> can be played by up to six players. While a player
   controls <gui>Worm 1</gui> in a single-player game, players can additionally
   control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A
   two-player game allows you to control <gui>Worm 1</gui> and <gui>Worm
