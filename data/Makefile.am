@@ -20,7 +20,7 @@ sounds_DATA = \
 	teleport.ogg
 
 desktopdir=$(datadir)/applications
-desktop_in_files = gnome-nibbles.desktop.in.in
+desktop_in_files = gnibbles.desktop.in.in
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
