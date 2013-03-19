@@ -98,7 +98,7 @@ data/icons/hicolor/Makefile
 data/icons/HighContrast/Makefile
 data/levels/Makefile
 data/pix/Makefile
-data/gnome-nibbles.desktop.in
+data/gnibbles.desktop.in
 help/Makefile
 src/Makefile
 ])
