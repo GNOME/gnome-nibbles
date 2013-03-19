@@ -1,0 +1,601 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Victor Ibragimov <victor.ibragimov@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Tajik Gnome\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"nibbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-03-18 18:39+0000\n"
+"PO-Revision-Date: 2013-01-21 15:20+0500\n"
+"Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
+"Language-Team: \n"
+"Language: Tajik\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/gnibbles.desktop.in.in.h:1 ../src/main.c:161 ../src/main.c:164
+#: ../src/main.c:699 ../src/main.c:770 ../src/main.c:901
+msgid "Nibbles"
+msgstr ""
+
+#: ../data/gnibbles.desktop.in.in.h:2
+msgid "Guide a worm around a maze"
+msgstr ""
+
+#: ../data/gnibbles.desktop.in.in.h:3
+msgid "game;snake;board;"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:1
+msgid "Number of human players"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:2
+msgid "Number of human players."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:3
+msgid "Number of AI players"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:4
+msgid "Number of AI players."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:5
+msgid "Game speed"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:6
+msgid "Game speed (1=fast, 4=slow)."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:7
+msgid "Enable fake bonuses"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:8
+msgid "Enable fake bonuses."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:9
+msgid "Play levels in random order"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:10
+msgid "Play levels in random order."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:11
+msgid "Game level to start on"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:12
+msgid "Game level to start on."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:13
+msgid "Enable sounds"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:14
+msgid "Enable sounds."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:15
+msgid "Size of game tiles"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:16
+msgid "Size of game tiles."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:17
+msgid "Color to use for worm"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:18
+msgid "Color to use for worm."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:19
+msgid "Use relative movement"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:20
+msgid "Use relative movement (ie. left or right only)."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:452
+msgid "Move up"
+msgstr "Интиқол додан ба боло"
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:22
+msgid "Key to use for motion up."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:453
+msgid "Move down"
+msgstr "Интикол додан ба поён"
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:24
+msgid "Key to use for motion down."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:450
+msgid "Move left"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:26
+msgid "Key to use for motion left."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:451
+msgid "Move right"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:28
+msgid "Key to use for motion right."
+msgstr ""
+
+#: ../src/board.c:245
+#, c-format
+msgid ""
+"Nibbles couldn't load level file:\n"
+"%s\n"
+"\n"
+"Please check your Nibbles installation"
+msgstr ""
+
+#: ../src/board.c:264
+#, c-format
+msgid ""
+"Level file appears to be damaged:\n"
+"%s\n"
+"\n"
+"Please check your Nibbles installation"
+msgstr ""
+
+#: ../src/games-controls.c:288
+msgid "Unknown Command"
+msgstr ""
+
+#. Score dialog column header for the score time (e.g. 1 minute)
+#: ../src/games-scores-dialog.c:136
+msgctxt "score-dialog"
+msgid "Time"
+msgstr "Вақт"
+
+#. Score dialog column header for the score value (e.g. 30 moves)
+#: ../src/games-scores-dialog.c:142
+msgctxt "score-dialog"
+msgid "Score"
+msgstr ""
+
+#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
+#: ../src/games-scores-dialog.c:307
+#, c-format
+msgctxt "score-dialog"
+msgid "%1$dm %2$ds"
+msgstr ""
+
+#: ../src/games-scores-dialog.c:470
+msgid "New Game"
+msgstr "Бозии нав"
+
+#. Score dialog column header for the name of the player who recorded the score
+#: ../src/games-scores-dialog.c:571
+msgctxt "score-dialog"
+msgid "Name"
+msgstr "Ном"
+
+#. Score dialog column header for the date the score was recorded
+#: ../src/games-scores-dialog.c:580
+msgid "Date"
+msgstr "Сана"
+
+#: ../src/games-stock.c:41
+msgid "View help for this game"
+msgstr ""
+
+#: ../src/games-stock.c:42
+msgid "End the current game"
+msgstr ""
+
+#: ../src/games-stock.c:43
+msgid "Toggle fullscreen mode"
+msgstr ""
+
+#: ../src/games-stock.c:44
+msgid "Get a hint for your next move"
+msgstr ""
+
+#: ../src/games-stock.c:45
+msgid "Leave fullscreen mode"
+msgstr ""
+
+#: ../src/games-stock.c:46
+msgid "Start a new multiplayer network game"
+msgstr ""
+
+#: ../src/games-stock.c:47
+msgid "End the current network game and return to network server"
+msgstr ""
+
+#: ../src/games-stock.c:48
+msgid "Start a new game"
+msgstr ""
+
+#: ../src/games-stock.c:49
+msgid "Pause the game"
+msgstr ""
+
+#: ../src/games-stock.c:50
+msgid "Show a list of players in the network game"
+msgstr ""
+
+#: ../src/games-stock.c:51
+msgid "Redo the undone move"
+msgstr ""
+
+#: ../src/games-stock.c:52
+msgid "Restart the game"
+msgstr ""
+
+#: ../src/games-stock.c:53
+msgid "Resume the paused game"
+msgstr ""
+
+#: ../src/games-stock.c:54
+msgid "View the scores"
+msgstr ""
+
+#: ../src/games-stock.c:55
+msgid "Undo the last move"
+msgstr ""
+
+#: ../src/games-stock.c:56
+msgid "About this game"
+msgstr ""
+
+#: ../src/games-stock.c:57
+msgid "Close this window"
+msgstr ""
+
+#: ../src/games-stock.c:58
+msgid "Configure the game"
+msgstr ""
+
+#: ../src/games-stock.c:59
+msgid "Quit this game"
+msgstr ""
+
+#: ../src/games-stock.c:247
+msgid "_Contents"
+msgstr "_Мундариҷа"
+
+#: ../src/games-stock.c:248
+msgid "_Fullscreen"
+msgstr "_Экрани пурра"
+
+#: ../src/games-stock.c:249
+msgid "_Hint"
+msgstr ""
+
+#. Translators: This "_New" is for the menu item 'Game->New', implies "New Game"
+#: ../src/games-stock.c:251
+msgid "_New"
+msgstr "_Нав"
+
+#. Translators: This "_New Game" is for the game-over dialogue
+#: ../src/games-stock.c:253
+msgid "_New Game"
+msgstr "_Бозии нав"
+
+#: ../src/games-stock.c:254
+msgid "_Redo Move"
+msgstr ""
+
+#. Translators: this is the "Reset" scores button in a scores dialogue
+#: ../src/games-stock.c:256
+msgid "_Reset"
+msgstr "_Танзими дубора"
+
+#. Translators: "_Restart" is the menu item 'Game->Restart', implies "Restart Game"
+#: ../src/games-stock.c:258
+msgid "_Restart"
+msgstr "_Бозоғозидан"
+
+#: ../src/games-stock.c:259
+msgid "_Undo Move"
+msgstr "_Ботил сохтани интиқолдиҳӣ"
+
+#: ../src/games-stock.c:260
+msgid "_Deal"
+msgstr ""
+
+#: ../src/games-stock.c:261
+msgid "_Leave Fullscreen"
+msgstr ""
+
+#: ../src/games-stock.c:262
+msgid "Network _Game"
+msgstr ""
+
+#: ../src/games-stock.c:263
+msgid "L_eave Game"
+msgstr ""
+
+#: ../src/games-stock.c:264
+msgid "Player _List"
+msgstr ""
+
+#: ../src/games-stock.c:265
+msgid "_Pause"
+msgstr "_Таваққуф кардан"
+
+#: ../src/games-stock.c:266
+msgid "Res_ume"
+msgstr ""
+
+#: ../src/games-stock.c:267
+msgid "_Scores"
+msgstr ""
+
+#: ../src/games-stock.c:268
+msgid "_End Game"
+msgstr ""
+
+#. %s is replaced with the name of the game in gnome-games.
+#: ../src/games-stock.c:317
+#, c-format
+msgid ""
+"%s is free software; you can redistribute it and/or modify it under the "
+"terms of the GNU General Public License as published by the Free Software "
+"Foundation; either version %d of the License, or (at your option) any later "
+"version."
+msgstr ""
+
+#: ../src/games-stock.c:322
+#, c-format
+msgid ""
+"%s is distributed in the hope that it will be useful, but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+"details."
+msgstr ""
+
+#: ../src/games-stock.c:327
+#, c-format
+msgid ""
+"You should have received a copy of the GNU General Public License along with "
+"%s; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, "
+"Fifth Floor, Boston, MA  02110-1301  USA"
+msgstr ""
+
+#: ../src/games-stock.c:331
+msgid ""
+"You should have received a copy of the GNU General Public License along with "
+"this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../src/gnibbles.c:84
+#, c-format
+msgid ""
+"Nibbles couldn't find pixmap file:\n"
+"%s\n"
+"\n"
+"Please check your Nibbles installation"
+msgstr ""
+
+#: ../src/gnibbles.c:355
+msgid "Nibbles Scores"
+msgstr ""
+
+#: ../src/gnibbles.c:358
+msgid "Speed:"
+msgstr "Суръат:"
+
+#: ../src/gnibbles.c:363
+msgid "Congratulations!"
+msgstr "Табрик!"
+
+#: ../src/gnibbles.c:364
+msgid "Your score is the best!"
+msgstr ""
+
+#: ../src/gnibbles.c:365
+msgid "Your score has made the top ten."
+msgstr ""
+
+#: ../src/main.c:65
+msgctxt "game speed"
+msgid "Beginner"
+msgstr ""
+
+#: ../src/main.c:66
+msgctxt "game speed"
+msgid "Slow"
+msgstr "Суст"
+
+#: ../src/main.c:67
+msgctxt "game speed"
+msgid "Medium"
+msgstr "Миёна"
+
+#: ../src/main.c:68
+msgctxt "game speed"
+msgid "Fast"
+msgstr "Зуд"
+
+#: ../src/main.c:69
+msgctxt "game speed"
+msgid "Beginner with Fakes"
+msgstr ""
+
+#: ../src/main.c:70
+msgctxt "game speed"
+msgid "Slow with Fakes"
+msgstr ""
+
+#: ../src/main.c:71
+msgctxt "game speed"
+msgid "Medium with Fakes"
+msgstr ""
+
+#: ../src/main.c:72
+msgctxt "game speed"
+msgid "Fast with Fakes"
+msgstr ""
+
+#: ../src/main.c:170
+msgid ""
+"A worm game for GNOME.\n"
+"\n"
+"Nibbles is a part of GNOME Games."
+msgstr ""
+
+#: ../src/main.c:173
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/main.c:176
+msgid "GNOME Games web site"
+msgstr ""
+
+#: ../src/main.c:491
+#, c-format
+msgid "Game over! The game has been won by %s!"
+msgstr ""
+
+#: ../src/main.c:604
+msgid "_Game"
+msgstr "_Бозӣ"
+
+#: ../src/main.c:605
+msgid "_View"
+msgstr "_Намоиш"
+
+#: ../src/main.c:606
+msgid "_Settings"
+msgstr "_Танзимот"
+
+#: ../src/main.c:607
+msgid "_Help"
+msgstr "_Кӯмак"
+
+#. Translators: This string will be included in the intro screen, so don't make sure it fits!
+#: ../src/main.c:772
+msgid "A worm game for GNOME."
+msgstr ""
+
+#: ../src/preferences.c:240
+msgid "Nibbles Preferences"
+msgstr ""
+
+#: ../src/preferences.c:253
+msgid "Game"
+msgstr "Бозӣ"
+
+#. Speed
+#: ../src/preferences.c:269
+msgid "Speed"
+msgstr "Суръат"
+
+#: ../src/preferences.c:274
+msgid "Nibbles newbie"
+msgstr ""
+
+#: ../src/preferences.c:284
+msgid "My second day"
+msgstr ""
+
+#: ../src/preferences.c:294
+msgid "Not too shabby"
+msgstr ""
+
+#: ../src/preferences.c:304
+msgid "Finger-twitching good"
+msgstr ""
+
+#: ../src/preferences.c:318 ../src/preferences.c:457
+msgid "Options"
+msgstr "Имконот"
+
+#: ../src/preferences.c:325
+msgid "_Play levels in random order"
+msgstr ""
+
+#: ../src/preferences.c:335
+msgid "_Enable fake bonuses"
+msgstr ""
+
+#: ../src/preferences.c:345
+msgid "E_nable sounds"
+msgstr ""
+
+#: ../src/preferences.c:358
+msgid "_Starting level:"
+msgstr ""
+
+#: ../src/preferences.c:387
+msgid "Number of _human players:"
+msgstr ""
+
+#: ../src/preferences.c:408
+msgid "Number of _AI players:"
+msgstr ""
+
+#: ../src/preferences.c:433
+msgid "Worm"
+msgstr ""
+
+#: ../src/preferences.c:442
+msgid "Keyboard Options"
+msgstr ""
+
+#: ../src/preferences.c:462
+msgid "_Use relative movement"
+msgstr ""
+
+#: ../src/preferences.c:469
+msgid "_Worm color:"
+msgstr ""
+
+#: ../src/preferences.c:475
+msgid "Red"
+msgstr "Сурх"
+
+#: ../src/preferences.c:476
+msgid "Green"
+msgstr "Сабз"
+
+#: ../src/preferences.c:477
+msgid "Blue"
+msgstr "Кабуд"
+
+#: ../src/preferences.c:478
+msgid "Yellow"
+msgstr "Зард"
+
+#: ../src/preferences.c:479
+msgid "Cyan"
+msgstr "Осмонранг"
+
+#: ../src/preferences.c:480
+msgid "Purple"
+msgstr "Лоҷувард"
+
+#: ../src/preferences.c:481
+msgid "Gray"
+msgstr "Хокистариранг"
+
+#: ../src/scoreboard.c:48
+#, c-format
+msgid "Worm %d:"
+msgstr ""
