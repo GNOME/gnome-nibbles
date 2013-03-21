@@ -9,10 +9,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnibbles doc fr\n"
-"POT-Creation-Date: 2012-04-14 07:40+0000\n"
-"PO-Revision-Date: 2012-04-12 17:00+0200\n"
+"POT-Creation-Date: 2012-12-02 22:01+0000\n"
+"PO-Revision-Date: 2013-03-21 14:39+0100\n"
 "Last-Translator: Alain Lojewski <allomervan@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,7 +35,7 @@ msgstr ""
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/gnibbles.xml:187(imagedata)
+#: C/index.docbook:187(imagedata)
 msgctxt "_"
 msgid "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
 msgstr ""
@@ -49,7 +50,7 @@ msgstr ""
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/gnibbles.xml:210(imagedata)
+#: C/index.docbook:210(imagedata)
 msgctxt "_"
 msgid ""
 "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
@@ -65,7 +66,7 @@ msgstr ""
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/gnibbles.xml:399(imagedata)
+#: C/index.docbook:399(imagedata)
 msgctxt "_"
 msgid "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgstr "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
@@ -79,18 +80,18 @@ msgstr "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/gnibbles.xml:481(imagedata)
+#: C/index.docbook:481(imagedata)
 msgctxt "_"
 msgid ""
 "external ref='figures/worm_op.png' md5='b6ccbcdd5d11fe28a75fd23c0d96483a'"
 msgstr ""
 "external ref='figures/worm_op.png' md5='b6ccbcdd5d11fe28a75fd23c0d96483a'"
 
-#: C/gnibbles.xml:27(articleinfo/title)
+#: C/index.docbook:27(articleinfo/title)
 msgid "<application>Nibbles</application> Manual"
 msgstr "Manuel de <application>Nibbles</application>"
 
-#: C/gnibbles.xml:30(abstract/para)
+#: C/index.docbook:30(abstract/para)
 msgid ""
 "Nibbles is a worm game for GNOME. The player controls a 2D worm while trying "
 "to get food. Getting food gives points, but hitting anything causes a loss "
@@ -101,24 +102,24 @@ msgstr ""
 "mais se cogner contre quelque chose en fait perdre. Quand tous les points "
 "sont perdus, le jeu s'arrête."
 
-#: C/gnibbles.xml:38(articleinfo/copyright)
+#: C/index.docbook:38(articleinfo/copyright)
 msgid "<year>2000</year> <holder>Kevin Breit</holder>"
 msgstr "<year>2000</year> <holder>Kevin Breit</holder>"
 
-#: C/gnibbles.xml:56(publisher/publishername)
-#: C/gnibbles.xml:97(revdescription/para)
+#: C/index.docbook:56(publisher/publishername)
+#: C/index.docbook:97(revdescription/para)
 msgid "GNOME Documentation Project"
 msgstr "Projet de documentation GNOME"
 
 # Mentions légales
-#: C/gnibbles.xml:2(legalnotice/para)
+#: C/index.docbook:2(legalnotice/para)
 msgid ""
 "Permission is granted to copy, distribute and/or modify this document under "
 "the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
 "later version published by the Free Software Foundation with no Invariant "
 "Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
-"of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or "
-"in the file COPYING-DOCS distributed with this manual."
+"of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or in "
+"the file COPYING-DOCS distributed with this manual."
 msgstr ""
 "Permission vous est donnée de copier, distribuer et/ou modifier ce document "
 "selon les termes de la Licence GNU Free Documentation License, Version 1.1 "
@@ -128,7 +129,7 @@ msgstr ""
 "ce <ulink type=\"help\" url=\"help:fdl\">lien</ulink> ou dans le fichier "
 "COPYING-DOCS fourni avec le présent manuel."
 
-#: C/gnibbles.xml:12(legalnotice/para) C/legal.xml:12(legalnotice/para)
+#: C/index.docbook:12(legalnotice/para) C/legal.xml:12(legalnotice/para)
 msgid ""
 "This manual is part of a collection of GNOME manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
@@ -141,7 +142,7 @@ msgstr ""
 "exemplaire de la licence au document, comme indiqué dans la section 6 de "
 "celle-ci."
 
-#: C/gnibbles.xml:19(legalnotice/para) C/legal.xml:19(legalnotice/para)
+#: C/index.docbook:19(legalnotice/para) C/legal.xml:19(legalnotice/para)
 msgid ""
 "Many of the names used by companies to distinguish their products and "
 "services are claimed as trademarks. Where those names appear in any GNOME "
@@ -155,7 +156,7 @@ msgstr ""
 "Documentation GNOME sont informés de l'existence de ces marques déposées, "
 "soit ces noms entiers, soit leur première lettre est en majuscule."
 
-#: C/gnibbles.xml:35(listitem/para) C/legal.xml:35(listitem/para)
+#: C/index.docbook:35(listitem/para) C/legal.xml:35(listitem/para)
 msgid ""
 "DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
 "EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT "
@@ -182,7 +183,7 @@ msgstr ""
 "SA VERSION MODIFIÉE N'EST AUTORISÉE AUX TERMES DU PRÉSENT ACCORD, EXCEPTÉ "
 "SOUS CETTE DÉNÉGATION DE RESPONSABILITÉ ; "
 
-#: C/gnibbles.xml:55(listitem/para) C/legal.xml:55(listitem/para)
+#: C/index.docbook:55(listitem/para) C/legal.xml:55(listitem/para)
 msgid ""
 "UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING "
 "NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
@@ -207,7 +208,7 @@ msgstr ""
 "VERSIONS MODIFIÉES, MÊME SI LADITE PARTIE A ÉTÉ INFORMÉE DE L'ÉVENTUALITÉ DE "
 "TELS DOMMAGES."
 
-#: C/gnibbles.xml:28(legalnotice/para) C/legal.xml:28(legalnotice/para)
+#: C/index.docbook:28(legalnotice/para) C/legal.xml:28(legalnotice/para)
 msgid ""
 "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
 "OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
@@ -216,7 +217,7 @@ msgstr ""
 "LE PRÉSENT DOCUMENT ET SES VERSIONS MODIFIÉES SONT FOURNIS SELON LES TERMES "
 "DE LA LICENCE DE DOCUMENTATION LIBRE GNU SACHANT QUE : <_:orderedlist-1/>"
 
-#: C/gnibbles.xml:65(authorgroup/author)
+#: C/index.docbook:65(authorgroup/author)
 msgid ""
 "<firstname>Kevin</firstname> <surname>Breit</surname> <affiliation> "
 "<orgname>GNOME Documentation Project</orgname> <address> "
@@ -226,11 +227,11 @@ msgstr ""
 "<orgname>Projet de documentation GNOME</orgname> <address> "
 "<email>battery841@mypad.com</email> </address> </affiliation>"
 
-#: C/gnibbles.xml:94(revdescription/para)
+#: C/index.docbook:94(revdescription/para)
 msgid "Kevin Breit <email>battery841@mypad.com</email>"
 msgstr "Kevin Breit <email>battery841@mypad.com</email>"
 
-#: C/gnibbles.xml:90(revhistory/revision)
+#: C/index.docbook:90(revhistory/revision)
 msgid ""
 "<revnumber>Nibbles Manual V2.20</revnumber> <date>May 2007</date> <_:"
 "revdescription-1/>"
@@ -238,16 +239,16 @@ msgstr ""
 "<revnumber>Manuel de Nibbles V2.20</revnumber> <date>Mai 2007</date> <_:"
 "revdescription-1/>"
 
-#: C/gnibbles.xml:102(articleinfo/releaseinfo)
+#: C/index.docbook:102(articleinfo/releaseinfo)
 msgid "This manual describes version 2.20 of Nibbles."
 msgstr "Ce manuel documente la version 2.20 de Nibbles."
 
 # Autres chaînes
-#: C/gnibbles.xml:109(legalnotice/title)
+#: C/index.docbook:109(legalnotice/title)
 msgid "Feedback"
 msgstr "Votre avis"
 
-#: C/gnibbles.xml:110(legalnotice/para)
+#: C/index.docbook:110(legalnotice/para)
 msgid ""
 "To report a bug or make a suggestion regarding the <application>Nibbles</"
 "application> application or this manual, follow the directions in the <ulink "
@@ -259,15 +260,15 @@ msgstr ""
 "fournies sur la <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
 "\">page de réactions sur GNOME</ulink>."
 
-#: C/gnibbles.xml:119(article/indexterm)
+#: C/index.docbook:119(article/indexterm)
 msgid "<primary>Nibbles</primary>"
 msgstr "<primary>Nibbles</primary>"
 
-#: C/gnibbles.xml:127(sect1/title)
+#: C/index.docbook:127(sect1/title)
 msgid "Introduction"
 msgstr "Introduction"
 
-#: C/gnibbles.xml:129(sect1/para)
+#: C/index.docbook:129(sect1/para)
 msgid ""
 "<application>Nibbles</application> is a game where the user controls a worm. "
 "The worm moves around the board, eating diamonds while avoiding the walls "
@@ -277,19 +278,19 @@ msgstr ""
 "Le ver se déplace sur la surface de jeu et avale des diamants tout en "
 "évitant de se cogner aux murs qui l'entourent."
 
-#: C/gnibbles.xml:133(sect1/para)
+#: C/index.docbook:133(sect1/para)
 msgid ""
 "To run <application>Nibbles</application>, select <menuchoice> "
 "<guisubmenu>Games</guisubmenu> <guimenuitem>Nibbles</guimenuitem> </"
 "menuchoice> from the <guimenu>Applications</guimenu> menu, or type "
-"<command>gnibbles</command> on the command line."
+"<command>gnome-nibbles</command> on the command line."
 msgstr ""
 "Pour lancer <application>Nibbles</application>, choisissez <menuchoice> "
 "<guisubmenu>Jeux</guisubmenu> <guimenuitem>Nibbles</guimenuitem> </"
 "menuchoice> dans le menu <guimenu>Applications</guimenu> ou saisissez la "
-"commande <command>gnibbles</command> dans un terminal."
+"commande <command>gnome-nibbles</command> dans un terminal."
 
-#: C/gnibbles.xml:143(sect1/para)
+#: C/index.docbook:143(sect1/para)
 msgid ""
 "<application>Nibbles</application> is included in the <filename>gnome-games</"
 "filename> package, which is part of the GNOME desktop environment. This "
@@ -299,11 +300,11 @@ msgstr ""
 "games</filename>, lui-même inclus dans l'environnement de bureau GNOME. Ce "
 "document décrit la version 2.20 de <application>Nibbles</application>."
 
-#: C/gnibbles.xml:152(sect1/title)
+#: C/index.docbook:152(sect1/title)
 msgid "Nibbles Objective"
 msgstr "But de Nibbles"
 
-#: C/gnibbles.xml:153(sect1/para)
+#: C/index.docbook:153(sect1/para)
 msgid ""
 "The objective of Nibbles is quite simple. You control the worm and if the "
 "worm runs into a wall or runs into itself, you die. You get ten lives before "
@@ -317,7 +318,7 @@ msgstr ""
 "(ou celui d'un ami) ou de terminer tous les niveaux. Il est aussi possible "
 "de jouer contre des vers dirigés par intelligence artificielle."
 
-#: C/gnibbles.xml:160(sect1/para)
+#: C/index.docbook:160(sect1/para)
 msgid ""
 "Nibbles also features multiplayer support with up to six competing human "
 "players in hotseat mode."
@@ -325,11 +326,11 @@ msgstr ""
 "Nibbles permet aussi de jouer à plusieurs, en affrontant jusqu'à six "
 "adversaires humains en mode chacun son tour."
 
-#: C/gnibbles.xml:170(sect1/title)
+#: C/index.docbook:170(sect1/title)
 msgid "Using Nibbles"
 msgstr "Utilisation de Nibbles"
 
-#: C/gnibbles.xml:171(sect1/para)
+#: C/index.docbook:171(sect1/para)
 msgid ""
 "<application>Nibbles</application> is a simple game to play. The only keys "
 "that are needed are the arrow keys."
@@ -337,15 +338,15 @@ msgstr ""
 "<application>Nibbles</application> est un jeu simple. Les seules touches "
 "utiles sont les touches flèches."
 
-#: C/gnibbles.xml:178(sect2/title)
+#: C/index.docbook:178(sect2/title)
 msgid "Basic usage"
 msgstr "Utilisation de base"
 
-#: C/gnibbles.xml:183(figure/title)
+#: C/index.docbook:183(figure/title)
 msgid "Nibbles Introduction Window"
 msgstr "Fenêtre de démarrage de Nibbles"
 
-#: C/gnibbles.xml:185(screenshot/mediaobject)
+#: C/index.docbook:185(screenshot/mediaobject)
 msgid ""
 "<imageobject> <imagedata fileref=\"figures/intro.png\" format=\"PNG\"/> </"
 "imageobject> <textobject> <phrase>Nibbles Introduction Window.</phrase> </"
@@ -355,7 +356,7 @@ msgstr ""
 "imageobject> <textobject> <phrase>Fenêtre d'introduction de Nibbles.</"
 "phrase> </textobject>"
 
-#: C/gnibbles.xml:179(sect2/para)
+#: C/index.docbook:179(sect2/para)
 msgid ""
 "Starting <application>Nibbles</application> opens the <interface>main "
 "window</interface> shown below. <_:figure-1/>"
@@ -363,7 +364,7 @@ msgstr ""
 "Au démarrage de <application>Nibbles</application>, la <interface>fenêtre "
 "principale</interface> apparaît, comme ci-dessous. <_:figure-1/>"
 
-#: C/gnibbles.xml:196(sect2/para)
+#: C/index.docbook:196(sect2/para)
 msgid ""
 "To start the game, select <menuchoice><guimenu>Game</guimenu> "
 "<guimenuitem>New Game</guimenuitem></menuchoice>."
@@ -371,11 +372,11 @@ msgstr ""
 "Pour démarrer une partie, choisissez <menuchoice><guimenu>Jeu</guimenu> "
 "<guimenuitem>Nouveau</guimenuitem></menuchoice>."
 
-#: C/gnibbles.xml:206(figure/title)
+#: C/index.docbook:206(figure/title)
 msgid "Nibbles During Gameplay"
 msgstr "Nibbles pendant une partie"
 
-#: C/gnibbles.xml:208(screenshot/mediaobject)
+#: C/index.docbook:208(screenshot/mediaobject)
 msgid ""
 "<imageobject> <imagedata fileref=\"figures/playing.png\" format=\"PNG\"/> </"
 "imageobject> <textobject> <phrase>Nibbles During Gameplay.</phrase> </"
@@ -385,7 +386,7 @@ msgstr ""
 "imageobject> <textobject> <phrase>Nibbles pendant la partie.</phrase> </"
 "textobject>"
 
-#: C/gnibbles.xml:200(sect2/para)
+#: C/index.docbook:200(sect2/para)
 msgid ""
 "When the game starts, the worm will come out of the left side of the screen. "
 "You use the up arrow to make the direction of the worm go up. Use the right "
@@ -396,11 +397,11 @@ msgstr ""
 "l'écran. Utilisez les touches flèches du clavier pour diriger le ver, "
 "chacune dirigeant le ver dans sa direction. <_:figure-1/>"
 
-#: C/gnibbles.xml:229(sect2/title)
+#: C/index.docbook:229(sect2/title)
 msgid "Menus"
 msgstr "Menus"
 
-#: C/gnibbles.xml:230(sect2/para)
+#: C/index.docbook:230(sect2/para)
 msgid ""
 "The menu bar, located at the top of the <interface>Main Window</interface>, "
 "contains the following menus:"
@@ -408,11 +409,11 @@ msgstr ""
 "La barre de menus située au sommet de la <interface>fenêtre principale</"
 "interface> contient les menus suivants :"
 
-#: C/gnibbles.xml:237(varlistentry/term)
+#: C/index.docbook:237(varlistentry/term)
 msgid "<guimenu>Game</guimenu>"
 msgstr "<guimenu>Jeu</guimenu>"
 
-#: C/gnibbles.xml:243(listitem/para)
+#: C/index.docbook:243(listitem/para)
 msgid ""
 "<menuchoice> <shortcut> <keysym>Ctrl+N</keysym> </shortcut> <guimenuitem>New "
 "Game</guimenuitem> </menuchoice> This starts a new game of "
@@ -422,7 +423,7 @@ msgstr ""
 "<guimenuitem>Nouveau</guimenuitem> </menuchoice> Lance une nouvelle partie "
 "de <application>Nibbles</application>."
 
-#: C/gnibbles.xml:254(listitem/para)
+#: C/index.docbook:254(listitem/para)
 msgid ""
 "<menuchoice> <guimenuitem>Scores</guimenuitem> </menuchoice> This shows the "
 "high scores."
@@ -430,7 +431,7 @@ msgstr ""
 "<menuchoice> <guimenuitem>Scores</guimenuitem> </menuchoice> Affiche les "
 "meilleurs scores."
 
-#: C/gnibbles.xml:262(listitem/para)
+#: C/index.docbook:262(listitem/para)
 msgid ""
 "<menuchoice> <guimenuitem>Pause game</guimenuitem> </menuchoice> This will "
 "pause your game. Click on the <quote>Pause Game </quote> menu option to "
@@ -440,7 +441,7 @@ msgstr ""
 "pause. Choisissez l'élément de menu <quote>Pause</quote> pour reprendre la "
 "partie."
 
-#: C/gnibbles.xml:271(listitem/para)
+#: C/index.docbook:271(listitem/para)
 msgid ""
 "<menuchoice> <guimenuitem>End Game</guimenuitem> </menuchoice> End the "
 "current game and return to the title screen."
@@ -448,7 +449,7 @@ msgstr ""
 "<menuchoice> <guimenuitem>Fin du jeu</guimenuitem> </menuchoice> Termine la "
 "partie actuelle et revient à l'écran de départ."
 
-#: C/gnibbles.xml:279(listitem/para)
+#: C/index.docbook:279(listitem/para)
 msgid ""
 "<menuchoice> <shortcut> <keysym>Ctrl-Q</keysym> </shortcut> "
 "<guimenuitem>Exit</guimenuitem> </menuchoice> This quits the application."
@@ -456,16 +457,16 @@ msgstr ""
 "<menuchoice> <shortcut> <keysym>Ctrl-Q</keysym> </shortcut> "
 "<guimenuitem>Quitter</guimenuitem> </menuchoice> Quitte l'application."
 
-#: C/gnibbles.xml:239(listitem/para) C/gnibbles.xml:297(listitem/para)
-#: C/gnibbles.xml:316(listitem/para) C/gnibbles.xml:336(listitem/para)
+#: C/index.docbook:239(listitem/para) C/index.docbook:297(listitem/para)
+#: C/index.docbook:316(listitem/para) C/index.docbook:336(listitem/para)
 msgid "This menu contains: <_:itemizedlist-1/>"
 msgstr "Ce menu contient : <_:itemizedlist-1/>"
 
-#: C/gnibbles.xml:295(varlistentry/term)
+#: C/index.docbook:295(varlistentry/term)
 msgid "<guimenu>View</guimenu>"
 msgstr "<guimenu>Affichage</guimenu>"
 
-#: C/gnibbles.xml:301(listitem/para)
+#: C/index.docbook:301(listitem/para)
 msgid ""
 "<menuchoice> <guimenuitem>Fullscreen</guimenuitem> </menuchoice> This "
 "toggles your game window to be fullscreen."
@@ -473,11 +474,11 @@ msgstr ""
 "<menuchoice> <guimenuitem>Plein écran</guimenuitem> </menuchoice> Fait "
 "passer la fenêtre du jeu en mode plein écran (et vice-versa)."
 
-#: C/gnibbles.xml:314(varlistentry/term)
+#: C/index.docbook:314(varlistentry/term)
 msgid "<guimenu>Settings</guimenu>"
 msgstr "<guimenu>Paramètres</guimenu>"
 
-#: C/gnibbles.xml:320(listitem/para)
+#: C/index.docbook:320(listitem/para)
 msgid ""
 "<menuchoice> <guimenuitem>Preferences</guimenuitem> </menuchoice> This opens "
 "your window to edit <link linkend=\"prefs\"> preferences.</link>"
@@ -486,11 +487,11 @@ msgstr ""
 "fenêtre permettant de modifier les <link linkend=\"prefs\">préférences</"
 "link>."
 
-#: C/gnibbles.xml:334(varlistentry/term)
+#: C/index.docbook:334(varlistentry/term)
 msgid "<guimenu>Help</guimenu>"
 msgstr "<guimenu>Aide</guimenu>"
 
-#: C/gnibbles.xml:340(listitem/para)
+#: C/index.docbook:340(listitem/para)
 msgid ""
 "<menuchoice> <shortcut> <keysym>F1</keysym> </shortcut> "
 "<guimenuitem>Contents</guimenuitem> </menuchoice> Display this manual."
@@ -498,7 +499,7 @@ msgstr ""
 "<menuchoice> <shortcut> <keysym>F1</keysym> </shortcut> "
 "<guimenuitem>Sommaire</guimenuitem></menuchoice> Affiche ce manuel."
 
-#: C/gnibbles.xml:349(listitem/para)
+#: C/index.docbook:349(listitem/para)
 msgid ""
 "<guimenuitem>About</guimenuitem> This opens the <interface>About</interface> "
 "dialog which shows basic information about <application>Nibbles</"
@@ -509,11 +510,11 @@ msgstr ""
 "<application>Nibbles</application>, telles que le nom des auteurs ou le "
 "numéro de version du jeu."
 
-#: C/gnibbles.xml:364(sect2/title)
+#: C/index.docbook:364(sect2/title)
 msgid "Diamonds"
 msgstr "Diamants"
 
-#: C/gnibbles.xml:365(sect2/para)
+#: C/index.docbook:365(sect2/para)
 msgid ""
 "<application>Nibbles</application> has numerous different diamonds to eat. "
 "They are each a different color and serve a different function. Only the "
@@ -536,11 +537,11 @@ msgstr ""
 "dans la quête de ces diamants bonus et ne vous privez pas des diamants "
 "normaux qui sont essentiels pour terminer un niveau."
 
-#: C/gnibbles.xml:383(sect1/title)
+#: C/index.docbook:383(sect1/title)
 msgid "Customization"
 msgstr "Personnalisation"
 
-#: C/gnibbles.xml:384(sect1/para)
+#: C/index.docbook:384(sect1/para)
 msgid ""
 "To change the application settings, select <menuchoice> <guimenu>Settings</"
 "guimenu> <guimenuitem>Preferences</guimenuitem> </menuchoice>. This opens "
@@ -553,11 +554,11 @@ msgstr ""
 "interface>. Toutes les préférences sont automatiquement enregistrées et "
 "s'appliquent immédiatement."
 
-#: C/gnibbles.xml:395(figure/title)
+#: C/index.docbook:395(figure/title)
 msgid "Game Preferences Tab"
 msgstr "Onglet des préférences du jeu"
 
-#: C/gnibbles.xml:397(screenshot/mediaobject)
+#: C/index.docbook:397(screenshot/mediaobject)
 msgid ""
 "<imageobject> <imagedata fileref=\"figures/game.png\" format=\"PNG\" "
 "srccredit=\"Kevin Breit\"/> </imageobject> <textobject> <phrase>Game "
@@ -567,27 +568,27 @@ msgstr ""
 "srccredit=\"Kevin Breit\"/> </imageobject> <textobject> <phrase>Onglet "
 "préférences du jeu.</phrase> </textobject>"
 
-#: C/gnibbles.xml:412(varlistentry/term)
+#: C/index.docbook:412(varlistentry/term)
 msgid "Speed"
 msgstr "Vitesse"
 
-#: C/gnibbles.xml:414(listitem/para)
+#: C/index.docbook:414(listitem/para)
 msgid "This controls the speed of the worm."
 msgstr "Permet de contrôler la vitesse du ver."
 
-#: C/gnibbles.xml:420(varlistentry/term)
+#: C/index.docbook:420(varlistentry/term)
 msgid "Play levels in random order"
 msgstr "Jouer les niveaux dans un ordre aléatoire"
 
-#: C/gnibbles.xml:422(listitem/para)
+#: C/index.docbook:422(listitem/para)
 msgid "Selecting this causes the level advancement to happen in random order."
 msgstr "Avec cette option, la progression dans les niveaux se fait au hasard."
 
-#: C/gnibbles.xml:429(varlistentry/term)
+#: C/index.docbook:429(varlistentry/term)
 msgid "Enable fake bonuses"
 msgstr "Activer les faux bonus"
 
-#: C/gnibbles.xml:431(listitem/para)
+#: C/index.docbook:431(listitem/para)
 msgid ""
 "When enabled, this allows for two blue diamonds on the screen at a time. One "
 "diamond makes you shrink instead of grow when eaten."
@@ -596,19 +597,19 @@ msgstr ""
 "trouver en même temps à l'écran. Lorsqu'il est mangé, l'un des diamants "
 "raccourcit le ver au lieu de l'allonger."
 
-#: C/gnibbles.xml:439(varlistentry/term)
+#: C/index.docbook:439(varlistentry/term)
 msgid "Enable sounds"
 msgstr "Activer les sons"
 
-#: C/gnibbles.xml:441(listitem/para)
+#: C/index.docbook:441(listitem/para)
 msgid "Controls the use of sound in the game."
 msgstr "Permet d'activer ou de désactiver l'utilisation du son dans le jeu."
 
-#: C/gnibbles.xml:447(varlistentry/term)
+#: C/index.docbook:447(varlistentry/term)
 msgid "Starting level"
 msgstr "Niveau de départ"
 
-#: C/gnibbles.xml:449(listitem/para)
+#: C/index.docbook:449(listitem/para)
 msgid ""
 "Which level to start with. Use this if you want to jump immediately to a "
 "challenging level."
@@ -616,19 +617,19 @@ msgstr ""
 "C'est le niveau utilisé pour la première partie. Vous pouvez l'augmenter "
 "pour passer immédiatement à un niveau plus difficile."
 
-#: C/gnibbles.xml:456(varlistentry/term)
+#: C/index.docbook:456(varlistentry/term)
 msgid "Number of human players"
 msgstr "Nombre de joueurs humains"
 
-#: C/gnibbles.xml:458(listitem/para)
+#: C/index.docbook:458(listitem/para)
 msgid "There is room for up to six players."
 msgstr "Il peut y avoir jusqu'à 6 joueurs."
 
-#: C/gnibbles.xml:464(varlistentry/term)
+#: C/index.docbook:464(varlistentry/term)
 msgid "Number of AI players"
 msgstr "Nombres de joueurs IA (dirigés par intelligence artificielle)"
 
-#: C/gnibbles.xml:466(listitem/para)
+#: C/index.docbook:466(listitem/para)
 msgid ""
 "There is room for up to six AI players. Note that the total number of human "
 "and AI players must be less than or equal to six."
@@ -637,18 +638,18 @@ msgstr ""
 "Cependant, le nombre total de joueurs humains et dirigés par intelligence "
 "artificielle ne peut pas dépasser 6."
 
-#: C/gnibbles.xml:408(sect1/para)
+#: C/index.docbook:408(sect1/para)
 msgid ""
 "The properties in the <guilabel>Game</guilabel> tab are: <_:variablelist-1/>"
 msgstr ""
 "Les options de l'onglet <guilabel>Jeu</guilabel> sont les suivantes : <_:"
 "variablelist-1/>"
 
-#: C/gnibbles.xml:477(figure/title)
+#: C/index.docbook:477(figure/title)
 msgid "Worm Preferences Tab"
 msgstr "Onglet de préférences d'un ver"
 
-#: C/gnibbles.xml:479(screenshot/mediaobject)
+#: C/index.docbook:479(screenshot/mediaobject)
 msgid ""
 "<imageobject> <imagedata fileref=\"figures/worm_op.png\" format=\"PNG\" "
 "srccredit=\"Kevin Breit\"/> </imageobject> <textobject> <phrase>Worm "
@@ -658,11 +659,11 @@ msgstr ""
 "srccredit=\"Kevin Breit\"/> </imageobject> <textobject> <phrase>Onglet "
 "préférences du ver.</phrase> </textobject>"
 
-#: C/gnibbles.xml:495(varlistentry/term)
+#: C/index.docbook:495(varlistentry/term)
 msgid "Keyboard controls"
 msgstr "Commandes au clavier"
 
-#: C/gnibbles.xml:497(listitem/para)
+#: C/index.docbook:497(listitem/para)
 msgid ""
 "This list let you change the keyboard controls for the given worm. To change "
 "a control, double click on the appropriate entry and then press the key you "
@@ -672,11 +673,11 @@ msgstr ""
 "clavier. Pour changer une des commandes, double-cliquez sur la ligne "
 "correspondante et appuyez sur la touche à utiliser pour cette commande."
 
-#: C/gnibbles.xml:505(varlistentry/term)
+#: C/index.docbook:505(varlistentry/term)
 msgid "Use relative motion"
 msgstr "Utiliser des mouvements relatifs"
 
-#: C/gnibbles.xml:507(listitem/para)
+#: C/index.docbook:507(listitem/para)
 msgid ""
 "Rather than left sending your worm toward the left of the screen, right "
 "toward the right and so on, the left and right keys make the worm perform a "
@@ -689,11 +690,11 @@ msgstr ""
 "sa gauche ou vers sa droite. Par exemple, si le ver se dirige vers la gauche "
 "et que vous appuyez sur flèche gauche, il se tournera vers le bas de l'écran."
 
-#: C/gnibbles.xml:517(varlistentry/term)
+#: C/index.docbook:517(varlistentry/term)
 msgid "Worm color"
 msgstr "Couleur du ver"
 
-#: C/gnibbles.xml:519(listitem/para)
+#: C/index.docbook:519(listitem/para)
 msgid ""
 "Customize the color of your worm so you can tell it from your opponent's "
 "worm in multi-player mode."
@@ -701,7 +702,7 @@ msgstr ""
 "Cette option permet de choisir la couleur du ver afin de le distinguer de "
 "ceux de vos adversaires lors d'une partie à plusieurs."
 
-#: C/gnibbles.xml:474(sect1/para)
+#: C/index.docbook:474(sect1/para)
 msgid ""
 "<_:figure-1/> The properties in the <guilabel>Worm 1 </guilabel>through "
 "<guilabel> Worm 6</guilabel> tabs let you set individual preferences for the "
@@ -711,11 +712,11 @@ msgstr ""
 "<guilabel>Ver 6</guilabel> vous permettent de définir des préférences "
 "spécifiques à chaque ver. <_:variablelist-2/>"
 
-#: C/gnibbles.xml:534(sect1/title)
+#: C/index.docbook:534(sect1/title)
 msgid "Authors"
 msgstr "Auteurs"
 
-#: C/gnibbles.xml:535(sect1/para)
+#: C/index.docbook:535(sect1/para)
 msgid ""
 "<application>Nibbles</application> was written by Sean MacIsaac "
 "<email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This "
@@ -734,25 +735,24 @@ msgstr ""
 "indications de ce <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
 "\">document</ulink>."
 
-#: C/gnibbles.xml:561(sect1/title)
+#: C/index.docbook:561(sect1/title)
 msgid "License"
 msgstr "Licence"
 
-#: C/gnibbles.xml:562(sect1/para)
+#: C/index.docbook:562(sect1/para)
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
-"under the terms of the <ulink type=\"help\" url=\"help:gpl\"> "
-"GNU General Public License</ulink> as published by "
-"the Free Software Foundation; either version 2 of the License, or (at your "
-"option) any later version."
+"under the terms of the <ulink type=\"help\" url=\"help:gpl\"> GNU General "
+"Public License</ulink> as published by the Free Software Foundation; either "
+"version 2 of the License, or (at your option) any later version."
 msgstr ""
 "Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le "
-"modifier selon les termes de la <ulink type=\"help\" url=\"help:gpl"
-"\">GNU General Public License</ulink>, tels que "
-"publiés par la Free Software Foundation ; soit la version 2 de cette licence "
-"ou (à votre choix) toute version ultérieure."
+"modifier selon les termes de la <ulink type=\"help\" url=\"help:gpl\">GNU "
+"General Public License</ulink>, tels que publiés par la Free Software "
+"Foundation ; soit la version 2 de cette licence ou (à votre choix) toute "
+"version ultérieure."
 
-#: C/gnibbles.xml:570(sect1/para)
+#: C/index.docbook:570(sect1/para)
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -764,7 +764,7 @@ msgstr ""
 "commercialisation ou d’adaptation dans un but spécifique. Se référer à la "
 "<citetitle>GNU General Public License</citetitle> pour plus de détails."
 
-#: C/gnibbles.xml:583(para/address)
+#: C/index.docbook:583(para/address)
 #, no-wrap
 msgid ""
 "\n"
@@ -781,7 +781,7 @@ msgstr ""
 "    USA\n"
 "   "
 
-#: C/gnibbles.xml:576(sect1/para)
+#: C/index.docbook:576(sect1/para)
 msgid ""
 "A copy of the <citetitle>GNU General Public License</citetitle> is included "
 "as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
