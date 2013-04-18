@@ -74,8 +74,6 @@ static const GamesScoresCategory scorecats[] = {
 
 GamesScores *highscores;
 
-extern GdkPixbuf *logo_pixmap;
-
 GnibblesProperties *properties;
 
 GnibblesBoard *board;
@@ -98,9 +96,7 @@ gint current_level;
 
 static gint add_bonus_cb (gpointer data);
 
-static void render_logo (void);
 static gint end_game_cb (GtkAction * action, gpointer data);
-static void hide_logo (void);
 
 static GtkAction *new_game_action;
 GtkAction *pause_action;
@@ -108,8 +104,6 @@ static GtkAction *end_game_action;
 static GtkAction *preferences_action;
 static GtkAction *scores_action;
 static GtkAction *fullscreen_action;
-
-static ClutterActor *logo;
 
 static void
 hide_cursor (void)
@@ -206,7 +200,6 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
   tilesize = MIN (ts_x, ts_y);
 
   gnibbles_load_pixmap (tilesize);
-  gnibbles_load_logo (tilesize);
 
   clutter_actor_set_size (CLUTTER_ACTOR (stage),
                           BOARDWIDTH * tilesize,
@@ -222,22 +215,8 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
       if (warpmanager)
         gnibbles_warpmanager_rescale (warpmanager, tilesize);
     }
-  } else {
-    if (logo)
-      hide_logo ();
-
-    if (board)
+  } else
       gnibbles_board_rescale (board, tilesize);
-
-    render_logo ();
-  }
-
-  /* But, has the tile size changed? */
-  if (properties->tilesize == tilesize) {
-    /* We must always re-load the logo. */
-    gnibbles_load_logo (tilesize);
-    return FALSE;
-  }
 
   properties->tilesize = tilesize;
   gnibbles_properties_set_tile_size (tilesize);
@@ -275,10 +254,10 @@ new_game (void)
   int i;
   gtk_action_set_sensitive (pause_action, TRUE);
   gtk_action_set_sensitive (end_game_action, TRUE);
+  gtk_action_set_sensitive (new_game_action, FALSE);
   gtk_action_set_sensitive (preferences_action, TRUE);
 
   if (game_running ()) {
-    end_game (FALSE);
     main_id = 0;
   }
 
@@ -288,7 +267,6 @@ new_game (void)
     current_level = rand () % MAXLEVEL + 1;
   }
 
-  hide_logo ();
   gnibbles_init ();
   gnibbles_board_level_new (board, current_level);
   gnibbles_board_level_add_bonus (board, 1);
@@ -356,7 +334,7 @@ show_scores_cb (GtkAction * action, gpointer data)
 }
 
 void
-end_game (gboolean show_splash)
+end_game (void)
 {
   if (main_id) {
     g_source_remove (main_id);
@@ -383,12 +361,12 @@ end_game (gboolean show_splash)
     restart_id = 0;
   }
 
-  if (show_splash) {
-    render_logo ();
-    gtk_action_set_sensitive (pause_action, FALSE);
-    gtk_action_set_sensitive (end_game_action, FALSE);
-    gtk_action_set_sensitive (preferences_action, TRUE);
-  }
+  animate_end_game ();
+
+  gtk_action_set_sensitive (pause_action, FALSE);
+  gtk_action_set_sensitive (end_game_action, FALSE);
+  gtk_action_set_sensitive (new_game_action, TRUE);
+  gtk_action_set_sensitive (preferences_action, TRUE);
 
   games_pause_action_set_is_paused (GAMES_PAUSE_ACTION (pause_action), FALSE);
 }
@@ -396,7 +374,7 @@ end_game (gboolean show_splash)
 static gboolean
 end_game_cb (GtkAction * action, gpointer data)
 {
-  end_game (TRUE);
+  end_game ();
   return FALSE;
 }
 
@@ -430,14 +408,7 @@ restart_game (gpointer data)
   return FALSE;
 }
 
-static void
-end_game_anim_cb (ClutterAnimation *animation, ClutterActor *actor)
-{
-  if (!restart_id)
-    end_game (TRUE);
-}
-
-static void
+void
 animate_end_game (void)
 {
   int i;
@@ -461,14 +432,11 @@ animate_end_game (void)
 
   }
 
-  g_signal_connect_after (
-    clutter_actor_animate (board->level, CLUTTER_EASE_IN_QUAD, 700,
+  clutter_actor_animate (board->level, CLUTTER_EASE_IN_QUAD, 700,
                            "scale-x", 0.4, "scale-y", 0.4,
                            "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                            "opacity", 0,
-                           NULL),
-    "completed", G_CALLBACK (end_game_anim_cb), NULL);
-
+                           NULL);
 }
 
 gboolean
@@ -482,7 +450,7 @@ main_loop (gpointer data)
   gnibbles_scoreboard_update (scoreboard);
 
   if (status == VICTORY) {
-    end_game (TRUE);
+    end_game ();
     winner = gnibbles_get_winner ();
 
     if (winner == -1)
@@ -750,139 +718,6 @@ setup_window (void)
   scoreboard = gnibbles_scoreboard_new (statusbar);
 }
 
-static void
-render_logo (void)
-{
-  ClutterActor *image;
-  ClutterActor *text, *text_shadow;
-  ClutterActor *desc, *desc_shadow;
-  ClutterColor actor_color = {0xff,0xff,0xff,0xff};
-  ClutterColor shadow_color = {0x00, 0x00, 0x00, 0x88};
-  ClutterActor *text_group;
-  static gint width, height;
-  gint size;
-  gfloat stage_w, stage_h;
-  PangoFontDescription *pfd;
-  PangoLayout *layout;
-  PangoContext *context;
-  GError *error = NULL;
-
-  gchar *nibbles = _("Nibbles");
-  /* Translators: This string will be included in the intro screen, so don't make sure it fits! */
-  gchar *description = _("A worm game for GNOME.");
-
-  logo = clutter_group_new ();
-  text_group = clutter_group_new ();
-
-  if (!logo_pixmap)
-    gnibbles_load_logo (properties->tilesize);
-
-  image = gtk_clutter_texture_new ();
-  gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (image), logo_pixmap, &error);
-
-  stage_w = board->width * properties->tilesize;
-  stage_h = board->height * properties->tilesize;
-
-  clutter_actor_set_size (CLUTTER_ACTOR (image), stage_w, stage_h);
-
-  clutter_actor_set_position (CLUTTER_ACTOR (image), 0, 0);
-  clutter_actor_show (image);
-
-  text = clutter_text_new ();
-  clutter_text_set_color (CLUTTER_TEXT (text), &actor_color);
-
-  context = gdk_pango_context_get ();
-  layout = clutter_text_get_layout (CLUTTER_TEXT (text));
-  pfd = pango_context_get_font_description (context);
-  size = pango_font_description_get_size (pfd);
-
-  pango_font_description_set_size (pfd, (size * stage_w) / 100);
-  pango_font_description_set_family (pfd, "Sans");
-  pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
-  pango_layout_set_font_description (layout, pfd);
-  pango_layout_set_text (layout, nibbles, -1);
-  pango_layout_get_pixel_size (layout, &width, &height);
-
-  text_shadow = clutter_text_new ();
-  clutter_text_set_color (CLUTTER_TEXT (text_shadow), &shadow_color);
-
-  layout = clutter_text_get_layout (CLUTTER_TEXT (text_shadow));
-  pango_layout_set_font_description (layout, pfd);
-  pango_layout_set_text (layout, nibbles, -1);
-
-  clutter_actor_set_position (CLUTTER_ACTOR (text),
-                              (stage_w - width) * 0.5 ,
-                              stage_h * .72);
-  clutter_actor_set_position (CLUTTER_ACTOR (text_shadow),
-                              (stage_w - width) * 0.5 + 5,
-                              stage_h * .72 + 5);
-
-  desc = clutter_text_new ();
-  layout = clutter_text_get_layout (CLUTTER_TEXT (desc));
-
-  clutter_text_set_color (CLUTTER_TEXT (desc), &actor_color);
-  pango_font_description_set_size (pfd, (size * stage_w) / 400);
-  pango_layout_set_font_description (layout, pfd);
-  pango_layout_set_text (layout, description, -1);
-  pango_layout_get_pixel_size(layout, &width, &height);
-
-  desc_shadow = clutter_text_new ();
-  layout = clutter_text_get_layout (CLUTTER_TEXT (desc_shadow));
-  clutter_text_set_color (CLUTTER_TEXT (desc_shadow), &shadow_color);
-
-  pango_font_description_set_size (pfd, (size * stage_w) / 400);
-  pango_layout_set_font_description (layout, pfd);
-  pango_layout_set_text (layout, description, -1);
-
-  clutter_actor_set_position (CLUTTER_ACTOR (desc),
-                              (stage_w - width) * 0.5,
-                              stage_h* .93);
-  clutter_actor_set_position (CLUTTER_ACTOR (desc_shadow),
-                              (stage_w - width) * 0.5 + 3,
-                              stage_h * .93 + 3);
-
-  clutter_container_add (CLUTTER_CONTAINER (text_group),
-                         CLUTTER_ACTOR (text_shadow),
-                         CLUTTER_ACTOR (text),
-                         CLUTTER_ACTOR (desc_shadow),
-                         CLUTTER_ACTOR (desc),
-                         NULL);
-  clutter_container_add (CLUTTER_CONTAINER (logo),
-                         CLUTTER_ACTOR (image),
-                         CLUTTER_ACTOR (text_group),
-                         NULL);
-
-  clutter_actor_set_opacity (CLUTTER_ACTOR (text_group), 0);
-  clutter_actor_set_scale (CLUTTER_ACTOR (text_group), 0.0, 0.0);
-  clutter_actor_animate (text_group, CLUTTER_EASE_OUT_CIRC, 800,
-                          "opacity", 0xff,
-                          "scale-x", 1.0,
-                          "scale-y", 1.0,
-                          "fixed::scale-center-y", stage_w / 2,
-                          "fixed::scale-center-x", stage_h / 2,
-                          NULL);
-
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage),
-                               CLUTTER_ACTOR (logo));
-}
-
-static void
-on_hide_logo_completed (ClutterAnimation *animation, ClutterActor *actor)
-{
-  clutter_actor_hide (actor);
-  clutter_group_remove_all (CLUTTER_GROUP (actor));
-}
-
-static void
-hide_logo (void)
-{
-  g_signal_connect_after (
-    clutter_actor_animate (logo, CLUTTER_EASE_IN_QUAD, 150,
-                           "opacity", 0,
-                           NULL),
-    "completed", G_CALLBACK (on_hide_logo_completed), logo);
-}
-
 int
 main (int argc, char **argv)
 {
@@ -944,7 +779,6 @@ main (int argc, char **argv)
   properties = gnibbles_properties_new ();
   setup_window ();
   gnibbles_load_pixmap (properties->tilesize);
-  gnibbles_load_logo (properties->tilesize);
 
   gtk_action_set_sensitive (pause_action, FALSE);
   gtk_action_set_sensitive (end_game_action, FALSE);

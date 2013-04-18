@@ -48,8 +48,6 @@ GnibblesWorm *worms[NUMWORMS];
 GnibblesBoni *boni = NULL;
 GnibblesWarpManager *warpmanager;
 
-GdkPixbuf *logo_pixmap = NULL;
-
 GdkPixbuf *wall_pixmaps[11] = { NULL, NULL, NULL, NULL, NULL,
   NULL, NULL, NULL, NULL, NULL,
   NULL
@@ -169,17 +167,6 @@ gnibbles_error (gchar *message)
   gtk_dialog_run (GTK_DIALOG (w));
   gtk_widget_destroy (GTK_WIDGET (w));
   exit (1);
-}
-
-void
-gnibbles_load_logo (gint tilesize)
-{
-  if (logo_pixmap)
-    g_object_unref (logo_pixmap);
-
-  logo_pixmap = gnibbles_load_pixmap_file ("gnome-nibbles-logo.svg",
-                                           board->width * tilesize,
-                                           board->height * tilesize);
 }
 
 void

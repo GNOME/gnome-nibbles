@@ -35,7 +35,8 @@ char names[NUMWORMS][17];
 extern GtkAction *pause_action;
 
 gboolean game_running (void);
-void end_game (gboolean);
+void end_game (void);
+void animate_end_game (void);
 
 gboolean new_game (void);
 gboolean main_loop (gpointer data);
