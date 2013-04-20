@@ -20,7 +20,6 @@
  */
 
 #include "games-pause-action.h"
-#include "games-stock.h"
 
 enum {
     PROP_0,
@@ -55,9 +54,9 @@ games_pause_action_set_is_paused (GamesPauseAction *action, gboolean is_paused)
         return;
     action->priv->is_paused = is_paused;
     if (is_paused)
-        gtk_action_set_stock_id (GTK_ACTION (action), GAMES_STOCK_RESUME_GAME);
+        gtk_action_set_stock_id (GTK_ACTION (action), GTK_STOCK_MEDIA_PLAY);
     else
-        gtk_action_set_stock_id (GTK_ACTION (action), GAMES_STOCK_PAUSE_GAME);
+        gtk_action_set_stock_id (GTK_ACTION (action), GTK_STOCK_MEDIA_PAUSE);
     g_object_notify (G_OBJECT (action), "is-paused");
     g_signal_emit (G_OBJECT (action), signals[STATE_CHANGED], 0);
 }
@@ -113,7 +112,7 @@ static void
 games_pause_action_init (GamesPauseAction *self)
 {
     self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, GAMES_PAUSE_ACTION_TYPE, GamesPauseActionPrivate);
-    gtk_action_set_stock_id (GTK_ACTION (self), GAMES_STOCK_PAUSE_GAME);
+    gtk_action_set_stock_id (GTK_ACTION (self), GTK_STOCK_MEDIA_PAUSE);
 }
 
 static void
