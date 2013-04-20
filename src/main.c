@@ -677,7 +677,6 @@ setup_window (void)
 
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
-  games_stock_init ();
   ui_manager = gtk_ui_manager_new ();
   create_menus (ui_manager);
   notebook = gtk_notebook_new ();
