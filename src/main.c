@@ -43,7 +43,6 @@
 #include "games-pause-action.h"
 #include "games-fullscreen-action.h"
 #include "games-scores.h"
-#include "games-stock.h"
 
 #include <clutter-gtk/clutter-gtk.h>
 #include <clutter/clutter.h>
@@ -572,16 +571,16 @@ static const GtkActionEntry action_entry[] = {
   {"ViewMenu", NULL, N_("_View")},
   {"SettingsMenu", NULL, N_("_Settings")},
   {"HelpMenu", NULL, N_("_Help")},
-  {"NewGame", GAMES_STOCK_NEW_GAME, NULL, NULL, NULL,
+  {"NewGame", NULL, N_("_New Game"), NULL, NULL,
    G_CALLBACK (new_game_cb)},
-  {"EndGame", GAMES_STOCK_END_GAME, NULL, NULL, NULL,
+  {"EndGame", NULL, N_("_End Game"), NULL, NULL,
    G_CALLBACK (end_game_cb)},
-  {"Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL,
+  {"Scores", NULL, N_("_Scores"), NULL, NULL,
    G_CALLBACK (show_scores_cb)},
   {"Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_cb)},
   {"Preferences", GTK_STOCK_PREFERENCES, NULL, NULL, NULL,
    G_CALLBACK (gnibbles_preferences_cb)},
-  {"Contents", GAMES_STOCK_CONTENTS, NULL, NULL, NULL, G_CALLBACK (help_cb)},
+  {"Contents", NULL, N_("_Contents"), NULL, NULL, G_CALLBACK (help_cb)},
   {"About", GTK_STOCK_ABOUT, NULL, NULL, NULL, G_CALLBACK (about_cb)}
 };
 
