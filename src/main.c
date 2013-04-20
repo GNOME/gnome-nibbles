@@ -152,7 +152,6 @@ about_cb (GtkAction * action, gpointer data)
                              "Guillaume Beland", NULL };
 
   const gchar *documenters[] = { "Kevin Breit", NULL };
-  gchar *license = games_get_license (_("Nibbles"));
 
   gtk_show_about_dialog (GTK_WINDOW (window),
        "program-name", _("Nibbles"),
@@ -160,16 +159,16 @@ about_cb (GtkAction * action, gpointer data)
        "copyright",
        "Copyright \xc2\xa9 1999-2008 Sean MacIsaac, Ian Peters, Andreas Røsdal"
        " 2009 Guillaume Beland",
-       "license", license, "comments",
-       _("A worm game for GNOME.\n\nNibbles is a part of GNOME Games."),
+
+       "license-type", GTK_LICENSE_GPL_2_0, 
+       "comments", _("A worm game for GNOME.\n\nNibbles is a part of GNOME Games."),
        "authors", authors,
-       "documenters", documenters, "translator-credits",
-       _("translator-credits"), "logo-icon-name",
-       "gnome-nibbles", "website",
-       "http://www.gnome.org/projects/gnome-games/",
+       "documenters", documenters, 
+       "translator-credits", _("translator-credits"), 
+       "logo-icon-name", "gnome-nibbles", 
+       "website", "http://www.gnome.org/projects/gnome-games/",
        "website-label", _("GNOME Games web site"),
        "wrap-license", TRUE, NULL);
-  g_free (license);
 }
 
 static gboolean

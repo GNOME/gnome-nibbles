@@ -55,7 +55,6 @@ G_BEGIN_DECLS
 void   games_stock_init (void);
 void   games_stock_prepare_for_statusbar_tooltips (GtkUIManager * ui_manager,
                                                    GtkWidget * statusbar);
-gchar *games_get_license (const gchar * game_name);
 
 G_END_DECLS
 
