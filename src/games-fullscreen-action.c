@@ -22,7 +22,6 @@
 #include <glib/gi18n.h>
 
 #include "games-fullscreen-action.h"
-#include "games-stock.h"
 
 enum {
     PROP_0,
@@ -52,14 +51,14 @@ update_action (GamesFullscreenAction *action)
     gboolean visible = TRUE;
   
     if (action->priv->is_fullscreen) {
-        gtk_action_set_stock_id (GTK_ACTION (action), GAMES_STOCK_LEAVE_FULLSCREEN);
+        gtk_action_set_stock_id (GTK_ACTION (action), GTK_STOCK_LEAVE_FULLSCREEN);
         if (action->priv->visible_policy == GAMES_FULLSCREEN_ACTION_VISIBLE_ON_UNFULLSCREEN)
             visible = FALSE;
     }
     else {
         if (action->priv->visible_policy == GAMES_FULLSCREEN_ACTION_VISIBLE_ON_FULLSCREEN)
             visible = FALSE;
-        gtk_action_set_stock_id (GTK_ACTION (action), GAMES_STOCK_FULLSCREEN);
+        gtk_action_set_stock_id (GTK_ACTION (action), GTK_STOCK_FULLSCREEN);
     }
 
     gtk_action_set_visible (GTK_ACTION (action), visible);
