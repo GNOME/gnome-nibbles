@@ -42,12 +42,6 @@ gnome_nibbles_SOURCES = \
 	worm.c \
 	worm.h
 
-if ENABLE_SETGID
-gnome_nibbles_SOURCES +=		\
-	games-setgid-io.c		\
-	games-setgid-io.h
-endif # ENABLE_SETGID
-
 gnome_nibbles_CPPFLAGS = \
 	-I$(top_srcdir) \
 	$(AM_CPPFLAGS)
