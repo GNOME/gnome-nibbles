@@ -429,8 +429,16 @@ animate_end_game (void)
                            "scale-x", 0.4, "scale-y", 0.4,
                            "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
                            NULL);
-
   }
+
+  for ( i = 0; i < warpmanager->numwarps; i++) {
+    clutter_actor_animate (warpmanager->warps[i]->actor, CLUTTER_EASE_IN_QUAD, 500,
+                           "opacity", 0,
+                           "scale-x", 0.4, "scale-y", 0.4,
+                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
+                           NULL);
+  }
+
 
   clutter_actor_animate (board->level, CLUTTER_EASE_IN_QUAD, 700,
                            "scale-x", 0.4, "scale-y", 0.4,
