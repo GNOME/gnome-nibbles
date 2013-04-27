@@ -197,14 +197,17 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
     ts_y--;
   tilesize = MIN (ts_x, ts_y);
 
-  gnibbles_load_pixmap (tilesize);
+  if(tilesize != properties->tilesize)
+  {	
+    gnibbles_load_pixmap (tilesize);
 
-  clutter_actor_set_size (CLUTTER_ACTOR (stage),
+    clutter_actor_set_size (CLUTTER_ACTOR (stage),
                           BOARDWIDTH * tilesize,
                           BOARDHEIGHT * tilesize);
-  if (game_running ()) {
-    if (board) {
-      gnibbles_board_rescale (board, tilesize);
+
+    gnibbles_board_rescale (board, tilesize);
+
+    if (game_running ()) {
       gnibbles_boni_rescale (boni, tilesize);
 
       for (i=0; i<properties->numworms; i++)
@@ -213,11 +216,10 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
       if (warpmanager)
         gnibbles_warpmanager_rescale (warpmanager, tilesize);
     }
-  } else
-      gnibbles_board_rescale (board, tilesize);
 
-  properties->tilesize = tilesize;
-  gnibbles_properties_set_tile_size (tilesize);
+    properties->tilesize = tilesize;
+    gnibbles_properties_set_tile_size (tilesize);
+  }
 
   return FALSE;
 }
