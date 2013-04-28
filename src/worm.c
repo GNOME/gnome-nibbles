@@ -164,7 +164,7 @@ gnibbles_worm_add_actor (GnibblesWorm *worm)
                               worm->xhead * properties->tilesize,
                               worm->yhead * properties->tilesize);
 
-  clutter_container_add_actor (CLUTTER_CONTAINER (worm->actors), actor);
+  clutter_actor_add_child (worm->actors, actor);
   worm->list = g_list_prepend (worm->list, actor);
   board->walls[worm->xhead][worm->yhead] = WORMCHAR + worm->number;
 }
@@ -176,7 +176,7 @@ gnibbles_worm_remove_actor (GnibblesWorm *worm)
   board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
   clutter_actor_hide (actor);
   worm->list = g_list_delete_link (worm->list, g_list_last (worm->list));
-  clutter_container_remove_actor (CLUTTER_CONTAINER (worm->actors), actor);
+  clutter_actor_remove_child (worm->actors, actor);
 }
 
 gboolean
@@ -469,7 +469,7 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
 static void
 gnibbles_worm_animate_death (GnibblesWorm *worm)
 {
-  ClutterActor *group = clutter_group_new ();
+  ClutterActor *group = clutter_actor_new ();
   ClutterActor *tmp = NULL;
   GError *error = NULL;
 
@@ -489,7 +489,7 @@ gnibbles_worm_animate_death (GnibblesWorm *worm)
     clutter_actor_set_size (CLUTTER_ACTOR (tmp),
                             properties->tilesize,
                             properties->tilesize);
-    clutter_container_add_actor (CLUTTER_CONTAINER (group), tmp);
+    clutter_actor_add_child (group , tmp);
   }
 
   worm->length = g_list_length (worm->list);
@@ -498,11 +498,11 @@ gnibbles_worm_animate_death (GnibblesWorm *worm)
 
   clutter_actor_set_opacity (CLUTTER_ACTOR (worm->actors), 0x00);
 
-  clutter_group_remove_all (CLUTTER_GROUP (worm->actors));
+  clutter_actor_remove_all_children (worm->actors);
   g_list_free (worm->list);
   worm->list = NULL;
 
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), group);
+  clutter_actor_add_child (stage, group);
 
   clutter_actor_animate (group, CLUTTER_EASE_OUT_QUAD, 310,
                          "opacity", 0,
@@ -520,7 +520,7 @@ gnibbles_worm_new (guint number)
 {
   GnibblesWorm *worm = g_new (GnibblesWorm, 1);
 
-  worm->actors = clutter_group_new ();
+  worm->actors = clutter_actor_new ();
   worm->list = NULL;
   worm->number = number;
   worm->lives = SLIVES;
@@ -541,7 +541,7 @@ gnibbles_worm_set_start (GnibblesWorm *worm, guint t_xhead,
   g_list_free (worm->list);
   worm->list = NULL;
 
-  clutter_group_remove_all (CLUTTER_GROUP (worm->actors));
+  clutter_actor_remove_all_children (worm->actors);
 
   worm->xhead = t_xhead;
   worm->yhead = t_yhead;
@@ -624,7 +624,7 @@ gnibbles_worm_destroy (GnibblesWorm *worm)
   while (worm->list)
     gnibbles_worm_remove_actor (worm);
 
-  clutter_group_remove_all (CLUTTER_GROUP (worm->actors));
+  clutter_actor_remove_all_children (worm->actors);
 
   g_free (worm);
 }
@@ -643,10 +643,10 @@ gnibbles_worm_rescale (GnibblesWorm *worm, gint tilesize)
   if (!worm->actors)
     return;
 
-  count = clutter_group_get_n_children (CLUTTER_GROUP (worm->actors));
+  count = clutter_actor_get_n_children (worm->actors);
 
   for (i = 0; i < count; i++) {
-    tmp = clutter_group_get_nth_child (CLUTTER_GROUP (worm->actors), i);
+    tmp = clutter_actor_get_child_at_index (worm->actors, i);
     clutter_actor_get_position (tmp, &x_pos, &y_pos);
 
     clutter_actor_set_position (tmp,
@@ -696,7 +696,7 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
   gint i;
   gfloat x,y;
   ClutterActor *tmp = NULL;
-  ClutterActor *group = clutter_group_new ();
+  ClutterActor *group = clutter_actor_new ();
   GError *error = NULL;
 
   if (erasesize) {
@@ -716,12 +716,12 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
       clutter_actor_set_size (CLUTTER_ACTOR (tmp),
                               properties->tilesize,
                               properties->tilesize);
-      clutter_container_add_actor (CLUTTER_CONTAINER (group), tmp);
+      clutter_actor_add_child (group , tmp);
 
       gnibbles_worm_move_tail_pointer (worm);
     }
     worm->length -= erasesize;
-    clutter_container_add_actor (CLUTTER_CONTAINER (stage), group);
+    clutter_actor_add_child (stage, group);
 
     clutter_actor_animate (group, CLUTTER_EASE_OUT_EXPO, 850,
                            "opacity", 0,

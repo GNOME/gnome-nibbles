@@ -273,7 +273,7 @@ new_game (void)
 
   for (i = 0; i < properties->numworms; i++) {
     if (!clutter_actor_get_stage (worms[i]->actors))
-      clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
+      clutter_actor_add_child (stage, worms[i]->actors);
     gnibbles_worm_show (worms[i]);
   }
 
@@ -395,7 +395,7 @@ restart_game (gpointer data)
 
   for (i = 0; i < properties->numworms; i++) {
     if (!clutter_actor_get_stage (worms[i]->actors))
-      clutter_container_add_actor (CLUTTER_CONTAINER (stage), worms[i]->actors);
+      clutter_actor_add_child (stage, worms[i]->actors);
     gnibbles_worm_show (worms[i]);
   }
 
@@ -663,7 +663,7 @@ setup_window (void)
   clutter_widget = gtk_clutter_embed_new ();
   stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter_widget));
 
-  clutter_stage_set_color (CLUTTER_STAGE(stage), &stage_color);
+  clutter_actor_set_background_color (stage, &stage_color);
 
   clutter_actor_set_size (CLUTTER_ACTOR (stage),
                           properties->tilesize * BOARDWIDTH,

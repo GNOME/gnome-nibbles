@@ -70,7 +70,7 @@ gnibbles_board_new (void)
   clutter_actor_set_size (CLUTTER_ACTOR (board->surface),
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage),
+  clutter_actor_add_child (stage,
                                CLUTTER_ACTOR (board->surface));
   clutter_actor_show (CLUTTER_ACTOR (board->surface));
 
@@ -87,11 +87,11 @@ gnibbles_board_load_level (GnibblesBoard *board)
   GError *error = NULL;
 
   if (board->level) {
-    clutter_group_remove_all (CLUTTER_GROUP (board->level));
-    clutter_container_remove_actor (CLUTTER_CONTAINER (stage), board->level);
+    clutter_actor_remove_all_children (board->level);
+    clutter_actor_remove_child (stage, board->level);
   }
 
-  board->level = clutter_group_new ();
+  board->level = clutter_actor_new ();
 
   /* Load wall_pixmaps onto the surface*/
   for (i = 0; i < BOARDHEIGHT; i++) {
@@ -171,14 +171,14 @@ gnibbles_board_load_level (GnibblesBoard *board)
 
         clutter_actor_set_position (CLUTTER_ACTOR (tmp), x_pos, y_pos);
         clutter_actor_show (CLUTTER_ACTOR (tmp));
-        clutter_container_add_actor (CLUTTER_CONTAINER (board->level),
+        clutter_actor_add_child (board->level,
                                      CLUTTER_ACTOR (tmp));
       }
     }
   }
 
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), board->level);
-  clutter_actor_raise (board->level, board->surface);
+  clutter_actor_add_child (stage, board->level);
+  clutter_actor_set_child_above_sibling (stage, board->level, board->surface);
 
   clutter_actor_set_opacity (board->level, 0);
   clutter_actor_set_scale (CLUTTER_ACTOR (board->level), 0.2, 0.2);
@@ -209,10 +209,10 @@ gnibbles_board_rescale (GnibblesBoard *board, gint tilesize)
                           board->width,
                           board->height);
 
-  count = clutter_group_get_n_children (CLUTTER_GROUP (board->level));
+  count = clutter_actor_get_n_children (board->level);
 
   for (i = 0; i < count; i++) {
-    tmp = clutter_group_get_nth_child (CLUTTER_GROUP (board->level), i);
+    tmp = clutter_actor_get_child_at_index (board->level, i);
     clutter_actor_get_position (CLUTTER_ACTOR (tmp), &x_pos, &y_pos);
     clutter_actor_set_position (CLUTTER_ACTOR (tmp),
                                 (x_pos / properties->tilesize) * tilesize,

@@ -90,7 +90,7 @@ gnibbles_warp_draw (GnibblesWarp *warp)
   clutter_actor_set_position (CLUTTER_ACTOR (warp->actor),
                               properties->tilesize * warp->x,
                               properties->tilesize * warp->y);
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), warp->actor);
+  clutter_actor_add_child (stage, warp->actor);
   clutter_actor_set_opacity (warp->actor, 0);
   clutter_actor_set_scale (warp->actor, 2.0, 2.0);
   //g_signal_connect_after (
