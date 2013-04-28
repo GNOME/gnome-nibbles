@@ -57,7 +57,9 @@ gnibbles_board_new (void)
 
   filename = g_build_filename (DATA_DIRECTORY, "pixmaps", "wall-small-empty.svg", NULL);
 
-  board->surface = clutter_texture_new_from_file (filename, NULL);
+  board->surface = gtk_clutter_texture_new();
+  gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (board->surface),
+  gdk_pixbuf_new_from_file (filename, NULL), NULL);
 
   clutter_actor_set_opacity (CLUTTER_ACTOR (board->surface), 100);
   g_value_init (&val, G_TYPE_BOOLEAN);
