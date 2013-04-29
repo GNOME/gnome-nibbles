@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnibbles.HEAD\n"
-"POT-Creation-Date: 2013-04-23 17:53+0000\n"
-"PO-Revision-Date: 2013-04-25 16:55+0200\n"
+"POT-Creation-Date: 2013-04-26 12:12+0000\n"
+"PO-Revision-Date: 2013-04-29 14:46+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -48,12 +48,10 @@ msgid ""
 msgstr ""
 
 #: C/index.page:26(section/title)
-#| msgid "Game"
 msgid "Game play"
 msgstr "Juego"
 
 #: C/index.page:30(section/title)
-#| msgid "Game Preferences Tab"
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -68,9 +66,10 @@ msgstr "Ekaterina Gerasimova"
 msgid ""
 "Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
 msgstr ""
+"Empezar, pausar, jugar en modo a pantalla completa y salir de una partida de "
+"<app>Nibbles</app>."
 
 #: C/basics.page:24(page/title)
-#| msgid "Introduction"
 msgid "Basic instructions"
 msgstr "Instrucciones básicas"
 
@@ -84,10 +83,13 @@ msgid ""
 "gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
 "a new game."
 msgstr ""
+"Seleccione <guiseq><gui style=\"menu\">Juego</gui> <gui style=\"menuitem"
+"\">Nuevo</gui></guiseq> o pulse <keyseq><key>Ctrl</key><key>N</key></keyseq> "
+"para iniciar una partida nueva."
 
 #: C/basics.page:37(section/title)
 msgid "Pause and resume your game"
-msgstr ""
+msgstr "Pausar y reanudar el juego"
 
 #: C/basics.page:39(section/p)
 msgid ""
@@ -96,10 +98,14 @@ msgid ""
 "<guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Resume</gui></"
 "guiseq>."
 msgstr ""
+"Seleccione <guiseq><gui style=\"menu\">Juego</gui> <gui style=\"menuitem"
+"\">Pausar</gui></guiseq> para pausar el juego. Puede reanudar el juego "
+"seleccionando <guiseq><gui style=\"menu\">Juego</gui> <gui style=\"menuitem"
+"\">Reanudar</gui></guiseq>."
 
 #: C/basics.page:47(section/title)
 msgid "Play <app>Nibbles</app> in fullscreen mode"
-msgstr ""
+msgstr "Jugar a <app>Nibbles</app> en modo a pantalla completa"
 
 #: C/basics.page:49(section/p)
 msgid ""
@@ -119,10 +125,13 @@ msgid ""
 "gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
 "<app>Nibbles</app> at any time."
 msgstr ""
+"Seleccione <guiseq><gui style=\"menu\">Juego</gui> <gui style=\"menuitem"
+"\">Salir</gui></guiseq> o pulse <keyseq><key>Ctrl</key><key>Q</key></keyseq> "
+"para salir de <app>Nibbles</app> en cualquier momento."
 
 #: C/controls-change.page:23(info/desc)
 msgid "Set custom control keys."
-msgstr ""
+msgstr "Configurar las teclas de control personalizadas."
 
 #: C/controls-change.page:26(page/title)
 msgid "Change the default controls"
@@ -142,10 +151,12 @@ msgid ""
 "Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
 "\">Preferences</gui></guiseq>."
 msgstr ""
+"Seleccione <guiseq><gui style=\"menu\">Configuración</gui> <gui style="
+"\"menuitem\">Preferencias</gui></guiseq>."
 
 #: C/controls-change.page:39(item/p)
 msgid "Select the tab for the player whose controls you want to change."
-msgstr ""
+msgstr "Seleccione la pestaña para el jugador cuyos controles quiere cambiar."
 
 #: C/controls-change.page:41(note/p)
 msgid ""
@@ -162,7 +173,7 @@ msgstr ""
 
 #: C/controls-change.page:52(item/p)
 msgid "Press the key you want to use instead of the default key."
-msgstr ""
+msgstr "Pulse la tecla que quiere en lugar de la tecla predeterminada."
 
 #: C/controls-change.page:54(note/p)
 msgid ""
@@ -190,7 +201,6 @@ msgid "Default keys for <app>Nibbles.</app>"
 msgstr "Teclas predeterminadas de <app>Nibbles</app>."
 
 #: C/controls-default.page:25(page/title)
-#| msgid "Keyboard controls"
 msgid "Keyboard Controls"
 msgstr "Control de teclado"
 
@@ -199,27 +209,31 @@ msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
 msgstr ""
+"Para controlar los movimientos de su gusano en modo de un solo jugador, use "
+"las siguientes teclas predeterminadas:"
 
 #: C/controls-default.page:32(item/p)
 msgid "<key>Up</key> to move the worm up"
-msgstr ""
+msgstr "<key>Arriba</key> para mover el gusano hacia arriba"
 
 #: C/controls-default.page:35(item/p)
 msgid "<key>Down</key> to move the worm down"
-msgstr ""
+msgstr "<key>Abajo</key> para mover el gusano hacia abajo"
 
 #: C/controls-default.page:38(item/p)
 msgid "<key>Left</key> to move the worm left"
-msgstr ""
+msgstr "<key>Izquierda</key> para mover el gusano a la izquierda"
 
 #: C/controls-default.page:41(item/p)
 msgid "<key>Right</key> to move the worm right"
-msgstr ""
+msgstr "<key>Derecha</key> para mover el gusano a la derecha"
 
 #: C/controls-default.page:46(note/p)
 msgid ""
 "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
+"Puede <link xref=\"controls-change\">cambiar</link> los controles "
+"predeterminados."
 
 #: C/controls-default.page:50(page/p)
 msgid ""
@@ -236,7 +250,6 @@ msgid ""
 msgstr ""
 
 #: C/fake-bonus.page:25(page/title)
-#| msgid "Enable fake bonuses"
 msgid "What are fake bonuses?"
 msgstr "¿Qué son las bonificaciones falsas?"
 
@@ -248,7 +261,6 @@ msgid ""
 msgstr ""
 
 #: C/fake-bonus.page:31(page/p)
-#| msgid "Enable fake bonuses"
 msgid "To enable fake bonuses:"
 msgstr "Para activar las bonificaciones falsas:"
 
@@ -257,6 +269,8 @@ msgid ""
 "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
 "is unchecked."
 msgstr ""
+"Marque la casilla <gui style=\"checkbox\">Activar bonificaciones falsas</"
+"gui> si está desmarcada."
 
 #: C/fake-bonus.page:42(item/p)
 msgid "Click <gui>Close</gui>."
@@ -267,13 +281,14 @@ msgid ""
 "Set all preferences before starting a new game. Preferences cannot be "
 "changed in the middle of a game."
 msgstr ""
+"Configure todas las preferencias antes de empezar una partida nueva. Las "
+"preferencias no se pueden cambiar en medio de una partida."
 
 #: C/multi-player.page:23(info/desc)
 msgid "Play <app>Nibbles</app> with additional players."
-msgstr ""
+msgstr "Jugar a <app>Nibbles</app> con jugadores adicionales."
 
 #: C/multi-player.page:26(page/title)
-#| msgid "Playing multiplayer Nibbles games"
 msgid "Multi-player games"
 msgstr "Juegos multijugador"
 
@@ -288,7 +303,6 @@ msgid ""
 msgstr ""
 
 #: C/multi-player.page:36(section/title)
-#| msgid "Number of AI players"
 msgid "Choose the number of players"
 msgstr "Elegir el número de jugadores"
 
@@ -297,6 +311,8 @@ msgid ""
 "<app>Nibbles</app> can be played by up to six players. To set the number of "
 "players:"
 msgstr ""
+"Puede jugar a <app>Nibbles</app> hasta un máximo de 6 jugadores. Para "
+"establecer el número de jugadores:"
 
 #: C/multi-player.page:47(item/p)
 msgid ""
@@ -319,9 +335,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/preferences.page:65(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgctxt "_"
 msgid ""
 "external ref='figures/snake-red.svg' md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
@@ -333,9 +346,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/preferences.page:69(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
 msgctxt "_"
 msgid ""
 "external ref='figures/snake-green.svg' md5='950becba28c6dca50a1157efe5b96f1d'"
@@ -347,9 +357,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/preferences.page:73(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgctxt "_"
 msgid ""
 "external ref='figures/snake-blue.svg' md5='7f5cb0d784fdf25d604882472cb504b9'"
@@ -361,9 +368,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/preferences.page:77(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgctxt "_"
 msgid ""
 "external ref='figures/snake-yellow.svg' "
@@ -377,9 +381,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/preferences.page:81(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
 msgctxt "_"
 msgid ""
 "external ref='figures/snake-cyan.svg' md5='62c0ac58f26769ab7eba85a255191257'"
@@ -391,9 +392,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/preferences.page:85(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgctxt "_"
 msgid ""
 "external ref='figures/snake-magenta.svg' "
@@ -407,9 +405,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/preferences.page:89(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
 msgctxt "_"
 msgid ""
 "external ref='figures/snake-grey.svg' md5='8b1ff44ff3d43292f5843f15c9187f9c'"
@@ -419,6 +414,8 @@ msgstr ""
 #: C/preferences.page:21(info/desc)
 msgid "Change default speed, worm color, level order and sound settings."
 msgstr ""
+"Cambiar la velocidad predeterminada, el color del gusano, el orden de los "
+"niveles y la configuración del sonido."
 
 #: C/preferences.page:24(page/title)
 msgid "Edit general preferences"
@@ -430,6 +427,9 @@ msgid ""
 "<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
 "\">Preferences</gui></guiseq>."
 msgstr ""
+"Las preferencias generales de <app>Nibbles</app> se pueden cambiar "
+"seleccionando <guiseq><gui style=\"menu\">Configuración</gui> <gui style="
+"\"menuitem\">Preferencias</gui></guiseq>."
 
 #: C/preferences.page:31(section/title)
 msgid "Speed"
@@ -440,9 +440,10 @@ msgid ""
 "There are four available speeds in <app>Nibbles</app>. These are, in "
 "increasing order:"
 msgstr ""
+"Hay cuatro velocidades disponibles en <app>Nibbles</app> que son, en orden "
+"ascendente:"
 
 #: C/preferences.page:38(item/p)
-#| msgid "Nibbles Objective"
 msgid "Nibbles Newbie"
 msgstr "Novato en Nibbles"
 
@@ -466,7 +467,6 @@ msgid ""
 msgstr ""
 
 #: C/preferences.page:58(section/title)
-#| msgid "Worm color"
 msgid "Change worm colors"
 msgstr "Cambiar el color del gusano"
 
@@ -535,12 +535,16 @@ msgid ""
 "These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
 "style=\"menuitem\">Preferences</gui></guiseq>."
 msgstr ""
+"Esto se puede cambiar en <guiseq><gui style=\"menu\">Configuración</gui> "
+"<gui style=\"menuitem\">Preferencias</gui></guiseq>."
 
 #: C/preferences.page:98(item/p)
 msgid ""
 "Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
 "edit."
 msgstr ""
+"Seleccione cualquiera de las pestañas de <gui>Gusanos</gui> para elegir el "
+"gusano que quiere editar."
 
 #: C/preferences.page:102(item/p)
 msgid ""
@@ -578,9 +582,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/rel-movement.page:40(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgctxt "_"
 msgid ""
 "external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
@@ -592,9 +593,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/rel-movement.page:47(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgctxt "_"
 msgid ""
 "external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
@@ -602,12 +600,10 @@ msgstr ""
 "external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 
 #: C/rel-movement.page:21(info/desc)
-#| msgid "Use relative motion"
 msgid "Enable relative movement."
 msgstr "Activar el movimiento relativo"
 
 #: C/rel-movement.page:24(page/title)
-#| msgid "Use relative motion"
 msgid "Relative movement"
 msgstr "Movimiento relativo"
 
@@ -671,9 +667,6 @@ msgstr "Pulse <gui style=\"button\">Cerrar</gui>."
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/scores.page:27(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
 msgctxt "_"
 msgid "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
 msgstr ""
@@ -684,9 +677,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/scores.page:47(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
 msgctxt "_"
 msgid "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
 msgstr "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
@@ -696,9 +686,6 @@ msgstr "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/scores.page:63(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/worm_op.png' md5='b6ccbcdd5d11fe28a75fd23c0d96483a'"
 msgctxt "_"
 msgid ""
 "external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
@@ -710,9 +697,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/scores.page:73(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgctxt "_"
 msgid ""
 "external ref='figures/ice-cream.svg' md5='4892ededb56e306922c5442b46ca2a7c'"
@@ -724,9 +708,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/scores.page:81(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
 msgctxt "_"
 msgid ""
 "external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
@@ -799,7 +780,7 @@ msgstr ""
 
 #: C/scores.page:68(note/p)
 msgid "This bonus has no effect in a single-player game."
-msgstr ""
+msgstr "Esta bonificación no tiene efecto en el modo de un solo jugador."
 
 #: C/scores.page:72(item/p)
 msgid ""
