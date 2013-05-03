@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnibbles.HEAD\n"
-"POT-Creation-Date: 2013-04-26 12:12+0000\n"
-"PO-Revision-Date: 2013-04-29 14:46+0200\n"
+"POT-Creation-Date: 2013-04-29 12:47+0000\n"
+"PO-Revision-Date: 2013-05-03 14:54+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -46,6 +46,9 @@ msgid ""
 "swallow as many objects as you can while avoiding maze walls and other "
 "worms. You have to complete 26 levels to finish the game."
 msgstr ""
+"<app>Nibbles</app> es un juego de la Serpiente para GNOME. El objetivo del "
+"juego es comerse todos los objetos que pueda, evitando los muros y a otros "
+"gusanos. Necesita completar 26 niveles para terminar el juego."
 
 #: C/index.page:26(section/title)
 msgid "Game play"
@@ -114,6 +117,10 @@ msgid ""
 "fullscreen mode. You can return to the default screen size by pressing "
 "<key>F11</key> again."
 msgstr ""
+"Seleccione <guiseq><gui style=\"menu\">Ver</gui> <gui style=\"menuitem"
+"\">Pantalla completa</gui></guiseq> o pulse <key>F11</key> para jugar en "
+"modo a pantalla completa. Puede volver al tamaño de pantalla predeterminado "
+"pulsando <key>F11</key> otra vez."
 
 #: C/basics.page:57(section/title)
 msgid "Quit <app>Nibbles</app>"
@@ -144,6 +151,11 @@ msgid ""
 "player\">multi-player</link> games, when having more than one set of "
 "controls becomes necessary. To change the default controls:"
 msgstr ""
+"Se pueden cambiar los <link xref=\"controls-default\">controles "
+"predeterminados</link> en <app>Nibbles</app> para ajustarlos a sus "
+"preferencias o para partidas <link xref=\"multi-player\">multijugador</"
+"link>, en las que es necesario tener más de un conjunto de controles. Para "
+"cambiar los controles predeterminados:"
 
 #: C/controls-change.page:35(item/p) C/fake-bonus.page:34(item/p)
 #: C/multi-player.page:43(item/p) C/rel-movement.page:65(item/p)
@@ -163,6 +175,9 @@ msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
 msgstr ""
+"El jugador 1 controla al <gui>Gusano 1</gui>, el jugador 2 controla al "
+"<gui>Gusano 2</gui>, el jugador 3 controla al <gui>Gusano 3</gui> y así "
+"sucesivamente."
 
 #: C/controls-change.page:46(item/p)
 msgid ""
@@ -170,6 +185,9 @@ msgid ""
 "then click on the control. This highlights the line and the words <gui>New "
 "accelerator…</gui> are now present in place of the old control."
 msgstr ""
+"En la lista de <gui style=\"group\">Controles del teclado</gui> seleccione "
+"la línea y pulse cobre el control. Esto resaltará la línea y se mostrarán "
+"las palabras <gui>Nuevo acelerador…</gui> en el lugar del control antiguo."
 
 #: C/controls-change.page:52(item/p)
 msgid "Press the key you want to use instead of the default key."
@@ -181,6 +199,10 @@ msgid ""
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
 "inside the <gui>Nibbles Preferences</gui> box."
 msgstr ""
+"Para mantener la preferencia anterior, pulse <gui>Nuevo acelerador…</gui> "
+"otra vez, pulse con el botón derecho en <gui>Nuevo acelerador…</gui>, pulse "
+"<key>Esc</key> o pulse en cualquier parte del diálogo de <gui>Preferencias "
+"de Nibbles</gui>."
 
 #: C/controls-change.page:60(item/p)
 msgid ""
@@ -248,6 +270,8 @@ msgstr ""
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
+"Usar bonificaciones falsas en una partida de <app>Nibbles</app> para hacerlo "
+"más desafiante."
 
 #: C/fake-bonus.page:25(page/title)
 msgid "What are fake bonuses?"
@@ -624,7 +648,7 @@ msgstr "Posición inicial:"
 
 #: C/rel-movement.page:39(figure/desc)
 msgid "The location of the worm before you decide to move it."
-msgstr ""
+msgstr "La ubicación del gusano antes de que decida moverlo."
 
 #: C/rel-movement.page:45(figure/title)
 msgid "On pressing the <key>Left</key> key:"
