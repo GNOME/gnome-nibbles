@@ -1,4 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
 	type="topic" style="task"
 	id="preferences">
 
@@ -11,11 +12,11 @@
 
     <credit type="author">
       <name>Aruna Sankaranarayanan</name>
-      <email>safincrazy@gmail.com</email>
+      <email its:translate="no">aruna.evam@gmail.com</email>
     </credit>
     <credit type="editor">
       <name>Ekaterina Gerasimova</name>
-      <email>kittykat3756@gmail.com</email>
+      <email its:translate="no">kittykat3756@gmail.com</email>
     </credit>
 
     <desc>Change default speed, worm color, level order and sound settings.</desc>
@@ -61,31 +62,31 @@
 
   <list>
     <item>
-      <p><media type="image" src="figures/snake-red.svg" height="20"
+      <p><media type="image" its:translate="no" src="figures/snake-red.svg" height="20"
       width="20"/> Red</p>
     </item>
     <item>
-      <p><media type="image" src="figures/snake-green.svg" height="20"
+      <p><media type="image" its:translate="no" src="figures/snake-green.svg" height="20"
       width="20"/> Green</p>
     </item>
     <item>
-      <p><media type="image" src="figures/snake-blue.svg" height="20"
+      <p><media type="image" its:translate="no" src="figures/snake-blue.svg" height="20"
       width="20"/> Blue</p>
     </item>
     <item>
-      <p><media type="image" src="figures/snake-yellow.svg" height="20"
+      <p><media type="image" its:translate="no" src="figures/snake-yellow.svg" height="20"
       width="20"/> Yellow</p>
     </item>
     <item>
-      <p><media type="image" src="figures/snake-cyan.svg" height="20"
+      <p><media type="image" its:translate="no" src="figures/snake-cyan.svg" height="20"
       width="20"/> Cyan</p>
     </item>
     <item>
-      <p><media type="image" src="figures/snake-magenta.svg" height="20"
+      <p><media type="image" its:translate="no" src="figures/snake-magenta.svg" height="20"
       width="20"/> Purple</p>
     </item>
     <item>
-      <p><media type="image" src="figures/snake-grey.svg" height="20"
+      <p><media type="image" its:translate="no" src="figures/snake-grey.svg" height="20"
       width="20"/> Gray</p>
     </item>
   </list>
