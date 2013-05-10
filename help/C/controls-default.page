@@ -48,7 +48,7 @@
     controls.</p>
   </note>
 
-  <p>All worm movements happen with repect to the screen unless
+  <p>All worm movements happen with respect to the screen unless
   <link xref="rel-movement">relative movement</link> is enabled. This means
   that when you press <key>Left</key> the worm moves towards the left of the
   screen, when you press <key>Right</key> the worm moves towards the right of
