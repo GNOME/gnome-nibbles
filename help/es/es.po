@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnibbles.HEAD\n"
-"POT-Creation-Date: 2013-05-09 16:50+0000\n"
-"PO-Revision-Date: 2013-05-10 17:33+0200\n"
+"POT-Creation-Date: 2013-05-10 16:22+0000\n"
+"PO-Revision-Date: 2013-05-17 12:34+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -266,12 +266,17 @@ msgstr ""
 
 #: C/controls-default.page:51(page/p)
 msgid ""
-"All worm movements happen with repect to the screen unless <link xref=\"rel-"
+"All worm movements happen with respect to the screen unless <link xref=\"rel-"
 "movement\">relative movement</link> is enabled. This means that when you "
 "press <key>Left</key> the worm moves towards the left of the screen, when "
 "you press <key>Right</key> the worm moves towards the right of the screen "
 "and so on."
 msgstr ""
+"Todos los movimientos de los gusanos son respecto a la pantalla, salvo que "
+"se active el <link xref=\"rel-movement\">movimiento relativo</link>. Esto "
+"significa que cuando pulsa <key>Izquierda</key> el gusano va a la izquierda "
+"de la pantalla, y cuando pulsa <key>Derecha</key> el gusano va a la derecha "
+"de la pantalla, y así sucesivamente."
 
 #: C/fake-bonus.page:22(info/desc)
 msgid ""
@@ -448,37 +453,30 @@ msgid "There are seven available worm colors:"
 msgstr "Hay siete tipos de colores de gusanos:"
 
 #: C/preferences.page:65(item/p)
-#| msgid "<_:media-1/> Nibbles"
 msgid "<_:media-1/> Red"
 msgstr "<_:media-1/> Rojo"
 
 #: C/preferences.page:69(item/p)
-#| msgid "<_:media-1/> Nibbles"
 msgid "<_:media-1/> Green"
 msgstr "<_:media-1/> Verde"
 
 #: C/preferences.page:73(item/p)
-#| msgid "<_:media-1/> Nibbles"
 msgid "<_:media-1/> Blue"
 msgstr "<_:media-1/> Azul"
 
 #: C/preferences.page:77(item/p)
-#| msgid "<_:media-1/> Nibbles"
 msgid "<_:media-1/> Yellow"
 msgstr "<_:media-1/> Amarillo"
 
 #: C/preferences.page:81(item/p)
-#| msgid "<_:media-1/> Nibbles"
 msgid "<_:media-1/> Cyan"
 msgstr "<_:media-1/> Cián"
 
 #: C/preferences.page:85(item/p)
-#| msgid "<_:media-1/> Nibbles"
 msgid "<_:media-1/> Purple"
 msgstr "<_:media-1/> Morado"
 
 #: C/preferences.page:89(item/p)
-#| msgid "<_:media-1/> Nibbles"
 msgid "<_:media-1/> Gray"
 msgstr "<_:media-1/> Gris"
 
@@ -580,6 +578,14 @@ msgid ""
 "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
 "instead of moving towards the right of the screen."
 msgstr ""
+"Cuando el movimiento relativo está activado, el gusano se maniobra usando "
+"solamente las teclas <key>Derecha</key> e <key>Izquierda</key> "
+"predeterminadas u otras <link xref=\"controls-change\">teclas "
+"personalizadas</link> que controlan el movimiento a la derecha y a la "
+"izquierda del gusano. Cuando se pulsa la tecla <key>Izquierda</key> el "
+"gusano gira a la izquierda, en lugar de moverse hacia la izquierda de la "
+"pantalla. De igual modo, cuando se pulsa la tecla <key>Derecha</key> el "
+"gusano gira a la derecha, en lugar de moverse hacia la derecha de la pantalla"
 
 #: C/rel-movement.page:39(figure/title)
 msgid "Starting postion:"
@@ -656,6 +662,13 @@ msgid ""
 "will give you 6 points and so on. In level 26, therefore, the first donut "
 "will give you 26 points, the second donut will give you 52 points and so on."
 msgstr ""
+"La bonificación en forma de donut <_:media-1/>: esta bonificación hace "
+"aumente la longitud del gusano. Los puntos que obtiene al comerse un donut "
+"varía en cada nivel y hay varios en cada nivel. En el nivel 1, el primer "
+"donut le dará un punto, el segundo 2 puntos, el tercero tres puntos, y así "
+"sucesivamente. En el nivel 2, el primer donut le dará 2 puntos, el segundo 4 "
+"puntos, el tercero 6 puntos, y así sucesivamente. Por lo tanto, en el nivel "
+"el primer donut le dará 26 puntos, el segundo 52 y así sucesivamente."
 
 #: C/scores.page:39(note/p)
 msgid ""
@@ -665,6 +678,11 @@ msgid ""
 "third player may choose to not eat any donuts till the tenth donut and score "
 "10 points at once."
 msgstr ""
+"El contador de donuts no depende del número de donuts que ya se haya comido "
+"un gusano. Si la partida está en el nivel 1 y si el jugador 1 se come el "
+"primer donut, consigue un punto; si el jugador 2 se come el segundo donut, "
+"consigue 2 puntos; un tercer jugador puede elegir no comerse ningún donut "
+"hasta que llegue el décimo, para conseguir 10 puntos de una vez."
 
 #: C/scores.page:47(item/p)
 msgid ""
@@ -680,12 +698,18 @@ msgid ""
 "of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
 "lives remaining."
 msgstr ""
+"El número de vidas de un gusano está dado por el número a la izquierda de la "
+"coma en la puntuación del gusano. Si la puntuación de un gusano es 10,005, "
+"el gusano tiene 10 vidas restantes."
 
 #: C/scores.page:57(note/p)
 msgid ""
 "You cannot get extra lives by scoring 10,000 points or more. If you have "
 "scored 12345 points with 10 lives remaining, your score will be 10,12345."
 msgstr ""
+"No puede conseguir vidas adicionales consiguiendo 10.000 o más puntos. si ha "
+"conseguido 12.345 puntos con 10 vidas restantes, su puntuación será de "
+"1.012.345."
 
 #: C/scores.page:63(item/p)
 msgid ""
@@ -693,6 +717,9 @@ msgid ""
 "increase in the length of the worm and does not give you any points. It "
 "causes a reversal in the movement of all the other worms in the game."
 msgstr ""
+"La bonificación en forma de diamante <_:media-1/>: esta bonificación no hace "
+"que el gusano aumente de longitud y no le da ningún punto. Hace que se "
+"invierta el movimiento de todos los gusanos de la partida."
 
 #: C/scores.page:69(note/p)
 msgid "This bonus has no effect in a single-player game."
@@ -706,6 +733,11 @@ msgid ""
 "worm. Higher the level number and longer the worm, more the points scored on "
 "eating this bonus."
 msgstr ""
+"La bonificación en forma de helado <_:media-1/>: esta bonificación hace que "
+"se aumente la longitud del gusano más de lo que la aumenta la bonificación "
+"en forma de donut. Los puntos conseguidos por esta bonificación dependen del "
+"nivel y de la longitud del gusano. Cuanto más alto sea el nivel y más largo "
+"sea el gusano, más puntos se conseguirán al comerse esta bonificación."
 
 #: C/scores.page:82(item/p)
 msgid ""
@@ -714,6 +746,11 @@ msgid ""
 "number and the length of the worm. Higher the level number and longer the "
 "worm, more the points scored on eating this bonus."
 msgstr ""
+"La bonificación en forma de cerezas <_:media-1/>: esta bonificación hace que "
+"el gusano disminuya de longitud. Los puntos conseguidos por esta "
+"bonificación dependen del nivel y de la longitud del gusano. Cuanto más alto "
+"sea el nivel y más largo sea el gusano, más puntos se conseguirán al comerse "
+"esta bonificación."
 
 #: C/legal.xml:4(p/link)
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
