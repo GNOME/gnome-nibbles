@@ -58,7 +58,7 @@ msgstr "Počet hráčů."
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:3
 msgid "Number of AI players"
-msgstr "Počet počítačových hráčů"
+msgstr "Počet umělých hráčů"
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:4
 msgid "Number of AI players."
@@ -643,7 +643,7 @@ msgstr "Žlutá"
 
 #: ../src/preferences.c:479
 msgid "Cyan"
-msgstr "Modrozelená"
+msgstr "Azurová"
 
 #: ../src/preferences.c:480
 msgid "Purple"
