@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"POT-Creation-Date: 2013-05-10 15:33+0000\n"
-"PO-Revision-Date: 2013-07-18 19:01+0200\n"
+"POT-Creation-Date: 2013-07-18 17:58+0000\n"
+"PO-Revision-Date: 2013-07-18 20:01+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -24,6 +24,26 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>, 2013"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:19(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/after-rel.png' "
+#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgctxt "_"
+msgid ""
+"external ref='figures/nibbles.png' md5='5c04c52509830b87cd6b69adf2dceb34'"
+msgstr ""
+"external ref='figures/nibbles.png' md5='5c04c52509830b87cd6b69adf2dceb34'"
 
 #: C/index.page:12(credit/name) C/basics.page:14(credit/name)
 #: C/controls-change.page:16(credit/name)
@@ -133,9 +153,9 @@ msgid ""
 "gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
 "<app>Nibbles</app> at any time."
 msgstr ""
-"Hru <app>Červíci</app> můžete kdykoliv ukončit pomocí nabídky <guiseq>"
-"<gui style=\"menu\">Hra</gui> <gui style=\"menuitem\">Ukončit</gui>"
-"</guiseq> nebo zmáčknutím <keyseq><key>Ctrl</key><key>Q</key></keyseq>."
+"Hru <app>Červíci</app> můžete kdykoliv ukončit pomocí nabídky <guiseq><gui "
+"style=\"menu\">Hra</gui> <gui style=\"menuitem\">Ukončit</gui></guiseq> nebo "
+"zmáčknutím <keyseq><key>Ctrl</key><key>Q</key></keyseq>."
 
 #: C/controls-change.page:24(info/desc)
 msgid "Set custom control keys."
@@ -268,8 +288,8 @@ msgid ""
 "you press <key>Right</key> the worm moves towards the right of the screen "
 "and so on."
 msgstr ""
-"Všechny pohyby červů jsou vztaženy vůči obrazovce, ledaže zapnete <link "
-"xref=\"rel-movement\">relativní pohyby</link>. To znamená, že když zmáčknete "
+"Všechny pohyby červů jsou vztaženy vůči obrazovce, ledaže zapnete <link xref="
+"\"rel-movement\">relativní pohyby</link>. To znamená, že když zmáčknete "
 "<key>←</key>, červ se bude bude pohybovat směrem k levému okraji obrazovky, "
 "když zmáčknete <key>→</key>, bude se pohybovat k pravému okraji apod."
 
@@ -374,6 +394,107 @@ msgstr ""
 "lidských hráčů</gui> na 0 a <gui style=\"input\">Počet umělých hráčů</gui> v "
 "rozmezí 1 až 6."
 
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:66(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/after-rel.png' "
+#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgctxt "_"
+msgid ""
+"external ref='figures/snake-red.svg' md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
+msgstr ""
+"external ref='figures/snake-red.svg' md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:70(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/after-rel.png' "
+#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgctxt "_"
+msgid ""
+"external ref='figures/snake-green.svg' md5='950becba28c6dca50a1157efe5b96f1d'"
+msgstr ""
+"external ref='figures/snake-green.svg' md5='950becba28c6dca50a1157efe5b96f1d'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:74(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/before-rel.png' "
+#| "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+msgctxt "_"
+msgid ""
+"external ref='figures/snake-blue.svg' md5='7f5cb0d784fdf25d604882472cb504b9'"
+msgstr ""
+"external ref='figures/snake-blue.svg' md5='7f5cb0d784fdf25d604882472cb504b9'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:78(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/after-rel.png' "
+#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgctxt "_"
+msgid ""
+"external ref='figures/snake-yellow.svg' "
+"md5='a81bc4335b8ee337363f7e818eb74ec0'"
+msgstr ""
+"external ref='figures/snake-yellow.svg' "
+"md5='a81bc4335b8ee337363f7e818eb74ec0'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:82(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/snake-cyan.svg' md5='62c0ac58f26769ab7eba85a255191257'"
+msgstr ""
+"external ref='figures/snake-cyan.svg' md5='62c0ac58f26769ab7eba85a255191257'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:86(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/snake-magenta.svg' "
+"md5='00ede40fb89479b830636d02dcd33680'"
+msgstr ""
+"external ref='figures/snake-magenta.svg' "
+"md5='00ede40fb89479b830636d02dcd33680'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:90(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/after-rel.png' "
+#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgctxt "_"
+msgid ""
+"external ref='figures/snake-grey.svg' md5='8b1ff44ff3d43292f5843f15c9187f9c'"
+msgstr ""
+"external ref='figures/snake-grey.svg' md5='8b1ff44ff3d43292f5843f15c9187f9c'"
+
 #: C/preferences.page:22(info/desc)
 msgid "Change default speed, worm color, level order and sound settings."
 msgstr "Změňte výchozí rychlost, barvu červů, pořadí úrovní a nastavení zvuku."
@@ -404,7 +525,6 @@ msgstr ""
 "pořadí to jsou:"
 
 #: C/preferences.page:39(item/p)
-#| msgid "Nibbles Objective"
 msgid "Nibbles Newbie"
 msgstr "Nováček v červících"
 
@@ -618,6 +738,70 @@ msgstr ""
 #: C/rel-movement.page:78(item/p)
 msgid "Click <gui style=\"button\">Close</gui>."
 msgstr "Klikněte na <gui style=\"button\">Zavřít</gui>."
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:28(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/after-rel.png' "
+#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgctxt "_"
+msgid "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
+msgstr ""
+"external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:48(media)
+msgctxt "_"
+msgid "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
+msgstr "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:64(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
+msgstr ""
+"external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:74(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/before-rel.png' "
+#| "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+msgctxt "_"
+msgid ""
+"external ref='figures/ice-cream.svg' md5='4892ededb56e306922c5442b46ca2a7c'"
+msgstr ""
+"external ref='figures/ice-cream.svg' md5='4892ededb56e306922c5442b46ca2a7c'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:83(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/before-rel.png' "
+#| "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+msgctxt "_"
+msgid ""
+"external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
+msgstr ""
+"external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
 
 #: C/scores.page:18(info/desc)
 msgid "Swallow different bonuses to score points."
