@@ -1,16 +1,16 @@
 # Czech translation of gnibbles help.
 # Copyright (C) 2009 the author(s) of gnome-games.
 # This file is distributed under the same license as the gnibbles help.
-#
-# Marek Černocký <marek@manet.cz>, 2009, 2011.
+# Marek Černocký <marek@manet.cz>, 2009, 2011, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"POT-Creation-Date: 2011-09-26 20:09+0000\n"
-"PO-Revision-Date: 2011-09-27 07:31+0200\n"
+"POT-Creation-Date: 2013-05-10 15:33+0000\n"
+"PO-Revision-Date: 2013-07-18 19:01+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,698 +18,720 @@ msgstr ""
 "X-Poedit-Language: Czech\n"
 "X-Poedit-Country: CZECH REPUBLIC\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:187(None)
-msgid "@@image: 'figures/intro.png'; md5=fba0b0fc807a1eed13d9b5bba6a8d9fa"
-msgstr "@@image"
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Marek Černocký <marek@manet.cz>, 2013"
 
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:210(None)
-msgid "@@image: 'figures/playing.png'; md5=68c63b494278113a82ac864a277891c4"
-msgstr "@@image"
+#: C/index.page:12(credit/name) C/basics.page:14(credit/name)
+#: C/controls-change.page:16(credit/name)
+#: C/controls-default.page:14(credit/name) C/fake-bonus.page:14(credit/name)
+#: C/multi-player.page:16(credit/name) C/preferences.page:14(credit/name)
+#: C/rel-movement.page:14(credit/name) C/scores.page:14(credit/name)
+msgid "Aruna Sankaranarayanan"
+msgstr "Aruna Sankaranarayanan"
 
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:399(None)
-msgid "@@image: 'figures/game.png'; md5=3103fe2ce969c658bf74cbf66fb2ec64"
-msgstr "@@image"
+#: C/index.page:16(info/desc)
+msgid "Index"
+msgstr "Rejstřík"
 
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:481(None)
-msgid "@@image: 'figures/worm_op.png'; md5=b6ccbcdd5d11fe28a75fd23c0d96483a"
-msgstr "@@image"
+#: C/index.page:19(page/title)
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Červíci"
 
-#: C/gnibbles.xml:27(title)
-msgid "<application>Nibbles</application> Manual"
-msgstr "Příručka ke hře <application>Červíci</application>"
-
-#: C/gnibbles.xml:30(para)
+#: C/index.page:21(page/p)
 msgid ""
-"Nibbles is a worm game for GNOME. The player controls a 2D worm while trying "
-"to get food. Getting food gives points, but hitting anything causes a loss "
-"of points. When all points are lost, the player loses."
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other "
+"worms. You have to complete 26 levels to finish the game."
 msgstr ""
-"Červíci jsou hra s červy pro GNOME. Hráč ovládá ve 2D červy, kteří hledají "
-"něco k snědku. Získáním potravy dostávají body, ale v případě, že narazí, "
-"body ztrácí. Ve chvíli, kdy přijdou o všechny body, je hráč ztracen."
+"<app>Nibbles</app> je hra „hadi“ pro GNOME. Cílem hry je spolykat co nejvíce "
+"předmětů můžete a přitom se snažit nevrazit do zdi nebo do jiného červa. Pro "
+"dokončení hry musíte projít 26 úrovní."
 
-#: C/gnibbles.xml:39(year)
-msgid "2000"
-msgstr "2000"
+#: C/index.page:26(section/title)
+msgid "Game play"
+msgstr "Hraní hry"
 
-#: C/gnibbles.xml:40(holder)
-msgid "Kevin Breit"
-msgstr "Kevin Breit"
+#: C/index.page:30(section/title)
+msgid "Preferences"
+msgstr "Předvolby"
 
-#: C/gnibbles.xml:56(publishername) C/gnibbles.xml:69(orgname)
-#: C/gnibbles.xml:97(para)
-msgid "GNOME Documentation Project"
-msgstr "Dokumentační projekt GNOME"
+#: C/basics.page:18(credit/name) C/controls-change.page:20(credit/name)
+#: C/controls-default.page:18(credit/name) C/fake-bonus.page:18(credit/name)
+#: C/multi-player.page:20(credit/name) C/preferences.page:18(credit/name)
+#: C/rel-movement.page:18(credit/name)
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
 
-#: C/gnibbles.xml:2(para)
+#: C/basics.page:22(info/desc)
 msgid ""
-"Permission is granted to copy, distribute and/or modify this document under "
-"the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
-"later version published by the Free Software Foundation with no Invariant "
-"Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
-"of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or "
-"in the file COPYING-DOCS distributed with this manual."
+"Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
 msgstr ""
-"Je povoleno kopírovat, šířit a/nebo upravovat tento dokument za podmínek GNU "
-"Free Documentation License, verze 1.1 nebo jakékoli další verze vydané "
-"nadací Free Software Foundation; bez neměnných oddílů, bez textů předních "
-"desek a bez textů zadních desek. Kopie této licence je zahrnuta v oddílu "
-"jménem <ulink type=\"help\" url=\"help:fdl\">GNU Free Documentation "
-"License</ulink> nebo v souboru COPYING-DOCS dodávaném s touto příručkou."
+"Spuštění, pozastavení, hraní v režimu celé obrazovky a ukončení hry "
+"<app>Červíci</app>."
 
-#: C/gnibbles.xml:12(para)
+#: C/basics.page:25(page/title)
+msgid "Basic instructions"
+msgstr "Úvodní instrukce"
+
+#: C/basics.page:28(section/title)
+msgid "Start a new game"
+msgstr "Spuštění nové hry"
+
+#: C/basics.page:30(section/p)
 msgid ""
-"This manual is part of a collection of GNOME manuals distributed under the "
-"GFDL. If you want to distribute this manual separately from the collection, "
-"you can do so by adding a copy of the license to the manual, as described in "
-"section 6 of the license."
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New</"
+"gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game."
 msgstr ""
-"Tato příručka je součástí kolekce příruček GNOME, distribuovaných pod "
-"licencí GNU FDL. Pokud chcete tento dokument šířit odděleně od kolekce, "
-"musíte přiložit kopii licence dle popisu v sekci 6 dané licence."
+"Když chcete začít novou hru, vyberte <guiseq><gui style=\"menu\">Hra</gui> "
+"<gui style=\"menuitem\">Nová</gui></guiseq> nebo zmáčkněte "
+"<keyseq><key>Ctrl</key><key>N</key></keyseq>."
 
-#: C/gnibbles.xml:19(para)
+#: C/basics.page:38(section/title)
+msgid "Pause and resume your game"
+msgstr "Pozastavení a pokračování hry"
+
+#: C/basics.page:40(section/p)
 msgid ""
-"Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any GNOME "
-"documentation, and the members of the GNOME Documentation Project are made "
-"aware of those trademarks, then the names are in capital letters or initial "
-"capital letters."
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause</"
+"gui></guiseq> to pause your game. You can resume your game by selecting "
+"<guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Resume</gui></"
+"guiseq>."
 msgstr ""
-"Mnoho užívaných jmen určených k zviditelnění produktů nebo služeb jsou "
-"ochranné známky. Na místech, kde jsou tato jména v dokumentaci užita a "
-"členové Dokumentačního projektu GNOME jsou si vědomi skutečnosti, že se "
-"jedná o ochrannou známku, je takové jméno psáno velkými písmeny celé nebo s "
-"velkým písmenem na začátku."
+"Volbou <guiseq><gui style=\"menu\">Hra</gui> <gui style=\"menuitem"
+"\">Pozastavit</gui></guiseq> svoji hru pozastavíte. Pokračovat můžete pomocí "
+"<guiseq><gui style=\"menu\">Hra</gui> <gui style=\"menuitem\">Pokračovat</"
+"gui></guiseq>."
 
-#: C/gnibbles.xml:35(para)
+#: C/basics.page:48(section/title)
+msgid "Play <app>Nibbles</app> in fullscreen mode"
+msgstr "Hraní <app>Červíků</app> v režimu celé obrazovky"
+
+#: C/basics.page:50(section/p)
 msgid ""
-"DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
-"EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT "
-"THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS FREE OF DEFECTS "
-"MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE "
-"RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE DOCUMENT OR "
-"MODIFIED VERSION OF THE DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR "
-"MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL "
-"WRITER, AUTHOR OR ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY "
-"SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN "
-"ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION "
-"OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
+"Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
+"\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
+"fullscreen mode. You can return to the default screen size by pressing "
+"<key>F11</key> again."
 msgstr ""
-"DOKUMENT JE POSKYTOVÁN V PODOBĚ „JAK JE“ BEZ ZÁRUKY V JAKÉKOLIV PODOBĚ, "
-"NEPOSKYTUJÍ SE ANI ODVOZENÉ ZÁRUKY, ZÁRUKY, ŽE DOKUMENT, NEBO JEHO UPRAVENÁ "
-"VERZE, JE BEZCHYBNÝ NEBO ZÁRUKY PRODEJNOSTI, VHODNOSTI PRO URČITÝ ÚČEL NEBO "
-"NEPORUŠENOSTI. RIZIKO NEKVALITY, NEPŘESNOSTI A ŠPATNÉHO PROVEDENÍ DOKUMENTU, "
-"NEBO JEHO UPRAVENÉ VERZE, LEŽÍ NA VÁS. POKUD KVŮLI TOMUTO DOKUMENTU, NEBO "
-"JEHO UPRAVENÉ VERZI, NASTANE PROBLÉM, VY (NIKOLIV PŮVODNÍ AUTOR NEBO "
-"JAKÝKOLIV PŘISPĚVATEL) PŘEBÍRÁTE JAKÉKOLIV NÁKLADY ZA NUTNÉ ÚPRAVY, OPRAVY "
-"ČI SLUŽBY. TOTO PROHLÁŠENÍ O ZÁRUCE PŘEDSTAVUJE ZÁKLADNÍ SOUČÁST TÉTO "
-"LICENCE. BEZ TOHOTO PROHLÁŠENÍ NENÍ, PODLE TÉTO DOHODY, POVOLENO UŽÍVÁNÍ ANI "
-"ÚPRAVY TOHOTO DOKUMENTU; DÁLE"
+"Jestli chcete hrát přes celou obrazovku, vyberte <guiseq><gui style=\"menu"
+"\">Zobrazit</gui> <gui style=\"menuitem\">Celá obrazovka</gui></guiseq> nebo "
+"zmáčkněte <key>F11</key>. Opětovným zmáčknutím <key>F11</key> se vrátíte na "
+"původní velikost."
 
-#: C/gnibbles.xml:55(para)
+#: C/basics.page:58(section/title)
+msgid "Quit <app>Nibbles</app>"
+msgstr "Ukončení <app>Červíků</app>"
+
+#: C/basics.page:60(section/p)
 msgid ""
-"UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING "
-"NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
-"CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION OF THE "
-"DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON "
-"FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF "
-"ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, "
-"WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER DAMAGES "
-"OR LOSSES ARISING OUT OF OR RELATING TO USE OF THE DOCUMENT AND MODIFIED "
-"VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE "
-"POSSIBILITY OF SUCH DAMAGES."
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit</"
+"gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
+"<app>Nibbles</app> at any time."
 msgstr ""
-"ZA ŽÁDNÝCH OKOLNOSTÍ A ŽÁDNÝCH PRÁVNÍCH PŘEDPOKLADŮ, AŤ SE JEDNÁ O PŘEČIN "
-"(VČETNĚ NEDBALOSTNÍCH), SMLOUVU NEBO JINÉ, NENÍ AUTOR, PŮVODNÍ PISATEL, "
-"KTERÝKOLIV PŘISPĚVATEL NEBO KTERÝKOLIV DISTRIBUTOR TOHOTO DOKUMENTU NEBO "
-"UPRAVENÉ VERZE DOKUMENTU NEBO KTERÝKOLIV DODAVATEL NĚKTERÉ Z TĚCHTO STRAN "
-"ODPOVĚDNÝ NĚJAKÉ OSOBĚ ZA PŘÍMÉ, NEPŘÍMÉ, SPECIÁLNÍ, NAHODILÉ NEBO NÁSLEDNÉ "
-"ŠKODY JAKÉHOKOLIV CHARAKTERU, VČETNĚ, ALE NEJEN, ZA POŠKOZENÍ ZE ZTRÁTY "
-"DOBRÉHO JMÉNA, PŘERUŠENÍ PRÁCE, PORUCHY NEBO NESPRÁVNÉ FUNKCE POČÍTAČE NEBO "
-"JINÉHO A VŠECH DALŠÍCH ŠKOD NEBO ZTRÁT VYVSTÁVAJÍCÍCH Z NEBO VZTAHUJÍCÍCH SE "
-"K POUŽÍVÁNÍ TOHOTO DOKUMENTU NEBO UPRAVENÝCH VERZÍ DOKUMENTU, I KDYŽ BY "
-"TAKOVÁTO STRANA BYLA INFORMOVANÁ O MOŽNOSTI TAKOVÉHOTO POŠKOZENÍ."
+"Hru <app>Červíci</app> můžete kdykoliv ukončit pomocí nabídky <guiseq>"
+"<gui style=\"menu\">Hra</gui> <gui style=\"menuitem\">Ukončit</gui>"
+"</guiseq> nebo zmáčknutím <keyseq><key>Ctrl</key><key>Q</key></keyseq>."
 
-#: C/gnibbles.xml:28(para)
+#: C/controls-change.page:24(info/desc)
+msgid "Set custom control keys."
+msgstr "Nastavte si vlastní ovládací klávesy."
+
+#: C/controls-change.page:27(page/title)
+msgid "Change the default controls"
+msgstr "Jak změnit výchozí ovládání"
+
+#: C/controls-change.page:29(page/p)
 msgid ""
-"DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
-"OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
-"<placeholder-1/>"
+"The <link xref=\"controls-default\">default controls</link> can be changed "
+"in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
+"player\">multi-player</link> games, when having more than one set of "
+"controls becomes necessary. To change the default controls:"
 msgstr ""
-"DOKUMENT A JEHO UPRAVENÉ VERZE JSOU ŠÍŘENY V SOULADU SE ZNĚNÍM LICENCE GNU "
-"FREE DOCUMENTATION LICENSE S NÁSLEDUJÍCÍM USTANOVENÍM: <placeholder-1/>"
+"<link xref=\"controls-default\">Výchozí ovládání</link> si můžete v "
+"<app>Červících</app> změnit, aby lépe vyhovovalo vašim potřebám nebo kvůli "
+"hře pro <link xref=\"multi-player\">více hráčů</link>, kdy je potřeba více "
+"než jedna sada ovládacích kláves. Změnu provedete následovně:"
 
-#: C/gnibbles.xml:66(firstname)
-msgid "Kevin"
-msgstr "Kevin"
-
-#: C/gnibbles.xml:67(surname)
-msgid "Breit"
-msgstr "Breit"
-
-#: C/gnibbles.xml:70(email)
-msgid "battery841@mypad.com"
-msgstr "battery841@mypad.com"
-
-#: C/gnibbles.xml:91(revnumber)
-msgid "Nibbles Manual V2.20"
-msgstr "Příručka V2.20 ke hře Červíci"
-
-#: C/gnibbles.xml:92(date)
-msgid "May 2007"
-msgstr "Květen 2007"
-
-#: C/gnibbles.xml:94(para)
-msgid "Kevin Breit <email>battery841@mypad.com</email>"
-msgstr "Kevin Breit <email>battery841@mypad.com</email>"
-
-#: C/gnibbles.xml:102(releaseinfo)
-msgid "This manual describes version 2.20 of Nibbles."
-msgstr "Tato příručka popisuje hru Červíci ve verzi 2.20"
-
-#: C/gnibbles.xml:109(title)
-msgid "Feedback"
-msgstr "Ohlasy"
-
-#: C/gnibbles.xml:110(para)
+#: C/controls-change.page:36(item/p) C/fake-bonus.page:35(item/p)
+#: C/multi-player.page:44(item/p) C/rel-movement.page:66(item/p)
 msgid ""
-"To report a bug or make a suggestion regarding the <application>Nibbles</"
-"application> application or this manual, follow the directions in the <ulink "
-"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</"
-"ulink>."
+"Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
 msgstr ""
-"Pokud chcete oznámit chybu nebo navrhnout vylepšení vztahující se k aplikaci "
-"<application>Červíci</application> nebo této příručce, postupujte dle "
-"instrukcí na stránce <ulink url=\"ghelp:user-guide?feedback-bugs\" type="
-"\"help\">Stránka s ohlasy na GNOME</ulink>."
+"Vyberte <guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
+"\">Předvolby</gui></guiseq>."
 
-#: C/gnibbles.xml:120(primary)
-msgid "Nibbles"
-msgstr "Červíci"
+#: C/controls-change.page:40(item/p)
+msgid "Select the tab for the player whose controls you want to change."
+msgstr "Vybertu kartu hráče, u kterého chcete ovládání změnit."
 
-#: C/gnibbles.xml:127(title)
-msgid "Introduction"
-msgstr "Úvod"
-
-#: C/gnibbles.xml:129(para)
+#: C/controls-change.page:42(note/p)
 msgid ""
-"<application>Nibbles</application> is a game where the user controls a worm. "
-"The worm moves around the board, eating diamonds while avoiding the walls "
-"placed around it."
+"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+"player 3 controls <gui>Worm 3</gui> and so on."
 msgstr ""
-"<application>Červíci</application> jsou hra, ve které uživatelé ovládají "
-"červy. Červi se pohybují po ploše, pojídají diamanty a přitom se vyhýbají "
-"okolním zdem."
+"Hráč 1 ovládá <gui>Červa 1</gui>, hráč 2 <gui>Červa 2</gui>, hráč 3 "
+"<gui>Červa 3</gui> atd."
 
-#: C/gnibbles.xml:133(para)
+#: C/controls-change.page:47(item/p)
 msgid ""
-"To run <application>Nibbles</application>, select "
-"<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Nibbles</"
-"guimenuitem></menuchoice> from the <guimenu>Applications</guimenu> menu, or "
-"type <command>gnibbles</command> on the command line."
+"In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
+"then click on the control. This highlights the line and the words <gui>New "
+"accelerator…</gui> are now present in place of the old control."
 msgstr ""
-"<application>Červíky</application> spustíte volbou "
-"<menuchoice><guisubmenu>Hry</guisubmenu><guimenuitem>Červíci</guimenuitem></"
-"menuchoice> z nabídky <guimenu>Aplikace</guimenu> nebo zadáním "
-"<command>gnibbles</command> v příkazové řádce."
+"V seznamu <gui style=\"group\">Ovládání klavesnicí</gui> vyberte řádek a "
+"klikněte na název klávesy. Řádek bude zvýrazněný a ovládací klávesa se "
+"nahradí textem <gui>Nová klávesová zkratka…</gui>\"."
 
-#: C/gnibbles.xml:143(para)
+#: C/controls-change.page:53(item/p)
+msgid "Press the key you want to use instead of the default key."
+msgstr "Zmáčkněte klávesu, kterou chcete místo té výchozí používat."
+
+#: C/controls-change.page:55(note/p)
 msgid ""
-"<application>Nibbles</application> is included in the <filename>gnome-games</"
-"filename> package, which is part of the GNOME desktop environment. This "
-"document describes version 2.20 of <application>Nibbles</application>."
+"To keep the old setting click <gui>New accelerator…</gui> again, right click "
+"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
+"inside the <gui>Nibbles Preferences</gui> box."
 msgstr ""
-"Hra <application>Červíci</application> je součástí balíku <filename>gnome-"
-"games</filename>, který patří k pracovnímu prostředí GNOME. Tento dokument "
-"popisuje verzi 2.20 aplikace <application>Červíci</application>."
+"V případě, že si to rozmyslíte a chcete nechat původní klávesu, klikněte "
+"znovu nebo pravým tlačítkem na <gui>Nová klávesová zkratka…</gui> nebo "
+"zmáčkněte <key>Esc</key> nebo klikněte kamkoliv jinam v rámci <gui>Předvoleb "
+"Červíků</gui>."
 
-#: C/gnibbles.xml:152(title)
-msgid "Nibbles Objective"
-msgstr "Cíl hry Červíci"
-
-#: C/gnibbles.xml:153(para)
+#: C/controls-change.page:61(item/p)
 msgid ""
-"The objective of Nibbles is quite simple. You control the worm and if the "
-"worm runs into a wall or runs into itself, you die. You get ten lives before "
-"your game is over. You win by either beating your own high score (or a "
-"friend's) or by completing all the levels. It is also possible to play "
-"against worms with artificial intelligence."
+"Repeat the above step to change the other default keys for the current "
+"player, then select the tab for the next player whose controls you want to "
+"change and repeat the process."
 msgstr ""
-"Podstata hry Červíci je docela prostá. Ovládáte červa a když červ narazí do "
-"zdi nebo sám do sebe, tak zemřete. Máte k dispozici deset životů, než hra "
-"skončí. Vyhrajete buď překonáním svého vlastního  nejvyššího skóre (nebo "
-"svých přátel) nebo dokončením všech úrovní. Můžete také hrát proti červům s "
-"umělou inteligencí."
+"Změnu výchozích kláves proveďte pro aktuálního hráče, pak vyberte kartu "
+"dalšího hráče, jehož ovládání chcete změni a tak dále postup opakujte."
 
-#: C/gnibbles.xml:160(para)
-#| msgid ""
-#| "Nibbles also features <link linkend=\"network-games\">multiplayer</link> "
-#| "support with up to six competing human players in hotseat or network mode."
+#: C/controls-change.page:67(page/p)
 msgid ""
-"Nibbles also features multiplayer support with up to six competing human "
-"players in hotseat mode."
+"For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
+"<gui>Left</gui> control line and click it, then press <key>A</key> on your "
+"keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
-"Červíci rovněž podporují hru pro více hráčů až se šesti lidskými hráči přímo "
-"u počítače nebo přes síť."
+"Když chcete například používat <key>A</key> pro <gui>pohyb vlevo</gui>, "
+"vyberte řádek s klávesou <gui>šipka vlevo</gui> a klikněte na ni. Až uvidíte "
+"<gui>Nová klávesová zkratka…</gui> zmáčkněte na klávesnici <key>A</key>."
 
-#: C/gnibbles.xml:170(title)
-msgid "Using Nibbles"
-msgstr "Používání hry Červíci"
+#: C/controls-default.page:23(info/desc)
+msgid "Default keys for <app>Nibbles.</app>"
+msgstr "Výchozí klávesy pro <app>Červíky</app>."
 
-#: C/gnibbles.xml:171(para)
+#: C/controls-default.page:26(page/title)
+msgid "Keyboard Controls"
+msgstr "Ovládání klávesnicí"
+
+#: C/controls-default.page:28(page/p)
 msgid ""
-"<application>Nibbles</application> is a simple game to play. The only keys "
-"that are needed are the arrow keys."
+"For controlling the movements of your worm in a single-player mode, use the "
+"following default keys:"
 msgstr ""
-"Hra <application>Červíci</application> je jednoduchá na hraní. Jediné "
-"klávesy, které potřebujete, jsou šipky."
+"K ovládání pohybu svého červa v režimu pro jednoho hráče používejte "
+"následující klávesy:"
 
-#: C/gnibbles.xml:178(title)
-msgid "Basic usage"
-msgstr "Základy používání"
+#: C/controls-default.page:33(item/p)
+msgid "<key>Up</key> to move the worm up"
+msgstr "<key>↑</key> pro pohyb červa nahoru"
 
-#: C/gnibbles.xml:183(title)
-msgid "Nibbles Introduction Window"
-msgstr "Úvodní okno Červíků"
+#: C/controls-default.page:36(item/p)
+msgid "<key>Down</key> to move the worm down"
+msgstr "<key>↓</key> pro pohyb červa dolů"
 
-#: C/gnibbles.xml:190(phrase)
-msgid "Nibbles Introduction Window."
-msgstr "Úvodní okno hry Červíci."
+#: C/controls-default.page:39(item/p)
+msgid "<key>Left</key> to move the worm left"
+msgstr "<key>←</key> pro pohyb červa doleva"
 
-#: C/gnibbles.xml:179(para)
+#: C/controls-default.page:42(item/p)
+msgid "<key>Right</key> to move the worm right"
+msgstr "<key>→</key> pro pohyb červa doprava"
+
+#: C/controls-default.page:47(note/p)
 msgid ""
-"Starting <application>Nibbles</application> opens the <interface>main "
-"window</interface> shown below. <placeholder-1/>"
+"You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
-"Po spuštění <application>Červíků</application> se otevře <interface>hlavní "
-"okno</interface>, které můžete vidět níže. <placeholder-1/>"
+"Výchozí ovládání si můžete <link xref=\"controls-change\">změnit</link>."
 
-#: C/gnibbles.xml:196(para)
+#: C/controls-default.page:51(page/p)
 msgid ""
-"To start the game, select <menuchoice><guimenu>Game</"
-"guimenu><guimenuitem>New Game</guimenuitem></menuchoice>."
+"All worm movements happen with respect to the screen unless <link xref=\"rel-"
+"movement\">relative movement</link> is enabled. This means that when you "
+"press <key>Left</key> the worm moves towards the left of the screen, when "
+"you press <key>Right</key> the worm moves towards the right of the screen "
+"and so on."
 msgstr ""
-"Hru započnete volbou <menuchoice><guimenu>Hra</guimenu><guimenuitem>Nová</"
-"guimenuitem></menuchoice>."
+"Všechny pohyby červů jsou vztaženy vůči obrazovce, ledaže zapnete <link "
+"xref=\"rel-movement\">relativní pohyby</link>. To znamená, že když zmáčknete "
+"<key>←</key>, červ se bude bude pohybovat směrem k levému okraji obrazovky, "
+"když zmáčknete <key>→</key>, bude se pohybovat k pravému okraji apod."
 
-#: C/gnibbles.xml:206(title)
-msgid "Nibbles During Gameplay"
-msgstr "Průběh hraní Červíků"
-
-#: C/gnibbles.xml:213(phrase)
-msgid "Nibbles During Gameplay."
-msgstr "Hra Červíci během hraní."
-
-#: C/gnibbles.xml:200(para)
+#: C/fake-bonus.page:22(info/desc)
 msgid ""
-"When the game starts, the worm will come out of the left side of the screen. "
-"You use the up arrow to make the direction of the worm go up. Use the right "
-"arrow to turn the worm right, left arrow to turn the worm left, and down "
-"arrow to turn the worm down. <placeholder-1/>"
+"Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
-"Jakmile hra započne, po obrazovce zleva vyrazí červ. Použijte šipku nahoru, "
-"abyste ho přinutili lézt nahoru, šipku vpravo, aby lezl doprava, šipku "
-"vlevo, aby lezl doleva a šipku dolů, aby lezl dolů. <placeholder-1/>"
+"Používejte v <app>Červících</app> falešné bonusy, ať je hra více dobrodružná."
 
-#: C/gnibbles.xml:229(title)
-msgid "Menus"
-msgstr "Nabídky"
+#: C/fake-bonus.page:26(page/title)
+msgid "What are fake bonuses?"
+msgstr "Co jsou to falešné bonusy?"
 
-#: C/gnibbles.xml:230(para)
+#: C/fake-bonus.page:28(page/p)
 msgid ""
-"The menu bar, located at the top of the <interface>Main Window</interface>, "
-"contains the following menus:"
+"Fake bonuses look like regular bonus shapes but do not give you any points "
+"when your worm swallows them. They cause a reversal in the movement of your "
+"worm."
 msgstr ""
-"Panel nabídek, který se nachází v horní části <interface>hlavního okna</"
-"interface>, obsahuje následující nabídky:"
+"Falešné bonusy vypadají vzhledově jako normální bonusy, ale nepřidají vám "
+"žádné body, když je spolknete. Navíc způsobí obrácení pohybu vašeho červa."
 
-#: C/gnibbles.xml:237(guimenu)
-msgid "Game"
-msgstr "Hra"
+#: C/fake-bonus.page:32(page/p)
+msgid "To enable fake bonuses:"
+msgstr "Když chcete falešné bonusy povolit:"
 
-#: C/gnibbles.xml:243(para)
+#: C/fake-bonus.page:39(item/p)
 msgid ""
-"<menuchoice><shortcut><keysym>Ctrl+N</keysym></shortcut><guimenuitem>New "
-"Game</guimenuitem></menuchoice> This starts a new game of "
-"<application>Nibbles</application>."
+"Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
+"is unchecked."
 msgstr ""
-"<menuchoice><shortcut><keysym>Ctrl+N</keysym></shortcut><guimenuitem>Nová</"
-"guimenuitem></menuchoice> Tímto začnete novou hru <application>Červíků</"
-"application>."
+"V případě, že políčko <gui style=\"checkbox\">Povolit falešné bonusy</gui> "
+"není zaškrtnuté, zaškrtněte jej."
 
-#: C/gnibbles.xml:254(para)
+#: C/fake-bonus.page:43(item/p)
+msgid "Click <gui>Close</gui>."
+msgstr "Klikněte na <gui>Zavřít</gui>."
+
+#: C/fake-bonus.page:48(note/p)
 msgid ""
-"<menuchoice><guimenuitem>Scores</guimenuitem></menuchoice> This shows the "
-"high scores."
+"Set all preferences before starting a new game. Preferences cannot be "
+"changed in the middle of a game."
 msgstr ""
-"<menuchoice><guimenuitem>Skóre</guimenuitem></menuchoice> Tímto zobrazíte "
-"tabulku nejvyšších skóre."
+"Všechny předvolby si upravte před započetím nové hry. Během hry je nejde "
+"měnit."
 
-#: C/gnibbles.xml:262(para)
+#: C/multi-player.page:24(info/desc)
+msgid "Play <app>Nibbles</app> with additional players."
+msgstr "Hrejte <app>Červíky</app> spolu s dalšími hráči."
+
+#: C/multi-player.page:27(page/title)
+msgid "Multi-player games"
+msgstr "Hra pro více hráčů"
+
+#: C/multi-player.page:29(page/p)
 msgid ""
-"<menuchoice><guimenuitem>Pause game</guimenuitem></menuchoice> This will "
-"pause your game. Click on the <quote>Pause Game </quote> menu option to "
-"resume game."
+"<app>Nibbles</app> can be played by up to six players. While a player "
+"controls <gui>Worm 1</gui> in a single-player game, players can additionally "
+"control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A two-"
+"player game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>, a "
+"three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
+"and <gui>Worm 3</gui> and so on."
 msgstr ""
-"<menuchoice><guimenuitem>Pozastavit</guimenuitem></menuchoice> Tímto svoji "
-"hru pozastavíte. Opětovným kliknutím na nabídku <quote>Pozastavit</quote> "
-"hru znovu rozjedete."
+"Hru <app>Červíci</app> může hrát až šest hráčů naráz. Zatímco ve hře pro "
+"jednoho hráče ovládá hráč <gui>Červa 1</gui>, ve hře pro více hráčů mohou "
+"další hráči ovládat <gui>Červa 2</gui> až <gui>Červa 6</gui>. Ve hře pro dva "
+"hráče ovládáte <gui>Červa 1</gui> a <gui>Červa 2</gui>, ve hře pro tři hráče "
+"<gui>Červa 1</gui>, <gui>Červa 2</gui> a <gui>Červa 3</gui> atd."
 
-#: C/gnibbles.xml:271(para)
+#: C/multi-player.page:37(section/title)
+msgid "Choose the number of players"
+msgstr "Volba počtu hráčů"
+
+#: C/multi-player.page:39(section/p)
 msgid ""
-"<menuchoice><guimenuitem>End Game</guimenuitem></menuchoice> End the current "
-"game and return to the title screen."
+"<app>Nibbles</app> can be played by up to six players. To set the number of "
+"players:"
 msgstr ""
-"<menuchoice><guimenuitem>Ukončit hru</guimenuitem></menuchoice> Tímto "
-"ukončíte současnou hru a vrátíte se na úvodní obrazovku."
+"<app>Červíky</app> může hrát až šest hráčů. Jejich počet určíte následovně:"
 
-#: C/gnibbles.xml:279(para)
+#: C/multi-player.page:48(item/p)
 msgid ""
-"<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Exit</"
-"guimenuitem></menuchoice> This quits the application."
+"Set the <gui style=\"input\">Number of human players</gui> to the required "
+"number, a maximum of 6. You can do this by using the <gui style=\"button\">"
+"+</gui> or <gui style=\"button\">-</gui> buttons or by entering the number "
+"of players from the keyboard in the space provided."
 msgstr ""
-"<menuchoice><shortcut><keysym>Ctrl-Q</keysym></"
-"shortcut><guimenuitem>Ukončit</guimenuitem></menuchoice> Tímto ukončíte "
-"celou aplikaci."
+"Nastavte <gui style=\"input\">Počet lidských hráčů</gui> na požadované "
+"množství, maximum je 6. Můžete buď použít tlačítka <gui style=\"button\">+</"
+"gui> a <gui style=\"button\">-</gui> nebo do příslušného políčka zadat počet "
+"hráčů z klávesnice."
 
-#: C/gnibbles.xml:239(para) C/gnibbles.xml:297(para) C/gnibbles.xml:316(para)
-#: C/gnibbles.xml:336(para)
-msgid "This menu contains: <placeholder-1/>"
-msgstr "Tato nabídka obsahuje: <placeholder-1/>"
-
-#: C/gnibbles.xml:295(guimenu)
-msgid "View"
-msgstr "Zobrazit"
-
-#: C/gnibbles.xml:301(para)
+#: C/multi-player.page:57(note/p)
 msgid ""
-"<menuchoice><guimenuitem>Fullscreen</guimenuitem></menuchoice> This toggles "
-"your game window to be fullscreen."
+"You can watch a <app>Nibbles</app> game without participating. To observe a "
+"game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
+"set the <gui style=\"input\">Number of AI players</gui> to any number "
+"between 1 and 6."
 msgstr ""
-"<menuchoice><guimenuitem>Celá obrazovka</guimenuitem></menuchoice> Tímto "
-"přepínáte okno se svojí hrou na celou obrazovku."
+"Hru <app>Červíci</app> můžete také sledovat, aniž byste se jí vůbec museli "
+"účastnit. Čistě pro sledování hry nastavte <gui style=\"input\">Počet "
+"lidských hráčů</gui> na 0 a <gui style=\"input\">Počet umělých hráčů</gui> v "
+"rozmezí 1 až 6."
 
-#: C/gnibbles.xml:314(guimenu)
-msgid "Settings"
-msgstr "Nastavení"
+#: C/preferences.page:22(info/desc)
+msgid "Change default speed, worm color, level order and sound settings."
+msgstr "Změňte výchozí rychlost, barvu červů, pořadí úrovní a nastavení zvuku."
 
-#: C/gnibbles.xml:320(para)
+#: C/preferences.page:25(page/title)
+msgid "Edit general preferences"
+msgstr "Jak upravit obecné předvolby"
+
+#: C/preferences.page:27(page/p)
 msgid ""
-"<menuchoice><guimenuitem>Preferences</guimenuitem></menuchoice> This opens "
-"your window to edit <link linkend=\"prefs\"> preferences.</link>"
+"The general preferences for <app>Nibbles</app> can be changed by selecting "
+"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
 msgstr ""
-"<menuchoice><guimenuitem>Předvolby</guimenuitem></menuchoice> Tímto otevřete "
-"dialogové okno, ve kterém můžete měnit <link linkend=\"prefs\">nastavení "
-"hry</link>."
+"Obecné předvolby <app>Červíků</app> najdete pod <guiseq><gui style=\"menu"
+"\">Nastavení</gui> <gui style=\"menuitem\">Předvolby</gui></guiseq>."
 
-#: C/gnibbles.xml:334(guimenu)
-msgid "Help"
-msgstr "Nápověda"
-
-#: C/gnibbles.xml:340(para)
-msgid ""
-"<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Contents</"
-"guimenuitem></menuchoice> Display this manual."
-msgstr ""
-"<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Obsah</"
-"guimenuitem></menuchoice> Zobrazí tuto příručku."
-
-#: C/gnibbles.xml:349(para)
-msgid ""
-"<guimenuitem>About</guimenuitem> This opens the <interface>About</interface> "
-"dialog which shows basic information about <application>Nibbles</"
-"application>, such as the author's name, the version number of the game."
-msgstr ""
-"<menuchoice><guimenuitem>O aplikaci</guimenuitem></menuchoice> Tímto "
-"otevřete dialogové okno <interface>O aplikaci</interface>, které zobrazuje "
-"základní informace o hře <application>Červíci</application>, jako je jméno "
-"autora a číslo verze aplikace."
-
-#: C/gnibbles.xml:364(title)
-msgid "Diamonds"
-msgstr "Diamanty"
-
-#: C/gnibbles.xml:365(para)
-msgid ""
-"<application>Nibbles</application> has numerous different diamonds to eat. "
-"They are each a different color and serve a different function. Only the "
-"pale purple diamond is guaranteed to be around long enough for you to eat it "
-"(in fact, you have to eat them to finish the level). The other diamonds are "
-"all bonuses, but they only stick around for a short time. We'll leave it up "
-"to you to discover just what the bonus each colour gives, but they all "
-"affect either the score, the length of the worm, or both. Be careful when "
-"going for these bonus diamonds, don't cut yourself off from the ordinary "
-"diamonds that you need to finish the level."
-msgstr ""
-"<application>Červíci</application> mají k jídlu četné druhy diamantů. Každý "
-"má jinou barvu a slouží k jinému účelu. Pouze bledě fialový diamant je "
-"zárukou, že se dostatečně prodloužíte, když ho sníte (ve skutečnosti jej "
-"musíte sníst, abyste dokončili úroveň). Všechny další diamanty jsou bonusy, "
-"ale objevují se jen na chvíli. Necháváme na vás, abyste objevili, co bonus "
-"které barvy přináší, všechny však mají vliv buď na vaše skóre nebo délku "
-"červa nebo obojí. Buďte obezřetní, když jdete pro tyto bonusové diamanty, "
-"neodřízněte se od běžných diamantů, které potřebujete pro dokončení úrovně."
-
-#: C/gnibbles.xml:383(title)
-msgid "Customization"
-msgstr "Přizpůsobení"
-
-#: C/gnibbles.xml:384(para)
-msgid ""
-"To change the application settings, select <menuchoice><guimenu>Settings</"
-"guimenu><guimenuitem>Preferences</guimenuitem></menuchoice>. This opens the "
-"<interface>Preferences</interface> dialog. All preferences are automatically "
-"saved and applied as you change them."
-msgstr ""
-"Pokud chcete změnit nastavení aplikace, zvolte "
-"<menuchoice><guimenu>Nastavení</guimenu><guimenuitem>Předvolby</"
-"guimenuitem></menuchoice>. Tím se otevře dialogové okno <interface>Předvolby "
-"Červíků</interface> . Všechny předvolby se automaticky uloží a použijí, "
-"jakmile je změníte."
-
-#: C/gnibbles.xml:395(title)
-msgid "Game Preferences Tab"
-msgstr "Karta Hra v předvolbách."
-
-#: C/gnibbles.xml:402(phrase)
-msgid "Game Preferences Tab."
-msgstr "Karta Hra v dialogovém okně předvoleb."
-
-#: C/gnibbles.xml:412(term)
+#: C/preferences.page:32(section/title)
 msgid "Speed"
 msgstr "Rychlost"
 
-#: C/gnibbles.xml:414(para)
-msgid "This controls the speed of the worm."
-msgstr "Tímto se ovládá rychlost červů."
+#: C/preferences.page:34(section/p)
+msgid ""
+"There are four available speeds in <app>Nibbles</app>. These are, in "
+"increasing order:"
+msgstr ""
+"K dispozici jsou čtyři různé rychlosti <app>Červíků</app>. Ve vzestupném "
+"pořadí to jsou:"
 
-#: C/gnibbles.xml:420(term)
+#: C/preferences.page:39(item/p)
+#| msgid "Nibbles Objective"
+msgid "Nibbles Newbie"
+msgstr "Nováček v červících"
+
+#: C/preferences.page:42(item/p)
+msgid "My second day"
+msgstr "Můj druhý den"
+
+#: C/preferences.page:45(item/p)
+msgid "Not too shabby"
+msgstr "Ne moc špatný"
+
+#: C/preferences.page:48(item/p)
+msgid "Finger twitching good"
+msgstr "Tak dobrý, že má křeč v prstech"
+
+#: C/preferences.page:52(section/p)
+msgid ""
+"Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
+"speed choices given on the left hand side."
+msgstr ""
+"Rychlost můžete změnit v <guiseq><gui style=\"menu\">Nastavení</gui> <gui "
+"style=\"menuitem\">Předvolby</gui></guiseq> výběrem jedné ze čtyř rychlostí "
+"nabízených po levé straně."
+
+#: C/preferences.page:59(section/title)
+msgid "Change worm colors"
+msgstr "Změna barvy červa"
+
+#: C/preferences.page:61(section/p)
+msgid "There are seven available worm colors:"
+msgstr "K dispozici je sedm barev červů:"
+
+#: C/preferences.page:65(item/p)
+msgid "<_:media-1/> Red"
+msgstr "<_:media-1/> červený"
+
+#: C/preferences.page:69(item/p)
+msgid "<_:media-1/> Green"
+msgstr "<_:media-1/> zelený"
+
+#: C/preferences.page:73(item/p)
+msgid "<_:media-1/> Blue"
+msgstr "<_:media-1/> modrý"
+
+#: C/preferences.page:77(item/p)
+msgid "<_:media-1/> Yellow"
+msgstr "<_:media-1/> žlutý"
+
+#: C/preferences.page:81(item/p)
+msgid "<_:media-1/> Cyan"
+msgstr "<_:media-1/> azurový"
+
+#: C/preferences.page:85(item/p)
+msgid "<_:media-1/> Purple"
+msgstr "<_:media-1/> purpurový"
+
+#: C/preferences.page:89(item/p)
+msgid "<_:media-1/> Gray"
+msgstr "<_:media-1/> šedý"
+
+#: C/preferences.page:94(section/p)
+msgid ""
+"These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq>."
+msgstr ""
+"Měnit je můžete v <guiseq><gui style=\"menu\">Nastavení</gui> <gui style="
+"\"menuitem\">Předvolby</gui></guiseq>."
+
+#: C/preferences.page:99(item/p)
+msgid ""
+"Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
+"edit."
+msgstr ""
+"Vyberte jednu z karet <gui>Červ x</gui> patřící červovi, kterého chcete "
+"upravit."
+
+#: C/preferences.page:103(item/p)
+msgid ""
+"On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
+"Pick a color out of the available colors in the drop-down menu to change the "
+"appearance of the worm."
+msgstr ""
+"Po levé straně uvidíte <gui style=\"group\">Barva červa</gui>. V "
+"rozbalovacím seznamu vedle si vyberte jednu z dostupných barev a tím vzhled "
+"červa změníte."
+
+#: C/preferences.page:112(section/title)
+msgid "Sounds"
+msgstr "Zvuky"
+
+#: C/preferences.page:114(section/p)
+msgid ""
+"You can enable or disable sounds in <app>Nibbles</app> by checking or "
+"unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
+"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
+msgstr ""
+"Zvuky ve hře <app>Červíci</app> můžete povolit nebo zakázat zaškrtnutím nebo "
+"zrušením zaškrtnutí políčka <gui style=\"checkbox\">Povilit zvuky</gui> v "
+"<guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
+"\">Předvolby</gui></guiseq>."
+
+#: C/preferences.page:122(section/title)
 msgid "Play levels in random order"
-msgstr "Hrát úrovně v náhodném pořadí"
+msgstr "Hraní úrovní v náhodném pořadí"
 
-#: C/gnibbles.xml:422(para)
-msgid "Selecting this causes the level advancement to happen in random order."
-msgstr "Tato volba způsobí, že pokročilost úrovní se vybírá v náhodném pořadí."
-
-#: C/gnibbles.xml:429(term)
-msgid "Enable fake bonuses"
-msgstr "Povolit falešné bonusy"
-
-#: C/gnibbles.xml:431(para)
+#: C/preferences.page:124(section/p)
 msgid ""
-"When enabled, this allows for two blue diamonds on the screen at a time. One "
-"diamond makes you shrink instead of grow when eaten."
+"Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
+"gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
+"\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
+"<app>Nibbles</app> in random order."
 msgstr ""
-"Když to povolíte, mohou se na obrazovce objevovat naráz dva modré diamanty. "
-"Jeden z nich, když ho sníte, způsobí vaše scvrknutí místo růstu."
+"Pro hraní různých úrovní <app>Červíků</app> v náhodném pořadí zaškrtněte "
+"políčko <gui style=\"checkbox\">Hrát úrovně v náhodném pořadí</gui> v "
+"<guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
+"\">Předvolby</gui></guiseq>."
 
-#: C/gnibbles.xml:439(term)
-msgid "Enable sounds"
-msgstr "Povolit zvuky"
-
-#: C/gnibbles.xml:441(para)
-msgid "Controls the use of sound in the game."
-msgstr "Ovládá používání zvuků ve hře."
-
-#: C/gnibbles.xml:447(term)
-msgid "Starting level"
-msgstr "Počáteční úroveň"
-
-#: C/gnibbles.xml:449(para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:41(media)
+msgctxt "_"
 msgid ""
-"Which level to start with. Use this if you want to jump immediately to a "
-"challenging level."
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
 msgstr ""
-"V které úrovni se začíná. To využijete, když chcete ihned skočit do "
-"složitější úrovně."
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
 
-#: C/gnibbles.xml:456(term)
-msgid "Number of human players"
-msgstr "Počet lidských hráčů"
-
-#: C/gnibbles.xml:458(para)
-msgid "There is room for up to six players."
-msgstr "Je zde prostor až pro šest hráčů."
-
-#: C/gnibbles.xml:464(term)
-msgid "Number of AI players"
-msgstr "Počet počítačových hráčů"
-
-#: C/gnibbles.xml:466(para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:48(media)
+msgctxt "_"
 msgid ""
-"There is room for up to six AI players. Note that the total number of human "
-"and AI players must be less than or equal to six."
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 msgstr ""
-"Je zde prostor až pro šest hráčů s umělou inteligencí. Upozorňujeme, že "
-"celkový počet lidských a počítačových hráčů musí být dohromady menší nebo "
-"roven šesti."
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 
-#: C/gnibbles.xml:408(para)
+#: C/rel-movement.page:22(info/desc)
+msgid "Enable relative movement."
+msgstr "Povolte relativní pohyb."
+
+#: C/rel-movement.page:25(page/title)
+msgid "Relative movement"
+msgstr "Relativní pohyb"
+
+#: C/rel-movement.page:27(page/p)
 msgid ""
-"The properties in the <guilabel>Game</guilabel> tab are: <placeholder-1/>"
-msgstr "Vlastnosti na kartě <guilabel>Hra</guilabel> jsou: <placeholder-1/>"
-
-#: C/gnibbles.xml:477(title)
-msgid "Worm Preferences Tab"
-msgstr "Karta s vlastnostmi červa v předvolbách"
-
-#: C/gnibbles.xml:484(phrase)
-msgid "Worm Preferences Tab."
-msgstr "Karta s vlastnostmi červa v dialogovém okně předvoleb."
-
-#: C/gnibbles.xml:495(term)
-msgid "Keyboard controls"
-msgstr "Ovládání klávesnicí"
-
-#: C/gnibbles.xml:497(para)
-msgid ""
-"This list let you change the keyboard controls for the given worm. To change "
-"a control, double click on the appropriate entry and then press the key you "
-"want to use for that control."
+"When relative movement is enabled, the worm is manouvered using just the "
+"default <key>Left</key> and <key>Right</key> keys or other <link xref="
+"\"controls-change\">customized keys</link> that control the leftward and "
+"rightward movement of a worm. When the <key>Left</key> key is pressed, the "
+"worm turns left, instead of moving towards the left of the screen. "
+"Similarly, when the <key>Right</key> key is pressed, the worm turns right "
+"instead of moving towards the right of the screen."
 msgstr ""
-"Tento seznam vám dovoluje měnit klávesové zkratky pro daného červa. Když "
-"chcete ovládání změnit, dvojitě klikněte na příslušnou položku a stiskněte "
-"klávesu, kterou chcete k ovládání používat."
+"Když je zapnutý relativní pohyb, manévruje se červy pomocí výchozích kláves "
+"<key>←</key> a <key>→</key>, případně jinými <link xref=\"controls-change"
+"\">vlastními klávesami</link>, které ovládají pohyb ve směru doleva a "
+"doprava. Po zmáčknutí <key>←</key> červ zahne doleva, místo aby se začal "
+"pohybovat k levému okraji obrazovky. Obdobně po zmáčknutí <key>→</key> zahne "
+"doprava, namísto aby zamířil přímo v pravém směru obrazovky."
 
-#: C/gnibbles.xml:505(term)
-msgid "Use relative motion"
-msgstr "Používat relativní pohyb"
+#: C/rel-movement.page:39(figure/title)
+msgid "Starting postion:"
+msgstr "Počáteční pozice:"
 
-#: C/gnibbles.xml:507(para)
+#: C/rel-movement.page:40(figure/desc)
+msgid "The location of the worm before you decide to move it."
+msgstr "Poloha červa než se rozhodnete jej ovlivnit."
+
+#: C/rel-movement.page:46(figure/title)
+msgid "On pressing the <key>Left</key> key:"
+msgstr "Po zmáčknutí klávesy <key>←</key>:"
+
+#: C/rel-movement.page:47(figure/desc)
+msgid "The worm turns left and begins to move downwards."
+msgstr "Červ zahnul doleva a začal se pohybovat dolů."
+
+#: C/rel-movement.page:55(note/p)
 msgid ""
-"Rather than left sending your worm toward the left of the screen, right "
-"toward the right and so on, the left and right keys make the worm perform a "
-"left or right turn. For example, if the worm is moving to the left and you "
-"press the left control it turns to head toward the bottom of the screen."
+"If relative movement was not enabled, you would press the <key>Down</key> "
+"key to achieve the above result."
 msgstr ""
-"Místo aby vlevo posílalo vašeho červa doleva po obrazovce, vpravo doprava "
-"atd., tak klávesy vlevo a vpravo nutí červa zahýbat vlevo a vpravo. "
-"Například, když se červ sune doleva a vy zmáčknete ovládání vlevo, tak zahne "
-"po obrazovce směrem dolů."
+"Kdyby nebyl zapnutý relativní pohyb, dosáhli byste stejného výsledku "
+"zmáčknutím klávesy <key>↓</key>."
 
-#: C/gnibbles.xml:517(term)
-msgid "Worm color"
-msgstr "Barva červa"
+#: C/rel-movement.page:62(page/p)
+msgid "To enable relative movement:"
+msgstr "Když chcete zapnout relativní pohyb:"
 
-#: C/gnibbles.xml:519(para)
+#: C/rel-movement.page:70(item/p)
 msgid ""
-"Customize the color of your worm so you can tell it from your opponent's "
-"worm in multi-player mode."
+"Select the worm for which relative movement has to be enabled by clicking "
+"the appropriate <gui>Worm</gui> tab."
 msgstr ""
-"Přizpůsobte si barvu svého červa, abyste jej rozlišili od protivníků ve hře "
-"s více hráči."
+"Vyberte červa, pro kterého chcete relativní pohyb povolit, kliknutím na "
+"příslušnou kartu <gui>Červ x</gui>."
 
-#: C/gnibbles.xml:474(para)
+#: C/rel-movement.page:74(item/p)
 msgid ""
-"<placeholder-1/> The properties in the <guilabel>Worm 1 </guilabel>through "
-"<guilabel> Worm 6</guilabel> tabs let you set individual preferences for the "
-"different worms. <placeholder-2/>"
+"Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
+"is unchecked."
 msgstr ""
-"<placeholder-1/> Vlastnosti na kartách <guilabel>Červ 1 </guilabel> až "
-"<guilabel>Červ 6</guilabel> vám umožňují nastavit předvolby odlišně pro "
-"každého jednotlivého červa. <placeholder-2/>"
+"V případě, že není zaškrtnuté políčko <gui style=\"checkbox\">Používat "
+"relativní pohyb</gui>, zaškrtněte jej."
 
-#: C/gnibbles.xml:534(title)
-msgid "Authors"
-msgstr "Autoři"
+#: C/rel-movement.page:78(item/p)
+msgid "Click <gui style=\"button\">Close</gui>."
+msgstr "Klikněte na <gui style=\"button\">Zavřít</gui>."
 
-#: C/gnibbles.xml:535(para)
+#: C/scores.page:18(info/desc)
+msgid "Swallow different bonuses to score points."
+msgstr "Spolykejte různé bonusy, abyste získali body."
+
+#: C/scores.page:21(page/title)
+msgid "Scoring points in <app>Nibbles</app>"
+msgstr "Hodnocení body ve hře <app>Červíci</app>"
+
+#: C/scores.page:23(page/p)
 msgid ""
-"<application>Nibbles</application> was written by Sean MacIsaac "
-"<email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This "
-"manual was written by Kevin Breit <email>battery841@mypad.com</email>. "
-"Nibbles was updated with network support by Andreas Røsdal "
-"<email>andreasr@gnome.org</email>. To report a bug or make a suggestion "
-"regarding this application or this manual, follow the directions in this "
-"<ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
+"You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
+"different kinds of bonuses in Nibbles:"
 msgstr ""
-"Hru <application>Červíci</application> napsali Sean MacIsaac <email>sjm@acm."
-"org</email> a Ian Peters <email>itp@gnu.org</email>. Tuto příručku napsal "
-"Kevin Breit <email>battery841@mypad.com</email>. Červíky aktualizoval na "
-"verzi se síťovou podporou Andreas Røsdal <email>andreasr@gnome.org</email>. "
-"Pokud chcete nahlásit chybu nebo podat návrh týkající se této aplikace nebo "
-"tohoto návodu, tak se řiďte instrukcemi v tomto <ulink url=\"ghelp:user-"
-"guide?feedback-bugs\" type=\"help\">dokumentu</ulink>."
+"Body do skóre můžete ve hře <app>Červíci</app> získat pojídáním bonusů. "
+"Bonusů existuje 5 různých druhů:"
 
-#: C/gnibbles.xml:561(title)
-msgid "License"
-msgstr "Licence"
-
-#: C/gnibbles.xml:562(para)
+#: C/scores.page:27(item/p)
 msgid ""
-"This program is free software; you can redistribute it and/or modify it "
-"under the terms of the <ulink type=\"help\" url=\"help:gpl"
-"\">GNU General Public License</ulink> as published by "
-"the Free Software Foundation; either version 2 of the License, or (at your "
-"option) any later version."
+"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the donut vary from level "
+"to level and are multiples of the level number. In level 1, the first donut "
+"will give you 1 point, the second donut will give you 2 points, the third "
+"donut will give you 3 points and so on. In level 2, the first donut will "
+"give you 2 points, the second donut will give you 4 points, the third donut "
+"will give you 6 points and so on. In level 26, therefore, the first donut "
+"will give you 26 points, the second donut will give you 52 points and so on."
 msgstr ""
-"Tento program je svobodný software. Můžete jej dále šířit a/nebo upravovat "
-"za dodržení podmínek <ulink type=\"help\" url=\"help:gpl"
-"\">GNU General Public License</ulink>, tak jak ji "
-"vydala Free Software Foundation ve verzi 2 nebo (dle vaší volby) novější."
+"Bonus ve tvaru koblížku <_:media-1/>: Tento bonus způsobí prodloužení červa. "
+"Body získané snězením koblížku odvisí podle úrovně a jsou násobkem čísla "
+"úrovně. V úrovni 1 vám dá první koblížek 1 bod, druhý 2 body, třetí 3 body "
+"atd. V úrovni 2 vám dá první koblížek 2 body, druhý 4 body, třetí 6 bodů "
+"atd. Analogicky v úrovni 26 vám dá první koblížek 26 bodů, drůhý 52 bodů atd."
 
-#: C/gnibbles.xml:570(para)
+#: C/scores.page:39(note/p)
 msgid ""
-"This program is distributed in the hope that it will be useful, but WITHOUT "
-"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
-"FITNESS FOR A PARTICULAR PURPOSE. See the <citetitle>GNU General Public "
-"License</citetitle> for more details."
+"The donut order count does not depend on the number of donuts already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first donut, "
+"he scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
+"third player may choose to not eat any donuts till the tenth donut and score "
+"10 points at once."
 msgstr ""
-"Tento program je šířen s přesvědčením, že může být užitečný, ale BEZ "
-"JAKÝCHKOLIV ZÁRUK, bez předpokládané záruky na OBCHODOVATELNOST nebo "
-"VHODNOST PRO URČITÝ ÚČEL. Více podrobností najdete v <citetitle>GNU General "
-"Public License</citetitle>."
+"Pořadí koblížků nesouvisí s počtem kliblížků, které červ již snědl. Když je "
+"hra v úrovni 1 a hráč 1 sní první koblížek, dostane 1 bod. Když hráč 2 sní "
+"druhý koblížek dostane 2 body. Třetí hráč nemusí ze začítku sníst žádný a "
+"počkat si třeba až na desátý koblížek a pak dostane 10 bodů naráz."
 
-#: C/gnibbles.xml:576(para)
+#: C/scores.page:47(item/p)
 msgid ""
-"A copy of the <citetitle>GNU General Public License</citetitle> is included "
-"as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
-"obtain a copy of the <citetitle>GNU General Public License</citetitle> from "
-"the Free Software Foundation by visiting <ulink type=\"http\" url=\"http://"
-"www.fsf.org\">their Web site</ulink> or by writing to <address> Free "
-"Software Foundation, Inc. 59 Temple Place - Suite 330 Boston, MA 02111-1307 "
-"USA </address>"
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
+"does not cause an increase in the length of your worm."
 msgstr ""
-"Kopie <citetitle>GNU General Public License</citetitle> je zahrnuta v "
-"dodatku <citetitle>Uživatelské přiručky GNOME</citetitle>. Kopii "
-"<citetitle>GNU General Public License</citetitle> můžete také získat od Free "
-"Software Foundation navštívením <ulink type=\"http\" url=\"http://www.fsf.org"
-"\">jejich webu</ulink> nebo zasláním žádosti na <address> Free Software "
-"Foundation, Inc. <street>59 Temple Place</street> - Suite 330 <city>Boston</"
-"city>, <state>MA</state><postcode>02111-1307</postcode><country>USA</"
-"country></address>"
+"Bonus ve tvaru srdce <_:media-1/>: Tento bonus vám přidá navíc jeden život a "
+"nezpůsobí prodloužení červa."
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
-#: C/gnibbles.xml:0(None)
-msgid "translator-credits"
-msgstr "Marek Černocký <marek@manet.cz>"
+#: C/scores.page:52(note/p)
+msgid ""
+"The number of lives remaining for a worm is given by the number on the left "
+"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
+"lives remaining."
+msgstr ""
+"Počet životů, které červu zbývají, je uveden číslem před čárkou ve skóre "
+"červa. Když má například skóre 10,005, zbývá mu 10 životů."
+
+#: C/scores.page:57(note/p)
+msgid ""
+"You cannot get extra lives by scoring 10,000 points or more. If you have "
+"scored 12345 points with 10 lives remaining, your score will be 10,12345."
+msgstr ""
+"Nemůžete získat další životy pomocí skóre 10 000 bodů a více. Když máte "
+"skóre 12345 s 10 zbývajícími životy, bude vaše skóre 10,12345."
+
+#: C/scores.page:63(item/p)
+msgid ""
+"The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
+"increase in the length of the worm and does not give you any points. It "
+"causes a reversal in the movement of all the other worms in the game."
+msgstr ""
+"Bonus ve tvaru diamantu <_:media-1/>: Tento bonus způsobní prodloužení červa "
+"a nepřidá vám žádné body. Způsobí také obrácení pohybu všech ostatních červů "
+"ve hře."
+
+#: C/scores.page:69(note/p)
+msgid "This bonus has no effect in a single-player game."
+msgstr "Tento bonus nemá žádný vliv ve hře pro jednoho hráče."
+
+#: C/scores.page:73(item/p)
+msgid ""
+"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
+"increase in the length of the worm than the donut-shaped bonus. The points "
+"given by this bonus vary depending on the level number and the length of the "
+"worm. Higher the level number and longer the worm, more the points scored on "
+"eating this bonus."
+msgstr ""
+"Bonus ve tvaru zmrzlinky <_:media-1/>: Tento bonus způsobí významně větší "
+"prodloužení červa, než bonus ve tvaru koblížku. Body přidělené za tento "
+"bonus značně závisí na čísle úrovně a délce červa. Čím vyšší úroveň a delší "
+"červ, tím víc bodů snězením tohoto bonusu získáte."
+
+#: C/scores.page:82(item/p)
+msgid ""
+"The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
+"length of the worm. The points given by this bonus depend on the level "
+"number and the length of the worm. Higher the level number and longer the "
+"worm, more the points scored on eating this bonus."
+msgstr ""
+"Bonus ve tvaru třešínek <_:media-1/>: Tento bonus způsobí zkrácení délky "
+"červa. Body přidělené za tento bonus záleží na čísle úrovně a délce červa. "
+"Čím vyšší úroveň a delší červ, tím víc bodů snězením tohoto bonusu získáte."
+
+#: C/legal.xml:4(p/link)
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+
+#: C/legal.xml:3(license/p)
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Tato práce je vydána pod licencí <_:link-1/>"
