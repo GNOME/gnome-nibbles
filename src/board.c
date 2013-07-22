@@ -184,12 +184,15 @@ gnibbles_board_load_level (GnibblesBoard *board)
 
   clutter_actor_set_opacity (board->level, 0);
   clutter_actor_set_scale (CLUTTER_ACTOR (board->level), 0.2, 0.2);
-  clutter_actor_animate (board->level, CLUTTER_EASE_OUT_BOUNCE, 1210,
-                         "opacity", 0xff,
-                         "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                         "scale-x", 1.0,
-                         "scale-y", 1.0,
-                         NULL);
+ 
+  clutter_actor_save_easing_state(board->level);
+  clutter_actor_set_easing_mode (board->level, CLUTTER_EASE_OUT_BOUNCE);
+  clutter_actor_set_easing_duration (board->level, 1210);
+  clutter_actor_set_scale (board->level, 1.0, 1.0);
+  clutter_actor_set_pivot_point (board->level,.5,.5);
+  clutter_actor_set_opacity (board->level, 0xff);
+  clutter_actor_restore_easing_state(board->level);
+
 }
 
 void

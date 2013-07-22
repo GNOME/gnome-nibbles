@@ -337,10 +337,12 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 static void
 worm_grok_scale_down (ClutterAnimation *animation, ClutterActor *actor)
 {
-  clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUINT, 420,
-                         "scale-x", 1.0, "scale-y", 1.0,
-                         "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                         NULL);
+  clutter_actor_save_easing_state(actor);
+  clutter_actor_set_easing_mode (actor, CLUTTER_EASE_OUT_QUINT);
+  clutter_actor_set_easing_duration (actor, 420);
+  clutter_actor_set_scale (actor, 1.0, 1.0);
+  clutter_actor_set_pivot_point (actor,.5,.5);
+  clutter_actor_restore_easing_state(actor);
 }
 
 static void
@@ -564,12 +566,15 @@ gnibbles_worm_show (GnibblesWorm *worm)
 {
   clutter_actor_set_opacity (worm->actors, 0);
   clutter_actor_set_scale (worm->actors, 3.0, 3.0);
-  clutter_actor_animate (worm->actors, CLUTTER_EASE_OUT_CIRC, 910,
-                         "scale-x", 1.0,
-                         "scale-y", 1.0,
-                         "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                         "opacity", 0xff,
-                         NULL);
+
+  clutter_actor_save_easing_state(worm->actors);
+  clutter_actor_set_easing_mode (worm->actors, CLUTTER_EASE_OUT_CIRC);
+  clutter_actor_set_easing_duration (worm->actors, 910);
+  clutter_actor_set_scale (worm->actors, 1.0, 1.0);
+  clutter_actor_set_pivot_point (worm->actors,.5,.5);
+  clutter_actor_set_opacity (worm->actors, 0xff);
+  clutter_actor_restore_easing_state(worm->actors);
+
   worm->stop = FALSE;
 }
 
@@ -723,9 +728,11 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
     worm->length -= erasesize;
     clutter_actor_add_child (stage, group);
 
-    clutter_actor_animate (group, CLUTTER_EASE_OUT_EXPO, 850,
-                           "opacity", 0,
-                           NULL);
+    clutter_actor_save_easing_state(group);
+    clutter_actor_set_easing_mode (group, CLUTTER_EASE_OUT_EXPO);
+    clutter_actor_set_easing_duration (group, 850);
+    clutter_actor_set_opacity (group, 0);
+    clutter_actor_restore_easing_state(group);
   }
 }
 

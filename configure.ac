@@ -60,15 +60,15 @@ dnl ###########################################################################
 GTK_REQUIRED=3.4.0
 RSVG_REQUIRED=2.32.0
 CANBERRA_GTK_REQUIRED=0.26
-CLUTTER_REQUIRED=1.0.0
-CLUTTER_GTK_REQUIRED=0.91.6
+CLUTTER_REQUIRED=1.14.4
+CLUTTER_GTK_REQUIRED=1.2.0
 
 PKG_CHECK_MODULES(GNOME_NIBBLES, [
   gtk+-3.0 >= $GTK_REQUIRED
   librsvg-2.0 >= $RSVG_REQUIRED
   libcanberra-gtk3 >= $CANBERRA_GTK_REQUIRED
   clutter-1.0 >= $CLUTTER_REQUIRED
-  clutter-gtk-1.0 >= $CLUTTER_REQUIRED
+  clutter-gtk-1.0 >= $CLUTTER_GTK_REQUIRED
 ])
 
 dnl ###########################################################################

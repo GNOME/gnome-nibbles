@@ -98,7 +98,7 @@ gnibbles_bonus_draw (GnibblesBonus *bonus)
   if (err)
     gnibbles_error (err->message);
 
-  clutter_container_add_actor (CLUTTER_CONTAINER (stage), bonus->actor);
+  clutter_actor_add_child (stage, bonus->actor);
 
   clutter_actor_set_opacity (bonus->actor, 0);
   clutter_actor_set_scale (bonus->actor, 3.0, 3.0);
