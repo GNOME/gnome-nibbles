@@ -36,36 +36,6 @@ extern GnibblesProperties *properties;
 extern GnibblesBoard *board;
 extern ClutterActor *stage;
 
-static void animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor);
-static void animate_bonus2 (ClutterAnimation *animation, ClutterActor *actor);
-
-static void
-animate_bonus1 (ClutterAnimation *animation, ClutterActor *actor)
-{
-  g_signal_connect_after (
-    clutter_actor_animate (actor, CLUTTER_LINEAR, 1100,
-                           "scale-x", 1.22, "scale-y", 1.22,
-                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                           "opacity", 0xDC,
-                           NULL),
-     "completed", G_CALLBACK (animate_bonus2), actor);
-
-}
-
-static void
-animate_bonus2 (ClutterAnimation *animation, ClutterActor *actor)
-{
-  g_signal_connect_after (
-    clutter_actor_animate (actor, CLUTTER_LINEAR, 1100,
-                           "scale-x", 0.9, "scale-y", 0.9,
-                           "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                           "opacity", 0xFF,
-                           NULL),
-     "completed", G_CALLBACK (animate_bonus1), actor);
-
-}
-
-
 GnibblesBonus *
 gnibbles_bonus_new (gint t_x, gint t_y, gint t_type,
                     gint t_fake, gint t_countdown)
@@ -102,13 +72,15 @@ gnibbles_bonus_draw (GnibblesBonus *bonus)
 
   clutter_actor_set_opacity (bonus->actor, 0);
   clutter_actor_set_scale (bonus->actor, 3.0, 3.0);
-  //g_signal_connect_after (
-    clutter_actor_animate (bonus->actor, CLUTTER_EASE_OUT_BOUNCE, 800,
-                         "scale-x", 1.0, "scale-y", 1.0,
-                         "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                         "opacity", 0xff,
-                          NULL);
-  //"completed", G_CALLBACK (animate_bonus1), bonus->actor);
+
+  clutter_actor_save_easing_state(bonus->actor);
+  clutter_actor_set_easing_mode (bonus->actor, CLUTTER_EASE_OUT_BOUNCE);
+  clutter_actor_set_easing_duration (bonus->actor, 800);
+  clutter_actor_set_scale (bonus->actor, 1.0, 1.0);
+  clutter_actor_set_pivot_point (bonus->actor,.5,.5); 
+  clutter_actor_set_opacity (bonus->actor, 0xff);
+  clutter_actor_restore_easing_state(bonus->actor);
+
 }
 
 void

@@ -506,15 +506,14 @@ gnibbles_worm_animate_death (GnibblesWorm *worm)
 
   clutter_actor_add_child (stage, group);
 
-  clutter_actor_animate (group, CLUTTER_EASE_OUT_QUAD, 310,
-                         "opacity", 0,
-                         "scale-x", 2.0,
-                         "scale-y", 2.0,
-                         "fixed::scale-center-x",
-                         (gfloat) worm->xhead * properties->tilesize,
-                         "fixed::scale-center-y",
-                         (gfloat) worm->yhead * properties->tilesize,
-                         NULL);
+  clutter_actor_save_easing_state(group);
+  clutter_actor_set_easing_mode (group, CLUTTER_EASE_OUT_QUAD);
+  clutter_actor_set_easing_duration (group, 310);
+  clutter_actor_set_scale (group, 2.0, 2.0);
+  clutter_actor_set_pivot_point (group,.5,.5); 
+  clutter_actor_set_opacity (group, 0);
+  clutter_actor_restore_easing_state(group);
+
 }
 
 GnibblesWorm*
