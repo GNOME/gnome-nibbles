@@ -353,12 +353,14 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
   if ((board->walls[worm->xhead][worm->yhead] != EMPTYCHAR) &&
     (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
     actor = gnibbles_worm_get_head_actor (worm);
-    g_signal_connect_after (
-      clutter_actor_animate (actor, CLUTTER_EASE_OUT_QUINT, 420,
-                            "scale-x", 1.45, "scale-y", 1.45,
-                            "fixed::scale-gravity", CLUTTER_GRAVITY_CENTER,
-                            NULL),
-      "completed", G_CALLBACK (worm_grok_scale_down), actor);
+
+    clutter_actor_save_easing_state(actor);
+    clutter_actor_set_easing_mode (actor, CLUTTER_EASE_OUT_QUINT);
+    clutter_actor_set_easing_duration (actor, 420);
+    clutter_actor_set_scale (actor, 1.45, 1.45);
+    clutter_actor_set_pivot_point (actor,.5,.5);
+    clutter_actor_restore_easing_state(actor);
+
     gnibbles_worm_grok_bonus (worm);
 
     if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
