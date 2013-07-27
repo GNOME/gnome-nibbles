@@ -156,33 +156,6 @@ gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
   }
 }
 
-
-void
-gnibbles_boni_remove_bonus_final (GnibblesBoni * boni, gint x, gint y)
-{
-  int i;
-
-  for (i = 0; i < boni->numbonuses; i++) {
-    if ((x == boni->bonuses[i]->x &&
-        y == boni->bonuses[i]->y) ||
-        (x == boni->bonuses[i]->x + 1 &&
-        y == boni->bonuses[i]->y) ||
-        (x == boni->bonuses[i]->x &&
-        y == boni->bonuses[i]->y + 1) ||
-        (x == boni->bonuses[i]->x + 1 && y == boni->bonuses[i]->y + 1)) {
-
-      board->walls[boni->bonuses[i]->x][boni->bonuses[i]->y] = EMPTYCHAR;
-      board->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y] = EMPTYCHAR;
-      board->walls[boni->bonuses[i]->x][boni->bonuses[i]->y + 1] = EMPTYCHAR;
-      board->walls[boni->bonuses[i]->x + 1][boni->bonuses[i]->y + 1] = EMPTYCHAR;
-
-      gnibbles_bonus_erase (boni->bonuses[i]);
-      boni->bonuses[i] = boni->bonuses[--boni->numbonuses];
-      return;
-    }
-  }
-}
-
 void
 gnibbles_boni_rescale (GnibblesBoni *boni, gint tilesize)
 {

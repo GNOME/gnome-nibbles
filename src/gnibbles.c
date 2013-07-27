@@ -383,17 +383,3 @@ gnibbles_log_score (GtkWidget * window)
 
   gnibbles_show_scores (window, pos);
 }
-
-/*
-void
-gnibbles_add_spec_bonus (gint t_x, gint t_y,
-                         gint t_type, gint t_fake, gint t_countdown)
-{
-  gnibbles_boni_add_bonus_final (boni, t_x, t_y, t_type, t_fake, t_countdown);
-}
-
-void
-gnibbles_remove_spec_bonus (gint x, gint y)
-{
-  gnibbles_boni_remove_bonus_final (boni, x, y);
-}*/
