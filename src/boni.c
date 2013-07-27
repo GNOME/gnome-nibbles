@@ -88,6 +88,7 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
     play_sound ("appear");
 }
 
+/*
 void
 gnibbles_boni_add_bonus_final (GnibblesBoni * boni, gint t_x, gint t_y,
                                gint t_type, gint t_fake, gint t_countdown)
@@ -106,7 +107,7 @@ gnibbles_boni_add_bonus_final (GnibblesBoni * boni, gint t_x, gint t_y,
   boni->numbonuses++;
   if (t_type != BONUSREGULAR)
     play_sound ("appear");
-}
+}*/
 
 int
 gnibbles_boni_fake (GnibblesBoni * boni, gint x, gint y)
@@ -127,6 +128,7 @@ gnibbles_boni_fake (GnibblesBoni * boni, gint x, gint y)
 
   return 0;
 }
+
 
 void
 gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
@@ -153,6 +155,7 @@ gnibbles_boni_remove_bonus (GnibblesBoni * boni, gint x, gint y)
     }
   }
 }
+
 
 void
 gnibbles_boni_remove_bonus_final (GnibblesBoni * boni, gint x, gint y)

@@ -355,13 +355,13 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
     if ((board->walls[worm->xhead][worm->yhead] == BONUSREGULAR + 'A') &&
         !gnibbles_boni_fake (boni, worm->xhead, worm->yhead)) {
 
-      gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+      gnibbles_boni_remove_bonus (boni, worm->xhead, worm->yhead);
 
       if (boni->numleft != 0)
         gnibbles_board_level_add_bonus (board, 1);
 
     } else
-        gnibbles_boni_remove_bonus_final (boni, worm->xhead, worm->yhead);
+        gnibbles_boni_remove_bonus (boni, worm->xhead, worm->yhead);
   }
 
   if (board->walls[worm->xhead][worm->yhead] == WARPLETTER) {
