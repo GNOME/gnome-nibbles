@@ -249,7 +249,7 @@ gnibbles_properties_set_worm_color (gint i, gint value)
   g_settings_set_string (worm_settings[i], "color", color_name);
 }
 
-void
+/*void
 gnibbles_properties_save (GnibblesProperties * props)
 {
-}
+}*/

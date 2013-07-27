@@ -67,7 +67,7 @@ void gnibbles_properties_set_worm_down (gint i, gchar * value);
 void gnibbles_properties_set_worm_left (gint i, gchar * value);
 void gnibbles_properties_set_worm_right (gint i, gchar * value);
 
-void gnibbles_properties_save (GnibblesProperties * props);
+//void gnibbles_properties_save (GnibblesProperties * props);
 gchar *colorval_name (gint colorval);
 
 #endif
