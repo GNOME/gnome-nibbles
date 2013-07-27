@@ -335,17 +335,6 @@ gnibbles_worm_grok_bonus (GnibblesWorm *worm)
 }
 
 static void
-worm_grok_scale_down (ClutterAnimation *animation, ClutterActor *actor)
-{
-  clutter_actor_save_easing_state(actor);
-  clutter_actor_set_easing_mode (actor, CLUTTER_EASE_OUT_QUINT);
-  clutter_actor_set_easing_duration (actor, 420);
-  clutter_actor_set_scale (actor, 1.0, 1.0);
-  clutter_actor_set_pivot_point (actor,.5,.5);
-  clutter_actor_restore_easing_state(actor);
-}
-
-static void
 gnibbles_worm_handle_bonus (GnibblesWorm *worm)
 {
   ClutterActor *actor = NULL;
