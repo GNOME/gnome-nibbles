@@ -2,41 +2,42 @@
 # translation of gnome-games.HEAD.ml.po to
 # This file is distributed under the same license as the gnome-games package.
 # Copyright (C) 2003-2009 gnome-games' COPYRIGHT HOLDER.
-#
 # FSF-India <locale@gnu.org.in>, 2003.
 # Ani Peter <apeter@redhat.com>, 2006, 2007.
 # Abhishek Jacob <abhishekjacob123@gmail.com>, 2009.
 # Mohammed Sadik pk <sadiqpkp@gmail.com>, 2012.
 # Akhilan <akhilkrishnans@gmail.com>, 2013
+# Nandaja Varma <nandaja.varma@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master.ml\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-28 19:48+0000\n"
-"PO-Revision-Date: 2013-03-01 00:37+0530\n"
-"Last-Translator: Akhilan <akhilkrishnans@gmail.com>\n"
-"Language-Team:  <discuss@lists.smc.org.in>\n"
+"POT-Creation-Date: 2013-07-22 04:05+0000\n"
+"PO-Revision-Date: 2013-05-03 20:02+0530\n"
+"Last-Translator: Nandaja Varma <nandaja.varma@gmail.com>\n"
+"Language-Team: Malayalam team\n"
 "Language: ml\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-DamnedLies-Scope: partial\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Project-Style: gnome\n"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:1 ../src/main.c:161 ../src/main.c:164
-#: ../src/main.c:699 ../src/main.c:770 ../src/main.c:901
+#: ../data/gnibbles.desktop.in.in.h:1 ../src/main.c:156 ../src/main.c:678
+#: ../src/main.c:746
 msgid "Nibbles"
 msgstr "നിബിള്‍സ്"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:2
+#: ../data/gnibbles.desktop.in.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "ദുര്‍ഘടമാര്‍ഗ്ഗത്തിലൂടെയുള്ള യാത്രയില്‍ പുഴുവിനെ നയിക്കുക"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:3
+#: ../data/gnibbles.desktop.in.in.h:3
 msgid "game;snake;board;"
-msgstr ""
+msgstr "കളി;പാമ്പ്;പലക;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:1
 msgid "Number of human players"
@@ -63,14 +64,12 @@ msgid "Game speed (1=fast, 4=slow)."
 msgstr "കളിയുടെ വേഗത (1=വേഗം, 4=പതിയെ)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:7
-#, fuzzy
 msgid "Enable fake bonuses"
-msgstr "കളിയുടെ ശബ്ദം സജ്ജമാക്കുക"
+msgstr "വ്യാജമായ ബോണസ്സുകള്‍ സജ്ജമാക്കുക"
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:8
-#, fuzzy
 msgid "Enable fake bonuses."
-msgstr "കളിയുടെ ശബ്ദം സജ്ജമാക്കുക"
+msgstr "വ്യാജമായ ബോണസ്സുകള്‍ സജ്ജമാക്കുക."
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:9
 msgid "Play levels in random order"
@@ -113,15 +112,14 @@ msgid "Color to use for worm."
 msgstr "പുഴുവിനുള്ള നിറം."
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:19
-#, fuzzy
 msgid "Use relative movement"
-msgstr "സുരക്ഷിതമായ നീക്കങ്ങള്‍ നടത്തുക"
+msgstr "ആപേക്ഷിക ചലനം ഉപയോഗിക്കുക"
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:20
 msgid "Use relative movement (ie. left or right only)."
 msgstr "ആപേക്ഷിക ചലനം സാധ്യമാക്കുക (അതായത് ഇടതും വലതും മാത്രം)"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:452
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:450
 msgid "Move up"
 msgstr "മുകളിലേക്ക് നീങ്ങുക"
 
@@ -129,7 +127,7 @@ msgstr "മുകളിലേക്ക് നീങ്ങുക"
 msgid "Key to use for motion up."
 msgstr "മുകളിലേക്ക് നീങ്ങുന്നതിനുളള കീ."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:453
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:451
 msgid "Move down"
 msgstr "താഴേക്ക് നീങ്ങുക"
 
@@ -137,7 +135,7 @@ msgstr "താഴേക്ക് നീങ്ങുക"
 msgid "Key to use for motion down."
 msgstr "താഴേക്ക് നീങ്ങുന്നതിനുളള കീ."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:450
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:448
 msgid "Move left"
 msgstr "ഇടത്തേക്ക് നീങ്ങുക"
 
@@ -145,7 +143,7 @@ msgstr "ഇടത്തേക്ക് നീങ്ങുക"
 msgid "Key to use for motion left."
 msgstr "ഇടത്തേക്ക് നീങ്ങുന്നതിനുളള കീ."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:451
+#: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:449
 msgid "Move right"
 msgstr "വലത്തേക്ക് നീങ്ങുക"
 
@@ -153,7 +151,7 @@ msgstr "വലത്തേക്ക് നീങ്ങുക"
 msgid "Key to use for motion right."
 msgstr "വലത്തേക്ക് നീങ്ങുന്നതിനുളള കീ."
 
-#: ../src/board.c:245
+#: ../src/board.c:250
 #, c-format
 msgid ""
 "Nibbles couldn't load level file:\n"
@@ -166,7 +164,7 @@ msgstr ""
 "\n"
 "ദയവായി നിബിള്‍സിന്റെ ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക"
 
-#: ../src/board.c:264
+#: ../src/board.c:269
 #, c-format
 msgid ""
 "Level file appears to be damaged:\n"
@@ -217,205 +215,7 @@ msgstr "പേര്"
 msgid "Date"
 msgstr "തീയതി"
 
-#: ../src/games-stock.c:41
-msgid "View help for this game"
-msgstr "ഈ കളിയ്ക്കുള്ള സഹായം കാണുക"
-
-#: ../src/games-stock.c:42
-msgid "End the current game"
-msgstr "നിലവിലുള്ള കളി അവസാനിപ്പിക്കുക"
-
-#: ../src/games-stock.c:43
-msgid "Toggle fullscreen mode"
-msgstr "ജാലകസ‌‌വിധാനത്തിനു മാറ്റം വരുത്തുക"
-
-#: ../src/games-stock.c:44
-msgid "Get a hint for your next move"
-msgstr "അടുത്ത നീക്കത്തിനായി ഒരു സൂചന നല്‍കുക"
-
-#: ../src/games-stock.c:45
-msgid "Leave fullscreen mode"
-msgstr "സ്ക്രീന്‍ പരമാവധി വലുപ്പത്തില്‍ ഉപേക്ഷിക്കുക"
-
-#: ../src/games-stock.c:46
-msgid "Start a new multiplayer network game"
-msgstr "ഒരു പുതിയ മള്‍ട്ടിപ്ളെയര്‍ നെറ്റ്‌വര്‍ക്ക് കളി തുടങ്ങുക"
-
-#: ../src/games-stock.c:47
-msgid "End the current network game and return to network server"
-msgstr "ഈ നെറ്റ്‌വര്‍ക്ക് കളി അവസാനിപ്പിച്ച് നെറ്റ്‌വര്‍ക്ക് സര്‍വറിലേക്ക് മടങ്ങുക"
-
-#: ../src/games-stock.c:48
-msgid "Start a new game"
-msgstr "ഒരു പുതിയ കളി തുടങ്ങൂ"
-
-#: ../src/games-stock.c:49
-msgid "Pause the game"
-msgstr "കളി താല്‍ക്കാലികമായി നിര്‍ത്തുക"
-
-#: ../src/games-stock.c:50
-msgid "Show a list of players in the network game"
-msgstr "നെറ്റ്‌വര്‍ക്ക് കളിയിലുള്ള കളിക്കാരുടെ പട്ടിക കാണിക്കുക"
-
-#: ../src/games-stock.c:51
-msgid "Redo the undone move"
-msgstr "ഉപേക്ഷിച്ച നീക്കം വീണ്ടും നടത്തുക "
-
-#: ../src/games-stock.c:52
-msgid "Restart the game"
-msgstr "കളി ആദ്യം മുതല്‍ തുടങ്ങുക"
-
-#: ../src/games-stock.c:53
-msgid "Resume the paused game"
-msgstr "നിര്‍ത്തിയടത്ത് നിന്നും കളി വീണ്ടും തുടങ്ങുക"
-
-#: ../src/games-stock.c:54
-msgid "View the scores"
-msgstr "നേട്ടങ്ങള്‍ കാണുക"
-
-#: ../src/games-stock.c:55
-msgid "Undo the last move"
-msgstr "കഴിഞ്ഞ നീക്കം ഉപേക്ഷിച്ചു പൂര്‍വ്വസ്ഥിതിയിലേക്കു തിരിച്ചു പോകുക"
-
-#: ../src/games-stock.c:56
-msgid "About this game"
-msgstr "ഈ കളിയെ കുറിച്ച്"
-
-#: ../src/games-stock.c:57
-msgid "Close this window"
-msgstr "ഈ ജാലകം അടയ്ക്കുക"
-
-#: ../src/games-stock.c:58
-msgid "Configure the game"
-msgstr "കളി ക്രമീകരിക്കുക"
-
-#: ../src/games-stock.c:59
-msgid "Quit this game"
-msgstr "കളി നിര്‍ത്തുക"
-
-#: ../src/games-stock.c:247
-msgid "_Contents"
-msgstr "_ഉള്ളടക്കം"
-
-#: ../src/games-stock.c:248
-msgid "_Fullscreen"
-msgstr "സ്ക്രീന്‍ _പരമാവധി വലുപ്പത്തില്‍"
-
-#: ../src/games-stock.c:249
-msgid "_Hint"
-msgstr "_സൂചന"
-
-#. Translators: This "_New" is for the menu item 'Game->New', implies "New Game"
-#: ../src/games-stock.c:251
-msgid "_New"
-msgstr "_പുതിയ"
-
-#. Translators: This "_New Game" is for the game-over dialogue
-#: ../src/games-stock.c:253
-msgid "_New Game"
-msgstr "പുതിയ കളി (_N)"
-
-#: ../src/games-stock.c:254
-msgid "_Redo Move"
-msgstr "മാറ്റം വേണ്ട എ_ന്ന് വയ്ക്കുക"
-
-#. Translators: this is the "Reset" scores button in a scores dialogue
-#: ../src/games-stock.c:256
-msgid "_Reset"
-msgstr "_ആദ്യം മുതല്‍ തുടങ്ങുക"
-
-#. Translators: "_Restart" is the menu item 'Game->Restart', implies "Restart Game"
-#: ../src/games-stock.c:258
-msgid "_Restart"
-msgstr "വീണ്ടും ആ_രംഭിക്കുക"
-
-#: ../src/games-stock.c:259
-msgid "_Undo Move"
-msgstr "വരുത്തിയ നീക്കം വേണ്ട എന്ന് വയ്ക്കുക(_U)"
-
-#: ../src/games-stock.c:260
-msgid "_Deal"
-msgstr "_ഡീല്‍ "
-
-#: ../src/games-stock.c:261
-msgid "_Leave Fullscreen"
-msgstr "സ്ക്രീന്‍ പരാമാവധി _വലുപ്പത്തില്‍ ഉപേക്ഷിക്കുക"
-
-#: ../src/games-stock.c:262
-msgid "Network _Game"
-msgstr "നെറ്റ്‌വര്‍ക്ക് _കളി"
-
-#: ../src/games-stock.c:263
-msgid "L_eave Game"
-msgstr "കളി _ഉപേക്ഷിക്കുക"
-
-#: ../src/games-stock.c:264
-msgid "Player _List"
-msgstr "‍കളിക്കാരുടെ _പട്ടിക"
-
-#: ../src/games-stock.c:265
-msgid "_Pause"
-msgstr "ചെറിയ _ഇടവേള"
-
-#: ../src/games-stock.c:266
-msgid "Res_ume"
-msgstr "വീണ്ടും ആ_രംഭിക്കുക"
-
-#: ../src/games-stock.c:267
-msgid "_Scores"
-msgstr "_സ്കോറുകള്‍"
-
-#: ../src/games-stock.c:268
-msgid "_End Game"
-msgstr "കളി _അവസാനിപ്പിക്കുക"
-
-#. %s is replaced with the name of the game in gnome-games.
-#: ../src/games-stock.c:317
-#, c-format
-msgid ""
-"%s is free software; you can redistribute it and/or modify it under the "
-"terms of the GNU General Public License as published by the Free Software "
-"Foundation; either version %d of the License, or (at your option) any later "
-"version."
-msgstr ""
-"%s ഒരു സ്വതന്ത്ര സോഫ്ര്റ്‌വെയറാണ്; ഫ്രീ സോഫ്ര്റ്‌വെയര്‍ ഫൌണ്ടേഷന്‍ പ്രസദ്ധീകരണമായ GNU ജനറല്‍ പബ്ലിക് "
-"ലൈസന്‍സ് %d-ആം ലക്കം അല്ലെങ്കില്‍ (നിങ്ങള്‍ക്ക് വേണമെങ്കില്‍) അത് കഴിഞ്ഞുള്ള ലക്കങ്ങളിലുള്ള നിബന്ധനകള്‍ "
-"അനുസരിച്ച് നിങ്ങള്‍ക്ക് ഇത് വീണ്ടും വിതരണം ചെയ്യുകയോ അല്ലെങ്കില്‍ മാറ്റം വരുത്തുകയോ ചെയ്യുവാന്‍ "
-"സാധ്യമാണ്."
-
-#: ../src/games-stock.c:322
-#, c-format
-msgid ""
-"%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-"details."
-msgstr ""
-"%s നിങ്ങള്‍ക്കു് പ്രയോജനപ്പെടും എന്ന പ്രതീക്ഷയില്‍ വിതരണം ചെയ്യുന്നതാണു്,\n"
-"പക്ഷേ, ഇതിനു് ഒരു വാറണ്ടിയും ലഭ്യമല്ല; വ്യാപാരയോഗ്യതയോ ഒരു പ്രത്യേക കാര്യത്തിനു്\n"
-"ചേരുന്നതാണെന്നോ പരോക്ഷമായി ഉള്‍‌ക്കൊള്ളുന്ന വാറണ്ടി പോലും ഇല്ല. കൂടുതല്‍ വിവരങ്ങള്‍ക്കു്  ഗ്നു ജനറല്‍ "
-"പബ്ലിക് ലൈസന്‍സ് കാണുക."
-
-#: ../src/games-stock.c:327
-#, c-format
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"%s; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, "
-"Fifth Floor, Boston, MA  02110-1301  USA"
-msgstr ""
-"നിങ്ങള്‍ക്ക് %s-നൊപ്പം GNU ജനറല്‍ പബ്ലിക് ലൈസന്‍സിന്റെ ഒരു പകര്‍പ്പും ലഭ്യമാകേണ്ടതാണ്; "
-"ഇല്ലായെങ്കില്‍, ഈ വിലാസത്തിലേക്ക് എഴുതുക: Free Software Foundation, Inc., 51 Franklin "
-"Street, Fifth Floor, Boston, MA  02110-1301  USA"
-
-#: ../src/games-stock.c:331
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"this program.  If not, see <http://www.gnu.org/licenses/>."
-msgstr ""
-"നിങ്ങള്‍ക്കീ പ്രോഗ്രാമിനൊപ്പം ഗ്നു ജനറല്‍ പബ്ലിക് ലൈസന്‍സിന്റെ ഒരു പകര്‍പ്പും ലഭ്യമാകേണ്ടതാണ്; "
-"ഇല്ലെങ്കില്‍, <http://www.gnu.org/licenses/> കാണുക."
-
-#: ../src/gnibbles.c:84
+#: ../src/gnibbles.c:82
 #, c-format
 msgid ""
 "Nibbles couldn't find pixmap file:\n"
@@ -428,67 +228,67 @@ msgstr ""
 "\n"
 "ദയവായി നിബിള്‍സിന്റെ ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക"
 
-#: ../src/gnibbles.c:355
+#: ../src/gnibbles.c:342
 msgid "Nibbles Scores"
 msgstr "നിബിള്‍സിന്റെ സ്കോറുകള്‍"
 
-#: ../src/gnibbles.c:358
+#: ../src/gnibbles.c:345
 msgid "Speed:"
 msgstr "വേഗത:"
 
-#: ../src/gnibbles.c:363
+#: ../src/gnibbles.c:350
 msgid "Congratulations!"
 msgstr "അഭിനന്ദങ്ങള്‍, നിങ്ങള്‍ ജയിച്ചിരിക്കുന്നു!"
 
-#: ../src/gnibbles.c:364
+#: ../src/gnibbles.c:351
 msgid "Your score is the best!"
 msgstr "നിങ്ങളുടെ സ്കോര്‍ ഒന്നാമതെത്തിയിരിക്കുന്നു!"
 
-#: ../src/gnibbles.c:365
+#: ../src/gnibbles.c:352
 msgid "Your score has made the top ten."
 msgstr "നിങ്ങളുടെ സ്കോര്‍ ആദ്യത്തെ പത്തിലായിരിക്കുന്നു."
 
-#: ../src/main.c:65
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "തുടക്കക്കാരന്‍"
 
-#: ../src/main.c:66
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Slow"
 msgstr "പതിയെ"
 
-#: ../src/main.c:67
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Medium"
 msgstr "ഇടത്തരം"
 
-#: ../src/main.c:68
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Fast"
 msgstr "വേഗത്തില്‍"
 
-#: ../src/main.c:69
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "തുടക്കക്കാരന്‍"
 
-#: ../src/main.c:70
+#: ../src/main.c:69
 msgctxt "game speed"
 msgid "Slow with Fakes"
-msgstr ""
+msgstr "ഫേക്കുകളുടെ സ്പീട് കുറക്കുക"
+
+#: ../src/main.c:70
+msgctxt "game speed"
+msgid "Medium with Fakes"
+msgstr "ഫേക്കുകളുടെ സ്പീട് ഇടത്തരമാക്കുക"
 
 #: ../src/main.c:71
 msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr ""
-
-#: ../src/main.c:72
-msgctxt "game speed"
 msgid "Fast with Fakes"
-msgstr ""
+msgstr "ഫേക്കുകളുടെ സ്പീട് കൂട്ടുക"
 
-#: ../src/main.c:170
+#: ../src/main.c:163
 msgid ""
 "A worm game for GNOME.\n"
 "\n"
@@ -498,144 +298,154 @@ msgstr ""
 "\n"
 "നിബ്ബിള്‍സ് ഗ്നോം കളികളുടെ ഭാഗമാണു്"
 
-#: ../src/main.c:173
+#: ../src/main.c:166
 msgid "translator-credits"
 msgstr ""
 "എഫ്.എസ്.എഫ് - ഇന്ത്യ <gnu@gnu.org.in>\n"
 "അനി പീറ്റര്‍ <apeter@redhat.com>\n"
 "അഭിഷേക് ജേക്കബ് <abhishekjacob123@gmail.com>\n"
-"Mohammed Sadiq <sadiqpkp@gmail.com"
+"Mohammed Sadiq <sadiqpkp@gmail.com>\n"
+"നന്ദജ വര്‍മ്മ <nandaja.varma@gmail.com>"
 
-#: ../src/main.c:176
+#: ../src/main.c:169
 msgid "GNOME Games web site"
 msgstr "ഗ്നോ കളികളുടെ വെബ് സൈറ്റ്"
 
-#: ../src/main.c:491
+#: ../src/main.c:470
 #, c-format
 msgid "Game over! The game has been won by %s!"
 msgstr "കളി കഴിഞ്ഞിരിക്കുന്ന! കളി %s ജയിച്ചിരിക്കുന്നു!"
 
-#: ../src/main.c:604
+#: ../src/main.c:583
 msgid "_Game"
 msgstr "_കളി"
 
-#: ../src/main.c:605
+#: ../src/main.c:584
 msgid "_View"
 msgstr "_കാഴ്ച"
 
-#: ../src/main.c:606
+#: ../src/main.c:585
 msgid "_Settings"
 msgstr "_ക്രമികരണങ്ങള്‍ "
 
-#: ../src/main.c:607
+#: ../src/main.c:586
 msgid "_Help"
 msgstr "_സഹായം"
 
-#. Translators: This string will be included in the intro screen, so don't make sure it fits!
-#: ../src/main.c:772
-msgid "A worm game for GNOME."
-msgstr "ഗ്നോമിനു വേണ്ടിയുള്ള ഒരു പുഴുക്കളി"
+#: ../src/main.c:587
+msgid "_New Game"
+msgstr "പുതിയ കളി (_N)"
 
-#: ../src/preferences.c:240
+#: ../src/main.c:589
+msgid "_End Game"
+msgstr "കളി _അവസാനിപ്പിക്കുക"
+
+#: ../src/main.c:591
+msgid "_Scores"
+msgstr "_സ്കോറുകള്‍"
+
+#: ../src/main.c:596
+msgid "_Contents"
+msgstr "_ഉള്ളടക്കം"
+
+#: ../src/preferences.c:238
 msgid "Nibbles Preferences"
 msgstr "Nibbles മുന്‍ഗണനകള്‍"
 
-#: ../src/preferences.c:253
+#: ../src/preferences.c:251
 msgid "Game"
 msgstr "കളി "
 
 #. Speed
-#: ../src/preferences.c:269
+#: ../src/preferences.c:267
 msgid "Speed"
 msgstr "വേഗത"
 
-#: ../src/preferences.c:274
+#: ../src/preferences.c:272
 msgid "Nibbles newbie"
 msgstr "Nibbles newbie"
 
-#: ../src/preferences.c:284
+#: ../src/preferences.c:282
 msgid "My second day"
 msgstr "എന്റെ രണ്ടാമത്തെ ദിവസം"
 
-#: ../src/preferences.c:294
+#: ../src/preferences.c:292
 msgid "Not too shabby"
 msgstr "മോശമില്ല"
 
-#: ../src/preferences.c:304
+#: ../src/preferences.c:302
 msgid "Finger-twitching good"
-msgstr ""
+msgstr "കേമമായിരിക്കുന്നു "
 
-#: ../src/preferences.c:318 ../src/preferences.c:457
+#: ../src/preferences.c:316 ../src/preferences.c:455
 msgid "Options"
 msgstr "ഉപാധികള്‍"
 
-#: ../src/preferences.c:325
+#: ../src/preferences.c:323
 msgid "_Play levels in random order"
 msgstr "ഏതെങ്കിലും ക്രമത്തില്‍ ലവലുകള്‍ കളിക്കുക (_P)"
 
-#: ../src/preferences.c:335
+#: ../src/preferences.c:333
 msgid "_Enable fake bonuses"
-msgstr ""
+msgstr "വ്യാജമായ ബോണസ്സുകള്‍ സജ്ജമാക്കുക (_E)"
 
-#: ../src/preferences.c:345
+#: ../src/preferences.c:343
 msgid "E_nable sounds"
 msgstr "ശബ്ദം ക്രമീകരിക്കുക (_n)"
 
-#: ../src/preferences.c:358
+#: ../src/preferences.c:356
 msgid "_Starting level:"
 msgstr "കളി തുടങ്ങേണ്ട നില: (_S)"
 
-#: ../src/preferences.c:387
+#: ../src/preferences.c:385
 msgid "Number of _human players:"
 msgstr "കളിക്കാരുടെ എണ്ണം: (_h)"
 
-#: ../src/preferences.c:408
+#: ../src/preferences.c:406
 msgid "Number of _AI players:"
 msgstr "AI കളിക്കാരുടെ എണ്ണം: (_A)"
 
-#: ../src/preferences.c:433
+#: ../src/preferences.c:431
 msgid "Worm"
 msgstr "വേം"
 
-#: ../src/preferences.c:442
-#, fuzzy
-#| msgid "Keyboard Controls"
+#: ../src/preferences.c:440
 msgid "Keyboard Options"
-msgstr "കീബോര്‍ഡ് നിയന്ത്രണങ്ങള്‍"
+msgstr "കീബോര്‍ഡ് ഐച്ഛികങ്ങള്‍"
 
-#: ../src/preferences.c:462
+#: ../src/preferences.c:460
 msgid "_Use relative movement"
 msgstr "ആപേക്ഷിക ചലനം ഉപയോഗിക്കുക"
 
-#: ../src/preferences.c:469
+#: ../src/preferences.c:467
 msgid "_Worm color:"
 msgstr "_പുഴുവിന്റെ നിറം:"
 
-#: ../src/preferences.c:475
+#: ../src/preferences.c:473
 msgid "Red"
 msgstr "ചെമപ്പ്"
 
-#: ../src/preferences.c:476
+#: ../src/preferences.c:474
 msgid "Green"
 msgstr "പച്ച"
 
-#: ../src/preferences.c:477
+#: ../src/preferences.c:475
 msgid "Blue"
 msgstr "നീല"
 
-#: ../src/preferences.c:478
+#: ../src/preferences.c:476
 msgid "Yellow"
 msgstr "മഞ്ഞ"
 
-#: ../src/preferences.c:479
+#: ../src/preferences.c:477
 msgid "Cyan"
 msgstr "സിയന്"
 
-#: ../src/preferences.c:480
+#: ../src/preferences.c:478
 msgid "Purple"
 msgstr "പര്‍പ്പിള്‍"
 
-#: ../src/preferences.c:481
+#: ../src/preferences.c:479
 msgid "Gray"
 msgstr "ഗ്രേ"
 
@@ -643,6 +453,146 @@ msgstr "ഗ്രേ"
 #, c-format
 msgid "Worm %d:"
 msgstr "വേം %d:"
+
+#~ msgid "View help for this game"
+#~ msgstr "ഈ കളിയ്ക്കുള്ള സഹായം കാണുക"
+
+#~ msgid "End the current game"
+#~ msgstr "നിലവിലുള്ള കളി അവസാനിപ്പിക്കുക"
+
+#~ msgid "Toggle fullscreen mode"
+#~ msgstr "ജാലകസ‌‌വിധാനത്തിനു മാറ്റം വരുത്തുക"
+
+#~ msgid "Get a hint for your next move"
+#~ msgstr "അടുത്ത നീക്കത്തിനായി ഒരു സൂചന നല്‍കുക"
+
+#~ msgid "Leave fullscreen mode"
+#~ msgstr "സ്ക്രീന്‍ പരമാവധി വലുപ്പത്തില്‍ ഉപേക്ഷിക്കുക"
+
+#~ msgid "Start a new multiplayer network game"
+#~ msgstr "ഒരു പുതിയ മള്‍ട്ടിപ്ളെയര്‍ നെറ്റ്‌വര്‍ക്ക് കളി തുടങ്ങുക"
+
+#~ msgid "End the current network game and return to network server"
+#~ msgstr "ഈ നെറ്റ്‌വര്‍ക്ക് കളി അവസാനിപ്പിച്ച് നെറ്റ്‌വര്‍ക്ക് സര്‍വറിലേക്ക് മടങ്ങുക"
+
+#~ msgid "Start a new game"
+#~ msgstr "ഒരു പുതിയ കളി തുടങ്ങൂ"
+
+#~ msgid "Pause the game"
+#~ msgstr "കളി താല്‍ക്കാലികമായി നിര്‍ത്തുക"
+
+#~ msgid "Show a list of players in the network game"
+#~ msgstr "നെറ്റ്‌വര്‍ക്ക് കളിയിലുള്ള കളിക്കാരുടെ പട്ടിക കാണിക്കുക"
+
+#~ msgid "Redo the undone move"
+#~ msgstr "ഉപേക്ഷിച്ച നീക്കം വീണ്ടും നടത്തുക "
+
+#~ msgid "Restart the game"
+#~ msgstr "കളി ആദ്യം മുതല്‍ തുടങ്ങുക"
+
+#~ msgid "Resume the paused game"
+#~ msgstr "നിര്‍ത്തിയടത്ത് നിന്നും കളി വീണ്ടും തുടങ്ങുക"
+
+#~ msgid "View the scores"
+#~ msgstr "നേട്ടങ്ങള്‍ കാണുക"
+
+#~ msgid "Undo the last move"
+#~ msgstr "കഴിഞ്ഞ നീക്കം ഉപേക്ഷിച്ചു പൂര്‍വ്വസ്ഥിതിയിലേക്കു തിരിച്ചു പോകുക"
+
+#~ msgid "About this game"
+#~ msgstr "ഈ കളിയെ കുറിച്ച്"
+
+#~ msgid "Close this window"
+#~ msgstr "ഈ ജാലകം അടയ്ക്കുക"
+
+#~ msgid "Configure the game"
+#~ msgstr "കളി ക്രമീകരിക്കുക"
+
+#~ msgid "Quit this game"
+#~ msgstr "കളി നിര്‍ത്തുക"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "സ്ക്രീന്‍ _പരമാവധി വലുപ്പത്തില്‍"
+
+#~ msgid "_Hint"
+#~ msgstr "_സൂചന"
+
+#~ msgid "_New"
+#~ msgstr "_പുതിയ"
+
+#~ msgid "_Redo Move"
+#~ msgstr "മാറ്റം വേണ്ട എ_ന്ന് വയ്ക്കുക"
+
+#~ msgid "_Reset"
+#~ msgstr "_ആദ്യം മുതല്‍ തുടങ്ങുക"
+
+#~ msgid "_Restart"
+#~ msgstr "വീണ്ടും ആ_രംഭിക്കുക"
+
+#~ msgid "_Undo Move"
+#~ msgstr "വരുത്തിയ നീക്കം വേണ്ട എന്ന് വയ്ക്കുക(_U)"
+
+#~ msgid "_Deal"
+#~ msgstr "_ഡീല്‍ "
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "സ്ക്രീന്‍ പരാമാവധി _വലുപ്പത്തില്‍ ഉപേക്ഷിക്കുക"
+
+#~ msgid "Network _Game"
+#~ msgstr "നെറ്റ്‌വര്‍ക്ക് _കളി"
+
+#~ msgid "L_eave Game"
+#~ msgstr "കളി _ഉപേക്ഷിക്കുക"
+
+#~ msgid "Player _List"
+#~ msgstr "‍കളിക്കാരുടെ _പട്ടിക"
+
+#~ msgid "_Pause"
+#~ msgstr "ചെറിയ _ഇടവേള"
+
+#~ msgid "Res_ume"
+#~ msgstr "വീണ്ടും ആ_രംഭിക്കുക"
+
+#~ msgid ""
+#~ "%s is free software; you can redistribute it and/or modify it under the "
+#~ "terms of the GNU General Public License as published by the Free Software "
+#~ "Foundation; either version %d of the License, or (at your option) any "
+#~ "later version."
+#~ msgstr ""
+#~ "%s ഒരു സ്വതന്ത്ര സോഫ്ര്റ്‌വെയറാണ്; ഫ്രീ സോഫ്ര്റ്‌വെയര്‍ ഫൌണ്ടേഷന്‍ പ്രസദ്ധീകരണമായ GNU ജനറല്‍ "
+#~ "പബ്ലിക് ലൈസന്‍സ് %d-ആം ലക്കം അല്ലെങ്കില്‍ (നിങ്ങള്‍ക്ക് വേണമെങ്കില്‍) അത് കഴിഞ്ഞുള്ള ലക്കങ്ങളിലുള്ള "
+#~ "നിബന്ധനകള്‍ അനുസരിച്ച് നിങ്ങള്‍ക്ക് ഇത് വീണ്ടും വിതരണം ചെയ്യുകയോ അല്ലെങ്കില്‍ മാറ്റം വരുത്തുകയോ "
+#~ "ചെയ്യുവാന്‍ സാധ്യമാണ്."
+
+#~ msgid ""
+#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
+#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+#~ "details."
+#~ msgstr ""
+#~ "%s നിങ്ങള്‍ക്കു് പ്രയോജനപ്പെടും എന്ന പ്രതീക്ഷയില്‍ വിതരണം ചെയ്യുന്നതാണു്,\n"
+#~ "പക്ഷേ, ഇതിനു് ഒരു വാറണ്ടിയും ലഭ്യമല്ല; വ്യാപാരയോഗ്യതയോ ഒരു പ്രത്യേക കാര്യത്തിനു്\n"
+#~ "ചേരുന്നതാണെന്നോ പരോക്ഷമായി ഉള്‍‌ക്കൊള്ളുന്ന വാറണ്ടി പോലും ഇല്ല. കൂടുതല്‍ വിവരങ്ങള്‍ക്കു്  ഗ്നു ജനറല്‍ "
+#~ "പബ്ലിക് ലൈസന്‍സ് കാണുക."
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
+#~ msgstr ""
+#~ "നിങ്ങള്‍ക്ക് %s-നൊപ്പം GNU ജനറല്‍ പബ്ലിക് ലൈസന്‍സിന്റെ ഒരു പകര്‍പ്പും ലഭ്യമാകേണ്ടതാണ്; "
+#~ "ഇല്ലായെങ്കില്‍, ഈ വിലാസത്തിലേക്ക് എഴുതുക: Free Software Foundation, Inc., 51 "
+#~ "Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA"
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
+#~ msgstr ""
+#~ "നിങ്ങള്‍ക്കീ പ്രോഗ്രാമിനൊപ്പം ഗ്നു ജനറല്‍ പബ്ലിക് ലൈസന്‍സിന്റെ ഒരു പകര്‍പ്പും ലഭ്യമാകേണ്ടതാണ്; "
+#~ "ഇല്ലെങ്കില്‍, <http://www.gnu.org/licenses/> കാണുക."
+
+#~ msgid "A worm game for GNOME."
+#~ msgstr "ഗ്നോമിനു വേണ്ടിയുള്ള ഒരു പുഴുക്കളി"
 
 #~ msgid "Chess"
 #~ msgstr "ചെസ്സ്"
