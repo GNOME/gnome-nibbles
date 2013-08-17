@@ -15,4 +15,8 @@ uninstall-local:
 	   rm -f $(DESTDIR)$(scoredir)/gnome-nibbles.$$i.scores; \
 	 done
 
+MAINTAINERCLEANFILES = \
+	$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
+	$(GITIGNORE_MAINTAINERCLEANFILES_MAKEFILE_IN)
+
 -include $(top_srcdir)/git.mk
