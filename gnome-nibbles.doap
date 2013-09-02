@@ -27,4 +27,11 @@
       <gnome:userid>jclinton</gnome:userid>
     </foaf:Person>
   </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Bryan Quigley</foaf:name>
+      <foaf:mbox rdf:resource="mailto:bryanquigs@src.gnome.org" />
+      <gnome:userid>bryanquigs</gnome:userid>
+    </foaf:Person>
+  </maintainer>
 </Project>
