@@ -28,14 +28,12 @@
 
 #include <glib/gi18n.h>
 
-#include "games-scores-backend.h"
 #include "games-score.h"
 #include "games-scores.h"
 
 /* The local version of the GamesScoresCategory. */
 typedef struct {
   GamesScoresCategory category;
-  GamesScoresBackend *backend;
 } GamesScoresCategoryInternal;
 
 struct GamesScoresPrivate {
@@ -51,19 +49,12 @@ struct GamesScoresPrivate {
   GamesScoresCategoryInternal dummycat;
 };
 
-void
-games_scores_startup (void)
-{
-  games_scores_backend_startup ();
-}
 
 static void
 games_scores_category_free (GamesScoresCategoryInternal *cat)
 {
   g_free (cat->category.key);
   g_free (cat->category.name);
-  if (cat->backend)
-    g_object_unref (cat->backend);
   g_free (cat);
 }
 
@@ -87,11 +78,6 @@ games_scores_get_current (GamesScores * self)
     cat = g_hash_table_lookup (priv->categories, priv->currentcat);
     if (!cat)
       return NULL;
-  }
-
-  if (cat->backend == NULL) {
-    cat->backend = games_scores_backend_new (priv->style, priv->basename,
-                                             cat->category.key);
   }
 
   return cat;
@@ -193,7 +179,6 @@ games_scores_add_category (GamesScores *self,
   cat = g_new (GamesScoresCategoryInternal, 1);
   cat->category.key = g_strdup (key);
   cat->category.name = g_strdup (name);
-  cat->backend = NULL;
 
   g_hash_table_insert (priv->categories, g_strdup (key), cat);
   priv->catsordered = g_slist_append (priv->catsordered, cat);
@@ -252,8 +237,6 @@ games_scores_add_score (GamesScores * self, GamesScore *score)
 
   cat = games_scores_get_current (self);
 
-  scores_list = games_scores_backend_get_scores (cat->backend);
-
   s = scores_list;
   place = 0;
   n = 0;
@@ -290,9 +273,6 @@ games_scores_add_score (GamesScores * self, GamesScore *score)
     g_list_free (g_list_next (s));
     s->next = NULL;
   }
-
-  if (games_scores_backend_set_scores (cat->backend, scores_list) == FALSE)
-    place = 0;
 
   priv->last_score_significant = place > 0;
   priv->last_score_position = place;
@@ -349,8 +329,6 @@ games_scores_update_score_name (GamesScores * self, gchar * new_name, gchar * ol
 
   cat = games_scores_get_current (self);
 
-  scores_list = games_scores_backend_get_scores (cat->backend);
-
   s = g_list_last (scores_list);
   n = g_list_length (scores_list);
 
@@ -370,8 +348,6 @@ games_scores_update_score_name (GamesScores * self, gchar * new_name, gchar * ol
     s = g_list_previous (s);
     n--;
   }
-
-  games_scores_backend_set_scores (cat->backend, scores_list);
 
   g_free (old_name);
 }
@@ -413,11 +389,6 @@ games_scores_get (GamesScores * self)
   g_return_val_if_fail (self != NULL, NULL);
 
   cat = games_scores_get_current (self);
-
-  scores = games_scores_backend_get_scores (cat->backend);
-  /* Tell the backend that we won't be altering the scores so it
-   * can release the lock. */
-  games_scores_backend_discard_scores (cat->backend);
 
   return scores;
 }
