@@ -5,7 +5,6 @@ data/gnibbles.desktop.in.in
 data/org.gnome.nibbles.gschema.xml.in
 src/board.c
 src/games-controls.c
-src/games-scores-dialog.c
 src/gnibbles.c
 src/main.c
 src/preferences.c
