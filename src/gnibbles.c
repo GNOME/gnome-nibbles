@@ -1,4 +1,4 @@
-/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
+//* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
 /*
  *   Gnome Nibbles: Gnome Worm Game
@@ -40,7 +40,6 @@
 #include "board.h"
 #include "sound.h"
 #include "worm.h"
-#include "games-scores-dialog.h"
 #include "games-scores.h"
 
 GnibblesWorm *worms[NUMWORMS];
@@ -331,38 +330,6 @@ gnibbles_keypress_worms (guint keyval)
 }
 
 void
-gnibbles_show_scores (GtkWidget * window, gint pos)
-{
-  static GtkWidget *scoresdialog = NULL;
-  gchar *message;
-
-  if (!scoresdialog) {
-    scoresdialog = games_scores_dialog_new (GTK_WINDOW (window),
-                                            highscores,
-                                            _("Nibbles Scores"));
-    games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG
-                                                  (scoresdialog),
-                                                  _("Speed:"));
-  }
-  if (pos > 0) {
-    games_scores_dialog_set_hilight (GAMES_SCORES_DIALOG (scoresdialog), pos);
-    message = g_strdup_printf ("<b>%s</b>\n\n%s",
-                               _("Congratulations!"),
-                               pos == 1 ? _("Your score is the best!") :
-                               _("Your score has made the top ten."));
-    games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
-                                     message);
-    g_free (message);
-  } else {
-    games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
-                                     NULL);
-  }
-
-  gtk_dialog_run (GTK_DIALOG (scoresdialog));
-  gtk_widget_hide (scoresdialog);
-}
-
-void
 gnibbles_log_score (GtkWidget * window)
 {
   gint pos;
@@ -381,5 +348,4 @@ gnibbles_log_score (GtkWidget * window)
 
   pos = games_scores_add_plain_score (highscores, worms[0]->score);
 
-  gnibbles_show_scores (window, pos);
 }
