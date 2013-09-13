@@ -255,7 +255,7 @@ new_game (void)
   gtk_action_set_sensitive (pause_action, TRUE);
   gtk_action_set_sensitive (end_game_action, TRUE);
   gtk_action_set_sensitive (new_game_action, FALSE);
-  gtk_action_set_sensitive (preferences_action, TRUE);
+  gtk_action_set_sensitive (preferences_action, FALSE);
 
   if (game_running ()) {
     main_id = 0;
