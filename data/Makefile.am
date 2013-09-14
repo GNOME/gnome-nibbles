@@ -24,9 +24,13 @@ desktop_in_files = gnibbles.desktop.in.in
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
+appdatadir = $(datadir)/appdata
+appdata_DATA = gnome-nibbles.appdata.xml
+
 man_MANS = gnome-nibbles.6
 
 EXTRA_DIST = \
+	$(appdata_DATA) \
 	$(pixmap_DATA) \
 	$(sounds_DATA) \
 	$(gsettings_in_file) \
