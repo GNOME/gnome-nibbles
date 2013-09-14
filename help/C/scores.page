@@ -74,18 +74,18 @@
 	<media type="image" its:translate="no" src="figures/ice-cream.svg" height="22" width="22"/> :
         This bonus causes a greater increase in the length of the worm than
         the donut-shaped bonus. The points given by this bonus vary
-        depending on the level number and the length of the worm. Higher
-        the level number and longer the worm, more the points scored on
-        eating this bonus.</p>
+        depending on the level number and the length of the worm. The higher
+        the level number and the longer the worm, the more the points are scored
+        on eating this bonus.</p>
       </item>
       <item>
 	<p>The cherry-shaped bonus
 	<media type="image" its:translate="no" src="figures/cherry.svg" height="22" width="22"/> :
         This bonus causes a
 	decrease in the length of the worm. The points given by this bonus
-	depend on the level number and the length of the worm. Higher the level
-	number and longer the worm, more the points scored on eating this
-	bonus.</p>
+	depend on the level number and the length of the worm. The higher the
+	level number and the longer the worm, the more the points are scored on
+	eating this bonus.</p>
       </item>
     </list>
 
