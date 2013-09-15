@@ -1,3 +1,14 @@
+gnome-nibbles 3.9.92
+==================
+
+ * Added an appdata file
+ * Translation updates
+ * Disable preferences menu when playing
+ * Remove score-dialog that doesn't work
+ * Migrated to Clutter 1.14.4
+ * Help pages updated
+ * Performance improvements and code cleanup
+
 gnome-nibbles 3.8.0
 ==================
 
