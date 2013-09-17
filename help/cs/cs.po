@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"POT-Creation-Date: 2013-07-18 17:58+0000\n"
+"POT-Creation-Date: 2013-09-14 23:02+0000\n"
 "PO-Revision-Date: 2013-07-18 20:01+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -25,43 +25,25 @@ msgctxt "_"
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>, 2013"
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:19(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/after-rel.png' "
-#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
-msgctxt "_"
-msgid ""
-"external ref='figures/nibbles.png' md5='5c04c52509830b87cd6b69adf2dceb34'"
-msgstr ""
-"external ref='figures/nibbles.png' md5='5c04c52509830b87cd6b69adf2dceb34'"
-
-#: C/index.page:12(credit/name) C/basics.page:14(credit/name)
-#: C/controls-change.page:16(credit/name)
-#: C/controls-default.page:14(credit/name) C/fake-bonus.page:14(credit/name)
-#: C/multi-player.page:16(credit/name) C/preferences.page:14(credit/name)
-#: C/rel-movement.page:14(credit/name) C/scores.page:14(credit/name)
+#. (itstool) path: credit/name
+#: C/index.page:12 C/basics.page:14 C/controls-change.page:16
+#: C/controls-default.page:14 C/fake-bonus.page:14 C/multi-player.page:16
+#: C/preferences.page:14 C/rel-movement.page:14 C/scores.page:14
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
-#: C/index.page:16(info/desc)
+#. (itstool) path: info/desc
+#: C/index.page:16
 msgid "Index"
 msgstr "Rejstřík"
 
-#: C/index.page:19(page/title)
+#. (itstool) path: page/title
+#: C/index.page:19
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Červíci"
 
-#: C/index.page:21(page/p)
+#. (itstool) path: page/p
+#: C/index.page:21
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -71,37 +53,43 @@ msgstr ""
 "předmětů můžete a přitom se snažit nevrazit do zdi nebo do jiného červa. Pro "
 "dokončení hry musíte projít 26 úrovní."
 
-#: C/index.page:26(section/title)
+#. (itstool) path: section/title
+#: C/index.page:26
 msgid "Game play"
 msgstr "Hraní hry"
 
-#: C/index.page:30(section/title)
+#. (itstool) path: section/title
+#: C/index.page:30
 msgid "Preferences"
 msgstr "Předvolby"
 
-#: C/basics.page:18(credit/name) C/controls-change.page:20(credit/name)
-#: C/controls-default.page:18(credit/name) C/fake-bonus.page:18(credit/name)
-#: C/multi-player.page:20(credit/name) C/preferences.page:18(credit/name)
-#: C/rel-movement.page:18(credit/name)
+#. (itstool) path: credit/name
+#: C/basics.page:18 C/controls-change.page:20 C/controls-default.page:18
+#: C/fake-bonus.page:18 C/multi-player.page:20 C/preferences.page:18
+#: C/rel-movement.page:18
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
-#: C/basics.page:22(info/desc)
+#. (itstool) path: info/desc
+#: C/basics.page:22
 msgid ""
 "Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
 msgstr ""
 "Spuštění, pozastavení, hraní v režimu celé obrazovky a ukončení hry "
 "<app>Červíci</app>."
 
-#: C/basics.page:25(page/title)
+#. (itstool) path: page/title
+#: C/basics.page:25
 msgid "Basic instructions"
 msgstr "Úvodní instrukce"
 
-#: C/basics.page:28(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:28
 msgid "Start a new game"
 msgstr "Spuštění nové hry"
 
-#: C/basics.page:30(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:30
 msgid ""
 "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New</"
 "gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
@@ -111,11 +99,13 @@ msgstr ""
 "<gui style=\"menuitem\">Nová</gui></guiseq> nebo zmáčkněte "
 "<keyseq><key>Ctrl</key><key>N</key></keyseq>."
 
-#: C/basics.page:38(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:38
 msgid "Pause and resume your game"
 msgstr "Pozastavení a pokračování hry"
 
-#: C/basics.page:40(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:40
 msgid ""
 "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause</"
 "gui></guiseq> to pause your game. You can resume your game by selecting "
@@ -127,11 +117,13 @@ msgstr ""
 "<guiseq><gui style=\"menu\">Hra</gui> <gui style=\"menuitem\">Pokračovat</"
 "gui></guiseq>."
 
-#: C/basics.page:48(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:48
 msgid "Play <app>Nibbles</app> in fullscreen mode"
 msgstr "Hraní <app>Červíků</app> v režimu celé obrazovky"
 
-#: C/basics.page:50(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:50
 msgid ""
 "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
 "\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
@@ -143,11 +135,13 @@ msgstr ""
 "zmáčkněte <key>F11</key>. Opětovným zmáčknutím <key>F11</key> se vrátíte na "
 "původní velikost."
 
-#: C/basics.page:58(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:58
 msgid "Quit <app>Nibbles</app>"
 msgstr "Ukončení <app>Červíků</app>"
 
-#: C/basics.page:60(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:60
 msgid ""
 "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit</"
 "gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
@@ -157,15 +151,18 @@ msgstr ""
 "style=\"menu\">Hra</gui> <gui style=\"menuitem\">Ukončit</gui></guiseq> nebo "
 "zmáčknutím <keyseq><key>Ctrl</key><key>Q</key></keyseq>."
 
-#: C/controls-change.page:24(info/desc)
+#. (itstool) path: info/desc
+#: C/controls-change.page:24
 msgid "Set custom control keys."
 msgstr "Nastavte si vlastní ovládací klávesy."
 
-#: C/controls-change.page:27(page/title)
+#. (itstool) path: page/title
+#: C/controls-change.page:27
 msgid "Change the default controls"
 msgstr "Jak změnit výchozí ovládání"
 
-#: C/controls-change.page:29(page/p)
+#. (itstool) path: page/p
+#: C/controls-change.page:29
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -177,8 +174,9 @@ msgstr ""
 "hře pro <link xref=\"multi-player\">více hráčů</link>, kdy je potřeba více "
 "než jedna sada ovládacích kláves. Změnu provedete následovně:"
 
-#: C/controls-change.page:36(item/p) C/fake-bonus.page:35(item/p)
-#: C/multi-player.page:44(item/p) C/rel-movement.page:66(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:36 C/fake-bonus.page:35 C/multi-player.page:44
+#: C/rel-movement.page:66
 msgid ""
 "Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
 "\">Preferences</gui></guiseq>."
@@ -186,11 +184,13 @@ msgstr ""
 "Vyberte <guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
 "\">Předvolby</gui></guiseq>."
 
-#: C/controls-change.page:40(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:40
 msgid "Select the tab for the player whose controls you want to change."
 msgstr "Vybertu kartu hráče, u kterého chcete ovládání změnit."
 
-#: C/controls-change.page:42(note/p)
+#. (itstool) path: note/p
+#: C/controls-change.page:42
 msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
@@ -198,7 +198,8 @@ msgstr ""
 "Hráč 1 ovládá <gui>Červa 1</gui>, hráč 2 <gui>Červa 2</gui>, hráč 3 "
 "<gui>Červa 3</gui> atd."
 
-#: C/controls-change.page:47(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:47
 msgid ""
 "In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
 "then click on the control. This highlights the line and the words <gui>New "
@@ -208,11 +209,13 @@ msgstr ""
 "klikněte na název klávesy. Řádek bude zvýrazněný a ovládací klávesa se "
 "nahradí textem <gui>Nová klávesová zkratka…</gui>\"."
 
-#: C/controls-change.page:53(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:53
 msgid "Press the key you want to use instead of the default key."
 msgstr "Zmáčkněte klávesu, kterou chcete místo té výchozí používat."
 
-#: C/controls-change.page:55(note/p)
+#. (itstool) path: note/p
+#: C/controls-change.page:55
 msgid ""
 "To keep the old setting click <gui>New accelerator…</gui> again, right click "
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
@@ -223,7 +226,8 @@ msgstr ""
 "zmáčkněte <key>Esc</key> nebo klikněte kamkoliv jinam v rámci <gui>Předvoleb "
 "Červíků</gui>."
 
-#: C/controls-change.page:61(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:61
 msgid ""
 "Repeat the above step to change the other default keys for the current "
 "player, then select the tab for the next player whose controls you want to "
@@ -232,7 +236,8 @@ msgstr ""
 "Změnu výchozích kláves proveďte pro aktuálního hráče, pak vyberte kartu "
 "dalšího hráče, jehož ovládání chcete změni a tak dále postup opakujte."
 
-#: C/controls-change.page:67(page/p)
+#. (itstool) path: page/p
+#: C/controls-change.page:67
 msgid ""
 "For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
 "<gui>Left</gui> control line and click it, then press <key>A</key> on your "
@@ -242,15 +247,18 @@ msgstr ""
 "vyberte řádek s klávesou <gui>šipka vlevo</gui> a klikněte na ni. Až uvidíte "
 "<gui>Nová klávesová zkratka…</gui> zmáčkněte na klávesnici <key>A</key>."
 
-#: C/controls-default.page:23(info/desc)
+#. (itstool) path: info/desc
+#: C/controls-default.page:23
 msgid "Default keys for <app>Nibbles.</app>"
 msgstr "Výchozí klávesy pro <app>Červíky</app>."
 
-#: C/controls-default.page:26(page/title)
+#. (itstool) path: page/title
+#: C/controls-default.page:26
 msgid "Keyboard Controls"
 msgstr "Ovládání klávesnicí"
 
-#: C/controls-default.page:28(page/p)
+#. (itstool) path: page/p
+#: C/controls-default.page:28
 msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
@@ -258,29 +266,35 @@ msgstr ""
 "K ovládání pohybu svého červa v režimu pro jednoho hráče používejte "
 "následující klávesy:"
 
-#: C/controls-default.page:33(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:33
 msgid "<key>Up</key> to move the worm up"
 msgstr "<key>↑</key> pro pohyb červa nahoru"
 
-#: C/controls-default.page:36(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:36
 msgid "<key>Down</key> to move the worm down"
 msgstr "<key>↓</key> pro pohyb červa dolů"
 
-#: C/controls-default.page:39(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:39
 msgid "<key>Left</key> to move the worm left"
 msgstr "<key>←</key> pro pohyb červa doleva"
 
-#: C/controls-default.page:42(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:42
 msgid "<key>Right</key> to move the worm right"
 msgstr "<key>→</key> pro pohyb červa doprava"
 
-#: C/controls-default.page:47(note/p)
+#. (itstool) path: note/p
+#: C/controls-default.page:47
 msgid ""
 "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
 "Výchozí ovládání si můžete <link xref=\"controls-change\">změnit</link>."
 
-#: C/controls-default.page:51(page/p)
+#. (itstool) path: page/p
+#: C/controls-default.page:51
 msgid ""
 "All worm movements happen with respect to the screen unless <link xref=\"rel-"
 "movement\">relative movement</link> is enabled. This means that when you "
@@ -293,17 +307,20 @@ msgstr ""
 "<key>←</key>, červ se bude bude pohybovat směrem k levému okraji obrazovky, "
 "když zmáčknete <key>→</key>, bude se pohybovat k pravému okraji apod."
 
-#: C/fake-bonus.page:22(info/desc)
+#. (itstool) path: info/desc
+#: C/fake-bonus.page:22
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
 "Používejte v <app>Červících</app> falešné bonusy, ať je hra více dobrodružná."
 
-#: C/fake-bonus.page:26(page/title)
+#. (itstool) path: page/title
+#: C/fake-bonus.page:26
 msgid "What are fake bonuses?"
 msgstr "Co jsou to falešné bonusy?"
 
-#: C/fake-bonus.page:28(page/p)
+#. (itstool) path: page/p
+#: C/fake-bonus.page:28
 msgid ""
 "Fake bonuses look like regular bonus shapes but do not give you any points "
 "when your worm swallows them. They cause a reversal in the movement of your "
@@ -312,11 +329,13 @@ msgstr ""
 "Falešné bonusy vypadají vzhledově jako normální bonusy, ale nepřidají vám "
 "žádné body, když je spolknete. Navíc způsobí obrácení pohybu vašeho červa."
 
-#: C/fake-bonus.page:32(page/p)
+#. (itstool) path: page/p
+#: C/fake-bonus.page:32
 msgid "To enable fake bonuses:"
 msgstr "Když chcete falešné bonusy povolit:"
 
-#: C/fake-bonus.page:39(item/p)
+#. (itstool) path: item/p
+#: C/fake-bonus.page:39
 msgid ""
 "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
 "is unchecked."
@@ -324,11 +343,13 @@ msgstr ""
 "V případě, že políčko <gui style=\"checkbox\">Povolit falešné bonusy</gui> "
 "není zaškrtnuté, zaškrtněte jej."
 
-#: C/fake-bonus.page:43(item/p)
+#. (itstool) path: item/p
+#: C/fake-bonus.page:43
 msgid "Click <gui>Close</gui>."
 msgstr "Klikněte na <gui>Zavřít</gui>."
 
-#: C/fake-bonus.page:48(note/p)
+#. (itstool) path: note/p
+#: C/fake-bonus.page:48
 msgid ""
 "Set all preferences before starting a new game. Preferences cannot be "
 "changed in the middle of a game."
@@ -336,15 +357,18 @@ msgstr ""
 "Všechny předvolby si upravte před započetím nové hry. Během hry je nejde "
 "měnit."
 
-#: C/multi-player.page:24(info/desc)
+#. (itstool) path: info/desc
+#: C/multi-player.page:24
 msgid "Play <app>Nibbles</app> with additional players."
 msgstr "Hrejte <app>Červíky</app> spolu s dalšími hráči."
 
-#: C/multi-player.page:27(page/title)
+#. (itstool) path: page/title
+#: C/multi-player.page:27
 msgid "Multi-player games"
 msgstr "Hra pro více hráčů"
 
-#: C/multi-player.page:29(page/p)
+#. (itstool) path: page/p
+#: C/multi-player.page:29
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. While a player "
 "controls <gui>Worm 1</gui> in a single-player game, players can additionally "
@@ -359,18 +383,21 @@ msgstr ""
 "hráče ovládáte <gui>Červa 1</gui> a <gui>Červa 2</gui>, ve hře pro tři hráče "
 "<gui>Červa 1</gui>, <gui>Červa 2</gui> a <gui>Červa 3</gui> atd."
 
-#: C/multi-player.page:37(section/title)
+#. (itstool) path: section/title
+#: C/multi-player.page:37
 msgid "Choose the number of players"
 msgstr "Volba počtu hráčů"
 
-#: C/multi-player.page:39(section/p)
+#. (itstool) path: section/p
+#: C/multi-player.page:39
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. To set the number of "
 "players:"
 msgstr ""
 "<app>Červíky</app> může hrát až šest hráčů. Jejich počet určíte následovně:"
 
-#: C/multi-player.page:48(item/p)
+#. (itstool) path: item/p
+#: C/multi-player.page:48
 msgid ""
 "Set the <gui style=\"input\">Number of human players</gui> to the required "
 "number, a maximum of 6. You can do this by using the <gui style=\"button\">"
@@ -382,7 +409,8 @@ msgstr ""
 "gui> a <gui style=\"button\">-</gui> nebo do příslušného políčka zadat počet "
 "hráčů z klávesnice."
 
-#: C/multi-player.page:57(note/p)
+#. (itstool) path: note/p
+#: C/multi-player.page:57
 msgid ""
 "You can watch a <app>Nibbles</app> game without participating. To observe a "
 "game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
@@ -394,116 +422,18 @@ msgstr ""
 "lidských hráčů</gui> na 0 a <gui style=\"input\">Počet umělých hráčů</gui> v "
 "rozmezí 1 až 6."
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:66(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/after-rel.png' "
-#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-red.svg' md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
-msgstr ""
-"external ref='figures/snake-red.svg' md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:70(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/after-rel.png' "
-#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-green.svg' md5='950becba28c6dca50a1157efe5b96f1d'"
-msgstr ""
-"external ref='figures/snake-green.svg' md5='950becba28c6dca50a1157efe5b96f1d'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:74(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/before-rel.png' "
-#| "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-blue.svg' md5='7f5cb0d784fdf25d604882472cb504b9'"
-msgstr ""
-"external ref='figures/snake-blue.svg' md5='7f5cb0d784fdf25d604882472cb504b9'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:78(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/after-rel.png' "
-#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-yellow.svg' "
-"md5='a81bc4335b8ee337363f7e818eb74ec0'"
-msgstr ""
-"external ref='figures/snake-yellow.svg' "
-"md5='a81bc4335b8ee337363f7e818eb74ec0'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:82(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-cyan.svg' md5='62c0ac58f26769ab7eba85a255191257'"
-msgstr ""
-"external ref='figures/snake-cyan.svg' md5='62c0ac58f26769ab7eba85a255191257'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:86(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-magenta.svg' "
-"md5='00ede40fb89479b830636d02dcd33680'"
-msgstr ""
-"external ref='figures/snake-magenta.svg' "
-"md5='00ede40fb89479b830636d02dcd33680'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:90(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/after-rel.png' "
-#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-grey.svg' md5='8b1ff44ff3d43292f5843f15c9187f9c'"
-msgstr ""
-"external ref='figures/snake-grey.svg' md5='8b1ff44ff3d43292f5843f15c9187f9c'"
-
-#: C/preferences.page:22(info/desc)
+#. (itstool) path: info/desc
+#: C/preferences.page:22
 msgid "Change default speed, worm color, level order and sound settings."
 msgstr "Změňte výchozí rychlost, barvu červů, pořadí úrovní a nastavení zvuku."
 
-#: C/preferences.page:25(page/title)
+#. (itstool) path: page/title
+#: C/preferences.page:25
 msgid "Edit general preferences"
 msgstr "Jak upravit obecné předvolby"
 
-#: C/preferences.page:27(page/p)
+#. (itstool) path: page/p
+#: C/preferences.page:27
 msgid ""
 "The general preferences for <app>Nibbles</app> can be changed by selecting "
 "<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
@@ -512,11 +442,13 @@ msgstr ""
 "Obecné předvolby <app>Červíků</app> najdete pod <guiseq><gui style=\"menu"
 "\">Nastavení</gui> <gui style=\"menuitem\">Předvolby</gui></guiseq>."
 
-#: C/preferences.page:32(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:32
 msgid "Speed"
 msgstr "Rychlost"
 
-#: C/preferences.page:34(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:34
 msgid ""
 "There are four available speeds in <app>Nibbles</app>. These are, in "
 "increasing order:"
@@ -524,23 +456,28 @@ msgstr ""
 "K dispozici jsou čtyři různé rychlosti <app>Červíků</app>. Ve vzestupném "
 "pořadí to jsou:"
 
-#: C/preferences.page:39(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:39
 msgid "Nibbles Newbie"
 msgstr "Nováček v červících"
 
-#: C/preferences.page:42(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:42
 msgid "My second day"
 msgstr "Můj druhý den"
 
-#: C/preferences.page:45(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:45
 msgid "Not too shabby"
 msgstr "Ne moc špatný"
 
-#: C/preferences.page:48(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:48
 msgid "Finger twitching good"
 msgstr "Tak dobrý, že má křeč v prstech"
 
-#: C/preferences.page:52(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:52
 msgid ""
 "Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
 "style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
@@ -550,43 +487,53 @@ msgstr ""
 "style=\"menuitem\">Předvolby</gui></guiseq> výběrem jedné ze čtyř rychlostí "
 "nabízených po levé straně."
 
-#: C/preferences.page:59(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:59
 msgid "Change worm colors"
 msgstr "Změna barvy červa"
 
-#: C/preferences.page:61(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:61
 msgid "There are seven available worm colors:"
 msgstr "K dispozici je sedm barev červů:"
 
-#: C/preferences.page:65(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:65
 msgid "<_:media-1/> Red"
 msgstr "<_:media-1/> červený"
 
-#: C/preferences.page:69(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:69
 msgid "<_:media-1/> Green"
 msgstr "<_:media-1/> zelený"
 
-#: C/preferences.page:73(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:73
 msgid "<_:media-1/> Blue"
 msgstr "<_:media-1/> modrý"
 
-#: C/preferences.page:77(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:77
 msgid "<_:media-1/> Yellow"
 msgstr "<_:media-1/> žlutý"
 
-#: C/preferences.page:81(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:81
 msgid "<_:media-1/> Cyan"
 msgstr "<_:media-1/> azurový"
 
-#: C/preferences.page:85(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:85
 msgid "<_:media-1/> Purple"
 msgstr "<_:media-1/> purpurový"
 
-#: C/preferences.page:89(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:89
 msgid "<_:media-1/> Gray"
 msgstr "<_:media-1/> šedý"
 
-#: C/preferences.page:94(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:94
 msgid ""
 "These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
 "style=\"menuitem\">Preferences</gui></guiseq>."
@@ -594,7 +541,8 @@ msgstr ""
 "Měnit je můžete v <guiseq><gui style=\"menu\">Nastavení</gui> <gui style="
 "\"menuitem\">Předvolby</gui></guiseq>."
 
-#: C/preferences.page:99(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:99
 msgid ""
 "Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
 "edit."
@@ -602,7 +550,8 @@ msgstr ""
 "Vyberte jednu z karet <gui>Červ x</gui> patřící červovi, kterého chcete "
 "upravit."
 
-#: C/preferences.page:103(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:103
 msgid ""
 "On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
 "Pick a color out of the available colors in the drop-down menu to change the "
@@ -612,11 +561,13 @@ msgstr ""
 "rozbalovacím seznamu vedle si vyberte jednu z dostupných barev a tím vzhled "
 "červa změníte."
 
-#: C/preferences.page:112(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:112
 msgid "Sounds"
 msgstr "Zvuky"
 
-#: C/preferences.page:114(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:114
 msgid ""
 "You can enable or disable sounds in <app>Nibbles</app> by checking or "
 "unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
@@ -628,11 +579,13 @@ msgstr ""
 "<guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
 "\">Předvolby</gui></guiseq>."
 
-#: C/preferences.page:122(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:122
 msgid "Play levels in random order"
 msgstr "Hraní úrovní v náhodném pořadí"
 
-#: C/preferences.page:124(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:124
 msgid ""
 "Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
 "gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
@@ -644,37 +597,42 @@ msgstr ""
 "<guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
 "\">Předvolby</gui></guiseq>."
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:41(media)
+#: C/rel-movement.page:41
 msgctxt "_"
 msgid ""
 "external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
 msgstr ""
 "external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:48(media)
+#: C/rel-movement.page:48
 msgctxt "_"
 msgid ""
 "external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 msgstr ""
 "external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 
-#: C/rel-movement.page:22(info/desc)
+#. (itstool) path: info/desc
+#: C/rel-movement.page:22
 msgid "Enable relative movement."
 msgstr "Povolte relativní pohyb."
 
-#: C/rel-movement.page:25(page/title)
+#. (itstool) path: page/title
+#: C/rel-movement.page:25
 msgid "Relative movement"
 msgstr "Relativní pohyb"
 
-#: C/rel-movement.page:27(page/p)
+#. (itstool) path: page/p
+#: C/rel-movement.page:27
 msgid ""
 "When relative movement is enabled, the worm is manouvered using just the "
 "default <key>Left</key> and <key>Right</key> keys or other <link xref="
@@ -691,23 +649,28 @@ msgstr ""
 "pohybovat k levému okraji obrazovky. Obdobně po zmáčknutí <key>→</key> zahne "
 "doprava, namísto aby zamířil přímo v pravém směru obrazovky."
 
-#: C/rel-movement.page:39(figure/title)
+#. (itstool) path: figure/title
+#: C/rel-movement.page:39
 msgid "Starting postion:"
 msgstr "Počáteční pozice:"
 
-#: C/rel-movement.page:40(figure/desc)
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:40
 msgid "The location of the worm before you decide to move it."
 msgstr "Poloha červa než se rozhodnete jej ovlivnit."
 
-#: C/rel-movement.page:46(figure/title)
+#. (itstool) path: figure/title
+#: C/rel-movement.page:46
 msgid "On pressing the <key>Left</key> key:"
 msgstr "Po zmáčknutí klávesy <key>←</key>:"
 
-#: C/rel-movement.page:47(figure/desc)
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:47
 msgid "The worm turns left and begins to move downwards."
 msgstr "Červ zahnul doleva a začal se pohybovat dolů."
 
-#: C/rel-movement.page:55(note/p)
+#. (itstool) path: note/p
+#: C/rel-movement.page:55
 msgid ""
 "If relative movement was not enabled, you would press the <key>Down</key> "
 "key to achieve the above result."
@@ -715,11 +678,13 @@ msgstr ""
 "Kdyby nebyl zapnutý relativní pohyb, dosáhli byste stejného výsledku "
 "zmáčknutím klávesy <key>↓</key>."
 
-#: C/rel-movement.page:62(page/p)
+#. (itstool) path: page/p
+#: C/rel-movement.page:62
 msgid "To enable relative movement:"
 msgstr "Když chcete zapnout relativní pohyb:"
 
-#: C/rel-movement.page:70(item/p)
+#. (itstool) path: item/p
+#: C/rel-movement.page:70
 msgid ""
 "Select the worm for which relative movement has to be enabled by clicking "
 "the appropriate <gui>Worm</gui> tab."
@@ -727,7 +692,8 @@ msgstr ""
 "Vyberte červa, pro kterého chcete relativní pohyb povolit, kliknutím na "
 "příslušnou kartu <gui>Červ x</gui>."
 
-#: C/rel-movement.page:74(item/p)
+#. (itstool) path: item/p
+#: C/rel-movement.page:74
 msgid ""
 "Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
 "is unchecked."
@@ -735,83 +701,23 @@ msgstr ""
 "V případě, že není zaškrtnuté políčko <gui style=\"checkbox\">Používat "
 "relativní pohyb</gui>, zaškrtněte jej."
 
-#: C/rel-movement.page:78(item/p)
+#. (itstool) path: item/p
+#: C/rel-movement.page:78
 msgid "Click <gui style=\"button\">Close</gui>."
 msgstr "Klikněte na <gui style=\"button\">Zavřít</gui>."
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:28(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/after-rel.png' "
-#| "md5='face859122668e3ec20b98cfdcc0bd2d'"
-msgctxt "_"
-msgid "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
-msgstr ""
-"external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:48(media)
-msgctxt "_"
-msgid "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
-msgstr "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:64(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
-msgstr ""
-"external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:74(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/before-rel.png' "
-#| "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-msgctxt "_"
-msgid ""
-"external ref='figures/ice-cream.svg' md5='4892ededb56e306922c5442b46ca2a7c'"
-msgstr ""
-"external ref='figures/ice-cream.svg' md5='4892ededb56e306922c5442b46ca2a7c'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:83(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/before-rel.png' "
-#| "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-msgctxt "_"
-msgid ""
-"external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
-msgstr ""
-"external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
-
-#: C/scores.page:18(info/desc)
+#. (itstool) path: info/desc
+#: C/scores.page:18
 msgid "Swallow different bonuses to score points."
 msgstr "Spolykejte různé bonusy, abyste získali body."
 
-#: C/scores.page:21(page/title)
+#. (itstool) path: page/title
+#: C/scores.page:21
 msgid "Scoring points in <app>Nibbles</app>"
 msgstr "Hodnocení body ve hře <app>Červíci</app>"
 
-#: C/scores.page:23(page/p)
+#. (itstool) path: page/p
+#: C/scores.page:23
 msgid ""
 "You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
 "different kinds of bonuses in Nibbles:"
@@ -819,7 +725,8 @@ msgstr ""
 "Body do skóre můžete ve hře <app>Červíci</app> získat pojídáním bonusů. "
 "Bonusů existuje 5 různých druhů:"
 
-#: C/scores.page:27(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:27
 msgid ""
 "The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
 "length of the worm. The points you gain on eating the donut vary from level "
@@ -836,7 +743,8 @@ msgstr ""
 "atd. V úrovni 2 vám dá první koblížek 2 body, druhý 4 body, třetí 6 bodů "
 "atd. Analogicky v úrovni 26 vám dá první koblížek 26 bodů, drůhý 52 bodů atd."
 
-#: C/scores.page:39(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:39
 msgid ""
 "The donut order count does not depend on the number of donuts already eaten "
 "by a worm. If the game is in level 1 and if player 1 eats the first donut, "
@@ -849,7 +757,8 @@ msgstr ""
 "druhý koblížek dostane 2 body. Třetí hráč nemusí ze začítku sníst žádný a "
 "počkat si třeba až na desátý koblížek a pak dostane 10 bodů naráz."
 
-#: C/scores.page:47(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:47
 msgid ""
 "The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
 "does not cause an increase in the length of your worm."
@@ -857,7 +766,8 @@ msgstr ""
 "Bonus ve tvaru srdce <_:media-1/>: Tento bonus vám přidá navíc jeden život a "
 "nezpůsobí prodloužení červa."
 
-#: C/scores.page:52(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:52
 msgid ""
 "The number of lives remaining for a worm is given by the number on the left "
 "of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
@@ -866,7 +776,8 @@ msgstr ""
 "Počet životů, které červu zbývají, je uveden číslem před čárkou ve skóre "
 "červa. Když má například skóre 10,005, zbývá mu 10 životů."
 
-#: C/scores.page:57(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:57
 msgid ""
 "You cannot get extra lives by scoring 10,000 points or more. If you have "
 "scored 12345 points with 10 lives remaining, your score will be 10,12345."
@@ -874,7 +785,8 @@ msgstr ""
 "Nemůžete získat další životy pomocí skóre 10 000 bodů a více. Když máte "
 "skóre 12345 s 10 zbývajícími životy, bude vaše skóre 10,12345."
 
-#: C/scores.page:63(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:63
 msgid ""
 "The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
 "increase in the length of the worm and does not give you any points. It "
@@ -884,38 +796,43 @@ msgstr ""
 "a nepřidá vám žádné body. Způsobí také obrácení pohybu všech ostatních červů "
 "ve hře."
 
-#: C/scores.page:69(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:69
 msgid "This bonus has no effect in a single-player game."
 msgstr "Tento bonus nemá žádný vliv ve hře pro jednoho hráče."
 
-#: C/scores.page:73(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:73
 msgid ""
 "The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
 "increase in the length of the worm than the donut-shaped bonus. The points "
 "given by this bonus vary depending on the level number and the length of the "
-"worm. Higher the level number and longer the worm, more the points scored on "
-"eating this bonus."
+"worm. The higher the level number and the longer the worm, the more the "
+"points are scored on eating this bonus."
 msgstr ""
 "Bonus ve tvaru zmrzlinky <_:media-1/>: Tento bonus způsobí významně větší "
 "prodloužení červa, než bonus ve tvaru koblížku. Body přidělené za tento "
 "bonus značně závisí na čísle úrovně a délce červa. Čím vyšší úroveň a delší "
 "červ, tím víc bodů snězením tohoto bonusu získáte."
 
-#: C/scores.page:82(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:82
 msgid ""
 "The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
 "length of the worm. The points given by this bonus depend on the level "
-"number and the length of the worm. Higher the level number and longer the "
-"worm, more the points scored on eating this bonus."
+"number and the length of the worm. The higher the level number and the "
+"longer the worm, the more the points are scored on eating this bonus."
 msgstr ""
 "Bonus ve tvaru třešínek <_:media-1/>: Tento bonus způsobí zkrácení délky "
 "červa. Body přidělené za tento bonus záleží na čísle úrovně a délce červa. "
 "Čím vyšší úroveň a delší červ, tím víc bodů snězením tohoto bonusu získáte."
 
-#: C/legal.xml:4(p/link)
+#. (itstool) path: p/link
+#: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 
-#: C/legal.xml:3(license/p)
+#. (itstool) path: license/p
+#: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Tato práce je vydána pod licencí <_:link-1/>"
