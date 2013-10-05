@@ -1,0 +1,870 @@
+# Hungarian translation of gnome-nibbles help
+# Copyright (C) 2013. Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-nibbles help.
+#
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-nibbles_help master\n"
+"POT-Creation-Date: 2013-09-17 17:18+0000\n"
+"PO-Revision-Date: 2013-10-05 20:06+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Kelemen Gábor <kelemeng at gnome dot hu>, 2013."
+
+#. (itstool) path: credit/name
+#: C/index.page:12
+#: C/basics.page:14
+#: C/controls-change.page:16
+#: C/controls-default.page:14
+#: C/fake-bonus.page:14
+#: C/index.page:12
+#: C/multi-player.page:16
+#: C/preferences.page:14
+#: C/rel-movement.page:14
+#: C/scores.page:14
+msgid "Aruna Sankaranarayanan"
+msgstr "Aruna Sankaranarayanan"
+
+#. (itstool) path: info/desc
+#: C/index.page:16
+#: C/index.page:16
+msgid "Index"
+msgstr "Index"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+#: C/index.page:19
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Kukacok"
+
+#. (itstool) path: page/p
+#: C/index.page:21
+#: C/index.page:21
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other worms. "
+"You have to complete 26 levels to finish the game."
+msgstr ""
+"A <app>Kukacok</app> egy klasszikus kukacjáték a GNOME-hoz. A játék célja "
+"minél több objektum lenyelése, miközben elkerüli a labirintus falait és a "
+"többi kukacot. A játék befejezéséhez 26 szintet kell leküzdenie."
+
+#. (itstool) path: section/title
+#: C/index.page:26
+#: C/index.page:26
+msgid "Game play"
+msgstr "Játékmenet"
+
+#. (itstool) path: section/title
+#: C/index.page:30
+#: C/index.page:30
+msgid "Preferences"
+msgstr "Beállítások"
+
+#. (itstool) path: credit/name
+#: C/basics.page:18
+#: C/controls-change.page:20
+#: C/controls-default.page:18
+#: C/fake-bonus.page:18
+#: C/multi-player.page:20
+#: C/preferences.page:18
+#: C/rel-movement.page:18
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#. (itstool) path: info/desc
+#: C/basics.page:22
+msgid ""
+"Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
+msgstr ""
+"Indítás, szüneteltetés, teljes képernyős játék és kilépés a <app>Kukacok</app>"
+" játékból."
+
+#. (itstool) path: page/title
+#: C/basics.page:25
+msgid "Basic instructions"
+msgstr "Alapvető utasítások"
+
+#. (itstool) path: section/title
+#: C/basics.page:28
+msgid "Start a new game"
+msgstr "Új játék indítása"
+
+#. (itstool) path: section/p
+#: C/basics.page:30
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New<"
+"/gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game."
+msgstr ""
+"Válassza a <guiseq><gui style=\"menu\">Játék</gui><gui style=\"menuitem\">Új<"
+"/gui></guiseq> menüpontot vagy nyomja meg a <keyseq><key>Ctrl</key><key>N<"
+"/key></keyseq> kombinációt új játék indításához."
+
+#. (itstool) path: section/title
+#: C/basics.page:38
+msgid "Pause and resume your game"
+msgstr "Játék megállítása/folytatása"
+
+#. (itstool) path: section/p
+#: C/basics.page:40
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause<"
+"/gui></guiseq> to pause your game. You can resume your game by selecting <"
+"guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Resume</gui><"
+"/guiseq>."
+msgstr ""
+"Válassza a <guiseq><gui style=\"menu\">Játék</gui><gui style=\"menuitem\">"
+"Szünet</gui></guiseq> menüpontot a játék szüneteltetéséhez. A játékot a <"
+"guiseq><gui style=\"menu\">Játék</gui><gui style=\"menuitem\">Folytatás</gui>"
+"</guiseq> menüpont kiválasztásával folytathatja."
+
+#. (itstool) path: section/title
+#: C/basics.page:48
+msgid "Play <app>Nibbles</app> in fullscreen mode"
+msgstr "A <app>Kukacok</app> játszása teljes képernyős módban"
+
+#. (itstool) path: section/p
+#: C/basics.page:50
+msgid ""
+"Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem\">"
+"Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
+"fullscreen mode. You can return to the default screen size by pressing <key>"
+"F11</key> again."
+msgstr ""
+"Válassza a <guiseq><gui style=\"menu\">Nézet</gui><gui style=\"menuitem\">"
+"Teljes képernyő</gui></guiseq> menüpontot vagy nyomja meg az <key>F11</key> "
+"billentyűt a játék teljes képernyős módban való indításához. Az "
+"alapértelmezett képernyőmérethez az <key>F11</key> ismételt megnyomásával "
+"térhet vissza."
+
+#. (itstool) path: section/title
+#: C/basics.page:58
+msgid "Quit <app>Nibbles</app>"
+msgstr "Kilépés a <app>Kukacokból</app>"
+
+#. (itstool) path: section/p
+#: C/basics.page:60
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit<"
+"/gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
+"<app>Nibbles</app> at any time."
+msgstr ""
+"Válassza a <guiseq><gui style=\"menu\">Játék</gui><gui style=\"menuitem\">"
+"Kilépés</gui></guiseq> menüpontot vagy nyomja meg a <keyseq><key>Ctrl</key><"
+"key>Q</key></keyseq> kombinációt a <app>Kukacok</app> bezárásához."
+
+#. (itstool) path: info/desc
+#: C/controls-change.page:24
+msgid "Set custom control keys."
+msgstr "Egyéni vezérlőbillentyűk beállítása."
+
+#. (itstool) path: page/title
+#: C/controls-change.page:27
+msgid "Change the default controls"
+msgstr "Az alapértelmezett vezérlés módosítása"
+
+#. (itstool) path: page/p
+#: C/controls-change.page:29
+msgid ""
+"The <link xref=\"controls-default\">default controls</link> can be changed in "
+"<app>Nibbles</app> to suit your preference or for <link xref=\"multi-player\">"
+"multi-player</link> games, when having more than one set of controls becomes "
+"necessary. To change the default controls:"
+msgstr ""
+"A <app>Kukacok</app> <link xref=\"controls-default\">alapértelmezett "
+"vezérlése</link> megváltoztatható az ízlésének megfelelőre vagy <link "
+"xref=\"multi-player\">több szereplős</link> játékokhoz, ha több "
+"vezérlőbillentyű-csoport használata válik szükségessé. Az alapértelmezett "
+"vezérlés megváltoztatása:"
+
+#. (itstool) path: item/p
+#: C/controls-change.page:36
+#: C/fake-bonus.page:35
+#: C/multi-player.page:44
+#: C/rel-movement.page:66
+msgid ""
+"Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem\">"
+"Preferences</gui></guiseq>."
+msgstr ""
+"Válassza a <guiseq><gui style=\"menu\">Beállítások</gui> <gui "
+"style=\"menuitem\">Beállítások</gui></guiseq> menüpontot"
+
+#. (itstool) path: item/p
+#: C/controls-change.page:40
+msgid "Select the tab for the player whose controls you want to change."
+msgstr ""
+"Válassza ki azon játékos lapját, amelynek vezérlését módosítani szeretné."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:42
+msgid ""
+"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+"player 3 controls <gui>Worm 3</gui> and so on."
+msgstr ""
+"Az 1. játékos irányítja a <gui>Kukac 1-et</gui>, a 2. játékos a <gui>Kukac "
+"2-t</gui>, a 3. játékos a <gui>Kukac 3-at</gui> és így tovább."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:47
+msgid ""
+"In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
+"then click on the control. This highlights the line and the words <gui>New "
+"accelerator…</gui> are now present in place of the old control."
+msgstr ""
+"A <gui style=\"group\">Billentyűzet beállításai</gui> listában válasszon egy "
+"sort, és kattintson a vezérlőbillentyűre. Ez kiemeli a sort, és a korábbi "
+"vezérlőbillentyű neve helyén az <gui>Új gyorsbillentyű</gui> felirat jelenik "
+"meg."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:53
+msgid "Press the key you want to use instead of the default key."
+msgstr "Nyomja meg az alapértelmezett helyett használni kívánt billentyűt."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:55
+msgid ""
+"To keep the old setting click <gui>New accelerator…</gui> again, right click "
+"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
+"inside the <gui>Nibbles Preferences</gui> box."
+msgstr ""
+"A régi beállítás megtartásához kattintson újra az <key>Új gyorsbillentyű</key>"
+" feliratra, nyomja meg az <key>Esc</key> billentyűt, vagy kattintson bárhová "
+"a <gui>Kukacok beállításai</gui> ablakban."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:61
+msgid ""
+"Repeat the above step to change the other default keys for the current "
+"player, then select the tab for the next player whose controls you want to "
+"change and repeat the process."
+msgstr ""
+"Ismételje meg a fenti lépést az aktuális játékos többi alapértelmezett "
+"billentyűjének módosításához, majd válassza ki a következő játékoshoz tartozó "
+"lapot, akinek vezérlőbillentyűit meg szeretné változtatni, és kezdje újra a "
+"folyamatot."
+
+#. (itstool) path: page/p
+#: C/controls-change.page:67
+msgid ""
+"For example, to use <key>A</key> to <gui>Move Left</gui>, select the <gui>"
+"Left</gui> control line and click it, then press <key>A</key> on your "
+"keyboard when you see <gui>New accelerator…</gui> on the line."
+msgstr ""
+"Például az <key>A</key> használatához a <gui>Mozgáshoz balra</gui>, válassza "
+"a <gui>Balra</gui> vezérlőbillentyű sorát, kattintson rá, és nyomja meg az <"
+"key>A</key> billentyűt a billentyűzeten, amikor megjelenik az <gui>Új "
+"gyorsbillentyű</gui> szöveg a sorban."
+
+#. (itstool) path: info/desc
+#: C/controls-default.page:23
+msgid "Default keys for <app>Nibbles.</app>"
+msgstr "A <app>Kukacok</app> alapértelmezett billentyűi."
+
+#. (itstool) path: page/title
+#: C/controls-default.page:26
+msgid "Keyboard Controls"
+msgstr "Billentyűzetes vezérlés"
+
+#. (itstool) path: page/p
+#: C/controls-default.page:28
+msgid ""
+"For controlling the movements of your worm in a single-player mode, use the "
+"following default keys:"
+msgstr ""
+"A kukac mozgásának irányításához egy játékos módban a következő "
+"alapértelmezett billentyűket használhatja:"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:33
+msgid "<key>Up</key> to move the worm up"
+msgstr "<key>Fel</key> a kukac felfelé mozgatásához"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:36
+msgid "<key>Down</key> to move the worm down"
+msgstr "<key>Le</key> a kukac lefelé mozgatásához"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:39
+msgid "<key>Left</key> to move the worm left"
+msgstr "<key>Balra</key> a kukac balra mozgatásához"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:42
+msgid "<key>Right</key> to move the worm right"
+msgstr "<key>Jobbra</key> a kukac jobbra mozgatásához"
+
+#. (itstool) path: note/p
+#: C/controls-default.page:47
+msgid ""
+"You can <link xref=\"controls-change\">change</link> the default controls."
+msgstr ""
+"Az alapértelmezett vezérlés <link xref=\"controls-change\">megváltoztatható<"
+"/link>."
+
+#. (itstool) path: page/p
+#: C/controls-default.page:51
+msgid ""
+"All worm movements happen with respect to the screen unless <link "
+"xref=\"rel-movement\">relative movement</link> is enabled. This means that "
+"when you press <key>Left</key> the worm moves towards the left of the screen, "
+"when you press <key>Right</key> the worm moves towards the right of the "
+"screen and so on."
+msgstr ""
+"Minden kukacmozgás a képernyőhöz képest fog történni, hacsak a <link "
+"xref=\"rel-movement\">Relatív mozgatás használata</link> nincs engedélyezve. "
+"Ez azt jelenti, hogy a <key>Balra</key> nyílbillentyű megnyomásakor a kukac a "
+"képernyő bal oldala felé mozog, a <key>Jobbra</key> nyílbillentyű "
+"megnyomásakor pedig a képernyő jobb oldala felé és így tovább."
+
+#. (itstool) path: info/desc
+#: C/fake-bonus.page:22
+msgid ""
+"Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
+msgstr ""
+"A hamis bónuszok bekapcsolásával a <app>Kukacok</app> játék nehezebbé tehető."
+
+#. (itstool) path: page/title
+#: C/fake-bonus.page:26
+msgid "What are fake bonuses?"
+msgstr "Mik azok a hamis bónuszok?"
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:28
+msgid ""
+"Fake bonuses look like regular bonus shapes but do not give you any points "
+"when your worm swallows them. They cause a reversal in the movement of your "
+"worm."
+msgstr ""
+"A hamis bónuszok úgy néznek ki, mint a normális bónuszok, de nem adnak "
+"pontokat amikor a kukac lenyeli őket. Ehelyett megfordítják a kukaca mozgását."
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:32
+msgid "To enable fake bonuses:"
+msgstr "Hamis bónuszok bekapcsolása:"
+
+#. (itstool) path: item/p
+#: C/fake-bonus.page:39
+msgid ""
+"Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it is "
+"unchecked."
+msgstr ""
+"Jelölje be a <gui style=\"checkbox\">Hamis bónuszok bekapcsolása</gui> "
+"négyzetet."
+
+#. (itstool) path: item/p
+#: C/fake-bonus.page:43
+msgid "Click <gui>Close</gui>."
+msgstr "Nyomja meg a <gui>Bezárás</gui> gombot."
+
+#. (itstool) path: note/p
+#: C/fake-bonus.page:48
+msgid ""
+"Set all preferences before starting a new game. Preferences cannot be changed "
+"in the middle of a game."
+msgstr ""
+"A beállításokat a játék indítása előtt állítsa be. A beállítások nem "
+"módosíthatók a játék közben."
+
+#. (itstool) path: info/desc
+#: C/multi-player.page:24
+msgid "Play <app>Nibbles</app> with additional players."
+msgstr "A <app>Kukacok</app> játszása további játékosokkal."
+
+#. (itstool) path: page/title
+#: C/multi-player.page:27
+msgid "Multi-player games"
+msgstr "Többszereplős játékok"
+
+#. (itstool) path: page/p
+#: C/multi-player.page:29
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. While a player "
+"controls <gui>Worm 1</gui> in a single-player game, players can additionally "
+"control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A "
+"two-player game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>"
+", a three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2<"
+"/gui> and <gui>Worm 3</gui> and so on."
+msgstr ""
+"A <app>Kukacok</app> játékot akár hatan is játszhatják. Az egy játékos módban "
+"a <gui>Kukac 1</gui> irányítható, többszereplős játékban a <gui>Kukac 2</gui>"
+"-től <gui>Kukac 6</gui>-ig is irányíthatók a kukacok. Két játékos esetén a <"
+"gui>Kukac 1</gui> és a <gui>Kukac 2</gui> irányítható, három játékos esetén a "
+"<gui>Kukac 3</gui> is irányíthatóvá válik stb."
+
+#. (itstool) path: section/title
+#: C/multi-player.page:37
+msgid "Choose the number of players"
+msgstr "Játékosok számának kiválasztása"
+
+#. (itstool) path: section/p
+#: C/multi-player.page:39
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. To set the number of "
+"players:"
+msgstr ""
+"A <app>Kukacok</app> játékot akár hatan is játszhatják. A játékosok számának "
+"megadása:"
+
+#. (itstool) path: item/p
+#: C/multi-player.page:48
+msgid ""
+"Set the <gui style=\"input\">Number of human players</gui> to the required "
+"number, a maximum of 6. You can do this by using the <gui style=\"button\">+<"
+"/gui> or <gui style=\"button\">-</gui> buttons or by entering the number of "
+"players from the keyboard in the space provided."
+msgstr ""
+"Állítsa az <gui style=\"input\">Emberi játékosok számát</gui> a kívánt "
+"számra, legfeljebb 6-ra. Ezt a <gui style=\"button\">+</gui> vagy <gui "
+"style=\"button\">-</gui> gombokkal vagy az érték közvetlen beírásával "
+"végezheti el."
+
+#. (itstool) path: note/p
+#: C/multi-player.page:57
+msgid ""
+"You can watch a <app>Nibbles</app> game without participating. To observe a "
+"game, set the <gui style=\"input\">Number of human players</gui> to 0 and set "
+"the <gui style=\"input\">Number of AI players</gui> to any number between 1 "
+"and 6."
+msgstr ""
+"Megnézhet egy <app>Kukacok</app> játékot részvétel nélkül is. Ehhez állítsa "
+"az <gui style=\"input\">Emberi játékosok számát</gui> 0-ra, és a <gui "
+"style=\"input\">Gépi játékosok számát</gui> egy 1 és 6 közötti számra."
+
+#. (itstool) path: info/desc
+#: C/preferences.page:22
+msgid "Change default speed, worm color, level order and sound settings."
+msgstr ""
+"Módosítsa az alapértelmezett sebességet, kukacszínt, szintsorrendet és "
+"hangbeállításokat."
+
+#. (itstool) path: page/title
+#: C/preferences.page:25
+msgid "Edit general preferences"
+msgstr "Általános beállítások szerkesztése"
+
+#. (itstool) path: page/p
+#: C/preferences.page:27
+msgid ""
+"The general preferences for <app>Nibbles</app> can be changed by selecting <"
+"guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem\">"
+"Preferences</gui></guiseq>."
+msgstr ""
+"A <app>Kukacok</app> általános beállításai a <guiseq><gui style=\"menu\">"
+"Beállítások</gui><gui style=\"menuitem\">Beállítások</gui></guiseq> menüpont "
+"kiválasztásával módosíthatók."
+
+#. (itstool) path: section/title
+#: C/preferences.page:32
+msgid "Speed"
+msgstr "Sebesség"
+
+#. (itstool) path: section/p
+#: C/preferences.page:34
+msgid ""
+"There are four available speeds in <app>Nibbles</app>. These are, in "
+"increasing order:"
+msgstr ""
+"Négy sebesség érhető el a <app>Kukacok</app> játékban. Ezek növekvő "
+"sorrendben:"
+
+#. (itstool) path: item/p
+#: C/preferences.page:39
+msgid "Nibbles Newbie"
+msgstr "Kukacok kezdő"
+
+#. (itstool) path: item/p
+#: C/preferences.page:42
+msgid "My second day"
+msgstr "Második napom"
+
+#. (itstool) path: item/p
+#: C/preferences.page:45
+msgid "Not too shabby"
+msgstr "Nem túl kopott"
+
+#. (itstool) path: item/p
+#: C/preferences.page:48
+msgid "Finger twitching good"
+msgstr "Viszket az ujjam, olyan jó"
+
+#. (itstool) path: section/p
+#: C/preferences.page:52
+msgid ""
+"Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
+"speed choices given on the left hand side."
+msgstr ""
+"A sebesség a <guiseq><gui style=\"menu\">Beállítások</gui><gui "
+"style=\"menuitem\">Beállítások</gui></guiseq> alatt módosítható, a bal oldali "
+"listában látható négy sebességbeállítás egyikének kiválasztásával."
+
+#. (itstool) path: section/title
+#: C/preferences.page:59
+msgid "Change worm colors"
+msgstr "Kukacszínek módosítása"
+
+#. (itstool) path: section/p
+#: C/preferences.page:61
+msgid "There are seven available worm colors:"
+msgstr "Hét kukacszín érhető el:"
+
+#. (itstool) path: item/p
+#: C/preferences.page:65
+msgid "<_:media-1/> Red"
+msgstr "<_:media-1/> Vörös"
+
+#. (itstool) path: item/p
+#: C/preferences.page:69
+msgid "<_:media-1/> Green"
+msgstr "<_:media-1/> Zöld"
+
+#. (itstool) path: item/p
+#: C/preferences.page:73
+msgid "<_:media-1/> Blue"
+msgstr "<_:media-1/> Kék"
+
+#. (itstool) path: item/p
+#: C/preferences.page:77
+msgid "<_:media-1/> Yellow"
+msgstr "<_:media-1/> Sárga"
+
+#. (itstool) path: item/p
+#: C/preferences.page:81
+msgid "<_:media-1/> Cyan"
+msgstr "<_:media-1/> Ciánkék"
+
+#. (itstool) path: item/p
+#: C/preferences.page:85
+msgid "<_:media-1/> Purple"
+msgstr "<_:media-1/> Bíbor"
+
+#. (itstool) path: item/p
+#: C/preferences.page:89
+msgid "<_:media-1/> Gray"
+msgstr "<_:media-1/> Szürke"
+
+#. (itstool) path: section/p
+#: C/preferences.page:94
+msgid ""
+"These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq>."
+msgstr ""
+"Ezek a <guiseq><gui style=\"menu\">Beállítások</gui> <gui "
+"style=\"menuitem\">Beállítások</gui></guiseq> menüpontot alatt módosíthatók."
+
+#. (itstool) path: item/p
+#: C/preferences.page:99
+msgid ""
+"Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
+"edit."
+msgstr ""
+"Válassza ki annak a <gui>Kukacnak</gui> a lapját, amelyet szerkeszteni "
+"szeretne."
+
+#. (itstool) path: item/p
+#: C/preferences.page:103
+msgid ""
+"On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
+"Pick a color out of the available colors in the drop-down menu to change the "
+"appearance of the worm."
+msgstr ""
+"A bal oldalon megjelenik a <gui style=\"group\">Kukac színe</gui>. Válasszon "
+"egy színt a legördülő menüből elérhetők közül a kukac megjelenésének "
+"megváltoztatásához."
+
+#. (itstool) path: section/title
+#: C/preferences.page:112
+msgid "Sounds"
+msgstr "Hangok"
+
+#. (itstool) path: section/p
+#: C/preferences.page:114
+msgid ""
+"You can enable or disable sounds in <app>Nibbles</app> by checking or "
+"unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in <"
+"guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem\">"
+"Preferences</gui></guiseq>."
+msgstr ""
+"A <app>Kukacok</app> hangjait be- vagy kikapcsolhatja a <gui "
+"style=\"checkbox\">Hangok bekapcsolása</gui> négyzet bejelölésével vagy "
+"törlésével a <guiseq><gui style=\"menu\">Beállítások</gui><gui "
+"style=\"menuitem\">Beállítások</gui></guiseq> menüben."
+
+#. (itstool) path: section/title
+#: C/preferences.page:122
+msgid "Play levels in random order"
+msgstr "Szintek játszása véletlen sorrendben"
+
+#. (itstool) path: section/p
+#: C/preferences.page:124
+msgid ""
+"Check or uncheck the <gui style=\"checkbox\">Play levels in random order</gui>"
+" checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
+"<app>Nibbles</app> in random order."
+msgstr ""
+"Jelölje be vagy törölje a <gui style=\"checkbox\">Szintek játszása véletlen "
+"sorrendben</gui> négyzetet a <guiseq><gui style=\"menu\">Beállítások</gui><"
+"gui style=\"menuitem\">Beállítások</gui></guiseq> alatt a <app>Kukacok</app> "
+"szintjeinek véletlen sorrendben való játszásához."
+
+#. (itstool) path: media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:41
+msgctxt "_"
+msgid ""
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+msgstr ""
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+
+#. (itstool) path: media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:48
+msgctxt "_"
+msgid ""
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgstr ""
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
+
+#. (itstool) path: info/desc
+#: C/rel-movement.page:22
+msgid "Enable relative movement."
+msgstr "Relatív mozgatás bekapcsolása."
+
+#. (itstool) path: page/title
+#: C/rel-movement.page:25
+msgid "Relative movement"
+msgstr "Relatív mozgás"
+
+#. (itstool) path: page/p
+#: C/rel-movement.page:27
+msgid ""
+"When relative movement is enabled, the worm is manouvered using just the "
+"default <key>Left</key> and <key>Right</key> keys or other <link "
+"xref=\"controls-change\">customized keys</link> that control the leftward and "
+"rightward movement of a worm. When the <key>Left</key> key is pressed, the "
+"worm turns left, instead of moving towards the left of the screen. Similarly, "
+"when the <key>Right</key> key is pressed, the worm turns right instead of "
+"moving towards the right of the screen."
+msgstr ""
+"A relatív mozgás bekapcsolása esetén a kukac csak a balra vagy jobbra való "
+"mozgását befolyásoló a <key>Balra</key> vagy <key>Jobbra</key> billentyűk "
+"vagy más <link xref=\"controls-change\">személyre szabott billentyűk</link> "
+"használatával lesz irányítva. A <key>Balra</key> billentyű megnyomásakor a "
+"kukac balra fordul, a képernyő bal oldala felé fordulás helyett. "
+"Hasonlóképpen a <key>Jobbra</key> billentyű megnyomásakor a kukac jobbra "
+"fordul a képernyő jobb oldala felé fordulás helyett."
+
+#. (itstool) path: figure/title
+#: C/rel-movement.page:39
+msgid "Starting postion:"
+msgstr "Kezdő pozíció:"
+
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:40
+msgid "The location of the worm before you decide to move it."
+msgstr "A kukac helye, mielőtt megmozdítaná."
+
+#. (itstool) path: figure/title
+#: C/rel-movement.page:46
+msgid "On pressing the <key>Left</key> key:"
+msgstr "A <key>Balra</key> billentyű lenyomásakor:"
+
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:47
+msgid "The worm turns left and begins to move downwards."
+msgstr "A kukac balra fordul, és elkezd lefelé mozogni."
+
+#. (itstool) path: note/p
+#: C/rel-movement.page:55
+msgid ""
+"If relative movement was not enabled, you would press the <key>Down</key> key "
+"to achieve the above result."
+msgstr ""
+"Ha a relatív mozgás nincs bekapcsolva, akkor a <key>Le</key> billentyűt "
+"kellett volna megnyomni a fenti eredmény eléréséhez."
+
+#. (itstool) path: page/p
+#: C/rel-movement.page:62
+msgid "To enable relative movement:"
+msgstr "A relatív mozgás bekapcsolásához:"
+
+#. (itstool) path: item/p
+#: C/rel-movement.page:70
+msgid ""
+"Select the worm for which relative movement has to be enabled by clicking the "
+"appropriate <gui>Worm</gui> tab."
+msgstr ""
+"Válassza ki azt a kukacot, amelyhez a relatív mozgást be szeretné kapcsolni a "
+"megfelelő <gui>Kukac</gui> lapra kattintással."
+
+#. (itstool) path: item/p
+#: C/rel-movement.page:74
+msgid ""
+"Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
+"is unchecked."
+msgstr ""
+"Jelölje be a <gui style=\"checkbox\">Relatív mozgás használata</gui> "
+"négyzetet."
+
+#. (itstool) path: item/p
+#: C/rel-movement.page:78
+msgid "Click <gui style=\"button\">Close</gui>."
+msgstr "Nyomja meg a <gui style=\"button\">Bezárás</gui> gombot."
+
+#. (itstool) path: info/desc
+#: C/scores.page:18
+msgid "Swallow different bonuses to score points."
+msgstr "Különböző bónuszok lenyeléséért extra pontokat kaphat."
+
+#. (itstool) path: page/title
+#: C/scores.page:21
+msgid "Scoring points in <app>Nibbles</app>"
+msgstr "Pontok a <app>Kukacokban</app>"
+
+#. (itstool) path: page/p
+#: C/scores.page:23
+msgid ""
+"You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
+"different kinds of bonuses in Nibbles:"
+msgstr ""
+"A <app>Kukacokban</app> pontokat kaphat a bónuszok elfogyasztásáért. A "
+"Kukacokban 5 különböző bónusz van:"
+
+#. (itstool) path: item/p
+#: C/scores.page:27
+msgid ""
+"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the donut vary from level "
+"to level and are multiples of the level number. In level 1, the first donut "
+"will give you 1 point, the second donut will give you 2 points, the third "
+"donut will give you 3 points and so on. In level 2, the first donut will give "
+"you 2 points, the second donut will give you 4 points, the third donut will "
+"give you 6 points and so on. In level 26, therefore, the first donut will "
+"give you 26 points, the second donut will give you 52 points and so on."
+msgstr ""
+"A fánk alakú bónusz <_:media-1/>: Ennek hatására a kukac hossza megnő. A fánk "
+"megevésével nyert pontok száma szintről szintre változik, és a szint számának "
+"többszöröse. Az 1. szinten az első fánk 1 pontot ad, a második fánk 2 pontot, "
+"a harmadik 3 pontot és így tovább. A 2. szinten az első fánk 2 pontot ad, a "
+"második fánk 4 pontot, a harmadik fánk 6 pontot és így tovább. A 26. szinten "
+"emiatt az első fánk 26 pontot ad, a második 52 pontot és így tovább."
+
+#. (itstool) path: note/p
+#: C/scores.page:39
+msgid ""
+"The donut order count does not depend on the number of donuts already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first donut, he "
+"scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
+"third player may choose to not eat any donuts till the tenth donut and score "
+"10 points at once."
+msgstr ""
+"A fánkok sorszáma nem függ attól, hogy egy kukac hány fánkot evett már meg. "
+"Ha az 1. szinten az első kukac megeszi az első fánkot, egy pontot kap; ha a "
+"második kukac megeszi a második fánkot, akkor két pontot kap; egy harmadik "
+"játékos dönthet úgy, hogy nem eszik meg egy fánkot sem, és a tizedik fánk "
+"elfogyasztásáért egyszerre kap 10 pontot."
+
+#. (itstool) path: item/p
+#: C/scores.page:47
+msgid ""
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
+"does not cause an increase in the length of your worm."
+msgstr ""
+"A szív alakú bónusz <_:media-1/>: ez a bónusz egy extra életet ad, és nem "
+"növeli a kukac hosszát."
+
+#. (itstool) path: note/p
+#: C/scores.page:52
+msgid ""
+"The number of lives remaining for a worm is given by the number on the left "
+"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
+"lives remaining."
+msgstr ""
+"Egy kukac hátralévő életeinek száma a kukac pontszámában a vesszőtől balra "
+"lévő látható. Ha egy kukac pontszáma 10,005, akkor a kukacnak 10 élete van "
+"hátra."
+
+#. (itstool) path: note/p
+#: C/scores.page:57
+msgid ""
+"You cannot get extra lives by scoring 10,000 points or more. If you have "
+"scored 12345 points with 10 lives remaining, your score will be 10,12345."
+msgstr ""
+"Nem kaphat extra életeket 10,000 pont vagy több elérésével. Ha 12345 pontot "
+"ért el, és van még 10 élete, akkor a pontszáma 10,12345 lesz."
+
+#. (itstool) path: item/p
+#: C/scores.page:63
+msgid ""
+"The diamond-shaped bonus <_:media-1/> : This bonus does not cause an increase "
+"in the length of the worm and does not give you any points. It causes a "
+"reversal in the movement of all the other worms in the game."
+msgstr ""
+"A gyémánt alakú bónusz <_:media-1/>: ez a bónusz nem növeli a kukac hosszát "
+"vagy pontszámát. Ellenben megfordítja minden más kukac mozgását a játékban."
+
+#. (itstool) path: note/p
+#: C/scores.page:69
+msgid "This bonus has no effect in a single-player game."
+msgstr "Ennek a bónusznak nincs hatása egyszereplős játékban."
+
+#. (itstool) path: item/p
+#: C/scores.page:73
+msgid ""
+"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
+"increase in the length of the worm than the donut-shaped bonus. The points "
+"given by this bonus vary depending on the level number and the length of the "
+"worm. The higher the level number and the longer the worm, the more the "
+"points are scored on eating this bonus."
+msgstr ""
+"A fagyi alakú bónusz <_:media-1/>: ez a bónusz jobban növeli a kukac hosszát, "
+"mint a fánk alakú bónusz. A bónusz által adott pontok száma a szint számától "
+"és a kukac hosszától függ. Minél magasabb a szint száma és minél hosszabb a "
+"kukac, annál több pont jár ezen bónusz elfogyasztásáért."
+
+#. (itstool) path: item/p
+#: C/scores.page:82
+msgid ""
+"The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
+"length of the worm. The points given by this bonus depend on the level number "
+"and the length of the worm. The higher the level number and the longer the "
+"worm, the more the points are scored on eating this bonus."
+msgstr ""
+"A cseresznye alakú bónusz <_:media-1/>: ez a bónusz csökkenti a kukac "
+"hosszát. A bónusz által adott pontok száma a szint számától és a kukac "
+"hosszától függ. Minél magasabb a szint száma és minél hosszabb a kukac, annál "
+"több pont jár ezen bónusz elfogyasztásáért."
+
+#. (itstool) path: p/link
+#: C/legal.xml:4
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Ez a munka a <_:link-1/> feltételei szerint használható."
+
+
