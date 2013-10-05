@@ -121,7 +121,7 @@ msgstr "Relatív mozgatás használata (vagyis csak balra vagy jobbra)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:452
 msgid "Move up"
-msgstr "Felfelé mozgatás"
+msgstr "Mozgás felfelé"
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:22
 msgid "Key to use for motion up."
@@ -129,7 +129,7 @@ msgstr "Billentyű a felfelé mozgáshoz."
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:453
 msgid "Move down"
-msgstr "Lefelé mozgatás"
+msgstr "Mozgás lefelé"
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:24
 msgid "Key to use for motion down."
@@ -137,7 +137,7 @@ msgstr "Billentyű a lefelé mozgáshoz."
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:450
 msgid "Move left"
-msgstr "Lépés balra"
+msgstr "Mozgás balra"
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:26
 msgid "Key to use for motion left."
@@ -145,7 +145,7 @@ msgstr "Billentyű a balra mozgáshoz."
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:451
 msgid "Move right"
-msgstr "Lépés jobbra"
+msgstr "Mozgás jobbra"
 
 #: ../data/org.gnome.nibbles.gschema.xml.in.h:28
 msgid "Key to use for motion right."
