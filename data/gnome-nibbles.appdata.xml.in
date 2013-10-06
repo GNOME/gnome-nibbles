@@ -2,27 +2,27 @@
 <application>
  <id type="desktop">gnibbles.desktop</id>
  <licence>CC0</licence>
- <name>GNOME Nibbles</name>
+ <_name>GNOME Nibbles</_name>
  <description>
-  <p>
+  <_p>
    Control a worm in its quest to eat bonuses and become longer. Outmanuever
    enemy worms while eating doughnuts and ice cream to increase your length.
    Each worm has ten lives and loses one by running into a wall, another worm,
    or itself. The enemy worms are after the same bonuses that you are, so be
    careful: if they become too large, you won't have much room to manuever.
-  </p>
-  <p>
+  </_p>
+  <_p>
    The adventure progresses through 26 maps of increasing difficulty. The early
    levels are mostly open with a few walls, but later on, cramped spaces and
    teleporters make things more interesting.
-  </p>
-  <p>
+  </_p>
+  <_p>
    Play on your own against up to five enemy worms, or share your keyboard to
    let one or more friends join the fun.
-  </p>
+  </_p>
  </description>
  <screenshots>
-  <screenshot type="default" width="652" height="560">https://wiki.gnome.org/Nibbles?action=AttachFile&#x26;do=get&#x26;target=nibbles.png</screenshot>
+  <_screenshot type="default" width="652" height="560">https://wiki.gnome.org/Nibbles?action=AttachFile&#x26;do=get&#x26;target=nibbles.png</_screenshot>
  </screenshots>
  <url type="homepage">https://wiki.gnome.org/Nibbles</url>
  <updatecontact>games_list_at_gnome.org</updatecontact>

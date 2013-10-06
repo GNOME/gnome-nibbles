@@ -2,6 +2,7 @@
 # Please keep this file in alphabetical order.
 [encoding: UTF-8]
 data/gnibbles.desktop.in
+data/gnome-nibbles.appdata.xml.in
 data/org.gnome.nibbles.gschema.xml
 src/board.c
 src/games-controls.c
