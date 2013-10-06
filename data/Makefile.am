@@ -5,9 +5,6 @@ gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 @INTLTOOL_XML_NOMERGE_RULE@
 @GSETTINGS_RULES@
 
-pixmapdir = $(datadir)/gnome-nibbles/pixmaps
-pixmap_DATA = gnome-nibbles-logo.svg
-
 soundsdir = $(datadir)/gnome-nibbles/sounds
 sounds_DATA = \
 	appear.ogg \
@@ -31,7 +28,6 @@ man_MANS = gnome-nibbles.6
 
 EXTRA_DIST = \
 	$(appdata_DATA) \
-	$(pixmap_DATA) \
 	$(sounds_DATA) \
 	$(gsettings_in_file) \
 	$(man_MANS)
