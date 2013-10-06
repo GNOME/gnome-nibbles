@@ -17,8 +17,8 @@ sounds_DATA = \
 	teleport.ogg
 
 desktopdir=$(datadir)/applications
-desktop_in_files = gnibbles.desktop.in.in
-desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
+desktop_in_files = gnibbles.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 appdatadir = $(datadir)/appdata
@@ -28,12 +28,13 @@ man_MANS = gnome-nibbles.6
 
 EXTRA_DIST = \
 	$(appdata_DATA) \
+	$(desktop_in_files) \
 	$(sounds_DATA) \
 	$(gsettings_in_file) \
 	$(man_MANS)
 
 CLEANFILES = $(desktop_DATA) $(gsettings_SCHEMAS)
-DISTCLEANFILES = $(desktop_DATA) $(gsettings_SCHEMAS)
+DISTCLEANFILES = $(gsettings_SCHEMAS)
 
 install-exec-hook:
 	-if test "$(setgid)" = "true"; then \

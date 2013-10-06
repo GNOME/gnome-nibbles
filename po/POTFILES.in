@@ -1,7 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
 [encoding: UTF-8]
-data/gnibbles.desktop.in.in
+data/gnibbles.desktop.in
 data/org.gnome.nibbles.gschema.xml.in
 src/board.c
 src/games-controls.c

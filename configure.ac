@@ -101,7 +101,6 @@ data/icons/hicolor/Makefile
 data/icons/HighContrast/Makefile
 data/levels/Makefile
 data/pix/Makefile
-data/gnibbles.desktop.in
 help/Makefile
 src/Makefile
 ])
