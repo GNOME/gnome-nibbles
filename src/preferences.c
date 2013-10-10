@@ -36,7 +36,7 @@
 #define KB_TEXT_NCHARS 8
 
 extern GSettings *settings;
-extern GSettings *worm_settings[NUMWORMS];
+extern GSettings *worm_settings[NUMHUMWORMS];
 static GtkWidget *pref_dialog = NULL;
 static gint unpause = 0;
 extern GtkWidget *window;
@@ -377,7 +377,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_grid_attach (GTK_GRID (grid2), label2, 0, 1, 1, 1);
 
   adjustment = gtk_adjustment_new ((gfloat) properties->human, 0.0,
-                                   NUMWORMS, 1.0, 1.0, 0.0);
+                                   NUMHUMWORMS, 1.0, 1.0, 0.0);
 
   num_human = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 0, 0);
   gtk_spin_button_set_wrap (GTK_SPIN_BUTTON (num_human), FALSE);
@@ -390,7 +390,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   label2 = gtk_label_new_with_mnemonic (_("Number of _AI players:"));
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
-  gtk_widget_set_hexpand (label2, TRUE);  
+  gtk_widget_set_hexpand (label2, TRUE);
   gtk_grid_attach (GTK_GRID (grid2), label2, 0, 2, 1, 1);
 
   adjustment = gtk_adjustment_new ((gfloat) properties->ai, 0.0,
@@ -407,7 +407,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   
 
   /* Per worm options */
-  for (i = 0; i < NUMWORMS; i++) {
+  for (i = 0; i < NUMHUMWORMS; i++) {
     buffer = g_strdup_printf ("%s %d", _("Worm"), i + 1);
     label = gtk_label_new (buffer);
     g_free (buffer);

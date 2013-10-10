@@ -29,6 +29,7 @@
 #define BLANKPIXMAP 0
 
 #define NUMWORMS 6
+#define NUMHUMWORMS 4
 
 #define NUM_COLORS 7
 #define WORMRED 12
