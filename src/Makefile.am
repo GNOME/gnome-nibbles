@@ -13,8 +13,6 @@ gnome_nibbles_SOURCES = \
 	games-controls.c \
 	games-fullscreen-action.h \
 	games-fullscreen-action.c \
-	games-gridframe.h \
-	games-gridframe.c \
 	games-pause-action.h \
 	games-pause-action.c \
 	games-score.h			\

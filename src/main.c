@@ -39,7 +39,6 @@
 #include "preferences.h"
 #include "scoreboard.h"
 #include "warp.h"
-#include "games-gridframe.h"
 #include "games-pause-action.h"
 #include "games-fullscreen-action.h"
 #include "games-scores.h"
@@ -57,7 +56,6 @@ GSettings *settings;
 GSettings *worm_settings[NUMWORMS];
 GtkWidget *window;
 GtkWidget *statusbar;
-GtkWidget *notebook;
 GtkWidget *chat = NULL;
 
 static const GamesScoresCategory scorecats[] = {
@@ -645,7 +643,6 @@ static void
 setup_window (void)
 {
   GtkWidget *vbox;
-  GtkWidget *packing;
   GtkWidget *menubar;
 
   GtkUIManager *ui_manager;
@@ -682,9 +679,6 @@ setup_window (void)
 
   ui_manager = gtk_ui_manager_new ();
   create_menus (ui_manager);
-  notebook = gtk_notebook_new ();
-  gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
-  gtk_notebook_set_show_border (GTK_NOTEBOOK (notebook), FALSE);
 
   accel_group = gtk_ui_manager_get_accel_group (ui_manager);
   gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
@@ -693,20 +687,13 @@ setup_window (void)
 
   gtk_box_pack_start (GTK_BOX (vbox), menubar, FALSE, FALSE, 0);
 
-  packing = games_grid_frame_new (BOARDWIDTH, BOARDHEIGHT);
-  gtk_widget_show (packing);
-
-  gtk_container_add (GTK_CONTAINER (packing), clutter_widget);
-
   g_signal_connect (G_OBJECT (clutter_widget), "configure_event",
                     G_CALLBACK (configure_event_cb), NULL);
 
   g_signal_connect (G_OBJECT (window), "focus_out_event",
                     G_CALLBACK (show_cursor_cb), NULL);
 
-  gtk_box_pack_start (GTK_BOX (vbox), notebook, TRUE, TRUE, 0);
-  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), packing, NULL);
-  gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
+  gtk_box_pack_start (GTK_BOX (vbox), clutter_widget, TRUE, TRUE, 0);
 
   statusbar = gtk_statusbar_new ();
   gtk_box_pack_start (GTK_BOX (vbox), statusbar, FALSE, FALSE, 0);
