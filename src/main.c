@@ -39,7 +39,6 @@
 #include "preferences.h"
 #include "scoreboard.h"
 #include "warp.h"
-#include "games-pause-action.h"
 #include "games-fullscreen-action.h"
 #include "games-scores.h"
 
@@ -91,6 +90,8 @@ gint restart_id = 0;
 
 gint current_level;
 
+gboolean is_paused;
+
 static gint add_bonus_cb (gpointer data);
 
 static gint end_game_cb (GtkAction * action, gpointer data);
@@ -117,7 +118,7 @@ show_cursor (void)
 gint
 game_running (void)
 {
-  return (main_id || dummy_id || restart_id || games_pause_action_get_is_paused (GAMES_PAUSE_ACTION (pause_action)));
+  return (main_id || dummy_id || restart_id || is_paused);
 }
 
 /* Avoid a race condition where a redraw is attempted
@@ -225,7 +226,7 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
 static gboolean
 new_game_2_cb (GtkWidget * widget, gpointer data)
 {
-  if (!games_pause_action_get_is_paused (GAMES_PAUSE_ACTION (pause_action))) {
+  //if (!is_paused) {  //FIXME figure out why this should be here.
     if (!keyboard_id)
       keyboard_id = g_signal_connect (G_OBJECT (stage),
                                       "key-press-event",
@@ -239,7 +240,7 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
                                     properties->gamespeed,
                                     (GSourceFunc) add_bonus_cb, NULL);
     }
-  }
+  //}
 
   dummy_id = 0;
 
@@ -275,7 +276,7 @@ new_game (void)
     gnibbles_worm_show (worms[i]);
   }
 
-  games_pause_action_set_is_paused (GAMES_PAUSE_ACTION (pause_action), FALSE);
+  is_paused = FALSE;
 
   if (restart_id) {
     g_source_remove (restart_id);
@@ -304,7 +305,9 @@ new_game_cb (GtkAction * action, gpointer data)
 static void
 pause_game_cb (GtkAction * action, gpointer data)
 {
-  if (games_pause_action_get_is_paused (GAMES_PAUSE_ACTION (action))) {
+  if (!is_paused) {  //If it's not currently paused, pause the game
+    is_paused = TRUE;
+    
     if (main_id || restart_id || dummy_id) {
       if (main_id) {
         g_source_remove (main_id);
@@ -320,7 +323,8 @@ pause_game_cb (GtkAction * action, gpointer data)
       }
     }
   }
-  else {
+  else {  //Resume the game
+    is_paused = FALSE;
     dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
   }
 }
@@ -360,7 +364,7 @@ end_game (void)
   gtk_action_set_sensitive (new_game_action, TRUE);
   gtk_action_set_sensitive (preferences_action, TRUE);
 
-  games_pause_action_set_is_paused (GAMES_PAUSE_ACTION (pause_action), FALSE);
+  is_paused = FALSE;
 }
 
 static gboolean
@@ -580,6 +584,8 @@ static const GtkActionEntry action_entry[] = {
    G_CALLBACK (new_game_cb)},
   {"EndGame", NULL, N_("_End Game"), NULL, NULL,
    G_CALLBACK (end_game_cb)},
+  {"Pause", NULL, N_("_Pause"), NULL, NULL,
+   G_CALLBACK (pause_game_cb)},
   {"Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_cb)},
   {"Preferences", GTK_STOCK_PREFERENCES, NULL, NULL, NULL,
    G_CALLBACK (gnibbles_preferences_cb)},
@@ -628,9 +634,7 @@ create_menus (GtkUIManager * ui_manager)
   new_game_action = gtk_action_group_get_action (action_group, "NewGame");
   scores_action = gtk_action_group_get_action (action_group, "Scores");
   end_game_action = gtk_action_group_get_action (action_group, "EndGame");
-  pause_action = GTK_ACTION (games_pause_action_new ("Pause"));
-  g_signal_connect (G_OBJECT (pause_action), "state-changed", G_CALLBACK (pause_game_cb), NULL);
-  gtk_action_group_add_action_with_accel (action_group, pause_action, NULL);
+  pause_action = gtk_action_group_get_action (action_group, "Pause");
 
   preferences_action = gtk_action_group_get_action (action_group,
                                                     "Preferences");
