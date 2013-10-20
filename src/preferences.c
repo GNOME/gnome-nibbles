@@ -28,7 +28,6 @@
 
 #include "preferences.h"
 #include "main.h"
-#include "games-pause-action.h"
 #include "games-controls.h"
 
 #define KB_TEXT_WIDTH 60
@@ -38,7 +37,6 @@
 extern GSettings *settings;
 extern GSettings *worm_settings[NUMHUMWORMS];
 static GtkWidget *pref_dialog = NULL;
-static gint unpause = 0;
 extern GtkWidget *window;
 extern GnibblesProperties *properties;
 
@@ -48,10 +46,6 @@ GtkWidget *num_human, *num_ai;
 static void
 destroy_cb (GtkWidget * widget, gpointer data)
 {
-  if (unpause) {
-    gtk_action_activate (pause_action);
-    unpause = 0;
-  }
   pref_dialog = NULL;
 }
 
@@ -224,11 +218,6 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   if (pref_dialog) {
     gtk_window_present (GTK_WINDOW (pref_dialog));
     return;
-  }
-
-  if (!games_pause_action_get_is_paused (GAMES_PAUSE_ACTION (pause_action))) {
-    unpause = 1;
-    gtk_action_activate (pause_action);
   }
 
   pref_dialog = gtk_dialog_new_with_buttons (_("Nibbles Preferences"),
