@@ -307,7 +307,7 @@ pause_game_cb (GtkAction * action, gpointer data)
 {
   if (!is_paused) {  //If it's not currently paused, pause the game
     is_paused = TRUE;
-    
+    gtk_action_set_label (action, ("_Resume"));
     if (main_id || restart_id || dummy_id) {
       if (main_id) {
         g_source_remove (main_id);
@@ -325,6 +325,7 @@ pause_game_cb (GtkAction * action, gpointer data)
   }
   else {  //Resume the game
     is_paused = FALSE;
+    gtk_action_set_label (action, ("_Pause"));
     dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
   }
 }
