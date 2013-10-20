@@ -644,6 +644,7 @@ setup_window (void)
 {
   GtkWidget *vbox;
   GtkWidget *menubar;
+  GtkWidget *packing;
 
   GtkUIManager *ui_manager;
   GtkAccelGroup *accel_group;
@@ -693,7 +694,16 @@ setup_window (void)
   g_signal_connect (G_OBJECT (window), "focus_out_event",
                     G_CALLBACK (show_cursor_cb), NULL);
 
-  gtk_box_pack_start (GTK_BOX (vbox), clutter_widget, TRUE, TRUE, 0);
+  packing = gtk_aspect_frame_new (NULL,
+                        0.5,
+                        0.5,
+                        1.38,   //between 1.398176292 and 1.388888889
+                        FALSE);
+
+
+  gtk_container_add( GTK_CONTAINER(packing), clutter_widget); 
+
+  gtk_box_pack_start (GTK_BOX (vbox), packing, FALSE, TRUE, 0);
 
   statusbar = gtk_statusbar_new ();
   gtk_box_pack_start (GTK_BOX (vbox), statusbar, FALSE, FALSE, 0);
