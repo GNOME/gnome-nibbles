@@ -1,7 +1,6 @@
 pixmapdir = $(datadir)/gnome-nibbles/pixmaps
 
 BONUS_PIX = \
-	blank.svg \
 	bonus1.svg \
 	bonus2.svg \
 	bonus3.svg \

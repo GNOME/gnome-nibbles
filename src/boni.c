@@ -88,27 +88,6 @@ gnibbles_boni_add_bonus (GnibblesBoni * boni, gint t_x, gint t_y,
     play_sound ("appear");
 }
 
-/*
-void
-gnibbles_boni_add_bonus_final (GnibblesBoni * boni, gint t_x, gint t_y,
-                               gint t_type, gint t_fake, gint t_countdown)
-{
-  if (boni->numbonuses == MAXBONUSES)
-    return;
-  boni->bonuses[boni->numbonuses] = gnibbles_bonus_new (t_x, t_y,
-                                                        t_type, t_fake,
-                                                        t_countdown);
-  board->walls[t_x][t_y] = (gchar) t_type + 'A';
-  board->walls[t_x + 1][t_y] = (gchar) t_type + 'A';
-  board->walls[t_x][t_y + 1] = (gchar) t_type + 'A';
-  board->walls[t_x + 1][t_y + 1] = (gchar) t_type + 'A';
-
-  gnibbles_bonus_draw (boni->bonuses[boni->numbonuses]);
-  boni->numbonuses++;
-  if (t_type != BONUSREGULAR)
-    play_sound ("appear");
-}*/
-
 int
 gnibbles_boni_fake (GnibblesBoni * boni, gint x, gint y)
 {
