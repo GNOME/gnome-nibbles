@@ -24,14 +24,13 @@
 #include <gtk/gtk.h>
 #include <clutter/clutter.h>
 
-#define BONUSNONE	0
-#define BONUSREGULAR	1
-#define BONUSHALF	2
-#define BONUSDOUBLE	3
-#define BONUSLIFE	4
-#define BONUSREVERSE	5
-#define BONUSCUT	6
-#define BONUSSWITCH	7
+#define BONUSREGULAR	0
+#define BONUSHALF	1
+#define BONUSDOUBLE	2
+#define BONUSLIFE	3
+#define BONUSREVERSE	4
+#define BONUSCUT	5
+#define BONUSSWITCH	6
 
 typedef struct {
   gint x, y;

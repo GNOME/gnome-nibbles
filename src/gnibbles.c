@@ -94,7 +94,6 @@ void
 gnibbles_load_pixmap (gint tilesize)
 {
   gchar *bonus_files[] = {
-    "blank.svg",
     "diamond.svg",
     "bonus1.svg",
     "bonus2.svg",
@@ -131,7 +130,7 @@ gnibbles_load_pixmap (gint tilesize)
 
   int i;
 
-  for (i = 0; i < 9; i++) {
+  for (i = 0; i < 8; i++) {
     if (boni_pixmaps[i])
       g_object_unref (boni_pixmaps[i]);
 
