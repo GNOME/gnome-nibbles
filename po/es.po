@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-28 23:16+0000\n"
-"PO-Revision-Date: 2013-01-30 14:17+0100\n"
+"POT-Creation-Date: 2013-10-20 04:15+0000\n"
+"PO-Revision-Date: 2013-10-31 14:35+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -24,132 +24,171 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.5\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:1 ../src/main.c:161 ../src/main.c:164
-#: ../src/main.c:699 ../src/main.c:770 ../src/main.c:901
+#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:155 ../src/main.c:670
+#: ../src/main.c:741
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:2
+#: ../data/gnibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Guíe a un gusano por un laberinto"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:3
+#: ../data/gnibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "juego;serpiente;tablero;"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:1
+#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#| msgid "Nibbles"
+msgid "GNOME Nibbles"
+msgstr "GNOME Nibbles"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:2
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+"Controle un gusano en esta búsqueda para comer bonificaciones y hacerse más "
+"grande. Supere tácticamente a los gusanos enemigos mientras come donuts y "
+"helado para aumentar su tamaño. Cada gusano tiene diez vidas y pierde una "
+"cuando se choca contra una pared, contra otro gusano o contra sí mismo. Los "
+"gusanos enemigos intentan conseguir las misma bonificaciones, así que tenga "
+"cuidado: si se hacen muy grandes, no tendrá espacio para moverse."
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"La aventura aumenta a través de 26 mapas de dificultad creciente. Los "
+"primeros niveles están muy despejados, con unas pocas paredes, pero más "
+"adelante, los espacios estrechos y los teletransportadores hacen las cosas "
+"más interesantes."
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Juegue contra un máximo de cinco gusanos enemigos o comparta su teclado para "
+"jugar con un amigo."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
 msgstr "Número de jugadores humanos"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:2
+#: ../data/org.gnome.nibbles.gschema.xml.h:2
 msgid "Number of human players."
 msgstr "Número de jugadores humanos."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:3
+#: ../data/org.gnome.nibbles.gschema.xml.h:3
 msgid "Number of AI players"
 msgstr "Número de jugadores con IA"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:4
+#: ../data/org.gnome.nibbles.gschema.xml.h:4
 msgid "Number of AI players."
 msgstr "Número de jugadores IA."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:5
+#: ../data/org.gnome.nibbles.gschema.xml.h:5
 msgid "Game speed"
 msgstr "Velocidad del juego"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:6
+#: ../data/org.gnome.nibbles.gschema.xml.h:6
 msgid "Game speed (1=fast, 4=slow)."
 msgstr "Velocidad del juego (1=rápido, 4=lento)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:7
+#: ../data/org.gnome.nibbles.gschema.xml.h:7
 msgid "Enable fake bonuses"
 msgstr "Activar bonificaciones falsas"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:8
+#: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Enable fake bonuses."
 msgstr "Activar bonificaciones falsas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:9
+#: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Play levels in random order"
 msgstr "Jugar niveles en orden aleatorio"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:10
+#: ../data/org.gnome.nibbles.gschema.xml.h:10
 msgid "Play levels in random order."
 msgstr "Jugar niveles en orden aleatorio."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:11
+#: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
 msgstr "Nivel con el que se empezará"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:12
+#: ../data/org.gnome.nibbles.gschema.xml.h:12
 msgid "Game level to start on."
 msgstr "Nivel de inicio."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:13
+#: ../data/org.gnome.nibbles.gschema.xml.h:13
 msgid "Enable sounds"
 msgstr "Activar sonidos"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
 msgid "Enable sounds."
 msgstr "Activar sonidos."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Size of game tiles"
 msgstr "Tamaño de las fichas"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Size of game tiles."
 msgstr "Tamaño de las fichas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Color to use for worm"
 msgstr "El color del gusano"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Color to use for worm."
 msgstr "El color del gusano."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Use relative movement"
 msgstr "Usar movimiento relativo"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Usar movimiento relativo (p.ej. solamente derecha o izquierda)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:452
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
 msgid "Move up"
 msgstr "Subir"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Key to use for motion up."
 msgstr "Tecla para subir."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:453
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
 msgid "Move down"
 msgstr "Bajar"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion down."
 msgstr "Tecla para bajar."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:450
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
 msgid "Move left"
 msgstr "Mover izquierda"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion left."
 msgstr "Tecla para ir a la izquierda."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:451
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
 msgid "Move right"
 msgstr "Mover derecha"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion right."
 msgstr "Tecla para ir a la derecha."
 
-#: ../src/board.c:245
+#: ../src/board.c:250
 #, c-format
 msgid ""
 "Nibbles couldn't load level file:\n"
@@ -162,7 +201,7 @@ msgstr ""
 "\n"
 "Revise su instalación de Nibbles"
 
-#: ../src/board.c:264
+#: ../src/board.c:269
 #, c-format
 msgid ""
 "Level file appears to be damaged:\n"
@@ -179,239 +218,7 @@ msgstr ""
 msgid "Unknown Command"
 msgstr "Comando desconocido"
 
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:136
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Tiempo"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:142
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Puntuación"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:307
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$dm %2$ds"
-
-#: ../src/games-scores-dialog.c:470
-msgid "New Game"
-msgstr "Partida nueva"
-
-#. Score dialog column header for the name of the player who recorded the score
-#: ../src/games-scores-dialog.c:571
-msgctxt "score-dialog"
-msgid "Name"
-msgstr "Nombre"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:580
-msgid "Date"
-msgstr "Fecha"
-
-#: ../src/games-stock.c:41
-msgid "View help for this game"
-msgstr "Mostrar la ayuda de este juego"
-
-#: ../src/games-stock.c:42
-msgid "End the current game"
-msgstr "Finalizar el juego actual"
-
-#: ../src/games-stock.c:43
-msgid "Toggle fullscreen mode"
-msgstr "Activar pantalla completa"
-
-#: ../src/games-stock.c:44
-msgid "Get a hint for your next move"
-msgstr "Obtener una pista para el siguiente movimiento"
-
-#: ../src/games-stock.c:45
-msgid "Leave fullscreen mode"
-msgstr "Abandonar pantalla completa"
-
-#: ../src/games-stock.c:46
-msgid "Start a new multiplayer network game"
-msgstr "Iniciar una partida multijugador en red"
-
-#: ../src/games-stock.c:47
-msgid "End the current network game and return to network server"
-msgstr "Terminar la partida de red actual y volver al servidor de red"
-
-#: ../src/games-stock.c:48
-msgid "Start a new game"
-msgstr "Iniciar un juego nuevo"
-
-#: ../src/games-stock.c:49
-msgid "Pause the game"
-msgstr "Pausar el juego"
-
-#: ../src/games-stock.c:50
-msgid "Show a list of players in the network game"
-msgstr "Mostrar una lista de jugadores en la partida de red"
-
-#: ../src/games-stock.c:51
-msgid "Redo the undone move"
-msgstr "Rehacer el movimiento deshecho"
-
-#: ../src/games-stock.c:52
-msgid "Restart the game"
-msgstr "Reiniciar el juego"
-
-#: ../src/games-stock.c:53
-msgid "Resume the paused game"
-msgstr "Reiniciar el juego pausado"
-
-#: ../src/games-stock.c:54
-msgid "View the scores"
-msgstr "Ver la puntuación"
-
-#: ../src/games-stock.c:55
-msgid "Undo the last move"
-msgstr "Anular el último movimiento"
-
-#: ../src/games-stock.c:56
-msgid "About this game"
-msgstr "Acerca de este juego"
-
-#: ../src/games-stock.c:57
-msgid "Close this window"
-msgstr "Cerrar esta ventana"
-
-#: ../src/games-stock.c:58
-msgid "Configure the game"
-msgstr "Configurar el juego"
-
-#: ../src/games-stock.c:59
-msgid "Quit this game"
-msgstr "Salir de este juego"
-
-#: ../src/games-stock.c:247
-msgid "_Contents"
-msgstr "Índ_ice"
-
-#: ../src/games-stock.c:248
-msgid "_Fullscreen"
-msgstr "_Pantalla completa"
-
-#: ../src/games-stock.c:249
-msgid "_Hint"
-msgstr "_Sugerencia"
-
-#. Translators: This "_New" is for the menu item 'Game->New', implies "New Game"
-#: ../src/games-stock.c:251
-msgid "_New"
-msgstr "_Nuevo"
-
-#. Translators: This "_New Game" is for the game-over dialogue
-#: ../src/games-stock.c:253
-msgid "_New Game"
-msgstr "Juego _nuevo"
-
-#: ../src/games-stock.c:254
-msgid "_Redo Move"
-msgstr "_Rehacer movimiento"
-
-#. Translators: this is the "Reset" scores button in a scores dialogue
-#: ../src/games-stock.c:256
-msgid "_Reset"
-msgstr "_Reiniciar"
-
-#. Translators: "_Restart" is the menu item 'Game->Restart', implies "Restart Game"
-#: ../src/games-stock.c:258
-msgid "_Restart"
-msgstr "_Reiniciar"
-
-#: ../src/games-stock.c:259
-msgid "_Undo Move"
-msgstr "_Deshacer movimiento"
-
-#: ../src/games-stock.c:260
-msgid "_Deal"
-msgstr "R_epartir"
-
-#: ../src/games-stock.c:261
-msgid "_Leave Fullscreen"
-msgstr "Abandonar _pantalla completa"
-
-#: ../src/games-stock.c:262
-msgid "Network _Game"
-msgstr "_Partida en red"
-
-#: ../src/games-stock.c:263
-msgid "L_eave Game"
-msgstr "_Dejar partida"
-
-#: ../src/games-stock.c:264
-msgid "Player _List"
-msgstr "_Lista de jugadores"
-
-#: ../src/games-stock.c:265
-msgid "_Pause"
-msgstr "_Pausa"
-
-#: ../src/games-stock.c:266
-msgid "Res_ume"
-msgstr "C_ontinuar"
-
-#: ../src/games-stock.c:267
-msgid "_Scores"
-msgstr "_Puntuación"
-
-#: ../src/games-stock.c:268
-msgid "_End Game"
-msgstr "Finalizar el ju_ego"
-
-#. %s is replaced with the name of the game in gnome-games.
-#: ../src/games-stock.c:317
-#, c-format
-msgid ""
-"%s is free software; you can redistribute it and/or modify it under the "
-"terms of the GNU General Public License as published by the Free Software "
-"Foundation; either version %d of the License, or (at your option) any later "
-"version."
-msgstr ""
-"%s es software libre; puede redistribuirlo y/o modificarlo bajo los términos "
-"de la Licencia Pública General GNU tal como la publica la Free Software "
-"Foundation; ya sea en la versión %d de la Licencia, como (a su elección) "
-"cualquier otra versión posterior."
-
-#: ../src/games-stock.c:322
-#, c-format
-msgid ""
-"%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-"details."
-msgstr ""
-"%s se distribuye con el ánimo de que le será útil, pero SIN NINGUNA "
-"GARANTÍA; sin incluso la garantía implícita de MERCANTILIDAD o IDONEIDAD "
-"PARA UN PROPÓSITO DETERMINADO. Vea la Licencia Pública General de GNU para "
-"más detalles."
-
-#: ../src/games-stock.c:327
-#, c-format
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"%s; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, "
-"Fifth Floor, Boston, MA  02110-1301  USA"
-msgstr ""
-"Debería haber recibido una copia de la Licencia Pública General GNU junto "
-"con %s; si no, escriba a la Free Software Foundation, Inc., 51 Franklin "
-"Street, Fifth Floor, Boston, MA 02110-1301 EE. UU."
-
-#: ../src/games-stock.c:331
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"this program.  If not, see <http://www.gnu.org/licenses/>."
-msgstr ""
-"Debería haber recibido una copia de la Licencia Pública General GNU junto "
-"con este programa. De lo contrario, visite <http://www.gnu.org/licenses/>."
-
-#: ../src/gnibbles.c:84
+#: ../src/gnibbles.c:81
 #, c-format
 msgid ""
 "Nibbles couldn't find pixmap file:\n"
@@ -424,67 +231,47 @@ msgstr ""
 "\n"
 "Revise su instalación de Nibbles"
 
-#: ../src/gnibbles.c:355
-msgid "Nibbles Scores"
-msgstr "Puntuación de Nibbles"
-
-#: ../src/gnibbles.c:358
-msgid "Speed:"
-msgstr "Velocidad:"
-
-#: ../src/gnibbles.c:363
-msgid "Congratulations!"
-msgstr "Enhorabuena."
-
-#: ../src/gnibbles.c:364
-msgid "Your score is the best!"
-msgstr "Su puntuación es la mejor"
-
-#: ../src/gnibbles.c:365
-msgid "Your score has made the top ten."
-msgstr "Su puntuación ha alcanzado los 10 mejores."
-
-#: ../src/main.c:65
+#: ../src/main.c:61
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "Principiante"
 
-#: ../src/main.c:66
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Slow"
 msgstr "Lento"
 
-#: ../src/main.c:67
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Medium"
 msgstr "Mediano"
 
-#: ../src/main.c:68
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Fast"
 msgstr "Rápido"
 
-#: ../src/main.c:69
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "Principiante con falsos"
 
-#: ../src/main.c:70
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "Lento con falsos"
 
-#: ../src/main.c:71
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "Medio con falsos"
 
-#: ../src/main.c:72
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Rápido con falsos"
 
-#: ../src/main.c:170
+#: ../src/main.c:162
 msgid ""
 "A worm game for GNOME.\n"
 "\n"
@@ -494,7 +281,7 @@ msgstr ""
 "\n"
 "Nibbles es parte de los juegos de GNOME."
 
-#: ../src/main.c:173
+#: ../src/main.c:165
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -503,134 +290,145 @@ msgstr ""
 "Germán Poo Caamaño <gpoo@ubiobio.cl>\n"
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
-#: ../src/main.c:176
+#: ../src/main.c:168
 msgid "GNOME Games web site"
 msgstr "Página web de los juegos de GNOME"
 
-#: ../src/main.c:491
+#: ../src/main.c:466
 #, c-format
 msgid "Game over! The game has been won by %s!"
 msgstr "Partida terminada. La partida la ha ganado %s"
 
-#: ../src/main.c:604
+#: ../src/main.c:579
 msgid "_Game"
 msgstr "_Juego"
 
-#: ../src/main.c:605
+#: ../src/main.c:580
 msgid "_View"
 msgstr "_Ver"
 
-#: ../src/main.c:606
+#: ../src/main.c:581
 msgid "_Settings"
 msgstr "Aju_stes"
 
-#: ../src/main.c:607
+#: ../src/main.c:582
 msgid "_Help"
 msgstr "Ay_uda"
 
-#. Translators: This string will be included in the intro screen, so don't make sure it fits!
-#: ../src/main.c:772
-msgid "A worm game for GNOME."
-msgstr "Un juego de gusanos para GNOME."
+#: ../src/main.c:583
+msgid "_New Game"
+msgstr "Juego _nuevo"
 
-#: ../src/preferences.c:240
+#: ../src/main.c:585
+msgid "_End Game"
+msgstr "Finalizar el ju_ego"
+
+#: ../src/main.c:587
+msgid "_Pause"
+msgstr "_Pausa"
+
+#: ../src/main.c:592
+msgid "_Contents"
+msgstr "Índ_ice"
+
+#: ../src/preferences.c:223
 msgid "Nibbles Preferences"
 msgstr "Preferencias de Nibbles"
 
-#: ../src/preferences.c:253
+#: ../src/preferences.c:236
 msgid "Game"
 msgstr "Juego"
 
 #. Speed
-#: ../src/preferences.c:269
+#: ../src/preferences.c:252
 msgid "Speed"
 msgstr "Velocidad"
 
-#: ../src/preferences.c:274
+#: ../src/preferences.c:257
 msgid "Nibbles newbie"
 msgstr "Novato de Nibbles"
 
-#: ../src/preferences.c:284
+#: ../src/preferences.c:267
 msgid "My second day"
 msgstr "Mi segundo día"
 
-#: ../src/preferences.c:294
+#: ../src/preferences.c:277
 msgid "Not too shabby"
 msgstr "No demasiado malo"
 
-#: ../src/preferences.c:304
+#: ../src/preferences.c:287
 msgid "Finger-twitching good"
 msgstr "Prestidigitador"
 
-#: ../src/preferences.c:318 ../src/preferences.c:457
+#: ../src/preferences.c:301 ../src/preferences.c:424
 msgid "Options"
 msgstr "Opciones"
 
-#: ../src/preferences.c:325
+#: ../src/preferences.c:308
 msgid "_Play levels in random order"
 msgstr "_Jugar niveles en orden aleatorio"
 
-#: ../src/preferences.c:335
+#: ../src/preferences.c:316
 msgid "_Enable fake bonuses"
 msgstr "_Activar bonificaciones falsas"
 
-#: ../src/preferences.c:345
+#: ../src/preferences.c:324
 msgid "E_nable sounds"
 msgstr "A_ctivar sonidos"
 
-#: ../src/preferences.c:358
+#: ../src/preferences.c:337
 msgid "_Starting level:"
 msgstr "_Nivel inicial:"
 
-#: ../src/preferences.c:387
+#: ../src/preferences.c:362
 msgid "Number of _human players:"
 msgstr "Número de j_ugadores humanos:"
 
-#: ../src/preferences.c:408
+#: ../src/preferences.c:379
 msgid "Number of _AI players:"
 msgstr "Número de j_ugadores IA:"
 
-#: ../src/preferences.c:433
+#: ../src/preferences.c:400
 msgid "Worm"
 msgstr "Gusano"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:409
 msgid "Keyboard Options"
 msgstr "Opciones del teclado"
 
-#: ../src/preferences.c:462
+#: ../src/preferences.c:429
 msgid "_Use relative movement"
 msgstr "_Usar movimiento relativo"
 
-#: ../src/preferences.c:469
+#: ../src/preferences.c:436
 msgid "_Worm color:"
 msgstr "Color del _gusano:"
 
-#: ../src/preferences.c:475
+#: ../src/preferences.c:442
 msgid "Red"
 msgstr "Rojo"
 
-#: ../src/preferences.c:476
+#: ../src/preferences.c:443
 msgid "Green"
 msgstr "Verde"
 
-#: ../src/preferences.c:477
+#: ../src/preferences.c:444
 msgid "Blue"
 msgstr "Azul"
 
-#: ../src/preferences.c:478
+#: ../src/preferences.c:445
 msgid "Yellow"
 msgstr "Amarillo"
 
-#: ../src/preferences.c:479
+#: ../src/preferences.c:446
 msgid "Cyan"
 msgstr "Cian"
 
-#: ../src/preferences.c:480
+#: ../src/preferences.c:447
 msgid "Purple"
 msgstr "Púrpura"
 
-#: ../src/preferences.c:481
+#: ../src/preferences.c:448
 msgid "Gray"
 msgstr "Gris"
 
@@ -638,6 +436,183 @@ msgstr "Gris"
 #, c-format
 msgid "Worm %d:"
 msgstr "Gusano %d:"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "Tiempo"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "Puntuación"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%1$dm %2$ds"
+
+#~ msgid "New Game"
+#~ msgstr "Partida nueva"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Name"
+#~ msgstr "Nombre"
+
+#~ msgid "Date"
+#~ msgstr "Fecha"
+
+#~ msgid "View help for this game"
+#~ msgstr "Mostrar la ayuda de este juego"
+
+#~ msgid "End the current game"
+#~ msgstr "Finalizar el juego actual"
+
+#~ msgid "Toggle fullscreen mode"
+#~ msgstr "Activar pantalla completa"
+
+#~ msgid "Get a hint for your next move"
+#~ msgstr "Obtener una pista para el siguiente movimiento"
+
+#~ msgid "Leave fullscreen mode"
+#~ msgstr "Abandonar pantalla completa"
+
+#~ msgid "Start a new multiplayer network game"
+#~ msgstr "Iniciar una partida multijugador en red"
+
+#~ msgid "End the current network game and return to network server"
+#~ msgstr "Terminar la partida de red actual y volver al servidor de red"
+
+#~ msgid "Start a new game"
+#~ msgstr "Iniciar un juego nuevo"
+
+#~ msgid "Pause the game"
+#~ msgstr "Pausar el juego"
+
+#~ msgid "Show a list of players in the network game"
+#~ msgstr "Mostrar una lista de jugadores en la partida de red"
+
+#~ msgid "Redo the undone move"
+#~ msgstr "Rehacer el movimiento deshecho"
+
+#~ msgid "Restart the game"
+#~ msgstr "Reiniciar el juego"
+
+#~ msgid "Resume the paused game"
+#~ msgstr "Reiniciar el juego pausado"
+
+#~ msgid "View the scores"
+#~ msgstr "Ver la puntuación"
+
+#~ msgid "Undo the last move"
+#~ msgstr "Anular el último movimiento"
+
+#~ msgid "About this game"
+#~ msgstr "Acerca de este juego"
+
+#~ msgid "Close this window"
+#~ msgstr "Cerrar esta ventana"
+
+#~ msgid "Configure the game"
+#~ msgstr "Configurar el juego"
+
+#~ msgid "Quit this game"
+#~ msgstr "Salir de este juego"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Pantalla completa"
+
+#~ msgid "_Hint"
+#~ msgstr "_Sugerencia"
+
+#~ msgid "_New"
+#~ msgstr "_Nuevo"
+
+#~ msgid "_Redo Move"
+#~ msgstr "_Rehacer movimiento"
+
+#~ msgid "_Reset"
+#~ msgstr "_Reiniciar"
+
+#~ msgid "_Restart"
+#~ msgstr "_Reiniciar"
+
+#~ msgid "_Undo Move"
+#~ msgstr "_Deshacer movimiento"
+
+#~ msgid "_Deal"
+#~ msgstr "R_epartir"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "Abandonar _pantalla completa"
+
+#~ msgid "Network _Game"
+#~ msgstr "_Partida en red"
+
+#~ msgid "L_eave Game"
+#~ msgstr "_Dejar partida"
+
+#~ msgid "Player _List"
+#~ msgstr "_Lista de jugadores"
+
+#~ msgid "Res_ume"
+#~ msgstr "C_ontinuar"
+
+#~ msgid "_Scores"
+#~ msgstr "_Puntuación"
+
+#~ msgid ""
+#~ "%s is free software; you can redistribute it and/or modify it under the "
+#~ "terms of the GNU General Public License as published by the Free Software "
+#~ "Foundation; either version %d of the License, or (at your option) any "
+#~ "later version."
+#~ msgstr ""
+#~ "%s es software libre; puede redistribuirlo y/o modificarlo bajo los "
+#~ "términos de la Licencia Pública General GNU tal como la publica la Free "
+#~ "Software Foundation; ya sea en la versión %d de la Licencia, como (a su "
+#~ "elección) cualquier otra versión posterior."
+
+#~ msgid ""
+#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
+#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+#~ "details."
+#~ msgstr ""
+#~ "%s se distribuye con el ánimo de que le será útil, pero SIN NINGUNA "
+#~ "GARANTÍA; sin incluso la garantía implícita de MERCANTILIDAD o IDONEIDAD "
+#~ "PARA UN PROPÓSITO DETERMINADO. Vea la Licencia Pública General de GNU "
+#~ "para más detalles."
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
+#~ msgstr ""
+#~ "Debería haber recibido una copia de la Licencia Pública General GNU junto "
+#~ "con %s; si no, escriba a la Free Software Foundation, Inc., 51 Franklin "
+#~ "Street, Fifth Floor, Boston, MA 02110-1301 EE. UU."
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
+#~ msgstr ""
+#~ "Debería haber recibido una copia de la Licencia Pública General GNU junto "
+#~ "con este programa. De lo contrario, visite <http://www.gnu.org/licenses/>."
+
+#~ msgid "Nibbles Scores"
+#~ msgstr "Puntuación de Nibbles"
+
+#~ msgid "Speed:"
+#~ msgstr "Velocidad:"
+
+#~ msgid "Congratulations!"
+#~ msgstr "Enhorabuena."
+
+#~ msgid "Your score is the best!"
+#~ msgstr "Su puntuación es la mejor"
+
+#~ msgid "Your score has made the top ten."
+#~ msgstr "Su puntuación ha alcanzado los 10 mejores."
+
+#~ msgid "A worm game for GNOME."
+#~ msgstr "Un juego de gusanos para GNOME."
 
 #~ msgid "Chess"
 #~ msgstr "Ajedrez"
