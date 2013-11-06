@@ -21,12 +21,6 @@ gnome_nibbles_SOURCES = \
 	games-score.c			\
 	games-scores.c			\
 	games-scores.h			\
-	games-scores-dialog.c	\
-	games-scores-dialog.h	\
-	games-scores-backend.c	\
-	games-scores-backend.h	\
-	games-setgid-io.c \
-	games-setgid-io.h \
 	gnibbles.h \
 	gnibbles.c \
 	properties.h \

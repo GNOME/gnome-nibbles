@@ -327,12 +327,6 @@ pause_game_cb (GtkAction * action, gpointer data)
   }
 }
 
-static void
-show_scores_cb (GtkAction * action, gpointer data)
-{
-  gnibbles_show_scores (window, 0);
-}
-
 void
 end_game (void)
 {
@@ -588,8 +582,6 @@ static const GtkActionEntry action_entry[] = {
    G_CALLBACK (new_game_cb)},
   {"EndGame", NULL, N_("_End Game"), NULL, NULL,
    G_CALLBACK (end_game_cb)},
-  {"Scores", NULL, N_("_Scores"), NULL, NULL,
-   G_CALLBACK (show_scores_cb)},
   {"Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_cb)},
   {"Preferences", GTK_STOCK_PREFERENCES, NULL, NULL, NULL,
    G_CALLBACK (gnibbles_preferences_cb)},
@@ -605,8 +597,6 @@ static const char ui_description[] =
   "      <menuitem action='EndGame'/>"
   "      <separator/>"
   "      <menuitem action='Pause'/>"
-  "      <separator/>"
-  "      <menuitem action='Scores'/>"
   "      <separator/>"
   "      <menuitem action='Quit'/>"
   "    </menu>"
@@ -740,8 +730,6 @@ main (int argc, char **argv)
   bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
-
-  games_scores_startup ();
 
   /*
    * Required because the binary doesn't match the desktop file.
