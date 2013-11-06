@@ -29,6 +29,7 @@
 G_BEGIN_DECLS
 
 #include "games-score.h"
+#include "games-scores-backend.h"
 
 /* How many scores get counted as significant. */
 #define GAMES_SCORES_SIGNIFICANT 10
