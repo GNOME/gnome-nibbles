@@ -366,9 +366,6 @@ gnibbles_log_score (GtkWidget * window)
 {
   gint pos;
 
-  if (properties->numworms > 1)
-    return;
-
   if (properties->human != 1)
     return;
 
