@@ -1,4 +1,4 @@
-AC_INIT(gnome-nibbles, 3.11.1)
+AC_INIT([gnome-nibbles],[3.11.1])
 AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz foreign])
 AM_SILENT_RULES([yes])
 AM_MAINTAINER_MODE
@@ -92,7 +92,7 @@ dnl ###########################################################################
 dnl Files to generate
 dnl ###########################################################################
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 po/Makefile.in
 data/Makefile
@@ -104,3 +104,4 @@ data/pix/Makefile
 help/Makefile
 src/Makefile
 ])
+AC_OUTPUT
