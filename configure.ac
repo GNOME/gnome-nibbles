@@ -71,8 +71,8 @@ PKG_CHECK_MODULES(GNOME_NIBBLES, [
   clutter-gtk-1.0 >= $CLUTTER_GTK_REQUIRED
 ])
 
-AC_PATH_PROG(APPDATA_VALIDATE, appdata-validate)
-AC_PATH_PROG(DESKTOP_FILE_VALIDATE, desktop-file-validate)
+AC_PATH_PROG([APPDATA_VALIDATE], [appdata-validate], [/bin/true])
+AC_PATH_PROG([DESKTOP_FILE_VALIDATE], [desktop-file-validate], [/bin/true])
 
 dnl ###########################################################################
 dnl Internationalization
