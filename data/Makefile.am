@@ -37,11 +37,6 @@ CLEANFILES = \
 	$(appdata_DATA) \
 	$(desktop_DATA)
 
-install-exec-hook:
-	-if test "$(setgid)" = "true"; then \
-	  chgrp $(scores_group) $(DESTDIR)$(bindir)/gnome-nibbles && chmod 2555 $(DESTDIR)$(bindir)/gnome-nibbles ;\
-	fi
-
 check-local: $(appdata_DATA) $(desktop_DATA)
 	$(APPDATA_VALIDATE) $(appdata_DATA)
 	$(DESKTOP_FILE_VALIDATE) $(desktop_DATA)

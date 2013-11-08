@@ -21,8 +21,6 @@ gnome_nibbles_SOURCES = \
 	games-scores-dialog.h	\
 	games-scores-backend.c	\
 	games-scores-backend.h	\
-	games-setgid-io.c \
-	games-setgid-io.h \
 	gnibbles.h \
 	gnibbles.c \
 	properties.h \
@@ -49,15 +47,9 @@ gnome_nibbles_CFLAGS = \
 	-DSOUND_DIRECTORY=\"$(datadir)/gnome-nibbles/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	-DICON_THEME_DIRECTORY="\"$(datadir)/icons\"" \
-	-DSCORESDIR="\"$(scoredir)\""				\
 	$(GNOME_NIBBLES_CFLAGS)
 
 gnome_nibbles_LDADD = \
 	$(GNOME_NIBBLES_LIBS)
-
-install-exec-hook:
-	-if test "$(setgid)" = "true"; then \
-	  chgrp $(scores_group) $(DESTDIR)$(bindir)/gnome-nibbles && chmod 2555 $(DESTDIR)$(bindir)/gnome-nibbles ;\
-	fi
 
 -include $(top_srcdir)/git.mk
