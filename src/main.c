@@ -166,7 +166,7 @@ about_cb (GtkAction * action, gpointer data)
        "logo-icon-name", "gnome-nibbles", 
        "website", "http://www.gnome.org/projects/gnome-games/",
        "website-label", _("GNOME Games web site"),
-       "wrap-license", TRUE, NULL);
+       NULL);
 }
 
 static gboolean
