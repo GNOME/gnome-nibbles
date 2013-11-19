@@ -159,7 +159,7 @@ about_cb (GtkAction * action, gpointer data)
        "Copyright \xc2\xa9 2009 Guillaume Beland",
 
        "license-type", GTK_LICENSE_GPL_2_0, 
-       "comments", _("A worm game for GNOME.\n\nNibbles is a part of GNOME Games."),
+       "comments", _("A worm game for GNOME\n\nNibbles is a part of GNOME Games."),
        "authors", authors,
        "documenters", documenters, 
        "translator-credits", _("translator-credits"), 
