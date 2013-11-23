@@ -5,16 +5,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
-"POT-Creation-Date: 2013-04-23 17:53+0000\n"
-"PO-Revision-Date: 2013-04-28 22:09+0300\n"
+"POT-Creation-Date: 2013-11-20 12:10+0000\n"
+"PO-Revision-Date: 2013-11-23 19:40+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
-"Language-Team: team@gnome.gr\n"
+"Language-Team: team@lists.gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Virtaal 0.7.0\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -23,26 +23,27 @@ msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
 " Μάριος Ζηντίλης <m.zindilis@dmajor.org>, 2009\n"
 " Δημήτρης Σπίγγος <dmtrs32@gmail.com>, 2013\n"
-"\n"
 "Για περισσότερα δείτε http://gnome.gr/"
 
-#: C/index.page:12(credit/name) C/basics.page:13(credit/name)
-#: C/controls-change.page:15(credit/name)
-#: C/controls-default.page:13(credit/name) C/fake-bonus.page:13(credit/name)
-#: C/multi-player.page:15(credit/name) C/preferences.page:13(credit/name)
-#: C/rel-movement.page:13(credit/name) C/scores.page:13(credit/name)
+#. (itstool) path: credit/name
+#: C/index.page:12 C/basics.page:14 C/controls-change.page:16
+#: C/controls-default.page:14 C/fake-bonus.page:14 C/multi-player.page:16
+#: C/preferences.page:14 C/rel-movement.page:14 C/scores.page:14
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
-#: C/index.page:16(info/desc)
+#. (itstool) path: info/desc
+#: C/index.page:16
 msgid "Index"
 msgstr "Δείκτης"
 
-#: C/index.page:19(page/title)
+#. (itstool) path: page/title
+#: C/index.page:19
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Μπουκιές - Nibbles"
 
-#: C/index.page:21(page/p)
+#. (itstool) path: page/p
+#: C/index.page:21
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -53,105 +54,116 @@ msgstr ""
 "αποφύγετε τους τοίχους του λαβύρινθου και τα άλλα σκουλήκια. Πρέπει να "
 "συμπληρώσετε 26 επίπεδα για να τελειώσετε το παιχνίδι."
 
-#: C/index.page:26(section/title)
-#| msgid "Game"
+#. (itstool) path: section/title
+#: C/index.page:26
 msgid "Game play"
 msgstr "Παίξιμο παιχνιδιού"
 
-#: C/index.page:30(section/title)
-#| msgid "Game Preferences Tab"
+#. (itstool) path: section/title
+#: C/index.page:30
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
-#: C/basics.page:17(credit/name) C/controls-change.page:19(credit/name)
-#: C/controls-default.page:17(credit/name) C/fake-bonus.page:17(credit/name)
-#: C/multi-player.page:19(credit/name) C/preferences.page:17(credit/name)
-#: C/rel-movement.page:17(credit/name)
+#. (itstool) path: credit/name
+#: C/basics.page:18 C/controls-change.page:20 C/controls-default.page:18
+#: C/fake-bonus.page:18 C/multi-player.page:20 C/preferences.page:18
+#: C/rel-movement.page:18
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
-#: C/basics.page:21(info/desc)
+#. (itstool) path: info/desc
+#: C/basics.page:22
 msgid ""
 "Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
 msgstr ""
 "Έναρξη, παύση, παίξιμο σε κατάσταση πλήρους οθόνης και κλείσιμο ενός "
 "παιχνιδιού στις <app>Μπουκιές</app>."
 
-#: C/basics.page:24(page/title)
-#| msgid "Introduction"
+#. (itstool) path: page/title
+#: C/basics.page:25
 msgid "Basic instructions"
 msgstr "Βασικές οδηγίες"
 
-#: C/basics.page:27(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:28
 msgid "Start a new game"
 msgstr "Ξεκίνημα νέου παιχνιδιού"
 
-#: C/basics.page:29(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:30
 msgid ""
 "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New</"
 "gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
 "a new game."
 msgstr ""
-"Επιλέξτε <guiseq><gui style=\"menu\">Παιχνίδι</gui> <gui "
-"style=\"menuitem\">Νέο</gui></guiseq> ή πατήστε "
-"<keyseq><key>Ctrl</key><key>Ν</key></keyseq> για έναρξη νέου παιχνιδιού."
+"Επιλέξτε <guiseq><gui style=\"menu\">Παιχνίδι</gui> <gui style=\"menuitem"
+"\">Νέο</gui></guiseq> ή πατήστε <keyseq><key>Ctrl</key><key>Ν</key></keyseq> "
+"για έναρξη νέου παιχνιδιού."
 
-#: C/basics.page:37(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:38
 msgid "Pause and resume your game"
 msgstr "Παύση και συνέχιση του παιχνιδιού σας"
 
-#: C/basics.page:39(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:40
 msgid ""
 "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause</"
 "gui></guiseq> to pause your game. You can resume your game by selecting "
 "<guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Resume</gui></"
 "guiseq>."
 msgstr ""
-"Επιλέξτε <guiseq><gui style=\"menu\">Παιχνίδι</gui> <gui "
-"style=\"menuitem\">Παύση</gui></guiseq> για να διακόψετε το παιχνίδι σας. "
-"Μπορείτε να συνεχίσετε το παιχνίδι σας επιλέγοντας <guiseq><gui "
-"style=\"menu\">Παιχνίδι</gui> <gui style=\"menuitem\">Συνέχιση</gui></guiseq>."
+"Επιλέξτε <guiseq><gui style=\"menu\">Παιχνίδι</gui> <gui style=\"menuitem"
+"\">Παύση</gui></guiseq> για να διακόψετε το παιχνίδι σας. Μπορείτε να "
+"συνεχίσετε το παιχνίδι σας επιλέγοντας <guiseq><gui style=\"menu\">Παιχνίδι</"
+"gui> <gui style=\"menuitem\">Συνέχιση</gui></guiseq>."
 
-#: C/basics.page:47(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:48
 msgid "Play <app>Nibbles</app> in fullscreen mode"
 msgstr "Παίξτε τις <app>Μπουκιές</app> σε κατάσταση πλήρους οθόνης"
 
-#: C/basics.page:49(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:50
 msgid ""
 "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
 "\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
 "fullscreen mode. You can return to the default screen size by pressing "
 "<key>F11</key> again."
 msgstr ""
-"Επιλέξτε <guiseq><gui style=\"menu\">Προβολή</gui> <gui "
-"style=\"menuitem\">Πλήρης οθόνη</gui></guiseq> ή πατήστε <key>F11</key> για να "
-"παίξετε το παιχνίδι σας σε κατάσταση πλήρους οθόνης. Μπορείτε να "
-"επιστρέψετε στο προεπιλεγμένο μέγεθος οθόνης πατώντας <key>F11</key> ξανά."
+"Επιλέξτε <guiseq><gui style=\"menu\">Προβολή</gui> <gui style=\"menuitem"
+"\">Πλήρης οθόνη</gui></guiseq> ή πατήστε <key>F11</key> για να παίξετε το "
+"παιχνίδι σας σε κατάσταση πλήρους οθόνης. Μπορείτε να επιστρέψετε στο "
+"προεπιλεγμένο μέγεθος οθόνης πατώντας <key>F11</key> ξανά."
 
-#: C/basics.page:57(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:58
 msgid "Quit <app>Nibbles</app>"
 msgstr "Έξοδος από τις <app>Μπουκιές</app>"
 
-#: C/basics.page:59(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:60
 msgid ""
 "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit</"
 "gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
 "<app>Nibbles</app> at any time."
 msgstr ""
-"Επιλέξτε <guiseq><gui style=\"menu\">Παιχνίδι</gui> <gui "
-"style=\"menuitem\">Έξοδος</gui></guiseq> ή πατήστε "
-"<keyseq><key>Ctrl</key><key>Q</key></keyseq> για έξοδο από τις "
-"<app>Μπουκιές</app> οποτεδήποτε."
+"Επιλέξτε <guiseq><gui style=\"menu\">Παιχνίδι</gui> <gui style=\"menuitem"
+"\">Έξοδος</gui></guiseq> ή πατήστε <keyseq><key>Ctrl</key><key>Q</key></"
+"keyseq> για έξοδο από τις <app>Μπουκιές</app> οποτεδήποτε."
 
-#: C/controls-change.page:23(info/desc)
+#. (itstool) path: info/desc
+#: C/controls-change.page:24
 msgid "Set custom control keys."
 msgstr "Ορισμός προσαρμοσμένων πλήκτρων ελέγχου."
 
-#: C/controls-change.page:26(page/title)
+#. (itstool) path: page/title
+#: C/controls-change.page:27
 msgid "Change the default controls"
 msgstr "Αλλαγή των προεπιλεγμένων ελέγχων"
 
-#: C/controls-change.page:28(page/p)
+#. (itstool) path: page/p
+#: C/controls-change.page:29
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -164,22 +176,25 @@ msgstr ""
 "περισσότερο από ένα σύνολο ελέγχων γίνεται απαραίτητο. Για αλλαγή των "
 "προεπιλεγμένων ελέγχων:"
 
-#: C/controls-change.page:35(item/p) C/fake-bonus.page:34(item/p)
-#: C/multi-player.page:43(item/p) C/rel-movement.page:65(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:36 C/fake-bonus.page:35 C/multi-player.page:44
+#: C/rel-movement.page:66
 msgid ""
 "Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
 "\">Preferences</gui></guiseq>."
 msgstr ""
-"Επιλέξτε <guiseq><gui style=\"menu\">Ρυθμίσεις</gui> <gui "
-"style=\"menuitem\">Προτιμήσεις</gui></guiseq>."
+"Επιλέξτε <guiseq><gui style=\"menu\">Ρυθμίσεις</gui> <gui style=\"menuitem"
+"\">Προτιμήσεις</gui></guiseq>."
 
-#: C/controls-change.page:39(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:40
 msgid "Select the tab for the player whose controls you want to change."
 msgstr ""
 "Επιλέξτε την καρτέλα για τον παίκτη του οποίου τους ελέγχους θέλετε να "
 "αλλάξετε."
 
-#: C/controls-change.page:41(note/p)
+#. (itstool) path: note/p
+#: C/controls-change.page:42
 msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
@@ -188,7 +203,8 @@ msgstr ""
 "<gui>σκουλήκι 2</gui>, ο παίκτης 3 ελέγχει το <gui>σκουλήκι 3</gui> και ούτω "
 "καθεξής."
 
-#: C/controls-change.page:46(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:47
 msgid ""
 "In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
 "then click on the control. This highlights the line and the words <gui>New "
@@ -196,16 +212,17 @@ msgid ""
 msgstr ""
 "Στη λίστα <gui style=\"group\">Έλεγχοι πληκτρολογίου</gui>, επιλέξτε τη "
 "γραμμή, έπειτα πατήστε στον έλεγχο. Αυτό επισημαίνει τη γραμμή και οι λέξεις "
-"<gui>Νέος επιταχυντής…</gui> είναι τώρα παρούσες στη θέση του παλιού "
-"ελέγχου."
+"<gui>Νέος επιταχυντής…</gui> είναι τώρα παρούσες στη θέση του παλιού ελέγχου."
 
-#: C/controls-change.page:52(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:53
 msgid "Press the key you want to use instead of the default key."
 msgstr ""
 "Πατήστε το πλήκτρο που θέλετε να χρησιμοποιήσετε αντί για το προεπιλεγμένο "
 "πλήκτρο."
 
-#: C/controls-change.page:54(note/p)
+#. (itstool) path: note/p
+#: C/controls-change.page:55
 msgid ""
 "To keep the old setting click <gui>New accelerator…</gui> again, right click "
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
@@ -215,7 +232,8 @@ msgstr ""
 "ξανά, δεξιοπατήστε στο <gui>Νέος επιταχυντής…</gui>, πατήστε <key>Esc</key> "
 "ή πατήστε οπουδήποτε αλλού μέσα στο πλαίσιο <gui>Προτιμήσεις Μπουκιών</gui>."
 
-#: C/controls-change.page:60(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:61
 msgid ""
 "Repeat the above step to change the other default keys for the current "
 "player, then select the tab for the next player whose controls you want to "
@@ -225,27 +243,30 @@ msgstr ""
 "τον τρέχοντα παίκτη, έπειτα επιλέξτε την καρτέλα για τον επόμενο παίκτη του "
 "οποίου θέλετε να αλλάξετε τους ελέγχους και επαναλάβετε τη διαδικασία."
 
-#: C/controls-change.page:66(page/p)
+#. (itstool) path: page/p
+#: C/controls-change.page:67
 msgid ""
 "For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
 "<gui>Left</gui> control line and click it, then press <key>A</key> on your "
 "keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
-"Για παράδειγμα, για χρήση του <key>Α</key> για <gui>Μετακίνηση "
-"αριστερά</gui>, επιλέξτε τη γραμμή ελέγχου <gui>Αριστερά</gui> και πατήστε "
-"την, έπειτα πατήστε <key>Α</key> στο πληκτρολόγιό σας όταν δείτε <gui>Νέος "
-"επιταχυντής…</gui> στη γραμμή."
+"Για παράδειγμα, για χρήση του <key>Α</key> για <gui>Μετακίνηση αριστερά</"
+"gui>, επιλέξτε τη γραμμή ελέγχου <gui>Αριστερά</gui> και πατήστε την, έπειτα "
+"πατήστε <key>Α</key> στο πληκτρολόγιό σας όταν δείτε <gui>Νέος επιταχυντής…</"
+"gui> στη γραμμή."
 
-#: C/controls-default.page:22(info/desc)
+#. (itstool) path: info/desc
+#: C/controls-default.page:23
 msgid "Default keys for <app>Nibbles.</app>"
 msgstr "Προεπιλεγμένα πλήκτρα για τις <app>Μπουκιές</app>"
 
-#: C/controls-default.page:25(page/title)
-#| msgid "Keyboard controls"
+#. (itstool) path: page/title
+#: C/controls-default.page:26
 msgid "Keyboard Controls"
 msgstr "Έλεγχοι πληκτρολογίου"
 
-#: C/controls-default.page:27(page/p)
+#. (itstool) path: page/p
+#: C/controls-default.page:28
 msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
@@ -253,83 +274,94 @@ msgstr ""
 "Για έλεγχο των κινήσεων του σκουληκιού σας σε κατάσταση μονού παίκτη, "
 "χρησιμοποιήστε τα ακόλουθα προεπιλεγμένα πλήκτρα:"
 
-#: C/controls-default.page:32(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:33
 msgid "<key>Up</key> to move the worm up"
 msgstr "<key>Επάνω</key> για μετακίνηση του σκουληκιού προς τα πάνω"
 
-#: C/controls-default.page:35(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:36
 msgid "<key>Down</key> to move the worm down"
 msgstr "<key>Κάτω</key> για μετακίνηση του σκουληκιού προς τα κάτω"
 
-#: C/controls-default.page:38(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:39
 msgid "<key>Left</key> to move the worm left"
 msgstr "<key>Αριστερά</key> για μετακίνηση του σκουληκιού προς τα αριστερά"
 
-#: C/controls-default.page:41(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:42
 msgid "<key>Right</key> to move the worm right"
 msgstr "<key>Δεξιά</key> για μετακίνηση του σκουληκιού προς τα δεξιά"
 
-#: C/controls-default.page:46(note/p)
+#. (itstool) path: note/p
+#: C/controls-default.page:47
 msgid ""
 "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
 "Μπορείτε να <link xref=\"controls-change\">αλλάξετε</link> τους "
 "προεπιλεγμένους ελέγχους."
 
-#: C/controls-default.page:50(page/p)
+#. (itstool) path: page/p
+#: C/controls-default.page:51
 msgid ""
-"All worm movements happen with repect to the screen unless <link xref=\"rel-"
+"All worm movements happen with respect to the screen unless <link xref=\"rel-"
 "movement\">relative movement</link> is enabled. This means that when you "
 "press <key>Left</key> the worm moves towards the left of the screen, when "
 "you press <key>Right</key> the worm moves towards the right of the screen "
 "and so on."
 msgstr ""
-"Όλες οι κινήσεις των σκουληκιών σχετικά με την οθόνη εκτός της <link xref"
-"=\"rel-movement\">σχετικής κίνησης</link> είναι ενεργές. Αυτό σημαίνει ότι "
-"όταν πατάτε <key>Αριστερά</key> το σκουλήκι μετακινείται προς τα αριστερά "
-"της οθόνης, όταν πατάτε <key>Δεξιά</key> το σκουλήκι μετακινείται προς τα "
-"δεξιά της οθόνης και ούτω καθεξής."
+"Όλες οι κινήσεις των σκουληκιών συμβαίνουν ως προς την οθόνη εκτός και είναι "
+"ενεργή η <link xref=\"rel-movement\">σχετική κίνησης</link>. Αυτό σημαίνει "
+"ότι όταν πατάτε το πλήκτρο <key>αριστερά</key> το σκουλήκι μετακινείται προς "
+"τα αριστερά της οθόνης, όταν πατάτε <key>δεξιά</key> το σκουλήκι "
+"μετακινείται προς τα δεξιά της οθόνης και ούτω καθεξής."
 
-#: C/fake-bonus.page:21(info/desc)
+#. (itstool) path: info/desc
+#: C/fake-bonus.page:22
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
-"Χρησιμοποιήστε ψεύτικα δώρα σε ένα παιχνίδι στις <app>Μπουκιές</app> για να "
-"τις κάνετε πιο ελκυστικό."
+"Χρησιμοποιήστε ψεύτικες ανταμοιβές σε ένα παιχνίδι στις <app>Μπουκιές</app> "
+"για να τις κάνετε πιο ελκυστικές."
 
-#: C/fake-bonus.page:25(page/title)
-#| msgid "Enable fake bonuses"
+#. (itstool) path: page/title
+#: C/fake-bonus.page:26
 msgid "What are fake bonuses?"
-msgstr "Τι είναι τα ψεύτικα δώρα;"
+msgstr "Τι είναι οι ψεύτικες ανταμοιβές;"
 
-#: C/fake-bonus.page:27(page/p)
+#. (itstool) path: page/p
+#: C/fake-bonus.page:28
 msgid ""
 "Fake bonuses look like regular bonus shapes but do not give you any points "
 "when your worm swallows them. They cause a reversal in the movement of your "
 "worm."
 msgstr ""
-"Τα ψεύτικα δώρα είναι σαν τα δώρα κανονικών σχημάτων αλλά δεν δίνουν κανένα "
-"σημείο όταν το σκουλήκι σας τις καταπίνει. Προκαλούν μια μεταστροφή στην "
-"κίνηση του σκουληκιού σας."
+"Οι ψεύτικες ανταμοιβές είναι σαν τις ανταμοιβές κανονικών σχημάτων αλλά δεν "
+"δίνουν κανένα σημείο όταν το σκουλήκι σας τις καταπίνει. Προκαλούν μια "
+"μεταστροφή στην κίνηση του σκουληκιού σας."
 
-#: C/fake-bonus.page:31(page/p)
-#| msgid "Enable fake bonuses"
+#. (itstool) path: page/p
+#: C/fake-bonus.page:32
 msgid "To enable fake bonuses:"
-msgstr "Ενεργοποίηση ψεύτικων δώρων:"
+msgstr "Ενεργοποίηση ψεύτικων ανταμοιβών:"
 
-#: C/fake-bonus.page:38(item/p)
+#. (itstool) path: item/p
+#: C/fake-bonus.page:39
 msgid ""
 "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
 "is unchecked."
 msgstr ""
 "Ελέγξετε αν το πλαίσιο ελέγχου <gui style=\"checkbox\">Ενεργοποίηση ψεύτικων "
-"δώρων</gui> είναι ασημείωτο."
+"ανταμοιβών</gui> είναι ασημείωτο."
 
-#: C/fake-bonus.page:42(item/p)
+#. (itstool) path: item/p
+#: C/fake-bonus.page:43
 msgid "Click <gui>Close</gui>."
 msgstr "Πατήστε <gui>Κλείσιμο</gui>."
 
-#: C/fake-bonus.page:47(note/p)
+#. (itstool) path: note/p
+#: C/fake-bonus.page:48
 msgid ""
 "Set all preferences before starting a new game. Preferences cannot be "
 "changed in the middle of a game."
@@ -337,16 +369,18 @@ msgstr ""
 "Ορίστε όλες τις προτιμήσεις πριν την έναρξη ενός νέου παιχνιδιού. Οι "
 "προτιμήσεις δεν μπορούν να αλλαχθούν στη μέση ενός παιχνιδιού."
 
-#: C/multi-player.page:23(info/desc)
+#. (itstool) path: info/desc
+#: C/multi-player.page:24
 msgid "Play <app>Nibbles</app> with additional players."
 msgstr "Παίξτε <app>Μπουκιές</app> με πρόσθετους παίκτες."
 
-#: C/multi-player.page:26(page/title)
-#| msgid "Playing multiplayer Nibbles games"
+#. (itstool) path: page/title
+#: C/multi-player.page:27
 msgid "Multi-player games"
 msgstr "Παιχνίδια πολλαπλών παικτών"
 
-#: C/multi-player.page:28(page/p)
+#. (itstool) path: page/p
+#: C/multi-player.page:29
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. While a player "
 "controls <gui>Worm 1</gui> in a single-player game, players can additionally "
@@ -361,15 +395,16 @@ msgstr ""
 "<gui>σκουλήκι 6</gui> σε ένα παιχνίδι πολλών παικτών. Ένα παιχνίδι δύο "
 "παικτών επιτρέπει τον έλεγχο του <gui>σκουληκιού 1</gui> και του "
 "<gui>σκουληκιού 2</gui>, ένα παιχνίδι τριών παικτών επιτρέπει τον έλεγχο του "
-"<gui>σκουληκιού 1</gui>, του <gui>σκουληκιού 2</gui> και <gui>σκουληκιού "
-"3</gui> και ούτω καθεξής."
+"<gui>σκουληκιού 1</gui>, του <gui>σκουληκιού 2</gui> και <gui>σκουληκιού 3</"
+"gui> και ούτω καθεξής."
 
-#: C/multi-player.page:36(section/title)
-#| msgid "Number of AI players"
+#. (itstool) path: section/title
+#: C/multi-player.page:37
 msgid "Choose the number of players"
 msgstr "Επιλέξτε τον αριθμό των παικτών"
 
-#: C/multi-player.page:38(section/p)
+#. (itstool) path: section/p
+#: C/multi-player.page:39
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. To set the number of "
 "players:"
@@ -377,7 +412,8 @@ msgstr ""
 "Οι <app>Μπουκιές</app> μπορούν να παιχτούν με έως έξι παίχτες. Για να "
 "ορίσετε τον αριθμό των παιχτών:"
 
-#: C/multi-player.page:47(item/p)
+#. (itstool) path: item/p
+#: C/multi-player.page:48
 msgid ""
 "Set the <gui style=\"input\">Number of human players</gui> to the required "
 "number, a maximum of 6. You can do this by using the <gui style=\"button\">"
@@ -389,7 +425,8 @@ msgstr ""
 "τα κουμπιά <gui style=\"button\">+</gui> ή <gui style=\"button\">-</gui> "
 "εισάγοντας τον αριθμό των παιχτών από το πληκτρολόγιο στον παρεχόμενο χώρο."
 
-#: C/multi-player.page:56(note/p)
+#. (itstool) path: note/p
+#: C/multi-player.page:57
 msgid ""
 "You can watch a <app>Nibbles</app> game without participating. To observe a "
 "game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
@@ -401,134 +438,36 @@ msgstr ""
 "ανθρώπινων παιχτών</gui> σε 0 και τον <gui style=\"input\">αριθμό παιχτών με "
 "τεχνητή νοημοσύνη</gui> σε οποιοδήποτε αριθμό μεταξύ 1 και 6."
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:65(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-red.svg' md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
-msgstr ""
-"external ref='figures/snake-red.svg' md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:69(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-green.svg' md5='950becba28c6dca50a1157efe5b96f1d'"
-msgstr ""
-"external ref='figures/snake-green.svg' "
-"md5='950becba28c6dca50a1157efe5b96f1d'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:73(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-blue.svg' md5='7f5cb0d784fdf25d604882472cb504b9'"
-msgstr ""
-"external ref='figures/snake-blue.svg' md5='7f5cb0d784fdf25d604882472cb504b9'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:77(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-yellow.svg' "
-"md5='a81bc4335b8ee337363f7e818eb74ec0'"
-msgstr ""
-"external ref='figures/snake-yellow.svg' "
-"md5='a81bc4335b8ee337363f7e818eb74ec0'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:81(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-cyan.svg' md5='62c0ac58f26769ab7eba85a255191257'"
-msgstr ""
-"external ref='figures/snake-cyan.svg' md5='62c0ac58f26769ab7eba85a255191257'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:85(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-magenta.svg' "
-"md5='00ede40fb89479b830636d02dcd33680'"
-msgstr ""
-"external ref='figures/snake-magenta.svg' "
-"md5='00ede40fb89479b830636d02dcd33680'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:89(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-grey.svg' md5='8b1ff44ff3d43292f5843f15c9187f9c'"
-msgstr ""
-"external ref='figures/snake-grey.svg' md5='8b1ff44ff3d43292f5843f15c9187f9c'"
-
-#: C/preferences.page:21(info/desc)
+#. (itstool) path: info/desc
+#: C/preferences.page:22
 msgid "Change default speed, worm color, level order and sound settings."
 msgstr ""
 "Αλλαγή προεπιλεγμένης ταχύτητας, χρώματος σκουληκιού, σειράς επιπέδου και "
 "ρυθμίσεων ήχου."
 
-#: C/preferences.page:24(page/title)
+#. (itstool) path: page/title
+#: C/preferences.page:25
 msgid "Edit general preferences"
 msgstr "Επεξεργασία γενικών προτιμήσεων"
 
-#: C/preferences.page:26(page/p)
+#. (itstool) path: page/p
+#: C/preferences.page:27
 msgid ""
 "The general preferences for <app>Nibbles</app> can be changed by selecting "
 "<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
 "\">Preferences</gui></guiseq>."
 msgstr ""
 "Οι γενικές προτιμήσεις για τις <app>Μπουκιές</app> μπορούν να αλλαχθούν "
-"επιλέγοντας <guiseq><gui style=\"menu\">Ρυθμίσεις</gui> <gui "
-"style=\"menuitem\">Προτιμήσεις</gui></guiseq>."
+"επιλέγοντας <guiseq><gui style=\"menu\">Ρυθμίσεις</gui> <gui style=\"menuitem"
+"\">Προτιμήσεις</gui></guiseq>."
 
-#: C/preferences.page:31(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:32
 msgid "Speed"
 msgstr "Ταχύτητα"
 
-#: C/preferences.page:33(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:34
 msgid ""
 "There are four available speeds in <app>Nibbles</app>. These are, in "
 "increasing order:"
@@ -536,107 +475,93 @@ msgstr ""
 "Υπάρχουν τέσσερις διαθέσιμες ταχύτητες στις <app>Μπουκιές</app>. Αυτές είναι "
 "με αυξανόμενη σειρά:"
 
-#: C/preferences.page:38(item/p)
-#| msgid "Nibbles Objective"
+#. (itstool) path: item/p
+#: C/preferences.page:39
 msgid "Nibbles Newbie"
 msgstr "Αρχάριος στις Μπουκιές"
 
-#: C/preferences.page:41(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:42
 msgid "My second day"
 msgstr "Η δεύτερη ημέρα"
 
-#: C/preferences.page:44(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:45
 msgid "Not too shabby"
 msgstr "Όχι πολύ παλιός"
 
-#: C/preferences.page:47(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:48
 msgid "Finger twitching good"
 msgstr "Δύσκολο"
 
-#: C/preferences.page:51(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:52
 msgid ""
 "Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
 "style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
 "speed choices given on the left hand side."
 msgstr ""
-"Η ταχύτητα μπορεί να αλλαχθεί στις <guiseq><gui style=\"menu\">Ρυθμίσεις</gui> "
-"<gui style=\"menuitem\">Προτιμήσεις</gui></guiseq> επιλέγοντας μία από τις "
-"τέσσερις επιλογές ταχύτητας που δίνονται στα αριστερά."
+"Η ταχύτητα μπορεί να αλλαχθεί στις <guiseq><gui style=\"menu\">Ρυθμίσεις</"
+"gui> <gui style=\"menuitem\">Προτιμήσεις</gui></guiseq> επιλέγοντας μία από "
+"τις τέσσερις επιλογές ταχύτητας που δίνονται στα αριστερά."
 
-#: C/preferences.page:58(section/title)
-#| msgid "Worm color"
+#. (itstool) path: section/title
+#: C/preferences.page:59
 msgid "Change worm colors"
 msgstr "Αλλαγή χρωμάτων σκουληκιού"
 
-#: C/preferences.page:60(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:61
 msgid "There are seven available worm colors:"
 msgstr "Υπάρχουν επτά διαθέσιμα χρώματα σκουληκιού:"
 
-#: C/preferences.page:64(item/p)
-msgid ""
-"<media type=\"image\" src=\"figures/snake-red.svg\" height=\"20\" width="
-"\"20\"/> Red"
-msgstr ""
-"<media type=\"image\" src=\"figures/snake-red.svg\" height=\"20\" width=\"20\"/> "
-"Κόκκινο"
+#. (itstool) path: item/p
+#: C/preferences.page:65
+msgid "<_:media-1/> Red"
+msgstr "Κόκκινα <_:media-1/>"
 
-#: C/preferences.page:68(item/p)
-msgid ""
-"<media type=\"image\" src=\"figures/snake-green.svg\" height=\"20\" width="
-"\"20\"/> Green"
-msgstr ""
-"<media type=\"image\" src=\"figures/snake-green.svg\" height=\"20\" width=\"20\"/> "
-"Πράσινο"
+#. (itstool) path: item/p
+#: C/preferences.page:69
+msgid "<_:media-1/> Green"
+msgstr "Πράσινα <_:media-1/>"
 
-#: C/preferences.page:72(item/p)
-msgid ""
-"<media type=\"image\" src=\"figures/snake-blue.svg\" height=\"20\" width="
-"\"20\"/> Blue"
-msgstr ""
-"<media type=\"image\" src=\"figures/snake-blue.svg\" height=\"20\" width=\"20\"/> "
-"Γαλάζιο"
+#. (itstool) path: item/p
+#: C/preferences.page:73
+msgid "<_:media-1/> Blue"
+msgstr "Γαλάζια <_:media-1/>"
 
-#: C/preferences.page:76(item/p)
-msgid ""
-"<media type=\"image\" src=\"figures/snake-yellow.svg\" height=\"20\" width="
-"\"20\"/> Yellow"
-msgstr ""
-"<media type=\"image\" src=\"figures/snake-yellow.svg\" height=\"20\" width=\"20\"/> "
-"Κίτρινο"
+#. (itstool) path: item/p
+#: C/preferences.page:77
+msgid "<_:media-1/> Yellow"
+msgstr "Κίτρινα <_:media-1/>"
 
-#: C/preferences.page:80(item/p)
-msgid ""
-"<media type=\"image\" src=\"figures/snake-cyan.svg\" height=\"20\" width="
-"\"20\"/> Cyan"
-msgstr ""
-"<media type=\"image\" src=\"figures/snake-cyan.svg\" height=\"20\" width=\"20\"/> "
-"Κυανό"
+#. (itstool) path: item/p
+#: C/preferences.page:81
+msgid "<_:media-1/> Cyan"
+msgstr "Κυανά <_:media-1/>"
 
-#: C/preferences.page:84(item/p)
-msgid ""
-"<media type=\"image\" src=\"figures/snake-magenta.svg\" height=\"20\" width="
-"\"20\"/> Purple"
-msgstr ""
-"<media type=\"image\" src=\"figures/snake-magenta.svg\" height=\"20\" width=\"20\"/> "
-"Πορφυρό"
+#. (itstool) path: item/p
+#: C/preferences.page:85
+msgid "<_:media-1/> Purple"
+msgstr "Πορφυρά <_:media-1/>"
 
-#: C/preferences.page:88(item/p)
-msgid ""
-"<media type=\"image\" src=\"figures/snake-grey.svg\" height=\"20\" width="
-"\"20\"/> Gray"
-msgstr ""
-"<media type=\"image\" src=\"figures/snake-grey.svg\" height=\"20\" width=\"20\"/> "
-"Γκρίζο"
+#. (itstool) path: item/p
+#: C/preferences.page:89
+msgid "<_:media-1/> Gray"
+msgstr "Γκρίζα <_:media-1/>"
 
-#: C/preferences.page:93(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:94
 msgid ""
 "These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
 "style=\"menuitem\">Preferences</gui></guiseq>."
 msgstr ""
-"Αυτά μπορούν να αλλαχθούν στο <guiseq><gui style=\"menu\">Ρυθμίσεις</gui> <gui "
-"style=\"menuitem\">Προτιμήσεις</gui></guiseq>."
+"Αυτά μπορούν να αλλαχθούν στο <guiseq><gui style=\"menu\">Ρυθμίσεις</gui> "
+"<gui style=\"menuitem\">Προτιμήσεις</gui></guiseq>."
 
-#: C/preferences.page:98(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:99
 msgid ""
 "Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
 "edit."
@@ -644,7 +569,8 @@ msgstr ""
 "Επιλέξτε οποιαδήποτε από τις καρτέλες των <gui>σκουληκιών</gui> για να "
 "διαλέξετε το σκουλήκι που επιθυμείτε να επεξεργαστείτε."
 
-#: C/preferences.page:102(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:103
 msgid ""
 "On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
 "Pick a color out of the available colors in the drop-down menu to change the "
@@ -654,11 +580,13 @@ msgstr ""
 "Επιλέξτε ένα χρώμα από τα διαθέσιμα χρώματα στο πτυσσόμενο μενού για να "
 "αλλάξετε την εμφάνιση του σκουληκιού."
 
-#: C/preferences.page:111(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:112
 msgid "Sounds"
 msgstr "Ήχοι"
 
-#: C/preferences.page:113(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:114
 msgid ""
 "You can enable or disable sounds in <app>Nibbles</app> by checking or "
 "unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
@@ -667,66 +595,63 @@ msgid ""
 msgstr ""
 "Μπορείτε να ενεργοποιήσετε ή να απενεργοποιήσετε τους ήχους στις "
 "<app>Μπουκιές</app> επιλέγοντας ή αποεπιλέγοντας το πλαίσιο ελέγχου <gui "
-"style=\"checkbox\">Ενεργοποίηση ήχων</gui> στο <guiseq><gui "
-"style=\"menu\">Ρυθμίσεις</gui> <gui "
-"style=\"menuitem\">Προτιμήσεις</gui></guiseq>."
+"style=\"checkbox\">Ενεργοποίηση ήχων</gui> στο <guiseq><gui style=\"menu"
+"\">Ρυθμίσεις</gui> <gui style=\"menuitem\">Προτιμήσεις</gui></guiseq>."
 
-#: C/preferences.page:121(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:122
 msgid "Play levels in random order"
 msgstr "Παίξτε τα επίπεδα με τυχαία σειρά"
 
-#: C/preferences.page:123(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:124
 msgid ""
 "Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
 "gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
 "\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
 "<app>Nibbles</app> in random order."
 msgstr ""
-"Σημειώστε ή αποεπιλέξτε το πλαισίου ελέγχου <gui "
-"style=\"checkbox\">Αναπαραγωγή σταθμών σε τυχαία σειρά</gui> στο <guiseq><gui "
-"style=\"menu\">Ρυθμίσεις</gui> <gui "
-"style=\"menuitem\">Προτιμήσεις</gui></guiseq> για να παίξετε τα διαφορετικά "
-"επίπεδα στις <app>Μπουκιές</app> με τυχαία σειρά."
+"Σημειώστε ή αποεπιλέξτε το πλαισίου ελέγχου <gui style=\"checkbox"
+"\">Αναπαραγωγή σταθμών σε τυχαία σειρά</gui> στο <guiseq><gui style=\"menu"
+"\">Ρυθμίσεις</gui> <gui style=\"menuitem\">Προτιμήσεις</gui></guiseq> για να "
+"παίξετε τα διαφορετικά επίπεδα στις <app>Μπουκιές</app> με τυχαία σειρά."
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:40(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#: C/rel-movement.page:41
 msgctxt "_"
 msgid ""
 "external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
 msgstr ""
 "external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:47(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#: C/rel-movement.page:48
 msgctxt "_"
 msgid ""
 "external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 msgstr ""
 "external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 
-#: C/rel-movement.page:21(info/desc)
-#| msgid "Use relative motion"
+#. (itstool) path: info/desc
+#: C/rel-movement.page:22
 msgid "Enable relative movement."
 msgstr "Ενεργοποίηση σχετικής κίνησης."
 
-#: C/rel-movement.page:24(page/title)
-#| msgid "Use relative motion"
+#. (itstool) path: page/title
+#: C/rel-movement.page:25
 msgid "Relative movement"
 msgstr "Σχετική κίνηση"
 
-#: C/rel-movement.page:26(page/p)
+#. (itstool) path: page/p
+#: C/rel-movement.page:27
 msgid ""
 "When relative movement is enabled, the worm is manouvered using just the "
 "default <key>Left</key> and <key>Right</key> keys or other <link xref="
@@ -738,30 +663,35 @@ msgid ""
 msgstr ""
 "Όταν ενεργοποιείται η σχετική κίνηση, το σκουλήκι ελίσσεται χρησιμοποιώντας "
 "μόνο τα προεπιλεγμένα πλήκτρα <key>αριστερά</key> και <key>δεξιά</key> ή "
-"άλλα <link xref=\"controls-change\">προσαρμοσμένα πλήκτρα</link> που ελέγχουν "
-"την κίνηση προς τα αριστερά ή δεξιά ενός σκουληκιού. Όταν το πλήκτρο "
-"<key>αριστερά</key> πατιέται, το σκουλήκι στρίβει αριστερά, αντί να κινηθεί "
-"προς τα αριστερά της οθόνης. Παρόμοια, όταν το πατιέται το πλήκτρο "
+"άλλα <link xref=\"controls-change\">προσαρμοσμένα πλήκτρα</link> που "
+"ελέγχουν την κίνηση προς τα αριστερά ή δεξιά ενός σκουληκιού. Όταν το "
+"πλήκτρο <key>αριστερά</key> πατιέται, το σκουλήκι στρίβει αριστερά, αντί να "
+"κινηθεί προς τα αριστερά της οθόνης. Παρόμοια, όταν το πατιέται το πλήκτρο "
 "<key>δεξιά</key>, το σκουλήκι στρίβει δεξιά αντί να κινηθεί προς τα δεξιά "
 "της οθόνης."
 
-#: C/rel-movement.page:38(figure/title)
+#. (itstool) path: figure/title
+#: C/rel-movement.page:39
 msgid "Starting postion:"
 msgstr "Αρχική θέση:"
 
-#: C/rel-movement.page:39(figure/desc)
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:40
 msgid "The location of the worm before you decide to move it."
 msgstr "Η θέση του σκουληκιού πριν να αποφασίσετε να το μετακινήσετε."
 
-#: C/rel-movement.page:45(figure/title)
+#. (itstool) path: figure/title
+#: C/rel-movement.page:46
 msgid "On pressing the <key>Left</key> key:"
 msgstr "Πατώντας το <key>αριστερό</key> πλήκτρο:"
 
-#: C/rel-movement.page:46(figure/desc)
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:47
 msgid "The worm turns left and begins to move downwards."
 msgstr "Το σκουλήκι στρίβει αριστερά και ξεκινά να μετακινείται προς τα κάτω."
 
-#: C/rel-movement.page:54(note/p)
+#. (itstool) path: note/p
+#: C/rel-movement.page:55
 msgid ""
 "If relative movement was not enabled, you would press the <key>Down</key> "
 "key to achieve the above result."
@@ -769,11 +699,13 @@ msgstr ""
 "Αν η σχετική κίνηση δεν ενεργοποιήθηκε, θα πρέπει να πατήσετε το πλήκτρο "
 "<key>κάτω</key> για να πετύχετε το παραπάνω αποτέλεσμα."
 
-#: C/rel-movement.page:61(page/p)
+#. (itstool) path: page/p
+#: C/rel-movement.page:62
 msgid "To enable relative movement:"
 msgstr "Για ενεργοποίηση της σχετικής κίνησης:"
 
-#: C/rel-movement.page:69(item/p)
+#. (itstool) path: item/p
+#: C/rel-movement.page:70
 msgid ""
 "Select the worm for which relative movement has to be enabled by clicking "
 "the appropriate <gui>Worm</gui> tab."
@@ -781,7 +713,8 @@ msgstr ""
 "Επιλέξτε το σκουλήκι για το οποίο η σχετική κίνηση πρέπει να ενεργοποιηθεί "
 "πατώντας την κατάλληλη καρτέλα του <gui>σκουληκιού</gui>."
 
-#: C/rel-movement.page:73(item/p)
+#. (itstool) path: item/p
+#: C/rel-movement.page:74
 msgid ""
 "Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
 "is unchecked."
@@ -789,116 +722,55 @@ msgstr ""
 "Ελέγξετε αν το πλαίσιο ελέγχου <gui style=\"checkbox\">Χρήση σχετικής "
 "κίνησης</gui> είναι ασημείωτο."
 
-#: C/rel-movement.page:77(item/p)
+#. (itstool) path: item/p
+#: C/rel-movement.page:78
 msgid "Click <gui style=\"button\">Close</gui>."
 msgstr "Πατήστε στο <gui style=\"button\">κλείσιμο</gui>."
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:27(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
-msgctxt "_"
-msgid "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
-msgstr "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:47(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
-msgctxt "_"
-msgid "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
-msgstr "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:63(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/worm_op.png' md5='b6ccbcdd5d11fe28a75fd23c0d96483a'"
-msgctxt "_"
-msgid ""
-"external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
-msgstr ""
-"external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:73(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/ice-cream.svg' md5='4892ededb56e306922c5442b46ca2a7c'"
-msgstr ""
-"external ref='figures/ice-cream.svg' md5='4892ededb56e306922c5442b46ca2a7c'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:81(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
-msgctxt "_"
-msgid ""
-"external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
-msgstr ""
-"external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
-
-#: C/scores.page:17(info/desc)
+#. (itstool) path: info/desc
+#: C/scores.page:18
 msgid "Swallow different bonuses to score points."
-msgstr "Καταπιείτε διαφορετικά δώρα για να σημειώσετε σημεία."
+msgstr "Καταπιείτε διαφορετικές ανταμοιβές για να σημειώσετε σημεία."
 
-#: C/scores.page:20(page/title)
+#. (itstool) path: page/title
+#: C/scores.page:21
 msgid "Scoring points in <app>Nibbles</app>"
 msgstr "Επίτευξη σημείων στις <app>Μπουκιές</app>"
 
-#: C/scores.page:22(page/p)
+#. (itstool) path: page/p
+#: C/scores.page:23
 msgid ""
 "You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
 "different kinds of bonuses in Nibbles:"
 msgstr ""
-"Μπορείτε να σημειώσετε σημεία στις <app>Μπουκιές</app> τρώγοντας δώρα. "
-"Υπάρχουν 5 διαφορετικά είδη δώρων στις Μπουκιές:"
+"Μπορείτε να σημειώσετε σημεία στις <app>Μπουκιές</app> τρώγοντας ανταμοιβές. "
+"Υπάρχουν 5 διαφορετικά είδη ανταμοιβών στις Μπουκιές:"
 
-#: C/scores.page:26(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:27
 msgid ""
-"The donut-shaped bonus <media type=\"image\" src=\"figures/donut.svg\" "
-"height=\"22\" width=\"22\"/> : This bonus causes an increase in the length "
-"of the worm. The points you gain on eating the donut vary from level to "
-"level and are multiples of the level number. In level 1, the first donut "
+"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the donut vary from level "
+"to level and are multiples of the level number. In level 1, the first donut "
 "will give you 1 point, the second donut will give you 2 points, the third "
 "donut will give you 3 points and so on. In level 2, the first donut will "
 "give you 2 points, the second donut will give you 4 points, the third donut "
 "will give you 6 points and so on. In level 26, therefore, the first donut "
 "will give you 26 points, the second donut will give you 52 points and so on."
 msgstr ""
-"Το δώρο με σχήμα λουκουμά <media type=\"image\" src=\"figures/donut.svg\" "
-"height=\"22\" width=\"22\"/>: Αυτό το δώρο προκαλεί μια αύξηση στο μήκος του "
-"σκουληκιού. Τα σημεία που κερδίζετε τρώγοντας το λουκουμά ποικίλουν από "
-"επίπεδο σε επίπεδο και είναι πολλαπλάσια του αριθμού επιπέδου. Στο επίπεδο "
-"1, ο πρώτος λουκουμάς θα σας δώσει 1 σημείο, ο δεύτερος λουκουμάς θα σας "
-"δώσει 2 σημεία, ο τρίτος λουκουμάς θα σας δώσει 3 σημεία και ούτω καθεξής. "
-"Στο επίπεδο 2, ο πρώτοα λουκουμάς θα σας δώσει 2 σημεία, ο δεύτερος "
-"λουκουμάς θα σας δώσει 4 σημεία, ο τρίτος λουκουμάς θα σας δώσει 6 σημεία "
-"και ούτω καθεξής. Στο επίπεδο 26, συνεπώς, ο πρώτος λουκουμάς θα σας δώσει "
-"26 σημεία, ο δεύτερος λουκουμάς θα σας δώσει 52 σημεία και ούτω καθεξής."
+"Η ανταμοιβή με σχήμα λουκουμά <_:media-1/> : Αυτή η ανταμοιβή προκαλεί μια "
+"αύξηση στο μήκος του σκουληκιού. Τα σημεία που κερδίζετε τρώγοντας το "
+"λουκουμά ποικίλουν από επίπεδο σε επίπεδο και είναι πολλαπλάσια του αριθμού "
+"επιπέδου. Στο επίπεδο 1, ο πρώτος λουκουμάς θα σας δώσει 1 σημείο, ο "
+"δεύτερος λουκουμάς θα σας δώσει 2 σημεία, ο τρίτος λουκουμάς θα σας δώσει 3 "
+"σημεία και ούτω καθεξής. Στο επίπεδο 2, ο πρώτος λουκουμάς θα σας δώσει 2 "
+"σημεία, ο δεύτερος λουκουμάς θα σας δώσει 4 σημεία, ο τρίτος λουκουμάς θα "
+"σας δώσει 6 σημεία και ούτω καθεξής. Στο επίπεδο 26, συνεπώς, ο πρώτος "
+"λουκουμάς θα σας δώσει 26 σημεία, ο δεύτερος λουκουμάς θα σας δώσει 52 "
+"σημεία και ούτω καθεξής."
 
-#: C/scores.page:38(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:39
 msgid ""
 "The donut order count does not depend on the number of donuts already eaten "
 "by a worm. If the game is in level 1 and if player 1 eats the first donut, "
@@ -913,17 +785,17 @@ msgstr ""
 "παίκτης μπορεί να επιλέξει να μην τρώει κανένα λουκουμά μέχρι τον δέκατο και "
 "σημειώνει 10 σημεία μονομιάς."
 
-#: C/scores.page:46(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:47
 msgid ""
-"The heart-shaped bonus <media type=\"image\" src=\"figures/life.svg\" height="
-"\"22\" width=\"22\"/> : This bonus gives you an extra life and does not "
-"cause an increase in the length of your worm."
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
+"does not cause an increase in the length of your worm."
 msgstr ""
-"Το δώρο με σχήμα καρδιάς <media type=\"image\" src=\"figures/life.svg\" "
-"height=\"22\" width=\"22\"/>: Αυτό το δώρο σας δίνει μια πρόσθετη ζωή και δεν "
-"προκαλεί αύξηση στο μήκος του σκουληκιού σας."
+"Η ανταμοιβή με σχήμα καρδιάς <_:media-1/> : Αυτή η ανταμοιβή σας δίνει μια "
+"πρόσθετη ζωή και δεν προκαλεί αύξηση στο μήκος του σκουληκιού σας."
 
-#: C/scores.page:51(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:52
 msgid ""
 "The number of lives remaining for a worm is given by the number on the left "
 "of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
@@ -933,7 +805,8 @@ msgstr ""
 "αριστερά του κόμματος σε ένα αποτέλεσμα του σκουληκιού. Αν το αποτέλεσμα "
 "ενός σκουληκιού είναι 10,005, το σκουλήκι έχει 10 ζωές που απομένουν."
 
-#: C/scores.page:56(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:57
 msgid ""
 "You cannot get extra lives by scoring 10,000 points or more. If you have "
 "scored 12345 points with 10 lives remaining, your score will be 10,12345."
@@ -942,60 +815,234 @@ msgstr ""
 "έχετε 12345 σημεία με 10 ζωές να απομένουν, το αποτέλεσμά σας θα είναι "
 "10,12345."
 
-#: C/scores.page:62(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:63
 msgid ""
-"The diamond-shaped bonus <media type=\"image\" src=\"figures/diamond.svg\" "
-"height=\"22\" width=\"22\"/> : This bonus does not cause an increase in the "
-"length of the worm and does not give you any points. It causes a reversal in "
-"the movement of all the other worms in the game."
+"The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
+"increase in the length of the worm and does not give you any points. It "
+"causes a reversal in the movement of all the other worms in the game."
 msgstr ""
-"Το δώρο με σχήμα ρόμβου <media type=\"image\" src=\"figures/diamond.svg\" "
-"height=\"22\" width=\"22\"/>: Αυτό το δώρο δεν προκαλεί αύξηση στο μήκος του "
-"σκουληκιού και δεν σας δίνει σημεία. Προκαλεί μια αντιστροφή στην κίνηση "
-"όλων των άλλων σκουληκιών στο παιχνίδι."
+"Η ανταμοιβή με σχήμα ρόμβου <_:media-1/> : Αυτή η ανταμοιβή δεν προκαλεί "
+"αύξηση στο μήκος του σκουληκιού και δεν σας δίνει σημεία. Προκαλεί μια "
+"αντιστροφή στην κίνηση όλων των άλλων σκουληκιών στο παιχνίδι."
 
-#: C/scores.page:68(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:69
 msgid "This bonus has no effect in a single-player game."
-msgstr "Αυτό το δώρο δεν έχει επίδραση σε ένα παιχνίδι με έναν παίκτη."
+msgstr "Αυτή η ανταμοιβή δεν έχει επίδραση σε ένα παιχνίδι με έναν παίκτη."
 
-#: C/scores.page:72(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:73
 msgid ""
-"The ice-cream-shaped bonus <media type=\"image\" src=\"figures/ice-cream.svg"
-"\" height=\"22\" width=\"22\"/> : This bonus causes a greater increase in "
-"the length of the worm than the donut-shaped bonus. The points given by this "
-"bonus vary depending on the level number and the length of the worm. Higher "
-"the level number and longer the worm, more the points scored on eating this "
-"bonus."
+"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
+"increase in the length of the worm than the donut-shaped bonus. The points "
+"given by this bonus vary depending on the level number and the length of the "
+"worm. The higher the level number and the longer the worm, the more the "
+"points are scored on eating this bonus."
 msgstr ""
-"Το δώρο με σχήμα παγωτού <media type=\"image\" src=\"figures/ice-cream.svg\" "
-"height=\"22\" width=\"22\"/>: Αυτό το δώρο προκαλεί μια μεγαλύτερη αύξηση στο "
-"μήκος του σκουληκιού από το δώρο με σχήμα λουκουμά. Τα σημεία που δίνονται "
-"από αυτό το δώρο ποικίλουν ανάλογα με τον αριθμό του επιπέδου και το μήκος "
-"του σκουληκιού. Όσο υψηλότερος ο αριθμός επιπέδου και μεγαλύτερο το "
-"σκουλήκι, τόσο περισσότερο τα σημεία που πετυχαίνετε τρώγοντας αυτό το δώρο."
+"Η ανταμοιβή με σχήμα παγωτού <_:media-1/> : Αυτή η ανταμοιβή προκαλεί μια "
+"μεγαλύτερη αύξηση στο μήκος του σκουληκιού από την ανταμοιβή με σχήμα "
+"λουκουμά. Τα σημεία που δίνονται από αυτή την ανταμοιβή ποικίλουν ανάλογα με "
+"τον αριθμό του επιπέδου και το μήκος του σκουληκιού. Όσο υψηλότερος ο "
+"αριθμός επιπέδου και μεγαλύτερο το σκουλήκι, τόσο περισσότερο τα σημεία που "
+"πετυχαίνετε τρώγοντας αυτήν την ανταμοιβή."
 
-#: C/scores.page:80(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:82
 msgid ""
-"The cherry-shaped bonus <media type=\"image\" src=\"figures/cherry.svg\" "
-"height=\"22\" width=\"22\"/> : This bonus causes a decrease in the length of "
-"the worm. The points given by this bonus depend on the level number and the "
-"length of the worm. Higher the level number and longer the worm, more the "
-"points scored on eating this bonus."
+"The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
+"length of the worm. The points given by this bonus depend on the level "
+"number and the length of the worm. The higher the level number and the "
+"longer the worm, the more the points are scored on eating this bonus."
 msgstr ""
-"Το δώρο με σχήμα κερασιού <media type=\"image\" src=\"figures/cherry.svg\" "
-"height=\"22\" width=\"22\"/>: Αυτό το δώρο προκαλεί μια μείωση στο μήκος του "
-"σκουληκιού. Τα σημεία που δίνονται από αυτό το δώρο ποικίλουν ανάλογα με τον "
-"αριθμό του επιπέδου και το μήκος του σκουληκιού. Όσο υψηλότερος ο αριθμός "
-"επιπέδου και μεγαλύτερο το σκουλήκι, τόσο περισσότερο τα σημεία που "
-"πετυχαίνετε τρώγοντας αυτό το δώρο."
+"Η ανταμοιβή με σχήμα κερασιού <_:media-1/> : Αυτή η ανταμοιβή προκαλεί μια "
+"μείωση στο μήκος του σκουληκιού. Τα σημεία που δίνονται από αυτό το δώρο "
+"ποικίλουν ανάλογα με τον αριθμό του επιπέδου και το μήκος του σκουληκιού. "
+"Όσο υψηλότερος ο αριθμός επιπέδου και μεγαλύτερο το σκουλήκι, τόσο "
+"περισσότερο τα σημεία που πετυχαίνετε τρώγοντας αυτήν την ανταμοιβή."
 
-#: C/legal.xml:4(p/link)
+#. (itstool) path: p/link
+#: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 
-#: C/legal.xml:3(license/p)
+#. (itstool) path: license/p
+#: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Αυτή η εργασία αδειοδοτήθηκε σύμφωνα με <_:link-1/>."
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-red.svg' "
+#~ "md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
+#~ msgstr ""
+#~ "external ref='figures/snake-red.svg' "
+#~ "md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-green.svg' "
+#~ "md5='950becba28c6dca50a1157efe5b96f1d'"
+#~ msgstr ""
+#~ "external ref='figures/snake-green.svg' "
+#~ "md5='950becba28c6dca50a1157efe5b96f1d'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-blue.svg' "
+#~ "md5='7f5cb0d784fdf25d604882472cb504b9'"
+#~ msgstr ""
+#~ "external ref='figures/snake-blue.svg' "
+#~ "md5='7f5cb0d784fdf25d604882472cb504b9'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-yellow.svg' "
+#~ "md5='a81bc4335b8ee337363f7e818eb74ec0'"
+#~ msgstr ""
+#~ "external ref='figures/snake-yellow.svg' "
+#~ "md5='a81bc4335b8ee337363f7e818eb74ec0'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-cyan.svg' "
+#~ "md5='62c0ac58f26769ab7eba85a255191257'"
+#~ msgstr ""
+#~ "external ref='figures/snake-cyan.svg' "
+#~ "md5='62c0ac58f26769ab7eba85a255191257'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-magenta.svg' "
+#~ "md5='00ede40fb89479b830636d02dcd33680'"
+#~ msgstr ""
+#~ "external ref='figures/snake-magenta.svg' "
+#~ "md5='00ede40fb89479b830636d02dcd33680'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-grey.svg' "
+#~ "md5='8b1ff44ff3d43292f5843f15c9187f9c'"
+#~ msgstr ""
+#~ "external ref='figures/snake-grey.svg' "
+#~ "md5='8b1ff44ff3d43292f5843f15c9187f9c'"
+
+#~ msgid ""
+#~ "<media type=\"image\" src=\"figures/snake-red.svg\" height=\"20\" width="
+#~ "\"20\"/> Red"
+#~ msgstr ""
+#~ "<media type=\"image\" src=\"figures/snake-red.svg\" height=\"20\" width="
+#~ "\"20\"/> Κόκκινο"
+
+#~ msgid ""
+#~ "<media type=\"image\" src=\"figures/snake-green.svg\" height=\"20\" width="
+#~ "\"20\"/> Green"
+#~ msgstr ""
+#~ "<media type=\"image\" src=\"figures/snake-green.svg\" height=\"20\" width="
+#~ "\"20\"/> Πράσινο"
+
+#~ msgid ""
+#~ "<media type=\"image\" src=\"figures/snake-blue.svg\" height=\"20\" width="
+#~ "\"20\"/> Blue"
+#~ msgstr ""
+#~ "<media type=\"image\" src=\"figures/snake-blue.svg\" height=\"20\" width="
+#~ "\"20\"/> Γαλάζιο"
+
+#~ msgid ""
+#~ "<media type=\"image\" src=\"figures/snake-yellow.svg\" height=\"20\" "
+#~ "width=\"20\"/> Yellow"
+#~ msgstr ""
+#~ "<media type=\"image\" src=\"figures/snake-yellow.svg\" height=\"20\" "
+#~ "width=\"20\"/> Κίτρινο"
+
+#~ msgid ""
+#~ "<media type=\"image\" src=\"figures/snake-cyan.svg\" height=\"20\" width="
+#~ "\"20\"/> Cyan"
+#~ msgstr ""
+#~ "<media type=\"image\" src=\"figures/snake-cyan.svg\" height=\"20\" width="
+#~ "\"20\"/> Κυανό"
+
+#~ msgid ""
+#~ "<media type=\"image\" src=\"figures/snake-magenta.svg\" height=\"20\" "
+#~ "width=\"20\"/> Purple"
+#~ msgstr ""
+#~ "<media type=\"image\" src=\"figures/snake-magenta.svg\" height=\"20\" "
+#~ "width=\"20\"/> Πορφυρό"
+
+#~ msgid ""
+#~ "<media type=\"image\" src=\"figures/snake-grey.svg\" height=\"20\" width="
+#~ "\"20\"/> Gray"
+#~ msgstr ""
+#~ "<media type=\"image\" src=\"figures/snake-grey.svg\" height=\"20\" width="
+#~ "\"20\"/> Γκρίζο"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
+#~ msgstr ""
+#~ "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
+#~ msgstr ""
+#~ "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/worm_op.png' md5='b6ccbcdd5d11fe28a75fd23c0d96483a'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
+#~ msgstr ""
+#~ "external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/ice-cream.svg' "
+#~ "md5='4892ededb56e306922c5442b46ca2a7c'"
+#~ msgstr ""
+#~ "external ref='figures/ice-cream.svg' "
+#~ "md5='4892ededb56e306922c5442b46ca2a7c'"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
+#~ msgstr ""
+#~ "external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
 
 #~ msgid "<application>Nibbles</application> Manual"
 #~ msgstr "Εγχειρίδιο του <application>Νίμπουλς</application>"
