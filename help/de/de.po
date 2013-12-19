@@ -4,21 +4,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games nibbles master\n"
-"POT-Creation-Date: 2012-12-02 22:01+0000\n"
-"PO-Revision-Date: 2013-02-28 20:46+0100\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"POT-Creation-Date: 2013-12-18 21:02+0000\n"
+"PO-Revision-Date: 2013-12-19 23:25+0100\n"
+"Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: German\n"
-"X-Poedit-Country: GERMANY\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Mario Blättermann <mario.blaettermann@gmail.com>, 2008, 2011, 2012"
+msgstr ""
+"Mario Blättermann <mario.blaettermann@gmail.com>, 2008, 2011, 2012\n"
+"Christian Kirbach <Christian.Kirbach@gmail.com>, 2013"
 
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
@@ -29,795 +30,1178 @@ msgstr "Mario Blättermann <mario.blaettermann@gmail.com>, 2008, 2011, 2012"
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/index.docbook:187(imagedata)
-msgctxt "_"
-msgid "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
-msgstr "translated"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.docbook:210(imagedata)
+#: C/index.page:19(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgctxt "_"
 msgid ""
-"external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
-msgstr "translated"
+"external ref='figures/nibbles.png' md5='5c04c52509830b87cd6b69adf2dceb34'"
+msgstr "original"
+
+#: C/index.page:12(credit/name) C/basics.page:14(credit/name)
+#: C/controls-change.page:16(credit/name)
+#: C/controls-default.page:14(credit/name) C/fake-bonus.page:14(credit/name)
+#: C/multi-player.page:16(credit/name) C/preferences.page:14(credit/name)
+#: C/rel-movement.page:14(credit/name) C/scores.page:14(credit/name)
+msgid "Aruna Sankaranarayanan"
+msgstr "Aruna Sankaranarayanan"
+
+#: C/index.page:16(info/desc)
+msgid "Index"
+msgstr "Stichwortverzeichnis"
+
+#: C/index.page:19(page/title)
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Nibbles"
+
+#: C/index.page:21(page/p)
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other "
+"worms. You have to complete 26 levels to finish the game."
+msgstr ""
+"<app>Nibbles</app> ist ein Schlangen-Spiel für GNOME. Ziel des Spiels ist es "
+"so viele Objekte wie möglich zu verschlingen, während Sie Wände und andere "
+"Würmer umgehen. Zum Beenden des Spiels müssen Sie 26 Spielstufen abschließen."
+
+#: C/index.page:26(section/title)
+msgid "Game play"
+msgstr "Spielverlauf"
+
+#: C/index.page:30(section/title)
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#: C/basics.page:18(credit/name) C/controls-change.page:20(credit/name)
+#: C/controls-default.page:18(credit/name) C/fake-bonus.page:18(credit/name)
+#: C/multi-player.page:20(credit/name) C/preferences.page:18(credit/name)
+#: C/rel-movement.page:18(credit/name)
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#: C/basics.page:22(info/desc)
+msgid ""
+"Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
+msgstr ""
+"Starten, pausieren, im Vollbildmodus spielen und beenden von <app>Nibbles</"
+"app>."
+
+#: C/basics.page:25(page/title)
+msgid "Basic instructions"
+msgstr "Grundlegende Anleitung"
+
+#: C/basics.page:28(section/title)
+msgid "Start a new game"
+msgstr "Ein neues Spiel starten"
+
+#: C/basics.page:30(section/p)
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New</"
+"gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game."
+msgstr ""
+"Wählen Sie <guiseq><gui style=\"menu\">Spiel</gui> <gui style=\"menuitem"
+"\">Neu</gui></guiseq> oder drücken Sie <keyseq><key>Strg</key><key>N</key></"
+"keyseq>, um ein neues Spiel zu starten."
+
+#: C/basics.page:38(section/title)
+msgid "Pause and resume your game"
+msgstr "Das Spiel pausieren und fortsetzen"
+
+#: C/basics.page:40(section/p)
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause</"
+"gui></guiseq> to pause your game. You can resume your game by selecting "
+"<guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Resume</gui></"
+"guiseq>."
+msgstr ""
+"Wählen Sie <guiseq><gui style=\"menu\">Spiel</gui> <gui style=\"menuitem"
+"\">Pause</gui></guiseq>, um Ihr Spiel anzuhalten. Setzen Sie das Spiel fort, "
+"indem Sie <guiseq><gui style=\"menu\">Spiel</gui> <gui style=\"menuitem"
+"\">Fortsetzen</gui></guiseq> wählen."
+
+#: C/basics.page:48(section/title)
+msgid "Play <app>Nibbles</app> in fullscreen mode"
+msgstr "<app>Nibbles</app> im Vollbildmodus spielen"
+
+#: C/basics.page:50(section/p)
+msgid ""
+"Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
+"\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
+"fullscreen mode. You can return to the default screen size by pressing "
+"<key>F11</key> again."
+msgstr ""
+"Wählen Sie <guiseq><gui style=\"menu\">Ansicht</gui> <gui style=\"menuitem"
+"\">Vollbild</gui></guiseq> oder drücken Sie <key>F11</key>, um das Spiel im "
+"Vollbildmodus zu spielen. Drücken Sie erneut <key>F11</key>, um auf die "
+"voreingestellte Bildgröße zurückzuschalten."
+
+#: C/basics.page:58(section/title)
+msgid "Quit <app>Nibbles</app>"
+msgstr "<app>Nibbles</app> beenden"
+
+#: C/basics.page:60(section/p)
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit</"
+"gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
+"<app>Nibbles</app> at any time."
+msgstr ""
+"Wählen Sie <guiseq><gui style=\"menu\">Spiel</gui> <gui style=\"menuitem"
+"\">Beenden</gui></guiseq> oder drücken Sie jederzeit <keyseq><key>Strg</"
+"key><key>Q</key></keyseq>, um <app>Nibbles</app> zu beenden."
+
+#: C/controls-change.page:24(info/desc)
+msgid "Set custom control keys."
+msgstr "Eigene Steuerungstasten festlegen."
+
+#: C/controls-change.page:27(page/title)
+msgid "Change the default controls"
+msgstr "Ändern der voreingestellten Steuerung"
+
+#: C/controls-change.page:29(page/p)
+msgid ""
+"The <link xref=\"controls-default\">default controls</link> can be changed "
+"in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
+"player\">multi-player</link> games, when having more than one set of "
+"controls becomes necessary. To change the default controls:"
+msgstr ""
+"Die <link xref=\"controls-default\">voreingestellte Steuerung</link> kann in "
+"<app>Nibbles</app> nach Ihren Wünschen angepasst werden bzw. für <link xref="
+"\"multi-player\">Mehrspieler</link>-Spiele, wenn mehr als eine Steuerung "
+"notwendig werden. So ändern Sie die voreingestellte Steuerung:"
+
+#: C/controls-change.page:36(item/p) C/fake-bonus.page:35(item/p)
+#: C/multi-player.page:44(item/p) C/rel-movement.page:66(item/p)
+msgid ""
+"Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
+msgstr ""
+"Wählen Sie <guiseq><gui style=\"menu\">Einstellungen</gui> <gui style="
+"\"menuitem\">Eigenschaften</gui> <gui style=\"menuitem\">Spiel</gui></"
+"guiseq>."
+
+#: C/controls-change.page:40(item/p)
+msgid "Select the tab for the player whose controls you want to change."
+msgstr ""
+"Wählen Sie den Reiter des Spielers, dessen Steuerung Sie ändern wollen."
+
+#: C/controls-change.page:42(note/p)
+msgid ""
+"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+"player 3 controls <gui>Worm 3</gui> and so on."
+msgstr ""
+"Spieler 1 steuert <gui>Wurm 1</gui>, Spieler 2 steuert<gui>Wurm 2</gui>, "
+"Spieler 3 steuert<gui>Wurm 3</gui> und so weiter."
+
+#: C/controls-change.page:47(item/p)
+msgid ""
+"In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
+"then click on the control. This highlights the line and the words <gui>New "
+"accelerator…</gui> are now present in place of the old control."
+msgstr ""
+"Wählen Sie die Zeile in der Liste <gui style=\"group\">Tastaturoptionen</"
+"gui> und klicken Sie auf eine Zeile. Die Zeile wird hervorgehoben und die "
+"Worte <gui>Neue Tastenkombination …</gui> erscheinen an Stelle der alten "
+"Kombination."
+
+#: C/controls-change.page:53(item/p)
+msgid "Press the key you want to use instead of the default key."
+msgstr ""
+"Drücken Sie die Taste, die Sie anstelle der Voreinstellung verwenden wollen."
+
+#: C/controls-change.page:55(note/p)
+msgid ""
+"To keep the old setting click <gui>New accelerator…</gui> again, right click "
+"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
+"inside the <gui>Nibbles Preferences</gui> box."
+msgstr ""
+"Um die alten Einstellungen zu behalten, klicken Sie erneut auf <gui>Neue "
+"Tastenkombination …</gui>, dann mit der rechten Maustaste auf <gui>Neue "
+"Tastenkombination …</gui> und drücken Sie anschließend <key>Esc</key>, oder "
+"auf eine beliebige Stelle innerhalb des Fensters <gui>Nibbles-Einstellungen</"
+"gui>."
+
+#: C/controls-change.page:61(item/p)
+msgid ""
+"Repeat the above step to change the other default keys for the current "
+"player, then select the tab for the next player whose controls you want to "
+"change and repeat the process."
+msgstr ""
+"Wiederholen Sie die vorhergehenden Schritte, um die voreingestellten Tasten "
+"für den aktuellen Spieler zu ändern. Wählen Sie anschließend den Reiter für "
+"den nächsten Spieler, dessen Steuerung angepasst werden soll, und "
+"wiederholen Sie den Vorgang."
+
+#: C/controls-change.page:67(page/p)
+msgid ""
+"For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
+"<gui>Left</gui> control line and click it, then press <key>A</key> on your "
+"keyboard when you see <gui>New accelerator…</gui> on the line."
+msgstr ""
+"Um beispielsweise <key>A</key> für eine <gui>Bewegung nach links</gui> zu "
+"verwenden, wählen Sie die Steuerungszeile <gui>Links</gui> mit einem "
+"Mausklick und drücken Sie anschließend <key>A</key> auf Ihrer Tastatur, "
+"sobald Sie <gui>Neue Tastenkombination …</gui> in der Zeile sehen."
+
+#: C/controls-default.page:23(info/desc)
+msgid "Default keys for <app>Nibbles.</app>"
+msgstr "Voreingestellte Tasten für <app>Nibbles</app>."
+
+#: C/controls-default.page:26(page/title)
+msgid "Keyboard Controls"
+msgstr "Tastatursteuerung"
+
+#: C/controls-default.page:28(page/p)
+msgid ""
+"For controlling the movements of your worm in a single-player mode, use the "
+"following default keys:"
+msgstr ""
+"Verwenden Sie die folgenden voreingestellten Tasten zur Steuerung der "
+"Wurmbewegungen im Einzelspieler-Modus:"
+
+#: C/controls-default.page:33(item/p)
+msgid "<key>Up</key> to move the worm up"
+msgstr "<key>↑</key> um den Wurm nach oben zu bewegen."
+
+#: C/controls-default.page:36(item/p)
+msgid "<key>Down</key> to move the worm down"
+msgstr "<key>↓</key> um den Wurm nach unten zu bewegen."
+
+#: C/controls-default.page:39(item/p)
+msgid "<key>Left</key> to move the worm left"
+msgstr "<key>←</key> um den Wurm nach links zu bewegen."
+
+#: C/controls-default.page:42(item/p)
+msgid "<key>Right</key> to move the worm right"
+msgstr "<key>→</key> um den Wurm nach rechts zu bewegen."
+
+#: C/controls-default.page:47(note/p)
+msgid ""
+"You can <link xref=\"controls-change\">change</link> the default controls."
+msgstr ""
+"Sie können die voreingestellte Steuerung <link xref=\"controls-default"
+"\">ändern</link>."
+
+#: C/controls-default.page:51(page/p)
+msgid ""
+"All worm movements happen with respect to the screen unless <link xref=\"rel-"
+"movement\">relative movement</link> is enabled. This means that when you "
+"press <key>Left</key> the worm moves towards the left of the screen, when "
+"you press <key>Right</key> the worm moves towards the right of the screen "
+"and so on."
+msgstr ""
+"Alle Wurmbewegungen geschehen mit Bezug auf den Bildschirm, außer wenn <link "
+"xref=\"rel-movement\">relative Bewegung</link> eingeschaltet ist. Dies "
+"bedeutet, dass wenn Sie <key>←</key> drücken sich der Wurm nach links auf "
+"dem Bildschirm bewegt. Wenn Sie <key>→</key> bewegt sich der Wurm auf dem "
+"Bildschirm nach rechts usw."
+
+#: C/fake-bonus.page:22(info/desc)
+msgid ""
+"Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
+msgstr ""
+"Setzen Sie als zusätzliche Herausforderung unechte Boni in <app>Nibbles</"
+"app> ein."
+
+#: C/fake-bonus.page:26(page/title)
+msgid "What are fake bonuses?"
+msgstr "Was sind unechte Boni?"
+
+#: C/fake-bonus.page:28(page/p)
+msgid ""
+"Fake bonuses look like regular bonus shapes but do not give you any points "
+"when your worm swallows them. They cause a reversal in the movement of your "
+"worm."
+msgstr ""
+"Unechte Boni sehen optisch wie normale Boni aus, aber sie geben keine Punkte "
+"wenn Ihr Wurm sie frisst. Sie bewirken eine Umkehrung der Bewegungsrichtung "
+"ihres Wurms."
+
+#: C/fake-bonus.page:32(page/p)
+msgid "To enable fake bonuses:"
+msgstr "So schalten Sie unechte Boni ein:"
+
+#: C/fake-bonus.page:39(item/p)
+msgid ""
+"Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
+"is unchecked."
+msgstr ""
+"Wählen Sie das Ankreuzfeld <gui style=\"checkbox\">Unechte Boni aktivieren</"
+"gui> aus, falls es abgewählt ist."
+
+#: C/fake-bonus.page:43(item/p)
+msgid "Click <gui>Close</gui>."
+msgstr "Klicken Sie auf <gui>Schließen</gui>."
+
+#: C/fake-bonus.page:48(note/p)
+msgid ""
+"Set all preferences before starting a new game. Preferences cannot be "
+"changed in the middle of a game."
+msgstr ""
+"Legen Sie vor dem Starten eines neuen Spiels alle Einstellungen fest. "
+"Einstellungen können nicht während eines laufenden Spiels geändert werden."
+
+#: C/multi-player.page:24(info/desc)
+msgid "Play <app>Nibbles</app> with additional players."
+msgstr "So spielen Sie <app>Nibbles</app> mit weiteren Spielern."
+
+#: C/multi-player.page:27(page/title)
+msgid "Multi-player games"
+msgstr "Spiel mit mehreren Spielern"
+
+#: C/multi-player.page:29(page/p)
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. While a player "
+"controls <gui>Worm 1</gui> in a single-player game, players can additionally "
+"control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A two-"
+"player game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>, a "
+"three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
+"and <gui>Worm 3</gui> and so on."
+msgstr ""
+"<app>Nibbles</app> kann mit bis zu sechs Spielern gespielt werden. Während "
+"ein Spieler <gui>Wurm 1</gui> in einem Einzelspieler-Spiel steuert, steuern "
+"zusätzliche Spieler <gui>Wurm 2</gui> bis <gui>Wurm 6</gui> in einem "
+"Mehrspieler-Spiel. In einem Zweispieler-Spiel steuert man <gui>Wurm 1</gui> "
+"und <gui>Worm 2</gui>, in einem Dreispieler-Spiel <gui>Wurm 1</gui>, "
+"<gui>Wurm 2</gui> und <gui>Wurm 3</gui> und so weiter."
+
+#: C/multi-player.page:37(section/title)
+msgid "Choose the number of players"
+msgstr "Die Anzahl der Spieler wählen"
+
+#: C/multi-player.page:39(section/p)
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. To set the number of "
+"players:"
+msgstr ""
+"<app>Nibbles</app> kann von bis zu sechs Spielern gespielt werden. So legen "
+"Sie die Anzahl der Spieler fest:"
+
+#: C/multi-player.page:48(item/p)
+msgid ""
+"Set the <gui style=\"input\">Number of human players</gui> to the required "
+"number, a maximum of 6. You can do this by using the <gui style=\"button\">"
+"+</gui> or <gui style=\"button\">-</gui> buttons or by entering the number "
+"of players from the keyboard in the space provided."
+msgstr ""
+"Legen Sie die gewünschte <gui style=\"input\">Anzahl menschlicher Spieler</"
+"gui> fest. Es sind maximal 6 möglich. Verwenden Sie dazu entweder die Knöpfe "
+"<gui style=\"button\">+</gui> und <gui style=\"button\">-</gui> oder geben "
+"Sie die Anzahl der Spieler mit der Tastatur an die entsprechende Stelle ein."
+
+#: C/multi-player.page:57(note/p)
+msgid ""
+"You can watch a <app>Nibbles</app> game without participating. To observe a "
+"game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
+"set the <gui style=\"input\">Number of AI players</gui> to any number "
+"between 1 and 6."
+msgstr ""
+"Sie können eine Partie <app>Nibbles</app> beobachten, ohne daran "
+"teilzunehmen. Legen Sie dazu die <gui style=\"input\">Anzahl der "
+"menschlichen Spieler</gui> auf 0 fest und <gui style=\"input\">Anzahl "
+"Computerspieler</gui> auf eine beliebige Zahl zwischen 1 und 6."
 
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.docbook:399(imagedata)
+#: C/preferences.page:66(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
 msgctxt "_"
-msgid "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgstr "translated"
+msgid ""
+"external ref='figures/snake-red.svg' md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
+msgstr "original"
 
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.docbook:481(imagedata)
+#: C/preferences.page:70(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
 msgctxt "_"
 msgid ""
-"external ref='figures/worm_op.png' md5='b6ccbcdd5d11fe28a75fd23c0d96483a'"
-msgstr "translated"
+"external ref='figures/snake-green.svg' md5='950becba28c6dca50a1157efe5b96f1d'"
+msgstr "original"
 
-#: C/index.docbook:27(articleinfo/title)
-msgid "<application>Nibbles</application> Manual"
-msgstr "<application>Nibbles</application>-Handbuch"
-
-#: C/index.docbook:30(abstract/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:74(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+msgctxt "_"
 msgid ""
-"Nibbles is a worm game for GNOME. The player controls a 2D worm while trying "
-"to get food. Getting food gives points, but hitting anything causes a loss of "
-"points. When all points are lost, the player loses."
-msgstr ""
-"Nibbles ist ein Wurm-Spiel für GNOME. Der Spieler steuert einen "
-"zweidimensionalen Wurm, während dieser versucht, Futter zu finden. Durch das "
-"Finden von Futter erzielen Sie Punkte, aber mit irgendetwas zusammenzustoßen, "
-"kann Sie dagegen viele Punkte kosten. Wenn Sie alle Punkte verloren haben, "
-"ist auch das Spiel für Sie verloren."
+"external ref='figures/snake-blue.svg' md5='7f5cb0d784fdf25d604882472cb504b9'"
+msgstr "original"
 
-#: C/index.docbook:38(articleinfo/copyright)
-msgid "<year>2000</year> <holder>Kevin Breit</holder>"
-msgstr "<year>2000</year> <holder>Kevin Breit</holder>"
-
-#: C/index.docbook:56(publisher/publishername)
-#: C/index.docbook:97(revdescription/para)
-msgid "GNOME Documentation Project"
-msgstr "GNOME-Dokumentationsprojekt"
-
-#: C/index.docbook:2(legalnotice/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:78(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+msgctxt "_"
 msgid ""
-"Permission is granted to copy, distribute and/or modify this document under "
-"the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
-"later version published by the Free Software Foundation with no Invariant "
-"Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
-"of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or in "
-"the file COPYING-DOCS distributed with this manual."
-msgstr ""
-"Das vorliegende Dokument kann gemäß den Bedingungen der GNU Free "
-"Documentation License (GFDL), Version 1.1 oder jeder späteren, von der Free "
-"Software Foundation veröffentlichten Version ohne unveränderbare Abschnitte "
-"sowie ohne Texte auf dem vorderen und hinteren Buchdeckel kopiert, verteilt "
-"und/oder modifiziert werden. Eine Kopie der GFDL finden Sie unter diesem "
-"<ulink type=\"help\" url=\"help:fdl\">Link</ulink> oder in der mit diesem "
-"Handbuch gelieferten Datei COPYING-DOCS."
+"external ref='figures/snake-yellow.svg' "
+"md5='a81bc4335b8ee337363f7e818eb74ec0'"
+msgstr "original"
 
-#: C/index.docbook:12(legalnotice/para) C/legal.xml:12(legalnotice/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:82(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
+msgctxt "_"
 msgid ""
-"This manual is part of a collection of GNOME manuals distributed under the "
-"GFDL. If you want to distribute this manual separately from the collection, "
-"you can do so by adding a copy of the license to the manual, as described in "
-"section 6 of the license."
-msgstr ""
-"Dieses Handbuch ist Teil einer Sammlung von GNOME-Handbüchern, die unter der "
-"GFDL veröffentlicht werden. Wenn Sie dieses Handbuch getrennt von der "
-"Sammlung weiterverbreiten möchten, können Sie das tun, indem Sie eine Kopie "
-"der Lizenz zum Handbuch hinzufügen, wie es in Abschnitt 6 der Lizenz "
-"beschrieben ist."
+"external ref='figures/snake-cyan.svg' md5='62c0ac58f26769ab7eba85a255191257'"
+msgstr "original"
 
-#: C/index.docbook:19(legalnotice/para) C/legal.xml:19(legalnotice/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:86(media)
+msgctxt "_"
 msgid ""
-"Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any GNOME "
-"documentation, and the members of the GNOME Documentation Project are made "
-"aware of those trademarks, then the names are in capital letters or initial "
-"capital letters."
-msgstr ""
-"Viele der Namen, die von Unternehmen verwendet werden, um ihre Produkte und "
-"Dienstleistungen von anderen zu unterscheiden, sind eingetragene "
-"Warenzeichen. An den Stellen, an denen diese Namen in einer GNOME-"
-"Dokumentation erscheinen, werden die Namen in Großbuchstaben oder mit einem "
-"großen Anfangsbuchstaben geschrieben, wenn das GNOME-Dokumentationsprojekt "
-"auf diese Warenzeichen hingewiesen wird."
+"external ref='figures/snake-magenta.svg' "
+"md5='00ede40fb89479b830636d02dcd33680'"
+msgstr "original"
 
-#: C/index.docbook:35(listitem/para) C/legal.xml:35(listitem/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/preferences.page:90(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+msgctxt "_"
 msgid ""
-"DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
-"EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT "
-"THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS FREE OF DEFECTS "
-"MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE RISK "
-"AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE DOCUMENT OR MODIFIED "
-"VERSION OF THE DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR MODIFIED VERSION "
-"PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL WRITER, AUTHOR OR ANY "
-"CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY SERVICING, REPAIR OR "
-"CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS "
-"LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS "
-"AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
-msgstr ""
-"DIESES DOKUMENT WIRD »WIE VORLIEGEND« GELIEFERT, OHNE GARANTIEN IRGENDEINER "
-"ART, SOWOHL AUSDRÜCKLICH GENANNTE ALS AUCH ANGEDEUTETE. DIES BEZIEHT SICH "
-"AUCH OHNE EINSCHRÄNKUNG AUF GARANTIEN, DASS DIESES DOKUMENT ODER VERÄNDERTE "
-"FASSUNGEN DIESES DOKUMENTS FREI VON HANDELSDEFEKTEN, FÜR EINEN BESTIMMTEN "
-"ZWECK GEEIGNET IST ODER DASS ES KEINE RECHTE DRITTER VERLETZT. DAS VOLLE "
-"RISIKO WAS QUALITÄT, GENAUIGKEIT UND LEISTUNG DES DOKUMENTS ODER VERÄNDERTE "
-"FASSUNGEN DES DOKUMENTS LIEGT BEI IHNEN. SOLLTE EIN DOKUMENT ODER EINE "
-"VERÄNDERTE FASSUNG DAVON FEHLER IRGENDEINER ART BEINHALTEN, TRAGEN SIE (NICHT "
-"DER URSPRUNGSAUTOR, DER AUTOR ODER EIN MITWIRKENDER) DIE KOSTEN FÜR "
-"NOTWENDIGE DIENSTLEISTUNGEN, REPARATUREN ODER FEHLERKORREKTUREN. DIESER "
-"HAFTUNGSAUSSCHLUSS IST EIN ESSENZIELLER TEIL DIESER LIZENZ. DIE VERWENDUNG "
-"EINES DOKUMENTS ODER EINER VERÄNDERTEN VERSION DES DOKUMENTS IST NICHT "
-"GESTATTET AUßER UNTER BEACHTUNG DIESES HAFTUNGSAUSSCHLUSSES UND"
+"external ref='figures/snake-grey.svg' md5='8b1ff44ff3d43292f5843f15c9187f9c'"
+msgstr "original"
 
-#: C/index.docbook:55(listitem/para) C/legal.xml:55(listitem/para)
+#: C/preferences.page:22(info/desc)
+msgid "Change default speed, worm color, level order and sound settings."
+msgstr ""
+"So ändern Sie die voreingestellte Geschwindigkeit, die Wurmfarbe, die "
+"Spielstufenreihenfolge und Toneinstellungen."
+
+#: C/preferences.page:25(page/title)
+msgid "Edit general preferences"
+msgstr "Allgemeine Einstellungen bearbeiten"
+
+#: C/preferences.page:27(page/p)
 msgid ""
-"UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING "
-"NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
-"CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION OF THE "
-"DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON FOR "
-"ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY "
-"CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, WORK "
-"STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER DAMAGES OR "
-"LOSSES ARISING OUT OF OR RELATING TO USE OF THE DOCUMENT AND MODIFIED "
-"VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE "
-"POSSIBILITY OF SUCH DAMAGES."
+"The general preferences for <app>Nibbles</app> can be changed by selecting "
+"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
 msgstr ""
-"UNTER KEINEN UMSTÄNDEN UND AUF BASIS KEINER RECHTSGRUNDLAGE, EGAL OB DURCH "
-"UNERLAUBTEN HANDLUNGEN (EINSCHLIEßLICH FAHRLÄSSIGKEIT), VERTRAG ODER "
-"ANDERWEITIG KANN DER AUTOR, URSPRUNGSAUTOR, EIN MITWIRKENDER ODER EIN "
-"VERTRIEBSPARTNER DIESES DOKUMENTS ODER EINER VERÄNDERTEN FASSUNG DES "
-"DOKUMENTS ODER EIN ZULIEFERER EINER DIESER PARTEIEN, HAFTBAR GEMACHT WERDEN "
-"FÜR DIREKTE, INDIREKTE, SPEZIELLE, VERSEHENTLICHE ODER FOLGESCHÄDEN JEGLICHER "
-"ART, EINSCHLIEßLICH UND OHNE EINSCHRÄNKUNGEN SCHÄDEN DURCH VERLUST VON "
-"KULANZ, ARBEITSAUSFALL, COMPUTERVERSAGEN ODER COMPUTERFEHLFUNKTIONEN ODER "
-"ALLE ANDEREN SCHÄDEN ODER VERLUSTE, DIE SICH AUS ODER IN VERBINDUNG MIT DER "
-"VERWENDUNG DES DOKUMENTS UND VERÄNDERTER FASSUNGEN DES DOKUMENTS ERGEBEN, "
-"AUCH WENN DIE OBEN GENANNTEN PARTEIEN ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN "
-"INFORMIERT WAREN."
+"Die allgemeinen Einstellungen von <app>Nibbles</app> finden sich unter "
+"<guiseq><gui style=\"menu\">Einstellungen</gui> <gui style=\"menuitem"
+"\">Einstellungen</gui></guiseq>."
 
-#: C/index.docbook:28(legalnotice/para) C/legal.xml:28(legalnotice/para)
-msgid ""
-"DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
-"OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: <_:"
-"orderedlist-1/>"
-msgstr ""
-"DAS DOKUMENT UND VERÄNDERTE FASSUNGEN DES DOKUMENTS WERDEN UNTER DEN "
-"BEDINGUNGEN DER GNU FREE DOCUMENTATION LICENSE ZUR VERFÜGUNG GESTELLT MIT DEM "
-"WEITERGEHENDEN VERSTÄNDNIS, DASS: <_:orderedlist-1/>"
-
-#: C/index.docbook:65(authorgroup/author)
-msgid ""
-"<firstname>Kevin</firstname> <surname>Breit</surname> <affiliation> "
-"<orgname>GNOME Documentation Project</orgname> <address> "
-"<email>battery841@mypad.com</email> </address> </affiliation>"
-msgstr ""
-"<firstname>Kevin</firstname> <surname>Breit</surname> <affiliation> "
-"<orgname>GNOME-Dokumentationsprojekt</orgname> <address> "
-"<email>battery841@mypad.com</email> </address> </affiliation>"
-
-#: C/index.docbook:94(revdescription/para)
-msgid "Kevin Breit <email>battery841@mypad.com</email>"
-msgstr "Kevin Breit <email>battery841@mypad.com</email>"
-
-#: C/index.docbook:90(revhistory/revision)
-msgid ""
-"<revnumber>Nibbles Manual V2.20</revnumber> <date>May 2007</date> <_:"
-"revdescription-1/>"
-msgstr ""
-"<revnumber>Nibbles-Handbuch V2.20</revnumber> <date>Mai 2007</date> <_:"
-"revdescription-1/>"
-
-#: C/index.docbook:102(articleinfo/releaseinfo)
-msgid "This manual describes version 2.20 of Nibbles."
-msgstr "Dieses Handbuch beschreibt Version 2.20 von Nibbles."
-
-#: C/index.docbook:109(legalnotice/title)
-msgid "Feedback"
-msgstr "Rückmeldungen"
-
-#: C/index.docbook:110(legalnotice/para)
-msgid ""
-"To report a bug or make a suggestion regarding the <application>Nibbles</"
-"application> application or this manual, follow the directions in the <ulink "
-"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</"
-"ulink>."
-msgstr ""
-"Um Fehler zu melden oder einen Vorschlag zur Anwendung <application>Nibbles</"
-"application> oder zu diesem Handbuch zu machen, folgen Sie den Anweisungen "
-"auf der <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME-"
-"Seite für Rückmeldungen</ulink>."
-
-#: C/index.docbook:119(article/indexterm)
-msgid "<primary>Nibbles</primary>"
-msgstr "<primary>Nibbles</primary>"
-
-#: C/index.docbook:127(sect1/title)
-msgid "Introduction"
-msgstr "Einführung"
-
-#: C/index.docbook:129(sect1/para)
-msgid ""
-"<application>Nibbles</application> is a game where the user controls a worm. "
-"The worm moves around the board, eating diamonds while avoiding the walls "
-"placed around it."
-msgstr ""
-"<application>Nibbles</application> ist ein Spiel, in dem der Spieler einen "
-"Wurm steuert. Der Wurm bewegt sich über das Spielfeld, wobei er »Diamanten« "
-"aufnimmt. Sie haben zu verhindern, dass der Wurm die rundum platzierten Wände "
-"berührt."
-
-#: C/index.docbook:133(sect1/para)
-msgid ""
-"To run <application>Nibbles</application>, select <menuchoice> "
-"<guisubmenu>Games</guisubmenu> <guimenuitem>Nibbles</guimenuitem> </"
-"menuchoice> from the <guimenu>Applications</guimenu> menu, or type "
-"<command>gnome-nibbles</command> on the command line."
-msgstr ""
-"Um <application>Nibbles</application> zu starten, wählen Sie "
-"<menuchoice><guisubmenu>Spiele</guisubmenu><guimenuitem>Nibbles</"
-"guimenuitem></menuchoice> im Menü <guimenu>Anwendungen</guimenu>, oder geben "
-"Sie <command>gnome-nibbles</command> in einer Befehlszeile ein."
-
-#: C/index.docbook:143(sect1/para)
-msgid ""
-"<application>Nibbles</application> is included in the <filename>gnome-games</"
-"filename> package, which is part of the GNOME desktop environment. This "
-"document describes version 2.20 of <application>Nibbles</application>."
-msgstr ""
-"<application>Nibbles</application> ist Teil des Pakets <filename>gnome-games</"
-"filename>, das Teil der GNOME-Desktopumgebung ist. Dieses Dokument beschreibt "
-"Version 2.20 von <application>Robots</application>."
-
-#: C/index.docbook:152(sect1/title)
-msgid "Nibbles Objective"
-msgstr "Ziel von Nibbles"
-
-#: C/index.docbook:153(sect1/para)
-msgid ""
-"The objective of Nibbles is quite simple. You control the worm and if the "
-"worm runs into a wall or runs into itself, you die. You get ten lives before "
-"your game is over. You win by either beating your own high score (or a "
-"friend's) or by completing all the levels. It is also possible to play "
-"against worms with artificial intelligence."
-msgstr ""
-"Das Ziel von Nibbles ist recht simpel. Sie steuern einen Wurm, wobei Sie "
-"verhindern müssen, dass dieser mit einer Wand oder mit sich selbst "
-"zusammenstößt, ansonsten sterben Sie. Sie erhalten zehn Leben, bevor das "
-"spiel endet. Sie gewinnen entweder dadurch, dass Sie Ihr eigenes höchstes "
-"Ergebnis überbieten (oder das eines Freundes), oder indem Sie alle Level "
-"durchspielen. Es ist ebenso möglich, gegen Würmer mit künstlicher Intelligenz "
-"zu spielen."
-
-#: C/index.docbook:160(sect1/para)
-msgid ""
-"Nibbles also features multiplayer support with up to six competing human "
-"players in hotseat mode."
-msgstr ""
-"Nibbles unterstützt auch einen Mehrspieler-Modus für bis zu sechs "
-"gegeneinander antretende menschliche Spieler im Hotseat-Modus."
-
-#: C/index.docbook:170(sect1/title)
-msgid "Using Nibbles"
-msgstr "Nibbles spielen"
-
-#: C/index.docbook:171(sect1/para)
-msgid ""
-"<application>Nibbles</application> is a simple game to play. The only keys "
-"that are needed are the arrow keys."
-msgstr ""
-"<application>Nibbles</application> ist einfach zu bedienen. Die einzigen "
-"notwendigen Tasten sind die Pfeiltasten."
-
-#: C/index.docbook:178(sect2/title)
-msgid "Basic usage"
-msgstr "Grundlagen der Bedienung"
-
-#: C/index.docbook:183(figure/title)
-msgid "Nibbles Introduction Window"
-msgstr "Startfenster von Nibbles"
-
-#: C/index.docbook:185(screenshot/mediaobject)
-msgid ""
-"<imageobject> <imagedata fileref=\"figures/intro.png\" format=\"PNG\"/> </"
-"imageobject> <textobject> <phrase>Nibbles Introduction Window.</phrase> </"
-"textobject>"
-msgstr ""
-"<imageobject> <imagedata fileref=\"figures/intro.png\" format=\"PNG\"/> </"
-"imageobject> <textobject> <phrase>Startfenster von Nibbles.</phrase> </"
-"textobject>"
-
-#: C/index.docbook:179(sect2/para)
-msgid ""
-"Starting <application>Nibbles</application> opens the <interface>main window</"
-"interface> shown below. <_:figure-1/>"
-msgstr ""
-"Beim Start von <application>Nibbles</application> wird das unten angezeigte "
-"<interface>Hauptfenster</interface> geöffnet. <_:figure-1/>"
-
-#: C/index.docbook:196(sect2/para)
-msgid ""
-"To start the game, select <menuchoice><guimenu>Game</guimenu> "
-"<guimenuitem>New Game</guimenuitem></menuchoice>."
-msgstr ""
-"Um das Spiel zu starten, wählen Sie <menuchoice><guimenu>Spiel</"
-"guimenu><guimenuitem>Neu</guimenuitem></menuchoice>."
-
-#: C/index.docbook:206(figure/title)
-msgid "Nibbles During Gameplay"
-msgstr "Nibbles während des Spiels"
-
-#: C/index.docbook:208(screenshot/mediaobject)
-msgid ""
-"<imageobject> <imagedata fileref=\"figures/playing.png\" format=\"PNG\"/> </"
-"imageobject> <textobject> <phrase>Nibbles During Gameplay.</phrase> </"
-"textobject>"
-msgstr ""
-"<imageobject> <imagedata fileref=\"figures/playing.png\" format=\"PNG\"/> </"
-"imageobject> <textobject> <phrase>Nibbles während eines laufenden Spiels.</"
-"phrase> </textobject>"
-
-# Die keycap-Tags in der Übersetzung dienen hier der besseren Lesbarkeit.
-#: C/index.docbook:200(sect2/para)
-msgid ""
-"When the game starts, the worm will come out of the left side of the screen. "
-"You use the up arrow to make the direction of the worm go up. Use the right "
-"arrow to turn the worm right, left arrow to turn the worm left, and down "
-"arrow to turn the worm down. <_:figure-1/>"
-msgstr ""
-"Beim Start des Spiels erscheint ein Wurm am linken Rand des Spielfelds. "
-"Verwenden Sie die <keycap>Pfeiltaste nach oben</keycap>, um die Richtung des "
-"Wurms nach oben zu kehren. Ebenso können sie mit der <keycap>Pfeiltaste nach "
-"rechts</keycap> den Wurm nach rechts schicken, mit der <keycap>Pfeiltaste "
-"nach links</keycap> die Richtung des Wurms nach links ändern und mit der "
-"<keycap>Pfeiltaste nach unten</keycap> den Wurm nach unten schicken. <_:"
-"figure-1/>"
-
-#: C/index.docbook:229(sect2/title)
-msgid "Menus"
-msgstr "Menüs"
-
-#: C/index.docbook:230(sect2/para)
-msgid ""
-"The menu bar, located at the top of the <interface>Main Window</interface>, "
-"contains the following menus:"
-msgstr ""
-"Die Menüleiste am oberen Rand des <interface>Hauptfensters</interface> "
-"enthält folgende Menüs:"
-
-#: C/index.docbook:237(varlistentry/term)
-msgid "<guimenu>Game</guimenu>"
-msgstr "<guimenu>Spiel</guimenu>"
-
-#: C/index.docbook:243(listitem/para)
-msgid ""
-"<menuchoice> <shortcut> <keysym>Ctrl+N</keysym> </shortcut> <guimenuitem>New "
-"Game</guimenuitem> </menuchoice> This starts a new game of "
-"<application>Nibbles</application>."
-msgstr ""
-"<menuchoice><shortcut><keysym>Strg+N</keysym></shortcut><guimenuitem>Neu</"
-"guimenuitem></menuchoice>. Dies startet ein neues <application>Nibbles</"
-"application>-Spiel."
-
-#: C/index.docbook:254(listitem/para)
-msgid ""
-"<menuchoice> <guimenuitem>Scores</guimenuitem> </menuchoice> This shows the "
-"high scores."
-msgstr ""
-"<menuchoice><guimenuitem>Ergebnisse</guimenuitem></menuchoice> zeigt die "
-"besten Ergebnisse."
-
-#: C/index.docbook:262(listitem/para)
-msgid ""
-"<menuchoice> <guimenuitem>Pause game</guimenuitem> </menuchoice> This will "
-"pause your game. Click on the <quote>Pause Game </quote> menu option to "
-"resume game."
-msgstr ""
-"<menuchoice><guimenuitem>Pause</guimenuitem></menuchoice> Dies unterbricht "
-"Ihr Spiel. Klicken Sie auf den Menüeintrag <quote>Fortsetzen</quote>, um das "
-"Spiel fortzusetzen."
-
-#: C/index.docbook:271(listitem/para)
-msgid ""
-"<menuchoice> <guimenuitem>End Game</guimenuitem> </menuchoice> End the "
-"current game and return to the title screen."
-msgstr ""
-"<menuchoice><guimenuitem>Spiel beenden</guimenuitem></menuchoice> Dies "
-"beendet das aktuelle Spiel und zeigt wieder das Startfenster an."
-
-#: C/index.docbook:279(listitem/para)
-msgid ""
-"<menuchoice> <shortcut> <keysym>Ctrl-Q</keysym> </shortcut> "
-"<guimenuitem>Exit</guimenuitem> </menuchoice> This quits the application."
-msgstr ""
-"<menuchoice><shortcut><keysym>Strg-Q</keysym></shortcut><guimenuitem>Beenden</"
-"guimenuitem></menuchoice> Dies beendet die Anwendung."
-
-#: C/index.docbook:239(listitem/para) C/index.docbook:297(listitem/para)
-#: C/index.docbook:316(listitem/para) C/index.docbook:336(listitem/para)
-msgid "This menu contains: <_:itemizedlist-1/>"
-msgstr "Dieses Menü enthält: <_:itemizedlist-1/>"
-
-#: C/index.docbook:295(varlistentry/term)
-msgid "<guimenu>View</guimenu>"
-msgstr "<guimenu>Ansicht</guimenu>"
-
-#: C/index.docbook:301(listitem/para)
-msgid ""
-"<menuchoice> <guimenuitem>Fullscreen</guimenuitem> </menuchoice> This toggles "
-"your game window to be fullscreen."
-msgstr ""
-"<menuchoice><guimenuitem>Vollbild</guimenuitem></menuchoice> Dies schaltet "
-"den Vollbildmodus für das Fenster an oder aus."
-
-#: C/index.docbook:314(varlistentry/term)
-msgid "<guimenu>Settings</guimenu>"
-msgstr "<guimenu>Einstellungen</guimenu>"
-
-#: C/index.docbook:320(listitem/para)
-msgid ""
-"<menuchoice> <guimenuitem>Preferences</guimenuitem> </menuchoice> This opens "
-"your window to edit <link linkend=\"prefs\"> preferences.</link>"
-msgstr ""
-"<menuchoice><guimenuitem>Einstellungen</guimenuitem></menuchoice> Dies öffnet "
-"ein Fenster zum Bearbeiten der <link linkend=\"prefs\"> Einstellungen.</link>"
-
-#: C/index.docbook:334(varlistentry/term)
-msgid "<guimenu>Help</guimenu>"
-msgstr "<guimenu>Hilfe</guimenu>"
-
-#: C/index.docbook:340(listitem/para)
-msgid ""
-"<menuchoice> <shortcut> <keysym>F1</keysym> </shortcut> "
-"<guimenuitem>Contents</guimenuitem> </menuchoice> Display this manual."
-msgstr ""
-"<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Inhalte</"
-"guimenuitem></menuchoice> Dieser Eintrag zeigt dieses Handbuch an."
-
-#: C/index.docbook:349(listitem/para)
-msgid ""
-"<guimenuitem>About</guimenuitem> This opens the <interface>About</interface> "
-"dialog which shows basic information about <application>Nibbles</"
-"application>, such as the author's name, the version number of the game."
-msgstr ""
-"<guimenuitem>Info</guimenuitem> Dies öffnet einen <interface>Infodialog</"
-"interface>, der grundlegende Informationen über <application>Nibbles</"
-"application> anzeigt, wie beispielsweise den Namen des Autors oder die "
-"Versionsnummer des Spiels."
-
-#: C/index.docbook:364(sect2/title)
-msgid "Diamonds"
-msgstr "Diamanten"
-
-#: C/index.docbook:365(sect2/para)
-msgid ""
-"<application>Nibbles</application> has numerous different diamonds to eat. "
-"They are each a different color and serve a different function. Only the pale "
-"purple diamond is guaranteed to be around long enough for you to eat it (in "
-"fact, you have to eat them to finish the level). The other diamonds are all "
-"bonuses, but they only stick around for a short time. We'll leave it up to "
-"you to discover just what the bonus each colour gives, but they all affect "
-"either the score, the length of the worm, or both. Be careful when going for "
-"these bonus diamonds, don't cut yourself off from the ordinary diamonds that "
-"you need to finish the level."
-msgstr ""
-"In <application>Nibbles</application> gilt es, eine Anzahl verschiedener "
-"Diamanten aufzunehmen. Die Diamanten sind von verschiedener Farbe und stellen "
-"verschiedene Funktionen bereit. Einer der Diamanten ist garantiert lange "
-"genug sichtbar, um ihn aufzunehmen. Klarer ausgedrückt: Sie müssen ihn "
-"aufnehmen, um den Level zu beenden. Die anderen Diamanten sind allesamt Boni, "
-"aber jeweils nur für kurze Zeit zu sehen. Nehmen Sie sie ruhig auf, um zu "
-"entdecken, welchen Bonus Ihnen welche Farbe bringt. Alle dieser Diamanten "
-"beeinflussen entweder Ihre Punkte oder die Länge des Wurms, oder auch beides. "
-"Seien Sie vorsichtig mit diesen Bonus-Diamanten, schneiden Sie sich nicht den "
-"Weg zu den anderen Diamanten ab, die Sie zum Beenden des Levels benötigen."
-
-#: C/index.docbook:383(sect1/title)
-msgid "Customization"
-msgstr "Anpassen"
-
-#: C/index.docbook:384(sect1/para)
-msgid ""
-"To change the application settings, select <menuchoice> <guimenu>Settings</"
-"guimenu> <guimenuitem>Preferences</guimenuitem> </menuchoice>. This opens the "
-"<interface>Preferences</interface> dialog. All preferences are automatically "
-"saved and applied as you change them."
-msgstr ""
-"Um die Einstellungen der Anwendung anzupassen, wählen Sie "
-"<menuchoice><guimenu>Einstellungen</guimenu><guimenuitem>Einstellungen</"
-"guimenuitem></menuchoice>. Dadurch wird der <interface>Einstellungs</"
-"interface>-Dialog geöffnet. Alle Änderungen der Einstellungen werden "
-"automatisch gespeichert und unmittelbar angewendet."
-
-#: C/index.docbook:395(figure/title)
-msgid "Game Preferences Tab"
-msgstr "Einstellungsreiter »Spiel«"
-
-#: C/index.docbook:397(screenshot/mediaobject)
-msgid ""
-"<imageobject> <imagedata fileref=\"figures/game.png\" format=\"PNG\" "
-"srccredit=\"Kevin Breit\"/> </imageobject> <textobject> <phrase>Game "
-"Preferences Tab.</phrase> </textobject>"
-msgstr ""
-"<imageobject> <imagedata fileref=\"figures/game.png\" format=\"PNG\" "
-"srccredit=\"Kevin Breit\"/> </imageobject> <textobject> <phrase>Reiter in den "
-"Einstellungen für das Spiel.</phrase> </textobject>"
-
-#: C/index.docbook:412(varlistentry/term)
+#: C/preferences.page:32(section/title)
 msgid "Speed"
 msgstr "Geschwindigkeit"
 
-#: C/index.docbook:414(listitem/para)
-msgid "This controls the speed of the worm."
-msgstr "Dies steuert die Geschwindigkeit des Wurms."
+#: C/preferences.page:34(section/p)
+msgid ""
+"There are four available speeds in <app>Nibbles</app>. These are, in "
+"increasing order:"
+msgstr ""
+"Es gibt vier verschiedene Geschwindigkeiten in <app>Nibbles</app>. Diese "
+"sind in aufsteigender Reihenfolge:"
 
-#: C/index.docbook:420(varlistentry/term)
+#: C/preferences.page:39(item/p)
+msgid "Nibbles Newbie"
+msgstr "Nibbles-Neuling"
+
+#: C/preferences.page:42(item/p)
+msgid "My second day"
+msgstr "Mein zweiter Tag"
+
+#: C/preferences.page:45(item/p)
+msgid "Not too shabby"
+msgstr "Nicht zu schäbig"
+
+#: C/preferences.page:48(item/p)
+msgid "Finger twitching good"
+msgstr "Gute Fingerfertigkeiten"
+
+#: C/preferences.page:52(section/p)
+msgid ""
+"Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
+"speed choices given on the left hand side."
+msgstr ""
+"Die Geschwindigkeit wird unter <guiseq><gui style=\"menu\">Einstellungen</"
+"gui> <gui style=\"menuitem\">Einstellungen</gui></guiseq> festgelegt durch "
+"Wahl einer der vier Wahlmöglichkeiten auf der linken Seite."
+
+#: C/preferences.page:59(section/title)
+msgid "Change worm colors"
+msgstr "Wurmfarbe ändern"
+
+#: C/preferences.page:61(section/p)
+msgid "There are seven available worm colors:"
+msgstr "Es gibt sieben mögliche Wurmfarben:"
+
+#: C/preferences.page:65(item/p)
+msgid "<_:media-1/> Red"
+msgstr "<_:media-1/> Rot"
+
+#: C/preferences.page:69(item/p)
+msgid "<_:media-1/> Green"
+msgstr "<_:media-1/> Grün"
+
+#: C/preferences.page:73(item/p)
+msgid "<_:media-1/> Blue"
+msgstr "<_:media-1/> Blau"
+
+#: C/preferences.page:77(item/p)
+msgid "<_:media-1/> Yellow"
+msgstr "<_:media-1/> Gelb"
+
+#: C/preferences.page:81(item/p)
+msgid "<_:media-1/> Cyan"
+msgstr "<_:media-1/> Zyan"
+
+#: C/preferences.page:85(item/p)
+msgid "<_:media-1/> Purple"
+msgstr "<_:media-1/> Violett"
+
+#: C/preferences.page:89(item/p)
+msgid "<_:media-1/> Gray"
+msgstr "<_:media-1/> Grau"
+
+#: C/preferences.page:94(section/p)
+msgid ""
+"These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq>."
+msgstr ""
+"Diese können unter <guiseq><gui style=\"menu\">Einstellungen</gui> <gui "
+"style=\"menuitem\">Einstellungen</gui></guiseq> geändert werden."
+
+#: C/preferences.page:99(item/p)
+msgid ""
+"Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
+"edit."
+msgstr ""
+"Wählen Sie irgendeinen der <gui>Wurm</gui>-Reiter, um den Wurm zu wählen, "
+"den Sie bearbeiten wollen."
+
+#: C/preferences.page:103(item/p)
+msgid ""
+"On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
+"Pick a color out of the available colors in the drop-down menu to change the "
+"appearance of the worm."
+msgstr ""
+"Auf der linken Seite sehen Sie <gui style=\"group\">Wurmfarbe</gui>. Wählen "
+"Sie eine Farbe aus der Liste möglicher Farben des Aufklapp-Menüs, um das "
+"Erscheinungsbild des Wurms anzupassen."
+
+#: C/preferences.page:112(section/title)
+msgid "Sounds"
+msgstr "Klänge"
+
+#: C/preferences.page:114(section/p)
+msgid ""
+"You can enable or disable sounds in <app>Nibbles</app> by checking or "
+"unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
+"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
+msgstr ""
+"Sie können Töne in <app>Nibbles</app> ein- und ausschalten, in dem Sie das "
+"Ankreuzfeld <gui style=\"checkbox\">Klang aktivieren</gui> in <guiseq><gui "
+"style=\"menu\">Einstellungen</gui> <gui style=\"menuitem\">Einstellungen</"
+"gui></guiseq> an- oder abwählen."
+
+#: C/preferences.page:122(section/title)
 msgid "Play levels in random order"
 msgstr "Level in zufälliger Reihenfolge spielen"
 
-#: C/index.docbook:422(listitem/para)
-msgid "Selecting this causes the level advancement to happen in random order."
-msgstr ""
-"Wählen Sie dies aus, um die Level in zufälliger Ordnung aufeinanderfolgen zu "
-"lassen."
-
-#: C/index.docbook:429(varlistentry/term)
-msgid "Enable fake bonuses"
-msgstr "Unechte Boni aktivieren"
-
-#: C/index.docbook:431(listitem/para)
+#: C/preferences.page:124(section/p)
 msgid ""
-"When enabled, this allows for two blue diamonds on the screen at a time. One "
-"diamond makes you shrink instead of grow when eaten."
+"Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
+"gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
+"\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
+"<app>Nibbles</app> in random order."
 msgstr ""
-"Wenn dies aktiviert ist, können zwei blaue Diamanten gleichzeitig auf dem "
-"Spielfeld angezeigt werden. Einer der Diamanten lässt Sie schrumpfen anstatt "
-"wachsen, wenn Sie ihn aufnehmen."
+"Wählen Sie auf Wunsch das Ankreuzfeld <gui style=\"checkbox\">Stufen in "
+"zufälliger Reihenfolge spielen</gui> unter <guiseq><gui style=\"menu"
+"\">Einstellungen</gui> <gui style=\"menuitem\">Einstellungen</gui></guiseq> "
+"an, um die verschiedenen Stufen in <app>Nibbles</app> in zufälliger "
+"Reihenfolge zu spielen.."
 
-#: C/index.docbook:439(varlistentry/term)
-msgid "Enable sounds"
-msgstr "Klang aktivieren"
-
-#: C/index.docbook:441(listitem/para)
-msgid "Controls the use of sound in the game."
-msgstr "Dies steuert die Ausgabe von Klängen im Spiel."
-
-#: C/index.docbook:447(varlistentry/term)
-msgid "Starting level"
-msgstr "Anfangslevel"
-
-#: C/index.docbook:449(listitem/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:41(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+msgctxt "_"
 msgid ""
-"Which level to start with. Use this if you want to jump immediately to a "
-"challenging level."
-msgstr ""
-"Legt den Level fest, mit dem Sie starten wollen. Verwenden Sie diese "
-"Einstellung, um unmittelbar zu einem schwierigeren Level zu springen."
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+msgstr "original"
 
-#: C/index.docbook:456(varlistentry/term)
-msgid "Number of human players"
-msgstr "Anzahl der menschlichen Spieler"
-
-#: C/index.docbook:458(listitem/para)
-msgid "There is room for up to six players."
-msgstr "Der Raum bietet bis zu sechs Spielern Platz."
-
-#: C/index.docbook:464(varlistentry/term)
-msgid "Number of AI players"
-msgstr "Anzahl der Computerspieler"
-
-#: C/index.docbook:466(listitem/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:48(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+msgctxt "_"
 msgid ""
-"There is room for up to six AI players. Note that the total number of human "
-"and AI players must be less than or equal to six."
-msgstr ""
-"Der Raum bietet bis zu sechs Computerspielern Platz. Beachten Sie, dass die "
-"Gesamtzahl der menschlichen und Computerspieler kleiner oder gleich sechs "
-"sein muss."
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgstr "original"
 
-#: C/index.docbook:408(sect1/para)
+#: C/rel-movement.page:22(info/desc)
+msgid "Enable relative movement."
+msgstr "Relative Bewegungen einschalten."
+
+#: C/rel-movement.page:25(page/title)
+msgid "Relative movement"
+msgstr "Relative Bewegung"
+
+#: C/rel-movement.page:27(page/p)
 msgid ""
-"The properties in the <guilabel>Game</guilabel> tab are: <_:variablelist-1/>"
+"When relative movement is enabled, the worm is manouvered using just the "
+"default <key>Left</key> and <key>Right</key> keys or other <link xref="
+"\"controls-change\">customized keys</link> that control the leftward and "
+"rightward movement of a worm. When the <key>Left</key> key is pressed, the "
+"worm turns left, instead of moving towards the left of the screen. "
+"Similarly, when the <key>Right</key> key is pressed, the worm turns right "
+"instead of moving towards the right of the screen."
 msgstr ""
-"Die Einstellungsoptionen im Reiter <guilabel>Spiel</guilabel> sind: <_:"
-"variablelist-1/>"
+"Wenn relative Bewegung aktiviert ist, wird der Wurm nur mit den "
+"Standardtasten <key>←</key> und <key>→</key> oder den <link xref=\"controls-"
+"change\">benutzerdefinierten Tasten</link> für die Links- und Rechtsbewegung "
+"des Wurmes gesteuert. Wenn die <key>←</key> Taste gedrückt wird, biegt der "
+"Wurm nach links ab, anstelle sich zur linken Fensterseite zu bewegen. Wenn "
+"die <key>→</key> Taste gedrückt wird, biegt der Wurm nach rechts ab, "
+"anstelle sich zur rechten Fensterseite zu bewegen."
 
-#: C/index.docbook:477(figure/title)
-msgid "Worm Preferences Tab"
-msgstr "Wurm-Einstellungsreiter"
+#: C/rel-movement.page:39(figure/title)
+msgid "Starting postion:"
+msgstr "Startposition:"
 
-#: C/index.docbook:479(screenshot/mediaobject)
+#: C/rel-movement.page:40(figure/desc)
+msgid "The location of the worm before you decide to move it."
+msgstr "Der Ort des Wurms, bevor Sie sich entschließen, ihn zu bewegen."
+
+#: C/rel-movement.page:46(figure/title)
+msgid "On pressing the <key>Left</key> key:"
+msgstr "Beim Drücken der Taste <key>←</key>:"
+
+#: C/rel-movement.page:47(figure/desc)
+msgid "The worm turns left and begins to move downwards."
+msgstr "Der Wurm dreht nach links und bewegt sich abwärts."
+
+#: C/rel-movement.page:55(note/p)
 msgid ""
-"<imageobject> <imagedata fileref=\"figures/worm_op.png\" format=\"PNG\" "
-"srccredit=\"Kevin Breit\"/> </imageobject> <textobject> <phrase>Worm "
-"Preferences Tab.</phrase> </textobject>"
+"If relative movement was not enabled, you would press the <key>Down</key> "
+"key to achieve the above result."
 msgstr ""
-"<imageobject> <imagedata fileref=\"figures/worm_op.png\" format=\"PNG\" "
-"srccredit=\"Kevin Breit\"/> </imageobject> <textobject> <phrase>Reiter in den "
-"Einstellungen für den Wurm.</phrase> </textobject>"
+"Wenn relative Bewegung nicht aktiviert wäre, so würden Sie die Taste <key>↓</"
+"key> drücken, um das gleiche zu bewirken."
 
-#: C/index.docbook:495(varlistentry/term)
-msgid "Keyboard controls"
-msgstr "Tastatursteuerung"
+#: C/rel-movement.page:62(page/p)
+msgid "To enable relative movement:"
+msgstr "So schalten Sie relative Bewegung ein:"
 
-#: C/index.docbook:497(listitem/para)
+#: C/rel-movement.page:70(item/p)
 msgid ""
-"This list let you change the keyboard controls for the given worm. To change "
-"a control, double click on the appropriate entry and then press the key you "
-"want to use for that control."
+"Select the worm for which relative movement has to be enabled by clicking "
+"the appropriate <gui>Worm</gui> tab."
 msgstr ""
-"Damit ändern Sie die Tastatursteuerung für den jeweiligen Wurm. Um eine der "
-"Tasten zu ändern, doppelklicken Sie auf den entsprechenden Eintrag. Drücken "
-"Sie anschließend die Taste, die Sie für diese Funktion verwenden wollen."
+"Wählen Sie den Wurm, für den relative Bewegung aktiviert werden soll, indem "
+"Sie den entsprechenden <gui>Wurm</gui>-Reiter auswählen."
 
-#: C/index.docbook:505(varlistentry/term)
-msgid "Use relative motion"
-msgstr "Relative Bewegungen verwenden"
-
-#: C/index.docbook:507(listitem/para)
+#: C/rel-movement.page:74(item/p)
 msgid ""
-"Rather than left sending your worm toward the left of the screen, right "
-"toward the right and so on, the left and right keys make the worm perform a "
-"left or right turn. For example, if the worm is moving to the left and you "
-"press the left control it turns to head toward the bottom of the screen."
+"Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
+"is unchecked."
 msgstr ""
-"Normalerweise schicken Sie Ihren Wurm mit der linken Pfeiltaste zur linken "
-"Bildschirmseite, mit der rechten Pfeiltaste zur rechten Seite usw. In diesem "
-"Fall jedoch bewirkt die linke Pfeiltaste eine Wendung des Wurms nach links, "
-"beziehungsweise die rechte Pfeiltaste eine Wendung nach rechts, ausgehend von "
-"seiner bisherigen Bewegungsrichtung. Wenn sich also der Wurm bisher nach "
-"links bewegte, und Sie die Pfeiltaste links drücken, bewegt er sich von nun "
-"an nach unten."
+"Wählen Sie das Ankreuzfeld <gui style=\"checkbox\">Relative Bewegung "
+"verwenden</gui> an, falls es abgewählt ist."
 
-#: C/index.docbook:517(varlistentry/term)
-msgid "Worm color"
-msgstr "Wurmfarbe"
+#: C/rel-movement.page:78(item/p)
+msgid "Click <gui style=\"button\">Close</gui>."
+msgstr "Klicken Sie auf <gui style=\"button\">Schließen</gui>."
 
-#: C/index.docbook:519(listitem/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:28(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
+msgctxt "_"
+msgid "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
+msgstr "original"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:48(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
+msgctxt "_"
+msgid "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
+msgstr "original"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:64(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/worm_op.png' md5='b6ccbcdd5d11fe28a75fd23c0d96483a'"
+msgctxt "_"
 msgid ""
-"Customize the color of your worm so you can tell it from your opponent's worm "
-"in multi-player mode."
-msgstr ""
-"Ändern Sie die Farbe Ihres Wurms, so dass Sie ihn im Mehrspieler-Modus vom "
-"Wurm Ihres Gegners unterscheiden können."
+"external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
+msgstr "original"
 
-#: C/index.docbook:474(sect1/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:74(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+msgctxt "_"
 msgid ""
-"<_:figure-1/> The properties in the <guilabel>Worm 1 </guilabel>through "
-"<guilabel> Worm 6</guilabel> tabs let you set individual preferences for the "
-"different worms. <_:variablelist-2/>"
-msgstr ""
-"<_:figure-1/> Die Eigenschaften in den Reitern <guilabel>Wurm 1</guilabel> "
-"bis <guilabel>Wurm 6</guilabel> ermöglichen Ihnen die Anpassung der "
-"Eigenschaften der verschiedenen Würmer. <_:variablelist-2/>"
+"external ref='figures/ice-cream.svg' md5='4892ededb56e306922c5442b46ca2a7c'"
+msgstr "original"
 
-#: C/index.docbook:534(sect1/title)
-msgid "Authors"
-msgstr "Autoren"
-
-#: C/index.docbook:535(sect1/para)
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/scores.page:83(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
+msgctxt "_"
 msgid ""
-"<application>Nibbles</application> was written by Sean MacIsaac "
-"<email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This "
-"manual was written by Kevin Breit <email>battery841@mypad.com</email>. "
-"Nibbles was updated with network support by Andreas Røsdal "
-"<email>andreasr@gnome.org</email>. To report a bug or make a suggestion "
-"regarding this application or this manual, follow the directions in this "
-"<ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
-msgstr ""
-"<application>Nibbles</application> wurde von Sean MacIsaac <email>sjm@acm."
-"org</email> und Ian Peters <email>itp@gnu.org</email> geschrieben. Dieses "
-"Handbuch wurde von Kevin Breit <email>battery841@mypad.com</email> "
-"geschrieben. Die Netzwerkunterstützung für Nibbles fügte Andreas Røsdal "
-"<email>andreasr@gnome.org</email> hinzu. Um einen Fehler zu melden oder einen "
-"Vorschlag zu dieser Anwendung oder zu diesem Handbuch zu machen, folgen Sie "
-"den Anweisungen in diesem <ulink url=\"ghelp:user-guide?feedback-bugs\" type="
-"\"help\">Dokument</ulink>."
+"external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
+msgstr "original"
 
-#: C/index.docbook:561(sect1/title)
-msgid "License"
-msgstr "Lizenz"
+#: C/scores.page:18(info/desc)
+msgid "Swallow different bonuses to score points."
+msgstr "Verschlingen Sie verschiedene Boni, um Punkte zu erzielen."
 
-#: C/index.docbook:562(sect1/para)
+#: C/scores.page:21(page/title)
+msgid "Scoring points in <app>Nibbles</app>"
+msgstr "Punkte in <app>Nibbles</app> erzielen"
+
+#: C/scores.page:23(page/p)
 msgid ""
-"This program is free software; you can redistribute it and/or modify it under "
-"the terms of the <ulink type=\"help\" url=\"help:gpl\"> GNU General Public "
-"License</ulink> as published by the Free Software Foundation; either version "
-"2 of the License, or (at your option) any later version."
+"You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
+"different kinds of bonuses in Nibbles:"
 msgstr ""
-"Dieses Programm ist freie Software; Sie können es weiterverbreiten und/oder "
-"ändern unter den Bedingungen der <ulink type=\"help\" url=\"help:gpl\">GNU "
-"General Public License</ulink> wie sie von der Free Software Foundation "
-"veröffentlicht wurde; entweder in Version 2 der Lizenz oder (nach Ihrer Wahl) "
-"jeder neueren Version."
+"Sie erzielen Punkte in <app>Nibbles</app>, indem Sie Boni verschlingen. Es "
+"gibt 5 verschiedene Arten von Boni in Nibbles:"
 
-#: C/index.docbook:570(sect1/para)
+#: C/scores.page:27(item/p)
 msgid ""
-"This program is distributed in the hope that it will be useful, but WITHOUT "
-"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-"FOR A PARTICULAR PURPOSE. See the <citetitle>GNU General Public License</"
-"citetitle> for more details."
+"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the donut vary from level "
+"to level and are multiples of the level number. In level 1, the first donut "
+"will give you 1 point, the second donut will give you 2 points, the third "
+"donut will give you 3 points and so on. In level 2, the first donut will "
+"give you 2 points, the second donut will give you 4 points, the third donut "
+"will give you 6 points and so on. In level 26, therefore, the first donut "
+"will give you 26 points, the second donut will give you 52 points and so on."
 msgstr ""
-"Dieses Programm wird in der Hoffnung verbreitet, dass es nützlich ist, aber "
-"OHNE JEGLICHE GARANTIE; auch ohne eine GEBRAUCHSTAUGLICHKEITSGARANTIE oder "
-"eine Garantie über die TAUGLICHKEIT FÜR EINEN BESTIMMTEN ZWECK. Lesen Sie die "
-"<citetitle><ulink type=\"help\" url=\"help:gpl\">GNU General Public License</"
-"ulink></citetitle> für genauere Hinweise."
+"Der Donut-förmige Bonus <_:media-1/> : Dieser Bonus verursacht eine "
+"Verlängerung des Wurmes. Die Punkte, die Sie beim Verschlinges des Donuts "
+"erhalten, hängen von der Spielstufe ab und sind Vielfache der Spielstufe. "
+"Auf Stufe 1 erhalten Sie 1 Punkt für den ersten Donut, 2 Punkte für den "
+"zweiten Donut, 3 Punkte für den dritten Donut und so weiter. Auf Stufe 2 "
+"erhalten Sie 2 Punkte für den ersten Donut, 4 Punkte für den zweiten Donut, "
+"6 Punkte für den dritten Donut und so weiter. Auf Stufe 26 erhalten Sie also "
+"26 Punkte für den ersten Donut, 52 Punkte für den zweiten Donut und so "
+"weiter."
 
-#: C/index.docbook:583(para/address)
-#, no-wrap
+#: C/scores.page:39(note/p)
 msgid ""
-"\n"
-"    Free Software Foundation, Inc.\n"
-"    59 Temple Place - Suite 330\n"
-"    Boston, MA 02111-1307\n"
-"    USA\n"
-"   "
+"The donut order count does not depend on the number of donuts already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first donut, "
+"he scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
+"third player may choose to not eat any donuts till the tenth donut and score "
+"10 points at once."
 msgstr ""
-"\n"
-"    Free Software Foundation, Inc.\n"
-"    59 Temple Place - Suite 330\n"
-"    Boston, MA 02111-1307\n"
-"    USA\n"
-"   "
+"Die Ordnungsnummer der Donuts hängt nicht von der Anzahl bereits "
+"verschlungener Donut eines Wurmes ab. Für Stufe 1 gilt: wenn Spieler 1 den "
+"ersten Donut verschlingt erhält er 1 Punkt. Wenn Spieler 2 darauf den "
+"zweiten Donut verschlingt, erhält er 2 Punkte. Ein dritter Spieler "
+"entscheidet sich bis zum 10. Donut keine Donuts zu verschlingen und erhält "
+"dann sofort 10 Punkte."
 
-#: C/index.docbook:576(sect1/para)
+#: C/scores.page:47(item/p)
 msgid ""
-"A copy of the <citetitle>GNU General Public License</citetitle> is included "
-"as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
-"obtain a copy of the <citetitle>GNU General Public License</citetitle> from "
-"the Free Software Foundation by visiting <ulink type=\"http\" url=\"http://"
-"www.fsf.org\">their Web site</ulink> or by writing to <_:address-1/>"
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
+"does not cause an increase in the length of your worm."
 msgstr ""
-"Eine Kopie der <citetitle>GNU General Public License</citetitle> ist im "
-"Anhang des <citetitle>GNOME-Benutzerhandbuchs</citetitle> enthalten. Eine "
-"Kopie der <citetitle>GNU General Public License</citetitle> erhalten Sie auch "
-"von der Free Software Foundation, indem Sie deren <ulink type=\"http\" url="
-"\"http://www.fsf.org\">Website</ulink> besuchen oder Sie schreiben an: <_:"
-"address-1/>"
+"Der herzförmige Bonus <_:media-1/> : Dieser Bonus gewährt ein Extra-Leben "
+"und verursacht keine Verlängerung des Wurms."
 
-#: C/legal.xml:9(para/ulink)
-msgid "link"
-msgstr "Link"
-
-#: C/legal.xml:2(legalnotice/para)
+#: C/scores.page:52(note/p)
 msgid ""
-"Permission is granted to copy, distribute and/or modify this document under "
-"the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
-"later version published by the Free Software Foundation with no Invariant "
-"Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
-"of the GFDL at this <_:ulink-1/> or in the file COPYING-DOCS distributed with "
-"this manual."
+"The number of lives remaining for a worm is given by the number on the left "
+"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
+"lives remaining."
 msgstr ""
-"Das vorliegende Dokument kann gemäß den Bedingungen der GNU Free "
-"Documentation License (GFDL), Version 1.1 oder jeder späteren, von der Free "
-"Software Foundation veröffentlichten Version ohne unveränderbare Abschnitte "
-"sowie ohne Texte auf dem vorderen und hinteren Buchdeckel kopiert, verteilt "
-"und/oder modifiziert werden. Eine Kopie der GFDL finden Sie unter diesem <_:"
-"ulink-1/> oder in der mit diesem Handbuch gelieferten Datei COPYING-DOCS."
+"Die Anzahl verbleibender Leben eines Wurms ist durch die Ziffern links des "
+"Kommas der Wurmpunkte gegeben. Wenn die Wurmpunkte 10,005 sind, so hat der "
+"Wurm noch 10 verbleibende Leben."
+
+#: C/scores.page:57(note/p)
+msgid ""
+"You cannot get extra lives by scoring 10,000 points or more. If you have "
+"scored 12345 points with 10 lives remaining, your score will be 10,12345."
+msgstr ""
+"Sie können keine zusätzlichen Leben gewinnen, wenn Sie 10,000 oder mehr "
+"Punkte erzielen. Angenommen Sie erzielten 12345 Punkte mit 10 verbleibenden "
+"Leben, so beträgt Ihre Punktzahl 10,12345."
+
+#: C/scores.page:63(item/p)
+msgid ""
+"The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
+"increase in the length of the worm and does not give you any points. It "
+"causes a reversal in the movement of all the other worms in the game."
+msgstr ""
+"Der diamantförmige Bonus <_:media-1/> : Dieser Bonus verursacht keine "
+"Verlängerung des Wurms und erzielt keine Punkte. Er bewirkt eine Umkehrung "
+"der Bewegungsrichtung aller anderen Würmer im Spiel."
+
+#: C/scores.page:69(note/p)
+msgid "This bonus has no effect in a single-player game."
+msgstr "Dieser Bonus hat keine Auswirkungen in einem Einzelspieler-Spiel."
+
+#: C/scores.page:73(item/p)
+msgid ""
+"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
+"increase in the length of the worm than the donut-shaped bonus. The points "
+"given by this bonus vary depending on the level number and the length of the "
+"worm. The higher the level number and the longer the worm, the more the "
+"points are scored on eating this bonus."
+msgstr ""
+"Der Eis-förmige Bonus <_:media-1/> : Dieser Bonus verursacht eine größere "
+"Verlängerung des Wurmes als der Donut-förmige Bonus. Die Punkte, die durch "
+"diesen Bonus verteilt werden hängen vom aktuellen Level und der Länge des "
+"Wurmes ab. Je größer der Level und je länger der Wurm, desto mehr Punkte "
+"können beim Verschlingen erreicht werden."
+
+#: C/scores.page:82(item/p)
+msgid ""
+"The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
+"length of the worm. The points given by this bonus depend on the level "
+"number and the length of the worm. The higher the level number and the "
+"longer the worm, the more the points are scored on eating this bonus."
+msgstr ""
+"Der kirschförmige Bonus <_:media-1/> : Dieser Bonus verursacht eine "
+"Verkürzung des Wurms. Die durch diesen Bonus erzielten Punkte hängen von der "
+"Spielstufe und der Wurmlänge ab. Je höher die Spielstufe und je länger der "
+"Wurm, desto mehr Punkte werden mit diesem Bonus erzielt."
+
+#: C/legal.xml:4(p/link)
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr ""
+"Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 "
+"Nicht Angepasst"
+
+#: C/legal.xml:3(license/p)
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Dieses Werk wird unter <_:link-1/> verbreitet."
+
+#~ msgid "<application>Nibbles</application> Manual"
+#~ msgstr "<application>Nibbles</application>-Handbuch"
+
+#~ msgid ""
+#~ "Nibbles is a worm game for GNOME. The player controls a 2D worm while "
+#~ "trying to get food. Getting food gives points, but hitting anything "
+#~ "causes a loss of points. When all points are lost, the player loses."
+#~ msgstr ""
+#~ "Nibbles ist ein Wurm-Spiel für GNOME. Der Spieler steuert einen "
+#~ "zweidimensionalen Wurm, während dieser versucht, Futter zu finden. Durch "
+#~ "das Finden von Futter erzielen Sie Punkte, aber mit irgendetwas "
+#~ "zusammenzustoßen, kann Sie dagegen viele Punkte kosten. Wenn Sie alle "
+#~ "Punkte verloren haben, ist auch das Spiel für Sie verloren."
+
+#~ msgid "<year>2000</year> <holder>Kevin Breit</holder>"
+#~ msgstr "<year>2000</year> <holder>Kevin Breit</holder>"
+
+#~ msgid "GNOME Documentation Project"
+#~ msgstr "GNOME-Dokumentationsprojekt"
+
+#~ msgid ""
+#~ "Permission is granted to copy, distribute and/or modify this document "
+#~ "under the terms of the GNU Free Documentation License (GFDL), Version 1.1 "
+#~ "or any later version published by the Free Software Foundation with no "
+#~ "Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. You "
+#~ "can find a copy of the GFDL at this <ulink type=\"help\" url=\"help:fdl"
+#~ "\">link</ulink> or in the file COPYING-DOCS distributed with this manual."
+#~ msgstr ""
+#~ "Das vorliegende Dokument kann gemäß den Bedingungen der GNU Free "
+#~ "Documentation License (GFDL), Version 1.1 oder jeder späteren, von der "
+#~ "Free Software Foundation veröffentlichten Version ohne unveränderbare "
+#~ "Abschnitte sowie ohne Texte auf dem vorderen und hinteren Buchdeckel "
+#~ "kopiert, verteilt und/oder modifiziert werden. Eine Kopie der GFDL finden "
+#~ "Sie unter diesem <ulink type=\"help\" url=\"help:fdl\">Link</ulink> oder "
+#~ "in der mit diesem Handbuch gelieferten Datei COPYING-DOCS."
+
+#~ msgid ""
+#~ "This manual is part of a collection of GNOME manuals distributed under "
+#~ "the GFDL. If you want to distribute this manual separately from the "
+#~ "collection, you can do so by adding a copy of the license to the manual, "
+#~ "as described in section 6 of the license."
+#~ msgstr ""
+#~ "Dieses Handbuch ist Teil einer Sammlung von GNOME-Handbüchern, die unter "
+#~ "der GFDL veröffentlicht werden. Wenn Sie dieses Handbuch getrennt von der "
+#~ "Sammlung weiterverbreiten möchten, können Sie das tun, indem Sie eine "
+#~ "Kopie der Lizenz zum Handbuch hinzufügen, wie es in Abschnitt 6 der "
+#~ "Lizenz beschrieben ist."
+
+#~ msgid ""
+#~ "Many of the names used by companies to distinguish their products and "
+#~ "services are claimed as trademarks. Where those names appear in any GNOME "
+#~ "documentation, and the members of the GNOME Documentation Project are "
+#~ "made aware of those trademarks, then the names are in capital letters or "
+#~ "initial capital letters."
+#~ msgstr ""
+#~ "Viele der Namen, die von Unternehmen verwendet werden, um ihre Produkte "
+#~ "und Dienstleistungen von anderen zu unterscheiden, sind eingetragene "
+#~ "Warenzeichen. An den Stellen, an denen diese Namen in einer GNOME-"
+#~ "Dokumentation erscheinen, werden die Namen in Großbuchstaben oder mit "
+#~ "einem großen Anfangsbuchstaben geschrieben, wenn das GNOME-"
+#~ "Dokumentationsprojekt auf diese Warenzeichen hingewiesen wird."
+
+#~ msgid ""
+#~ "DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
+#~ "EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES "
+#~ "THAT THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS FREE OF DEFECTS "
+#~ "MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE "
+#~ "RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE DOCUMENT OR "
+#~ "MODIFIED VERSION OF THE DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR "
+#~ "MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL "
+#~ "WRITER, AUTHOR OR ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY "
+#~ "SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES "
+#~ "AN ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED "
+#~ "VERSION OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS "
+#~ "DISCLAIMER; AND"
+#~ msgstr ""
+#~ "DIESES DOKUMENT WIRD »WIE VORLIEGEND« GELIEFERT, OHNE GARANTIEN "
+#~ "IRGENDEINER ART, SOWOHL AUSDRÜCKLICH GENANNTE ALS AUCH ANGEDEUTETE. DIES "
+#~ "BEZIEHT SICH AUCH OHNE EINSCHRÄNKUNG AUF GARANTIEN, DASS DIESES DOKUMENT "
+#~ "ODER VERÄNDERTE FASSUNGEN DIESES DOKUMENTS FREI VON HANDELSDEFEKTEN, FÜR "
+#~ "EINEN BESTIMMTEN ZWECK GEEIGNET IST ODER DASS ES KEINE RECHTE DRITTER "
+#~ "VERLETZT. DAS VOLLE RISIKO WAS QUALITÄT, GENAUIGKEIT UND LEISTUNG DES "
+#~ "DOKUMENTS ODER VERÄNDERTE FASSUNGEN DES DOKUMENTS LIEGT BEI IHNEN. SOLLTE "
+#~ "EIN DOKUMENT ODER EINE VERÄNDERTE FASSUNG DAVON FEHLER IRGENDEINER ART "
+#~ "BEINHALTEN, TRAGEN SIE (NICHT DER URSPRUNGSAUTOR, DER AUTOR ODER EIN "
+#~ "MITWIRKENDER) DIE KOSTEN FÜR NOTWENDIGE DIENSTLEISTUNGEN, REPARATUREN "
+#~ "ODER FEHLERKORREKTUREN. DIESER HAFTUNGSAUSSCHLUSS IST EIN ESSENZIELLER "
+#~ "TEIL DIESER LIZENZ. DIE VERWENDUNG EINES DOKUMENTS ODER EINER VERÄNDERTEN "
+#~ "VERSION DES DOKUMENTS IST NICHT GESTATTET AUßER UNTER BEACHTUNG DIESES "
+#~ "HAFTUNGSAUSSCHLUSSES UND"
+
+#~ msgid ""
+#~ "UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT "
+#~ "(INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL "
+#~ "WRITER, ANY CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED "
+#~ "VERSION OF THE DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE "
+#~ "LIABLE TO ANY PERSON FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR "
+#~ "CONSEQUENTIAL DAMAGES OF ANY CHARACTER INCLUDING, WITHOUT LIMITATION, "
+#~ "DAMAGES FOR LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR "
+#~ "MALFUNCTION, OR ANY AND ALL OTHER DAMAGES OR LOSSES ARISING OUT OF OR "
+#~ "RELATING TO USE OF THE DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT, "
+#~ "EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH "
+#~ "DAMAGES."
+#~ msgstr ""
+#~ "UNTER KEINEN UMSTÄNDEN UND AUF BASIS KEINER RECHTSGRUNDLAGE, EGAL OB "
+#~ "DURCH UNERLAUBTEN HANDLUNGEN (EINSCHLIEßLICH FAHRLÄSSIGKEIT), VERTRAG "
+#~ "ODER ANDERWEITIG KANN DER AUTOR, URSPRUNGSAUTOR, EIN MITWIRKENDER ODER "
+#~ "EIN VERTRIEBSPARTNER DIESES DOKUMENTS ODER EINER VERÄNDERTEN FASSUNG DES "
+#~ "DOKUMENTS ODER EIN ZULIEFERER EINER DIESER PARTEIEN, HAFTBAR GEMACHT "
+#~ "WERDEN FÜR DIREKTE, INDIREKTE, SPEZIELLE, VERSEHENTLICHE ODER "
+#~ "FOLGESCHÄDEN JEGLICHER ART, EINSCHLIEßLICH UND OHNE EINSCHRÄNKUNGEN "
+#~ "SCHÄDEN DURCH VERLUST VON KULANZ, ARBEITSAUSFALL, COMPUTERVERSAGEN ODER "
+#~ "COMPUTERFEHLFUNKTIONEN ODER ALLE ANDEREN SCHÄDEN ODER VERLUSTE, DIE SICH "
+#~ "AUS ODER IN VERBINDUNG MIT DER VERWENDUNG DES DOKUMENTS UND VERÄNDERTER "
+#~ "FASSUNGEN DES DOKUMENTS ERGEBEN, AUCH WENN DIE OBEN GENANNTEN PARTEIEN "
+#~ "ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT WAREN."
+
+#~ msgid ""
+#~ "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE "
+#~ "TERMS OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER "
+#~ "UNDERSTANDING THAT: <_:orderedlist-1/>"
+#~ msgstr ""
+#~ "DAS DOKUMENT UND VERÄNDERTE FASSUNGEN DES DOKUMENTS WERDEN UNTER DEN "
+#~ "BEDINGUNGEN DER GNU FREE DOCUMENTATION LICENSE ZUR VERFÜGUNG GESTELLT MIT "
+#~ "DEM WEITERGEHENDEN VERSTÄNDNIS, DASS: <_:orderedlist-1/>"
+
+#~ msgid ""
+#~ "<firstname>Kevin</firstname> <surname>Breit</surname> <affiliation> "
+#~ "<orgname>GNOME Documentation Project</orgname> <address> "
+#~ "<email>battery841@mypad.com</email> </address> </affiliation>"
+#~ msgstr ""
+#~ "<firstname>Kevin</firstname> <surname>Breit</surname> <affiliation> "
+#~ "<orgname>GNOME-Dokumentationsprojekt</orgname> <address> "
+#~ "<email>battery841@mypad.com</email> </address> </affiliation>"
+
+#~ msgid "Kevin Breit <email>battery841@mypad.com</email>"
+#~ msgstr "Kevin Breit <email>battery841@mypad.com</email>"
+
+#~ msgid ""
+#~ "<revnumber>Nibbles Manual V2.20</revnumber> <date>May 2007</date> <_:"
+#~ "revdescription-1/>"
+#~ msgstr ""
+#~ "<revnumber>Nibbles-Handbuch V2.20</revnumber> <date>Mai 2007</date> <_:"
+#~ "revdescription-1/>"
+
+#~ msgid "This manual describes version 2.20 of Nibbles."
+#~ msgstr "Dieses Handbuch beschreibt Version 2.20 von Nibbles."
+
+#~ msgid "Feedback"
+#~ msgstr "Rückmeldungen"
+
+#~ msgid ""
+#~ "To report a bug or make a suggestion regarding the <application>Nibbles</"
+#~ "application> application or this manual, follow the directions in the "
+#~ "<ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME "
+#~ "Feedback Page</ulink>."
+#~ msgstr ""
+#~ "Um Fehler zu melden oder einen Vorschlag zur Anwendung "
+#~ "<application>Nibbles</application> oder zu diesem Handbuch zu machen, "
+#~ "folgen Sie den Anweisungen auf der <ulink url=\"ghelp:user-guide?feedback-"
+#~ "bugs\" type=\"help\">GNOME-Seite für Rückmeldungen</ulink>."
+
+#~ msgid "<primary>Nibbles</primary>"
+#~ msgstr "<primary>Nibbles</primary>"
+
+#~ msgid ""
+#~ "<application>Nibbles</application> is a game where the user controls a "
+#~ "worm. The worm moves around the board, eating diamonds while avoiding the "
+#~ "walls placed around it."
+#~ msgstr ""
+#~ "<application>Nibbles</application> ist ein Spiel, in dem der Spieler "
+#~ "einen Wurm steuert. Der Wurm bewegt sich über das Spielfeld, wobei er "
+#~ "»Diamanten« aufnimmt. Sie haben zu verhindern, dass der Wurm die rundum "
+#~ "platzierten Wände berührt."
+
+#~ msgid ""
+#~ "To run <application>Nibbles</application>, select <menuchoice> "
+#~ "<guisubmenu>Games</guisubmenu> <guimenuitem>Nibbles</guimenuitem> </"
+#~ "menuchoice> from the <guimenu>Applications</guimenu> menu, or type "
+#~ "<command>gnome-nibbles</command> on the command line."
+#~ msgstr ""
+#~ "Um <application>Nibbles</application> zu starten, wählen Sie "
+#~ "<menuchoice><guisubmenu>Spiele</guisubmenu><guimenuitem>Nibbles</"
+#~ "guimenuitem></menuchoice> im Menü <guimenu>Anwendungen</guimenu>, oder "
+#~ "geben Sie <command>gnome-nibbles</command> in einer Befehlszeile ein."
+
+#~ msgid ""
+#~ "<application>Nibbles</application> is included in the <filename>gnome-"
+#~ "games</filename> package, which is part of the GNOME desktop environment. "
+#~ "This document describes version 2.20 of <application>Nibbles</"
+#~ "application>."
+#~ msgstr ""
+#~ "<application>Nibbles</application> ist Teil des Pakets <filename>gnome-"
+#~ "games</filename>, das Teil der GNOME-Desktopumgebung ist. Dieses Dokument "
+#~ "beschreibt Version 2.20 von <application>Robots</application>."
+
+#~ msgid ""
+#~ "The objective of Nibbles is quite simple. You control the worm and if the "
+#~ "worm runs into a wall or runs into itself, you die. You get ten lives "
+#~ "before your game is over. You win by either beating your own high score "
+#~ "(or a friend's) or by completing all the levels. It is also possible to "
+#~ "play against worms with artificial intelligence."
+#~ msgstr ""
+#~ "Das Ziel von Nibbles ist recht simpel. Sie steuern einen Wurm, wobei Sie "
+#~ "verhindern müssen, dass dieser mit einer Wand oder mit sich selbst "
+#~ "zusammenstößt, ansonsten sterben Sie. Sie erhalten zehn Leben, bevor das "
+#~ "spiel endet. Sie gewinnen entweder dadurch, dass Sie Ihr eigenes höchstes "
+#~ "Ergebnis überbieten (oder das eines Freundes), oder indem Sie alle Level "
+#~ "durchspielen. Es ist ebenso möglich, gegen Würmer mit künstlicher "
+#~ "Intelligenz zu spielen."
+
+#~ msgid ""
+#~ "Nibbles also features multiplayer support with up to six competing human "
+#~ "players in hotseat mode."
+#~ msgstr ""
+#~ "Nibbles unterstützt auch einen Mehrspieler-Modus für bis zu sechs "
+#~ "gegeneinander antretende menschliche Spieler im Hotseat-Modus."
+
+#~ msgid "Using Nibbles"
+#~ msgstr "Nibbles spielen"
+
+#~ msgid ""
+#~ "<application>Nibbles</application> is a simple game to play. The only "
+#~ "keys that are needed are the arrow keys."
+#~ msgstr ""
+#~ "<application>Nibbles</application> ist einfach zu bedienen. Die einzigen "
+#~ "notwendigen Tasten sind die Pfeiltasten."
+
+#~ msgid "Basic usage"
+#~ msgstr "Grundlagen der Bedienung"
+
+#~ msgid "Nibbles Introduction Window"
+#~ msgstr "Startfenster von Nibbles"
+
+#~ msgid ""
+#~ "<imageobject> <imagedata fileref=\"figures/intro.png\" format=\"PNG\"/> </"
+#~ "imageobject> <textobject> <phrase>Nibbles Introduction Window.</phrase> </"
+#~ "textobject>"
+#~ msgstr ""
+#~ "<imageobject> <imagedata fileref=\"figures/intro.png\" format=\"PNG\"/> </"
+#~ "imageobject> <textobject> <phrase>Startfenster von Nibbles.</phrase> </"
+#~ "textobject>"
+
+#~ msgid ""
+#~ "Starting <application>Nibbles</application> opens the <interface>main "
+#~ "window</interface> shown below. <_:figure-1/>"
+#~ msgstr ""
+#~ "Beim Start von <application>Nibbles</application> wird das unten "
+#~ "angezeigte <interface>Hauptfenster</interface> geöffnet. <_:figure-1/>"
+
+#~ msgid ""
+#~ "To start the game, select <menuchoice><guimenu>Game</guimenu> "
+#~ "<guimenuitem>New Game</guimenuitem></menuchoice>."
+#~ msgstr ""
+#~ "Um das Spiel zu starten, wählen Sie <menuchoice><guimenu>Spiel</"
+#~ "guimenu><guimenuitem>Neu</guimenuitem></menuchoice>."
+
+#~ msgid "Nibbles During Gameplay"
+#~ msgstr "Nibbles während des Spiels"
+
+#~ msgid ""
+#~ "<imageobject> <imagedata fileref=\"figures/playing.png\" format=\"PNG\"/> "
+#~ "</imageobject> <textobject> <phrase>Nibbles During Gameplay.</phrase> </"
+#~ "textobject>"
+#~ msgstr ""
+#~ "<imageobject> <imagedata fileref=\"figures/playing.png\" format=\"PNG\"/> "
+#~ "</imageobject> <textobject> <phrase>Nibbles während eines laufenden "
+#~ "Spiels.</phrase> </textobject>"
