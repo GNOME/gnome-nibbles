@@ -74,8 +74,6 @@ void       games_scores_dialog_set_hilight              (GamesScoresDialog *self
                                                          guint pos);
 void       games_scores_dialog_set_message              (GamesScoresDialog *self, 
                                                          const gchar *message);
-void       games_scores_dialog_set_buttons              (GamesScoresDialog *self,
-                                                         guint buttons);
 
 G_END_DECLS
 #endif

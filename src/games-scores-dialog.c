@@ -433,54 +433,6 @@ void games_scores_dialog_set_hilight (GamesScoresDialog *self, guint pos)
   games_scores_dialog_set_hilight_private (self);
 }
 
-/**
- * set_buttons:
- * @self: a pointer to a GamesScoresDialog
- * @buttons: An or-ed list of GamesScoresButtons
- * 
- * Changes the button sets at the buttom of the dialog
- *
- **/
-void games_scores_dialog_set_buttons (GamesScoresDialog *self, guint buttons)
-{
-  /* Remove an existing buttons. */
-  gtk_container_foreach (GTK_CONTAINER (gtk_dialog_get_action_area (GTK_DIALOG (self))),
-                         (GtkCallback) (gtk_widget_destroy), NULL);
-
-  /* The default is a single close button, suitable for the scores
-     menu item. */
-  if (buttons == 0)
-	buttons = GAMES_SCORES_CLOSE_BUTTON;
-
-  if (buttons & GAMES_SCORES_QUIT_BUTTON) {
-	gtk_dialog_add_button (GTK_DIALOG (self), GTK_STOCK_QUIT,
-	                       GTK_RESPONSE_REJECT);
-      gtk_dialog_set_default_response (GTK_DIALOG (self), 
-	       			         GTK_RESPONSE_REJECT);
-  }
-
-  if (buttons & GAMES_SCORES_UNDO_BUTTON) {
-	gtk_dialog_add_button (GTK_DIALOG (self), GTK_STOCK_UNDO,
-	                       GTK_RESPONSE_DELETE_EVENT);
-      gtk_dialog_set_default_response (GTK_DIALOG (self), 
-	       			         GTK_RESPONSE_DELETE_EVENT);
-  }
-
-  if (buttons & GAMES_SCORES_NEW_GAME_BUTTON) {
-	gtk_dialog_add_button (GTK_DIALOG (self), _("New Game"),
-	                       GTK_RESPONSE_ACCEPT);
-      gtk_dialog_set_default_response (GTK_DIALOG (self), 
-	       			         GTK_RESPONSE_ACCEPT);
-  }
-
-  if (buttons & GAMES_SCORES_CLOSE_BUTTON) {
-	gtk_dialog_add_button (GTK_DIALOG (self), GTK_STOCK_CLOSE,
-	                       GTK_RESPONSE_CLOSE);
-      gtk_dialog_set_default_response (GTK_DIALOG (self), 
-	       			         GTK_RESPONSE_CLOSE);
-  }
-}
-
 static void games_scores_dialog_init (GamesScoresDialog *self) 
 {
   GtkWidget *vbox;
@@ -594,8 +546,11 @@ static void games_scores_dialog_init (GamesScoresDialog *self)
   self->priv->column = column;
  
   gtk_container_add (GTK_CONTAINER (scroll), listview);
-  
-  games_scores_dialog_set_buttons (self, GAMES_SCORES_CLOSE_BUTTON);
+
+  gtk_dialog_add_button (GTK_DIALOG (self), GTK_STOCK_CLOSE,
+				 GTK_RESPONSE_CLOSE);
+  gtk_dialog_set_default_response (GTK_DIALOG (self), 
+				 GTK_RESPONSE_CLOSE);
 
   gtk_window_set_destroy_with_parent (GTK_WINDOW (self), TRUE);
 
