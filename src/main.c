@@ -566,11 +566,11 @@ static const GtkActionEntry action_entry[] = {
    G_CALLBACK (pause_game_cb)},
   {"Scores", NULL, N_("_Scores"), NULL, NULL,
    G_CALLBACK (show_scores_cb)},
-  {"Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_cb)},
-  {"Preferences", GTK_STOCK_PREFERENCES, NULL, NULL, NULL,
+  {"Quit", NULL, N_("_Quit"), NULL, NULL, G_CALLBACK (quit_cb)},
+  {"Preferences", NULL, N_("_Preferences"), NULL, NULL,
    G_CALLBACK (gnibbles_preferences_cb)},
   {"Contents", NULL, N_("_Contents"), NULL, NULL, G_CALLBACK (help_cb)},
-  {"About", GTK_STOCK_ABOUT, NULL, NULL, NULL, G_CALLBACK (about_cb)}
+  {"About", NULL, N_("_About"), NULL, NULL, G_CALLBACK (about_cb)}
 };
 
 static const char ui_description[] =
