@@ -469,42 +469,14 @@ main_loop (gpointer data)
     if (winner == -1)
       return FALSE;
 
-    str = g_strdup_printf (_("Game over! The game has been won by %s!"),
-                             names[winner]);
-    g_free (str);
-
-    if (keyboard_id) {
-      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
-      keyboard_id = 0;
-    }
-    if (main_id) {
-      g_source_remove (main_id);
-      main_id = 0;
-    }
-    if (add_bonus_id)
-      g_source_remove (add_bonus_id);
-
-    add_bonus_id = 0;
-
-    animate_end_game ();
     gnibbles_log_score (window);
 
     return FALSE;
   }
 
   if (status == GAMEOVER) {
+    end_game ();
 
-    if (keyboard_id) {
-      g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
-      keyboard_id = 0;
-    }
-    main_id = 0;
-    if (add_bonus_id)
-      g_source_remove (add_bonus_id);
-
-    add_bonus_id = 0;
-
-    animate_end_game ();
     gnibbles_log_score (window);
 
     return FALSE;
