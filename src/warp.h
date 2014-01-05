@@ -23,7 +23,7 @@
 #include <gtk/gtk.h>
 #include <clutter/clutter.h>
 
-#define WARP     8
+#include "bonus.h"
 
 typedef struct {
   gint x, y;

@@ -31,6 +31,7 @@
 #define BONUSREVERSE	4
 #define BONUSCUT	5
 #define BONUSSWITCH	6
+#define WARP		7
 
 typedef struct {
   gint x, y;
