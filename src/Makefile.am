@@ -11,8 +11,6 @@ gnome_nibbles_SOURCES = \
 	warpmanager.c \
 	games-controls.h \
 	games-controls.c \
-	games-fullscreen-action.h \
-	games-fullscreen-action.c \
 	games-score.h			\
 	games-score.c			\
 	games-scores.c			\

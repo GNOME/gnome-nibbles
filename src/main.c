@@ -39,7 +39,6 @@
 #include "preferences.h"
 #include "scoreboard.h"
 #include "warp.h"
-#include "games-fullscreen-action.h"
 #include "games-scores.h"
 
 #include <clutter-gtk/clutter-gtk.h>
@@ -91,29 +90,11 @@ gint restart_id = 0;
 gint current_level;
 
 gboolean is_paused;
+static gboolean new_game_2_cb (GtkWidget * widget, gpointer data);
 
 static gint add_bonus_cb (gpointer data);
 
-static gint end_game_cb (GtkAction * action, gpointer data);
-
-static GtkAction *new_game_action;
-GtkAction *pause_action;
-static GtkAction *end_game_action;
 static GtkAction *preferences_action;
-static GtkAction *scores_action;
-static GtkAction *fullscreen_action;
-
-static void
-hide_cursor (void)
-{
-  clutter_stage_hide_cursor (CLUTTER_STAGE (stage));
-}
-
-static void
-show_cursor (void)
-{
-  clutter_stage_show_cursor (CLUTTER_STAGE (stage));
-}
 
 gint
 game_running (void)
@@ -138,13 +119,99 @@ delete_cb (GtkWidget * widget, gpointer data)
 }
 
 static void
-quit_cb (GObject * object, gpointer data)
+activate_toggle (GSimpleAction *action,
+                 GVariant      *parameter,
+                 gpointer       user_data)
 {
-  gtk_widget_destroy (window);
+  GVariant *state;
+
+  state = g_action_get_state (G_ACTION (action));
+  g_action_change_state (G_ACTION (action), g_variant_new_boolean (!g_variant_get_boolean (state)));
+  g_variant_unref (state);
 }
 
 static void
-about_cb (GtkAction * action, gpointer data)
+change_pause_state (GSimpleAction *action,
+                         GVariant      *state,
+                         gpointer       user_data)
+{
+  if (!is_paused) {  //If it's not currently paused, pause the game
+    is_paused = TRUE;
+    if (main_id || restart_id || dummy_id) {
+      if (main_id) {
+        g_source_remove (main_id);
+        main_id = 0;
+      }
+      if (keyboard_id) {
+        g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
+        keyboard_id = 0;
+      }
+      if (add_bonus_id) {
+        g_source_remove (add_bonus_id);
+        add_bonus_id = 0;
+      }
+    }
+  }
+  else {  //Resume the game
+    is_paused = FALSE;
+    dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
+  }
+
+}
+
+
+static void
+newgame_activated (GSimpleAction *action,
+                GVariant      *parameter,
+                gpointer       user_data)
+{
+  new_game ();
+}
+
+static void
+endgame_activated (GSimpleAction *action,
+                GVariant      *parameter,
+                gpointer       user_data)
+{
+  end_game ();
+}
+
+
+static void
+scores_activated (GSimpleAction *action,
+                GVariant      *parameter,
+                gpointer       user_data)
+{
+  gnibbles_show_scores (window, 0);
+}
+
+static void
+preferences_activated (GSimpleAction *action,
+                GVariant      *parameter,
+                gpointer       user_data)
+{
+  gnibbles_preferences_cb (window, user_data);
+}
+
+static void
+help_activated (GSimpleAction *action,
+                GVariant      *parameter,
+                gpointer       user_data)
+{
+  GError *error = NULL;
+
+  gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (window)), "help:gnome-nibbles", gtk_get_current_event_time (), &error);
+  if (error)
+    g_warning ("Failed to show help: %s", error->message);
+  g_clear_error (&error);
+}
+
+
+
+static void
+about_activated (GSimpleAction *action,
+                 GVariant      *parameter,
+                 gpointer       user_data)
 {
   const gchar *authors[] = { "Sean MacIsaac", "Ian Peters", "Andreas Røsdal",
                              "Guillaume Beland", NULL };
@@ -167,11 +234,30 @@ about_cb (GtkAction * action, gpointer data)
        NULL);
 }
 
+static void
+quit_activated (GSimpleAction *action,
+                GVariant      *parameter,
+                gpointer       user_data)
+{
+  GApplication *app = user_data;
+
+  g_application_quit (app);
+}
+
+static GActionEntry app_entries[] = {
+  { "newgame", newgame_activated, NULL, NULL, NULL },
+  { "endgame", endgame_activated, NULL, NULL, NULL },
+  { "pause", activate_toggle, NULL, "false", change_pause_state},
+  { "preferences", preferences_activated, NULL, NULL, NULL },
+  { "scores", scores_activated, NULL, NULL, NULL },
+  { "help", help_activated, NULL, NULL, NULL },
+  { "about", about_activated, NULL, NULL, NULL },
+  { "quit", quit_activated, NULL, NULL, NULL },
+};
+
 static gboolean
 key_press_cb (ClutterActor *actor, ClutterEvent *event, gpointer data)
 {
-  hide_cursor ();
-
   if (!(event->type == CLUTTER_KEY_PRESS))
     return FALSE;
 
@@ -224,7 +310,6 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
 static gboolean
 new_game_2_cb (GtkWidget * widget, gpointer data)
 {
-  //if (!is_paused) {  //FIXME figure out why this should be here.
     if (!keyboard_id)
       keyboard_id = g_signal_connect (G_OBJECT (stage),
                                       "key-press-event",
@@ -238,7 +323,6 @@ new_game_2_cb (GtkWidget * widget, gpointer data)
                                     properties->gamespeed,
                                     (GSourceFunc) add_bonus_cb, NULL);
     }
-  //}
 
   dummy_id = 0;
 
@@ -249,10 +333,7 @@ gboolean
 new_game (void)
 {
   int i;
-  gtk_action_set_sensitive (pause_action, TRUE);
-  gtk_action_set_sensitive (end_game_action, TRUE);
-  gtk_action_set_sensitive (new_game_action, FALSE);
-  gtk_action_set_sensitive (preferences_action, FALSE);
+  //TODO Needs to sensitivity for game being active here
 
   if (game_running ()) {
     main_id = 0;
@@ -294,46 +375,6 @@ new_game (void)
   return TRUE;
 }
 
-static void
-new_game_cb (GtkAction * action, gpointer data)
-{
-  new_game ();
-}
-
-static void
-pause_game_cb (GtkAction * action, gpointer data)
-{
-  if (!is_paused) {  //If it's not currently paused, pause the game
-    is_paused = TRUE;
-    gtk_action_set_label (action, ("_Resume"));
-    if (main_id || restart_id || dummy_id) {
-      if (main_id) {
-        g_source_remove (main_id);
-        main_id = 0;
-      }
-      if (keyboard_id) {
-        g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
-        keyboard_id = 0;
-      }
-      if (add_bonus_id) {
-        g_source_remove (add_bonus_id);
-        add_bonus_id = 0;
-      }
-    }
-  }
-  else {  //Resume the game
-    is_paused = FALSE;
-    gtk_action_set_label (action, ("_Pause"));
-    dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
-  }
-}
-
-static void
-show_scores_cb (GtkAction * action, gpointer data)
-{
-  gnibbles_show_scores (window, 0);
-}
-
 void
 end_game (void)
 {
@@ -364,19 +405,9 @@ end_game (void)
 
   animate_end_game ();
 
-  gtk_action_set_sensitive (pause_action, FALSE);
-  gtk_action_set_sensitive (end_game_action, FALSE);
-  gtk_action_set_sensitive (new_game_action, TRUE);
-  gtk_action_set_sensitive (preferences_action, TRUE);
+  //TODO Needs to set sensitivity for game not being played here.
 
   is_paused = FALSE;
-}
-
-static gboolean
-end_game_cb (GtkAction * action, gpointer data)
-{
-  end_game ();
-  return FALSE;
 }
 
 static gboolean
@@ -534,108 +565,80 @@ main_loop (gpointer data)
   return TRUE;
 }
 
-static gboolean
-show_cursor_cb (GtkWidget * widget, GdkEventMotion *event, gpointer data)
-{
-  show_cursor ();
-  return FALSE;
-}
-
 static void
-help_cb (GtkAction * action, gpointer data)
+activate (GtkApplication* app,
+          gpointer        user_data)
 {
-  GError *error = NULL;
+  GtkWidget *window;
+  GtkWidget *label;
 
-  gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (window)), "help:gnome-nibbles", gtk_get_current_event_time (), &error);
-  if (error)
-    g_warning ("Failed to show help: %s", error->message);
-  g_clear_error (&error);
-}
-
-static const GtkActionEntry action_entry[] = {
-  {"GameMenu", NULL, N_("_Game")},
-  {"ViewMenu", NULL, N_("_View")},
-  {"SettingsMenu", NULL, N_("_Settings")},
-  {"HelpMenu", NULL, N_("_Help")},
-  {"NewGame", NULL, N_("_New Game"), NULL, NULL,
-   G_CALLBACK (new_game_cb)},
-  {"EndGame", NULL, N_("_End Game"), NULL, NULL,
-   G_CALLBACK (end_game_cb)},
-  {"Pause", NULL, N_("_Pause"), NULL, NULL,
-   G_CALLBACK (pause_game_cb)},
-  {"Scores", NULL, N_("_Scores"), NULL, NULL,
-   G_CALLBACK (show_scores_cb)},
-  {"Quit", NULL, N_("_Quit"), NULL, NULL, G_CALLBACK (quit_cb)},
-  {"Preferences", NULL, N_("_Preferences"), NULL, NULL,
-   G_CALLBACK (gnibbles_preferences_cb)},
-  {"Contents", NULL, N_("_Contents"), NULL, NULL, G_CALLBACK (help_cb)},
-  {"About", NULL, N_("_About"), NULL, NULL, G_CALLBACK (about_cb)}
-};
-
-static const char ui_description[] =
-  "<ui>"
-  "  <menubar name='MainMenu'>"
-  "    <menu action='GameMenu'>"
-  "      <menuitem action='NewGame'/>"
-  "      <menuitem action='EndGame'/>"
-  "      <separator/>"
-  "      <menuitem action='Pause'/>"
-  "      <separator/>"
-  "      <menuitem action='Scores'/>"
-  "      <separator/>"
-  "      <menuitem action='Quit'/>"
-  "    </menu>"
-  "    <menu action='ViewMenu'>"
-  "      <menuitem action='Fullscreen'/>"
-  "    </menu>"
-  "    <menu action='SettingsMenu'>"
-  "      <menuitem action='Preferences'/>"
-  "    </menu>"
-  "    <menu action='HelpMenu'>"
-  "      <menuitem action='Contents'/>"
-  "      <menuitem action='About'/>"
-  "    </menu>"
-  "  </menubar>"
-  "</ui>";
-
-static void
-create_menus (GtkUIManager * ui_manager)
-{
-  GtkActionGroup *action_group;
-
-  action_group = gtk_action_group_new ("MenuActions");
-
-  gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
-  gtk_action_group_add_actions (action_group, action_entry,
-                                G_N_ELEMENTS (action_entry), window);
-
-  gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
-  gtk_ui_manager_add_ui_from_string (ui_manager, ui_description, -1, NULL);
-
-  new_game_action = gtk_action_group_get_action (action_group, "NewGame");
-  scores_action = gtk_action_group_get_action (action_group, "Scores");
-  end_game_action = gtk_action_group_get_action (action_group, "EndGame");
-  pause_action = gtk_action_group_get_action (action_group, "Pause");
-
-  preferences_action = gtk_action_group_get_action (action_group,
-                                                    "Preferences");
-  fullscreen_action = GTK_ACTION (games_fullscreen_action_new ("Fullscreen", GTK_WINDOW(window)));
-  gtk_action_group_add_action_with_accel (action_group, fullscreen_action, NULL);
-
-}
-
-static void
-setup_window (void)
-{
   GtkWidget *vbox;
-  GtkWidget *menubar;
-  GtkWidget *packing;
-
-  GtkUIManager *ui_manager;
-  GtkAccelGroup *accel_group;
   ClutterColor stage_color = {0x00,0x00,0x00,0xff};
 
-  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  GtkWidget *packing;
+
+  GtkBuilder *builder;
+
+  window = gtk_application_window_new (app);
+
+  g_action_map_add_action_entries (G_ACTION_MAP (app), app_entries, G_N_ELEMENTS (app_entries), app);
+
+  builder = gtk_builder_new ();
+
+   gtk_builder_add_from_string (builder,
+                               "<interface>"
+                               "  <menu id='app-menu'>"
+                               "    <section>"
+                               "      <item>"
+                               "        <attribute name='label' translatable='yes'>_New Game</attribute>"
+                               "        <attribute name='action'>app.newgame</attribute>"
+                               "      </item>"
+                               "      <item>"
+                               "        <attribute name='label' translatable='yes'>_End Game</attribute>"
+                               "        <attribute name='action'>app.endgame</attribute>"
+                               "      </item>"
+                               "    </section>"
+                               "    <section>"
+                               "      <item>"
+                               "        <attribute name='label' translatable='yes'>_Pause</attribute>"
+                               "        <attribute name='action'>app.pause</attribute>"
+                               "        <attribute name='accel'>Pause</attribute>"
+                               "      </item>"
+                               "      <item>"
+                               "        <attribute name='label' translatable='yes'>_Preferences</attribute>"
+                               "        <attribute name='action'>app.preferences</attribute>"
+                               "      </item>"
+                               "      <item>"
+                               "        <attribute name='label' translatable='yes'>_Scores</attribute>"
+                               "        <attribute name='action'>app.scores</attribute>"
+                               "      </item>"
+                               "    </section>"
+                               "    <section>"
+                               "      <item>"
+                               "        <attribute name='label' translatable='yes'>_Help</attribute>"
+                               "        <attribute name='action'>app.help</attribute>"
+                               "        <attribute name='accel'>F1</attribute>"
+                               "      </item>"
+                               "      <item>"
+                               "        <attribute name='label' translatable='yes'>_About</attribute>"
+                               "        <attribute name='action'>app.about</attribute>"
+                               "      </item>"
+                               "    </section>"
+                               "    <section>"
+                               "      <item>"
+                               "        <attribute name='label' translatable='yes'>_Quit</attribute>"
+                               "        <attribute name='action'>app.quit</attribute>"
+                               "        <attribute name='accel'>&lt;Primary&gt;q</attribute>"
+                               "      </item>"
+                               "    </section>"
+                               "  </menu>"
+                               "</interface>", -1, NULL); 
+
+  gtk_application_set_app_menu (GTK_APPLICATION (app), G_MENU_MODEL (gtk_builder_get_object (builder, "app-menu")));
+
+
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+
   clutter_widget = gtk_clutter_embed_new ();
   stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter_widget));
 
@@ -644,40 +647,7 @@ setup_window (void)
   clutter_actor_set_size (CLUTTER_ACTOR (stage),
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
-  clutter_stage_set_user_resizable (CLUTTER_STAGE (stage), FALSE);
-
-  board = gnibbles_board_new ();
-
-  gtk_window_set_title (GTK_WINDOW (window), _("Nibbles"));
-
-  gtk_window_set_default_size (GTK_WINDOW (window),
-                               DEFAULT_WIDTH, DEFAULT_HEIGHT);
-  //games_conf_add_window (GTK_WINDOW (window), KEY_PREFERENCES_GROUP);
-
-  g_signal_connect (G_OBJECT (window), "destroy",
-                    G_CALLBACK (gtk_main_quit), NULL);
-  g_signal_connect (G_OBJECT (window), "delete_event",
-                    G_CALLBACK (delete_cb), NULL);
-
-  gtk_widget_realize (window);
-
-  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-
-  ui_manager = gtk_ui_manager_new ();
-  create_menus (ui_manager);
-
-  accel_group = gtk_ui_manager_get_accel_group (ui_manager);
-  gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
-
-  menubar = gtk_ui_manager_get_widget (ui_manager, "/MainMenu");
-
-  gtk_box_pack_start (GTK_BOX (vbox), menubar, FALSE, FALSE, 0);
-
-  g_signal_connect (G_OBJECT (clutter_widget), "configure_event",
-                    G_CALLBACK (configure_event_cb), NULL);
-
-  g_signal_connect (G_OBJECT (window), "focus_out_event",
-                    G_CALLBACK (show_cursor_cb), NULL);
+  //clutter_stage_set_user_resizable (CLUTTER_STAGE (stage), TRUE);
 
   packing = gtk_aspect_frame_new (NULL,
                         0.5,
@@ -685,20 +655,28 @@ setup_window (void)
                         1.38,   //between 1.398176292 and 1.388888889
                         FALSE);
 
+   gtk_container_add( GTK_CONTAINER(packing), clutter_widget); 
 
-  gtk_container_add( GTK_CONTAINER(packing), clutter_widget); 
+  
 
   gtk_box_pack_start (GTK_BOX (vbox), packing, FALSE, TRUE, 0);
 
   statusbar = gtk_statusbar_new ();
   gtk_box_pack_start (GTK_BOX (vbox), statusbar, FALSE, FALSE, 0);
+  scoreboard = gnibbles_scoreboard_new (statusbar);
+
+  board = gnibbles_board_new ();
 
   gtk_container_add (GTK_CONTAINER (window), vbox);
+  gtk_window_set_default_size (GTK_WINDOW (window), 640, 480);
+
+  g_signal_connect (G_OBJECT (clutter_widget), "configure_event",
+                    G_CALLBACK (configure_event_cb), NULL);
 
   gtk_widget_show_all (window);
-
-  scoreboard = gnibbles_scoreboard_new (statusbar);
 }
+
+
 
 int
 main (int argc, char **argv)
@@ -707,6 +685,9 @@ main (int argc, char **argv)
   gboolean retval;
   int i;
   GError *error = NULL;
+  //TODO: Review next 2 lines before finishing conversion
+  GtkApplication *app;
+  int status;
 
   setlocale (LC_ALL, "");
   bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
@@ -765,16 +746,13 @@ main (int argc, char **argv)
                                  GAMES_SCORES_STYLE_PLAIN_DESCENDING);
 
   properties = gnibbles_properties_new ();
-  setup_window ();
+  //TODO: Review to EOF before finishing conversion
   gnibbles_load_pixmap (properties->tilesize);
 
-  gtk_action_set_sensitive (pause_action, FALSE);
-  gtk_action_set_sensitive (end_game_action, FALSE);
-  gtk_action_set_visible (new_game_action, TRUE);
+  app = gtk_application_new (NULL, G_APPLICATION_FLAGS_NONE);
+  g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
+  status = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
 
-  gtk_main ();
-
-  gnibbles_properties_destroy (properties);
-
-  return 0;
+  return status;
 }
