@@ -29,26 +29,26 @@
 # Simos Xenitellis <simos.lists@googlemail.com>, 2010.
 # Michael Kotsarinis <mk73628@hotmail.com>, 2010.
 # George Stefanakis <george.stefanakis@gmail.com>, 2011.
-# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013.
+# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-11-07 00:49+0000\n"
-"PO-Revision-Date: 2013-11-15 10:59+0300\n"
+"POT-Creation-Date: 2014-01-12 18:09+0000\n"
+"PO-Revision-Date: 2014-01-11 14:49+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
-"Language-Team: team@lists.gnome.gr\n"
+"Language-Team: www.gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.0\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:155 ../src/main.c:681
-#: ../src/main.c:754
+#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:155 ../src/main.c:651
+#: ../src/main.c:724
 msgid "Nibbles"
 msgstr "Μπουκιές-Nibbles"
 
@@ -262,20 +262,20 @@ msgctxt "score-dialog"
 msgid "%1$dm %2$ds"
 msgstr "%1$dm %2$ds"
 
-#: ../src/games-scores-dialog.c:470
-msgid "New Game"
-msgstr "Νέο Παιχνίδι"
-
 #. Score dialog column header for the name of the player who recorded the score
-#: ../src/games-scores-dialog.c:571
+#: ../src/games-scores-dialog.c:523
 msgctxt "score-dialog"
 msgid "Name"
 msgstr "Όνομα"
 
 #. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:580
+#: ../src/games-scores-dialog.c:532
 msgid "Date"
 msgstr "Ημερομηνία"
+
+#: ../src/games-scores-dialog.c:550 ../src/preferences.c:225
+msgid "Close"
+msgstr "Κλείσιμο"
 
 #: ../src/gnibbles.c:82
 #, c-format
@@ -350,9 +350,9 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Γρήγορο με εικονικά μπόνους"
 
-#: ../src/main.c:162
+#: ../src/main.c:161
 msgid ""
-"A worm game for GNOME.\n"
+"A worm game for GNOME\n"
 "\n"
 "Nibbles is a part of GNOME Games."
 msgstr ""
@@ -360,7 +360,7 @@ msgstr ""
 "\n"
 "Οι Μπουκιές είναι μέρος των παιχνιδιών του GNOME."
 
-#: ../src/main.c:165
+#: ../src/main.c:164
 msgid "translator-credits"
 msgstr ""
 "Δημήτρης Σπίγγος <dmtrs32@gmail.com>\n"
@@ -369,50 +369,53 @@ msgstr ""
 "Κώστας Παπαδήμας <pkst@gmx.net>\n"
 "Τζένη Πετούμενου <epetoumenou@gmail.com>"
 
-#: ../src/main.c:168
-msgid "GNOME Games web site"
-msgstr "Ιστοσελίδα των παιχνιδιών του GNOME"
-
-#: ../src/main.c:473
-#, c-format
-msgid "Game over! The game has been won by %s!"
-msgstr "Τέλος παιχνιδιού. Ο %s κέρδισε το παιχνίδι!"
-
-#: ../src/main.c:586
+#: ../src/main.c:556
 msgid "_Game"
 msgstr "_Παιχνίδι"
 
-#: ../src/main.c:587
+#: ../src/main.c:557
 msgid "_View"
 msgstr "Πρ_οβολή"
 
-#: ../src/main.c:588
+#: ../src/main.c:558
 msgid "_Settings"
 msgstr "_Ρυθμίσεις"
 
-#: ../src/main.c:589
+#: ../src/main.c:559
 msgid "_Help"
 msgstr "_Βοήθεια"
 
-#: ../src/main.c:590
+#: ../src/main.c:560
 msgid "_New Game"
 msgstr "_Νέο παιχνίδι"
 
-#: ../src/main.c:592
+#: ../src/main.c:562
 msgid "_End Game"
 msgstr "_Τέλος παιχνιδιού"
 
-#: ../src/main.c:594
+#: ../src/main.c:564
 msgid "_Pause"
 msgstr "Π_αύση"
 
-#: ../src/main.c:596
+#: ../src/main.c:566
 msgid "_Scores"
 msgstr "_Βαθμολογίες"
 
-#: ../src/main.c:601
+#: ../src/main.c:568
+msgid "_Quit"
+msgstr "Έ_ξοδος"
+
+#: ../src/main.c:569
+msgid "_Preferences"
+msgstr "Π_ροτιμήσεις"
+
+#: ../src/main.c:571
 msgid "_Contents"
 msgstr "_Περιεχόμενα"
+
+#: ../src/main.c:572
+msgid "_About"
+msgstr "_Περί"
 
 #: ../src/preferences.c:223
 msgid "Nibbles Preferences"
@@ -519,6 +522,15 @@ msgstr "Γκρίζο"
 #, c-format
 msgid "Worm %d:"
 msgstr "Σκουλήκι %d:"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Ιστοσελίδα των παιχνιδιών του GNOME"
+
+#~ msgid "New Game"
+#~ msgstr "Νέο Παιχνίδι"
+
+#~ msgid "Game over! The game has been won by %s!"
+#~ msgstr "Τέλος παιχνιδιού. Ο %s κέρδισε το παιχνίδι!"
 
 #~ msgid "View help for this game"
 #~ msgstr "Προβολή βοήθειας για αυτό το παιχνίδι"
@@ -1969,15 +1981,6 @@ msgstr "Σκουλήκι %d:"
 
 #~ msgid "_Restart Game"
 #~ msgstr "_Επανεκκίνηση του παιχνιδιού"
-
-#~ msgid "_Preferences"
-#~ msgstr "Π_ροτιμήσεις"
-
-#~ msgid "_About"
-#~ msgstr "_Περί"
-
-#~ msgid "_Quit"
-#~ msgstr "Έ_ξοδος"
 
 #~ msgid "Hint"
 #~ msgstr "Υπόδειξη"
