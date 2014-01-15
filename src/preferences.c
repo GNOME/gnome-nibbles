@@ -222,7 +222,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
   pref_dialog = gtk_dialog_new_with_buttons (_("Nibbles Preferences"),
                                              GTK_WINDOW (window), 0,
-                                             _("Close"),
+                                             _("_Close"),
                                              GTK_RESPONSE_CLOSE, NULL);
   gtk_container_set_border_width (GTK_CONTAINER (pref_dialog), 5);
   gtk_box_set_spacing

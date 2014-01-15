@@ -445,7 +445,7 @@ static void games_scores_dialog_init (GamesScoresDialog *self)
  
   gtk_container_add (GTK_CONTAINER (scroll), listview);
 
-  gtk_dialog_add_button (GTK_DIALOG (self), _("Close"),
+  gtk_dialog_add_button (GTK_DIALOG (self), _("_Close"),
 				 GTK_RESPONSE_CLOSE);
   gtk_dialog_set_default_response (GTK_DIALOG (self), 
 				 GTK_RESPONSE_CLOSE);
