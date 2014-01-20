@@ -1,4 +1,6 @@
-AC_INIT([gnome-nibbles],[3.11.1])
+AC_PREREQ([2.63])
+AC_INIT([GNOME Nibbles], [3.11.1], [https://bugzilla.gnome.org/],
+        [gnome-nibbles], [https://gnome.org.wiki/Apps/Nibbles])
 AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz foreign])
 AM_SILENT_RULES([yes])
 AM_MAINTAINER_MODE
