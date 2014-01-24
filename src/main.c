@@ -39,6 +39,7 @@
 #include "preferences.h"
 #include "scoreboard.h"
 #include "warp.h"
+#include "games-gridframe.h"
 #include "games-scores.h"
 
 #include <clutter-gtk/clutter-gtk.h>
@@ -54,6 +55,7 @@ GSettings *settings;
 GSettings *worm_settings[NUMWORMS];
 GtkWidget *window;
 GtkWidget *statusbar;
+GtkWidget *notebook;
 GtkWidget *chat = NULL;
 
 static const GamesScoresCategory scorecats[] = {
@@ -580,12 +582,13 @@ activate (GtkApplication* app,
   GtkBuilder *builder;
 
   window = gtk_application_window_new (app);
+  gtk_window_set_default_size (GTK_WINDOW (window), 800, 600);
 
   g_action_map_add_action_entries (G_ACTION_MAP (app), app_entries, G_N_ELEMENTS (app_entries), app);
 
   builder = gtk_builder_new ();
 
-   gtk_builder_add_from_string (builder,
+  gtk_builder_add_from_string (builder,
                                "<interface>"
                                "  <menu id='app-menu'>"
                                "    <section>"
@@ -634,8 +637,7 @@ activate (GtkApplication* app,
 
   gtk_application_set_app_menu (GTK_APPLICATION (app), G_MENU_MODEL (gtk_builder_get_object (builder, "app-menu")));
 
-
-  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+  
 
   clutter_widget = gtk_clutter_embed_new ();
   stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter_widget));
@@ -645,33 +647,27 @@ activate (GtkApplication* app,
   clutter_actor_set_size (CLUTTER_ACTOR (stage),
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
-  //clutter_stage_set_user_resizable (CLUTTER_STAGE (stage), TRUE);
 
-  packing = gtk_aspect_frame_new (NULL,
-                        0.5,
-                        0.5,
-                        1.38,   //between 1.398176292 and 1.388888889
-                        FALSE);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
-   gtk_container_add( GTK_CONTAINER(packing), clutter_widget); 
-
-  
-
+  //Games Grid Frame Packing
+  packing = games_grid_frame_new (BOARDWIDTH, BOARDHEIGHT);
+  gtk_container_add (GTK_CONTAINER (packing), clutter_widget);
   gtk_box_pack_start (GTK_BOX (vbox), packing, FALSE, TRUE, 0);
 
+  //Statusbar
   statusbar = gtk_statusbar_new ();
   gtk_box_pack_start (GTK_BOX (vbox), statusbar, FALSE, FALSE, 0);
+
+  //Actually inits the board/scoreboard
+  board = gnibbles_board_new ();
   scoreboard = gnibbles_scoreboard_new (statusbar);
 
-  board = gnibbles_board_new ();
-
   gtk_container_add (GTK_CONTAINER (window), vbox);
-  gtk_window_set_default_size (GTK_WINDOW (window), 640, 480);
+  gtk_widget_show_all (window);
 
   g_signal_connect (G_OBJECT (clutter_widget), "configure_event",
                     G_CALLBACK (configure_event_cb), NULL);
-
-  gtk_widget_show_all (window);
 }
 
 
