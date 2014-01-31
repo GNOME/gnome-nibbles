@@ -573,6 +573,9 @@ activate (GtkApplication* app,
 {
   GtkWidget *window;
   GtkWidget *label;
+  GdkGeometry size_hints = {
+    800, 600, 0, 0, 800, 600, 0, 0, 0.0, 0.0, GDK_GRAVITY_NORTH_WEST  
+  };
 
   GtkWidget *vbox;
   ClutterColor stage_color = {0x00,0x00,0x00,0xff};
@@ -582,7 +585,11 @@ activate (GtkApplication* app,
   GtkBuilder *builder;
 
   window = gtk_application_window_new (app);
-  gtk_window_set_default_size (GTK_WINDOW (window), 800, 600);
+
+  gtk_window_set_geometry_hints (GTK_WINDOW (window),
+                    window,
+                    &size_hints,
+                    GDK_HINT_MIN_SIZE);
 
   g_action_map_add_action_entries (G_ACTION_MAP (app), app_entries, G_N_ELEMENTS (app_entries), app);
 
