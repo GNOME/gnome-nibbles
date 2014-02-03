@@ -1,3 +1,11 @@
+gnome-nibbles 3.11.5
+==================
+
+ * Many updated translations
+ * GtkApplication Port with new AppMenu
+ * Fix scores system and move to storing in home
+ * End game will show scores dialog
+
 gnome-nibbles 3.11.1
 ==================
 
