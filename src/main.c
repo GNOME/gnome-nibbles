@@ -581,6 +581,7 @@ static void
 activate (GtkApplication* app,
           gpointer        user_data)
 {
+  GtkWidget *headerbar;
   GtkWidget *window;
   GtkWidget *label;
   GdkGeometry size_hints = {
@@ -594,7 +595,14 @@ activate (GtkApplication* app,
 
   GtkBuilder *builder;
 
+  headerbar = gtk_header_bar_new ();
+  gtk_header_bar_set_show_close_button (GTK_HEADER_BAR (headerbar), TRUE);
+  gtk_header_bar_set_title (GTK_HEADER_BAR (headerbar), _("Nibbles"));
+  gtk_widget_show (headerbar);
+
   window = gtk_application_window_new (app);
+
+  gtk_window_set_titlebar (GTK_WINDOW (window), headerbar);
 
   gtk_window_set_geometry_hints (GTK_WINDOW (window),
                     window,
