@@ -706,12 +706,6 @@ main (int argc, char **argv)
 
   games_scores_startup ();
 
-  /*
-   * Required because the binary doesn't match the desktop file.
-   * Has to be before the call to g_option_context_parse.
-   */
-  g_set_prgname ("gnibbles");
-
   g_set_application_name (_("Nibbles"));
 
   if (gtk_clutter_init (&argc, &argv) != CLUTTER_INIT_SUCCESS) {

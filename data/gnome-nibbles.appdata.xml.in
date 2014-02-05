@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2013 Michael Catanzaro -->
 <application>
- <id type="desktop">gnibbles.desktop</id>
+ <id type="desktop">gnome-nibbles.desktop</id>
  <licence>CC0</licence>
  <_name>GNOME Nibbles</_name>
  <description>
