@@ -96,10 +96,7 @@ static gboolean new_game_2_cb (GtkWidget * widget, gpointer data);
 
 static gint add_bonus_cb (gpointer data);
 
-static GSimpleAction *new_game_action;
-static GSimpleAction *end_game_action;
 static GSimpleAction *pause_action;
-static GSimpleAction *preferences_action;
 
 gint
 game_running (void)
@@ -175,15 +172,6 @@ newgame_activated (GSimpleAction *action,
 }
 
 static void
-endgame_activated (GSimpleAction *action,
-                GVariant      *parameter,
-                gpointer       user_data)
-{
-  end_game ();
-}
-
-
-static void
 scores_activated (GSimpleAction *action,
                 GVariant      *parameter,
                 gpointer       user_data)
@@ -252,7 +240,6 @@ quit_activated (GSimpleAction *action,
 
 static GActionEntry app_entries[] = {
   { "newgame", newgame_activated, NULL, NULL, NULL },
-  { "endgame", endgame_activated, NULL, NULL, NULL },
   { "pause", activate_toggle, NULL, "false", change_pause_state},
   { "preferences", preferences_activated, NULL, NULL, NULL },
   { "scores", scores_activated, NULL, NULL, NULL },
@@ -340,13 +327,10 @@ gboolean
 new_game (void)
 {
   int i;
-  g_simple_action_set_enabled (new_game_action, FALSE);
-  g_simple_action_set_enabled (end_game_action, TRUE);
   g_simple_action_set_enabled (pause_action, TRUE);
-  g_simple_action_set_enabled (preferences_action, FALSE);
 
   if (game_running ()) {
-    main_id = 0;
+    end_game ();
   }
 
   if (!properties->random) {
@@ -415,10 +399,7 @@ end_game (void)
 
   animate_end_game ();
 
-  g_simple_action_set_enabled (new_game_action, TRUE);
-  g_simple_action_set_enabled (end_game_action, FALSE);
   g_simple_action_set_enabled (pause_action, FALSE);
-  g_simple_action_set_enabled (preferences_action, TRUE);
 
   is_paused = FALSE;
 }
@@ -612,10 +593,6 @@ activate (GtkApplication* app,
                                "        <attribute name='label' translatable='yes'>_New Game</attribute>"
                                "        <attribute name='action'>app.newgame</attribute>"
                                "      </item>"
-                               "      <item>"
-                               "        <attribute name='label' translatable='yes'>_End Game</attribute>"
-                               "        <attribute name='action'>app.endgame</attribute>"
-                               "      </item>"
                                "    </section>"
                                "    <section>"
                                "      <item>"
@@ -653,12 +630,8 @@ activate (GtkApplication* app,
 
   gtk_application_set_app_menu (GTK_APPLICATION (app), G_MENU_MODEL (gtk_builder_get_object (builder, "app-menu")));
 
-  new_game_action       = G_SIMPLE_ACTION (g_action_map_lookup_action (G_ACTION_MAP (app) , "newgame"));
-  end_game_action       = G_SIMPLE_ACTION (g_action_map_lookup_action (G_ACTION_MAP (app) , "endgame"));
   pause_action          = G_SIMPLE_ACTION (g_action_map_lookup_action (G_ACTION_MAP (app) , "pause"));
-  preferences_action    = G_SIMPLE_ACTION (g_action_map_lookup_action (G_ACTION_MAP (app) , "preferences"));
 
-  g_simple_action_set_enabled (end_game_action, FALSE);
   g_simple_action_set_enabled (pause_action, FALSE);
 
   clutter_widget = gtk_clutter_embed_new ();
