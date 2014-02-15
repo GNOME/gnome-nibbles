@@ -659,6 +659,9 @@ activate (GtkApplication* app,
   pause_action          = G_SIMPLE_ACTION (g_action_map_lookup_action (G_ACTION_MAP (app) , "pause"));
   preferences_action    = G_SIMPLE_ACTION (g_action_map_lookup_action (G_ACTION_MAP (app) , "preferences"));
 
+  g_simple_action_set_enabled (end_game_action, FALSE);
+  g_simple_action_set_enabled (pause_action, FALSE);
+
   clutter_widget = gtk_clutter_embed_new ();
   stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter_widget));
 
