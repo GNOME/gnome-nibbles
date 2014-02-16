@@ -29,6 +29,7 @@
 #include "games-controls.h"
 
 extern GSettings *worm_settings[NUMWORMS];
+extern GSettings *settings;
 extern GtkWidget *window;
 
 enum {
@@ -90,7 +91,7 @@ accel_edited_cb (GtkCellRendererAccel *cell,
   }
 
   /* Duplicate key check */
-  for (i = 0; i < NUMWORMS; i++) {
+  for (i = 0; i <  g_settings_get_int(settings, "players"); i++) {
     if (g_settings_get_int (worm_settings[i], "key-up") == keyval ||
         g_settings_get_int (worm_settings[i], "key-down") == keyval ||
         g_settings_get_int (worm_settings[i], "key-left") == keyval ||
