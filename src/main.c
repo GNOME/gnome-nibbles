@@ -582,7 +582,6 @@ activate (GtkApplication* app,
           gpointer        user_data)
 {
   GtkWidget *headerbar;
-  GtkWidget *window;
   GtkWidget *label;
   GdkGeometry size_hints = {
     800, 600, 0, 0, 800, 600, 0, 0, 0.0, 0.0, GDK_GRAVITY_NORTH_WEST  
