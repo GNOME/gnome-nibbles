@@ -1,3 +1,8 @@
+gnome-nibbles 3.11.90.1
+==================
+
+ * Added GtkHeaderBar, bumps depends to GTK+ 3.10
+
 gnome-nibbles 3.11.90
 ==================
 
