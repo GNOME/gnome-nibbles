@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles 3.11.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-25 12:40+0100\n"
+"POT-Creation-Date: 2014-02-19 23:40+0100\n"
 "PO-Revision-Date: 2014-01-25 12:41+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -16,18 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:224 ../src/main.c:695
-msgid "Nibbles"
-msgstr "Nibbles"
-
-#: ../data/gnibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Led en orm rundt i en labyrint"
-
-#: ../data/gnibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "spill;orm;brett;"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
@@ -54,6 +42,19 @@ msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:227 ../src/main.c:599
+#: ../src/main.c:719
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Led en orm rundt i en labyrint"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "spill;orm;brett;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -193,11 +194,11 @@ msgstr ""
 "\n"
 "Vennligst sjekk din Nibbles-installasjon"
 
-#: ../src/games-controls.c:107
+#: ../src/games-controls.c:108
 msgid "The shortcut you selected is already assigned."
 msgstr "Snarveien du valgte er allerede tildelt."
 
-#: ../src/games-controls.c:323
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "Ukjent kommando"
 
@@ -302,7 +303,7 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Rask med falske"
 
-#: ../src/main.c:230
+#: ../src/main.c:233
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -312,7 +313,7 @@ msgstr ""
 "\n"
 "Nibbles er en del av GNOME-spill."
 
-#: ../src/main.c:233
+#: ../src/main.c:236
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
