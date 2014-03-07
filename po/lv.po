@@ -5,14 +5,14 @@
 # Peteris Krisjanis <peteris.krisjanis@os.lv>, 2002.
 # Raivis Dejus <orvils@gmail.com>, 2006, 2007.
 # Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2010, 2011.
-# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2013.
+# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: lv\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-28 23:16+0000\n"
-"PO-Revision-Date: 2013-03-18 14:36+0200\n"
+"POT-Creation-Date: 2014-01-16 17:36+0000\n"
+"PO-Revision-Date: 2014-03-07 19:12+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -21,136 +21,173 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 "X-Poedit-Language: Latvian\n"
 "X-Poedit-Country: LATVIA\n"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:1 ../src/main.c:161 ../src/main.c:164
-#: ../src/main.c:699 ../src/main.c:770 ../src/main.c:901
+#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:222 ../src/main.c:705
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:2
+#: ../data/gnibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Vadi tārpu pa labirintu"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:3
+#: ../data/gnibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "spēle;čūska;galdiņš;"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:1
-msgid "Number of human players"
-msgstr "Cilvēku spēlētāju skaits"
+#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#| msgid "Nibbles"
+msgid "GNOME Nibbles"
+msgstr "GNOME Nibbles"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:2
+#: ../data/gnome-nibbles.appdata.xml.in.h:2
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+"Vadi tārpiņu tā misijā apēst saldumus un kļūt garākam. Apspēlē pretinieku "
+"tārpiņus un apēd virtuļus un saldējumus, lai palielinātu savu garumu. Katram "
+"tārpiņam ir desmit dzīvības un tās var pazaudēt, ieskrienot sienā, citā "
+"tārpiņā vai uzskrienot virsū pats sev. Pretinieka tārpiņi arī meklē saldumus, "
+"tāpēc uzmanies — ja tie paliek pārāk lieli, jums daudz vietas, kur "
+"pārvietoties."
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"Piedzīvojums attīstās cauri 26 kartēm ar pieaugošu grūtību. Pirmie līmeņi ir "
+"atvērti ar dažām sienām, bet ar laiku vietas paliek arvien mazākas un "
+"teleportācija spēli padara interesantāku."
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Spēlē savā nodabā vai pret ne vairāk kā pieciem pretinieku tārpiņiem, vai ar "
+"draugu pie vienas tastatūras."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:1
+msgid "Number of human players"
+msgstr "\tCilvēku spēlētāju skaits"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:2
 msgid "Number of human players."
 msgstr "Cilvēku spēlētāju skaits."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:3
+#: ../data/org.gnome.nibbles.gschema.xml.h:3
 msgid "Number of AI players"
 msgstr "MI spēlētāju skaits"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:4
+#: ../data/org.gnome.nibbles.gschema.xml.h:4
 msgid "Number of AI players."
 msgstr "MI spēlētāju skaits."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:5
+#: ../data/org.gnome.nibbles.gschema.xml.h:5
 msgid "Game speed"
 msgstr "Spēles ātrums"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:6
+#: ../data/org.gnome.nibbles.gschema.xml.h:6
 msgid "Game speed (1=fast, 4=slow)."
 msgstr "Spēles ātrums (1=ātri, 4=lēni)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:7
+#: ../data/org.gnome.nibbles.gschema.xml.h:7
 msgid "Enable fake bonuses"
 msgstr "Aktivēti neīstos bonusus"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:8
+#: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Enable fake bonuses."
 msgstr "Aktivizēti neīstos bonusus."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:9
+#: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Play levels in random order"
 msgstr "Spēlēt līmeņus nejaušā secībā"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:10
+#: ../data/org.gnome.nibbles.gschema.xml.h:10
 msgid "Play levels in random order."
 msgstr "Spēlēt līmeņus nejaušā secībā."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:11
+#: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
 msgstr "Līmenis, ar kuru sākt spēli"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:12
+#: ../data/org.gnome.nibbles.gschema.xml.h:12
 msgid "Game level to start on."
 msgstr "Līmenis, ar kuru sākt spēli."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:13
+#: ../data/org.gnome.nibbles.gschema.xml.h:13
 msgid "Enable sounds"
 msgstr "Aktivēt skaņu"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
 msgid "Enable sounds."
 msgstr "Aktivēt skaņu."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Size of game tiles"
 msgstr "Spēles kauliņu izmēri"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Size of game tiles."
 msgstr "Spēles kauliņu izmēri."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Color to use for worm"
 msgstr "Tārpa krāsa"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Color to use for worm."
 msgstr "Tārpa krāsa."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Use relative movement"
 msgstr "Lietot relatīvo kustību"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Lietot relatīvo kustību (t.i. tikai pa kreisi vai tikai pa labi)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:452
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
 msgid "Move up"
 msgstr "Pārvietot uz augšu"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Key to use for motion up."
 msgstr "Taustiņš, ko lietot, lai pārvietotos uz augšu."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:453
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
 msgid "Move down"
 msgstr "Pārvietot uz leju"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion down."
 msgstr "Taustiņš, ko lietot, lai pārvietotos uz leju."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:450
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
 msgid "Move left"
 msgstr "Iet pa kreisi"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion left."
 msgstr "Taustiņš, ko lietot, lai pārvietotos pa kreisi."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:451
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
 msgid "Move right"
 msgstr "Iet pa labi"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion right."
 msgstr "Taustiņš, ko lietot, lai pārvietotos pa labi."
 
-#: ../src/board.c:245
+#: ../src/board.c:250
 #, c-format
 msgid ""
 "Nibbles couldn't load level file:\n"
@@ -163,7 +200,7 @@ msgstr ""
 "\n"
 "Lūdzu, pārbaudi savu Nibbles instalāciju"
 
-#: ../src/board.c:264
+#: ../src/board.c:269
 #, c-format
 msgid ""
 "Level file appears to be damaged:\n"
@@ -176,240 +213,43 @@ msgstr ""
 "\n"
 "Lūdzu, pārbaudi savu Nibbles instalāciju"
 
-#: ../src/games-controls.c:288
+#: ../src/games-controls.c:107
+msgid "The shortcut you selected is already assigned."
+msgstr "Izvēlētā saīsne jau ir piešķirta."
+
+#: ../src/games-controls.c:323
 msgid "Unknown Command"
 msgstr "Nezināma komanda"
 
 #. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:136
+#: ../src/games-scores-dialog.c:132
 msgctxt "score-dialog"
 msgid "Time"
 msgstr "Laiks"
 
 #. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:142
+#: ../src/games-scores-dialog.c:138
 msgctxt "score-dialog"
 msgid "Score"
 msgstr "Rezultāts"
 
 #. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:307
+#: ../src/games-scores-dialog.c:225
 #, c-format
 msgctxt "score-dialog"
 msgid "%1$dm %2$ds"
 msgstr "%1$dm %2$ds"
 
-#: ../src/games-scores-dialog.c:470
-msgid "New Game"
-msgstr "Jauna spēle"
-
-#. Score dialog column header for the name of the player who recorded the score
-#: ../src/games-scores-dialog.c:571
-msgctxt "score-dialog"
-msgid "Name"
-msgstr "Vārds"
-
 #. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:580
+#: ../src/games-scores-dialog.c:430
 msgid "Date"
 msgstr "Datums"
 
-#: ../src/games-stock.c:41
-msgid "View help for this game"
-msgstr "Skatīt šīs spēles palīdzību"
+#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+msgid "_Close"
+msgstr "_Aizvērt"
 
-#: ../src/games-stock.c:42
-msgid "End the current game"
-msgstr "Pārtraukt šo spēli"
-
-#: ../src/games-stock.c:43
-msgid "Toggle fullscreen mode"
-msgstr "Pārslēgt pilnekrāna režīmu"
-
-#: ../src/games-stock.c:44
-msgid "Get a hint for your next move"
-msgstr "Saņem padomu par nākamo gājienu"
-
-#: ../src/games-stock.c:45
-msgid "Leave fullscreen mode"
-msgstr "Pamest pilnekrāna režīmu"
-
-#: ../src/games-stock.c:46
-msgid "Start a new multiplayer network game"
-msgstr "Sākt jaunu tīkla spēli"
-
-#: ../src/games-stock.c:47
-msgid "End the current network game and return to network server"
-msgstr "Beigt pašreizējo tīkla spēli un atgriezties pie servera"
-
-#: ../src/games-stock.c:48
-msgid "Start a new game"
-msgstr "Sākt jaunu spēli"
-
-#: ../src/games-stock.c:49
-msgid "Pause the game"
-msgstr "Pauzēt spēli"
-
-#: ../src/games-stock.c:50
-msgid "Show a list of players in the network game"
-msgstr "Rādīt spēlētāju sarakstu tīkla spēlē"
-
-#: ../src/games-stock.c:51
-msgid "Redo the undone move"
-msgstr "Atsaukt gājiena atsaukšanu"
-
-#: ../src/games-stock.c:52
-msgid "Restart the game"
-msgstr "Pārstartēt spēli"
-
-#: ../src/games-stock.c:53
-msgid "Resume the paused game"
-msgstr "Turpināt pauzēto spēli"
-
-#: ../src/games-stock.c:54
-msgid "View the scores"
-msgstr "Apskatīt rezultātus"
-
-#: ../src/games-stock.c:55
-msgid "Undo the last move"
-msgstr "Atsaukt pēdējo gājienu"
-
-#: ../src/games-stock.c:56
-msgid "About this game"
-msgstr "Par šo spēli"
-
-#: ../src/games-stock.c:57
-msgid "Close this window"
-msgstr "Aizvērt šo logu"
-
-#: ../src/games-stock.c:58
-msgid "Configure the game"
-msgstr "Konfigurēt spēli"
-
-#: ../src/games-stock.c:59
-msgid "Quit this game"
-msgstr "Iziet no spēles"
-
-#: ../src/games-stock.c:247
-msgid "_Contents"
-msgstr "_Saturs"
-
-#: ../src/games-stock.c:248
-msgid "_Fullscreen"
-msgstr "_Pilnekrāna"
-
-#: ../src/games-stock.c:249
-msgid "_Hint"
-msgstr "_Padoms"
-
-#. Translators: This "_New" is for the menu item 'Game->New', implies "New Game"
-#: ../src/games-stock.c:251
-msgid "_New"
-msgstr "Jau_na"
-
-#. Translators: This "_New Game" is for the game-over dialogue
-#: ../src/games-stock.c:253
-msgid "_New Game"
-msgstr "Jau_na spēle"
-
-#: ../src/games-stock.c:254
-msgid "_Redo Move"
-msgstr "Atkā_rtot darbību"
-
-#. Translators: this is the "Reset" scores button in a scores dialogue
-#: ../src/games-stock.c:256
-msgid "_Reset"
-msgstr "_Atstatīt"
-
-#. Translators: "_Restart" is the menu item 'Game->Restart', implies "Restart Game"
-#: ../src/games-stock.c:258
-msgid "_Restart"
-msgstr "Pā_rstartēt"
-
-#: ../src/games-stock.c:259
-msgid "_Undo Move"
-msgstr "Atsa_ukt gājienu"
-
-#: ../src/games-stock.c:260
-msgid "_Deal"
-msgstr "_Dalīt"
-
-#: ../src/games-stock.c:261
-msgid "_Leave Fullscreen"
-msgstr "Pamest pi_lnekrāna režīmu"
-
-#: ../src/games-stock.c:262
-msgid "Network _Game"
-msgstr "Tīkla _spēle"
-
-#: ../src/games-stock.c:263
-msgid "L_eave Game"
-msgstr "Pam_est spēli"
-
-#: ../src/games-stock.c:264
-msgid "Player _List"
-msgstr "Spē_lētāju saraksts"
-
-#: ../src/games-stock.c:265
-msgid "_Pause"
-msgstr "_Pauzēt"
-
-#: ../src/games-stock.c:266
-msgid "Res_ume"
-msgstr "T_urpināt"
-
-#: ../src/games-stock.c:267
-msgid "_Scores"
-msgstr "Re_zultāti"
-
-#: ../src/games-stock.c:268
-msgid "_End Game"
-msgstr "B_eigt spēli"
-
-#. %s is replaced with the name of the game in gnome-games.
-#: ../src/games-stock.c:317
-#, c-format
-msgid ""
-"%s is free software; you can redistribute it and/or modify it under the "
-"terms of the GNU General Public License as published by the Free Software "
-"Foundation; either version %d of the License, or (at your option) any later "
-"version."
-msgstr ""
-"%s ir brīvā programmatūra; jūs varat izplatīt un/vai modificēt to saskaņā ar "
-"GNU Vispārējās Publiskās Licences %d vai kādas vēlākas versijas noteikumiem."
-
-#: ../src/games-stock.c:322
-#, c-format
-msgid ""
-"%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-"details."
-msgstr ""
-"%s tiek izplatīts ar cerību, ka tas būs noderīgs. Tas tiek izplatīts BEZ "
-"jebkādas garantijas vai iekļautas ražotāja atbildības par šo produktu. "
-"Sīkāku informāciju meklējiet GNU Vispārējās Publiskās Licences tekstā."
-
-#: ../src/games-stock.c:327
-#, c-format
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"%s; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, "
-"Fifth Floor, Boston, MA  02110-1301  USA"
-msgstr ""
-"GNU Vispārējās Publiskās Licence ir pieejama kopā ar %s instalāciju. Ja tā "
-"jums nav pieejama, jūs to varat iegūt no Free Software Foundation, Inc., 51 "
-"Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA"
-
-#: ../src/games-stock.c:331
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"this program.  If not, see <http://www.gnu.org/licenses/>."
-msgstr ""
-"Jums vajadzēja saņemt GNU Vispārējo Publisko Licenci ar šo programmu. Ja nē, "
-"skatiet <http://www.gnu.org/licenses/>."
-
-#: ../src/gnibbles.c:84
+#: ../src/gnibbles.c:82
 #, c-format
 msgid ""
 "Nibbles couldn't find pixmap file:\n"
@@ -422,211 +262,185 @@ msgstr ""
 "\n"
 "Lūdzu, pārbaudi savu Nibbles instalāciju"
 
-#: ../src/gnibbles.c:355
+#: ../src/gnibbles.c:341
 msgid "Nibbles Scores"
 msgstr "Nibbles rezultāti"
 
-#: ../src/gnibbles.c:358
+#: ../src/gnibbles.c:344
 msgid "Speed:"
 msgstr "Ātrums:"
 
-#: ../src/gnibbles.c:363
+#: ../src/gnibbles.c:349
 msgid "Congratulations!"
 msgstr "Apsveicam!"
 
-#: ../src/gnibbles.c:364
+#: ../src/gnibbles.c:350
 msgid "Your score is the best!"
 msgstr "Tavs rezultāts ir labākais!"
 
-#: ../src/gnibbles.c:365
+#: ../src/gnibbles.c:351
 msgid "Your score has made the top ten."
 msgstr "Tavs rezultāts ticis labāko desmitniekā."
 
-#: ../src/main.c:65
+#: ../src/main.c:60
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "Iesācēju"
 
-#: ../src/main.c:66
+#: ../src/main.c:61
 msgctxt "game speed"
 msgid "Slow"
 msgstr "Lēni"
 
-#: ../src/main.c:67
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Medium"
 msgstr "Vidēji"
 
-#: ../src/main.c:68
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Fast"
 msgstr "Ātri"
 
-#: ../src/main.c:69
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "Iesācēju ar neīstajiem"
 
-#: ../src/main.c:70
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "Lēns ar neīstajiem"
 
-#: ../src/main.c:71
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "Vidējs ar neīstajiem"
 
-#: ../src/main.c:72
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Ātrs ar neīstajiem"
 
-#: ../src/main.c:170
+#: ../src/main.c:228
+#| msgid ""
+#| "A worm game for GNOME.\n"
+#| "\n"
+#| "Nibbles is a part of GNOME Games."
 msgid ""
-"A worm game for GNOME.\n"
+"A worm game for GNOME\n"
 "\n"
 "Nibbles is a part of GNOME Games."
 msgstr ""
-"GNOME tārpu spēle.\n"
+"GNOME tārpu spēle\n"
 "\n"
 "Nibbles ir daļa no GNOME Games."
 
-#: ../src/main.c:173
+#: ../src/main.c:231
 msgid "translator-credits"
 msgstr ""
 "Raivis Dejus <orvils@gmail.com>\n"
 "Sandra Zabarovska <sandra.zabarovska@gmail.com>\n"
 "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
 
-#: ../src/main.c:176
-msgid "GNOME Games web site"
-msgstr "GNOME Games tīmekļa vietne"
-
-#: ../src/main.c:491
-#, c-format
-msgid "Game over! The game has been won by %s!"
-msgstr "Spēle beigusies! %s uzvarēja!"
-
-#: ../src/main.c:604
-msgid "_Game"
-msgstr "_Spēle"
-
-#: ../src/main.c:605
-msgid "_View"
-msgstr "_Skats"
-
-#: ../src/main.c:606
-msgid "_Settings"
-msgstr "Ie_statījumi"
-
-#: ../src/main.c:607
-msgid "_Help"
-msgstr "_Palīdzība"
-
-#. Translators: This string will be included in the intro screen, so don't make sure it fits!
-#: ../src/main.c:772
-msgid "A worm game for GNOME."
-msgstr "Tārpa spēle GNOME."
-
-#: ../src/preferences.c:240
+#: ../src/preferences.c:223
 msgid "Nibbles Preferences"
 msgstr "Nibbles iestatījumi"
 
-#: ../src/preferences.c:253
+#: ../src/preferences.c:236
 msgid "Game"
 msgstr "Spēle"
 
 #. Speed
-#: ../src/preferences.c:269
+#: ../src/preferences.c:252
 msgid "Speed"
 msgstr "Ātrums"
 
-#: ../src/preferences.c:274
+#: ../src/preferences.c:257
 msgid "Nibbles newbie"
 msgstr "Nibbles iesācējs"
 
-#: ../src/preferences.c:284
+#: ../src/preferences.c:267
 msgid "My second day"
 msgstr "Mana otrā diena"
 
-#: ../src/preferences.c:294
+#: ../src/preferences.c:277
 msgid "Not too shabby"
 msgstr "Tīri tā neko"
 
-#: ../src/preferences.c:304
+#: ../src/preferences.c:287
 msgid "Finger-twitching good"
 msgstr "Pirkstu veiklības treniņam"
 
-#: ../src/preferences.c:318 ../src/preferences.c:457
+#: ../src/preferences.c:301 ../src/preferences.c:424
 msgid "Options"
 msgstr "Opcijas"
 
-#: ../src/preferences.c:325
+#: ../src/preferences.c:308
 msgid "_Play levels in random order"
 msgstr "S_pēlēt līmeņus nejaušā secībā"
 
-#: ../src/preferences.c:335
+#: ../src/preferences.c:316
 msgid "_Enable fake bonuses"
 msgstr "_Aktivēt neīstos bonusus"
 
-#: ../src/preferences.c:345
+#: ../src/preferences.c:324
 msgid "E_nable sounds"
 msgstr "A_ktivēt skaņas"
 
-#: ../src/preferences.c:358
+#: ../src/preferences.c:337
 msgid "_Starting level:"
 msgstr "_Sākuma līmenis:"
 
-#: ../src/preferences.c:387
+#: ../src/preferences.c:362
 msgid "Number of _human players:"
 msgstr "Cilvēku spēlētāju _skaits:"
 
-#: ../src/preferences.c:408
+#: ../src/preferences.c:379
 msgid "Number of _AI players:"
 msgstr "_MI spēlētāju skaits:"
 
-#: ../src/preferences.c:433
+#: ../src/preferences.c:400
 msgid "Worm"
 msgstr "Tārps"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:409
 msgid "Keyboard Options"
 msgstr "Tastatūras opcijas"
 
-#: ../src/preferences.c:462
+#: ../src/preferences.c:429
 msgid "_Use relative movement"
 msgstr "Lietot relatīvo kustīb_u"
 
-#: ../src/preferences.c:469
+#: ../src/preferences.c:436
 msgid "_Worm color:"
 msgstr "_Tārpa krāsa:"
 
-#: ../src/preferences.c:475
+#: ../src/preferences.c:442
 msgid "Red"
 msgstr "Sarkans"
 
-#: ../src/preferences.c:476
+#: ../src/preferences.c:443
 msgid "Green"
 msgstr "Zaļš"
 
-#: ../src/preferences.c:477
+#: ../src/preferences.c:444
 msgid "Blue"
 msgstr "Zils"
 
-#: ../src/preferences.c:478
+#: ../src/preferences.c:445
 msgid "Yellow"
 msgstr "Dzeltens"
 
-#: ../src/preferences.c:479
+#: ../src/preferences.c:446
 msgid "Cyan"
 msgstr "Gaiši zils"
 
-#: ../src/preferences.c:480
+#: ../src/preferences.c:447
 msgid "Purple"
 msgstr "Purpura"
 
-#: ../src/preferences.c:481
+#: ../src/preferences.c:448
 msgid "Gray"
 msgstr "Pelēks"
 
@@ -634,6 +448,181 @@ msgstr "Pelēks"
 #, c-format
 msgid "Worm %d:"
 msgstr "Tārps %d:"
+
+#~ msgid "New Game"
+#~ msgstr "Jauna spēle"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Name"
+#~ msgstr "Vārds"
+
+#~ msgid "View help for this game"
+#~ msgstr "Skatīt šīs spēles palīdzību"
+
+#~ msgid "End the current game"
+#~ msgstr "Pārtraukt šo spēli"
+
+#~ msgid "Toggle fullscreen mode"
+#~ msgstr "Pārslēgt pilnekrāna režīmu"
+
+#~ msgid "Get a hint for your next move"
+#~ msgstr "Saņem padomu par nākamo gājienu"
+
+#~ msgid "Leave fullscreen mode"
+#~ msgstr "Pamest pilnekrāna režīmu"
+
+#~ msgid "Start a new multiplayer network game"
+#~ msgstr "Sākt jaunu tīkla spēli"
+
+#~ msgid "End the current network game and return to network server"
+#~ msgstr "Beigt pašreizējo tīkla spēli un atgriezties pie servera"
+
+#~ msgid "Start a new game"
+#~ msgstr "Sākt jaunu spēli"
+
+#~ msgid "Pause the game"
+#~ msgstr "Pauzēt spēli"
+
+#~ msgid "Show a list of players in the network game"
+#~ msgstr "Rādīt spēlētāju sarakstu tīkla spēlē"
+
+#~ msgid "Redo the undone move"
+#~ msgstr "Atsaukt gājiena atsaukšanu"
+
+#~ msgid "Restart the game"
+#~ msgstr "Pārstartēt spēli"
+
+#~ msgid "Resume the paused game"
+#~ msgstr "Turpināt pauzēto spēli"
+
+#~ msgid "View the scores"
+#~ msgstr "Apskatīt rezultātus"
+
+#~ msgid "Undo the last move"
+#~ msgstr "Atsaukt pēdējo gājienu"
+
+#~ msgid "About this game"
+#~ msgstr "Par šo spēli"
+
+#~ msgid "Close this window"
+#~ msgstr "Aizvērt šo logu"
+
+#~ msgid "Configure the game"
+#~ msgstr "Konfigurēt spēli"
+
+#~ msgid "Quit this game"
+#~ msgstr "Iziet no spēles"
+
+#~ msgid "_Contents"
+#~ msgstr "_Saturs"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Pilnekrāna"
+
+#~ msgid "_Hint"
+#~ msgstr "_Padoms"
+
+#~ msgid "_New"
+#~ msgstr "Jau_na"
+
+#~ msgid "_New Game"
+#~ msgstr "Jau_na spēle"
+
+#~ msgid "_Redo Move"
+#~ msgstr "Atkā_rtot darbību"
+
+#~ msgid "_Reset"
+#~ msgstr "_Atstatīt"
+
+#~ msgid "_Restart"
+#~ msgstr "Pā_rstartēt"
+
+#~ msgid "_Undo Move"
+#~ msgstr "Atsa_ukt gājienu"
+
+#~ msgid "_Deal"
+#~ msgstr "_Dalīt"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "Pamest pi_lnekrāna režīmu"
+
+#~ msgid "Network _Game"
+#~ msgstr "Tīkla _spēle"
+
+#~ msgid "L_eave Game"
+#~ msgstr "Pam_est spēli"
+
+#~ msgid "Player _List"
+#~ msgstr "Spē_lētāju saraksts"
+
+#~ msgid "_Pause"
+#~ msgstr "_Pauzēt"
+
+#~ msgid "Res_ume"
+#~ msgstr "T_urpināt"
+
+#~ msgid "_Scores"
+#~ msgstr "Re_zultāti"
+
+#~ msgid "_End Game"
+#~ msgstr "B_eigt spēli"
+
+#~ msgid ""
+#~ "%s is free software; you can redistribute it and/or modify it under the "
+#~ "terms of the GNU General Public License as published by the Free Software "
+#~ "Foundation; either version %d of the License, or (at your option) any "
+#~ "later version."
+#~ msgstr ""
+#~ "%s ir brīvā programmatūra; jūs varat izplatīt un/vai modificēt to saskaņā "
+#~ "ar GNU Vispārējās Publiskās Licences %d vai kādas vēlākas versijas "
+#~ "noteikumiem."
+
+#~ msgid ""
+#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
+#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+#~ "details."
+#~ msgstr ""
+#~ "%s tiek izplatīts ar cerību, ka tas būs noderīgs. Tas tiek izplatīts BEZ "
+#~ "jebkādas garantijas vai iekļautas ražotāja atbildības par šo produktu. "
+#~ "Sīkāku informāciju meklējiet GNU Vispārējās Publiskās Licences tekstā."
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
+#~ msgstr ""
+#~ "GNU Vispārējās Publiskās Licence ir pieejama kopā ar %s instalāciju. Ja "
+#~ "tā jums nav pieejama, jūs to varat iegūt no Free Software Foundation, "
+#~ "Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA"
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
+#~ msgstr ""
+#~ "Jums vajadzēja saņemt GNU Vispārējo Publisko Licenci ar šo programmu. Ja "
+#~ "nē, skatiet <http://www.gnu.org/licenses/>."
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "GNOME Games tīmekļa vietne"
+
+#~ msgid "Game over! The game has been won by %s!"
+#~ msgstr "Spēle beigusies! %s uzvarēja!"
+
+#~ msgid "_Game"
+#~ msgstr "_Spēle"
+
+#~ msgid "_View"
+#~ msgstr "_Skats"
+
+#~ msgid "_Settings"
+#~ msgstr "Ie_statījumi"
+
+#~ msgid "_Help"
+#~ msgstr "_Palīdzība"
+
+#~ msgid "A worm game for GNOME."
+#~ msgstr "Tārpa spēle GNOME."
 
 #~ msgid "Chess"
 #~ msgstr "Šahs"
@@ -5285,9 +5274,6 @@ msgstr "Tārps %d:"
 
 #~ msgid "_Cancel"
 #~ msgstr "At_celt"
-
-#~ msgid "_Close"
-#~ msgstr "_Aizvērt"
 
 #~ msgid "_OK"
 #~ msgstr "_Labi"
