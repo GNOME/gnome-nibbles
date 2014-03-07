@@ -77,7 +77,7 @@ msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
-msgstr "\tCilvēku spēlētāju skaits"
+msgstr "Cilvēku spēlētāju skaits"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
 msgid "Number of human players."
