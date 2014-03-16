@@ -4,156 +4,182 @@
 #
 #
 # Gnome 2012-03 Finnish translation sprint participants:
-# Jiri Grönroos
 # Niklas Laxström
 # Sami Pesonen <sampeson@iki.fi>, 2002-2005.
 # Ilkka Tuohela <hile@iki.fi>, 2005-2009.
 # Timo Jyrinki <timo.jyrinki@iki.fi>, 2008.
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012, 2013.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-28 23:16+0000\n"
-"PO-Revision-Date: 2013-03-20 21:51+0200\n"
+"POT-Creation-Date: 2014-01-16 17:36+0000\n"
+"PO-Revision-Date: 2014-03-05 21:37+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
-"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
+"Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Launchpad-Export-Date: 2010-09-13 15:09+0000\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:1 ../src/main.c:161 ../src/main.c:164
-#: ../src/main.c:699 ../src/main.c:770 ../src/main.c:901
+#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:222 ../src/main.c:705
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:2
+#: ../data/gnibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Ohjaa matoa sokkelossa ympäriinsä"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:3
+#: ../data/gnibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "game;snake;board;mato;peli;lauta;"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:1
+#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#| msgid "Nibbles"
+msgid "GNOME Nibbles"
+msgstr "Nibbles"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:2
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
 msgstr "Ihmispelaajien määrä"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:2
+#: ../data/org.gnome.nibbles.gschema.xml.h:2
 msgid "Number of human players."
 msgstr "Ihmispelaajien määrä."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:3
+#: ../data/org.gnome.nibbles.gschema.xml.h:3
 msgid "Number of AI players"
 msgstr "Tekoälypelaajien määrä"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:4
+#: ../data/org.gnome.nibbles.gschema.xml.h:4
 msgid "Number of AI players."
 msgstr "Tekoälypelaajien määrä."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:5
+#: ../data/org.gnome.nibbles.gschema.xml.h:5
 msgid "Game speed"
 msgstr "Pelin nopeus"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:6
+#: ../data/org.gnome.nibbles.gschema.xml.h:6
 msgid "Game speed (1=fast, 4=slow)."
 msgstr "Pelin nopeus (1=nopea, 4=hidas)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:7
+#: ../data/org.gnome.nibbles.gschema.xml.h:7
 msgid "Enable fake bonuses"
 msgstr "Huijausbonukset päälle"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:8
+#: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Enable fake bonuses."
 msgstr "Huijausbonukset päälle."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:9
+#: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Play levels in random order"
 msgstr "Sattumanvarainen tasojärjestys"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:10
+#: ../data/org.gnome.nibbles.gschema.xml.h:10
 msgid "Play levels in random order."
 msgstr "Sattumanvarainen tasojärjestys."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:11
+#: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
 msgstr "Aloituskenttä"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:12
+#: ../data/org.gnome.nibbles.gschema.xml.h:12
 msgid "Game level to start on."
 msgstr "Aloituskenttä."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:13
+#: ../data/org.gnome.nibbles.gschema.xml.h:13
 msgid "Enable sounds"
 msgstr "Äänet päälle"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
 msgid "Enable sounds."
 msgstr "Äänet päälle."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Size of game tiles"
 msgstr "Pelissä käytettävien esineiden koko"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Size of game tiles."
 msgstr "Pelissä käytettävien esineiden koko."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Color to use for worm"
 msgstr "Käytettävä madon väri"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Color to use for worm."
 msgstr "Madon väri."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Use relative movement"
 msgstr "Käytä suhteellista liikettä"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Käytä suhteellista liikettä (esim. vasen tai oikea ainoastaan)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:452
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
 msgid "Move up"
 msgstr "Liikuta ylös"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Key to use for motion up."
 msgstr "Näppäin ylös siirtämiseen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:453
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
 msgid "Move down"
 msgstr "Liikuta alas"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion down."
 msgstr "Näppäin alas siirtämiseen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:450
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
 msgid "Move left"
 msgstr "Siirry vasemmalle"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion left."
 msgstr "Näppäin vasemmalle siirtämiseen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:451
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
 msgid "Move right"
 msgstr "Siirry oikealle"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion right."
 msgstr "Näppäin oikealle siirtämiseen."
 
-#: ../src/board.c:245
+#: ../src/board.c:250
 #, c-format
 msgid ""
 "Nibbles couldn't load level file:\n"
@@ -166,7 +192,7 @@ msgstr ""
 "\n"
 "Tarkista nibbles-asennuksesi"
 
-#: ../src/board.c:264
+#: ../src/board.c:269
 #, c-format
 msgid ""
 "Level file appears to be damaged:\n"
@@ -179,243 +205,43 @@ msgstr ""
 "\n"
 "Tarkista nibbles-asennuksesi"
 
-#: ../src/games-controls.c:288
+#: ../src/games-controls.c:107
+msgid "The shortcut you selected is already assigned."
+msgstr "Valitsemasi pikanäppäin on jo määritetty."
+
+#: ../src/games-controls.c:323
 msgid "Unknown Command"
 msgstr "Tuntematon komento"
 
 #. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:136
+#: ../src/games-scores-dialog.c:132
 msgctxt "score-dialog"
 msgid "Time"
 msgstr "Aika"
 
 #. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:142
+#: ../src/games-scores-dialog.c:138
 msgctxt "score-dialog"
 msgid "Score"
 msgstr "Pisteet"
 
 #. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:307
+#: ../src/games-scores-dialog.c:225
 #, c-format
 msgctxt "score-dialog"
 msgid "%1$dm %2$ds"
 msgstr "%d min %d s"
 
-#: ../src/games-scores-dialog.c:470
-msgid "New Game"
-msgstr "Uusi peli"
-
-#. Score dialog column header for the name of the player who recorded the score
-#: ../src/games-scores-dialog.c:571
-msgctxt "score-dialog"
-msgid "Name"
-msgstr "Nimi"
-
 #. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:580
+#: ../src/games-scores-dialog.c:430
 msgid "Date"
 msgstr "Päiväys"
 
-#: ../src/games-stock.c:41
-msgid "View help for this game"
-msgstr "Näytä tämän pelin ohjeet"
+#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+msgid "_Close"
+msgstr "_Sulje"
 
-#: ../src/games-stock.c:42
-msgid "End the current game"
-msgstr "Lopeta nykyinen peli"
-
-#: ../src/games-stock.c:43
-msgid "Toggle fullscreen mode"
-msgstr "Koko näytön tila päälle/pois"
-
-#: ../src/games-stock.c:44
-msgid "Get a hint for your next move"
-msgstr "Anna vinkki seuraavasta siirrosta"
-
-#: ../src/games-stock.c:45
-msgid "Leave fullscreen mode"
-msgstr "Poistu koko näytön tilasta"
-
-#: ../src/games-stock.c:46
-msgid "Start a new multiplayer network game"
-msgstr "Aloita uusi peli monen pelaajan verkkopeli"
-
-#: ../src/games-stock.c:47
-msgid "End the current network game and return to network server"
-msgstr "Lopeta nykyinen verkkopeli ja palaa verkkopalvelimelle"
-
-#: ../src/games-stock.c:48
-msgid "Start a new game"
-msgstr "Aloita uusi peli"
-
-#: ../src/games-stock.c:49
-msgid "Pause the game"
-msgstr "Keskeytä peli"
-
-#: ../src/games-stock.c:50
-msgid "Show a list of players in the network game"
-msgstr "Näytä lista verkkopelin pelaajista"
-
-#: ../src/games-stock.c:51
-msgid "Redo the undone move"
-msgstr "Tee peruttu siirto uudestaan"
-
-#: ../src/games-stock.c:52
-msgid "Restart the game"
-msgstr "Aloita peli uudestaan"
-
-#: ../src/games-stock.c:53
-msgid "Resume the paused game"
-msgstr "Jatka pysäytettyä peliä"
-
-#: ../src/games-stock.c:54
-msgid "View the scores"
-msgstr "Näytä tulokset"
-
-#: ../src/games-stock.c:55
-msgid "Undo the last move"
-msgstr "Peru edellinen siirto"
-
-#: ../src/games-stock.c:56
-msgid "About this game"
-msgstr "Tietoja tästä pelistä"
-
-#: ../src/games-stock.c:57
-msgid "Close this window"
-msgstr "Sulje tämä ikkuna"
-
-#: ../src/games-stock.c:58
-msgid "Configure the game"
-msgstr "Määrittele pelin asetukset"
-
-#: ../src/games-stock.c:59
-msgid "Quit this game"
-msgstr "Lopeta tämä peli"
-
-#: ../src/games-stock.c:247
-msgid "_Contents"
-msgstr "_Sisältö"
-
-#: ../src/games-stock.c:248
-msgid "_Fullscreen"
-msgstr "_Koko näyttö"
-
-#: ../src/games-stock.c:249
-msgid "_Hint"
-msgstr "_Vinkki"
-
-#. Translators: This "_New" is for the menu item 'Game->New', implies "New Game"
-#: ../src/games-stock.c:251
-msgid "_New"
-msgstr "_Uusi"
-
-#. Translators: This "_New Game" is for the game-over dialogue
-#: ../src/games-stock.c:253
-msgid "_New Game"
-msgstr "_Uusi peli"
-
-#: ../src/games-stock.c:254
-msgid "_Redo Move"
-msgstr "_Tee siirto uudestaan"
-
-#. Translators: this is the "Reset" scores button in a scores dialogue
-#: ../src/games-stock.c:256
-msgid "_Reset"
-msgstr "_Alusta"
-
-#. Translators: "_Restart" is the menu item 'Game->Restart', implies "Restart Game"
-#: ../src/games-stock.c:258
-msgid "_Restart"
-msgstr "_Aloita alusta"
-
-#: ../src/games-stock.c:259
-msgid "_Undo Move"
-msgstr "_Peru siirto"
-
-#: ../src/games-stock.c:260
-msgid "_Deal"
-msgstr "J_ako"
-
-#: ../src/games-stock.c:261
-msgid "_Leave Fullscreen"
-msgstr "P_oistu koko näytön tilasta"
-
-#: ../src/games-stock.c:262
-msgid "Network _Game"
-msgstr "_Verkkopeli"
-
-#: ../src/games-stock.c:263
-msgid "L_eave Game"
-msgstr "_Lopeta peli"
-
-#: ../src/games-stock.c:264
-msgid "Player _List"
-msgstr "_Pelaajalista"
-
-#: ../src/games-stock.c:265
-msgid "_Pause"
-msgstr "_Keskeytä"
-
-#: ../src/games-stock.c:266
-msgid "Res_ume"
-msgstr "_Jatka"
-
-#: ../src/games-stock.c:267
-msgid "_Scores"
-msgstr "_Pisteet"
-
-#: ../src/games-stock.c:268
-msgid "_End Game"
-msgstr "_Lopeta peli"
-
-#. %s is replaced with the name of the game in gnome-games.
-#: ../src/games-stock.c:317
-#, c-format
-msgid ""
-"%s is free software; you can redistribute it and/or modify it under the "
-"terms of the GNU General Public License as published by the Free Software "
-"Foundation; either version %d of the License, or (at your option) any later "
-"version."
-msgstr ""
-"%s on vapaa ohjelma; sitä on sallittu levittää edelleen ja muuttaa GNU "
-"yleisen lisenssin (GPL lisenssin) ehtojen mukaan  sellaisina kuin Free "
-"Software Foundation on ne julkaissut; joko lisenssin version %d, tai "
-"(valinnan mukaan) minkä tahansa myöhemmän version mukaisesti."
-
-#: ../src/games-stock.c:322
-#, c-format
-msgid ""
-"%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-"details."
-msgstr ""
-"Ohjelmaa %s levitetään siinä toivossa, että se olisi hyödyllinen, mutta "
-"ilman mitään takuuta; ilman edes hiljaista takuuta kaupallisesti "
-"hyväksyttävästä laadusta tai soveltuvuudesta tiettyyn tarkoitukseen. Katso "
-"GPL lisenssistä lisää yksityiskohtia."
-
-#: ../src/games-stock.c:327
-#, c-format
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"%s; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, "
-"Fifth Floor, Boston, MA  02110-1301  USA"
-msgstr ""
-"Ohjelman %s mukana pitäisi tulla kopio GPL-lisenssistä; jos näin ei ole, "
-"kirjoita osoitteeseen Free Software Foundation Inc., 51 Franklin Street, "
-"Fifth Floor, Boston, MA  02110-1301  USA"
-
-#: ../src/games-stock.c:331
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"this program.  If not, see <http://www.gnu.org/licenses/>."
-msgstr ""
-"Tämän ohjelma mukana pitäisi tulla kopio GPL-lisenssistä; jos näin ei ole, "
-"katso lisätietoja sivulta <http://www.gnu.org/licenses/>."
-
-#: ../src/gnibbles.c:84
+#: ../src/gnibbles.c:82
 #, c-format
 msgid ""
 "Nibbles couldn't find pixmap file:\n"
@@ -428,79 +254,84 @@ msgstr ""
 "\n"
 "Tarkista nibbles-asennuksesi"
 
-#: ../src/gnibbles.c:355
+#: ../src/gnibbles.c:341
 msgid "Nibbles Scores"
 msgstr "Nibblesin tulokset"
 
-#: ../src/gnibbles.c:358
+#: ../src/gnibbles.c:344
 msgid "Speed:"
 msgstr "Nopeus:"
 
-#: ../src/gnibbles.c:363
+#: ../src/gnibbles.c:349
 msgid "Congratulations!"
 msgstr "Onnittelut!"
 
-#: ../src/gnibbles.c:364
+#: ../src/gnibbles.c:350
 msgid "Your score is the best!"
 msgstr "Teit parhaan tuloksen!"
 
-#: ../src/gnibbles.c:365
+#: ../src/gnibbles.c:351
 msgid "Your score has made the top ten."
 msgstr "Tuloksesi pääsi top-10 listalle."
 
-#: ../src/main.c:65
+#: ../src/main.c:60
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "Aloittelija"
 
-#: ../src/main.c:66
+#: ../src/main.c:61
 msgctxt "game speed"
 msgid "Slow"
 msgstr "Hidas"
 
-#: ../src/main.c:67
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Medium"
 msgstr "Tavallinen"
 
-#: ../src/main.c:68
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Fast"
 msgstr "Nopea"
 
-#: ../src/main.c:69
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "Aloittelija huijausten kera"
 
-#: ../src/main.c:70
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "Hidas huijausten kera"
 
-#: ../src/main.c:71
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "Tavallinen huijausten kera"
 
-#: ../src/main.c:72
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Nopea huijausten kera"
 
-#: ../src/main.c:170
+#: ../src/main.c:228
+#| msgid ""
+#| "A worm game for GNOME.\n"
+#| "\n"
+#| "Nibbles is a part of GNOME Games."
 msgid ""
-"A worm game for GNOME.\n"
+"A worm game for GNOME\n"
 "\n"
 "Nibbles is a part of GNOME Games."
 msgstr ""
-"Matopeli GNOMElle.\n"
+"Matopeli Gnomelle.\n"
 "\n"
-"Nibbles on osa GNOMEn pelejä."
+"Nibbles on osa Gnomen pelejä."
 
-#: ../src/main.c:173
+#: ../src/main.c:231
 msgid "translator-credits"
 msgstr ""
+"Jiri Grönroos, 2013-2014\n"
 "Timo Jyrinki, 2008\n"
 "Ilkka Tuohela, 2006-2009\n"
 "Sami Pesonen, 2002-2005\n"
@@ -518,134 +349,104 @@ msgstr ""
 "  Timo Jyrinki https://launchpad.net/~timo-jyrinki\n"
 "  eGetin https://launchpad.net/~egetin"
 
-#: ../src/main.c:176
-msgid "GNOME Games web site"
-msgstr "GNOMEn pelien www-sivut"
-
-#: ../src/main.c:491
-#, c-format
-msgid "Game over! The game has been won by %s!"
-msgstr "Peli päättyi! Pelin voitti %s!"
-
-#: ../src/main.c:604
-msgid "_Game"
-msgstr "_Peli"
-
-#: ../src/main.c:605
-msgid "_View"
-msgstr "_Näytä"
-
-#: ../src/main.c:606
-msgid "_Settings"
-msgstr "_Asetukset"
-
-#: ../src/main.c:607
-msgid "_Help"
-msgstr "O_hje"
-
-#. Translators: This string will be included in the intro screen, so don't make sure it fits!
-#: ../src/main.c:772
-msgid "A worm game for GNOME."
-msgstr "Matopeli GNOMElle."
-
-#: ../src/preferences.c:240
+#: ../src/preferences.c:223
 msgid "Nibbles Preferences"
 msgstr "Nibblesin asetukset"
 
-#: ../src/preferences.c:253
+#: ../src/preferences.c:236
 msgid "Game"
 msgstr "Peli"
 
 #. Speed
-#: ../src/preferences.c:269
+#: ../src/preferences.c:252
 msgid "Speed"
 msgstr "Nopeus"
 
-#: ../src/preferences.c:274
+#: ../src/preferences.c:257
 msgid "Nibbles newbie"
 msgstr "Aloittelija"
 
-#: ../src/preferences.c:284
+#: ../src/preferences.c:267
 msgid "My second day"
 msgstr "Vähän pelannut"
 
-#: ../src/preferences.c:294
+#: ../src/preferences.c:277
 msgid "Not too shabby"
 msgstr "Ei turhan huono"
 
-#: ../src/preferences.c:304
+#: ../src/preferences.c:287
 msgid "Finger-twitching good"
 msgstr "Salamasormi"
 
-#: ../src/preferences.c:318 ../src/preferences.c:457
+#: ../src/preferences.c:301 ../src/preferences.c:424
 msgid "Options"
 msgstr "Valinnat"
 
-#: ../src/preferences.c:325
+#: ../src/preferences.c:308
 msgid "_Play levels in random order"
 msgstr "_Pelaa tasoja satunnaisessa järjestyksessä"
 
-#: ../src/preferences.c:335
+#: ../src/preferences.c:316
 msgid "_Enable fake bonuses"
 msgstr "_Huijausbonukset päälle"
 
-#: ../src/preferences.c:345
+#: ../src/preferences.c:324
 msgid "E_nable sounds"
 msgstr "Ää_net päälle"
 
-#: ../src/preferences.c:358
+#: ../src/preferences.c:337
 msgid "_Starting level:"
 msgstr "_Aloitustaso:"
 
-#: ../src/preferences.c:387
+#: ../src/preferences.c:362
 msgid "Number of _human players:"
 msgstr "_Ihmispelaajien määrä:"
 
-#: ../src/preferences.c:408
+#: ../src/preferences.c:379
 msgid "Number of _AI players:"
 msgstr "_Tekoälypelaajien määrä:"
 
-#: ../src/preferences.c:433
+#: ../src/preferences.c:400
 msgid "Worm"
 msgstr "Mato"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:409
 msgid "Keyboard Options"
 msgstr "Näppäimistövalinnat"
 
-#: ../src/preferences.c:462
+#: ../src/preferences.c:429
 msgid "_Use relative movement"
 msgstr "Käytä _suhteellista liikettä"
 
-#: ../src/preferences.c:469
+#: ../src/preferences.c:436
 msgid "_Worm color:"
 msgstr "_Madon väri:"
 
-#: ../src/preferences.c:475
+#: ../src/preferences.c:442
 msgid "Red"
 msgstr "Punainen"
 
-#: ../src/preferences.c:476
+#: ../src/preferences.c:443
 msgid "Green"
 msgstr "Vihreä"
 
-#: ../src/preferences.c:477
+#: ../src/preferences.c:444
 msgid "Blue"
 msgstr "Sininen"
 
-#: ../src/preferences.c:478
+#: ../src/preferences.c:445
 msgid "Yellow"
 msgstr "Keltainen"
 
-#: ../src/preferences.c:479
+#: ../src/preferences.c:446
 msgid "Cyan"
 msgstr "Syaani"
 
-#: ../src/preferences.c:480
+#: ../src/preferences.c:447
 msgid "Purple"
 msgstr "Violetti"
 
-#: ../src/preferences.c:481
+#: ../src/preferences.c:448
 msgid "Gray"
 msgstr "Harmaa"
 
@@ -653,6 +454,183 @@ msgstr "Harmaa"
 #, c-format
 msgid "Worm %d:"
 msgstr "Mato %d:"
+
+#~ msgid "New Game"
+#~ msgstr "Uusi peli"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Name"
+#~ msgstr "Nimi"
+
+#~ msgid "View help for this game"
+#~ msgstr "Näytä tämän pelin ohjeet"
+
+#~ msgid "End the current game"
+#~ msgstr "Lopeta nykyinen peli"
+
+#~ msgid "Toggle fullscreen mode"
+#~ msgstr "Koko näytön tila päälle/pois"
+
+#~ msgid "Get a hint for your next move"
+#~ msgstr "Anna vinkki seuraavasta siirrosta"
+
+#~ msgid "Leave fullscreen mode"
+#~ msgstr "Poistu koko näytön tilasta"
+
+#~ msgid "Start a new multiplayer network game"
+#~ msgstr "Aloita uusi peli monen pelaajan verkkopeli"
+
+#~ msgid "End the current network game and return to network server"
+#~ msgstr "Lopeta nykyinen verkkopeli ja palaa verkkopalvelimelle"
+
+#~ msgid "Start a new game"
+#~ msgstr "Aloita uusi peli"
+
+#~ msgid "Pause the game"
+#~ msgstr "Keskeytä peli"
+
+#~ msgid "Show a list of players in the network game"
+#~ msgstr "Näytä lista verkkopelin pelaajista"
+
+#~ msgid "Redo the undone move"
+#~ msgstr "Tee peruttu siirto uudestaan"
+
+#~ msgid "Restart the game"
+#~ msgstr "Aloita peli uudestaan"
+
+#~ msgid "Resume the paused game"
+#~ msgstr "Jatka pysäytettyä peliä"
+
+#~ msgid "View the scores"
+#~ msgstr "Näytä tulokset"
+
+#~ msgid "Undo the last move"
+#~ msgstr "Peru edellinen siirto"
+
+#~ msgid "About this game"
+#~ msgstr "Tietoja tästä pelistä"
+
+#~ msgid "Close this window"
+#~ msgstr "Sulje tämä ikkuna"
+
+#~ msgid "Configure the game"
+#~ msgstr "Määrittele pelin asetukset"
+
+#~ msgid "Quit this game"
+#~ msgstr "Lopeta tämä peli"
+
+#~ msgid "_Contents"
+#~ msgstr "_Sisältö"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Koko näyttö"
+
+#~ msgid "_Hint"
+#~ msgstr "_Vinkki"
+
+#~ msgid "_New"
+#~ msgstr "_Uusi"
+
+#~ msgid "_New Game"
+#~ msgstr "_Uusi peli"
+
+#~ msgid "_Redo Move"
+#~ msgstr "_Tee siirto uudestaan"
+
+#~ msgid "_Reset"
+#~ msgstr "_Alusta"
+
+#~ msgid "_Restart"
+#~ msgstr "_Aloita alusta"
+
+#~ msgid "_Undo Move"
+#~ msgstr "_Peru siirto"
+
+#~ msgid "_Deal"
+#~ msgstr "J_ako"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "P_oistu koko näytön tilasta"
+
+#~ msgid "Network _Game"
+#~ msgstr "_Verkkopeli"
+
+#~ msgid "L_eave Game"
+#~ msgstr "_Lopeta peli"
+
+#~ msgid "Player _List"
+#~ msgstr "_Pelaajalista"
+
+#~ msgid "_Pause"
+#~ msgstr "_Keskeytä"
+
+#~ msgid "Res_ume"
+#~ msgstr "_Jatka"
+
+#~ msgid "_Scores"
+#~ msgstr "_Pisteet"
+
+#~ msgid "_End Game"
+#~ msgstr "_Lopeta peli"
+
+#~ msgid ""
+#~ "%s is free software; you can redistribute it and/or modify it under the "
+#~ "terms of the GNU General Public License as published by the Free Software "
+#~ "Foundation; either version %d of the License, or (at your option) any "
+#~ "later version."
+#~ msgstr ""
+#~ "%s on vapaa ohjelma; sitä on sallittu levittää edelleen ja muuttaa GNU "
+#~ "yleisen lisenssin (GPL lisenssin) ehtojen mukaan  sellaisina kuin Free "
+#~ "Software Foundation on ne julkaissut; joko lisenssin version %d, tai "
+#~ "(valinnan mukaan) minkä tahansa myöhemmän version mukaisesti."
+
+#~ msgid ""
+#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
+#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+#~ "details."
+#~ msgstr ""
+#~ "Ohjelmaa %s levitetään siinä toivossa, että se olisi hyödyllinen, mutta "
+#~ "ilman mitään takuuta; ilman edes hiljaista takuuta kaupallisesti "
+#~ "hyväksyttävästä laadusta tai soveltuvuudesta tiettyyn tarkoitukseen. "
+#~ "Katso GPL lisenssistä lisää yksityiskohtia."
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
+#~ msgstr ""
+#~ "Ohjelman %s mukana pitäisi tulla kopio GPL-lisenssistä; jos näin ei ole, "
+#~ "kirjoita osoitteeseen Free Software Foundation Inc., 51 Franklin Street, "
+#~ "Fifth Floor, Boston, MA  02110-1301  USA"
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
+#~ msgstr ""
+#~ "Tämän ohjelma mukana pitäisi tulla kopio GPL-lisenssistä; jos näin ei "
+#~ "ole, katso lisätietoja sivulta <http://www.gnu.org/licenses/>."
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "GNOMEn pelien www-sivut"
+
+#~ msgid "Game over! The game has been won by %s!"
+#~ msgstr "Peli päättyi! Pelin voitti %s!"
+
+#~ msgid "_Game"
+#~ msgstr "_Peli"
+
+#~ msgid "_View"
+#~ msgstr "_Näytä"
+
+#~ msgid "_Settings"
+#~ msgstr "_Asetukset"
+
+#~ msgid "_Help"
+#~ msgstr "O_hje"
+
+#~ msgid "A worm game for GNOME."
+#~ msgstr "Matopeli GNOMElle."
 
 #~ msgid "Chess"
 #~ msgstr "Shakki"
