@@ -1,5 +1,5 @@
 # Danish translation of gnome-games.
-# Copyright (C) 1998-2012 Free Software Foundation, Inc.
+# Copyright (C) 1998-2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 # Anders Wegge Jakobsen <wegge@wegge.dk>, 1998.
 # Kenneth Christiansen <kenneth@ripen.dk>, 1998-2001
@@ -7,7 +7,7 @@
 # Ole Laursen <olau@hardworking.dk>, 2001, 02, 03, 04.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2004, 05.
 # flemming christensen <fc@stromata.dk>, 2011.
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007, 08, 09, 10, 11, 12.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007-2014.
 #
 # RETMIG: en eller anden med forstand på kabaler skal have oversat
 # navnene på spillene. Der er en kommentar til hver af dem der
@@ -34,8 +34,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-17 08:46+0100\n"
-"PO-Revision-Date: 2013-03-16 17:20+0100\n"
+"POT-Creation-Date: 2014-03-19 22:51+0100\n"
+"PO-Revision-Date: 2014-03-15 18:16+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -44,132 +44,169 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:1 ../src/main.c:161 ../src/main.c:164
-#: ../src/main.c:699 ../src/main.c:770 ../src/main.c:901
+#: ../data/gnome-nibbles.appdata.xml.in.h:1
+msgid "GNOME Nibbles"
+msgstr "GNOME Orme"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:2
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+"Styr en orm i sin evige søgen efter at fortære bonusser og vokse. Udmanøvrér "
+"fjendtlige orme, mens du spiser donuts og is for at blive længere. Hver orm "
+"har ti liv, og mister et ved at bevæge sig ind i en mur, en anden orm, eller "
+"sig selv. De fjendtlige orme kommer efter de samme bonusser som du gør, så "
+"vær forsigtig: Hvis de bliver for store, vil du ikke have meget plads at "
+"bevæge dig på."
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"Eventyret går gennem 26 kort af stigende sværhedsgrad. De tidligere niveauer "
+"er mest åbne med nogle få mure, men senere vil der være klaustrofobiske "
+"nicher og teleporteringsenheder, som gør tingene mere interessante."
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Spil alene mod op til fem fjendtlige orme, eller del dit tastatur for at "
+"spille med en ven."
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:227 ../src/main.c:599
+#: ../src/main.c:719
 msgid "Nibbles"
 msgstr "Orme"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Styr en orm rundt i en labyrint"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:3
+#: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "spil;slanger;orme;orm;bræt;"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:1
+#: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
 msgstr "Antal menneskelige spillere"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:2
+#: ../data/org.gnome.nibbles.gschema.xml.h:2
 msgid "Number of human players."
 msgstr "Antal menneskelige spillere."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:3
+#: ../data/org.gnome.nibbles.gschema.xml.h:3
 msgid "Number of AI players"
 msgstr "Antal computerstyrede spillere"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:4
+#: ../data/org.gnome.nibbles.gschema.xml.h:4
 msgid "Number of AI players."
 msgstr "Antal computerstyrede spillere."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:5
+#: ../data/org.gnome.nibbles.gschema.xml.h:5
 msgid "Game speed"
 msgstr "Spilhastighed"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:6
+#: ../data/org.gnome.nibbles.gschema.xml.h:6
 msgid "Game speed (1=fast, 4=slow)."
 msgstr "Spilhastighed (1 = hurtig, 4 = langsom)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:7
+#: ../data/org.gnome.nibbles.gschema.xml.h:7
 msgid "Enable fake bonuses"
 msgstr "Aktivér falske bonuser"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:8
+#: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Enable fake bonuses."
 msgstr "Aktivér falske bonuser."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:9
+#: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Play levels in random order"
 msgstr "Spil baner i tilfældig rækkefølge"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:10
+#: ../data/org.gnome.nibbles.gschema.xml.h:10
 msgid "Play levels in random order."
 msgstr "Spil baner i tilfældig rækkefølge."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:11
+#: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
 msgstr "Spilbane der startes på"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:12
+#: ../data/org.gnome.nibbles.gschema.xml.h:12
 msgid "Game level to start on."
 msgstr "Spilbane der startes på."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:13
+#: ../data/org.gnome.nibbles.gschema.xml.h:13
 msgid "Enable sounds"
 msgstr "Aktivér lyde"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
 msgid "Enable sounds."
 msgstr "Aktivér lyde."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Size of game tiles"
 msgstr "Størrelse af spilfliser"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Size of game tiles."
 msgstr "Størrelse af spilfliser."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Color to use for worm"
 msgstr "Farve der skal bruges til orm"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Color to use for worm."
 msgstr "Farve der skal bruges til orm."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Use relative movement"
 msgstr "Benyt relativ bevægelse"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Benyt relativ bevægelse (dvs. til venstre eller højre kun)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:452
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
 msgid "Move up"
 msgstr "Flyt op"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Key to use for motion up."
 msgstr "Tast til at bevæge orm opad."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:453
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
 msgid "Move down"
 msgstr "Flyt ned"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion down."
 msgstr "Tast til at bevæge orm nedad."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:450
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
 msgid "Move left"
 msgstr "Træk til venstre"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion left."
 msgstr "Tast til at bevæge orm til venstre."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:451
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
 msgid "Move right"
 msgstr "Træk til højre"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion right."
 msgstr "Tast til at bevæge orm til højre."
 
-#: ../src/board.c:245
+#: ../src/board.c:250
 #, c-format
 msgid ""
 "Nibbles couldn't load level file:\n"
@@ -182,7 +219,7 @@ msgstr ""
 "\n"
 "Kontrollér venligst installationen af Orme"
 
-#: ../src/board.c:264
+#: ../src/board.c:269
 #, c-format
 msgid ""
 "Level file appears to be damaged:\n"
@@ -195,242 +232,43 @@ msgstr ""
 "\n"
 "Kontrollér venligst installationen af Orme"
 
-#: ../src/games-controls.c:288
+#: ../src/games-controls.c:108
+msgid "The shortcut you selected is already assigned."
+msgstr "Genvejstasten, du valgte, er allerede tildelt."
+
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "Ukendt kommando"
 
 #. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:136
+#: ../src/games-scores-dialog.c:132
 msgctxt "score-dialog"
 msgid "Time"
 msgstr "Tid"
 
 #. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:142
+#: ../src/games-scores-dialog.c:138
 msgctxt "score-dialog"
 msgid "Score"
 msgstr "Resultat"
 
 #. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:307
+#: ../src/games-scores-dialog.c:225
 #, c-format
 msgctxt "score-dialog"
 msgid "%1$dm %2$ds"
 msgstr "%1$dm %2$ds"
 
-#: ../src/games-scores-dialog.c:470
-msgid "New Game"
-msgstr "Nyt spil"
-
-#. Score dialog column header for the name of the player who recorded the score
-#: ../src/games-scores-dialog.c:571
-msgctxt "score-dialog"
-msgid "Name"
-msgstr "Navn"
-
 #. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:580
+#: ../src/games-scores-dialog.c:430
 msgid "Date"
 msgstr "Dato"
 
-#: ../src/games-stock.c:41
-msgid "View help for this game"
-msgstr "Vis hjælp til dette spil"
+#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+msgid "_Close"
+msgstr "_Luk"
 
-#: ../src/games-stock.c:42
-msgid "End the current game"
-msgstr "Afslut det aktuelle spil"
-
-#: ../src/games-stock.c:43
-msgid "Toggle fullscreen mode"
-msgstr "Slå fuldskærmstilstand til/fra"
-
-#: ../src/games-stock.c:44
-msgid "Get a hint for your next move"
-msgstr "Få et fif til dit næste træk"
-
-#: ../src/games-stock.c:45
-msgid "Leave fullscreen mode"
-msgstr "Afslut fuldskærm"
-
-#: ../src/games-stock.c:46
-msgid "Start a new multiplayer network game"
-msgstr "Start et nyt netværksspil med flere spillere"
-
-#: ../src/games-stock.c:47
-msgid "End the current network game and return to network server"
-msgstr "Afslut det aktuelle netværksspil og vend tilbage til netværksserveren"
-
-#: ../src/games-stock.c:48
-msgid "Start a new game"
-msgstr "Start et nyt spil"
-
-#: ../src/games-stock.c:49
-msgid "Pause the game"
-msgstr "Sæt spillet på pause"
-
-#: ../src/games-stock.c:50
-msgid "Show a list of players in the network game"
-msgstr "Vis en liste af spillere i netværkssspillet"
-
-#: ../src/games-stock.c:51
-msgid "Redo the undone move"
-msgstr "Omgør det fortrudte træk"
-
-#: ../src/games-stock.c:52
-msgid "Restart the game"
-msgstr "Genstart spillet"
-
-#: ../src/games-stock.c:53
-msgid "Resume the paused game"
-msgstr "Genoptag det aktuelle spil"
-
-#: ../src/games-stock.c:54
-msgid "View the scores"
-msgstr "Vis resultaterne"
-
-#: ../src/games-stock.c:55
-msgid "Undo the last move"
-msgstr "Fortryd sidste træk"
-
-#: ../src/games-stock.c:56
-msgid "About this game"
-msgstr "Om dette spil"
-
-#: ../src/games-stock.c:57
-msgid "Close this window"
-msgstr "Luk dette vindue"
-
-#: ../src/games-stock.c:58
-msgid "Configure the game"
-msgstr "Konfigurér spillet"
-
-#: ../src/games-stock.c:59
-msgid "Quit this game"
-msgstr "Afslut dette spil"
-
-#: ../src/games-stock.c:247
-msgid "_Contents"
-msgstr "_Indhold"
-
-#: ../src/games-stock.c:248
-msgid "_Fullscreen"
-msgstr "_Fuldskærm"
-
-#: ../src/games-stock.c:249
-msgid "_Hint"
-msgstr "F_if"
-
-#. Translators: This "_New" is for the menu item 'Game->New', implies "New Game"
-#: ../src/games-stock.c:251
-msgid "_New"
-msgstr "_Nyt"
-
-#. Translators: This "_New Game" is for the game-over dialogue
-#: ../src/games-stock.c:253
-msgid "_New Game"
-msgstr "_Nyt spil"
-
-#: ../src/games-stock.c:254
-msgid "_Redo Move"
-msgstr "_Omgør træk"
-
-#. Translators: this is the "Reset" scores button in a scores dialogue
-#: ../src/games-stock.c:256
-msgid "_Reset"
-msgstr "_Nulstil"
-
-#. Translators: "_Restart" is the menu item 'Game->Restart', implies "Restart Game"
-#: ../src/games-stock.c:258
-msgid "_Restart"
-msgstr "_Genstart"
-
-#: ../src/games-stock.c:259
-msgid "_Undo Move"
-msgstr "_Fortryd træk"
-
-#: ../src/games-stock.c:260
-msgid "_Deal"
-msgstr "_Giv kort"
-
-#: ../src/games-stock.c:261
-msgid "_Leave Fullscreen"
-msgstr "_Afslut fuldskærm"
-
-#: ../src/games-stock.c:262
-msgid "Network _Game"
-msgstr "N_etværksspil"
-
-#: ../src/games-stock.c:263
-msgid "L_eave Game"
-msgstr "_Forlad spillet"
-
-#: ../src/games-stock.c:264
-msgid "Player _List"
-msgstr "Spiller_liste"
-
-#: ../src/games-stock.c:265
-msgid "_Pause"
-msgstr "_Pause"
-
-#: ../src/games-stock.c:266
-msgid "Res_ume"
-msgstr "_Start igen"
-
-#: ../src/games-stock.c:267
-msgid "_Scores"
-msgstr "_Resultater"
-
-#: ../src/games-stock.c:268
-msgid "_End Game"
-msgstr "A_fslut spil"
-
-#. %s is replaced with the name of the game in gnome-games.
-#: ../src/games-stock.c:317
-#, c-format
-msgid ""
-"%s is free software; you can redistribute it and/or modify it under the "
-"terms of the GNU General Public License as published by the Free Software "
-"Foundation; either version %d of the License, or (at your option) any later "
-"version."
-msgstr ""
-"%s er fri software; det kan distribueres og/eller modificeres som betinget "
-"af GNU General Public License, udarbejdet af Free Software Foundation; enten "
-"version %d af licensen eller, efter eget valg, enhver nyere version."
-
-#: ../src/games-stock.c:322
-#, c-format
-msgid ""
-"%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-"details."
-msgstr ""
-"%s distribueres i håb om at det viser sig nyttigt, men UDEN NOGEN GARANTI; "
-"selv uden de underforståede garantier SALGBARHED eller EGNETHED TIL ET "
-"BESTEMT FORMÅL, idet der henvises til GNU General Public License for "
-"detaljer."
-
-#: ../src/games-stock.c:327
-#, c-format
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"%s; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, "
-"Fifth Floor, Boston, MA  02110-1301  USA"
-msgstr ""
-"Du bør have modtaget en kopi af GNU General Public License sammen med %s; er "
-"dette ikke tilfældet, så skriv til Free Software Foundation, Inc., 51 "
-"Franklin Street, Femte sal, Boston, MA  02110-1301  USA"
-
-#: ../src/games-stock.c:331
-msgid ""
-"You should have received a copy of the GNU General Public License along with "
-"this program.  If not, see <http://www.gnu.org/licenses/>."
-msgstr ""
-"Du bør have modtaget en kopi af GNU General Public License sammen med %s; er "
-"dette ikke tilfældet, så se <http://www.gnu.org/licenses/>."
-
-#: ../src/gnibbles.c:84
+#: ../src/gnibbles.c:82
 #, c-format
 msgid ""
 "Nibbles couldn't find pixmap file:\n"
@@ -443,77 +281,77 @@ msgstr ""
 "\n"
 "Kontrollér venligst installationen af Orme"
 
-#: ../src/gnibbles.c:355
+#: ../src/gnibbles.c:341
 msgid "Nibbles Scores"
 msgstr "Resultater for Orme"
 
-#: ../src/gnibbles.c:358
+#: ../src/gnibbles.c:344
 msgid "Speed:"
 msgstr "Hastighed:"
 
-#: ../src/gnibbles.c:363
+#: ../src/gnibbles.c:349
 msgid "Congratulations!"
 msgstr "Tillykke!"
 
-#: ../src/gnibbles.c:364
+#: ../src/gnibbles.c:350
 msgid "Your score is the best!"
 msgstr "Du har opnået det bedste resultat!"
 
-#: ../src/gnibbles.c:365
+#: ../src/gnibbles.c:351
 msgid "Your score has made the top ten."
 msgstr "Dit resultat kom på top ti."
 
-#: ../src/main.c:65
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "Begynder"
 
-#: ../src/main.c:66
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Slow"
 msgstr "Langsom"
 
-#: ../src/main.c:67
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Medium"
 msgstr "Mellem"
 
-#: ../src/main.c:68
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Fast"
 msgstr "Hurtig"
 
-#: ../src/main.c:69
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "Begynder med forfalskninger"
 
-#: ../src/main.c:70
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "Langsom med forfalskninger"
 
-#: ../src/main.c:71
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "Mellem med forfalskninger"
 
-#: ../src/main.c:72
+#: ../src/main.c:69
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Hurtig med forfalskninger"
 
-#: ../src/main.c:170
+#: ../src/main.c:233
 msgid ""
-"A worm game for GNOME.\n"
+"A worm game for GNOME\n"
 "\n"
 "Nibbles is a part of GNOME Games."
 msgstr ""
-"Et ormespil til GNOME.\n"
+"Et ormespil til GNOME\n"
 "\n"
 "Orme er en del af GNOME Games."
 
-#: ../src/main.c:173
+#: ../src/main.c:236
 msgid "translator-credits"
 msgstr ""
 "Anders Wegge Jakobsen\n"
@@ -526,134 +364,104 @@ msgstr ""
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
-#: ../src/main.c:176
-msgid "GNOME Games web site"
-msgstr "Hjemmeside for GNOME Games"
-
-#: ../src/main.c:491
-#, c-format
-msgid "Game over! The game has been won by %s!"
-msgstr "Spillet er slut! Spillet blev vundet af %s!"
-
-#: ../src/main.c:604
-msgid "_Game"
-msgstr "_Spil"
-
-#: ../src/main.c:605
-msgid "_View"
-msgstr "_Vis"
-
-#: ../src/main.c:606
-msgid "_Settings"
-msgstr "_Opsætning"
-
-#: ../src/main.c:607
-msgid "_Help"
-msgstr "_Hjælp"
-
-#. Translators: This string will be included in the intro screen, so don't make sure it fits!
-#: ../src/main.c:772
-msgid "A worm game for GNOME."
-msgstr "Et ormespil til GNOME."
-
-#: ../src/preferences.c:240
+#: ../src/preferences.c:223
 msgid "Nibbles Preferences"
 msgstr "Indstillinger for Orme"
 
-#: ../src/preferences.c:253
+#: ../src/preferences.c:236
 msgid "Game"
 msgstr "Spil"
 
 #. Speed
-#: ../src/preferences.c:269
+#: ../src/preferences.c:252
 msgid "Speed"
 msgstr "Hastighed"
 
-#: ../src/preferences.c:274
+#: ../src/preferences.c:257
 msgid "Nibbles newbie"
 msgstr "Nybegynder"
 
-#: ../src/preferences.c:284
+#: ../src/preferences.c:267
 msgid "My second day"
 msgstr "Min anden dag"
 
-#: ../src/preferences.c:294
+#: ../src/preferences.c:277
 msgid "Not too shabby"
 msgstr "Ikke så dårligt"
 
-#: ../src/preferences.c:304
+#: ../src/preferences.c:287
 msgid "Finger-twitching good"
 msgstr "Fingervridende god"
 
-#: ../src/preferences.c:318 ../src/preferences.c:457
+#: ../src/preferences.c:301 ../src/preferences.c:424
 msgid "Options"
 msgstr "Indstillinger"
 
-#: ../src/preferences.c:325
+#: ../src/preferences.c:308
 msgid "_Play levels in random order"
 msgstr "_Spil baner i tilfældig rækkefølge"
 
-#: ../src/preferences.c:335
+#: ../src/preferences.c:316
 msgid "_Enable fake bonuses"
 msgstr "_Aktivér falske bonuser"
 
-#: ../src/preferences.c:345
+#: ../src/preferences.c:324
 msgid "E_nable sounds"
 msgstr "A_ktivér lyde"
 
-#: ../src/preferences.c:358
+#: ../src/preferences.c:337
 msgid "_Starting level:"
 msgstr "_Startbane:"
 
-#: ../src/preferences.c:387
+#: ../src/preferences.c:362
 msgid "Number of _human players:"
 msgstr "Antal _menneskelige spillere:"
 
-#: ../src/preferences.c:408
+#: ../src/preferences.c:379
 msgid "Number of _AI players:"
 msgstr "Antal _computerstyrede spillere:"
 
-#: ../src/preferences.c:433
+#: ../src/preferences.c:400
 msgid "Worm"
 msgstr "Orm"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:409
 msgid "Keyboard Options"
 msgstr "Tastaturindstillinger"
 
-#: ../src/preferences.c:462
+#: ../src/preferences.c:429
 msgid "_Use relative movement"
 msgstr "_Benyt relativ bevægelse"
 
-#: ../src/preferences.c:469
+#: ../src/preferences.c:436
 msgid "_Worm color:"
 msgstr "_Ormefarve:"
 
-#: ../src/preferences.c:475
+#: ../src/preferences.c:442
 msgid "Red"
 msgstr "Rød"
 
-#: ../src/preferences.c:476
+#: ../src/preferences.c:443
 msgid "Green"
 msgstr "Grøn"
 
-#: ../src/preferences.c:477
+#: ../src/preferences.c:444
 msgid "Blue"
 msgstr "Blå"
 
-#: ../src/preferences.c:478
+#: ../src/preferences.c:445
 msgid "Yellow"
 msgstr "Gul"
 
-#: ../src/preferences.c:479
+#: ../src/preferences.c:446
 msgid "Cyan"
 msgstr "Cyan"
 
-#: ../src/preferences.c:480
+#: ../src/preferences.c:447
 msgid "Purple"
 msgstr "Lilla"
 
-#: ../src/preferences.c:481
+#: ../src/preferences.c:448
 msgid "Gray"
 msgstr "Grå"
 
@@ -661,6 +469,184 @@ msgstr "Grå"
 #, c-format
 msgid "Worm %d:"
 msgstr "Orm %d:"
+
+#~ msgid "New Game"
+#~ msgstr "Nyt spil"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Name"
+#~ msgstr "Navn"
+
+#~ msgid "View help for this game"
+#~ msgstr "Vis hjælp til dette spil"
+
+#~ msgid "End the current game"
+#~ msgstr "Afslut det aktuelle spil"
+
+#~ msgid "Toggle fullscreen mode"
+#~ msgstr "Slå fuldskærmstilstand til/fra"
+
+#~ msgid "Get a hint for your next move"
+#~ msgstr "Få et fif til dit næste træk"
+
+#~ msgid "Leave fullscreen mode"
+#~ msgstr "Afslut fuldskærm"
+
+#~ msgid "Start a new multiplayer network game"
+#~ msgstr "Start et nyt netværksspil med flere spillere"
+
+#~ msgid "End the current network game and return to network server"
+#~ msgstr ""
+#~ "Afslut det aktuelle netværksspil og vend tilbage til netværksserveren"
+
+#~ msgid "Start a new game"
+#~ msgstr "Start et nyt spil"
+
+#~ msgid "Pause the game"
+#~ msgstr "Sæt spillet på pause"
+
+#~ msgid "Show a list of players in the network game"
+#~ msgstr "Vis en liste af spillere i netværkssspillet"
+
+#~ msgid "Redo the undone move"
+#~ msgstr "Omgør det fortrudte træk"
+
+#~ msgid "Restart the game"
+#~ msgstr "Genstart spillet"
+
+#~ msgid "Resume the paused game"
+#~ msgstr "Genoptag det aktuelle spil"
+
+#~ msgid "View the scores"
+#~ msgstr "Vis resultaterne"
+
+#~ msgid "Undo the last move"
+#~ msgstr "Fortryd sidste træk"
+
+#~ msgid "About this game"
+#~ msgstr "Om dette spil"
+
+#~ msgid "Close this window"
+#~ msgstr "Luk dette vindue"
+
+#~ msgid "Configure the game"
+#~ msgstr "Konfigurér spillet"
+
+#~ msgid "Quit this game"
+#~ msgstr "Afslut dette spil"
+
+#~ msgid "_Contents"
+#~ msgstr "_Indhold"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Fuldskærm"
+
+#~ msgid "_Hint"
+#~ msgstr "F_if"
+
+#~ msgid "_New"
+#~ msgstr "_Nyt"
+
+#~ msgid "_New Game"
+#~ msgstr "_Nyt spil"
+
+#~ msgid "_Redo Move"
+#~ msgstr "_Omgør træk"
+
+#~ msgid "_Reset"
+#~ msgstr "_Nulstil"
+
+#~ msgid "_Restart"
+#~ msgstr "_Genstart"
+
+#~ msgid "_Undo Move"
+#~ msgstr "_Fortryd træk"
+
+#~ msgid "_Deal"
+#~ msgstr "_Giv kort"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "_Afslut fuldskærm"
+
+#~ msgid "Network _Game"
+#~ msgstr "N_etværksspil"
+
+#~ msgid "L_eave Game"
+#~ msgstr "_Forlad spillet"
+
+#~ msgid "Player _List"
+#~ msgstr "Spiller_liste"
+
+#~ msgid "_Pause"
+#~ msgstr "_Pause"
+
+#~ msgid "Res_ume"
+#~ msgstr "_Start igen"
+
+#~ msgid "_Scores"
+#~ msgstr "_Resultater"
+
+#~ msgid "_End Game"
+#~ msgstr "A_fslut spil"
+
+#~ msgid ""
+#~ "%s is free software; you can redistribute it and/or modify it under the "
+#~ "terms of the GNU General Public License as published by the Free Software "
+#~ "Foundation; either version %d of the License, or (at your option) any "
+#~ "later version."
+#~ msgstr ""
+#~ "%s er fri software; det kan distribueres og/eller modificeres som "
+#~ "betinget af GNU General Public License, udarbejdet af Free Software "
+#~ "Foundation; enten version %d af licensen eller, efter eget valg, enhver "
+#~ "nyere version."
+
+#~ msgid ""
+#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
+#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+#~ "details."
+#~ msgstr ""
+#~ "%s distribueres i håb om at det viser sig nyttigt, men UDEN NOGEN "
+#~ "GARANTI; selv uden de underforståede garantier SALGBARHED eller EGNETHED "
+#~ "TIL ET BESTEMT FORMÅL, idet der henvises til GNU General Public License "
+#~ "for detaljer."
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
+#~ msgstr ""
+#~ "Du bør have modtaget en kopi af GNU General Public License sammen med %s; "
+#~ "er dette ikke tilfældet, så skriv til Free Software Foundation, Inc., 51 "
+#~ "Franklin Street, Femte sal, Boston, MA  02110-1301  USA"
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
+#~ msgstr ""
+#~ "Du bør have modtaget en kopi af GNU General Public License sammen med %s; "
+#~ "er dette ikke tilfældet, så se <http://www.gnu.org/licenses/>."
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Hjemmeside for GNOME Games"
+
+#~ msgid "Game over! The game has been won by %s!"
+#~ msgstr "Spillet er slut! Spillet blev vundet af %s!"
+
+#~ msgid "_Game"
+#~ msgstr "_Spil"
+
+#~ msgid "_View"
+#~ msgstr "_Vis"
+
+#~ msgid "_Settings"
+#~ msgstr "_Opsætning"
+
+#~ msgid "_Help"
+#~ msgstr "_Hjælp"
+
+#~ msgid "A worm game for GNOME."
+#~ msgstr "Et ormespil til GNOME."
 
 #~ msgid "Chess"
 #~ msgstr "Skak"
@@ -5352,9 +5338,6 @@ msgstr "Orm %d:"
 #~ msgid "_Cancel"
 #~ msgstr "_Annullér"
 
-#~ msgid "_Close"
-#~ msgstr "_Luk"
-
 #~ msgid "_OK"
 #~ msgstr "_O.k."
 
@@ -6505,9 +6488,6 @@ msgstr "Orm %d:"
 
 #~ msgid "Login"
 #~ msgstr "Logind"
-
-#~ msgid "That username is already in use."
-#~ msgstr "Det brugernavn er allerede i brug."
 
 #~ msgid ""
 #~ "Authentication has failed.\n"
