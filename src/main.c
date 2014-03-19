@@ -162,6 +162,7 @@ change_pause_state (GSimpleAction *action,
     dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
   }
 
+  g_simple_action_set_state (action, g_variant_new_boolean (is_paused));
 }
 
 
