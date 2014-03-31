@@ -4,16 +4,16 @@
 #
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
-# Matic Žgur <mr.zgur@gmail.com>, 2006 - 2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2012.
+# Matic Žgur <mr.zgur@gmail.com>, 2006-2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-21 03:41+0000\n"
-"PO-Revision-Date: 2013-10-24 20:55+0100\n"
+"POT-Creation-Date: 2014-03-31 19:25+0000\n"
+"PO-Revision-Date: 2014-03-31 22:53+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -25,26 +25,13 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:155 ../src/main.c:671
-#: ../src/main.c:742
-msgid "Nibbles"
-msgstr "Črvi"
-
-#: ../data/gnibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Vodenje črva po labirintu"
-
-#: ../data/gnibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "igra;kaža;tabla;plošča;"
-
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "GNOME Črvi"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
 msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmanuever "
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
@@ -63,6 +50,21 @@ msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
+"Igro je mogoče igrati proti računalniku ali pa s prijateljem. Ena tipkovnica "
+"omogoča igro v dvoje."
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:227 ../src/main.c:599
+#: ../src/main.c:719
+msgid "Nibbles"
+msgstr "Črvi"
+
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Vodenje črva po labirintu"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "igra;kaža;tabla;plošča;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -202,11 +204,43 @@ msgstr ""
 "\n"
 "Preverite namestitev igre."
 
-#: ../src/games-controls.c:288
+#: ../src/games-controls.c:108
+msgid "The shortcut you selected is already assigned."
+msgstr "Izbrana tipkovna bližnjica je že določena."
+
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "Neznan ukaz"
 
-#: ../src/gnibbles.c:81
+#. Score dialog column header for the score time (e.g. 1 minute)
+#: ../src/games-scores-dialog.c:132
+msgctxt "score-dialog"
+msgid "Time"
+msgstr "Čas"
+
+#. Score dialog column header for the score value (e.g. 30 moves)
+#: ../src/games-scores-dialog.c:138
+msgctxt "score-dialog"
+msgid "Score"
+msgstr "Rezultat"
+
+#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
+#: ../src/games-scores-dialog.c:225
+#, c-format
+msgctxt "score-dialog"
+msgid "%1$dm %2$ds"
+msgstr "%1$dm %2$ds"
+
+#. Score dialog column header for the date the score was recorded
+#: ../src/games-scores-dialog.c:430
+msgid "Date"
+msgstr "Datum"
+
+#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+msgid "_Close"
+msgstr "_Zapri"
+
+#: ../src/gnibbles.c:82
 #, c-format
 msgid ""
 "Nibbles couldn't find pixmap file:\n"
@@ -219,49 +253,69 @@ msgstr ""
 "\n"
 "Preverite vašo namestitev igre."
 
-#: ../src/main.c:61
+#: ../src/gnibbles.c:341
+msgid "Nibbles Scores"
+msgstr "Točke pri Nibblesu"
+
+#: ../src/gnibbles.c:344
+msgid "Speed:"
+msgstr "Hitrost:"
+
+#: ../src/gnibbles.c:349
+msgid "Congratulations!"
+msgstr "Čestitke!"
+
+#: ../src/gnibbles.c:350
+msgid "Your score is the best!"
+msgstr "Vaše rezultat je najboljši!"
+
+#: ../src/gnibbles.c:351
+msgid "Your score has made the top ten."
+msgstr "Vaš rezultat se uvršča med najboljših deset."
+
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "Začetnik"
 
-#: ../src/main.c:62
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Slow"
 msgstr "Počasno"
 
-#: ../src/main.c:63
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Medium"
 msgstr "Srednja"
 
-#: ../src/main.c:64
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Fast"
 msgstr "Hitro"
 
-#: ../src/main.c:65
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "Začetnik s pomočjo"
 
-#: ../src/main.c:66
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "Počasno s pomočjo"
 
-#: ../src/main.c:67
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "Običajno s pomočjo"
 
-#: ../src/main.c:68
+#: ../src/main.c:69
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Hitro s pomočjo"
 
-#: ../src/main.c:162
+#: ../src/main.c:233
 msgid ""
-"A worm game for GNOME.\n"
+"A worm game for GNOME\n"
 "\n"
 "Nibbles is a part of GNOME Games."
 msgstr ""
@@ -269,54 +323,13 @@ msgstr ""
 "\n"
 "Igra Nibbles je del iger GNOME."
 
-#: ../src/main.c:165
+#: ../src/main.c:236
 msgid "translator-credits"
 msgstr ""
 "Matic Žgur <mr.zgur@gmail.com>\n"
 "Matej Erman <matej.erman@guest.arnes.si>\n"
 "Tadej Janež <tadej_janez@email.si>\n"
 "Matej Urbančič <mateju@svn.gnome.org>"
-
-#: ../src/main.c:168
-msgid "GNOME Games web site"
-msgstr "Spletna stran iger GNOME"
-
-#: ../src/main.c:467
-#, c-format
-msgid "Game over! The game has been won by %s!"
-msgstr "Konec igre! Zmagovalec igre je %s!"
-
-#: ../src/main.c:580
-msgid "_Game"
-msgstr "_Igra"
-
-#: ../src/main.c:581
-msgid "_View"
-msgstr "P_ogled"
-
-#: ../src/main.c:582
-msgid "_Settings"
-msgstr "_Nastavitve"
-
-#: ../src/main.c:583
-msgid "_Help"
-msgstr "Pomo_č"
-
-#: ../src/main.c:584
-msgid "_New Game"
-msgstr "_Nova Igra"
-
-#: ../src/main.c:586
-msgid "_End Game"
-msgstr "_Končaj igro"
-
-#: ../src/main.c:588
-msgid "_Pause"
-msgstr "_Premor"
-
-#: ../src/main.c:593
-msgid "_Contents"
-msgstr "_Vsebina"
 
 #: ../src/preferences.c:223
 msgid "Nibbles Preferences"
@@ -424,17 +437,35 @@ msgstr "Siva"
 msgid "Worm %d:"
 msgstr "Črv %d:"
 
-#~ msgctxt "score-dialog"
-#~ msgid "Time"
-#~ msgstr "Čas"
+#~ msgid "GNOME Games web site"
+#~ msgstr "Spletna stran iger GNOME"
 
-#~ msgctxt "score-dialog"
-#~ msgid "Score"
-#~ msgstr "Rezultat"
+#~ msgid "Game over! The game has been won by %s!"
+#~ msgstr "Konec igre! Zmagovalec igre je %s!"
 
-#~ msgctxt "score-dialog"
-#~ msgid "%1$dm %2$ds"
-#~ msgstr "%1$dm %2$ds"
+#~ msgid "_Game"
+#~ msgstr "_Igra"
+
+#~ msgid "_View"
+#~ msgstr "P_ogled"
+
+#~ msgid "_Settings"
+#~ msgstr "_Nastavitve"
+
+#~ msgid "_Help"
+#~ msgstr "Pomo_č"
+
+#~ msgid "_New Game"
+#~ msgstr "_Nova Igra"
+
+#~ msgid "_End Game"
+#~ msgstr "_Končaj igro"
+
+#~ msgid "_Pause"
+#~ msgstr "_Premor"
+
+#~ msgid "_Contents"
+#~ msgstr "_Vsebina"
 
 #~ msgid "New Game"
 #~ msgstr "Nova igra"
@@ -442,9 +473,6 @@ msgstr "Črv %d:"
 #~ msgctxt "score-dialog"
 #~ msgid "Name"
 #~ msgstr "Ime"
-
-#~ msgid "Date"
-#~ msgstr "Datum"
 
 #~ msgid "View help for this game"
 #~ msgstr "Poglejte pomoč za to igro"
@@ -583,21 +611,6 @@ msgstr "Črv %d:"
 #~ "Skupaj s programom bi morali prejeti tudi kopijo Splošnega Javnega "
 #~ "dovoljenja GNU.V kolikor je niste, si oglejte <http://www.gnu.org/"
 #~ "licenses/>."
-
-#~ msgid "Nibbles Scores"
-#~ msgstr "Točke pri Nibblesu"
-
-#~ msgid "Speed:"
-#~ msgstr "Hitrost:"
-
-#~ msgid "Congratulations!"
-#~ msgstr "Čestitke!"
-
-#~ msgid "Your score is the best!"
-#~ msgstr "Vaše rezultat je najboljši!"
-
-#~ msgid "Your score has made the top ten."
-#~ msgstr "Vaš rezultat se uvršča med najboljših deset."
 
 #~ msgid "A worm game for GNOME."
 #~ msgstr "Igra s črvom za GNOME"
