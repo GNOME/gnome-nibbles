@@ -7,10 +7,10 @@
   <name xml:lang="en">gnome-nibbles</name>
   <shortdesc xml:lang="en">Guide a worm around a maze</shortdesc>
   <description xml:lang="en">Guide a worm around a maze</description>
-  <homepage rdf:resource="http://live.gnome.org/Nibbles" />
+  <homepage rdf:resource="https://wiki.gnome.org/Apps/Nibbles" />
   <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/games-list" />
   <download-page rdf:resource="http://download.gnome.org/sources/gnome-nibbles/" />
-  <bug-database rdf:resource="http://bugzilla.gnome.org/browse.cgi?product=gnome-nibbles" />
+  <bug-database rdf:resource="https://bugzilla.gnome.org/browse.cgi?product=gnome-nibbles" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#desktop" />
 
   <maintainer>
