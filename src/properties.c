@@ -118,10 +118,12 @@ gnibbles_properties_update (GnibblesProperties * tmp)
   sound_enable (tmp->sound);
 
   tmp->tilesize = g_settings_get_int (settings, "tile-size");
-  if (tmp->tilesize < 8)
+  //Set to only one size, see bug 709595
+  tmp->tilesize = 10;
+  /*if (tmp->tilesize < 8)
     tmp->tilesize = 8;
   if (tmp->tilesize > 30)
-    tmp->tilesize = 30;
+    tmp->tilesize = 30;*/
 
   for (i = 0; i < NUMWORMS; i++) {
     tmp->wormprops[i] = g_slice_new0 (GnibblesWormProps);
