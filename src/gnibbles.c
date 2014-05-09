@@ -199,7 +199,7 @@ gint
 gnibbles_move_worms (void)
 {
   gint i, j;
-  nlives = 1;
+  gint nlives = 1;
   gint *dead;
 
   dead = g_new (gint, properties->numworms);
