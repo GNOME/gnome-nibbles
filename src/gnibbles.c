@@ -199,7 +199,7 @@ gint
 gnibbles_move_worms (void)
 {
   gint i, j;
-  gint status = 1, nlives = 1;
+  nlives = 1;
   gint *dead;
 
   dead = g_new (gint, properties->numworms);
@@ -233,7 +233,6 @@ gnibbles_move_worms (void)
 
   for (i = 0; i < properties->numworms; i++) {
     dead[i] = !gnibbles_worm_test_move_head (worms[i]);
-    status &= !dead[i];
   }
 
   for (i = 0; i < properties->numworms; i++) {
@@ -268,12 +267,6 @@ gnibbles_move_worms (void)
         play_sound ("crash");
       }
     }
-  }
-
-  if (status & GAMEOVER) {
-    play_sound ("crash");
-    play_sound ("gameover");
-    return GAMEOVER;
   }
 
   for (i = 0; i < properties->numworms; i++) {
