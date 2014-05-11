@@ -599,7 +599,6 @@ activate (GtkApplication* app,
 
   window = gtk_application_window_new (app);
   gtk_window_set_titlebar (GTK_WINDOW (window), headerbar);
-  gtk_window_set_default_size (GTK_WINDOW (window), 800, 600);
 
   g_action_map_add_action_entries (G_ACTION_MAP (app), app_entries, G_N_ELEMENTS (app_entries), app);
 
@@ -670,6 +669,7 @@ activate (GtkApplication* app,
   clutter_actor_set_size (CLUTTER_ACTOR (stage),
                           properties->tilesize * BOARDWIDTH,
                           properties->tilesize * BOARDHEIGHT);
+  gtk_widget_set_size_request (clutter_widget, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
