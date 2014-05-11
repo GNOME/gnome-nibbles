@@ -220,10 +220,10 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     return;
   }
 
-  pref_dialog = gtk_dialog_new_with_buttons (_("Nibbles Preferences"),
-                                             GTK_WINDOW (window), 0,
-                                             _("_Close"),
-                                             GTK_RESPONSE_CLOSE, NULL);
+  pref_dialog = gtk_dialog_new_with_buttons (_("Preferences"),
+                                             GTK_WINDOW (window),
+                                             GTK_DIALOG_USE_HEADER_BAR,
+                                             NULL);
   gtk_container_set_border_width (GTK_CONTAINER (pref_dialog), 5);
   gtk_box_set_spacing
     (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (pref_dialog))), 2);
