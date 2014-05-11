@@ -585,7 +585,7 @@ activate (GtkApplication* app,
   GtkWidget *headerbar;
   GtkWidget *label;
   GdkGeometry size_hints = {
-    1024, 768, 0, 0, 1024, 768, 0, 0, 0.0, 0.0, GDK_GRAVITY_NORTH_WEST
+    800, 600, 0, 0, 800, 600, 0, 0, 0.0, 0.0, GDK_GRAVITY_NORTH_WEST
   };
 
   GtkWidget *vbox;
@@ -607,7 +607,7 @@ activate (GtkApplication* app,
   gtk_window_set_geometry_hints (GTK_WINDOW (window),
                     window,
                     &size_hints,
-                    GDK_HINT_MIN_SIZE | GDK_HINT_MAX_SIZE);
+                    GDK_HINT_MIN_SIZE);
 
   g_action_map_add_action_entries (G_ACTION_MAP (app), app_entries, G_N_ELEMENTS (app_entries), app);
 
