@@ -118,8 +118,8 @@ gnibbles_properties_update (GnibblesProperties * tmp)
   sound_enable (tmp->sound);
 
   tmp->tilesize = g_settings_get_int (settings, "tile-size");
-  if (tmp->tilesize < 8)
-    tmp->tilesize = 8;
+  if (tmp->tilesize < 1)
+    tmp->tilesize = 5;
   if (tmp->tilesize > 30)
     tmp->tilesize = 30;
 
