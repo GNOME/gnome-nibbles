@@ -1,3 +1,9 @@
+gnome-nibbles 3.12.2
+==================
+
+ * Set a minimum size correctly, fixed major resize issue
+ * Updated Greek, Slovenian, German, Catalan, translations
+
 gnome-nibbles 3.12.1
 ==================
 
