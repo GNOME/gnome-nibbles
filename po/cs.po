@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-16 17:36+0000\n"
-"PO-Revision-Date: 2014-01-18 22:30+0100\n"
+"POT-Creation-Date: 2014-05-14 06:55+0000\n"
+"PO-Revision-Date: 2014-05-14 14:35+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -35,20 +35,7 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:222 ../src/main.c:705
-msgid "Nibbles"
-msgstr "Červíci"
-
-#: ../data/gnibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Vést červa v bludišti"
-
-#: ../data/gnibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "hra;had;desková;"
-
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
-#| msgid "Nibbles"
 msgid "GNOME Nibbles"
 msgstr "Červíci GNOME"
 
@@ -85,6 +72,19 @@ msgid ""
 msgstr ""
 "Zahrajte si na vlastní pěst až proti pěti nepřátelským červíkům nebo se "
 "podělte o klávesnici při hraní s přáteli."
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
+#: ../src/main.c:712
+msgid "Nibbles"
+msgstr "Červíci"
+
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Vést červa v bludišti"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "hra;had;desková;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -224,11 +224,11 @@ msgstr ""
 "\n"
 "Zkontrolujte prosím svou instalaci hry Červíci"
 
-#: ../src/games-controls.c:107
+#: ../src/games-controls.c:108
 msgid "The shortcut you selected is already assigned."
 msgstr "Klávesová zkratka, kterou jste vybrali, je již přidělena."
 
-#: ../src/games-controls.c:323
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "Neznámý příkaz"
 
@@ -256,7 +256,7 @@ msgstr "%1$d min %2$d sec"
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Zavřít"
 
@@ -273,71 +273,67 @@ msgstr ""
 "\n"
 "Zkontrolujte prosím svou instalaci hry Červíci"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:334
 msgid "Nibbles Scores"
 msgstr "Skóre Červíků"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:337
 msgid "Speed:"
 msgstr "Rychlost:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:342
 msgid "Congratulations!"
 msgstr "Blahopřejeme!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:343
 msgid "Your score is the best!"
 msgstr "Vaše skóre je nejlepší!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:344
 msgid "Your score has made the top ten."
 msgstr "Vaše skóre se dostalo mezi deset nejlepších."
 
-#: ../src/main.c:60
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "Začátečník"
 
-#: ../src/main.c:61
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Slow"
 msgstr "Pomalá"
 
-#: ../src/main.c:62
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Medium"
 msgstr "Střední"
 
-#: ../src/main.c:63
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Fast"
 msgstr "Rychlá"
 
-#: ../src/main.c:64
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "Začátečník s červíkem"
 
-#: ../src/main.c:65
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "Pomalý červík"
 
-#: ../src/main.c:66
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "Rychlý červík"
 
-#: ../src/main.c:67
+#: ../src/main.c:69
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Velmi rychlý červík"
 
-#: ../src/main.c:228
-#| msgid ""
-#| "A worm game for GNOME.\n"
-#| "\n"
-#| "Nibbles is a part of GNOME Games."
+#: ../src/main.c:234
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -347,7 +343,7 @@ msgstr ""
 "\n"
 "Červíci jsou součástí her GNOME."
 
-#: ../src/main.c:231
+#: ../src/main.c:237
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -365,8 +361,8 @@ msgstr ""
 "Marek Černocký <marek@manet.cz>"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Předvolby Červíků"
+msgid "Preferences"
+msgstr "Předvolby"
 
 #: ../src/preferences.c:236
 msgid "Game"
@@ -469,180 +465,3 @@ msgstr "Šedá"
 #, c-format
 msgid "Worm %d:"
 msgstr "Červ %d:"
-
-#~ msgid "New Game"
-#~ msgstr "Nová hra"
-
-#~ msgctxt "score-dialog"
-#~ msgid "Name"
-#~ msgstr "Jméno"
-
-#~ msgid "View help for this game"
-#~ msgstr "Zobrazit nápovědu k této hře"
-
-#~ msgid "End the current game"
-#~ msgstr "Ukončit aktuální hru"
-
-#~ msgid "Toggle fullscreen mode"
-#~ msgstr "Přepnout režim celé obrazovky"
-
-#~ msgid "Get a hint for your next move"
-#~ msgstr "Získat radu pro váš další tah"
-
-#~ msgid "Leave fullscreen mode"
-#~ msgstr "Opustit režim celé obrazovky"
-
-#~ msgid "Start a new multiplayer network game"
-#~ msgstr "Začít novou síťovou hru pro více hráčů"
-
-#~ msgid "End the current network game and return to network server"
-#~ msgstr "Ukončit současnou síťovou hru"
-
-#~ msgid "Start a new game"
-#~ msgstr "Začít novou hru"
-
-#~ msgid "Pause the game"
-#~ msgstr "Pozastavit hru"
-
-#~ msgid "Show a list of players in the network game"
-#~ msgstr "Zobrazit seznam hráčů síťové hry"
-
-#~ msgid "Redo the undone move"
-#~ msgstr "Zopakovat vrácený tah"
-
-#~ msgid "Restart the game"
-#~ msgstr "Začít hru znovu"
-
-#~ msgid "Resume the paused game"
-#~ msgstr "Pokračovat pozastavenou hru"
-
-#~ msgid "View the scores"
-#~ msgstr "Zobrazit skóre"
-
-#~ msgid "Undo the last move"
-#~ msgstr "Vrátit poslední tah"
-
-#~ msgid "About this game"
-#~ msgstr "O této hře"
-
-#~ msgid "Close this window"
-#~ msgstr "Zavřít toto okno"
-
-#~ msgid "Configure the game"
-#~ msgstr "Nastavit hru"
-
-#~ msgid "Quit this game"
-#~ msgstr "Ukončit tuto hru"
-
-#~ msgid "_Contents"
-#~ msgstr "_Obsah"
-
-#~ msgid "_Fullscreen"
-#~ msgstr "_Celá obrazovka"
-
-#~ msgid "_Hint"
-#~ msgstr "_Rada"
-
-#~ msgid "_New"
-#~ msgstr "_Nová"
-
-#~ msgid "_New Game"
-#~ msgstr "_Nová hra"
-
-#~ msgid "_Redo Move"
-#~ msgstr "Tah zn_ovu"
-
-#~ msgid "_Reset"
-#~ msgstr "_Vynulovat"
-
-#~ msgid "_Restart"
-#~ msgstr "_Restartovat"
-
-#~ msgid "_Undo Move"
-#~ msgstr "Tah _zpět"
-
-#~ msgid "_Deal"
-#~ msgstr "_Rozdat"
-
-#~ msgid "_Leave Fullscreen"
-#~ msgstr "_Opustit celou obrazovku"
-
-#~ msgid "Network _Game"
-#~ msgstr "Síťová _hra"
-
-#~ msgid "L_eave Game"
-#~ msgstr "O_pustit hru"
-
-#~ msgid "Player _List"
-#~ msgstr "Seznam _hráčů"
-
-#~ msgid "_Pause"
-#~ msgstr "_Pozastavit"
-
-#~ msgid "Res_ume"
-#~ msgstr "_Pokračovat"
-
-#~ msgid "_Scores"
-#~ msgstr "_Skóre"
-
-#~ msgid "_End Game"
-#~ msgstr "U_končit hru"
-
-#~ msgid ""
-#~ "%s is free software; you can redistribute it and/or modify it under the "
-#~ "terms of the GNU General Public License as published by the Free Software "
-#~ "Foundation; either version %d of the License, or (at your option) any "
-#~ "later version."
-#~ msgstr ""
-#~ "%s je svobodný software: Můžete jej dále šířit a/nebo upravovat za "
-#~ "podmínek licence GNU General Public License v podobě, v jaké ji vydala "
-#~ "Free Software Foundation, a to buď ve verzi %d této licence nebo (dle "
-#~ "vaší volby) v libovolné novější verzi."
-
-#~ msgid ""
-#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-#~ "details."
-#~ msgstr ""
-#~ "Program %s je šířen ve víře, že bude užitečný, ale BEZ JAKÝCHKOLIV ZÁRUK, "
-#~ "a to i bez předpokládané záruky na PRODEJNOST nebo VHODNOST PRO KONKRÉTNÍ "
-#~ "ÚČEL. Více podrobností najdete přímo v licenci GNU General Public License."
-
-#~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
-#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
-#~ msgstr ""
-#~ "Spolu s programem %s byste měli obdržet kopii licence GNU General Public "
-#~ "License. Pokud se tak nestalo, podívejte se na Free Software Foundation, "
-#~ "Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA"
-
-#~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
-#~ msgstr ""
-#~ "Spolu s tímto programem byste měli obdržet kopii licence GNU General "
-#~ "Public License. Pokud se tak nestalo, podívejte se na <http://www.gnu.org/"
-#~ "licenses/>."
-
-#~ msgid "GNOME Games web site"
-#~ msgstr "Webové stránky her GNOME"
-
-#~ msgid "Game over! The game has been won by %s!"
-#~ msgstr "Hra skončila! Hru vyhrál %s!"
-
-#~ msgid "_Game"
-#~ msgstr "_Hra"
-
-#~ msgid "_View"
-#~ msgstr "_Zobrazit"
-
-#~ msgid "_Settings"
-#~ msgstr "_Nastavení"
-
-#~ msgid "_Help"
-#~ msgstr "_Nápověda"
-
-#~ msgid "A worm game for GNOME."
-#~ msgstr "Hra s červem pro GNOME."
