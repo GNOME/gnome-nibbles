@@ -743,7 +743,7 @@ main (int argc, char **argv)
   properties = gnibbles_properties_new ();
   gnibbles_load_pixmap (properties->tilesize);
 
-  app = gtk_application_new (NULL, G_APPLICATION_FLAGS_NONE);
+  app = gtk_application_new ("org.gnome.nibbles", G_APPLICATION_FLAGS_NONE);
   g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
   status = g_application_run (G_APPLICATION (app), argc, argv);
   g_object_unref (app);
