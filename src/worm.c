@@ -273,7 +273,6 @@ gnibbles_worm_reverse (gpointer data)
   tmp = worm->yhead;
   worm->yhead = worm->ytail;
   worm->ytail = tmp;
-  tmp = worm->yhead;
 
   if (old_dir == WORMRIGHT)
     worm->direction = WORMLEFT;

@@ -359,9 +359,7 @@ gnibbles_board_level_add_bonus (GnibblesBoard *board, gint regular)
 {
   gint x, y, good;
 
-  if (regular) {
-    good = 0;
-  } else {
+  if (!regular) {
     good = rand () % 50;
     if (good)
       return;
