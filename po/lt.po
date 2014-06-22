@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-22 07:57+0000\n"
-"PO-Revision-Date: 2014-02-22 20:12+0200\n"
+"POT-Creation-Date: 2014-06-22 06:58+0000\n"
+"PO-Revision-Date: 2014-06-22 17:24+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -64,8 +64,8 @@ msgstr ""
 "Žaiskite patys prieš iki penkių priešų arba dalinkitės klaviatūra ir "
 "žaiskite su draugu."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:227 ../src/main.c:599
-#: ../src/main.c:719
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
+#: ../src/main.c:712
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -247,8 +247,7 @@ msgstr "%1$dm %2$ds"
 msgid "Date"
 msgstr "Data"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
-#| msgid "Close"
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Užverti"
 
@@ -265,23 +264,23 @@ msgstr ""
 "\n"
 "Patikrinkite, ar Nibbles įdiegtas korektiškai"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:334
 msgid "Nibbles Scores"
 msgstr "Nibbles taškai"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:337
 msgid "Speed:"
 msgstr "Greitis:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:342
 msgid "Congratulations!"
 msgstr "Sveikiname!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:343
 msgid "Your score is the best!"
 msgstr "Jūsų rezultatas – geriausias!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:344
 msgid "Your score has made the top ten."
 msgstr "Jūsų taškai pateko į top 10."
 
@@ -325,7 +324,7 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Greitai, su apgaule "
 
-#: ../src/main.c:233
+#: ../src/main.c:234
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -335,7 +334,7 @@ msgstr ""
 "\n"
 "Nibbles yra GNOME žaidimų dalis."
 
-#: ../src/main.c:236
+#: ../src/main.c:237
 msgid "translator-credits"
 msgstr ""
 "Paskutinieji vertėjai:\n"
@@ -347,8 +346,9 @@ msgstr ""
 "Gediminas Paulauskas <menesis@chatsubo.lt>"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Nibbles nustatymai"
+#| msgid "Nibbles Preferences"
+msgid "Preferences"
+msgstr "Nustatymai"
 
 #: ../src/preferences.c:236
 msgid "Game"
@@ -451,4 +451,3 @@ msgstr "Pilka"
 #, c-format
 msgid "Worm %d:"
 msgstr "Gyvatė %d:"
-
