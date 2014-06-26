@@ -1,5 +1,5 @@
 <schemalist>
-  <schema id="org.gnome.nibbles" path="/org/gnome/nibbles/">
+  <schema id="org.gnome.nibbles" path="/org/gnome/nibbles/" gettext-domain="gnome-nibbles">
     <key name="players" type="i">
       <default>1</default>
       <summary>Number of human players</summary>
