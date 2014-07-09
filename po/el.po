@@ -35,8 +35,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-04-01 23:31+0000\n"
-"PO-Revision-Date: 2014-04-18 20:09+0200\n"
+"POT-Creation-Date: 2014-07-07 07:02+0000\n"
+"PO-Revision-Date: 2014-07-07 14:16+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: www.gnome.gr\n"
 "Language: el\n"
@@ -44,7 +44,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
@@ -84,10 +84,10 @@ msgstr ""
 "Παίξτε μόνοι σας μέχρι και εναντίον πέντε εχθρικών σκουληκιών, ή μοιραστείτε "
 "το πληκτρολόγιο σας για να παίξετε με έναν φίλο."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:600
-#: ../src/main.c:720
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
+#: ../src/main.c:712
 msgid "Nibbles"
-msgstr "Μπουκιές (Nibbles)"
+msgstr "Μπουκιές"
 
 #: ../data/gnome-nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
@@ -220,7 +220,7 @@ msgstr ""
 "Το Μπουκιές δε μπόρεσε να φορτώσει το αρχείο επιπέδου:\n"
 "%s\n"
 "\n"
-"Παρακαλώ ελέγξτε την εγκατάσταση των Μπουκιών"
+"Παρακαλούμε ελέγξτε την εγκατάσταση των Μπουκιών"
 
 #: ../src/board.c:269
 #, c-format
@@ -233,7 +233,7 @@ msgstr ""
 "Το αρχείο επιπέδου φαίνεται να είναι κατεστραμμένο:\n"
 "%s\n"
 "\n"
-"Παρακαλώ, ελέγξτε την εγκατάσταση του Μπουκιών"
+"Παρακαλούμε, ελέγξτε την εγκατάσταση του Μπουκιών"
 
 #: ../src/games-controls.c:108
 msgid "The shortcut you selected is already assigned."
@@ -267,7 +267,7 @@ msgstr "%1$dm %2$ds"
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Κλείσιμο"
 
@@ -284,23 +284,23 @@ msgstr ""
 "\n"
 "Ελέγξτε την εγκατάσταση των Μπουκιών"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:334
 msgid "Nibbles Scores"
-msgstr "Βαθμολογία Μπουκιών"
+msgstr "Βαθμολογίες Μπουκιών"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:337
 msgid "Speed:"
 msgstr "Ταχύτητα:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:342
 msgid "Congratulations!"
 msgstr "Συγχαρητήρια!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:343
 msgid "Your score is the best!"
 msgstr "Η βαθμολογία σας είναι η καλύτερη!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:344
 msgid "Your score has made the top ten."
 msgstr "Η βαθμολογία σας είναι στην κορυφαία δεκάδα."
 
@@ -357,16 +357,18 @@ msgstr ""
 #: ../src/main.c:237
 msgid "translator-credits"
 msgstr ""
+"Ελληνική μεταφραστική ομάδα GNOME\n"
 "Δημήτρης Σπίγγος <dmtrs32@gmail.com>\n"
 "Spiros Papadimitriou <spapadim+@cs.cmu.edu>\n"
 "Συμεών (Σίμος) Ξενιτέλλης <simos@hellug.gr>\n"
 "Κώστας Παπαδήμας <pkst@gmx.net>\n"
 "Τζένη Πετούμενου <epetoumenou@gmail.com>\n"
-"Μαρία Θουκυδίδου <marablack3@gmail.com>"
+"Μαρία Θουκυδίδου <marablack3@gmail.com>\n"
+"Για περισσότερα δείτε http://gnome.gr/"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Προτιμήσεις Μπουκιών"
+msgid "Preferences"
+msgstr "Προτιμήσεις"
 
 #: ../src/preferences.c:236
 msgid "Game"
@@ -379,7 +381,7 @@ msgstr "Ταχύτητα"
 
 #: ../src/preferences.c:257
 msgid "Nibbles newbie"
-msgstr "Αρχάριος στα Nibbles"
+msgstr "Αρχάριος στις Μπουκιές"
 
 #: ../src/preferences.c:267
 msgid "My second day"
@@ -399,7 +401,7 @@ msgstr "Επιλογές"
 
 #: ../src/preferences.c:308
 msgid "_Play levels in random order"
-msgstr "Επίπεδα  _παιγνιδιού με τυχαία σειρά"
+msgstr "Επίπεδα  _παιχνιδιού με τυχαία σειρά"
 
 #: ../src/preferences.c:316
 msgid "_Enable fake bonuses"
@@ -469,6 +471,9 @@ msgstr "Γκρίζο"
 #, c-format
 msgid "Worm %d:"
 msgstr "Σκουλήκι %d:"
+
+#~ msgid "Nibbles Preferences"
+#~ msgstr "Προτιμήσεις Μπουκιών"
 
 #~ msgctxt "score-dialog"
 #~ msgid "Name"
@@ -773,9 +778,6 @@ msgstr "Σκουλήκι %d:"
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Επίπεδο δυσκολίας της μηχανής του σκακιού που παίζεται αντίπαλοι"
-
-#~ msgid "Preferences"
-#~ msgstr "Προτιμήσεις"
 
 #~ msgid "Play as:"
 #~ msgstr "Παίζετε ως:"
