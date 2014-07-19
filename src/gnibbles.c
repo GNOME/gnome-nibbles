@@ -291,6 +291,11 @@ gnibbles_move_worms (void)
   }
    /* Noone died, so the round can continue. */
 
+  for (i = 0; i < properties->numworms; i++) {
+    /* Verify that worm length is as expected */
+    (void) gnibbles_board_count_worm_segments_for_worm (board, worms[i]);
+  }
+
   return CONTINUE;
 }
 

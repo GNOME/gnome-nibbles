@@ -440,3 +440,23 @@ gnibbles_board_level_add_bonus (GnibblesBoard *board, gint regular)
     }
   }
 }
+
+/* Gasp, it's an invariant. The count of the worm's segments
+ * found on the board needs to equal its length. Or else bad. */
+gint
+gnibbles_board_count_worm_segments_for_worm (GnibblesBoard *board, GnibblesWorm *worm) {
+  gint i, j;
+  gint count = 0;
+
+  for (i = 0; i < BOARDHEIGHT; i++) {
+    for (j = 0; j < BOARDWIDTH; j++) {
+      if (board->walls[j][i] == worm->number + WORMCHAR)
+        count++;
+    }
+  }
+
+  if (count > 0)
+    g_assert_cmpint (count, ==, worm->length);
+
+  return count;
+}

@@ -46,5 +46,6 @@ GnibblesBoard* gnibbles_board_new (void);
 void gnibbles_board_rescale (GnibblesBoard *board, gint tilesize);
 void gnibbles_board_level_new (GnibblesBoard *board, gint level);
 void gnibbles_board_level_add_bonus (GnibblesBoard *board, gint regular);
+gint gnibbles_board_count_worm_segments_for_worm (GnibblesBoard *board, GnibblesWorm *worm);
 
 #endif
