@@ -655,7 +655,7 @@ gnibbles_worm_move_head (GnibblesWorm *worm)
 void
 gnibbles_worm_move_tail (GnibblesWorm *worm)
 {
-  if (g_list_length (worm->list) <= 1)
+  if (g_list_length (worm->list) < 1)
     return;
 
   if (worm->change <= 0) {
