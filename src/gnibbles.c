@@ -269,6 +269,8 @@ gnibbles_move_worms (void)
     }
   }
 
+  g_free (dead);
+
   for (i = 0; i < properties->numworms; i++) {
     if (worms[i]->human && worms[i]->lives <= 0)
       return GAMEOVER;
@@ -289,7 +291,6 @@ gnibbles_move_worms (void)
   }
    /* Noone died, so the round can continue. */
 
-  g_free (dead);
   return CONTINUE;
 }
 
