@@ -297,8 +297,6 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
             gnibbles_worm_set_start (worms[count++], j, i, WORMRIGHT);
           break;
         case 'Q':
-          gnibbles_warpmanager_add_warp (warpmanager, j - 1, i - 1, -1, -1);
-          break;
         case 'R':
         case 'S':
         case 'T':
