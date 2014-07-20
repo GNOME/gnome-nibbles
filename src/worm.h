@@ -42,8 +42,8 @@ typedef struct {
   ClutterActor *actors;
   GList *list;
   gint xstart, ystart;
-  guint xhead, yhead;
-  guint xtail, ytail;
+  gint xhead, yhead;
+  gint xtail, ytail;
   gint direction, direction_start;
   gint length;
   gint lives;

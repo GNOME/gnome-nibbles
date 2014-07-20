@@ -375,28 +375,27 @@ gnibbles_worm_move_head_pointer (GnibblesWorm *worm)
   switch (worm->direction) {
     case WORMRIGHT:
       worm->xhead++;
+      if (worm->xhead >= BOARDWIDTH)
+        worm->xhead = 0;
       break;
     case WORMDOWN:
       worm->yhead++;
+      if (worm->yhead >= BOARDHEIGHT)
+        worm->yhead = 0;
       break;
     case WORMLEFT:
       worm->xhead--;
+      if (worm->xhead <= 0)
+        worm->xhead = BOARDWIDTH - 1;
       break;
     case WORMUP:
       worm->yhead--;
+      if (worm->yhead <= 0)
+        worm->yhead = BOARDHEIGHT - 1;
       break;
     default:
-      break;
+      g_assert_not_reached ();
   }
-
-  if (worm->xhead <= 0)
-    worm->xhead = BOARDWIDTH - 1;
-  if (worm->yhead <= 0)
-    worm->yhead = BOARDHEIGHT - 1;
-  if (worm->xhead >= BOARDWIDTH)
-    worm->xhead = 0;
-  if (worm->yhead >= BOARDHEIGHT)
-    worm->yhead = 0;
 
   gnibbles_worm_handle_bonus (worm);
   gnibbles_worm_add_actor (worm);
@@ -411,28 +410,27 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
   switch (tail_dir) {
     case WORMRIGHT:
       worm->xtail++;
+      if (worm->xtail >= BOARDWIDTH)
+        worm->xtail = 0;
       break;
     case WORMDOWN:
       worm->ytail++;
+      if (worm->ytail >= BOARDHEIGHT)
+        worm->ytail = 0;
       break;
     case WORMLEFT:
       worm->xtail--;
+      if (worm->xtail <= 0)
+        worm->xtail = BOARDWIDTH - 1;
       break;
     case WORMUP:
       worm->ytail--;
+      if (worm->ytail <= 0)
+        worm->ytail = BOARDHEIGHT - 1;
       break;
     default:
       break;
   }
-
-  if (worm->xtail <= 0)
-    worm->xtail = BOARDWIDTH - 1;
-  if (worm->ytail <= 0)
-    worm->ytail = BOARDHEIGHT - 1;
-  if (worm->xtail >= BOARDWIDTH)
-    worm->xtail = 0;
-  if (worm->ytail >= BOARDHEIGHT)
-    worm->ytail = 0;
 
   if (board->walls[worm->xtail][worm->ytail] == WARPLETTER) {
     gnibbles_warpmanager_worm_change_tail_pos (warpmanager, worm);
@@ -754,26 +752,27 @@ gnibbles_worm_position_move_head (GnibblesWorm * worm, gint *x, gint *y)
   switch (worm->direction) {
     case WORMUP:
       *y = worm->yhead - 1;
+      if (*y < 0)
+        *y = BOARDHEIGHT - 1;
       break;
     case WORMDOWN:
       *y = worm->yhead + 1;
+      if (*y == BOARDHEIGHT)
+        *y = 0;
       break;
     case WORMLEFT:
       *x = worm->xhead - 1;
+      if (*x < 0)
+        *x = BOARDWIDTH - 1;
       break;
     case WORMRIGHT:
       *x = worm->xhead + 1;
+      if (*x == BOARDWIDTH)
+        *x = 0;
       break;
+    default:
+      g_assert_not_reached ();
   }
-
-  if (*x == BOARDWIDTH)
-    *x = 0;
-  if (*x < 0)
-    *x = BOARDWIDTH - 1;
-  if (*y == BOARDHEIGHT)
-    *y = 0;
-  if (*y < 0)
-    *y = BOARDHEIGHT - 1;
 }
 
 gboolean
