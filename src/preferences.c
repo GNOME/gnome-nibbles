@@ -250,7 +250,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
   /* Speed */
   label = gtk_label_new (_("Speed"));
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+  gtk_widget_set_halign (label, GTK_ALIGN_START);
   set_label_bold (GTK_LABEL(label));
   gtk_box_pack_start (GTK_BOX (vbox_speed), label, FALSE, FALSE, 0);
 
@@ -299,7 +299,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
 
   label = gtk_label_new (_("Options"));
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+  gtk_widget_set_halign (label, GTK_ALIGN_START);
   set_label_bold (GTK_LABEL(label));
   gtk_box_pack_start (GTK_BOX (vbox_options), label, FALSE, FALSE, 0);
 
@@ -337,7 +337,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   label2 = gtk_label_new_with_mnemonic (_("_Starting level:"));
   start_level_label = label2;
   gtk_widget_set_name (label2, "StartLevelLabel");
-  gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+  gtk_widget_set_halign (label2, GTK_ALIGN_START);
 
   if (properties->random)
     gtk_widget_set_sensitive (GTK_WIDGET (label2), FALSE);
@@ -360,7 +360,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                     G_CALLBACK (start_level_cb), levelspinner);
 
   label2 = gtk_label_new_with_mnemonic (_("Number of _human players:"));
-  gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+  gtk_widget_set_halign (label2, GTK_ALIGN_START);
 
   gtk_widget_set_hexpand (label2, TRUE);
   gtk_grid_attach (GTK_GRID (grid2), label2, 0, 1, 1, 1);
@@ -377,7 +377,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
                     G_CALLBACK (num_worms_cb), num_human);
 
   label2 = gtk_label_new_with_mnemonic (_("Number of _AI players:"));
-  gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+  gtk_widget_set_halign (label2, GTK_ALIGN_START);
 
   gtk_widget_set_hexpand (label2, TRUE);
   gtk_grid_attach (GTK_GRID (grid2), label2, 0, 2, 1, 1);
@@ -407,7 +407,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox_wormx, label);
 
     label2 = gtk_label_new (_("Keyboard Options"));
-    gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+    gtk_widget_set_halign (label2, GTK_ALIGN_START);
     set_label_bold (GTK_LABEL(label2));
     gtk_box_pack_start (GTK_BOX (vbox_wormx), label2, FALSE, FALSE, 0);
 
@@ -422,7 +422,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_box_pack_start (GTK_BOX (vbox_wormx), controls, TRUE, TRUE, 0);
 
     label2 = gtk_label_new (_("Options"));
-    gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+    gtk_widget_set_halign (label2, GTK_ALIGN_START);
     set_label_bold (GTK_LABEL(label2));
     gtk_box_pack_start (GTK_BOX (vbox_wormx), label2, FALSE, FALSE, 0);
 
@@ -434,7 +434,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
     gtk_box_pack_start (GTK_BOX (vbox_wormx), grid2, FALSE, FALSE, 0);
 
     label2 = gtk_label_new_with_mnemonic (_("_Worm color:"));
-    gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
+    gtk_widget_set_halign (label2, GTK_ALIGN_START);
     gtk_grid_attach (GTK_GRID (grid2), label2, 0, 0, 1, 1);
 
     omenu = gtk_combo_box_text_new ();
