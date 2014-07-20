@@ -385,12 +385,12 @@ gnibbles_worm_move_head_pointer (GnibblesWorm *worm)
       break;
     case WORMLEFT:
       worm->xhead--;
-      if (worm->xhead <= 0)
+      if (worm->xhead < 0)
         worm->xhead = BOARDWIDTH - 1;
       break;
     case WORMUP:
       worm->yhead--;
-      if (worm->yhead <= 0)
+      if (worm->yhead < 0)
         worm->yhead = BOARDHEIGHT - 1;
       break;
     default:
@@ -420,12 +420,12 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
       break;
     case WORMLEFT:
       worm->xtail--;
-      if (worm->xtail <= 0)
+      if (worm->xtail < 0)
         worm->xtail = BOARDWIDTH - 1;
       break;
     case WORMUP:
       worm->ytail--;
-      if (worm->ytail <= 0)
+      if (worm->ytail < 0)
         worm->ytail = BOARDHEIGHT - 1;
       break;
     default:
