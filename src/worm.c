@@ -399,6 +399,8 @@ gnibbles_worm_move_head_pointer (GnibblesWorm *worm)
 
   gnibbles_worm_handle_bonus (worm);
   gnibbles_worm_add_actor (worm);
+
+  g_assert_cmpint (board->walls[worm->xhead][worm->yhead], ==, worm->number + WORMCHAR);
 }
 
 static void
@@ -438,6 +440,7 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
     board->walls[worm->xtail][worm->ytail] = worm->number + WORMCHAR;
   }
 
+  g_assert_cmpint (board->walls[worm->xtail][worm->ytail], ==, worm->number + WORMCHAR);
 }
 
 static void
