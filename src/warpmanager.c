@@ -148,8 +148,21 @@ gnibbles_warpmanager_worm_change_pos (GnibblesWarpManager * warpmanager,
 
       worm->xhead = x;
       worm->yhead = y;
+
+      return;
     }
   }
+
+  g_assert_not_reached ();
+}
+
+static gboolean
+is_adjacent_to_warp (gint x, gint y, GnibblesWarp * warp)
+{
+  return abs (warp->x - x) <= 1 && abs (warp->y - y) <= 1
+      || abs (warp->x + 1 - x) <= 1 && abs (warp->y - y) <= 1
+      || abs (warp->x - x) <= 1 && abs (warp->y + 1 -y) <= 1
+      || abs (warp->x + 1 - x) <= 1 && abs (warp->y + 1 - y) <= 1;
 }
 
 void
@@ -159,14 +172,7 @@ gnibbles_warpmanager_worm_change_tail_pos (GnibblesWarpManager * warpmanager,
   int i, x, y, good;
 
   for (i = 0; i < warpmanager->numwarps; i++) {
-    if ((worm->xtail == warpmanager->warps[i]->x &&
-        worm->ytail == warpmanager->warps[i]->y) ||
-        (worm->xtail == warpmanager->warps[i]->x + 1 &&
-        worm->ytail == warpmanager->warps[i]->y) ||
-        (worm->xtail == warpmanager->warps[i]->x &&
-        worm->ytail == warpmanager->warps[i]->y + 1) ||
-        (worm->xtail == warpmanager->warps[i]->x + 1 &&
-        worm->ytail == warpmanager->warps[i]->y + 1)) {
+    if (is_adjacent_to_warp (worm->xtail, worm->ytail, warpmanager->warps[i])) {
 
         x = warpmanager->warps[i]->wx;
         y = warpmanager->warps[i]->wy;
@@ -185,8 +191,12 @@ gnibbles_warpmanager_worm_change_tail_pos (GnibblesWarpManager * warpmanager,
 
       worm->xtail = x;
       worm->ytail = y;
+
+      return;
     }
   }
+
+  g_assert_not_reached ();
 }
 
 void

@@ -429,29 +429,13 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
         worm->ytail = BOARDHEIGHT - 1;
       break;
     default:
+      /* OK, we're teleporting */
       break;
   }
 
-  if (board->walls[worm->xtail][worm->ytail] == WARPLETTER) {
+  if (tail_dir == -1) {
     gnibbles_warpmanager_worm_change_tail_pos (warpmanager, worm);
-    tail_dir = gnibbles_worm_get_tail_direction (worm);
-    board->walls[worm->xtail][worm->ytail] = EMPTYCHAR;
-    switch (tail_dir) {
-      case WORMRIGHT:
-        worm->xtail++;
-        break;
-      case WORMDOWN:
-        worm->ytail++;
-        break;
-      case WORMLEFT:
-        worm->xtail--;
-        break;
-      case WORMUP:
-        worm->ytail--;
-        break;
-      default:
-        break;
-      }
+    board->walls[worm->xtail][worm->ytail] = worm->number + WORMCHAR;
   }
 
 }
