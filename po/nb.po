@@ -5,10 +5,10 @@
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-nibbles 3.11.x\n"
+"Project-Id-Version: gnome-nibbles 3.13.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-19 23:40+0100\n"
-"PO-Revision-Date: 2014-01-25 12:41+0100\n"
+"POT-Creation-Date: 2014-07-23 14:07+0200\n"
+"PO-Revision-Date: 2014-07-23 14:07+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -43,8 +43,8 @@ msgid ""
 "play with a friend."
 msgstr ""
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:227 ../src/main.c:599
-#: ../src/main.c:719
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
+#: ../src/main.c:712
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -226,7 +226,7 @@ msgstr "%1$dm %2$ds"
 msgid "Date"
 msgstr "Dato"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Lukk"
 
@@ -243,23 +243,23 @@ msgstr ""
 "\n"
 "Vennligst sjekk din Nibbles-installasjon"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:334
 msgid "Nibbles Scores"
 msgstr "Nibbles poeng"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:337
 msgid "Speed:"
 msgstr "Hastighet:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:342
 msgid "Congratulations!"
 msgstr "Gratulerer!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:343
 msgid "Your score is the best!"
 msgstr "Din poengsum er den beste!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:344
 msgid "Your score has made the top ten."
 msgstr "Din poengsum er blant de ti beste."
 
@@ -303,7 +303,7 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Rask med falske"
 
-#: ../src/main.c:233
+#: ../src/main.c:234
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -313,7 +313,7 @@ msgstr ""
 "\n"
 "Nibbles er en del av GNOME-spill."
 
-#: ../src/main.c:236
+#: ../src/main.c:237
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
@@ -321,8 +321,8 @@ msgstr ""
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Brukervalg for Nibbles"
+msgid "Preferences"
+msgstr "Brukervalg"
 
 #: ../src/preferences.c:236
 msgid "Game"
