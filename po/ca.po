@@ -6,7 +6,7 @@
 # Xavier Conde Rueda <xavi.conde@gmail.com>, 2004.
 # Jesús Corrius <jesus@softcatala.org>, 2005.
 # Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2007.
-# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012.
+# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012, 2014.
 # Carles Ferrando <carles.ferrando@gmail.com>, 2010.
 # Jordi Serratosa <jordis@softcatala.cat>, 2012.
 #
@@ -15,14 +15,14 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-04-01 23:31+0000\n"
-"PO-Revision-Date: 2014-03-15 21:42+0100\n"
-"Last-Translator: Joan Montané <jmontane@softcatala.org>\n"
+"POT-Creation-Date: 2014-08-16 19:03+0000\n"
+"PO-Revision-Date: 2014-08-17 01:25+0200\n"
+"Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bits\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
@@ -62,8 +62,8 @@ msgstr ""
 "Jugueu tot sol contra fins a 5 cucs enemics, o compartiu el teclat per jugar "
 "amb un amic."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:600
-#: ../src/main.c:720
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
+#: ../src/main.c:712
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -246,7 +246,7 @@ msgstr "%1$d m %2$d s"
 msgid "Date"
 msgstr "Data"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Tanca"
 
@@ -263,23 +263,23 @@ msgstr ""
 "\n"
 "Comproveu la instal·lació del Nibbles"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:334
 msgid "Nibbles Scores"
 msgstr "Puntuacions del Nibbles"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:337
 msgid "Speed:"
 msgstr "Velocitat:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:342
 msgid "Congratulations!"
 msgstr "Felicitats!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:343
 msgid "Your score is the best!"
 msgstr "Heu fet la millor puntuació!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:344
 msgid "Your score has made the top ten."
 msgstr "La vostra puntuació és entre les deu primeres."
 
@@ -344,8 +344,8 @@ msgstr ""
 "David Planella <david.planella@gmail.com>"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Preferències del Nibbles"
+msgid "Preferences"
+msgstr "Preferències"
 
 #: ../src/preferences.c:236
 msgid "Game"
