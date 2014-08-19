@@ -1,3 +1,19 @@
+gnome-nibbles 3.13.90
+=====================
+
+Dependencies: GTK+ 3.12
+
+* Fix several causes of invisible death worms, but a few know cases remain
+* The game will now crash whenever an invisible death worm would be created
+* Fix pause action in app menu
+* Fix resizing the board
+* Remove seriously buggy random teleporter on level 25
+* Use header bar on preferences dialog
+* Don't allow multiple windows
+* Fix small memory leak
+* Code cleanups
+* Updated Catalan, Czech, German, Greek, Hungarian, Lithuanian, Norwegian, Slovenian, and Swedish translations
+
 gnome-nibbles 3.12.0
 ==================
 
