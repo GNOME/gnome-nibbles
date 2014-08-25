@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-15 07:58+0000\n"
+"POT-Creation-Date: 2014-08-25 07:03+0000\n"
 "PO-Revision-Date: 2014-03-15 18:17+0100\n"
 "Last-Translator: naybnet <naybnet@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -56,7 +56,8 @@ msgstr ""
 "glaces pour augmenter votre longueur. Chaque ver a dix vies et en perd une "
 "s'il se cogne contre un mur, un autre ver ou contre lui-même. Les vers "
 "ennemis cherchent les mêmes bonus que vous, alors faites attention : s'ils "
-"deviennent trop longs, vous n'aurez plus beaucoup d'espace pour vous déplacer."
+"deviennent trop longs, vous n'aurez plus beaucoup d'espace pour vous "
+"déplacer."
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
@@ -65,8 +66,8 @@ msgid ""
 "teleporters make things more interesting."
 msgstr ""
 "L'aventure progresse à travers 26 cartes de difficulté croissante. Les "
-"premiers niveaux sont pour la plupart ouverts avec quelques murs, mais par la "
-"suite, des espaces exigus et des téléporteurs rendent les choses plus "
+"premiers niveaux sont pour la plupart ouverts avec quelques murs, mais par "
+"la suite, des espaces exigus et des téléporteurs rendent les choses plus "
 "intéressantes."
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:4
@@ -77,8 +78,8 @@ msgstr ""
 "Jouez tout seul face à au plus cinq vers ennemis, ou partagez votre clavier "
 "pour jouer avec un ami."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:227 ../src/main.c:599
-#: ../src/main.c:719
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:685
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -261,7 +262,7 @@ msgstr "%1$d m %2$d s"
 msgid "Date"
 msgstr "Date"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Fermer"
 
@@ -278,23 +279,23 @@ msgstr ""
 "\n"
 "Vérifiez votre installation de Nibbles"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Scores Nibbles"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Vitesse :"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Félicitations !"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Votre score est le meilleur !"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Votre score est entré au top 10."
 
@@ -341,7 +342,7 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Rapide avec feintes"
 
-#: ../src/main.c:233
+#: ../src/main.c:222
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -351,7 +352,7 @@ msgstr ""
 "\n"
 "Nibbles fait partie des jeux GNOME."
 
-#: ../src/main.c:236
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Christophe Merlet <redfox@redfoxcenter.org>\n"
@@ -367,8 +368,8 @@ msgstr ""
 "Pierre Lemaire <pierre.lemaire@kamick.org>"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Préférences de Nibbles"
+msgid "Preferences"
+msgstr "Préférences"
 
 #: ../src/preferences.c:236
 msgid "Game"
