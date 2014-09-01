@@ -77,7 +77,7 @@ gnibbles_bonus_draw (GnibblesBonus *bonus)
 
   clutter_actor_save_easing_state(bonus->actor);
   clutter_actor_set_easing_mode (bonus->actor, CLUTTER_EASE_OUT_BOUNCE);
-  clutter_actor_set_easing_duration (bonus->actor, 800);
+  clutter_actor_set_easing_duration (bonus->actor, GAMEDELAY * 20);
   clutter_actor_set_scale (bonus->actor, 1.0, 1.0);
   clutter_actor_set_pivot_point (bonus->actor,.5,.5); 
   clutter_actor_set_opacity (bonus->actor, 0xff);

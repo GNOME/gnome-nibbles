@@ -72,7 +72,7 @@ gnibbles_warp_draw (GnibblesWarp *warp)
 
   clutter_actor_save_easing_state(warp->actor);
   clutter_actor_set_easing_mode (warp->actor, CLUTTER_EASE_OUT_CIRC);
-  clutter_actor_set_easing_duration (warp->actor, 410);
+  clutter_actor_set_easing_duration (warp->actor, GAMEDELAY * 15);
   clutter_actor_set_scale (warp->actor, 1.0, 1.0);
   clutter_actor_set_pivot_point (warp->actor,.5,.5); 
   clutter_actor_set_opacity (warp->actor, 0xff);

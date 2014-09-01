@@ -187,7 +187,7 @@ gnibbles_board_load_level (GnibblesBoard *board)
  
   clutter_actor_save_easing_state(board->level);
   clutter_actor_set_easing_mode (board->level, CLUTTER_EASE_OUT_BOUNCE);
-  clutter_actor_set_easing_duration (board->level, 1210);
+  clutter_actor_set_easing_duration (board->level, GAMEDELAY * GAMEDELAY);
   clutter_actor_set_scale (board->level, 1.0, 1.0);
   clutter_actor_set_pivot_point (board->level,.5,.5);
   clutter_actor_set_opacity (board->level, 0xff);

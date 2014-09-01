@@ -344,7 +344,7 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
 
     clutter_actor_save_easing_state(actor);
     clutter_actor_set_easing_mode (actor, CLUTTER_EASE_OUT_QUINT);
-    clutter_actor_set_easing_duration (actor, 420);
+    clutter_actor_set_easing_duration (actor, GAMEDELAY * 15);
     clutter_actor_set_scale (actor, 1.45, 1.45);
     clutter_actor_set_pivot_point (actor,.5,.5);
     clutter_actor_restore_easing_state(actor);
@@ -483,7 +483,7 @@ gnibbles_worm_animate_death (GnibblesWorm *worm)
 
   clutter_actor_save_easing_state(group);
   clutter_actor_set_easing_mode (group, CLUTTER_EASE_OUT_QUAD);
-  clutter_actor_set_easing_duration (group, 310);
+  clutter_actor_set_easing_duration (group, GAMEDELAY * 9);
   clutter_actor_set_scale (group, 2.0, 2.0);
   clutter_actor_set_pivot_point (group,.5,.5); 
   clutter_actor_set_opacity (group, 0);
@@ -543,7 +543,7 @@ gnibbles_worm_show (GnibblesWorm *worm)
 
   clutter_actor_save_easing_state(worm->actors);
   clutter_actor_set_easing_mode (worm->actors, CLUTTER_EASE_OUT_CIRC);
-  clutter_actor_set_easing_duration (worm->actors, 910);
+  clutter_actor_set_easing_duration (worm->actors, GAMEDELAY * 26);
   clutter_actor_set_scale (worm->actors, 1.0, 1.0);
   clutter_actor_set_pivot_point (worm->actors,.5,.5);
   clutter_actor_set_opacity (worm->actors, 0xff);
@@ -704,7 +704,7 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
 
     clutter_actor_save_easing_state(group);
     clutter_actor_set_easing_mode (group, CLUTTER_EASE_OUT_EXPO);
-    clutter_actor_set_easing_duration (group, 850);
+    clutter_actor_set_easing_duration (group, GAMEDELAY * 25);
     clutter_actor_set_opacity (group, 0);
     clutter_actor_restore_easing_state(group);
   }
