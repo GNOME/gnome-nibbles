@@ -1,3 +1,9 @@
+gnome-nibbles 3.13.91
+=====================
+
+* Updated translations
+* Make all animations depend on already existing game delay constant.
+
 gnome-nibbles 3.13.90
 =====================
 
