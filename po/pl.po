@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-16 19:24+0100\n"
-"PO-Revision-Date: 2014-03-16 19:25+0100\n"
+"POT-Creation-Date: 2014-09-03 02:34+0200\n"
+"PO-Revision-Date: 2014-09-03 02:35+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -71,8 +71,8 @@ msgstr ""
 "Można grać samemu przeciwko do pięciu wrogich robaków, lub podzielić się "
 "klawiaturą z innym graczem."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:227 ../src/main.c:599
-#: ../src/main.c:719
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:685
 msgid "Nibbles"
 msgstr "Robaki"
 
@@ -254,7 +254,7 @@ msgstr "%1$dm %2$ds"
 msgid "Date"
 msgstr "Data"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "Za_mknij"
 
@@ -271,23 +271,23 @@ msgstr ""
 "\n"
 "Proszę się upewnić, że gra Robaki została prawidłowo zainstalowana"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Wyniki gry Robaki"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Prędkość:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Gratulacje!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Najlepszy wynik!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Ten wynik kwalifikuje się do pierwszej dziesiątki."
 
@@ -331,7 +331,7 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Szybko z fałszywymi"
 
-#: ../src/main.c:233
+#: ../src/main.c:222
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -341,7 +341,7 @@ msgstr ""
 "\n"
 "Gra Robaki jest częścią gier GNOME."
 
-#: ../src/main.c:236
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
@@ -359,8 +359,8 @@ msgstr ""
 "Aviary.pl <gnomepl@aviary.pl>, 2007-2014"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Preferencje gry Robaki"
+msgid "Preferences"
+msgstr "Preferencje"
 
 #: ../src/preferences.c:236
 msgid "Game"
