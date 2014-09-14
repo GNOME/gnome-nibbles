@@ -48,7 +48,8 @@
 #define GAMEOVER 2
 #define VICTORY 3
 
-#define GAMEDELAY 35
+#define DEFAULTGAMEDELAY 35
+int GAMEDELAY;
 #define NETDELAY 2
 #define BONUSDELAY 100
 

@@ -666,6 +666,11 @@ activate (GtkApplication* app,
                     G_CALLBACK (configure_event_cb), NULL);
 }
 
+static GOptionEntry entries[] =
+{
+  { "DEBUG_GAMEDELAY", 0, 0, G_OPTION_ARG_INT, &GAMEDELAY, "Built-in speed multiplier, lower is faster, default is 35", "D" },
+  { NULL }
+};
 
 
 int
@@ -674,6 +679,22 @@ main (int argc, char **argv)
   int i;
   GtkApplication *app;
   int status;
+
+  //Handle Command Line options
+  GAMEDELAY = DEFAULTGAMEDELAY;
+  GError *error = NULL;
+  GOptionContext *context;
+
+  context = g_option_context_new ("");
+  g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
+  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+
+  if (!g_option_context_parse (context, &argc, &argv, &error))
+    {
+      g_print ("option parsing failed: %s\n", error->message);
+      exit (1);
+    }
+  //Done handling Command Line options
 
   setlocale (LC_ALL, "");
   bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
