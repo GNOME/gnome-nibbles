@@ -11,9 +11,9 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-07 20:01+0000\n"
-"PO-Revision-Date: 2014-03-22 23:56+0100\n"
-"Last-Translator: Peter Mráz <etkinator@gmail.com>\n"
+"POT-Creation-Date: 2014-09-15 18:58+0000\n"
+"PO-Revision-Date: 2014-09-15 22:28+0100\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -58,8 +58,8 @@ msgid ""
 msgstr ""
 "Hraj až proti piatim červíkom alebo proti priateľovi na spoločnej klávesnici."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:227 ../src/main.c:599
-#: ../src/main.c:719
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:706
 msgid "Nibbles"
 msgstr "Červíci"
 
@@ -243,7 +243,7 @@ msgstr "%1$dm %2$ds"
 msgid "Date"
 msgstr "Dátum"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Zavrieť"
 
@@ -260,23 +260,23 @@ msgstr ""
 "\n"
 "Prosím, overte inštaláciu hry Červíci."
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Najlepší v hre Červíci"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Rýchlosť:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Gratulujem!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Vaše skóre je najlepšie!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Vaše skóre sa nachádza v prvej desiatke."
 
@@ -325,7 +325,7 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Rýchlo s falzifikátmi"
 
-#: ../src/main.c:233
+#: ../src/main.c:222
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -335,17 +335,19 @@ msgstr ""
 "\n"
 "Hra Červíci je súčasťou Hier GNOME."
 
-#: ../src/main.c:236
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Stanislav Višňovský (visnovsky@nenya.ms.mff.cuni.cz)\n"
 "Marcel Telka <marcel@telka.sk>\n"
 "Peter Mráz <etkinator@gmail.com>\n"
-"Ján Kyselica <kyselica.jan@gmail.com>"
+"Ján Kyselica <kyselica.jan@gmail.com>\n"
+"Dušan Kazik <prescott66@gmail.com>"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Nastavenia hry Červíci"
+#| msgid "Nibbles Preferences"
+msgid "Preferences"
+msgstr "Nastavenia"
 
 #: ../src/preferences.c:236
 msgid "Game"
