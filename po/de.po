@@ -23,16 +23,16 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-05-02 10:23+0000\n"
-"PO-Revision-Date: 2014-05-01 19:03+0100\n"
-"Last-Translator: Benjamin Steinwender <b@stbe.at>\n"
+"POT-Creation-Date: 2014-09-20 07:06+0000\n"
+"PO-Revision-Date: 2014-09-20 18:39+0100\n"
+"Last-Translator:  Bernd Homuth <dev@hmt.im>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.9\n"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
@@ -72,8 +72,8 @@ msgstr ""
 "Spielen Sie allein gegen bis zu fünf gegnerische Würmer, oder teilen Sie "
 "Ihre Tastatur zum Spielen mit einem Freund."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:600
-#: ../src/main.c:720
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:706
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -255,7 +255,7 @@ msgstr "%1$dmin %2$ds"
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "S_chließen"
 
@@ -272,23 +272,23 @@ msgstr ""
 "\n"
 "Bitte überprüfen Sie Ihre Nibbles-Installation."
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Nibbles-Ergebnisse"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Geschwindigkeit:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Glückwunsch!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Ihr Ergebnis ist das beste!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Dieses Ergebnis hat für einen Top 10-Eintrag gereicht."
 
@@ -332,7 +332,7 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Schnell, mit Attrappen"
 
-#: ../src/main.c:234
+#: ../src/main.c:222
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -342,7 +342,7 @@ msgstr ""
 "\n"
 "Nibbles ist ein Teil der GNOME-Spiele."
 
-#: ../src/main.c:237
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -362,8 +362,8 @@ msgstr ""
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Nibbles Einstellungen"
+msgid "Preferences"
+msgstr "Einstellungen"
 
 #: ../src/preferences.c:236
 msgid "Game"
