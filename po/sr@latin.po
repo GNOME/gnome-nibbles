@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Gnomove igre\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-16 17:36+0000\n"
-"PO-Revision-Date: 2014-03-23 06:29+0200\n"
+"POT-Creation-Date: 2014-09-22 07:02+0000\n"
+"PO-Revision-Date: 2014-09-22 11:55+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -24,20 +24,7 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:222 ../src/main.c:705
-msgid "Nibbles"
-msgstr "Zmiček"
-
-#: ../data/gnibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Vodite crvića kroz lavirint"
-
-#: ../data/gnibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "igra;zmija;tabla;"
-
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
-#| msgid "Nibbles"
 msgid "GNOME Nibbles"
 msgstr "Gnomov zmiček"
 
@@ -73,6 +60,19 @@ msgid ""
 msgstr ""
 "Igrajte sami protiv najviše pet neprijateljskih crvića, ili delite vašu "
 "tastaturu u igri sa prijateljem."
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:706
+msgid "Nibbles"
+msgstr "Zmiček"
+
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Vodite crvića kroz lavirint"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "igra;zmija;tabla;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -212,11 +212,11 @@ msgstr ""
 "\n"
 "Proverite instalaciju Zmičeka"
 
-#: ../src/games-controls.c:107
+#: ../src/games-controls.c:108
 msgid "The shortcut you selected is already assigned."
 msgstr "Prečica koju ste izabrali je već dodeljena."
 
-#: ../src/games-controls.c:323
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "Nepoznata naredba"
 
@@ -244,7 +244,7 @@ msgstr "%dm %ds"
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Zatvori"
 
@@ -261,71 +261,67 @@ msgstr ""
 "\n"
 "Proverite instalaciju Zmičeka"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Rezultati Zmičeka"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Brzina:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Čestitamo!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Vaš rezultat je najbolji!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Vaš rezultat je ušao u najboljih 10."
 
-#: ../src/main.c:60
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "Početnički"
 
-#: ../src/main.c:61
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Slow"
 msgstr "Sporo"
 
-#: ../src/main.c:62
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Medium"
 msgstr "Srednje"
 
-#: ../src/main.c:63
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Fast"
 msgstr "Brzo"
 
-#: ../src/main.c:64
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "Početnički sa trikovima"
 
-#: ../src/main.c:65
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "Sporo sa trikovima"
 
-#: ../src/main.c:66
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "Srednje sa trikovima"
 
-#: ../src/main.c:67
+#: ../src/main.c:69
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Brzo sa trikovima"
 
-#: ../src/main.c:228
-#| msgid ""
-#| "A worm game for GNOME.\n"
-#| "\n"
-#| "Nibbles is a part of GNOME Games."
+#: ../src/main.c:222
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -335,7 +331,7 @@ msgstr ""
 "\n"
 "Zmiček je deo Gnomovih igara."
 
-#: ../src/main.c:231
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Dušan Marjanović <madafaka@root.co.yu>\n"
@@ -346,8 +342,9 @@ msgstr ""
 "http://prevod.org — prevod na srpski jezik"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Postavke Zmičeka"
+#| msgid "Nibbles Preferences"
+msgid "Preferences"
+msgstr "Postavke"
 
 #: ../src/preferences.c:236
 msgid "Game"
@@ -376,7 +373,7 @@ msgstr "Dobro grčenje prstiju"
 
 #: ../src/preferences.c:301 ../src/preferences.c:424
 msgid "Options"
-msgstr "Postavke"
+msgstr "Mogućnosti"
 
 #: ../src/preferences.c:308
 msgid "_Play levels in random order"
