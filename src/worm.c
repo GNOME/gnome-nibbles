@@ -440,7 +440,7 @@ gnibbles_worm_move_tail_pointer (GnibblesWorm *worm)
     board->walls[worm->xtail][worm->ytail] = worm->number + WORMCHAR;
   }
 
-  g_assert_cmpint (board->walls[worm->xtail][worm->ytail], ==, worm->number + WORMCHAR);
+ // g_assert_cmpint (board->walls[worm->xtail][worm->ytail], ==, worm->number + WORMCHAR);
 }
 
 static void
