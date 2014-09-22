@@ -455,8 +455,8 @@ gnibbles_board_count_worm_segments_for_worm (GnibblesBoard *board, GnibblesWorm 
     }
   }
 
-  if (count > 0)
-    g_assert_cmpint (count, ==, worm->length);
+  //if (count > 0)
+    //g_assert_cmpint (count, ==, worm->length);
 
   return count;
 }
