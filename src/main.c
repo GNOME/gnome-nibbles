@@ -274,7 +274,7 @@ configure_event_cb (GtkWidget *widget, GdkEventConfigure *event, gpointer data)
     ts_y--;
   tilesize = MIN (ts_x, ts_y);
 
-  if(tilesize != properties->tilesize)
+  if (tilesize != properties->tilesize)
   {	
     gnibbles_load_pixmap (tilesize);
 
@@ -439,15 +439,15 @@ animate_end_game (void)
 {
   int i;
   for (i = 0; i < properties->numworms; i++) {
-    clutter_actor_save_easing_state(worms[i]->actors);
+    clutter_actor_save_easing_state (worms[i]->actors);
     clutter_actor_set_easing_mode (worms[i]->actors, CLUTTER_EASE_IN_QUAD);
     clutter_actor_set_easing_duration (worms[i]->actors, GAMEDELAY * 15);
     clutter_actor_set_scale (worms[i]->actors, 0.4, 0.4);
     clutter_actor_set_opacity (worms[i]->actors, 0);
-    clutter_actor_restore_easing_state(worms[i]->actors);
+    clutter_actor_restore_easing_state (worms[i]->actors);
   }
 
-  for ( i = 0; i < boni->numbonuses; i++) {
+  for (i = 0; i < boni->numbonuses; i++) {
     clutter_actor_save_easing_state(boni->bonuses[i]->actor);
     clutter_actor_set_easing_mode (boni->bonuses[i]->actor, CLUTTER_EASE_IN_QUAD);
     clutter_actor_set_easing_duration (boni->bonuses[i]->actor, GAMEDELAY * 15);
@@ -457,23 +457,23 @@ animate_end_game (void)
     clutter_actor_restore_easing_state(boni->bonuses[i]->actor);
   }
 
-  for ( i = 0; i < warpmanager->numwarps; i++) {
-    clutter_actor_save_easing_state(warpmanager->warps[i]->actor);
+  for (i = 0; i < warpmanager->numwarps; i++) {
+    clutter_actor_save_easing_state (warpmanager->warps[i]->actor);
     clutter_actor_set_easing_mode (warpmanager->warps[i]->actor, CLUTTER_EASE_IN_QUAD);
     clutter_actor_set_easing_duration (warpmanager->warps[i]->actor, GAMEDELAY * 15);
     clutter_actor_set_scale (warpmanager->warps[i]->actor, 0.4, 0.4);
     clutter_actor_set_pivot_point (warpmanager->warps[i]->actor,.5,.5);
     clutter_actor_set_opacity (warpmanager->warps[i]->actor, 0);
-    clutter_actor_restore_easing_state(warpmanager->warps[i]->actor);
+    clutter_actor_restore_easing_state (warpmanager->warps[i]->actor);
   }
 
-  clutter_actor_save_easing_state(board->level);
+  clutter_actor_save_easing_state (board->level);
   clutter_actor_set_easing_mode (board->level, CLUTTER_EASE_IN_QUAD);
   clutter_actor_set_easing_duration (board->level, GAMEDELAY * 20);
   clutter_actor_set_scale (board->level, 0.4, 0.4);
   clutter_actor_set_pivot_point (board->level,.5,.5);
   clutter_actor_set_opacity (board->level, 0);
-  clutter_actor_restore_easing_state(board->level);
+  clutter_actor_restore_easing_state (board->level);
 }
 
 gboolean

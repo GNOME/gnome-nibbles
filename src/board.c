@@ -57,13 +57,13 @@ gnibbles_board_new (void)
 
   filename = g_build_filename (DATA_DIRECTORY, "pixmaps", "wall-small-empty.svg", NULL);
 
-  board->surface = gtk_clutter_texture_new();
+  board->surface = gtk_clutter_texture_new ();
   gtk_clutter_texture_set_from_pixbuf (GTK_CLUTTER_TEXTURE (board->surface),
   gdk_pixbuf_new_from_file (filename, NULL), NULL);
 
   clutter_actor_set_opacity (CLUTTER_ACTOR (board->surface), 100);
   g_value_init (&val, G_TYPE_BOOLEAN);
-  g_value_set_boolean ( &val, TRUE);
+  g_value_set_boolean (&val, TRUE);
 
   g_object_set_property (G_OBJECT (board->surface), "repeat-y", &val);
   g_object_set_property (G_OBJECT (board->surface), "repeat-x", &val);
@@ -167,7 +167,7 @@ gnibbles_board_load_level (GnibblesBoard *board)
       if (is_wall) {
         x_pos = j * properties->tilesize;
 
-        clutter_actor_set_size (CLUTTER_ACTOR(tmp),
+        clutter_actor_set_size (CLUTTER_ACTOR (tmp),
                                 properties->tilesize,
                                 properties->tilesize);
 
@@ -185,13 +185,13 @@ gnibbles_board_load_level (GnibblesBoard *board)
   clutter_actor_set_opacity (board->level, 0);
   clutter_actor_set_scale (CLUTTER_ACTOR (board->level), 0.2, 0.2);
  
-  clutter_actor_save_easing_state(board->level);
+  clutter_actor_save_easing_state (board->level);
   clutter_actor_set_easing_mode (board->level, CLUTTER_EASE_OUT_BOUNCE);
   clutter_actor_set_easing_duration (board->level, GAMEDELAY * GAMEDELAY);
   clutter_actor_set_scale (board->level, 1.0, 1.0);
   clutter_actor_set_pivot_point (board->level,.5,.5);
   clutter_actor_set_opacity (board->level, 0xff);
-  clutter_actor_restore_easing_state(board->level);
+  clutter_actor_restore_easing_state (board->level);
 
 }
 
@@ -239,7 +239,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
 
   board->current_level = level;
 
-  tmp = g_strdup_printf("level%03d.gnl", level);
+  tmp = g_strdup_printf ("level%03d.gnl", level);
 
   filename = g_build_filename (DATA_DIRECTORY, "games", tmp, NULL);
 
@@ -284,7 +284,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
         case 'n':
           board->walls[j][i] = EMPTYCHAR;
           if (count < properties->numworms)
-            gnibbles_worm_set_start(worms[count++], j, i, WORMLEFT);
+            gnibbles_worm_set_start (worms[count++], j, i, WORMLEFT);
           break;
         case 'o':
           board->walls[j][i] = EMPTYCHAR;
@@ -334,7 +334,7 @@ gnibbles_board_level_new (GnibblesBoard *board, gint level)
       for (j = 0; j < worms[i]->length; j++)
         gnibbles_worm_move_head_pointer (worms[i]);
       worms[i]->xtail++;
-    } else if ( worms[i]->direction == WORMLEFT) {
+    } else if (worms[i]->direction == WORMLEFT) {
       for (j = 0; j < worms[i]->length; j++)
         gnibbles_worm_move_head_pointer (worms[i]);
       worms[i]->xtail--;

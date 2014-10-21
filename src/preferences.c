@@ -238,7 +238,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
   vbox_game = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
   gtk_container_set_border_width (GTK_CONTAINER (vbox_game), 12);
-  gtk_box_set_spacing (GTK_BOX(vbox_game), 18);
+  gtk_box_set_spacing (GTK_BOX (vbox_game), 18);
 
   gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox_game, label);
 
@@ -251,7 +251,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   /* Speed */
   label = gtk_label_new (_("Speed"));
   gtk_widget_set_halign (label, GTK_ALIGN_START);
-  set_label_bold (GTK_LABEL(label));
+  set_label_bold (GTK_LABEL (label));
   gtk_box_pack_start (GTK_BOX (vbox_speed), label, FALSE, FALSE, 0);
 
   button = gtk_radio_button_new_with_label (NULL, _("Nibbles newbie"));
@@ -300,7 +300,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
   label = gtk_label_new (_("Options"));
   gtk_widget_set_halign (label, GTK_ALIGN_START);
-  set_label_bold (GTK_LABEL(label));
+  set_label_bold (GTK_LABEL (label));
   gtk_box_pack_start (GTK_BOX (vbox_options), label, FALSE, FALSE, 0);
 
 
@@ -408,7 +408,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
     label2 = gtk_label_new (_("Keyboard Options"));
     gtk_widget_set_halign (label2, GTK_ALIGN_START);
-    set_label_bold (GTK_LABEL(label2));
+    set_label_bold (GTK_LABEL (label2));
     gtk_box_pack_start (GTK_BOX (vbox_wormx), label2, FALSE, FALSE, 0);
 
     controls = games_controls_list_new (worm_settings[i]);
@@ -423,7 +423,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
 
     label2 = gtk_label_new (_("Options"));
     gtk_widget_set_halign (label2, GTK_ALIGN_START);
-    set_label_bold (GTK_LABEL(label2));
+    set_label_bold (GTK_LABEL (label2));
     gtk_box_pack_start (GTK_BOX (vbox_wormx), label2, FALSE, FALSE, 0);
 
     button = gtk_check_button_new_with_mnemonic (_("_Use relative movement"));

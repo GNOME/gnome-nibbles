@@ -82,7 +82,7 @@ gnibbles_load_pixmap_file (const gchar * pixmap, gint xsize, gint ysize)
       g_strdup_printf (_("Nibbles couldn't find pixmap file:\n%s\n\n"
                        "Please check your Nibbles installation"), pixmap);
     gnibbles_error (message);
-    g_free(message);
+    g_free (message);
   }
 
   image = gdk_pixbuf_new_from_file_at_scale (filename, xsize, ysize, TRUE, NULL);

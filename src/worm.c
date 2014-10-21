@@ -189,11 +189,11 @@ gnibbles_worm_handle_keypress (GnibblesWorm * worm, guint keyval)
     return FALSE;
 
   props = properties->wormprops[worm->number];
-  propsUp = toupper(props->up);
-  propsLeft = toupper(props->left);
-  propsDown = toupper(props->down);
-  propsRight = toupper(props->right);
-  keyvalUpper = toupper(keyval);
+  propsUp = toupper (props->up);
+  propsLeft = toupper (props->left);
+  propsDown = toupper (props->down);
+  propsRight = toupper (props->right);
+  keyvalUpper = toupper (keyval);
 
   if (properties->wormprops[worm->number]->relmove) {
     if (keyvalUpper == propsLeft) {
@@ -342,12 +342,12 @@ gnibbles_worm_handle_bonus (GnibblesWorm *worm)
     (board->walls[worm->xhead][worm->yhead] != WARPLETTER)) {
     actor = gnibbles_worm_get_head_actor (worm);
 
-    clutter_actor_save_easing_state(actor);
+    clutter_actor_save_easing_state (actor);
     clutter_actor_set_easing_mode (actor, CLUTTER_EASE_OUT_QUINT);
     clutter_actor_set_easing_duration (actor, GAMEDELAY * 15);
     clutter_actor_set_scale (actor, 1.45, 1.45);
     clutter_actor_set_pivot_point (actor,.5,.5);
-    clutter_actor_restore_easing_state(actor);
+    clutter_actor_restore_easing_state (actor);
 
     gnibbles_worm_grok_bonus (worm);
 
@@ -481,13 +481,13 @@ gnibbles_worm_animate_death (GnibblesWorm *worm)
 
   clutter_actor_add_child (stage, group);
 
-  clutter_actor_save_easing_state(group);
+  clutter_actor_save_easing_state (group);
   clutter_actor_set_easing_mode (group, CLUTTER_EASE_OUT_QUAD);
   clutter_actor_set_easing_duration (group, GAMEDELAY * 9);
   clutter_actor_set_scale (group, 2.0, 2.0);
   clutter_actor_set_pivot_point (group,.5,.5); 
   clutter_actor_set_opacity (group, 0);
-  clutter_actor_restore_easing_state(group);
+  clutter_actor_restore_easing_state (group);
 
 }
 
@@ -541,13 +541,13 @@ gnibbles_worm_show (GnibblesWorm *worm)
   clutter_actor_set_opacity (worm->actors, 0);
   clutter_actor_set_scale (worm->actors, 3.0, 3.0);
 
-  clutter_actor_save_easing_state(worm->actors);
+  clutter_actor_save_easing_state (worm->actors);
   clutter_actor_set_easing_mode (worm->actors, CLUTTER_EASE_OUT_CIRC);
   clutter_actor_set_easing_duration (worm->actors, GAMEDELAY * 26);
   clutter_actor_set_scale (worm->actors, 1.0, 1.0);
   clutter_actor_set_pivot_point (worm->actors,.5,.5);
   clutter_actor_set_opacity (worm->actors, 0xff);
-  clutter_actor_restore_easing_state(worm->actors);
+  clutter_actor_restore_easing_state (worm->actors);
 
   worm->stop = FALSE;
 }
@@ -702,11 +702,11 @@ gnibbles_worm_reduce_tail (GnibblesWorm *worm, gint erasesize)
     worm->length -= erasesize;
     clutter_actor_add_child (stage, group);
 
-    clutter_actor_save_easing_state(group);
+    clutter_actor_save_easing_state (group);
     clutter_actor_set_easing_mode (group, CLUTTER_EASE_OUT_EXPO);
     clutter_actor_set_easing_duration (group, GAMEDELAY * 25);
     clutter_actor_set_opacity (group, 0);
-    clutter_actor_restore_easing_state(group);
+    clutter_actor_restore_easing_state (group);
   }
 }
 
@@ -767,7 +767,7 @@ gnibbles_worm_test_move_head (GnibblesWorm * worm)
 {
   int x, y;
 
-  gnibbles_worm_position_move_head(worm, &x, &y);
+  gnibbles_worm_position_move_head (worm, &x, &y);
 
   if (board->walls[x][y] > EMPTYCHAR
       && board->walls[x][y] < 'z' + properties->numworms)
@@ -781,7 +781,7 @@ gnibbles_worm_is_move_safe (GnibblesWorm * worm)
 {
   int x, y, i;
 
-  gnibbles_worm_position_move_head(worm, &x, &y);
+  gnibbles_worm_position_move_head (worm, &x, &y);
 
   for (i = 0; i < properties->numworms; i++) {
     if (i != worm->number) {
@@ -858,7 +858,7 @@ gnibbles_worm_ai_deadend (gint x, gint y, gint lengthleft)
         && deadendboard[cx][cy] != deadend_runnumber) {
 
       deadendboard[cx][cy] = deadend_runnumber;
-      lengthleft = gnibbles_worm_ai_deadend(cx, cy, lengthleft - 1);
+      lengthleft = gnibbles_worm_ai_deadend (cx, cy, lengthleft - 1);
       if (!lengthleft)
         return 0;
     }
@@ -891,17 +891,17 @@ gnibbles_worm_ai_deadend_after (gint x, gint y, gint dir, gint length)
     dir = 4;
 
   i = properties->numworms;
-  while(i--) {
+  while (i--) {
     cx = worms[i]->xhead;
     cy = worms[i]->yhead;
-    if(cx != x || cy != y) {
-      if(cx > 0)
+    if (cx != x || cy != y) {
+      if (cx > 0)
         deadendboard[cx-1][cy] = deadend_runnumber;
-      if(cy > 0)
+      if (cy > 0)
         deadendboard[cx][cy-1] = deadend_runnumber;
-      if(cx < BOARDWIDTH-1)
+      if (cx < BOARDWIDTH-1)
         deadendboard[cx+1][cy] = deadend_runnumber;
-      if(cy < BOARDHEIGHT-1)
+      if (cy < BOARDHEIGHT-1)
         deadendboard[cx][cy+1] = deadend_runnumber;
     }
   }
@@ -1065,7 +1065,7 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
     } else {
       // Else move in random direction at random time intervals
       if (rand () % 30 == 1) {
-        dir = worm->direction + (rand() % 2 ? 1 : -1);
+        dir = worm->direction + (rand () % 2 ? 1 : -1);
         if (dir != opposite) {
           if (dir > 4)
             dir = 1;
@@ -1099,13 +1099,13 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
       continue;
     thislen = 0;
 
-    if(!gnibbles_worm_test_move_head (worm))
+    if (!gnibbles_worm_test_move_head (worm))
       thislen += CAPACITY;
 
-    if(gnibbles_worm_ai_tooclose (worm))
+    if (gnibbles_worm_ai_tooclose (worm))
       thislen += 4;
 
-    if(!gnibbles_worm_is_move_safe (worm))
+    if (!gnibbles_worm_is_move_safe (worm))
       thislen += 4;
 
     thislen += gnibbles_worm_ai_deadend_after (worm->xhead, worm->yhead, dir,
@@ -1118,7 +1118,7 @@ gnibbles_worm_ai_move (GnibblesWorm * worm)
        particular, to stop the worms bunching in the bottom-
        right corner of the board. */
     if (thislen <= 0)
-      thislen -= random() % 100;
+      thislen -= random () % 100;
     if (thislen < bestyet) {
       bestyet = thislen;
       bestdir = dir;
