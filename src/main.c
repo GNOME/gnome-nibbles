@@ -685,9 +685,14 @@ main (int argc, char **argv)
   GError *error = NULL;
   GOptionContext *context;
 
+  setlocale (LC_ALL, "");
+  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  textdomain (GETTEXT_PACKAGE);
+
   context = g_option_context_new ("");
   g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
-  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+  g_option_context_add_group (context, gtk_get_option_group (FALSE));
 
   if (!g_option_context_parse (context, &argc, &argv, &error))
     {
@@ -695,15 +700,6 @@ main (int argc, char **argv)
       exit (1);
     }
   //Done handling Command Line options
-
-  setlocale (LC_ALL, "");
-  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-  textdomain (GETTEXT_PACKAGE);
-
-  games_scores_startup ();
-
-  g_set_application_name (_("Nibbles"));
 
   if (gtk_clutter_init (&argc, &argv) != CLUTTER_INIT_SUCCESS) {
     GtkWidget *dialog = gtk_message_dialog_new (NULL,
@@ -716,6 +712,10 @@ main (int argc, char **argv)
     gtk_widget_destroy (dialog);
     exit (1);
   }
+
+  games_scores_startup ();
+
+  g_set_application_name (_("Nibbles"));
 
   settings = g_settings_new ("org.gnome.nibbles");
   for (i = 0; i < NUMWORMS; i++)
