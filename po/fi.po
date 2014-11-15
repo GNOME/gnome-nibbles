@@ -1,5 +1,5 @@
 # gnome-games Finnish Translation
-# Suomennos: http://www.gnome.fi/
+# Suomennos: https://l10n.gnome.org/teams/fi/
 # Copyright (C) 2002-2009 Free Software Foundation, Inc.
 #
 #
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-10 19:04+0000\n"
+"POT-Creation-Date: 2014-11-07 07:57+0000\n"
 "PO-Revision-Date: 2014-09-10 23:12+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -67,7 +67,7 @@ msgstr ""
 "näppäimistö hänen kanssaan."
 
 #: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
-#: ../src/main.c:685
+#: ../src/main.c:706
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -344,7 +344,7 @@ msgstr ""
 "Ilkka Tuohela, 2006-2009\n"
 "Sami Pesonen, 2002-2005\n"
 "\n"
-"http://www.gnome.fi/\n"
+"https://l10n.gnome.org/teams/fi/\n"
 "\n"
 "Launchpad Contributions:\n"
 "  Heikki Kulhia https://launchpad.net/~hessuk\n"
