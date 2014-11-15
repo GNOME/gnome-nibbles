@@ -365,7 +365,7 @@ gnibbles_preferences_cb (GtkWidget * widget, gpointer data)
   gtk_widget_set_hexpand (label2, TRUE);
   gtk_grid_attach (GTK_GRID (grid2), label2, 0, 1, 1, 1);
 
-  adjustment = gtk_adjustment_new ((gfloat) properties->human, 0.0,
+  adjustment = gtk_adjustment_new ((gfloat) properties->human, 1.0,
                                    NUMHUMWORMS, 1.0, 1.0, 0.0);
 
   num_human = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 0, 0);
