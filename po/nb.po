@@ -5,10 +5,10 @@
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-nibbles 3.13.x\n"
+"Project-Id-Version: gnome-nibbles 3.15.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-23 14:07+0200\n"
-"PO-Revision-Date: 2014-07-23 14:07+0200\n"
+"POT-Creation-Date: 2014-11-17 17:09+0100\n"
+"PO-Revision-Date: 2014-11-17 17:09+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -43,8 +43,8 @@ msgid ""
 "play with a friend."
 msgstr ""
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
-#: ../src/main.c:712
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:718
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -243,23 +243,23 @@ msgstr ""
 "\n"
 "Vennligst sjekk din Nibbles-installasjon"
 
-#: ../src/gnibbles.c:334
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Nibbles poeng"
 
-#: ../src/gnibbles.c:337
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Hastighet:"
 
-#: ../src/gnibbles.c:342
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Gratulerer!"
 
-#: ../src/gnibbles.c:343
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Din poengsum er den beste!"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Din poengsum er blant de ti beste."
 
@@ -303,7 +303,7 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Rask med falske"
 
-#: ../src/main.c:234
+#: ../src/main.c:222
 msgid ""
 "A worm game for GNOME\n"
 "\n"
@@ -313,7 +313,7 @@ msgstr ""
 "\n"
 "Nibbles er en del av GNOME-spill."
 
-#: ../src/main.c:237
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
