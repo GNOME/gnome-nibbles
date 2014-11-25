@@ -11,6 +11,8 @@ AM_PROG_CC_C_O
 
 GLIB_GSETTINGS
 
+APPSTREAM_XML
+
 dnl ###########################################################################
 dnl Dependencies
 dnl ###########################################################################
@@ -29,7 +31,6 @@ PKG_CHECK_MODULES(GNOME_NIBBLES, [
   clutter-gtk-1.0 >= $CLUTTER_GTK_REQUIRED
 ])
 
-AC_PATH_PROG([APPDATA_VALIDATE], [appdata-validate], [/bin/true])
 AC_PATH_PROG([DESKTOP_FILE_VALIDATE], [desktop-file-validate], [/bin/true])
 
 dnl ###########################################################################

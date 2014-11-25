@@ -19,26 +19,27 @@ desktop_in_files = gnome-nibbles.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-appdatadir = $(datadir)/appdata
-appdata_in_files = gnome-nibbles.appdata.xml.in
-appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+appstream_in_files = gnome-nibbles.appdata.xml.in
+appstream_XML = $(appdata_in_files:.xml.in=.xml)
+@APPSTREAM_XML_RULES@
 @INTLTOOL_XML_RULE@
 
 man_MANS = gnome-nibbles.6
 
 EXTRA_DIST = \
-	$(appdata_in_files) \
+	$(appstream_in_files) \
 	$(desktop_in_files) \
 	$(sounds_DATA) \
 	$(gsettings_SCHEMAS) \
 	$(man_MANS)
 
 CLEANFILES = \
-	$(appdata_DATA) \
+	$(appstream_XML) \
 	$(desktop_DATA)
 
-check-local: $(appdata_DATA) $(desktop_DATA)
-	$(APPDATA_VALIDATE) $(appdata_DATA)
+check-local: $(desktop_DATA)
 	$(DESKTOP_FILE_VALIDATE) $(desktop_DATA)
+
+DISTCHECK_CONFIGURE_FLAGS = --enable-appdata-check
 
 -include $(top_srcdir)/git.mk
