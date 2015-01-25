@@ -219,7 +219,7 @@ about_activated (GSimpleAction *action,
        "Copyright © 1999–2008 Sean MacIsaac, Ian Peters, Andreas Røsdal\n"
        "Copyright © 2009 Guillaume Beland",
        "license-type", GTK_LICENSE_GPL_2_0, 
-       "comments", _("A worm game for GNOME\n\nNibbles is a part of GNOME Games."),
+       "comments", _("A worm game for GNOME"),
        "authors", authors,
        "documenters", documenters, 
        "translator-credits", _("translator-credits"), 
