@@ -5,42 +5,35 @@
 # Lucas Vieites <lucas@codexion.com>, 2007, 2008.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
 # Chris Leonard <cjl@laptop.org>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-16 17:36+0000\n"
-"PO-Revision-Date: 2014-01-17 11:37+0100\n"
+"POT-Creation-Date: 2015-02-02 08:03+0000\n"
+"PO-Revision-Date: 2015-02-02 11:18+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Gtranslator 2.91.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
-
-#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:222 ../src/main.c:705
-msgid "Nibbles"
-msgstr "Nibbles"
-
-#: ../data/gnibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Guíe a un gusano por un laberinto"
-
-#: ../data/gnibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "juego;serpiente;tablero;"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Guíe a un gusano por un laberinto"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -55,7 +48,7 @@ msgstr ""
 "gusanos enemigos intentan conseguir las misma bonificaciones, así que tenga "
 "cuidado: si se hacen muy grandes, no tendrá espacio para moverse."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -66,13 +59,22 @@ msgstr ""
 "adelante, los espacios estrechos y los teletransportadores hacen las cosas "
 "más interesantes."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
 "Juegue contra un máximo de cinco gusanos enemigos o comparta su teclado para "
 "jugar con un amigo."
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:718
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "juego;serpiente;tablero;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -212,11 +214,11 @@ msgstr ""
 "\n"
 "Revise su instalación de Nibbles"
 
-#: ../src/games-controls.c:107
+#: ../src/games-controls.c:108
 msgid "The shortcut you selected is already assigned."
 msgstr "El atajo que ha seleccionado ya está asignado."
 
-#: ../src/games-controls.c:323
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "Comando desconocido"
 
@@ -244,8 +246,7 @@ msgstr "%1$dm %2$ds"
 msgid "Date"
 msgstr "Fecha"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
-#| msgid "Close"
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Cerrar"
 
@@ -262,77 +263,72 @@ msgstr ""
 "\n"
 "Revise su instalación de Nibbles"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Puntuación de Nibbles"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Velocidad:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Enhorabuena."
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Su puntuación es la mejor"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Su puntuación ha alcanzado los 10 mejores."
 
-#: ../src/main.c:60
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "Principiante"
 
-#: ../src/main.c:61
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Slow"
 msgstr "Lento"
 
-#: ../src/main.c:62
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Medium"
 msgstr "Mediano"
 
-#: ../src/main.c:63
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Fast"
 msgstr "Rápido"
 
-#: ../src/main.c:64
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "Principiante con falsos"
 
-#: ../src/main.c:65
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "Lento con falsos"
 
-#: ../src/main.c:66
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "Medio con falsos"
 
-#: ../src/main.c:67
+#: ../src/main.c:69
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Rápido con falsos"
 
-#: ../src/main.c:228
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Un juego de gusanos para GNOME\n"
-"\n"
-"Nibbles es parte de los juegos de GNOME."
+#: ../src/main.c:222
+#| msgid "A worm game for GNOME."
+msgid "A worm game for GNOME"
+msgstr "Un juego de gusanos para GNOME."
 
-#: ../src/main.c:231
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -342,8 +338,8 @@ msgstr ""
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Preferencias de Nibbles"
+msgid "Preferences"
+msgstr "Preferencias"
 
 #: ../src/preferences.c:236
 msgid "Game"
@@ -446,6 +442,18 @@ msgstr "Gris"
 #, c-format
 msgid "Worm %d:"
 msgstr "Gusano %d:"
+
+#~ msgid ""
+#~ "A worm game for GNOME\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "Un juego de gusanos para GNOME\n"
+#~ "\n"
+#~ "Nibbles es parte de los juegos de GNOME."
+
+#~ msgid "Nibbles Preferences"
+#~ msgstr "Preferencias de Nibbles"
 
 #~ msgctxt "score-dialog"
 #~ msgid "Name"
@@ -630,9 +638,6 @@ msgstr "Gusano %d:"
 #~ "Debería haber recibido una copia de la Licencia Pública General GNU junto "
 #~ "con este programa. De lo contrario, visite <http://www.gnu.org/licenses/>."
 
-#~ msgid "A worm game for GNOME."
-#~ msgstr "Un juego de gusanos para GNOME."
-
 #~ msgid "Chess"
 #~ msgstr "Ajedrez"
 
@@ -743,9 +748,6 @@ msgstr "Gusano %d:"
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Dificultad del motor de ajedrez del oponente"
-
-#~ msgid "Preferences"
-#~ msgstr "Preferencias"
 
 #~ msgid "Play as:"
 #~ msgstr "Jugar como:"
