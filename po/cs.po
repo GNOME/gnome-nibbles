@@ -16,15 +16,15 @@
 # Petr Pulc <petrpulc@gmail.com>, 2009.
 # Andre Klapper <ak-47@gmx.net>, 2009.
 # Petr Kovar <pknbe@volny.cz>, 2008, 2012.
-# Marek Černocký <marek@manet.cz>, 2010, 2011, 2012, 2013, 2014.
+# Marek Černocký <marek@manet.cz>, 2010, 2011, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-05-14 06:55+0000\n"
-"PO-Revision-Date: 2014-05-14 14:35+0200\n"
+"POT-Creation-Date: 2015-02-03 08:07+0000\n"
+"PO-Revision-Date: 2015-02-03 19:34+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -40,6 +40,11 @@ msgid "GNOME Nibbles"
 msgstr "Červíci GNOME"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Vést červa v bludišti"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -54,7 +59,7 @@ msgstr ""
 "bonusech, jako vy, takže buďte opatrní: když příliš narostou, budete mít "
 "málo místa pro manévrování."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -65,7 +70,7 @@ msgstr ""
 "úrovních zdí postupně přibývá a navíc se objeví teleporty, aby to bylo "
 "zajímavější."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -73,14 +78,10 @@ msgstr ""
 "Zahrajte si na vlastní pěst až proti pěti nepřátelským červíkům nebo se "
 "podělte o klávesnici při hraní s přáteli."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
-#: ../src/main.c:712
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:718
 msgid "Nibbles"
 msgstr "Červíci"
-
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Vést červa v bludišti"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -273,23 +274,23 @@ msgstr ""
 "\n"
 "Zkontrolujte prosím svou instalaci hry Červíci"
 
-#: ../src/gnibbles.c:334
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Skóre Červíků"
 
-#: ../src/gnibbles.c:337
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Rychlost:"
 
-#: ../src/gnibbles.c:342
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Blahopřejeme!"
 
-#: ../src/gnibbles.c:343
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Vaše skóre je nejlepší!"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Vaše skóre se dostalo mezi deset nejlepších."
 
@@ -333,17 +334,11 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Velmi rychlý červík"
 
-#: ../src/main.c:234
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Hra s červíkem pro GNOME\n"
-"\n"
-"Červíci jsou součástí her GNOME."
+#: ../src/main.c:222
+msgid "A worm game for GNOME"
+msgstr "Hra s červíky pro GNOME"
 
-#: ../src/main.c:237
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
