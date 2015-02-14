@@ -12,42 +12,35 @@
 # Valek Filippov <frob@df.ru> 2000-2002
 # Nickolay V. Shmyrev <nshmyrev@yandex.ru>
 # Yuri Myasoedov <omerta13@yandex.ru>, 2012, 2013.
+# Ivan Komaritsyn <vantu5z@mail.ru>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-31 16:03+0000\n"
-"PO-Revision-Date: 2014-03-21 08:33+0300\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"POT-Creation-Date: 2015-02-12 20:05+0000\n"
+"PO-Revision-Date: 2015-02-11 11:38+0300\n"
+"Last-Translator: Ivan Komaritsyn <vantu5z@mail.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
-
-#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:224 ../src/main.c:702
-msgid "Nibbles"
-msgstr "Червячок"
-
-#: ../data/gnibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Управляйте растущим прожорливым червяком в лабиринте"
-
-#: ../data/gnibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "игра;змейка;настольная;"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
-#| msgid "Nibbles"
 msgid "GNOME Nibbles"
 msgstr "Червячки GNOME"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Управляйте растущим прожорливым червяком в лабиринте"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -62,7 +55,7 @@ msgstr ""
 "охотятся за бонусами, будьте осторожны: если другие червячки станут слишком "
 "большими, у вас не будет достаточного пространства для передвижения."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -72,13 +65,22 @@ msgstr ""
 "уровни почти не имеют преград, но затем на уровнях начинают появляться "
 "стены. Узенькие лазейки и телепорты делают игру более интересной."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
 "Сыграйте против других червячков (до 5 соперников) или поделитесь "
 "клавиатурой с другой."
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:718
+msgid "Nibbles"
+msgstr "Червячок"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "игра;змейка;настольная;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -218,11 +220,11 @@ msgstr ""
 "\n"
 "Проверьте установку Червячка"
 
-#: ../src/games-controls.c:107
+#: ../src/games-controls.c:108
 msgid "The shortcut you selected is already assigned."
 msgstr "Выбранная комбинация клавиш уже используется."
 
-#: ../src/games-controls.c:323
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "Неизвестная команда"
 
@@ -250,7 +252,7 @@ msgstr "%1$dмин. %2$dс"
 msgid "Date"
 msgstr "Дата"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "_Закрыть"
 
@@ -267,23 +269,23 @@ msgstr ""
 "\n"
 "Проверьте установку Червячка"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Результаты игры «Червячок»"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Скорость:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Поздравляем!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Ваш результат — лучший!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Ваш результат попал в десятку лучших."
 
@@ -327,21 +329,11 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Быстро и с обманками"
 
-#: ../src/main.c:230
-#| msgid ""
-#| "A worm game for GNOME.\n"
-#| "\n"
-#| "Nibbles is a part of GNOME Games."
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Игра в червячков для GNOME\n"
-"\n"
-"Червячки являются частью GNOME Games."
+#: ../src/main.c:222
+msgid "A worm game for GNOME"
+msgstr "Игра в червяка для среды GNOME"
 
-#: ../src/main.c:233
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Валек Филиппов aka frob\n"
@@ -351,8 +343,8 @@ msgstr ""
 "Леонид Кантер"
 
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Параметры игры Червячок"
+msgid "Preferences"
+msgstr "Параметры"
 
 #: ../src/preferences.c:236
 msgid "Game"
@@ -455,6 +447,22 @@ msgstr "Серый"
 #, c-format
 msgid "Worm %d:"
 msgstr "Червяк %d:"
+
+#~| msgid ""
+#~| "A worm game for GNOME.\n"
+#~| "\n"
+#~| "Nibbles is a part of GNOME Games."
+#~ msgid ""
+#~ "A worm game for GNOME\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "Игра в червячков для GNOME\n"
+#~ "\n"
+#~ "Червячки являются частью GNOME Games."
+
+#~ msgid "Nibbles Preferences"
+#~ msgstr "Параметры игры Червячок"
 
 #~ msgid "New Game"
 #~ msgstr "Новая игра"
@@ -631,9 +639,6 @@ msgstr "Червяк %d:"
 #~ msgid "_Help"
 #~ msgstr "_Справка"
 
-#~ msgid "A worm game for GNOME."
-#~ msgstr "Игра в червяка для среды GNOME."
-
 #~ msgid "Chess"
 #~ msgstr "Шахматы"
 
@@ -742,9 +747,6 @@ msgstr "Червяк %d:"
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Сложность игры шахматного движка"
-
-#~ msgid "Preferences"
-#~ msgstr "Параметры"
 
 #~ msgid "Play as:"
 #~ msgstr "Играть за:"
