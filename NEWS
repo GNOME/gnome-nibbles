@@ -1,3 +1,10 @@
+gnome-nibbles 3.15.90
+=====================
+
+* Don't connect to the windowing system when parsing command line options
+* Don't allow setting the number of human players to zero
+* Updated translations
+
 gnome-nibbles 3.14.0
 =====================
 
