@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-02 11:28+0200\n"
-"PO-Revision-Date: 2013-02-02 11:30+0200\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"POT-Creation-Date: 2015-02-17 00:40+0200\n"
+"PO-Revision-Date: 2015-02-17 00:41+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: Gezer (Hebrew)\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -21,140 +21,160 @@ msgstr ""
 "X-Launchpad-Export-Date: 2008-01-13 04:36+0000\n"
 "X-Poedit-Language: Hebrew\n"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:1
-#: ../src/main.c:161
-#: ../src/main.c:164
-#: ../src/main.c:699
-#: ../src/main.c:770
-#: ../src/main.c:901
-msgid "Nibbles"
+#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#, fuzzy
+msgid "GNOME Nibbles"
 msgstr "כרסומים"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:2
+#: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "הדרכת תולעת במבוך"
 
-#: ../data/gnome-nibbles.desktop.in.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:718
+msgid "Nibbles"
+msgstr "כרסומים"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "משחק;נחש;תולעת;לוח;מבוך;"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:1
+#: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
 msgstr "Number of human players"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:2
+#: ../data/org.gnome.nibbles.gschema.xml.h:2
 msgid "Number of human players."
 msgstr "Number of human players."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:3
+#: ../data/org.gnome.nibbles.gschema.xml.h:3
 msgid "Number of AI players"
 msgstr "Number of AI players"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:4
+#: ../data/org.gnome.nibbles.gschema.xml.h:4
 msgid "Number of AI players."
 msgstr "Number of AI players."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:5
+#: ../data/org.gnome.nibbles.gschema.xml.h:5
 msgid "Game speed"
 msgstr "Game speed"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:6
+#: ../data/org.gnome.nibbles.gschema.xml.h:6
 msgid "Game speed (1=fast, 4=slow)."
 msgstr "Game speed (1=fast, 4=slow)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:7
+#: ../data/org.gnome.nibbles.gschema.xml.h:7
 msgid "Enable fake bonuses"
 msgstr "Enable fake bonuses"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:8
+#: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Enable fake bonuses."
 msgstr "Enable fake bonuses."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:9
+#: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Play levels in random order"
 msgstr "Play levels in random order"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:10
+#: ../data/org.gnome.nibbles.gschema.xml.h:10
 msgid "Play levels in random order."
 msgstr "Play levels in random order."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:11
+#: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
 msgstr "Game level to start on"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:12
+#: ../data/org.gnome.nibbles.gschema.xml.h:12
 msgid "Game level to start on."
 msgstr "Game level to start on."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:13
+#: ../data/org.gnome.nibbles.gschema.xml.h:13
 msgid "Enable sounds"
 msgstr "Enable sounds"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
 msgid "Enable sounds."
 msgstr "Enable sounds."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Size of game tiles"
 msgstr "Size of game tiles"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Size of game tiles."
 msgstr "Size of game tiles."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Color to use for worm"
 msgstr "Color to use for worm"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Color to use for worm."
 msgstr "Color to use for worm."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Use relative movement"
 msgstr "Use relative movement"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Use relative movement (ie. left or right only)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:21
-#: ../src/preferences.c:452
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
 msgid "Move up"
 msgstr "הזזה למעלה"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Key to use for motion up."
 msgstr "Key to use for motion up."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:23
-#: ../src/preferences.c:453
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
 msgid "Move down"
 msgstr "הזזה למטה"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion down."
 msgstr "Key to use for motion down."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:25
-#: ../src/preferences.c:450
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
 msgid "Move left"
 msgstr "הזזה שמאלה"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion left."
 msgstr "Key to use for motion left."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:27
-#: ../src/preferences.c:451
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
 msgid "Move right"
 msgstr "הזזה ימינה"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion right."
 msgstr "Key to use for motion right."
 
-#: ../src/board.c:245
+#: ../src/board.c:250
 #, c-format
 msgid ""
 "Nibbles couldn't load level file:\n"
@@ -167,7 +187,7 @@ msgstr ""
 "\n"
 "אנא בדוק את התקנת המשחק כרסומים (Nibbles) שלך."
 
-#: ../src/board.c:264
+#: ../src/board.c:269
 #, c-format
 msgid ""
 "Level file appears to be damaged:\n"
@@ -180,217 +200,43 @@ msgstr ""
 "\n"
 "אנא בדוק את התקנת המשחק כרסומים (Nibbles) שלך."
 
-#: ../src/games-controls.c:288
+#: ../src/games-controls.c:108
+msgid "The shortcut you selected is already assigned."
+msgstr "צירופי המקשים הנבחרים כבר מוקצים."
+
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "פקודה לא ידועה"
 
 #. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:136
+#: ../src/games-scores-dialog.c:132
 msgctxt "score-dialog"
 msgid "Time"
 msgstr "זמן"
 
 #. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:142
+#: ../src/games-scores-dialog.c:138
 msgctxt "score-dialog"
 msgid "Score"
 msgstr "ניקוד"
 
 #. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:307
+#: ../src/games-scores-dialog.c:225
 #, c-format
 msgctxt "score-dialog"
 msgid "%1$dm %2$ds"
 msgstr "%1$dדק׳ %2$dשנ׳"
 
-#: ../src/games-scores-dialog.c:470
-msgid "New Game"
-msgstr "משחק חדש"
-
-#. Score dialog column header for the name of the player who recorded the score
-#: ../src/games-scores-dialog.c:571
-msgctxt "score-dialog"
-msgid "Name"
-msgstr "שם"
-
 #. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:580
+#: ../src/games-scores-dialog.c:430
 msgid "Date"
 msgstr "תאריך"
 
-#: ../src/games-stock.c:41
-msgid "View help for this game"
-msgstr "הצגת עזרה עבור משחק זה"
+#: ../src/games-scores-dialog.c:448
+msgid "_Close"
+msgstr "_סגירה"
 
-#: ../src/games-stock.c:42
-msgid "End the current game"
-msgstr "סיום המשחק הנוכחי"
-
-#: ../src/games-stock.c:43
-msgid "Toggle fullscreen mode"
-msgstr "החלפת פריסה על מסך מלא"
-
-#: ../src/games-stock.c:44
-msgid "Get a hint for your next move"
-msgstr "קבלת רמז למהלך הבא שלך"
-
-#: ../src/games-stock.c:45
-msgid "Leave fullscreen mode"
-msgstr "יציאה ממצב מסך מלא"
-
-#: ../src/games-stock.c:46
-msgid "Start a new multiplayer network game"
-msgstr "התחלת משחק רשת מרובה משתתפים חדש"
-
-#: ../src/games-stock.c:47
-msgid "End the current network game and return to network server"
-msgstr "סיום משחק הרשת הנוכחי וחזרה לשרת הרשת"
-
-#: ../src/games-stock.c:48
-msgid "Start a new game"
-msgstr "התחלת משחק חדש"
-
-#: ../src/games-stock.c:49
-msgid "Pause the game"
-msgstr "השהיית המשחק"
-
-#: ../src/games-stock.c:50
-msgid "Show a list of players in the network game"
-msgstr "הצגת רשימת השחקנים במשחק הרשת"
-
-#: ../src/games-stock.c:51
-msgid "Redo the undone move"
-msgstr "ביצוע חוזר של המהלך המבוטל"
-
-#: ../src/games-stock.c:52
-msgid "Restart the game"
-msgstr "התחלת המשחק מחדש"
-
-#: ../src/games-stock.c:53
-msgid "Resume the paused game"
-msgstr "המשך משחק מושהה"
-
-#: ../src/games-stock.c:54
-msgid "View the scores"
-msgstr "הצגת התוצאות"
-
-#: ../src/games-stock.c:55
-msgid "Undo the last move"
-msgstr "ביטול המהלך האחרון"
-
-#: ../src/games-stock.c:56
-msgid "About this game"
-msgstr "על אודות משחק זה"
-
-#: ../src/games-stock.c:57
-msgid "Close this window"
-msgstr "סגירת החלון"
-
-#: ../src/games-stock.c:58
-msgid "Configure the game"
-msgstr "עיצוב המשחק"
-
-#: ../src/games-stock.c:59
-msgid "Quit this game"
-msgstr "יציאה ממשחק זה"
-
-#: ../src/games-stock.c:247
-msgid "_Contents"
-msgstr "_תכנים"
-
-#: ../src/games-stock.c:248
-msgid "_Fullscreen"
-msgstr "מסך מ_לא"
-
-#: ../src/games-stock.c:249
-msgid "_Hint"
-msgstr "_רמז"
-
-#. Translators: This "_New" is for the menu item 'Game->New', implies "New Game"
-#: ../src/games-stock.c:251
-msgid "_New"
-msgstr "_חדש"
-
-#. Translators: This "_New Game" is for the game-over dialogue
-#: ../src/games-stock.c:253
-msgid "_New Game"
-msgstr "_משחק חדש"
-
-#: ../src/games-stock.c:254
-msgid "_Redo Move"
-msgstr "ח_זרה על המהלך"
-
-#. Translators: this is the "Reset" scores button in a scores dialogue
-#: ../src/games-stock.c:256
-msgid "_Reset"
-msgstr "_איפוס"
-
-#. Translators: "_Restart" is the menu item 'Game->Restart', implies "Restart Game"
-#: ../src/games-stock.c:258
-msgid "_Restart"
-msgstr "ה_תחלה מחדש"
-
-#: ../src/games-stock.c:259
-msgid "_Undo Move"
-msgstr "_ביטול מהלך"
-
-#: ../src/games-stock.c:260
-msgid "_Deal"
-msgstr "_חלוקה"
-
-#: ../src/games-stock.c:261
-msgid "_Leave Fullscreen"
-msgstr "י_ציאה ממסך מלא"
-
-#: ../src/games-stock.c:262
-msgid "Network _Game"
-msgstr "_משחק רשת"
-
-#: ../src/games-stock.c:263
-msgid "L_eave Game"
-msgstr "י_ציאה מהמשחק"
-
-#: ../src/games-stock.c:264
-msgid "Player _List"
-msgstr "_רשימת שחקנים"
-
-#: ../src/games-stock.c:265
-msgid "_Pause"
-msgstr "ה_שהייה"
-
-#: ../src/games-stock.c:266
-msgid "Res_ume"
-msgstr "המש_ך"
-
-#: ../src/games-stock.c:267
-msgid "_Scores"
-msgstr "_תוצאות"
-
-#: ../src/games-stock.c:268
-msgid "_End Game"
-msgstr "_סיום המשחק"
-
-#. %s is replaced with the name of the game in gnome-games.
-#: ../src/games-stock.c:317
-#, c-format
-msgid "%s is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version %d of the License, or (at your option) any later version."
-msgstr "%s is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version %d of the License, or (at your option) any later version."
-
-#: ../src/games-stock.c:322
-#, c-format
-msgid "%s is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details."
-msgstr "%s is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details."
-
-#: ../src/games-stock.c:327
-#, c-format
-msgid "You should have received a copy of the GNU General Public License along with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA"
-msgstr "You should have received a copy of the GNU General Public License along with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA"
-
-#: ../src/games-stock.c:331
-msgid "You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>."
-msgstr "You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>."
-
-#: ../src/gnibbles.c:84
+#: ../src/gnibbles.c:82
 #, c-format
 msgid ""
 "Nibbles couldn't find pixmap file:\n"
@@ -403,77 +249,71 @@ msgstr ""
 "\n"
 "נא לבדוק את התקנת המשחק כרסומים (Nibbles) שלך."
 
-#: ../src/gnibbles.c:355
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "תוצאות כרסומים"
 
-#: ../src/gnibbles.c:358
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "מהירות:"
 
-#: ../src/gnibbles.c:363
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "ברכות!"
 
-#: ../src/gnibbles.c:364
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "התוצאה שלך היא הגבוהה ביותר!"
 
-#: ../src/gnibbles.c:365
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "נכנסת לעשרת הגדולים!"
 
-#: ../src/main.c:65
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "מתחיל"
 
-#: ../src/main.c:66
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Slow"
 msgstr "איטי"
 
-#: ../src/main.c:67
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Medium"
 msgstr "בינוני"
 
-#: ../src/main.c:68
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Fast"
 msgstr "מהיר"
 
-#: ../src/main.c:69
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "מתחיל עם זיופים"
 
-#: ../src/main.c:70
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "איטי עם זיופים"
 
-#: ../src/main.c:71
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "בינוני עם זיופים"
 
-#: ../src/main.c:72
+#: ../src/main.c:69
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "מהיר עם זיופים"
 
-#: ../src/main.c:170
-msgid ""
-"A worm game for GNOME.\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"משחק תולעת עבור GNOME.\n"
-"\n"
-"כרסומים הוא חלק מחבילת משחקי GNOME."
+#: ../src/main.c:222
+msgid "A worm game for GNOME"
+msgstr "משחק תולעת ל־GNOME"
 
-#: ../src/main.c:173
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -487,135 +327,104 @@ msgstr ""
 "פרויקט תרגום GNOME לעברית:\n"
 "‏http://gnome-il.berlios.de"
 
-#: ../src/main.c:176
-msgid "GNOME Games web site"
-msgstr "אתר משחקי GNOME"
+#: ../src/preferences.c:223
+msgid "Preferences"
+msgstr "העדפות"
 
-#: ../src/main.c:491
-#, c-format
-msgid "Game over! The game has been won by %s!"
-msgstr "המשחק הסתיים! הנצחון בידיים של %s!"
-
-#: ../src/main.c:604
-msgid "_Game"
-msgstr "_משחק"
-
-#: ../src/main.c:605
-msgid "_View"
-msgstr "ע_ריכה"
-
-#: ../src/main.c:606
-msgid "_Settings"
-msgstr "_אפשרויות"
-
-#: ../src/main.c:607
-msgid "_Help"
-msgstr "ע_זרה"
-
-#. Translators: This string will be included in the intro screen, so don't make sure it fits!
-#: ../src/main.c:772
-msgid "A worm game for GNOME."
-msgstr "משחק תולעת ל־GNOME."
-
-#: ../src/preferences.c:240
-msgid "Nibbles Preferences"
-msgstr "העדפות כרסומים"
-
-#: ../src/preferences.c:253
+#: ../src/preferences.c:236
 msgid "Game"
 msgstr "משחק"
 
 #. Speed
-#: ../src/preferences.c:269
+#: ../src/preferences.c:252
 msgid "Speed"
 msgstr "מהירות"
 
-#: ../src/preferences.c:274
+#: ../src/preferences.c:257
 msgid "Nibbles newbie"
 msgstr "חדש בכרסומים"
 
-#: ../src/preferences.c:284
+#: ../src/preferences.c:267
 msgid "My second day"
 msgstr "היום השני שלי"
 
-#: ../src/preferences.c:294
+#: ../src/preferences.c:277
 msgid "Not too shabby"
 msgstr "לא רע בכלל"
 
-#: ../src/preferences.c:304
+#: ../src/preferences.c:287
 msgid "Finger-twitching good"
 msgstr "עיוות אצבעות טוב"
 
-#: ../src/preferences.c:318
-#: ../src/preferences.c:457
+#: ../src/preferences.c:301 ../src/preferences.c:424
 msgid "Options"
 msgstr "אפשרויות"
 
-#: ../src/preferences.c:325
+#: ../src/preferences.c:308
 msgid "_Play levels in random order"
 msgstr "מ_שחק ברמות בסדר אקראי"
 
-#: ../src/preferences.c:335
+#: ../src/preferences.c:316
 msgid "_Enable fake bonuses"
 msgstr "הפעלת בונוסים מ_זויפים"
 
-#: ../src/preferences.c:345
+#: ../src/preferences.c:324
 msgid "E_nable sounds"
 msgstr "א_פשר צלילים"
 
-#: ../src/preferences.c:358
+#: ../src/preferences.c:337
 msgid "_Starting level:"
 msgstr "רמת _התחלה:"
 
-#: ../src/preferences.c:387
+#: ../src/preferences.c:362
 msgid "Number of _human players:"
 msgstr "מספר שחקנים _אנושיים"
 
-#: ../src/preferences.c:408
+#: ../src/preferences.c:379
 msgid "Number of _AI players:"
 msgstr "מספר שחקני מ_חשב"
 
-#: ../src/preferences.c:433
+#: ../src/preferences.c:400
 msgid "Worm"
 msgstr "תולעת"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:409
 msgid "Keyboard Options"
 msgstr "אפשרויות מקלדת"
 
-#: ../src/preferences.c:462
+#: ../src/preferences.c:429
 msgid "_Use relative movement"
 msgstr "השתמש בתנועה _יחסית"
 
-#: ../src/preferences.c:469
+#: ../src/preferences.c:436
 msgid "_Worm color:"
 msgstr "_צבע תולעת:"
 
-#: ../src/preferences.c:475
+#: ../src/preferences.c:442
 msgid "Red"
 msgstr "אדום"
 
-#: ../src/preferences.c:476
+#: ../src/preferences.c:443
 msgid "Green"
 msgstr "ירוק"
 
-#: ../src/preferences.c:477
+#: ../src/preferences.c:444
 msgid "Blue"
 msgstr "כחול"
 
-#: ../src/preferences.c:478
+#: ../src/preferences.c:445
 msgid "Yellow"
 msgstr "צהוב"
 
-#: ../src/preferences.c:479
+#: ../src/preferences.c:446
 msgid "Cyan"
 msgstr "תכלת"
 
-#: ../src/preferences.c:480
+#: ../src/preferences.c:447
 msgid "Purple"
 msgstr "סגול"
 
-#: ../src/preferences.c:481
+#: ../src/preferences.c:448
 msgid "Gray"
 msgstr "אפור"
 
@@ -623,6 +432,192 @@ msgstr "אפור"
 #, c-format
 msgid "Worm %d:"
 msgstr "תולעת %d:"
+
+#~ msgid "New Game"
+#~ msgstr "משחק חדש"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Name"
+#~ msgstr "שם"
+
+#~ msgid "View help for this game"
+#~ msgstr "הצגת עזרה עבור משחק זה"
+
+#~ msgid "End the current game"
+#~ msgstr "סיום המשחק הנוכחי"
+
+#~ msgid "Toggle fullscreen mode"
+#~ msgstr "החלפת פריסה על מסך מלא"
+
+#~ msgid "Get a hint for your next move"
+#~ msgstr "קבלת רמז למהלך הבא שלך"
+
+#~ msgid "Leave fullscreen mode"
+#~ msgstr "יציאה ממצב מסך מלא"
+
+#~ msgid "Start a new multiplayer network game"
+#~ msgstr "התחלת משחק רשת מרובה משתתפים חדש"
+
+#~ msgid "End the current network game and return to network server"
+#~ msgstr "סיום משחק הרשת הנוכחי וחזרה לשרת הרשת"
+
+#~ msgid "Start a new game"
+#~ msgstr "התחלת משחק חדש"
+
+#~ msgid "Pause the game"
+#~ msgstr "השהיית המשחק"
+
+#~ msgid "Show a list of players in the network game"
+#~ msgstr "הצגת רשימת השחקנים במשחק הרשת"
+
+#~ msgid "Redo the undone move"
+#~ msgstr "ביצוע חוזר של המהלך המבוטל"
+
+#~ msgid "Restart the game"
+#~ msgstr "התחלת המשחק מחדש"
+
+#~ msgid "Resume the paused game"
+#~ msgstr "המשך משחק מושהה"
+
+#~ msgid "View the scores"
+#~ msgstr "הצגת התוצאות"
+
+#~ msgid "Undo the last move"
+#~ msgstr "ביטול המהלך האחרון"
+
+#~ msgid "About this game"
+#~ msgstr "על אודות משחק זה"
+
+#~ msgid "Close this window"
+#~ msgstr "סגירת החלון"
+
+#~ msgid "Configure the game"
+#~ msgstr "עיצוב המשחק"
+
+#~ msgid "Quit this game"
+#~ msgstr "יציאה ממשחק זה"
+
+#~ msgid "_Contents"
+#~ msgstr "_תכנים"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "מסך מ_לא"
+
+#~ msgid "_Hint"
+#~ msgstr "_רמז"
+
+#~ msgid "_New"
+#~ msgstr "_חדש"
+
+#~ msgid "_New Game"
+#~ msgstr "_משחק חדש"
+
+#~ msgid "_Redo Move"
+#~ msgstr "ח_זרה על המהלך"
+
+#~ msgid "_Reset"
+#~ msgstr "_איפוס"
+
+#~ msgid "_Restart"
+#~ msgstr "ה_תחלה מחדש"
+
+#~ msgid "_Undo Move"
+#~ msgstr "_ביטול מהלך"
+
+#~ msgid "_Deal"
+#~ msgstr "_חלוקה"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "י_ציאה ממסך מלא"
+
+#~ msgid "Network _Game"
+#~ msgstr "_משחק רשת"
+
+#~ msgid "L_eave Game"
+#~ msgstr "י_ציאה מהמשחק"
+
+#~ msgid "Player _List"
+#~ msgstr "_רשימת שחקנים"
+
+#~ msgid "_Pause"
+#~ msgstr "ה_שהייה"
+
+#~ msgid "Res_ume"
+#~ msgstr "המש_ך"
+
+#~ msgid "_Scores"
+#~ msgstr "_תוצאות"
+
+#~ msgid "_End Game"
+#~ msgstr "_סיום המשחק"
+
+#~ msgid ""
+#~ "%s is free software; you can redistribute it and/or modify it under the "
+#~ "terms of the GNU General Public License as published by the Free Software "
+#~ "Foundation; either version %d of the License, or (at your option) any "
+#~ "later version."
+#~ msgstr ""
+#~ "%s is free software; you can redistribute it and/or modify it under the "
+#~ "terms of the GNU General Public License as published by the Free Software "
+#~ "Foundation; either version %d of the License, or (at your option) any "
+#~ "later version."
+
+#~ msgid ""
+#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
+#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+#~ "details."
+#~ msgstr ""
+#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
+#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+#~ "details."
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
+#~ msgstr ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
+
+#~ msgid ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
+#~ msgstr ""
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
+
+#~ msgid ""
+#~ "A worm game for GNOME.\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "משחק תולעת עבור GNOME.\n"
+#~ "\n"
+#~ "כרסומים הוא חלק מחבילת משחקי GNOME."
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "אתר משחקי GNOME"
+
+#~ msgid "Game over! The game has been won by %s!"
+#~ msgstr "המשחק הסתיים! הנצחון בידיים של %s!"
+
+#~ msgid "_Game"
+#~ msgstr "_משחק"
+
+#~ msgid "_View"
+#~ msgstr "ע_ריכה"
+
+#~ msgid "_Settings"
+#~ msgstr "_אפשרויות"
+
+#~ msgid "_Help"
+#~ msgstr "ע_זרה"
+
+#~ msgid "Nibbles Preferences"
+#~ msgstr "העדפות כרסומים"
 
 #~ msgid "Chess"
 #~ msgstr "שחמט"
@@ -732,9 +727,6 @@ msgstr "תולעת %d:"
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Difficulty of the opponent chess engine"
 
-#~ msgid "Preferences"
-#~ msgstr "העדפות"
-
 #~ msgid "Play as:"
 #~ msgstr "לשחק בתור:"
 
@@ -782,28 +774,28 @@ msgstr "תולעת %d:"
 
 #~ msgid "_Appearance"
 #~ msgstr "מ_ראה"
-#~ msgctxt "difficulty"
 
+#~ msgctxt "difficulty"
 #~ msgid "Easy"
 #~ msgstr "קל"
-#~ msgctxt "difficulty"
 
+#~ msgctxt "difficulty"
 #~ msgid "Normal"
 #~ msgstr "רגיל"
-#~ msgctxt "difficulty"
 
+#~ msgctxt "difficulty"
 #~ msgid "Hard"
 #~ msgstr "קשה"
-#~ msgctxt "chess-opponent"
 
+#~ msgctxt "chess-opponent"
 #~ msgid "Human"
 #~ msgstr "אנושי"
-#~ msgctxt "chess-player"
 
+#~ msgctxt "chess-player"
 #~ msgid "White"
 #~ msgstr "לבן"
-#~ msgctxt "chess-player"
 
+#~ msgctxt "chess-player"
 #~ msgid "Black"
 #~ msgstr "שחור"
 
@@ -830,56 +822,56 @@ msgstr "תולעת %d:"
 
 #~ msgid "Fancy"
 #~ msgstr "מהודר"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "White Side"
 #~ msgstr "צד לבן"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "Black Side"
 #~ msgstr "צד שחור"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "Human Side"
 #~ msgstr "צד אנושי"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "Current Player"
 #~ msgstr "השחקן הנוכחי"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "Face to Face"
 #~ msgstr "פנים מול פנים"
-#~ msgctxt "chess-move-format"
 
+#~ msgctxt "chess-move-format"
 #~ msgid "Human"
 #~ msgstr "בן אדם"
-#~ msgctxt "chess-move-format"
 
+#~ msgctxt "chess-move-format"
 #~ msgid "Standard Algebraic"
 #~ msgstr "אלגברי רגיל"
-#~ msgctxt "chess-move-format"
 
+#~ msgctxt "chess-move-format"
 #~ msgid "Figurine"
 #~ msgstr "דמות"
-#~ msgctxt "chess-move-format"
 
+#~ msgctxt "chess-move-format"
 #~ msgid "Long Algebraic"
 #~ msgstr "אלגברי ארוך"
-#~ msgctxt "chess-piece"
 
+#~ msgctxt "chess-piece"
 #~ msgid "Queen"
 #~ msgstr "מלכה"
-#~ msgctxt "chess-piece"
 
+#~ msgctxt "chess-piece"
 #~ msgid "Knight"
 #~ msgstr "אביר"
-#~ msgctxt "chess-piece"
 
+#~ msgctxt "chess-piece"
 #~ msgid "Rook"
 #~ msgstr "צריח"
-#~ msgctxt "chess-piece"
 
+#~ msgctxt "chess-piece"
 #~ msgid "Bishop"
 #~ msgstr "רץ"
 
@@ -1155,19 +1147,16 @@ msgstr "תולעת %d:"
 #~ msgstr "_שמירת המשחק למועד מאוחר יותר"
 
 #~ msgid "second"
-
 #~ msgid_plural "seconds"
 #~ msgstr[0] "שנייה"
 #~ msgstr[1] "שניות"
 
 #~ msgid "minute"
-
 #~ msgid_plural "minutes"
 #~ msgstr[0] "דקה"
 #~ msgstr[1] "דקות"
 
 #~ msgid "hour"
-
 #~ msgid_plural "hours"
 #~ msgstr[0] "שעה"
 #~ msgstr[1] "שעות"
@@ -1317,16 +1306,16 @@ msgstr "תולעת %d:"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "true if the window is fullscren"
-#~ msgctxt "board size"
 
+#~ msgctxt "board size"
 #~ msgid "Small"
 #~ msgstr "קטן"
-#~ msgctxt "board size"
 
+#~ msgctxt "board size"
 #~ msgid "Medium"
 #~ msgstr "בינוני"
-#~ msgctxt "board size"
 
+#~ msgctxt "board size"
 #~ msgid "Large"
 #~ msgstr "גדול"
 
@@ -1865,36 +1854,36 @@ msgstr "תולעת %d:"
 
 #~ msgid "Disassemble a pile of tiles by removing matching pairs"
 #~ msgstr "פרק ערמת אריחים על-ידי הסרת זוגות תואמים"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "The Ziggurat"
 #~ msgstr "הזיגוראט"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Four Bridges"
 #~ msgstr "ארבע הגשרים"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Cloud"
 #~ msgstr "ענן"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Tic-Tac-Toe"
 #~ msgstr "איקס-מיקס-דריקס"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Red Dragon"
 #~ msgstr "דרקון אדום"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Pyramid's Walls"
 #~ msgstr "קירות פירמידה"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Confounding Cross"
 #~ msgstr "צלב מעורבב"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Difficult"
 #~ msgstr "קשה"
 
@@ -2070,13 +2059,11 @@ msgstr "תולעת %d:"
 #~ msgstr "קשה מאד"
 
 #~ msgid "Last played %(n)s second ago"
-
 #~ msgid_plural "Last played %(n)s seconds ago"
 #~ msgstr[0] "משחק אחרון לפני שנייה %(n)s"
 #~ msgstr[1] "משחק אחרון לפני %(n)s שניות"
 
 #~ msgid "Last played %(n)s minute ago"
-
 #~ msgid_plural "Last played %(n)s minutes ago"
 #~ msgstr[0] "משחק אחרון לפני דקה %(n)s"
 #~ msgstr[1] "משחק אחרון לפני %(n)s דקות"
@@ -2106,19 +2093,16 @@ msgstr "תולעת %d:"
 #~ msgstr "לוח קשה מאוד"
 
 #~ msgid "Played for %d hour"
-
 #~ msgid_plural "Played for %d hours"
 #~ msgstr[0] "משחק למשך שעה %d"
 #~ msgstr[1] "משחק למשך %d שעות"
 
 #~ msgid "Played for %d minute"
-
 #~ msgid_plural "Played for %d minutes"
 #~ msgstr[0] "משחק למשך דקה %d"
 #~ msgstr[1] "משחק למשך %d דקות"
 
 #~ msgid "Played for %d second"
-
 #~ msgid_plural "Played for %d seconds"
 #~ msgstr[0] "משחק למשך שנייה %d"
 #~ msgstr[1] "משחק למשך %d שניות"
@@ -2191,19 +2175,16 @@ msgstr "תולעת %d:"
 #~ msgstr "_סמן בצבעים את השורה, הטור והתיבה הנוכחיים"
 
 #~ msgid "You completed the puzzle in %d second"
-
 #~ msgid_plural "You completed the puzzle in %d seconds"
 #~ msgstr[0] "השלמת את הלוח תוך שנייה %d "
 #~ msgstr[1] "השלמת את הלוח תוך %d שניות"
 
 #~ msgid "%d minute"
-
 #~ msgid_plural "%d minutes"
 #~ msgstr[0] "דקה %d"
 #~ msgstr[1] "%d דקות"
 
 #~ msgid "%d second"
-
 #~ msgid_plural "%d seconds"
 #~ msgstr[0] "שנייה %d "
 #~ msgstr[1] "%d שניות"
@@ -2212,7 +2193,6 @@ msgstr "תולעת %d:"
 #~ msgstr "השלמת את הלוח תוך %(minute)s ו־%(second)s"
 
 #~ msgid "%d hour"
-
 #~ msgid_plural "%d hours"
 #~ msgstr[0] "שעה %d"
 #~ msgstr[1] "%d שעות"
@@ -2221,13 +2201,11 @@ msgstr "תולעת %d:"
 #~ msgstr "השלמת את הלוח תוך %(hour)s, %(minute)s ו־%(second)s"
 
 #~ msgid "You got %(n)s hint."
-
 #~ msgid_plural "You got %(n)s hints."
 #~ msgstr[0] "השתמשת ברמז אחד."
 #~ msgstr[1] "השתמשת ב־%(n)s רמזים."
 
 #~ msgid "You had %(n)s impossibility pointed out."
-
 #~ msgid_plural "You had %(n)s impossibilities pointed out."
 #~ msgstr[0] "הייתה לך אי היתכנות אחת."
 #~ msgstr[1] "היו לך %(n)s אי היתכנויות."
@@ -2361,8 +2339,8 @@ msgstr "תולעת %d:"
 
 #~ msgid "Size of the board (0-2 = small-large, 3=custom)"
 #~ msgstr "Size of the board (0-2 = small-large, 3=custom)"
-#~ msgctxt "board size"
 
+#~ msgctxt "board size"
 #~ msgid "Custom"
 #~ msgstr "מותאם אישית"
 
@@ -2385,7 +2363,6 @@ msgstr "תולעת %d:"
 #~ msgstr "ל_שחק במשחק"
 
 #~ msgid "<b>%d</b> mine"
-
 #~ msgid_plural "<b>%d</b> mines"
 #~ msgstr[0] "מוקש <b>אחד</b>"
 #~ msgstr[1] "<b>%d</b> מוקשים"
@@ -2751,12 +2728,12 @@ msgstr "תולעת %d:"
 
 #~ msgid "Number of trials for each roll for the computer"
 #~ msgstr "Number of trials for each roll for the computer"
-#~ msgctxt "game type"
 
+#~ msgctxt "game type"
 #~ msgid "Regular"
 #~ msgstr "רגיל"
-#~ msgctxt "game type"
 
+#~ msgctxt "game type"
 #~ msgid "Colors"
 #~ msgstr "צבעים"
 
@@ -2773,7 +2750,6 @@ msgstr "תולעת %d:"
 #~ msgstr "תוצאות טאלי"
 
 #~ msgid "%s wins the game with %d point"
-
 #~ msgid_plural "%s wins the game with %d points"
 #~ msgstr[0] "%s זוכה במשחק עם נקודה אחת"
 #~ msgstr[1] "%s זוכה במשחק עם %d נקודות"
@@ -2834,8 +2810,8 @@ msgstr "תולעת %d:"
 
 #~ msgid "_Difficulty:"
 #~ msgstr "רמת קו_שי:"
-#~ msgctxt "difficulty"
 
+#~ msgctxt "difficulty"
 #~ msgid "Medium"
 #~ msgstr "בינוני"
 
@@ -3204,7 +3180,6 @@ msgstr "תולעת %d:"
 #~ msgstr "פינוי המסך על ידי הסרת קבוצות של אריחים צבעוניים ובעלי צורה"
 
 #~ msgid "%u point"
-
 #~ msgid_plural "%u points"
 #~ msgstr[0] "נקודה אחת"
 #~ msgstr[1] "%u נקודות"
@@ -3682,44 +3657,44 @@ msgstr "תולעת %d:"
 
 #~ msgid "SIZE"
 #~ msgstr "SIZE"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "0"
 #~ msgstr "0"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "1"
 #~ msgstr "1"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "2"
 #~ msgstr "2"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "3"
 #~ msgstr "3"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "4"
 #~ msgstr "4"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "5"
 #~ msgstr "5"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "6"
 #~ msgstr "6"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "7"
 #~ msgstr "7"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "8"
 #~ msgstr "8"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "9"
 #~ msgstr "9"
 
@@ -3760,8 +3735,8 @@ msgstr "תולעת %d:"
 
 #~ msgid "Remove matching pairs of tiles."
 #~ msgstr "הסר זוגות של אריחים תואמים."
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Easy"
 #~ msgstr "קל"
 
@@ -3867,12 +3842,12 @@ msgstr "תולעת %d:"
 #~ "Aisleriot cannot load the file “%s”. Please check your Aisleriot "
 #~ "installation."
 #~ msgstr "‏Aisleriot לא יכול לטעון את הקובץ “%s”. אנא בדוק את ההתקנה של המשחק."
-#~ msgctxt "slot type"
 
+#~ msgctxt "slot type"
 #~ msgid "tableau"
 #~ msgstr "שולחן המשחק"
-#~ msgctxt "slot hint"
 
+#~ msgctxt "slot hint"
 #~ msgid "%s on tableau"
 #~ msgstr "%s על השולחן"
 
@@ -4481,8 +4456,8 @@ msgstr "תולעת %d:"
 
 #~ msgid "Display cards with “%s” card theme"
 #~ msgstr "הצגת קלפים עם ערכת הנושא \"%s\""
-#~ msgctxt "score"
 
+#~ msgctxt "score"
 #~ msgid "%6d"
 #~ msgstr "%6d"
 
@@ -4557,60 +4532,60 @@ msgstr "תולעת %d:"
 
 #~ msgid "Cannot start the game “%s”"
 #~ msgstr "לא ניתן להתחיל את המשחק “%s”"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "JOKER"
 #~ msgstr "ג׳וקר"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "A"
 #~ msgstr "A"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "2"
 #~ msgstr "2"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "3"
 #~ msgstr "3"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "4"
 #~ msgstr "4"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "5"
 #~ msgstr "5"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "6"
 #~ msgstr "6"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "7"
 #~ msgstr "7"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "8"
 #~ msgstr "8"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "9"
 #~ msgstr "9"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "J"
 #~ msgstr "J"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "Q"
 #~ msgstr "Q"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "K"
 #~ msgstr "K"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "1"
 #~ msgstr "1"
 
@@ -5223,9 +5198,6 @@ msgstr "תולעת %d:"
 #~ msgid "_Cancel"
 #~ msgstr "_ביטול"
 
-#~ msgid "_Close"
-#~ msgstr "_סגירה"
-
 #~ msgid "_OK"
 #~ msgstr "_אישור"
 
@@ -5588,92 +5560,92 @@ msgstr "תולעת %d:"
 
 #~ msgid "AI (%s)"
 #~ msgstr "בינה מלאכותית (%s)"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "a"
 #~ msgstr "א"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "b"
 #~ msgstr "ב"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "c"
 #~ msgstr "ג"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "d"
 #~ msgstr "ד"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "e"
 #~ msgstr "ה"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "f"
 #~ msgstr "ו"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "g"
 #~ msgstr "ז"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "h"
 #~ msgstr "ח"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "1"
 #~ msgstr "1"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "2"
 #~ msgstr "2"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "3"
 #~ msgstr "3"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "4"
 #~ msgstr "4"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "5"
 #~ msgstr "5"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "6"
 #~ msgstr "6"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "7"
 #~ msgstr "7"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "8"
 #~ msgstr "8"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "P"
 #~ msgstr "P"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "N"
 #~ msgstr "N"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "B"
 #~ msgstr "B"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "R"
 #~ msgstr "R"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "Q"
 #~ msgstr "Q"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "K"
 #~ msgstr "K"
 
@@ -5754,25 +5726,21 @@ msgstr "תולעת %d:"
 #~ msgstr "לוח ברמה %(level)s"
 
 #~ msgid "%(n)s year"
-
 #~ msgid_plural "%(n)s years"
 #~ msgstr[0] "שנה אחת"
 #~ msgstr[1] "%(n)s שנים"
 
 #~ msgid "%(n)s month"
-
 #~ msgid_plural "%(n)s months"
 #~ msgstr[0] "חודש אחד"
 #~ msgstr[1] "%(n)s חודשים"
 
 #~ msgid "%(n)s week"
-
 #~ msgid_plural "%(n)s weeks"
 #~ msgstr[0] "שבוע אחד"
 #~ msgstr[1] "%(n)s שבועות"
 
 #~ msgid "%(n)s day"
-
 #~ msgid_plural "%(n)s days"
 #~ msgstr[0] "יום אחד"
 #~ msgstr[1] "%(n)s ימים"
