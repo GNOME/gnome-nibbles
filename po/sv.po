@@ -1,19 +1,19 @@
 # Swedish messages for gnome-games.
-# Copyright © 1999-2014 Free Software Foundation, Inc.
+# Copyright © 1999-2015 Free Software Foundation, Inc.
 # Andreas Persenius <ndap@swipnet.se>, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>
 # Martin Norbäck <d95mback@dtek.chalmers.se>, 2000.
 # Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-23 19:00+0000\n"
-"PO-Revision-Date: 2014-07-23 23:22+0100\n"
+"POT-Creation-Date: 2015-01-27 08:00+0000\n"
+"PO-Revision-Date: 2015-01-27 11:32+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,53 +21,53 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.3\n"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
-msgstr ""
-"Kontrollera en mask i dess strävan att äta bonusar och bli längre. "
-"Utmanövrera motståndarmaskar under tiden du äter munkar och glass för att "
-"öka din längd. Varje mask har tio liv och förlorar ett av dessa då den "
-"krockar med en vägg, en annan mask, eller sig själv. Motståndarna är ute "
-"efter samma bonusar som du, så var försiktig: om de blir för långa kommer du "
-"inte att ha mycket utrymme för manövrering."
+#: ../data/gnome-nibbles.appdata.xml.in.h:2 ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Hjälp en mask runt i en labyrint"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:3
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver enemy "
+"worms while eating doughnuts and ice cream to increase your length. Each worm "
+"has ten lives and loses one by running into a wall, another worm, or itself. The "
+"enemy worms are after the same bonuses that you are, so be careful: if they "
+"become too large, you won't have much room for movement."
+msgstr ""
+"Kontrollera en mask i dess strävan att äta bonusar och bli längre. Utmanövrera "
+"motståndarmaskar under tiden du äter munkar och glass för att öka din längd. "
+"Varje mask har tio liv och förlorar ett av dessa då den krockar med en vägg, en "
+"annan mask, eller sig själv. Motståndarna är ute efter samma bonusar som du, så "
+"var försiktig: om de blir för långa kommer du inte att ha mycket utrymme för "
+"manövrering."
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
 "teleporters make things more interesting."
 msgstr ""
-"Äventyret fortlöper genom 26 kartor av ökande svårighet. De tidigare "
-"nivåerna är till största del öppna med några få väggar, men senare så gör "
-"trånga utrymmen och teleportörer saker mer intressanta."
+"Äventyret fortlöper genom 26 kartor av ökande svårighet. De tidigare nivåerna är "
+"till största del öppna med några få väggar, men senare så gör trånga utrymmen "
+"och teleportörer saker mer intressanta."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
+"Play on your own against up to five enemy worms, or share your keyboard to play "
+"with a friend."
 msgstr ""
 "Spela ensam mot upp till fem motståndarmaskar, eller dela med dig av ditt "
 "tangentbord för att spela med en vän."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
-#: ../src/main.c:712
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:718
 msgid "Nibbles"
 msgstr "Nibbles"
-
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Hjälp en mask runt i en labyrint"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -260,23 +260,23 @@ msgstr ""
 "\n"
 "Kontrollera din Nibbles-installation"
 
-#: ../src/gnibbles.c:334
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Poänglistan för Nibbles"
 
-#: ../src/gnibbles.c:337
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Hastighet:"
 
-#: ../src/gnibbles.c:342
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Gratulerar!"
 
-#: ../src/gnibbles.c:343
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Ditt poängresultat är det bästa!"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Ditt poängresultat har hamnat bland de tio bästa."
 
@@ -320,17 +320,11 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Snabb med attrapper"
 
-#: ../src/main.c:234
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Ett maskspel för GNOME\n"
-"\n"
-"Nibbles är en del av GNOME Games."
+#: ../src/main.c:222
+msgid "A worm game for GNOME"
+msgstr "Ett maskspel för GNOME"
 
-#: ../src/main.c:237
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -344,7 +338,6 @@ msgstr ""
 "<tp-sv@listor.tp-sv.se>."
 
 #: ../src/preferences.c:223
-#| msgid "Nibbles Preferences"
 msgid "Preferences"
 msgstr "Inställningar"
 
