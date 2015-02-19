@@ -10,13 +10,13 @@
 # Antón Méixome <meixome@mancomun.org>, 2009.
 # Fran Diéguez <frandieguez@gnome.org>, 2009, 2010, 2011.
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.
-# Fran Dieguez <frandieguez@gnome.org>, 2011, 2012, 2013.
+# Fran Dieguez <frandieguez@gnome.org>, 2011, 2012, 2013, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-30 00:01+0100\n"
-"PO-Revision-Date: 2013-12-30 00:05+0200\n"
+"POT-Creation-Date: 2015-02-19 10:44+0100\n"
+"PO-Revision-Date: 2015-02-19 10:45+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -27,24 +27,16 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:155 ../src/main.c:680
-#: ../src/main.c:753
-msgid "Nibbles"
-msgstr "Nibbles"
-
-#: ../data/gnibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Guíe un verme arredor dun labirinto"
-
-#: ../data/gnibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "xogo;serpe;taboleiro;"
-
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Guíe un verme arredor dun labirinto"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -58,7 +50,7 @@ msgstr ""
 "outro verme ou a si mesmo. Os vermes inimigos buscan os mesmos bonus que ti, "
 "polo que ten coidado: se crecen dabondo non haberá sitio para todos."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -69,13 +61,22 @@ msgstr ""
 "avanzas os espazos con recunchos e os teletransportadores fan as cousas máis "
 "interesantes."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
 "Xoga por ti mesmo contra até cinco vermes inimigos ou comparte o teu teclado "
 "para xogar cun amigo."
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
+#: ../src/main.c:718
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "xogo;serpe;taboleiro;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -215,47 +216,41 @@ msgstr ""
 "\n"
 "Verifique a súa instalación do Nibbles"
 
-#: ../src/games-controls.c:107
+#: ../src/games-controls.c:108
 msgid "The shortcut you selected is already assigned."
 msgstr "O atallo que seleccionou xa está asignado."
 
-#: ../src/games-controls.c:323
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "Orde descoñecida"
 
 #. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:136
+#: ../src/games-scores-dialog.c:132
 msgctxt "score-dialog"
 msgid "Time"
 msgstr "Tempo"
 
 #. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:142
+#: ../src/games-scores-dialog.c:138
 msgctxt "score-dialog"
 msgid "Score"
 msgstr "Puntuación"
 
 #. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:307
+#: ../src/games-scores-dialog.c:225
 #, c-format
 msgctxt "score-dialog"
 msgid "%1$dm %2$ds"
 msgstr "%1$dm %2$ds"
 
-#: ../src/games-scores-dialog.c:470
-msgid "New Game"
-msgstr "Xogo novo"
-
-#. Score dialog column header for the name of the player who recorded the score
-#: ../src/games-scores-dialog.c:571
-msgctxt "score-dialog"
-msgid "Name"
-msgstr "Nome"
-
 #. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:580
+#: ../src/games-scores-dialog.c:430
 msgid "Date"
 msgstr "Data"
+
+#: ../src/games-scores-dialog.c:448
+msgid "_Close"
+msgstr "Pecha_r"
 
 #: ../src/gnibbles.c:82
 #, c-format
@@ -270,137 +265,86 @@ msgstr ""
 "\n"
 "Verifique a súa instalación do Nibbles"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Puntuacións do Nibbles"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Velocidade:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Parabéns!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "A súa puntuación é a mellor!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "A súa puntuación está nas dez mellores."
 
-#: ../src/main.c:61
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "Principiante"
 
-#: ../src/main.c:62
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Slow"
 msgstr "Lento"
 
-#: ../src/main.c:63
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Medium"
 msgstr "Medio"
 
-#: ../src/main.c:64
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Fast"
 msgstr "Rápido"
 
-#: ../src/main.c:65
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "Principiante con falsos"
 
-#: ../src/main.c:66
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "Lento con falsos"
 
-#: ../src/main.c:67
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "Medio con falsos"
 
-#: ../src/main.c:68
+#: ../src/main.c:69
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Rápido con falsos"
 
-#: ../src/main.c:161
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Un xogo de vermes para o GNOME\n"
-"\n"
-"O Nibbles forma parte do GNOME Games."
+#: ../src/main.c:222
+msgid "A worm game for GNOME"
+msgstr "Un xogo de vermes para GNOME"
 
-#: ../src/main.c:164
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
-"Fran Diéguez <frandieguez@ubuntu.com>, 2009-2013;\n"
+"Fran Dieguez <frandieguez@gnome.org>, 2009-2015;\n"
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.\n"
 "Antón Méixome <meixome@mancomun.org>, 2009.\n"
 "Suso Baleato <suso.baleato@xunta.es>, 2009.\n"
-"Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun."
-"org>, 2009.\n"
+"Mancomún - Centro de Referencia e Servizos de Software Libre "
+"<g11n@mancomun.org>, 2009.\n"
 "Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2008.\n"
 "Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.\n"
 "Jesús Bravo Álvarez <jba@pobox.com>, 2000."
 
-#: ../src/main.c:167
-msgid "GNOME Games web site"
-msgstr "Sitio web do GNOME Games"
-
-#: ../src/main.c:472
-#, c-format
-msgid "Game over! The game has been won by %s!"
-msgstr "Rematou o xogo! Gañou o xogo %s!"
-
-#: ../src/main.c:585
-msgid "_Game"
-msgstr "_Xogo"
-
-#: ../src/main.c:586
-msgid "_View"
-msgstr "_Ver"
-
-#: ../src/main.c:587
-msgid "_Settings"
-msgstr "_Configuracións"
-
-#: ../src/main.c:588
-msgid "_Help"
-msgstr "_Axuda"
-
-#: ../src/main.c:589
-msgid "_New Game"
-msgstr "Xogo _novo"
-
-#: ../src/main.c:591
-msgid "_End Game"
-msgstr "_Finalizar o xogo"
-
-#: ../src/main.c:593
-msgid "_Pause"
-msgstr "_Pausa"
-
-#: ../src/main.c:595
-msgid "_Scores"
-msgstr "_Puntuacións"
-
-#: ../src/main.c:600
-msgid "_Contents"
-msgstr "_Contidos"
-
 #: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "Preferencias do Nibbles"
+msgid "Preferences"
+msgstr "Preferencias"
 
 #: ../src/preferences.c:236
 msgid "Game"
@@ -503,6 +447,58 @@ msgstr "Gris"
 #, c-format
 msgid "Worm %d:"
 msgstr "Verme %d:"
+
+#~ msgid "New Game"
+#~ msgstr "Xogo novo"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid ""
+#~ "A worm game for GNOME\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "Un xogo de vermes para o GNOME\n"
+#~ "\n"
+#~ "O Nibbles forma parte do GNOME Games."
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Sitio web do GNOME Games"
+
+#~ msgid "Game over! The game has been won by %s!"
+#~ msgstr "Rematou o xogo! Gañou o xogo %s!"
+
+#~ msgid "_Game"
+#~ msgstr "_Xogo"
+
+#~ msgid "_View"
+#~ msgstr "_Ver"
+
+#~ msgid "_Settings"
+#~ msgstr "_Configuracións"
+
+#~ msgid "_Help"
+#~ msgstr "_Axuda"
+
+#~ msgid "_New Game"
+#~ msgstr "Xogo _novo"
+
+#~ msgid "_End Game"
+#~ msgstr "_Finalizar o xogo"
+
+#~ msgid "_Pause"
+#~ msgstr "_Pausa"
+
+#~ msgid "_Scores"
+#~ msgstr "_Puntuacións"
+
+#~ msgid "_Contents"
+#~ msgstr "_Contidos"
+
+#~ msgid "Nibbles Preferences"
+#~ msgstr "Preferencias do Nibbles"
 
 #~ msgid "View help for this game"
 #~ msgstr "Ver a axuda deste xogo"
@@ -638,9 +634,6 @@ msgstr "Verme %d:"
 #~ "Debeu recibir unha copia da Licenza pública xeral GNU xunto con este "
 #~ "programa; en caso contrario, olle <http://www.gnu.org/licenses/>."
 
-#~ msgid "A worm game for GNOME."
-#~ msgstr "Un xogo de vermes para o GNOME."
-
 #~ msgid "Chess"
 #~ msgstr "Xadrez"
 
@@ -750,9 +743,6 @@ msgstr "Verme %d:"
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Dificultade do motor de xadrez do opoñente"
-
-#~ msgid "Preferences"
-#~ msgstr "Preferencias"
 
 #~ msgid "Play as:"
 #~ msgstr "Xogar como:"
@@ -5343,9 +5333,6 @@ msgstr "Verme %d:"
 
 #~ msgid "_Cancel"
 #~ msgstr "_Cancelar"
-
-#~ msgid "_Close"
-#~ msgstr "Pecha_r"
 
 #~ msgid "_OK"
 #~ msgstr "_Aceptar"
