@@ -17,7 +17,7 @@ dnl ###########################################################################
 dnl Dependencies
 dnl ###########################################################################
 
-GTK_REQUIRED=3.12.0
+GTK_REQUIRED=3.15.0
 RSVG_REQUIRED=2.32.0
 CANBERRA_GTK_REQUIRED=0.26
 CLUTTER_REQUIRED=1.14.4
