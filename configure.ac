@@ -34,6 +34,12 @@ PKG_CHECK_MODULES(GNOME_NIBBLES, [
 AC_PATH_PROG([DESKTOP_FILE_VALIDATE], [desktop-file-validate], [/bin/true])
 
 dnl ###########################################################################
+dnl GResources
+dnl ###########################################################################
+
+AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
+
+dnl ###########################################################################
 dnl Internationalization
 dnl ###########################################################################
 

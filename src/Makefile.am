@@ -36,7 +36,13 @@ gnome_nibbles_SOURCES = \
 	sound.c \
 	sound.h \
 	worm.c \
-	worm.h
+	worm.h \
+	$(BUILT_SOURCES)
+
+BUILT_SOURCES = nibbles-resources.c
+
+nibbles-resources.c: $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies nibbles.gresource.xml)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source nibbles.gresource.xml
 
 gnome_nibbles_CPPFLAGS = \
 	-I$(top_srcdir) \
@@ -51,5 +57,9 @@ gnome_nibbles_CFLAGS = \
 
 gnome_nibbles_LDADD = \
 	$(GNOME_NIBBLES_LIBS)
+
+MAINTAINERCLEANFILES = nibbles-resources.c
+
+EXTRA_DIST = nibbles.gresource.xml
 
 -include $(top_srcdir)/git.mk

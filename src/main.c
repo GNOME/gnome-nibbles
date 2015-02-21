@@ -571,8 +571,6 @@ activate (GtkApplication* app,
 
   GtkWidget *packing;
 
-  GtkBuilder *builder;
-
   headerbar = gtk_header_bar_new ();
   gtk_header_bar_set_show_close_button (GTK_HEADER_BAR (headerbar), TRUE);
   gtk_header_bar_set_title (GTK_HEADER_BAR (headerbar), _("Nibbles"));
@@ -582,53 +580,6 @@ activate (GtkApplication* app,
   gtk_window_set_titlebar (GTK_WINDOW (window), headerbar);
 
   g_action_map_add_action_entries (G_ACTION_MAP (app), app_entries, G_N_ELEMENTS (app_entries), app);
-
-  builder = gtk_builder_new ();
-
-  gtk_builder_add_from_string (builder,
-                               "<interface>"
-                               "  <menu id='app-menu'>"
-                               "    <section>"
-                               "      <item>"
-                               "        <attribute name='label' translatable='yes'>_New Game</attribute>"
-                               "        <attribute name='action'>app.newgame</attribute>"
-                               "      </item>"
-                               "    </section>"
-                               "    <section>"
-                               "      <item>"
-                               "        <attribute name='label' translatable='yes'>_Pause</attribute>"
-                               "        <attribute name='action'>app.pause</attribute>"
-                               "        <attribute name='accel'>Pause</attribute>"
-                               "      </item>"
-                               "      <item>"
-                               "        <attribute name='label' translatable='yes'>_Preferences</attribute>"
-                               "        <attribute name='action'>app.preferences</attribute>"
-                               "      </item>"
-                               "      <item>"
-                               "        <attribute name='label' translatable='yes'>_Scores</attribute>"
-                               "        <attribute name='action'>app.scores</attribute>"
-                               "      </item>"
-                               "    </section>"
-                               "    <section>"
-                               "      <item>"
-                               "        <attribute name='label' translatable='yes'>_Help</attribute>"
-                               "        <attribute name='action'>app.help</attribute>"
-                               "        <attribute name='accel'>F1</attribute>"
-                               "      </item>"
-                               "      <item>"
-                               "        <attribute name='label' translatable='yes'>_About</attribute>"
-                               "        <attribute name='action'>app.about</attribute>"
-                               "      </item>"
-                               "      <item>"
-                               "        <attribute name='label' translatable='yes'>_Quit</attribute>"
-                               "        <attribute name='action'>app.quit</attribute>"
-                               "        <attribute name='accel'>&lt;Primary&gt;q</attribute>"
-                               "      </item>"
-                               "    </section>"
-                               "  </menu>"
-                               "</interface>", -1, NULL); 
-
-  gtk_application_set_app_menu (GTK_APPLICATION (app), G_MENU_MODEL (gtk_builder_get_object (builder, "app-menu")));
 
   pause_action          = G_SIMPLE_ACTION (g_action_map_lookup_action (G_ACTION_MAP (app) , "pause"));
 

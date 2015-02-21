@@ -3,6 +3,7 @@
 [encoding: UTF-8]
 data/gnome-nibbles.appdata.xml.in
 data/gnome-nibbles.desktop.in
+[type: gettext/glade]data/nibbles-menus.ui
 data/org.gnome.nibbles.gschema.xml
 src/board.c
 src/games-controls.c

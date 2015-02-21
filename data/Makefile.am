@@ -3,6 +3,9 @@ SUBDIRS = icons levels pix
 gsettings_SCHEMAS = org.gnome.nibbles.gschema.xml
 @GSETTINGS_RULES@
 
+dist_noinst_DATA = \
+	nibbles-menus.ui
+
 soundsdir = $(datadir)/gnome-nibbles/sounds
 sounds_DATA = \
 	appear.ogg \
