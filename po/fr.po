@@ -1,5 +1,5 @@
 # French translation of gnome-nibbles.
-# Copyright (C) 1998-2014 Free Software Foundation, Inc.
+# Copyright (C) 1998-2015 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-nibbles package.
 #
 # Vincent Renardias <vincent@ldsol.com>, 1998-1999.
@@ -16,7 +16,7 @@
 # Pierre Slamich <pierre.slamich@gmail.com>, 2006.
 # Marc Lorber <linux-lorber@club-internet.fr>, 2006
 # Pierre Slamich <pierre.slamich@gmail.com>, 2006.
-# Claude Paroz <claude@2xlibre.net>, 2007-2010.
+# Claude Paroz <claude@2xlibre.net>, 2007-2015.
 # Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007-2008.
 # Didier Vidal <didier-devel@melix.net>, 2007.
 # Pierre Lemaire <pierre.lemaire@kamick.org>, 2008.
@@ -29,9 +29,9 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-08-25 07:03+0000\n"
-"PO-Revision-Date: 2014-03-15 18:17+0100\n"
-"Last-Translator: naybnet <naybnet@gmail.com>\n"
+"POT-Creation-Date: 2015-02-22 08:02+0000\n"
+"PO-Revision-Date: 2015-02-22 16:52+0100\n"
+"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -44,6 +44,11 @@ msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Guider un ver à travers un labyrinthe"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -59,7 +64,7 @@ msgstr ""
 "deviennent trop longs, vous n'aurez plus beaucoup d'espace pour vous "
 "déplacer."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -70,7 +75,7 @@ msgstr ""
 "la suite, des espaces exigus et des téléporteurs rendent les choses plus "
 "intéressantes."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -78,14 +83,10 @@ msgstr ""
 "Jouez tout seul face à au plus cinq vers ennemis, ou partagez votre clavier "
 "pour jouer avec un ami."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
-#: ../src/main.c:685
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:576
+#: ../src/main.c:669
 msgid "Nibbles"
 msgstr "Nibbles"
-
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Guider un ver à travers un labyrinthe"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -343,14 +344,8 @@ msgid "Fast with Fakes"
 msgstr "Rapide avec feintes"
 
 #: ../src/main.c:222
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Un jeu de ver pour GNOME\n"
-"\n"
-"Nibbles fait partie des jeux GNOME."
+msgid "A worm game for GNOME"
+msgstr "Un jeu de ver pour GNOME"
 
 #: ../src/main.c:225
 msgid "translator-credits"
