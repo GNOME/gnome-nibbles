@@ -30,21 +30,23 @@
 # Michael Kotsarinis <mk73628@hotmail.com>, 2010.
 # George Stefanakis <george.stefanakis@gmail.com>, 2011.
 # Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013, 2014.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2015.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-07 07:02+0000\n"
-"PO-Revision-Date: 2014-07-07 14:16+0200\n"
-"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
-"Language-Team: www.gnome.gr\n"
+"POT-Creation-Date: 2015-02-22 20:04+0000\n"
+"PO-Revision-Date: 2015-02-23 02:03+0200\n"
+"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
+"Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
@@ -52,6 +54,11 @@ msgid "GNOME Nibbles"
 msgstr "Μπουκιές GNOME"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Οδηγήστε το σκουλήκι μέσα σε έναν λαβύρινθο"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -66,7 +73,7 @@ msgstr ""
 "εχθρικά σκουλήκια αποσκοπούν στις ίδιες επιβραβεύσεις που έχετε, γι' αυτό "
 "προσέξτε: αν γίνουν υπερβολικά μεγάλα, δεν θα έχετε πολύ χώρο για μετακίνηση."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -76,7 +83,7 @@ msgstr ""
 "επίπεδα είναι ως επί το πλείστον ανοικτά, με λίγους τοίχους, αλλά κατόπιν, "
 "στενοί χώροι και τηλεμεταφορές κάνουν τα πράγματα πιο ενδιαφέροντα."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -84,18 +91,42 @@ msgstr ""
 "Παίξτε μόνοι σας μέχρι και εναντίον πέντε εχθρικών σκουληκιών, ή μοιραστείτε "
 "το πληκτρολόγιο σας για να παίξετε με έναν φίλο."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
-#: ../src/main.c:712
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:576
+#: ../src/main.c:669
 msgid "Nibbles"
 msgstr "Μπουκιές"
-
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Οδηγήστε το σκουλήκι μέσα σε έναν λαβύρινθο"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "παιχνίδι;φίδι;πίνακας;game;snake;board;"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_New Game"
+msgstr "_Νέο παιχνίδι"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Pause"
+msgstr "Π_αύση"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Preferences"
+msgstr "Π_ροτιμήσεις"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_Scores"
+msgstr "_Βαθμολογίες"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Help"
+msgstr "_Βοήθεια"
+
+#: ../data/nibbles-menus.ui.h:6
+msgid "_About"
+msgstr "_Περί"
+
+#: ../data/nibbles-menus.ui.h:7
+msgid "_Quit"
+msgstr "Έ_ξοδος"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -284,23 +315,23 @@ msgstr ""
 "\n"
 "Ελέγξτε την εγκατάσταση των Μπουκιών"
 
-#: ../src/gnibbles.c:334
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Βαθμολογίες Μπουκιών"
 
-#: ../src/gnibbles.c:337
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Ταχύτητα:"
 
-#: ../src/gnibbles.c:342
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Συγχαρητήρια!"
 
-#: ../src/gnibbles.c:343
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Η βαθμολογία σας είναι η καλύτερη!"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Η βαθμολογία σας είναι στην κορυφαία δεκάδα."
 
@@ -344,17 +375,12 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Γρήγορο με ψευδείς επιβραβεύσεις"
 
-#: ../src/main.c:234
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Ένα παιχνίδι με σκουλήκια για το GNOME\n"
-"\n"
-"Οι Μπουκιές είναι μέρος των παιχνιδιών του GNOME."
+#: ../src/main.c:222
+#| msgid "A worm game for GNOME."
+msgid "A worm game for GNOME"
+msgstr "Παιχνίδι με σκουλήκι για το GNOME."
 
-#: ../src/main.c:237
+#: ../src/main.c:225
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -472,6 +498,15 @@ msgstr "Γκρίζο"
 msgid "Worm %d:"
 msgstr "Σκουλήκι %d:"
 
+#~ msgid ""
+#~ "A worm game for GNOME\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "Ένα παιχνίδι με σκουλήκια για το GNOME\n"
+#~ "\n"
+#~ "Οι Μπουκιές είναι μέρος των παιχνιδιών του GNOME."
+
 #~ msgid "Nibbles Preferences"
 #~ msgstr "Προτιμήσεις Μπουκιών"
 
@@ -488,32 +523,11 @@ msgstr "Σκουλήκι %d:"
 #~ msgid "_Settings"
 #~ msgstr "_Ρυθμίσεις"
 
-#~ msgid "_Help"
-#~ msgstr "_Βοήθεια"
-
-#~ msgid "_New Game"
-#~ msgstr "_Νέο παιχνίδι"
-
 #~ msgid "_End Game"
 #~ msgstr "_Τέλος παιχνιδιού"
 
-#~ msgid "_Pause"
-#~ msgstr "Π_αύση"
-
-#~ msgid "_Scores"
-#~ msgstr "_Βαθμολογίες"
-
-#~ msgid "_Quit"
-#~ msgstr "Έ_ξοδος"
-
-#~ msgid "_Preferences"
-#~ msgstr "Π_ροτιμήσεις"
-
 #~ msgid "_Contents"
 #~ msgstr "_Περιεχόμενα"
-
-#~ msgid "_About"
-#~ msgstr "_Περί"
 
 #~ msgid "GNOME Games web site"
 #~ msgstr "Ιστοσελίδα των παιχνιδιών του GNOME"
@@ -661,9 +675,6 @@ msgstr "Σκουλήκι %d:"
 #~ "Θα πρέπει να έχετε λάβει ένα αντίγραφο της Γενικής Άδειας Δημόσιας Χρήσης "
 #~ "GNU -GPL- μαζί με το πρόγραμμα. Εάν όχι, επισκεφθείτε το <http://www.gnu."
 #~ "org/licenses/>."
-
-#~ msgid "A worm game for GNOME."
-#~ msgstr "Παιχνίδι με σκουλήκι για το GNOME."
 
 #~ msgid "Chess"
 #~ msgstr "Σκάκι"
