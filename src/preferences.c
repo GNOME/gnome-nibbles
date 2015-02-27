@@ -46,6 +46,8 @@ GtkWidget *num_human, *num_ai;
 static void
 destroy_cb (GtkWidget * widget, gpointer data)
 {
+  if (menu_item_opened)
+    menu_item_pause_toggle ();
   pref_dialog = NULL;
 }
 

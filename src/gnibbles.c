@@ -357,6 +357,8 @@ gnibbles_show_scores (GtkWidget * window, gint pos)
   }
 
   gtk_dialog_run (GTK_DIALOG (scoresdialog));
+  if (menu_item_opened)
+    menu_item_pause_toggle ();
   gtk_widget_hide (scoresdialog);
 }
 

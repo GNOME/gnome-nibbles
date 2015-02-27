@@ -34,6 +34,9 @@ int num_players;
 int seat;
 int seats[NUMWORMS];
 char names[NUMWORMS][17];
+extern gboolean menu_item_opened;
+
+void menu_item_pause_toggle (void);
 
 gboolean game_running (void);
 void end_game (void);

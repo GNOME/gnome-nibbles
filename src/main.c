@@ -92,6 +92,7 @@ gint restart_id = 0;
 gint current_level;
 
 gboolean is_paused;
+gboolean menu_item_opened = FALSE;
 static gboolean new_game_2_cb (GtkWidget * widget, gpointer data);
 
 static gint add_bonus_cb (gpointer data);
@@ -101,7 +102,7 @@ static GSimpleAction *pause_action;
 gint
 game_running (void)
 {
-  return (main_id || dummy_id || restart_id || is_paused);
+  return (main_id || dummy_id || restart_id || is_paused || menu_item_opened);
 }
 
 /* Avoid a race condition where a redraw is attempted
@@ -162,6 +163,36 @@ change_pause_state (GSimpleAction *action,
   g_simple_action_set_state (action, g_variant_new_boolean (is_paused));
 }
 
+void
+menu_item_pause_toggle (void)
+{
+
+  if (!g_action_get_enabled (G_ACTION (pause_action)))
+    return;
+
+  if (!menu_item_opened) {
+    menu_item_opened = TRUE;
+    if (main_id || restart_id || dummy_id) {
+      if (main_id) {
+        g_source_remove (main_id);
+        main_id = 0;
+      }
+      if (keyboard_id) {
+        g_signal_handler_disconnect (G_OBJECT (stage), keyboard_id);
+        keyboard_id = 0;
+      }
+      if (add_bonus_id) {
+        g_source_remove (add_bonus_id);
+        add_bonus_id = 0;
+      }
+    }
+  }
+  else {
+    menu_item_opened = FALSE;
+    if (!is_paused)
+      dummy_id = g_timeout_add (500, (GSourceFunc) new_game_2_cb, NULL);
+  }
+}
 
 static void
 newgame_activated (GSimpleAction *action,
@@ -176,6 +207,8 @@ scores_activated (GSimpleAction *action,
                 GVariant      *parameter,
                 gpointer       user_data)
 {
+  if (!menu_item_opened)
+    menu_item_pause_toggle ();
   gnibbles_show_scores (window, 0);
 }
 
@@ -184,6 +217,8 @@ preferences_activated (GSimpleAction *action,
                 GVariant      *parameter,
                 gpointer       user_data)
 {
+  if (!menu_item_opened)
+    menu_item_pause_toggle ();
   gnibbles_preferences_cb (window, user_data);
 }
 
