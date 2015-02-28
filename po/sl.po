@@ -5,15 +5,15 @@
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006-2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007-20154.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007-2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-15 20:05+0000\n"
-"PO-Revision-Date: 2015-02-15 21:20+0100\n"
+"POT-Creation-Date: 2015-02-28 20:06+0000\n"
+"PO-Revision-Date: 2015-02-28 21:17+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -66,14 +66,42 @@ msgstr ""
 "Igro je mogoče igrati proti računalniku ali pa s prijateljem. Ena tipkovnica "
 "omogoča igro v dvoje."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
-#: ../src/main.c:718
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
+#: ../src/main.c:704
 msgid "Nibbles"
 msgstr "Črvi"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "igra;kaža;tabla;plošča;"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_New Game"
+msgstr "_Nova Igra"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Pause"
+msgstr "_Premor"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Preferences"
+msgstr "_Možnosti"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_Scores"
+msgstr "_Točke"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Help"
+msgstr "Pomo_č"
+
+#: ../data/nibbles-menus.ui.h:6
+msgid "_About"
+msgstr "_O programu"
+
+#: ../data/nibbles-menus.ui.h:7
+msgid "_Quit"
+msgstr "_Končaj"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -155,7 +183,7 @@ msgstr "Uporabi relativne premike"
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Uporabi relativne premike (tj. le levo ali desno)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
 msgid "Move up"
 msgstr "Premakni navzgor"
 
@@ -163,7 +191,7 @@ msgstr "Premakni navzgor"
 msgid "Key to use for motion up."
 msgstr "Tipka za premikanje gor."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
 msgid "Move down"
 msgstr "Premakni navzdol"
 
@@ -171,7 +199,7 @@ msgstr "Premakni navzdol"
 msgid "Key to use for motion down."
 msgstr "Tipka za premikanje dol."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
 msgid "Move left"
 msgstr "Premaknite se v levo"
 
@@ -179,7 +207,7 @@ msgstr "Premaknite se v levo"
 msgid "Key to use for motion left."
 msgstr "Tipka za premikanje levo."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
 msgid "Move right"
 msgstr "Premaknite se v desno"
 
@@ -322,11 +350,11 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Hitro s pomočjo"
 
-#: ../src/main.c:222
+#: ../src/main.c:257
 msgid "A worm game for GNOME"
 msgstr "Igra s črvom za GNOME"
 
-#: ../src/main.c:225
+#: ../src/main.c:260
 msgid "translator-credits"
 msgstr ""
 "Matic Žgur <mr.zgur@gmail.com>\n"
@@ -334,104 +362,104 @@ msgstr ""
 "Tadej Janež <tadej_janez@email.si>\n"
 "Matej Urbančič <mateju@svn.gnome.org>"
 
-#: ../src/preferences.c:223
+#: ../src/preferences.c:225
 msgid "Preferences"
 msgstr "Možnosti"
 
-#: ../src/preferences.c:236
+#: ../src/preferences.c:238
 msgid "Game"
 msgstr "Igra"
 
 #. Speed
-#: ../src/preferences.c:252
+#: ../src/preferences.c:254
 msgid "Speed"
 msgstr "Hitrost"
 
-#: ../src/preferences.c:257
+#: ../src/preferences.c:259
 msgid "Nibbles newbie"
 msgstr "Nibbles začetnik"
 
-#: ../src/preferences.c:267
+#: ../src/preferences.c:269
 msgid "My second day"
 msgstr "Moj drugi dan"
 
-#: ../src/preferences.c:277
+#: ../src/preferences.c:279
 msgid "Not too shabby"
 msgstr "Kar spreten"
 
-#: ../src/preferences.c:287
+#: ../src/preferences.c:289
 msgid "Finger-twitching good"
 msgstr "Dober s prsti"
 
-#: ../src/preferences.c:301 ../src/preferences.c:424
+#: ../src/preferences.c:303 ../src/preferences.c:426
 msgid "Options"
 msgstr "Možnosti"
 
-#: ../src/preferences.c:308
+#: ../src/preferences.c:310
 msgid "_Play levels in random order"
 msgstr "_Ravni v naključnem vrstnem redu"
 
-#: ../src/preferences.c:316
+#: ../src/preferences.c:318
 msgid "_Enable fake bonuses"
 msgstr "Omogoči lažni _bonus"
 
-#: ../src/preferences.c:324
+#: ../src/preferences.c:326
 msgid "E_nable sounds"
 msgstr "Omogoči _zvoke"
 
-#: ../src/preferences.c:337
+#: ../src/preferences.c:339
 msgid "_Starting level:"
 msgstr "_Začetna ravni: "
 
-#: ../src/preferences.c:362
+#: ../src/preferences.c:364
 msgid "Number of _human players:"
 msgstr "Število _človeških igralcev:"
 
-#: ../src/preferences.c:379
+#: ../src/preferences.c:381
 msgid "Number of _AI players:"
 msgstr "Število _računalniških igralcev:"
 
-#: ../src/preferences.c:400
+#: ../src/preferences.c:402
 msgid "Worm"
 msgstr "Črv"
 
-#: ../src/preferences.c:409
+#: ../src/preferences.c:411
 msgid "Keyboard Options"
 msgstr "Možnosti tipkovnice"
 
-#: ../src/preferences.c:429
+#: ../src/preferences.c:431
 msgid "_Use relative movement"
 msgstr "_Uporabi relativne premike"
 
-#: ../src/preferences.c:436
+#: ../src/preferences.c:438
 msgid "_Worm color:"
 msgstr "B_arva črva:"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:444
 msgid "Red"
 msgstr "Rdeča"
 
-#: ../src/preferences.c:443
+#: ../src/preferences.c:445
 msgid "Green"
 msgstr "Zelena"
 
-#: ../src/preferences.c:444
+#: ../src/preferences.c:446
 msgid "Blue"
 msgstr "Modra"
 
-#: ../src/preferences.c:445
+#: ../src/preferences.c:447
 msgid "Yellow"
 msgstr "Rumena"
 
-#: ../src/preferences.c:446
+#: ../src/preferences.c:448
 msgid "Cyan"
 msgstr "Sinja"
 
-#: ../src/preferences.c:447
+#: ../src/preferences.c:449
 msgid "Purple"
 msgstr "Škrlatna"
 
-#: ../src/preferences.c:448
+#: ../src/preferences.c:450
 msgid "Gray"
 msgstr "Siva"
 
@@ -464,17 +492,8 @@ msgstr "Črv %d:"
 #~ msgid "_Settings"
 #~ msgstr "_Nastavitve"
 
-#~ msgid "_Help"
-#~ msgstr "Pomo_č"
-
-#~ msgid "_New Game"
-#~ msgstr "_Nova Igra"
-
 #~ msgid "_End Game"
 #~ msgstr "_Končaj igro"
-
-#~ msgid "_Pause"
-#~ msgstr "_Premor"
 
 #~ msgid "_Contents"
 #~ msgstr "_Vsebina"
@@ -581,9 +600,6 @@ msgstr "Črv %d:"
 
 #~ msgid "Res_ume"
 #~ msgstr "Na_daljuj"
-
-#~ msgid "_Scores"
-#~ msgstr "_Točke"
 
 #~ msgid ""
 #~ "%s is free software; you can redistribute it and/or modify it under the "
