@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-03 08:07+0000\n"
-"PO-Revision-Date: 2015-02-03 19:34+0100\n"
+"POT-Creation-Date: 2015-03-02 20:15+0000\n"
+"PO-Revision-Date: 2015-03-02 22:33+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -78,14 +78,46 @@ msgstr ""
 "Zahrajte si na vlastní pěst až proti pěti nepřátelským červíkům nebo se "
 "podělte o klávesnici při hraní s přáteli."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
-#: ../src/main.c:718
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
+#: ../src/main.c:704
 msgid "Nibbles"
 msgstr "Červíci"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "hra;had;desková;"
+
+#: ../data/nibbles-menus.ui.h:1
+#| msgid "Game"
+msgid "_New Game"
+msgstr "_Nová hra"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Pause"
+msgstr "_Pozastavit"
+
+#: ../data/nibbles-menus.ui.h:3
+#| msgid "Preferences"
+msgid "_Preferences"
+msgstr "_Předvolby"
+
+#: ../data/nibbles-menus.ui.h:4
+#| msgctxt "score-dialog"
+#| msgid "Score"
+msgid "_Scores"
+msgstr "_Skóre"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Help"
+msgstr "Nápově_da"
+
+#: ../data/nibbles-menus.ui.h:6
+msgid "_About"
+msgstr "O _aplikaci"
+
+#: ../data/nibbles-menus.ui.h:7
+msgid "_Quit"
+msgstr "U_končit"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -167,7 +199,7 @@ msgstr "Používat relativní pohyb"
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Použít relativní pohyb (tj. jen doleva nebo doprava)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
 msgid "Move up"
 msgstr "Posunout nahoru"
 
@@ -175,7 +207,7 @@ msgstr "Posunout nahoru"
 msgid "Key to use for motion up."
 msgstr "Klávesa, která se má používat pro pohyb nahoru."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
 msgid "Move down"
 msgstr "Posunout dolů"
 
@@ -183,7 +215,7 @@ msgstr "Posunout dolů"
 msgid "Key to use for motion down."
 msgstr "Klávesa, která se má používat pro pohyb dolů."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
 msgid "Move left"
 msgstr "Pohyb doleva"
 
@@ -191,7 +223,7 @@ msgstr "Pohyb doleva"
 msgid "Key to use for motion left."
 msgstr "Klávesa, která se má používat pro pohyb doleva."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
 msgid "Move right"
 msgstr "Pohyb doprava"
 
@@ -334,11 +366,11 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Velmi rychlý červík"
 
-#: ../src/main.c:222
+#: ../src/main.c:257
 msgid "A worm game for GNOME"
 msgstr "Hra s červíky pro GNOME"
 
-#: ../src/main.c:225
+#: ../src/main.c:260
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -355,104 +387,104 @@ msgstr ""
 "Petr Pulc <petrpulc@gmail.com>\n"
 "Marek Černocký <marek@manet.cz>"
 
-#: ../src/preferences.c:223
+#: ../src/preferences.c:225
 msgid "Preferences"
 msgstr "Předvolby"
 
-#: ../src/preferences.c:236
+#: ../src/preferences.c:238
 msgid "Game"
 msgstr "Hra"
 
 #. Speed
-#: ../src/preferences.c:252
+#: ../src/preferences.c:254
 msgid "Speed"
 msgstr "Rychlost"
 
-#: ../src/preferences.c:257
+#: ../src/preferences.c:259
 msgid "Nibbles newbie"
 msgstr "Nováček v Červících"
 
-#: ../src/preferences.c:267
+#: ../src/preferences.c:269
 msgid "My second day"
 msgstr "Můj druhý den"
 
-#: ../src/preferences.c:277
+#: ../src/preferences.c:279
 msgid "Not too shabby"
 msgstr "Ne moc špatný"
 
-#: ../src/preferences.c:287
+#: ../src/preferences.c:289
 msgid "Finger-twitching good"
 msgstr "Tak dobrý, že má křeč v prstech"
 
-#: ../src/preferences.c:301 ../src/preferences.c:424
+#: ../src/preferences.c:303 ../src/preferences.c:426
 msgid "Options"
 msgstr "Volby"
 
-#: ../src/preferences.c:308
+#: ../src/preferences.c:310
 msgid "_Play levels in random order"
 msgstr "_Hrát úrovně v náhodném pořadí"
 
-#: ../src/preferences.c:316
+#: ../src/preferences.c:318
 msgid "_Enable fake bonuses"
 msgstr "Povolit _falešné bonusy"
 
-#: ../src/preferences.c:324
+#: ../src/preferences.c:326
 msgid "E_nable sounds"
 msgstr "Povolit _zvuky"
 
-#: ../src/preferences.c:337
+#: ../src/preferences.c:339
 msgid "_Starting level:"
 msgstr "_Počáteční úroveň:"
 
-#: ../src/preferences.c:362
+#: ../src/preferences.c:364
 msgid "Number of _human players:"
 msgstr "Počet lidských _hráčů:"
 
-#: ../src/preferences.c:379
+#: ../src/preferences.c:381
 msgid "Number of _AI players:"
 msgstr "_Počet počítačových hráčů:"
 
-#: ../src/preferences.c:400
+#: ../src/preferences.c:402
 msgid "Worm"
 msgstr "Červ"
 
-#: ../src/preferences.c:409
+#: ../src/preferences.c:411
 msgid "Keyboard Options"
 msgstr "Volby klávesnice"
 
-#: ../src/preferences.c:429
+#: ../src/preferences.c:431
 msgid "_Use relative movement"
 msgstr "Používat _relativní pohyb"
 
-#: ../src/preferences.c:436
+#: ../src/preferences.c:438
 msgid "_Worm color:"
 msgstr "Barva č_erva:"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:444
 msgid "Red"
 msgstr "Červená"
 
-#: ../src/preferences.c:443
+#: ../src/preferences.c:445
 msgid "Green"
 msgstr "Zelená"
 
-#: ../src/preferences.c:444
+#: ../src/preferences.c:446
 msgid "Blue"
 msgstr "Modrá"
 
-#: ../src/preferences.c:445
+#: ../src/preferences.c:447
 msgid "Yellow"
 msgstr "Žlutá"
 
-#: ../src/preferences.c:446
+#: ../src/preferences.c:448
 msgid "Cyan"
 msgstr "Azurová"
 
-#: ../src/preferences.c:447
+#: ../src/preferences.c:449
 msgid "Purple"
 msgstr "Purpurová"
 
-#: ../src/preferences.c:448
+#: ../src/preferences.c:450
 msgid "Gray"
 msgstr "Šedá"
 
