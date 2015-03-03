@@ -23,7 +23,7 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 appstream_in_files = gnome-nibbles.appdata.xml.in
-appstream_XML = $(appdata_in_files:.xml.in=.xml)
+appstream_XML = $(appstream_in_files:.xml.in=.xml)
 @APPSTREAM_XML_RULES@
 @INTLTOOL_XML_RULE@
 
