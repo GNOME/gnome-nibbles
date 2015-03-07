@@ -8,7 +8,7 @@
 #
 # Updated for gnome-nibbles:
 #
-# Changwoo Ryu <cwryu@debian.org>, 2013-2014.
+# Changwoo Ryu <cwryu@debian.org>, 2013-2015.
 #
 #
 # 새로 번역하신 분은 아래 "translator-credits"에 추가하세요.
@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-16 17:36+0000\n"
-"PO-Revision-Date: 2014-03-08 04:29+0900\n"
+"POT-Creation-Date: 2015-03-07 08:07+0000\n"
+"PO-Revision-Date: 2015-03-08 04:25+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: Korean\n"
@@ -31,43 +31,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnibbles.desktop.in.h:1 ../src/main.c:222 ../src/main.c:705
-msgid "Nibbles"
-msgstr "니블즈"
-
-#: ../data/gnibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "벌레를 조종해 미로를 통과합니다"
-
-#: ../data/gnibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "game;게임;snake;스네이크;board;보드;"
-
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "그놈 니블즈"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "벌레를 조종해 미로를 통과합니다"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won't have much room for movement."
-msgstr "벌레를 조종해서 보너스를 먹으면 더 길어집니다. 적을 이기면서 도넛과 아이스크림을 먹어 길이를 늘리십시오. 벌레마다 목숨이 10개 있고 벽이나 다른 벌레나 자기 자신과 부딪히면 목숨을 잃습니다. 적 벌레도 여러분과 같은 보너스를 노리고 있으니 주의하십시오. 적 벌레가 너무 길어지면 움직일 공간이 없어질 수도 있습니다."
+msgstr ""
+"벌레를 조종해서 보너스를 먹으면 더 길어집니다. 적을 이기면서 도넛과 아이스크"
+"림을 먹어 길이를 늘리십시오. 벌레마다 목숨이 10개 있고 벽이나 다른 벌레나 자"
+"기 자신과 부딪히면 목숨을 잃습니다. 적 벌레도 여러분과 같은 보너스를 노리고 "
+"있으니 주의하십시오. 적 벌레가 너무 길어지면 움직일 공간이 없어질 수도 있습니"
+"다."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
 "teleporters make things more interesting."
-msgstr "난이도에 따라 26개의 맵을 진행합니다. 앞쪽 단계에서는 벽만 있지만, 나중에는 까다로운 공간과 순간 이동 따위로 더 재미있어집니다."
+msgstr ""
+"난이도에 따라 26개의 맵을 진행합니다. 앞쪽 단계에서는 벽만 있지만, 나중에는 "
+"까다로운 공간과 순간 이동 따위로 더 재미있어집니다."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
-msgstr "다른 다섯 마리 벌레를 상대로 플레이하거나, 키보드를 나눠 써 친구와 플레이합니다."
+msgstr ""
+"다른 다섯 마리 벌레를 상대로 플레이하거나, 키보드를 나눠 써 친구와 플레이합니"
+"다."
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
+#: ../src/main.c:704
+msgid "Nibbles"
+msgstr "니블즈"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "game;게임;snake;스네이크;board;보드;"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_New Game"
+msgstr "새 게임(_N)"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Pause"
+msgstr "일시 중지(_P)"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Preferences"
+msgstr "기본 설정(_P)"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_Scores"
+msgstr "점수(_S)"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Help"
+msgstr "도움말(_H)"
+
+#: ../data/nibbles-menus.ui.h:6
+msgid "_About"
+msgstr "정보(_A)"
+
+#: ../data/nibbles-menus.ui.h:7
+msgid "_Quit"
+msgstr "끝내기(_Q)"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -149,7 +188,7 @@ msgstr "상대적인 움직임"
 msgid "Use relative movement (ie. left or right only)."
 msgstr "상대적인 움직임(즉, 왼쪽과 오른쪽만 사용 가능)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
 msgid "Move up"
 msgstr "위로 옮기기"
 
@@ -157,7 +196,7 @@ msgstr "위로 옮기기"
 msgid "Key to use for motion up."
 msgstr "위로 이동할 때 사용할 키."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
 msgid "Move down"
 msgstr "아래로 옮기기"
 
@@ -165,7 +204,7 @@ msgstr "아래로 옮기기"
 msgid "Key to use for motion down."
 msgstr "아래로 이동할 때 사용할 키."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
 msgid "Move left"
 msgstr "왼쪽으로 이동"
 
@@ -173,7 +212,7 @@ msgstr "왼쪽으로 이동"
 msgid "Key to use for motion left."
 msgstr "왼쪽으로 이동할 때 사용할 키."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
 msgid "Move right"
 msgstr "오른쪽으로 이동"
 
@@ -207,11 +246,11 @@ msgstr ""
 "\n"
 "니블즈를 제대로 설치했는지 확인하십시오"
 
-#: ../src/games-controls.c:107
+#: ../src/games-controls.c:108
 msgid "The shortcut you selected is already assigned."
 msgstr "선택한 바로 가기는 이미 할당되었습니다."
 
-#: ../src/games-controls.c:323
+#: ../src/games-controls.c:324
 msgid "Unknown Command"
 msgstr "알 수 없는 명령"
 
@@ -239,7 +278,7 @@ msgstr "%1$d분 %2$d초"
 msgid "Date"
 msgstr "시각"
 
-#: ../src/games-scores-dialog.c:448 ../src/preferences.c:225
+#: ../src/games-scores-dialog.c:448
 msgid "_Close"
 msgstr "닫기(_C)"
 
@@ -256,178 +295,172 @@ msgstr ""
 "\n"
 "니블즈를 제대로 설치했는지 확인하십시오"
 
-#: ../src/gnibbles.c:341
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "니블즈 점수"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "속도:"
 
-#: ../src/gnibbles.c:349
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "축하합니다!"
 
-#: ../src/gnibbles.c:350
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "최고 점수입니다!"
 
-#: ../src/gnibbles.c:351
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "점수가 10위 안에 들었습니다."
 
-#: ../src/main.c:60
+#: ../src/main.c:62
 msgctxt "game speed"
 msgid "Beginner"
 msgstr "초보자"
 
-#: ../src/main.c:61
+#: ../src/main.c:63
 msgctxt "game speed"
 msgid "Slow"
 msgstr "느리게"
 
-#: ../src/main.c:62
+#: ../src/main.c:64
 msgctxt "game speed"
 msgid "Medium"
 msgstr "중간"
 
-#: ../src/main.c:63
+#: ../src/main.c:65
 msgctxt "game speed"
 msgid "Fast"
 msgstr "빠르게"
 
-#: ../src/main.c:64
+#: ../src/main.c:66
 msgctxt "game speed"
 msgid "Beginner with Fakes"
 msgstr "초보자(속임수 사용)"
 
-#: ../src/main.c:65
+#: ../src/main.c:67
 msgctxt "game speed"
 msgid "Slow with Fakes"
 msgstr "느리게(속임수 사용)"
 
-#: ../src/main.c:66
+#: ../src/main.c:68
 msgctxt "game speed"
 msgid "Medium with Fakes"
 msgstr "중간(속임수 사용)"
 
-#: ../src/main.c:67
+#: ../src/main.c:69
 msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "빠르게(속임수 사용)"
 
-#: ../src/main.c:228
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"그놈 벌레 게임.\n"
-"\n"
-"니블즈는 그놈 게임의 일부입니다."
+#: ../src/main.c:257
+msgid "A worm game for GNOME"
+msgstr "그놈 벌레 게임"
 
-#: ../src/main.c:231
+#: ../src/main.c:260
 msgid "translator-credits"
 msgstr "류창우 <cwryu@debian.org>"
 
-#: ../src/preferences.c:223
-msgid "Nibbles Preferences"
-msgstr "니블즈 기본 설정"
+#: ../src/preferences.c:225
+msgid "Preferences"
+msgstr "기본 설정"
 
-#: ../src/preferences.c:236
+#: ../src/preferences.c:238
 msgid "Game"
 msgstr "게임"
 
 #. Speed
-#: ../src/preferences.c:252
+#: ../src/preferences.c:254
 msgid "Speed"
 msgstr "속도"
 
-#: ../src/preferences.c:257
+#: ../src/preferences.c:259
 msgid "Nibbles newbie"
 msgstr "니블즈 초보"
 
-#: ../src/preferences.c:267
+#: ../src/preferences.c:269
 msgid "My second day"
 msgstr "두 번째 날"
 
-#: ../src/preferences.c:277
+#: ../src/preferences.c:279
 msgid "Not too shabby"
 msgstr "너무 시시하지 않게"
 
-#: ../src/preferences.c:287
+#: ../src/preferences.c:289
 msgid "Finger-twitching good"
 msgstr "기도나 하는 게 좋을 걸"
 
-#: ../src/preferences.c:301 ../src/preferences.c:424
+#: ../src/preferences.c:303 ../src/preferences.c:426
 msgid "Options"
 msgstr "옵션"
 
-#: ../src/preferences.c:308
+#: ../src/preferences.c:310
 msgid "_Play levels in random order"
 msgstr "임의의 순서로 각 단계를 플레이(_P)"
 
-#: ../src/preferences.c:316
+#: ../src/preferences.c:318
 msgid "_Enable fake bonuses"
 msgstr "가짜 보너스 사용(_E)"
 
-#: ../src/preferences.c:324
+#: ../src/preferences.c:326
 msgid "E_nable sounds"
 msgstr "사운드 사용(_N)"
 
-#: ../src/preferences.c:337
+#: ../src/preferences.c:339
 msgid "_Starting level:"
 msgstr "시작 단계(_S):"
 
-#: ../src/preferences.c:362
+#: ../src/preferences.c:364
 msgid "Number of _human players:"
 msgstr "사람 플레이어의 수(_H):"
 
-#: ../src/preferences.c:379
+#: ../src/preferences.c:381
 msgid "Number of _AI players:"
 msgstr "AI 플레이어의 수(_A):"
 
-#: ../src/preferences.c:400
+#: ../src/preferences.c:402
 msgid "Worm"
 msgstr "벌레"
 
-#: ../src/preferences.c:409
+#: ../src/preferences.c:411
 msgid "Keyboard Options"
 msgstr "키보드 옵션"
 
-#: ../src/preferences.c:429
+#: ../src/preferences.c:431
 msgid "_Use relative movement"
 msgstr "상대적인 움직임(_U)"
 
-#: ../src/preferences.c:436
+#: ../src/preferences.c:438
 msgid "_Worm color:"
 msgstr "벌레 색(_W):"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:444
 msgid "Red"
 msgstr "빨강"
 
-#: ../src/preferences.c:443
+#: ../src/preferences.c:445
 msgid "Green"
 msgstr "녹색"
 
-#: ../src/preferences.c:444
+#: ../src/preferences.c:446
 msgid "Blue"
 msgstr "파랑"
 
-#: ../src/preferences.c:445
+#: ../src/preferences.c:447
 msgid "Yellow"
 msgstr "노랑"
 
-#: ../src/preferences.c:446
+#: ../src/preferences.c:448
 msgid "Cyan"
 msgstr "청록"
 
-#: ../src/preferences.c:447
+#: ../src/preferences.c:449
 msgid "Purple"
 msgstr "자주색"
 
-#: ../src/preferences.c:448
+#: ../src/preferences.c:450
 msgid "Gray"
 msgstr "회색"
 
@@ -435,2859 +468,3 @@ msgstr "회색"
 #, c-format
 msgid "Worm %d:"
 msgstr "벌레 %d:"
-
-#~ msgid "New Game"
-#~ msgstr "새 게임"
-
-#~ msgctxt "score-dialog"
-#~ msgid "Name"
-#~ msgstr "이름"
-
-#~ msgid "View help for this game"
-#~ msgstr "이 게임의 도움말을 봅니다"
-
-#~ msgid "End the current game"
-#~ msgstr "현재 게임을 끝냅니다"
-
-#~ msgid "Toggle fullscreen mode"
-#~ msgstr "f전체 화면 모드를 토글합니다"
-
-#~ msgid "Get a hint for your next move"
-#~ msgstr "다음 움직임에 대한 힌트를 얻습니다"
-
-#~ msgid "Leave fullscreen mode"
-#~ msgstr "전체 화면 모드를 나갑니다"
-
-#~ msgid "Start a new multiplayer network game"
-#~ msgstr "새 멀티플레이어 네트워크 게임을 시작합니다"
-
-#~ msgid "End the current network game and return to network server"
-#~ msgstr "현재 네트워크 게임을 끝내고 네트워크 서버로 돌아갑니다"
-
-#~ msgid "Start a new game"
-#~ msgstr "새 게임을 시작합니다"
-
-#~ msgid "Pause the game"
-#~ msgstr "게임을 일시 중지합니다"
-
-#~ msgid "Show a list of players in the network game"
-#~ msgstr "네트워크 게임의 플레이어 목록을 표시합니다"
-
-#~ msgid "Redo the undone move"
-#~ msgstr "마지막 움직임을 되돌립니다"
-
-#~ msgid "Restart the game"
-#~ msgstr "게임을 다시 시작합니다"
-
-#~ msgid "Resume the paused game"
-#~ msgstr "일시 중지한 게임을 다시 시작합니다"
-
-#~ msgid "View the scores"
-#~ msgstr "점수를 봅니다"
-
-#~ msgid "Undo the last move"
-#~ msgstr "마지막 움직임을 취소합니다"
-
-#~ msgid "About this game"
-#~ msgstr "이 게임 정보"
-
-#~ msgid "Close this window"
-#~ msgstr "이 창을 닫습니다"
-
-#~ msgid "Configure the game"
-#~ msgstr "게임을 설정합니다"
-
-#~ msgid "Quit this game"
-#~ msgstr "이 게임을 끝냅니다"
-
-#~ msgid "_Contents"
-#~ msgstr "차례(_C)"
-
-#~ msgid "_Fullscreen"
-#~ msgstr "전체 화면(_F)"
-
-#~ msgid "_Hint"
-#~ msgstr "힌트(_H)"
-
-#~ msgid "_New"
-#~ msgstr "새 게임(_N)"
-
-#~ msgid "_New Game"
-#~ msgstr "새 게임(_N)"
-
-#~ msgid "_Redo Move"
-#~ msgstr "다시 이동(_R)"
-
-#~ msgid "_Reset"
-#~ msgstr "리셋(_R)"
-
-#~ msgid "_Restart"
-#~ msgstr "게임 다시(_R)"
-
-#~ msgid "_Undo Move"
-#~ msgstr "이동 취소(_U)"
-
-#~ msgid "_Deal"
-#~ msgstr "패 돌리기(_D)"
-
-#~ msgid "_Leave Fullscreen"
-#~ msgstr "전체 화면 나가기(_L)"
-
-#~ msgid "Network _Game"
-#~ msgstr "네트워크 게임(_G)"
-
-#~ msgid "L_eave Game"
-#~ msgstr "게임 떠나기(_E)"
-
-#~ msgid "Player _List"
-#~ msgstr "플레이어 목록(_L)"
-
-#~ msgid "_Pause"
-#~ msgstr "일시 중지(_P)"
-
-#~ msgid "Res_ume"
-#~ msgstr "다시 시작(_U)"
-
-#~ msgid "_Scores"
-#~ msgstr "점수(_S)"
-
-#~ msgid "_End Game"
-#~ msgstr "게임 끝내기(_E)"
-
-#~ msgid ""
-#~ "%s is free software; you can redistribute it and/or modify it under the "
-#~ "terms of the GNU General Public License as published by the Free Software "
-#~ "Foundation; either version %d of the License, or (at your option) any "
-#~ "later version."
-#~ msgstr ""
-#~ "%s is free software; you can redistribute it and/or modify it under the "
-#~ "terms of the GNU General Public License as published by the Free Software "
-#~ "Foundation; either version %d of the License, or (at your option) any "
-#~ "later version."
-
-#~ msgid ""
-#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-#~ "details."
-#~ msgstr ""
-#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-#~ "details."
-
-#~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
-#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
-#~ msgstr ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
-#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
-
-#~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
-#~ msgstr ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
-
-#~ msgid "GNOME Games web site"
-#~ msgstr "그놈 게임 웹사이트"
-
-#~ msgid "Game over! The game has been won by %s!"
-#~ msgstr "게임이 끝났습니다! 게임은 %s 플레이어가 이겼습니다!"
-
-#~ msgid "_Game"
-#~ msgstr "게임(_G)"
-
-#~ msgid "_View"
-#~ msgstr "보기(_V)"
-
-#~ msgid "_Settings"
-#~ msgstr "설정(_S)"
-
-#~ msgid "_Help"
-#~ msgstr "도움말(_H)"
-
-#~ msgid "A worm game for GNOME."
-#~ msgstr "그놈 벌레 게임."
-
-#~ msgid "Chess"
-#~ msgstr "체스"
-
-#~ msgid "Play the classic two-player boardgame of chess"
-#~ msgstr "전통적인 2인 체스 보드 게임을 플레이합니다"
-
-#~ msgid "_Resign"
-#~ msgstr "항복(_R)"
-
-#~ msgid "Claim _Draw"
-#~ msgstr "무승부 선언(_D)"
-
-#~ msgid "Undo Move"
-#~ msgstr "이동 취소"
-
-#~ msgid "Resign"
-#~ msgstr "항복"
-
-#~ msgid "Rewind to the game start"
-#~ msgstr "게임 시작으로 돌아갑니다"
-
-#~ msgid "Show the previous move"
-#~ msgstr "이전 움직임 표시"
-
-#~ msgid "Show the next move"
-#~ msgstr "다음 움직임 표시"
-
-#~ msgid "Show the current move"
-#~ msgstr "현재 움직임 표시"
-
-#~ msgid "The width of the window"
-#~ msgstr "창의 너비"
-
-#~ msgid "The width of the main window in pixels."
-#~ msgstr "메인 창의 너비, 픽셀 단위."
-
-#~ msgid "The height of the window"
-#~ msgstr "창의 높이"
-
-#~ msgid "The height of the main window in pixels."
-#~ msgstr "메인 창의 높이, 픽셀 단위."
-
-#~ msgid "A flag to enable maximized mode"
-#~ msgstr "최대화 모드를 켜는 플래그"
-
-#~ msgid "A flag to enable fullscreen mode"
-#~ msgstr "전체 화면 모드를 켜는 플래그"
-
-#~ msgid "The piece to promote pawns to"
-#~ msgstr "폰을 프로모션할 종류"
-
-#~ msgid ""
-#~ "The piece to promote to when a human player moves a pawn to the far rank"
-#~ msgstr "사람 플레이어가 폰을 마지막 칸까지 옮겼을 때 프로모션할 말"
-
-#~ msgid "A flag to enable 3D mode"
-#~ msgstr "3차원 모드를 켜는 플래그"
-
-#~ msgid "A flag to smooth (anti-alias) the 3D display"
-#~ msgstr "3차원 화면을 부드럽게 하는(안티알리아싱) 플래그"
-
-#~ msgid "The piece theme to use"
-#~ msgstr "사용할 말 테마"
-
-#~ msgid "A flag to enable move hints"
-#~ msgstr "움직임 힌트를 켜는 플래그"
-
-#~ msgid "A flag to enable board numbering"
-#~ msgstr "보드 번호를 켜는 플래그"
-
-#~ msgid "A flag to enable the move history browser"
-#~ msgstr "움직임 기록 브라우저를 사용하는 플래그"
-
-#~ msgid "A flag to enable the toolbar"
-#~ msgstr "도구 모음을 사용하는 플래그"
-
-#~ msgid "The directory to open the save game dialog in"
-#~ msgstr "게임 저장하기 창을 열 디렉터리"
-
-#~ msgid "The directory to open the load game dialog in"
-#~ msgstr "게임 읽어들이기 창을 열 디렉터리"
-
-#~ msgid "The format to display moves in"
-#~ msgstr "움직임을 표시할 형식"
-
-#~ msgid "The side of the board that is in the foreground"
-#~ msgstr "플레이어 앞에 있는 게임판 가장자리"
-
-#~ msgid "The duration of a game in seconds (0 for no limit)"
-#~ msgstr "게임의 길이, 초 단위(0은 무제한)"
-
-#~ msgid "true if the human player is playing white"
-#~ msgstr "참이면 사람 플레이어가 백을 플레이"
-
-#~ msgid "The opponent player"
-#~ msgstr "적 플레이어"
-
-#~ msgid ""
-#~ "Can be 'human' (play against another human player), '' (use the first "
-#~ "available chess engine) or the name of a specific engine to play against"
-#~ msgstr ""
-#~ "가능한 값은 'human' (다른 사람 플레이어와 플레이), '' (처음 체스 엔진 사"
-#~ "용), 또는 플레이할 엔진의 이름."
-
-#~ msgid "Difficulty of the opponent chess engine"
-#~ msgstr "상대 체스 엔진의 난이도"
-
-#~ msgid "Preferences"
-#~ msgstr "기본 설정"
-
-#~ msgid "Play as:"
-#~ msgstr "플레이 색:"
-
-#~ msgid "Opposing Player:"
-#~ msgstr "상대 플레이어:"
-
-#~ msgid "Difficulty:"
-#~ msgstr "난이도:"
-
-#~ msgid "Game Duration:"
-#~ msgstr "게임 길이:"
-
-# 체스 용어 - 폰이 보드 맨 끝까지 갔을 때 뭘로 바꿀지
-#~ msgid "Promotion Type:"
-#~ msgstr "프로모션 종류:"
-
-#~ msgid "Changes will take effect for the next game."
-#~ msgstr "바뀐 내용은 다음 게임에 적용됩니다."
-
-#~ msgid "3_D Chess View"
-#~ msgstr "3차원 체스 보기(_D)"
-
-#~ msgid "_Smooth Display"
-#~ msgstr "부드럽게 표시(_S)"
-
-#~ msgid "Piece Style:"
-#~ msgstr "말 모양새:"
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "도구 모음 표시(_T)"
-
-#~ msgid "Show _History"
-#~ msgstr "기록 표시(_H)"
-
-#~ msgid "_Move Hints"
-#~ msgstr "움직임 힌트(_M)"
-
-#~ msgid "_Board Numbering"
-#~ msgstr "보드 번호(_B)"
-
-#~ msgid "Board Orientation:"
-#~ msgstr "보드 방향:"
-
-#~ msgid "Move Format:"
-#~ msgstr "움직임 형식:"
-
-#~ msgid "_Appearance"
-#~ msgstr "모양(_A)"
-
-#~ msgctxt "difficulty"
-#~ msgid "Easy"
-#~ msgstr "쉬움"
-
-#~ msgctxt "difficulty"
-#~ msgid "Normal"
-#~ msgstr "보통"
-
-#~ msgctxt "difficulty"
-#~ msgid "Hard"
-#~ msgstr "어려움"
-
-#~ msgctxt "chess-opponent"
-#~ msgid "Human"
-#~ msgstr "사람"
-
-#~ msgctxt "chess-player"
-#~ msgid "White"
-#~ msgstr "흰색"
-
-#~ msgctxt "chess-player"
-#~ msgid "Black"
-#~ msgstr "검정"
-
-#~ msgid "No limit"
-#~ msgstr "무제한"
-
-#~ msgid "One minute"
-#~ msgstr "1분"
-
-#~ msgid "Five minutes"
-#~ msgstr "5분"
-
-#~ msgid "30 minutes"
-#~ msgstr "30분"
-
-#~ msgid "One hour"
-#~ msgstr "1시간"
-
-#~ msgid "Custom"
-#~ msgstr "사용자 정의"
-
-#~ msgid "Simple"
-#~ msgstr "간단"
-
-#~ msgid "Fancy"
-#~ msgstr "화려"
-
-#~ msgctxt "chess-side"
-#~ msgid "White Side"
-#~ msgstr "흰색 쪽"
-
-#~ msgctxt "chess-side"
-#~ msgid "Black Side"
-#~ msgstr "검정 쪽"
-
-#~ msgctxt "chess-side"
-#~ msgid "Human Side"
-#~ msgstr "사람 쪽"
-
-#~ msgctxt "chess-side"
-#~ msgid "Current Player"
-#~ msgstr "현재 플레이어"
-
-#~ msgctxt "chess-side"
-#~ msgid "Face to Face"
-#~ msgstr "마주보기"
-
-#~ msgctxt "chess-move-format"
-#~ msgid "Human"
-#~ msgstr "사람"
-
-#~ msgctxt "chess-move-format"
-#~ msgid "Standard Algebraic"
-#~ msgstr "기본 연산"
-
-#~ msgctxt "chess-move-format"
-#~ msgid "Figurine"
-#~ msgstr "피규린 연산"
-
-#~ msgctxt "chess-move-format"
-#~ msgid "Long Algebraic"
-#~ msgstr "긴 연산"
-
-#~ msgctxt "chess-piece"
-#~ msgid "Queen"
-#~ msgstr "퀸"
-
-# 임의 password generator의 결과.  번역하기는 좀.
-#~ msgctxt "chess-piece"
-#~ msgid "Knight"
-#~ msgstr "나이트"
-
-#~ msgctxt "chess-piece"
-#~ msgid "Rook"
-#~ msgstr "루크"
-
-#~ msgctxt "chess-piece"
-#~ msgid "Bishop"
-#~ msgstr "비숍"
-
-#~ msgid "%1$s (%2$s) - Chess"
-#~ msgstr "%1$s (%2$s) - 체스"
-
-#~ msgid "Game Start"
-#~ msgstr "게임 시작"
-
-#~ msgid "White pawn moves from %1$s to %2$s"
-#~ msgstr "흰색 폰이 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "White pawn at %1$s takes the black pawn at %2$s"
-#~ msgstr "흰색 폰이(위치 %1$s) 검은색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "White pawn at %1$s takes the black rook at %2$s"
-#~ msgstr "흰색 폰이(위치 %1$s) 검은색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "White pawn at %1$s takes the black knight at %2$s"
-#~ msgstr "흰색 폰이(위치 %1$s) 검은색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "White pawn at %1$s takes the black bishop at %2$s"
-#~ msgstr "흰색 폰이(위치 %1$s) 검은색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "White pawn at %1$s takes the black queen at %2$s"
-#~ msgstr "흰색 폰이(위치 %1$s) 검은색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "White rook moves from %1$s to %2$s"
-#~ msgstr "흰색 루크가 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "White rook at %1$s takes the black pawn at %2$s"
-#~ msgstr "흰색 루크가(위치 %1$s) 검은색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "White rook at %1$s takes the black rook at %2$s"
-#~ msgstr "흰색 루크가(위치 %1$s) 검은색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "White rook at %1$s takes the black knight at %2$s"
-#~ msgstr "흰색 루크가(위치 %1$s) 검은색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "White rook at %1$s takes the black bishop at %2$s"
-#~ msgstr "흰색 루크가(위치 %1$s) 검은색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "White rook at %1$s takes the black queen at %2$s"
-#~ msgstr "흰색 루크가(위치 %1$s) 검은색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "White knight moves from %1$s to %2$s"
-#~ msgstr "흰색 나이트가 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "White knight at %1$s takes the black pawn at %2$s"
-#~ msgstr "흰색 나이트가(위치 %1$s) 검은색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "White knight at %1$s takes the black rook at %2$s"
-#~ msgstr "흰색 나이트가(위치 %1$s) 검은색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "White knight at %1$s takes the black knight at %2$s"
-#~ msgstr "흰색 나이트가(위치 %1$s) 검은색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "White knight at %1$s takes the black bishop at %2$s"
-#~ msgstr "흰색 나이트가(위치 %1$s) 검은색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "White knight at %1$s takes the black queen at %2$s"
-#~ msgstr "흰색 나이트가(위치 %1$s) 검은색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "White bishop moves from %1$s to %2$s"
-#~ msgstr "흰색 비숍이 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "White bishop at %1$s takes the black pawn at %2$s"
-#~ msgstr "흰색 비숍이(위치 %1$s) 검은색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "White bishop at %1$s takes the black rook at %2$s"
-#~ msgstr "흰색 비숍이(위치 %1$s) 검은색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "White bishop at %1$s takes the black knight at %2$s"
-#~ msgstr "흰색 비숍이(위치 %1$s) 검은색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "White bishop at %1$s takes the black bishop at %2$s"
-#~ msgstr "흰색 비숍이(위치 %1$s) 검은색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "White bishop at %1$s takes the black queen at %2$s"
-#~ msgstr "흰색 비숍이(위치 %1$s) 검은색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "White queen moves from %1$s to %2$s"
-#~ msgstr "흰색 퀸이 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "White queen at %1$s takes the black pawn at %2$s"
-#~ msgstr "흰색 퀸이(위치 %1$s) 검은색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "White queen at %1$s takes the black rook at %2$s"
-#~ msgstr "흰색 퀸이(위치 %1$s) 검은색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "White queen at %1$s takes the black knight at %2$s"
-#~ msgstr "흰색 퀸이(위치 %1$s) 검은색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "White queen at %1$s takes the black bishop at %2$s"
-#~ msgstr "흰색 퀸이(위치 %1$s) 검은색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "White queen at %1$s takes the black queen at %2$s"
-#~ msgstr "흰색 퀸이(위치 %1$s) 검은색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "White king moves from %1$s to %2$s"
-#~ msgstr "흰색 킹이 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "White king at %1$s takes the black pawn at %2$s"
-#~ msgstr "흰색 킹이(위치 %1$s) 검은색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "White king at %1$s takes the black rook at %2$s"
-#~ msgstr "흰색 킹이(위치 %1$s) 검은색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "White king at %1$s takes the black knight at %2$s"
-#~ msgstr "흰색 킹이(위치 %1$s) 검은색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "White king at %1$s takes the black bishop at %2$s"
-#~ msgstr "흰색 킹이(위치 %1$s) 검은색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "White king at %1$s takes the black queen at %2$s"
-#~ msgstr "흰색 킹이(위치 %1$s) 검은색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "Black pawn moves from %1$s to %2$s"
-#~ msgstr "검은색 폰이 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "Black pawn at %1$s takes the white pawn at %2$s"
-#~ msgstr "검은색 폰이(위치 %1$s) 흰색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "Black pawn at %1$s takes the white rook at %2$s"
-#~ msgstr "검은색 폰이(위치 %1$s) 흰색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "Black pawn at %1$s takes the white knight at %2$s"
-#~ msgstr "검은색 폰이(위치 %1$s) 흰색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "Black pawn at %1$s takes the white bishop at %2$s"
-#~ msgstr "검은색 폰이(위치 %1$s) 흰색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "Black pawn at %1$s takes the white queen at %2$s"
-#~ msgstr "검은색 폰이(위치 %1$s) 흰색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "Black rook moves from %1$s to %2$s"
-#~ msgstr "검은색 루크가 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "Black rook at %1$s takes the white pawn at %2$s"
-#~ msgstr "검은색 루크가(위치 %1$s) 흰색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "Black rook at %1$s takes the white rook at %2$s"
-#~ msgstr "검은색 루크가(위치 %1$s) 흰색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "Black rook at %1$s takes the white knight at %2$s"
-#~ msgstr "검은색 루크가(위치 %1$s) 흰색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "Black rook at %1$s takes the white bishop at %2$s"
-#~ msgstr "검은색 루크가(위치 %1$s) 흰색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "Black rook at %1$s takes the white queen at %2$s"
-#~ msgstr "검은색 루크가(위치 %1$s) 흰색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "Black knight moves from %1$s to %2$s"
-#~ msgstr "검은색 나이트가 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "Black knight at %1$s takes the white pawn at %2$s"
-#~ msgstr "검은색 나이트가(위치 %1$s) 흰색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "Black knight at %1$s takes the white rook at %2$s"
-#~ msgstr "검은색 나이트가(위치 %1$s) 흰색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "Black knight at %1$s takes the white knight at %2$s"
-#~ msgstr "검은색 나이트가(위치 %1$s) 흰색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "Black knight at %1$s takes the white bishop at %2$s"
-#~ msgstr "검은색 나이트가(위치 %1$s) 흰색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "Black knight at %1$s takes the white queen at %2$s"
-#~ msgstr "검은색 나이트가(위치 %1$s) 흰색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "Black bishop moves from %1$s to %2$s"
-#~ msgstr "검은색 비숍이 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "Black bishop at %1$s takes the white pawn at %2$s"
-#~ msgstr "검은색 비숍이(위치 %1$s) 흰색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "Black bishop at %1$s takes the white rook at %2$s"
-#~ msgstr "검은색 비숍이(위치 %1$s) 흰색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "Black bishop at %1$s takes the white knight at %2$s"
-#~ msgstr "검은색 비숍이(위치 %1$s) 흰색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "Black bishop at %1$s takes the white bishop at %2$s"
-#~ msgstr "검은색 비숍이(위치 %1$s) 흰색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "Black bishop at %1$s takes the white queen at %2$s"
-#~ msgstr "검은색 비숍이(위치 %1$s) 흰색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "Black queen moves from %1$s to %2$s"
-#~ msgstr "검은색 퀸이 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "Black queen at %1$s takes the white pawn at %2$s"
-#~ msgstr "검은색 퀸이(위치 %1$s) 흰색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "Black queen at %1$s takes the white rook at %2$s"
-#~ msgstr "검은색 퀸이(위치 %1$s) 흰색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "Black queen at %1$s takes the white knight at %2$s"
-#~ msgstr "검은색 퀸이(위치 %1$s) 흰색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "Black queen at %1$s takes the white bishop at %2$s"
-#~ msgstr "검은색 퀸이(위치 %1$s) 흰색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "Black queen at %1$s takes the white queen at %2$s"
-#~ msgstr "검은색 퀸이(위치 %1$s) 흰색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "Black king moves from %1$s to %2$s"
-#~ msgstr "검은색 킹이 %1$s에서 %2$s 위치로 이동"
-
-#~ msgid "Black king at %1$s takes the white pawn at %2$s"
-#~ msgstr "검은색 킹이(위치 %1$s) 흰색 폰을(위치 %2$s) 먹음"
-
-#~ msgid "Black king at %1$s takes the white rook at %2$s"
-#~ msgstr "검은색 킹이(위치 %1$s) 흰색 루크를(위치 %2$s) 먹음"
-
-#~ msgid "Black king at %1$s takes the white knight at %2$s"
-#~ msgstr "검은색 킹이(위치 %1$s) 흰색 나이트를(위치 %2$s) 먹음"
-
-#~ msgid "Black king at %1$s takes the white bishop at %2$s"
-#~ msgstr "검은색 킹이(위치 %1$s) 흰색 비숍을(위치 %2$s) 먹음"
-
-#~ msgid "Black king at %1$s takes the white queen at %2$s"
-#~ msgstr "검은색 킹이(위치 %1$s) 흰색 퀸을(위치 %2$s) 먹음"
-
-#~ msgid "White wins"
-#~ msgstr "흰색 승리"
-
-#~ msgid "Black wins"
-#~ msgstr "검정 승리"
-
-#~ msgid "Game is drawn"
-#~ msgstr "게임이 무승부입니다"
-
-#~ msgid "Opponent is in check and cannot move (checkmate)"
-#~ msgstr "상대편이 체크 상태이고 움직일 수 없습니다(체크메이트)"
-
-# 체스 용어
-#~ msgid "Opponent cannot move (stalemate)"
-#~ msgstr "상대편이 움직일 수 없습니다(스테일메이트)"
-
-#~ msgid "No piece has been taken or pawn moved in the last fifty moves"
-#~ msgstr "잡은 말이 없거나 폰이 마지막 15번째 칸까지 이동했습니다"
-
-#~ msgid "Opponent has run out of time"
-#~ msgstr "상대편이 제한 시간이 지났습니다"
-
-#~ msgid ""
-#~ "The same board state has occurred three times (three fold repetition)"
-#~ msgstr "같은 보드 상태가 세 번 발생했습니다  (3수 반복 규칙)"
-
-#~ msgid "Neither player can cause checkmate (insufficient material)"
-#~ msgstr "어느쪽의 플레이어도 체크메이트를 할 수 없습니다(경우의 수 부족)"
-
-#~ msgid "The black player has resigned"
-#~ msgstr "검은 플레이어가 항복했습니다"
-
-#~ msgid "The white player has resigned"
-#~ msgstr "흰색 플레이어가 항복했습니다"
-
-#~ msgid "The game has been abandoned"
-#~ msgstr "게임을 버립니다"
-
-#~ msgid "One of the players has died"
-#~ msgstr "플레이어가 죽었습니다"
-
-#~ msgid "Save this game before starting a new one?"
-#~ msgstr "새로 시작하기 전에 이 게임을 저장하시겠습니까?"
-
-#~ msgid "_Abandon game"
-#~ msgstr "게임 버리기(_A)"
-
-#~ msgid "_Save game for later"
-#~ msgstr "다음을 위해 게임 저장(_S)"
-
-#~ msgid "second"
-#~ msgid_plural "seconds"
-#~ msgstr[0] "초"
-
-#~ msgid "minute"
-#~ msgid_plural "minutes"
-#~ msgstr[0] "분"
-
-#~ msgid "hour"
-#~ msgid_plural "hours"
-#~ msgstr[0] "시간"
-
-#~ msgid ""
-#~ "The 2D/3D chess game for GNOME. \n"
-#~ "\n"
-#~ "glChess is a part of GNOME Games."
-#~ msgstr ""
-#~ "그놈 2D/3D 체스.\n"
-#~ "\n"
-#~ "GL체스는 그놈 게임의 일부입니다."
-
-#~ msgid "Save Chess Game"
-#~ msgstr "체스 게임 저장"
-
-#~ msgid "PGN files"
-#~ msgstr "PGN 파일"
-
-#~ msgid "All files"
-#~ msgstr "모든 파일"
-
-#~ msgid "Failed to save game: %s"
-#~ msgstr "게임 저장에 실패했습니다: %s"
-
-#~ msgid "Load Chess Game"
-#~ msgstr "체스 게임 읽어들이기"
-
-#~ msgid "Failed to open game: %s"
-#~ msgstr "게임 열기에 실패했습니다: %s"
-
-#~ msgid "Show release version"
-#~ msgstr "릴리스 버전을 표시합니다"
-
-#~ msgid "[FILE] - Play Chess"
-#~ msgstr "[파일] - 체스를 플레이합니다"
-
-#~ msgid ""
-#~ "Run '%s --help' to see a full list of available command line options."
-#~ msgstr ""
-#~ "사용 가능한 모든 옵션의 목록을 보려면 '%s --help' 명령을 실행하십시오."
-
-#~ msgid "Five or More"
-#~ msgstr "다섯개"
-
-#~ msgid "Remove colored balls from the board by forming lines"
-#~ msgstr "색색의 공을 제거해 한 줄로 만듭니다"
-
-#~ msgid "Five or More Preferences"
-#~ msgstr "다섯개 기본 설정"
-
-#~ msgid "Appearance"
-#~ msgstr "모양"
-
-#~ msgid "_Image:"
-#~ msgstr "그림(_I):"
-
-#~ msgid "B_ackground color:"
-#~ msgstr "배경색(_A):"
-
-#~ msgid "Board Size"
-#~ msgstr "보드 크기"
-
-#~ msgid "_Small"
-#~ msgstr "작게(_S)"
-
-#~ msgid "_Medium"
-#~ msgstr "중간(_M)"
-
-#~ msgid "_Large"
-#~ msgstr "크게(_L)"
-
-#~ msgid "General"
-#~ msgstr "일반"
-
-#~ msgid "_Use fast moves"
-#~ msgstr "빨리 움직임(_U)"
-
-#~ msgid "Five or more"
-#~ msgstr "다섯개"
-
-#~ msgid "Scores"
-#~ msgstr "점수"
-
-#~ msgid "Next:"
-#~ msgstr "다음:"
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "Score:"
-#~ msgstr "점수:"
-
-#~ msgid "Playing field size"
-#~ msgstr "게임판 크기"
-
-#~ msgid ""
-#~ "Playing field size. 1=Small, 2=Medium, 3=Large. Any other value is "
-#~ "invalid."
-#~ msgstr "게임판 크기. 1=작게, 2=중간, 3=크게. 다른 값은 사용할 수 없습니다."
-
-#~ msgid "Ball style"
-#~ msgstr "볼 모양새"
-
-#~ msgid "Ball style. The filename of the images to use for the balls."
-#~ msgstr "볼 모양새. 볼에 사용할 그림 파일 이름."
-
-#~ msgid "Background color"
-#~ msgstr "배경색"
-
-#~ msgid "Background color. The hex specification of the background color."
-#~ msgstr "배경색. 배경색 16진수 방식으로 지정합니다."
-
-#~ msgid "Time between moves"
-#~ msgstr "움직임 사이의 시간"
-
-#~ msgid "Time between moves in milliseconds."
-#~ msgstr "움직임 사이의 시간(천분의 일초 단위)."
-
-#~ msgid "Game score"
-#~ msgstr "게임 점수"
-
-#~ msgid "Game score from last saved session."
-#~ msgstr "지난번 저장했던 세션의 게임 점수."
-
-#~ msgid "Game field"
-#~ msgstr "게임판"
-
-#~ msgid "Game field from last saved session."
-#~ msgstr "지난번 저장했던 세션의 게임 판."
-
-#~ msgid "Game preview"
-#~ msgstr "게임 미리 보기"
-
-#~ msgid "Game preview from last saved session."
-#~ msgstr "지난번 저장했던 세션의 게임 미리 보기."
-
-#~ msgid "Width of the window in pixels"
-#~ msgstr "창의 너비, 픽셀 단위."
-
-#~ msgid "Height of the window in pixels"
-#~ msgstr "창의 높이, 픽셀 단위."
-
-#~ msgid "true if the window is maximized"
-#~ msgstr "참이면 창을 최대화"
-
-#~ msgid "true if the window is fullscren"
-#~ msgstr "참이면 창을 전체 화면"
-
-#~ msgctxt "board size"
-#~ msgid "Small"
-#~ msgstr "작게"
-
-#~ msgctxt "board size"
-#~ msgid "Medium"
-#~ msgstr "중간"
-
-#~ msgctxt "board size"
-#~ msgid "Large"
-#~ msgstr "크게"
-
-#~ msgid "Could not load theme"
-#~ msgstr "테마를 읽어들일 수 없습니다"
-
-#~ msgid ""
-#~ "Unable to locate file:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "The default theme will be loaded instead."
-#~ msgstr ""
-#~ "파일을 찾을 수 없습니다: \n"
-#~ "%s\n"
-#~ "\n"
-#~ "기본 타일 세트를 읽어들입니다."
-
-#~ msgid ""
-#~ "Unable to locate file:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Please check that Five or More is installed correctly."
-#~ msgstr ""
-#~ "파일을 찾을 수 없습니다: \n"
-#~ "%s\n"
-#~ "\n"
-#~ "다섯개가 제대로 설치되었는지 확인하십시오"
-
-#~ msgid "Match five objects of the same type in a row to score!"
-#~ msgstr ""
-#~ "점수를 올리려면 같은 색의 동그라미 다섯 개를 한 줄에 늘어 놓으십시오!"
-
-#~ msgid "GNOME Five or More"
-#~ msgstr "그놈 다섯개"
-
-#~ msgid "_Board size:"
-#~ msgstr "보드 크기(_B):"
-
-#~ msgid "Game Over!"
-#~ msgstr "게임 끝!"
-
-#~ msgid "You can't move there!"
-#~ msgstr "거기로 이동할 수 없습니다!"
-
-#~ msgid ""
-#~ "GNOME port of the once-popular Color Lines game.\n"
-#~ "\n"
-#~ "Five or More is a part of GNOME Games."
-#~ msgstr ""
-#~ "한때 유행했던 색상 라인 게임을 그놈으로 옮겼습니다.\n"
-#~ "\n"
-#~ "다섯개는 그놈 게임의 일부입니다."
-
-#~ msgid "Four-in-a-Row"
-#~ msgstr "사목"
-
-#~ msgid "Make lines of the same color to win"
-#~ msgstr "같은 색을 한 줄로 놓아야 이기는 게임"
-
-#~ msgid "Level of Player One"
-#~ msgstr "플레이어 1의 수준"
-
-#~ msgid ""
-#~ "Zero is human; one through three correspond to the level of the computer "
-#~ "player."
-#~ msgstr "0은 사용자; 1부터 3은 컴퓨터 플레이어의 수준에 해당합니다."
-
-#~ msgid "Level of Player Two"
-#~ msgstr "플레이어 2의 수준"
-
-#~ msgid "Theme ID"
-#~ msgstr "테마 ID"
-
-#~ msgid "A number specifying the preferred theme."
-#~ msgstr "사용할 테마를 지정하는 숫자."
-
-#~ msgid "Animate"
-#~ msgstr "애니메이션"
-
-#~ msgid "Whether or not to use animation."
-#~ msgstr "애니메이션을 사용할 지 여부."
-
-#~ msgid "Sound"
-#~ msgstr "소리"
-
-#~ msgid "Whether or not to play event sounds."
-#~ msgstr "이벤트 사운드를 재생할 지 여부."
-
-#~ msgid "Key press to move left."
-#~ msgstr "왼쪽으로 이동할 때 누를 키."
-
-#~ msgid "Key press to move right."
-#~ msgstr "오른쪽으로 이동할 때 누를 키."
-
-#~ msgid "Drop marble"
-#~ msgstr "돌 떨어뜨리기"
-
-#~ msgid "Key press to drop a marble."
-#~ msgstr "돌 떨어뜨릴 때 누를 키."
-
-#~ msgid ""
-#~ "Unable to load image:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "그림을 읽어들일 수 없습니다:\n"
-#~ "%s"
-
-#~ msgid "It's a draw!"
-#~ msgstr "무승부입니다!"
-
-#~ msgid "You win!"
-#~ msgstr "당신이 이겼습니다!"
-
-#~ msgid "It is your move."
-#~ msgstr "당신 차례입니다."
-
-#~ msgid "I win!"
-#~ msgstr "내가 이겼습니다!"
-
-#~ msgid "Thinking..."
-#~ msgstr "생각중..."
-
-#~ msgid "%s wins!"
-#~ msgstr "%s의 승리!"
-
-#~ msgid "Waiting for %s to move."
-#~ msgstr "%s의 차례를 기다리는 중입니다."
-
-#~ msgid "Hint: Column %d"
-#~ msgstr "힌트: %d열"
-
-#~ msgid "You:"
-#~ msgstr "당신:"
-
-#~ msgid "Me:"
-#~ msgstr "나:"
-
-#~ msgid "Drawn:"
-#~ msgstr "무승부:"
-
-#~ msgid ""
-#~ "\"Four in a Row\" for GNOME, with a computer player driven by Giuliano "
-#~ "Bertoletti's Velena Engine.\n"
-#~ "\n"
-#~ "\"Four in a Row\" is a part of GNOME Games."
-#~ msgstr ""
-#~ "그놈 \"사목\" 게임. 컴퓨터 플레이어는 Giuliano Bertoletti의 Velena 엔진에 "
-#~ "기반했습니다.\n"
-#~ "\n"
-#~ "\"사목\"은 그놈 게임의 일부입니다."
-
-#~ msgid "Four-in-a-row"
-#~ msgstr "사목"
-
-#~ msgid "Four-in-a-Row Preferences"
-#~ msgstr "사목 기본 설정"
-
-#~ msgid "Player One:"
-#~ msgstr "플레이어 1:"
-
-#~ msgid "Human"
-#~ msgstr "사람"
-
-#~ msgid "Level one"
-#~ msgstr "수준 하"
-
-#~ msgid "Level two"
-#~ msgstr "수준 중"
-
-#~ msgid "Level three"
-#~ msgstr "수준 상"
-
-#~ msgid "Player Two:"
-#~ msgstr "플레이어 2:"
-
-#~ msgid "_Theme:"
-#~ msgstr "테마(_T):"
-
-#~ msgid "Enable _animation"
-#~ msgstr "애니메이션 사용(_A)"
-
-#~ msgid "Keyboard Controls"
-#~ msgstr "키보드 조작"
-
-#~ msgid "Classic"
-#~ msgstr "클래식"
-
-#~ msgid "High Contrast"
-#~ msgstr "고대비"
-
-#~ msgid "Circle"
-#~ msgstr "원"
-
-#~ msgid "Cross"
-#~ msgstr "십자가"
-
-#~ msgid "High Contrast Inverse"
-#~ msgstr "고대비 반전"
-
-#~ msgid "Cream Marbles"
-#~ msgstr "크림 대리석"
-
-#~ msgid "Glass Marbles"
-#~ msgstr "유리 대리석"
-
-#~ msgid "Nightfall"
-#~ msgstr "황혼"
-
-#~ msgid "Blocks"
-#~ msgstr "블록"
-
-#~ msgid "Orange"
-#~ msgstr "주황"
-
-#~ msgid "Robots"
-#~ msgstr "로봇"
-
-#~ msgid "Avoid the robots and make them crash into each other"
-#~ msgstr "로봇을 피해 서로 부딪혀 부서지도록 합니다"
-
-#~ msgid "Show toolbar"
-#~ msgstr "도구 모음 보기"
-
-#~ msgid "Show toolbar. A standard option for toolbars."
-#~ msgstr "도구 모음 보기. 도구 모음 표준 옵션."
-
-#~ msgid "Robot image theme"
-#~ msgstr "로봇 그림 테마"
-
-#~ msgid "Robot image theme. The theme of the images to use for the robots."
-#~ msgstr "로봇 그림 테마. 로봇에 사용할 그림의 테마입니다."
-
-#~ msgid "Game type"
-#~ msgstr "게임 종류"
-
-#~ msgid "Game type. The name of the game variation to use."
-#~ msgstr "게임 종류. 플레이할 게임 종류의 이름."
-
-#~ msgid "Use safe moves"
-#~ msgstr "안전한 움직임"
-
-#~ msgid ""
-#~ "Use safe moves. The safe moves option will help you to avoid being killed "
-#~ "due to a mistake. If you try to make a move that would lead to your death "
-#~ "when there is a safe move available you will not be allowed to proceed."
-#~ msgstr ""
-#~ "안전한 움직임. 안전한 움직임 옵션은 실수로 죽는 일이 없도록 합니다. 안전"
-#~ "한 움직임을 사용하면 움직이면 죽음에 이르는 쪽으로는 움직이지 못하게 됩니"
-#~ "다."
-
-#~ msgid "Use super safe moves"
-#~ msgstr "수퍼 안전한 움직임"
-
-#~ msgid ""
-#~ "Use super safe moves. The player is alerted when there is no safe move "
-#~ "and the only option is to teleport out."
-#~ msgstr ""
-#~ "수퍼 안전한 움직임. 안전하게 움직이는 방법이 없고 텔레포트만 할 수 있는 경"
-#~ "우에 플레이어에게 알려줍니다."
-
-#~ msgid "Enable game sounds"
-#~ msgstr "게임 사운드 사용"
-
-#~ msgid ""
-#~ "Enable game sounds. Play sounds for various events throughout the game."
-#~ msgstr "게임 사운드 사용. 게임중에 여러가지 이벤트에 대한 소리를 냅니다."
-
-#~ msgid "Key to move NW"
-#~ msgstr "북서쪽으로 이동하는 키"
-
-#~ msgid "The key used to move north-west."
-#~ msgstr "북서쪽으로 이동할 때 사용할 키."
-
-#~ msgid "Key to move N"
-#~ msgstr "북쪽으로 이동하는 키"
-
-#~ msgid "The key used to move north."
-#~ msgstr "북쪽으로 이동할 때 사용할 키."
-
-#~ msgid "Key to move NE"
-#~ msgstr "북동쪽으로 이동하는 키"
-
-#~ msgid "The key used to move north-east."
-#~ msgstr "북동쪽으로 이동할 때 사용할 키."
-
-#~ msgid "Key to move W"
-#~ msgstr "서쪽으로 이동하는 키"
-
-#~ msgid "The key used to move west."
-#~ msgstr "서쪽으로 이동할 때 사용할 키."
-
-#~ msgid "Key to hold"
-#~ msgstr "위치 유지하는 키"
-
-#~ msgid "The key used to hold still."
-#~ msgstr "위치를 유지할 때 사용할 키."
-
-#~ msgid "Key to move E"
-#~ msgstr "동쪽으로 이동하는 키"
-
-#~ msgid "The key used to move east."
-#~ msgstr "동쪽으로 이동할 때 사용할 키."
-
-#~ msgid "Key to move SW"
-#~ msgstr "남서쪽으로 이동하는 키"
-
-#~ msgid "The key used to move south-west."
-#~ msgstr "남서쪽으로 이동할 때 사용할 키."
-
-#~ msgid "Key to move S"
-#~ msgstr "남쪽으로 이동하는 키"
-
-#~ msgid "The key used to move south."
-#~ msgstr "남쪽으로 이동할 때 사용할 키."
-
-#~ msgid "Key to move SE"
-#~ msgstr "남동쪽으로 이동하는 키"
-
-#~ msgid "The key used to move south-east."
-#~ msgstr "남동쪽으로 이동할 때 사용할 키."
-
-#~ msgid "Key to teleport"
-#~ msgstr "텔레포트하는 키"
-
-#~ msgid "The key used to teleport safely (if possible)."
-#~ msgstr "안전하게 텔레포트할 때(할 수 있는 경우) 사용할 키."
-
-#~ msgid "Key to teleport randomly"
-#~ msgstr "임의 위치로 텔레포트하는 키"
-
-#~ msgid "The key used to teleport randomly."
-#~ msgstr "임의로 텔레포트할 때 사용할 키."
-
-#~ msgid "Key to wait"
-#~ msgstr "기다리는 키"
-
-#~ msgid "The key used to wait."
-#~ msgstr "기다릴 때 사용할 키."
-
-#~ msgid "Game over!"
-#~ msgstr "게임 끝!"
-
-#~ msgid "Great work, but unfortunately your score did not make the top ten."
-#~ msgstr "잘 했지만 아쉽게도 점수가 10위 안에 들지 못했습니다."
-
-#~ msgid "Robots Scores"
-#~ msgstr "로봇 점수"
-
-#~ msgid "Map:"
-#~ msgstr "맵:"
-
-#~ msgid ""
-#~ "Congratulations, You Have Defeated the Robots!! \n"
-#~ "But Can You do it Again?"
-#~ msgstr ""
-#~ "축하합니다. 로봇들을 물리쳤습니다!! \n"
-#~ "다시 플레이하시겠습니까?"
-
-#~ msgid "There are no teleport locations left!!"
-#~ msgstr "텔레포트할 위치가 남아 있지 않습니다!!"
-
-#~ msgid "There are no safe locations to teleport to!!"
-#~ msgstr "텔레포트할 안전한 위치가 남아 있지 않습니다!!"
-
-#~ msgid "Set game scenario"
-#~ msgstr "게임 시나리오 설정"
-
-#~ msgid "NAME"
-#~ msgstr "<이름>"
-
-#~ msgid "Set game configuration"
-#~ msgstr "게임 설정"
-
-#~ msgid "Initial window position"
-#~ msgstr "처음 창 위치"
-
-#~ msgid "X"
-#~ msgstr "X"
-
-#~ msgid "Y"
-#~ msgstr "Y"
-
-#~ msgid "Classic robots"
-#~ msgstr "전통적 로봇"
-
-#~ msgid "Classic robots with safe moves"
-#~ msgstr "전통적인 로봇, 안전한 움직임"
-
-#~ msgid "Classic robots with super-safe moves"
-#~ msgstr "전통적인 로봇, 수퍼 안전한 움직임"
-
-#~ msgid "Nightmare"
-#~ msgstr "악몽"
-
-#~ msgid "Nightmare with safe moves"
-#~ msgstr "악몽, 안전한 움직임"
-
-#~ msgid "Nightmare with super-safe moves"
-#~ msgstr "악몽, 수퍼 안전한 움직임"
-
-#~ msgid "Robots2"
-#~ msgstr "로봇2"
-
-#~ msgid "Robots2 with safe moves"
-#~ msgstr "로봇2, 안전한 움직임"
-
-#~ msgid "Robots2 with super-safe moves"
-#~ msgstr "로봇2, 수퍼 안전한 움직임"
-
-#~ msgid "Robots2 easy"
-#~ msgstr "로봇2 쉽게"
-
-#~ msgid "Robots2 easy with safe moves"
-#~ msgstr "안전한 움직임이 있는 로봇2 쉽게"
-
-#~ msgid "Robots2 easy with super-safe moves"
-#~ msgstr "수퍼 안전한 움직임이 있는 로봇2 쉽게"
-
-#~ msgid "Robots with safe teleport"
-#~ msgstr "로봇, 안전한 텔레포트"
-
-#~ msgid "Robots with safe teleport with safe moves"
-#~ msgstr "로봇, 안전한 텔레포트 및 안전한 움직임"
-
-#~ msgid "Robots with safe teleport with super-safe moves"
-#~ msgstr "로봇, 안전한 텔레포트 및 수퍼 안전한 움직임"
-
-#~ msgid "No game data could be found."
-#~ msgstr "게임 데이터를 찾을 수 없습니다."
-
-#~ msgid ""
-#~ "The program Robots was unable to find any valid game configuration files. "
-#~ "Please check that the program is installed correctly."
-#~ msgstr ""
-#~ "로봇 프로그램에서 올바른 게임 설정 파일을 찾지 못했습니다. 프로그램이 올바"
-#~ "르게 설치되었는지 확인하십시오."
-
-#~ msgid "Some graphics files are missing or corrupt."
-#~ msgstr "그래픽 파일중에 없거나 망가진 파일이 있습니다."
-
-#~ msgid ""
-#~ "The program Robots was unable to load all the necessary graphics files. "
-#~ "Please check that the program is installed correctly."
-#~ msgstr ""
-#~ "로봇 프로그램에서 필요한 그래픽 파일을 읽어들이지 못했습니다. 프로그램이 "
-#~ "올바르게 설치되었는지 확인하십시오."
-
-#~ msgid "Could not find '%s' pixmap file\n"
-#~ msgstr "'%s' 픽스맵 파일을 찾을 수 없습니다\n"
-
-#~ msgid "_Move"
-#~ msgstr "이동(_M)"
-
-#~ msgid "_Teleport"
-#~ msgstr "텔레포트(_T)"
-
-#~ msgid "Teleport, safely if possible"
-#~ msgstr "텔레포트, 할 수 있으면 안전하게"
-
-#~ msgid "_Random"
-#~ msgstr "임의(_R)"
-
-#~ msgid "Teleport randomly"
-#~ msgstr "임의 위치로 텔레포트"
-
-#~ msgid "_Wait"
-#~ msgstr "기다리기(_W)"
-
-#~ msgid "Wait for the robots"
-#~ msgstr "로봇을 기다립니다"
-
-#~ msgid "_Toolbar"
-#~ msgstr "도구 모음(_T)"
-
-#~ msgid "Show or hide the toolbar"
-#~ msgstr "도구 모음 보이기 혹은 감추기"
-
-#~ msgid ""
-#~ "Based on classic BSD Robots.\n"
-#~ "\n"
-#~ "Robots is a part of GNOME Games."
-#~ msgstr ""
-#~ "전통적인 BSD 로봇 게임에 기반합니다.\n"
-#~ "\n"
-#~ "로봇은 그놈 게임의 일부입니다."
-
-#~ msgid "Robots Preferences"
-#~ msgstr "로봇 기본 설정"
-
-#~ msgid "Game Type"
-#~ msgstr "게임 종류"
-
-#~ msgid "_Use safe moves"
-#~ msgstr "안전한 움직임 사용(_U)"
-
-#~ msgid "Prevent accidental moves that result in getting killed."
-#~ msgstr "죽게 되는 움직임을 우연히 하지 못하도록 막습니다."
-
-#~ msgid "U_se super safe moves"
-#~ msgstr "수퍼 안전한 움직임 사용(_S)"
-
-#~ msgid "Prevents all moves that result in getting killed."
-#~ msgstr "죽게 되는 움직임을 무엇이든 하지 못하도록 막습니다."
-
-#~ msgid "_Enable sounds"
-#~ msgstr "사운드 사용(_E)"
-
-#~ msgid "Play sounds for events like winning a level and dying."
-#~ msgstr "레벨을 마쳤거나 죽을 때와 같은 이벤트에 대해 소리를 냅니다."
-
-#~ msgid "_Image theme:"
-#~ msgstr "이미지 테마(_I):"
-
-#~ msgid "_Background color:"
-#~ msgstr "배경색(_B):"
-
-#~ msgid "_Restore Defaults"
-#~ msgstr "기본값으로 되돌리기(_R)"
-
-#~ msgid "Keyboard"
-#~ msgstr "키보드"
-
-#~ msgid "Safe Teleports:"
-#~ msgstr "안전한 텔레포트:"
-
-#~ msgid "Level:"
-#~ msgstr "단계:"
-
-#~ msgid "Remaining:"
-#~ msgstr "남은 수:"
-
-#~ msgid "Mahjongg"
-#~ msgstr "그놈 마작"
-
-#~ msgid "Disassemble a pile of tiles by removing matching pairs"
-#~ msgstr "같은 두 개의 타일을 제거해 나가서 타일 더미를 모두 없앱니다"
-
-#~ msgctxt "mahjongg map name"
-#~ msgid "The Ziggurat"
-#~ msgstr "지구라트"
-
-#~ msgctxt "mahjongg map name"
-#~ msgid "Four Bridges"
-#~ msgstr "네 개의 다리"
-
-#~ msgctxt "mahjongg map name"
-#~ msgid "Cloud"
-#~ msgstr "구름"
-
-#~ msgctxt "mahjongg map name"
-#~ msgid "Tic-Tac-Toe"
-#~ msgstr "틱택토"
-
-#~ msgctxt "mahjongg map name"
-#~ msgid "Red Dragon"
-#~ msgstr "붉은 용"
-
-#~ msgctxt "mahjongg map name"
-#~ msgid "Pyramid's Walls"
-#~ msgstr "피라미드 벽"
-
-#~ msgctxt "mahjongg map name"
-#~ msgid "Confounding Cross"
-#~ msgstr "어지러운 십자"
-
-# 게임 이름
-#~ msgctxt "mahjongg map name"
-#~ msgid "Difficult"
-#~ msgstr "어려워"
-
-#~ msgid "Paused"
-#~ msgstr "일시 중지"
-
-#~ msgid "Moves Left:"
-#~ msgstr "남은 움직임:"
-
-#~ msgid "_Restart Game"
-#~ msgstr "게임 다시(_R)"
-
-#~ msgid "_Preferences"
-#~ msgstr "기본 설정(_P)"
-
-#~ msgid "_About"
-#~ msgstr "정보(_A)"
-
-#~ msgid "_Quit"
-#~ msgstr "끝내기(_Q)"
-
-#~ msgid "Hint"
-#~ msgstr "힌트"
-
-#~ msgid "Do you want to start a new game with this map?"
-#~ msgstr "이 맵으로 새 게임을 시작하시겠습니까?"
-
-#~ msgid "If you continue playing the next game will use the new map."
-#~ msgstr "게임을 계속 하면, 다음 게임은 새 맵을 사용합니다."
-
-#~ msgid "_Continue playing"
-#~ msgstr "플레이 계속(_C)"
-
-#~ msgid "Use _new map"
-#~ msgstr "새 맵 사용(_N)"
-
-#~ msgid "Mahjongg Scores"
-#~ msgstr "마작 점수"
-
-#~ msgid "Layout:"
-#~ msgstr "배치:"
-
-#~ msgid "Puzzle solved!"
-#~ msgstr "퍼즐이 풀렸습니다!"
-
-#~ msgid "You didn't make the top ten, better luck next time."
-#~ msgstr "10위권에 들지 못했습니다. 다음번을 기약합니다."
-
-#~ msgid "There are no more moves."
-#~ msgstr "더 이상 움직일 수 없습니다."
-
-#~ msgid ""
-#~ "Each puzzle has at least one solution.  You can undo your moves and try "
-#~ "and find the solution for a time penalty, restart this game or start an "
-#~ "new one."
-#~ msgstr ""
-#~ "모든 퍼즐은 최소한 한 개 이상의 풀이가 있습니다. 시간이 줄어드는 걸 감수하"
-#~ "면서 과거 움직임을 취소한 다음 다시 풀이를 시도할 수도 있습니다. 아니면 게"
-#~ "임을 다시 시작하거나 새로운 게임을 시작할 수도 있습니다."
-
-#~ msgid "_New game"
-#~ msgstr "새 게임(_N)"
-
-#~ msgid "Mahjongg Preferences"
-#~ msgstr "마작 기본 설정"
-
-#~ msgid "_Layout:"
-#~ msgstr "배치(_L):"
-
-#~ msgid "Main game:"
-#~ msgstr "주 게임:"
-
-#~ msgid "Maps:"
-#~ msgstr "맵:"
-
-#~ msgid "Tiles:"
-#~ msgstr "타일:"
-
-#~ msgid ""
-#~ "A matching game played with Mahjongg tiles.\n"
-#~ "\n"
-#~ "Mahjongg is a part of GNOME Games."
-#~ msgstr ""
-#~ "마작 타일로 같은 모양을 맞추는 게임.\n"
-#~ "\n"
-#~ "마작은 그놈 게임의 일부입니다."
-
-#~ msgid "Mahjongg - %s"
-#~ msgstr "그놈 마작 - %s"
-
-#~ msgid "Time"
-#~ msgstr "시간"
-
-#~ msgid "Sudoku"
-#~ msgstr "스도쿠"
-
-#~ msgid "Test your logic skills in this number grid puzzle"
-#~ msgstr "이 숫자 퍼즐에서 논리력을 테스트해 보세요"
-
-#~ msgid "Print Sudokus"
-#~ msgstr "스도쿠 인쇄"
-
-#~ msgid "Print Games"
-#~ msgstr "게임 인쇄"
-
-#~ msgid "_Number of sudoku to print: "
-#~ msgstr "인쇄할 스도쿠 수(_N): "
-
-#~ msgid "_Sudokus per page: "
-#~ msgstr "페이지별 스도쿠 수(_S): "
-
-#~ msgid "Levels of difficulty to print"
-#~ msgstr "인쇄할 난이도"
-
-#~ msgid "_Easy"
-#~ msgstr "쉬움(_E)"
-
-#~ msgid "_Hard"
-#~ msgstr "어려움(_H)"
-
-#~ msgid "_Very Hard"
-#~ msgstr "매우 어려움(_V)"
-
-#~ msgid "Details"
-#~ msgstr "자세히"
-
-# 주의: 원문의 문제. 번역에 마침표 쓰지 않는다.
-#~ msgid "_Mark games as played once you've printed them."
-#~ msgstr "인쇄하면 플레이한 게임으로 표시(_M)"
-
-#~ msgid "_Include games you've already played in list of games to print"
-#~ msgstr "인쇄할 게임 목록에 이미 플레이한 게임을 포함(_I)"
-
-#~ msgid "_Saved Games"
-#~ msgstr "저장한 게임(_S)"
-
-#~ msgid "Add a new tracker"
-#~ msgstr "새 트래커를 추가합니다"
-
-#~ msgid "Remove the selected tracker"
-#~ msgstr "선택한 트래커를 제거합니다"
-
-#~ msgid "Make the tracked changes permanent"
-#~ msgstr "추적한 내용을 적용합니다"
-
-#~ msgid "H_ide"
-#~ msgstr "숨기기(_I)"
-
-#~ msgid "Hide the tracked values"
-#~ msgstr "추적한 값을 숨깁니다"
-
-#~ msgid "GNOME Sudoku"
-#~ msgstr "그놈 스도쿠"
-
-#~ msgid ""
-#~ "GNOME Sudoku is a simple Sudoku generator and player. Sudoku is a "
-#~ "Japanese logic puzzle.\n"
-#~ "\n"
-#~ "GNOME Sudoku is a part of GNOME Games."
-#~ msgstr ""
-#~ "그놈 스도쿠는 간단한 스도쿠 게임 생성 및 플레이 프로그램입니다. 스도쿠는 "
-#~ "일본에서 시작된 논리 퍼즐 게임입니다.\n"
-#~ "\n"
-#~ "그놈 스도쿠는 그놈 게임의 일부입니다."
-
-#~ msgid "Easy"
-#~ msgstr "쉬움"
-
-#~ msgid "Medium"
-#~ msgstr "중간"
-
-#~ msgid "Hard"
-#~ msgstr "어려움"
-
-#~ msgid "Very hard"
-#~ msgstr "매우 어려움"
-
-#~ msgid "Last played %(n)s second ago"
-#~ msgid_plural "Last played %(n)s seconds ago"
-#~ msgstr[0] "최근 플레이 %(n)s초 전"
-
-#~ msgid "Last played %(n)s minute ago"
-#~ msgid_plural "Last played %(n)s minutes ago"
-#~ msgstr[0] "최근 플레이 %(n)s분 전"
-
-#~ msgid "Last played at %I:%M %p"
-#~ msgstr "최근 플레이 %p %I:%M에"
-
-#~ msgid "Last played yesterday at %I:%M %p"
-#~ msgstr "최근 플레이 어제 %p %I:%M에"
-
-#~ msgid "Last played on %A at %I:%M %p"
-#~ msgstr "최근 플레이 %A %p %I:%M에"
-
-#~ msgid "Last played on %B %e %Y"
-#~ msgstr "최근 플레이 %Y년 %B %e일에"
-
-#~ msgid "Easy puzzle"
-#~ msgstr "쉬운 퍼즐"
-
-#~ msgid "Medium puzzle"
-#~ msgstr "중간 퍼즐"
-
-#~ msgid "Hard puzzle"
-#~ msgstr "어려운 퍼즐"
-
-#~ msgid "Very hard puzzle"
-#~ msgstr "매우 어려운 퍼즐"
-
-#~ msgid "Played for %d hour"
-#~ msgid_plural "Played for %d hours"
-#~ msgstr[0] "%d시간 동안 플레이"
-
-#~ msgid "Played for %d minute"
-#~ msgid_plural "Played for %d minutes"
-#~ msgstr[0] "%d분 동안 플레이"
-
-#~ msgid "Played for %d second"
-#~ msgid_plural "Played for %d seconds"
-#~ msgstr[0] "%d초 동안 플레이"
-
-#~ msgid "Do you really want to do this?"
-#~ msgstr "정말로 이렇게 하시겠습니까?"
-
-#~ msgid "Don't ask me this again."
-#~ msgstr "다시 물어보지 않기."
-
-#~ msgid "New game"
-#~ msgstr "새 게임"
-
-#~ msgid "_Undo"
-#~ msgstr "실행 취소(_U)"
-
-#~ msgid "Undo last action"
-#~ msgstr "마지막 동작을 취소합니다"
-
-#~ msgid "_Redo"
-#~ msgstr "다시 실행(_R)"
-
-#~ msgid "Redo last action"
-#~ msgstr "마지막 동작을 다시 실행합니다"
-
-#~ msgid "Puzzle _Statistics..."
-#~ msgstr "퍼즐 통계(_S)..."
-
-#~ msgid "_Print..."
-#~ msgstr "인쇄(_P)..."
-
-#~ msgid "Print _Multiple Sudokus..."
-#~ msgstr "스도쿠 여러개 인쇄(_M)..."
-
-#~ msgid "_Tools"
-#~ msgstr "도구(_T)"
-
-#~ msgid "Show a square that is easy to fill."
-#~ msgstr "채우기 쉬운 칸을 표시합니다."
-
-#~ msgid "Clear _Top Notes"
-#~ msgstr "위 메모 지우기(_T)"
-
-#~ msgid "Clear _Bottom Notes"
-#~ msgstr "아래 메모 지우기(_B)"
-
-#~ msgid "Show _Possible Numbers"
-#~ msgstr "가능한 숫자를 표시(_P)"
-
-#~ msgid "Always show possible numbers in a square"
-#~ msgstr "항상 해당 칸에 가능한 숫자를 표시합니다"
-
-#~ msgid "Warn About _Unfillable Squares"
-#~ msgstr "채울 수 없는 칸 경고(_U)"
-
-#~ msgid "Warn about squares made unfillable by a move"
-#~ msgstr "채울 수 없게 되는 칸에 대해 경고합니다"
-
-#~ msgid "_Track Additions"
-#~ msgstr "새로 쓴 숫자 추적(_T)"
-
-#~ msgid ""
-#~ "Mark new additions in a separate color so you can keep track of them."
-#~ msgstr "새로 쓴 숫자는 다른 색으로 표시해서 추적할 수 있게 합니다."
-
-#~ msgid "_Highlighter"
-#~ msgstr "강조(_H)"
-
-#~ msgid "Highlight the current row, column and box"
-#~ msgstr "현재 열, 행, 상자를 강조합니다"
-
-#~ msgid "You completed the puzzle in %d second"
-#~ msgid_plural "You completed the puzzle in %d seconds"
-#~ msgstr[0] "퍼즐을 %d초 만에 마쳤습니다"
-
-#~ msgid "%d minute"
-#~ msgid_plural "%d minutes"
-#~ msgstr[0] "%d분"
-
-#~ msgid "%d second"
-#~ msgid_plural "%d seconds"
-#~ msgstr[0] "%d초"
-
-#~ msgid "You completed the puzzle in %(minute)s and %(second)s"
-#~ msgstr "퍼즐을 %(minute)s %(second)s 만에 마쳤습니다"
-
-#~ msgid "%d hour"
-#~ msgid_plural "%d hours"
-#~ msgstr[0] "%d시간"
-
-#~ msgid "You completed the puzzle in %(hour)s, %(minute)s and %(second)s"
-#~ msgstr "퍼즐을 %(hour)s %(minute)s %(second)s 만에 마쳤습니다"
-
-#~ msgid "You got %(n)s hint."
-#~ msgid_plural "You got %(n)s hints."
-#~ msgstr[0] "힌트 %(n)s번 사용."
-
-#~ msgid "You had %(n)s impossibility pointed out."
-#~ msgid_plural "You had %(n)s impossibilities pointed out."
-#~ msgstr[0] "불가능 힌트 %(n)s번 사용."
-
-#~ msgid "Save this game before starting new one?"
-#~ msgstr "새로 시작하기 전에 이 게임을 저장하시겠습니까?"
-
-#~ msgid "Save game before closing?"
-#~ msgstr "닫기 전에 게임을 저장하시겠습니까?"
-
-#~ msgid "Puzzle Information"
-#~ msgstr "퍼즐 정보"
-
-#~ msgid "There is no current puzzle."
-#~ msgstr "현재 퍼즐이 없습니다."
-
-#~ msgid "Calculated difficulty: "
-#~ msgstr "난이도 계산: "
-
-#~ msgid "Very Hard"
-#~ msgstr "매우 어려움"
-
-#~ msgid "Number of moves instantly fillable by elimination: "
-#~ msgstr "제외하면 즉시 채울 수 있는 움직임 횟수: "
-
-#~ msgid "Number of moves instantly fillable by filling: "
-#~ msgstr "채워 넣으면 즉시 채울 수 있는 움직임 횟수: "
-
-#~ msgid "Amount of trial-and-error required to solve: "
-#~ msgstr "풀려면 필요한 시행착오 횟수: "
-
-#~ msgid "Puzzle Statistics"
-#~ msgstr "퍼즐 통계"
-
-#~ msgid "Unable to display help: %s"
-#~ msgstr "도움말을 표시할 수 없습니다: %s"
-
-#~ msgid "Untracked"
-#~ msgstr "추적 안 됨"
-
-#~ msgid "_Remove"
-#~ msgstr "제거(_R)"
-
-#~ msgid "Delete selected tracker."
-#~ msgstr "선택한 트래커를 삭제합니다."
-
-#~ msgid "Hide current tracker entries."
-#~ msgstr "현재 트래커 항목을 감춥니다."
-
-#~ msgid "A_pply"
-#~ msgstr "적용(_P)"
-
-#~ msgid "Apply all tracked values and remove the tracker."
-#~ msgstr "모든 트래커 값을 적용하고 트래커를 지웁니다."
-
-#~ msgid "Tracker %s"
-#~ msgstr "트래커 %s"
-
-#~ msgid "_Clear"
-#~ msgstr "지우기(_C)"
-
-#~ msgid "No Space"
-#~ msgstr "공간 부족"
-
-#~ msgid "No space left on disk"
-#~ msgstr "디스크에 공간이 부족합니다"
-
-#~ msgid "Unable to create data folder %(path)s."
-#~ msgstr "%(path)s 데이터 폴더를 만들 수 없습니다."
-
-#~ msgid "There is no disk space left!"
-#~ msgstr "디스크 공간이 부족합니다!"
-
-#~ msgid "Error %(errno)s: %(error)s"
-#~ msgstr "오류 %(errno)s: %(error)s"
-
-#~ msgid "Unable to save game."
-#~ msgstr "게임을 저장할 수 없습니다."
-
-#~ msgid "Unable to save file %(filename)s."
-#~ msgstr "%(filename)s 파일을 저장할 수 없습니다."
-
-#~ msgid "Unable to mark game as finished."
-#~ msgstr "게임을 마쳤다고 표시할 수 없습니다."
-
-#~ msgid "Sudoku unable to mark game as finished."
-#~ msgstr "스도쿠에서 게임을 마쳤다고 표시할 수 없습니다."
-
-#~ msgid "Mines"
-#~ msgstr "지뢰찾기"
-
-#~ msgid "Clear hidden mines from a minefield"
-#~ msgstr "지뢰밭에서 숨겨진 지뢰를 제거합니다"
-
-#~ msgid "minesweeper;"
-#~ msgstr "minesweeper;지뢰찾기;"
-
-#~ msgid "Use the unknown flag"
-#~ msgstr "알 수 없음 깃발 사용"
-
-#~ msgid "Set to true to be able to mark squares as unknown."
-#~ msgstr ""
-#~ "참으로 설정하면, 지뢰인지 아닌지 알 수 없는 칸을 표시할 수 있습니다."
-
-#~ msgid "Warning about too many flags"
-#~ msgstr "너무 깃발이 많을 때 경고"
-
-#~ msgid "Set to true to enable warning icons when too many flags are placed."
-#~ msgstr "참이면 너무 깃발을 많이 만들었을 때 경고 아이콘을 표시합니다."
-
-#~ msgid "Enable automatic placing of flags"
-#~ msgstr "자동으로 깃발 놓기 사용"
-
-#~ msgid ""
-#~ "Set to true to have gnomine automatically flag squares as mined when "
-#~ "enough squares are revealed"
-#~ msgstr ""
-#~ "참이면 주위 칸이 충분히 알려졌을 때 자동으로 해당 칸을 지뢰로 표시합니다"
-
-#~ msgid "Number of columns in a custom game"
-#~ msgstr "사용자 설정의 가로 크기"
-
-#~ msgid "Number of rows in a custom game"
-#~ msgstr "사용자 설정의 세로 크기"
-
-#~ msgid "The number of mines in a custom game"
-#~ msgstr "사용자 설정 게임에서 지뢰 개수"
-
-#~ msgid "Board size"
-#~ msgstr "보드 크기"
-
-#~ msgid "Size of the board (0-2 = small-large, 3=custom)"
-#~ msgstr "보드의 크기(0-2 = 작게-크게, 3=사용자 설정)"
-
-#~ msgctxt "board size"
-#~ msgid "Custom"
-#~ msgstr "사용자 정의"
-
-#~ msgid "_Replay Size"
-#~ msgstr "리플레이 크기(_R)"
-
-#~ msgid "Field Size"
-#~ msgstr "지뢰밭 크기"
-
-#~ msgid "H_orizontal:"
-#~ msgstr "가로(_O):"
-
-#~ msgid "_Vertical:"
-#~ msgstr "세로(_V):"
-
-#~ msgid "_Number of mines:"
-#~ msgstr "지뢰의 갯수(_N):"
-
-#~ msgid "_Play Game"
-#~ msgstr "게임 플레이(_P)"
-
-#~ msgid "<b>%d</b> mine"
-#~ msgid_plural "<b>%d</b> mines"
-#~ msgstr[0] "지뢰 <b>%d</b>개"
-
-#~ msgid "Flags: %u/%u"
-#~ msgstr "깃발: %u/%u"
-
-#~ msgid "The Mines Have Been Cleared!"
-#~ msgstr "지뢰를 처리했습니다!"
-
-#~ msgid "Mines Scores"
-#~ msgstr "지뢰찾기 점수"
-
-#~ msgid "Size:"
-#~ msgstr "크기:"
-
-#~ msgid "Do you want to start a new game?"
-#~ msgstr "새 게임을 시작하시겠습니까?"
-
-#~ msgid "If you start a new game, your current progress will be lost."
-#~ msgstr "새 게임을 시작하면 현재 진행 상황을 잃어버립니다."
-
-#~ msgid "Keep Current Game"
-#~ msgstr "현재 게임 유지"
-
-#~ msgid "Start New Game"
-#~ msgstr "새 게임 시작"
-
-#~ msgid "Resizing and SVG support:"
-#~ msgstr "크기 바꾸기 및 SVG 지원:"
-
-#~ msgid "Faces:"
-#~ msgstr "모양:"
-
-#~ msgid "Graphics:"
-#~ msgstr "그래픽:"
-
-#~ msgid ""
-#~ "The popular logic puzzle minesweeper. Clear mines from a board using "
-#~ "hints from squares you have already uncovered.\n"
-#~ "\n"
-#~ "Mines is a part of GNOME Games."
-#~ msgstr ""
-#~ "유명한 지뢰찾기 퍼즐게임. 이미 처리한 곳의 정보를 이용해서 지뢰를 처리합니"
-#~ "다.\n"
-#~ "\n"
-#~ "지뢰찾기는 그놈 게임의 일부입니다."
-
-#~ msgid "Mines Preferences"
-#~ msgstr "지뢰찾기 기본 설정"
-
-#~ msgid "_Use \"I'm not sure\" flags"
-#~ msgstr "\"잘 모르겠군\" 깃발 사용(_U)"
-
-#~ msgid "_Warn if too many flags have been placed"
-#~ msgstr "너무 깃발을 많이 놓았을 때 경고(_W)"
-
-#~ msgid "Tetravex"
-#~ msgstr "테트라벡스"
-
-#~ msgid "Complete the puzzle by matching numbered tiles"
-#~ msgstr "조각의 번호를 맞춰서 퍼즐을 풉니다"
-
-#~ msgid "_Solve"
-#~ msgstr "풀이(_S)"
-
-#~ msgid "_Up"
-#~ msgstr "위(_U)"
-
-#~ msgid "_Left"
-#~ msgstr "왼쪽(_L)"
-
-#~ msgid "_Right"
-#~ msgstr "오른쪽(_R)"
-
-#~ msgid "_Down"
-#~ msgstr "아래(_D)"
-
-#~ msgid "_Size"
-#~ msgstr "크기(_S)"
-
-#~ msgid "_2x2"
-#~ msgstr "_2x2"
-
-#~ msgid "_3x3"
-#~ msgstr "_3x3"
-
-#~ msgid "_4x4"
-#~ msgstr "_4x4"
-
-#~ msgid "_5x5"
-#~ msgstr "_5x5"
-
-#~ msgid "_6x6"
-#~ msgstr "_6x6"
-
-#~ msgid "The size of the playing grid"
-#~ msgstr "플레이하는 격자의 크기"
-
-#~ msgid ""
-#~ "The value of this key is used to decide the size of the playing grid."
-#~ msgstr "이 키는 플레이 격자의 크기를 결정합니다."
-
-#~ msgid "2×2"
-#~ msgstr "2×2"
-
-#~ msgid "3×3"
-#~ msgstr "3×3"
-
-#~ msgid "4×4"
-#~ msgstr "4×4"
-
-#~ msgid "5×5"
-#~ msgstr "5×5"
-
-#~ msgid "6×6"
-#~ msgstr "6×6"
-
-#~ msgid "Solve"
-#~ msgstr "풀이"
-
-#~ msgid "Tetravex Scores"
-#~ msgstr "테트라벡스 점수"
-
-#~ msgid ""
-#~ "GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-#~ "the same numbers are touching each other.\n"
-#~ "\n"
-#~ "Tetravex is a part of GNOME Games."
-#~ msgstr ""
-#~ "그놈 테트라벡스는 같은 번호가 맞닿도록 조각들을 옮기는 간단한 퍼즐 게임입"
-#~ "니다.\n"
-#~ "\n"
-#~ "테트라벡스는 그놈 게임의 일부입니다."
-
-#~ msgid "Klotski"
-#~ msgstr "클로츠키"
-
-#~ msgid "Slide blocks to solve the puzzle"
-#~ msgstr "블록을 밀어서 퍼즐을 풉니다"
-
-#~ msgid "The puzzle in play"
-#~ msgstr "플레이할 퍼즐"
-
-#~ msgid "The number of the puzzle being played."
-#~ msgstr "플레이하는 퍼즐의 크기."
-
-#~ msgid "Only 18 steps"
-#~ msgstr "겨우 18 단계"
-
-#~ msgid "Daisy"
-#~ msgstr "데이지"
-
-#~ msgid "Violet"
-#~ msgstr "바이올렛"
-
-#~ msgid "Poppy"
-#~ msgstr "퍼피"
-
-#~ msgid "Pansy"
-#~ msgstr "펜지"
-
-#~ msgid "Snowdrop"
-#~ msgstr "스노드롭"
-
-#~ msgid "Red Donkey"
-#~ msgstr "붉은 당나귀"
-
-#~ msgid "Trail"
-#~ msgstr "추적"
-
-#~ msgid "Ambush"
-#~ msgstr "잠복"
-
-#~ msgid "Agatka"
-#~ msgstr "아가트카"
-
-#~ msgid "Success"
-#~ msgstr "성공"
-
-#~ msgid "Bone"
-#~ msgstr "뼈"
-
-#~ msgid "Fortune"
-#~ msgstr "포츈"
-
-#~ msgid "Fool"
-#~ msgstr "바보"
-
-#~ msgid "Solomon"
-#~ msgstr "솔로몬"
-
-#~ msgid "Cleopatra"
-#~ msgstr "클레오파트라"
-
-#~ msgid "Shark"
-#~ msgstr "상어"
-
-#~ msgid "Rome"
-#~ msgstr "로마"
-
-#~ msgid "Pennant Puzzle"
-#~ msgstr "페넌트 퍼즐"
-
-#~ msgid "Ithaca"
-#~ msgstr "이타카"
-
-#~ msgid "Pelopones"
-#~ msgstr "펠로포네스"
-
-#~ msgid "Transeuropa"
-#~ msgstr "트랜스유로파"
-
-#~ msgid "Lodzianka"
-#~ msgstr "로쟌카"
-
-#~ msgid "Polonaise"
-#~ msgstr "폴로네즈"
-
-#~ msgid "Baltic Sea"
-#~ msgstr "발트해"
-
-#~ msgid "American Pie"
-#~ msgstr "아메리칸파이"
-
-#~ msgid "Traffic Jam"
-#~ msgstr "교통체증"
-
-#~ msgid "Sunshine"
-#~ msgstr "햇볕"
-
-#~ msgid "Only 18 Steps"
-#~ msgstr "겨우 18 단계"
-
-#~ msgid "HuaRong Trail"
-#~ msgstr "화롱 추적"
-
-#~ msgid "Challenge Pack"
-#~ msgstr "챌린지팩"
-
-#~ msgid "Skill Pack"
-#~ msgstr "스킬팩"
-
-#~ msgid "_Restart Puzzle"
-#~ msgstr "퍼즐 다시 시작(_R)"
-
-#~ msgid "Next Puzzle"
-#~ msgstr "다음 퍼즐"
-
-#~ msgid "Previous Puzzle"
-#~ msgstr "이전 퍼즐"
-
-#~ msgid "X location of window"
-#~ msgstr "창의 가로 위치"
-
-#~ msgid "Y location of window"
-#~ msgstr "창의 세로 위치"
-
-#~ msgid "Level completed."
-#~ msgstr "단계 마침."
-
-#~ msgid "The Puzzle Has Been Solved!"
-#~ msgstr "퍼즐을 풀었습니다!"
-
-#~ msgid "Klotski Scores"
-#~ msgstr "클로츠키 점수"
-
-#~ msgid "Puzzle:"
-#~ msgstr "퍼즐:"
-
-#~ msgid ""
-#~ "The theme for this game failed to render.\n"
-#~ "\n"
-#~ "Please check that Klotski is installed correctly."
-#~ msgstr ""
-#~ "이 게임의 테마를 그리는데 실패했습니다.\n"
-#~ "\n"
-#~ "클로츠키를 제대로 설치했는지 확인하십시오."
-
-#~ msgid ""
-#~ "Could not find the image:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Please check that Klotski is installed correctly."
-#~ msgstr ""
-#~ "그림을 찾을 수 없습니다:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "클로츠키를 제대로 설치했는지 확인하십시오"
-
-#~ msgid "Moves: %d"
-#~ msgstr "이동: %d"
-
-#~ msgid ""
-#~ "Sliding Block Puzzles\n"
-#~ "\n"
-#~ "Klotski is a part of GNOME Games."
-#~ msgstr ""
-#~ "상하좌우로 움직이는 블럭 퍼즐\n"
-#~ "\n"
-#~ "클로츠키는 그놈 게임의 일부입니다."
-
-#~ msgid "Tali"
-#~ msgstr "탈리"
-
-#~ msgid "Beat the odds in a poker-style dice game"
-#~ msgstr "포커 방식의 주사위 게임에서 상대방을 물리치십시오"
-
-#~ msgid "yahtzee;"
-#~ msgstr "yahtzee;야치;"
-
-#~ msgid "Delay between rolls"
-#~ msgstr "굴리는 사이에 지연"
-
-#~ msgid ""
-#~ "Choose whether or not to insert a delay between the computer's dice rolls "
-#~ "so the player can follow what it is doing."
-#~ msgstr ""
-#~ "컴퓨터가 주사위를 굴리는 중간 중간에 지연 시간을 둘 것인지를 선택합니다. "
-#~ "지연 시간이 있으면 컴퓨터가 어떻게 하고 있는지 알 수 있습니다."
-
-#~ msgid "Display the computer's thoughts"
-#~ msgstr "컴퓨터의 생각을 보여주기"
-
-#~ msgid ""
-#~ "If set to true, a dump of the AI's working will be done to standard "
-#~ "output."
-#~ msgstr "참이면, AI의 내용이 표준 출력으로 출력됩니다."
-
-#~ msgid "Already used! Where do you want to put that?"
-#~ msgstr "이미 사용했습니다! 어디에 놓으시겠습니까?"
-
-#~ msgid "Score: %d"
-#~ msgstr "점수: %d"
-
-#~ msgid "Field used"
-#~ msgstr "필드 사용"
-
-#~ msgid "Delay computer moves"
-#~ msgstr "컴퓨터 움직임 지연시간"
-
-#~ msgid "Display computer thoughts"
-#~ msgstr "컴퓨터의 생각을 보여주기"
-
-#~ msgid "Number of computer opponents"
-#~ msgstr "컴퓨터 상대의 수"
-
-#~ msgid "NUMBER"
-#~ msgstr "<숫자>"
-
-#~ msgid "Number of human opponents"
-#~ msgstr "사람 상대의 수"
-
-# Regular, Color는 option argument
-#~ msgid "Game choice: Regular or Colors"
-#~ msgstr "게임 선택: Regular 혹은 Colors"
-
-#~ msgid "STRING"
-#~ msgstr "<문자열>"
-
-#~ msgid "Number of computer-only games to play"
-#~ msgstr "플레이할 컴퓨터 전용 게임의 수"
-
-#~ msgid "Number of trials for each roll for the computer"
-#~ msgstr "컴퓨터가 매번 시도하는 회수"
-
-#~ msgctxt "game type"
-#~ msgid "Regular"
-#~ msgstr "일반"
-
-#~ msgctxt "game type"
-#~ msgid "Colors"
-#~ msgstr "색"
-
-#~ msgid "Roll all!"
-#~ msgstr "전부 굴리기!"
-
-#~ msgid "Roll!"
-#~ msgstr "굴리기!"
-
-#~ msgid "The game is a draw!"
-#~ msgstr "게임이 무승부입니다!"
-
-#~ msgid "Tali Scores"
-#~ msgstr "탈리 점수"
-
-#~ msgid "%s wins the game with %d point"
-#~ msgid_plural "%s wins the game with %d points"
-#~ msgstr[0] "%s이(가) %d점 차이로 게임에 이겼습니다"
-
-#~ msgid "Computer playing for %s"
-#~ msgstr "%s의 컴퓨터 플레이"
-
-#~ msgid "%s! -- You're up."
-#~ msgstr "%s! -- 당신이 이겼습니다."
-
-#~ msgid "Select dice to roll or choose a score slot."
-#~ msgstr "다시 굴리려면, 주사위를 선택하고, 아니면 점수 슬롯을 선택하십시오."
-
-#~ msgid "Roll"
-#~ msgstr "굴리기"
-
-#~ msgid "You are only allowed three rolls. Choose a score slot."
-#~ msgstr "세번만 굴릴 수 있습니다! 점수 슬롯을 선택하십시오."
-
-#~ msgid "GNOME version (1998):"
-#~ msgstr "그놈 버전(1998):"
-
-#~ msgid "Console version (1992):"
-#~ msgstr "콘솔 버전(1992):"
-
-#~ msgid "Colors game and multi-level AI (2006):"
-#~ msgstr "컬러 게임 및 다단계 AI (2006):"
-
-#~ msgid ""
-#~ "A variation on poker with dice and less money.\n"
-#~ "\n"
-#~ "Tali is a part of GNOME Games."
-#~ msgstr ""
-#~ "포커의 일종, 주사위와 포커보다 작은 돈 사용.\n"
-#~ "\n"
-#~ "탈리는 그놈 게임의 일부입니다."
-
-#~ msgid "Current game will complete with original number of players."
-#~ msgstr "현재 게임은 원래 플레이어의 수로 끝납니다."
-
-#~ msgid "Tali Preferences"
-#~ msgstr "탈리 기본 설정"
-
-#~ msgid "Human Players"
-#~ msgstr "사람 플레이어"
-
-#~ msgid "_Number of players:"
-#~ msgstr "플레이어의 숫자(_N):"
-
-#~ msgid "Computer Opponents"
-#~ msgstr "컴퓨터 상대"
-
-#~ msgid "_Delay between rolls"
-#~ msgstr "굴리는 사이에 지연(_D)"
-
-#~ msgid "N_umber of opponents:"
-#~ msgstr "상대의 숫자(_U):"
-
-#~ msgid "_Difficulty:"
-#~ msgstr "난이도(_D):"
-
-#~ msgctxt "difficulty"
-#~ msgid "Medium"
-#~ msgstr "중간"
-
-#~ msgid "Player Names"
-#~ msgstr "플레이어 이름"
-
-#~ msgid "1s [total of 1s]"
-#~ msgstr "1 [1번 모두]"
-
-#~ msgid "2s [total of 2s]"
-#~ msgstr "2 [2번 모두]"
-
-#~ msgid "3s [total of 3s]"
-#~ msgstr "3 [3번 모두]"
-
-#~ msgid "4s [total of 4s]"
-#~ msgstr "4 [4번 모두]"
-
-#~ msgid "5s [total of 5s]"
-#~ msgstr "5 [5번 모두]"
-
-#~ msgid "6s [total of 6s]"
-#~ msgstr "6 [6번 모두]"
-
-#~ msgid "3 of a Kind [total]"
-#~ msgstr "같은 종류의 3 [모두]"
-
-#~ msgid "4 of a Kind [total]"
-#~ msgstr "같은 종류의 4 [모두]"
-
-#~ msgid "Full House [25]"
-#~ msgstr "풀하우스 [25]"
-
-#~ msgid "Small Straight [30]"
-#~ msgstr "스몰 스트레이트 [30]"
-
-#~ msgid "Large Straight [40]"
-#~ msgstr "라지 스트레이트 [40]"
-
-#~ msgid "5 of a Kind [50]"
-#~ msgstr "같은 종류 5 [50]"
-
-#~ msgid "Chance [total]"
-#~ msgstr "찬스 [합계]"
-
-#~ msgid "Lower Total"
-#~ msgstr "아래쪽 합계"
-
-#~ msgid "Grand Total"
-#~ msgstr "전체 합계"
-
-#~ msgid "Upper total"
-#~ msgstr "위쪽 합계"
-
-#~ msgid "Bonus if >62"
-#~ msgstr "62보다 크면 보너스"
-
-#~ msgid "2 pair Same Color [total]"
-#~ msgstr "투페어 같은 색 [전체]"
-
-#~ msgid "Full House [15 + total]"
-#~ msgstr "풀하우스 [15 + 전체]"
-
-#~ msgid "Full House Same Color [20 + total]"
-#~ msgstr "풀하우스 같은 색 [20 + 전체]"
-
-#~ msgid "Flush (all same color) [35]"
-#~ msgstr "풀하우스(모두 같은 색) [20 + 전체]"
-
-#~ msgid "4 of a Kind [25 + total]"
-#~ msgstr "같은 종류의 4 [25 + 전체]"
-
-#~ msgid "5 of a Kind [50 + total]"
-#~ msgstr "같은 종류의 5 [50 + 전체]"
-
-#~ msgid "Choose a score slot."
-#~ msgstr "점수 슬롯을 선택하십시오."
-
-#~ msgid "5 of a Kind [total]"
-#~ msgstr "같은 종류의 5 [모두]"
-
-#~ msgid "Iagno"
-#~ msgstr "이아그노"
-
-#~ msgid "Dominate the board in a classic version of Reversi"
-#~ msgstr "리버시 게임의 전통적인 버전에서 보드를 차지합니다"
-
-#~ msgid "othello;"
-#~ msgstr "othello;오델로;"
-
-#~ msgid "Dark:"
-#~ msgstr "어두운 쪽:"
-
-#~ msgid "Light:"
-#~ msgstr "밝은 쪽:"
-
-#~ msgid "Light must pass, Dark's move"
-#~ msgstr "밝은 쪽은 차례를 걸러야 하고, 어두운 쪽 차례입니다"
-
-#~ msgid "Dark must pass, Light's move"
-#~ msgstr "어두운 쪽은 차례를 걸러야 하고, 밝은 쪽 차례입니다"
-
-#~ msgid "%.2d"
-#~ msgstr "%.2d"
-
-#~ msgid ""
-#~ "A disk flipping game derived from Reversi.\n"
-#~ "\n"
-#~ "Iagno is a part of GNOME Games."
-#~ msgstr ""
-#~ "리버시에 기반한 게임으로 원판을 뒤집는 게임.\n"
-#~ "\n"
-#~ "이아그노는 그놈 게임의 일부입니다."
-
-#~ msgid "Light player wins!"
-#~ msgstr "밝은 쪽이 이겼습니다!"
-
-#~ msgid "Dark player wins!"
-#~ msgstr "어두운 쪽이 이겼습니다!"
-
-#~ msgid "The game was a draw."
-#~ msgstr "게임이 무승부입니다."
-
-#~ msgid "Invalid move."
-#~ msgstr "움직임이 잘못되었습니다."
-
-#~ msgid "Iagno Preferences"
-#~ msgstr "이아그노 기본 설정"
-
-#~ msgid "Dark Player:"
-#~ msgstr "어두운 플레이어:"
-
-#~ msgid "Light Player:"
-#~ msgstr "밝은 플레이어:"
-
-#~ msgid "S_how grid"
-#~ msgstr "격자 보이기(_H)"
-
-#~ msgid "_Flip final results"
-#~ msgstr "마지막 결과를 뒤집기(_F)"
-
-#~ msgid "_Tile set:"
-#~ msgstr "타일세트(_T):"
-
-#~ msgid "Lights Off"
-#~ msgstr "불 끄기"
-
-#~ msgid "Turn off all the lights"
-#~ msgstr "모든 불을 끄십시오"
-
-#~ msgid "The current level"
-#~ msgstr "현재 단계"
-
-#~ msgid "The users's most recent level."
-#~ msgstr "사용자의 최근 게임 단계."
-
-#~ msgid ""
-#~ "Turn off all the lights\n"
-#~ "\n"
-#~ "Lights Off is a part of GNOME Games."
-#~ msgstr ""
-#~ "모든 불을 끄십시오\n"
-#~ "\n"
-#~ "불 끄기는 그놈 게임의 일부입니다."
-
-#~ msgid "Image to use for drawing blocks"
-#~ msgstr "블록을 그릴 때 사용할 이미지"
-
-#~ msgid "Image to use for drawing blocks."
-#~ msgstr "블록을 그릴 때 사용할 이미지."
-
-#~ msgid "The theme used for rendering the blocks"
-#~ msgstr "블록을 그릴 때 사용할 테마"
-
-#~ msgid ""
-#~ "The name of the theme used for rendering the blocks and the background."
-#~ msgstr "블록과 배경을 그릴 때 사용할 테마 이름."
-
-#~ msgid "Level to start with"
-#~ msgstr "시작할 단계"
-
-#~ msgid "Level to start with."
-#~ msgstr "시작할 단계."
-
-#~ msgid "Whether to preview the next block"
-#~ msgstr "다음 블록 미리 보기 여부"
-
-#~ msgid "Whether to preview the next block."
-#~ msgstr "다음 블록 미리 보기 여부."
-
-#~ msgid "Whether to show where the moving piece will land"
-#~ msgstr "블록이 어디로 떨어질 지 표시할지 여부"
-
-#~ msgid "Whether to show where the moving piece will land."
-#~ msgstr "블록이 어디로 떨어질 지 표시할지 여부."
-
-#~ msgid "Whether to give blocks random colors"
-#~ msgstr "블록의 색을 임의로 부여할 지 여부"
-
-#~ msgid "Whether to give blocks random colors."
-#~ msgstr "블록의 색깔을 임의로 부여할 지 여부."
-
-#~ msgid "Whether to rotate counter clock wise"
-#~ msgstr "시계반대 방향으로 회전할 지 여부"
-
-#~ msgid "Whether to rotate counter clock wise."
-#~ msgstr "시계반대 방향으로 회전할 지 여부."
-
-#~ msgid "The number of rows to fill"
-#~ msgstr "채울 줄 수"
-
-#~ msgid ""
-#~ "The number of rows that are filled with random blocks at the start of the "
-#~ "game."
-#~ msgstr "게임이 시작할 때 임의로 채워 넣을 줄 수."
-
-#~ msgid "The density of filled rows"
-#~ msgstr "채워진 줄의 밀도"
-
-#~ msgid ""
-#~ "The density of blocks in rows filled at the start of the game. The value "
-#~ "is between 0 (for no blocks) and 10 (for a completely filled row)."
-#~ msgstr ""
-#~ "게임이 시작할 때 채워진 줄의 블록 밀도. 이 값은 0(블록 없음)에서 10(완전"
-#~ "히 줄 채움) 사이의 값입니다."
-
-#~ msgid "Whether to play sounds"
-#~ msgstr "사운드를 재생할 지 여부"
-
-#~ msgid "Whether to play sounds."
-#~ msgstr "사운드를 재생할 지 여부."
-
-#~ msgid "Whether to pick blocks that are hard to place"
-#~ msgstr "놓기 어려운 블럭을 고를지 여부"
-
-#~ msgid "Whether to pick blocks that are hard to place."
-#~ msgstr "놓기 어려운 블럭을 고를지 여부."
-
-#~ msgid "Key press to move down."
-#~ msgstr "아래로 이동할 때 누를 키."
-
-#~ msgid "Drop"
-#~ msgstr "떨어뜨리기"
-
-#~ msgid "Key press to drop."
-#~ msgstr "떨어뜨릴 때 누를 키."
-
-#~ msgid "Rotate"
-#~ msgstr "돌리기"
-
-#~ msgid "Key press to rotate."
-#~ msgstr "돌릴 때 누를 키."
-
-#~ msgid "Pause"
-#~ msgstr "일시 중지"
-
-#~ msgid "Key press to pause."
-#~ msgstr "일시 중지할 때 누를 키."
-
-#~ msgid "Quadrapassel"
-#~ msgstr "쿼드러패셀"
-
-#~ msgid "Fit falling blocks together"
-#~ msgstr "떨어지는 블록을 맞춥니다"
-
-#~ msgid "tetris;"
-#~ msgstr "tetris;테트리스;"
-
-#~ msgid "Game Over"
-#~ msgstr "게임 끝"
-
-#~ msgid "Lines:"
-#~ msgstr "줄 개수:"
-
-#~ msgid "Quadrapassel Preferences"
-#~ msgstr "쿼드러패셀 기본 설정"
-
-#~ msgid "_Number of pre-filled rows:"
-#~ msgstr "미리 채워진 열의 갯수(_N):"
-
-#~ msgid "_Density of blocks in a pre-filled row:"
-#~ msgstr "미리 채워진 열에서 블록의 밀도(_D):"
-
-#~ msgid "_Preview next block"
-#~ msgstr "다음 블록 미리 보기(_P)"
-
-#~ msgid "Choose difficult _blocks"
-#~ msgstr "어려운 블럭 선택(_B)"
-
-#~ msgid "_Rotate blocks counterclockwise"
-#~ msgstr "시계반대 방향으로 회전(_R)"
-
-#~ msgid "Show _where the block will land"
-#~ msgstr "블록이 어디로 떨어질 지 보이기(_W)"
-
-#~ msgid "Controls"
-#~ msgstr "조작"
-
-#~ msgid "Theme"
-#~ msgstr "테마"
-
-#~ msgid "Plain"
-#~ msgstr "단순"
-
-#~ msgid "Tango Flat"
-#~ msgstr "탱고 평평함"
-
-#~ msgid "Tango Shaded"
-#~ msgstr "탱고 그림자"
-
-#~ msgid "Clean"
-#~ msgstr "지우기"
-
-#~ msgid "Quadrapassel Scores"
-#~ msgstr "쿼드러패셀 점수"
-
-#~ msgid ""
-#~ "A classic game of fitting falling blocks together.\n"
-#~ "\n"
-#~ "Quadrapassel is a part of GNOME Games."
-#~ msgstr ""
-#~ "떨어지는 블럭을 맞추는 고전적인 게임.\n"
-#~ "\n"
-#~ "쿼드러패셀은 그놈 게임의 일부입니다."
-
-#~ msgid "The theme to use"
-#~ msgstr "사용할 테마"
-
-#~ msgid "The title of the tile theme to use."
-#~ msgstr "사용할 타일 테마의 이름."
-
-#~ msgid "The size of the game board."
-#~ msgstr "게임판의 크기."
-
-#~ msgid "Board color count"
-#~ msgstr "게임판 색 개수"
-
-#~ msgid "The number of colors of tiles to use in the game."
-#~ msgstr "게임에 사용할 타일의 색 개수."
-
-#~ msgid "Zealous animation"
-#~ msgstr "화려한 애니메이션"
-
-#~ msgid "Use more flashy, but slower, animations."
-#~ msgstr "화려한(하지만 느린) 애니메이션 사용."
-
-#~ msgid "Swell Foop"
-#~ msgstr "스웰푸프"
-
-#~ msgid "_Number of colors:"
-#~ msgstr "색 개수(_N):"
-
-#~ msgid "Setup"
-#~ msgstr "설정"
-
-#~ msgid "_Zealous Animation"
-#~ msgstr "화려한 애니메이션(_Z)"
-
-#~ msgid "Operation"
-#~ msgstr "동작"
-
-#~ msgid "Clear the screen by removing groups of colored and shaped tiles"
-#~ msgstr "같은 색이나 모양의 타일을 제거해 나가면서 화면을 청소합니다"
-
-#~ msgid "%u point"
-#~ msgid_plural "%u points"
-#~ msgstr[0] "점 %u개"
-
-#~ msgid "Small"
-#~ msgstr "작게"
-
-#~ msgid "Normal"
-#~ msgstr "보통"
-
-#~ msgid "Large"
-#~ msgstr "크게"
-
-#~ msgid "Score: %4u "
-#~ msgstr "점수: %4u"
-
-#~ msgid "Colors"
-#~ msgstr "색"
-
-#~ msgid "Shapes and Colors"
-#~ msgstr "모양과 색"
-
-#~ msgid "Swell Foop Scores"
-#~ msgstr "스웰푸프 점수"
-
-#~ msgid ""
-#~ "I want to play that game! You know, they all light-up and you click on "
-#~ "them and they vanish!\n"
-#~ "\n"
-#~ "Swell Foop is a part of GNOME Games."
-#~ msgstr ""
-#~ "게임을 즐기세요!  반짝이는 구슬을 눌러 구슬을 없애세요!\n"
-#~ "\n"
-#~ "스웰푸프는 그놈 게임의 일부입니다."
-
-#~ msgid "Copyright © 2009 Tim Horton"
-#~ msgstr "Copyright © 2009 Tim Horton"
-
-#~ msgid "classic robots"
-#~ msgstr "전통적 로봇"
-
-#~ msgid "robots2"
-#~ msgstr "로봇2"
-
-#~ msgid "robots2 easy"
-#~ msgstr "로봇2 쉽게"
-
-#~ msgid "robots with safe teleport"
-#~ msgstr "로봇, 안전한 텔레포트"
-
-#~ msgid "nightmare"
-#~ msgstr "악몽"
-
-#~ msgid "robots"
-#~ msgstr "로봇"
-
-#~ msgid "cows"
-#~ msgstr "젖소"
-
-#~ msgid "eggs"
-#~ msgstr "달걀"
-
-#~ msgid "gnomes"
-#~ msgstr "노움"
-
-#~ msgid "mice"
-#~ msgstr "쥐"
-
-#~ msgid "ufo"
-#~ msgstr "유에프오"
-
-# 귀신 이미지
-#~ msgid "boo"
-#~ msgstr "으악"
-
-#~ msgid "Graphics Theme"
-#~ msgstr "그래픽 테마"
-
-#~ msgid "Time: "
-#~ msgstr "시간: "
-
-#~ msgid "Custom Size"
-#~ msgstr "사용자 정의 크기"
-
-#~ msgid "Show a hint"
-#~ msgstr "힌트를 봅니다"
-
-#~ msgid "Cancel current game?"
-#~ msgstr "현재 게임을 취소하시겠습니까?"
-
-#~ msgid "Flags"
-#~ msgstr "깃발"
-
-#~ msgid "Solve the game"
-#~ msgstr "게임 풀이"
-
-#~ msgid "Time:"
-#~ msgstr "시간:"
-
-#~ msgid "Dark"
-#~ msgstr "어두운 쪽"
-
-#~ msgid "Light"
-#~ msgstr "밝은 쪽"
-
-#~ msgid "Tiles"
-#~ msgstr "타일"
-
-#~ msgid "Maps"
-#~ msgstr "맵"
-
-#~ msgid "_Select map:"
-#~ msgstr "맵 선택(_S):"
-
-#~ msgid "Restart the current game"
-#~ msgstr "현재 게임을 다시 시작합니다"
-
-#~ msgid "Redo the last move"
-#~ msgstr "마지막 움직임을 다시 실행합니다"
-
-#~ msgid "Block Style"
-#~ msgstr "블록 모양새"
-
-#~ msgid "Board size:"
-#~ msgstr "보드 크기:"
-
-#~ msgid "Theme:"
-#~ msgstr "테마:"
-
-#~ msgid "points"
-#~ msgstr "점수"
