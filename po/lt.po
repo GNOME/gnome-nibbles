@@ -8,15 +8,15 @@
 # Vytautas Povilaitis <punktyras@nkm.lt>, 2007.
 # Gintautas Miliauskas <gintas@akl.lt>, 2006, 2007, 2008, 2010.
 # Algimantas Margevičius <gymka@mail.ru>, 2011.
-# Aurimas Černius <aurisc4@gmail.com>, 2010, 2013, 2014.
+# Aurimas Černius <aurisc4@gmail.com>, 2010, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-06-22 06:58+0000\n"
-"PO-Revision-Date: 2014-06-22 17:24+0300\n"
+"POT-Creation-Date: 2015-03-08 08:08+0000\n"
+"PO-Revision-Date: 2015-03-08 19:48+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -32,6 +32,11 @@ msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Praveskite gyvatę pro labirintą"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -46,7 +51,7 @@ msgstr ""
 "maisto, tad atsargiai: jei jos taps per ilgos, neturėsite pakankamai vietos "
 "judėjimui."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -56,7 +61,7 @@ msgstr ""
 "žemėlapiai yra daugiausia atviri su keliomis sienomis, bet vėliau ankštos "
 "patalpos ir teleportai padaro viską įdomiau."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -64,18 +69,46 @@ msgstr ""
 "Žaiskite patys prieš iki penkių priešų arba dalinkitės klaviatūra ir "
 "žaiskite su draugu."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
-#: ../src/main.c:712
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
+#: ../src/main.c:704
 msgid "Nibbles"
 msgstr "Nibbles"
-
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Praveskite gyvatę pro labirintą"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "žaidimas;gyvatė;lenta;"
+
+#: ../data/nibbles-menus.ui.h:1
+#| msgid "Game"
+msgid "_New Game"
+msgstr "_Naujas žaidimas"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Pause"
+msgstr "_Pristabdyti"
+
+#: ../data/nibbles-menus.ui.h:3
+#| msgid "Preferences"
+msgid "_Preferences"
+msgstr "_Nustatymai"
+
+#: ../data/nibbles-menus.ui.h:4
+#| msgctxt "score-dialog"
+#| msgid "Score"
+msgid "_Scores"
+msgstr "_Taškai"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Help"
+msgstr "_Žinynas"
+
+#: ../data/nibbles-menus.ui.h:6
+msgid "_About"
+msgstr "_Apie"
+
+#: ../data/nibbles-menus.ui.h:7
+msgid "_Quit"
+msgstr "_Išeiti"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -157,7 +190,7 @@ msgstr "Naudoti reliatyvų judėjimą"
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Naudoti santykinį judėjimą (t.y. tik kairėn ir dešinėn)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
 msgid "Move up"
 msgstr "Perkelti aukštyn"
 
@@ -165,7 +198,7 @@ msgstr "Perkelti aukštyn"
 msgid "Key to use for motion up."
 msgstr "Judėjimo aukštyn klavišas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
 msgid "Move down"
 msgstr "Perkelti žemyn"
 
@@ -173,7 +206,7 @@ msgstr "Perkelti žemyn"
 msgid "Key to use for motion down."
 msgstr "Judėjimo žemyn klavišas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
 msgid "Move left"
 msgstr "Eiti kairėn"
 
@@ -181,7 +214,7 @@ msgstr "Eiti kairėn"
 msgid "Key to use for motion left."
 msgstr "Judėjimo kairėn klavišas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
 msgid "Move right"
 msgstr "Eiti dešinėn"
 
@@ -264,23 +297,23 @@ msgstr ""
 "\n"
 "Patikrinkite, ar Nibbles įdiegtas korektiškai"
 
-#: ../src/gnibbles.c:334
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Nibbles taškai"
 
-#: ../src/gnibbles.c:337
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Greitis:"
 
-#: ../src/gnibbles.c:342
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Sveikiname!"
 
-#: ../src/gnibbles.c:343
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "Jūsų rezultatas – geriausias!"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Jūsų taškai pateko į top 10."
 
@@ -324,126 +357,120 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Greitai, su apgaule "
 
-#: ../src/main.c:234
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Kirminų žaidimas, skirtas GNOME.\n"
-"\n"
-"Nibbles yra GNOME žaidimų dalis."
+#: ../src/main.c:257
+msgid "A worm game for GNOME"
+msgstr "GNOME kirmelės žaidimas"
 
-#: ../src/main.c:237
+#: ../src/main.c:260
 msgid "translator-credits"
 msgstr ""
-"Paskutinieji vertėjai:\n"
-"Žygimantas Beručka <zygis@gnome.org>,\n"
-"Justina Klingaitė <justina.klingaite@gmail.com>\n"
+"Paskutinis vertėjas:\n"
+"Aurimas Černius <aurisc4@gmail.com>\n"
 "\n"
 "Ankstesnieji vertėjai:\n"
+"Žygimantas Beručka <zygis@gnome.org>,\n"
+"Justina Klingaitė <justina.klingaite@gmail.com>\n"
 "Tomas Kuliavas <tokul@users.sf.net>,\n"
 "Gediminas Paulauskas <menesis@chatsubo.lt>"
 
-#: ../src/preferences.c:223
-#| msgid "Nibbles Preferences"
+#: ../src/preferences.c:225
 msgid "Preferences"
 msgstr "Nustatymai"
 
-#: ../src/preferences.c:236
+#: ../src/preferences.c:238
 msgid "Game"
 msgstr "Žaidimas"
 
 #. Speed
-#: ../src/preferences.c:252
+#: ../src/preferences.c:254
 msgid "Speed"
 msgstr "Greitis"
 
-#: ../src/preferences.c:257
+#: ../src/preferences.c:259
 msgid "Nibbles newbie"
 msgstr "Nibbles naujokas"
 
-#: ../src/preferences.c:267
+#: ../src/preferences.c:269
 msgid "My second day"
 msgstr "Mano antroji diena"
 
-#: ../src/preferences.c:277
+#: ../src/preferences.c:279
 msgid "Not too shabby"
 msgstr "Ne toks ir menkas"
 
-#: ../src/preferences.c:287
+#: ../src/preferences.c:289
 msgid "Finger-twitching good"
 msgstr "Pirštus trukčioju gerai"
 
-#: ../src/preferences.c:301 ../src/preferences.c:424
+#: ../src/preferences.c:303 ../src/preferences.c:426
 msgid "Options"
 msgstr "Nustatymai"
 
-#: ../src/preferences.c:308
+#: ../src/preferences.c:310
 msgid "_Play levels in random order"
 msgstr "Žai_sti lygius atsitiktine tvarka"
 
-#: ../src/preferences.c:316
+#: ../src/preferences.c:318
 msgid "_Enable fake bonuses"
 msgstr "Įj_ungti netikras premijas"
 
-#: ../src/preferences.c:324
+#: ../src/preferences.c:326
 msgid "E_nable sounds"
 msgstr "Įj_ungti garsus"
 
-#: ../src/preferences.c:337
+#: ../src/preferences.c:339
 msgid "_Starting level:"
 msgstr "_Pradinis lygis:"
 
-#: ../src/preferences.c:362
+#: ../src/preferences.c:364
 msgid "Number of _human players:"
 msgstr "Žaidžiančių ž_monių skaičius:"
 
-#: ../src/preferences.c:379
+#: ../src/preferences.c:381
 msgid "Number of _AI players:"
 msgstr "DI ž_aidėjų skaičius:"
 
-#: ../src/preferences.c:400
+#: ../src/preferences.c:402
 msgid "Worm"
 msgstr "Gyvatė"
 
-#: ../src/preferences.c:409
+#: ../src/preferences.c:411
 msgid "Keyboard Options"
 msgstr "Klaviatūros nustatymai"
 
-#: ../src/preferences.c:429
+#: ../src/preferences.c:431
 msgid "_Use relative movement"
 msgstr "_Naudoti reliatyvų judėjimą"
 
-#: ../src/preferences.c:436
+#: ../src/preferences.c:438
 msgid "_Worm color:"
 msgstr "_Gyvatės spalva:"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:444
 msgid "Red"
 msgstr "Raudona"
 
-#: ../src/preferences.c:443
+#: ../src/preferences.c:445
 msgid "Green"
 msgstr "Žalia"
 
-#: ../src/preferences.c:444
+#: ../src/preferences.c:446
 msgid "Blue"
 msgstr "Mėlyna"
 
-#: ../src/preferences.c:445
+#: ../src/preferences.c:447
 msgid "Yellow"
 msgstr "Geltona"
 
-#: ../src/preferences.c:446
+#: ../src/preferences.c:448
 msgid "Cyan"
 msgstr "Žalsvai melsva"
 
-#: ../src/preferences.c:447
+#: ../src/preferences.c:449
 msgid "Purple"
 msgstr "Violetinė"
 
-#: ../src/preferences.c:448
+#: ../src/preferences.c:450
 msgid "Gray"
 msgstr "Pilka"
 
@@ -451,3 +478,12 @@ msgstr "Pilka"
 #, c-format
 msgid "Worm %d:"
 msgstr "Gyvatė %d:"
+
+#~ msgid ""
+#~ "A worm game for GNOME\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "Kirminų žaidimas, skirtas GNOME.\n"
+#~ "\n"
+#~ "Nibbles yra GNOME žaidimų dalis."
