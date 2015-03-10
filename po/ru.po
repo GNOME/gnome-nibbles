@@ -11,25 +11,25 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2010.
 # Valek Filippov <frob@df.ru> 2000-2002
 # Nickolay V. Shmyrev <nshmyrev@yandex.ru>
-# Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012, 2013.
 # Ivan Komaritsyn <vantu5z@mail.ru>, 2015.
+# Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012, 2013, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-24 08:04+0000\n"
-"PO-Revision-Date: 2015-02-27 21:14+0300\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"POT-Creation-Date: 2015-03-10 08:11+0000\n"
+"PO-Revision-Date: 2015-03-10 21:38+0300\n"
+"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
@@ -38,7 +38,7 @@ msgstr "Червячки GNOME"
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
 #: ../data/gnome-nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
-msgstr "Управляйте растущим прожорливым червяком в лабиринте"
+msgstr "Управляйте растущим прожорливым червячком в лабиринте"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
@@ -73,8 +73,8 @@ msgstr ""
 "Сыграйте против других червячков (до 5 соперников) или поделитесь "
 "клавиатурой с другой."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:576
-#: ../src/main.c:669
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
+#: ../src/main.c:704
 msgid "Nibbles"
 msgstr "Червячок"
 
@@ -176,11 +176,11 @@ msgstr "Размер узора."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Color to use for worm"
-msgstr "Цвет червяка"
+msgstr "Цвет червячка"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Color to use for worm."
-msgstr "Цвет червяка."
+msgstr "Цвет червячка."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Use relative movement"
@@ -190,7 +190,7 @@ msgstr "Использовать относительное перемещени
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Использовать относительное перемещение (т.е. только влево или вправо)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
 msgid "Move up"
 msgstr "Двигаться вверх"
 
@@ -198,7 +198,7 @@ msgstr "Двигаться вверх"
 msgid "Key to use for motion up."
 msgstr "Кнопка для движения вверх."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
 msgid "Move down"
 msgstr "Двигаться вниз"
 
@@ -206,7 +206,7 @@ msgstr "Двигаться вниз"
 msgid "Key to use for motion down."
 msgstr "Кнопка для движения вниз."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
 msgid "Move left"
 msgstr "Влево"
 
@@ -214,7 +214,7 @@ msgstr "Влево"
 msgid "Key to use for motion left."
 msgstr "Кнопка для движения влево."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
 msgid "Move right"
 msgstr "Вправо"
 
@@ -357,11 +357,11 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Быстро и с обманками"
 
-#: ../src/main.c:222
+#: ../src/main.c:257
 msgid "A worm game for GNOME"
-msgstr "Игра в червяка для среды GNOME"
+msgstr "Игра в червячка для среды GNOME"
 
-#: ../src/main.c:225
+#: ../src/main.c:260
 msgid "translator-credits"
 msgstr ""
 "Валек Филиппов aka frob\n"
@@ -370,108 +370,108 @@ msgstr ""
 "Михаил Яхонтов\n"
 "Леонид Кантер"
 
-#: ../src/preferences.c:223
+#: ../src/preferences.c:225
 msgid "Preferences"
 msgstr "Параметры"
 
-#: ../src/preferences.c:236
+#: ../src/preferences.c:238
 msgid "Game"
 msgstr "Игра"
 
 #. Speed
-#: ../src/preferences.c:252
+#: ../src/preferences.c:254
 msgid "Speed"
 msgstr "Скорость"
 
-#: ../src/preferences.c:257
+#: ../src/preferences.c:259
 msgid "Nibbles newbie"
 msgstr "Новый червячок"
 
-#: ../src/preferences.c:267
+#: ../src/preferences.c:269
 msgid "My second day"
 msgstr "Уже второй день играю!"
 
-#: ../src/preferences.c:277
+#: ../src/preferences.c:279
 msgid "Not too shabby"
 msgstr "Я не полный чайник"
 
-#: ../src/preferences.c:287
+#: ../src/preferences.c:289
 msgid "Finger-twitching good"
 msgstr "Мастер работы с кнопками"
 
-#: ../src/preferences.c:301 ../src/preferences.c:424
+#: ../src/preferences.c:303 ../src/preferences.c:426
 msgid "Options"
 msgstr "Параметры"
 
-#: ../src/preferences.c:308
+#: ../src/preferences.c:310
 msgid "_Play levels in random order"
 msgstr "_Случайно предлагать уровни"
 
-#: ../src/preferences.c:316
+#: ../src/preferences.c:318
 msgid "_Enable fake bonuses"
 msgstr "Разрешить _фальшивые бонусы"
 
-#: ../src/preferences.c:324
+#: ../src/preferences.c:326
 msgid "E_nable sounds"
 msgstr "Включить _звуки"
 
-#: ../src/preferences.c:337
+#: ../src/preferences.c:339
 msgid "_Starting level:"
 msgstr "_Начальный уровень:"
 
-#: ../src/preferences.c:362
+#: ../src/preferences.c:364
 msgid "Number of _human players:"
 msgstr "Число _игроков:"
 
-#: ../src/preferences.c:379
+#: ../src/preferences.c:381
 msgid "Number of _AI players:"
 msgstr "Число _компьютерных игроков:"
 
-#: ../src/preferences.c:400
+#: ../src/preferences.c:402
 msgid "Worm"
-msgstr "Червяк"
+msgstr "Червячок"
 
-#: ../src/preferences.c:409
+#: ../src/preferences.c:411
 msgid "Keyboard Options"
 msgstr "Параметры клавиатуры"
 
-#: ../src/preferences.c:429
+#: ../src/preferences.c:431
 msgid "_Use relative movement"
 msgstr "Использовать _относительное перемещение"
 
-#: ../src/preferences.c:436
+#: ../src/preferences.c:438
 msgid "_Worm color:"
-msgstr "Цвет _червяка:"
+msgstr "Цвет _червячка:"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:444
 msgid "Red"
 msgstr "Красный"
 
-#: ../src/preferences.c:443
+#: ../src/preferences.c:445
 msgid "Green"
-msgstr "Зеленый"
+msgstr "Зелёный"
 
-#: ../src/preferences.c:444
+#: ../src/preferences.c:446
 msgid "Blue"
 msgstr "Синий"
 
-#: ../src/preferences.c:445
+#: ../src/preferences.c:447
 msgid "Yellow"
-msgstr "Желтый"
+msgstr "Жёлтый"
 
-#: ../src/preferences.c:446
+#: ../src/preferences.c:448
 msgid "Cyan"
 msgstr "Голубой"
 
-#: ../src/preferences.c:447
+#: ../src/preferences.c:449
 msgid "Purple"
 msgstr "Пурпурный"
 
-#: ../src/preferences.c:448
+#: ../src/preferences.c:450
 msgid "Gray"
 msgstr "Серый"
 
 #: ../src/scoreboard.c:48
 #, c-format
 msgid "Worm %d:"
-msgstr "Червяк %d:"
+msgstr "Червячок %d:"
