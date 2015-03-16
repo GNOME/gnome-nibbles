@@ -1,3 +1,9 @@
+3.15.92 - March 16, 2015
+========================
+
+* Remove the two asserts that crash the most for the "stable" release
+* Updated translations
+
 gnome-nibbles 3.15.91.1
 =======================
 
