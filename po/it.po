@@ -1,11 +1,11 @@
 # Italian translation for gnome-nibbles
-# Copyright (C) 2002-2008, 2009, 2010, 2011, 2012, 2013, 2014 Free Software Foundation, Inc.
+# Copyright (C) 2002-2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-nibbles package.
 # Fabrizio Stefani <f.stef@it.gnome.org>, 1999-2002;
 # Alessio Frusciante <algol@firenze.linux.it>. 2003.
 # Francesco Marletta <francesco.marletta@tiscali.it>. 2002-2006.
 # Gruppo traduzione Italiano di Ubuntu <gruppo-traduzione@ubuntu-it.org>, 2007-2008
-# Milo Casagrande <milo@milo.name>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+# Milo Casagrande <milo@milo.name>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
@@ -27,40 +27,43 @@ msgstr ""
 msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:2 ../data/gnome-nibbles.desktop.in.h:2
+#: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Guida un verme in giro per un labirinto"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver enemy worms "
-"while eating doughnuts and ice cream to increase your length. Each worm has ten lives and "
-"loses one by running into a wall, another worm, or itself. The enemy worms are after the "
-"same bonuses that you are, so be careful: if they become too large, you won't have much "
-"room for movement."
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
 msgstr ""
-"Controlla una simpatico vermicello nella sua ricerca di cibo e di crescita. Scansa i "
-"vermi nemici mentre ti azzuffi di gelati e ciambelle per diventare sempre più lungo. Ogni "
-"verme ha 10 vite e ne perde una se si scontra con un muro, un altro verme o con se "
-"stesso. I nemici cercano anche loro di mangiare e diventare più lunghi: stai attento, se "
-"crescono troppo non ci sarà più spazio per te!"
+"Controlla una simpatico vermicello nella sua ricerca di cibo e di crescita. "
+"Scansa i vermi nemici mentre ti azzuffi di gelati e ciambelle per diventare "
+"sempre più lungo. Ogni verme ha 10 vite e ne perde una se si scontra con un "
+"muro, un altro verme o con se stesso. I nemici cercano anche loro di "
+"mangiare e diventare più lunghi: stai attento, se crescono troppo non ci "
+"sarà più spazio per te!"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early levels are "
-"mostly open with a few walls, but later on, cramped spaces and teleporters make things "
-"more interesting."
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
 msgstr ""
-"L'avventura si protrae per 26 mappe di difficoltà crescente: nei primi livelli ci sono "
-"pochi muri, ma man mano che aumenta il livello, spazi angusti e sistemi di teletrasporto "
-"renderanno il gioco più interessante."
+"L'avventura si protrae per 26 mappe di difficoltà crescente: nei primi "
+"livelli ci sono pochi muri, ma man mano che aumenta il livello, spazi "
+"angusti e sistemi di teletrasporto renderanno il gioco più interessante."
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to play with a "
-"friend."
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
 msgstr ""
-"Gioca da solo contro un massimo di 5 vermi o condividi la tua tastiera con un amico."
+"Gioca da solo contro un massimo di 5 vermi o condividi la tua tastiera con "
+"un amico."
 
 #: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
 #: ../src/main.c:704
@@ -463,170 +466,3 @@ msgstr "Grigio"
 #, c-format
 msgid "Worm %d:"
 msgstr "Verme %d:"
-
-#~ msgid ""
-#~ "A worm game for GNOME\n"
-#~ "\n"
-#~ "Nibbles is a part of GNOME Games."
-#~ msgstr ""
-#~ "Un gioco vermoso per GNOME.\n"
-#~ "\n"
-#~ "Nibbles fa parte dei Giochi di GNOME."
-
-#~ msgid "New Game"
-#~ msgstr "Nuova partita"
-
-#~ msgctxt "score-dialog"
-#~ msgid "Name"
-#~ msgstr "Nome"
-
-#~ msgid "View help for this game"
-#~ msgstr "Mostra la guida di questo gioco"
-
-#~ msgid "End the current game"
-#~ msgstr "Finisce la partita in corso"
-
-#~ msgid "Toggle fullscreen mode"
-#~ msgstr "Entra in modalità a schermo intero"
-
-#~ msgid "Get a hint for your next move"
-#~ msgstr "Mostra un indizio per la tua prossima mossa"
-
-#~ msgid "Leave fullscreen mode"
-#~ msgstr "Lascia la modalità a schermo intero"
-
-#~ msgid "Start a new multiplayer network game"
-#~ msgstr "Avvia una nuova partita multi-giocatore in rete"
-
-#~ msgid "End the current network game and return to network server"
-#~ msgstr "Termina la partita in rete e torna al server"
-
-#~ msgid "Start a new game"
-#~ msgstr "Inizia una nuova partita"
-
-#~ msgid "Pause the game"
-#~ msgstr "Mette la partita in pausa"
-
-#~ msgid "Show a list of players in the network game"
-#~ msgstr "Mostra l'elenco dei giocatori nella partita in rete"
-
-#~ msgid "Redo the undone move"
-#~ msgstr "Ripete l'ultima mossa"
-
-#~ msgid "Restart the game"
-#~ msgstr "Ricomincia la partita"
-
-#~ msgid "Resume the paused game"
-#~ msgstr "Riprende la partita in pausa"
-
-#~ msgid "View the scores"
-#~ msgstr "Mostra i punteggi"
-
-#~ msgid "Undo the last move"
-#~ msgstr "Annulla l'ultima mossa"
-
-#~ msgid "About this game"
-#~ msgstr "Informazioni su questo gioco"
-
-#~ msgid "Close this window"
-#~ msgstr "Chiude questa finestra"
-
-#~ msgid "Configure the game"
-#~ msgstr "Configura il gioco"
-
-#~ msgid "Quit this game"
-#~ msgstr "Esce da questo gioco"
-
-#~ msgid "_Contents"
-#~ msgstr "_Sommario"
-
-#~ msgid "_Fullscreen"
-#~ msgstr "Schermo _intero"
-
-#~ msgid "_Hint"
-#~ msgstr "_Indizio"
-
-#~ msgid "_New"
-#~ msgstr "_Nuovo"
-
-#~ msgid "_Redo Move"
-#~ msgstr "_Ripeti mossa"
-
-#~ msgid "_Reset"
-#~ msgstr "A_zzera"
-
-#~ msgid "_Restart"
-#~ msgstr "_Ricomincia"
-
-#~ msgid "_Undo Move"
-#~ msgstr "_Annulla mossa"
-
-#~ msgid "_Deal"
-#~ msgstr "Di_stribuisci"
-
-#~ msgid "_Leave Fullscreen"
-#~ msgstr "_Finestra normale"
-
-#~ msgid "Network _Game"
-#~ msgstr "Partita in _rete"
-
-#~ msgid "L_eave Game"
-#~ msgstr "Abbandona _partita"
-
-#~ msgid "Player _List"
-#~ msgstr "Elenco _giocatori"
-
-#~ msgid "Res_ume"
-#~ msgstr "Ripr_endi"
-
-#~ msgid "_End Game"
-#~ msgstr "_Fine gioco"
-
-#~ msgid ""
-#~ "%s is free software; you can redistribute it and/or modify it under the terms of the "
-#~ "GNU General Public License as published by the Free Software Foundation; either "
-#~ "version %d of the License, or (at your option) any later version."
-#~ msgstr ""
-#~ "%s è software libero; è lecito redistribuirlo o modificarlo secondo i termini della "
-#~ "GNU General Public License come pubblicata dalla Free Software Foundation; o la "
-#~ "versione %d o (a propria scelta) una versione successiva."
-
-#~ msgid ""
-#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; "
-#~ "without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR "
-#~ "PURPOSE.  See the GNU General Public License for more details."
-#~ msgstr ""
-#~ "%s è distribuito nella speranza che sia utile, ma SENZA ALCUNA GARANZIA; senza neppure "
-#~ "la garanzia implicita di NEGOZIABILITÀ o di APPLICABILITÀ PER UN PARTICOLARE SCOPO. Si "
-#~ "veda la licenza GNU General Public License per maggiori dettagli."
-
-#~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along with %s; if "
-#~ "not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, "
-#~ "Boston, MA  02110-1301  USA"
-#~ msgstr ""
-#~ "Una copia della licenza GNU General Public License è disponibile con %s; se così non "
-#~ "fosse, scrivere alla Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, "
-#~ "Boston, MA 02110-1301 USA"
-
-#~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along with this "
-#~ "program.  If not, see <http://www.gnu.org/licenses/>."
-#~ msgstr ""
-#~ "Una copia della licenza GNU General Public License dovrebbe essere disponibile con "
-#~ "questo programma. Se così non fosse, consultare <http://www.gnu.org/licenses/>."
-
-#~ msgid "GNOME Games web site"
-#~ msgstr "Sito web di GNOME Games"
-
-#~ msgid "Game over! The game has been won by %s!"
-#~ msgstr "Gioco terminato! La partita è stata vinta da %s!"
-
-#~ msgid "_Game"
-#~ msgstr "_Gioco"
-
-#~ msgid "_View"
-#~ msgstr "_Visualizza"
-
-#~ msgid "_Settings"
-#~ msgstr "_Impostazioni"
