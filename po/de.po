@@ -23,22 +23,27 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-20 07:06+0000\n"
-"PO-Revision-Date: 2014-09-20 18:39+0100\n"
-"Last-Translator:  Bernd Homuth <dev@hmt.im>\n"
+"POT-Creation-Date: 2015-03-20 09:50+0000\n"
+"PO-Revision-Date: 2015-03-22 10:58+0100\n"
+"Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Einen Wurm in einem Labyrinth herumführen"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -54,7 +59,7 @@ msgstr ""
 "der Hut: Wenn sie zu groß werden, dann bleibt Ihnen nicht mehr viel "
 "Bewegungsfreiheit."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -64,7 +69,7 @@ msgstr ""
 "Die ersten Karten sind weitgehend offen mit wenigen Wändern, aber später "
 "machen enge Räume und Teleporter die Sache viel abwechselungsreicher."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -72,18 +77,42 @@ msgstr ""
 "Spielen Sie allein gegen bis zu fünf gegnerische Würmer, oder teilen Sie "
 "Ihre Tastatur zum Spielen mit einem Freund."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
-#: ../src/main.c:706
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
+#: ../src/main.c:704
 msgid "Nibbles"
 msgstr "Nibbles"
-
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Einen Wurm in einem Labyrinth herumführen"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "Spiel;Snake;Brettspiel;"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_New Game"
+msgstr "_Neues Spiel"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Pause"
+msgstr "_Pause"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Preferences"
+msgstr "_Einstellungen"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_Scores"
+msgstr "Er_gebnisse"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Help"
+msgstr "_Hilfe"
+
+#: ../data/nibbles-menus.ui.h:6
+msgid "_About"
+msgstr "_Info"
+
+#: ../data/nibbles-menus.ui.h:7
+msgid "_Quit"
+msgstr "_Beenden"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -165,7 +194,7 @@ msgstr "Relative Bewegungen verwenden"
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Relative Bewegungen verwenden (also lediglich rechts/links)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
 msgid "Move up"
 msgstr "Nach oben bewegen"
 
@@ -173,7 +202,7 @@ msgstr "Nach oben bewegen"
 msgid "Key to use for motion up."
 msgstr "Zum Bewegen nach oben zu verwendende Taste."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
 msgid "Move down"
 msgstr "Nach unten bewegen"
 
@@ -181,7 +210,7 @@ msgstr "Nach unten bewegen"
 msgid "Key to use for motion down."
 msgstr "Zum Bewegen nach unten zu verwendende Taste."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
 msgid "Move left"
 msgstr "Nach links bewegen"
 
@@ -189,7 +218,7 @@ msgstr "Nach links bewegen"
 msgid "Key to use for motion left."
 msgstr "Zum Bewegen nach links zu verwendende Taste."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
 msgid "Move right"
 msgstr "Nach rechts bewegen"
 
@@ -332,17 +361,11 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Schnell, mit Attrappen"
 
-#: ../src/main.c:222
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Ein Wurmspiel für GNOME.\n"
-"\n"
-"Nibbles ist ein Teil der GNOME-Spiele."
+#: ../src/main.c:257
+msgid "A worm game for GNOME"
+msgstr "Ein Wurmspiel für GNOME"
 
-#: ../src/main.c:225
+#: ../src/main.c:260
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -361,104 +384,104 @@ msgstr ""
 "Christian Kirbach <Christian.Kirbach@googlemail.com>\n"
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>"
 
-#: ../src/preferences.c:223
+#: ../src/preferences.c:225
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: ../src/preferences.c:236
+#: ../src/preferences.c:238
 msgid "Game"
 msgstr "Spiel"
 
 #. Speed
-#: ../src/preferences.c:252
+#: ../src/preferences.c:254
 msgid "Speed"
 msgstr "Geschwindigkeit"
 
-#: ../src/preferences.c:257
+#: ../src/preferences.c:259
 msgid "Nibbles newbie"
 msgstr "Nibbles-Neuling"
 
-#: ../src/preferences.c:267
+#: ../src/preferences.c:269
 msgid "My second day"
 msgstr "Mein zweiter Tag"
 
-#: ../src/preferences.c:277
+#: ../src/preferences.c:279
 msgid "Not too shabby"
 msgstr "Nicht allzu grauslig"
 
-#: ../src/preferences.c:287
+#: ../src/preferences.c:289
 msgid "Finger-twitching good"
 msgstr "Leistungsgrenze der Anatomie"
 
-#: ../src/preferences.c:301 ../src/preferences.c:424
+#: ../src/preferences.c:303 ../src/preferences.c:426
 msgid "Options"
 msgstr "Optionen"
 
-#: ../src/preferences.c:308
+#: ../src/preferences.c:310
 msgid "_Play levels in random order"
 msgstr "Spielstufen in _zufälliger Reihenfolge spielen"
 
-#: ../src/preferences.c:316
+#: ../src/preferences.c:318
 msgid "_Enable fake bonuses"
 msgstr "Unechte _Boni aktivieren"
 
-#: ../src/preferences.c:324
+#: ../src/preferences.c:326
 msgid "E_nable sounds"
 msgstr "_Klang aktivieren"
 
-#: ../src/preferences.c:337
+#: ../src/preferences.c:339
 msgid "_Starting level:"
 msgstr "Anfangs_spielstufe:"
 
-#: ../src/preferences.c:362
+#: ../src/preferences.c:364
 msgid "Number of _human players:"
 msgstr "Anzahl der _menschlichen Spieler:"
 
-#: ../src/preferences.c:379
+#: ../src/preferences.c:381
 msgid "Number of _AI players:"
 msgstr "Anzahl der _Computerspieler:"
 
-#: ../src/preferences.c:400
+#: ../src/preferences.c:402
 msgid "Worm"
 msgstr "Wurm"
 
-#: ../src/preferences.c:409
+#: ../src/preferences.c:411
 msgid "Keyboard Options"
 msgstr "Tastaturoptionen"
 
-#: ../src/preferences.c:429
+#: ../src/preferences.c:431
 msgid "_Use relative movement"
 msgstr "_Relative Bewegungen verwenden"
 
-#: ../src/preferences.c:436
+#: ../src/preferences.c:438
 msgid "_Worm color:"
 msgstr "_Wurmfarbe:"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:444
 msgid "Red"
 msgstr "Rot"
 
-#: ../src/preferences.c:443
+#: ../src/preferences.c:445
 msgid "Green"
 msgstr "Grün"
 
-#: ../src/preferences.c:444
+#: ../src/preferences.c:446
 msgid "Blue"
 msgstr "Blau"
 
-#: ../src/preferences.c:445
+#: ../src/preferences.c:447
 msgid "Yellow"
 msgstr "Gelb"
 
-#: ../src/preferences.c:446
+#: ../src/preferences.c:448
 msgid "Cyan"
 msgstr "Zyan"
 
-#: ../src/preferences.c:447
+#: ../src/preferences.c:449
 msgid "Purple"
 msgstr "Purpur"
 
-#: ../src/preferences.c:448
+#: ../src/preferences.c:450
 msgid "Gray"
 msgstr "Grau"
 
@@ -466,6 +489,15 @@ msgstr "Grau"
 #, c-format
 msgid "Worm %d:"
 msgstr "Wurm %d:"
+
+#~ msgid ""
+#~ "A worm game for GNOME\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "Ein Wurmspiel für GNOME.\n"
+#~ "\n"
+#~ "Nibbles ist ein Teil der GNOME-Spiele."
 
 #~ msgid "New Game"
 #~ msgstr "Neues Spiel"
@@ -544,9 +576,6 @@ msgstr "Wurm %d:"
 #~ msgid "_New"
 #~ msgstr "_Neu"
 
-#~ msgid "_New Game"
-#~ msgstr "_Neues Spiel"
-
 #~ msgid "_Redo Move"
 #~ msgstr "Zug _wiederholen"
 
@@ -574,14 +603,8 @@ msgstr "Wurm %d:"
 #~ msgid "Player _List"
 #~ msgstr "Spieler_liste"
 
-#~ msgid "_Pause"
-#~ msgstr "_Pause"
-
 #~ msgid "Res_ume"
 #~ msgstr "_Fortsetzen"
-
-#~ msgid "_Scores"
-#~ msgstr "Er_gebnisse"
 
 #~ msgid "_End Game"
 #~ msgstr "Spiel _beenden"
@@ -641,9 +664,3 @@ msgstr "Wurm %d:"
 
 #~ msgid "_Settings"
 #~ msgstr "_Einstellungen"
-
-#~ msgid "_Help"
-#~ msgstr "_Hilfe"
-
-#~ msgid "A worm game for GNOME."
-#~ msgstr "Ein Wurmspiel für GNOME."
