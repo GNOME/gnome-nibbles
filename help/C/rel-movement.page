@@ -24,7 +24,7 @@
 
   <title>Relative movement</title>
 
-  <p>When relative movement is enabled, the worm is manouvered using just the
+  <p>When relative movement is enabled, the worm is maneuvered using just the
   default <key>Left</key> and <key>Right</key> keys or other
   <link xref="controls-change">customized keys</link> that control the leftward
   and rightward movement of a worm. When the <key>Left</key> key is pressed,
@@ -36,7 +36,7 @@
     <tr>
       <td>
         <figure>
-          <title>Starting postion:</title>
+          <title>Starting position:</title>
           <desc>The location of the worm before you decide to move it.</desc>
           <media type="image" src="figures/before-rel.png"/>
         </figure>
