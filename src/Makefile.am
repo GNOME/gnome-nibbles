@@ -38,7 +38,7 @@ gnome_nibbles_LDADD = \
 	$(GNOME_NIBBLES_LIBS)
 
 gnome-nibbles-resources.c: gnome-nibbles.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies gnome-nibbles.gresource.xml)
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $<
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --sourcedir=$(builddir) --generate-source $<
 
 CLEANFILES = \
 	gnome-nibbles.gresource.xml \
