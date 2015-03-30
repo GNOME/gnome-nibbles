@@ -63,7 +63,6 @@ po/Makefile.in
 data/Makefile
 data/icons/Makefile
 data/icons/hicolor/Makefile
-data/icons/HighContrast/Makefile
 data/levels/Makefile
 data/pix/Makefile
 help/Makefile
