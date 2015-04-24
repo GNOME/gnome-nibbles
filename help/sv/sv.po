@@ -1,516 +1,859 @@
+# Erik Sköldås <erik.skoldas@tele2.se>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnibbles doc\n"
-"POT-Creation-Date: 2009-01-18 15:48+0000\n"
-"PO-Revision-Date: 2009-02-19 23:28+0100\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Project-Id-Version: nibbles doc\n"
+"POT-Creation-Date: 2015-03-27 20:16+0000\n"
+"PO-Revision-Date: 2015-04-18 20:58+0100\n"
+"Last-Translator: Erik Sköldås <erik.skoldas@tele2.se>\n"
+"Language-Team: Swedish\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:186(None)
-#| msgid "@@image: 'figures/intro.png'; md5=2cb95a77682b5c8ab3c0e70326b177e9"
-msgid "@@image: 'figures/intro.png'; md5=fba0b0fc807a1eed13d9b5bba6a8d9fa"
-msgstr "@@image: 'figures/intro.png'; md5=fba0b0fc807a1eed13d9b5bba6a8d9fa"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:209(None)
-#| msgid "@@image: 'figures/playing.png'; md5=4ccd18e90e9ff4d8fba5ba0fc17832d3"
-msgid "@@image: 'figures/playing.png'; md5=68c63b494278113a82ac864a277891c4"
-msgstr "@@image: 'figures/playing.png'; md5=68c63b494278113a82ac864a277891c4"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:409(None)
-#| msgid "@@image: 'figures/game.png'; md5=e84ee2ea6a0ea4e12ea38054689576e3"
-msgid "@@image: 'figures/game.png'; md5=3103fe2ce969c658bf74cbf66fb2ec64"
-msgstr "@@image: 'figures/game.png'; md5=3103fe2ce969c658bf74cbf66fb2ec64"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:491(None)
-#| msgid "@@image: 'figures/worm_op.png'; md5=1d314ed7e1a6214c26d411cb55f764b8"
-msgid "@@image: 'figures/worm_op.png'; md5=b6ccbcdd5d11fe28a75fd23c0d96483a"
-msgstr "@@image: 'figures/worm_op.png'; md5=b6ccbcdd5d11fe28a75fd23c0d96483a"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:54(None)
-#| msgid "@@image: 'figures/intro.png'; md5=2cb95a77682b5c8ab3c0e70326b177e9"
-msgid "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
-msgstr "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnibbles.xml:77(None)
-#| msgid "@@image: 'figures/game.png'; md5=e84ee2ea6a0ea4e12ea38054689576e3"
-msgid "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
-msgstr "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
-
-#: C/gnibbles.xml:28(title)
-#| msgid "<application>Nibbles</application> Manual V2.8"
-msgid "<application>Nibbles</application> Manual"
-msgstr "Handbok för <application>Nibbles</application>"
-
-#: C/gnibbles.xml:31(para)
-msgid "Nibbles is a worm game for GNOME. The player controls a 2D worm while trying to get food. Getting food gives points, but hitting anything causes a loss of points. When all points are lost, the player loses."
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
 msgstr ""
+"Daniel Nylander <po@danielnylander.se>\n"
+"Erik Sköldås <erik.skoldas@tele2.se>, 2015\n"
+"Skicka synpunkter på översättningen till\n"
+"<tp-sv@listor.tp-sv.se>"
 
-#: C/gnibbles.xml:40(year)
-msgid "2000"
-msgstr "2000"
+#. (itstool) path: credit/name
+#: C/basics.page:14 C/controls-change.page:16 C/controls-default.page:14
+#: C/fake-bonus.page:14 C/index.page:12 C/multi-player.page:16
+#: C/preferences.page:14 C/rel-movement.page:14 C/scores.page:14
+msgid "Aruna Sankaranarayanan"
+msgstr "Aruna Sankaranarayanan"
 
-#: C/gnibbles.xml:41(holder)
-msgid "Kevin Breit"
-msgstr "Kevin Breit"
+#. (itstool) path: credit/name
+#: C/basics.page:18 C/controls-change.page:20 C/controls-default.page:18
+#: C/fake-bonus.page:18 C/multi-player.page:20 C/preferences.page:18
+#: C/rel-movement.page:18
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
 
-#: C/gnibbles.xml:57(publishername)
-#: C/gnibbles.xml:70(orgname)
-#: C/gnibbles.xml:96(para)
-msgid "GNOME Documentation Project"
-msgstr "Dokumentationsprojekt för GNOME"
-
-#: C/gnibbles.xml:2(para)
-msgid "Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any later version published by the Free Software Foundation with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or in the file COPYING-DOCS distributed with this manual."
-msgstr "Tillstånd att kopiera, distribuera och/eller modifiera detta dokument ges under villkoren i GNU Free Documentation License (GFDL), version 1.1 eller senare, utgivet av Free Software Foundation utan standardavsnitt och omslagstexter.  En kopia av GFDL finns att hämta på denna <ulink type=\"help\" url=\"help:fdl\">länk</ulink> eller i filen COPYING-DOCS som medföljer denna handbok."
-
-#: C/gnibbles.xml:12(para)
-msgid "This manual is part of a collection of GNOME manuals distributed under the GFDL. If you want to distribute this manual separately from the collection, you can do so by adding a copy of the license to the manual, as described in section 6 of the license."
-msgstr "Denna handbok utgör en av flera GNOME-handböcker som distribueras under villkoren i GFDL.  Om du vill distribuera denna handbok separat från övriga handböcker kan du göra detta genom att lägga till en kopia av licensavtalet i handboken enligt instruktionerna i avsnitt 6 i licensavtalet."
-
-#: C/gnibbles.xml:19(para)
-msgid "Many of the names used by companies to distinguish their products and services are claimed as trademarks. Where those names appear in any GNOME documentation, and the members of the GNOME Documentation Project are made aware of those trademarks, then the names are in capital letters or initial capital letters."
-msgstr "Flera namn på produkter och tjänster är registrerade varumärken. I de fall dessa namn förekommer i GNOME-dokumentation - och medlemmarna i GNOME-dokumentationsprojektet är medvetna om dessa varumärken - är de skrivna med versaler eller med inledande versal."
-
-#: C/gnibbles.xml:35(para)
-msgid "DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS FREE OF DEFECTS MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL WRITER, AUTHOR OR ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
-msgstr "DOKUMENTET TILLHANDAHÅLLS I \"BEFINTLIGT SKICK\" UTAN NÅGRA SOM HELST GARANTIER, VARE SIG UTTRYCKLIGA ELLER UNDERFÖRSTÅDDA, INKLUSIVE, MEN INTE BEGRÄNSAT TILL, GARANTIER ATT DOKUMENTET ELLER EN MODIFIERAD VERSION AV DOKUMENTET INTE INNEHÅLLER NÅGRA FELAKTIGHETER, ÄR LÄMPLIGT FÖR ETT VISST ÄNDAMÅL ELLER INTE STRIDER MOT LAG. HELA RISKEN VAD GÄLLER KVALITET, EXAKTHET OCH UTFÖRANDE AV DOKUMENTET OCH MODIFIERADE VERSIONER AV DOKUMENTET LIGGER HELT OCH HÅLLET PÅ ANVÄNDAREN. OM ETT DOKUMENT ELLER EN MODIFIERAD VERSION AV ETT DOKUMENT SKULLE VISA SIG INNEHÅLLA FELAKTIGHETER I NÅGOT HÄNSEENDE ÄR DET DU (INTE DEN URSPRUNGLIGA SKRIBENTEN, FÖRFATTAREN ELLER NÅGON ANNAN MEDARBETARE) SOM FÅR STÅ FÖR ALLA EVENTUELLA KOSTNADER FÖR SERVICE, REPARATIONER ELLER KORRIGERINGAR. DENNA GARANTIFRISKRIVNING UTGÖR EN VÄSENTLIG DEL AV DETTA LICENSAVTAL. DETTA INNEBÄR ATT ALL ANVÄNDNING AV ETT DOKUMENT ELLER EN MODIFIERAD VERSION AV ETT DOKUMENT BEVILJAS ENDAST UNDER DENNA ANSVARSFRISKRIVNING;"
-
-#: C/gnibbles.xml:55(para)
-msgid "UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER DAMAGES OR LOSSES ARISING OUT OF OR RELATING TO USE OF THE DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES."
-msgstr "UNDER INGA OMSTÄNDIGHETER ELLER INOM RAMEN FÖR NÅGON LAGSTIFTNING, OAVSETT OM DET GÄLLER KRÄNKNING (INKLUSIVE VÅRDSLÖSHET), KONTRAKT ELLER DYLIKT, SKA FÖRFATTAREN, DEN URSPRUNGLIGA SKRIBENTEN ELLER ANNAN MEDARBETARE ELLER ÅTERFÖRSÄLJARE AV DOKUMENTET ELLER AV EN MODIFIERAD VERSION AV DOKUMENTET ELLER NÅGON LEVERANTÖR TILL NÅGON AV NÄMNDA PARTER STÄLLAS ANSVARIG GENTEMOT NÅGON FÖR NÅGRA DIREKTA, INDIREKTA, SÄRSKILDA ELLER OFÖRUTSEDDA SKADOR ELLER FÖLJDSKADOR AV NÅGOT SLAG, INKLUSIVE, MEN INTE BEGRÄNSAT TILL, SKADOR BETRÄFFANDE FÖRLORAD GOODWILL, HINDER I ARBETET, DATORHAVERI ELLER NÅGRA ANDRA TÄNKBARA SKADOR ELLER FÖRLUSTER SOM KAN UPPKOMMA PÅ GRUND AV ELLER RELATERAT TILL ANVÄNDNINGEN AV DOKUMENTET ELLER MODIFIERADE VERSIONER AV DOKUMENTET, ÄVEN OM PART SKA HA BLIVIT INFORMERAD OM MÖJLIGHETEN TILL SÅDANA SKADOR."
-
-#: C/gnibbles.xml:28(para)
-msgid "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: <placeholder-1/>"
-msgstr "DOKUMENTET OCH MODIFIERADE VERSIONER AV DOKUMENTET TILLHANDAHÅLLS UNDER VILLKOREN I GNU FREE DOCUMENTATION LICENSE ENDAST UNDER FÖLJANDE FÖRUTSÄTTNINGAR: <placeholder-1/>"
-
-#: C/gnibbles.xml:67(firstname)
-msgid "Kevin"
-msgstr "Kevin"
-
-#: C/gnibbles.xml:68(surname)
-msgid "Breit"
-msgstr "Breit"
-
-#: C/gnibbles.xml:71(email)
-msgid "battery841@mypad.com"
-msgstr "battery841@mypad.com"
-
-#: C/gnibbles.xml:90(revnumber)
-#| msgid "Nibbles Manual V2.8"
-msgid "Nibbles Manual V2.20"
-msgstr "Handbok för Nibbles v2.20"
-
-#: C/gnibbles.xml:91(date)
-msgid "May 2007"
-msgstr "Maj 2007"
-
-#: C/gnibbles.xml:93(para)
-msgid "Kevin Breit <email>battery841@mypad.com</email>"
-msgstr "Kevin Breit <email>battery841@mypad.com</email>"
-
-#: C/gnibbles.xml:101(releaseinfo)
-#| msgid "This manual describes version 2.12 of Nibbles."
-msgid "This manual describes version 2.20 of Nibbles."
-msgstr "Den här handboken beskriver version 2.20 av Nibbles."
-
-#: C/gnibbles.xml:108(title)
-msgid "Feedback"
-msgstr "Återkoppling"
-
-#: C/gnibbles.xml:109(para)
-msgid "To report a bug or make a suggestion regarding the <application>Nibbles</application> application or this manual, follow the directions in the <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
+#. (itstool) path: info/desc
+#: C/basics.page:22
+msgid ""
+"Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
 msgstr ""
+"Starta, pausa, spela i helskärmsläge och avsluta en omgång <app>Nibbles</"
+"app>."
 
-#: C/gnibbles.xml:119(primary)
-msgid "Nibbles"
-msgstr "Nibbles"
+#. (itstool) path: page/title
+#: C/basics.page:25
+msgid "Basic instructions"
+msgstr "Grundläggande instruktioner"
 
-#: C/gnibbles.xml:126(title)
-msgid "Introduction"
-msgstr "Introduktion"
+#. (itstool) path: section/title
+#: C/basics.page:28
+msgid "Start a new game"
+msgstr "Starta ett nytt spel"
 
-#: C/gnibbles.xml:128(para)
-#| msgid ""
-#| "Nibbles is a game where the user controls a snake. The snake moves around "
-#| "the board, eating diamonds while avoiding the walls placed around it."
-msgid "<application>Nibbles</application> is a game where the user controls a worm. The worm moves around the board, eating diamonds while avoiding the walls placed around it."
-msgstr "<application>Nibbles</application> är ett spel där användaren styr en mask. Masken förflyttar sig runt på brädet, äter upp diamanter och undviker väggarna runt omkring brädet."
-
-#: C/gnibbles.xml:132(para)
-msgid "To run <application>Nibbles</application>, select <menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Nibbles</guimenuitem></menuchoice> from the <guimenu>Applications</guimenu> menu, or type <command>gnibbles</command> on the command line."
+#. (itstool) path: section/p
+#: C/basics.page:30
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New</"
+"gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game."
 msgstr ""
+"Välj <guiseq><gui style=\"menu\">Spel</gui> <gui style=\"menuitem\">Nytt</"
+"gui></guiseq> eller tryck <keyseq><key>Ctrl</key><key>N</key></keyseq> för "
+"att starta nytt spel."
 
-#: C/gnibbles.xml:142(para)
-msgid "<application>Nibbles</application> is included in the <filename>gnome-games</filename> package, which is part of the GNOME desktop environment. This document describes version 2.20 of <application>Nibbles</application>."
+#. (itstool) path: section/title
+#: C/basics.page:38
+msgid "Pause and resume your game"
+msgstr "Pausa och återuppta ditt spel"
+
+#. (itstool) path: section/p
+#: C/basics.page:40
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause</"
+"gui></guiseq> to pause your game. You can resume your game by selecting "
+"<guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Resume</gui></"
+"guiseq>."
 msgstr ""
+"Välj <guiseq><gui style=\"menu\">Spel</gui> <gui style=\"menuitem\">Paus</"
+"gui></guiseq> för att pausa spelet. Du kan återuppta ditt spel genom att "
+"välja <guiseq><gui style=\"menu\">Spel</gui> <gui style=\"menuitem"
+"\">Återuppta</gui></guiseq>."
 
-#: C/gnibbles.xml:151(title)
-msgid "Nibbles Objective"
+#. (itstool) path: section/title
+#: C/basics.page:48
+msgid "Play <app>Nibbles</app> in fullscreen mode"
+msgstr "Spela <app>Nibbles</app> i helskärmsläge"
+
+#. (itstool) path: section/p
+#: C/basics.page:50
+msgid ""
+"Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
+"\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
+"fullscreen mode. You can return to the default screen size by pressing "
+"<key>F11</key> again."
 msgstr ""
+"Välj <guiseq><gui style=\"menu\">Visa</gui> <gui style=\"menuitem"
+"\">Helskärm</gui></guiseq> eller tryck på <key>F11</key> för att spela ditt "
+"spel i helskärmsläge. Du kan återgå till standard bildstorlek genom att "
+"trycka <key>F11</key> igen."
 
-#: C/gnibbles.xml:152(para)
-msgid "The objective of Nibbles is quite simple. You control the worm and if the worm runs into a wall or runs into itself, you die. You get ten lives before your game is over. You win by either beating your own high score (or a friend's) or by completing all the levels. It is also possible to play against worms with artificial intelligence."
+#. (itstool) path: section/title
+#: C/basics.page:58
+msgid "Quit <app>Nibbles</app>"
+msgstr "Avsluta <app>Nibbles</app>"
+
+#. (itstool) path: section/p
+#: C/basics.page:60
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit</"
+"gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
+"<app>Nibbles</app> at any time."
 msgstr ""
+"Välj <guiseq><gui style=\"menu\">Spel</gui> <gui style=\"menuitem\">Avsluta</"
+"gui></guiseq> eller tryck <keyseq><key>Ctrl</key><key>Q</key></keyseq> för "
+"att avsluta <app>Nibbles</app> när som helst."
 
-#: C/gnibbles.xml:159(para)
-msgid "Nibbles also features <link linkend=\"network-games\">multiplayer</link> support with up to six competing human players in hotseat or network mode."
+#. (itstool) path: info/desc
+#: C/controls-change.page:24
+msgid "Set custom control keys."
+msgstr "Välj anpassade kontrolltangenter."
+
+#. (itstool) path: page/title
+#: C/controls-change.page:27
+msgid "Change the default controls"
+msgstr "Ändra standardtangenter"
+
+#. (itstool) path: page/p
+#: C/controls-change.page:29
+msgid ""
+"The <link xref=\"controls-default\">default controls</link> can be changed "
+"in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
+"player\">multi-player</link> games, when having more than one set of "
+"controls becomes necessary. To change the default controls:"
 msgstr ""
+"<link xref=\"controls-default\">Standardkontrolltangenterna</link> kan "
+"ändras i <app>Nibbles</app> för att passa dina önskemål eller för spel för "
+"<link xref=\"multi-player\">flera spelare</link>, när mer än en uppsättning "
+"kontroller behövs. För att ändra standardtangenterna:"
 
-#: C/gnibbles.xml:169(title)
-msgid "Using Nibbles"
-msgstr "Använda Nibbles"
-
-#: C/gnibbles.xml:170(para)
-msgid "<application>Nibbles</application> is a simple game to play. The only keys that are needed are the arrow keys."
-msgstr "<application>Nibbles</application> är ett enkelt spel att spela. De enda tangenterna som behövs är piltangenterna."
-
-#: C/gnibbles.xml:177(title)
-msgid "Basic usage"
-msgstr "Grundläggande användning"
-
-#: C/gnibbles.xml:182(title)
-msgid "Nibbles Introduction Window"
+#. (itstool) path: item/p
+#: C/controls-change.page:36 C/fake-bonus.page:35 C/multi-player.page:44
+#: C/rel-movement.page:66
+msgid ""
+"Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
 msgstr ""
+"Välj <guiseq><gui style=\"menu\">Inställningar</gui> <gui style=\"menuitem"
+"\">Inställningar</gui></guiseq>."
 
-#: C/gnibbles.xml:189(phrase)
-msgid "Nibbles Introduction Window."
+#. (itstool) path: item/p
+#: C/controls-change.page:40
+msgid "Select the tab for the player whose controls you want to change."
+msgstr "Välj fliken för den spelare vars kontroller du vill ändra."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:42
+msgid ""
+"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+"player 3 controls <gui>Worm 3</gui> and so on."
 msgstr ""
+"Spelare 1 kontrollerar <gui>Mask 1</gui>, spelare 2 kontrollerar <gui>Mask "
+"2</gui>, spelare 3 kontrollerar <gui>Mask 3</gui> och så vidare."
 
-#: C/gnibbles.xml:178(para)
-msgid "Starting <application>Nibbles</application> opens the <interface>main window</interface> shown below. <placeholder-1/>"
-msgstr "Start av <application>Nibbles</application> öppnar <interface>huvudfönstret</interface> som visas nedan. <placeholder-1/>"
-
-#: C/gnibbles.xml:195(para)
-msgid "To start the game, select <menuchoice><guimenu>Game</guimenu><guimenuitem>New Game</guimenuitem></menuchoice>."
-msgstr "Välj <menuchoice><guimenu>Spel</guimenu><guimenuitem>Nytt spel</guimenuitem></menuchoice> för att starta spelet."
-
-#: C/gnibbles.xml:205(title)
-msgid "Nibbles During Gameplay"
+#. (itstool) path: item/p
+#: C/controls-change.page:47
+msgid ""
+"In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
+"then click on the control. This highlights the line and the words <gui>New "
+"accelerator…</gui> are now present in place of the old control."
 msgstr ""
+"I <gui style=\"group\">Tangentbordsstyrnings</gui>-listan, välj raden och "
+"klicka sedan på styrning. Det kommer att markera raden och texten <gui>Ny "
+"snabbtangent…</gui> visas nu istället för standardstyrningen."
 
-#: C/gnibbles.xml:212(phrase)
-msgid "Nibbles During Gameplay."
+#. (itstool) path: item/p
+#: C/controls-change.page:53
+msgid "Press the key you want to use instead of the default key."
 msgstr ""
+"Tryck på tangenten som du vill använda i stället för standardtangenten."
 
-#: C/gnibbles.xml:199(para)
-msgid "When the game starts, the worm will come out of the left side of the screen. You use the up arrow to make the direction of the worm go up. Use the right arrow to turn the worm right, left arrow to turn the worm left, and down arrow to turn the worm down. <placeholder-1/>"
+#. (itstool) path: note/p
+#: C/controls-change.page:55
+msgid ""
+"To keep the old setting click <gui>New accelerator…</gui> again, right click "
+"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
+"inside the <gui>Nibbles Preferences</gui> box."
 msgstr ""
+"För att behålla den gamla inställningen klicka åter på <gui>Ny snabbtangent…"
+"</gui>, högerklicka på <gui>Ny snabbtangent…</gui>, tryck <key>Esc</key> "
+"eller klicka inuti rutan <gui>Inställningar för Nibbles</gui>."
 
-#: C/gnibbles.xml:228(title)
-msgid "Menus"
-msgstr "Menyer"
-
-#: C/gnibbles.xml:229(para)
-msgid "The menu bar, located at the top of the <interface>Main Window</interface>, contains the following menus:"
+#. (itstool) path: item/p
+#: C/controls-change.page:61
+msgid ""
+"Repeat the above step to change the other default keys for the current "
+"player, then select the tab for the next player whose controls you want to "
+"change and repeat the process."
 msgstr ""
+"Upprepa ovanstående steg för att ändra andra standardtangenter för den "
+"aktuella spelaren, välj sedan fliken för nästa spelare vars kontroller du "
+"vill ändra och upprepa processen."
 
-#: C/gnibbles.xml:236(guimenu)
-msgid "Game"
-msgstr "Spel"
-
-#: C/gnibbles.xml:242(para)
-msgid "<menuchoice><shortcut><keysym>Ctrl+N</keysym></shortcut><guimenuitem>New Game</guimenuitem></menuchoice> This starts a new game of <application>Nibbles</application>."
-msgstr "<menuchoice><shortcut><keysym>Ctrl+N</keysym></shortcut><guimenuitem>Nytt spel</guimenuitem></menuchoice> Detta startar ett nytt spel av <application>Nibbles</application>."
-
-#: C/gnibbles.xml:253(para)
-msgid "<menuchoice><shortcut><keysym>Ctrl+G</keysym></shortcut><guimenuitem>Network Game</guimenuitem></menuchoice> This starts a network multiplayer game using GGZ Gaming Zone."
-msgstr "<menuchoice><shortcut><keysym>Ctrl+G</keysym></shortcut><guimenuitem>Nätverksspel</guimenuitem></menuchoice> Detta startar ett fleranvändarspel över nätverket med GGZ Gaming Zone."
-
-#: C/gnibbles.xml:264(para)
-msgid "<menuchoice><guimenuitem>Scores</guimenuitem></menuchoice> This shows the high scores."
+#. (itstool) path: page/p
+#: C/controls-change.page:67
+msgid ""
+"For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
+"<gui>Left</gui> control line and click it, then press <key>A</key> on your "
+"keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
+"Till exempel, för att använda <key>A</key> för att <gui>Flytta vänster</"
+"gui>, välj <gui>Vänster</gui> styrkontroll och klicka på den, tryck sedan på "
+"<key>A</key> på ditt tangentbord när du ser <gui>Ny snabbtangent…</gui> på "
+"raden."
 
-#: C/gnibbles.xml:272(para)
-msgid "<menuchoice><guimenuitem>Pause game</guimenuitem></menuchoice> This will pause your game. Click on the <quote>Pause Game </quote> menu option to resume game."
+#. (itstool) path: info/desc
+#: C/controls-default.page:23
+msgid "Default keys for <app>Nibbles.</app>"
+msgstr "Standard styrtangenter i <app>Nibbles.</app>"
+
+#. (itstool) path: page/title
+#: C/controls-default.page:26
+msgid "Keyboard Controls"
+msgstr "Tangentbordskontroller"
+
+#. (itstool) path: page/p
+#: C/controls-default.page:28
+msgid ""
+"For controlling the movements of your worm in a single-player mode, use the "
+"following default keys:"
 msgstr ""
+"För att styra din masks rörelser i ett enspelarläge, använd följande "
+"standardknappar:"
 
-#: C/gnibbles.xml:281(para)
-msgid "<menuchoice><guimenuitem>End Game</guimenuitem></menuchoice> End the current game and return to the title screen."
-msgstr "<menuchoice><guimenuitem>Avsluta spel</guimenuitem></menuchoice> Avsluta det aktuella spelet och återgå till startskärmen."
+#. (itstool) path: item/p
+#: C/controls-default.page:33
+msgid "<key>Up</key> to move the worm up"
+msgstr "<key>↑</key> för att styra masken upp"
 
-#: C/gnibbles.xml:289(para)
-msgid "<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Exit</guimenuitem></menuchoice> This quits the application."
-msgstr "<menuchoice><shortcut><keysym>Ctrl-Q</keysym></shortcut><guimenuitem>Avsluta</guimenuitem></menuchoice> Detta avsluta programmet."
+#. (itstool) path: item/p
+#: C/controls-default.page:36
+msgid "<key>Down</key> to move the worm down"
+msgstr "<key>↓</key> för att flytta masken nedåt"
 
-#: C/gnibbles.xml:238(para)
-#: C/gnibbles.xml:307(para)
-#: C/gnibbles.xml:326(para)
-#: C/gnibbles.xml:346(para)
-msgid "This menu contains: <placeholder-1/>"
-msgstr "Den här menyn innehåller: <placeholder-1/>"
+#. (itstool) path: item/p
+#: C/controls-default.page:39
+msgid "<key>Left</key> to move the worm left"
+msgstr "<key>←</key> för att flytta masken till vänster"
 
-#: C/gnibbles.xml:305(guimenu)
-msgid "View"
-msgstr "Visa"
+#. (itstool) path: item/p
+#: C/controls-default.page:42
+msgid "<key>Right</key> to move the worm right"
+msgstr "<key>→</key> för att flytta masken till höger"
 
-#: C/gnibbles.xml:311(para)
-msgid "<menuchoice><guimenuitem>Fullscreen</guimenuitem></menuchoice> This toggles your game window to be fullscreen."
-msgstr "<menuchoice><guimenuitem>Helskärm</guimenuitem></menuchoice> Detta växlar ditt spelfönster till att använda hela skärmen."
+#. (itstool) path: note/p
+#: C/controls-default.page:47
+msgid ""
+"You can <link xref=\"controls-change\">change</link> the default controls."
+msgstr ""
+"Du kan <link xref=\"controls-change\">ändra</link> standardtangenterna."
 
-#: C/gnibbles.xml:324(guimenu)
-msgid "Settings"
+#. (itstool) path: page/p
+#: C/controls-default.page:51
+msgid ""
+"All worm movements happen with respect to the screen unless <link xref=\"rel-"
+"movement\">relative movement</link> is enabled. This means that when you "
+"press <key>Left</key> the worm moves towards the left of the screen, when "
+"you press <key>Right</key> the worm moves towards the right of the screen "
+"and so on."
+msgstr ""
+"Alla maskrörelser sker med avseende till skärmen såvida inte <link xref="
+"\"rel-movement\">relativ rörelse</link> är aktiverad. Det betyder att när du "
+"trycker <key>←</key> rör sig masken åt vänster på skärmen, när du trycker "
+"<key>→</key> rör sig masken åt höger på skärmen och så vidare."
+
+#. (itstool) path: info/desc
+#: C/fake-bonus.page:22
+msgid ""
+"Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
+msgstr ""
+"Använd falska bonusar i <app>Nibbles</app> för att göra det mer utmanande."
+
+#. (itstool) path: page/title
+#: C/fake-bonus.page:26
+msgid "What are fake bonuses?"
+msgstr "Vad är falska bonusar?"
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:28
+msgid ""
+"Fake bonuses look like regular bonus shapes but do not give you any points "
+"when your worm swallows them. They cause a reversal in the movement of your "
+"worm."
+msgstr ""
+"Falska bonusar ser ut som vanliga bonusar till formen, men kommer inte att "
+"ge dig några poäng när din mask sväljer dem. De orsakar en ändring av "
+"rörelseriktningen på din mask."
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:32
+msgid "To enable fake bonuses:"
+msgstr "För att aktivera falska bonusar:"
+
+#. (itstool) path: item/p
+#: C/fake-bonus.page:39
+msgid ""
+"Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
+"is unchecked."
+msgstr ""
+"Kontrollera <gui style=\"checkbox\">Aktivera falska bonusar</gui> om "
+"kryssrutan är omarkerad."
+
+#. (itstool) path: item/p
+#: C/fake-bonus.page:43
+msgid "Click <gui>Close</gui>."
+msgstr "Klicka <gui>Stäng</gui>."
+
+#. (itstool) path: note/p
+#: C/fake-bonus.page:48
+msgid ""
+"Set all preferences before starting a new game. Preferences cannot be "
+"changed in the middle of a game."
+msgstr ""
+"Ändra alla inställningar innan du startar ett nytt spel. Inställningar kan "
+"inte ändras under pågående spel."
+
+#. (itstool) path: info/desc
+#: C/index.page:16
+msgid "Index"
+msgstr "Index"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Nibbles"
+
+#. (itstool) path: page/p
+#: C/index.page:21
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other "
+"worms. You have to complete 26 levels to finish the game."
+msgstr ""
+"<app>Nibbles</app> är ett maskspel för GNOME. Målet med spelet är att svälja "
+"så många objekt som möjligt, samtidigt som man undviker labyrintens väggar "
+"och andra maskar. Du måste klara 26 nivåer för att avsluta spelet."
+
+#. (itstool) path: section/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Spelets gång"
+
+#. (itstool) path: section/title
+#: C/index.page:30
+msgid "Preferences"
 msgstr "Inställningar"
 
-#: C/gnibbles.xml:330(para)
-msgid "<menuchoice><guimenuitem>Preferences</guimenuitem></menuchoice> This opens your window to edit <link linkend=\"prefs\"> preferences.</link>"
+#. (itstool) path: info/desc
+#: C/multi-player.page:24
+msgid "Play <app>Nibbles</app> with additional players."
+msgstr "Spela <app>Nibbles</app> med flera spelare."
+
+#. (itstool) path: page/title
+#: C/multi-player.page:27
+msgid "Multi-player games"
+msgstr "Spel för flera spelare"
+
+#. (itstool) path: page/p
+#: C/multi-player.page:29
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. While a player "
+"controls <gui>Worm 1</gui> in a single-player game, players can additionally "
+"control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A two-"
+"player game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>, a "
+"three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
+"and <gui>Worm 3</gui> and so on."
 msgstr ""
+"<app>Nibbles</app> kan spelas av upp till sex deltagare. Medan en spelare "
+"kontrollerar <gui>Mask 1</gui> i ett ensamspel, kan spelare dessutom "
+"kontrollera <gui>Mask 2</gui> till <gui>Mask 6</gui> i ett flerspelarspel. "
+"Med två deltagare kan du kontrollera <gui>Mask 1</gui> och <gui>Mask 2</"
+"gui>, vid tre deltagare kan du kontrollera <gui>Mask 1</gui>, <gui>Mask 2</"
+"gui> och <gui>Mask 3</gui> och så vidare."
 
-#: C/gnibbles.xml:344(guimenu)
-msgid "Help"
-msgstr "Hjälp"
+#. (itstool) path: section/title
+#: C/multi-player.page:37
+msgid "Choose the number of players"
+msgstr "Välj antal spelare"
 
-#: C/gnibbles.xml:350(para)
-msgid "<menuchoice><shortcut><keysym>F1</keysym></shortcut><guimenuitem>Contents</guimenuitem></menuchoice> Display this manual."
+#. (itstool) path: section/p
+#: C/multi-player.page:39
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. To set the number of "
+"players:"
 msgstr ""
+"<app>Nibbles</app> kan spelas av upp till sex deltagare. För att ställa in "
+"antalet spelare:"
 
-#: C/gnibbles.xml:359(para)
-msgid "<guimenuitem>About</guimenuitem> This opens the <interface>About</interface> dialog which shows basic information about <application>Nibbles</application>, such as the author's name, the version number of the game."
+#. (itstool) path: item/p
+#: C/multi-player.page:48
+msgid ""
+"Set the <gui style=\"input\">Number of human players</gui> to the required "
+"number, a maximum of 6. You can do this by using the <gui style=\"button\">"
+"+</gui> or <gui style=\"button\">-</gui> buttons or by entering the number "
+"of players from the keyboard in the space provided."
 msgstr ""
+"Välj önskat <gui style=\"input\">Antal mänskliga spelare</gui>, upp till 6. "
+"Du kan göra detta genom att använda <gui style=\"button\">+</gui> eller <gui "
+"style=\"button\">-</gui>-knapparna eller genom att skriva in antalet spelare "
+"i utrymmet."
 
-#: C/gnibbles.xml:374(title)
-msgid "Diamonds"
-msgstr "Diamanter"
-
-#: C/gnibbles.xml:375(para)
-msgid "<application>Nibbles</application> has numerous different diamonds to eat. They are each a different color and serve a different function. Only the pale purple diamond is guaranteed to be around long enough for you to eat it (in fact, you have to eat them to finish the level). The other diamonds are all bonuses, but they only stick around for a short time. We'll leave it up to you to discover just what the bonus each colour gives, but they all affect either the score, the length of the worm, or both. Be careful when going for these bonus diamonds, don't cut yourself off from the ordinary diamonds that you need to finish the level."
+#. (itstool) path: note/p
+#: C/multi-player.page:57
+msgid ""
+"You can watch a <app>Nibbles</app> game without participating. To observe a "
+"game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
+"set the <gui style=\"input\">Number of AI players</gui> to any number "
+"between 1 and 6."
 msgstr ""
+"Du kan titta på ett <app>Nibbles</app>spel utan att delta. För att observera "
+"ett spel, ange <gui style=\"input\">Antal mänskliga spelare</gui> till 0 och "
+"ange <gui style=\"input\">Antal AI-spelare</gui> till valfritt nummer mellan "
+"1 och 6."
 
-#: C/gnibbles.xml:393(title)
-msgid "Customization"
-msgstr "Anpassning"
+#. (itstool) path: info/desc
+#: C/preferences.page:22
+msgid "Change default speed, worm color, level order and sound settings."
+msgstr "Ändra standardhastighet, maskfärg, nivåordning och ljudinställningar."
 
-#: C/gnibbles.xml:394(para)
-msgid "To change the application settings, select <menuchoice><guimenu>Settings</guimenu><guimenuitem>Preferences</guimenuitem></menuchoice>. This opens the <interface>Preferences</interface> dialog. All preferences are automatically saved and applied as you change them."
+#. (itstool) path: page/title
+#: C/preferences.page:25
+msgid "Edit general preferences"
+msgstr "Redigera allmänna inställningar"
+
+#. (itstool) path: page/p
+#: C/preferences.page:27
+msgid ""
+"The general preferences for <app>Nibbles</app> can be changed by selecting "
+"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
 msgstr ""
+"De allmänna inställningarna för <app>Nibbles</app> kan ändras genom att "
+"välja <guiseq><gui style=\"menu\">Inställningar</gui> <gui style=\"menuitem"
+"\">Inställningar</gui></guiseq>."
 
-#: C/gnibbles.xml:405(title)
-msgid "Game Preferences Tab"
-msgstr ""
-
-#: C/gnibbles.xml:412(phrase)
-msgid "Game Preferences Tab."
-msgstr ""
-
-#: C/gnibbles.xml:422(term)
+#. (itstool) path: section/title
+#: C/preferences.page:32
 msgid "Speed"
 msgstr "Hastighet"
 
-#: C/gnibbles.xml:424(para)
-msgid "This controls the speed of the worm."
+#. (itstool) path: section/p
+#: C/preferences.page:34
+msgid ""
+"There are four available speeds in <app>Nibbles</app>. These are, in "
+"increasing order:"
 msgstr ""
+"Det finns fyra tillgängliga hastigheter i <app>Nibbles</app>. Dessa är, i "
+"stigande ordning:"
 
-#: C/gnibbles.xml:430(term)
+#. (itstool) path: item/p
+#: C/preferences.page:39
+msgid "Nibbles Newbie"
+msgstr "Nibbles-nybörjare"
+
+#. (itstool) path: item/p
+#: C/preferences.page:42
+msgid "My second day"
+msgstr "Andra dagen"
+
+#. (itstool) path: item/p
+#: C/preferences.page:45
+msgid "Not too shabby"
+msgstr "Inte alltför dålig"
+
+#. (itstool) path: item/p
+#: C/preferences.page:48
+msgid "Finger twitching good"
+msgstr "Rejält snabbfingrad"
+
+#. (itstool) path: section/p
+#: C/preferences.page:52
+msgid ""
+"Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
+"speed choices given on the left hand side."
+msgstr ""
+"Hastigheten kan ändras i <guiseq><gui style=\"menu\">Inställningar</gui> "
+"<gui style=\"menuitem\">Inställningar</gui></guiseq> genom att välja en av "
+"de fyra hastighetsvalen på vänster sida."
+
+#. (itstool) path: section/title
+#: C/preferences.page:59
+msgid "Change worm colors"
+msgstr "Ändra maskens färg"
+
+#. (itstool) path: section/p
+#: C/preferences.page:61
+msgid "There are seven available worm colors:"
+msgstr "Det finns sju tillgängliga maskfärger:"
+
+#. (itstool) path: item/p
+#: C/preferences.page:65
+msgid "<_:media-1/> Red"
+msgstr "<_:media-1/> Röd"
+
+#. (itstool) path: item/p
+#: C/preferences.page:69
+msgid "<_:media-1/> Green"
+msgstr "<_:media-1/> Grön"
+
+#. (itstool) path: item/p
+#: C/preferences.page:73
+msgid "<_:media-1/> Blue"
+msgstr "<_:media-1/> Blå"
+
+#. (itstool) path: item/p
+#: C/preferences.page:77
+msgid "<_:media-1/> Yellow"
+msgstr "<_:media-1/> Gul"
+
+#. (itstool) path: item/p
+#: C/preferences.page:81
+msgid "<_:media-1/> Cyan"
+msgstr "<_:media-1/> Cyan"
+
+#. (itstool) path: item/p
+#: C/preferences.page:85
+msgid "<_:media-1/> Purple"
+msgstr "<_:media-1/> Lila"
+
+#. (itstool) path: item/p
+#: C/preferences.page:89
+msgid "<_:media-1/> Gray"
+msgstr "<_:media-1/> Grå"
+
+#. (itstool) path: section/p
+#: C/preferences.page:94
+msgid ""
+"These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq>."
+msgstr ""
+"Dessa kan ändras i <guiseq><gui style=\"menu\">Inställningar</gui> <gui "
+"style=\"menuitem\">Inställningar</gui></guiseq>."
+
+#. (itstool) path: item/p
+#: C/preferences.page:99
+msgid ""
+"Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
+"edit."
+msgstr ""
+"Välj någon av <gui>Mask</gui>-flikarna för att välja den mask du vill "
+"redigera."
+
+#. (itstool) path: item/p
+#: C/preferences.page:103
+msgid ""
+"On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
+"Pick a color out of the available colors in the drop-down menu to change the "
+"appearance of the worm."
+msgstr ""
+"På vänster sida ser du <gui style=\"group\">Maskfärg</gui>. Välj en färg av "
+"de tillgängliga färgerna i rullgardinsmenyn för att ändra utseendet på "
+"masken."
+
+#. (itstool) path: section/title
+#: C/preferences.page:112
+msgid "Sounds"
+msgstr "Ljud"
+
+#. (itstool) path: section/p
+#: C/preferences.page:114
+msgid ""
+"You can enable or disable sounds in <app>Nibbles</app> by checking or "
+"unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
+"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
+msgstr ""
+"Du kan aktivera eller inaktivera ljud i <app>Nibbles</app> genom att markera "
+"eller avmarkera kryssrutan <gui style=\"checkbox\">Aktivera ljud</gui> i "
+"<guiseq><gui style=\"menu\">Inställningar</gui> <gui style=\"menuitem"
+"\">Inställningar</gui></guiseq>."
+
+#. (itstool) path: section/title
+#: C/preferences.page:122
 msgid "Play levels in random order"
+msgstr "Spela nivåer i slumpmässig ordning"
+
+#. (itstool) path: section/p
+#: C/preferences.page:124
+msgid ""
+"Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
+"gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
+"\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
+"<app>Nibbles</app> in random order."
 msgstr ""
+"Markera eller avmarkera kryssrutan <gui style=\"checkbox\">Spela nivåer i "
+"slumpmässig ordning</gui> <guiseq><gui style=\"menu\">Inställningar</gui> "
+"<gui style=\"menuitem\">Inställningar</gui></guiseq> för att spela nivåerna "
+"i <app>Nibbles</app> i en slumpmässig ordning."
 
-#: C/gnibbles.xml:432(para)
-msgid "Selecting this causes the level advancement to happen in random order."
+#. (itstool) path: media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:41
+msgctxt "_"
+msgid ""
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
 msgstr ""
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
 
-#: C/gnibbles.xml:439(term)
-msgid "Enable fake bonuses"
+#. (itstool) path: media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:48
+msgctxt "_"
+msgid ""
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 msgstr ""
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 
-#: C/gnibbles.xml:441(para)
-msgid "When enabled, this allows for two blue diamonds on the screen at a time. One diamond makes you shrink instead of grow when eaten."
+#. (itstool) path: info/desc
+#: C/rel-movement.page:22
+msgid "Enable relative movement."
+msgstr "Aktivera relativ rörelse."
+
+#. (itstool) path: page/title
+#: C/rel-movement.page:25
+msgid "Relative movement"
+msgstr "Relativ rörelse"
+
+#. (itstool) path: page/p
+#: C/rel-movement.page:27
+#| msgid ""
+#| "When relative movement is enabled, the worm is manouvered using just the "
+#| "default <key>Left</key> and <key>Right</key> keys or other <link xref="
+#| "\"controls-change\">customized keys</link> that control the leftward and "
+#| "rightward movement of a worm. When the <key>Left</key> key is pressed, "
+#| "the worm turns left, instead of moving towards the left of the screen. "
+#| "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
+#| "instead of moving towards the right of the screen."
+msgid ""
+"When relative movement is enabled, the worm is maneuvered using just the "
+"default <key>Left</key> and <key>Right</key> keys or other <link xref="
+"\"controls-change\">customized keys</link> that control the leftward and "
+"rightward movement of a worm. When the <key>Left</key> key is pressed, the "
+"worm turns left, instead of moving towards the left of the screen. "
+"Similarly, when the <key>Right</key> key is pressed, the worm turns right "
+"instead of moving towards the right of the screen."
 msgstr ""
+"När relativ rörelse är aktiverad, manövreras masken med <key>Vänster</key> "
+"och <key>Höger</key> piltangenter eller andra <link xref=\"controls-change"
+"\">anpassade tangenter</link> som kontrollerar vänster- och högerrörelser av "
+"masken. När du trycker på <key>←</key>-tangenten gör masken en rät sväng åt "
+"vänster om färdriktningen, istället för att röra sig mot skärmens vänstra "
+"kant. När du trycker på <key>→</key>-tangenten gör masken på motsvarande "
+"sätt en rät sväng åt höger om färdriktningen, istället för att röra sig mot "
+"skärmens högra kant."
 
-#: C/gnibbles.xml:449(term)
-msgid "Enable sounds"
-msgstr "Aktivera ljud"
+#. (itstool) path: figure/title
+#: C/rel-movement.page:39
+#| msgid "Starting postion:"
+msgid "Starting position:"
+msgstr "Startposition:"
 
-#: C/gnibbles.xml:451(para)
-msgid "Controls the use of sound in the game."
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:40
+msgid "The location of the worm before you decide to move it."
+msgstr "Maskens placering innan du bestämmer dig för att flytta den."
+
+#. (itstool) path: figure/title
+#: C/rel-movement.page:46
+msgid "On pressing the <key>Left</key> key:"
+msgstr "Att trycka på <key>←</key>-tangenten:"
+
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:47
+msgid "The worm turns left and begins to move downwards."
+msgstr "Masken svänger åt vänster och börjar röra sig nedåt."
+
+#. (itstool) path: note/p
+#: C/rel-movement.page:55
+msgid ""
+"If relative movement was not enabled, you would press the <key>Down</key> "
+"key to achieve the above result."
 msgstr ""
+"Om relativ rörelse inte var aktiverat, skulle du behöva trycka på <key>↓</"
+"key>-tangenten för att uppnå ovanstående resultat."
 
-#: C/gnibbles.xml:457(term)
-msgid "Starting level"
+#. (itstool) path: page/p
+#: C/rel-movement.page:62
+msgid "To enable relative movement:"
+msgstr "För att aktivera relativ rörelse:"
+
+#. (itstool) path: item/p
+#: C/rel-movement.page:70
+msgid ""
+"Select the worm for which relative movement has to be enabled by clicking "
+"the appropriate <gui>Worm</gui> tab."
 msgstr ""
+"Välj den mask som du vill aktivera relativ rörelse för genom att klicka på "
+"den <gui>Maskens</gui> flik."
 
-#: C/gnibbles.xml:459(para)
-msgid "Which level to start with. Use this if you want to jump immediately to a challenging level."
+#. (itstool) path: item/p
+#: C/rel-movement.page:74
+msgid ""
+"Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
+"is unchecked."
 msgstr ""
+"Kontrollera om kryssrutan <gui style=\"checkbox\">Använd relativ rörelse</"
+"gui> är markerad."
 
-#: C/gnibbles.xml:466(term)
-#| msgid "Number of players"
-msgid "Number of human players"
-msgstr "Antal mänskliga spelare"
+#. (itstool) path: item/p
+#: C/rel-movement.page:78
+msgid "Click <gui style=\"button\">Close</gui>."
+msgstr "Klicka <gui style=\"button\">Stäng</gui>."
 
-#: C/gnibbles.xml:468(para)
-msgid "There is room for up to six players."
+#. (itstool) path: info/desc
+#: C/scores.page:18
+msgid "Swallow different bonuses to score points."
+msgstr "Svälj olika bonusar för att få poäng."
+
+#. (itstool) path: page/title
+#: C/scores.page:21
+msgid "Scoring points in <app>Nibbles</app>"
+msgstr "Poängräkning i <app>Nibbles</app>"
+
+#. (itstool) path: page/p
+#: C/scores.page:23
+msgid ""
+"You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
+"different kinds of bonuses in Nibbles:"
 msgstr ""
+"Du kan samla poäng i <app>Nibbles</app> genom att äta bonusar. Det finns 5 "
+"olika typer av bonusar i Nibbles:"
 
-#: C/gnibbles.xml:474(term)
-#| msgid "Number of players"
-msgid "Number of AI players"
-msgstr "Antal AI-spelare"
-
-#: C/gnibbles.xml:476(para)
-msgid "There is room for up to six AI players. Note that the total number of human and AI players must be less than or equal to six."
+#. (itstool) path: item/p
+#: C/scores.page:27
+msgid ""
+"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the donut vary from level "
+"to level and are multiples of the level number. In level 1, the first donut "
+"will give you 1 point, the second donut will give you 2 points, the third "
+"donut will give you 3 points and so on. In level 2, the first donut will "
+"give you 2 points, the second donut will give you 4 points, the third donut "
+"will give you 6 points and so on. In level 26, therefore, the first donut "
+"will give you 26 points, the second donut will give you 52 points and so on."
 msgstr ""
+"Den munkformade bonusen <_:media-1/> : Bonusen skapar en ökning av längden "
+"på masken. Den poäng du får för att äta munken varierar från nivå till nivå "
+"och multipliceras med nivån. I nivå 1, kommer den första munken ge dig 1 "
+"poäng, den andra munken ger dig 2 poäng, den tredje munken ger dig 3 poäng "
+"och så vidare. I nivå 2, kommer den första munken ge dig 2 poäng, den andra "
+"munken ger dig 4 poäng, den tredje munken ger dig 6 poäng och så vidare. I "
+"nivå 26, kommer därför den första munken ge dig 26 poäng, den andra munken "
+"ger dig 52 poäng och så vidare."
 
-#: C/gnibbles.xml:418(para)
-msgid "The properties in the <guilabel>Game</guilabel> tab are: <placeholder-1/>"
+#. (itstool) path: note/p
+#: C/scores.page:39
+msgid ""
+"The donut order count does not depend on the number of donuts already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first donut, "
+"he scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
+"third player may choose to not eat any donuts till the tenth donut and score "
+"10 points at once."
 msgstr ""
+"Räkningen av munkarna beror inte på antalet munkar som redan ätits av en "
+"mask. Om spelet är i nivå 1 och om spelare 1 äter den första munken, får han "
+"1 poäng, om spelaren 2 äter den andra munken, får han 2 poäng; en tredje "
+"spelare kan välja att inte äta några munkar tills den tionde munken och får "
+"då 10 poäng på en gång."
 
-#: C/gnibbles.xml:487(title)
-msgid "Worm Preferences Tab"
+#. (itstool) path: item/p
+#: C/scores.page:47
+msgid ""
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
+"does not cause an increase in the length of your worm."
 msgstr ""
+"Den hjärtformade bonusen <_:media-1/> : Bonusen ger dig ett extra liv och "
+"skapar inte en ökning i längden av din mask."
 
-#: C/gnibbles.xml:494(phrase)
-msgid "Worm Preferences Tab."
+#. (itstool) path: note/p
+#: C/scores.page:52
+msgid ""
+"The number of lives remaining for a worm is given by the number on the left "
+"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
+"lives remaining."
 msgstr ""
+"Antalet kvarvarande liv för en mask visas av numret till vänster om "
+"kommatecknet i maskens poäng. Om maskens poäng är 10,005, har den 10 liv "
+"kvar."
 
-#: C/gnibbles.xml:505(term)
-msgid "Keyboard controls"
+#. (itstool) path: note/p
+#: C/scores.page:57
+msgid ""
+"You cannot get extra lives by scoring 10,000 points or more. If you have "
+"scored 12345 points with 10 lives remaining, your score will be 10,12345."
 msgstr ""
+"Du får inga extra liv genom att göra 10.000 poäng eller mer. Om du har 12345 "
+"poäng med 10 kvarvarande liv, kommer din poäng att vara 10,12345."
 
-#: C/gnibbles.xml:507(para)
-msgid "This list let you change the keyboard controls for the given worm. To change a control, double click on the appropriate entry and then press the key you want to use for that control."
+#. (itstool) path: item/p
+#: C/scores.page:63
+msgid ""
+"The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
+"increase in the length of the worm and does not give you any points. It "
+"causes a reversal in the movement of all the other worms in the game."
 msgstr ""
+"Den diamantformade bonusen <_:media-1/> : Bonusen skapar inte en ökning av "
+"längden på masken och ger dig inte några poäng. Den ger en ändrad riktning "
+"för alla andra maskar i spelet."
 
-#: C/gnibbles.xml:515(term)
-msgid "Use relative motion"
+#. (itstool) path: note/p
+#: C/scores.page:69
+msgid "This bonus has no effect in a single-player game."
+msgstr "Den här bonusen har ingen verkan när man spelar ensam."
+
+#. (itstool) path: item/p
+#: C/scores.page:73
+msgid ""
+"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
+"increase in the length of the worm than the donut-shaped bonus. The points "
+"given by this bonus vary depending on the level number and the length of the "
+"worm. The higher the level number and the longer the worm, the more the "
+"points are scored on eating this bonus."
 msgstr ""
+"Den glassformade bonusen <_:media-1/> : Bonusen skapar en större ökning av "
+"längden av masken än den munkformade bonusen. Poängen som fås av denna bonus "
+"varierar beroende på vilken nivå du är på och längden på masken. Ju högre "
+"nivånummer och ju längre mask, desto mer poäng blir det för att äta denna "
+"bonus."
 
-#: C/gnibbles.xml:517(para)
-msgid "Rather than left sending your worm toward the left of the screen, right toward the right and so on, the left and right keys make the worm perform a left or right turn. For example, if the worm is moving to the left and you press the left control it turns to head toward the bottom of the screen."
+#. (itstool) path: item/p
+#: C/scores.page:82
+msgid ""
+"The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
+"length of the worm. The points given by this bonus depend on the level "
+"number and the length of the worm. The higher the level number and the "
+"longer the worm, the more the points are scored on eating this bonus."
 msgstr ""
+"Den körsbärsformade bonusen <_:media-1/> : Bonusen skapar en minskning av "
+"längden på masken. Poängen som fås av denna bonus beror på vilken nivå du är "
+"på och längden på masken. Ju högre nivånummer och ju längre mask, desto mer "
+"poäng blir det för att äta denna bonus."
 
-#: C/gnibbles.xml:527(term)
-msgid "Worm color"
-msgstr ""
+#. (itstool) path: p/link
+#: C/legal.xml:4
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 
-#: C/gnibbles.xml:529(para)
-msgid "Customize the color of your worm so you can tell it from your opponent's worm in multi-player mode."
-msgstr ""
-
-#: C/gnibbles.xml:484(para)
-msgid "<placeholder-1/> The properties in the <guilabel>Worm 1 </guilabel>through <guilabel> Worm 6</guilabel> tabs let you set individual preferences for the different worms. <placeholder-2/>"
-msgstr ""
-
-#: C/gnibbles.xml:10(title)
-msgid "Network Games"
-msgstr "Nätverksspel"
-
-#: C/gnibbles.xml:11(para)
-msgid "Nibbles support networked multiplayer games which is provided by <ulink type=\"http\" url=\"http://www.ggzgamingzone.org\">GGZ Gaming Zone</ulink>. By connecting to a Nibbles server on the Internet, you can challenge other players in multiplayer games. For news, updates and a list of servers to connect to, see the <ulink type=\"http\" url=\"http://www.gnome.org/projects/gnome-games/\">gnome-games website</ulink>."
-msgstr ""
-
-#: C/gnibbles.xml:18(para)
-msgid "To start the multiplayer game of Nibbles, select <menuchoice><guimenu>Game</guimenu><guimenuitem>Network Game</guimenuitem></menuchoice> on the Nibbles menu."
-msgstr ""
-
-#: C/gnibbles.xml:24(title)
-msgid "Connecting to a Nibbles network server"
-msgstr ""
-
-#: C/gnibbles.xml:25(para)
-msgid "The Nibbles connection dialog is shown initially when starting a new network game. This dialog allows you to select a server to connect to, and the username that you will have while connected to that server."
-msgstr ""
-
-#: C/gnibbles.xml:31(para)
-msgid "It is possible to connect to a server with either a guest account or a normal registered account. Guest accounts allows you to anonymously login, while a normal login account allows you to reserve your own username which is protected by the password that you choose."
-msgstr ""
-
-#: C/gnibbles.xml:38(para)
-msgid "The <guimenuitem>Guest Login</guimenuitem> option should be selected if you want an anonymous guest account. If you want to create a new login account, then select the <guimenuitem>First-time Login</guimenuitem> option, with the username, password and email of your choice. If you have already created your account, you can connect by selecting the <guimenuitem>Normal Login</guimenuitem> option, and enter the username and password that you have chosen."
-msgstr ""
-
-#: C/gnibbles.xml:46(para)
-msgid "To connect to a server, click on the <guimenuitem>Connect</guimenuitem> button."
-msgstr ""
-
-#: C/gnibbles.xml:50(title)
-#: C/gnibbles.xml:57(phrase)
-msgid "The Nibbles network connection dialog."
-msgstr ""
-
-#: C/gnibbles.xml:65(title)
-msgid "Joining a game room"
-msgstr ""
-
-#: C/gnibbles.xml:66(para)
-msgid "Once you have successfully connected to a server, you can choose which game room to join. To play a multiplayer game of Nibbles, select the Nibbles room. If you want to host your own game, then click on the Launch button. This creates a new table where other players can participate in a game against you. If there are any other games already started, then you can double-click on an existing game table to join it. The list of game tables on the right shows you the number of available seats, which means the number of players that can join the game table."
-msgstr ""
-
-#: C/gnibbles.xml:73(title)
-#: C/gnibbles.xml:80(phrase)
-msgid "This Nibbles network dialog allows you to join a game room to find other players."
-msgstr ""
-
-#: C/gnibbles.xml:85(para)
-msgid "When creating a new table for Nibbles games, a preference dialog is displayed which allows you to customize the game, such as set the minimum number of players for the game. Once the total number of seats have been taken, then no more players are allowed to join that game table."
-msgstr ""
-
-#: C/gnibbles.xml:90(para)
-msgid "It is possible to chat with other players in network games. Ask for advice or help playing the games, but please be polite against other players."
-msgstr ""
-
-#: C/gnibbles.xml:97(title)
-msgid "Waiting for other players to join the game"
-msgstr ""
-
-#: C/gnibbles.xml:98(para)
-msgid "Once you have successfully joined a game table, then you have to wait until enough players have joined the table. The <guimenuitem>Players List</guimenuitem> menu item allows you to see a list of the players who have joined the game. The game will begin immediately when the total number of players in the the game have been reached."
-msgstr ""
-
-#: C/gnibbles.xml:107(title)
-msgid "Playing multiplayer Nibbles games"
-msgstr ""
-
-#: C/gnibbles.xml:108(para)
-msgid "Multiplayer Nibbles games have pretty much the same rules as normal Nibbles games, except that you are now playing against human players. This means that other strategies might possibly be better than when playing against AI players."
-msgstr ""
-
-#: C/gnibbles.xml:113(para)
-msgid "Once a player has won, the game ends and you can return to the initial network game screen. Then you can play yet another game of addictive Nibbles multiplayer!"
-msgstr ""
-
-#: C/gnibbles.xml:553(title)
-msgid "Authors"
-msgstr "Upphovsmän"
-
-#: C/gnibbles.xml:554(para)
-msgid "<application>Nibbles</application> was written by Sean MacIsaac <email>sjm@acm.org</email> and Ian Peters <email>itp@gnu.org</email>. This manual was written by Kevin Breit <email>battery841@mypad.com</email>. Nibbles was updated with network support by Andreas Røsdal <email>andreasr@gnome.org</email>. To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
-msgstr ""
-
-#: C/gnibbles.xml:580(title)
-msgid "License"
-msgstr "Licens"
-
-#: C/gnibbles.xml:581(para)
-msgid "This program is free software; you can redistribute it and/or modify it under the terms of the <ulink type=\"help\" url=\"help:gpl\">GNU General Public License</ulink> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version."
-msgstr ""
-
-#: C/gnibbles.xml:589(para)
-msgid "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the <citetitle>GNU General Public License</citetitle> for more details."
-msgstr ""
-
-#: C/gnibbles.xml:595(para)
-msgid "A copy of the <citetitle>GNU General Public License</citetitle> is included as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also obtain a copy of the <citetitle>GNU General Public License</citetitle> from the Free Software Foundation by visiting <ulink type=\"http\" url=\"http://www.fsf.org\">their Web site</ulink> or by writing to <address> Free Software Foundation, Inc. 59 Temple Place - Suite 330 Boston, MA 02111-1307 USA </address>"
-msgstr ""
-
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
-#: C/gnibbles.xml:0(None)
-msgid "translator-credits"
-msgstr "Daniel Nylander <po@danielnylander.se>, 2007"
-
-#~ msgid "September 2004"
-#~ msgstr "September 2004"
-
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Det här programmet är licensierat under <_:link-1/>."
