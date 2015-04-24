@@ -1,13 +1,13 @@
 # Czech translation of gnibbles help.
 # Copyright (C) 2009 the author(s) of gnome-games.
 # This file is distributed under the same license as the gnibbles help.
-# Marek Černocký <marek@manet.cz>, 2009, 2011, 2013.
+# Marek Černocký <marek@manet.cz>, 2009, 2011, 2013, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"POT-Creation-Date: 2013-09-14 23:02+0000\n"
-"PO-Revision-Date: 2013-07-18 20:01+0200\n"
+"POT-Creation-Date: 2015-04-24 19:23+0000\n"
+"PO-Revision-Date: 2015-04-24 22:41+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -26,42 +26,11 @@ msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>, 2013"
 
 #. (itstool) path: credit/name
-#: C/index.page:12 C/basics.page:14 C/controls-change.page:16
-#: C/controls-default.page:14 C/fake-bonus.page:14 C/multi-player.page:16
+#: C/basics.page:14 C/controls-change.page:16 C/controls-default.page:14
+#: C/fake-bonus.page:14 C/index.page:12 C/multi-player.page:16
 #: C/preferences.page:14 C/rel-movement.page:14 C/scores.page:14
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
-
-#. (itstool) path: info/desc
-#: C/index.page:16
-msgid "Index"
-msgstr "Rejstřík"
-
-#. (itstool) path: page/title
-#: C/index.page:19
-msgid "<_:media-1/> Nibbles"
-msgstr "<_:media-1/> Červíci"
-
-#. (itstool) path: page/p
-#: C/index.page:21
-msgid ""
-"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
-"swallow as many objects as you can while avoiding maze walls and other "
-"worms. You have to complete 26 levels to finish the game."
-msgstr ""
-"<app>Nibbles</app> je hra „hadi“ pro GNOME. Cílem hry je spolykat co nejvíce "
-"předmětů můžete a přitom se snažit nevrazit do zdi nebo do jiného červa. Pro "
-"dokončení hry musíte projít 26 úrovní."
-
-#. (itstool) path: section/title
-#: C/index.page:26
-msgid "Game play"
-msgstr "Hraní hry"
-
-#. (itstool) path: section/title
-#: C/index.page:30
-msgid "Preferences"
-msgstr "Předvolby"
 
 #. (itstool) path: credit/name
 #: C/basics.page:18 C/controls-change.page:20 C/controls-default.page:18
@@ -358,6 +327,37 @@ msgstr ""
 "měnit."
 
 #. (itstool) path: info/desc
+#: C/index.page:16
+msgid "Index"
+msgstr "Rejstřík"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Červíci"
+
+#. (itstool) path: page/p
+#: C/index.page:21
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other "
+"worms. You have to complete 26 levels to finish the game."
+msgstr ""
+"<app>Nibbles</app> je hra „hadi“ pro GNOME. Cílem hry je spolykat co nejvíce "
+"předmětů můžete a přitom se snažit nevrazit do zdi nebo do jiného červa. Pro "
+"dokončení hry musíte projít 26 úrovní."
+
+#. (itstool) path: section/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Hraní hry"
+
+#. (itstool) path: section/title
+#: C/index.page:30
+msgid "Preferences"
+msgstr "Předvolby"
+
+#. (itstool) path: info/desc
 #: C/multi-player.page:24
 msgid "Play <app>Nibbles</app> with additional players."
 msgstr "Hrejte <app>Červíky</app> spolu s dalšími hráči."
@@ -634,7 +634,7 @@ msgstr "Relativní pohyb"
 #. (itstool) path: page/p
 #: C/rel-movement.page:27
 msgid ""
-"When relative movement is enabled, the worm is manouvered using just the "
+"When relative movement is enabled, the worm is maneuvered using just the "
 "default <key>Left</key> and <key>Right</key> keys or other <link xref="
 "\"controls-change\">customized keys</link> that control the leftward and "
 "rightward movement of a worm. When the <key>Left</key> key is pressed, the "
@@ -651,7 +651,7 @@ msgstr ""
 
 #. (itstool) path: figure/title
 #: C/rel-movement.page:39
-msgid "Starting postion:"
+msgid "Starting position:"
 msgstr "Počáteční pozice:"
 
 #. (itstool) path: figure/desc
