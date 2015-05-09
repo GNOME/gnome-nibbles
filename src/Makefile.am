@@ -1,65 +1,34 @@
 bin_PROGRAMS = gnome-nibbles
 
+BUILT_SOURCES = gnome-nibbles-resources.c
+
 gnome_nibbles_SOURCES = \
-	bonus.h \
-	bonus.c \
-	boni.h \
-	boni.c \
-	warp.h \
-	warp.c \
-	warpmanager.h \
-	warpmanager.c \
-	games-controls.h \
-	games-controls.c \
-	games-gridframe.h \
-	games-gridframe.c \
-	games-score.h			\
-	games-score.c			\
-	games-scores.c			\
-	games-scores.h			\
-	games-scores-dialog.c	\
-	games-scores-dialog.h	\
-	games-scores-backend.c	\
-	games-scores-backend.h	\
-	gnibbles.h \
-	gnibbles.c \
-	properties.h \
-	properties.c \
-	preferences.h \
-	preferences.c \
-	scoreboard.h \
-	scoreboard.c \
-	main.c \
-	main.h \
-	board.c \
-	board.h \
-	sound.c \
-	sound.h \
-	worm.c \
-	worm.h \
+	config.vapi \
+	gnome-nibbles.vala \
 	$(BUILT_SOURCES)
 
-BUILT_SOURCES = nibbles-resources.c
+gnome_nibbles_CFLAGS = -w `pkg-config --cflags glib-2.0` `pkg-config --cflags gtk+-3.0` `pkg-config --libs glib-2.0` `pkg-config --libs gtk+-3.0`
 
-nibbles-resources.c: $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies nibbles.gresource.xml)
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source nibbles.gresource.xml
 
 gnome_nibbles_CPPFLAGS = \
-	-I$(top_srcdir) \
-	$(AM_CPPFLAGS)
-
-gnome_nibbles_CFLAGS = \
-	-DDATA_DIRECTORY=\"$(datadir)/gnome-nibbles\" \
-	-DSOUND_DIRECTORY=\"$(datadir)/gnome-nibbles/sounds\" \
-	-DLOCALEDIR=\"$(datadir)/locale\" \
-	-DICON_THEME_DIRECTORY="\"$(datadir)/icons\"" \
+	-DVERSION=\"$(VERSION)\" \
+	-DPKGDATADIR=\"$(datadir)/gnome-nibbles\" \
+	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
 	$(GNOME_NIBBLES_CFLAGS)
 
-gnome_nibbles_LDADD = \
-	$(GNOME_NIBBLES_LIBS)
+gnome_nibbles_VALAFLAGS = \
+	--pkg posix \
+	--pkg gio-2.0 \
+	--pkg gtk+-3.0 \
+	--pkg gee-0.8 \
+	--target-glib=$(GLIB_REQUIRED) \
+	--gresources=$(builddir)/gnome-nibbles.gresource.xml
 
-MAINTAINERCLEANFILES = nibbles-resources.c
+gnome-nibbles-resources.c: gnome-nibbles.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies gnome-nibbles.gresource.xml)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $<
 
-EXTRA_DIST = nibbles.gresource.xml
+CLEANFILES = \
+	gnome-nibbles.gresource.xml \
+	gnome-nibbles-resources.c
 
 -include $(top_srcdir)/git.mk

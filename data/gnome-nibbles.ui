@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <object class="GtkHeaderBar">
+        <property name="title" translatable="yes">Nibbles</property>
+    </object>
+    <object class="GtkApplicationWindow" id="nibbles-window">
+        <property name="title" translatable="yes">Nibbles</property>
+    </object>
+</interface>
