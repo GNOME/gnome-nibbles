@@ -5,10 +5,10 @@
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-nibbles 3.15.x\n"
+"Project-Id-Version: gnome-nibbles 3.17.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 17:47+0100\n"
-"PO-Revision-Date: 2015-02-10 17:48+0100\n"
+"POT-Creation-Date: 2015-05-14 16:29+0200\n"
+"PO-Revision-Date: 2015-05-14 16:30+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -46,16 +46,44 @@ msgstr ""
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
-msgstr ""
+msgstr "Spill selv mot opp til fem fiendeormer, eller del tastaturet for å spille med en venn."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
-#: ../src/main.c:718
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
+#: ../src/main.c:704
 msgid "Nibbles"
 msgstr "Nibbles"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "spill;orm;brett;"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_New Game"
+msgstr "_Nytt spill"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Pause"
+msgstr "_Pause"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Preferences"
+msgstr "_Brukervalg"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_Scores"
+msgstr "Poe_ng"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Help"
+msgstr "_Hjelp"
+
+#: ../data/nibbles-menus.ui.h:6
+msgid "_About"
+msgstr "_Om"
+
+#: ../data/nibbles-menus.ui.h:7
+msgid "_Quit"
+msgstr "A_vslutt"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -137,7 +165,7 @@ msgstr "Bruk relativ bevegelse"
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Bruk relativ bevegelse (kun venstre eller høyre)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
 msgid "Move up"
 msgstr "Flytt opp"
 
@@ -145,7 +173,7 @@ msgstr "Flytt opp"
 msgid "Key to use for motion up."
 msgstr "Tast som brukes for å flytte opp."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
 msgid "Move down"
 msgstr "Flytt ned"
 
@@ -153,7 +181,7 @@ msgstr "Flytt ned"
 msgid "Key to use for motion down."
 msgstr "Tast som skal brukes for å flytte ned."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
 msgid "Move left"
 msgstr "Flytt til venstre"
 
@@ -161,7 +189,7 @@ msgstr "Flytt til venstre"
 msgid "Key to use for motion left."
 msgstr "Tast som brukes for å gå til venstre."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
 msgid "Move right"
 msgstr "Flytt til høyre"
 
@@ -304,115 +332,115 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Rask med falske"
 
-#: ../src/main.c:222
+#: ../src/main.c:257
 msgid "A worm game for GNOME"
 msgstr "Et ormespill for GNOME"
 
-#: ../src/main.c:225
+#: ../src/main.c:260
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
 "Espen Stefansen <espens@svn.gnome.org>\n"
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
-#: ../src/preferences.c:223
+#: ../src/preferences.c:225
 msgid "Preferences"
 msgstr "Brukervalg"
 
-#: ../src/preferences.c:236
+#: ../src/preferences.c:238
 msgid "Game"
 msgstr "Spill"
 
 #. Speed
-#: ../src/preferences.c:252
+#: ../src/preferences.c:254
 msgid "Speed"
 msgstr "Hastighet"
 
-#: ../src/preferences.c:257
+#: ../src/preferences.c:259
 msgid "Nibbles newbie"
 msgstr "Nibbles nybegynner"
 
-#: ../src/preferences.c:267
+#: ../src/preferences.c:269
 msgid "My second day"
 msgstr "Min andre dag"
 
-#: ../src/preferences.c:277
+#: ../src/preferences.c:279
 msgid "Not too shabby"
 msgstr "Ikke så værst"
 
-#: ../src/preferences.c:287
+#: ../src/preferences.c:289
 msgid "Finger-twitching good"
 msgstr "Fingerbrekkende god"
 
-#: ../src/preferences.c:301 ../src/preferences.c:424
+#: ../src/preferences.c:303 ../src/preferences.c:426
 msgid "Options"
 msgstr "Alternativer"
 
-#: ../src/preferences.c:308
+#: ../src/preferences.c:310
 msgid "_Play levels in random order"
 msgstr "S_pill nivåer i tilfeldig rekkefølge"
 
-#: ../src/preferences.c:316
+#: ../src/preferences.c:318
 msgid "_Enable fake bonuses"
 msgstr "Aktiv_er falske bonuser"
 
-#: ../src/preferences.c:324
+#: ../src/preferences.c:326
 msgid "E_nable sounds"
 msgstr "A_ktiver lyder"
 
-#: ../src/preferences.c:337
+#: ../src/preferences.c:339
 msgid "_Starting level:"
 msgstr "_Startnivå:"
 
-#: ../src/preferences.c:362
+#: ../src/preferences.c:364
 msgid "Number of _human players:"
 msgstr "Antall _menneskelige spillere:"
 
-#: ../src/preferences.c:379
+#: ../src/preferences.c:381
 msgid "Number of _AI players:"
 msgstr "Antall _AI-spillere:"
 
-#: ../src/preferences.c:400
+#: ../src/preferences.c:402
 msgid "Worm"
 msgstr "Orm"
 
-#: ../src/preferences.c:409
+#: ../src/preferences.c:411
 msgid "Keyboard Options"
 msgstr "Alternativer for tastatur"
 
-#: ../src/preferences.c:429
+#: ../src/preferences.c:431
 msgid "_Use relative movement"
 msgstr "Br_uk relativ bevegelse"
 
-#: ../src/preferences.c:436
+#: ../src/preferences.c:438
 msgid "_Worm color:"
 msgstr "_Farge på ormen:"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:444
 msgid "Red"
 msgstr "Rød"
 
-#: ../src/preferences.c:443
+#: ../src/preferences.c:445
 msgid "Green"
 msgstr "Grønn"
 
-#: ../src/preferences.c:444
+#: ../src/preferences.c:446
 msgid "Blue"
 msgstr "Blå"
 
-#: ../src/preferences.c:445
+#: ../src/preferences.c:447
 msgid "Yellow"
 msgstr "Gul"
 
-#: ../src/preferences.c:446
+#: ../src/preferences.c:448
 msgid "Cyan"
 msgstr "Turkis"
 
-#: ../src/preferences.c:447
+#: ../src/preferences.c:449
 msgid "Purple"
 msgstr "Lilla"
 
-#: ../src/preferences.c:448
+#: ../src/preferences.c:450
 msgid "Gray"
 msgstr "Grå"
 
