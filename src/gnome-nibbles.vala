@@ -177,6 +177,8 @@ public class Nibbles : Gtk.Application
         frame.add (view);
         frame.show_all ();
 
+        game.current_level = game.properties.start_level;
+        view.new_level (game.current_level);
         show_game_view ();
     }
 

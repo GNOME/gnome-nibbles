@@ -20,5 +20,10 @@
       <summary>Size of game tiles</summary>
       <description>Size of game tiles.</description>
     </key>
+    <key name="start-level" type="i">
+      <default>1</default>
+      <summary>Game level to start on</summary>
+      <summary>Game level to start on.</summary>
+    </key>
   </schema>
 </schemalist>

@@ -5,6 +5,8 @@ public class NibblesGame : Object
     public int width = 92;
     public int height = 66;
 
+    public int current_level;
+
     public NibblesGame ()
     {
         properties = new Properties ();
