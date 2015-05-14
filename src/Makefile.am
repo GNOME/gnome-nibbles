@@ -5,14 +5,19 @@ BUILT_SOURCES = gnome-nibbles-resources.c
 gnome_nibbles_SOURCES = \
 	config.vapi \
 	gnome-nibbles.vala \
+	nibbles-view.vala \
+	nibbles-game.vala \
+	properties.vala \
+	games-gridframe.h \
+	games-gridframe.c \
 	$(BUILT_SOURCES)
 
-gnome_nibbles_CFLAGS = -w `pkg-config --cflags glib-2.0` `pkg-config --cflags gtk+-3.0` `pkg-config --libs glib-2.0` `pkg-config --libs gtk+-3.0`
+gnome_nibbles_CFLAGS = -w `pkg-config --cflags glib-2.0` `pkg-config --cflags gtk+-3.0` `pkg-config --libs glib-2.0` `pkg-config --libs gtk+-3.0` `pkg-config --cflags clutter-1.0` `pkg-config --cflags clutter-gtk-1.0` `pkg-config --libs clutter-1.0` `pkg-config --libs clutter-gtk-1.0`
 
 
 gnome_nibbles_CPPFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
-	-DPKGDATADIR=\"$(datadir)/gnome-nibbles\" \
+	-DDATADIR=\"$(datadir)/gnome-nibbles\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
 	$(GNOME_NIBBLES_CFLAGS)
 
@@ -20,9 +25,14 @@ gnome_nibbles_VALAFLAGS = \
 	--pkg posix \
 	--pkg gio-2.0 \
 	--pkg gtk+-3.0 \
+	--pkg clutter-1.0 \
+	--pkg clutter-gtk-1.0 \
+	--pkg libcanberra \
+	--pkg libcanberra-gtk \
 	--pkg gee-0.8 \
 	--target-glib=$(GLIB_REQUIRED) \
-	--gresources=$(builddir)/gnome-nibbles.gresource.xml
+	--gresources=$(builddir)/gnome-nibbles.gresource.xml \
+	games-gridframe.vapi
 
 gnome-nibbles-resources.c: gnome-nibbles.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies gnome-nibbles.gresource.xml)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $<

@@ -3,14 +3,22 @@
     <key name="window-width" type="i">
       <default>730</default>
       <summary>Width of the window in pixels</summary>
+      <description>Width of the window in pixels.</description>
     </key>
     <key name="window-height" type="i">
       <default>630</default>
       <summary>Height of the window in pixels</summary>
+      <description>Height of the window in pixels.</description>
     </key>
     <key name="window-is-maximized" type="b">
       <default>false</default>
       <summary>true if the window is maximized</summary>
+      <summary>true if the window is maximized.</summary>
+    </key>
+    <key name="tile-size" type="i">
+      <default>7</default>
+      <summary>Size of game tiles</summary>
+      <description>Size of game tiles.</description>
     </key>
   </schema>
 </schemalist>

@@ -17,8 +17,6 @@ LT_INIT
 
 GLIB_GSETTINGS
 
-APPSTREAM_XML
-
 AC_CONFIG_MACRO_DIR([m4])
 
 dnl ###########################################################################
@@ -27,17 +25,19 @@ dnl ###########################################################################
 
 GLIB_REQUIRED=2.40.0
 GTK_REQUIRED=3.14.0
+RSVG_REQUIRED=2.32.0
+CANBERRA_GTK_REQUIRED=0.26
+CLUTTER_REQUIRED=1.0.0
+CLUTTER_GTK_REQUIRED=0.91.6
 
-PKG_CHECK_MODULES(GNOME_SUDOKU, [
+PKG_CHECK_MODULES(GNOME_NIBBLES, [
   glib-2.0 >= $GLIB_REQUIRED
   gio-2.0 >= $GLIB_REQUIRED
   gtk+-3.0 >= $GTK_REQUIRED
-  gee-0.8
-])
-
-PKG_CHECK_MODULES(LIBSUDOKU, [
-  glib-2.0 >= $GLIB_REQUIRED
-  gio-2.0 >= $GLIB_REQUIRED
+  librsvg-2.0 >= $RSVG_REQUIRED
+  libcanberra-gtk3 >= $CANBERRA_GTK_REQUIRED
+  clutter-1.0 >= $CLUTTER_REQUIRED
+  clutter-gtk-1.0 >= $CLUTTER_REQUIRED
   gee-0.8
 ])
 

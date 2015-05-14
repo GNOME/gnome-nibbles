@@ -5,5 +5,45 @@
     </object>
     <object class="GtkApplicationWindow" id="nibbles-window">
         <property name="title" translatable="yes">Nibbles</property>
-    </object>
+        <child>
+            <object class="GtkBox" id="vbox">
+                <property name="orientation">vertical</property>
+                <property name="visible">True</property>
+                <child>
+                    <object class="GtkStack" id="main_stack">
+                        <property name="visible">True</property>
+                        <property name="homogeneous">True</property>
+                        <property name="margin">25</property>
+                        <property name="expand">True</property>
+                        <child>
+                            <object class="GtkBox" id="start_box">
+                                <property name="orientation">vertical</property>
+                                <property name="visible">True</property>
+                                <property name="halign">center</property>
+                                <property name="valign">center</property>
+                                <property name="homogeneous">True</property>
+                                <property name="margin">0</property>
+                                <property name="width-request">350</property>
+                                <property name="height-request">350</property>
+                                <child>
+                                    <object class="GtkButton" id="new_game_button">
+                                        <property name="visible">True</property>
+                                        <property name="use-underline">True</property>
+                                        <property name="label" translatable="yes">_New Game</property>
+                                        <property name="action-name">app.start-game</property>
+                                    </object>
+                                </child>
+                            </object>
+                            <packing>
+                                <property name="name">start_box</property>
+                            </packing>
+                        </child>
+                    </object> <!-- End of main_stack -->
+                    <packing>
+                        <property name="pack-type">end</property>
+                    </packing>
+                </child>
+            </object> <!-- End of vbox -->
+        </child>
+    </object> <!-- End of nibbles_app -->
 </interface>
