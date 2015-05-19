@@ -3,6 +3,11 @@ public class Properties : Object
     public int tile_size;
     public int start_level;
 
+    public int DEFAULTGAMEDELAY = 35;
+    public int GAMEDELAY = 35;
+    public int NETDELAY = 2;
+    public int BONUSDELAY = 100;
+
     public Properties ()
     {
 

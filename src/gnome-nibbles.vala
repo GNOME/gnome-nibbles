@@ -116,7 +116,6 @@ public class Nibbles : Gtk.Application
     public bool configure_event_cb (Gdk.EventConfigure event)
     {
         int tile_size, ts_x, ts_y;
-        int board_width, board_height;
 
         /* Compute the new tile size based on the size of the
          * drawing area, rounded down.
@@ -131,11 +130,10 @@ public class Nibbles : Gtk.Application
 
         if (game.properties.tile_size != tile_size)
         {
-            board_width = tile_size * game.width;
-            board_height = tile_size * game.height;
 
-            view.stage.set_size (board_width, board_height);
-            view.surface.set_size (board_width, board_height);
+            view.stage.set_size (tile_size * game.width, tile_size * game.height);
+
+            view.board_rescale (tile_size);
 
             game.properties.tile_size = tile_size;
         }
@@ -176,6 +174,12 @@ public class Nibbles : Gtk.Application
 
         frame.add (view);
         frame.show_all ();
+
+        /* TODO Fix problem and remove this call
+         * For some reason tile_size gets set to 0 after calling
+         * frame.add (view). start_level stays the same
+         */
+        game.properties.update_properties (settings);
 
         game.current_level = game.properties.start_level;
         view.new_level (game.current_level);
