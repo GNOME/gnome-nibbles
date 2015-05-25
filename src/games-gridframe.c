@@ -22,8 +22,6 @@
 /* A lot of this was written by following the sorce for GtkFrame and
  * GtkAspectFrame. */
 
-// #include <config.h>
-
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 

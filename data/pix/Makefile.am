@@ -1,4 +1,4 @@
-pixmapdir = $(datadir)/gnome-nibbles/pixmaps
+pixmapdir = $(pkgdatadir)/gnome-nibbles/pixmaps
 
 BONUS_PIX = \
 	bonus1.svg \
@@ -32,8 +32,6 @@ SMALL_PIX = \
 	wall-tee-right.svg \
 	wall-tee-up.svg
 
-pixmap_DATA = ${BONUS_PIX} ${SMALL_PIX}
-
-EXTRA_DIST = $(pixmap_DATA)
+dist_pixmap_DATA = ${BONUS_PIX} ${SMALL_PIX}
 
 -include $(top_srcdir)/git.mk

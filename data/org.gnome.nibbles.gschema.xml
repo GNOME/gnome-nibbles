@@ -13,17 +13,19 @@
     <key name="window-is-maximized" type="b">
       <default>false</default>
       <summary>true if the window is maximized</summary>
-      <summary>true if the window is maximized.</summary>
+      <description>true if the window is maximized.</description>
     </key>
     <key name="tile-size" type="i">
       <default>7</default>
+      <range min="7"/>
       <summary>Size of game tiles</summary>
       <description>Size of game tiles.</description>
     </key>
     <key name="start-level" type="i">
       <default>1</default>
+      <range min="1" max="26"/>
       <summary>Game level to start on</summary>
-      <summary>Game level to start on.</summary>
+      <description>Game level to start on.</description>
     </key>
   </schema>
 </schemalist>

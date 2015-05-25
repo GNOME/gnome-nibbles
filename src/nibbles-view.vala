@@ -3,7 +3,7 @@ public class NibblesView : GtkClutter.Embed
     /* Game being played */
     public NibblesGame game { get; private set; }
 
-    public Clutter.Actor surface;
+    public GtkClutter.Texture surface;
     public Clutter.Stage stage;
     private Clutter.Actor level;
 
@@ -22,7 +22,7 @@ public class NibblesView : GtkClutter.Embed
     {
         this.game = game;
 
-        stage = get_stage () as Clutter.Stage;
+        stage = (Clutter.Stage) get_stage ();
         Clutter.Color stage_color = { 0x00, 0x00, 0x00, 0xff };
         stage.set_background_color (stage_color);
 
@@ -30,9 +30,9 @@ public class NibblesView : GtkClutter.Embed
 
         try
         {
-            var pixbuf = new Gdk.Pixbuf.from_file (Path.build_filename (DATADIR, "pixmaps", "wall-small-empty.svg"));
+            var pixbuf = new Gdk.Pixbuf.from_file (Path.build_filename (PKGDATADIR, "pixmaps", "wall-small-empty.svg"));
             surface = new GtkClutter.Texture ();
-            ((GtkClutter.Texture) surface).set_from_pixbuf (pixbuf);
+            surface.set_from_pixbuf (pixbuf);
 
             var val = Value (typeof (bool));
             val.set_boolean (true);
@@ -46,11 +46,11 @@ public class NibblesView : GtkClutter.Embed
         }
         catch (Clutter.TextureError e)
         {
-            warning ("Failed to load textures: %s", e.message);
+            error ("Failed to load textures: %s", e.message);
         }
-        catch (GLib.Error e)
+        catch (Error e)
         {
-            warning ("Failed to load textures: %s", e.message);
+            error ("Failed to load textures: %s", e.message);
         }
 
         load_pixmap ();
@@ -64,38 +64,22 @@ public class NibblesView : GtkClutter.Embed
         string filename;
         string tmpboard;
 
+        warning("%d\n", game.tile_size);
         level_name = "level%03d.gnl".printf (level);
-        filename = Path.build_filename (DATADIR, "levels", level_name, null);
+        filename = Path.build_filename (PKGDATADIR, "levels", level_name, null);
 
         FileStream file;
         if ((file = FileStream.open (filename, "r")) == null) {
-            string message =
-                (_("Nibbles couldn't load level file:\n%s\n\n" +
-                   "Please check your Nibbles installation")).printf (filename);
-            var dialog = new Gtk.MessageDialog (null,
-                                                Gtk.DialogFlags.MODAL,
-                                                Gtk.MessageType.ERROR,
-                                                Gtk.ButtonsType.OK,
-                                                message);
-            dialog.run ();
-            dialog.destroy ();
+            /* Fatal console error when the game's data files are missing. */
+            error (_("Nibbles couldn't find pixmap file: %s"), filename);
         }
 
         for (int i = 0; i < game.height; i++)
         {
             if ((tmpboard = file.read_line ()) == null)
             {
-                string message =
-                    (_("Level file appears to be damaged:\n%s\n\n" +
-                       "Please check your Nibbles installation")).printf (filename);
-                var dialog = new Gtk.MessageDialog (null,
-                                                    Gtk.DialogFlags.MODAL,
-                                                    Gtk.MessageType.ERROR,
-                                                    Gtk.ButtonsType.OK,
-                                                    message);
-                dialog.run ();
-                dialog.destroy ();
-                break;
+                /* Fatal console error when the game's level files are damaged. */
+                error (_("Level file appears to be damaged: %s"), filename);
             }
 
             for (int j = 0; j < game.width; j++)
@@ -126,21 +110,12 @@ public class NibblesView : GtkClutter.Embed
 
     private Gdk.Pixbuf load_pixmap_file (string pixmap, int xsize, int ysize)
     {
-        var filename = Path.build_filename (DATADIR, "pixmaps", pixmap, null);
+        var filename = Path.build_filename (PKGDATADIR, "pixmaps", pixmap, null);
 
         if (filename == null)
         {
-            string message =
-                (_("Nibbles couldn't find pixmap file:\n%s\n\n" +
-                   "Please check your Nibbles installation")).printf (pixmap);
-                var dialog = new Gtk.MessageDialog (null,
-                                                    Gtk.DialogFlags.MODAL,
-                                                    Gtk.MessageType.ERROR,
-                                                    Gtk.ButtonsType.OK,
-                                                    message);
-                dialog.run ();
-                dialog.destroy ();
-                Posix.exit (Posix.EXIT_FAILURE);
+            /* Fatal console error when the game's data files are missing. */
+            error (_("Nibbles couldn't find pixmap file: %s"), filename);
         }
 
         Gdk.Pixbuf image = null;
@@ -192,7 +167,7 @@ public class NibblesView : GtkClutter.Embed
             "snake-grey.svg"
         };
 
-        int tile_size = game.properties.tile_size;
+        int tile_size = game.tile_size;
         for (int i = 0; i < 8; i++) {
             boni_pixmaps[i] = load_pixmap_file (bonus_files[i],
                                                 2 * tile_size, 2 * tile_size);
@@ -216,15 +191,16 @@ public class NibblesView : GtkClutter.Embed
         bool is_wall = true;
         level = new Clutter.Actor ();
 
-        if (level != null)
-        {
-            level.remove_all_children ();
-            stage.remove_child (level);
-        }
+        // if (level != null)
+        // {
+        //     warning("here");
+        //     level.remove_all_children ();
+        //     stage.remove_child (level);
+        // }
         /* Load wall_pixmaps onto the surface */
         for (int i = 0; i < game.height; i++)
         {
-            y_pos = i * game.properties.tile_size;
+            y_pos = i * game.tile_size;
             for (int j = 0; j < game.width; j++)
             {
                 is_wall = true;
@@ -291,10 +267,10 @@ public class NibblesView : GtkClutter.Embed
 
                 if (is_wall)
                 {
-                    x_pos = j * game.properties.tile_size;
+                    x_pos = j * game.tile_size;
 
-                    ((Clutter.Actor) tmp).set_size (game.properties.tile_size,
-                                                    game.properties.tile_size);
+                    ((Clutter.Actor) tmp).set_size (game.tile_size,
+                                                    game.tile_size);
                     ((Clutter.Actor) tmp).set_position (x_pos, y_pos);
                     ((Clutter.Actor) tmp).show ();
                     level.add_child ((Clutter.Actor) tmp);
@@ -309,7 +285,7 @@ public class NibblesView : GtkClutter.Embed
 
         level.save_easing_state ();
         level.set_easing_mode (Clutter.AnimationMode.EASE_OUT_BOUNCE);
-        level.set_easing_duration (game.properties.GAMEDELAY * game.properties.GAMEDELAY);
+        level.set_easing_duration (game.GAMEDELAY * game.GAMEDELAY);
         level.set_scale (1.0, 1.0);
         level.set_pivot_point (0.5f, 0.5f);
         level.set_opacity (0xff);
@@ -339,8 +315,8 @@ public class NibblesView : GtkClutter.Embed
         {
             tmp = level.get_child_at_index (i);
             ((Clutter.Actor) tmp).get_position (out x_pos, out y_pos);
-            ((Clutter.Actor) tmp).set_position ((x_pos / game.properties.tile_size) * tile_size,
-                                                (y_pos / game.properties.tile_size) * tile_size);
+            ((Clutter.Actor) tmp).set_position ((x_pos / game.tile_size) * tile_size,
+                                                (y_pos / game.tile_size) * tile_size);
             ((Clutter.Actor) tmp).set_size (tile_size, tile_size);
         }
     }

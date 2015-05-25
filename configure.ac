@@ -46,7 +46,7 @@ dnl ###########################################################################
 dnl GResources
 dnl ###########################################################################
 
-AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
+AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
 
 dnl ###########################################################################
 dnl Files to generate
@@ -55,6 +55,8 @@ dnl ###########################################################################
 AC_CONFIG_FILES([
 Makefile
 data/Makefile
+data/levels/Makefile
+data/pix/Makefile
 src/Makefile
 src/gnome-nibbles.gresource.xml
 ])

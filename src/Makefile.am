@@ -7,17 +7,15 @@ gnome_nibbles_SOURCES = \
 	gnome-nibbles.vala \
 	nibbles-view.vala \
 	nibbles-game.vala \
-	properties.vala \
 	games-gridframe.h \
 	games-gridframe.c \
 	$(BUILT_SOURCES)
 
 gnome_nibbles_CFLAGS = -w `pkg-config --cflags glib-2.0` `pkg-config --cflags gtk+-3.0` `pkg-config --libs glib-2.0` `pkg-config --libs gtk+-3.0` `pkg-config --cflags clutter-1.0` `pkg-config --cflags clutter-gtk-1.0` `pkg-config --libs clutter-1.0` `pkg-config --libs clutter-gtk-1.0`
 
-
 gnome_nibbles_CPPFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
-	-DDATADIR=\"$(datadir)/gnome-nibbles\" \
+	-DPKGDATADIR=\"$(datadir)/gnome-nibbles\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
 	$(GNOME_NIBBLES_CFLAGS)
 

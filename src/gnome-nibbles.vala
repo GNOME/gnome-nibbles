@@ -86,7 +86,7 @@ public class Nibbles : Gtk.Application
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
-        game.properties.update_settings (settings);
+        game.save_properties (settings);
 
         base.shutdown ();
     }
@@ -128,14 +128,14 @@ public class Nibbles : Gtk.Application
             ts_y--;
         tile_size = int.min (ts_x, ts_y);
 
-        if (game.properties.tile_size != tile_size)
+        if (game.tile_size != tile_size)
         {
 
             view.stage.set_size (tile_size * game.width, tile_size * game.height);
 
             view.board_rescale (tile_size);
 
-            game.properties.tile_size = tile_size;
+            game.tile_size = tile_size;
         }
 
         return false;
@@ -163,8 +163,7 @@ public class Nibbles : Gtk.Application
             SignalHandler.disconnect_matched (game, SignalMatchType.DATA, 0, 0, null, null, this);
         }
 
-        game = new NibblesGame ();
-        game.properties.update_properties (settings);
+        game = new NibblesGame (settings);
 
         view = new NibblesView (game);
         view.configure_event.connect (configure_event_cb);
@@ -175,13 +174,8 @@ public class Nibbles : Gtk.Application
         frame.add (view);
         frame.show_all ();
 
-        /* TODO Fix problem and remove this call
-         * For some reason tile_size gets set to 0 after calling
-         * frame.add (view). start_level stays the same
-         */
-        game.properties.update_properties (settings);
-
-        game.current_level = game.properties.start_level;
+        game.load_properties (settings);
+        game.current_level = game.start_level;
         view.new_level (game.current_level);
         show_game_view ();
     }
