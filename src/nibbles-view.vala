@@ -216,6 +216,11 @@ public class NibblesView : GtkClutter.Embed
         bool is_wall = true;
         level = new Clutter.Actor ();
 
+        if (level != null)
+        {
+            level.remove_all_children ();
+            stage.remove_child (level);
+        }
         /* Load wall_pixmaps onto the surface */
         for (int i = 0; i < game.height; i++)
         {
