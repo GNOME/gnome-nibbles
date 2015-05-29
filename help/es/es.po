@@ -1,13 +1,13 @@
 # translation of gnibbles.HEAD.po to Español
 # translation of gnibbles manual to spanish
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2011.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012, 2013.
 #
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012, 2013, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnibbles.HEAD\n"
-"POT-Creation-Date: 2013-09-14 23:02+0000\n"
-"PO-Revision-Date: 2013-09-16 13:24+0200\n"
+"POT-Creation-Date: 2015-05-28 19:19+0000\n"
+"PO-Revision-Date: 2015-05-29 \n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -21,46 +21,15 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"Daniel Mustieles <daniel.mustieles@gmail.com>, 2012, 2013\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2012 - 2015\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2008."
 
 #. (itstool) path: credit/name
-#: C/index.page:12 C/basics.page:14 C/controls-change.page:16
-#: C/controls-default.page:14 C/fake-bonus.page:14 C/multi-player.page:16
+#: C/basics.page:14 C/controls-change.page:16 C/controls-default.page:14
+#: C/fake-bonus.page:14 C/index.page:12 C/multi-player.page:16
 #: C/preferences.page:14 C/rel-movement.page:14 C/scores.page:14
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
-
-#. (itstool) path: info/desc
-#: C/index.page:16
-msgid "Index"
-msgstr "Índice"
-
-#. (itstool) path: page/title
-#: C/index.page:19
-msgid "<_:media-1/> Nibbles"
-msgstr "<_:media-1/> Nibbles"
-
-#. (itstool) path: page/p
-#: C/index.page:21
-msgid ""
-"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
-"swallow as many objects as you can while avoiding maze walls and other "
-"worms. You have to complete 26 levels to finish the game."
-msgstr ""
-"<app>Nibbles</app> es un juego de la Serpiente para GNOME. El objetivo del "
-"juego es comerse todos los objetos que pueda, evitando los muros y a otros "
-"gusanos. Necesita completar 26 niveles para terminar el juego."
-
-#. (itstool) path: section/title
-#: C/index.page:26
-msgid "Game play"
-msgstr "Juego"
-
-#. (itstool) path: section/title
-#: C/index.page:30
-msgid "Preferences"
-msgstr "Preferencias"
 
 #. (itstool) path: credit/name
 #: C/basics.page:18 C/controls-change.page:20 C/controls-default.page:18
@@ -365,6 +334,37 @@ msgstr ""
 "preferencias no se pueden cambiar en medio de una partida."
 
 #. (itstool) path: info/desc
+#: C/index.page:16
+msgid "Index"
+msgstr "Índice"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Nibbles"
+
+#. (itstool) path: page/p
+#: C/index.page:21
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other "
+"worms. You have to complete 26 levels to finish the game."
+msgstr ""
+"<app>Nibbles</app> es un juego de la Serpiente para GNOME. El objetivo del "
+"juego es comerse todos los objetos que pueda, evitando los muros y a otros "
+"gusanos. Necesita completar 26 niveles para terminar el juego."
+
+#. (itstool) path: section/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Juego"
+
+#. (itstool) path: section/title
+#: C/index.page:30
+msgid "Preferences"
+msgstr "Preferencias"
+
+#. (itstool) path: info/desc
 #: C/multi-player.page:24
 msgid "Play <app>Nibbles</app> with additional players."
 msgstr "Jugar a <app>Nibbles</app> con jugadores adicionales."
@@ -648,8 +648,16 @@ msgstr "Movimiento relativo"
 
 #. (itstool) path: page/p
 #: C/rel-movement.page:27
+#| msgid ""
+#| "When relative movement is enabled, the worm is manouvered using just the "
+#| "default <key>Left</key> and <key>Right</key> keys or other <link xref="
+#| "\"controls-change\">customized keys</link> that control the leftward and "
+#| "rightward movement of a worm. When the <key>Left</key> key is pressed, "
+#| "the worm turns left, instead of moving towards the left of the screen. "
+#| "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
+#| "instead of moving towards the right of the screen."
 msgid ""
-"When relative movement is enabled, the worm is manouvered using just the "
+"When relative movement is enabled, the worm is maneuvered using just the "
 "default <key>Left</key> and <key>Right</key> keys or other <link xref="
 "\"controls-change\">customized keys</link> that control the leftward and "
 "rightward movement of a worm. When the <key>Left</key> key is pressed, the "
@@ -668,7 +676,8 @@ msgstr ""
 
 #. (itstool) path: figure/title
 #: C/rel-movement.page:39
-msgid "Starting postion:"
+#| msgid "Starting postion:"
+msgid "Starting position:"
 msgstr "Posición inicial:"
 
 #. (itstool) path: figure/desc
@@ -825,12 +834,6 @@ msgstr "Esta bonificación no tiene efecto en el modo de un solo jugador."
 
 #. (itstool) path: item/p
 #: C/scores.page:73
-#| msgid ""
-#| "The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
-#| "increase in the length of the worm than the donut-shaped bonus. The "
-#| "points given by this bonus vary depending on the level number and the "
-#| "length of the worm. Higher the level number and longer the worm, more the "
-#| "points scored on eating this bonus."
 msgid ""
 "The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
 "increase in the length of the worm than the donut-shaped bonus. The points "
@@ -846,11 +849,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/scores.page:82
-#| msgid ""
-#| "The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in "
-#| "the length of the worm. The points given by this bonus depend on the "
-#| "level number and the length of the worm. Higher the level number and "
-#| "longer the worm, more the points scored on eating this bonus."
 msgid ""
 "The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
 "length of the worm. The points given by this bonus depend on the level "
