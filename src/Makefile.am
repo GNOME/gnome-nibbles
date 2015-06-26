@@ -12,7 +12,7 @@ gnome_nibbles_SOURCES = \
 	worm.vala \
 	$(BUILT_SOURCES)
 
-gnome_nibbles_CFLAGS = -w `pkg-config --cflags glib-2.0` `pkg-config --cflags gtk+-3.0` `pkg-config --libs glib-2.0` `pkg-config --libs gtk+-3.0` `pkg-config --cflags clutter-1.0` `pkg-config --cflags clutter-gtk-1.0` `pkg-config --libs clutter-1.0` `pkg-config --libs clutter-gtk-1.0` `pkg-config --cflags gee-0.8` `pkg-config --libs gee-0.8`
+gnome_nibbles_CFLAGS = -w
 
 gnome_nibbles_CPPFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
@@ -32,6 +32,9 @@ gnome_nibbles_VALAFLAGS = \
 	--target-glib=$(GLIB_REQUIRED) \
 	--gresources=$(builddir)/gnome-nibbles.gresource.xml \
 	games-gridframe.vapi
+
+gnome_nibbles_LDADD = \
+	$(GNOME_NIBBLES_LIBS)
 
 gnome-nibbles-resources.c: gnome-nibbles.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies gnome-nibbles.gresource.xml)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $<
