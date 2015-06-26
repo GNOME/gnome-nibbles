@@ -10,7 +10,7 @@ public class NibblesGame : Object
     public const int NETDELAY = 2;
     public const int BONUSDELAY = 100;
 
-    public const int NUMWORMS = 1;
+    public const int NUMWORMS = 2;
 
     public const int WIDTH = 92;
     public const int HEIGHT = 66;
@@ -61,8 +61,18 @@ public class NibblesGame : Object
         {
             if (worm.stop)
                 continue;
-            if (!worm.can_move_to (walls, numworms)) {
-                stderr.printf("[Debug] died\n");
+
+            foreach (var other_worm in worms)
+                if (worm != other_worm
+                    && worm.collides_with_head (other_worm.head ()))
+                {
+                    worm.die (walls);
+                    other_worm.die (walls);
+                    continue;
+                }
+
+            if (!worm.can_move_to (walls, numworms))
+            {
                 worm.die (walls);
                 continue;
             }

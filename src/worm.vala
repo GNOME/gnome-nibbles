@@ -152,6 +152,16 @@ public class Worm : Object
         return true;
     }
 
+    public bool collides_with_head (Position other_head)
+    {
+        if (head ().x == other_head.x)
+            return head ().y - 1 == other_head.y || head ().y + 1 == other_head.y;
+        if (head ().y == other_head.y)
+            return head ().x - 1 == other_head.x || head ().x + 1 == other_head.x;
+
+        return false;
+    }
+
     public void spawn (int[,] walls)
     {
         for (int i = 0; i < STARTING_LENGTH; i++)

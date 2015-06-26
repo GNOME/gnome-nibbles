@@ -121,7 +121,7 @@ public class NibblesView : GtkClutter.Embed
                         game.walls[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
-                            var worm = new Worm (count++, WormDirection.DOWN);
+                            var worm = new Worm (count++, WormDirection.LEFT);
                             worm.added.connect (worm_added_cb);
                             worm.moved.connect (worm_moved_cb);
                             worm.rescaled.connect (worm_rescaled_cb);
@@ -137,7 +137,7 @@ public class NibblesView : GtkClutter.Embed
                         game.walls[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
-                            var worm = new Worm (count++, WormDirection.LEFT);
+                            var worm = new Worm (count++, WormDirection.DOWN);
                             worm.added.connect (worm_added_cb);
                             worm.moved.connect (worm_moved_cb);
                             worm.rescaled.connect (worm_rescaled_cb);
