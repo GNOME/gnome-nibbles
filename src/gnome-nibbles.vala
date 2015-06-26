@@ -3,6 +3,7 @@ using Gtk;
 public class Nibbles : Gtk.Application
 {
     private GLib.Settings settings;
+    private Gee.ArrayList<GLib.Settings> worm_settings;
 
     private bool is_maximized;
     private bool is_tiled;
@@ -58,6 +59,12 @@ public class Nibbles : Gtk.Application
         add_action_entries (action_entries, this);
 
         settings = new GLib.Settings ("org.gnome.nibbles");
+        worm_settings = new Gee.ArrayList<GLib.Settings> ();
+        for (int i = 0; i < NibblesGame.NUMWORMS; i++)
+        {
+            var name = "org.gnome.nibbles.worm%d".printf(i);
+            worm_settings.add (new GLib.Settings (name));
+        }
 
         set_accels_for_action ("app.quit", {"<Primary>q"});
 
@@ -120,20 +127,21 @@ public class Nibbles : Gtk.Application
         /* Compute the new tile size based on the size of the
          * drawing area, rounded down.
          */
-        ts_x = event.width / game.width;
-        ts_y = event.height / game.height;
-        if (ts_x * game.width > event.width)
+        ts_x = event.width / NibblesGame.WIDTH;
+        ts_y = event.height / NibblesGame.HEIGHT;
+        if (ts_x * NibblesGame.WIDTH > event.width)
             ts_x--;
-        if (ts_y * game.height > event.height)
+        if (ts_y * NibblesGame.HEIGHT > event.height)
             ts_y--;
         tile_size = int.min (ts_x, ts_y);
 
         if (game.tile_size != tile_size)
         {
-
-            view.stage.set_size (tile_size * game.width, tile_size * game.height);
+            view.stage.set_size (tile_size * NibblesGame.WIDTH, tile_size * NibblesGame.HEIGHT);
 
             view.board_rescale (tile_size);
+            foreach (var worm in game.worms)
+                worm.rescaled (tile_size);
 
             game.tile_size = tile_size;
         }
@@ -168,16 +176,34 @@ public class Nibbles : Gtk.Application
         view = new NibblesView (game);
         view.configure_event.connect (configure_event_cb);
 
-        frame = new GamesGridFrame (game.width, game.height);
+        frame = new GamesGridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
         main_stack.add_named (frame, "frame");
 
         frame.add (view);
         frame.show_all ();
 
+        /* TODO Fix problem and remove this call
+         * For some reason tile_size gets set to 0 after calling
+         * frame.add (view). start_level stays the same
+         */
         game.load_properties (settings);
         game.current_level = game.start_level;
         view.new_level (game.current_level);
+
+        foreach (var worm in game.worms)
+        {
+            var actors = view.worm_actors.lookup (worm);
+            if (actors.get_stage () == null) {
+                view.stage.add_child (actors);
+            }
+            actors.show ();
+        }
+        game.load_worm_properties (worm_settings);
+
+        stderr.printf("[Debug] Showing game view\n");
         show_game_view ();
+
+        game.start ();
     }
 
     public static int main (string[] args)

@@ -28,4 +28,85 @@
       <description>Game level to start on.</description>
     </key>
   </schema>
+  <schema id="org.gnome.nibbles.worm0" path="/org/gnome/nibbles/worm0/">
+    <key name="color" type="s">
+      <default>'red'</default>
+      <summary>Color to use for worm</summary>
+      <description>Color to use for worm.</description>
+    </key>
+    <key name="key-up" type="i">
+      <default>65362</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down" type="i">
+      <default>65364</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left" type="i">
+      <default>65361</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right" type="i">
+      <default>65363</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
+  </schema>
+  <schema id="org.gnome.nibbles.worm1" path="/org/gnome/nibbles/worm1/">
+    <key name="color" type="s">
+      <default>'green'</default>
+      <summary>Color to use for worm</summary>
+      <description>Color to use for worm.</description>
+    </key>
+    <key name="key-up" type="i">
+      <default>65362</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down" type="i">
+      <default>65364</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left" type="i">
+      <default>65361</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right" type="i">
+      <default>65363</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
+  </schema>
+  <schema id="org.gnome.nibbles.worm2" path="/org/gnome/nibbles/worm2/">
+    <key name="color" type="s">
+      <default>'blue'</default>
+      <summary>Color to use for worm</summary>
+      <description>Color to use for worm.</description>
+    </key>
+    <key name="key-up" type="i">
+      <default>65362</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down" type="i">
+      <default>65364</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left" type="i">
+      <default>65361</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right" type="i">
+      <default>65363</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
+  </schema>
 </schemalist>

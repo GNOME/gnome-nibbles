@@ -9,9 +9,10 @@ gnome_nibbles_SOURCES = \
 	nibbles-game.vala \
 	games-gridframe.h \
 	games-gridframe.c \
+	worm.vala \
 	$(BUILT_SOURCES)
 
-gnome_nibbles_CFLAGS = -w `pkg-config --cflags glib-2.0` `pkg-config --cflags gtk+-3.0` `pkg-config --libs glib-2.0` `pkg-config --libs gtk+-3.0` `pkg-config --cflags clutter-1.0` `pkg-config --cflags clutter-gtk-1.0` `pkg-config --libs clutter-1.0` `pkg-config --libs clutter-gtk-1.0`
+gnome_nibbles_CFLAGS = -w `pkg-config --cflags glib-2.0` `pkg-config --cflags gtk+-3.0` `pkg-config --libs glib-2.0` `pkg-config --libs gtk+-3.0` `pkg-config --cflags clutter-1.0` `pkg-config --cflags clutter-gtk-1.0` `pkg-config --libs clutter-1.0` `pkg-config --libs clutter-gtk-1.0` `pkg-config --cflags gee-0.8` `pkg-config --libs gee-0.8`
 
 gnome_nibbles_CPPFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
