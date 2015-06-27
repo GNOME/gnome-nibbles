@@ -50,6 +50,12 @@ IT_PROG_INTLTOOL([0.50.2])
 AC_SUBST([GETTEXT_PACKAGE], [gnome-nibbles])
 
 dnl ###########################################################################
+dnl Documentation
+dnl ###########################################################################
+
+YELP_HELP_INIT
+
+dnl ###########################################################################
 dnl Files to generate
 dnl ###########################################################################
 
@@ -58,6 +64,7 @@ Makefile
 data/Makefile
 data/levels/Makefile
 data/pix/Makefile
+help/Makefile
 po/Makefile.in
 src/Makefile
 src/gnome-nibbles.gresource.xml
