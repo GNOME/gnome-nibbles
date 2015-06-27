@@ -43,6 +43,13 @@ dnl ###########################################################################
 AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])
 
 dnl ###########################################################################
+dnl Internationalization
+dnl ###########################################################################
+
+IT_PROG_INTLTOOL([0.50.2])
+AC_SUBST([GETTEXT_PACKAGE], [gnome-nibbles])
+
+dnl ###########################################################################
 dnl Files to generate
 dnl ###########################################################################
 
@@ -51,6 +58,7 @@ Makefile
 data/Makefile
 data/levels/Makefile
 data/pix/Makefile
+po/Makefile.in
 src/Makefile
 src/gnome-nibbles.gresource.xml
 ])

@@ -5,10 +5,5 @@ data/gnome-nibbles.appdata.xml.in
 data/gnome-nibbles.desktop.in
 [type: gettext/glade]data/nibbles-menus.ui
 data/org.gnome.nibbles.gschema.xml
-src/board.c
-src/games-controls.c
-src/games-scores-dialog.c
-src/gnibbles.c
-src/main.c
-src/preferences.c
-src/scoreboard.c
+src/gnome-nibbles.vala
+src/nibbles-view.vala
