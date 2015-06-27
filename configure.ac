@@ -11,6 +11,8 @@ AM_PROG_VALAC([0.28.0])
 
 GLIB_GSETTINGS
 
+APPSTREAM_XML
+
 AC_CONFIG_MACRO_DIR([m4])
 
 dnl ###########################################################################
