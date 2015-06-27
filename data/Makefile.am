@@ -1,4 +1,4 @@
-SUBDIRS = levels pix
+SUBDIRS = icons levels pix
 
 desktopdir = $(datadir)/applications
 desktop_in_files = gnome-nibbles.desktop.in
