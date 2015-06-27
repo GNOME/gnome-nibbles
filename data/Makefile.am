@@ -1,3 +1,5 @@
+SUBDIRS = levels pix
+
 gsettings_SCHEMAS = org.gnome.nibbles.gschema.xml
 @GSETTINGS_RULES@
 

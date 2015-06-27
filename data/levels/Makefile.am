@@ -1,5 +1,5 @@
-configdir = $(datadir)/gnome-nibbles/level
-config_DATA = \
+configdir = $(pkgdatadir)/levels
+dist_config_DATA = \
 	level001.gnl \
 	level002.gnl \
 	level003.gnl \
@@ -26,8 +26,5 @@ config_DATA = \
 	level024.gnl \
 	level025.gnl \
 	level026.gnl
-
-EXTRA_DIST = \
-	$(config_DATA)
 
 -include $(top_srcdir)/git.mk

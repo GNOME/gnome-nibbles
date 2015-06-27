@@ -1,4 +1,4 @@
-pixmapdir = $(pkgdatadir)/gnome-nibbles/pixmaps
+pixmapdir = $(pkgdatadir)/pixmaps
 
 BONUS_PIX = \
 	bonus1.svg \
