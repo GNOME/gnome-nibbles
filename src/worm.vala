@@ -1,5 +1,6 @@
 /* Gnome Nibbles: Gnome Worm Game
- * Copyright (C) 2015 Iulian-Gabriel Radu
+ * Copyright (C) 2015 Iulian-Gabriel Radu, Sean MacIsaac, Ian Peters,
+ *                    Guillaume Béland
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
