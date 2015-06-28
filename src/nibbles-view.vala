@@ -1,14 +1,26 @@
+public enum Color
+{
+    RED,
+    GREEN,
+    BLUE,
+    YELLOW,
+    CYAN,
+    PURPLE,
+    GRAY
+}
+
 public class NibblesView : GtkClutter.Embed
 {
     /* Game being played */
-    private NibblesGame? _game = null;
-    public NibblesGame? game
+    private NibblesGame _game;
+    public NibblesGame game
     {
         get { return _game; }
         set
         {
             if (_game != null)
                 SignalHandler.disconnect_matched (_game, SignalMatchType.DATA, 0, 0, null, null, this);
+
             _game = value;
         }
     }
@@ -21,8 +33,11 @@ public class NibblesView : GtkClutter.Embed
     public Gdk.Pixbuf worm_pixmaps[7];
     private Gdk.Pixbuf boni_pixmaps[9];
 
-    // public Gee.ArrayList<GtkClutter.Actor> worm_actors;
-    public HashTable<Worm, WormActor> worm_actors;
+    public Gee.HashMap<Worm, WormActor> worm_actors;
+
+    public const int NUM_COLORS = 7;
+
+    private static Gee.HashMap<string, Color> color_lookup;
 
     public NibblesView (NibblesGame game)
     {
@@ -59,7 +74,16 @@ public class NibblesView : GtkClutter.Embed
             error ("Failed to load textures: %s", e.message);
         }
 
-        worm_actors = new HashTable<Worm, WormActor> (direct_hash, direct_equal);
+        worm_actors = new Gee.HashMap<Worm, WormActor> ();
+        color_lookup = new Gee.HashMap<string, Color> ();
+        color_lookup.set ("red", Color.RED);
+        color_lookup.set ("green", Color.GREEN);
+        color_lookup.set ("blue", Color.BLUE);
+        color_lookup.set ("yellow", Color.YELLOW);
+        color_lookup.set ("cyan", Color.CYAN);
+        color_lookup.set ("purple", Color.PURPLE);
+        color_lookup.set ("gray", Color.GRAY);
+
         load_pixmap ();
 
         stage.add_child (surface);
@@ -81,7 +105,8 @@ public class NibblesView : GtkClutter.Embed
         filename = Path.build_filename (PKGDATADIR, "levels", level_name, null);
 
         FileStream file;
-        if ((file = FileStream.open (filename, "r")) == null) {
+        if ((file = FileStream.open (filename, "r")) == null)
+        {
             /* Fatal console error when the game's data files are missing. */
             error (_("Nibbles couldn't find pixmap file: %s"), filename);
         }
@@ -98,7 +123,7 @@ public class NibblesView : GtkClutter.Embed
 
             for (int j = 0; j < NibblesGame.WIDTH; j++)
             {
-                game.walls[j, i] = tmpboard.@get(j);
+                game.walls[j, i] = tmpboard.get(j);
                 switch (game.walls[j, i])
                 {
                     case 'm':
@@ -106,15 +131,12 @@ public class NibblesView : GtkClutter.Embed
                         if (count < game.numworms)
                         {
                             var worm = new Worm (count++, WormDirection.UP);
-                            worm.added.connect (worm_added_cb);
-                            worm.moved.connect (worm_moved_cb);
-                            worm.rescaled.connect (worm_rescaled_cb);
-                            worm.died.connect (worm_died_cb);
+                            connect_signals (worm);
                             worm.set_start (j, i);
                             game.worms.add (worm);
 
                             var actors = new WormActor ();
-                            worm_actors.insert (worm, actors);
+                            worm_actors.set (worm, actors);
                         }
                         break;
                     case 'n':
@@ -122,15 +144,12 @@ public class NibblesView : GtkClutter.Embed
                         if (count < game.numworms)
                         {
                             var worm = new Worm (count++, WormDirection.LEFT);
-                            worm.added.connect (worm_added_cb);
-                            worm.moved.connect (worm_moved_cb);
-                            worm.rescaled.connect (worm_rescaled_cb);
-                            worm.died.connect (worm_died_cb);
+                            connect_signals (worm);
                             worm.set_start (j, i);
                             game.worms.add (worm);
 
                             var actors = new WormActor ();
-                            worm_actors.insert (worm, actors);
+                            worm_actors.set (worm, actors);
                         }
                         break;
                     case 'o':
@@ -138,15 +157,12 @@ public class NibblesView : GtkClutter.Embed
                         if (count < game.numworms)
                         {
                             var worm = new Worm (count++, WormDirection.DOWN);
-                            worm.added.connect (worm_added_cb);
-                            worm.moved.connect (worm_moved_cb);
-                            worm.rescaled.connect (worm_rescaled_cb);
-                            worm.died.connect (worm_died_cb);
+                            connect_signals (worm);
                             worm.set_start (j, i);
                             game.worms.add (worm);
 
                             var actors = new WormActor ();
-                            worm_actors.insert (worm, actors);
+                            worm_actors.set (worm, actors);
                         }
                         break;
                     case 'p':
@@ -154,15 +170,12 @@ public class NibblesView : GtkClutter.Embed
                         if (count < game.numworms)
                         {
                             var worm = new Worm (count++, WormDirection.RIGHT);
-                            worm.added.connect (worm_added_cb);
-                            worm.moved.connect (worm_moved_cb);
-                            worm.rescaled.connect (worm_rescaled_cb);
-                            worm.died.connect (worm_died_cb);
+                            connect_signals (worm);
                             worm.set_start (j, i);
                             game.worms.add (worm);
 
                             var actors = new WormActor ();
-                            worm_actors.insert (worm, actors);
+                            worm_actors.set (worm, actors);
                         }
                         break;
                     default:
@@ -191,7 +204,7 @@ public class NibblesView : GtkClutter.Embed
         {
             image = new Gdk.Pixbuf.from_file_at_scale (filename, xsize, ysize, true);
         }
-        catch (GLib.Error e)
+        catch (Error e)
         {
             warning ("Failed to load pixmap file: %s", e.message);
         }
@@ -200,7 +213,8 @@ public class NibblesView : GtkClutter.Embed
 
     private void load_pixmap ()
     {
-        string[] bonus_files = {
+        string[] bonus_files =
+        {
             "diamond.svg",
             "bonus1.svg",
             "bonus2.svg",
@@ -211,7 +225,8 @@ public class NibblesView : GtkClutter.Embed
             "questionmark.svg"
         };
 
-        string[] small_files = {
+        string[] small_files =
+        {
             "wall-straight-up.svg",
             "wall-straight-side.svg",
             "wall-corner-bottom-left.svg",
@@ -225,7 +240,8 @@ public class NibblesView : GtkClutter.Embed
             "wall-cross.svg"
         };
 
-        string[] worm_files = {
+        string[] worm_files =
+        {
             "snake-red.svg",
             "snake-green.svg",
             "snake-blue.svg",
@@ -235,17 +251,20 @@ public class NibblesView : GtkClutter.Embed
             "snake-grey.svg"
         };
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             boni_pixmaps[i] = load_pixmap_file (bonus_files[i],
                                                 2 * game.tile_size, 2 * game.tile_size);
         }
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 11; i++)
+        {
             wall_pixmaps[i] = load_pixmap_file (small_files[i],
                                                 2 * game.tile_size, 2 * game.tile_size);
         }
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++)
+        {
             worm_pixmaps[i] = load_pixmap_file (worm_files[i],
                                                 game.tile_size, game.tile_size);
         }
@@ -323,7 +342,8 @@ public class NibblesView : GtkClutter.Embed
                 }
                 catch (Error e)
                 {
-                    error (e.message);
+                    /* Error message when a level cannot be loaded. */
+                    error (_("Error loading level: %s"), e.message);
                 }
 
                 if (is_wall)
@@ -376,18 +396,26 @@ public class NibblesView : GtkClutter.Embed
         }
     }
 
+    private void connect_signals (Worm worm)
+    {
+        worm.added.connect (worm_added_cb);
+        worm.moved.connect (worm_moved_cb);
+        worm.rescaled.connect (worm_rescaled_cb);
+        worm.died.connect (worm_died_cb);
+    }
+
     public void worm_added_cb (Worm worm)
     {
         var actor = new GtkClutter.Texture ();
         try
         {
-            actor.set_from_pixbuf (worm_pixmaps[0]);
+            actor.set_from_pixbuf (worm_pixmaps[game.worm_props.get (worm).color]);
         }
         catch (Clutter.TextureError e)
         {
             error ("Failed to set texture: %s", e.message);
         }
-        catch (GLib.Error e)
+        catch (Error e)
         {
             error ("Failed to set texture: %s", e.message);
         }
@@ -395,20 +423,13 @@ public class NibblesView : GtkClutter.Embed
         actor.set_size (game.tile_size, game.tile_size);
         actor.set_position (worm.list.first ().x * game.tile_size, worm.list.first ().y * game.tile_size);
 
-        var actors = worm_actors.lookup (worm);
+        var actors = worm_actors.get (worm);
         actors.add_child (actor);
-
-        for (int i = 0; i < 13; i++) {
-            for (int j = 0; j < 20; j++)
-                stderr.printf("%c ", game.walls[j, i]);
-            stderr.printf("\n");
-        }
-        stderr.printf("\n");
     }
 
     public void worm_moved_cb (Worm worm)
     {
-        var actors = worm_actors.lookup (worm);
+        var actors = worm_actors.get (worm);
 
         /* Make the worms last actor (the tail) the new head. Then remove it
          * and add it again so the head is always the last child added */
@@ -416,19 +437,12 @@ public class NibblesView : GtkClutter.Embed
         tail_actor.set_position (worm.list.first ().x * game.tile_size, worm.list.first ().y * game.tile_size);
         actors.remove_child (tail_actor);
         actors.add_child (tail_actor);
-
-        for (int i = 0; i < 13; i++) {
-            for (int j = 0; j < 20; j++)
-                stderr.printf("%c ", game.walls[j, i]);
-            stderr.printf("\n");
-        }
-        stderr.printf("\n");
     }
 
     public void worm_rescaled_cb (Worm worm, int tile_size)
     {
         float x_pos, y_pos;
-        var actors = worm_actors.lookup (worm);
+        var actors = worm_actors.get (worm);
         if (actors == null)
             return;
 
@@ -445,30 +459,30 @@ public class NibblesView : GtkClutter.Embed
     {
         float x, y;
         var group = new Clutter.Actor ();
-        var actors = worm_actors.lookup (worm);
+        var actors = worm_actors.get (worm);
         foreach (var actor in actors.get_children ())
         {
             stderr.printf("[Debug] Before\n");
-            GtkClutter.Texture tmp = new GtkClutter.Texture ();
-            var color = game.worm_props.lookup (worm).color;
+            GtkClutter.Texture texture = new GtkClutter.Texture ();
+            var color = game.worm_props.get (worm).color;
             try
             {
-                tmp.set_from_pixbuf (worm_pixmaps[color]);
+                texture.set_from_pixbuf (worm_pixmaps[color]);
             }
             catch (Clutter.TextureError e)
             {
                 error ("Failed to set texture: %s", e.message);
             }
-            catch (GLib.Error e)
+            catch (Error e)
             {
                 error ("Failed to set texture: %s", e.message);
             }
 
             actor.get_position (out x, out y);
 
-            tmp.set_position (x, y);
-            tmp.set_size (game.tile_size, game.tile_size);
-            group.add_child (tmp);
+            texture.set_position (x, y);
+            texture.set_size (game.tile_size, game.tile_size);
+            group.add_child (texture);
             stderr.printf("[Debug] After\n");
         }
 
@@ -484,6 +498,20 @@ public class NibblesView : GtkClutter.Embed
         group.set_opacity (0);
         group.restore_easing_state ();
     }
+
+    public static Color colorval_from_name (string name)
+    {
+        return color_lookup.get (name);
+    }
+
+    // public static string colorval_name (Color colorval)
+    // {
+    //     foreach (var entry in color_lookup.entries)
+    //         if (entry.value == colorval)
+    //             return entry.key;
+
+    //     return "unknown";
+    // }
 }
 
 public class WormActor : Clutter.Actor

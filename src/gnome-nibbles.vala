@@ -1,24 +1,22 @@
-using Gtk;
-
 public class Nibbles : Gtk.Application
 {
-    private GLib.Settings settings;
-    private Gee.ArrayList<GLib.Settings> worm_settings;
+    private Settings settings;
+    private Gee.ArrayList<Settings> worm_settings;
 
     private bool is_maximized;
     private bool is_tiled;
     private int window_width;
     private int window_height;
 
-    private ApplicationWindow window;
-    private HeaderBar headerbar;
-    private Stack main_stack;
+    private Gtk.ApplicationWindow window;
+    private Gtk.HeaderBar headerbar;
+    private Gtk.Stack main_stack;
     private GamesGridFrame frame;
 
     private NibblesView? view;
     private NibblesGame? game = null;
 
-    private const GLib.ActionEntry action_entries[] =
+    private const ActionEntry action_entries[] =
     {
         {"start-game", start_game_cb},
         {"quit", quit}
@@ -39,7 +37,7 @@ public class Nibbles : Gtk.Application
         add_main_option_entries (option_entries);
     }
 
-    protected override int handle_local_options (GLib.VariantDict options)
+    protected override int handle_local_options (VariantDict options)
     {
         if (options.contains ("version"))
         {
@@ -58,26 +56,26 @@ public class Nibbles : Gtk.Application
 
         add_action_entries (action_entries, this);
 
-        settings = new GLib.Settings ("org.gnome.nibbles");
-        worm_settings = new Gee.ArrayList<GLib.Settings> ();
+        settings = new Settings ("org.gnome.nibbles");
+        worm_settings = new Gee.ArrayList<Settings> ();
         for (int i = 0; i < NibblesGame.NUMWORMS; i++)
         {
             var name = "org.gnome.nibbles.worm%d".printf(i);
-            worm_settings.add (new GLib.Settings (name));
+            worm_settings.add (new Settings (name));
         }
 
         set_accels_for_action ("app.quit", {"<Primary>q"});
 
-        var builder = new Builder.from_resource ("/org/gnome/nibbles/ui/gnome-nibbles.ui");
-        window = builder.get_object ("nibbles-window") as ApplicationWindow;
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/nibbles/ui/gnome-nibbles.ui");
+        window = builder.get_object ("nibbles-window") as Gtk.ApplicationWindow;
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
-        headerbar = builder.get_object ("headerbar") as HeaderBar;
-        main_stack = builder.get_object ("main_stack") as Stack;
+        headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
+        main_stack = builder.get_object ("main_stack") as Gtk.Stack;
         window.set_titlebar (headerbar);
 
         add_window (window);
@@ -102,7 +100,7 @@ public class Nibbles : Gtk.Application
     * * Window events
     \*/
 
-    private void size_allocate_cb (Allocation allocation)
+    private void size_allocate_cb (Gtk.Allocation allocation)
     {
         if (is_maximized || is_tiled)
             return;
@@ -192,7 +190,7 @@ public class Nibbles : Gtk.Application
 
         foreach (var worm in game.worms)
         {
-            var actors = view.worm_actors.lookup (worm);
+            var actors = view.worm_actors.get (worm);
             if (actors.get_stage () == null) {
                 view.stage.add_child (actors);
             }
@@ -232,9 +230,9 @@ public class Nibbles : Gtk.Application
         catch (Error e)
         {
             var dialog = new Gtk.MessageDialog (null,
-                                                DialogFlags.MODAL,
-                                                MessageType.ERROR,
-                                                ButtonsType.NONE,
+                                                Gtk.DialogFlags.MODAL,
+                                                Gtk.MessageType.ERROR,
+                                                Gtk.ButtonsType.NONE,
                                                 "Unable to initialize Clutter:\n%s", e.message);
             dialog.set_title (Environment.get_application_name ());
             dialog.run ();

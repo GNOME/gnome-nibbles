@@ -1,5 +1,5 @@
 /* games-gridframe.h: Create a container that guarantees that the internal
- *                    allocated space is a fixed multiple of an integer.
+ *                    allocated space is a fixed multiple of an integer. 
  *
  * Copyright 2004 by Callum McKenzie
  *

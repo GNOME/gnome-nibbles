@@ -5,10 +5,7 @@ public class NibblesGame : Object
 
     public const int MINIMUM_TILE_SIZE = 7;
 
-    public const int DEFAULTGAMEDELAY = 35;
     public const int GAMEDELAY = 35;
-    public const int NETDELAY = 2;
-    public const int BONUSDELAY = 100;
 
     public const int NUMWORMS = 2;
 
@@ -29,37 +26,35 @@ public class NibblesGame : Object
 
     public signal void worm_moved (Worm worm);
 
-    public HashTable<Worm, WormProperties?> worm_props;
+    public Gee.HashMap<Worm, WormProperties?> worm_props;
 
     public NibblesGame (Settings settings)
     {
         walls = new int[WIDTH, HEIGHT];
         worms = new Gee.LinkedList<Worm> ();
-        worm_props = new HashTable<Worm, WormProperties?> (direct_hash, direct_equal);
+        worm_props = new Gee.HashMap<Worm, WormProperties?> ();
         load_properties (settings);
     }
 
     public void start ()
     {
         add_worms ();
-        Timeout.add (game_speed * (GAMEDELAY + NETDELAY), main_loop_cb);
+        var id = Timeout.add (game_speed * GAMEDELAY, main_loop_cb);
+        Source.set_name_by_id (id, "[Nibbles] main_loop_cb");
     }
 
     public void add_worms ()
     {
         stderr.printf("[Debug] Loading worms\n");
-        stderr.printf("[Debug] worms: %d\n", worms.size);
-        foreach (var worm in worms) {
-            stderr.printf("[Debug] worm size %d\n", worm.list.size);
+        foreach (var worm in worms)
             worm.spawn (walls);
-        }
     }
 
     public void move_worms ()
     {
         foreach (var worm in worms)
         {
-            if (worm.stop)
+            if (worm.is_stopped)
                 continue;
 
             foreach (var other_worm in worms)
@@ -104,21 +99,26 @@ public class NibblesGame : Object
         foreach (var worm in worms)
         {
             var properties = WormProperties ();
+            properties.color = NibblesView.colorval_from_name (worm_settings[worm.id].get_string ("color"));
             properties.up = worm_settings[worm.id].get_int ("key-up");
             properties.down = worm_settings[worm.id].get_int ("key-down");
             properties.left = worm_settings[worm.id].get_int ("key-left");
             properties.right = worm_settings[worm.id].get_int ("key-right");
 
-            worm_props.insert (worm, properties);
+            worm_props.set (worm, properties);
         }
     }
 
     public bool handle_keypress (uint keyval)
     {
         foreach (var worm in worms)
+        {
             if (worm.human)
+            {
                 if (worm.handle_keypress (keyval, worm_props))
                     return true;
+            }
+        }
 
         return false;
     }

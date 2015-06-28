@@ -34,6 +34,11 @@
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
     </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <summary>Use relative movement</summary>
+      <description>Use relative movement (ie. left or right only).</description>
+    </key>
     <key name="key-up" type="i">
       <default>65362</default>
       <summary>Move up</summary>
@@ -61,6 +66,11 @@
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
     </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <summary>Use relative movement</summary>
+      <description>Use relative movement (ie. left or right only).</description>
+    </key>
     <key name="key-up" type="i">
       <default>65362</default>
       <summary>Move up</summary>
@@ -87,6 +97,107 @@
       <default>'blue'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <summary>Use relative movement</summary>
+      <description>Use relative movement (ie. left or right only).</description>
+    </key>
+    <key name="key-up" type="i">
+      <default>65362</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down" type="i">
+      <default>65364</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left" type="i">
+      <default>65361</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right" type="i">
+      <default>65363</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
+  </schema>
+  <schema id="org.gnome.nibbles.worm3" path="/org/gnome/nibbles/worm3/">
+    <key name="color" type="s">
+      <default>'yellow'</default>
+      <summary>Color to use for worm</summary>
+      <description>Color to use for worm.</description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <summary>Use relative movement</summary>
+      <description>Use relative movement (ie. left or right only).</description>
+    </key>
+    <key name="key-up" type="i">
+      <default>65362</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down" type="i">
+      <default>65364</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left" type="i">
+      <default>65361</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right" type="i">
+      <default>65363</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
+  </schema>
+  <schema id="org.gnome.nibbles.worm4" path="/org/gnome/nibbles/worm4/">
+    <key name="color" type="s">
+      <default>'cyan'</default>
+      <summary>Color to use for worm</summary>
+      <description>Color to use for worm.</description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <summary>Use relative movement</summary>
+      <description>Use relative movement (ie. left or right only).</description>
+    </key>
+    <key name="key-up" type="i">
+      <default>65362</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down" type="i">
+      <default>65364</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left" type="i">
+      <default>65361</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right" type="i">
+      <default>65363</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
+  </schema>
+  <schema id="org.gnome.nibbles.worm5" path="/org/gnome/nibbles/worm5/">
+    <key name="color" type="s">
+      <default>'purple'</default>
+      <summary>Color to use for worm</summary>
+      <description>Color to use for worm.</description>
+    </key>
+    <key name="move-relative" type="b">
+      <default>false</default>
+      <summary>Use relative movement</summary>
+      <description>Use relative movement (ie. left or right only).</description>
     </key>
     <key name="key-up" type="i">
       <default>65362</default>

@@ -32,7 +32,7 @@ public class Worm : Object
 
     public bool human;
     public bool keypress = false;
-    public bool stop = false;
+    public bool is_stopped = false;
 
     public int lives { get; private set; }
     private WormDirection _direction;
@@ -122,7 +122,6 @@ public class Worm : Object
                 break;
         }
 
-        stderr.printf("[Debug] x %d y %d\n", position.x, position.y);
         /* Add a new body piece */
         list.offer_head (position);
         /* Mark the tile as occupied by the worm's body */
@@ -175,7 +174,7 @@ public class Worm : Object
 
     public void die (int[,] walls)
     {
-        stop = true;
+        is_stopped = true;
         lose_life ();
 
         died ();
@@ -189,7 +188,7 @@ public class Worm : Object
 
         key_queue.clear ();
 
-        stop = false;
+        is_stopped = false;
     }
 
     private Position position_move ()
@@ -225,7 +224,7 @@ public class Worm : Object
         return position;
     }
 
-    public bool handle_keypress (uint keyval, HashTable<Worm, WormProperties?> worm_props)
+    public bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties?> worm_props)
     {
         WormProperties properties;
         uint propsUp, propsDown, propsLeft, propsRight, keyvalUpper;
@@ -233,7 +232,7 @@ public class Worm : Object
         if (lives <= 0)
             return false;
 
-        properties = worm_props.lookup (this);
+        properties = worm_props.get (this);
         propsUp = upper_key (properties.up);
         propsLeft = upper_key (properties.left);
         propsDown = upper_key (properties.down);
@@ -245,15 +244,18 @@ public class Worm : Object
             handle_direction (WormDirection.UP);
             return true;
         }
-        if ((keyvalUpper == propsDown) && (direction != WormDirection.UP)) {
+        if ((keyvalUpper == propsDown) && (direction != WormDirection.UP))
+        {
             handle_direction (WormDirection.DOWN);
             return true;
         }
-        if ((keyvalUpper == propsRight) && (direction != WormDirection.LEFT)) {
+        if ((keyvalUpper == propsRight) && (direction != WormDirection.LEFT))
+        {
             handle_direction (WormDirection.RIGHT);
             return true;
         }
-        if ((keyvalUpper == propsLeft) && (direction != WormDirection.RIGHT)) {
+        if ((keyvalUpper == propsLeft) && (direction != WormDirection.RIGHT))
+        {
             handle_direction (WormDirection.LEFT);
             return true;
         }
