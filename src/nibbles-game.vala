@@ -107,8 +107,8 @@ public class NibblesGame : Object
 
     public void save_properties (Settings settings)
     {
-        tile_size = settings.get_int ("tile-size");
-        start_level = settings.get_int ("start-level");
+        settings.set_int ("tile-size", tile_size);
+        settings.set_int ("start-level", start_level);
     }
 
     public void load_worm_properties (Gee.ArrayList<Settings> worm_settings)
@@ -123,6 +123,20 @@ public class NibblesGame : Object
             properties.right = worm_settings[worm.id].get_int ("key-right");
 
             worm_props.set (worm, properties);
+        }
+    }
+
+    public void save_worm_properties (Gee.ArrayList<Settings> worm_settings)
+    {
+        foreach (var worm in worms)
+        {
+            var properties = worm_props.get (worm);
+
+            worm_settings[worm.id].set_string ("color", NibblesView.colorval_name (properties.color));
+            worm_settings[worm.id].set_int ("key-up", (int) properties.up);
+            worm_settings[worm.id].set_int ("key-down", (int) properties.down);
+            worm_settings[worm.id].set_int ("key-left", (int) properties.left);
+            worm_settings[worm.id].set_int ("key-right", (int) properties.right);
         }
     }
 
