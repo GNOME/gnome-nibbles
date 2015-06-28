@@ -14,7 +14,7 @@ SMALL_PIX = \
 	snake-blue.svg \
 	snake-cyan.svg \
 	snake-green.svg \
-	snake-grey.svg \
+	snake-gray.svg \
 	snake-magenta.svg \
 	snake-red.svg \
 	snake-yellow.svg \
