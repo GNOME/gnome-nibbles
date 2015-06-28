@@ -67,11 +67,13 @@ public class NibblesView : GtkClutter.Embed
         }
         catch (Clutter.TextureError e)
         {
-            error ("Failed to load textures: %s", e.message);
+            /* Fatal console error when the background texture could not be loaded. */
+            error (_("Nibbles failed to load texture: %s"), filename);
         }
         catch (Error e)
         {
-            error ("Failed to load textures: %s", e.message);
+            /* Fatal console error when the background texture could not be loaded. */
+            error (_("Nibbles failed to load texture: %s"), filename);
         }
 
         worm_actors = new Gee.HashMap<Worm, WormActor> ();
@@ -413,11 +415,13 @@ public class NibblesView : GtkClutter.Embed
         }
         catch (Clutter.TextureError e)
         {
-            error ("Failed to set texture: %s", e.message);
+            /* Fatal console error when the a worm's texture could not be set. */
+            error (_("Nibbles failed to set texture: %s"), filename);
         }
         catch (Error e)
         {
-            error ("Failed to set texture: %s", e.message);
+            /* Fatal console error when the a worm's texture could not be set. */
+            error (_("Nibbles failed to set texture: %s"), filename);
         }
 
         actor.set_size (game.tile_size, game.tile_size);
@@ -471,11 +475,13 @@ public class NibblesView : GtkClutter.Embed
             }
             catch (Clutter.TextureError e)
             {
-                error ("Failed to set texture: %s", e.message);
+                /* Fatal console error when the a worm's texture could not be set. */
+                error (_("Nibbles failed to set texture: %s"), filename);
             }
             catch (Error e)
             {
-                error ("Failed to set texture: %s", e.message);
+                /* Fatal console error when the a worm's texture could not be set. */
+                error (_("Nibbles failed to set texture: %s"), filename);
             }
 
             actor.get_position (out x, out y);
