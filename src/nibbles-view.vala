@@ -16,17 +16,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public enum Color
-{
-    RED,
-    GREEN,
-    BLUE,
-    YELLOW,
-    CYAN,
-    PURPLE,
-    GRAY
-}
-
 public class NibblesView : GtkClutter.Embed
 {
     /* Game being played */
@@ -55,7 +44,16 @@ public class NibblesView : GtkClutter.Embed
 
     public const int NUM_COLORS = 7;
 
-    private static Gee.HashMap<string, Color> color_lookup;
+    public static string[] color_lookup =
+    {
+      "red",
+      "green",
+      "blue",
+      "yellow",
+      "cyan",
+      "purple",
+      "gray"
+    };
 
     public NibblesView (NibblesGame game)
     {
@@ -95,14 +93,6 @@ public class NibblesView : GtkClutter.Embed
         }
 
         worm_actors = new Gee.HashMap<Worm, WormActor> ();
-        color_lookup = new Gee.HashMap<string, Color> ();
-        color_lookup.set ("red", Color.RED);
-        color_lookup.set ("green", Color.GREEN);
-        color_lookup.set ("blue", Color.BLUE);
-        color_lookup.set ("yellow", Color.YELLOW);
-        color_lookup.set ("cyan", Color.CYAN);
-        color_lookup.set ("purple", Color.PURPLE);
-        color_lookup.set ("gray", Color.GRAY);
 
         load_pixmap ();
 
@@ -523,19 +513,21 @@ public class NibblesView : GtkClutter.Embed
         group.restore_easing_state ();
     }
 
-    public static Color colorval_from_name (string name)
+    public static int colorval_from_name (string name)
     {
-        return color_lookup.get (name);
+        for (int i = 0; i < NUM_COLORS; i++)
+        {
+            if (color_lookup[i] == name)
+                return i;
+        }
+
+        return 0;
     }
 
-    // public static string colorval_name (Color colorval)
-    // {
-    //     foreach (var entry in color_lookup.entries)
-    //         if (entry.value == colorval)
-    //             return entry.key;
-
-    //     return "unknown";
-    // }
+    public static string colorval_name (int colorval)
+    {
+        return color_lookup[colorval];
+    }
 }
 
 public class WormActor : Clutter.Actor

@@ -16,29 +16,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public struct Position
-{
-    int x;
-    int y;
-}
-
-public enum WormDirection
-{
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
-}
-
-public struct WormProperties
-{
-    int color;
-    uint left;
-    uint right;
-    uint up;
-    uint down;
-}
-
 public class Worm : Object
 {
     public const int STARTING_LENGTH = 5;
@@ -309,4 +286,27 @@ public class Worm : Object
     {
         direction = key_queue.poll ();
     }
+}
+
+public struct Position
+{
+    int x;
+    int y;
+}
+
+public enum WormDirection
+{
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+}
+
+public struct WormProperties
+{
+    int color;
+    uint left;
+    uint right;
+    uint up;
+    uint down;
 }
