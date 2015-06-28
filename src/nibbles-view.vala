@@ -43,7 +43,6 @@ public class NibblesView : GtkClutter.Embed
     public Gee.HashMap<Worm, WormActor> worm_actors;
 
     public const int NUM_COLORS = 7;
-
     public static string[] color_lookup =
     {
       "red",
@@ -66,20 +65,12 @@ public class NibblesView : GtkClutter.Embed
         set_size_request (NibblesGame.MINIMUM_TILE_SIZE * NibblesGame.WIDTH,
                           NibblesGame.MINIMUM_TILE_SIZE * NibblesGame.HEIGHT);
 
+        surface = new GtkClutter.Texture ();
         try
         {
             var pixbuf = new Gdk.Pixbuf.from_file (Path.build_filename (PKGDATADIR, "pixmaps", "wall-small-empty.svg"));
-            surface = new GtkClutter.Texture ();
+
             surface.set_from_pixbuf (pixbuf);
-
-            var val = Value (typeof (bool));
-            val.set_boolean (true);
-            surface.set_opacity (100);
-
-            surface.set_property ("repeat-x", val);
-            surface.set_property ("repeat-y", val);
-
-            surface.set_position (0, 0);
         }
         catch (Clutter.TextureError e)
         {
@@ -91,6 +82,14 @@ public class NibblesView : GtkClutter.Embed
             /* Fatal console error when the background texture could not be loaded. */
             error (_("Nibbles failed to load texture: %s"), e.message);
         }
+
+        surface.set_property ("repeat-x", true);
+        surface.set_property ("repeat-y", true);
+
+        surface.set_position (0, 0);
+        surface.set_size (game.tile_size * NibblesGame.WIDTH,
+                          game.tile_size * NibblesGame.HEIGHT);
+        surface.set_opacity (100);
 
         worm_actors = new Gee.HashMap<Worm, WormActor> ();
 
