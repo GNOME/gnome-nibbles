@@ -51,7 +51,7 @@ public class NibblesView : GtkClutter.Embed
       "yellow",
       "cyan",
       "purple",
-      "gray"
+      "grey"
     };
 
     public NibblesView (NibblesGame game)
