@@ -34,6 +34,7 @@ PKG_CHECK_MODULES(GNOME_NIBBLES, [
   clutter-1.0 >= $CLUTTER_REQUIRED
   clutter-gtk-1.0 >= $CLUTTER_REQUIRED
   gee-0.8
+  libgames-support-1.0
 ])
 
 AC_SUBST([GLIB_REQUIRED])

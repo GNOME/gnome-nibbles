@@ -7,8 +7,6 @@ gnome_nibbles_SOURCES = \
 	gnome-nibbles.vala \
 	nibbles-view.vala \
 	nibbles-game.vala \
-	games-gridframe.h \
-	games-gridframe.c \
 	worm.vala \
 	$(BUILT_SOURCES)
 
@@ -28,10 +26,10 @@ gnome_nibbles_VALAFLAGS = \
 	--pkg clutter-gtk-1.0 \
 	--pkg libcanberra \
 	--pkg libcanberra-gtk \
+	--pkg libgames-support-1.0 \
 	--pkg gee-0.8 \
 	--target-glib=$(GLIB_REQUIRED) \
-	--gresources=$(builddir)/gnome-nibbles.gresource.xml \
-	games-gridframe.vapi
+	--gresources=$(builddir)/gnome-nibbles.gresource.xml
 
 gnome_nibbles_LDADD = \
 	$(GNOME_NIBBLES_LIBS)

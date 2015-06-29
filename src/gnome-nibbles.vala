@@ -28,7 +28,7 @@ public class Nibbles : Gtk.Application
     private Gtk.ApplicationWindow window;
     private Gtk.HeaderBar headerbar;
     private Gtk.Stack main_stack;
-    private GamesGridFrame frame;
+    private Games.GridFrame frame;
 
     private NibblesView? view;
     private NibblesGame? game = null;
@@ -191,7 +191,7 @@ public class Nibbles : Gtk.Application
         view = new NibblesView (game);
         view.configure_event.connect (configure_event_cb);
 
-        frame = new GamesGridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
+        frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
         main_stack.add_named (frame, "frame");
 
         frame.add (view);
