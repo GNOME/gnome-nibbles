@@ -1,7 +1,6 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
- * Copyright (C) 2015 Iulian-Gabriel Radu, Sean MacIsaac, Ian Peters,
- *                    Guillaume Béland
+ * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,6 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+// This is a fairly literal translation of the LGPLv2+ original by
+// Sean MacIsaac, Ian Peters, Guillaume Béland.
 
 public class Worm : Object
 {
