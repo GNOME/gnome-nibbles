@@ -1,4 +1,5 @@
-/* Gnome Nibbles: Gnome Worm Game
+/* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu, Sean MacIsaac, Ian Peters,
  *                    Guillaume Béland
  *
@@ -473,7 +474,6 @@ public class NibblesView : GtkClutter.Embed
         var actors = worm_actors.get (worm);
         foreach (var actor in actors.get_children ())
         {
-            stderr.printf("[Debug] Before\n");
             GtkClutter.Texture texture = new GtkClutter.Texture ();
             var color = game.worm_props.get (worm).color;
             try
@@ -496,7 +496,6 @@ public class NibblesView : GtkClutter.Embed
             texture.set_position (x, y);
             texture.set_size (game.tile_size, game.tile_size);
             group.add_child (texture);
-            stderr.printf("[Debug] After\n");
         }
 
         actors.remove_all_children ();

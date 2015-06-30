@@ -1,4 +1,5 @@
-/* Gnome Nibbles: Gnome Worm Game
+/* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu
  *
  * This program is free software: you can redistribute it and/or modify

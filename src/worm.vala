@@ -1,4 +1,5 @@
-/* Gnome Nibbles: Gnome Worm Game
+/* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu, Sean MacIsaac, Ian Peters,
  *                    Guillaume Béland
  *
@@ -271,7 +272,6 @@ public class Worm : Object
     }
 
     public void queue_keypress (WormDirection dir)
-                requires (!key_queue.is_empty)
     {
         /* Ignore duplicates in normal movement mode. This resolves the key
          * repeat issue
@@ -283,6 +283,7 @@ public class Worm : Object
     }
 
     public void dequeue_keypress ()
+                requires (!key_queue.is_empty)
     {
         direction = key_queue.poll ();
     }
