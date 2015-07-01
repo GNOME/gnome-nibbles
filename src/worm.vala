@@ -140,7 +140,7 @@ public class Worm : Object
 
     public bool can_move_to (int[,] walls, int numworms)
     {
-        Position position = position_move ();
+        var position = position_move ();
 
         if (walls[position.x, position.y] > NibblesGame.EMPTYCHAR &&
             walls[position.x, position.y] < 'z' + numworms)
@@ -149,12 +149,13 @@ public class Worm : Object
         return true;
     }
 
-    public bool collides_with_head (Position other_head)
+    public bool will_collide_with_head (Worm other_worm)
     {
-        if (head ().x == other_head.x)
-            return head ().y - 1 == other_head.y || head ().y + 1 == other_head.y;
-        if (head ().y == other_head.y)
-            return head ().x - 1 == other_head.x || head ().x + 1 == other_head.x;
+        var worm_pos = position_move ();
+        var other_worm_pos = other_worm.position_move ();
+
+        if (worm_pos == other_worm_pos)
+            return true;
 
         return false;
     }

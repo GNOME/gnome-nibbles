@@ -203,13 +203,16 @@ public class NibblesGame : Object
                 continue;
 
             foreach (var other_worm in worms)
-                if (worm != other_worm
-                    && worm.collides_with_head (other_worm.head ()))
-                {
-                    worm.die (walls);
-                    other_worm.die (walls);
-                    continue;
-                }
+            {
+                if (worm.will_collide_with_head (other_worm)
+                    && worm != other_worm)
+                    {
+                        stderr.printf("[Debug] Head collision\n");
+                        worm.die (walls);
+                        other_worm.die (walls);
+                        continue;
+                    }
+            }
 
             if (!worm.can_move_to (walls, numworms))
             {
