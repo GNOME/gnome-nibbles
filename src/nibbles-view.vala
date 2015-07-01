@@ -535,11 +535,38 @@ public class NibblesView : GtkClutter.Embed
         }
 
         actor.set_position (bonus.x * game.tile_size, bonus.y * game.tile_size);
-        // actor.set_size (game.tile_size, game.tile_size);
 
         stage.add_child (actor);
 
         bonus_actors.set (bonus, actor);
+    }
+
+    public void boni_rescale (int tile_size)
+    {
+        float x_pos, y_pos;
+
+        foreach (var bonus in game.boni.bonuses)
+        {
+            var actor = bonus_actors.get (bonus);
+            actor.get_position (out x_pos, out y_pos);
+            actor.set_position ((x_pos / game.tile_size) * tile_size,
+                                (y_pos / game.tile_size) * tile_size);
+
+            try
+            {
+                actor.set_from_pixbuf (boni_pixmaps[bonus.type]);
+            }
+            catch (Clutter.TextureError e)
+            {
+                /* Fatal console error when a texture could not be set. */
+                error (_("Nibbles failed to set texture: %s"), e.message);
+            }
+            catch (Error e)
+            {
+                /* Fatal console error when a texture could not be set. */
+                error (_("Nibbles failed to set texture: %s"), e.message);
+            }
+        }
     }
 
     public static int colorval_from_name (string name)
