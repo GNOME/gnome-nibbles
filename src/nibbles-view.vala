@@ -29,6 +29,7 @@ public class NibblesView : GtkClutter.Embed
                 SignalHandler.disconnect_matched (_game, SignalMatchType.DATA, 0, 0, null, null, this);
 
             _game = value;
+            _game.boni.bonus_added.connect (bonus_added_cb);
         }
     }
 
@@ -41,6 +42,7 @@ public class NibblesView : GtkClutter.Embed
     private Gdk.Pixbuf boni_pixmaps[9];
 
     public Gee.HashMap<Worm, WormActor> worm_actors;
+    public Gee.HashMap<Bonus, BonusTexture> bonus_actors;
 
     public const int NUM_COLORS = 7;
     public static string[] color_lookup =
@@ -92,6 +94,7 @@ public class NibblesView : GtkClutter.Embed
         surface.set_opacity (100);
 
         worm_actors = new Gee.HashMap<Worm, WormActor> ();
+        bonus_actors = new Gee.HashMap<Bonus, BonusTexture> ();
 
         load_pixmap ();
 
@@ -422,12 +425,12 @@ public class NibblesView : GtkClutter.Embed
         }
         catch (Clutter.TextureError e)
         {
-            /* Fatal console error when the a worm's texture could not be set. */
+            /* Fatal console error when a worm's texture could not be set. */
             error (_("Nibbles failed to set texture: %s"), e.message);
         }
         catch (Error e)
         {
-            /* Fatal console error when the a worm's texture could not be set. */
+            /* Fatal console error when a worm's texture could not be set. */
             error (_("Nibbles failed to set texture: %s"), e.message);
         }
 
@@ -481,12 +484,12 @@ public class NibblesView : GtkClutter.Embed
             }
             catch (Clutter.TextureError e)
             {
-                /* Fatal console error when the a worm's texture could not be set. */
+                /* Fatal console error when a worm's texture could not be set. */
                 error (_("Nibbles failed to set texture: %s"), e.message);
             }
             catch (Error e)
             {
-                /* Fatal console error when the a worm's texture could not be set. */
+                /* Fatal console error when a worm's texture could not be set. */
                 error (_("Nibbles failed to set texture: %s"), e.message);
             }
 
@@ -508,6 +511,35 @@ public class NibblesView : GtkClutter.Embed
         group.set_pivot_point (5f, 0.5f);
         group.set_opacity (0);
         group.restore_easing_state ();
+    }
+
+    public void bonus_added_cb ()
+    {
+        stderr.printf("[Debug] Bonus ADDED\n");
+        /* Last bonus added to the list is the one that needs a texture */
+        var bonus = game.boni.bonuses.last ();
+        var actor = new BonusTexture ();
+        try
+        {
+            actor.set_from_pixbuf (boni_pixmaps[bonus.type]);
+        }
+        catch (Clutter.TextureError e)
+        {
+            /* Fatal console error when a texture could not be set. */
+            error (_("Nibbles failed to set texture: %s"), e.message);
+        }
+        catch (Error e)
+        {
+            /* Fatal console error when a texture could not be set. */
+            error (_("Nibbles failed to set texture: %s"), e.message);
+        }
+
+        actor.set_position (bonus.x * game.tile_size, bonus.y * game.tile_size);
+        // actor.set_size (game.tile_size, game.tile_size);
+
+        stage.add_child (actor);
+
+        bonus_actors.set (bonus, actor);
     }
 
     public static int colorval_from_name (string name)
@@ -539,6 +571,25 @@ public class WormActor : Clutter.Actor
         save_easing_state ();
         set_easing_mode (Clutter.AnimationMode.EASE_OUT_CIRC);
         set_easing_duration (NibblesGame.GAMEDELAY * 26);
+        set_scale (1.0, 1.0);
+        set_pivot_point (0.5f, 0.5f);
+        set_opacity (0xff);
+        restore_easing_state ();
+    }
+}
+
+public class BonusTexture : GtkClutter.Texture
+{
+    public override void show ()
+    {
+        base.show ();
+
+        set_opacity (0);
+        set_scale (3.0, 3.0);
+
+        save_easing_state ();
+        set_easing_mode (Clutter.AnimationMode.EASE_OUT_BOUNCE);
+        set_easing_duration (NibblesGame.GAMEDELAY * 20);
         set_scale (1.0, 1.0);
         set_pivot_point (0.5f, 0.5f);
         set_opacity (0xff);

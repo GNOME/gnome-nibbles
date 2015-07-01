@@ -17,10 +17,23 @@
  */
 
 // This is a fairly literal translation of the LGPLv2+ original by
-// Callum McKenzie, itself based on GtkFrame and GtkAspectFrame.
+// Sean MacIsaac, Ian Peters, Guillaume Béland.
 
 public class NibblesGame : Object
 {
+    private Boni _boni;
+    public Boni boni
+    {
+        get { return _boni; }
+        set
+        {
+            if (_boni != null)
+                SignalHandler.disconnect_matched (_boni, SignalMatchType.DATA, 0, 0, null, null, this);
+
+            _boni = value;
+        }
+    }
+
     public int tile_size;
     public int start_level;
 
@@ -45,21 +58,27 @@ public class NibblesGame : Object
 
     public int game_speed = 4;
 
+    public bool fakes = false;
+
     public signal void worm_moved (Worm worm);
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
 
     public NibblesGame (Settings settings)
     {
+        boni = new Boni (numworms);
         walls = new int[WIDTH, HEIGHT];
         worms = new Gee.LinkedList<Worm> ();
         worm_props = new Gee.HashMap<Worm, WormProperties?> ();
+
+        Random.set_seed ((uint32) time_t ());
         load_properties (settings);
     }
 
     public void start ()
     {
         add_worms ();
+        add_bonus (true);
         var id = Timeout.add (game_speed * GAMEDELAY, main_loop_cb);
         Source.set_name_by_id (id, "[Nibbles] main_loop_cb");
     }
@@ -69,6 +88,111 @@ public class NibblesGame : Object
         stderr.printf("[Debug] Loading worms\n");
         foreach (var worm in worms)
             worm.spawn (walls);
+    }
+
+    public void add_bonus (bool regular)
+    {
+        bool good = false;
+        int x = 0, y = 0;
+
+        stderr.printf("[Debug] Adding bonus\n");
+        if (!regular)
+        {
+            if (Random.int_range (0, 50) != 0)
+                return;
+        }
+
+        stderr.printf("[Debug] Adding bonus2\n");
+        do
+        {
+            good = true;
+            x = Random.int_range (0, WIDTH - 1);
+            y = Random.int_range (0, HEIGHT - 1);
+
+            stderr.printf("[Debug] %d %d\n", x, y);
+            if (walls[x, y] != EMPTYCHAR)
+                good = false;
+            if (walls[x + 1, y] != EMPTYCHAR)
+                good = false;
+            if (walls[x, y + 1] != EMPTYCHAR)
+                good = false;
+            if (walls[x + 1, y + 1] != EMPTYCHAR)
+                good = false;
+        } while (!good);
+
+        stderr.printf("[Debug] Adding bonus3\n");
+        if (regular)
+        {
+            if ((Random.int_range (0, 7) == 0) && fakes)
+                boni.add_bonus (walls, x, y, BonusType.REGULAR, true, 300);
+
+            good = false;
+            while (!good)
+            {
+                good = true;
+
+                x = Random.int_range (0, WIDTH - 1);
+                y = Random.int_range (0, HEIGHT - 1);
+                if (walls[x, y] != EMPTYCHAR)
+                    good = false;
+                if (walls[x + 1, y] != EMPTYCHAR)
+                    good = false;
+                if (walls[x, y + 1] != EMPTYCHAR)
+                    good = false;
+                if (walls[x + 1, y + 1] != EMPTYCHAR)
+                    good = false;
+            }
+            stderr.printf("[Debug] Called add_bonus\n");
+            boni.add_bonus (walls, x, y, BonusType.REGULAR, false, 300);
+            stderr.printf("[Debug] Done add_bonus\n");
+        }
+        else if (boni.missed <= Boni.MAX_MISSED)
+        {
+            stderr.printf("[Debug] Else if\n");
+            if (Random.int_range (0, 7) != 0)
+                good = false;
+            else
+                good = true;
+
+            if (good && !fakes)
+                return;
+
+            switch (Random.int_range (0, 21))
+            {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    boni.add_bonus (walls, x, y, BonusType.HALF, good, 200);
+                    break;
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                    boni.add_bonus (walls, x, y, BonusType.DOUBLE, good, 150);
+                    break;
+                case 15:
+                    boni.add_bonus (walls, x, y, BonusType.LIFE, good, 100);
+                    break;
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                case 20:
+                    if (numworms > 1)
+                        boni.add_bonus (walls, x, y, BonusType.REVERSE, good, 150);
+                    break;
+            }
+        }
+
+        stderr.printf("[Debug] Finished adding bonus\n");
     }
 
     public void move_worms ()
