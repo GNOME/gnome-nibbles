@@ -30,6 +30,7 @@ public class NibblesView : GtkClutter.Embed
 
             _game = value;
             _game.boni.bonus_added.connect (bonus_added_cb);
+            _game.boni.bonus_removed.connect (bonus_removed_cb);
         }
     }
 
@@ -539,6 +540,13 @@ public class NibblesView : GtkClutter.Embed
         stage.add_child (actor);
 
         bonus_actors.set (bonus, actor);
+    }
+
+    public void bonus_removed_cb (Bonus bonus)
+    {
+        var bonus_actor = bonus_actors.get (bonus);
+        bonus_actor.hide ();
+        stage.remove_child (bonus_actor);
     }
 
     public void boni_rescale (int tile_size)

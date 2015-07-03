@@ -28,6 +28,7 @@ public class Boni : Object
     public const int MAX_MISSED = 2;
 
     public signal void bonus_added ();
+    public signal void bonus_removed (Bonus bonus);
 
     public Boni (int numworms)
     {
@@ -54,6 +55,17 @@ public class Boni : Object
         //TODO
         // if (type != BonusType.REGULAR)
         //     play_sound ("appear");
+    }
+
+    public void remove_bonus (int[,] walls, Bonus bonus)
+    {
+        walls[bonus.x, bonus.y] = NibblesGame.EMPTYCHAR;
+        walls[bonus.x + 1, bonus.y] = NibblesGame.EMPTYCHAR;
+        walls[bonus.x, bonus.y + 1] = NibblesGame.EMPTYCHAR;
+        walls[bonus.x + 1, bonus.y + 1] = NibblesGame.EMPTYCHAR;
+
+        bonuses.remove (bonus);
+        bonus_removed (bonus);
     }
 }
 

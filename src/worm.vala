@@ -33,6 +33,8 @@ public class Worm : Object
     public bool is_stopped = false;
 
     public int lives { get; private set; }
+    public int score;
+
     private WormDirection _direction;
     public WormDirection direction
     {
@@ -67,6 +69,7 @@ public class Worm : Object
         human = true;
         starting_direction = direction;
         lives = STARTING_LIVES;
+        score = 0;
         list = new Gee.LinkedList<Position?> ();
         key_queue = new Gee.ArrayQueue<WormDirection> ();
     }

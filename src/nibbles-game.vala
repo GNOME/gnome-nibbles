@@ -199,6 +199,26 @@ public class NibblesGame : Object
     {
         foreach (var worm in worms)
         {
+            if (boni.missed > Boni.MAX_MISSED)
+            {
+                if (worm.score > 0)
+                    worm.score--;
+            }
+
+            foreach (var bonus in boni.bonuses)
+            {
+                if (bonus.countdown-- == 0)
+                {
+                    if (bonus.type == BonusType.REGULAR && !bonus.fake)
+                    {
+                        boni.remove_bonus (walls, bonus);
+                        boni.missed++;
+                        add_bonus (true);
+                    }
+                    else
+                        boni.remove_bonus (walls, bonus);
+                }
+            }
             if (worm.is_stopped)
                 continue;
 
