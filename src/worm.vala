@@ -122,8 +122,6 @@ public class Worm : Object
 
         /* Add a new body piece */
         list.offer_head (position);
-        /* Mark the tile as occupied by the worm's body */
-        walls[head ().x, head ().y] = NibblesGame.WORMCHAR + id;
 
         if (remove)
         {
@@ -134,6 +132,9 @@ public class Worm : Object
         else
             added ();
 
+        /* Mark the tile as occupied by the worm's body */
+        walls[head ().x, head ().y] = NibblesGame.WORMCHAR + id;
+
         if (!key_queue.is_empty)
             dequeue_keypress ();
     }
@@ -142,9 +143,12 @@ public class Worm : Object
     {
         var position = position_move ();
 
-        if (walls[position.x, position.y] > NibblesGame.EMPTYCHAR &&
-            walls[position.x, position.y] < 'z' + numworms)
+        if (walls[position.x, position.y] > NibblesGame.EMPTYCHAR
+            && walls[position.x, position.y] < 'z' + numworms
+            && position != list.last ()) /* The last position of the worm won't exist in the next frame */
+        {
             return false;
+        }
 
         return true;
     }
