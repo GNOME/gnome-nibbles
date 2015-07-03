@@ -545,6 +545,7 @@ public class NibblesView : GtkClutter.Embed
     public void bonus_removed_cb (Bonus bonus)
     {
         var bonus_actor = bonus_actors.get (bonus);
+        bonus_actors.unset (bonus);
         bonus_actor.hide ();
         stage.remove_child (bonus_actor);
     }

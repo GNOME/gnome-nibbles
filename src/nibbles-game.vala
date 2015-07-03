@@ -40,6 +40,7 @@ public class NibblesGame : Object
     public const int MINIMUM_TILE_SIZE = 7;
 
     public const int GAMEDELAY = 35;
+    public const int BONUSDELAY = 100;
 
     public const int NUMWORMS = 2;
 
@@ -56,7 +57,7 @@ public class NibblesGame : Object
 
     public int numworms = NUMWORMS;
 
-    public int game_speed = 4;
+    public int game_speed = 2;
 
     public bool fakes = false;
 
@@ -79,8 +80,12 @@ public class NibblesGame : Object
     {
         add_worms ();
         add_bonus (true);
-        var id = Timeout.add (game_speed * GAMEDELAY, main_loop_cb);
-        Source.set_name_by_id (id, "[Nibbles] main_loop_cb");
+
+        var main_id = Timeout.add (GAMEDELAY * game_speed, main_loop_cb);
+        Source.set_name_by_id (main_id, "[Nibbles] main_loop_cb");
+
+        var add_bonus_id = Timeout.add (BONUSDELAY * game_speed, add_bonus_cb);
+        Source.set_name_by_id (add_bonus_id, "[Nibbles] add_bonus_cb");
     }
 
     public void add_worms ()
@@ -95,14 +100,13 @@ public class NibblesGame : Object
         bool good = false;
         int x = 0, y = 0;
 
-        stderr.printf("[Debug] Adding bonus\n");
         if (!regular)
         {
             if (Random.int_range (0, 50) != 0)
                 return;
         }
 
-        stderr.printf("[Debug] Adding bonus2\n");
+        stderr.printf("[Debug] Adding bonus2, regular %d\n", (int) regular);
         do
         {
             good = true;
@@ -195,30 +199,51 @@ public class NibblesGame : Object
         stderr.printf("[Debug] Finished adding bonus\n");
     }
 
+    public bool add_bonus_cb ()
+    {
+        add_bonus (false);
+
+        return Source.CONTINUE;
+    }
+
     public void move_worms ()
     {
-        foreach (var worm in worms)
+        if (boni.missed > Boni.MAX_MISSED)
         {
-            if (boni.missed > Boni.MAX_MISSED)
+            foreach (var worm in worms)
             {
                 if (worm.score > 0)
                     worm.score--;
             }
+        }
 
-            foreach (var bonus in boni.bonuses)
+        // FIXME: Use an iterator instead of a second list and remove
+        // from the boni.bonuses list inside boni.remove_bonus ()
+        var found = new Gee.LinkedList<Bonus> ();
+        foreach (var bonus in boni.bonuses)
+        {
+            if (bonus.countdown-- == 0)
             {
-                if (bonus.countdown-- == 0)
+                if (bonus.type == BonusType.REGULAR && !bonus.fake)
                 {
-                    if (bonus.type == BonusType.REGULAR && !bonus.fake)
-                    {
-                        boni.remove_bonus (walls, bonus);
-                        boni.missed++;
-                        add_bonus (true);
-                    }
-                    else
-                        boni.remove_bonus (walls, bonus);
+                    found.add (bonus);
+                    boni.remove_bonus (walls, bonus);
+                    boni.missed++;
+
+                    add_bonus (true);
+                }
+                else
+                {
+                    found.add (bonus);
+                    boni.remove_bonus (walls, bonus);
                 }
             }
+        }
+        boni.bonuses.remove_all (found);
+        // END FIXME
+
+        foreach (var worm in worms)
+        {
             if (worm.is_stopped)
                 continue;
 

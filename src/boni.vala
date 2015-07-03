@@ -19,7 +19,7 @@
 
 public class Boni : Object
 {
-    public Gee.ArrayList<Bonus> bonuses;
+    public Gee.LinkedList<Bonus> bonuses;
     public int missed;
     public int left;
     public int numbonuses;
@@ -32,7 +32,7 @@ public class Boni : Object
 
     public Boni (int numworms)
     {
-        bonuses = new Gee.ArrayList<Bonus> ();
+        bonuses = new Gee.LinkedList<Bonus> ();
         missed = 0;
         numbonuses = 8 + numworms;
         left = numbonuses;
@@ -64,7 +64,6 @@ public class Boni : Object
         walls[bonus.x, bonus.y + 1] = NibblesGame.EMPTYCHAR;
         walls[bonus.x + 1, bonus.y + 1] = NibblesGame.EMPTYCHAR;
 
-        bonuses.remove (bonus);
         bonus_removed (bonus);
     }
 }
