@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: 3.12\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-06-07 19:24+0000\n"
-"PO-Revision-Date: 2015-06-27 06:23+0100\n"
+"POT-Creation-Date: 2015-07-04 07:25+0000\n"
+"PO-Revision-Date: 2015-07-04 08:29+0100\n"
 "Last-Translator: Pedro Albuquerque <palbuquerque73@openmailbox.com>\n"
 "Language-Team: Português <palbuquerque73@openmailbox.com>\n"
 "Language: pt\n"
@@ -74,7 +74,6 @@ msgid "game;snake;board;"
 msgstr "jogo;cobra;tabuleiro;"
 
 #: ../data/nibbles-menus.ui.h:1
-#| msgid "Game"
 msgid "_New Game"
 msgstr "_Novo jogo"
 
@@ -83,13 +82,10 @@ msgid "_Pause"
 msgstr "_Pausa"
 
 #: ../data/nibbles-menus.ui.h:3
-#| msgid "Nibbles Preferences"
 msgid "_Preferences"
 msgstr "_Preferências"
 
 #: ../data/nibbles-menus.ui.h:4
-#| msgctxt "score-dialog"
-#| msgid "Score"
 msgid "_Scores"
 msgstr "_Pontuação"
 
@@ -363,10 +359,9 @@ msgstr ""
 "Pedro Albuquerque <palbuquerque73@gmail.com>"
 
 #: ../src/preferences.c:225
-#, fuzzy
 #| msgid "Nibbles Preferences"
 msgid "Preferences"
-msgstr "Preferências do Nibbles"
+msgstr "Preferências"
 
 #: ../src/preferences.c:238
 msgid "Game"
