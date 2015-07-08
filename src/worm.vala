@@ -74,6 +74,7 @@ public class Worm : Object
         starting_direction = direction;
         lives = STARTING_LIVES;
         score = 0;
+        change = 0;
         list = new Gee.LinkedList<Position?> ();
         key_queue = new Gee.ArrayQueue<WormDirection> ();
     }
@@ -198,6 +199,7 @@ public class Worm : Object
         list.clear ();
         list.add (starting_position);
         direction = starting_direction;
+        change = 0;
         spawn (walls);
 
         key_queue.clear ();

@@ -448,12 +448,9 @@ public class NibblesView : GtkClutter.Embed
     {
         var actors = worm_actors.get (worm);
 
-        /* Make the worms last actor (the tail) the new head. Then remove it
-         * and add it again so the head is always the last child added */
         var tail_actor = actors.first_child;
-        tail_actor.set_position (worm.list.first ().x * game.tile_size, worm.list.first ().y * game.tile_size);
         actors.remove_child (tail_actor);
-        actors.add_child (tail_actor);
+        worm_added_cb (worm);
     }
 
     public void worm_rescaled_cb (Worm worm, int tile_size)
@@ -552,16 +549,17 @@ public class NibblesView : GtkClutter.Embed
         stage.remove_child (bonus_actor);
     }
 
-    public void bonus_applied_cb (Bonus bonus)
+    public void bonus_applied_cb (Worm worm)
     {
-        var bonus_actor = bonus_actors.get (bonus);
+        var actors = worm_actors.get (worm);
+        var actor = actors.last_child;
 
-        bonus_actor.save_easing_state ();
-        bonus_actor.set_easing_mode (Clutter.AnimationMode.EASE_OUT_QUINT);
-        bonus_actor.set_easing_duration (NibblesGame.GAMEDELAY * 15);
-        bonus_actor.set_scale (1.45f, 1.45f);
-        bonus_actor.set_pivot_point (0.5f, 0.5f);
-        bonus_actor.restore_easing_state ();
+        actor.save_easing_state ();
+        actor.set_easing_mode (Clutter.AnimationMode.EASE_OUT_QUINT);
+        actor.set_easing_duration (NibblesGame.GAMEDELAY * 15);
+        actor.set_scale (1.45f, 1.45f);
+        actor.set_pivot_point (0.5f, 0.5f);
+        actor.restore_easing_state ();
     }
 
     public void boni_rescale (int tile_size)

@@ -63,7 +63,7 @@ public class NibblesGame : Object
 
     public signal void worm_moved (Worm worm);
 
-    public signal void bonus_applied (Bonus bonus);
+    public signal void bonus_applied (Worm worm);
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
 
@@ -270,7 +270,13 @@ public class NibblesGame : Object
                 continue;
             }
 
-            worm.move (walls, true);
+            if (worm.change > 0)
+            {
+                worm.move (walls, false);
+                worm.change--;
+            }
+            else
+                worm.move (walls, true);
         }
     }
 
@@ -316,7 +322,7 @@ public class NibblesGame : Object
         if (bonus == null)
             return;
         apply_bonus (bonus, worm);
-        bonus_applied (bonus);
+        bonus_applied (worm);
 
         if (walls[worm.head ().x, worm.head ().y] == BonusType.REGULAR + 'A'
             && !bonus.fake)
