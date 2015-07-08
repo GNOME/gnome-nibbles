@@ -23,6 +23,7 @@ public class Worm : Object
 {
     public const int STARTING_LENGTH = 5;
     private const int STARTING_LIVES = 6;
+    public const int GROW_FACTOR = 4;
 
     public Position starting_position { get; private set; }
 
@@ -32,7 +33,8 @@ public class Worm : Object
     public bool keypress = false;
     public bool is_stopped = false;
 
-    public int lives { get; private set; }
+    public int lives;
+    public int change;
     public int score;
 
     private WormDirection _direction;
@@ -62,6 +64,8 @@ public class Worm : Object
     public signal void moved ();
     public signal void rescaled (int tile_size);
     public signal void died ();
+
+    public signal void bonus_found ();
 
     public Worm (int id, WormDirection direction)
     {
@@ -134,6 +138,10 @@ public class Worm : Object
         }
         else
             added ();
+
+        /* Check for bonus before changing tile */
+        if (walls[head ().x, head ().y] != NibblesGame.EMPTYCHAR)
+            bonus_found ();
 
         /* Mark the tile as occupied by the worm's body */
         walls[head ().x, head ().y] = NibblesGame.WORMCHAR + id;

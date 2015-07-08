@@ -42,7 +42,7 @@ public class NibblesGame : Object
     public const int GAMEDELAY = 35;
     public const int BONUSDELAY = 100;
 
-    public const int NUMWORMS = 2;
+    public const int NUMWORMS = 1;
 
     public const int WIDTH = 92;
     public const int HEIGHT = 66;
@@ -62,6 +62,8 @@ public class NibblesGame : Object
     public bool fakes = false;
 
     public signal void worm_moved (Worm worm);
+
+    public signal void bonus_applied (Bonus bonus);
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
 
@@ -92,7 +94,10 @@ public class NibblesGame : Object
     {
         stderr.printf("[Debug] Loading worms\n");
         foreach (var worm in worms)
+        {
             worm.spawn (walls);
+            worm.bonus_found.connect (bonus_found_cb);
+        }
     }
 
     public void add_bonus (bool regular)
@@ -217,7 +222,7 @@ public class NibblesGame : Object
             }
         }
 
-        // FIXME: Use an iterator instead of a second list and remove
+        // FIXME 1/3: Use an iterator instead of a second list and remove
         // from the boni.bonuses list inside boni.remove_bonus ()
         var found = new Gee.LinkedList<Bonus> ();
         foreach (var bonus in boni.bonuses)
@@ -266,6 +271,68 @@ public class NibblesGame : Object
             }
 
             worm.move (walls, true);
+        }
+    }
+
+    public void apply_bonus (Bonus bonus, Worm worm)
+    {
+        if (bonus.fake)
+        {
+            // handle reverse
+            return;
+        }
+
+        switch (walls[worm.head ().x, worm.head ().y] - 'A')
+        {
+            case BonusType.REGULAR:
+                boni.left--;
+                worm.change += (boni.numboni - boni.left) * Worm.GROW_FACTOR;
+                worm.score += (boni.numboni - boni.left) * current_level;
+                break;
+            case BonusType.DOUBLE:
+                worm.score += (worm.list.size + worm.change) * current_level;
+                worm.change += worm.list.size + worm.change;
+                break;
+            case BonusType.HALF:
+                if (worm.list.size + worm.change > 2)
+                {
+                    worm.score += ((worm.list.size + worm.change / 2) * current_level);
+                    // worm.reduce_tail ((worm.list.size + worm.change) / 2);
+                    worm.change -= (worm.list.size + worm.change) /2;
+                }
+                break;
+            case BonusType.LIFE:
+                worm.lives++;
+                break;
+            case BonusType.REVERSE:
+                // TODO
+                break;
+        }
+    }
+
+    public void bonus_found_cb (Worm worm)
+    {
+        var bonus = boni.get_bonus (walls, worm.head ().x, worm.head ().y);
+        if (bonus == null)
+            return;
+        apply_bonus (bonus, worm);
+        bonus_applied (bonus);
+
+        if (walls[worm.head ().x, worm.head ().y] == BonusType.REGULAR + 'A'
+            && !bonus.fake)
+        {
+            // FIXME: 2/3
+            boni.remove_bonus (walls, bonus);
+            boni.bonuses.remove (bonus);
+
+            if (boni.left != 0)
+                add_bonus (true);
+        }
+        else
+        {
+            // FIXME: 3/3
+            boni.remove_bonus (walls, bonus);
+            boni.bonuses.remove (bonus);
         }
     }
 

@@ -22,6 +22,7 @@ public class Boni : Object
     public Gee.LinkedList<Bonus> bonuses;
     public int missed;
     public int left;
+    public int numboni;
     public int numbonuses;
 
     public const int MAX_BONUSES = 100;
@@ -34,8 +35,9 @@ public class Boni : Object
     {
         bonuses = new Gee.LinkedList<Bonus> ();
         missed = 0;
-        numbonuses = 8 + numworms;
-        left = numbonuses;
+        numboni = 8 + numworms;
+        numbonuses = 0;
+        left = numboni;
     }
 
     public void add_bonus (int[,] walls, int x, int y, BonusType type, bool fake, int countdown)
@@ -65,6 +67,24 @@ public class Boni : Object
         walls[bonus.x + 1, bonus.y + 1] = NibblesGame.EMPTYCHAR;
 
         bonus_removed (bonus);
+    }
+
+    public Bonus? get_bonus (int[,] walls, int x, int y)
+    {
+        foreach (var bonus in bonuses)
+        {
+            if ((x == bonus.x && y == bonus.y)
+                || (x == bonus.x + 1 && y == bonus.y)
+                || (x == bonus.x && y == bonus.y + 1)
+                || (x == bonus.x + 1 && y == bonus.y + 1))
+            {
+                return bonus;
+            }
+        }
+
+        // Should never be reached
+        stderr.printf("[Debug] Not found\n");
+        return null;
     }
 }
 

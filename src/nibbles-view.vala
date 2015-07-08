@@ -31,6 +31,8 @@ public class NibblesView : GtkClutter.Embed
             _game = value;
             _game.boni.bonus_added.connect (bonus_added_cb);
             _game.boni.bonus_removed.connect (bonus_removed_cb);
+
+            _game.bonus_applied.connect (bonus_applied_cb);
         }
     }
 
@@ -548,6 +550,18 @@ public class NibblesView : GtkClutter.Embed
         bonus_actors.unset (bonus);
         bonus_actor.hide ();
         stage.remove_child (bonus_actor);
+    }
+
+    public void bonus_applied_cb (Bonus bonus)
+    {
+        var bonus_actor = bonus_actors.get (bonus);
+
+        bonus_actor.save_easing_state ();
+        bonus_actor.set_easing_mode (Clutter.AnimationMode.EASE_OUT_QUINT);
+        bonus_actor.set_easing_duration (NibblesGame.GAMEDELAY * 15);
+        bonus_actor.set_scale (1.45f, 1.45f);
+        bonus_actor.set_pivot_point (0.5f, 0.5f);
+        bonus_actor.restore_easing_state ();
     }
 
     public void boni_rescale (int tile_size)
