@@ -37,6 +37,12 @@ public class Worm : Object
     public int change;
     public int score;
 
+    public int length
+    {
+        get { return list.size; }
+        set {}
+    }
+
     private WormDirection _direction;
     public WormDirection direction
     {
@@ -64,6 +70,7 @@ public class Worm : Object
     public signal void moved ();
     public signal void rescaled (int tile_size);
     public signal void died ();
+    public signal void tail_reduced (int erase_size);
 
     public signal void bonus_found ();
 
@@ -149,6 +156,24 @@ public class Worm : Object
 
         if (!key_queue.is_empty)
             dequeue_keypress ();
+    }
+
+    public void reduce_tail (int[,] walls, int erase_size)
+    {
+        if (erase_size > 0)
+        {
+            if (length <= erase_size)
+            {
+                die (walls);
+            }
+
+            for (int i = 0; i < erase_size; i++)
+            {
+                walls[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
+                list.poll_tail ();
+            }
+            tail_reduced (erase_size);
+        }
     }
 
     public bool can_move_to (int[,] walls, int numworms)

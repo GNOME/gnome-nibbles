@@ -97,6 +97,7 @@ public class Nibbles : Gtk.Application
         window.set_titlebar (headerbar);
 
         add_window (window);
+        start_game_cb ();
     }
 
     protected override void activate ()

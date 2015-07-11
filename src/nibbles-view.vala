@@ -417,6 +417,7 @@ public class NibblesView : GtkClutter.Embed
         worm.moved.connect (worm_moved_cb);
         worm.rescaled.connect (worm_rescaled_cb);
         worm.died.connect (worm_died_cb);
+        worm.tail_reduced.connect (worm_tail_reduced_cb);
     }
 
     public void worm_added_cb (Worm worm)
@@ -509,6 +510,46 @@ public class NibblesView : GtkClutter.Embed
         group.set_easing_duration (NibblesGame.GAMEDELAY * 9);
         group.set_scale (2.0f, 2.0f);
         group.set_pivot_point (5f, 0.5f);
+        group.set_opacity (0);
+        group.restore_easing_state ();
+    }
+
+    public void worm_tail_reduced_cb (Worm worm, int erase_size)
+    {
+        float x, y;
+        var group = new Clutter.Actor ();
+        var worm_actors = worm_actors.get (worm);
+        var color = game.worm_props.get (worm).color;
+        for (int i = 0; i < erase_size; i++)
+        {
+            var texture = new GtkClutter.Texture ();
+            try
+            {
+                texture.set_from_pixbuf (worm_pixmaps[color]);
+            }
+            catch (Clutter.TextureError e)
+            {
+                /* Fatal console error when a worm's texture could not be set. */
+                error (_("Nibbles failed to set texture: %s"), e.message);
+            }
+            catch (Error e)
+            {
+                /* Fatal console error when a worm's texture could not be set. */
+                error (_("Nibbles failed to set texture: %s"), e.message);
+            }
+
+            worm_actors.first_child.get_position (out x, out y);
+            worm_actors.remove_child (worm_actors.first_child);
+
+            texture.set_position (x, y);
+            texture.set_size (game.tile_size, game.tile_size);
+            group.add_child (texture);
+        }
+        stage.add_child (group);
+
+        group.save_easing_state ();
+        group.set_easing_mode (Clutter.AnimationMode.EASE_OUT_EXPO);
+        group.set_easing_duration (NibblesGame.GAMEDELAY * 25);
         group.set_opacity (0);
         group.restore_easing_state ();
     }

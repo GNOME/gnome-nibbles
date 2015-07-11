@@ -111,14 +111,12 @@ public class NibblesGame : Object
                 return;
         }
 
-        stderr.printf("[Debug] Adding bonus2, regular %d\n", (int) regular);
         do
         {
             good = true;
             x = Random.int_range (0, WIDTH - 1);
             y = Random.int_range (0, HEIGHT - 1);
 
-            stderr.printf("[Debug] %d %d\n", x, y);
             if (walls[x, y] != EMPTYCHAR)
                 good = false;
             if (walls[x + 1, y] != EMPTYCHAR)
@@ -129,7 +127,6 @@ public class NibblesGame : Object
                 good = false;
         } while (!good);
 
-        stderr.printf("[Debug] Adding bonus3\n");
         if (regular)
         {
             if ((Random.int_range (0, 7) == 0) && fakes)
@@ -151,13 +148,10 @@ public class NibblesGame : Object
                 if (walls[x + 1, y + 1] != EMPTYCHAR)
                     good = false;
             }
-            stderr.printf("[Debug] Called add_bonus\n");
             boni.add_bonus (walls, x, y, BonusType.REGULAR, false, 300);
-            stderr.printf("[Debug] Done add_bonus\n");
         }
         else if (boni.missed <= Boni.MAX_MISSED)
         {
-            stderr.printf("[Debug] Else if\n");
             if (Random.int_range (0, 7) != 0)
                 good = false;
             else
@@ -200,8 +194,6 @@ public class NibblesGame : Object
                     break;
             }
         }
-
-        stderr.printf("[Debug] Finished adding bonus\n");
     }
 
     public bool add_bonus_cb ()
@@ -291,20 +283,20 @@ public class NibblesGame : Object
         switch (walls[worm.head ().x, worm.head ().y] - 'A')
         {
             case BonusType.REGULAR:
-                boni.left--;
-                worm.change += (boni.numboni - boni.left) * Worm.GROW_FACTOR;
-                worm.score += (boni.numboni - boni.left) * current_level;
+                boni.numleft--;
+                worm.change += (boni.numboni - boni.numleft) * Worm.GROW_FACTOR;
+                worm.score += (boni.numboni - boni.numleft) * current_level;
                 break;
             case BonusType.DOUBLE:
-                worm.score += (worm.list.size + worm.change) * current_level;
-                worm.change += worm.list.size + worm.change;
+                worm.score += (worm.length + worm.change) * current_level;
+                worm.change += worm.length + worm.change;
                 break;
             case BonusType.HALF:
-                if (worm.list.size + worm.change > 2)
+                if (worm.length + worm.change > 2)
                 {
-                    worm.score += ((worm.list.size + worm.change / 2) * current_level);
-                    // worm.reduce_tail ((worm.list.size + worm.change) / 2);
-                    worm.change -= (worm.list.size + worm.change) /2;
+                    worm.score += ((worm.length + worm.change / 2) * current_level);
+                    worm.reduce_tail (walls, (worm.length + worm.change) / 2);
+                    worm.change -= (worm.length + worm.change) /2;
                 }
                 break;
             case BonusType.LIFE:
@@ -331,7 +323,7 @@ public class NibblesGame : Object
             boni.remove_bonus (walls, bonus);
             boni.bonuses.remove (bonus);
 
-            if (boni.left != 0)
+            if (boni.numleft != 0)
                 add_bonus (true);
         }
         else
