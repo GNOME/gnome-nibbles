@@ -72,6 +72,10 @@ public class Nibbles : Gtk.Application
     {
         base.startup ();
 
+        var css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("/org/gnome/nibbles/ui/nibbles.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         add_action_entries (action_entries, this);
 
         settings = new Settings ("org.gnome.nibbles");
@@ -84,11 +88,13 @@ public class Nibbles : Gtk.Application
 
         set_accels_for_action ("app.quit", {"<Primary>q"});
 
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/nibbles/ui/gnome-nibbles.ui");
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/nibbles/ui/nibbles.ui");
         window = builder.get_object ("nibbles-window") as Gtk.ApplicationWindow;
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
+
+        var rgba = Gdk.RGBA () { red = 1, green = 1, blue = 1, alpha = 1 };
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
@@ -97,7 +103,6 @@ public class Nibbles : Gtk.Application
         window.set_titlebar (headerbar);
 
         add_window (window);
-        start_game_cb ();
     }
 
     protected override void activate ()

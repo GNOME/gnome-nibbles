@@ -1,0 +1,12 @@
+GtkApplicationWindow.main-window {
+    background: rgba (255, 255, 255, 0);
+}
+.welcome {
+  font-size:1.5em;
+}
+.tip {
+  font-size: 1em;
+}
+.play {
+  font-size: 1em;
+}

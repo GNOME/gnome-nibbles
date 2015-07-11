@@ -16,7 +16,8 @@ gsettings_SCHEMAS = org.gnome.nibbles.gschema.xml
 dist_man_MANS = gnome-nibbles.6
 
 dist_noinst_DATA = \
-	gnome-nibbles.ui
+	nibbles.ui \
+	nibbles.css
 
 EXTRA_DIST = \
 	$(gsettings_SCHEMAS)

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <object class="GtkHeaderBar">
+        <property name="title" translatable="yes">Nibbles</property>
+    </object>
+    <object class="GtkApplicationWindow" id="nibbles-window">
+        <property name="title" translatable="yes">Nibbles</property>
+        <style><class name="main-window"/></style>
+        <child>
+            <object class="GtkBox" id="vbox">
+                <property name="orientation">vertical</property>
+                <property name="visible">True</property>
+                <child>
+                    <object class="GtkStack" id="main_stack">
+                        <property name="visible">True</property>
+                        <property name="homogeneous">True</property>
+                        <property name="margin">25</property>
+                        <property name="expand">True</property>
+                        <child>
+                            <object class="GtkBox" id="start_box">
+                                <property name="orientation">vertical</property>
+                                <property name="visible">True</property>
+                                <property name="halign">center</property>
+                                <property name="valign">center</property>
+                                <property name="homogeneous">True</property>
+                                <property name="margin">0</property>
+                                <property name="width-request">350</property>
+                                <property name="height-request">350</property>
+                                <child>
+                                    <object class="GtkImage">
+                                        <property name="visible">True</property>
+                                        <property name="icon-name">gnome-nibbles</property>
+                                        <property name="icon-size">6</property> <!-- DIALOG -->
+                                        <property name="pixel-size">96</property>
+                                        <property name="valign">2</property>
+                                    </object>
+                                    <packing>
+                                        <property name="pack-type">start</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkLabel">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">Welcome, worms.</property>
+
+                                        <style><class name="welcome"/></style>
+                                    </object>
+                                    <packing>
+                                        <property name="pack-type">start</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkLabel">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">Eat the treats before the other worms, but don't hit anything!</property>
+                                        <property name="valign">1</property> <!-- START -->
+                                        <style><class name="tip"/></style>
+                                    </object>
+                                    <packing>
+                                        <property name="pack-type">start</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkButton" id="new_game_button">
+                                        <property name="visible">True</property>
+                                        <property name="use-underline">True</property>
+                                        <property name="label" translatable="yes">Let's _Play</property>
+                                        <property name="action-name">app.start-game</property>
+                                        <property name="halign">3</property>
+                                        <property name="valign">3</property>
+                                        <property name="width-request">140</property>
+                                        <property name="height-request">40</property>
+                                        <style>
+                                            <class name="suggested-action"/>
+                                            <class name="play"/>
+                                        </style>
+                                    </object>
+                                    <packing>
+                                        <property name="pack-type">end</property>
+                                    </packing>
+                                </child>
+                            </object>
+                            <packing>
+                                <property name="name">start_box</property>
+                            </packing>
+                        </child>
+                    </object> <!-- End of main_stack -->
+                    <packing>
+                        <property name="pack-type">end</property>
+                    </packing>
+                </child>
+            </object> <!-- End of vbox -->
+        </child>
+    </object> <!-- End of nibbles_app -->
+</interface>
