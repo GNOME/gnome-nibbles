@@ -32,7 +32,8 @@ public class Nibbles : Gtk.Application
     private Games.GridFrame frame;
 
     private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
-    private Gtk.Revealer next_button_1_revealer;
+    private Gtk.Revealer next_button_revealer;
+
 
     private NibblesView? view;
     private NibblesGame? game = null;
@@ -45,7 +46,8 @@ public class Nibbles : Gtk.Application
 
     private const ActionEntry menu_entries[] =
     {
-        {"show-new-game-screen", show_new_game_screen_cb}
+        {"show-new-game-screen", show_new_game_screen_cb},
+        {"show-controls-screen", show_controls_screen_cb}
     };
 
     private static const OptionEntry[] option_entries =
@@ -115,7 +117,8 @@ public class Nibbles : Gtk.Application
             button.toggled.connect (change_number_of_players_cb);
             number_of_players_buttons.add (button);
         }
-        next_button_1_revealer = (Gtk.Revealer) builder.get_object ("next_button_1_revealer");
+        next_button_revealer = (Gtk.Revealer) builder.get_object ("next_button_revealer");
+
 
         window.set_titlebar (headerbar);
 
@@ -208,9 +211,12 @@ public class Nibbles : Gtk.Application
 
     private void show_new_game_screen_cb ()
     {
-        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
-        main_stack.set_transition_duration (500);
         main_stack.set_visible_child_name ("number_of_players");
+    }
+
+    private void show_controls_screen_cb ()
+    {
+        main_stack.set_visible_child_name ("controls");
     }
 
     private void show_game_view ()
@@ -268,7 +274,7 @@ public class Nibbles : Gtk.Application
         }
         else if (button.get_active () && !button.get_style_context ().has_class ("suggested-action"))
         {
-            next_button_1_revealer.set_reveal_child (true);
+            next_button_revealer.set_reveal_child (true);
             button.get_style_context ().add_class ("suggested-action");
             foreach (var other_button in number_of_players_buttons)
             {
