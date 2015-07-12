@@ -15,6 +15,11 @@
       <summary>true if the window is maximized</summary>
       <description>true if the window is maximized.</description>
     </key>
+    <key name="first-run" type="b">
+      <default>true</default>
+      <summary>Is this the first run</summary>
+      <description>Setting to decide whether to show first-run hint dialog or not.</description>
+    </key>
     <key name="tile-size" type="i">
       <default>7</default>
       <range min="7"/>

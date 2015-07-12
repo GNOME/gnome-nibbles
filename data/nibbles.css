@@ -1,12 +1,16 @@
 GtkApplicationWindow.main-window {
     background: rgba (255, 255, 255, 0);
 }
-.welcome {
-  font-size:1.5em;
+.title {
+  font-size: 3em;
 }
 .tip {
   font-size: 1em;
 }
 .play {
   font-size: 1em;
+}
+GtkToggleButton.number-box {
+    font-size: 5em;
+    color: rgba(229, 229, 229, 1);
 }

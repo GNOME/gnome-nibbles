@@ -17,9 +17,9 @@
                         <property name="margin">25</property>
                         <property name="expand">True</property>
                         <child>
-                            <object class="GtkBox" id="start_box">
-                                <property name="orientation">vertical</property>
+                            <object class="GtkBox" id="first_run">
                                 <property name="visible">True</property>
+                                <property name="orientation">vertical</property>
                                 <property name="halign">center</property>
                                 <property name="valign">center</property>
                                 <property name="homogeneous">True</property>
@@ -42,8 +42,7 @@
                                     <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="label" translatable="yes">Welcome, worms.</property>
-
-                                        <style><class name="welcome"/></style>
+                                        <style><class name="title"/></style>
                                     </object>
                                     <packing>
                                         <property name="pack-type">start</property>
@@ -65,7 +64,7 @@
                                         <property name="visible">True</property>
                                         <property name="use-underline">True</property>
                                         <property name="label" translatable="yes">Let's _Play</property>
-                                        <property name="action-name">app.start-game</property>
+                                        <property name="action-name">app.show-new-game-screen</property>
                                         <property name="halign">3</property>
                                         <property name="valign">3</property>
                                         <property name="width-request">140</property>
@@ -81,7 +80,97 @@
                                 </child>
                             </object>
                             <packing>
-                                <property name="name">start_box</property>
+                                <property name="name">first_run</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <object class="GtkBox" id="number_of_players">
+                                <property name="visible">True</property>
+                                <property name="orientation">vertical</property>
+                                <property name="width-request">350</property>
+                                <property name="height-request">350</property>
+                                <child>
+                                    <object class="GtkLabel">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">Number of players</property>
+                                        <property name="valign">3</property>
+                                        <style><class name="title"/></style>
+                                    </object>
+                                    <packing>
+                                        <property name="pack-type">start</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkBox" id="number_of_players_box">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">horizontal</property>
+                                        <property name="width-request">250</property>
+                                        <property name="height-request">250</property>
+                                        <property name="valign">3</property>
+                                        <property name="halign">3</property>
+                                        <property name="spacing">10</property>
+                                        <child>
+                                            <object class="GtkToggleButton" id="players1">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">1</property>
+                                                <property name="width-request">200</property>
+                                                <property name="height-request">120</property>
+                                                <property name="valign">3</property>
+                                                <property name="halign">3</property>
+                                                <style><class name="number-box"/></style>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">start</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkToggleButton" id="players2">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">2</property>
+                                                <property name="width-request">200</property>
+                                                <property name="height-request">120</property>
+                                                <property name="valign">3</property>
+                                                <property name="halign">3</property>
+                                                <style><class name="number-box"/></style>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">start</property>
+                                            </packing>
+                                        </child>
+                                    </object>
+                                    <packing>
+                                        <property name="pack-type">start</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkRevealer" id="next_button_1_revealer">
+                                        <property name="visible">True</property>
+                                        <property name="transition-type">4</property> <!-- SLIDE_UP -->
+                                        <property name="transition-duration">500</property>
+                                        <child>
+                                            <object class="GtkButton">
+                                                <property name="visible">True</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="label" translatable="yes">_Next</property>
+                                                <property name="action-name">app.start-game</property>
+                                                <property name="halign">3</property>
+                                                <property name="valign">3</property>
+                                                <property name="width-request">140</property>
+                                                <property name="height-request">40</property>
+                                                <style>
+                                                    <class name="suggested-action"/>
+                                                    <class name="play"/>
+                                                </style>
+                                            </object>
+                                        </child>
+                                    </object>
+                                    <packing>
+                                        <property name="pack-type">end</property>
+                                    </packing>
+                                </child>
+                            </object>
+                            <packing>
+                                <property name="name">number_of_players</property>
                             </packing>
                         </child>
                     </object> <!-- End of main_stack -->

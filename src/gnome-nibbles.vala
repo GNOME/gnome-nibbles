@@ -31,6 +31,9 @@ public class Nibbles : Gtk.Application
     private Gtk.Stack main_stack;
     private Games.GridFrame frame;
 
+    private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
+    private Gtk.Revealer next_button_1_revealer;
+
     private NibblesView? view;
     private NibblesGame? game = null;
 
@@ -38,6 +41,11 @@ public class Nibbles : Gtk.Application
     {
         {"start-game", start_game_cb},
         {"quit", quit}
+    };
+
+    private const ActionEntry menu_entries[] =
+    {
+        {"show-new-game-screen", show_new_game_screen_cb}
     };
 
     private static const OptionEntry[] option_entries =
@@ -77,6 +85,7 @@ public class Nibbles : Gtk.Application
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         add_action_entries (action_entries, this);
+        add_action_entries (menu_entries, this);
 
         settings = new Settings ("org.gnome.nibbles");
         worm_settings = new Gee.ArrayList<Settings> ();
@@ -93,16 +102,30 @@ public class Nibbles : Gtk.Application
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
-
-        var rgba = Gdk.RGBA () { red = 1, green = 1, blue = 1, alpha = 1 };
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
         headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
         main_stack = builder.get_object ("main_stack") as Gtk.Stack;
+
+        number_of_players_buttons = new Gee.LinkedList<Gtk.ToggleButton> ();
+        for (int i = 0; i < 2; i++)
+        {
+            var button = (Gtk.ToggleButton) builder.get_object ("players%d".printf (i + 1));
+            button.toggled.connect (change_number_of_players_cb);
+            number_of_players_buttons.add (button);
+        }
+        next_button_1_revealer = (Gtk.Revealer) builder.get_object ("next_button_1_revealer");
+
         window.set_titlebar (headerbar);
 
         add_window (window);
+
+        var first_run = settings.get_boolean ("first-run");
+        if (first_run)
+            show_first_run_screen ();
+        else
+            show_new_game_screen_cb ();
     }
 
     protected override void activate ()
@@ -174,12 +197,20 @@ public class Nibbles : Gtk.Application
 
     private void start_game_cb ()
     {
+        settings.set_boolean ("first-run", false);
         start_game ();
     }
 
-    private void show_new_game_screen ()
+    private void show_first_run_screen ()
     {
-        main_stack.set_visible_child_name ("start_box");
+        main_stack.set_visible_child_name ("first_run");
+    }
+
+    private void show_new_game_screen_cb ()
+    {
+        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
+        main_stack.set_transition_duration (500);
+        main_stack.set_visible_child_name ("number_of_players");
     }
 
     private void show_game_view ()
@@ -227,6 +258,31 @@ public class Nibbles : Gtk.Application
         show_game_view ();
 
         game.start ();
+    }
+
+    private void change_number_of_players_cb (Gtk.ToggleButton button)
+    {
+        if (!button.get_active () && button.get_style_context ().has_class ("suggested-action"))
+        {
+            button.set_active (true);
+        }
+        else if (button.get_active () && !button.get_style_context ().has_class ("suggested-action"))
+        {
+            next_button_1_revealer.set_reveal_child (true);
+            button.get_style_context ().add_class ("suggested-action");
+            foreach (var other_button in number_of_players_buttons)
+            {
+                if (button != other_button)
+                {
+                    if (other_button.get_active ())
+                    {
+                        other_button.get_style_context ().remove_class ("suggested-action");
+                        other_button.set_active (false);
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     public static int main (string[] args)
