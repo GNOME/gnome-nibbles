@@ -62,7 +62,6 @@ public class NibblesGame : Object
     public bool fakes = false;
 
     public signal void worm_moved (Worm worm);
-
     public signal void bonus_applied (Worm worm);
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
@@ -80,7 +79,6 @@ public class NibblesGame : Object
 
     public void start ()
     {
-        add_worms ();
         add_bonus (true);
 
         var main_id = Timeout.add (GAMEDELAY * game_speed, main_loop_cb);

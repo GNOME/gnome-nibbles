@@ -14,3 +14,7 @@ GtkToggleButton.number-box {
     font-size: 5em;
     color: rgba(229, 229, 229, 1);
 }
+GtkLabel.countdown {
+    font-size: 2em;
+    color: rgba(229, 229, 229, 1);
+}

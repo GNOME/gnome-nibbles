@@ -372,7 +372,6 @@ public class NibblesView : GtkClutter.Embed
                 }
             }
         }
-
         stage.add_child (level);
 
         level.set_opacity (0);

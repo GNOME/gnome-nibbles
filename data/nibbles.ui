@@ -236,7 +236,25 @@
                         </child>
                     </object> <!-- End of main_stack -->
                     <packing>
-                        <property name="pack-type">end</property>
+                        <property name="pack-type">start</property>
+                    </packing>
+                </child>
+                <child>
+                    <object class="GtkBox" id="statusbar">
+                        <property name="visible">False</property>
+                        <!-- <property name="height-request">250</property> -->
+                        <property name="halign">center</property>
+                        <child>
+                            <object class="GtkLabel" id="countdown">
+                                <property name="visible">True</property>
+                                <property name="label">5</property>
+                                <property name="halign">center</property>
+                                <style><class name="countdown"/></style>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                            <property name="pack-type">start</property>
                     </packing>
                 </child>
             </object> <!-- End of vbox -->

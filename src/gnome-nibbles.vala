@@ -30,13 +30,15 @@ public class Nibbles : Gtk.Application
     private Gtk.HeaderBar headerbar;
     private Gtk.Stack main_stack;
     private Games.GridFrame frame;
-
+    private Gtk.Box statusbar;
+    private Gtk.Label countdown;
     private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
     private Gtk.Revealer next_button_revealer;
 
-
     private NibblesView? view;
     private NibblesGame? game = null;
+
+    private const int COUNTDOWN_TIME = 5;
 
     private const ActionEntry action_entries[] =
     {
@@ -107,9 +109,10 @@ public class Nibbles : Gtk.Application
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
-        headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
-        main_stack = builder.get_object ("main_stack") as Gtk.Stack;
-
+        headerbar = (Gtk.HeaderBar) builder.get_object ("headerbar");
+        main_stack = (Gtk.Stack) builder.get_object ("main_stack");
+        statusbar = (Gtk.Box) builder.get_object ("statusbar");
+        countdown = (Gtk.Label) builder.get_object ("countdown");
         number_of_players_buttons = new Gee.LinkedList<Gtk.ToggleButton> ();
         for (int i = 0; i < 2; i++)
         {
@@ -119,11 +122,43 @@ public class Nibbles : Gtk.Application
         }
         next_button_revealer = (Gtk.Revealer) builder.get_object ("next_button_revealer");
 
-
         window.set_titlebar (headerbar);
 
         add_window (window);
 
+        /* Load game */
+        game = new NibblesGame (settings);
+
+        view = new NibblesView (game);
+        view.show ();
+
+        frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
+        main_stack.add_named (frame, "frame");
+
+        frame.add (view);
+        frame.show ();
+        // frame.show_all ();
+
+        /* TODO Fix problem and remove this call
+         * For some reason tile_size gets set to 0 after calling
+         * frame.add (view). start_level stays the same
+         */
+        game.load_properties (settings);
+        game.current_level = game.start_level;
+        view.new_level (game.current_level);
+        view.configure_event.connect (configure_event_cb);
+
+        foreach (var worm in game.worms)
+        {
+            var actors = view.worm_actors.get (worm);
+            if (actors.get_stage () == null) {
+                view.stage.add_child (actors);
+            }
+            actors.show ();
+        }
+        game.load_worm_properties (worm_settings);
+
+        /* Check wether to display the first run screen */
         var first_run = settings.get_boolean ("first-run");
         if (first_run)
             show_first_run_screen ();
@@ -183,6 +218,9 @@ public class Nibbles : Gtk.Application
             ts_y--;
         tile_size = int.min (ts_x, ts_y);
 
+        if (tile_size == 0 || game.tile_size == 0)
+            return true;
+
         if (game.tile_size != tile_size)
         {
             view.stage.set_size (tile_size * NibblesGame.WIDTH, tile_size * NibblesGame.HEIGHT);
@@ -201,7 +239,22 @@ public class Nibbles : Gtk.Application
     private void start_game_cb ()
     {
         settings.set_boolean ("first-run", false);
-        start_game ();
+        game.add_worms ();
+        show_game_view ();
+
+        var seconds = COUNTDOWN_TIME;
+        Timeout.add (1000, () => {
+            countdown.set_label ("%d".printf (seconds));
+            if (seconds == 0)
+            {
+                countdown.hide ();
+                countdown.set_label ("GO!");
+                game.start ();
+                return Source.REMOVE;
+            }
+            seconds--;
+            return Source.CONTINUE;
+        });
     }
 
     private void show_first_run_screen ()
@@ -222,48 +275,7 @@ public class Nibbles : Gtk.Application
     private void show_game_view ()
     {
         main_stack.set_visible_child_name ("frame");
-    }
-
-    private void start_game ()
-    {
-        if (game != null)
-        {
-            SignalHandler.disconnect_matched (game, SignalMatchType.DATA, 0, 0, null, null, this);
-        }
-
-        game = new NibblesGame (settings);
-
-        view = new NibblesView (game);
-        view.configure_event.connect (configure_event_cb);
-
-        frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
-        main_stack.add_named (frame, "frame");
-
-        frame.add (view);
-        frame.show_all ();
-
-        /* TODO Fix problem and remove this call
-         * For some reason tile_size gets set to 0 after calling
-         * frame.add (view). start_level stays the same
-         */
-        game.load_properties (settings);
-        game.current_level = game.start_level;
-        view.new_level (game.current_level);
-
-        foreach (var worm in game.worms)
-        {
-            var actors = view.worm_actors.get (worm);
-            if (actors.get_stage () == null) {
-                view.stage.add_child (actors);
-            }
-            actors.show ();
-        }
-        game.load_worm_properties (worm_settings);
-
-        stderr.printf("[Debug] Showing game view\n");
-        show_game_view ();
-
-        game.start ();
+        statusbar.set_visible (true);
     }
 
     private void change_number_of_players_cb (Gtk.ToggleButton button)
