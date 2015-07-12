@@ -22,59 +22,66 @@
                             <object class="GtkBox" id="first_run">
                                 <property name="visible">True</property>
                                 <property name="orientation">vertical</property>
-                                <property name="halign">center</property>
-                                <property name="valign">center</property>
-                                <property name="homogeneous">True</property>
-                                <property name="margin">0</property>
                                 <property name="width-request">350</property>
                                 <property name="height-request">350</property>
-                                <child>
-                                    <object class="GtkImage">
-                                        <property name="visible">True</property>
-                                        <property name="icon-name">gnome-nibbles</property>
-                                        <property name="icon-size">6</property> <!-- DIALOG -->
-                                        <property name="pixel-size">96</property>
-                                        <property name="valign">2</property>
-                                    </object>
-                                    <packing>
-                                        <property name="pack-type">start</property>
-                                    </packing>
-                                </child>
-                                <child>
-                                    <object class="GtkLabel">
-                                        <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Welcome, worms.</property>
-                                        <style><class name="title"/></style>
-                                    </object>
-                                    <packing>
-                                        <property name="pack-type">start</property>
-                                    </packing>
-                                </child>
-                                <child>
-                                    <object class="GtkLabel">
-                                        <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Eat the treats before the other worms, but don't hit anything!</property>
-                                        <property name="valign">1</property> <!-- START -->
-                                        <style><class name="tip"/></style>
-                                    </object>
-                                    <packing>
-                                        <property name="pack-type">start</property>
-                                    </packing>
-                                </child>
                                 <child>
                                     <object class="GtkButton" id="new_game_button">
                                         <property name="visible">True</property>
                                         <property name="use-underline">True</property>
                                         <property name="label" translatable="yes">Let's _Play</property>
                                         <property name="action-name">app.show-new-game-screen</property>
-                                        <property name="halign">3</property>
-                                        <property name="valign">3</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">end</property>
                                         <property name="width-request">140</property>
                                         <property name="height-request">40</property>
                                         <style>
                                             <class name="suggested-action"/>
                                             <class name="play"/>
                                         </style>
+                                    </object>
+                                    <packing>
+                                        <property name="pack-type">end</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+                                        <property name="homogeneous">True</property>
+                                        <property name="valign">center</property>
+                                        <property name="vexpand">True</property>
+                                        <child>
+                                            <object class="GtkImage">
+                                                <property name="visible">True</property>
+                                                <property name="icon-name">gnome-nibbles</property>
+                                                <property name="icon-size">6</property> <!-- DIALOG -->
+                                                <property name="pixel-size">96</property>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">start</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Welcome, worms.</property>
+                                                <style><class name="title"/></style>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">start</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Eat the treats before the other worms, but don't hit anything!</property>
+                                                <property name="valign">1</property> <!-- START -->
+                                                <style><class name="tip"/></style>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">start</property>
+                                            </packing>
+                                        </child>
                                     </object>
                                     <packing>
                                         <property name="pack-type">end</property>
