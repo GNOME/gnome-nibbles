@@ -137,26 +137,6 @@ public class Nibbles : Gtk.Application
 
         frame.add (view);
         frame.show ();
-        // frame.show_all ();
-
-        /* TODO Fix problem and remove this call
-         * For some reason tile_size gets set to 0 after calling
-         * frame.add (view). start_level stays the same
-         */
-        game.load_properties (settings);
-        game.current_level = game.start_level;
-        view.new_level (game.current_level);
-        view.configure_event.connect (configure_event_cb);
-
-        foreach (var worm in game.worms)
-        {
-            var actors = view.worm_actors.get (worm);
-            if (actors.get_stage () == null) {
-                view.stage.add_child (actors);
-            }
-            actors.show ();
-        }
-        game.load_worm_properties (worm_settings);
 
         /* Check wether to display the first run screen */
         var first_run = settings.get_boolean ("first-run");
@@ -239,6 +219,27 @@ public class Nibbles : Gtk.Application
     private void start_game_cb ()
     {
         settings.set_boolean ("first-run", false);
+        stderr.printf("[Debug] cl %d\n", game.current_level);
+        stderr.printf("[Debug] %d\n", game.numworms);
+
+        /* TODO Fix problem and remove this call
+         * For some reason tile_size gets set to 0 after calling
+         * frame.add (view). start_level stays the same
+         */
+        game.load_properties (settings);
+        game.current_level = game.start_level;
+        view.new_level (game.current_level);
+        view.configure_event.connect (configure_event_cb);
+
+        foreach (var worm in game.worms)
+        {
+            var actors = view.worm_actors.get (worm);
+            if (actors.get_stage () == null) {
+                view.stage.add_child (actors);
+            }
+            actors.show ();
+        }
+        game.load_worm_properties (worm_settings);
         game.add_worms ();
         show_game_view ();
 
@@ -247,8 +248,8 @@ public class Nibbles : Gtk.Application
             countdown.set_label ("%d".printf (seconds));
             if (seconds == 0)
             {
-                countdown.hide ();
                 countdown.set_label ("GO!");
+                countdown.hide ();
                 game.start ();
                 return Source.REMOVE;
             }
@@ -269,6 +270,16 @@ public class Nibbles : Gtk.Application
 
     private void show_controls_screen_cb ()
     {
+        /* Save selected number of players before changing the screen */
+        foreach (var button in number_of_players_buttons)
+        {
+            if (button.get_active ())
+            {
+                var label = button.get_label ();
+                game.numworms = int.parse (label);
+            }
+        }
+
         main_stack.set_visible_child_name ("controls");
     }
 

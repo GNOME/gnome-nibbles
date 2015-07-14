@@ -42,7 +42,7 @@ public class NibblesGame : Object
     public const int GAMEDELAY = 35;
     public const int BONUSDELAY = 100;
 
-    public const int NUMWORMS = 1;
+    public const int NUMWORMS = 2;
 
     public const int WIDTH = 92;
     public const int HEIGHT = 66;
@@ -90,7 +90,6 @@ public class NibblesGame : Object
 
     public void add_worms ()
     {
-        stderr.printf("[Debug] Loading worms\n");
         foreach (var worm in worms)
         {
             worm.spawn (walls);

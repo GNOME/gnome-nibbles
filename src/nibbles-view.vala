@@ -365,17 +365,16 @@ public class NibblesView : GtkClutter.Embed
                 {
                     x_pos = j * game.tile_size;
 
-                    ((Clutter.Actor) tmp).set_size (game.tile_size,
-                                                    game.tile_size);
-                    ((Clutter.Actor) tmp).set_position (x_pos, y_pos);
-                    level.add_child ((Clutter.Actor) tmp);
+                    tmp.set_size (game.tile_size, game.tile_size);
+                    tmp.set_position (x_pos, y_pos);
+                    level.add_child (tmp);
                 }
             }
         }
         stage.add_child (level);
 
         level.set_opacity (0);
-        ((Clutter.Actor) level).set_scale (0.2, 0.2);
+        level.set_scale (0.2, 0.2);
 
         level.save_easing_state ();
         level.set_easing_mode (Clutter.AnimationMode.EASE_OUT_BOUNCE);
@@ -436,7 +435,6 @@ public class NibblesView : GtkClutter.Embed
             /* Fatal console error when a worm's texture could not be set. */
             error (_("Nibbles failed to set texture: %s"), e.message);
         }
-
         actor.set_size (game.tile_size, game.tile_size);
         actor.set_position (worm.list.first ().x * game.tile_size, worm.list.first ().y * game.tile_size);
 
