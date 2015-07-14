@@ -37,7 +37,6 @@ public class NibblesView : GtkClutter.Embed
     }
 
     public Clutter.Stage stage { get; private set; }
-    private GtkClutter.Texture surface;
     private Clutter.Actor level;
 
     private Gdk.Pixbuf wall_pixmaps[11];
@@ -70,38 +69,10 @@ public class NibblesView : GtkClutter.Embed
         set_size_request (NibblesGame.MINIMUM_TILE_SIZE * NibblesGame.WIDTH,
                           NibblesGame.MINIMUM_TILE_SIZE * NibblesGame.HEIGHT);
 
-        surface = new GtkClutter.Texture ();
-        try
-        {
-            var pixbuf = new Gdk.Pixbuf.from_file (Path.build_filename (PKGDATADIR, "pixmaps", "wall-small-empty.svg"));
-
-            surface.set_from_pixbuf (pixbuf);
-        }
-        catch (Clutter.TextureError e)
-        {
-            /* Fatal console error when the background texture could not be loaded. */
-            error (_("Nibbles failed to load texture: %s"), e.message);
-        }
-        catch (Error e)
-        {
-            /* Fatal console error when the background texture could not be loaded. */
-            error (_("Nibbles failed to load texture: %s"), e.message);
-        }
-
-        surface.set_property ("repeat-x", true);
-        surface.set_property ("repeat-y", true);
-
-        surface.set_position (0, 0);
-        surface.set_size (game.tile_size * NibblesGame.WIDTH,
-                          game.tile_size * NibblesGame.HEIGHT);
-        surface.set_opacity (100);
-
         worm_actors = new Gee.HashMap<Worm, WormActor> ();
         bonus_actors = new Gee.HashMap<Bonus, BonusTexture> ();
 
         load_pixmap ();
-
-        stage.add_child (surface);
     }
 
     public override bool key_press_event (Gdk.EventKey event)
@@ -392,13 +363,9 @@ public class NibblesView : GtkClutter.Embed
 
         if (level == null)
             return;
-        if (surface == null)
-            return;
 
         board_width = NibblesGame.WIDTH * tile_size;
         board_height = NibblesGame.HEIGHT * tile_size;
-
-        surface.set_size (board_width, board_height);
 
         foreach (var actor in level.get_children ())
         {
