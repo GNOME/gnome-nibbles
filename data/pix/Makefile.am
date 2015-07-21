@@ -31,6 +31,9 @@ SMALL_PIX = \
 	wall-tee-right.svg \
 	wall-tee-up.svg
 
-dist_pixmap_DATA = ${BONUS_PIX} ${SMALL_PIX}
+SCOREBOARD_PIX = \
+	scoreboard-life.svg
+
+dist_pixmap_DATA = ${BONUS_PIX} ${SMALL_PIX} ${SCOREBOARD_PIX}
 
 -include $(top_srcdir)/git.mk

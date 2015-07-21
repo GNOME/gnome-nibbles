@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <template class="PlayerScoreBox" parent="GtkBox">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="width-request">96</property>
+        <child>
+            <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="orientation">horizontal</property>
+                <property name="spacing">4</property>
+                <child>
+                    <object class="GtkLabel" id="name_label">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Worm</property>
+                    </object>
+                    <packing>
+                        <property name="pack-type">start</property>
+                    </packing>
+                </child>
+                <child>
+                    <object class="GtkLabel" id="score_label">
+                        <property name="visible">True</property>
+                        <property name="label">0</property>
+                        <property name="justify">right</property>
+                    </object>
+                    <packing>
+                        <property name="pack-type">end</property>
+                    </packing>
+                </child>
+            </object>
+            <packing>
+                <property name="pack-type">start</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkGrid" id="lives_grid">
+                <property name="visible">True</property>
+            </object>
+        </child>
+    </template>
+</interface>

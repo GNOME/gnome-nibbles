@@ -29,9 +29,12 @@ public class Nibbles : Gtk.Application
     private Gtk.ApplicationWindow window;
     private Gtk.HeaderBar headerbar;
     private Gtk.Stack main_stack;
+    private Gtk.Box game_box;
     private Games.GridFrame frame;
-    private Gtk.Box statusbar;
+    private Gtk.Stack statusbar_stack;
     private Gtk.Label countdown;
+    private Scoreboard scoreboard;
+    private Gdk.Pixbuf scoreboard_life;
     private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
     private Gtk.Revealer next_button_revealer;
 
@@ -111,7 +114,8 @@ public class Nibbles : Gtk.Application
 
         headerbar = (Gtk.HeaderBar) builder.get_object ("headerbar");
         main_stack = (Gtk.Stack) builder.get_object ("main_stack");
-        statusbar = (Gtk.Box) builder.get_object ("statusbar");
+        game_box = (Gtk.Box) builder.get_object ("game_box");
+        statusbar_stack = (Gtk.Stack) builder.get_object ("statusbar_stack");
         countdown = (Gtk.Label) builder.get_object ("countdown");
         number_of_players_buttons = new Gee.LinkedList<Gtk.ToggleButton> ();
         for (int i = 0; i < 2; i++)
@@ -133,7 +137,12 @@ public class Nibbles : Gtk.Application
         view.show ();
 
         frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
-        main_stack.add_named (frame, "frame");
+        game_box.pack_start (frame);
+
+        scoreboard = new Scoreboard ();
+        scoreboard_life = view.load_pixmap_file ("scoreboard-life.svg", 2 * game.tile_size, 2 * game.tile_size);
+        scoreboard.show ();
+        statusbar_stack.add_named (scoreboard, "scoreboard");
 
         frame.add (view);
         frame.show ();
@@ -231,15 +240,18 @@ public class Nibbles : Gtk.Application
         view.new_level (game.current_level);
         view.configure_event.connect (configure_event_cb);
 
+        game.load_worm_properties (worm_settings);
         foreach (var worm in game.worms)
         {
+            var color = game.worm_props.get (worm).color;
+            scoreboard.register (worm, NibblesView.colorval_name (color), scoreboard_life);
+
             var actors = view.worm_actors.get (worm);
             if (actors.get_stage () == null) {
                 view.stage.add_child (actors);
             }
             actors.show ();
         }
-        game.load_worm_properties (worm_settings);
         game.add_worms ();
         show_game_view ();
 
@@ -248,8 +260,7 @@ public class Nibbles : Gtk.Application
             countdown.set_label ("%d".printf (seconds));
             if (seconds == 0)
             {
-                countdown.set_label ("GO!");
-                countdown.hide ();
+                statusbar_stack.set_visible_child_name ("scoreboard");
                 game.start ();
                 return Source.REMOVE;
             }
@@ -285,8 +296,7 @@ public class Nibbles : Gtk.Application
 
     private void show_game_view ()
     {
-        main_stack.set_visible_child_name ("frame");
-        statusbar.set_visible (true);
+        main_stack.set_visible_child_name ("game_box");
     }
 
     private void change_number_of_players_cb (Gtk.ToggleButton button)
@@ -351,5 +361,55 @@ public class Nibbles : Gtk.Application
         }
 
         return new Nibbles ().run (args);
+    }
+}
+
+[GtkTemplate (ui = "/org/gnome/nibbles/ui/scoreboard.ui")]
+public class Scoreboard : Gtk.Box
+{
+    private Gee.LinkedList<PlayerScoreBox> boxes;
+
+    public Scoreboard ()
+    {
+        boxes = new Gee.LinkedList<PlayerScoreBox> ();
+    }
+
+    public void register (Worm worm, string color_name, Gdk.Pixbuf life_pixbuf)
+    {
+        var color = Pango.Color ();
+        color.parse (color_name);
+
+        var box = new PlayerScoreBox ("Worm %d".printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf);
+        add (box);
+    }
+}
+
+[GtkTemplate (ui = "/org/gnome/nibbles/ui/player-score-box.ui")]
+public class PlayerScoreBox : Gtk.Box
+{
+    [GtkChild]
+    private Gtk.Label name_label;
+    [GtkChild]
+    private Gtk.Label score_label;
+    [GtkChild]
+    private Gtk.Grid lives_grid;
+
+    private Gee.LinkedList<Gtk.Image> life_images;
+
+    public PlayerScoreBox (string name, Pango.Color color, int score, int lives_left, Gdk.Pixbuf life_pixbuf)
+    {
+        name_label.set_markup ("<span color=\"" + color.to_string () + "\">" + name + "</span>");
+        score_label.set_label (score.to_string ());
+
+        life_images = new Gee.LinkedList<Gtk.Image> ();
+
+        for (int i = 0; i < lives_left; i++)
+        {
+            var life = new Gtk.Image.from_pixbuf (life_pixbuf);
+            life.show ();
+
+            life_images.add (life);
+            lives_grid.attach (life, i % 6, i/6);
+        }
     }
 }

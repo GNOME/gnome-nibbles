@@ -17,7 +17,9 @@ dist_man_MANS = gnome-nibbles.6
 
 dist_noinst_DATA = \
 	nibbles.ui \
-	nibbles.css
+	nibbles.css \
+	scoreboard.ui \
+	player-score-box.ui
 
 EXTRA_DIST = \
 	$(gsettings_SCHEMAS)

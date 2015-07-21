@@ -52,7 +52,7 @@ public class NibblesView : GtkClutter.Embed
       "red",
       "green",
       "blue",
-      "yellow",
+      "orange",
       "cyan",
       "purple",
       "grey"
@@ -175,7 +175,7 @@ public class NibblesView : GtkClutter.Embed
         load_level ();
     }
 
-    private Gdk.Pixbuf load_pixmap_file (string pixmap, int xsize, int ysize)
+    public Gdk.Pixbuf load_pixmap_file (string pixmap, int xsize, int ysize)
     {
         var filename = Path.build_filename (PKGDATADIR, "pixmaps", pixmap, null);
 
