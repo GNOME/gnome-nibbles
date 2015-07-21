@@ -241,7 +241,6 @@
                                 <child>
                                     <object class="GtkBox" id="statusbar">
                                         <property name="visible">True</property>
-                                        <!-- <property name="height-request">250</property> -->
                                         <property name="halign">center</property>
                                         <child>
                                             <object class="GtkStack" id="statusbar_stack">

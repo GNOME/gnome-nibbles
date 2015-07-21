@@ -6,10 +6,10 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
-   version="1.1"
-   height="5.0000001cm"
+   id="svg1"
    width="5.0000001cm"
-   id="svg1">
+   height="5.0000001cm"
+   version="1.1">
   <metadata
      id="metadata17">
     <rdf:RDF>
@@ -27,13 +27,13 @@
     <linearGradient
        id="linearGradient930">
       <stop
-         id="stop931"
+         style="stop-color:#ff5800;stop-opacity:1.0000000;"
          offset="0.0000000"
-         style="stop-color:#ff5800;stop-opacity:1.0000000;" />
+         id="stop931" />
       <stop
-         id="stop932"
+         style="stop-color:#810000;stop-opacity:1.0000000;"
          offset="1.0000000"
-         style="stop-color:#810000;stop-opacity:1.0000000;" />
+         id="stop932" />
     </linearGradient>
     <defs
        id="defs889" />
@@ -42,28 +42,28 @@
     <defs
        id="defs906" />
     <radialGradient
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-2.627274e-3,0.892959,-0.883957,-2.600699e-3,-70.19240,-7.876027)"
-       fy="70.632462"
-       fx="83.010628"
-       r="120.44991"
-       cy="70.632462"
-       cx="83.010628"
+       xlink:href="#linearGradient930"
        id="radialGradient933"
-       xlink:href="#linearGradient930" />
+       cx="83.010628"
+       cy="70.632462"
+       r="120.44991"
+       fx="83.010628"
+       fy="70.632462"
+       gradientTransform="matrix(-2.627274e-3,0.892959,-0.883957,-2.600699e-3,-70.19240,-7.876027)"
+       gradientUnits="userSpaceOnUse" />
     <linearGradient
-       y2="0.50000000"
-       x2="1.0000000"
-       y1="0.50000000"
-       x1="0.0000000"
+       xlink:href="#linearGradient930"
        id="linearGradient934"
-       xlink:href="#linearGradient930" />
+       x1="0.0000000"
+       y1="0.50000000"
+       x2="1.0000000"
+       y2="0.50000000" />
   </defs>
   <rect
-     y="0.00036104457"
-     x="0"
-     height="177.16499"
-     width="177.151"
+     style="fill:#ff0000;fill-opacity:1"
      id="rect5770"
-     style="fill:#ef2929;fill-opacity:1" />
+     width="177.151"
+     height="177.16499"
+     x="0"
+     y="0.00036104457" />
 </svg>

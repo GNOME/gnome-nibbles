@@ -152,7 +152,8 @@ public class Nibbles : Gtk.Application
         if (first_run)
             show_first_run_screen ();
         else
-            show_new_game_screen_cb ();
+            // show_new_game_screen_cb ();
+            start_game_cb ();
     }
 
     protected override void activate ()
