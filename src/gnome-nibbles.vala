@@ -237,6 +237,7 @@ public class Nibbles : Gtk.Application
          */
         game.load_properties (settings);
         game.current_level = game.start_level;
+        game.loop_ended.connect (scoreboard.update);
         view.new_level (game.current_level);
         view.configure_event.connect (configure_event_cb);
 
@@ -367,11 +368,11 @@ public class Nibbles : Gtk.Application
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/scoreboard.ui")]
 public class Scoreboard : Gtk.Box
 {
-    private Gee.LinkedList<PlayerScoreBox> boxes;
+    private Gee.HashMap<PlayerScoreBox, Worm> boxes;
 
     public Scoreboard ()
     {
-        boxes = new Gee.LinkedList<PlayerScoreBox> ();
+        boxes = new Gee.HashMap<PlayerScoreBox, Worm> ();
     }
 
     public void register (Worm worm, string color_name, Gdk.Pixbuf life_pixbuf)
@@ -380,7 +381,16 @@ public class Scoreboard : Gtk.Box
         color.parse (color_name);
 
         var box = new PlayerScoreBox ("Worm %d".printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf);
+        boxes.set (box, worm);
         add (box);
+    }
+
+    public void update ()
+    {
+        foreach (var entry in boxes.entries)
+        {
+            entry.key.update (entry.value.score, entry.value.lives);
+        }
     }
 }
 
@@ -410,6 +420,32 @@ public class PlayerScoreBox : Gtk.Box
 
             life_images.add (life);
             lives_grid.attach (life, i % 6, i/6);
+        }
+    }
+
+    public void update (int score, int lives_left)
+    {
+        update_score (score);
+        update_lives (lives_left);
+    }
+
+    public void update_score (int score)
+    {
+        if (score_label.get_label () == score.to_string ())
+            return;
+
+        score_label.set_label (score.to_string ());
+    }
+
+    public void update_lives (int lives_left)
+    {
+        if (life_images.size == lives_left)
+            return;
+
+        for (int i = 0; i < life_images.size - lives_left; i++)
+        {
+            var life = life_images.poll ();
+            life.hide ();
         }
     }
 }

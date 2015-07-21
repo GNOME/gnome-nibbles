@@ -63,6 +63,7 @@ public class NibblesGame : Object
 
     public signal void worm_moved (Worm worm);
     public signal void bonus_applied (Worm worm);
+    public signal void loop_ended ();
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
 
@@ -334,6 +335,7 @@ public class NibblesGame : Object
     public bool main_loop_cb ()
     {
         move_worms ();
+        loop_ended ();
         return Source.CONTINUE;
     }
 
