@@ -254,17 +254,11 @@
                                                         <style><class name="countdown"/></style>
                                                     </object>
                                                 </child>
-                                                <!-- <child> -->
-                                                    <!-- <object class="Scoreboard" id="scoreboard"> -->
-                                                        <!-- <property name="visible">True</property> -->
-                                                        <!-- <property name="orientation">horizontal</property> -->
-                                                    <!-- </object> -->
-                                                <!-- </child> -->
                                             </object>
                                         </child>
                                     </object>
                                     <packing>
-                                        <property name="pack-type">start</property>
+                                        <property name="pack-type">end</property>
                                     </packing>
                                 </child>
                             </object>
