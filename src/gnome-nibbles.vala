@@ -52,6 +52,7 @@ public class Nibbles : Gtk.Application
     private const ActionEntry action_entries[] =
     {
         {"start-game", start_game_cb},
+        {"scores", scores_cb},
         {"quit", quit}
     };
 
@@ -367,6 +368,19 @@ public class Nibbles : Gtk.Application
     {
         scores_context.add_score (worm.score, cat_slow);
         scores_context.run_dialog ();
+    }
+
+    private void scores_cb ()
+    {
+        try
+        {
+            scores_context.run_dialog ();
+        }
+        catch (GLib.Error e)
+        {
+            // Translators: This error is displayed when the scores dialog fails to load
+            error ("Failed to run scores dialog: %s", e.message);
+        }
     }
 
     public static int main (string[] args)
