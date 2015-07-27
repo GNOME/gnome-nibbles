@@ -64,6 +64,7 @@ public class NibblesGame : Object
     public signal void worm_moved (Worm worm);
     public signal void bonus_applied (Worm worm);
     public signal void loop_ended ();
+    public signal void log_score (Worm worm);
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
 
@@ -334,9 +335,55 @@ public class NibblesGame : Object
 
     public bool main_loop_cb ()
     {
+        var status = get_game_status ();
+
+        if (status == GameStatus.VICTORY)
+        {
+            // end_game ();
+            var winner = get_winner ();
+
+            if (winner == null)
+                return Source.REMOVE;
+
+            stderr.printf("[Debug] Logging score\n");
+            log_score (winner);
+
+            return Source.REMOVE;
+        }
         move_worms ();
         loop_ended ();
+
         return Source.CONTINUE;
+    }
+
+    public GameStatus? get_game_status ()
+    {
+        var worms_left = 0;
+        foreach (var worm in worms)
+        {
+            if (worm.lives > 0)
+                worms_left += 1;
+        }
+
+        if (worms_left == 1 && numworms > 1)
+            return GameStatus.VICTORY;
+        else if (worms_left == 0) {
+            /* There was only one worm and it died */
+            return GameStatus.GAMEOVER;
+        }
+
+        return null;
+    }
+
+    public Worm? get_winner ()
+    {
+        foreach (var worm in worms)
+        {
+            if (worm.lives > 0)
+                return worm;
+        }
+
+        return null;
     }
 
     public void load_properties (Settings settings)
@@ -393,4 +440,11 @@ public class NibblesGame : Object
 
         return false;
     }
+}
+
+public enum GameStatus
+{
+    GAMEOVER,
+    VICTORY,
+    NEXTROUND
 }

@@ -38,10 +38,16 @@ public class Nibbles : Gtk.Application
     private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
     private Gtk.Revealer next_button_revealer;
 
+    private Games.Scores.Context scores_context;
+    private Games.Scores.Category cat_beginner;
+    private Games.Scores.Category cat_slow;
+    private Games.Scores.Category cat_medium;
+    private Games.Scores.Category cat_fast;
+
     private NibblesView? view;
     private NibblesGame? game = null;
 
-    private const int COUNTDOWN_TIME = 5;
+    private const int COUNTDOWN_TIME = 0;
 
     private const ActionEntry action_entries[] =
     {
@@ -85,6 +91,7 @@ public class Nibbles : Gtk.Application
 
     protected override void startup ()
     {
+        stderr.printf("[Debug] Startup\n");
         base.startup ();
 
         var css_provider = new Gtk.CssProvider ();
@@ -109,6 +116,7 @@ public class Nibbles : Gtk.Application
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
+
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
@@ -132,6 +140,7 @@ public class Nibbles : Gtk.Application
 
         /* Load game */
         game = new NibblesGame (settings);
+        game.log_score.connect (log_score_cb);
 
         view = new NibblesView (game);
         view.show ();
@@ -154,11 +163,16 @@ public class Nibbles : Gtk.Application
         else
             // show_new_game_screen_cb ();
             start_game_cb ();
+
+        window.show_all ();
+
+        create_scores ();
     }
 
     protected override void activate ()
     {
-        window.present ();
+        stderr.printf("[Debug] Activate\n");
+        base.activate ();
     }
 
     protected override void shutdown ()
@@ -324,6 +338,35 @@ public class Nibbles : Gtk.Application
                 }
             }
         }
+    }
+
+    public void create_scores ()
+    {
+        stderr.printf("[Debug] Created\n");
+        scores_context = new Games.Scores.Context ("gnome-nibbles", "", window, Games.Scores.Style.PLAIN_DESCENDING);
+        cat_beginner = new Games.Scores.Category ("beginner", "Beginner");
+        cat_slow = new Games.Scores.Category ("slow", "Slow");
+        cat_medium = new Games.Scores.Category ("medium", "Medium");
+        cat_fast = new Games.Scores.Category ("fast", "Fast");
+
+        scores_context.category_request.connect ((s, key) => {
+            if (key == "beginner")
+                return cat_beginner;
+            else if (key == "slow")
+                return cat_slow;
+            else if (key == "cat_medium")
+                return cat_medium;
+            else if (key == "cat_fast")
+                return cat_fast;
+            else
+                return null;
+        });
+    }
+
+    public void log_score_cb (Worm worm)
+    {
+        scores_context.add_score (worm.score, cat_slow);
+        scores_context.run_dialog ();
     }
 
     public static int main (string[] args)
