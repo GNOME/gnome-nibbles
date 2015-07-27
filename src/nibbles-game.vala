@@ -61,10 +61,14 @@ public class NibblesGame : Object
 
     public bool fakes = false;
 
+    private uint main_id = 0;
+    private uint add_bonus_id = 0;
+
     public signal void worm_moved (Worm worm);
     public signal void bonus_applied (Worm worm);
-    public signal void loop_ended ();
+    public signal void loop_started ();
     public signal void log_score (Worm worm);
+    public signal void animate_end_game ();
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
 
@@ -83,11 +87,26 @@ public class NibblesGame : Object
     {
         add_bonus (true);
 
-        var main_id = Timeout.add (GAMEDELAY * game_speed, main_loop_cb);
+        main_id = Timeout.add (GAMEDELAY * game_speed, main_loop_cb);
         Source.set_name_by_id (main_id, "[Nibbles] main_loop_cb");
 
-        var add_bonus_id = Timeout.add (BONUSDELAY * game_speed, add_bonus_cb);
+        add_bonus_id = Timeout.add (BONUSDELAY * game_speed, add_bonus_cb);
         Source.set_name_by_id (add_bonus_id, "[Nibbles] add_bonus_cb");
+    }
+
+    private void stop ()
+    {
+        if (main_id != 0)
+        {
+            Source.remove (main_id);
+            main_id = 0;
+        }
+
+        if (add_bonus_id != 0)
+        {
+            Source.remove (add_bonus_id);
+            add_bonus_id = 0;
+        }
     }
 
     public void add_worms ()
@@ -336,22 +355,21 @@ public class NibblesGame : Object
     public bool main_loop_cb ()
     {
         var status = get_game_status ();
+        loop_started ();
 
         if (status == GameStatus.VICTORY)
         {
-            // end_game ();
+            end_game ();
             var winner = get_winner ();
 
             if (winner == null)
                 return Source.REMOVE;
 
-            stderr.printf("[Debug] Logging score\n");
             log_score (winner);
 
             return Source.REMOVE;
         }
         move_worms ();
-        loop_ended ();
 
         return Source.CONTINUE;
     }
@@ -366,6 +384,7 @@ public class NibblesGame : Object
         }
 
         if (worms_left == 1 && numworms > 1)
+            /* There were multiple worms but only one is still alive */
             return GameStatus.VICTORY;
         else if (worms_left == 0) {
             /* There was only one worm and it died */
@@ -384,6 +403,12 @@ public class NibblesGame : Object
         }
 
         return null;
+    }
+
+    private void end_game ()
+    {
+        stop ();
+        animate_end_game ();
     }
 
     public void load_properties (Settings settings)

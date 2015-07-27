@@ -33,6 +33,8 @@ public class NibblesView : GtkClutter.Embed
             _game.boni.bonus_removed.connect (bonus_removed_cb);
 
             _game.bonus_applied.connect (bonus_applied_cb);
+
+            _game.animate_end_game.connect (animate_end_game_cb);
         }
     }
 
@@ -356,6 +358,15 @@ public class NibblesView : GtkClutter.Embed
         level.restore_easing_state ();
     }
 
+    private void connect_signals (Worm worm)
+    {
+        worm.added.connect (worm_added_cb);
+        worm.moved.connect (worm_moved_cb);
+        worm.rescaled.connect (worm_rescaled_cb);
+        worm.died.connect (worm_died_cb);
+        worm.tail_reduced.connect (worm_tail_reduced_cb);
+    }
+
     public void board_rescale (int tile_size)
     {
         int board_width, board_height;
@@ -376,13 +387,40 @@ public class NibblesView : GtkClutter.Embed
         }
     }
 
-    private void connect_signals (Worm worm)
+    public void animate_end_game_cb ()
     {
-        worm.added.connect (worm_added_cb);
-        worm.moved.connect (worm_moved_cb);
-        worm.rescaled.connect (worm_rescaled_cb);
-        worm.died.connect (worm_died_cb);
-        worm.tail_reduced.connect (worm_tail_reduced_cb);
+        foreach (var worm in game.worms)
+        {
+            var actors = worm_actors.get (worm);
+
+            actors.save_easing_state ();
+            actors.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
+            actors.set_easing_duration (NibblesGame.GAMEDELAY * 15);
+            actors.set_scale (0.4f, 0.4f);
+            actors.set_opacity (0);
+            actors.restore_easing_state ();
+        }
+
+        foreach (var bonus in game.boni.bonuses)
+        {
+            var actor = bonus_actors.get (bonus);
+
+            actor.save_easing_state ();
+            actor.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
+            actor.set_easing_duration (NibblesGame.GAMEDELAY * 15);
+            actor.set_scale (0.4f, 0.4f);
+            actor.set_pivot_point (0.5f, 0.5f);
+            actor.set_opacity (0);
+            actor.restore_easing_state ();
+        }
+
+        level.save_easing_state ();
+        level.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
+        level.set_easing_duration (NibblesGame.GAMEDELAY * 20);
+        level.set_scale (0.4f, 0.4f);
+        level.set_pivot_point (0.5f, 0.5f);
+        level.set_opacity (0);
+        level.restore_easing_state ();
     }
 
     public void worm_added_cb (Worm worm)

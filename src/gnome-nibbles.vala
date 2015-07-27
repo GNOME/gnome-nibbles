@@ -253,7 +253,7 @@ public class Nibbles : Gtk.Application
          */
         game.load_properties (settings);
         game.current_level = game.start_level;
-        game.loop_ended.connect (scoreboard.update);
+        game.loop_started.connect (scoreboard.update);
         view.new_level (game.current_level);
         view.configure_event.connect (configure_event_cb);
 
