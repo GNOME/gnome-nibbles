@@ -364,10 +364,40 @@ public class Nibbles : Gtk.Application
         });
     }
 
-    public void log_score_cb (Worm worm)
+    public void log_score_cb (int score)
     {
-        scores_context.add_score (worm.score, cat_slow);
-        scores_context.run_dialog ();
+        if (game.numhumans != 1)
+            return;
+
+        if (game.start_level != 1)
+            return;
+
+        if (score <= 0)
+        {
+            stderr.printf("[Debug] 0\n");
+            return;
+        }
+        stderr.printf("[Debug] Here\n");
+        try
+        {
+            scores_context.add_score (score, cat_slow);
+
+        }
+        catch (GLib.Error e)
+        {
+            // Translators: This warning is displayed when adding a score fails
+            // just before displaying the score dialog
+            warning ("Failed to add score: %s", e.message);
+        }
+
+        try
+        {
+            scores_context.run_dialog ();
+        }
+        catch (GLib.Error e)
+        {
+            warning ("Failed to run scores dialog: %s", e.message);
+        }
     }
 
     private void scores_cb ()

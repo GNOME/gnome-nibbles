@@ -22,14 +22,14 @@
 public class Worm : Object
 {
     public const int STARTING_LENGTH = 5;
-    private const int STARTING_LIVES = 6;
+    private const int STARTING_LIVES = 2;
     public const int GROW_FACTOR = 4;
 
     public Position starting_position { get; private set; }
 
     public int id { get; private set; }
 
-    public bool human;
+    public bool is_human;
     public bool keypress = false;
     public bool is_stopped = false;
 
@@ -77,7 +77,7 @@ public class Worm : Object
     public Worm (int id, WormDirection direction)
     {
         this.id = id;
-        human = true;
+        is_human = true;
         starting_direction = direction;
         lives = STARTING_LIVES;
         score = 0;
@@ -105,7 +105,7 @@ public class Worm : Object
 
     public void move (int[,] walls, bool remove)
     {
-        if (human)
+        if (is_human)
             keypress = false;
 
         var position = head ();
@@ -164,7 +164,7 @@ public class Worm : Object
         {
             if (length <= erase_size)
             {
-                die (walls);
+                reset (walls);
             }
 
             for (int i = 0; i < erase_size; i++)
@@ -212,7 +212,7 @@ public class Worm : Object
         lives--;
     }
 
-    public void die (int[,] walls)
+    public void reset (int[,] walls)
     {
         is_stopped = true;
         lose_life ();

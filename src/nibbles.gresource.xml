@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gresources>
-  <gresource prefix="/org/gnome/nibbles/ui">
-    <file preprocess="xml-stripblanks" alias="nibbles.ui">../data/nibbles.ui</file>
-    <file alias="nibbles.css">../data/nibbles.css</file>
-  </gresource>
-</gresources>
-

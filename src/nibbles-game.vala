@@ -42,7 +42,9 @@ public class NibblesGame : Object
     public const int GAMEDELAY = 35;
     public const int BONUSDELAY = 100;
 
-    public const int NUMWORMS = 6;
+    public const int NUMHUMANS = 2;
+    public const int NUMAI = 0;
+    public const int NUMWORMS = NUMHUMANS + NUMAI;
 
     public const int WIDTH = 92;
     public const int HEIGHT = 66;
@@ -55,7 +57,9 @@ public class NibblesGame : Object
 
     public Gee.LinkedList<Worm> worms;
 
-    public int numworms = NUMWORMS;
+    public int numhumans = NUMHUMANS;
+    public int numai = NUMAI;
+    public int numworms = NUMHUMANS + NUMAI;
 
     public int game_speed = 2;
 
@@ -67,7 +71,7 @@ public class NibblesGame : Object
     public signal void worm_moved (Worm worm);
     public signal void bonus_applied (Worm worm);
     public signal void loop_started ();
-    public signal void log_score (Worm worm);
+    public signal void log_score (int score);
     public signal void animate_end_game ();
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
@@ -257,6 +261,7 @@ public class NibblesGame : Object
         boni.bonuses.remove_all (found);
         // END FIXME
 
+        var dead_worms = new Gee.LinkedList<Worm> ();
         foreach (var worm in worms)
         {
             if (worm.is_stopped)
@@ -268,15 +273,17 @@ public class NibblesGame : Object
                     && worm != other_worm
                     && !other_worm.is_stopped)
                     {
-                        worm.die (walls);
-                        other_worm.die (walls);
+                        if (!dead_worms.contains (worm))
+                            dead_worms.add (worm);
+                        if (!dead_worms.contains (worm))
+                            dead_worms.add (other_worm);
                         continue;
                     }
             }
 
             if (!worm.can_move_to (walls, numworms))
             {
-                worm.die (walls);
+                dead_worms.add (worm);
                 continue;
             }
 
@@ -287,6 +294,15 @@ public class NibblesGame : Object
             }
             else
                 worm.move (walls, true);
+        }
+
+        foreach (var worm in dead_worms)
+        {
+            if (numworms > 1)
+                worm.score = worm.score * 7 / 10;
+
+            if (worm.lives > 0)
+                worm.reset (walls);
         }
     }
 
@@ -357,7 +373,15 @@ public class NibblesGame : Object
         var status = get_game_status ();
         loop_started ();
 
-        if (status == GameStatus.VICTORY)
+        if (status == GameStatus.GAMEOVER)
+        {
+            end_game ();
+
+            log_score (worms.first ().score);
+
+            return Source.REMOVE;
+        }
+        else if (status == GameStatus.VICTORY)
         {
             end_game ();
             var winner = get_winner ();
@@ -365,7 +389,7 @@ public class NibblesGame : Object
             if (winner == null)
                 return Source.REMOVE;
 
-            log_score (winner);
+            log_score (winner.score);
 
             return Source.REMOVE;
         }
@@ -381,6 +405,8 @@ public class NibblesGame : Object
         {
             if (worm.lives > 0)
                 worms_left += 1;
+            else if (worm.is_human && worm.lives <= 0)
+                return GameStatus.GAMEOVER;
         }
 
         if (worms_left == 1 && numworms > 1)
@@ -456,7 +482,7 @@ public class NibblesGame : Object
     {
         foreach (var worm in worms)
         {
-            if (worm.human)
+            if (worm.is_human)
             {
                 if (worm.handle_keypress (keyval, worm_props))
                     return true;
