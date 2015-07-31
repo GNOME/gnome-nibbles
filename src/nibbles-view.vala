@@ -511,7 +511,7 @@ public class NibblesView : GtkClutter.Embed
         group.set_easing_mode (Clutter.AnimationMode.EASE_OUT_QUAD);
         group.set_easing_duration (NibblesGame.GAMEDELAY * 9);
         group.set_scale (2.0f, 2.0f);
-        group.set_pivot_point (5f, 0.5f);
+        group.set_pivot_point (0.5f, 0.5f);
         group.set_opacity (0);
         group.restore_easing_state ();
     }
