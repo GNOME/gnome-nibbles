@@ -38,11 +38,9 @@ public class Nibbles : Gtk.Application
     private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
     private Gtk.Revealer next_button_revealer;
 
+    /* Used for handling the game's scores */
     private Games.Scores.Context scores_context;
-    private Games.Scores.Category cat_beginner;
-    private Games.Scores.Category cat_slow;
-    private Games.Scores.Category cat_medium;
-    private Games.Scores.Category cat_fast;
+    private Gee.LinkedList<Games.Scores.Category> scorecats;
 
     private NibblesView? view;
     private NibblesGame? game = null;
@@ -341,27 +339,64 @@ public class Nibbles : Gtk.Application
         }
     }
 
+    /*\
+    * * Scoring
+    \*/
+
     public void create_scores ()
     {
-        stderr.printf("[Debug] Created\n");
         scores_context = new Games.Scores.Context ("gnome-nibbles", "", window, Games.Scores.Style.PLAIN_DESCENDING);
-        cat_beginner = new Games.Scores.Category ("beginner", "Beginner");
-        cat_slow = new Games.Scores.Category ("slow", "Slow");
-        cat_medium = new Games.Scores.Category ("medium", "Medium");
-        cat_fast = new Games.Scores.Category ("fast", "Fast");
+
+        scorecats = new Gee.LinkedList<Games.Scores.Category> ();
+        scorecats.add (new Games.Scores.Category ("beginner", "Beginner"));
+        scorecats.add (new Games.Scores.Category ("slow", "Slow"));
+        scorecats.add (new Games.Scores.Category ("medium", "Medium"));
+        scorecats.add (new Games.Scores.Category ("fast", "Fast"));
+        scorecats.add (new Games.Scores.Category ("beginner-fakes", "Beginner with Fakes"));
+        scorecats.add (new Games.Scores.Category ("slow-fakes", "Slow with Fakes"));
+        scorecats.add (new Games.Scores.Category ("medium-fakes", "Medium with Fakes"));
+        scorecats.add (new Games.Scores.Category ("fast-fakes", "Fast with Fakes"));
 
         scores_context.category_request.connect ((s, key) => {
-            if (key == "beginner")
-                return cat_beginner;
-            else if (key == "slow")
-                return cat_slow;
-            else if (key == "cat_medium")
-                return cat_medium;
-            else if (key == "cat_fast")
-                return cat_fast;
-            else
-                return null;
+
+            foreach (var cat in scorecats)
+            {
+                if (key == cat.key)
+                    return cat;
+            }
+            return null;
         });
+    }
+
+    public Games.Scores.Category get_scores_category (int speed, bool fakes)
+    {
+        string key = null;
+        switch (speed)
+        {
+            case 1:
+                key = "fast";
+                break;
+            case 2:
+                key = "medium";
+                break;
+            case 3:
+                key = "slow";
+                break;
+            case 4:
+                key = "beginner";
+                break;
+        }
+
+        if (fakes)
+            key = key + "-fakes";
+
+        foreach (var cat in scorecats)
+        {
+            if (key == cat.key)
+                return cat;
+        }
+
+        return scorecats.first ();
     }
 
     public void log_score_cb (int score)
@@ -373,15 +408,11 @@ public class Nibbles : Gtk.Application
             return;
 
         if (score <= 0)
-        {
-            stderr.printf("[Debug] 0\n");
             return;
-        }
-        stderr.printf("[Debug] Here\n");
+
         try
         {
-            scores_context.add_score (score, cat_slow);
-
+            scores_context.add_score (score, get_scores_category (game.speed, game.fakes));
         }
         catch (GLib.Error e)
         {

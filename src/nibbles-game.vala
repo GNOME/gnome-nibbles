@@ -42,7 +42,7 @@ public class NibblesGame : Object
     public const int GAMEDELAY = 35;
     public const int BONUSDELAY = 100;
 
-    public const int NUMHUMANS = 2;
+    public const int NUMHUMANS = 1;
     public const int NUMAI = 0;
     public const int NUMWORMS = NUMHUMANS + NUMAI;
 
@@ -61,7 +61,7 @@ public class NibblesGame : Object
     public int numai = NUMAI;
     public int numworms = NUMHUMANS + NUMAI;
 
-    public int game_speed = 2;
+    public int speed = 1;
 
     public bool fakes = false;
 
@@ -91,10 +91,10 @@ public class NibblesGame : Object
     {
         add_bonus (true);
 
-        main_id = Timeout.add (GAMEDELAY * game_speed, main_loop_cb);
+        main_id = Timeout.add (GAMEDELAY * speed, main_loop_cb);
         Source.set_name_by_id (main_id, "[Nibbles] main_loop_cb");
 
-        add_bonus_id = Timeout.add (BONUSDELAY * game_speed, add_bonus_cb);
+        add_bonus_id = Timeout.add (BONUSDELAY * speed, add_bonus_cb);
         Source.set_name_by_id (add_bonus_id, "[Nibbles] add_bonus_cb");
     }
 
