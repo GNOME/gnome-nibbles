@@ -74,11 +74,10 @@ public class Worm : Object
 
     public signal void bonus_found ();
 
-    public Worm (int id, WormDirection direction)
+    public Worm (int id)
     {
         this.id = id;
         is_human = true;
-        starting_direction = direction;
         lives = STARTING_LIVES;
         score = 0;
         change = 0;
@@ -91,8 +90,10 @@ public class Worm : Object
         return list.first ();
     }
 
-    public void set_start (int xhead, int yhead)
+    public void set_start (int xhead, int yhead, WormDirection direction)
     {
+        list.clear ();
+
         starting_position = Position () {
             x = xhead,
             y = yhead
@@ -100,10 +101,13 @@ public class Worm : Object
 
         list.add (starting_position);
 
+        starting_direction = direction;
         this.direction = starting_direction;
+        change = 0;
+        key_queue.clear ();
     }
 
-    public void move (int[,] walls, bool remove)
+    public void move (int[,] walls)
     {
         if (is_human)
             keypress = false;
@@ -138,14 +142,17 @@ public class Worm : Object
         /* Add a new body piece */
         list.offer_head (position);
 
-        if (remove)
+        if (change > 0)
+        {
+            change--;
+            added ();
+        }
+        else
         {
             walls[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
             list.poll_tail ();
             moved ();
         }
-        else
-            added ();
 
         /* Check for bonus before changing tile */
         if (walls[head ().x, head ().y] != NibblesGame.EMPTYCHAR)
@@ -203,8 +210,9 @@ public class Worm : Object
 
     public void spawn (int[,] walls)
     {
+        change = STARTING_LENGTH;
         for (int i = 0; i < STARTING_LENGTH; i++)
-            move (walls, false);
+            move (walls);
     }
 
     public void lose_life ()

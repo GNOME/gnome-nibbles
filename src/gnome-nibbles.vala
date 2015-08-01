@@ -45,7 +45,7 @@ public class Nibbles : Gtk.Application
     private NibblesView? view;
     private NibblesGame? game = null;
 
-    private const int COUNTDOWN_TIME = 0;
+    private const int COUNTDOWN_TIME = 3;
 
     private const ActionEntry action_entries[] =
     {
@@ -140,6 +140,7 @@ public class Nibbles : Gtk.Application
         /* Load game */
         game = new NibblesGame (settings);
         game.log_score.connect (log_score_cb);
+        game.restart_game.connect (restart_game_cb);
 
         view = new NibblesView (game);
         view.show ();
@@ -160,8 +161,7 @@ public class Nibbles : Gtk.Application
         if (first_run)
             show_first_run_screen ();
         else
-            // show_new_game_screen_cb ();
-            start_game_cb ();
+            show_new_game_screen_cb ();
 
         window.show_all ();
 
@@ -242,8 +242,6 @@ public class Nibbles : Gtk.Application
     private void start_game_cb ()
     {
         settings.set_boolean ("first-run", false);
-        stderr.printf("[Debug] cl %d\n", game.current_level);
-        stderr.printf("[Debug] %d\n", game.numworms);
 
         /* TODO Fix problem and remove this call
          * For some reason tile_size gets set to 0 after calling
@@ -270,9 +268,16 @@ public class Nibbles : Gtk.Application
         game.add_worms ();
         show_game_view ();
 
+        start_game_with_countdown ();
+    }
+
+    public void start_game_with_countdown ()
+    {
+        statusbar_stack.set_visible_child_name ("countdown");
+
         var seconds = COUNTDOWN_TIME;
         Timeout.add (1000, () => {
-            countdown.set_label ("%d".printf (seconds));
+            countdown.set_label (seconds.to_string ());
             if (seconds == 0)
             {
                 statusbar_stack.set_visible_child_name ("scoreboard");
@@ -282,6 +287,23 @@ public class Nibbles : Gtk.Application
             seconds--;
             return Source.CONTINUE;
         });
+    }
+
+    private void restart_game_cb ()
+    {
+        view.new_level (game.current_level);
+
+        foreach (var worm in game.worms)
+        {
+            var actors = view.worm_actors.get (worm);
+            if (actors.get_stage () == null) {
+                view.stage.add_child (actors);
+            }
+            actors.show ();
+        }
+
+        game.add_worms ();
+        start_game_with_countdown ();
     }
 
     private void show_first_run_screen ()

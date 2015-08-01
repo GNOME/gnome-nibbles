@@ -52,6 +52,8 @@ public class NibblesGame : Object
     public const char EMPTYCHAR = 'a';
     public const char WORMCHAR = 'w';
 
+    public const int MAX_LEVEL = 26;
+
     public int current_level;
     public int[,] walls;
 
@@ -73,6 +75,7 @@ public class NibblesGame : Object
     public signal void loop_started ();
     public signal void log_score (int score);
     public signal void animate_end_game ();
+    public signal void restart_game ();
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
 
@@ -81,6 +84,11 @@ public class NibblesGame : Object
         boni = new Boni (numworms);
         walls = new int[WIDTH, HEIGHT];
         worms = new Gee.LinkedList<Worm> ();
+        for (int i = 0; i < numworms; i++)
+        {
+            var worm = new Worm (i);
+            worms.add (worm);
+        }
         worm_props = new Gee.HashMap<Worm, WormProperties?> ();
 
         Random.set_seed ((uint32) time_t ());
@@ -89,6 +97,7 @@ public class NibblesGame : Object
 
     public void start ()
     {
+        stderr.printf("[Debug] Game started\n");
         add_bonus (true);
 
         main_id = Timeout.add (GAMEDELAY * speed, main_loop_cb);
@@ -287,13 +296,7 @@ public class NibblesGame : Object
                 continue;
             }
 
-            if (worm.change > 0)
-            {
-                worm.move (walls, false);
-                worm.change--;
-            }
-            else
-                worm.move (walls, true);
+            worm.move (walls);
         }
 
         foreach (var worm in dead_worms)
@@ -393,6 +396,19 @@ public class NibblesGame : Object
 
             return Source.REMOVE;
         }
+        else if (status == GameStatus.NEWROUND)
+        {
+            stop ();
+
+            if (current_level < MAX_LEVEL)
+                current_level++;
+
+            animate_end_game ();
+
+            restart_game ();
+
+            return Source.REMOVE;
+        }
         move_worms ();
 
         return Source.CONTINUE;
@@ -410,12 +426,18 @@ public class NibblesGame : Object
         }
 
         if (worms_left == 1 && numworms > 1)
+        {
             /* There were multiple worms but only one is still alive */
             return GameStatus.VICTORY;
-        else if (worms_left == 0) {
+        }
+        else if (worms_left == 0)
+        {
             /* There was only one worm and it died */
             return GameStatus.GAMEOVER;
         }
+
+        if (boni.numleft == 0)
+            return GameStatus.NEWROUND;
 
         return null;
     }
@@ -497,5 +519,5 @@ public enum GameStatus
 {
     GAMEOVER,
     VICTORY,
-    NEXTROUND
+    NEWROUND
 }

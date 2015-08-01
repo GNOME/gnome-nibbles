@@ -248,10 +248,13 @@
                                                 <child>
                                                     <object class="GtkLabel" id="countdown">
                                                         <property name="visible">True</property>
-                                                        <property name="label">5</property>
+                                                        <property name="label">3</property>
                                                         <property name="halign">center</property>
                                                         <style><class name="countdown"/></style>
                                                     </object>
+                                                    <packing>
+                                                        <property name="name">countdown</property>
+                                                    </packing>
                                                 </child>
                                             </object>
                                         </child>

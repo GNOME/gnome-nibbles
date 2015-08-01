@@ -35,6 +35,15 @@ public class NibblesView : GtkClutter.Embed
             _game.bonus_applied.connect (bonus_applied_cb);
 
             _game.animate_end_game.connect (animate_end_game_cb);
+
+            foreach (var worm in _game.worms)
+            {
+                worm.added.connect (worm_added_cb);
+                worm.moved.connect (worm_moved_cb);
+                worm.rescaled.connect (worm_rescaled_cb);
+                worm.died.connect (worm_died_cb);
+                worm.tail_reduced.connect (worm_tail_reduced_cb);
+            }
         }
     }
 
@@ -99,8 +108,10 @@ public class NibblesView : GtkClutter.Embed
             error (_("Nibbles couldn't find pixmap file: %s"), filename);
         }
 
+        worm_actors.clear ();
+        bonus_actors.clear ();
+        game.boni.reset (game.numworms);
 
-        stderr.printf("[Debug] %d\n", game.tile_size);
         for (int i = 0; i < NibblesGame.HEIGHT; i++)
         {
             if ((tmpboard = file.read_line ()) == null)
@@ -118,52 +129,44 @@ public class NibblesView : GtkClutter.Embed
                         game.walls[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
-                            var worm = new Worm (count++, WormDirection.UP);
-                            connect_signals (worm);
-                            worm.set_start (j, i);
-                            game.worms.add (worm);
+                            game.worms[count].set_start (j, i, WormDirection.UP);
 
                             var actors = new WormActor ();
-                            worm_actors.set (worm, actors);
+                            worm_actors.set (game.worms[count], actors);
+                            count++;
                         }
                         break;
                     case 'n':
                         game.walls[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
-                            var worm = new Worm (count++, WormDirection.LEFT);
-                            connect_signals (worm);
-                            worm.set_start (j, i);
-                            game.worms.add (worm);
+                            game.worms[count].set_start (j, i, WormDirection.LEFT);
 
                             var actors = new WormActor ();
-                            worm_actors.set (worm, actors);
+                            worm_actors.set (game.worms[count], actors);
+                            count++;
                         }
                         break;
                     case 'o':
                         game.walls[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
-                            var worm = new Worm (count++, WormDirection.DOWN);
-                            connect_signals (worm);
-                            worm.set_start (j, i);
-                            game.worms.add (worm);
+                            game.worms[count].set_start (j, i, WormDirection.DOWN);
 
                             var actors = new WormActor ();
-                            worm_actors.set (worm, actors);
+                            worm_actors.set (game.worms[count], actors);
+                            count++;
                         }
                         break;
                     case 'p':
                         game.walls[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
-                            var worm = new Worm (count++, WormDirection.RIGHT);
-                            connect_signals (worm);
-                            worm.set_start (j, i);
-                            game.worms.add (worm);
+                            game.worms[count].set_start (j, i, WormDirection.RIGHT);
 
                             var actors = new WormActor ();
-                            worm_actors.set (worm, actors);
+                            worm_actors.set (game.worms[count], actors);
+                            count++;
                         }
                         break;
                     default:
@@ -172,8 +175,6 @@ public class NibblesView : GtkClutter.Embed
             }
         }
 
-        stderr.printf("[Debug] %d\n", game.tile_size);
-        stderr.printf("[Debug] Loading level\n");
         load_level ();
     }
 
@@ -356,15 +357,6 @@ public class NibblesView : GtkClutter.Embed
         level.set_pivot_point (0.5f, 0.5f);
         level.set_opacity (0xff);
         level.restore_easing_state ();
-    }
-
-    private void connect_signals (Worm worm)
-    {
-        worm.added.connect (worm_added_cb);
-        worm.moved.connect (worm_moved_cb);
-        worm.rescaled.connect (worm_rescaled_cb);
-        worm.died.connect (worm_died_cb);
-        worm.tail_reduced.connect (worm_tail_reduced_cb);
     }
 
     public void board_rescale (int tile_size)

@@ -71,6 +71,15 @@ public class Boni : Object
         bonus_removed (bonus);
     }
 
+    public void reset (int numworms)
+    {
+        bonuses.clear ();
+        missed = 0;
+        numboni = 8 + numworms;
+        numbonuses = 0;
+        numleft = numboni;
+    }
+
     public Bonus? get_bonus (int[,] walls, int x, int y)
     {
         foreach (var bonus in bonuses)
