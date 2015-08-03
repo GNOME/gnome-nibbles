@@ -45,7 +45,7 @@ public class Nibbles : Gtk.Application
     private NibblesView? view;
     private NibblesGame? game = null;
 
-    private const int COUNTDOWN_TIME = 0;
+    private const int COUNTDOWN_TIME = 3;
 
     private const ActionEntry action_entries[] =
     {
@@ -251,6 +251,7 @@ public class Nibbles : Gtk.Application
         game.load_worm_properties (worm_settings);
 
         view.new_level (game.current_level);
+        view.create_name_labels ();
         view.connect_worm_signals ();
 
         foreach (var worm in game.worms)
@@ -277,11 +278,13 @@ public class Nibbles : Gtk.Application
         statusbar_stack.set_visible_child_name ("countdown");
 
         var seconds = COUNTDOWN_TIME;
+        view.name_labels.show ();
         Timeout.add (1000, () => {
             countdown.set_label (seconds.to_string ());
             if (seconds == 0)
             {
                 statusbar_stack.set_visible_child_name ("scoreboard");
+                view.name_labels.hide ();
                 countdown.set_label (COUNTDOWN_TIME.to_string ());
                 game.start ();
                 return Source.REMOVE;

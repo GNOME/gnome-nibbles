@@ -40,6 +40,7 @@ public class NibblesView : GtkClutter.Embed
 
     public Clutter.Stage stage { get; private set; }
     private Clutter.Actor level;
+    public Clutter.Actor name_labels { get; private set; }
 
     private Gdk.Pixbuf wall_pixmaps[11];
     public Gdk.Pixbuf worm_pixmaps[7];
@@ -350,6 +351,44 @@ public class NibblesView : GtkClutter.Embed
         level.restore_easing_state ();
     }
 
+    public void create_name_labels ()
+    {
+        name_labels = new Clutter.Actor ();
+        foreach (var worm in game.worms)
+        {
+            var color = game.worm_props.get (worm).color;
+
+            var label = new Clutter.Text.with_text ("Source Pro 10", _(@"<b>PLAYER $(worm.id + 1)</b>"));
+            label.set_use_markup (true);
+            label.set_color (Clutter.Color.from_string (colorval_name (color)));
+            // TODO: Better aligb these
+            switch (worm.direction)
+            {
+                case WormDirection.UP:
+                    label.x = (worm.head ().x - 4) * game.tile_size;
+                    label.y = (worm.head ().y - 8) * game.tile_size;
+                    break;
+                case WormDirection.DOWN:
+                    label.x = (worm.head ().x - 4) * game.tile_size;
+                    label.y = (worm.head ().y - 2) * game.tile_size;
+                    break;
+                case WormDirection.LEFT:
+                    label.x = (worm.head ().x - 6) * game.tile_size;
+                    label.y = (worm.head ().y - 4) * game.tile_size;
+                    break;
+                case WormDirection.RIGHT:
+                    label.x = (worm.head ().x - 0) * game.tile_size;
+                    label.y = (worm.head ().y - 4) * game.tile_size;
+                    break;
+                default:
+                    break;
+            }
+            name_labels.add (label);
+        }
+
+        stage.add_child (name_labels);
+    }
+
     public void connect_worm_signals ()
     {
         foreach (var worm in game.worms)
@@ -379,6 +418,17 @@ public class NibblesView : GtkClutter.Embed
             actor.set_position ((x_pos / game.tile_size) * tile_size,
                                 (y_pos / game.tile_size) * tile_size);
             actor.set_size (tile_size, tile_size);
+        }
+
+        if (!name_labels.visible)
+            return;
+
+        foreach (var worm in game.worms)
+        {
+            var actor = name_labels.get_child_at_index (worm.id);
+            actor.get_position (out x_pos, out y_pos);
+            actor.x = ((x_pos / game.tile_size) * tile_size);
+            actor.y = ((y_pos / game.tile_size) * tile_size);
         }
     }
 
