@@ -35,15 +35,6 @@ public class NibblesView : GtkClutter.Embed
             _game.bonus_applied.connect (bonus_applied_cb);
 
             _game.animate_end_game.connect (animate_end_game_cb);
-
-            foreach (var worm in _game.worms)
-            {
-                worm.added.connect (worm_added_cb);
-                worm.moved.connect (worm_moved_cb);
-                worm.rescaled.connect (worm_rescaled_cb);
-                worm.died.connect (worm_died_cb);
-                worm.tail_reduced.connect (worm_tail_reduced_cb);
-            }
         }
     }
 
@@ -357,6 +348,18 @@ public class NibblesView : GtkClutter.Embed
         level.set_pivot_point (0.5f, 0.5f);
         level.set_opacity (0xff);
         level.restore_easing_state ();
+    }
+
+    public void connect_worm_signals ()
+    {
+        foreach (var worm in game.worms)
+        {
+            worm.added.connect (worm_added_cb);
+            worm.moved.connect (worm_moved_cb);
+            worm.rescaled.connect (worm_rescaled_cb);
+            worm.died.connect (worm_died_cb);
+            worm.tail_reduced.connect (worm_tail_reduced_cb);
+        }
     }
 
     public void board_rescale (int tile_size)

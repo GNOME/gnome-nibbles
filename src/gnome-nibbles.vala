@@ -45,7 +45,7 @@ public class Nibbles : Gtk.Application
     private NibblesView? view;
     private NibblesGame? game = null;
 
-    private const int COUNTDOWN_TIME = 3;
+    private const int COUNTDOWN_TIME = 0;
 
     private const ActionEntry action_entries[] =
     {
@@ -102,7 +102,7 @@ public class Nibbles : Gtk.Application
 
         settings = new Settings ("org.gnome.nibbles");
         worm_settings = new Gee.ArrayList<Settings> ();
-        for (int i = 0; i < NibblesGame.NUMWORMS; i++)
+        for (int i = 0; i < NibblesGame.NUMHUMANS; i++)
         {
             var name = "org.gnome.nibbles.worm%d".printf(i);
             worm_settings.add (new Settings (name));
@@ -125,7 +125,7 @@ public class Nibbles : Gtk.Application
         statusbar_stack = (Gtk.Stack) builder.get_object ("statusbar_stack");
         countdown = (Gtk.Label) builder.get_object ("countdown");
         number_of_players_buttons = new Gee.LinkedList<Gtk.ToggleButton> ();
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < NibblesGame.NUMHUMANS; i++)
         {
             var button = (Gtk.ToggleButton) builder.get_object ("players%d".printf (i + 1));
             button.toggled.connect (change_number_of_players_cb);
@@ -137,13 +137,14 @@ public class Nibbles : Gtk.Application
 
         add_window (window);
 
-        /* Load game */
+        /* Create game */
         game = new NibblesGame (settings);
         game.log_score.connect (log_score_cb);
         game.restart_game.connect (restart_game_cb);
+        game.level_completed.connect (level_completed_cb);
 
         view = new NibblesView (game);
-        view.show ();
+        view.configure_event.connect (configure_event_cb);
 
         frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
         game_box.pack_start (frame);
@@ -162,6 +163,7 @@ public class Nibbles : Gtk.Application
             show_first_run_screen ();
         else
             show_new_game_screen_cb ();
+            // start_game_cb ();
 
         window.show_all ();
 
@@ -170,18 +172,19 @@ public class Nibbles : Gtk.Application
 
     protected override void activate ()
     {
-        stderr.printf("[Debug] Activate\n");
         base.activate ();
+
+        window.present ();
     }
 
     protected override void shutdown ()
     {
+        base.shutdown ();
+
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
         game.save_properties (settings);
-
-        base.shutdown ();
     }
 
     /*\
@@ -243,26 +246,24 @@ public class Nibbles : Gtk.Application
     {
         settings.set_boolean ("first-run", false);
 
-        /* TODO Fix problem and remove this call
-         * For some reason tile_size gets set to 0 after calling
-         * frame.add (view). start_level stays the same
-         */
-        game.load_properties (settings);
         game.current_level = game.start_level;
-        game.loop_started.connect (scoreboard.update);
-        view.new_level (game.current_level);
-        view.configure_event.connect (configure_event_cb);
-
+        game.create_worms ();
         game.load_worm_properties (worm_settings);
+
+        view.new_level (game.current_level);
+        view.connect_worm_signals ();
+
         foreach (var worm in game.worms)
         {
             var color = game.worm_props.get (worm).color;
             scoreboard.register (worm, NibblesView.colorval_name (color), scoreboard_life);
+            worm.notify["lives"].connect (scoreboard.update);
+            worm.notify["score"].connect (scoreboard.update);
 
             var actors = view.worm_actors.get (worm);
-            if (actors.get_stage () == null) {
+            if (actors.get_stage () == null)
                 view.stage.add_child (actors);
-            }
+
             actors.show ();
         }
         game.add_worms ();
@@ -281,6 +282,7 @@ public class Nibbles : Gtk.Application
             if (seconds == 0)
             {
                 statusbar_stack.set_visible_child_name ("scoreboard");
+                countdown.set_label (COUNTDOWN_TIME.to_string ());
                 game.start ();
                 return Source.REMOVE;
             }
@@ -324,7 +326,7 @@ public class Nibbles : Gtk.Application
             if (button.get_active ())
             {
                 var label = button.get_label ();
-                game.numworms = int.parse (label);
+                game.numhumans = int.parse (label);
             }
         }
 
@@ -434,22 +436,16 @@ public class Nibbles : Gtk.Application
 
         try
         {
-            scores_context.add_score (score, get_scores_category (game.speed, game.fakes));
+            if (scores_context.add_score (score, get_scores_category (game.speed, game.fakes)))
+                scores_context.run_dialog ();
+            else
+                game_over_cb ();
         }
         catch (GLib.Error e)
         {
             // Translators: This warning is displayed when adding a score fails
             // just before displaying the score dialog
-            warning ("Failed to add score: %s", e.message);
-        }
-
-        try
-        {
-            scores_context.run_dialog ();
-        }
-        catch (GLib.Error e)
-        {
-            warning ("Failed to run scores dialog: %s", e.message);
+            warning (_("Failed to add score: %s"), e.message);
         }
     }
 
@@ -462,8 +458,50 @@ public class Nibbles : Gtk.Application
         catch (GLib.Error e)
         {
             // Translators: This error is displayed when the scores dialog fails to load
-            error ("Failed to run scores dialog: %s", e.message);
+            error (_("Failed to run scores dialog: %s"), e.message);
         }
+    }
+
+    public void level_completed_cb ()
+    {
+        // TODO: Fix extremely big title bar
+        var dialog = new Gtk.MessageDialog (window,
+                                            Gtk.DialogFlags.MODAL,
+                                            Gtk.MessageType.INFO,
+                                            Gtk.ButtonsType.NONE,
+                                            _("Level %d Completed!").printf (game.current_level));
+
+        dialog.add_button (_("Next level"), Gtk.ResponseType.OK);
+        dialog.response.connect ((response_id) => {
+            if (response_id == Gtk.ResponseType.OK)
+                restart_game_cb ();
+
+            dialog.destroy ();
+        });
+
+        dialog.show ();
+    }
+
+    public void game_over_cb ()
+    {
+        var dialog = new Gtk.MessageDialog (window,
+                                            Gtk.DialogFlags.MODAL,
+                                            Gtk.MessageType.INFO,
+                                            Gtk.ButtonsType.NONE,
+                                            _("Game Over!").printf (game.current_level));
+
+        dialog.add_button (_("_Quit"), Gtk.ResponseType.CLOSE);
+        dialog.add_button (_("_Play Again"), Gtk.ResponseType.OK);
+        dialog.response.connect ((response_id) => {
+            if (response_id == Gtk.ResponseType.OK)
+                show_new_game_screen_cb ();
+            if (response_id == Gtk.ResponseType.CLOSE)
+                quit ();
+
+            dialog.destroy ();
+        });
+
+        dialog.show ();
     }
 
     public static int main (string[] args)
@@ -484,6 +522,8 @@ public class Nibbles : Gtk.Application
         }
 
         Environment.set_application_name (_("Nibbles"));
+
+        Gtk.Window.set_default_icon_name ("gnome-nibbles");
 
         try
         {
@@ -572,21 +612,26 @@ public class PlayerScoreBox : Gtk.Box
 
     public void update_score (int score)
     {
-        if (score_label.get_label () == score.to_string ())
-            return;
-
         score_label.set_label (score.to_string ());
     }
 
     public void update_lives (int lives_left)
     {
-        if (life_images.size == lives_left)
-            return;
-
-        for (int i = 0; i < life_images.size - lives_left; i++)
+        /* Remove lost lives - if any */
+        for (int i = life_images.size; i > lives_left; i--)
         {
             var life = life_images.poll ();
             life.hide ();
+        }
+
+        /* Add new lives - if any */
+        for (int i = life_images.size; i < lives_left; i++)
+        {
+            var life = new Gtk.Image.from_pixbuf (life_images.first ().get_pixbuf ());
+            life.show ();
+
+            life_images.add (life);
+            lives_grid.attach (life, i % 6, i/6);
         }
     }
 }

@@ -42,7 +42,7 @@ public class NibblesGame : Object
     public const int GAMEDELAY = 35;
     public const int BONUSDELAY = 100;
 
-    public const int NUMHUMANS = 1;
+    public const int NUMHUMANS = 2;
     public const int NUMAI = 0;
     public const int NUMWORMS = NUMHUMANS + NUMAI;
 
@@ -72,10 +72,10 @@ public class NibblesGame : Object
 
     public signal void worm_moved (Worm worm);
     public signal void bonus_applied (Worm worm);
-    public signal void loop_started ();
     public signal void log_score (int score);
     public signal void animate_end_game ();
     public signal void restart_game ();
+    public signal void level_completed ();
 
     public Gee.HashMap<Worm, WormProperties?> worm_props;
 
@@ -84,16 +84,15 @@ public class NibblesGame : Object
         boni = new Boni (numworms);
         walls = new int[WIDTH, HEIGHT];
         worms = new Gee.LinkedList<Worm> ();
-        for (int i = 0; i < numworms; i++)
-        {
-            var worm = new Worm (i);
-            worms.add (worm);
-        }
         worm_props = new Gee.HashMap<Worm, WormProperties?> ();
 
         Random.set_seed ((uint32) time_t ());
         load_properties (settings);
     }
+
+    /*\
+    * * Game controls
+    \*/
 
     public void start ()
     {
@@ -122,14 +121,153 @@ public class NibblesGame : Object
         }
     }
 
+    private void end ()
+    {
+        stop ();
+        animate_end_game ();
+    }
+
+    public bool main_loop_cb ()
+    {
+        var status = get_game_status ();
+
+        if (status == GameStatus.GAMEOVER)
+        {
+            end ();
+
+            log_score (worms.first ().score);
+
+            return Source.REMOVE;
+        }
+        else if (status == GameStatus.VICTORY)
+        {
+            end ();
+            var winner = get_winner ();
+
+            if (winner == null)
+                return Source.REMOVE;
+
+            log_score (winner.score);
+
+            return Source.REMOVE;
+        }
+        else if (status == GameStatus.NEWROUND)
+        {
+            stop ();
+
+            animate_end_game ();
+            level_completed ();
+
+            if (current_level < MAX_LEVEL)
+                current_level++;
+
+            return Source.REMOVE;
+        }
+        move_worms ();
+
+        return Source.CONTINUE;
+    }
+
+    /*\
+    * * Handling worms
+    \*/
+
+    public void create_worms ()
+    {
+        numworms = numai + numhumans;
+        stderr.printf("[Debug] Numw %d\n", numworms);
+        for (int i = 0; i < numworms; i++)
+        {
+            var worm = new Worm (i);
+            worm.bonus_found.connect (bonus_found_cb);
+            worms.add (worm);
+        }
+    }
+
     public void add_worms ()
     {
         foreach (var worm in worms)
-        {
             worm.spawn (walls);
-            worm.bonus_found.connect (bonus_found_cb);
+    }
+
+    public void move_worms ()
+    {
+        if (boni.missed > Boni.MAX_MISSED)
+        {
+            foreach (var worm in worms)
+            {
+                if (worm.score > 0)
+                    worm.score--;
+            }
+        }
+
+        // FIXME 1/3: Use an iterator instead of a second list and remove
+        // from the boni.bonuses list inside boni.remove_bonus ()
+        var found = new Gee.LinkedList<Bonus> ();
+        foreach (var bonus in boni.bonuses)
+        {
+            if (bonus.countdown-- == 0)
+            {
+                if (bonus.type == BonusType.REGULAR && !bonus.fake)
+                {
+                    found.add (bonus);
+                    boni.remove_bonus (walls, bonus);
+                    boni.missed++;
+
+                    add_bonus (true);
+                }
+                else
+                {
+                    found.add (bonus);
+                    boni.remove_bonus (walls, bonus);
+                }
+            }
+        }
+        boni.bonuses.remove_all (found);
+        // END FIXME
+
+        var dead_worms = new Gee.LinkedList<Worm> ();
+        foreach (var worm in worms)
+        {
+            if (worm.is_stopped)
+                continue;
+
+            foreach (var other_worm in worms)
+            {
+                if (worm.will_collide_with_head (other_worm)
+                    && worm != other_worm
+                    && !other_worm.is_stopped)
+                    {
+                        if (!dead_worms.contains (worm))
+                            dead_worms.add (worm);
+                        if (!dead_worms.contains (worm))
+                            dead_worms.add (other_worm);
+                        continue;
+                    }
+            }
+
+            if (!worm.can_move_to (walls, numworms))
+            {
+                dead_worms.add (worm);
+                continue;
+            }
+
+            worm.move (walls);
+        }
+
+        foreach (var worm in dead_worms)
+        {
+            if (numworms > 1)
+                worm.score = worm.score * 7 / 10;
+
+            if (worm.lives > 0)
+                worm.reset (walls);
         }
     }
+
+    /*\
+    * * Handling bonuses
+    \*/
 
     public void add_bonus (bool regular)
     {
@@ -227,88 +365,6 @@ public class NibblesGame : Object
         }
     }
 
-    public bool add_bonus_cb ()
-    {
-        add_bonus (false);
-
-        return Source.CONTINUE;
-    }
-
-    public void move_worms ()
-    {
-        if (boni.missed > Boni.MAX_MISSED)
-        {
-            foreach (var worm in worms)
-            {
-                if (worm.score > 0)
-                    worm.score--;
-            }
-        }
-
-        // FIXME 1/3: Use an iterator instead of a second list and remove
-        // from the boni.bonuses list inside boni.remove_bonus ()
-        var found = new Gee.LinkedList<Bonus> ();
-        foreach (var bonus in boni.bonuses)
-        {
-            if (bonus.countdown-- == 0)
-            {
-                if (bonus.type == BonusType.REGULAR && !bonus.fake)
-                {
-                    found.add (bonus);
-                    boni.remove_bonus (walls, bonus);
-                    boni.missed++;
-
-                    add_bonus (true);
-                }
-                else
-                {
-                    found.add (bonus);
-                    boni.remove_bonus (walls, bonus);
-                }
-            }
-        }
-        boni.bonuses.remove_all (found);
-        // END FIXME
-
-        var dead_worms = new Gee.LinkedList<Worm> ();
-        foreach (var worm in worms)
-        {
-            if (worm.is_stopped)
-                continue;
-
-            foreach (var other_worm in worms)
-            {
-                if (worm.will_collide_with_head (other_worm)
-                    && worm != other_worm
-                    && !other_worm.is_stopped)
-                    {
-                        if (!dead_worms.contains (worm))
-                            dead_worms.add (worm);
-                        if (!dead_worms.contains (worm))
-                            dead_worms.add (other_worm);
-                        continue;
-                    }
-            }
-
-            if (!worm.can_move_to (walls, numworms))
-            {
-                dead_worms.add (worm);
-                continue;
-            }
-
-            worm.move (walls);
-        }
-
-        foreach (var worm in dead_worms)
-        {
-            if (numworms > 1)
-                worm.score = worm.score * 7 / 10;
-
-            if (worm.lives > 0)
-                worm.reset (walls);
-        }
-    }
-
     public void apply_bonus (Bonus bonus, Worm worm)
     {
         if (bonus.fake)
@@ -345,6 +401,13 @@ public class NibblesGame : Object
         }
     }
 
+    public bool add_bonus_cb ()
+    {
+        add_bonus (false);
+
+        return Source.CONTINUE;
+    }
+
     public void bonus_found_cb (Worm worm)
     {
         var bonus = boni.get_bonus (walls, worm.head ().x, worm.head ().y);
@@ -369,49 +432,6 @@ public class NibblesGame : Object
             boni.remove_bonus (walls, bonus);
             boni.bonuses.remove (bonus);
         }
-    }
-
-    public bool main_loop_cb ()
-    {
-        var status = get_game_status ();
-        loop_started ();
-
-        if (status == GameStatus.GAMEOVER)
-        {
-            end_game ();
-
-            log_score (worms.first ().score);
-
-            return Source.REMOVE;
-        }
-        else if (status == GameStatus.VICTORY)
-        {
-            end_game ();
-            var winner = get_winner ();
-
-            if (winner == null)
-                return Source.REMOVE;
-
-            log_score (winner.score);
-
-            return Source.REMOVE;
-        }
-        else if (status == GameStatus.NEWROUND)
-        {
-            stop ();
-
-            if (current_level < MAX_LEVEL)
-                current_level++;
-
-            animate_end_game ();
-
-            restart_game ();
-
-            return Source.REMOVE;
-        }
-        move_worms ();
-
-        return Source.CONTINUE;
     }
 
     public GameStatus? get_game_status ()
@@ -453,11 +473,9 @@ public class NibblesGame : Object
         return null;
     }
 
-    private void end_game ()
-    {
-        stop ();
-        animate_end_game ();
-    }
+    /*\
+    * * Saving / Loading properties
+    \*/
 
     public void load_properties (Settings settings)
     {

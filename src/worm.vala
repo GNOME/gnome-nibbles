@@ -33,9 +33,9 @@ public class Worm : Object
     public bool keypress = false;
     public bool is_stopped = false;
 
-    public int lives;
+    public int lives { get; set; }
     public int change;
-    public int score;
+    public int score { get; set; }
 
     public int length
     {
