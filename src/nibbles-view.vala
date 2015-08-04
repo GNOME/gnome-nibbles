@@ -173,7 +173,6 @@ public class NibblesView : GtkClutter.Embed
     public Gdk.Pixbuf load_pixmap_file (string pixmap, int xsize, int ysize)
     {
         var filename = Path.build_filename (PKGDATADIR, "pixmaps", pixmap, null);
-
         if (filename == null)
         {
             /* Fatal console error when the game's data files are missing. */
@@ -189,6 +188,7 @@ public class NibblesView : GtkClutter.Embed
         {
             warning ("Failed to load pixmap file: %s", e.message);
         }
+
         return image;
     }
 

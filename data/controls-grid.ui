@@ -1,0 +1,125 @@
+<interface>
+    <template class="ControlsGrid" parent="GtkGrid">
+        <property name="visible">True</property>
+        <property name="valign">center</property>
+        <property name="halign">center</property>
+        <property name="vexpand">True</property>
+        <property name="row_spacing">5</property>
+        <property name="column_spacing">5</property>
+        <child>
+            <object class="GtkLabel" id="name_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Player</property>
+            </object>
+            <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+                <property name="width">5</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkImage" id="arrow_up">
+                <property name="visible">True</property>
+            </object>
+            <packing>
+                <property name="left-attach">2</property>
+                <property name="top-attach">1</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkOverlay" id="move_up">
+                <property name="visible">True</property>
+                <child>
+                    <object class="GtkLabel" id="move_up_label">
+                        <property name="visible">True</property>
+                        <property name="height-request">36</property>
+                        <property name="width-request">36</property>
+                        <style><class name="button"/></style>
+                    </object>
+                </child>
+            </object>
+            <packing>
+                <property name="left-attach">2</property>
+                <property name="top-attach">2</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkImage" id="arrow_left">
+                <property name="visible">True</property>
+            </object>
+            <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">3</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkOverlay" id="move_left">
+                <property name="visible">True</property>
+                <child>
+                    <object class="GtkLabel" id="move_left_label">
+                        <property name="visible">True</property>
+                        <property name="height-request">36</property>
+                        <property name="width-request">36</property>
+                        <style><class name="button"/></style>
+                    </object>
+                </child>
+            </object>
+            <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">3</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkOverlay" id="move_right">
+                <property name="visible">True</property>
+                <child>
+                    <object class="GtkLabel" id="move_right_label">
+                        <property name="visible">True</property>
+                        <property name="height-request">36</property>
+                        <property name="width-request">36</property>
+                        <style><class name="button"/></style>
+                    </object>
+                </child>
+            </object>
+            <packing>
+                <property name="left-attach">3</property>
+                <property name="top-attach">3</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkImage" id="arrow_right">
+                <property name="visible">True</property>
+            </object>
+            <packing>
+                <property name="left-attach">4</property>
+                <property name="top-attach">3</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkOverlay" id="move_down">
+                <property name="visible">True</property>
+                <child>
+                    <object class="GtkLabel" id="move_down_label">
+                        <property name="visible">True</property>
+                        <property name="height-request">36</property>
+                        <property name="width-request">36</property>
+                        <style><class name="button"/></style>
+                    </object>
+                </child>
+            </object>
+            <packing>
+                <property name="left-attach">2</property>
+                <property name="top-attach">4</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkImage" id="arrow_down">
+                <property name="visible">True</property>
+            </object>
+            <packing>
+                <property name="left-attach">2</property>
+                <property name="top-attach">5</property>
+            </packing>
+        </child>
+    </template>
+</interface>

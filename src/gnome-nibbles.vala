@@ -38,6 +38,12 @@ public class Nibbles : Gtk.Application
     private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
     private Gtk.Revealer next_button_revealer;
 
+    /* Controls screen grids and pixbufs */
+    private Gtk.Box grids_box;
+    private Gee.LinkedList<ControlsGrid> controls_grids;
+    private Gdk.Pixbuf arrow_pixbuf;
+    private Gdk.Pixbuf arrow_key_pixbuf;
+
     /* Used for handling the game's scores */
     private Games.Scores.Context scores_context;
     private Gee.LinkedList<Games.Scores.Category> scorecats;
@@ -132,7 +138,7 @@ public class Nibbles : Gtk.Application
             number_of_players_buttons.add (button);
         }
         next_button_revealer = (Gtk.Revealer) builder.get_object ("next_button_revealer");
-
+        grids_box = (Gtk.Box) builder.get_object ("grids_box");
         window.set_titlebar (headerbar);
 
         add_window (window);
@@ -157,13 +163,17 @@ public class Nibbles : Gtk.Application
         frame.add (view);
         frame.show ();
 
+        /* Controls screen */
+        controls_grids = new Gee.LinkedList<ControlsGrid> ();
+        arrow_pixbuf = view.load_pixmap_file ("arrow.svg", 5 * game.tile_size, 5 * game.tile_size);
+        arrow_key_pixbuf = view.load_pixmap_file ("arrow-key.svg", 5 * game.tile_size, 5 * game.tile_size);
+
         /* Check wether to display the first run screen */
         var first_run = settings.get_boolean ("first-run");
         if (first_run)
             show_first_run_screen ();
         else
             show_new_game_screen_cb ();
-            // start_game_cb ();
 
         window.show_all ();
 
@@ -247,8 +257,6 @@ public class Nibbles : Gtk.Application
         settings.set_boolean ("first-run", false);
 
         game.current_level = game.start_level;
-        game.create_worms ();
-        game.load_worm_properties (worm_settings);
 
         view.new_level (game.current_level);
         view.create_name_labels ();
@@ -330,6 +338,20 @@ public class Nibbles : Gtk.Application
             {
                 var label = button.get_label ();
                 game.numhumans = int.parse (label);
+            }
+        }
+
+        /* Create worms and load properties */
+        game.create_worms ();
+        game.load_worm_properties (worm_settings);
+
+        foreach (var worm in game.worms)
+        {
+            if (worm.is_human)
+            {
+                var grid = new ControlsGrid (worm.id, game.worm_props.get (worm), arrow_pixbuf, arrow_key_pixbuf);
+                grids_box.add (grid);
+                controls_grids.add (grid);
             }
         }
 
@@ -636,5 +658,86 @@ public class PlayerScoreBox : Gtk.Box
             life_images.add (life);
             lives_grid.attach (life, i % 6, i/6);
         }
+    }
+}
+
+[GtkTemplate (ui = "/org/gnome/nibbles/ui/controls-grid.ui")]
+public class ControlsGrid : Gtk.Grid
+{
+    [GtkChild]
+    private Gtk.Label name_label;
+    [GtkChild]
+    private Gtk.Image arrow_up;
+    [GtkChild]
+    private Gtk.Image arrow_down;
+    [GtkChild]
+    private Gtk.Image arrow_left;
+    [GtkChild]
+    private Gtk.Image arrow_right;
+    [GtkChild]
+    private Gtk.Overlay move_up;
+    [GtkChild]
+    private Gtk.Label move_up_label;
+    [GtkChild]
+    private Gtk.Overlay move_down;
+    [GtkChild]
+    private Gtk.Label move_down_label;
+    [GtkChild]
+    private Gtk.Overlay move_left;
+    [GtkChild]
+    private Gtk.Label move_left_label;
+    [GtkChild]
+    private Gtk.Overlay move_right;
+    [GtkChild]
+    private Gtk.Label move_right_label;
+
+    public ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
+    {
+        var color = Pango.Color ();
+        color.parse (NibblesView.colorval_name (worm_props.color));
+
+        name_label.set_markup (@"<b><span color=\"$(color.to_string ())\">Player $(worm_id + 1)</span></b>");
+
+        arrow_up.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.NONE));
+        arrow_down.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN));
+        arrow_left.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE));
+        arrow_right.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.CLOCKWISE));
+
+        string upper_key;
+        upper_key = Gdk.keyval_name (worm_props.up).up ();
+        if (upper_key == "UP")
+        {
+            var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.NONE);
+            move_up.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+        }
+        else
+            move_up_label.set_markup (@"<b>$(upper_key)</b>");
+
+        upper_key = Gdk.keyval_name (worm_props.down).up ();
+        if (upper_key == "DOWN")
+        {
+            var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN);
+            move_down.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+        }
+        else
+            move_down_label.set_markup (@"<b>$(upper_key)</b>");
+
+        upper_key = Gdk.keyval_name (worm_props.left).up ();
+        if (upper_key == "LEFT")
+        {
+            var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE);
+            move_left.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+        }
+        else
+            move_left_label.set_markup (@"<b>$(upper_key)</b>");
+
+        upper_key = Gdk.keyval_name (worm_props.right).up ();
+        if (upper_key == "RIGHT")
+        {
+            var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.CLOCKWISE);
+            move_right.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+        }
+        else
+            move_right_label.set_markup (@"<b>$(upper_key)</b>");
     }
 }

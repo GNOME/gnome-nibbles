@@ -77,22 +77,22 @@
       <description>Use relative movement (ie. left or right only).</description>
     </key>
     <key name="key-up" type="i">
-      <default>65362</default>
+      <default>119</default>
       <summary>Move up</summary>
       <description>Key to use for motion up.</description>
     </key>
     <key name="key-down" type="i">
-      <default>65364</default>
+      <default>115</default>
       <summary>Move down</summary>
       <description>Key to use for motion down.</description>
     </key>
     <key name="key-left" type="i">
-      <default>65361</default>
+      <default>97</default>
       <summary>Move left</summary>
       <description>Key to use for motion left.</description>
     </key>
     <key name="key-right" type="i">
-      <default>65363</default>
+      <default>100</default>
       <summary>Move right</summary>
       <description>Key to use for motion right.</description>
     </key>
@@ -109,22 +109,22 @@
       <description>Use relative movement (ie. left or right only).</description>
     </key>
     <key name="key-up" type="i">
-      <default>65362</default>
+      <default>116</default>
       <summary>Move up</summary>
       <description>Key to use for motion up.</description>
     </key>
     <key name="key-down" type="i">
-      <default>65364</default>
+      <default>106</default>
       <summary>Move down</summary>
       <description>Key to use for motion down.</description>
     </key>
     <key name="key-left" type="i">
-      <default>65361</default>
+      <default>104</default>
       <summary>Move left</summary>
       <description>Key to use for motion left.</description>
     </key>
     <key name="key-right" type="i">
-      <default>65363</default>
+      <default>107</default>
       <summary>Move right</summary>
       <description>Key to use for motion right.</description>
     </key>
@@ -141,22 +141,22 @@
       <description>Use relative movement (ie. left or right only).</description>
     </key>
     <key name="key-up" type="i">
-      <default>65362</default>
+      <default>56</default>
       <summary>Move up</summary>
       <description>Key to use for motion up.</description>
     </key>
     <key name="key-down" type="i">
-      <default>65364</default>
+      <default>53</default>
       <summary>Move down</summary>
       <description>Key to use for motion down.</description>
     </key>
     <key name="key-left" type="i">
-      <default>65361</default>
+      <default>52</default>
       <summary>Move left</summary>
       <description>Key to use for motion left.</description>
     </key>
     <key name="key-right" type="i">
-      <default>65363</default>
+      <default>54</default>
       <summary>Move right</summary>
       <description>Key to use for motion right.</description>
     </key>

@@ -42,7 +42,7 @@ public class NibblesGame : Object
     public const int GAMEDELAY = 35;
     public const int BONUSDELAY = 100;
 
-    public const int NUMHUMANS = 2;
+    public const int NUMHUMANS = 4;
     public const int NUMAI = 0;
     public const int NUMWORMS = NUMHUMANS + NUMAI;
 
@@ -175,7 +175,6 @@ public class NibblesGame : Object
     public void create_worms ()
     {
         numworms = numai + numhumans;
-        stderr.printf("[Debug] Numw %d\n", numworms);
         for (int i = 0; i < numworms; i++)
         {
             var worm = new Worm (i);

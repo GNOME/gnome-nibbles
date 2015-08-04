@@ -34,6 +34,14 @@ SMALL_PIX = \
 SCOREBOARD_PIX = \
 	scoreboard-life.svg
 
-dist_pixmap_DATA = ${BONUS_PIX} ${SMALL_PIX} ${SCOREBOARD_PIX}
+CONTROLS_PIX = \
+	arrow.svg \
+	arrow-key.svg
+
+dist_pixmap_DATA = \
+	${BONUS_PIX} \
+	${SMALL_PIX} \
+	${SCOREBOARD_PIX} \
+	${CONTROLS_PIX}
 
 -include $(top_srcdir)/git.mk

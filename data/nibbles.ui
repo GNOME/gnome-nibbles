@@ -115,13 +115,13 @@
                                         <property name="orientation">horizontal</property>
                                         <property name="width-request">250</property>
                                         <property name="height-request">250</property>
-                                        <property name="valign">3</property>
-                                        <property name="halign">3</property>
+                                        <property name="valign">center</property>
                                         <property name="spacing">10</property>
+                                        <property name="vexpand">True</property>
                                         <child>
                                             <object class="GtkToggleButton" id="players1">
                                                 <property name="visible">True</property>
-                                                <property name="label" translatable="yes">1</property>
+                                                <property name="label">1</property>
                                                 <property name="width-request">200</property>
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>
@@ -135,7 +135,35 @@
                                         <child>
                                             <object class="GtkToggleButton" id="players2">
                                                 <property name="visible">True</property>
-                                                <property name="label" translatable="yes">2</property>
+                                                <property name="label">2</property>
+                                                <property name="width-request">200</property>
+                                                <property name="height-request">120</property>
+                                                <property name="valign">3</property>
+                                                <property name="halign">3</property>
+                                                <style><class name="number-box"/></style>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">start</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkToggleButton" id="players3">
+                                                <property name="visible">True</property>
+                                                <property name="label">3</property>
+                                                <property name="width-request">200</property>
+                                                <property name="height-request">120</property>
+                                                <property name="valign">3</property>
+                                                <property name="halign">3</property>
+                                                <style><class name="number-box"/></style>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">start</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkToggleButton" id="players4">
+                                                <property name="visible">True</property>
+                                                <property name="label">4</property>
                                                 <property name="width-request">200</property>
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>
@@ -200,11 +228,10 @@
                                     </packing>
                                 </child>
                                 <child>
-                                    <object class="GtkLabel">
+                                    <object class="GtkBox" id="grids_box">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">TODO</property>
-                                        <property name="valign">3</property>
-                                        <style><class name="title"/></style>
+                                        <property name="orientation">horizontal</property>
+                                        <property name="homogeneous">True</property>
                                     </object>
                                     <packing>
                                         <property name="pack-type">start</property>

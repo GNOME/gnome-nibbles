@@ -359,8 +359,8 @@ public enum WormDirection
 public struct WormProperties
 {
     int color;
-    uint left;
-    uint right;
     uint up;
     uint down;
+    uint left;
+    uint right;
 }
