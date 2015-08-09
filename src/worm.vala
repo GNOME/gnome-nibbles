@@ -22,7 +22,7 @@
 public class Worm : Object
 {
     public const int STARTING_LENGTH = 5;
-    private const int STARTING_LIVES = 2;
+    private const int STARTING_LIVES = 6;
     public const int GROW_FACTOR = 4;
 
     public Position starting_position { get; private set; }

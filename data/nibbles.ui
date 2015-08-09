@@ -98,6 +98,7 @@
                                 <property name="orientation">vertical</property>
                                 <property name="width-request">350</property>
                                 <property name="height-request">350</property>
+                                <property name="halign">center</property>
                                 <child>
                                     <object class="GtkLabel">
                                         <property name="visible">True</property>
@@ -121,7 +122,8 @@
                                         <child>
                                             <object class="GtkToggleButton" id="players1">
                                                 <property name="visible">True</property>
-                                                <property name="label">1</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="label">_1</property>
                                                 <property name="width-request">200</property>
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>
@@ -135,7 +137,8 @@
                                         <child>
                                             <object class="GtkToggleButton" id="players2">
                                                 <property name="visible">True</property>
-                                                <property name="label">2</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="label">_2</property>
                                                 <property name="width-request">200</property>
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>
@@ -149,7 +152,8 @@
                                         <child>
                                             <object class="GtkToggleButton" id="players3">
                                                 <property name="visible">True</property>
-                                                <property name="label">3</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="label">_3</property>
                                                 <property name="width-request">200</property>
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>
@@ -163,7 +167,8 @@
                                         <child>
                                             <object class="GtkToggleButton" id="players4">
                                                 <property name="visible">True</property>
-                                                <property name="label">4</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="label">_4</property>
                                                 <property name="width-request">200</property>
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>

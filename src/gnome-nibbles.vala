@@ -189,12 +189,12 @@ public class Nibbles : Gtk.Application
 
     protected override void shutdown ()
     {
-        base.shutdown ();
-
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
         game.save_properties (settings);
+
+        base.shutdown ();
     }
 
     /*\
@@ -337,7 +337,7 @@ public class Nibbles : Gtk.Application
             if (button.get_active ())
             {
                 var label = button.get_label ();
-                game.numhumans = int.parse (label);
+                game.numhumans = int.parse (label.replace ("_", ""));
             }
         }
 
@@ -709,6 +709,7 @@ public class ControlsGrid : Gtk.Grid
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.NONE);
             move_up.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+            move_up.show_all ();
         }
         else
             move_up_label.set_markup (@"<b>$(upper_key)</b>");
@@ -718,6 +719,7 @@ public class ControlsGrid : Gtk.Grid
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN);
             move_down.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+            move_down.show_all ();
         }
         else
             move_down_label.set_markup (@"<b>$(upper_key)</b>");
@@ -727,6 +729,7 @@ public class ControlsGrid : Gtk.Grid
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE);
             move_left.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+            move_left.show_all ();
         }
         else
             move_left_label.set_markup (@"<b>$(upper_key)</b>");
@@ -736,6 +739,7 @@ public class ControlsGrid : Gtk.Grid
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.CLOCKWISE);
             move_right.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+            move_right.show_all ();
         }
         else
             move_right_label.set_markup (@"<b>$(upper_key)</b>");

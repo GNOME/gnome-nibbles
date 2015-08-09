@@ -239,7 +239,7 @@ public class NibblesGame : Object
                     {
                         if (!dead_worms.contains (worm))
                             dead_worms.add (worm);
-                        if (!dead_worms.contains (worm))
+                        if (!dead_worms.contains (other_worm))
                             dead_worms.add (other_worm);
                         continue;
                     }

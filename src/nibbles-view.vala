@@ -360,25 +360,27 @@ public class NibblesView : GtkClutter.Embed
 
             var label = new Clutter.Text.with_text ("Source Pro 10", _(@"<b>PLAYER $(worm.id + 1)</b>"));
             label.set_use_markup (true);
+            label.set_pivot_point (0.5f, 0.5f);
             label.set_color (Clutter.Color.from_string (colorval_name (color)));
+
             // TODO: Better aligb these
             switch (worm.direction)
             {
                 case WormDirection.UP:
-                    label.x = (worm.head ().x - 4) * game.tile_size;
-                    label.y = (worm.head ().y - 8) * game.tile_size;
+                    label.set_x (worm.head ().x * game.tile_size);
+                    label.set_y (worm.head ().y * game.tile_size);
                     break;
                 case WormDirection.DOWN:
-                    label.x = (worm.head ().x - 4) * game.tile_size;
-                    label.y = (worm.head ().y - 2) * game.tile_size;
+                    label.set_x (worm.head ().x * game.tile_size);
+                    label.set_y (worm.head ().y * game.tile_size);
                     break;
                 case WormDirection.LEFT:
-                    label.x = (worm.head ().x - 6) * game.tile_size;
-                    label.y = (worm.head ().y - 4) * game.tile_size;
+                    label.set_x (worm.head ().x * game.tile_size);
+                    label.set_y (worm.head ().y * game.tile_size);
                     break;
                 case WormDirection.RIGHT:
-                    label.x = (worm.head ().x - 0) * game.tile_size;
-                    label.y = (worm.head ().y - 4) * game.tile_size;
+                    label.set_x (worm.head ().x * game.tile_size);
+                    label.set_y (worm.head ().y * game.tile_size);
                     break;
                 default:
                     break;
