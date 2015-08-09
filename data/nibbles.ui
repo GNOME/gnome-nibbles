@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <object class="GtkHeaderBar">
+    <object class="GtkHeaderBar" id="headerbar">
         <property name="title" translatable="yes">Nibbles</property>
+        <property name="show-close-button">True</property>
     </object>
     <object class="GtkApplicationWindow" id="nibbles-window">
         <property name="title" translatable="yes">Nibbles</property>
@@ -65,7 +66,7 @@
                                             <object class="GtkLabel">
                                                 <property name="visible">True</property>
                                                 <property name="label" translatable="yes">Welcome, worms.</property>
-                                                <style><class name="title"/></style>
+                                                <style><class name="menu-title"/></style>
                                             </object>
                                             <packing>
                                                 <property name="pack-type">start</property>
@@ -104,7 +105,7 @@
                                         <property name="visible">True</property>
                                         <property name="label" translatable="yes">Number of players</property>
                                         <property name="valign">3</property>
-                                        <style><class name="title"/></style>
+                                        <style><class name="menu-title"/></style>
                                     </object>
                                     <packing>
                                         <property name="pack-type">start</property>
@@ -226,7 +227,7 @@
                                         <property name="visible">True</property>
                                         <property name="label" translatable="yes">Controls</property>
                                         <property name="valign">3</property>
-                                        <style><class name="title"/></style>
+                                        <style><class name="menu-title"/></style>
                                     </object>
                                     <packing>
                                         <property name="pack-type">start</property>

@@ -1,7 +1,7 @@
 GtkApplicationWindow.main-window {
-    background: rgba (255, 255, 255, 0);
+    background: rgba (0, 0, 0, 1);
 }
-.title {
+.menu-title {
   font-size: 3em;
 }
 .tip {
