@@ -370,32 +370,20 @@ public class NibblesView : GtkClutter.Embed
         {
             var color = game.worm_props.get (worm).color;
 
-            var label = new Clutter.Text.with_text ("Source Pro 10", _(@"<b>PLAYER $(worm.id + 1)</b>"));
+            var label = new Clutter.Text.with_text ("Monospace 10", _(@"<b>Player $(worm.id + 1)</b>"));
             label.set_use_markup (true);
-            label.set_pivot_point (0.5f, 0.5f);
             label.set_color (Clutter.Color.from_string (colorval_name (color)));
 
-            // TODO: Better aligb these
-            switch (worm.direction)
+            var middle = worm.length / 2;
+            if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
             {
-                case WormDirection.UP:
-                    label.set_x (worm.head ().x * game.tile_size);
-                    label.set_y (worm.head ().y * game.tile_size);
-                    break;
-                case WormDirection.DOWN:
-                    label.set_x (worm.head ().x * game.tile_size);
-                    label.set_y (worm.head ().y * game.tile_size);
-                    break;
-                case WormDirection.LEFT:
-                    label.set_x (worm.head ().x * game.tile_size);
-                    label.set_y (worm.head ().y * game.tile_size);
-                    break;
-                case WormDirection.RIGHT:
-                    label.set_x (worm.head ().x * game.tile_size);
-                    label.set_y (worm.head ().y * game.tile_size);
-                    break;
-                default:
-                    break;
+                label.set_x (worm.list[middle].x * game.tile_size - label.width / 2 + game.tile_size / 2);
+                label.set_y (worm.list[middle].y * game.tile_size - 5 * game.tile_size);
+            }
+            else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
+            {
+                label.set_x (worm.list[middle].x * game.tile_size - label.width / 2 + game.tile_size / 2);
+                label.set_y (worm.head ().y * game.tile_size - 3 * game.tile_size);
             }
             name_labels.add (label);
         }
@@ -440,9 +428,18 @@ public class NibblesView : GtkClutter.Embed
         foreach (var worm in game.worms)
         {
             var actor = name_labels.get_child_at_index (worm.id);
-            actor.get_position (out x_pos, out y_pos);
-            actor.x = ((x_pos / game.tile_size) * tile_size);
-            actor.y = ((y_pos / game.tile_size) * tile_size);
+
+            var middle = worm.length / 2;
+            if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
+            {
+                actor.set_x (worm.list[middle].x * tile_size - actor.width / 2 + tile_size / 2);
+                actor.set_y (worm.list[middle].y * tile_size - 5 * tile_size);
+            }
+            else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
+            {
+                actor.set_x (worm.list[middle].x * tile_size - actor.width / 2 + tile_size / 2);
+                actor.set_y (worm.head ().y * tile_size - 3 * tile_size);
+            }
         }
     }
 

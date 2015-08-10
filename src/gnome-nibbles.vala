@@ -96,7 +96,6 @@ public class Nibbles : Gtk.Application
 
     protected override void startup ()
     {
-        stderr.printf("[Debug] Startup\n");
         base.startup ();
 
         var css_provider = new Gtk.CssProvider ();
@@ -260,10 +259,8 @@ public class Nibbles : Gtk.Application
         game.current_level = game.start_level;
 
         view.new_level (game.current_level);
-        view.create_name_labels ();
         view.connect_worm_signals ();
 
-        stderr.printf("[Debug] Here4\n");
         foreach (var worm in game.worms)
         {
             var color = game.worm_props.get (worm).color;
@@ -278,6 +275,9 @@ public class Nibbles : Gtk.Application
             actors.show ();
         }
         game.add_worms ();
+
+        view.create_name_labels ();
+
         show_game_view ();
 
         start_game_with_countdown ();
@@ -351,8 +351,6 @@ public class Nibbles : Gtk.Application
         game.create_worms ();
         game.load_worm_properties (worm_settings);
 
-        stderr.printf("[Debug] worms size%d\n", game.worms.size);
-
         foreach (var grid in grids_box.get_children ())
             grid.destroy ();
 
@@ -364,7 +362,7 @@ public class Nibbles : Gtk.Application
                 grids_box.add (grid);
             }
         }
-        stderr.printf("[Debug] Here3\n");
+
         main_stack.set_visible_child_name ("controls");
     }
 

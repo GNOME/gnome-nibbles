@@ -210,7 +210,7 @@ public class Worm : Object
 
     public void spawn (int[,] walls)
     {
-        change = STARTING_LENGTH;
+        change = STARTING_LENGTH - 1;
         for (int i = 0; i < STARTING_LENGTH; i++)
             move (walls);
     }

@@ -193,7 +193,14 @@ public class NibblesGame : Object
     public void add_worms ()
     {
         foreach (var worm in worms)
+        {
+            /* Required for the first element of the worm added before signals were connected
+             * TODO: Try to connect signals before adding the starting position to the worm
+             */
+            worm.added ();
+
             worm.spawn (walls);
+        }
     }
 
     public void move_worms ()
