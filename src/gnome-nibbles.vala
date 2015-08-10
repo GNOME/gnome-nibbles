@@ -28,6 +28,7 @@ public class Nibbles : Gtk.Application
 
     private Gtk.ApplicationWindow window;
     private Gtk.HeaderBar headerbar;
+    private Gtk.Button new_game_button;
     private Gtk.Stack main_stack;
     private Gtk.Box game_box;
     private Games.GridFrame frame;
@@ -40,7 +41,6 @@ public class Nibbles : Gtk.Application
 
     /* Controls screen grids and pixbufs */
     private Gtk.Box grids_box;
-    private Gee.LinkedList<ControlsGrid> controls_grids;
     private Gdk.Pixbuf arrow_pixbuf;
     private Gdk.Pixbuf arrow_key_pixbuf;
 
@@ -126,6 +126,7 @@ public class Nibbles : Gtk.Application
             window.maximize ();
 
         headerbar = (Gtk.HeaderBar) builder.get_object ("headerbar");
+        new_game_button = (Gtk.Button) builder.get_object ("new_game_button");
         main_stack = (Gtk.Stack) builder.get_object ("main_stack");
         game_box = (Gtk.Box) builder.get_object ("game_box");
         statusbar_stack = (Gtk.Stack) builder.get_object ("statusbar_stack");
@@ -151,6 +152,7 @@ public class Nibbles : Gtk.Application
 
         view = new NibblesView (game);
         view.configure_event.connect (configure_event_cb);
+        view.show ();
 
         frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
         game_box.pack_start (frame);
@@ -164,7 +166,6 @@ public class Nibbles : Gtk.Application
         frame.show ();
 
         /* Controls screen */
-        controls_grids = new Gee.LinkedList<ControlsGrid> ();
         arrow_pixbuf = view.load_pixmap_file ("arrow.svg", 5 * game.tile_size, 5 * game.tile_size);
         arrow_key_pixbuf = view.load_pixmap_file ("arrow-key.svg", 5 * game.tile_size, 5 * game.tile_size);
 
@@ -175,7 +176,7 @@ public class Nibbles : Gtk.Application
         else
             show_new_game_screen_cb ();
 
-        window.show_all ();
+        window.show ();
 
         create_scores ();
     }
@@ -262,6 +263,7 @@ public class Nibbles : Gtk.Application
         view.create_name_labels ();
         view.connect_worm_signals ();
 
+        stderr.printf("[Debug] Here4\n");
         foreach (var worm in game.worms)
         {
             var color = game.worm_props.get (worm).color;
@@ -326,6 +328,10 @@ public class Nibbles : Gtk.Application
 
     private void show_new_game_screen_cb ()
     {
+        if (game.is_running)
+            game.stop ();
+
+        new_game_button.hide ();
         main_stack.set_visible_child_name ("number_of_players");
     }
 
@@ -345,21 +351,26 @@ public class Nibbles : Gtk.Application
         game.create_worms ();
         game.load_worm_properties (worm_settings);
 
+        stderr.printf("[Debug] worms size%d\n", game.worms.size);
+
+        foreach (var grid in grids_box.get_children ())
+            grid.destroy ();
+
         foreach (var worm in game.worms)
         {
             if (worm.is_human)
             {
                 var grid = new ControlsGrid (worm.id, game.worm_props.get (worm), arrow_pixbuf, arrow_key_pixbuf);
                 grids_box.add (grid);
-                controls_grids.add (grid);
             }
         }
-
+        stderr.printf("[Debug] Here3\n");
         main_stack.set_visible_child_name ("controls");
     }
 
     private void show_game_view ()
     {
+        new_game_button.show ();
         main_stack.set_visible_child_name ("game_box");
     }
 
@@ -407,7 +418,6 @@ public class Nibbles : Gtk.Application
         scorecats.add (new Games.Scores.Category ("fast-fakes", "Fast with Fakes"));
 
         scores_context.category_request.connect ((s, key) => {
-
             foreach (var cat in scorecats)
             {
                 if (key == cat.key)

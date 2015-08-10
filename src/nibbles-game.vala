@@ -65,6 +65,8 @@ public class NibblesGame : Object
 
     public int speed = 1;
 
+    public bool is_running = false;
+
     public bool fakes = false;
 
     private uint main_id = 0;
@@ -97,6 +99,7 @@ public class NibblesGame : Object
     public void start ()
     {
         stderr.printf("[Debug] Game started\n");
+        is_running = true;
         add_bonus (true);
 
         main_id = Timeout.add (GAMEDELAY * speed, main_loop_cb);
@@ -106,8 +109,10 @@ public class NibblesGame : Object
         Source.set_name_by_id (add_bonus_id, "[Nibbles] add_bonus_cb");
     }
 
-    private void stop ()
+    public void stop ()
     {
+        is_running = false;
+
         if (main_id != 0)
         {
             Source.remove (main_id);
@@ -174,6 +179,8 @@ public class NibblesGame : Object
 
     public void create_worms ()
     {
+        worms.clear ();
+
         numworms = numai + numhumans;
         for (int i = 0; i < numworms; i++)
         {
@@ -490,6 +497,7 @@ public class NibblesGame : Object
 
     public void load_worm_properties (Gee.ArrayList<Settings> worm_settings)
     {
+        worm_props.clear ();
         foreach (var worm in worms)
         {
             var properties = WormProperties ();

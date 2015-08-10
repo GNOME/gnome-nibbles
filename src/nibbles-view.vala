@@ -100,6 +100,11 @@ public class NibblesView : GtkClutter.Embed
             error (_("Nibbles couldn't find pixmap file: %s"), filename);
         }
 
+
+        // foreach (var actor in worm_actors.values)
+        // {
+        //     actor.destroy ();
+        // }
         worm_actors.clear ();
         bonus_actors.clear ();
         game.boni.reset (game.numworms);
@@ -256,6 +261,13 @@ public class NibblesView : GtkClutter.Embed
         int x_pos, y_pos;
         GtkClutter.Texture tmp = null;
         bool is_wall = true;
+
+        if (level != null)
+        {
+            level.remove_all_children ();
+            stage.remove_child (level);
+        }
+
         level = new Clutter.Actor ();
 
         /* Load wall_pixmaps onto the surface */
@@ -388,7 +400,7 @@ public class NibblesView : GtkClutter.Embed
             name_labels.add (label);
         }
 
-        stage.add_child (name_labels);
+        level.add_child (name_labels);
     }
 
     public void connect_worm_signals ()
@@ -552,7 +564,7 @@ public class NibblesView : GtkClutter.Embed
 
         actors.remove_all_children ();
 
-        stage.add_child (group);
+        level.add_child (group);
 
         group.save_easing_state ();
         group.set_easing_mode (Clutter.AnimationMode.EASE_OUT_QUAD);
@@ -594,7 +606,7 @@ public class NibblesView : GtkClutter.Embed
             texture.set_size (game.tile_size, game.tile_size);
             group.add_child (texture);
         }
-        stage.add_child (group);
+        level.add_child (group);
 
         group.save_easing_state ();
         group.set_easing_mode (Clutter.AnimationMode.EASE_OUT_EXPO);
@@ -626,7 +638,7 @@ public class NibblesView : GtkClutter.Embed
 
         actor.set_position (bonus.x * game.tile_size, bonus.y * game.tile_size);
 
-        stage.add_child (actor);
+        level.add_child (actor);
 
         bonus_actors.set (bonus, actor);
     }
@@ -636,7 +648,7 @@ public class NibblesView : GtkClutter.Embed
         var bonus_actor = bonus_actors.get (bonus);
         bonus_actors.unset (bonus);
         bonus_actor.hide ();
-        stage.remove_child (bonus_actor);
+        level.remove_child (bonus_actor);
     }
 
     public void bonus_applied_cb (Worm worm)
