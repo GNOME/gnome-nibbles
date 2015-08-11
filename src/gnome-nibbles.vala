@@ -59,6 +59,7 @@ public class Nibbles : Gtk.Application
         {"start-game", start_game_cb},
         {"new-game", new_game_cb},
         {"scores", scores_cb},
+        {"about", about_cb},
         {"quit", quit}
     };
 
@@ -571,6 +572,39 @@ public class Nibbles : Gtk.Application
         });
 
         dialog.show ();
+    }
+
+    private void about_cb ()
+    {
+        const string authors[] = { "Sean MacIsaac",
+                                   "Ian Peters",
+                                   "Andreas Røsdal",
+                                   "Guillaume Beland",
+                                   "Iulian-Gabriel Radu",
+                                   null };
+
+        const string documenters[] = { "Kevin Breit",
+                                       null };
+
+        const string artists[] = { "Allan Day",
+                                  null };
+
+        Gtk.show_about_dialog (window,
+                               "program-name", _("Nibbles"),
+                               "logo-icon-name", "gnome-nibbles",
+                               "version", VERSION,
+                               "comments", _("A worm game for GNOME"),
+                               "copyright",
+                               "Copyright © 1999–2008 Sean MacIsaac, Ian Peters, Andreas Røsdal\n" +
+                               "Copyright © 2009 Guillaume Beland\n" +
+                               "Copyright © 2015 Iulian-Gabriel Radu",
+                               "license-type", Gtk.License.GPL_2_0,
+                               "authors", authors,
+                               "documenters", documenters,
+                               "artists", artists,
+                               "translator-credits", _("translator-credits"),
+                               "website", "https://wiki.gnome.org/Apps/Nibbles/"
+                               );
     }
 
     public static int main (string[] args)
