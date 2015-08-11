@@ -101,12 +101,14 @@ public class NibblesView : GtkClutter.Embed
         }
 
 
-        // foreach (var actor in worm_actors.values)
-        // {
-        //     actor.destroy ();
-        // }
+        foreach (var actor in worm_actors.values)
+            actor.destroy ();
         worm_actors.clear ();
+
+        foreach (var actor in bonus_actors.values)
+            actor.destroy ();
         bonus_actors.clear ();
+
         game.boni.reset (game.numworms);
 
         for (int i = 0; i < NibblesGame.HEIGHT; i++)
