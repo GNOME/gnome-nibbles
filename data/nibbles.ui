@@ -9,7 +9,7 @@
                 <property name="visible">False</property>
                 <property name="use-underline">True</property>
                 <property name="label" translatable="yes">_New Game</property>
-                <property name="action-name">app.show-new-game-screen</property>
+                <property name="action-name">app.new-game</property>
             </object>
         </child>
     </object>

@@ -57,6 +57,7 @@ public class Nibbles : Gtk.Application
     private const ActionEntry action_entries[] =
     {
         {"start-game", start_game_cb},
+        {"new-game", new_game_cb},
         {"scores", scores_cb},
         {"quit", quit}
     };
@@ -299,6 +300,8 @@ public class Nibbles : Gtk.Application
                 view.name_labels.hide ();
                 countdown.set_label (COUNTDOWN_TIME.to_string ());
                 game.start ();
+
+                countdown_id = 0;
                 return Source.REMOVE;
             }
             seconds--;
@@ -323,6 +326,27 @@ public class Nibbles : Gtk.Application
         start_game_with_countdown ();
     }
 
+    private void new_game_cb ()
+    {
+        var dialog = new Gtk.MessageDialog (window,
+                                            Gtk.DialogFlags.MODAL,
+                                            Gtk.MessageType.WARNING,
+                                            Gtk.ButtonsType.OK_CANCEL,
+                                            _("Are You Sure You Want to Quit?"));
+        dialog.secondary_text = _("If you start a new game, the current one will be lost.");
+
+        var button = (Gtk.Button) dialog.get_widget_for_response (Gtk.ResponseType.OK);
+        button.set_label (_("_Quit"));
+        dialog.response.connect ((response_id) => {
+            if (response_id == Gtk.ResponseType.OK)
+                show_new_game_screen_cb ();
+
+            dialog.destroy ();
+        });
+
+        dialog.show ();
+    }
+
     private void show_first_run_screen ()
     {
         main_stack.set_visible_child_name ("first_run");
@@ -340,7 +364,11 @@ public class Nibbles : Gtk.Application
             game.stop ();
 
         new_game_button.hide ();
+
+        var type = main_stack.get_transition_type ();
+        main_stack.set_transition_type (Gtk.StackTransitionType.NONE);
         main_stack.set_visible_child_name ("number_of_players");
+        main_stack.set_transition_type (type);
     }
 
     private void show_controls_screen_cb ()
@@ -377,6 +405,7 @@ public class Nibbles : Gtk.Application
     private void show_game_view ()
     {
         new_game_button.show ();
+
         main_stack.set_visible_child_name ("game_box");
     }
 
@@ -505,7 +534,6 @@ public class Nibbles : Gtk.Application
 
     public void level_completed_cb ()
     {
-        // TODO: Fix extremely big title bar
         var dialog = new Gtk.MessageDialog (window,
                                             Gtk.DialogFlags.MODAL,
                                             Gtk.MessageType.INFO,
