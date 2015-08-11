@@ -261,6 +261,7 @@ public class Nibbles : Gtk.Application
         view.new_level (game.current_level);
         view.connect_worm_signals ();
 
+        scoreboard.clear ();
         foreach (var worm in game.worms)
         {
             var color = game.worm_props.get (worm).color;
@@ -594,7 +595,7 @@ public class Scoreboard : Gtk.Box
         var color = Pango.Color ();
         color.parse (color_name);
 
-        var box = new PlayerScoreBox ("Worm %d".printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf);
+        var box = new PlayerScoreBox (@"Worm $(worm.id + 1)", color, worm.score, worm.lives, life_pixbuf);
         boxes.set (box, worm);
         add (box);
     }
@@ -603,8 +604,21 @@ public class Scoreboard : Gtk.Box
     {
         foreach (var entry in boxes.entries)
         {
-            entry.key.update (entry.value.score, entry.value.lives);
+            var box = entry.key;
+            var worm = entry.value;
+
+            box.update (worm.score, worm.lives);
         }
+    }
+
+    public void clear ()
+    {
+        foreach (var entry in boxes.entries)
+        {
+            var box = entry.key;
+            box.destroy ();
+        }
+        boxes.clear ();
     }
 }
 
