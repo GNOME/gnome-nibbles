@@ -52,6 +52,7 @@ public class Nibbles : Gtk.Application
     private NibblesGame? game = null;
 
     private const int COUNTDOWN_TIME = 3;
+    private uint countdown_id = 0;
 
     private const ActionEntry action_entries[] =
     {
@@ -290,7 +291,7 @@ public class Nibbles : Gtk.Application
 
         var seconds = COUNTDOWN_TIME;
         view.name_labels.show ();
-        Timeout.add (1000, () => {
+        countdown_id = Timeout.add (1000, () => {
             countdown.set_label (seconds.to_string ());
             if (seconds == 0)
             {
@@ -329,6 +330,12 @@ public class Nibbles : Gtk.Application
 
     private void show_new_game_screen_cb ()
     {
+        if (countdown_id != 0)
+        {
+            Source.remove (countdown_id);
+            countdown_id = 0;
+        }
+
         if (game.is_running)
             game.stop ();
 

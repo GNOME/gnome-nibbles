@@ -245,6 +245,9 @@ public class NibblesGame : Object
             if (worm.is_stopped)
                 continue;
 
+            if (worm.list.is_empty)
+                continue;
+
             foreach (var other_worm in worms)
             {
                 if (worm.will_collide_with_head (other_worm)

@@ -231,6 +231,8 @@ public class Worm : Object
 
         list.clear ();
         list.add (starting_position);
+        added ();
+
         direction = starting_direction;
         change = 0;
         spawn (walls);
