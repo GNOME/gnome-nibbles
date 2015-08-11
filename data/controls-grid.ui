@@ -32,8 +32,8 @@
                 <child>
                     <object class="GtkLabel" id="move_up_label">
                         <property name="visible">True</property>
-                        <property name="height-request">36</property>
-                        <property name="width-request">36</property>
+                        <property name="height-request">45</property>
+                        <property name="width-request">45</property>
                         <style><class name="button"/></style>
                     </object>
                 </child>
@@ -58,8 +58,8 @@
                 <child>
                     <object class="GtkLabel" id="move_left_label">
                         <property name="visible">True</property>
-                        <property name="height-request">36</property>
-                        <property name="width-request">36</property>
+                        <property name="height-request">45</property>
+                        <property name="width-request">45</property>
                         <style><class name="button"/></style>
                     </object>
                 </child>
@@ -75,8 +75,8 @@
                 <child>
                     <object class="GtkLabel" id="move_right_label">
                         <property name="visible">True</property>
-                        <property name="height-request">36</property>
-                        <property name="width-request">36</property>
+                        <property name="height-request">45</property>
+                        <property name="width-request">45</property>
                         <style><class name="button"/></style>
                     </object>
                 </child>
@@ -101,8 +101,8 @@
                 <child>
                     <object class="GtkLabel" id="move_down_label">
                         <property name="visible">True</property>
-                        <property name="height-request">36</property>
-                        <property name="width-request">36</property>
+                        <property name="height-request">45</property>
+                        <property name="width-request">45</property>
                         <style><class name="button"/></style>
                     </object>
                 </child>
