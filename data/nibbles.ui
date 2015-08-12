@@ -11,6 +11,20 @@
                 <property name="label" translatable="yes">_New Game</property>
                 <property name="action-name">app.new-game</property>
             </object>
+            <packing>
+                <property name="pack-type">start</property>
+            </packing>
+        </child>
+        <child>
+            <object class="GtkButton" id="pause_button">
+                <property name="visible">False</property>
+                <property name="use-underline">True</property>
+                <property name="label" translatable="yes">_Pause</property>
+                <property name="action-name">app.pause</property>
+            </object>
+            <packing>
+                <property name="pack-type">end</property>
+            </packing>
         </child>
     </object>
     <object class="GtkApplicationWindow" id="nibbles-window">
@@ -296,6 +310,16 @@
                                                     </object>
                                                     <packing>
                                                         <property name="name">countdown</property>
+                                                    </packing>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="label" translatable="yes">Paused</property>
+                                                        <style><class name="menu-title"/></style>
+                                                    </object>
+                                                    <packing>
+                                                        <property name="name">paused</property>
                                                     </packing>
                                                 </child>
                                             </object>

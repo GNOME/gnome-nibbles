@@ -66,6 +66,7 @@ public class NibblesGame : Object
     public int speed = 1;
 
     public bool is_running = false;
+    public bool is_paused { get; private set; }
 
     public bool fakes = false;
 
@@ -88,6 +89,8 @@ public class NibblesGame : Object
         worms = new Gee.LinkedList<Worm> ();
         worm_props = new Gee.HashMap<Worm, WormProperties?> ();
 
+        is_paused = false;
+
         Random.set_seed ((uint32) time_t ());
         load_properties (settings);
     }
@@ -100,7 +103,6 @@ public class NibblesGame : Object
     {
         stderr.printf("[Debug] Game started\n");
         is_running = true;
-        add_bonus (true);
 
         main_id = Timeout.add (GAMEDELAY * speed, main_loop_cb);
         Source.set_name_by_id (main_id, "[Nibbles] main_loop_cb");
@@ -124,6 +126,18 @@ public class NibblesGame : Object
             Source.remove (add_bonus_id);
             add_bonus_id = 0;
         }
+    }
+
+    public void pause ()
+    {
+        is_paused = true;
+        stop ();
+    }
+
+    public void unpause ()
+    {
+        is_paused = false;
+        start ();
     }
 
     private void end ()
@@ -537,6 +551,9 @@ public class NibblesGame : Object
 
     public bool handle_keypress (uint keyval)
     {
+        if (is_paused)
+            return false;
+
         foreach (var worm in worms)
         {
             if (worm.is_human)

@@ -29,6 +29,7 @@ public class Nibbles : Gtk.Application
     private Gtk.ApplicationWindow window;
     private Gtk.HeaderBar headerbar;
     private Gtk.Button new_game_button;
+    private Gtk.Button pause_button;
     private Gtk.Stack main_stack;
     private Gtk.Box game_box;
     private Games.GridFrame frame;
@@ -54,10 +55,14 @@ public class Nibbles : Gtk.Application
     private const int COUNTDOWN_TIME = 3;
     private uint countdown_id = 0;
 
+    private SimpleAction new_game_action;
+    private SimpleAction pause_action;
+
     private const ActionEntry action_entries[] =
     {
         {"start-game", start_game_cb},
         {"new-game", new_game_cb},
+        {"pause", pause_cb},
         {"scores", scores_cb},
         {"about", about_cb},
         {"quit", quit}
@@ -117,6 +122,8 @@ public class Nibbles : Gtk.Application
         }
 
         set_accels_for_action ("app.quit", {"<Primary>q"});
+        new_game_action = (SimpleAction) lookup_action ("new-game");
+        pause_action = (SimpleAction) lookup_action ("pause");
 
         var builder = new Gtk.Builder.from_resource ("/org/gnome/nibbles/ui/nibbles.ui");
         window = builder.get_object ("nibbles-window") as Gtk.ApplicationWindow;
@@ -129,6 +136,7 @@ public class Nibbles : Gtk.Application
 
         headerbar = (Gtk.HeaderBar) builder.get_object ("headerbar");
         new_game_button = (Gtk.Button) builder.get_object ("new_game_button");
+        pause_button = (Gtk.Button) builder.get_object ("pause_button");
         main_stack = (Gtk.Stack) builder.get_object ("main_stack");
         game_box = (Gtk.Box) builder.get_object ("game_box");
         statusbar_stack = (Gtk.Stack) builder.get_object ("statusbar_stack");
@@ -151,6 +159,12 @@ public class Nibbles : Gtk.Application
         game.log_score.connect (log_score_cb);
         game.restart_game.connect (restart_game_cb);
         game.level_completed.connect (level_completed_cb);
+        game.notify["is_paused"].connect (() => {
+            if (game.is_paused)
+                statusbar_stack.set_visible_child_name ("paused");
+            else
+                statusbar_stack.set_visible_child_name ("scoreboard");
+        });
 
         view = new NibblesView (game);
         view.configure_event.connect (configure_event_cb);
@@ -300,7 +314,12 @@ public class Nibbles : Gtk.Application
                 statusbar_stack.set_visible_child_name ("scoreboard");
                 view.name_labels.hide ();
                 countdown.set_label (COUNTDOWN_TIME.to_string ());
+
+                game.add_bonus (true);
                 game.start ();
+
+                new_game_action.set_enabled (true);
+                pause_action.set_enabled (true);
 
                 countdown_id = 0;
                 return Source.REMOVE;
@@ -329,6 +348,8 @@ public class Nibbles : Gtk.Application
 
     private void new_game_cb ()
     {
+        game.pause ();
+
         var dialog = new Gtk.MessageDialog (window,
                                             Gtk.DialogFlags.MODAL,
                                             Gtk.MessageType.WARNING,
@@ -341,11 +362,24 @@ public class Nibbles : Gtk.Application
         dialog.response.connect ((response_id) => {
             if (response_id == Gtk.ResponseType.OK)
                 show_new_game_screen_cb ();
+            if (response_id == Gtk.ResponseType.CANCEL)
+                game.unpause ();
 
             dialog.destroy ();
         });
 
         dialog.show ();
+    }
+
+    private void pause_cb ()
+    {
+        if (game != null)
+        {
+            if (game.is_running)
+                game.pause ();
+            else
+                game.unpause ();
+        }
     }
 
     private void show_first_run_screen ()
@@ -364,7 +398,11 @@ public class Nibbles : Gtk.Application
         if (game.is_running)
             game.stop ();
 
+        new_game_action.set_enabled (false);
+        pause_action.set_enabled (false);
+
         new_game_button.hide ();
+        pause_button.hide ();
 
         var type = main_stack.get_transition_type ();
         main_stack.set_transition_type (Gtk.StackTransitionType.NONE);
@@ -406,6 +444,7 @@ public class Nibbles : Gtk.Application
     private void show_game_view ()
     {
         new_game_button.show ();
+        pause_button.show ();
 
         main_stack.set_visible_child_name ("game_box");
     }
