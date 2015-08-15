@@ -57,6 +57,7 @@ public class Nibbles : Gtk.Application
 
     private SimpleAction new_game_action;
     private SimpleAction pause_action;
+    private SimpleAction back_action;
 
     private const ActionEntry action_entries[] =
     {
@@ -71,7 +72,8 @@ public class Nibbles : Gtk.Application
     private const ActionEntry menu_entries[] =
     {
         {"show-new-game-screen", show_new_game_screen_cb},
-        {"show-controls-screen", show_controls_screen_cb}
+        {"show-controls-screen", show_controls_screen_cb},
+        {"back", back_cb}
     };
 
     private static const OptionEntry[] option_entries =
@@ -122,8 +124,10 @@ public class Nibbles : Gtk.Application
         }
 
         set_accels_for_action ("app.quit", {"<Primary>q"});
+        set_accels_for_action ("app.back", {"Escape"});
         new_game_action = (SimpleAction) lookup_action ("new-game");
         pause_action = (SimpleAction) lookup_action ("pause");
+        back_action = (SimpleAction) lookup_action ("back");
 
         var builder = new Gtk.Builder.from_resource ("/org/gnome/nibbles/ui/nibbles.ui");
         window = builder.get_object ("nibbles-window") as Gtk.ApplicationWindow;
@@ -320,6 +324,7 @@ public class Nibbles : Gtk.Application
 
                 new_game_action.set_enabled (true);
                 pause_action.set_enabled (true);
+                back_action.set_enabled (true);
 
                 countdown_id = 0;
                 return Source.REMOVE;
@@ -382,6 +387,10 @@ public class Nibbles : Gtk.Application
         }
     }
 
+    /*\
+    * * Switching the stack
+    \*/
+
     private void show_first_run_screen ()
     {
         main_stack.set_visible_child_name ("first_run");
@@ -400,6 +409,7 @@ public class Nibbles : Gtk.Application
 
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
+        back_action.set_enabled (true);
 
         new_game_button.hide ();
         pause_button.hide ();
@@ -446,7 +456,31 @@ public class Nibbles : Gtk.Application
         new_game_button.show ();
         pause_button.show ();
 
+        back_action.set_enabled (false);
+
         main_stack.set_visible_child_name ("game_box");
+    }
+
+    private void back_cb ()
+    {
+        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_DOWN);
+
+        var child_name = main_stack.get_visible_child_name ();
+        switch (child_name)
+        {
+            case "first_run":
+                break;
+            case "number_of_players":
+                break;
+            case "controls":
+                main_stack.set_visible_child_name ("number_of_players");
+                break;
+            case "game_box":
+                new_game_cb ();
+                break;
+        }
+
+        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
     }
 
     private void change_number_of_players_cb (Gtk.ToggleButton button)
