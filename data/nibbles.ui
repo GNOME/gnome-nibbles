@@ -152,7 +152,10 @@
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>
                                                 <property name="halign">3</property>
-                                                <style><class name="number-box"/></style>
+                                                <style>
+                                                    <class name="number-box"/>
+                                                    <class name="osd"/>
+                                                </style>
                                             </object>
                                             <packing>
                                                 <property name="pack-type">start</property>
@@ -167,7 +170,10 @@
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>
                                                 <property name="halign">3</property>
-                                                <style><class name="number-box"/></style>
+                                                <style>
+                                                    <class name="number-box"/>
+                                                    <class name="osd"/>
+                                                </style>
                                             </object>
                                             <packing>
                                                 <property name="pack-type">start</property>
@@ -182,7 +188,10 @@
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>
                                                 <property name="halign">3</property>
-                                                <style><class name="number-box"/></style>
+                                                <style>
+                                                    <class name="number-box"/>
+                                                    <class name="osd"/>
+                                                </style>
                                             </object>
                                             <packing>
                                                 <property name="pack-type">start</property>
@@ -197,7 +206,10 @@
                                                 <property name="height-request">120</property>
                                                 <property name="valign">3</property>
                                                 <property name="halign">3</property>
-                                                <style><class name="number-box"/></style>
+                                                <style>
+                                                    <class name="number-box"/>
+                                                    <class name="osd"/>
+                                                </style>
                                             </object>
                                             <packing>
                                                 <property name="pack-type">start</property>
