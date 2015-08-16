@@ -28,6 +28,7 @@ public class Nibbles : Gtk.Application
 
     private Gtk.ApplicationWindow window;
     private Gtk.HeaderBar headerbar;
+    private Gtk.Overlay overlay;
     private Gtk.Button new_game_button;
     private Gtk.Button pause_button;
     private Gtk.Stack main_stack;
@@ -139,6 +140,7 @@ public class Nibbles : Gtk.Application
             window.maximize ();
 
         headerbar = (Gtk.HeaderBar) builder.get_object ("headerbar");
+        overlay = (Gtk.Overlay) builder.get_object ("main_overlay");
         new_game_button = (Gtk.Button) builder.get_object ("new_game_button");
         pause_button = (Gtk.Button) builder.get_object ("pause_button");
         main_stack = (Gtk.Stack) builder.get_object ("main_stack");
@@ -608,21 +610,39 @@ public class Nibbles : Gtk.Application
 
     public void level_completed_cb ()
     {
-        var dialog = new Gtk.MessageDialog (window,
-                                            Gtk.DialogFlags.MODAL,
-                                            Gtk.MessageType.INFO,
-                                            Gtk.ButtonsType.NONE,
-                                            _("Level %d Completed!").printf (game.current_level));
+        new_game_action.set_enabled (false);
+        pause_action.set_enabled (false);
 
-        dialog.add_button (_("Next level"), Gtk.ResponseType.OK);
-        dialog.response.connect ((response_id) => {
-            if (response_id == Gtk.ResponseType.OK)
-                restart_game_cb ();
+        var label = new Gtk.Label (_(@"Level $(game.current_level) Completed!"));
+        label.halign = Gtk.Align.CENTER;
+        label.valign = Gtk.Align.START;
+        label.set_margin_top (150);
+        label.get_style_context ().add_class ("menu-title");
+        label.show ();
 
-            dialog.destroy ();
+        var button = new Gtk.Button.with_label (_("_Next Level"));
+        button.set_use_underline (true);
+        button.halign = Gtk.Align.CENTER;
+        button.valign = Gtk.Align.END;
+        button.set_margin_bottom (100);
+        button.get_style_context ().add_class ("suggested-action");
+        button.clicked.connect (() => {
+            label.destroy ();
+            button.destroy ();
+
+            new_game_action.set_enabled (true);
+            pause_action.set_enabled (true);
+
+            restart_game_cb ();
         });
+        button.show ();
 
-        dialog.show ();
+        overlay.add_overlay (label);
+        overlay.add_overlay (button);
+
+        button.grab_focus ();
+
+        overlay.show ();
     }
 
     public void game_over_cb ()

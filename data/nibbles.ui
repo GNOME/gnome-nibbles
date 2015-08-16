@@ -31,332 +31,337 @@
         <property name="title" translatable="yes">Nibbles</property>
         <style><class name="main-window"/></style>
         <child>
-            <object class="GtkBox" id="vbox">
+            <object class="GtkOverlay" id="main_overlay">
                 <property name="visible">True</property>
-                <property name="orientation">vertical</property>
                 <child>
-                    <object class="GtkStack" id="main_stack">
+                    <object class="GtkBox" id="vbox">
                         <property name="visible">True</property>
-                        <property name="homogeneous">True</property>
-                        <property name="margin">25</property>
-                        <property name="expand">True</property>
-                        <property name="transition-type">5</property> <!-- SLIDE_UP -->
-                        <property name="transition-duration">500</property>
+                        <property name="orientation">vertical</property>
                         <child>
-                            <object class="GtkBox" id="first_run">
+                            <object class="GtkStack" id="main_stack">
                                 <property name="visible">True</property>
-                                <property name="orientation">vertical</property>
-                                <property name="width-request">350</property>
-                                <property name="height-request">350</property>
+                                <property name="homogeneous">True</property>
+                                <property name="margin">25</property>
+                                <property name="expand">True</property>
+                                <property name="transition-type">5</property> <!-- SLIDE_UP -->
+                                <property name="transition-duration">500</property>
                                 <child>
-                                    <object class="GtkButton">
-                                        <property name="visible">True</property>
-                                        <property name="use-underline">True</property>
-                                        <property name="label" translatable="yes">Let's _Play</property>
-                                        <property name="action-name">app.show-new-game-screen</property>
-                                        <property name="halign">center</property>
-                                        <property name="valign">end</property>
-                                        <property name="width-request">140</property>
-                                        <property name="height-request">40</property>
-                                        <style>
-                                            <class name="suggested-action"/>
-                                            <class name="play"/>
-                                        </style>
-                                    </object>
-                                    <packing>
-                                        <property name="pack-type">end</property>
-                                    </packing>
-                                </child>
-                                <child>
-                                    <object class="GtkBox">
+                                    <object class="GtkBox" id="first_run">
                                         <property name="visible">True</property>
                                         <property name="orientation">vertical</property>
-                                        <property name="homogeneous">True</property>
-                                        <property name="valign">center</property>
-                                        <property name="vexpand">True</property>
-                                        <child>
-                                            <object class="GtkImage">
-                                                <property name="visible">True</property>
-                                                <property name="icon-name">gnome-nibbles</property>
-                                                <property name="icon-size">6</property> <!-- DIALOG -->
-                                                <property name="pixel-size">96</property>
-                                            </object>
-                                            <packing>
-                                                <property name="pack-type">start</property>
-                                            </packing>
-                                        </child>
-                                        <child>
-                                            <object class="GtkLabel">
-                                                <property name="visible">True</property>
-                                                <property name="label" translatable="yes">Welcome, worms.</property>
-                                                <style><class name="menu-title"/></style>
-                                            </object>
-                                            <packing>
-                                                <property name="pack-type">start</property>
-                                            </packing>
-                                        </child>
-                                        <child>
-                                            <object class="GtkLabel">
-                                                <property name="visible">True</property>
-                                                <property name="label" translatable="yes">Eat the treats before the other worms, but don't hit anything!</property>
-                                                <property name="valign">1</property> <!-- START -->
-                                                <style><class name="tip"/></style>
-                                            </object>
-                                            <packing>
-                                                <property name="pack-type">start</property>
-                                            </packing>
-                                        </child>
-                                    </object>
-                                    <packing>
-                                        <property name="pack-type">end</property>
-                                    </packing>
-                                </child>
-                            </object>
-                            <packing>
-                                <property name="name">first_run</property>
-                            </packing>
-                        </child>
-                        <child>
-                            <object class="GtkBox" id="number_of_players">
-                                <property name="visible">True</property>
-                                <property name="orientation">vertical</property>
-                                <property name="halign">center</property>
-                                <child>
-                                    <object class="GtkBox">
-                                        <property name="visible">True</property>
-                                        <property name="orientation">vertical</property>
-                                        <property name="valign">center</property>
-                                        <property name="spacing">60</property>
-                                        <child>
-                                            <object class="GtkBox">
-                                                <property name="visible">True</property>
-                                                <property name="orientation">vertical</property>
-                                                <property name="spacing">10</property>
-                                                <child>
-                                                    <object class="GtkLabel">
-                                                        <property name="visible">True</property>
-                                                        <property name="label" translatable="yes">Number of players</property>
-                                                        <style><class name="menu-title"/></style>
-                                                    </object>
-                                                </child>
-                                                <child>
-                                                    <object class="GtkLabel">
-                                                        <property name="visible">True</property>
-                                                        <property name="label" translatable="yes">Select the number of human players.</property>
-                                                    </object>
-                                                </child>
-                                            </object>
-                                        </child>
-                                        <child>
-                                            <object class="GtkBox" id="number_of_players_box">
-                                                <property name="visible">True</property>
-                                                <property name="orientation">horizontal</property>
-                                                <property name="width-request">630</property>
-                                                <property name="height-request">90</property>
-                                                <property name="valign">center</property>
-                                                <property name="spacing">10</property>
-                                                <property name="vexpand">True</property>
-                                                <child>
-                                                    <object class="GtkToggleButton" id="players1">
-                                                        <property name="visible">True</property>
-                                                        <property name="use-underline">True</property>
-                                                        <property name="label">_1</property>
-                                                        <property name="width-request">150</property>
-                                                        <style>
-                                                            <class name="number-box"/>
-                                                            <class name="osd"/>
-                                                        </style>
-                                                    </object>
-                                                    <packing>
-                                                        <property name="pack-type">start</property>
-                                                    </packing>
-                                                </child>
-                                                <child>
-                                                    <object class="GtkToggleButton" id="players2">
-                                                        <property name="visible">True</property>
-                                                        <property name="use-underline">True</property>
-                                                        <property name="label">_2</property>
-                                                        <property name="width-request">150</property>
-                                                        <style>
-                                                            <class name="number-box"/>
-                                                            <class name="osd"/>
-                                                        </style>
-                                                    </object>
-                                                    <packing>
-                                                        <property name="pack-type">start</property>
-                                                    </packing>
-                                                </child>
-                                                <child>
-                                                    <object class="GtkToggleButton" id="players3">
-                                                        <property name="visible">True</property>
-                                                        <property name="use-underline">True</property>
-                                                        <property name="label">_3</property>
-                                                        <property name="width-request">150</property>
-                                                        <style>
-                                                            <class name="number-box"/>
-                                                            <class name="osd"/>
-                                                        </style>
-                                                    </object>
-                                                    <packing>
-                                                        <property name="pack-type">start</property>
-                                                    </packing>
-                                                </child>
-                                                <child>
-                                                    <object class="GtkToggleButton" id="players4">
-                                                        <property name="visible">True</property>
-                                                        <property name="use-underline">True</property>
-                                                        <property name="label">_4</property>
-                                                        <property name="width-request">150</property>
-                                                        <style>
-                                                            <class name="number-box"/>
-                                                            <class name="osd"/>
-                                                        </style>
-                                                    </object>
-                                                    <packing>
-                                                        <property name="pack-type">start</property>
-                                                    </packing>
-                                                </child>
-                                            </object>
-                                            <packing>
-                                                <property name="pack-type">start</property>
-                                            </packing>
-                                        </child>
-                                        </object>
-                                        <packing>
-                                            <property name="pack-type">start</property>
-                                        </packing>
-                                </child>
-                                <child>
-                                    <object class="GtkRevealer" id="next_button_revealer">
-                                        <property name="visible">True</property>
-                                        <property name="transition-type">4</property> <!-- SLIDE_UP -->
-                                        <property name="transition-duration">500</property>
+                                        <property name="width-request">350</property>
+                                        <property name="height-request">350</property>
                                         <child>
                                             <object class="GtkButton">
                                                 <property name="visible">True</property>
                                                 <property name="use-underline">True</property>
-                                                <property name="label" translatable="yes">_Next</property>
-                                                <property name="action-name">app.show-controls-screen</property>
-                                                <property name="width-request">116</property>
-                                                <property name="height-request">34</property>
+                                                <property name="label" translatable="yes">Let's _Play</property>
+                                                <property name="action-name">app.show-new-game-screen</property>
                                                 <property name="halign">center</property>
+                                                <property name="valign">end</property>
+                                                <property name="width-request">140</property>
+                                                <property name="height-request">40</property>
                                                 <style>
                                                     <class name="suggested-action"/>
                                                     <class name="play"/>
                                                 </style>
                                             </object>
-                                        </child>
-                                    </object>
-                                    <packing>
-                                        <property name="pack-type">end</property>
-                                    </packing>
-                                </child>
-                            </object>
-                            <packing>
-                                <property name="name">number_of_players</property>
-                            </packing>
-                        </child>
-                        <child>
-                            <object class="GtkBox">
-                                <property name="visible">True</property>
-                                <property name="orientation">vertical</property>
-                                <child>
-                                    <object class="GtkBox">
-                                        <property name="visible">True</property>
-                                        <property name="orientation">vertical</property>
-                                        <property name="valign">center</property>
-                                        <property name="spacing">25</property>
-                                        <child>
-                                            <object class="GtkLabel">
-                                                <property name="visible">True</property>
-                                                <property name="label" translatable="yes">Controls</property>
-                                                <property name="valign">center</property>
-                                                <style><class name="menu-title"/></style>
-                                            </object>
+                                            <packing>
+                                                <property name="pack-type">end</property>
+                                            </packing>
                                         </child>
                                         <child>
-                                            <object class="GtkBox" id="grids_box">
+                                            <object class="GtkBox">
                                                 <property name="visible">True</property>
-                                                <property name="orientation">horizontal</property>
+                                                <property name="orientation">vertical</property>
                                                 <property name="homogeneous">True</property>
                                                 <property name="valign">center</property>
-                                            </object>
-                                        </child>
-                                    </object>
-                                </child>
-                                <child>
-                                    <object class="GtkButton">
-                                        <property name="visible">True</property>
-                                        <property name="use-underline">True</property>
-                                        <property name="label" translatable="yes">_Start</property>
-                                        <property name="action-name">app.start-game</property>
-                                        <property name="halign">center</property>
-                                        <property name="width-request">116</property>
-                                        <property name="height-request">34</property>
-                                        <style>
-                                            <class name="suggested-action"/>
-                                            <class name="play"/>
-                                        </style>
-                                    </object>
-                                    <packing>
-                                        <property name="pack-type">end</property>
-                                    </packing>
-                                </child>
-                            </object>
-                            <packing>
-                                <property name="name">controls</property>
-                            </packing>
-                        </child>
-                        <child>
-                            <object class="GtkBox" id="game_box">
-                                <property name="visible">True</property>
-                                <property name="orientation">vertical</property>
-                                <child>
-                                    <object class="GtkBox" id="statusbar">
-                                        <property name="visible">True</property>
-                                        <property name="halign">center</property>
-                                        <child>
-                                            <object class="GtkStack" id="statusbar_stack">
-                                                <property name="visible">True</property>
+                                                <property name="vexpand">True</property>
                                                 <child>
-                                                    <object class="GtkLabel" id="countdown">
+                                                    <object class="GtkImage">
                                                         <property name="visible">True</property>
-                                                        <property name="label">3</property>
-                                                        <property name="halign">center</property>
-                                                        <style><class name="countdown"/></style>
+                                                        <property name="icon-name">gnome-nibbles</property>
+                                                        <property name="icon-size">6</property> <!-- DIALOG -->
+                                                        <property name="pixel-size">96</property>
                                                     </object>
                                                     <packing>
-                                                        <property name="name">countdown</property>
+                                                        <property name="pack-type">start</property>
                                                     </packing>
                                                 </child>
                                                 <child>
                                                     <object class="GtkLabel">
                                                         <property name="visible">True</property>
-                                                        <property name="label" translatable="yes">Paused</property>
+                                                        <property name="label" translatable="yes">Welcome, worms.</property>
                                                         <style><class name="menu-title"/></style>
                                                     </object>
                                                     <packing>
-                                                        <property name="name">paused</property>
+                                                        <property name="pack-type">start</property>
+                                                    </packing>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="label" translatable="yes">Eat the treats before the other worms, but don't hit anything!</property>
+                                                        <property name="valign">1</property> <!-- START -->
+                                                        <style><class name="tip"/></style>
+                                                    </object>
+                                                    <packing>
+                                                        <property name="pack-type">start</property>
                                                     </packing>
                                                 </child>
                                             </object>
+                                            <packing>
+                                                <property name="pack-type">end</property>
+                                            </packing>
                                         </child>
                                     </object>
                                     <packing>
-                                        <property name="pack-type">end</property>
+                                        <property name="name">first_run</property>
                                     </packing>
                                 </child>
-                            </object>
+                                <child>
+                                    <object class="GtkBox" id="number_of_players">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+                                        <property name="halign">center</property>
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="valign">center</property>
+                                                <property name="spacing">60</property>
+                                                <child>
+                                                    <object class="GtkBox">
+                                                        <property name="visible">True</property>
+                                                        <property name="orientation">vertical</property>
+                                                        <property name="spacing">10</property>
+                                                        <child>
+                                                            <object class="GtkLabel">
+                                                                <property name="visible">True</property>
+                                                                <property name="label" translatable="yes">Number of players</property>
+                                                                <style><class name="menu-title"/></style>
+                                                            </object>
+                                                        </child>
+                                                        <child>
+                                                            <object class="GtkLabel">
+                                                                <property name="visible">True</property>
+                                                                <property name="label" translatable="yes">Select the number of human players.</property>
+                                                            </object>
+                                                        </child>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkBox" id="number_of_players_box">
+                                                        <property name="visible">True</property>
+                                                        <property name="orientation">horizontal</property>
+                                                        <property name="width-request">630</property>
+                                                        <property name="height-request">90</property>
+                                                        <property name="valign">center</property>
+                                                        <property name="spacing">10</property>
+                                                        <property name="vexpand">True</property>
+                                                        <child>
+                                                            <object class="GtkToggleButton" id="players1">
+                                                                <property name="visible">True</property>
+                                                                <property name="use-underline">True</property>
+                                                                <property name="label">_1</property>
+                                                                <property name="width-request">150</property>
+                                                                <style>
+                                                                    <class name="number-box"/>
+                                                                    <class name="osd"/>
+                                                                </style>
+                                                            </object>
+                                                            <packing>
+                                                                <property name="pack-type">start</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <object class="GtkToggleButton" id="players2">
+                                                                <property name="visible">True</property>
+                                                                <property name="use-underline">True</property>
+                                                                <property name="label">_2</property>
+                                                                <property name="width-request">150</property>
+                                                                <style>
+                                                                    <class name="number-box"/>
+                                                                    <class name="osd"/>
+                                                                </style>
+                                                            </object>
+                                                            <packing>
+                                                                <property name="pack-type">start</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <object class="GtkToggleButton" id="players3">
+                                                                <property name="visible">True</property>
+                                                                <property name="use-underline">True</property>
+                                                                <property name="label">_3</property>
+                                                                <property name="width-request">150</property>
+                                                                <style>
+                                                                    <class name="number-box"/>
+                                                                    <class name="osd"/>
+                                                                </style>
+                                                            </object>
+                                                            <packing>
+                                                                <property name="pack-type">start</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <object class="GtkToggleButton" id="players4">
+                                                                <property name="visible">True</property>
+                                                                <property name="use-underline">True</property>
+                                                                <property name="label">_4</property>
+                                                                <property name="width-request">150</property>
+                                                                <style>
+                                                                    <class name="number-box"/>
+                                                                    <class name="osd"/>
+                                                                </style>
+                                                            </object>
+                                                            <packing>
+                                                                <property name="pack-type">start</property>
+                                                            </packing>
+                                                        </child>
+                                                    </object>
+                                                    <packing>
+                                                        <property name="pack-type">start</property>
+                                                    </packing>
+                                                </child>
+                                                </object>
+                                                <packing>
+                                                    <property name="pack-type">start</property>
+                                                </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkRevealer" id="next_button_revealer">
+                                                <property name="visible">True</property>
+                                                <property name="transition-type">4</property> <!-- SLIDE_UP -->
+                                                <property name="transition-duration">500</property>
+                                                <child>
+                                                    <object class="GtkButton">
+                                                        <property name="visible">True</property>
+                                                        <property name="use-underline">True</property>
+                                                        <property name="label" translatable="yes">_Next</property>
+                                                        <property name="action-name">app.show-controls-screen</property>
+                                                        <property name="width-request">116</property>
+                                                        <property name="height-request">34</property>
+                                                        <property name="halign">center</property>
+                                                        <style>
+                                                            <class name="suggested-action"/>
+                                                            <class name="play"/>
+                                                        </style>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">end</property>
+                                            </packing>
+                                        </child>
+                                    </object>
+                                    <packing>
+                                        <property name="name">number_of_players</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+                                        <child>
+                                            <object class="GtkBox">
+                                                <property name="visible">True</property>
+                                                <property name="orientation">vertical</property>
+                                                <property name="valign">center</property>
+                                                <property name="spacing">25</property>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="visible">True</property>
+                                                        <property name="label" translatable="yes">Controls</property>
+                                                        <property name="valign">center</property>
+                                                        <style><class name="menu-title"/></style>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkBox" id="grids_box">
+                                                        <property name="visible">True</property>
+                                                        <property name="orientation">horizontal</property>
+                                                        <property name="homogeneous">True</property>
+                                                        <property name="valign">center</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton">
+                                                <property name="visible">True</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="label" translatable="yes">_Start</property>
+                                                <property name="action-name">app.start-game</property>
+                                                <property name="halign">center</property>
+                                                <property name="width-request">116</property>
+                                                <property name="height-request">34</property>
+                                                <style>
+                                                    <class name="suggested-action"/>
+                                                    <class name="play"/>
+                                                </style>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">end</property>
+                                            </packing>
+                                        </child>
+                                    </object>
+                                    <packing>
+                                        <property name="name">controls</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <object class="GtkBox" id="game_box">
+                                        <property name="visible">True</property>
+                                        <property name="orientation">vertical</property>
+                                        <child>
+                                            <object class="GtkBox" id="statusbar">
+                                                <property name="visible">True</property>
+                                                <property name="halign">center</property>
+                                                <child>
+                                                    <object class="GtkStack" id="statusbar_stack">
+                                                        <property name="visible">True</property>
+                                                        <child>
+                                                            <object class="GtkLabel" id="countdown">
+                                                                <property name="visible">True</property>
+                                                                <property name="label">3</property>
+                                                                <property name="halign">center</property>
+                                                                <style><class name="countdown"/></style>
+                                                            </object>
+                                                            <packing>
+                                                                <property name="name">countdown</property>
+                                                            </packing>
+                                                        </child>
+                                                        <child>
+                                                            <object class="GtkLabel">
+                                                                <property name="visible">True</property>
+                                                                <property name="label" translatable="yes">Paused</property>
+                                                                <style><class name="menu-title"/></style>
+                                                            </object>
+                                                            <packing>
+                                                                <property name="name">paused</property>
+                                                            </packing>
+                                                        </child>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">end</property>
+                                            </packing>
+                                        </child>
+                                    </object>
+                                    <packing>
+                                        <property name="name">game_box</property>
+                                    </packing>
+                                </child>
+                            </object> <!-- End of main_stack -->
                             <packing>
-                                <property name="name">game_box</property>
+                                <property name="pack-type">start</property>
                             </packing>
                         </child>
-                    </object> <!-- End of main_stack -->
-                    <packing>
-                        <property name="pack-type">start</property>
-                    </packing>
+                    </object> <!-- End of vbox -->
                 </child>
-            </object> <!-- End of vbox -->
+            </object>
         </child>
     </object> <!-- End of nibbles_app -->
 </interface>

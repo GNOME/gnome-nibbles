@@ -49,7 +49,7 @@ public class NibblesView : GtkClutter.Embed
     public Gee.HashMap<Worm, WormActor> worm_actors;
     public Gee.HashMap<Bonus, BonusTexture> bonus_actors;
 
-    public const int NUM_COLORS = 7;
+    public const int NUM_COLORS = 6;
     public static string[] color_lookup =
     {
       "red",
