@@ -2,7 +2,8 @@ GtkApplicationWindow.main-window {
     background: rgba (0, 0, 0, 1);
 }
 .menu-title {
-  font-size: 3em;
+  font-size: 2.5em;
+  font-family: Cantarell;
 }
 .tip {
   font-size: 1em;
@@ -11,7 +12,9 @@ GtkApplicationWindow.main-window {
   font-size: 1em;
 }
 GtkToggleButton.number-box {
-    font-size: 5em;
+    font-size: 3em;
+    font-family: Sans;
+    font-weight: bold;
 }
 GtkLabel.countdown {
     font-size: 2em;
