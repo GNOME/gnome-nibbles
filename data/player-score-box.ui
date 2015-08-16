@@ -3,6 +3,9 @@
     <template class="PlayerScoreBox" parent="GtkBox">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
+        <property name="width-request">120</property>
+        <property name="homogeneous">True</property>
+        <property name="spacing">5</property>
         <child>
             <object class="GtkBox">
                 <property name="visible">True</property>
