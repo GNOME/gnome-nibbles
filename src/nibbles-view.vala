@@ -43,7 +43,7 @@ public class NibblesView : GtkClutter.Embed
     public Clutter.Actor name_labels { get; private set; }
 
     private Gdk.Pixbuf wall_pixmaps[11];
-    public Gdk.Pixbuf worm_pixmaps[7];
+    public Gdk.Pixbuf worm_pixmaps[6];
     private Gdk.Pixbuf boni_pixmaps[9];
 
     public Gee.HashMap<Worm, WormActor> worm_actors;
@@ -57,8 +57,7 @@ public class NibblesView : GtkClutter.Embed
       "blue",
       "orange",
       "cyan",
-      "purple",
-      "grey"
+      "purple"
     };
 
     public NibblesView (NibblesGame game)
@@ -238,8 +237,7 @@ public class NibblesView : GtkClutter.Embed
             "snake-blue.svg",
             "snake-yellow.svg",
             "snake-cyan.svg",
-            "snake-magenta.svg",
-            "snake-grey.svg"
+            "snake-magenta.svg"
         };
 
         for (int i = 0; i < 8; i++)
@@ -254,7 +252,7 @@ public class NibblesView : GtkClutter.Embed
                                                 2 * game.tile_size, 2 * game.tile_size);
         }
 
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 6; i++)
         {
             worm_pixmaps[i] = load_pixmap_file (worm_files[i],
                                                 game.tile_size, game.tile_size);
