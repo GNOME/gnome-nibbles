@@ -260,11 +260,11 @@
                             <object class="GtkBox">
                                 <property name="visible">True</property>
                                 <property name="orientation">vertical</property>
-                                <property name="valign">center</property>
                                 <child>
                                     <object class="GtkBox">
                                         <property name="visible">True</property>
                                         <property name="orientation">vertical</property>
+                                        <property name="valign">center</property>
                                         <property name="spacing">25</property>
                                         <child>
                                             <object class="GtkLabel">
@@ -291,7 +291,6 @@
                                         <property name="label" translatable="yes">_Start</property>
                                         <property name="action-name">app.start-game</property>
                                         <property name="halign">center</property>
-                                        <property name="valign">center</property>
                                         <property name="width-request">116</property>
                                         <property name="height-request">34</property>
                                         <style>
