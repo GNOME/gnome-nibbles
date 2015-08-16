@@ -71,6 +71,7 @@ public class Worm : Object
     public signal void rescaled (int tile_size);
     public signal void died ();
     public signal void tail_reduced (int erase_size);
+    public signal void reversed ();
 
     public signal void bonus_found ();
 
@@ -181,6 +182,22 @@ public class Worm : Object
             }
             tail_reduced (erase_size);
         }
+    }
+
+    public void reverse (int[,] walls)
+    {
+        var reversed_list = new Gee.LinkedList<Position?> ();
+        foreach (var pos in list)
+            reversed_list.offer_head (pos);
+
+        reversed ();
+        list = reversed_list;
+
+        /* Set new direction as the opposite direction of the last two tail pieces */
+        if (list[0].y == list[1].y)
+            direction = (list[0].x > list[1].x) ? WormDirection.RIGHT : WormDirection.LEFT;
+        else
+            direction = (list[0].y > list[1].y) ? WormDirection.DOWN : WormDirection.UP;
     }
 
     public bool can_move_to (int[,] walls, int numworms)

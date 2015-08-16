@@ -295,6 +295,12 @@ public class NibblesGame : Object
         }
     }
 
+    private void reverse_worms ()
+    {
+        foreach (var worm in worms)
+            worm.reverse (walls);
+    }
+
     /*\
     * * Handling bonuses
     \*/
@@ -399,7 +405,7 @@ public class NibblesGame : Object
     {
         if (bonus.fake)
         {
-            // handle reverse
+            reverse_worms ();
             return;
         }
 
@@ -426,7 +432,7 @@ public class NibblesGame : Object
                 worm.lives++;
                 break;
             case BonusType.REVERSE:
-                // TODO
+                reverse_worms ();
                 break;
         }
     }

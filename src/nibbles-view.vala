@@ -403,6 +403,7 @@ public class NibblesView : GtkClutter.Embed
             worm.rescaled.connect (worm_rescaled_cb);
             worm.died.connect (worm_died_cb);
             worm.tail_reduced.connect (worm_tail_reduced_cb);
+            worm.reversed.connect (worm_reversed_cb);
         }
     }
 
@@ -613,6 +614,19 @@ public class NibblesView : GtkClutter.Embed
         group.set_easing_duration (NibblesGame.GAMEDELAY * 25);
         group.set_opacity (0);
         group.restore_easing_state ();
+    }
+
+    public void worm_reversed_cb (Worm worm)
+    {
+        var actors = worm_actors.get (worm);
+
+        var count = 0;
+        foreach (var actor in actors.get_children ())
+        {
+            actor.set_position (worm.list[count].x * game.tile_size, worm.list[count].y * game.tile_size);
+            count++;
+        }
+
     }
 
     public void bonus_added_cb ()
