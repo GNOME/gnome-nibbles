@@ -203,15 +203,18 @@ public class NibblesView : GtkClutter.Embed
     {
         string[] bonus_files =
         {
-            "diamond.svg",
             "bonus1.svg",
             "bonus2.svg",
-            "life.svg",
             "bonus3.svg",
+            "life.svg",
+            "diamond.svg",
             "bonus4.svg",
             "bonus5.svg",
             "questionmark.svg"
         };
+
+
+
 
         string[] small_files =
         {
