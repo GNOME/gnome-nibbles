@@ -260,28 +260,29 @@
                             <object class="GtkBox">
                                 <property name="visible">True</property>
                                 <property name="orientation">vertical</property>
-                                <property name="width-request">350</property>
-                                <property name="height-request">350</property>
+                                <property name="valign">center</property>
                                 <child>
-                                    <object class="GtkLabel">
+                                    <object class="GtkBox">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Controls</property>
-                                        <property name="valign">3</property>
-                                        <style><class name="menu-title"/></style>
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">25</property>
+                                        <child>
+                                            <object class="GtkLabel">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Controls</property>
+                                                <property name="valign">center</property>
+                                                <style><class name="menu-title"/></style>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkBox" id="grids_box">
+                                                <property name="visible">True</property>
+                                                <property name="orientation">horizontal</property>
+                                                <property name="homogeneous">True</property>
+                                                <property name="valign">center</property>
+                                            </object>
+                                        </child>
                                     </object>
-                                    <packing>
-                                        <property name="pack-type">start</property>
-                                    </packing>
-                                </child>
-                                <child>
-                                    <object class="GtkBox" id="grids_box">
-                                        <property name="visible">True</property>
-                                        <property name="orientation">horizontal</property>
-                                        <property name="homogeneous">True</property>
-                                    </object>
-                                    <packing>
-                                        <property name="pack-type">start</property>
-                                    </packing>
                                 </child>
                                 <child>
                                     <object class="GtkButton">
@@ -289,10 +290,10 @@
                                         <property name="use-underline">True</property>
                                         <property name="label" translatable="yes">_Start</property>
                                         <property name="action-name">app.start-game</property>
-                                        <property name="halign">3</property>
-                                        <property name="valign">3</property>
-                                        <property name="width-request">140</property>
-                                        <property name="height-request">40</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="width-request">116</property>
+                                        <property name="height-request">34</property>
                                         <style>
                                             <class name="suggested-action"/>
                                             <class name="play"/>

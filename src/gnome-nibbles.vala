@@ -860,7 +860,7 @@ public class ControlsGrid : Gtk.Grid
         var color = Pango.Color ();
         color.parse (NibblesView.colorval_name (worm_props.color));
 
-        name_label.set_markup (@"<b><span color=\"$(color.to_string ())\">Player $(worm_id + 1)</span></b>");
+        name_label.set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\">Player $(worm_id + 1)</span></b>");
 
         arrow_up.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.NONE));
         arrow_down.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN));
