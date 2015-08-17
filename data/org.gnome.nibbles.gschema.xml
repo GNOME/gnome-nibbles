@@ -32,6 +32,11 @@
       <summary>Game level to start on</summary>
       <description>Game level to start on.</description>
     </key>
+    <key name="sound" type="b">
+      <default>true</default>
+      <summary>Enable sounds</summary>
+      <description>Enable sounds.</description>
+    </key>
   </schema>
   <schema id="org.gnome.nibbles.worm0" path="/org/gnome/nibbles/worm0/">
     <key name="color" type="s">

@@ -55,10 +55,6 @@ public class Boni : Object
         walls[x + 1, y + 1] = type + 'A';
         bonus_added ();
         numbonuses++;
-
-        //TODO
-        // if (type != BonusType.REGULAR)
-        //     play_sound ("appear");
     }
 
     public void remove_bonus (int[,] walls, Bonus bonus)

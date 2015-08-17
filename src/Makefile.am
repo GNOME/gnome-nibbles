@@ -17,6 +17,7 @@ gnome_nibbles_CPPFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
 	-DPKGDATADIR=\"$(datadir)/gnome-nibbles\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
+	-DSOUND_DIRECTORY=\"$(datadir)/gnome-nibbles/sounds\" \
 	$(GNOME_NIBBLES_CFLAGS)
 
 gnome_nibbles_VALAFLAGS = \

@@ -60,6 +60,8 @@ public class NibblesView : GtkClutter.Embed
       "purple"
     };
 
+    public bool is_muted;
+
     public NibblesView (NibblesGame game)
     {
         this.game = game;
@@ -574,6 +576,8 @@ public class NibblesView : GtkClutter.Embed
         group.set_pivot_point (0.5f, 0.5f);
         group.set_opacity (0);
         group.restore_easing_state ();
+
+        play_sound ("crash");
     }
 
     public void worm_tail_reduced_cb (Worm worm, int erase_size)
@@ -626,12 +630,10 @@ public class NibblesView : GtkClutter.Embed
             actor.set_position (worm.list[count].x * game.tile_size, worm.list[count].y * game.tile_size);
             count++;
         }
-
     }
 
     public void bonus_added_cb ()
     {
-        stderr.printf("[Debug] Bonus ADDED\n");
         /* Last bonus added to the list is the one that needs a texture */
         var bonus = game.boni.bonuses.last ();
         var actor = new BonusTexture ();
@@ -653,6 +655,8 @@ public class NibblesView : GtkClutter.Embed
         actor.set_position (bonus.x * game.tile_size, bonus.y * game.tile_size);
 
         level.add_child (actor);
+        if (bonus.type != BonusType.REGULAR)
+            play_sound ("appear");
 
         bonus_actors.set (bonus, actor);
     }
@@ -676,6 +680,28 @@ public class NibblesView : GtkClutter.Embed
         actor.set_scale (1.45f, 1.45f);
         actor.set_pivot_point (0.5f, 0.5f);
         actor.restore_easing_state ();
+
+        var bonus = game.boni.bonuses.last ();
+        switch (bonus.type)
+        {
+            case BonusType.REGULAR:
+                play_sound ("gobble");
+                break;
+            case BonusType.DOUBLE:
+                play_sound ("bonus");
+                break;
+            case BonusType.HALF:
+                play_sound ("bonus");
+                break;
+            case BonusType.LIFE:
+                play_sound ("life");
+                break;
+            case BonusType.REVERSE:
+                play_sound ("reverse");
+                break;
+            default:
+                break;
+        }
     }
 
     public void boni_rescale (int tile_size)
@@ -704,6 +730,19 @@ public class NibblesView : GtkClutter.Embed
                 error (_("Nibbles failed to set texture: %s"), e.message);
             }
         }
+    }
+
+    private void play_sound (string name)
+    {
+        if (is_muted)
+            return;
+
+        var filename = @"$(name).ogg";
+        var path = Path.build_filename (SOUND_DIRECTORY, filename, null);
+
+        CanberraGtk.play_for_widget (this, 0,
+                                     Canberra.PROP_MEDIA_NAME, name,
+                                     Canberra.PROP_MEDIA_FILENAME, path);
     }
 
     public static int colorval_from_name (string name)

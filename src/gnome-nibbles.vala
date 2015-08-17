@@ -174,6 +174,7 @@ public class Nibbles : Gtk.Application
 
         view = new NibblesView (game);
         view.configure_event.connect (configure_event_cb);
+        view.is_muted = !settings.get_boolean ("sound");
         view.show ();
 
         frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
