@@ -43,6 +43,16 @@ public class Worm : Object
         set {}
     }
 
+    public Position head
+    {
+        get
+        {
+            Position head = list.first ();
+            return head;
+        }
+        set {}
+    }
+
     public WormDirection direction;
 
     public WormDirection starting_direction;
@@ -70,11 +80,6 @@ public class Worm : Object
         key_queue = new Gee.ArrayQueue<WormDirection> ();
     }
 
-    public Position head ()
-    {
-        return list.first ();
-    }
-
     public void set_start (int xhead, int yhead, WormDirection direction)
     {
         list.clear ();
@@ -97,26 +102,26 @@ public class Worm : Object
         if (is_human)
             keypress = false;
 
-        var position = head ();
+        var position = head;
         switch (direction)
         {
             case WormDirection.UP:
-                position.y = --head ().y;
+                position.y = --head.y;
                 if (position.y < 0)
                     position.y = NibblesGame.HEIGHT - 1;
                 break;
             case WormDirection.DOWN:
-                position.y = ++head ().y;
+                position.y = ++head.y;
                 if (position.y >= NibblesGame.HEIGHT)
                     position.y = 0;
                 break;
             case WormDirection.LEFT:
-                position.x = --head ().x;
+                position.x = --head.x;
                 if (position.x < 0)
                     position.x = NibblesGame.WIDTH - 1;
                 break;
             case WormDirection.RIGHT:
-                position.x = ++head ().x;
+                position.x = ++head.x;
                 if (position.x >= NibblesGame.WIDTH)
                     position.x = 0;
                 break;
@@ -140,11 +145,11 @@ public class Worm : Object
         }
 
         /* Check for bonus before changing tile */
-        if (walls[head ().x, head ().y] != NibblesGame.EMPTYCHAR)
+        if (walls[head.x, head.y] != NibblesGame.EMPTYCHAR)
             bonus_found ();
 
         /* Mark the tile as occupied by the worm's body */
-        walls[head ().x, head ().y] = NibblesGame.WORMCHAR + id;
+        walls[head.x, head.y] = NibblesGame.WORMCHAR + id;
 
         if (!key_queue.is_empty)
             dequeue_keypress ();
@@ -244,27 +249,27 @@ public class Worm : Object
 
     private Position position_move ()
     {
-        Position position = head ();
+        Position position = head;
 
         switch (direction)
         {
             case WormDirection.UP:
-                position.y = --head ().y;
+                position.y = --head.y;
                 if (position.y < 0)
                     position.y = NibblesGame.HEIGHT - 1;
                 break;
             case WormDirection.DOWN:
-                position.y = ++head ().y;
+                position.y = ++head.y;
                 if (position.y >= NibblesGame.HEIGHT)
                     position.y = 0;
                 break;
             case WormDirection.LEFT:
-                position.x = --head ().x;
+                position.x = --head.x;
                 if (position.x < 0)
                     position.x = NibblesGame.WIDTH - 1;
                 break;
             case WormDirection.RIGHT:
-                position.x = ++head ().x;
+                position.x = ++head.x;
                 if (position.x >= NibblesGame.WIDTH)
                     position.x = 0;
                 break;
@@ -293,6 +298,21 @@ public class Worm : Object
 
         direction = (WormDirection) dir;
         keypress = true;
+    }
+
+    /*\
+    * * Keys and key presses
+    \*/
+    private uint upper_key (uint keyval)
+    {
+        if (keyval > 255)
+            return keyval;
+        return ((char) keyval).toupper ();
+    }
+
+    public void handle_direction (WormDirection dir)
+    {
+        direction_set (dir);
     }
 
     public bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties?> worm_props)
@@ -334,18 +354,6 @@ public class Worm : Object
         return false;
     }
 
-    private uint upper_key (uint keyval)
-    {
-        if (keyval > 255)
-            return keyval;
-        return ((char) keyval).toupper ();
-    }
-
-    public void handle_direction (WormDirection dir)
-    {
-        direction_set (dir);
-    }
-
     public void queue_keypress (WormDirection dir)
     {
         /* Ignore duplicates in normal movement mode. This resolves the key
@@ -362,6 +370,10 @@ public class Worm : Object
     {
         direction_set (key_queue.poll ());
     }
+
+    /*\
+    * * AI
+    \*/
 
     /* Check whether the worm will be trapped in a dead end. A location
      * within the dead end and the length of the worm is given. This
@@ -465,8 +477,8 @@ public class Worm : Object
         i = numworms;
         while (i-- > 0)
         {
-            cx = worms[i].head ().x;
-            cy = worms[i].head ().y;
+            cx = worms[i].head.x;
+            cy = worms[i].head.y;
             if (cx != x || cy != y) {
                 if (cx > 0)
                     deadend_board[cx-1, cy] = deadend_runnumber;
@@ -526,8 +538,8 @@ public class Worm : Object
 
         while (i-- > 0)
         {
-            dx = head ().x - worms[i].head ().x;
-            dy = head ().y - worms[i].head ().y;
+            dx = head.x - worms[i].head.x;
+            dy = head.y - worms[i].head.y;
             switch (direction)
             {
                 case WormDirection.UP:
@@ -617,9 +629,9 @@ public class Worm : Object
     {
         var opposite = (direction + 1) % 4 + 1;
 
-        var front = Worm.ai_wander (walls, numworms, head ().x, head ().y, direction, head ().x, head ().y);
-        var left = Worm.ai_wander (walls, numworms, head ().x, head ().y, direction - 1, head ().x, head ().y);
-        var right = Worm.ai_wander (walls, numworms, head ().x, head ().y, direction + 1, head ().x, head ().y);
+        var front = Worm.ai_wander (walls, numworms, head.x, head.y, direction, head.x, head.y);
+        var left = Worm.ai_wander (walls, numworms, head.x, head.y, direction - 1, head.x, head.y);
+        var right = Worm.ai_wander (walls, numworms, head.x, head.y, direction + 1, head.x, head.y);
 
         int dir;
         if (!front)
@@ -691,7 +703,7 @@ public class Worm : Object
             if (ai_too_close (worms, numworms))
                 this_len += 4;
 
-            this_len += ai_deadend_after (walls, worms, numworms, head ().x, head ().y, dir, length + change);
+            this_len += ai_deadend_after (walls, worms, numworms, head.x, head.y, dir, length + change);
 
             if (dir == old_dir && this_len <= 0)
                 this_len -= 100;

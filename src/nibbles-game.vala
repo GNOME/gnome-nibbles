@@ -415,7 +415,7 @@ public class NibblesGame : Object
             return;
         }
 
-        switch (walls[worm.head ().x, worm.head ().y] - 'A')
+        switch (walls[worm.head.x, worm.head.y] - 'A')
         {
             case BonusType.REGULAR:
                 boni.numleft--;
@@ -452,13 +452,13 @@ public class NibblesGame : Object
 
     public void bonus_found_cb (Worm worm)
     {
-        var bonus = boni.get_bonus (walls, worm.head ().x, worm.head ().y);
+        var bonus = boni.get_bonus (walls, worm.head.x, worm.head.y);
         if (bonus == null)
             return;
         apply_bonus (bonus, worm);
         bonus_applied (worm);
 
-        if (walls[worm.head ().x, worm.head ().y] == BonusType.REGULAR + 'A'
+        if (walls[worm.head.x, worm.head.y] == BonusType.REGULAR + 'A'
             && !bonus.fake)
         {
             // FIXME: 2/3

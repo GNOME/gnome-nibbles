@@ -388,7 +388,7 @@ public class NibblesView : GtkClutter.Embed
             else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
             {
                 label.set_x (worm.list[middle].x * game.tile_size - label.width / 2 + game.tile_size / 2);
-                label.set_y (worm.head ().y * game.tile_size - 3 * game.tile_size);
+                label.set_y (worm.head.y * game.tile_size - 3 * game.tile_size);
             }
             name_labels.add (label);
         }
@@ -444,7 +444,7 @@ public class NibblesView : GtkClutter.Embed
             else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
             {
                 actor.set_x (worm.list[middle].x * tile_size - actor.width / 2 + tile_size / 2);
-                actor.set_y (worm.head ().y * tile_size - 3 * tile_size);
+                actor.set_y (worm.head.y * tile_size - 3 * tile_size);
             }
         }
     }
