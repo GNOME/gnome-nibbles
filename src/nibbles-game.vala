@@ -49,6 +49,8 @@ public class NibblesGame : Object
     public const int WIDTH = 92;
     public const int HEIGHT = 66;
 
+    public const int CAPACITY = WIDTH * HEIGHT;
+
     public const char EMPTYCHAR = 'a';
     public const char WORMCHAR = 'w';
 
@@ -59,9 +61,9 @@ public class NibblesGame : Object
 
     public Gee.LinkedList<Worm> worms;
 
-    public int numhumans = NUMHUMANS;
-    public int numai = NUMAI;
-    public int numworms = NUMHUMANS + NUMAI;
+    public int numhumans;
+    public int numai;
+    public int numworms;
 
     public int speed = 1;
 
@@ -200,6 +202,7 @@ public class NibblesGame : Object
         {
             var worm = new Worm (i);
             worm.bonus_found.connect (bonus_found_cb);
+            worm.is_human = (i < numhumans);
             worms.add (worm);
         }
     }
@@ -261,6 +264,9 @@ public class NibblesGame : Object
 
             if (worm.list.is_empty)
                 continue;
+
+            if (!worm.is_human)
+                worm.ai_move (walls, numworms, worms);
 
             foreach (var other_worm in worms)
             {

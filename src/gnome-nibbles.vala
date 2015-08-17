@@ -118,7 +118,7 @@ public class Nibbles : Gtk.Application
 
         settings = new Settings ("org.gnome.nibbles");
         worm_settings = new Gee.ArrayList<Settings> ();
-        for (int i = 0; i < NibblesGame.NUMHUMANS; i++)
+        for (int i = 0; i < NibblesGame.NUMWORMS; i++)
         {
             var name = "org.gnome.nibbles.worm%d".printf(i);
             worm_settings.add (new Settings (name));

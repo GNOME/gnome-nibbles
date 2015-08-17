@@ -43,22 +43,7 @@ public class Worm : Object
         set {}
     }
 
-    private WormDirection _direction;
-    public WormDirection direction
-    {
-        get { return _direction; }
-        set
-        {
-            if (keypress)
-            {
-                queue_keypress (value);
-                return;
-            }
-
-            _direction = value;
-            keypress = true;
-        }
-    }
+    public WormDirection direction;
 
     public WormDirection starting_direction;
 
@@ -78,7 +63,6 @@ public class Worm : Object
     public Worm (int id)
     {
         this.id = id;
-        is_human = true;
         lives = STARTING_LIVES;
         score = 0;
         change = 0;
@@ -205,8 +189,7 @@ public class Worm : Object
         var position = position_move ();
 
         if (walls[position.x, position.y] > NibblesGame.EMPTYCHAR
-            && walls[position.x, position.y] < 'z' + numworms
-            && position != list.last ()) /* The last position of the worm won't exist in the next frame */
+            && walls[position.x, position.y] < 'z' + numworms)
         {
             return false;
         }
@@ -292,6 +275,26 @@ public class Worm : Object
         return position;
     }
 
+    private void direction_set (WormDirection dir)
+    {
+        if (!is_human)
+            return;
+
+        if (dir > 4)
+            dir = (WormDirection) 1;
+        if (dir < 1)
+            dir = (WormDirection) 4;
+
+        if (keypress)
+        {
+            queue_keypress (dir);
+            return;
+        }
+
+        direction = (WormDirection) dir;
+        keypress = true;
+    }
+
     public bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties?> worm_props)
     {
         WormProperties properties;
@@ -340,7 +343,7 @@ public class Worm : Object
 
     public void handle_direction (WormDirection dir)
     {
-        direction = dir;
+        direction_set (dir);
     }
 
     public void queue_keypress (WormDirection dir)
@@ -357,7 +360,371 @@ public class Worm : Object
     public void dequeue_keypress ()
                 requires (!key_queue.is_empty)
     {
-        direction = key_queue.poll ();
+        direction_set (key_queue.poll ());
+    }
+
+    /* Check whether the worm will be trapped in a dead end. A location
+     * within the dead end and the length of the worm is given. This
+     * prevents worms getting trapped in a spiral, or in a corner sharper
+     * than 90 degrees.  runnumber is a unique number used to update the
+     * deadend board. The principle of the deadend board is that it marks
+     * all squares previously checked, so the exact size of the deadend
+     * can be calculated in O(n) time; to prevent the need to clear it
+     * afterwards, a different number is stored in the board each time
+     * (the number will not have been previously used, so the board will
+     * appear empty). Although in theory deadend_runnumber may wrap round,
+     * after 4 billion steps the entire board is likely to have been
+     * overwritten anyway.
+     */
+    static uint[,] deadend_board = new uint[NibblesGame.WIDTH, NibblesGame.HEIGHT];
+    static uint deadend_runnumber = 0;
+
+    static int ai_deadend (int[,] walls, int numworms, int x, int y, int length_left)
+    {
+        int cdir, cx, cy;
+
+        if (x >= NibblesGame.WIDTH)
+            x = 0;
+        if (x < 0)
+            x = NibblesGame.WIDTH - 1;
+        if (y >= NibblesGame.HEIGHT)
+            y = 0;
+        if (y < 0)
+            y = NibblesGame.HEIGHT - 1;
+
+        if (length_left <= 0)
+            return 0;
+
+        cdir = 5;
+        while (--cdir > 0)
+        {
+            cx = x;
+            cy = y;
+            switch (cdir)
+            {
+                case WormDirection.UP:
+                    cy -= 1;
+                    break;
+                case WormDirection.DOWN:
+                    cy += 1;
+                    break;
+                case WormDirection.LEFT:
+                    cx -= 1;
+                    break;
+                case WormDirection.RIGHT:
+                    cx += 1;
+                    break;
+            }
+
+            if (cx >= NibblesGame.WIDTH)
+                cx = 0;
+            if (cx < 0)
+                cx = NibblesGame.WIDTH - 1;
+            if (cy >= NibblesGame.HEIGHT)
+                cy = 0;
+            if (cy < 0)
+                cy = NibblesGame.HEIGHT - 1;
+
+            if ((walls[cx, cy] <= NibblesGame.EMPTYCHAR
+                || walls[x, y] >= 'z' + numworms)
+                && deadend_board[cx, cy] != deadend_runnumber)
+            {
+                deadend_board[cx, cy] = deadend_runnumber;
+                length_left = ai_deadend (walls, numworms, cx, cy, length_left - 1);
+                if (length_left <= 0)
+                    return 0;
+            }
+        }
+
+        return length_left;
+    }
+
+    /* Check a deadend starting from the next square in this direction,
+     * rather than from this square. Also block off the squares near worm
+     * heads, so that humans can't kill AI players by trapping them
+     * against a wall.  The given length is quartered and squared; this
+     * allows for the situation where the worm has gone round in a square
+     * and is about to get trapped in a spiral. However, it's set to at
+     * least BOARDWIDTH, so that on the levels with long thin paths a worm
+     * won't start down the path if it'll crash at the other end.
+     */
+    private static int ai_deadend_after (int[,] walls, Gee.LinkedList<Worm> worms, int numworms, int x, int y, int dir, int length)
+    {
+        int cx, cy, cl, i;
+
+        if (x < 0 || x >= NibblesGame.WIDTH || y < 0 || y >= NibblesGame.HEIGHT)
+            return 0;
+
+        ++deadend_runnumber;
+
+        if (dir > 4)
+            dir = 1;
+        if (dir < 1)
+            dir = 4;
+
+        i = numworms;
+        while (i-- > 0)
+        {
+            cx = worms[i].head ().x;
+            cy = worms[i].head ().y;
+            if (cx != x || cy != y) {
+                if (cx > 0)
+                    deadend_board[cx-1, cy] = deadend_runnumber;
+                if (cy > 0)
+                    deadend_board[cx, cy-1] = deadend_runnumber;
+                if (cx < NibblesGame.WIDTH-1)
+                    deadend_board[cx+1, cy] = deadend_runnumber;
+                if (cy < NibblesGame.HEIGHT-1)
+                    deadend_board[cx, cy+1] = deadend_runnumber;
+            }
+        }
+
+        cx = x;
+        cy = y;
+        switch (dir)
+        {
+            case WormDirection.UP:
+                cy -= 1;
+                break;
+            case WormDirection.DOWN:
+                cy += 1;
+                break;
+            case WormDirection.LEFT:
+                cx -= 1;
+                break;
+            case WormDirection.RIGHT:
+                cx += 1;
+                break;
+        }
+
+        if (cx >= NibblesGame.WIDTH)
+            cx = 0;
+        if (cx < 0)
+            cx = NibblesGame.WIDTH - 1;
+        if (cy >= NibblesGame.HEIGHT)
+            cy = 0;
+        if (cy < 0)
+            cy = NibblesGame.HEIGHT - 1;
+
+        deadend_board[x, y] = deadend_runnumber;
+        deadend_board[cx, cy] = deadend_runnumber;
+
+        cl = (length * length) / 16;
+        if (cl < NibblesGame.WIDTH)
+            cl = NibblesGame.WIDTH;
+        return Worm.ai_deadend (walls, numworms, cx, cy, cl);
+    }
+
+    /* Check to see if another worm's head is too close in front of us;
+     * that is, that it's within 3 in the direction we're going and within
+     * 1 to the side.
+     */
+    private bool ai_too_close (Gee.LinkedList<Worm> worms, int numworms)
+    {
+        int i = numworms;
+        int dx, dy;
+
+        while (i-- > 0)
+        {
+            dx = head ().x - worms[i].head ().x;
+            dy = head ().y - worms[i].head ().y;
+            switch (direction)
+            {
+                case WormDirection.UP:
+                    if (dy > 0 && dy <= 3 && dx >= -1 && dx <= 1)
+                        return true;
+                    break;
+                case WormDirection.DOWN:
+                    if (dy < 0 && dy >= -3 && dx >= -1 && dx <= 1)
+                        return true;
+                    break;
+                case WormDirection.LEFT:
+                    if (dx > 0 && dx <= 3 && dy >= -1 && dy <= 1)
+                        return true;
+                    break;
+                case WormDirection.RIGHT:
+                    if (dx < 0 && dx >= -3 && dy >= -1 && dy <= 1)
+                        return true;
+                    break;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool ai_wander (int[,] walls, int numworms, int x, int y, int dir, int ox, int oy)
+    {
+        if (dir > 4)
+            dir = 1;
+        if (dir < 1)
+            dir = 4;
+
+        switch (dir)
+        {
+            case WormDirection.UP:
+                y -= 1;
+                break;
+            case WormDirection.DOWN:
+                y += 1;
+                break;
+            case WormDirection.LEFT:
+                x -= 1;
+                break;
+            case WormDirection.RIGHT:
+                x += 1;
+                break;
+        }
+
+        if (x >= NibblesGame.WIDTH)
+            x = 0;
+        if (x < 0)
+            x = NibblesGame.WIDTH - 1;
+        if (y >= NibblesGame.HEIGHT)
+            y = 0;
+        if (y < 0)
+            y = NibblesGame.HEIGHT - 1;
+
+        switch (walls[x, y] - 'A')
+        {
+            case BonusType.REGULAR:
+                return true;
+            case BonusType.DOUBLE:
+                return true;
+            case BonusType.LIFE:
+                return true;
+            case BonusType.REVERSE:
+                return true;
+            case BonusType.HALF:
+                return false;
+            default:
+                if (walls[x, y] > NibblesGame.EMPTYCHAR
+                    && walls[x, y] < 'z' + numworms)
+                {
+                        return false;
+                }
+                else
+                {
+                    if (ox == x && oy == y)
+                        return false;
+
+                    return Worm.ai_wander (walls, numworms, x, y, dir, ox, oy);
+                }
+        }
+    }
+
+    /* Determines the direction of the AI worm. */
+    public void ai_move (int[,] walls, int numworms, Gee.LinkedList<Worm> worms)
+    {
+        var opposite = (direction + 1) % 4 + 1;
+
+        var front = Worm.ai_wander (walls, numworms, head ().x, head ().y, direction, head ().x, head ().y);
+        var left = Worm.ai_wander (walls, numworms, head ().x, head ().y, direction - 1, head ().x, head ().y);
+        var right = Worm.ai_wander (walls, numworms, head ().x, head ().y, direction + 1, head ().x, head ().y);
+
+        int dir;
+        if (!front)
+        {
+            if (left)
+            {
+                /* Found a bonus to the left */
+                dir = direction - 1;
+                if (dir < 1)
+                    dir = 4;
+
+                direction = (WormDirection) dir;
+            }
+            else if (right)
+            {
+                /* Found a bonus to the right */
+                dir = direction + 1;
+                if (dir > 4)
+                    dir = 1;
+
+                direction = (WormDirection) dir;
+            }
+            else
+            {
+                /* Else move in random direction at random time intervals */
+                if (Random.int_range (0, 30) == 1)
+                {
+                    dir = direction + (Random.boolean () ? 1 : -1);
+                    if (dir != opposite)
+                    {
+                        if (dir > 4)
+                            dir = 1;
+                        if (dir < 1)
+                            dir = 4;
+
+                        direction = (WormDirection) dir;
+                    }
+                }
+            }
+        }
+
+        /* Avoid walls, dead-ends and other worm's heads. This is done using
+         * an evalution function which is CAPACITY for a wall, 4 if another
+         * worm's head is in the tooclose area, 4 if another worm's head
+         * could move to the same location as ours, plus 0 if there's no
+         * dead-end, or the amount that doesn't fit for a deadend. olddir's
+         * score is reduced by 100, to favour it, but only if its score is 0
+         * otherwise; this is so that if we're currently trapped in a dead
+         * end, the worm will move in a space-filling manner in the hope
+         * that the dead end will disappear (e.g. if it's made from the tail
+         * of some worm, as often happens).
+         */
+        var old_dir = direction;
+        var best_yet = NibblesGame.CAPACITY * 2;
+        var best_dir = -1;
+
+        int this_len;
+        for (dir = 1; dir <= 4; dir++)
+        {
+            direction = (WormDirection) dir;
+
+            if (dir == opposite)
+                continue;
+            this_len = 0;
+
+            if (!can_move_to (walls, numworms))
+                this_len += NibblesGame.CAPACITY;
+
+            if (ai_too_close (worms, numworms))
+                this_len += 4;
+
+            this_len += ai_deadend_after (walls, worms, numworms, head ().x, head ().y, dir, length + change);
+
+            if (dir == old_dir && this_len <= 0)
+                this_len -= 100;
+
+            /* If the favoured direction isn't appropriate, then choose
+             * another direction at random rather than favouring one in
+             * particular, to stop the worms bunching in the bottom-
+             * right corner of the board.
+             */
+            if (this_len <= 0)
+                this_len -= Random.int_range (0, 100);
+            if (this_len < best_yet)
+            {
+                best_yet = this_len;
+                best_dir = dir;
+            }
+        }
+
+        direction = (WormDirection) best_dir;
+
+        /* Make sure we are at least avoiding walls.
+         * Mostly other snakes should avoid our head.
+         */
+        for (dir = 1; dir <= 4; dir++)
+        {
+            if (dir == opposite)
+                continue;
+
+            if (!can_move_to (walls, numworms))
+                direction = (WormDirection) dir;
+            else
+                continue;
+        }
     }
 }
 
@@ -369,10 +736,11 @@ public struct Position
 
 public enum WormDirection
 {
-    UP,
+    NONE,
+    RIGHT,
     DOWN,
     LEFT,
-    RIGHT
+    UP
 }
 
 public struct WormProperties
