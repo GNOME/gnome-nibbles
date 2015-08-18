@@ -586,7 +586,10 @@ public class Nibbles : Gtk.Application
             if (scores_context.add_score (score, get_scores_category (game.speed, game.fakes)))
                 scores_context.run_dialog ();
             else
-                game_over_cb ();
+            {
+                var scores = scores_context.get_best_n_scores (get_scores_category (game.speed, game.fakes), 10);
+                game_over_cb (score, scores.last ().data.score);
+            }
         }
         catch (GLib.Error e)
         {
@@ -646,26 +649,60 @@ public class Nibbles : Gtk.Application
         overlay.show ();
     }
 
-    public void game_over_cb ()
+    public void game_over_cb (int score, long last_score)
     {
-        var dialog = new Gtk.MessageDialog (window,
-                                            Gtk.DialogFlags.MODAL,
-                                            Gtk.MessageType.INFO,
-                                            Gtk.ButtonsType.NONE,
-                                            _("Game Over!").printf (game.current_level));
+        new_game_action.set_enabled (false);
+        pause_action.set_enabled (false);
 
-        dialog.add_button (_("_Quit"), Gtk.ResponseType.CLOSE);
-        dialog.add_button (_("_Play Again"), Gtk.ResponseType.OK);
-        dialog.response.connect ((response_id) => {
-            if (response_id == Gtk.ResponseType.OK)
-                show_new_game_screen_cb ();
-            if (response_id == Gtk.ResponseType.CLOSE)
-                quit ();
+        var game_over_label = new Gtk.Label (_(@"Game Over!"));
+        game_over_label.halign = Gtk.Align.CENTER;
+        game_over_label.valign = Gtk.Align.START;
+        game_over_label.set_margin_top (window_height / 3);
+        game_over_label.get_style_context ().add_class ("menu-title");
+        game_over_label.show ();
 
-            dialog.destroy ();
+        var points = score > 1 ? "Points" : "Point";
+        var score_label = new Gtk.Label (_(@"<b>$(score) $(points)</b>"));
+        score_label.set_use_markup (true);
+        score_label.halign = Gtk.Align.CENTER;
+        score_label.valign = Gtk.Align.START;
+        score_label.set_margin_top (window_height / 3 + 80);
+        score_label.show ();
+
+        var points_left = last_score - score;
+        var points_left_label = new Gtk.Label (_(@"($(points_left) points to reach the leaderboard)"));
+        points_left_label.halign = Gtk.Align.CENTER;
+        points_left_label.valign = Gtk.Align.START;
+        points_left_label.set_margin_top (window_height / 3 + 100);
+        points_left_label.show ();
+
+        var button = new Gtk.Button.with_label (_("_Play Again"));
+        button.set_use_underline (true);
+        button.halign = Gtk.Align.CENTER;
+        button.valign = Gtk.Align.END;
+        button.set_margin_bottom (100);
+        button.get_style_context ().add_class ("suggested-action");
+        button.clicked.connect (() => {
+            game_over_label.destroy ();
+            score_label.destroy ();
+            points_left_label.destroy ();
+            button.destroy ();
+
+            new_game_action.set_enabled (true);
+            pause_action.set_enabled (true);
+
+            show_new_game_screen_cb ();
         });
+        button.show ();
 
-        dialog.show ();
+        overlay.add_overlay (game_over_label);
+        overlay.add_overlay (score_label);
+        overlay.add_overlay (points_left_label);
+        overlay.add_overlay (button);
+
+        button.grab_focus ();
+
+        overlay.show ();
     }
 
     private void about_cb ()
