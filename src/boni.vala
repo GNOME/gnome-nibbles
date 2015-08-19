@@ -22,6 +22,7 @@
 public class Boni : Object
 {
     public Gee.LinkedList<Bonus> bonuses;
+
     public int missed;
     public int numleft;
     public int numboni;

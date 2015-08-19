@@ -50,7 +50,10 @@ public class Worm : Object
             Position head = list.first ();
             return head;
         }
-        set {}
+        private set
+        {
+            list.set (0, value);
+        }
     }
 
     public WormDirection direction;
@@ -69,6 +72,7 @@ public class Worm : Object
     public signal void reversed ();
 
     public signal void bonus_found ();
+    public signal void warp_found ();
 
     public Worm (int id)
     {
@@ -132,6 +136,9 @@ public class Worm : Object
         /* Add a new body piece */
         list.offer_head (position);
 
+        if (walls[head.x, head.y] == NibblesGame.WARPCHAR)
+            warp_found ();
+
         if (change > 0)
         {
             change--;
@@ -187,6 +194,11 @@ public class Worm : Object
             direction = (list[0].x > list[1].x) ? WormDirection.RIGHT : WormDirection.LEFT;
         else
             direction = (list[0].y > list[1].y) ? WormDirection.DOWN : WormDirection.UP;
+    }
+
+    public void warp (Warp warp)
+    {
+        head = Position () { x = warp.wx, y = warp.wy };
     }
 
     public bool can_move_to (int[,] walls, int numworms)

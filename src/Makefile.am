@@ -9,6 +9,7 @@ gnome_nibbles_SOURCES = \
 	nibbles-game.vala \
 	worm.vala \
 	boni.vala \
+	warp.vala \
 	$(BUILT_SOURCES)
 
 gnome_nibbles_CFLAGS = -w

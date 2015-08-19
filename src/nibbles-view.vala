@@ -34,6 +34,8 @@ public class NibblesView : GtkClutter.Embed
 
             _game.bonus_applied.connect (bonus_applied_cb);
 
+            _game.warp_manager.warp_added.connect (warp_added_cb);
+
             _game.animate_end_game.connect (animate_end_game_cb);
         }
     }
@@ -48,6 +50,7 @@ public class NibblesView : GtkClutter.Embed
 
     public Gee.HashMap<Worm, WormActor> worm_actors;
     public Gee.HashMap<Bonus, BonusTexture> bonus_actors;
+    public Gee.HashMap<Warp, WarpTexture> warp_actors;
 
     public const int NUM_COLORS = 6;
     public static string[] color_lookup =
@@ -75,6 +78,7 @@ public class NibblesView : GtkClutter.Embed
 
         worm_actors = new Gee.HashMap<Worm, WormActor> ();
         bonus_actors = new Gee.HashMap<Bonus, BonusTexture> ();
+        warp_actors = new Gee.HashMap<Warp, WarpTexture> ();
 
         load_pixmap ();
     }
@@ -109,6 +113,10 @@ public class NibblesView : GtkClutter.Embed
         foreach (var actor in bonus_actors.values)
             actor.destroy ();
         bonus_actors.clear ();
+
+        foreach (var actor in warp_actors.values)
+            actor.destroy ();
+        warp_actors.clear ();
 
         game.boni.reset (game.numworms);
 
@@ -169,6 +177,30 @@ public class NibblesView : GtkClutter.Embed
                             count++;
                         }
                         break;
+                    case 'Q':
+                    case 'R':
+                    case 'S':
+                    case 'T':
+                    case 'U':
+                    case 'V':
+                    case 'W':
+                    case 'X':
+                    case 'Y':
+                    case 'Z':
+                        game.warp_manager.add_warp (game.walls, j - 1, i - 1, -(game.walls[j, i]), 0);
+                        break;
+                    case 'r':
+                    case 's':
+                    case 't':
+                    case 'u':
+                    case 'v':
+                    case 'w':
+                    case 'x':
+                    case 'y':
+                    case 'z':
+                        game.warp_manager.add_warp (game.walls, -(game.walls[j, i] - 'a' + 'A'), 0, j, i);
+                        game.walls[j, i] = NibblesGame.EMPTYCHAR;
+                        break;
                     default:
                         break;
                 }
@@ -213,9 +245,6 @@ public class NibblesView : GtkClutter.Embed
             "bonus5.svg",
             "questionmark.svg"
         };
-
-
-
 
         string[] small_files =
         {
@@ -476,6 +505,19 @@ public class NibblesView : GtkClutter.Embed
             actor.restore_easing_state ();
         }
 
+        foreach (var warp in game.warp_manager.warps)
+        {
+            var actor = warp_actors.get (warp);
+
+            actor.save_easing_state ();
+            actor.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
+            actor.set_easing_duration (NibblesGame.GAMEDELAY * 15);
+            actor.set_scale (0.4f, 0.4f);
+            actor.set_pivot_point (0.5f, 0.5f);
+            actor.set_opacity (0);
+            actor.restore_easing_state ();
+        }
+
         level.save_easing_state ();
         level.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
         level.set_easing_duration (NibblesGame.GAMEDELAY * 20);
@@ -484,6 +526,10 @@ public class NibblesView : GtkClutter.Embed
         level.set_opacity (0);
         level.restore_easing_state ();
     }
+
+    /*\
+    * * Worms drawing
+    \*/
 
     public void worm_added_cb (Worm worm)
     {
@@ -632,6 +678,10 @@ public class NibblesView : GtkClutter.Embed
         }
     }
 
+    /*\
+    * * Bonuses drawing
+    \*/
+
     public void bonus_added_cb ()
     {
         /* Last bonus added to the list is the one that needs a texture */
@@ -652,6 +702,7 @@ public class NibblesView : GtkClutter.Embed
             error (_("Nibbles failed to set texture: %s"), e.message);
         }
 
+        actor.set_size (2 * game.tile_size, 2 * game.tile_size);
         actor.set_position (bonus.x * game.tile_size, bonus.y * game.tile_size);
 
         level.add_child (actor);
@@ -732,6 +783,64 @@ public class NibblesView : GtkClutter.Embed
         }
     }
 
+    /*\
+    * * Warps drawing
+    \*/
+    public void warp_added_cb (Warp warp)
+    {
+        var actor = new WarpTexture ();
+        try
+        {
+            actor.set_from_pixbuf (boni_pixmaps[BonusType.WARP]);
+        }
+        catch (Clutter.TextureError e)
+        {
+            /* Fatal console error when a texture could not be set. */
+            error (_("Nibbles failed to set texture: %s"), e.message);
+        }
+        catch (Error e)
+        {
+            /* Fatal console error when a texture could not be set. */
+            error (_("Nibbles failed to set texture: %s"), e.message);
+        }
+
+        actor.set_size (2 * game.tile_size, 2 * game.tile_size);
+        actor.set_position (warp.x * game.tile_size, warp.y * game.tile_size);
+
+        stage.add_child (actor);
+
+        warp_actors.set (warp, actor);
+    }
+
+    public void warps_rescale (int tile_size)
+    {
+        float x_pos, y_pos;
+
+        foreach (var warp in game.warp_manager.warps)
+        {
+            var actor = warp_actors.get (warp);
+            actor.get_position (out x_pos, out y_pos);
+            actor.set_position ((x_pos / game.tile_size) * tile_size,
+                                (y_pos / game.tile_size) * tile_size);
+
+            try
+            {
+                actor.set_from_pixbuf (boni_pixmaps[BonusType.WARP]);
+            }
+            catch (Clutter.TextureError e)
+            {
+                /* Fatal console error when a texture could not be set. */
+                error (_("Nibbles failed to set texture: %s"), e.message);
+            }
+            catch (Error e)
+            {
+                /* Fatal console error when a texture could not be set. */
+                error (_("Nibbles failed to set texture: %s"), e.message);
+            }
+        }
+    }
+
+
     private void play_sound (string name)
     {
         if (is_muted)
@@ -793,6 +902,25 @@ public class BonusTexture : GtkClutter.Texture
         save_easing_state ();
         set_easing_mode (Clutter.AnimationMode.EASE_OUT_BOUNCE);
         set_easing_duration (NibblesGame.GAMEDELAY * 20);
+        set_scale (1.0, 1.0);
+        set_pivot_point (0.5f, 0.5f);
+        set_opacity (0xff);
+        restore_easing_state ();
+    }
+}
+
+public class WarpTexture: GtkClutter.Texture
+{
+    public override void show ()
+    {
+        base.show ();
+
+        set_opacity (0);
+        set_scale (2.0, 2.0);
+
+        save_easing_state ();
+        set_easing_mode (Clutter.AnimationMode.EASE_OUT_CIRC);
+        set_easing_duration (NibblesGame.GAMEDELAY * 15);
         set_scale (1.0, 1.0);
         set_pivot_point (0.5f, 0.5f);
         set_opacity (0xff);

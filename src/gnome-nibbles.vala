@@ -267,6 +267,7 @@ public class Nibbles : Gtk.Application
 
             view.board_rescale (tile_size);
             view.boni_rescale (tile_size);
+            view.warps_rescale (tile_size);
             foreach (var worm in game.worms)
                 worm.rescaled (tile_size);
 

@@ -21,19 +21,6 @@
 
 public class NibblesGame : Object
 {
-    private Boni _boni;
-    public Boni boni
-    {
-        get { return _boni; }
-        set
-        {
-            if (_boni != null)
-                SignalHandler.disconnect_matched (_boni, SignalMatchType.DATA, 0, 0, null, null, this);
-
-            _boni = value;
-        }
-    }
-
     public int tile_size;
     public int start_level;
 
@@ -53,6 +40,7 @@ public class NibblesGame : Object
 
     public const char EMPTYCHAR = 'a';
     public const char WORMCHAR = 'w';
+    public const char WARPCHAR = 'W';
 
     public const int MAX_LEVEL = 26;
 
@@ -61,11 +49,14 @@ public class NibblesGame : Object
 
     public Gee.LinkedList<Worm> worms;
 
+    public Boni boni;
+    public WarpManager warp_manager;
+
     public int numhumans;
     public int numai;
     public int numworms;
 
-    public int speed = 1;
+    public int speed = 4;
 
     public bool is_running = false;
     public bool is_paused { get; private set; }
@@ -87,6 +78,7 @@ public class NibblesGame : Object
     public NibblesGame (Settings settings)
     {
         boni = new Boni (numworms);
+        warp_manager = new WarpManager ();
         walls = new int[WIDTH, HEIGHT];
         worms = new Gee.LinkedList<Worm> ();
         worm_props = new Gee.HashMap<Worm, WormProperties?> ();
@@ -202,6 +194,7 @@ public class NibblesGame : Object
         {
             var worm = new Worm (i);
             worm.bonus_found.connect (bonus_found_cb);
+            worm.warp_found.connect (warp_found_cb);
             worm.is_human = (i < numhumans);
             worms.add (worm);
         }
@@ -475,6 +468,15 @@ public class NibblesGame : Object
             boni.remove_bonus (walls, bonus);
             boni.bonuses.remove (bonus);
         }
+    }
+
+    public void warp_found_cb (Worm worm)
+    {
+        var warp = warp_manager.get_warp (worm.head.x, worm.head.y);
+        if (warp == null)
+            return;
+
+        worm.warp (walls, warp);
     }
 
     public GameStatus? get_game_status ()
