@@ -18,47 +18,59 @@
 
 public class Nibbles : Gtk.Application
 {
+    /* Application and worm settings */
     private Settings settings;
     private Gee.ArrayList<Settings> worm_settings;
 
+    /* Main window */
+    private Gtk.ApplicationWindow window;
     private bool is_maximized;
     private bool is_tiled;
     private int window_width;
     private int window_height;
 
-    private Gtk.ApplicationWindow window;
-    private Gtk.HeaderBar headerbar;
+    private Gtk.Stack main_stack;
     private Gtk.Overlay overlay;
+
+    /* HeaderBar */
+    private Gtk.HeaderBar headerbar;
     private Gtk.Button new_game_button;
     private Gtk.Button pause_button;
-    private Gtk.Stack main_stack;
-    private Gtk.Box game_box;
-    private Games.GridFrame frame;
+
+    /* Pre-game screen widgets */
+    private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
+    private Gtk.Revealer next_button_revealer;
+
+    private Gtk.Box grids_box;
+    private Gdk.Pixbuf arrow_pixbuf;
+    private Gdk.Pixbuf arrow_key_pixbuf;
+
+    /* Statusbar widgets */
     private Gtk.Stack statusbar_stack;
     private Gtk.Label countdown;
     private Scoreboard scoreboard;
     private Gdk.Pixbuf scoreboard_life;
-    private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
-    private Gtk.Revealer next_button_revealer;
 
-    /* Controls screen grids and pixbufs */
-    private Gtk.Box grids_box;
-    private Gdk.Pixbuf arrow_pixbuf;
-    private Gdk.Pixbuf arrow_key_pixbuf;
+    /* Rendering of the game */
+    private NibblesView? view;
+
+    private Gtk.Box game_box;
+    private Games.GridFrame frame;
+
+    /* Game being played */
+    private NibblesGame? game = null;
 
     /* Used for handling the game's scores */
     private Games.Scores.Context scores_context;
     private Gee.LinkedList<Games.Scores.Category> scorecats;
 
-    private NibblesView? view;
-    private NibblesGame? game = null;
-
-    private const int COUNTDOWN_TIME = 3;
-    private uint countdown_id = 0;
-
+    /* HeaderBar actions */
     private SimpleAction new_game_action;
     private SimpleAction pause_action;
     private SimpleAction back_action;
+
+    private uint countdown_id = 0;
+    private const int COUNTDOWN_TIME = 3;
 
     private const ActionEntry action_entries[] =
     {
@@ -135,7 +147,6 @@ public class Nibbles : Gtk.Application
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
-
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
@@ -172,6 +183,7 @@ public class Nibbles : Gtk.Application
                 statusbar_stack.set_visible_child_name ("scoreboard");
         });
 
+        /* Create view */
         view = new NibblesView (game);
         view.configure_event.connect (configure_event_cb);
         view.is_muted = !settings.get_boolean ("sound");
@@ -180,6 +192,7 @@ public class Nibbles : Gtk.Application
         frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
         game_box.pack_start (frame);
 
+        /* Create scoreboard */
         scoreboard = new Scoreboard ();
         scoreboard_life = view.load_pixmap_file ("scoreboard-life.svg", 2 * game.tile_size, 2 * game.tile_size);
         scoreboard.show ();
@@ -192,7 +205,7 @@ public class Nibbles : Gtk.Application
         arrow_pixbuf = view.load_pixmap_file ("arrow.svg", 5 * game.tile_size, 5 * game.tile_size);
         arrow_key_pixbuf = view.load_pixmap_file ("arrow-key.svg", 5 * game.tile_size, 5 * game.tile_size);
 
-        /* Check wether to display the first run screen */
+        /* Check whether to display the first run screen */
         var first_run = settings.get_boolean ("first-run");
         if (first_run)
             show_first_run_screen ();
@@ -201,6 +214,7 @@ public class Nibbles : Gtk.Application
 
         window.show ();
 
+        /* Create scores */
         create_scores ();
     }
 
@@ -243,7 +257,7 @@ public class Nibbles : Gtk.Application
         return false;
     }
 
-    public bool configure_event_cb (Gdk.EventConfigure event)
+    private bool configure_event_cb (Gdk.EventConfigure event)
     {
         int tile_size, ts_x, ts_y;
 
@@ -303,7 +317,7 @@ public class Nibbles : Gtk.Application
         start_game_with_countdown ();
     }
 
-    public void start_game_with_countdown ()
+    private void start_game_with_countdown ()
     {
         statusbar_stack.set_visible_child_name ("countdown");
 
@@ -501,7 +515,7 @@ public class Nibbles : Gtk.Application
     * * Scoring
     \*/
 
-    public void create_scores ()
+    private void create_scores ()
     {
         scores_context = new Games.Scores.Context ("gnome-nibbles", "", window, Games.Scores.Style.PLAIN_DESCENDING);
 
@@ -525,7 +539,7 @@ public class Nibbles : Gtk.Application
         });
     }
 
-    public Games.Scores.Category get_scores_category (int speed, bool fakes)
+    private Games.Scores.Category get_scores_category (int speed, bool fakes)
     {
         string key = null;
         switch (speed)
@@ -556,7 +570,7 @@ public class Nibbles : Gtk.Application
         return scorecats.first ();
     }
 
-    public void log_score_cb (int score)
+    private void log_score_cb (int score)
     {
         if (game.numhumans != 1)
             return;
@@ -598,7 +612,7 @@ public class Nibbles : Gtk.Application
         }
     }
 
-    public void level_completed_cb ()
+    private void level_completed_cb ()
     {
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -635,7 +649,7 @@ public class Nibbles : Gtk.Application
         overlay.show ();
     }
 
-    public void game_over_cb (int score, long last_score)
+    private void game_over_cb (int score, long last_score)
     {
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -767,7 +781,7 @@ public class Nibbles : Gtk.Application
 }
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/scoreboard.ui")]
-public class Scoreboard : Gtk.Box
+private class Scoreboard : Gtk.Box
 {
     private Gee.HashMap<PlayerScoreBox, Worm> boxes;
 
@@ -809,7 +823,7 @@ public class Scoreboard : Gtk.Box
 }
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/player-score-box.ui")]
-public class PlayerScoreBox : Gtk.Box
+private class PlayerScoreBox : Gtk.Box
 {
     [GtkChild]
     private Gtk.Label name_label;
@@ -870,7 +884,7 @@ public class PlayerScoreBox : Gtk.Box
 }
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/controls-grid.ui")]
-public class ControlsGrid : Gtk.Grid
+private class ControlsGrid : Gtk.Grid
 {
     [GtkChild]
     private Gtk.Label name_label;
