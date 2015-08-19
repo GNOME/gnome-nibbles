@@ -18,6 +18,23 @@
 
 public class NibblesView : GtkClutter.Embed
 {
+    /* Sound */
+    public bool is_muted;
+
+    /* Pixmaps */
+    private Gdk.Pixbuf wall_pixmaps[11];
+    private Gdk.Pixbuf worm_pixmaps[6];
+    private Gdk.Pixbuf boni_pixmaps[9];
+
+    /* Actors */
+    private Clutter.Stage stage;
+    private Clutter.Actor level;
+    public Clutter.Actor name_labels { get; private set; }
+
+    private Gee.HashMap<Worm, WormActor> worm_actors;
+    private Gee.HashMap<Bonus, BonusTexture> bonus_actors;
+    private Gee.HashMap<Warp, WarpTexture> warp_actors;
+
     /* Game being played */
     private NibblesGame _game;
     public NibblesGame game
@@ -40,18 +57,7 @@ public class NibblesView : GtkClutter.Embed
         }
     }
 
-    public Clutter.Stage stage { get; private set; }
-    private Clutter.Actor level;
-    public Clutter.Actor name_labels { get; private set; }
-
-    private Gdk.Pixbuf wall_pixmaps[11];
-    public Gdk.Pixbuf worm_pixmaps[6];
-    private Gdk.Pixbuf boni_pixmaps[9];
-
-    public Gee.HashMap<Worm, WormActor> worm_actors;
-    public Gee.HashMap<Bonus, BonusTexture> bonus_actors;
-    public Gee.HashMap<Warp, WarpTexture> warp_actors;
-
+    /* Colors */
     public const int NUM_COLORS = 6;
     public static string[] color_lookup =
     {
@@ -62,8 +68,6 @@ public class NibblesView : GtkClutter.Embed
       "cyan",
       "purple"
     };
-
-    public bool is_muted;
 
     public NibblesView (NibblesGame game)
     {
@@ -83,10 +87,9 @@ public class NibblesView : GtkClutter.Embed
         load_pixmap ();
     }
 
-    public override bool key_press_event (Gdk.EventKey event)
-    {
-        return game.handle_keypress (event.keyval);
-    }
+    /*\
+    * * Level creationg and loading
+    \*/
 
     public void new_level (int level)
     {
@@ -214,87 +217,7 @@ public class NibblesView : GtkClutter.Embed
         load_level ();
     }
 
-    public Gdk.Pixbuf load_pixmap_file (string pixmap, int xsize, int ysize)
-    {
-        var filename = Path.build_filename (PKGDATADIR, "pixmaps", pixmap, null);
-        if (filename == null)
-        {
-            /* Fatal console error when the game's data files are missing. */
-            error (_("Nibbles couldn't find pixmap file: %s"), filename);
-        }
-
-        Gdk.Pixbuf image = null;
-        try
-        {
-            image = new Gdk.Pixbuf.from_file_at_scale (filename, xsize, ysize, true);
-        }
-        catch (Error e)
-        {
-            warning ("Failed to load pixmap file: %s", e.message);
-        }
-
-        return image;
-    }
-
-    private void load_pixmap ()
-    {
-        string[] bonus_files =
-        {
-            "bonus1.svg",
-            "bonus2.svg",
-            "bonus3.svg",
-            "life.svg",
-            "diamond.svg",
-            "bonus4.svg",
-            "bonus5.svg",
-            "questionmark.svg"
-        };
-
-        string[] small_files =
-        {
-            "wall-straight-up.svg",
-            "wall-straight-side.svg",
-            "wall-corner-bottom-left.svg",
-            "wall-corner-bottom-right.svg",
-            "wall-corner-top-left.svg",
-            "wall-corner-top-right.svg",
-            "wall-tee-up.svg",
-            "wall-tee-right.svg",
-            "wall-tee-left.svg",
-            "wall-tee-down.svg",
-            "wall-cross.svg"
-        };
-
-        string[] worm_files =
-        {
-            "snake-red.svg",
-            "snake-green.svg",
-            "snake-blue.svg",
-            "snake-yellow.svg",
-            "snake-cyan.svg",
-            "snake-magenta.svg"
-        };
-
-        for (int i = 0; i < 8; i++)
-        {
-            boni_pixmaps[i] = load_pixmap_file (bonus_files[i],
-                                                2 * game.tile_size, 2 * game.tile_size);
-        }
-
-        for (int i = 0; i < 11; i++)
-        {
-            wall_pixmaps[i] = load_pixmap_file (small_files[i],
-                                                2 * game.tile_size, 2 * game.tile_size);
-        }
-
-        for (int i = 0; i < 6; i++)
-        {
-            worm_pixmaps[i] = load_pixmap_file (worm_files[i],
-                                                game.tile_size, game.tile_size);
-        }
-    }
-
-    void load_level ()
+    private void load_level ()
     {
         int x_pos, y_pos;
         GtkClutter.Texture tmp = null;
@@ -401,32 +324,88 @@ public class NibblesView : GtkClutter.Embed
         level.restore_easing_state ();
     }
 
-    public void create_name_labels ()
+    /*\
+    * * Pixmaps loading
+    \*/
+
+    public Gdk.Pixbuf load_pixmap_file (string pixmap, int xsize, int ysize)
     {
-        name_labels = new Clutter.Actor ();
-        foreach (var worm in game.worms)
+        var filename = Path.build_filename (PKGDATADIR, "pixmaps", pixmap, null);
+        if (filename == null)
         {
-            var color = game.worm_props.get (worm).color;
-
-            var label = new Clutter.Text.with_text ("Monospace 10", _(@"<b>Player $(worm.id + 1)</b>"));
-            label.set_use_markup (true);
-            label.set_color (Clutter.Color.from_string (colorval_name (color)));
-
-            var middle = worm.length / 2;
-            if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
-            {
-                label.set_x (worm.list[middle].x * game.tile_size - label.width / 2 + game.tile_size / 2);
-                label.set_y (worm.list[middle].y * game.tile_size - 5 * game.tile_size);
-            }
-            else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
-            {
-                label.set_x (worm.list[middle].x * game.tile_size - label.width / 2 + game.tile_size / 2);
-                label.set_y (worm.head.y * game.tile_size - 3 * game.tile_size);
-            }
-            name_labels.add (label);
+            /* Fatal console error when the game's data files are missing. */
+            error (_("Nibbles couldn't find pixmap file: %s"), filename);
         }
 
-        level.add_child (name_labels);
+        Gdk.Pixbuf image = null;
+        try
+        {
+            image = new Gdk.Pixbuf.from_file_at_scale (filename, xsize, ysize, true);
+        }
+        catch (Error e)
+        {
+            warning ("Failed to load pixmap file: %s", e.message);
+        }
+
+        return image;
+    }
+
+    private void load_pixmap ()
+    {
+        string[] bonus_files =
+        {
+            "bonus1.svg",
+            "bonus2.svg",
+            "bonus3.svg",
+            "life.svg",
+            "diamond.svg",
+            "bonus4.svg",
+            "bonus5.svg",
+            "questionmark.svg"
+        };
+
+        string[] small_files =
+        {
+            "wall-straight-up.svg",
+            "wall-straight-side.svg",
+            "wall-corner-bottom-left.svg",
+            "wall-corner-bottom-right.svg",
+            "wall-corner-top-left.svg",
+            "wall-corner-top-right.svg",
+            "wall-tee-up.svg",
+            "wall-tee-right.svg",
+            "wall-tee-left.svg",
+            "wall-tee-down.svg",
+            "wall-cross.svg"
+        };
+
+        string[] worm_files =
+        {
+            "snake-red.svg",
+            "snake-green.svg",
+            "snake-blue.svg",
+            "snake-yellow.svg",
+            "snake-cyan.svg",
+            "snake-magenta.svg"
+        };
+
+        for (int i = 0; i < 8; i++)
+        {
+            boni_pixmaps[i] = load_pixmap_file (bonus_files[i],
+                                                2 * game.tile_size, 2 * game.tile_size);
+        }
+
+        for (int i = 0; i < 11; i++)
+        {
+            wall_pixmaps[i] = load_pixmap_file (small_files[i],
+                                                2 * game.tile_size, 2 * game.tile_size);
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+            worm_pixmaps[i] = load_pixmap_file (worm_files[i],
+                                                game.tile_size, game.tile_size);
+        }
     }
 
     public void connect_worm_signals ()
@@ -482,32 +461,13 @@ public class NibblesView : GtkClutter.Embed
         }
     }
 
-    public void animate_end_game_cb ()
+    private void animate_end_game_cb ()
     {
         foreach (var worm in game.worms)
-        {
-            var actors = worm_actors.get (worm);
-
-            actors.save_easing_state ();
-            actors.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
-            actors.set_easing_duration (NibblesGame.GAMEDELAY * 15);
-            actors.set_scale (0.4f, 0.4f);
-            actors.set_opacity (0);
-            actors.restore_easing_state ();
-        }
+            worm_actors.get (worm).hide ();
 
         foreach (var warp in game.warp_manager.warps)
-        {
-            var actor = warp_actors.get (warp);
-
-            actor.save_easing_state ();
-            actor.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
-            actor.set_easing_duration (NibblesGame.GAMEDELAY * 15);
-            actor.set_scale (0.4f, 0.4f);
-            actor.set_pivot_point (0.5f, 0.5f);
-            actor.set_opacity (0);
-            actor.restore_easing_state ();
-        }
+            warp_actors.get (warp).hide ();
 
         level.save_easing_state ();
         level.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
@@ -518,11 +478,39 @@ public class NibblesView : GtkClutter.Embed
         level.restore_easing_state ();
     }
 
+    public void create_name_labels ()
+    {
+        name_labels = new Clutter.Actor ();
+        foreach (var worm in game.worms)
+        {
+            var color = game.worm_props.get (worm).color;
+
+            var label = new Clutter.Text.with_text ("Monospace 10", _(@"<b>Player $(worm.id + 1)</b>"));
+            label.set_use_markup (true);
+            label.set_color (Clutter.Color.from_string (colorval_name (color)));
+
+            var middle = worm.length / 2;
+            if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
+            {
+                label.set_x (worm.list[middle].x * game.tile_size - label.width / 2 + game.tile_size / 2);
+                label.set_y (worm.list[middle].y * game.tile_size - 5 * game.tile_size);
+            }
+            else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
+            {
+                label.set_x (worm.list[middle].x * game.tile_size - label.width / 2 + game.tile_size / 2);
+                label.set_y (worm.head.y * game.tile_size - 3 * game.tile_size);
+            }
+            name_labels.add (label);
+        }
+
+        level.add_child (name_labels);
+    }
+
     /*\
     * * Worms drawing
     \*/
 
-    public void worm_added_cb (Worm worm)
+    private void worm_added_cb (Worm worm)
     {
         var actor = new GtkClutter.Texture ();
         try
@@ -546,7 +534,7 @@ public class NibblesView : GtkClutter.Embed
         actors.add_child (actor);
     }
 
-    public void worm_moved_cb (Worm worm)
+    private void worm_moved_cb (Worm worm)
     {
         var actors = worm_actors.get (worm);
 
@@ -555,7 +543,7 @@ public class NibblesView : GtkClutter.Embed
         worm_added_cb (worm);
     }
 
-    public void worm_rescaled_cb (Worm worm, int tile_size)
+    private void worm_rescaled_cb (Worm worm, int tile_size)
     {
         float x_pos, y_pos;
         var actors = worm_actors.get (worm);
@@ -571,7 +559,7 @@ public class NibblesView : GtkClutter.Embed
         }
     }
 
-    public void worm_died_cb (Worm worm)
+    private void worm_died_cb (Worm worm)
     {
         float x, y;
         var group = new Clutter.Actor ();
@@ -617,7 +605,7 @@ public class NibblesView : GtkClutter.Embed
         play_sound ("crash");
     }
 
-    public void worm_tail_reduced_cb (Worm worm, int erase_size)
+    private void worm_tail_reduced_cb (Worm worm, int erase_size)
     {
         float x, y;
         var group = new Clutter.Actor ();
@@ -657,7 +645,7 @@ public class NibblesView : GtkClutter.Embed
         group.restore_easing_state ();
     }
 
-    public void worm_reversed_cb (Worm worm)
+    private void worm_reversed_cb (Worm worm)
     {
         var actors = worm_actors.get (worm);
 
@@ -673,7 +661,7 @@ public class NibblesView : GtkClutter.Embed
     * * Bonuses drawing
     \*/
 
-    public void bonus_added_cb ()
+    private void bonus_added_cb ()
     {
         /* Last bonus added to the list is the one that needs a texture */
         var bonus = game.boni.bonuses.last ();
@@ -703,7 +691,7 @@ public class NibblesView : GtkClutter.Embed
         bonus_actors.set (bonus, actor);
     }
 
-    public void bonus_removed_cb (Bonus bonus)
+    private void bonus_removed_cb (Bonus bonus)
     {
         var bonus_actor = bonus_actors.get (bonus);
         bonus_actors.unset (bonus);
@@ -711,7 +699,7 @@ public class NibblesView : GtkClutter.Embed
         level.remove_child (bonus_actor);
     }
 
-    public void bonus_applied_cb (Worm worm)
+    private void bonus_applied_cb (Worm worm)
     {
         var actors = worm_actors.get (worm);
         var actor = actors.last_child;
@@ -723,6 +711,7 @@ public class NibblesView : GtkClutter.Embed
         actor.set_pivot_point (0.5f, 0.5f);
         actor.restore_easing_state ();
 
+        /* Play sound based on applied bonus */
         var bonus = game.boni.bonuses.last ();
         switch (bonus.type)
         {
@@ -777,7 +766,8 @@ public class NibblesView : GtkClutter.Embed
     /*\
     * * Warps drawing
     \*/
-    public void warp_added_cb (Warp warp)
+
+    private void warp_added_cb (Warp warp)
     {
         var actor = new WarpTexture ();
         try
@@ -831,6 +821,18 @@ public class NibblesView : GtkClutter.Embed
         }
     }
 
+    /*\
+    * * Input handling
+    \*/
+
+    public override bool key_press_event (Gdk.EventKey event)
+    {
+        return game.handle_keypress (event.keyval);
+    }
+
+    /*\
+    * * Sound
+    \*/
 
     private void play_sound (string name)
     {
@@ -844,6 +846,10 @@ public class NibblesView : GtkClutter.Embed
                                      Canberra.PROP_MEDIA_NAME, name,
                                      Canberra.PROP_MEDIA_FILENAME, path);
     }
+
+    /*\
+    * * Color conversion (name <-> value)
+    \*/
 
     public static int colorval_from_name (string name)
     {
@@ -862,7 +868,7 @@ public class NibblesView : GtkClutter.Embed
     }
 }
 
-public class WormActor : Clutter.Actor
+private class WormActor : Clutter.Actor
 {
     public override void show ()
     {
@@ -879,9 +885,19 @@ public class WormActor : Clutter.Actor
         set_opacity (0xff);
         restore_easing_state ();
     }
+
+    public override void hide ()
+    {
+        save_easing_state ();
+        set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
+        set_easing_duration (NibblesGame.GAMEDELAY * 15);
+        set_scale (0.4f, 0.4f);
+        set_opacity (0);
+        restore_easing_state ();
+    }
 }
 
-public class BonusTexture : GtkClutter.Texture
+private class BonusTexture : GtkClutter.Texture
 {
     public override void show ()
     {
@@ -900,7 +916,7 @@ public class BonusTexture : GtkClutter.Texture
     }
 }
 
-public class WarpTexture: GtkClutter.Texture
+private class WarpTexture: GtkClutter.Texture
 {
     public override void show ()
     {
@@ -915,6 +931,17 @@ public class WarpTexture: GtkClutter.Texture
         set_scale (1.0, 1.0);
         set_pivot_point (0.5f, 0.5f);
         set_opacity (0xff);
+        restore_easing_state ();
+    }
+
+    public override void hide ()
+    {
+        save_easing_state ();
+        set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
+        set_easing_duration (NibblesGame.GAMEDELAY * 15);
+        set_scale (0.4f, 0.4f);
+        set_pivot_point (0.5f, 0.5f);
+        set_opacity (0);
         restore_easing_state ();
     }
 }
