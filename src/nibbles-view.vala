@@ -105,7 +105,6 @@ public class NibblesView : GtkClutter.Embed
             error (_("Nibbles couldn't find pixmap file: %s"), filename);
         }
 
-
         foreach (var actor in worm_actors.values)
             actor.destroy ();
         worm_actors.clear ();
@@ -119,6 +118,7 @@ public class NibblesView : GtkClutter.Embed
         warp_actors.clear ();
 
         game.boni.reset (game.numworms);
+        game.warp_manager.warps.clear ();
 
         for (int i = 0; i < NibblesGame.HEIGHT; i++)
         {
@@ -140,6 +140,7 @@ public class NibblesView : GtkClutter.Embed
                             game.worms[count].set_start (j, i, WormDirection.UP);
 
                             var actors = new WormActor ();
+                            stage.add_child (actors);
                             worm_actors.set (game.worms[count], actors);
                             count++;
                         }
@@ -151,6 +152,7 @@ public class NibblesView : GtkClutter.Embed
                             game.worms[count].set_start (j, i, WormDirection.LEFT);
 
                             var actors = new WormActor ();
+                            stage.add_child (actors);
                             worm_actors.set (game.worms[count], actors);
                             count++;
                         }
@@ -162,6 +164,7 @@ public class NibblesView : GtkClutter.Embed
                             game.worms[count].set_start (j, i, WormDirection.DOWN);
 
                             var actors = new WormActor ();
+                            stage.add_child (actors);
                             worm_actors.set (game.worms[count], actors);
                             count++;
                         }
@@ -173,6 +176,7 @@ public class NibblesView : GtkClutter.Embed
                             game.worms[count].set_start (j, i, WormDirection.RIGHT);
 
                             var actors = new WormActor ();
+                            stage.add_child (actors);
                             worm_actors.set (game.worms[count], actors);
                             count++;
                         }
@@ -490,19 +494,6 @@ public class NibblesView : GtkClutter.Embed
             actors.set_scale (0.4f, 0.4f);
             actors.set_opacity (0);
             actors.restore_easing_state ();
-        }
-
-        foreach (var bonus in game.boni.bonuses)
-        {
-            var actor = bonus_actors.get (bonus);
-
-            actor.save_easing_state ();
-            actor.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
-            actor.set_easing_duration (NibblesGame.GAMEDELAY * 15);
-            actor.set_scale (0.4f, 0.4f);
-            actor.set_pivot_point (0.5f, 0.5f);
-            actor.set_opacity (0);
-            actor.restore_easing_state ();
         }
 
         foreach (var warp in game.warp_manager.warps)
@@ -916,7 +907,7 @@ public class WarpTexture: GtkClutter.Texture
         base.show ();
 
         set_opacity (0);
-        set_scale (2.0, 2.0);
+        set_scale (3.0, 3.0);
 
         save_easing_state ();
         set_easing_mode (Clutter.AnimationMode.EASE_OUT_CIRC);

@@ -293,12 +293,6 @@ public class Nibbles : Gtk.Application
             scoreboard.register (worm, NibblesView.colorval_name (color), scoreboard_life);
             worm.notify["lives"].connect (scoreboard.update);
             worm.notify["score"].connect (scoreboard.update);
-
-            var actors = view.worm_actors.get (worm);
-            if (actors.get_stage () == null)
-                view.stage.add_child (actors);
-
-            actors.show ();
         }
         game.add_worms ();
 
