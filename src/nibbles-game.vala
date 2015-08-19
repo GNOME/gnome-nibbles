@@ -476,7 +476,7 @@ public class NibblesGame : Object
         if (warp == null)
             return;
 
-        worm.warp (walls, warp);
+        worm.warp (warp);
     }
 
     public GameStatus? get_game_status ()
