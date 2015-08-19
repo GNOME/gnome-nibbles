@@ -37,8 +37,8 @@
   </maintainer>
   <maintainer>
     <foaf:Person>
-      <foaf:name>Radu Iulian-Gabriel</foaf:name>
-      <foaf:mbox rdf:resource="mailto:iulian.radu67@gmial.com" />
+      <foaf:name>Iulian-Gabriel Radu</foaf:name>
+      <foaf:mbox rdf:resource="mailto:iulian.radu67@gmail.com" />
       <gnome:userid>iulianradu</gnome:userid>
     </foaf:Person>
   </maintainer>
