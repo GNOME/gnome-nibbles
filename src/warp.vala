@@ -50,7 +50,7 @@ public class WarpManager: Object
         warps = new Gee.LinkedList<Warp> ();
     }
 
-    public void add_warp (int[,] walls, int x, int y, int wx, int wy)
+    public void add_warp (int[,] board, int x, int y, int wx, int wy)
     {
         bool add = true;
 
@@ -96,10 +96,10 @@ public class WarpManager: Object
                 warp_added (warp);
             }
 
-            walls[x, y] = NibblesGame.WARPCHAR;
-            walls[x + 1, y] = NibblesGame.WARPCHAR;
-            walls[x, y + 1] = NibblesGame.WARPCHAR;
-            walls[x + 1, y + 1] = NibblesGame.WARPCHAR;
+            board[x, y] = NibblesGame.WARPCHAR;
+            board[x + 1, y] = NibblesGame.WARPCHAR;
+            board[x, y + 1] = NibblesGame.WARPCHAR;
+            board[x + 1, y + 1] = NibblesGame.WARPCHAR;
         }
     }
 

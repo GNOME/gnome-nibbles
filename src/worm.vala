@@ -103,7 +103,7 @@ public class Worm : Object
         key_queue.clear ();
     }
 
-    public void move (int[,] walls)
+    public void move (int[,] board)
     {
         if (is_human)
             keypress = false;
@@ -138,7 +138,7 @@ public class Worm : Object
         /* Add a new body piece */
         list.offer_head (position);
 
-        if (walls[head.x, head.y] == NibblesGame.WARPCHAR)
+        if (board[head.x, head.y] == NibblesGame.WARPCHAR)
             warp_found ();
 
         if (change > 0)
@@ -148,41 +148,41 @@ public class Worm : Object
         }
         else
         {
-            walls[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
+            board[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
             list.poll_tail ();
             moved ();
         }
 
         /* Check for bonus before changing tile */
-        if (walls[head.x, head.y] != NibblesGame.EMPTYCHAR)
+        if (board[head.x, head.y] != NibblesGame.EMPTYCHAR)
             bonus_found ();
 
         /* Mark the tile as occupied by the worm's body */
-        walls[head.x, head.y] = NibblesGame.WORMCHAR + id;
+        board[head.x, head.y] = NibblesGame.WORMCHAR + id;
 
         if (!key_queue.is_empty)
             dequeue_keypress ();
     }
 
-    public void reduce_tail (int[,] walls, int erase_size)
+    public void reduce_tail (int[,] board, int erase_size)
     {
         if (erase_size > 0)
         {
             if (length <= erase_size)
             {
-                reset (walls);
+                reset (board);
             }
 
             for (int i = 0; i < erase_size; i++)
             {
-                walls[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
+                board[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
                 list.poll_tail ();
             }
             tail_reduced (erase_size);
         }
     }
 
-    public void reverse (int[,] walls)
+    public void reverse (int[,] board)
     {
         var reversed_list = new Gee.LinkedList<Position?> ();
         foreach (var pos in list)
@@ -203,12 +203,12 @@ public class Worm : Object
         head = Position () { x = warp.wx, y = warp.wy };
     }
 
-    public bool can_move_to (int[,] walls, int numworms)
+    public bool can_move_to (int[,] board, int numworms)
     {
         var position = position_move ();
 
-        if (walls[position.x, position.y] > NibblesGame.EMPTYCHAR
-            && walls[position.x, position.y] < 'z' + numworms)
+        if (board[position.x, position.y] > NibblesGame.EMPTYCHAR
+            && board[position.x, position.y] < 'z' + numworms)
         {
             return false;
         }
@@ -227,11 +227,11 @@ public class Worm : Object
         return false;
     }
 
-    public void spawn (int[,] walls)
+    public void spawn (int[,] board)
     {
         change = STARTING_LENGTH - 1;
         for (int i = 0; i < STARTING_LENGTH; i++)
-            move (walls);
+            move (board);
     }
 
     public void add_life ()
@@ -247,14 +247,14 @@ public class Worm : Object
         lives--;
     }
 
-    public void reset (int[,] walls)
+    public void reset (int[,] board)
     {
         is_stopped = true;
         lose_life ();
 
         died ();
         foreach (var pos in list)
-            walls[pos.x, pos.y] = NibblesGame.EMPTYCHAR;
+            board[pos.x, pos.y] = NibblesGame.EMPTYCHAR;
 
         list.clear ();
         list.add (starting_position);
@@ -262,7 +262,7 @@ public class Worm : Object
 
         direction = starting_direction;
         change = 0;
-        spawn (walls);
+        spawn (board);
 
         key_queue.clear ();
 
@@ -413,7 +413,7 @@ public class Worm : Object
     static uint[,] deadend_board = new uint[NibblesGame.WIDTH, NibblesGame.HEIGHT];
     static uint deadend_runnumber = 0;
 
-    static int ai_deadend (int[,] walls, int numworms, int x, int y, int length_left)
+    static int ai_deadend (int[,] board, int numworms, int x, int y, int length_left)
     {
         int cdir, cx, cy;
 
@@ -459,12 +459,12 @@ public class Worm : Object
             if (cy < 0)
                 cy = NibblesGame.HEIGHT - 1;
 
-            if ((walls[cx, cy] <= NibblesGame.EMPTYCHAR
-                || walls[x, y] >= 'z' + numworms)
+            if ((board[cx, cy] <= NibblesGame.EMPTYCHAR
+                || board[x, y] >= 'z' + numworms)
                 && deadend_board[cx, cy] != deadend_runnumber)
             {
                 deadend_board[cx, cy] = deadend_runnumber;
-                length_left = ai_deadend (walls, numworms, cx, cy, length_left - 1);
+                length_left = ai_deadend (board, numworms, cx, cy, length_left - 1);
                 if (length_left <= 0)
                     return 0;
             }
@@ -482,7 +482,7 @@ public class Worm : Object
      * least BOARDWIDTH, so that on the levels with long thin paths a worm
      * won't start down the path if it'll crash at the other end.
      */
-    private static int ai_deadend_after (int[,] walls, Gee.LinkedList<Worm> worms, int numworms, int x, int y, int dir, int length)
+    private static int ai_deadend_after (int[,] board, Gee.LinkedList<Worm> worms, int numworms, int x, int y, int dir, int length)
     {
         int cx, cy, cl, i;
 
@@ -546,7 +546,7 @@ public class Worm : Object
         cl = (length * length) / 16;
         if (cl < NibblesGame.WIDTH)
             cl = NibblesGame.WIDTH;
-        return Worm.ai_deadend (walls, numworms, cx, cy, cl);
+        return Worm.ai_deadend (board, numworms, cx, cy, cl);
     }
 
     /* Check to see if another worm's head is too close in front of us;
@@ -586,7 +586,7 @@ public class Worm : Object
         return false;
     }
 
-    private static bool ai_wander (int[,] walls, int numworms, int x, int y, int dir, int ox, int oy)
+    private static bool ai_wander (int[,] board, int numworms, int x, int y, int dir, int ox, int oy)
     {
         if (dir > 4)
             dir = 1;
@@ -618,7 +618,7 @@ public class Worm : Object
         if (y < 0)
             y = NibblesGame.HEIGHT - 1;
 
-        switch (walls[x, y] - 'A')
+        switch (board[x, y] - 'A')
         {
             case BonusType.REGULAR:
                 return true;
@@ -631,8 +631,8 @@ public class Worm : Object
             case BonusType.HALF:
                 return false;
             default:
-                if (walls[x, y] > NibblesGame.EMPTYCHAR
-                    && walls[x, y] < 'z' + numworms)
+                if (board[x, y] > NibblesGame.EMPTYCHAR
+                    && board[x, y] < 'z' + numworms)
                 {
                         return false;
                 }
@@ -641,19 +641,19 @@ public class Worm : Object
                     if (ox == x && oy == y)
                         return false;
 
-                    return Worm.ai_wander (walls, numworms, x, y, dir, ox, oy);
+                    return Worm.ai_wander (board, numworms, x, y, dir, ox, oy);
                 }
         }
     }
 
     /* Determines the direction of the AI worm. */
-    public void ai_move (int[,] walls, int numworms, Gee.LinkedList<Worm> worms)
+    public void ai_move (int[,] board, int numworms, Gee.LinkedList<Worm> worms)
     {
         var opposite = (direction + 1) % 4 + 1;
 
-        var front = Worm.ai_wander (walls, numworms, head.x, head.y, direction, head.x, head.y);
-        var left = Worm.ai_wander (walls, numworms, head.x, head.y, direction - 1, head.x, head.y);
-        var right = Worm.ai_wander (walls, numworms, head.x, head.y, direction + 1, head.x, head.y);
+        var front = Worm.ai_wander (board, numworms, head.x, head.y, direction, head.x, head.y);
+        var left = Worm.ai_wander (board, numworms, head.x, head.y, direction - 1, head.x, head.y);
+        var right = Worm.ai_wander (board, numworms, head.x, head.y, direction + 1, head.x, head.y);
 
         int dir;
         if (!front)
@@ -719,13 +719,13 @@ public class Worm : Object
                 continue;
             this_len = 0;
 
-            if (!can_move_to (walls, numworms))
+            if (!can_move_to (board, numworms))
                 this_len += NibblesGame.CAPACITY;
 
             if (ai_too_close (worms, numworms))
                 this_len += 4;
 
-            this_len += ai_deadend_after (walls, worms, numworms, head.x, head.y, dir, length + change);
+            this_len += ai_deadend_after (board, worms, numworms, head.x, head.y, dir, length + change);
 
             if (dir == old_dir && this_len <= 0)
                 this_len -= 100;
@@ -754,7 +754,7 @@ public class Worm : Object
             if (dir == opposite)
                 continue;
 
-            if (!can_move_to (walls, numworms))
+            if (!can_move_to (board, numworms))
                 direction = (WormDirection) dir;
             else
                 continue;

@@ -45,7 +45,7 @@ public class NibblesGame : Object
     public const int MAX_LEVEL = 26;
 
     public int current_level;
-    public int[,] walls;
+    public int[,] board;
 
     public Gee.LinkedList<Worm> worms;
 
@@ -79,7 +79,7 @@ public class NibblesGame : Object
     {
         boni = new Boni (numworms);
         warp_manager = new WarpManager ();
-        walls = new int[WIDTH, HEIGHT];
+        board = new int[WIDTH, HEIGHT];
         worms = new Gee.LinkedList<Worm> ();
         worm_props = new Gee.HashMap<Worm, WormProperties?> ();
 
@@ -209,7 +209,7 @@ public class NibblesGame : Object
              */
             worm.added ();
 
-            worm.spawn (walls);
+            worm.spawn (board);
         }
     }
 
@@ -234,7 +234,7 @@ public class NibblesGame : Object
                 if (bonus.type == BonusType.REGULAR && !bonus.fake)
                 {
                     found.add (bonus);
-                    boni.remove_bonus (walls, bonus);
+                    boni.remove_bonus (board, bonus);
                     boni.missed++;
 
                     add_bonus (true);
@@ -242,7 +242,7 @@ public class NibblesGame : Object
                 else
                 {
                     found.add (bonus);
-                    boni.remove_bonus (walls, bonus);
+                    boni.remove_bonus (board, bonus);
                 }
             }
         }
@@ -259,7 +259,7 @@ public class NibblesGame : Object
                 continue;
 
             if (!worm.is_human)
-                worm.ai_move (walls, numworms, worms);
+                worm.ai_move (board, numworms, worms);
 
             foreach (var other_worm in worms)
             {
@@ -275,13 +275,13 @@ public class NibblesGame : Object
                     }
             }
 
-            if (!worm.can_move_to (walls, numworms))
+            if (!worm.can_move_to (board, numworms))
             {
                 dead_worms.add (worm);
                 continue;
             }
 
-            worm.move (walls);
+            worm.move (board);
         }
 
         foreach (var worm in dead_worms)
@@ -290,7 +290,7 @@ public class NibblesGame : Object
                 worm.score = worm.score * 7 / 10;
 
             if (worm.lives > 0)
-                worm.reset (walls);
+                worm.reset (board);
         }
     }
 
@@ -298,7 +298,7 @@ public class NibblesGame : Object
     {
         foreach (var other_worm in worms)
             if (worm != other_worm)
-                other_worm.reverse (walls);
+                other_worm.reverse (board);
     }
 
     /*\
@@ -322,20 +322,20 @@ public class NibblesGame : Object
             x = Random.int_range (0, WIDTH - 1);
             y = Random.int_range (0, HEIGHT - 1);
 
-            if (walls[x, y] != EMPTYCHAR)
+            if (board[x, y] != EMPTYCHAR)
                 good = false;
-            if (walls[x + 1, y] != EMPTYCHAR)
+            if (board[x + 1, y] != EMPTYCHAR)
                 good = false;
-            if (walls[x, y + 1] != EMPTYCHAR)
+            if (board[x, y + 1] != EMPTYCHAR)
                 good = false;
-            if (walls[x + 1, y + 1] != EMPTYCHAR)
+            if (board[x + 1, y + 1] != EMPTYCHAR)
                 good = false;
         } while (!good);
 
         if (regular)
         {
             if ((Random.int_range (0, 7) == 0) && fakes)
-                boni.add_bonus (walls, x, y, BonusType.REGULAR, true, 300);
+                boni.add_bonus (board, x, y, BonusType.REGULAR, true, 300);
 
             good = false;
             while (!good)
@@ -344,16 +344,16 @@ public class NibblesGame : Object
 
                 x = Random.int_range (0, WIDTH - 1);
                 y = Random.int_range (0, HEIGHT - 1);
-                if (walls[x, y] != EMPTYCHAR)
+                if (board[x, y] != EMPTYCHAR)
                     good = false;
-                if (walls[x + 1, y] != EMPTYCHAR)
+                if (board[x + 1, y] != EMPTYCHAR)
                     good = false;
-                if (walls[x, y + 1] != EMPTYCHAR)
+                if (board[x, y + 1] != EMPTYCHAR)
                     good = false;
-                if (walls[x + 1, y + 1] != EMPTYCHAR)
+                if (board[x + 1, y + 1] != EMPTYCHAR)
                     good = false;
             }
-            boni.add_bonus (walls, x, y, BonusType.REGULAR, false, 300);
+            boni.add_bonus (board, x, y, BonusType.REGULAR, false, 300);
         }
         else if (boni.missed <= Boni.MAX_MISSED)
         {
@@ -377,17 +377,17 @@ public class NibblesGame : Object
                 case 7:
                 case 8:
                 case 9:
-                    boni.add_bonus (walls, x, y, BonusType.HALF, good, 200);
+                    boni.add_bonus (board, x, y, BonusType.HALF, good, 200);
                     break;
                 case 10:
                 case 11:
                 case 12:
                 case 13:
                 case 14:
-                    boni.add_bonus (walls, x, y, BonusType.DOUBLE, good, 150);
+                    boni.add_bonus (board, x, y, BonusType.DOUBLE, good, 150);
                     break;
                 case 15:
-                    boni.add_bonus (walls, x, y, BonusType.LIFE, good, 100);
+                    boni.add_bonus (board, x, y, BonusType.LIFE, good, 100);
                     break;
                 case 16:
                 case 17:
@@ -395,7 +395,7 @@ public class NibblesGame : Object
                 case 19:
                 case 20:
                     if (numworms > 1)
-                        boni.add_bonus (walls, x, y, BonusType.REVERSE, good, 150);
+                        boni.add_bonus (board, x, y, BonusType.REVERSE, good, 150);
                     break;
             }
         }
@@ -409,7 +409,7 @@ public class NibblesGame : Object
             return;
         }
 
-        switch (walls[worm.head.x, worm.head.y] - 'A')
+        switch (board[worm.head.x, worm.head.y] - 'A')
         {
             case BonusType.REGULAR:
                 boni.numleft--;
@@ -424,7 +424,7 @@ public class NibblesGame : Object
                 if (worm.length + worm.change > 2)
                 {
                     worm.score += ((worm.length + worm.change / 2) * current_level);
-                    worm.reduce_tail (walls, (worm.length + worm.change) / 2);
+                    worm.reduce_tail (board, (worm.length + worm.change) / 2);
                     worm.change -= (worm.length + worm.change) /2;
                 }
                 break;
@@ -446,17 +446,17 @@ public class NibblesGame : Object
 
     public void bonus_found_cb (Worm worm)
     {
-        var bonus = boni.get_bonus (walls, worm.head.x, worm.head.y);
+        var bonus = boni.get_bonus (board, worm.head.x, worm.head.y);
         if (bonus == null)
             return;
         apply_bonus (bonus, worm);
         bonus_applied (worm);
 
-        if (walls[worm.head.x, worm.head.y] == BonusType.REGULAR + 'A'
+        if (board[worm.head.x, worm.head.y] == BonusType.REGULAR + 'A'
             && !bonus.fake)
         {
             // FIXME: 2/3
-            boni.remove_bonus (walls, bonus);
+            boni.remove_bonus (board, bonus);
             boni.bonuses.remove (bonus);
 
             if (boni.numleft != 0)
@@ -465,7 +465,7 @@ public class NibblesGame : Object
         else
         {
             // FIXME: 3/3
-            boni.remove_bonus (walls, bonus);
+            boni.remove_bonus (board, bonus);
             boni.bonuses.remove (bonus);
         }
     }

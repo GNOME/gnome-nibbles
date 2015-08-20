@@ -133,11 +133,11 @@ public class NibblesView : GtkClutter.Embed
 
             for (int j = 0; j < NibblesGame.WIDTH; j++)
             {
-                game.walls[j, i] = tmpboard.get(j);
-                switch (game.walls[j, i])
+                game.board[j, i] = tmpboard.get(j);
+                switch (game.board[j, i])
                 {
                     case 'm':
-                        game.walls[j, i] = NibblesGame.EMPTYCHAR;
+                        game.board[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
                             game.worms[count].set_start (j, i, WormDirection.UP);
@@ -149,7 +149,7 @@ public class NibblesView : GtkClutter.Embed
                         }
                         break;
                     case 'n':
-                        game.walls[j, i] = NibblesGame.EMPTYCHAR;
+                        game.board[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
                             game.worms[count].set_start (j, i, WormDirection.LEFT);
@@ -161,7 +161,7 @@ public class NibblesView : GtkClutter.Embed
                         }
                         break;
                     case 'o':
-                        game.walls[j, i] = NibblesGame.EMPTYCHAR;
+                        game.board[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
                             game.worms[count].set_start (j, i, WormDirection.DOWN);
@@ -173,7 +173,7 @@ public class NibblesView : GtkClutter.Embed
                         }
                         break;
                     case 'p':
-                        game.walls[j, i] = NibblesGame.EMPTYCHAR;
+                        game.board[j, i] = NibblesGame.EMPTYCHAR;
                         if (count < game.numworms)
                         {
                             game.worms[count].set_start (j, i, WormDirection.RIGHT);
@@ -194,7 +194,7 @@ public class NibblesView : GtkClutter.Embed
                     case 'X':
                     case 'Y':
                     case 'Z':
-                        game.warp_manager.add_warp (game.walls, j - 1, i - 1, -(game.walls[j, i]), 0);
+                        game.warp_manager.add_warp (game.board, j - 1, i - 1, -(game.board[j, i]), 0);
                         break;
                     case 'r':
                     case 's':
@@ -205,8 +205,8 @@ public class NibblesView : GtkClutter.Embed
                     case 'x':
                     case 'y':
                     case 'z':
-                        game.warp_manager.add_warp (game.walls, -(game.walls[j, i] - 'a' + 'A'), 0, j, i);
-                        game.walls[j, i] = NibblesGame.EMPTYCHAR;
+                        game.warp_manager.add_warp (game.board, -(game.board[j, i] - 'a' + 'A'), 0, j, i);
+                        game.board[j, i] = NibblesGame.EMPTYCHAR;
                         break;
                     default:
                         break;
@@ -240,7 +240,7 @@ public class NibblesView : GtkClutter.Embed
                 is_wall = true;
                 try
                 {
-                    switch (game.walls[j, i])
+                    switch (game.board[j, i])
                     {
                         case 'a': // empty space
                             is_wall = false;

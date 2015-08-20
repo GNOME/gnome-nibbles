@@ -43,27 +43,27 @@ public class Boni : Object
         numleft = numboni;
     }
 
-    public void add_bonus (int[,] walls, int x, int y, BonusType type, bool fake, int countdown)
+    public void add_bonus (int[,] board, int x, int y, BonusType type, bool fake, int countdown)
     {
         if (numbonuses == MAX_BONUSES)
             return;
 
         var bonus = new Bonus (x, y, type, fake, countdown);
         bonuses.add (bonus);
-        walls[x, y] = type + 'A';
-        walls[x + 1, y] = type + 'A';
-        walls[x, y + 1] = type + 'A';
-        walls[x + 1, y + 1] = type + 'A';
+        board[x, y] = type + 'A';
+        board[x + 1, y] = type + 'A';
+        board[x, y + 1] = type + 'A';
+        board[x + 1, y + 1] = type + 'A';
         bonus_added ();
         numbonuses++;
     }
 
-    public void remove_bonus (int[,] walls, Bonus bonus)
+    public void remove_bonus (int[,] board, Bonus bonus)
     {
-        walls[bonus.x, bonus.y] = NibblesGame.EMPTYCHAR;
-        walls[bonus.x + 1, bonus.y] = NibblesGame.EMPTYCHAR;
-        walls[bonus.x, bonus.y + 1] = NibblesGame.EMPTYCHAR;
-        walls[bonus.x + 1, bonus.y + 1] = NibblesGame.EMPTYCHAR;
+        board[bonus.x, bonus.y] = NibblesGame.EMPTYCHAR;
+        board[bonus.x + 1, bonus.y] = NibblesGame.EMPTYCHAR;
+        board[bonus.x, bonus.y + 1] = NibblesGame.EMPTYCHAR;
+        board[bonus.x + 1, bonus.y + 1] = NibblesGame.EMPTYCHAR;
 
         bonus_removed (bonus);
     }
@@ -77,7 +77,7 @@ public class Boni : Object
         numleft = numboni;
     }
 
-    public Bonus? get_bonus (int[,] walls, int x, int y)
+    public Bonus? get_bonus (int[,] board, int x, int y)
     {
         foreach (var bonus in bonuses)
         {
