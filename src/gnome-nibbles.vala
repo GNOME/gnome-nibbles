@@ -848,13 +848,14 @@ private class PlayerScoreBox : Gtk.Box
 
         life_images = new Gee.LinkedList<Gtk.Image> ();
 
-        for (int i = 0; i < lives_left; i++)
+        for (int i = 0; i < Worm.MAX_LIVES; i++)
         {
             var life = new Gtk.Image.from_pixbuf (life_pixbuf);
-            life.show ();
+            if (i < Worm.STARTING_LIVES)
+                life.show ();
 
             life_images.add (life);
-            lives_grid.attach (life, i % 6, i/6);
+            lives_grid.attach (life, i % 6, i / 6);
         }
     }
 
@@ -872,21 +873,12 @@ private class PlayerScoreBox : Gtk.Box
     public void update_lives (int lives_left)
     {
         /* Remove lost lives - if any */
-        for (int i = life_images.size; i > lives_left; i--)
-        {
-            var life = life_images.poll ();
-            life.hide ();
-        }
+        for (int i = life_images.size - 1; i >= lives_left; i--)
+            life_images[i].set_opacity (0);
 
         /* Add new lives - if any */
-        for (int i = life_images.size; i < lives_left; i++)
-        {
-            var life = new Gtk.Image.from_pixbuf (life_images.first ().get_pixbuf ());
-            life.show ();
-
-            life_images.add (life);
-            lives_grid.attach (life, i % 6, i/6);
-        }
+        for (int i = 0; i < lives_left; i++)
+            life_images[i].set_opacity (1);
     }
 }
 

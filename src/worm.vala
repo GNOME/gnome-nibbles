@@ -22,7 +22,9 @@
 public class Worm : Object
 {
     public const int STARTING_LENGTH = 5;
-    private const int STARTING_LIVES = 6;
+    public const int STARTING_LIVES = 6;
+    public const int MAX_LIVES = 12;
+
     public const int GROW_FACTOR = 4;
 
     public Position starting_position { get; private set; }
@@ -232,7 +234,15 @@ public class Worm : Object
             move (walls);
     }
 
-    public void lose_life ()
+    public void add_life ()
+    {
+        if (lives > MAX_LIVES)
+            return;
+
+        lives++;
+    }
+
+    private void lose_life ()
     {
         lives--;
     }

@@ -53,10 +53,10 @@ public class NibblesGame : Object
     public WarpManager warp_manager;
 
     public int numhumans;
-    public int numai;
+    public int numai = NUMAI;
     public int numworms;
 
-    public int speed = 4;
+    public int speed = 2;
 
     public bool is_running = false;
     public bool is_paused { get; private set; }
@@ -429,7 +429,7 @@ public class NibblesGame : Object
                 }
                 break;
             case BonusType.LIFE:
-                worm.lives++;
+                worm.add_life ();
                 break;
             case BonusType.REVERSE:
                 reverse_worms (worm);
