@@ -29,9 +29,9 @@ public class NibblesGame : Object
     public const int GAMEDELAY = 35;
     public const int BONUSDELAY = 100;
 
-    public const int NUMHUMANS = 4;
-    public const int NUMAI = 0;
-    public const int NUMWORMS = NUMHUMANS + NUMAI;
+    public const int MAX_HUMANS = 4;
+    public const int MAX_AI = 5;
+    public const int MAX_WORMS = 6;
 
     public const int WIDTH = 92;
     public const int HEIGHT = 66;
@@ -53,7 +53,7 @@ public class NibblesGame : Object
     public WarpManager warp_manager;
 
     public int numhumans;
-    public int numai = NUMAI;
+    public int numai;
     public int numworms;
 
     public int speed = 2;

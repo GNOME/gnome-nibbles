@@ -130,7 +130,7 @@ public class Nibbles : Gtk.Application
 
         settings = new Settings ("org.gnome.nibbles");
         worm_settings = new Gee.ArrayList<Settings> ();
-        for (int i = 0; i < NibblesGame.NUMWORMS; i++)
+        for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
         {
             var name = "org.gnome.nibbles.worm%d".printf(i);
             worm_settings.add (new Settings (name));
@@ -159,7 +159,7 @@ public class Nibbles : Gtk.Application
         statusbar_stack = (Gtk.Stack) builder.get_object ("statusbar_stack");
         countdown = (Gtk.Label) builder.get_object ("countdown");
         number_of_players_buttons = new Gee.LinkedList<Gtk.ToggleButton> ();
-        for (int i = 0; i < NibblesGame.NUMHUMANS; i++)
+        for (int i = 0; i < NibblesGame.MAX_HUMANS; i++)
         {
             var button = (Gtk.ToggleButton) builder.get_object ("players%d".printf (i + 1));
             button.toggled.connect (change_number_of_players_cb);
