@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-04 23:33+0100\n"
-"PO-Revision-Date: 2015-03-04 23:34+0100\n"
+"POT-Creation-Date: 2015-08-25 14:12+0200\n"
+"PO-Revision-Date: 2015-08-25 14:13+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -83,7 +83,7 @@ msgstr "Robaki"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
-msgstr "gra;gierka;wąż;snake;planszowa;plansza;"
+msgstr "gra;gierka;wąż;snake;snejk;planszowa;plansza;"
 
 #: ../data/nibbles-menus.ui.h:1
 msgid "_New Game"
@@ -276,7 +276,7 @@ msgstr "Wynik"
 #, c-format
 msgctxt "score-dialog"
 msgid "%1$dm %2$ds"
-msgstr "%1$dm %2$ds"
+msgstr "%1$d m %2$d s"
 
 #. Score dialog column header for the date the score was recorded
 #: ../src/games-scores-dialog.c:430
@@ -404,7 +404,7 @@ msgstr "Mój drugi dzień"
 
 #: ../src/preferences.c:279
 msgid "Not too shabby"
-msgstr "Nienajnędzniejszy"
+msgstr "Całkiem niezły"
 
 #: ../src/preferences.c:289
 msgid "Finger-twitching good"
