@@ -648,14 +648,18 @@ public class Nibbles : Gtk.Application
 
             restart_game_cb ();
         });
-        button.show ();
 
         overlay.add_overlay (label);
         overlay.add_overlay (button);
 
-        button.grab_focus ();
-
         overlay.show ();
+
+        Timeout.add (500, () => {
+            button.show ();
+            button.grab_focus ();
+
+            return Source.REMOVE;
+        });
     }
 
     private void game_over_cb (int score, long last_score)
