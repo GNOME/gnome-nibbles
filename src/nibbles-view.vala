@@ -64,7 +64,7 @@ public class NibblesView : GtkClutter.Embed
       "red",
       "green",
       "blue",
-      "orange",
+      "yellow",
       "cyan",
       "purple"
     };
