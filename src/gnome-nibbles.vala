@@ -853,8 +853,10 @@ private class PlayerScoreBox : Gtk.Box
         for (int i = 0; i < Worm.MAX_LIVES; i++)
         {
             var life = new Gtk.Image.from_pixbuf (life_pixbuf);
-            if (i < Worm.STARTING_LIVES)
-                life.show ();
+            life.show ();
+
+            if (i >= Worm.STARTING_LIVES)
+                life.set_opacity (0);
 
             life_images.add (life);
             lives_grid.attach (life, i % 6, i / 6);
