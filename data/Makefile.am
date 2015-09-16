@@ -22,6 +22,17 @@ dist_noinst_DATA = \
 	scoreboard.ui \
 	player-score-box.ui
 
+soundsdir = $(datadir)/gnome-nibbles/sounds
+sounds_DATA = \
+    appear.ogg \
+    bonus.ogg \
+    crash.ogg \
+    gameover.ogg \
+    gobble.ogg \
+    life.ogg \
+    reverse.ogg \
+    teleport.ogg
+
 EXTRA_DIST = \
 	$(gsettings_SCHEMAS)
 
