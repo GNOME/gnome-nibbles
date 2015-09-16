@@ -3,17 +3,6 @@
   <menu id="app-menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">_New Game</attribute>
-        <attribute name="action">app.newgame</attribute>
-      </item>
-    </section>
-    <section>
-      <item>
-        <attribute name="label" translatable="yes">_Pause</attribute>
-        <attribute name="action">app.pause</attribute>
-        <attribute name="accel">Pause</attribute>
-      </item>
-      <item>
         <attribute name="label" translatable="yes">_Preferences</attribute>
         <attribute name="action">app.preferences</attribute>
       </item>
