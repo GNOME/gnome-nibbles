@@ -87,6 +87,7 @@ public class NibblesGame : Object
 
         Random.set_seed ((uint32) time_t ());
         load_properties (settings);
+        current_level = start_level;
     }
 
     /*\
