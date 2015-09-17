@@ -356,7 +356,8 @@ public class Nibbles : Gtk.Application
 
     private void new_game_cb ()
     {
-        pause_cb ();
+        if (game.is_running)
+            game.stop ();
 
         var dialog = new Gtk.MessageDialog (window,
                                             Gtk.DialogFlags.MODAL,
@@ -370,8 +371,12 @@ public class Nibbles : Gtk.Application
         dialog.response.connect ((response_id) => {
             if (response_id == Gtk.ResponseType.OK)
                 show_new_game_screen_cb ();
-            if (response_id == Gtk.ResponseType.CANCEL)
-                game.unpause ();
+            if ((response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT)
+                && !game.is_paused)
+            {
+                game.start ();
+                view.grab_focus ();
+            }
 
             dialog.destroy ();
         });
