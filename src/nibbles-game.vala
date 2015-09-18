@@ -19,11 +19,15 @@
 // This is a fairly literal translation of the LGPLv2+ original by
 // Sean MacIsaac, Ian Peters, Guillaume Béland.
 
+public enum GameStatus
+{
+    GAMEOVER,
+    VICTORY,
+    NEWROUND
+}
+
 public class NibblesGame : Object
 {
-    public int tile_size;
-    public int start_level;
-
     public const int MINIMUM_TILE_SIZE = 7;
 
     public const int GAMEDELAY = 35;
@@ -35,36 +39,41 @@ public class NibblesGame : Object
 
     public const int WIDTH = 92;
     public const int HEIGHT = 66;
-
     public const int CAPACITY = WIDTH * HEIGHT;
 
     public const char EMPTYCHAR = 'a';
     public const char WORMCHAR = 'w';
     public const char WARPCHAR = 'W';
 
-    public const int MAX_LEVEL = 26;
+    private const int MAX_LEVEL = 26;
 
-    public int current_level;
+    public int start_level { get; private set; }
+    public int current_level { get; private set; }
+    public int speed { get; private set; default = 2; }
+
+    /* Board data */
+    public int tile_size { get; set; }
     public int[,] board;
 
-    public Gee.LinkedList<Worm> worms;
+    /* Worms data */
+    public int numhumans { get; set; }
+    private int numai;
+    public int numworms { get; private set; }
 
-    public Boni boni;
-    public WarpManager warp_manager;
+    /* Game models */
+    public Gee.LinkedList<Worm> worms { get; private set; }
+    public Boni boni { get; private set; }
+    public WarpManager warp_manager { get; private set; }
+    public Gee.HashMap<Worm, WormProperties?> worm_props { get; private set; }
 
-    public int numhumans;
-    public int numai;
-    public int numworms;
-
-    public int speed = 2;
-
-    public bool is_running = false;
+    /* Game controls */
+    public bool is_running { get; private set; default = false; }
     public bool is_paused { get; private set; }
-
-    public bool fakes = false;
 
     private uint main_id = 0;
     private uint add_bonus_id = 0;
+
+    public bool fakes { get; private set; default = false; }
 
     public signal void worm_moved (Worm worm);
     public signal void bonus_applied (Worm worm);
@@ -72,8 +81,6 @@ public class NibblesGame : Object
     public signal void animate_end_game ();
     public signal void restart_game ();
     public signal void level_completed ();
-
-    public Gee.HashMap<Worm, WormProperties?> worm_props;
 
     public NibblesGame (Settings settings)
     {
@@ -96,7 +103,6 @@ public class NibblesGame : Object
 
     public void start ()
     {
-        stderr.printf("[Debug] Game started\n");
         is_running = true;
 
         main_id = Timeout.add (GAMEDELAY * speed, main_loop_cb);
@@ -156,8 +162,8 @@ public class NibblesGame : Object
         else if (status == GameStatus.VICTORY)
         {
             end ();
-            var winner = get_winner ();
 
+            var winner = get_winner ();
             if (winner == null)
                 return Source.REMOVE;
 
@@ -581,11 +587,4 @@ public class NibblesGame : Object
 
         return false;
     }
-}
-
-public enum GameStatus
-{
-    GAMEOVER,
-    VICTORY,
-    NEWROUND
 }
