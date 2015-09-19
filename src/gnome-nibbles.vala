@@ -530,9 +530,23 @@ public class Nibbles : Gtk.Application
     * * Scoring
     \*/
 
+    private Games.Scores.Category category_request (string key)
+    {
+        foreach (var cat in scorecats)
+        {
+            if (key == cat.key)
+                return cat;
+        }
+        assert_not_reached ();
+    }
+
     private void create_scores ()
     {
-        scores_context = new Games.Scores.Context ("gnome-nibbles", "", window, Games.Scores.Style.PLAIN_DESCENDING);
+        scores_context = new Games.Scores.Context ("gnome-nibbles",
+                                                   "",
+                                                   window,
+                                                   category_request,
+                                                   Games.Scores.Style.PLAIN_DESCENDING);
 
         scorecats = new Gee.LinkedList<Games.Scores.Category> ();
         scorecats.add (new Games.Scores.Category ("beginner", "Beginner"));
@@ -543,15 +557,6 @@ public class Nibbles : Gtk.Application
         scorecats.add (new Games.Scores.Category ("slow-fakes", "Slow with Fakes"));
         scorecats.add (new Games.Scores.Category ("medium-fakes", "Medium with Fakes"));
         scorecats.add (new Games.Scores.Category ("fast-fakes", "Fast with Fakes"));
-
-        scores_context.category_request.connect ((s, key) => {
-            foreach (var cat in scorecats)
-            {
-                if (key == cat.key)
-                    return cat;
-            }
-            return null;
-        });
     }
 
     private Games.Scores.Category get_scores_category (int speed, bool fakes)
