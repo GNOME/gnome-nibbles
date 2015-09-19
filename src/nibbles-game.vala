@@ -57,7 +57,7 @@ public class NibblesGame : Object
 
     /* Worms data */
     public int numhumans { get; set; }
-    private int numai;
+    private int numai = 3; // TODO: Add a gsetting
     public int numworms { get; private set; }
 
     /* Game models */
