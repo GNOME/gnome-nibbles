@@ -542,12 +542,6 @@ public class Nibbles : Gtk.Application
 
     private void create_scores ()
     {
-        scores_context = new Games.Scores.Context ("gnome-nibbles",
-                                                   "",
-                                                   window,
-                                                   category_request,
-                                                   Games.Scores.Style.PLAIN_DESCENDING);
-
         scorecats = new Gee.LinkedList<Games.Scores.Category> ();
         scorecats.add (new Games.Scores.Category ("beginner", "Beginner"));
         scorecats.add (new Games.Scores.Category ("slow", "Slow"));
@@ -557,6 +551,12 @@ public class Nibbles : Gtk.Application
         scorecats.add (new Games.Scores.Category ("slow-fakes", "Slow with Fakes"));
         scorecats.add (new Games.Scores.Category ("medium-fakes", "Medium with Fakes"));
         scorecats.add (new Games.Scores.Category ("fast-fakes", "Fast with Fakes"));
+
+        scores_context = new Games.Scores.Context ("gnome-nibbles",
+                                                   "",
+                                                   window,
+                                                   category_request,
+                                                   Games.Scores.Style.PLAIN_DESCENDING);
     }
 
     private Games.Scores.Category get_scores_category (int speed, bool fakes)
