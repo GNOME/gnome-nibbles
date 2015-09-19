@@ -214,10 +214,10 @@ public class Nibbles : Gtk.Application
         else
             show_new_game_screen_cb ();
 
-        window.show ();
-
         /* Create scores */
         create_scores ();
+
+        window.show ();
     }
 
     protected override void activate ()
