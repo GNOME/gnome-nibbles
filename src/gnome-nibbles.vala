@@ -553,7 +553,8 @@ public class Nibbles : Gtk.Application
         scorecats.add (new Games.Scores.Category ("fast-fakes", "Fast with Fakes"));
 
         scores_context = new Games.Scores.Context ("gnome-nibbles",
-                                                   "",
+                                                   /* Displayed on the scores dialog, preceeding a difficulty. */
+                                                   _("Difficulty Level:"),
                                                    window,
                                                    category_request,
                                                    Games.Scores.Style.PLAIN_DESCENDING);
