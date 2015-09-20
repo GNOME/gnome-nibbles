@@ -620,6 +620,13 @@ public class Nibbles : Gtk.Application
 
     private void scores_cb ()
     {
+        var should_unpause = false;
+        if (game.is_running)
+        {
+            pause_action.activate (null);
+            should_unpause = true;
+        }
+
         try
         {
             scores_context.run_dialog ();
@@ -629,6 +636,10 @@ public class Nibbles : Gtk.Application
             // Translators: This error is displayed when the scores dialog fails to load
             error (_("Failed to run scores dialog: %s"), e.message);
         }
+
+        // Be quite careful about whether to unpause. Don't unpause if the game has not started.
+        if (should_unpause)
+            pause_action.activate (null);
     }
 
     private void level_completed_cb ()
