@@ -617,9 +617,7 @@ public class Nibbles : Gtk.Application
             }
             catch (GLib.Error e)
             {
-                // Translators: This warning is displayed when adding a score fails
-                // just before displaying the score dialog
-                warning (_("Failed to add score: %s"), e.message);
+                warning ("Failed to add score: %s", e.message);
             }
 
             // Not a high score...
@@ -643,8 +641,7 @@ public class Nibbles : Gtk.Application
         }
         catch (GLib.Error e)
         {
-            // Translators: This error is displayed when the scores dialog fails to load
-            error (_("Failed to run scores dialog: %s"), e.message);
+            error ("Failed to run scores dialog: %s", e.message);
         }
 
         // Be quite careful about whether to unpause. Don't unpause if the game has not started.

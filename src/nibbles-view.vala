@@ -103,10 +103,7 @@ public class NibblesView : GtkClutter.Embed
 
         FileStream file;
         if ((file = FileStream.open (filename, "r")) == null)
-        {
-            /* Fatal console error when the game's data files are missing. */
-            error (_("Nibbles couldn't find pixmap file: %s"), filename);
-        }
+            error ("Nibbles couldn't find pixmap file: %s", filename);
 
         foreach (var actor in worm_actors.values)
             actor.destroy ();
@@ -126,10 +123,7 @@ public class NibblesView : GtkClutter.Embed
         for (int i = 0; i < NibblesGame.HEIGHT; i++)
         {
             if ((tmpboard = file.read_line ()) == null)
-            {
-                /* Fatal console error when the game's level files are damaged. */
-                error (_("Level file appears to be damaged: %s"), filename);
-            }
+                error ("Level file appears to be damaged: %s", filename);
 
             for (int j = 0; j < NibblesGame.WIDTH; j++)
             {
@@ -296,8 +290,7 @@ public class NibblesView : GtkClutter.Embed
                 }
                 catch (Error e)
                 {
-                    /* Error message when a level cannot be loaded. */
-                    error (_("Error loading level: %s"), e.message);
+                    error ("Error loading level: %s", e.message);
                 }
 
                 if (is_wall)
@@ -332,10 +325,7 @@ public class NibblesView : GtkClutter.Embed
     {
         var filename = Path.build_filename (PKGDATADIR, "pixmaps", pixmap, null);
         if (filename == null)
-        {
-            /* Fatal console error when the game's data files are missing. */
-            error (_("Nibbles couldn't find pixmap file: %s"), filename);
-        }
+            error ("Nibbles couldn't find pixmap file: %s", filename);
 
         Gdk.Pixbuf image = null;
         try
@@ -519,13 +509,11 @@ public class NibblesView : GtkClutter.Embed
         }
         catch (Clutter.TextureError e)
         {
-            /* Fatal console error when a worm's texture could not be set. */
-            error (_("Nibbles failed to set texture: %s"), e.message);
+            error ("Nibbles failed to set texture: %s", e.message);
         }
         catch (Error e)
         {
-            /* Fatal console error when a worm's texture could not be set. */
-            error (_("Nibbles failed to set texture: %s"), e.message);
+            error ("Nibbles failed to set texture: %s", e.message);
         }
         actor.set_size (game.tile_size, game.tile_size);
         actor.set_position (worm.list.first ().x * game.tile_size, worm.list.first ().y * game.tile_size);
@@ -574,13 +562,11 @@ public class NibblesView : GtkClutter.Embed
             }
             catch (Clutter.TextureError e)
             {
-                /* Fatal console error when a worm's texture could not be set. */
-                error (_("Nibbles failed to set texture: %s"), e.message);
+                error ("Nibbles failed to set texture: %s", e.message);
             }
             catch (Error e)
             {
-                /* Fatal console error when a worm's texture could not be set. */
-                error (_("Nibbles failed to set texture: %s"), e.message);
+                error ("Nibbles failed to set texture: %s", e.message);
             }
 
             actor.get_position (out x, out y);
@@ -620,13 +606,11 @@ public class NibblesView : GtkClutter.Embed
             }
             catch (Clutter.TextureError e)
             {
-                /* Fatal console error when a worm's texture could not be set. */
-                error (_("Nibbles failed to set texture: %s"), e.message);
+                error ("Nibbles failed to set texture: %s", e.message);
             }
             catch (Error e)
             {
-                /* Fatal console error when a worm's texture could not be set. */
-                error (_("Nibbles failed to set texture: %s"), e.message);
+                error ("Nibbles failed to set texture: %s", e.message);
             }
 
             worm_actors.first_child.get_position (out x, out y);
@@ -672,13 +656,11 @@ public class NibblesView : GtkClutter.Embed
         }
         catch (Clutter.TextureError e)
         {
-            /* Fatal console error when a texture could not be set. */
-            error (_("Nibbles failed to set texture: %s"), e.message);
+            error ("Nibbles failed to set texture: %s", e.message);
         }
         catch (Error e)
         {
-            /* Fatal console error when a texture could not be set. */
-            error (_("Nibbles failed to set texture: %s"), e.message);
+            error ("Nibbles failed to set texture: %s", e.message);
         }
 
         actor.set_size (2 * game.tile_size, 2 * game.tile_size);
@@ -752,13 +734,11 @@ public class NibblesView : GtkClutter.Embed
             }
             catch (Clutter.TextureError e)
             {
-                /* Fatal console error when a texture could not be set. */
-                error (_("Nibbles failed to set texture: %s"), e.message);
+                error ("Nibbles failed to set texture: %s", e.message);
             }
             catch (Error e)
             {
-                /* Fatal console error when a texture could not be set. */
-                error (_("Nibbles failed to set texture: %s"), e.message);
+                error ("Nibbles failed to set texture: %s", e.message);
             }
         }
     }
@@ -776,13 +756,11 @@ public class NibblesView : GtkClutter.Embed
         }
         catch (Clutter.TextureError e)
         {
-            /* Fatal console error when a texture could not be set. */
-            error (_("Nibbles failed to set texture: %s"), e.message);
+            error ("Nibbles failed to set texture: %s", e.message);
         }
         catch (Error e)
         {
-            /* Fatal console error when a texture could not be set. */
-            error (_("Nibbles failed to set texture: %s"), e.message);
+            error ("Nibbles failed to set texture: %s", e.message);
         }
 
         actor.set_size (2 * game.tile_size, 2 * game.tile_size);
@@ -810,13 +788,11 @@ public class NibblesView : GtkClutter.Embed
             }
             catch (Clutter.TextureError e)
             {
-                /* Fatal console error when a texture could not be set. */
-                error (_("Nibbles failed to set texture: %s"), e.message);
+                error ("Nibbles failed to set texture: %s", e.message);
             }
             catch (Error e)
             {
-                /* Fatal console error when a texture could not be set. */
-                error (_("Nibbles failed to set texture: %s"), e.message);
+                error ("Nibbles failed to set texture: %s", e.message);
             }
         }
     }
