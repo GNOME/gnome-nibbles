@@ -654,7 +654,8 @@ public class Nibbles : Gtk.Application
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
 
-        var label = new Gtk.Label (_(@"Level $(game.current_level) Completed!"));
+        // Translators: the %d is the number of the level that was completed.
+        var label = new Gtk.Label (_("Level %d Completed!").printf (game.current_level));
         label.halign = Gtk.Align.CENTER;
         label.valign = Gtk.Align.START;
         label.set_margin_top (150);
@@ -704,8 +705,8 @@ public class Nibbles : Gtk.Application
         game_over_label.get_style_context ().add_class ("menu-title");
         game_over_label.show ();
 
-        var points = score > 1 ? "Points" : "Point";
-        var score_label = new Gtk.Label (_(@"<b>$(score) $(points)</b>"));
+        var score_string = ngettext ("%d Point".printf (score), "%d Points".printf (score), score);
+        var score_label = new Gtk.Label (@"<b>$(score_string)</b>");
         score_label.set_use_markup (true);
         score_label.halign = Gtk.Align.CENTER;
         score_label.valign = Gtk.Align.START;
@@ -713,7 +714,7 @@ public class Nibbles : Gtk.Application
         score_label.show ();
 
         var points_left = last_score - score;
-        var points_left_label = new Gtk.Label (_(@"($(points_left) points to reach the leaderboard)"));
+        var points_left_label = new Gtk.Label (_("(%d points to reach the leaderboard)").printf (points_left));
         points_left_label.halign = Gtk.Align.CENTER;
         points_left_label.valign = Gtk.Align.START;
         points_left_label.set_margin_top (window_height / 3 + 100);

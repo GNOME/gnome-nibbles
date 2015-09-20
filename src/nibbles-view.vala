@@ -475,7 +475,9 @@ public class NibblesView : GtkClutter.Embed
         {
             var color = game.worm_props.get (worm).color;
 
-            var label = new Clutter.Text.with_text ("Monospace 10", _(@"<b>Player $(worm.id + 1)</b>"));
+            /* Translators: the player's number, e.g. "Player 1" or "Player 2". */
+            var player_id = _("Player %d").printf (worm.id + 1);
+            var label = new Clutter.Text.with_text ("Monospace 10", @"<b>$(player_id)</b>");
             label.set_use_markup (true);
             label.set_color (Clutter.Color.from_string (colorval_name (color)));
 
