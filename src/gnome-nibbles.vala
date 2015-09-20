@@ -608,7 +608,10 @@ public class Nibbles : Gtk.Application
         if (score <= 0)
             return;
 
-        scores_context.add_score.begin (score, get_scores_category (game.speed, game.fakes), (object, result) => {
+        scores_context.add_score.begin (score,
+                                        get_scores_category (game.speed, game.fakes),
+                                        null,
+                                        (object, result) => {
             try
             {
                 if (scores_context.add_score.end (result))
