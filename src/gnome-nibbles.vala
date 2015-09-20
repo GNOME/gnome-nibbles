@@ -616,7 +616,7 @@ public class Nibbles : Gtk.Application
 
             // Not a high score...
             var scores = scores_context.get_best_n_scores (get_scores_category (game.speed, game.fakes), 10);
-            game_over_cb (score, scores.last ().data.score);
+            game_over (score, scores.last ().data.score);
         });
     }
 
@@ -687,7 +687,7 @@ public class Nibbles : Gtk.Application
         });
     }
 
-    private void game_over_cb (int score, long last_score)
+    private void game_over (int score, long last_score)
     {
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
