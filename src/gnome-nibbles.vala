@@ -176,7 +176,6 @@ public class Nibbles : Gtk.Application
         /* Create game */
         game = new NibblesGame (settings);
         game.log_score.connect (log_score_cb);
-        game.restart_game.connect (restart_game_cb);
         game.level_completed.connect (level_completed_cb);
         game.notify["is_paused"].connect (() => {
             if (game.is_paused)
@@ -346,7 +345,7 @@ public class Nibbles : Gtk.Application
         });
     }
 
-    private void restart_game_cb ()
+    private void restart_game ()
     {
         view.new_level (game.current_level);
 
@@ -672,7 +671,7 @@ public class Nibbles : Gtk.Application
 
             headerbar.set_title (_("Level %d").printf(game.current_level));
 
-            restart_game_cb ();
+            restart_game ();
         });
 
         overlay.add_overlay (label);

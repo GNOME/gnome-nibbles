@@ -79,7 +79,6 @@ public class NibblesGame : Object
     public signal void bonus_applied (Worm worm);
     public signal void log_score (int score);
     public signal void animate_end_game ();
-    public signal void restart_game ();
     public signal void level_completed ();
 
     public NibblesGame (Settings settings)
