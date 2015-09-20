@@ -635,14 +635,7 @@ public class Nibbles : Gtk.Application
             should_unpause = true;
         }
 
-        try
-        {
-            scores_context.run_dialog ();
-        }
-        catch (GLib.Error e)
-        {
-            error ("Failed to run scores dialog: %s", e.message);
-        }
+        scores_context.run_dialog ();
 
         // Be quite careful about whether to unpause. Don't unpause if the game has not started.
         if (should_unpause)
