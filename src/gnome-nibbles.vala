@@ -363,7 +363,7 @@ public class Nibbles : Gtk.Application
                                             Gtk.DialogFlags.MODAL,
                                             Gtk.MessageType.WARNING,
                                             Gtk.ButtonsType.OK_CANCEL,
-                                            _("Are You Sure You Want to Start a New Game?"));
+                                            _("Are you sure you want to start a new game?"));
         dialog.secondary_text = _("If you start a new game, the current one will be lost.");
 
         var button = (Gtk.Button) dialog.get_widget_for_response (Gtk.ResponseType.OK);
