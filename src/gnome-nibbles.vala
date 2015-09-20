@@ -474,7 +474,7 @@ public class Nibbles : Gtk.Application
 
         back_action.set_enabled (false);
 
-        headerbar.set_title (_("Level %d").printf(game.current_level));
+        headerbar.set_title (_("Level %d").printf (game.current_level));
         main_stack.set_visible_child_name ("game_box");
     }
 
@@ -674,7 +674,7 @@ public class Nibbles : Gtk.Application
             new_game_action.set_enabled (true);
             pause_action.set_enabled (true);
 
-            headerbar.set_title (_("Level %d").printf(game.current_level));
+            headerbar.set_title (_("Level %d").printf (game.current_level));
 
             restart_game ();
         });
