@@ -592,6 +592,13 @@ public class Nibbles : Gtk.Application
 
     private void log_score_cb (int score)
     {
+        // FIXME: Need a better end game experience if we return early here.
+        // Leaving the player with a blank screen is not good. Make sure the
+        // new game and pause buttons do something sane (e.g. pause should be
+        // insensitive; new game should start a new game on level one and not
+        // trigger the scores dialog to be opened if the high scores table is
+        // not yet filled....)
+
         if (game.numhumans != 1)
             return;
 
@@ -605,6 +612,7 @@ public class Nibbles : Gtk.Application
             try
             {
                 if (scores_context.add_score.end (result))
+                    // FIXME: Need a better end game experience here too. Same warnings apply.
                     return;
             }
             catch (GLib.Error e)
