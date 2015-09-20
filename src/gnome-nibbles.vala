@@ -602,20 +602,23 @@ public class Nibbles : Gtk.Application
         if (score <= 0)
             return;
 
-        try
-        {
-            if (!scores_context.add_score (score, get_scores_category (game.speed, game.fakes)))
+        scores_context.add_score.begin (score, get_scores_category (game.speed, game.fakes), (object, result) => {
+            try
             {
-                var scores = scores_context.get_best_n_scores (get_scores_category (game.speed, game.fakes), 10);
-                game_over_cb (score, scores.last ().data.score);
+                if (scores_context.add_score.end (result))
+                    return;
             }
-        }
-        catch (GLib.Error e)
-        {
-            // Translators: This warning is displayed when adding a score fails
-            // just before displaying the score dialog
-            warning (_("Failed to add score: %s"), e.message);
-        }
+            catch (GLib.Error e)
+            {
+                // Translators: This warning is displayed when adding a score fails
+                // just before displaying the score dialog
+                warning (_("Failed to add score: %s"), e.message);
+            }
+
+            // Not a high score...
+            var scores = scores_context.get_best_n_scores (get_scores_category (game.speed, game.fakes), 10);
+            game_over_cb (score, scores.last ().data.score);
+        });
     }
 
     private void scores_cb ()
