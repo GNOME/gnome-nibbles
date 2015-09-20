@@ -604,9 +604,7 @@ public class Nibbles : Gtk.Application
 
         try
         {
-            if (scores_context.add_score (score, get_scores_category (game.speed, game.fakes)))
-                scores_context.run_dialog ();
-            else
+            if (!scores_context.add_score (score, get_scores_category (game.speed, game.fakes)))
             {
                 var scores = scores_context.get_best_n_scores (get_scores_category (game.speed, game.fakes), 10);
                 game_over_cb (score, scores.last ().data.score);
