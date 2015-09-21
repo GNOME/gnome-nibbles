@@ -10,15 +10,15 @@
 # Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
 # Hakan Bekdas <hakanbekdas@yahoo.com>, 2006.
 # Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2008, 2009.
-# Muhammet Kara <muhammetk@gmail.com>, 2011, 2014.
+# Muhammet Kara <muhammetk@gmail.com>, 2011, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-05-12 15:20+0000\n"
-"PO-Revision-Date: 2014-12-04 23:11+0200\n"
+"POT-Creation-Date: 2015-09-21 11:56+0000\n"
+"PO-Revision-Date: 2015-09-21 21:11+0300\n"
 "Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -26,14 +26,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
-#| msgid "Nibbles"
 msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Solucanı engellerin çevresinden geçirin"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -42,31 +46,57 @@ msgid ""
 "careful: if they become too large, you won't have much room for movement."
 msgstr ""
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
 "teleporters make things more interesting."
 msgstr ""
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
-#: ../src/main.c:712
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
+#: ../src/main.c:704
 msgid "Nibbles"
 msgstr "Nibbles"
-
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Solucanı engellerin çevresinden geçirin"
 
 #: ../data/gnome-nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "oyun;yılan;tahta;"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_New Game"
+msgstr "Yeni _Oyun"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Pause"
+msgstr "_Duraklat"
+
+#: ../data/nibbles-menus.ui.h:3
+#| msgid "Preferences"
+msgid "_Preferences"
+msgstr "_Tercihler"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_Scores"
+msgstr "_Puanlar"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Help"
+msgstr "_Yardım"
+
+#: ../data/nibbles-menus.ui.h:6
+msgid "_About"
+msgstr "H_akkında"
+
+#: ../data/nibbles-menus.ui.h:7
+#| msgid "Quit"
+msgid "_Quit"
+msgstr "_Çıkış"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Number of human players"
@@ -148,7 +178,7 @@ msgstr "Bağıl hareketleri kullan"
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Bağıl hareketleri kullanır (örn. sadece sol veya sağ gibi)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
 msgid "Move up"
 msgstr "Yukarı taşı"
 
@@ -156,7 +186,7 @@ msgstr "Yukarı taşı"
 msgid "Key to use for motion up."
 msgstr "Yukarı hareket için kullanılacak tuş."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
 msgid "Move down"
 msgstr "Aşağı taşı"
 
@@ -164,7 +194,7 @@ msgstr "Aşağı taşı"
 msgid "Key to use for motion down."
 msgstr "Aşağı hareket için kullanılacak tuş."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
 msgid "Move left"
 msgstr "Sola taşı"
 
@@ -172,7 +202,7 @@ msgstr "Sola taşı"
 msgid "Key to use for motion left."
 msgstr "Aşağı hareket için kullanılacak tuş."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
 msgid "Move right"
 msgstr "Sağa taşı"
 
@@ -207,10 +237,9 @@ msgstr ""
 "Lütfen Nibbles kurulumunu kontrol edin"
 
 #: ../src/games-controls.c:108
-#, fuzzy
 #| msgid "That username is already in use."
 msgid "The shortcut you selected is already assigned."
-msgstr "Bu kullanıcı adı halen kullanımda."
+msgstr "Seçtiğiniz kısayol zaten atanmış."
 
 #: ../src/games-controls.c:324
 msgid "Unknown Command"
@@ -218,14 +247,12 @@ msgstr "Bilinmeyen Komut"
 
 #. Score dialog column header for the score time (e.g. 1 minute)
 #: ../src/games-scores-dialog.c:132
-#| msgid "Time"
 msgctxt "score-dialog"
 msgid "Time"
 msgstr "Süre"
 
 #. Score dialog column header for the score value (e.g. 30 moves)
 #: ../src/games-scores-dialog.c:138
-#| msgid "Score"
 msgctxt "score-dialog"
 msgid "Score"
 msgstr "Puan"
@@ -233,7 +260,6 @@ msgstr "Puan"
 #. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
 #: ../src/games-scores-dialog.c:225
 #, c-format
-#| msgid "%dm %ds"
 msgctxt "score-dialog"
 msgid "%1$dm %2$ds"
 msgstr "%1$ddk %2$dsa"
@@ -260,23 +286,23 @@ msgstr ""
 "\n"
 "Lütfen Nibbles kurulumunu kontrol edin"
 
-#: ../src/gnibbles.c:334
+#: ../src/gnibbles.c:340
 msgid "Nibbles Scores"
 msgstr "Nibbles Puanları"
 
-#: ../src/gnibbles.c:337
+#: ../src/gnibbles.c:343
 msgid "Speed:"
 msgstr "Hız:"
 
-#: ../src/gnibbles.c:342
+#: ../src/gnibbles.c:348
 msgid "Congratulations!"
 msgstr "Tebrikler!"
 
-#: ../src/gnibbles.c:343
+#: ../src/gnibbles.c:349
 msgid "Your score is the best!"
 msgstr "En iyi skor sizinki!"
 
-#: ../src/gnibbles.c:344
+#: ../src/gnibbles.c:350
 msgid "Your score has made the top ten."
 msgstr "Puanınız en iyi on listesine girdi."
 
@@ -320,126 +346,115 @@ msgctxt "game speed"
 msgid "Fast with Fakes"
 msgstr "Taklitler ile Hızlı"
 
-#: ../src/main.c:234
-#, fuzzy
-#| msgid ""
-#| "A worm game for GNOME.\n"
-#| "\n"
-#| "Nibbles is a part of GNOME Games."
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"GNOME için bir solucan oyunu.\n"
-"\n"
-"Nibbles GNOME Oyunları'nın bir parçasıdır."
+#: ../src/main.c:257
+#| msgid "A worm game for GNOME."
+msgid "A worm game for GNOME"
+msgstr "GNOME için solucan oyunu"
 
-#: ../src/main.c:237
+#: ../src/main.c:260
 msgid "translator-credits"
 msgstr ""
 "Barış Çiçek <baris@teamforce.name.tr> \n"
 "Muhammet Kara <muhammet.k@gmail.com>"
 
-#: ../src/preferences.c:223
+#: ../src/preferences.c:225
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: ../src/preferences.c:236
+#: ../src/preferences.c:238
 msgid "Game"
 msgstr "Oyun"
 
 #. Speed
-#: ../src/preferences.c:252
+#: ../src/preferences.c:254
 msgid "Speed"
 msgstr "Hız"
 
-#: ../src/preferences.c:257
+#: ../src/preferences.c:259
 msgid "Nibbles newbie"
 msgstr "Acemi Nibbles"
 
-#: ../src/preferences.c:267
+#: ../src/preferences.c:269
 msgid "My second day"
 msgstr "İkinci günüm"
 
-#: ../src/preferences.c:277
+#: ../src/preferences.c:279
 msgid "Not too shabby"
 msgstr "Pek kötü sayılmam"
 
-#: ../src/preferences.c:287
+#: ../src/preferences.c:289
 msgid "Finger-twitching good"
 msgstr "Çok iyiyim"
 
-#: ../src/preferences.c:301 ../src/preferences.c:424
+#: ../src/preferences.c:303 ../src/preferences.c:426
 msgid "Options"
 msgstr "Seçenekler"
 
-#: ../src/preferences.c:308
+#: ../src/preferences.c:310
 msgid "_Play levels in random order"
 msgstr "_Seviyeleri rastgele sıralı oyna"
 
-#: ../src/preferences.c:316
+#: ../src/preferences.c:318
 msgid "_Enable fake bonuses"
 msgstr "_Sahte bonusları etkinleştir"
 
-#: ../src/preferences.c:324
+#: ../src/preferences.c:326
 msgid "E_nable sounds"
 msgstr "_Sesleri etkinleştir"
 
-#: ../src/preferences.c:337
+#: ../src/preferences.c:339
 msgid "_Starting level:"
 msgstr "_Başlangıç seviyesi:"
 
-#: ../src/preferences.c:362
+#: ../src/preferences.c:364
 msgid "Number of _human players:"
 msgstr "İ_nsan oyuncuların sayısı:"
 
-#: ../src/preferences.c:379
+#: ../src/preferences.c:381
 msgid "Number of _AI players:"
 msgstr "YZ oyuncuların s_ayısı:"
 
-#: ../src/preferences.c:400
+#: ../src/preferences.c:402
 msgid "Worm"
 msgstr "Solucan"
 
-#: ../src/preferences.c:409
-#| msgid "Keyboard Controls"
+#: ../src/preferences.c:411
 msgid "Keyboard Options"
 msgstr "Klavye Seçenekleri"
 
-#: ../src/preferences.c:429
+#: ../src/preferences.c:431
 msgid "_Use relative movement"
 msgstr "_Bağıl hareketleri kullan"
 
-#: ../src/preferences.c:436
+#: ../src/preferences.c:438
 msgid "_Worm color:"
 msgstr "_Solucan rengi:"
 
-#: ../src/preferences.c:442
+#: ../src/preferences.c:444
 msgid "Red"
 msgstr "Kırmızı"
 
-#: ../src/preferences.c:443
+#: ../src/preferences.c:445
 msgid "Green"
 msgstr "Yeşil"
 
-#: ../src/preferences.c:444
+#: ../src/preferences.c:446
 msgid "Blue"
 msgstr "Mavi"
 
-#: ../src/preferences.c:445
+#: ../src/preferences.c:447
 msgid "Yellow"
 msgstr "Sarı"
 
-#: ../src/preferences.c:446
+#: ../src/preferences.c:448
 msgid "Cyan"
 msgstr "Cyan"
 
-#: ../src/preferences.c:447
+#: ../src/preferences.c:449
 msgid "Purple"
 msgstr "Mor"
 
-#: ../src/preferences.c:448
+#: ../src/preferences.c:450
 msgid "Gray"
 msgstr "Gri"
 
@@ -447,6 +462,20 @@ msgstr "Gri"
 #, c-format
 msgid "Worm %d:"
 msgstr "Solucan %d:"
+
+#, fuzzy
+#~| msgid ""
+#~| "A worm game for GNOME.\n"
+#~| "\n"
+#~| "Nibbles is a part of GNOME Games."
+#~ msgid ""
+#~ "A worm game for GNOME\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "GNOME için bir solucan oyunu.\n"
+#~ "\n"
+#~ "Nibbles GNOME Oyunları'nın bir parçasıdır."
 
 #~ msgid "Chess"
 #~ msgstr "Satranç"
@@ -486,9 +515,6 @@ msgstr "Solucan %d:"
 
 #~ msgid "_Game"
 #~ msgstr "_Oyun"
-
-#~ msgid "_Help"
-#~ msgstr "_Yardım"
 
 #~ msgid "_Resign"
 #~ msgstr "Ç_ekil"
@@ -1364,9 +1390,6 @@ msgstr "Solucan %d:"
 #~ msgid "Game over! The game has been won by %s!"
 #~ msgstr "Oyun bitti! Oyun %s tarafından kazanıldı!"
 
-#~ msgid "A worm game for GNOME."
-#~ msgstr "GNOME için solucan oyunu."
-
 #~ msgid "Nibbles Preferences"
 #~ msgstr "Gnibbles Tercihleri"
 
@@ -1534,9 +1557,6 @@ msgstr "Solucan %d:"
 #~ msgid "Great work, but unfortunately your score did not make the top ten."
 #~ msgstr ""
 #~ "Çok iyi iş çıkardınız, ancak puanınız en iyi on listesine yer bulamadı."
-
-#~ msgid "_New Game"
-#~ msgstr "Yeni _Oyun"
 
 #~ msgid "Robots Scores"
 #~ msgstr "Robots Puanları"
@@ -2820,14 +2840,8 @@ msgstr "Solucan %d:"
 #~ msgid "Player _List"
 #~ msgstr "Oyuncu _Listesi"
 
-#~ msgid "_Pause"
-#~ msgstr "_Duraklat"
-
 #~ msgid "Res_ume"
 #~ msgstr "_Devam et"
-
-#~ msgid "_Scores"
-#~ msgstr "_Puanlar"
 
 #~ msgid "_End Game"
 #~ msgstr "_Oyunu Bitir"
@@ -5493,9 +5507,6 @@ msgstr "Solucan %d:"
 #~ msgid "Disconnect"
 #~ msgstr "Bağlantıyı kes"
 
-#~ msgid "Quit"
-#~ msgstr "Çık"
-
 #~ msgid "Watch"
 #~ msgstr "İzle"
 
@@ -6728,9 +6739,6 @@ msgstr "Solucan %d:"
 
 #~ msgid "Could not show link"
 #~ msgstr "Bağlantı gösterilemedi"
-
-#~ msgid "_About"
-#~ msgstr "H_akkında"
 
 #~ msgid "_Cancel"
 #~ msgstr "İptal _et"
