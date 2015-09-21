@@ -178,30 +178,6 @@ public class NibblesView : GtkClutter.Embed
                             count++;
                         }
                         break;
-                    case 'Q':
-                    case 'R':
-                    case 'S':
-                    case 'T':
-                    case 'U':
-                    case 'V':
-                    case 'W':
-                    case 'X':
-                    case 'Y':
-                    case 'Z':
-                        game.warp_manager.add_warp (game.board, j - 1, i - 1, -(game.board[j, i]), 0);
-                        break;
-                    case 'r':
-                    case 's':
-                    case 't':
-                    case 'u':
-                    case 'v':
-                    case 'w':
-                    case 'x':
-                    case 'y':
-                    case 'z':
-                        game.warp_manager.add_warp (game.board, -(game.board[j, i] - 'a' + 'A'), 0, j, i);
-                        game.board[j, i] = NibblesGame.EMPTYCHAR;
-                        break;
                     default:
                         break;
                 }
@@ -282,6 +258,32 @@ public class NibblesView : GtkClutter.Embed
                         case 'l': // tee cross
                             tmp = new GtkClutter.Texture ();
                             tmp.set_from_pixbuf (wall_pixmaps[10]);
+                            break;
+                        case 'Q':
+                        case 'R':
+                        case 'S':
+                        case 'T':
+                        case 'U':
+                        case 'V':
+                        case 'W':
+                        case 'X':
+                        case 'Y':
+                        case 'Z':
+                            is_wall = false;
+                            game.warp_manager.add_warp (game.board, j - 1, i - 1, -(game.board[j, i]), 0);
+                            break;
+                        case 'r':
+                        case 's':
+                        case 't':
+                        case 'u':
+                        case 'v':
+                        case 'w':
+                        case 'x':
+                        case 'y':
+                        case 'z':
+                            is_wall = false;
+                            game.warp_manager.add_warp (game.board, -(game.board[j, i] - 'a' + 'A'), 0, j, i);
+                            game.board[j, i] = NibblesGame.EMPTYCHAR;
                             break;
                         default:
                             is_wall = false;
@@ -665,7 +667,7 @@ public class NibblesView : GtkClutter.Embed
             error ("Nibbles failed to set texture: %s", e.message);
         }
 
-        actor.set_size (2 * game.tile_size, 2 * game.tile_size);
+        actor.set_size (game.tile_size, game.tile_size);
         actor.set_position (bonus.x * game.tile_size, bonus.y * game.tile_size);
 
         level.add_child (actor);
@@ -721,27 +723,10 @@ public class NibblesView : GtkClutter.Embed
 
     public void boni_rescale (int tile_size)
     {
-        float x_pos, y_pos;
-
         foreach (var bonus in game.boni.bonuses)
         {
             var actor = bonus_actors.get (bonus);
-            actor.get_position (out x_pos, out y_pos);
-            actor.set_position ((x_pos / game.tile_size) * tile_size,
-                                (y_pos / game.tile_size) * tile_size);
-
-            try
-            {
-                actor.set_from_pixbuf (boni_pixmaps[bonus.type]);
-            }
-            catch (Clutter.TextureError e)
-            {
-                error ("Nibbles failed to set texture: %s", e.message);
-            }
-            catch (Error e)
-            {
-                error ("Nibbles failed to set texture: %s", e.message);
-            }
+            actor.set_size (tile_size, tile_size);
         }
     }
 
@@ -765,37 +750,20 @@ public class NibblesView : GtkClutter.Embed
             error ("Nibbles failed to set texture: %s", e.message);
         }
 
-        actor.set_size (2 * game.tile_size, 2 * game.tile_size);
+        actor.set_size (game.tile_size, game.tile_size);
         actor.set_position (warp.x * game.tile_size, warp.y * game.tile_size);
 
-        stage.add_child (actor);
+        level.add_child (actor);
 
         warp_actors.set (warp, actor);
     }
 
     public void warps_rescale (int tile_size)
     {
-        float x_pos, y_pos;
-
         foreach (var warp in game.warp_manager.warps)
         {
             var actor = warp_actors.get (warp);
-            actor.get_position (out x_pos, out y_pos);
-            actor.set_position ((x_pos / game.tile_size) * tile_size,
-                                (y_pos / game.tile_size) * tile_size);
-
-            try
-            {
-                actor.set_from_pixbuf (boni_pixmaps[BonusType.WARP]);
-            }
-            catch (Clutter.TextureError e)
-            {
-                error ("Nibbles failed to set texture: %s", e.message);
-            }
-            catch (Error e)
-            {
-                error ("Nibbles failed to set texture: %s", e.message);
-            }
+            actor.set_size (tile_size, tile_size);
         }
     }
 
@@ -877,6 +845,8 @@ private class WormActor : Clutter.Actor
 
 private class BonusTexture : GtkClutter.Texture
 {
+    public static const float SIZE_MULTIPLIER = 2;
+
     public override void show ()
     {
         base.show ();
@@ -892,10 +862,17 @@ private class BonusTexture : GtkClutter.Texture
         set_opacity (0xff);
         restore_easing_state ();
     }
+
+    public new void set_size (float width, float height)
+    {
+        base.set_size (SIZE_MULTIPLIER * width, SIZE_MULTIPLIER * height);
+    }
 }
 
 private class WarpTexture: GtkClutter.Texture
 {
+    public static const float SIZE_MULTIPLIER = 2;
+
     public override void show ()
     {
         base.show ();
@@ -921,5 +898,10 @@ private class WarpTexture: GtkClutter.Texture
         set_pivot_point (0.5f, 0.5f);
         set_opacity (0);
         restore_easing_state ();
+    }
+
+    public new void set_size (float width, float height)
+    {
+        base.set_size (SIZE_MULTIPLIER * width, SIZE_MULTIPLIER * height);
     }
 }
