@@ -624,8 +624,8 @@ public class Nibbles : Gtk.Application
             }
 
             // Not a high score...
-            var scores = scores_context.get_best_n_scores (get_scores_category (game.speed, game.fakes), 10);
-            game_over (score, scores.last ().data.score);
+            var scores = scores_context.get_high_scores (get_scores_category (game.speed, game.fakes));
+            game_over (score, scores.last ().score);
         });
     }
 
