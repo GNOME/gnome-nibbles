@@ -710,7 +710,7 @@ public class Nibbles : Gtk.Application
         score_label.show ();
 
         var points_left = last_score - score;
-        var points_left_label = new Gtk.Label (_("(%d points to reach the leaderboard)").printf (points_left));
+        var points_left_label = new Gtk.Label (_("(%d more points to reach the leaderboard)").printf (points_left));
         points_left_label.halign = Gtk.Align.CENTER;
         points_left_label.valign = Gtk.Align.START;
         points_left_label.set_margin_top (window_height / 3 + 100);
