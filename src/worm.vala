@@ -67,6 +67,7 @@ public class Worm : Object
     public Gee.LinkedList<Position?> list { get; private set; }
 
     public signal void added ();
+    public signal void finish_added ();
     public signal void moved ();
     public signal void rescaled (int tile_size);
     public signal void died ();
@@ -250,6 +251,8 @@ public class Worm : Object
     public void reset (int[,] board)
     {
         is_stopped = true;
+        key_queue.clear ();
+
         lose_life ();
 
         died ();
@@ -264,9 +267,7 @@ public class Worm : Object
         change = 0;
         spawn (board);
 
-        key_queue.clear ();
-
-        is_stopped = false;
+        finish_added ();
     }
 
     private Position position_move ()
@@ -339,11 +340,11 @@ public class Worm : Object
 
     public bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties?> worm_props)
     {
+        if (lives <= 0 || is_stopped)
+            return false;
+
         WormProperties properties;
         uint propsUp, propsDown, propsLeft, propsRight, keyvalUpper;
-
-        if (lives <= 0)
-            return false;
 
         properties = worm_props.get (this);
         propsUp = upper_key (properties.up);

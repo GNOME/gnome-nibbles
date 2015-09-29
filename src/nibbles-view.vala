@@ -405,6 +405,7 @@ public class NibblesView : GtkClutter.Embed
         foreach (var worm in game.worms)
         {
             worm.added.connect (worm_added_cb);
+            worm.finish_added.connect (worm_finish_added_cb);
             worm.moved.connect (worm_moved_cb);
             worm.rescaled.connect (worm_rescaled_cb);
             worm.died.connect (worm_died_cb);
@@ -524,6 +525,27 @@ public class NibblesView : GtkClutter.Embed
 
         var actors = worm_actors.get (worm);
         actors.add_child (actor);
+    }
+
+    private void worm_finish_added_cb (Worm worm)
+    {
+        var actors = worm_actors.get (worm);
+
+        actors.set_opacity (0);
+        actors.set_scale (3.0, 3.0);
+
+        actors.save_easing_state ();
+        actors.set_easing_mode (Clutter.AnimationMode.EASE_OUT);
+        actors.set_easing_duration (NibblesGame.GAMEDELAY * 20);
+        actors.set_scale (1.0, 1.0);
+        actors.set_pivot_point (0.5f, 0.5f);
+        actors.set_opacity (0xff);
+        actors.restore_easing_state ();
+
+        Timeout.add (NibblesGame.GAMEDELAY * 27, () => {
+            worm.is_stopped = false;
+            return Source.REMOVE;
+        });
     }
 
     private void worm_moved_cb (Worm worm)

@@ -269,9 +269,9 @@ public class NibblesGame : Object
 
             foreach (var other_worm in worms)
             {
-                if (worm.will_collide_with_head (other_worm)
-                    && worm != other_worm
-                    && !other_worm.is_stopped)
+                if (worm != other_worm
+                    && !other_worm.is_stopped
+                    && worm.will_collide_with_head (other_worm))
                     {
                         if (!dead_worms.contains (worm))
                             dead_worms.add (worm);
@@ -572,7 +572,7 @@ public class NibblesGame : Object
 
     public bool handle_keypress (uint keyval)
     {
-        if (is_paused)
+        if (!is_running)
             return false;
 
         foreach (var worm in worms)
