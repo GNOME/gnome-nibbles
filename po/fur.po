@@ -1,0 +1,458 @@
+# Friulian translation for gnome-nibbles.
+# Copyright (C) 2015 gnome-nibbles's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-nibbles package.
+# Fabio Tomat <f.t.public@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-nibbles gnome-3-18\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"nibbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-10-12 08:02+0000\n"
+"PO-Revision-Date: 2015-10-15 23:10+0200\n"
+"Language-Team: Friulian <fur@li.org>\n"
+"Language: fur\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:1
+msgid "GNOME Nibbles"
+msgstr "GNOME Nibbles"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/gnome-nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Guide un vier ator par un labirint"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:3
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+"Controle un vier te sô ricercje di mangjâ e di cressite. Evite i viers nemîs "
+"intant che tu ti jemplis di gjelato e cicimbelis par diventâ simpri plui "
+"lunc. Ogni vier al à 10 vitis e a piert un se al pete intor di un mûr, un "
+"altri vier o se stes. I nemîs a cirin ancje lôr di mangjâ e diventâ plui "
+"luncs: sta atent, se a cressin masse nol sarà plui spazi par te!"
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:4
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"La aventure a si tire a dilunc par 26 mapis di dificoltât a cressi: tai "
+"prins nivei a son pôcs mûrs, ma a man a man che al aumente il nivel, spazis "
+"strets e sistemis di teletraspuart a rindin il zûc plui interessant."
+
+#: ../data/gnome-nibbles.appdata.xml.in.h:5
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Zuie di bessôl cuintri un massim di 5 viers o condivît la tô tastiere cuntun "
+"ami."
+
+#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
+#: ../src/main.c:704
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#: ../data/gnome-nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "zûc;zûcs;sarpint;snake;board;taule;vier;"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_New Game"
+msgstr "_Gnove partide"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Pause"
+msgstr "_Pause"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Preferences"
+msgstr "_Preferencis"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_Scores"
+msgstr "_Risultâts"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Help"
+msgstr "_Jutori"
+
+#: ../data/nibbles-menus.ui.h:6
+msgid "_About"
+msgstr "_Informazions"
+
+#: ../data/nibbles-menus.ui.h:7
+msgid "_Quit"
+msgstr "_Jes"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:1
+msgid "Number of human players"
+msgstr "Numar di zuiadôrs umans"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:2
+msgid "Number of human players."
+msgstr "Il numar di zuiadôrs umans."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:3
+msgid "Number of AI players"
+msgstr "Numar di zuiadôrs cun IA"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:4
+msgid "Number of AI players."
+msgstr "Numar di zuiadôrs dotâts di IA."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:5
+msgid "Game speed"
+msgstr "Velocitât di zûc"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:6
+msgid "Game speed (1=fast, 4=slow)."
+msgstr "Velocitât di zûc (1=veloç, 4=lent)."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:7
+msgid "Enable fake bonuses"
+msgstr "Abilite i bonus fints"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:8
+msgid "Enable fake bonuses."
+msgstr "Abilite i bonus fints."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:9
+msgid "Play levels in random order"
+msgstr "Nivei in ordin casuâl"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:10
+msgid "Play levels in random order."
+msgstr "Zuie i nivei in ordin casuâl."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:11
+msgid "Game level to start on"
+msgstr "Nivel di zûc di partence"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:12
+msgid "Game level to start on."
+msgstr "Nivel di zûc di dulà tacâ."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Enable sounds"
+msgstr "Abilite suns"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Enable sounds."
+msgstr "Abilite i suns."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
+msgid "Size of game tiles"
+msgstr "Dimensions des pedinis"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
+msgid "Size of game tiles."
+msgstr "Dimensions des pedinis."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Color to use for worm"
+msgstr "Colôr di doprâ pal vier"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Color to use for worm."
+msgstr "Colôr di doprâ pal vier."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Use relative movement"
+msgstr "Moviment relatîf"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Use relative movement (ie. left or right only)."
+msgstr "Moviment relatîf (par esempli nome çampe o diestre)."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
+msgid "Move up"
+msgstr "Sposte in su"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Key to use for motion up."
+msgstr "Boton di doprâ par movi viers l'alt."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
+msgid "Move down"
+msgstr "Sposte in ju"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
+msgid "Key to use for motion down."
+msgstr "Boton di doprâ par movi viers il bas."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
+msgid "Move left"
+msgstr "Sposte a çampe"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
+msgid "Key to use for motion left."
+msgstr "Boton di doprâ par movi viers çampe."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
+msgid "Move right"
+msgstr "Sposte a diestre"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
+msgid "Key to use for motion right."
+msgstr "Boton di doprâ par movi viers diestre."
+
+#: ../src/board.c:250
+#, c-format
+msgid ""
+"Nibbles couldn't load level file:\n"
+"%s\n"
+"\n"
+"Please check your Nibbles installation"
+msgstr ""
+"Nibbles nol rive a cjariâ il file di nivel:\n"
+"%s\n"
+"\n"
+"Controlâ l'instalazion di Nibbles"
+
+#: ../src/board.c:269
+#, c-format
+msgid ""
+"Level file appears to be damaged:\n"
+"%s\n"
+"\n"
+"Please check your Nibbles installation"
+msgstr ""
+"Il file di nivel al semee ruvinât:\n"
+"%s\n"
+"\n"
+"Controle l'instalazion di Nibbles"
+
+#: ../src/games-controls.c:108
+msgid "The shortcut you selected is already assigned."
+msgstr "La scurte selezionade a je za assegnade."
+
+#: ../src/games-controls.c:324
+msgid "Unknown Command"
+msgstr "Comant no cognossût"
+
+#. Score dialog column header for the score time (e.g. 1 minute)
+#: ../src/games-scores-dialog.c:132
+msgctxt "score-dialog"
+msgid "Time"
+msgstr "Timp"
+
+#. Score dialog column header for the score value (e.g. 30 moves)
+#: ../src/games-scores-dialog.c:138
+msgctxt "score-dialog"
+msgid "Score"
+msgstr "Ponts"
+
+#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
+#: ../src/games-scores-dialog.c:225
+#, c-format
+msgctxt "score-dialog"
+msgid "%1$dm %2$ds"
+msgstr "%1$dm %2$ds"
+
+#. Score dialog column header for the date the score was recorded
+#: ../src/games-scores-dialog.c:430
+msgid "Date"
+msgstr "Date"
+
+#: ../src/games-scores-dialog.c:448
+msgid "_Close"
+msgstr "_Siere"
+
+#: ../src/gnibbles.c:82
+#, c-format
+msgid ""
+"Nibbles couldn't find pixmap file:\n"
+"%s\n"
+"\n"
+"Please check your Nibbles installation"
+msgstr ""
+"Nibbles nol rive a cjatâ il file pixmap:\n"
+"%s\n"
+"\n"
+"Controlâ l'instalazion di Nibbles"
+
+#: ../src/gnibbles.c:340
+msgid "Nibbles Scores"
+msgstr "Risultâts di Nibbles"
+
+#: ../src/gnibbles.c:343
+msgid "Speed:"
+msgstr "Velocitât:"
+
+#: ../src/gnibbles.c:348
+msgid "Congratulations!"
+msgstr "Congratulazions!"
+
+#: ../src/gnibbles.c:349
+msgid "Your score is the best!"
+msgstr "Il to risultât al è il miôr di ducj!"
+
+#: ../src/gnibbles.c:350
+msgid "Your score has made the top ten."
+msgstr "Il to risultât al jentre tai prins 10."
+
+#: ../src/main.c:62
+msgctxt "game speed"
+msgid "Beginner"
+msgstr "Principiant"
+
+#: ../src/main.c:63
+msgctxt "game speed"
+msgid "Slow"
+msgstr "Lente"
+
+#: ../src/main.c:64
+msgctxt "game speed"
+msgid "Medium"
+msgstr "Medie"
+
+#: ../src/main.c:65
+msgctxt "game speed"
+msgid "Fast"
+msgstr "Veloce"
+
+#: ../src/main.c:66
+msgctxt "game speed"
+msgid "Beginner with Fakes"
+msgstr "Principiant cun freaduris"
+
+#: ../src/main.c:67
+msgctxt "game speed"
+msgid "Slow with Fakes"
+msgstr "Lente cun freaduris"
+
+#: ../src/main.c:68
+msgctxt "game speed"
+msgid "Medium with Fakes"
+msgstr "Medie cun freaduris"
+
+#: ../src/main.c:69
+msgctxt "game speed"
+msgid "Fast with Fakes"
+msgstr "Veloce cun freaduris"
+
+#: ../src/main.c:257
+msgid "A worm game for GNOME"
+msgstr "Un zûc di viers par GNOME"
+
+#: ../src/main.c:260
+msgid "translator-credits"
+msgstr "Fabio Tomat <f.t.public@gmail.com>"
+
+#: ../src/preferences.c:225
+msgid "Preferences"
+msgstr "Preferencis"
+
+#: ../src/preferences.c:238
+msgid "Game"
+msgstr "Zûc"
+
+#. Speed
+#: ../src/preferences.c:254
+msgid "Speed"
+msgstr "Velocitât"
+
+#: ../src/preferences.c:259
+msgid "Nibbles newbie"
+msgstr "Principiant"
+
+#: ../src/preferences.c:269
+msgid "My second day"
+msgstr "Il gno secont dì"
+
+#: ../src/preferences.c:279
+msgid "Not too shabby"
+msgstr "Nie mâl"
+
+#: ../src/preferences.c:289
+msgid "Finger-twitching good"
+msgstr "Par ingherdeâsi i dêts"
+
+#: ../src/preferences.c:303 ../src/preferences.c:426
+msgid "Options"
+msgstr "Opzions"
+
+#: ../src/preferences.c:310
+msgid "_Play levels in random order"
+msgstr "_Zuiâ i nivei in ordin casuâl."
+
+#: ../src/preferences.c:318
+msgid "_Enable fake bonuses"
+msgstr "_Abilite i bonus fints."
+
+#: ../src/preferences.c:326
+msgid "E_nable sounds"
+msgstr "A_bilite suns"
+
+#: ../src/preferences.c:339
+msgid "_Starting level:"
+msgstr "_Nivel iniziâl:"
+
+#: ../src/preferences.c:364
+msgid "Number of _human players:"
+msgstr "Numar di _zuiadôrs umans:"
+
+#: ../src/preferences.c:381
+msgid "Number of _AI players:"
+msgstr "Numar di zuiadôrs dotâts di _IA:"
+
+#: ../src/preferences.c:402
+msgid "Worm"
+msgstr "Vier"
+
+#: ../src/preferences.c:411
+msgid "Keyboard Options"
+msgstr "Opzions tastiere"
+
+#: ../src/preferences.c:431
+msgid "_Use relative movement"
+msgstr "_Doprâ moviment relatîf"
+
+#: ../src/preferences.c:438
+msgid "_Worm color:"
+msgstr "Colôr dal _vier:"
+
+#: ../src/preferences.c:444
+msgid "Red"
+msgstr "Ros"
+
+#: ../src/preferences.c:445
+msgid "Green"
+msgstr "Vert"
+
+#: ../src/preferences.c:446
+msgid "Blue"
+msgstr "Blu"
+
+#: ../src/preferences.c:447
+msgid "Yellow"
+msgstr "Zâl"
+
+#: ../src/preferences.c:448
+msgid "Cyan"
+msgstr "Turchin"
+
+#: ../src/preferences.c:449
+msgid "Purple"
+msgstr "Purpure"
+
+#: ../src/preferences.c:450
+msgid "Gray"
+msgstr "Grîs"
+
+#: ../src/scoreboard.c:48
+#, c-format
+msgid "Worm %d:"
+msgstr "Vier %d:"
