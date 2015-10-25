@@ -19,6 +19,36 @@
 // This is a fairly literal translation of the LGPLv2+ original by
 // Sean MacIsaac, Ian Peters, Guillaume Béland.
 
+public enum BonusType
+{
+    REGULAR,
+    HALF,
+    DOUBLE,
+    LIFE,
+    REVERSE,
+    CUT,
+    SWITCH,
+    WARP
+}
+
+public class Bonus : Object
+{
+    public int x;
+    public int y;
+    public BonusType type;
+    public bool fake;
+    public int countdown;
+
+    public Bonus (int x, int y, BonusType type, bool fake, int countdown)
+    {
+        this.x = x;
+        this.y = y;
+        this.type = type;
+        this.fake = fake;
+        this.countdown = countdown;
+    }
+}
+
 public class Boni : Object
 {
     public Gee.LinkedList<Bonus> bonuses;
@@ -92,34 +122,4 @@ public class Boni : Object
 
         return null;
     }
-}
-
-public class Bonus : Object
-{
-    public int x;
-    public int y;
-    public BonusType type;
-    public bool fake;
-    public int countdown;
-
-    public Bonus (int x, int y, BonusType type, bool fake, int countdown)
-    {
-        this.x = x;
-        this.y = y;
-        this.type = type;
-        this.fake = fake;
-        this.countdown = countdown;
-    }
-}
-
-public enum BonusType
-{
-    REGULAR,
-    HALF,
-    DOUBLE,
-    LIFE,
-    REVERSE,
-    CUT,
-    SWITCH,
-    WARP
 }

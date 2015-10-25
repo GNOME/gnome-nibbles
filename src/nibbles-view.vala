@@ -16,6 +16,98 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+private class WormActor : Clutter.Actor
+{
+    public override void show ()
+    {
+        base.show ();
+
+        set_opacity (0);
+        set_scale (3.0, 3.0);
+
+        save_easing_state ();
+        set_easing_mode (Clutter.AnimationMode.EASE_OUT_CIRC);
+        set_easing_duration (NibblesGame.GAMEDELAY * 26);
+        set_scale (1.0, 1.0);
+        set_pivot_point (0.5f, 0.5f);
+        set_opacity (0xff);
+        restore_easing_state ();
+    }
+
+    public override void hide ()
+    {
+        save_easing_state ();
+        set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
+        set_easing_duration (NibblesGame.GAMEDELAY * 15);
+        set_scale (0.4f, 0.4f);
+        set_opacity (0);
+        restore_easing_state ();
+    }
+}
+
+private class BonusTexture : GtkClutter.Texture
+{
+    public static const float SIZE_MULTIPLIER = 2;
+
+    public override void show ()
+    {
+        base.show ();
+
+        set_opacity (0);
+        set_scale (3.0, 3.0);
+
+        save_easing_state ();
+        set_easing_mode (Clutter.AnimationMode.EASE_OUT_BOUNCE);
+        set_easing_duration (NibblesGame.GAMEDELAY * 20);
+        set_scale (1.0, 1.0);
+        set_pivot_point (0.5f, 0.5f);
+        set_opacity (0xff);
+        restore_easing_state ();
+    }
+
+    public new void set_size (float width, float height)
+    {
+        base.set_size (SIZE_MULTIPLIER * width, SIZE_MULTIPLIER * height);
+    }
+}
+
+private class WarpTexture: GtkClutter.Texture
+{
+    public static const float SIZE_MULTIPLIER = 2;
+
+    public override void show ()
+    {
+        base.show ();
+
+        set_opacity (0);
+        set_scale (3.0, 3.0);
+
+        save_easing_state ();
+        set_easing_mode (Clutter.AnimationMode.EASE_OUT_CIRC);
+        set_easing_duration (NibblesGame.GAMEDELAY * 15);
+        set_scale (1.0, 1.0);
+        set_pivot_point (0.5f, 0.5f);
+        set_opacity (0xff);
+        restore_easing_state ();
+    }
+
+    public override void hide ()
+    {
+        save_easing_state ();
+        set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
+        set_easing_duration (NibblesGame.GAMEDELAY * 15);
+        set_scale (0.4f, 0.4f);
+        set_pivot_point (0.5f, 0.5f);
+        set_opacity (0);
+        restore_easing_state ();
+    }
+
+    public new void set_size (float width, float height)
+    {
+        base.set_size (SIZE_MULTIPLIER * width, SIZE_MULTIPLIER * height);
+    }
+}
+
 public class NibblesView : GtkClutter.Embed
 {
     /* Sound */
@@ -833,97 +925,5 @@ public class NibblesView : GtkClutter.Embed
     public static string colorval_name (int colorval)
     {
         return color_lookup[colorval];
-    }
-}
-
-private class WormActor : Clutter.Actor
-{
-    public override void show ()
-    {
-        base.show ();
-
-        set_opacity (0);
-        set_scale (3.0, 3.0);
-
-        save_easing_state ();
-        set_easing_mode (Clutter.AnimationMode.EASE_OUT_CIRC);
-        set_easing_duration (NibblesGame.GAMEDELAY * 26);
-        set_scale (1.0, 1.0);
-        set_pivot_point (0.5f, 0.5f);
-        set_opacity (0xff);
-        restore_easing_state ();
-    }
-
-    public override void hide ()
-    {
-        save_easing_state ();
-        set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
-        set_easing_duration (NibblesGame.GAMEDELAY * 15);
-        set_scale (0.4f, 0.4f);
-        set_opacity (0);
-        restore_easing_state ();
-    }
-}
-
-private class BonusTexture : GtkClutter.Texture
-{
-    public static const float SIZE_MULTIPLIER = 2;
-
-    public override void show ()
-    {
-        base.show ();
-
-        set_opacity (0);
-        set_scale (3.0, 3.0);
-
-        save_easing_state ();
-        set_easing_mode (Clutter.AnimationMode.EASE_OUT_BOUNCE);
-        set_easing_duration (NibblesGame.GAMEDELAY * 20);
-        set_scale (1.0, 1.0);
-        set_pivot_point (0.5f, 0.5f);
-        set_opacity (0xff);
-        restore_easing_state ();
-    }
-
-    public new void set_size (float width, float height)
-    {
-        base.set_size (SIZE_MULTIPLIER * width, SIZE_MULTIPLIER * height);
-    }
-}
-
-private class WarpTexture: GtkClutter.Texture
-{
-    public static const float SIZE_MULTIPLIER = 2;
-
-    public override void show ()
-    {
-        base.show ();
-
-        set_opacity (0);
-        set_scale (3.0, 3.0);
-
-        save_easing_state ();
-        set_easing_mode (Clutter.AnimationMode.EASE_OUT_CIRC);
-        set_easing_duration (NibblesGame.GAMEDELAY * 15);
-        set_scale (1.0, 1.0);
-        set_pivot_point (0.5f, 0.5f);
-        set_opacity (0xff);
-        restore_easing_state ();
-    }
-
-    public override void hide ()
-    {
-        save_easing_state ();
-        set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
-        set_easing_duration (NibblesGame.GAMEDELAY * 15);
-        set_scale (0.4f, 0.4f);
-        set_pivot_point (0.5f, 0.5f);
-        set_opacity (0);
-        restore_easing_state ();
-    }
-
-    public new void set_size (float width, float height)
-    {
-        base.set_size (SIZE_MULTIPLIER * width, SIZE_MULTIPLIER * height);
     }
 }

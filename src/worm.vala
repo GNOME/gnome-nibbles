@@ -19,6 +19,30 @@
 // This is a fairly literal translation of the LGPLv2+ original by
 // Sean MacIsaac, Ian Peters, Guillaume Béland.
 
+public enum WormDirection
+{
+    NONE,
+    RIGHT,
+    DOWN,
+    LEFT,
+    UP
+}
+
+public struct Position
+{
+    int x;
+    int y;
+}
+
+public struct WormProperties
+{
+    int color;
+    uint up;
+    uint down;
+    uint left;
+    uint right;
+}
+
 public class Worm : Object
 {
     public const int STARTING_LENGTH = 5;
@@ -761,28 +785,4 @@ public class Worm : Object
                 continue;
         }
     }
-}
-
-public struct Position
-{
-    int x;
-    int y;
-}
-
-public enum WormDirection
-{
-    NONE,
-    RIGHT,
-    DOWN,
-    LEFT,
-    UP
-}
-
-public struct WormProperties
-{
-    int color;
-    uint up;
-    uint down;
-    uint left;
-    uint right;
 }
