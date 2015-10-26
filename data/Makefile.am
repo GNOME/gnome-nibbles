@@ -20,7 +20,8 @@ dist_noinst_DATA = \
 	nibbles.ui \
 	nibbles.css \
 	scoreboard.ui \
-	player-score-box.ui
+	player-score-box.ui \
+	controls-grid.ui
 
 soundsdir = $(datadir)/gnome-nibbles/sounds
 dist_sounds_DATA = \
