@@ -556,20 +556,6 @@ public class NibblesGame : Object
         }
     }
 
-    public void save_worm_properties (Gee.ArrayList<Settings> worm_settings)
-    {
-        foreach (var worm in worms)
-        {
-            var properties = worm_props.get (worm);
-
-            worm_settings[worm.id].set_string ("color", NibblesView.colorval_name (properties.color));
-            worm_settings[worm.id].set_int ("key-up", (int) properties.up);
-            worm_settings[worm.id].set_int ("key-down", (int) properties.down);
-            worm_settings[worm.id].set_int ("key-left", (int) properties.left);
-            worm_settings[worm.id].set_int ("key-right", (int) properties.right);
-        }
-    }
-
     public bool handle_keypress (uint keyval)
     {
         if (!is_running)
