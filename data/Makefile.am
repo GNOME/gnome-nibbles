@@ -23,7 +23,7 @@ dist_noinst_DATA = \
 	player-score-box.ui
 
 soundsdir = $(datadir)/gnome-nibbles/sounds
-sounds_DATA = \
+dist_sounds_DATA = \
     appear.ogg \
     bonus.ogg \
     crash.ogg \
@@ -34,6 +34,8 @@ sounds_DATA = \
     teleport.ogg
 
 EXTRA_DIST = \
+	$(appstream_in_files) \
+	$(desktop_in_files) \
 	$(gsettings_SCHEMAS)
 
 CLEANFILES = \
