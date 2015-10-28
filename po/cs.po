@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-02 20:15+0000\n"
-"PO-Revision-Date: 2015-03-02 22:33+0100\n"
+"POT-Creation-Date: 2015-10-28 09:27+0000\n"
+"PO-Revision-Date: 2015-10-28 11:28+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -32,8 +32,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 "X-Project-Style: gnome\n"
+
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "Hráč"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
@@ -42,7 +46,7 @@ msgstr "Červíci GNOME"
 #: ../data/gnome-nibbles.appdata.xml.in.h:2
 #: ../data/gnome-nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
-msgstr "Vést červa v bludišti"
+msgstr "Proveďte červa bludištěm"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
@@ -78,8 +82,9 @@ msgstr ""
 "Zahrajte si na vlastní pěst až proti pěti nepřátelským červíkům nebo se "
 "podělte o klávesnici při hraní s přáteli."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
-#: ../src/main.c:704
+#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
+#: ../src/gnome-nibbles.vala:424 ../src/gnome-nibbles.vala:764
+#: ../src/gnome-nibbles.vala:798
 msgid "Nibbles"
 msgstr "Červíci"
 
@@ -88,76 +93,111 @@ msgid "game;snake;board;"
 msgstr "hra;had;desková;"
 
 #: ../data/nibbles-menus.ui.h:1
-#| msgid "Game"
-msgid "_New Game"
-msgstr "_Nová hra"
-
-#: ../data/nibbles-menus.ui.h:2
-msgid "_Pause"
-msgstr "_Pozastavit"
-
-#: ../data/nibbles-menus.ui.h:3
-#| msgid "Preferences"
 msgid "_Preferences"
 msgstr "_Předvolby"
 
-#: ../data/nibbles-menus.ui.h:4
-#| msgctxt "score-dialog"
-#| msgid "Score"
+#: ../data/nibbles-menus.ui.h:2
 msgid "_Scores"
 msgstr "_Skóre"
 
-#: ../data/nibbles-menus.ui.h:5
+#: ../data/nibbles-menus.ui.h:3
 msgid "_Help"
 msgstr "Nápově_da"
 
-#: ../data/nibbles-menus.ui.h:6
+#: ../data/nibbles-menus.ui.h:4
 msgid "_About"
 msgstr "O _aplikaci"
 
-#: ../data/nibbles-menus.ui.h:7
+#: ../data/nibbles-menus.ui.h:5
 msgid "_Quit"
 msgstr "U_končit"
 
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:369
+msgid "_New Game"
+msgstr "_Nová hra"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:398
+msgid "_Pause"
+msgstr "_Pozastavit"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "_Jdeme na to"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Vítejte červíci."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr ""
+"Snězte dobroty dřív než ostatní červíci, ale nevrazte při tom do ničeho!"
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "Počet hráčů"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "Vyberte počet lidských hráčů."
+
+#: ../data/nibbles.ui.h:9
+msgid "_Next"
+msgstr "_Další"
+
+#: ../data/nibbles.ui.h:10
+msgid "Controls"
+msgstr "Ovládání"
+
+#: ../data/nibbles.ui.h:11
+msgid "_Start"
+msgstr "_Začít"
+
+#: ../data/nibbles.ui.h:12
+msgid "Paused"
+msgstr "Pozastaveno"
+
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Počet lidských hráčů"
+msgid "Width of the window in pixels"
+msgstr "Šířka okna v pixelech"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Počet hráčů."
+msgid "Width of the window in pixels."
+msgstr "Šířka okna v počtu pixelů."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "Počet umělých hráčů"
+msgid "Height of the window in pixels"
+msgstr "Výška okna v pixelech"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "Počet hráčů umělé inteligence."
+msgid "Height of the window in pixels."
+msgstr "Výška okna v počtu pixelů."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Rychlost hry"
+msgid "true if the window is maximized"
+msgstr "Zapnuto při maximalizaci okna"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Rychlost hry (1=rychlá, 4=pomalá)."
+msgid "true if the window is maximized."
+msgstr "Nastaveno na „zapnuto“, když je okno maximalizováno."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Povolit falešné bonusy"
+msgid "Is this the first run"
+msgstr "Je o první spuštění"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Povolit falešné bonusy."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
+"Nastavení, které rozhoduje, jestli se má nebo nemá zobrazit dialogové okno s "
+"radami pro první použití."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Hrát úrovně v náhodném pořadí"
+msgid "Size of game tiles"
+msgstr "Velikost dlaždic hry"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Hrát úrovně v náhodném pořadí."
+msgid "Size of game tiles."
+msgstr "Velikost dlaždic hry."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -176,201 +216,116 @@ msgid "Enable sounds."
 msgstr "Povolit zvuky."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "Velikost dlaždic hry"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Velikost dlaždic hry."
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Color to use for worm"
 msgstr "Barva, která se má použít pro červa"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Color to use for worm."
 msgstr "Barva, která se má použít pro červa."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Use relative movement"
 msgstr "Používat relativní pohyb"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Použít relativní pohyb (tj. jen doleva nebo doprava)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Move up"
 msgstr "Posunout nahoru"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Key to use for motion up."
 msgstr "Klávesa, která se má používat pro pohyb nahoru."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Move down"
 msgstr "Posunout dolů"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Key to use for motion down."
 msgstr "Klávesa, která se má používat pro pohyb dolů."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Move left"
 msgstr "Pohyb doleva"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion left."
 msgstr "Klávesa, která se má používat pro pohyb doleva."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Move right"
 msgstr "Pohyb doprava"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion right."
 msgstr "Klávesa, která se má používat pro pohyb doprava."
 
-#: ../src/board.c:250
+#: ../data/player-score-box.ui.h:1
+msgid "Worm"
+msgstr "Červ"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:96
+msgid "Show release version"
+msgstr "Zobrazit verzi vydání"
+
+#: ../src/gnome-nibbles.vala:365
+msgid "Are you sure you want to start a new game?"
+msgstr "Opravdu chcete začít novou hru?"
+
+#: ../src/gnome-nibbles.vala:366
+msgid "If you start a new game, the current one will be lost."
+msgstr "Pokud začnete novou hru, ta současná bude zahozena."
+
+#: ../src/gnome-nibbles.vala:393
+msgid "_Resume"
+msgstr "Pok_račovat"
+
+#: ../src/gnome-nibbles.vala:477 ../src/gnome-nibbles.vala:674
 #, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Hra Červíci nemůže načíst soubor úrovně:\n"
-"%s\n"
-"\n"
-"Zkontrolujte prosím svou instalaci hry Červíci"
+msgid "Level %d"
+msgstr "Úroveň %d"
 
-#: ../src/board.c:269
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:556
+msgid "Difficulty Level:"
+msgstr "Úroveň obtížnosti:"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:654
 #, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Soubor úrovně se jeví jako poškozený:\n"
-"%s\n"
-"\n"
-"Zkontrolujte prosím svou instalaci hry Červíci"
+msgid "Level %d Completed!"
+msgstr "Úroveň %d dokončena!"
 
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "Klávesová zkratka, kterou jste vybrali, je již přidělena."
+#: ../src/gnome-nibbles.vala:661
+msgid "_Next Level"
+msgstr "_Následující úroveň"
 
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Neznámý příkaz"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Čas"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Skóre"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
+#: ../src/gnome-nibbles.vala:704
 #, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$d min %2$d sec"
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d bod"
+msgstr[1] "%d body"
+msgstr[2] "%d bodů"
 
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Datum"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Zavřít"
-
-#: ../src/gnibbles.c:82
+#: ../src/gnome-nibbles.vala:713
 #, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Hra Červíci nemůže najít soubor pixelové mapy:\n"
-"%s\n"
-"\n"
-"Zkontrolujte prosím svou instalaci hry Červíci"
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(o %d bodů více a byli byste ve vedoucí tabulce)"
 
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "Skóre Červíků"
+#: ../src/gnome-nibbles.vala:719
+msgid "_Play Again"
+msgstr "_Hrát znovu"
 
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Rychlost:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Blahopřejeme!"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "Vaše skóre je nejlepší!"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "Vaše skóre se dostalo mezi deset nejlepších."
-
-#: ../src/main.c:62
-msgctxt "game speed"
-msgid "Beginner"
-msgstr "Začátečník"
-
-#: ../src/main.c:63
-msgctxt "game speed"
-msgid "Slow"
-msgstr "Pomalá"
-
-#: ../src/main.c:64
-msgctxt "game speed"
-msgid "Medium"
-msgstr "Střední"
-
-#: ../src/main.c:65
-msgctxt "game speed"
-msgid "Fast"
-msgstr "Rychlá"
-
-#: ../src/main.c:66
-msgctxt "game speed"
-msgid "Beginner with Fakes"
-msgstr "Začátečník s červíkem"
-
-#: ../src/main.c:67
-msgctxt "game speed"
-msgid "Slow with Fakes"
-msgstr "Pomalý červík"
-
-#: ../src/main.c:68
-msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr "Rychlý červík"
-
-#: ../src/main.c:69
-msgctxt "game speed"
-msgid "Fast with Fakes"
-msgstr "Velmi rychlý červík"
-
-#: ../src/main.c:257
+#: ../src/gnome-nibbles.vala:767
 msgid "A worm game for GNOME"
 msgstr "Hra s červíky pro GNOME"
 
-#: ../src/main.c:260
+#: ../src/gnome-nibbles.vala:776
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -387,108 +342,8 @@ msgstr ""
 "Petr Pulc <petrpulc@gmail.com>\n"
 "Marek Černocký <marek@manet.cz>"
 
-#: ../src/preferences.c:225
-msgid "Preferences"
-msgstr "Předvolby"
-
-#: ../src/preferences.c:238
-msgid "Game"
-msgstr "Hra"
-
-#. Speed
-#: ../src/preferences.c:254
-msgid "Speed"
-msgstr "Rychlost"
-
-#: ../src/preferences.c:259
-msgid "Nibbles newbie"
-msgstr "Nováček v Červících"
-
-#: ../src/preferences.c:269
-msgid "My second day"
-msgstr "Můj druhý den"
-
-#: ../src/preferences.c:279
-msgid "Not too shabby"
-msgstr "Ne moc špatný"
-
-#: ../src/preferences.c:289
-msgid "Finger-twitching good"
-msgstr "Tak dobrý, že má křeč v prstech"
-
-#: ../src/preferences.c:303 ../src/preferences.c:426
-msgid "Options"
-msgstr "Volby"
-
-#: ../src/preferences.c:310
-msgid "_Play levels in random order"
-msgstr "_Hrát úrovně v náhodném pořadí"
-
-#: ../src/preferences.c:318
-msgid "_Enable fake bonuses"
-msgstr "Povolit _falešné bonusy"
-
-#: ../src/preferences.c:326
-msgid "E_nable sounds"
-msgstr "Povolit _zvuky"
-
-#: ../src/preferences.c:339
-msgid "_Starting level:"
-msgstr "_Počáteční úroveň:"
-
-#: ../src/preferences.c:364
-msgid "Number of _human players:"
-msgstr "Počet lidských _hráčů:"
-
-#: ../src/preferences.c:381
-msgid "Number of _AI players:"
-msgstr "_Počet počítačových hráčů:"
-
-#: ../src/preferences.c:402
-msgid "Worm"
-msgstr "Červ"
-
-#: ../src/preferences.c:411
-msgid "Keyboard Options"
-msgstr "Volby klávesnice"
-
-#: ../src/preferences.c:431
-msgid "_Use relative movement"
-msgstr "Používat _relativní pohyb"
-
-#: ../src/preferences.c:438
-msgid "_Worm color:"
-msgstr "Barva č_erva:"
-
-#: ../src/preferences.c:444
-msgid "Red"
-msgstr "Červená"
-
-#: ../src/preferences.c:445
-msgid "Green"
-msgstr "Zelená"
-
-#: ../src/preferences.c:446
-msgid "Blue"
-msgstr "Modrá"
-
-#: ../src/preferences.c:447
-msgid "Yellow"
-msgstr "Žlutá"
-
-#: ../src/preferences.c:448
-msgid "Cyan"
-msgstr "Azurová"
-
-#: ../src/preferences.c:449
-msgid "Purple"
-msgstr "Purpurová"
-
-#: ../src/preferences.c:450
-msgid "Gray"
-msgstr "Šedá"
-
-#: ../src/scoreboard.c:48
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/nibbles-view.vala:574
 #, c-format
-msgid "Worm %d:"
-msgstr "Červ %d:"
+msgid "Player %d"
+msgstr "Hráč %d"
