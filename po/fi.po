@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-09 08:09+0000\n"
-"PO-Revision-Date: 2015-03-09 17:26+0200\n"
+"POT-Creation-Date: 2015-10-31 09:26+0000\n"
+"PO-Revision-Date: 2015-10-31 13:32+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -25,8 +25,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Launchpad-Export-Date: 2010-09-13 15:09+0000\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
+
+#: ../data/controls-grid.ui.h:1
+#| msgid "Player One:"
+msgid "Player"
+msgstr "Pelaaja"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
@@ -71,8 +76,9 @@ msgstr ""
 "Pelaa itse viittä vastustajamatoa vastaan, tai haasta kaveri ja jaa "
 "näppäimistö hänen kanssaan."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
-#: ../src/main.c:704
+#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
+#: ../src/gnome-nibbles.vala:424 ../src/gnome-nibbles.vala:764
+#: ../src/gnome-nibbles.vala:798
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -81,72 +87,120 @@ msgid "game;snake;board;"
 msgstr "game;snake;board;mato;peli;lauta;"
 
 #: ../data/nibbles-menus.ui.h:1
-msgid "_New Game"
-msgstr "_Uusi peli"
-
-#: ../data/nibbles-menus.ui.h:2
-msgid "_Pause"
-msgstr "_Keskeytä"
-
-#: ../data/nibbles-menus.ui.h:3
 msgid "_Preferences"
 msgstr "_Asetukset"
 
-#: ../data/nibbles-menus.ui.h:4
+#: ../data/nibbles-menus.ui.h:2
 msgid "_Scores"
 msgstr "_Pisteet"
 
-#: ../data/nibbles-menus.ui.h:5
+#: ../data/nibbles-menus.ui.h:3
 msgid "_Help"
 msgstr "O_hje"
 
-#: ../data/nibbles-menus.ui.h:6
+#: ../data/nibbles-menus.ui.h:4
 msgid "_About"
 msgstr "_Tietoja"
 
-#: ../data/nibbles-menus.ui.h:7
+#: ../data/nibbles-menus.ui.h:5
 msgid "_Quit"
 msgstr "_Lopeta"
 
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:369
+msgid "_New Game"
+msgstr "_Uusi peli"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:398
+msgid "_Pause"
+msgstr "_Keskeytä"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "_Pelataan"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Tervetuloa, madot."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr "Syö lahjat ennen muita matoja, mutta älä osu mihinkään!"
+
+#: ../data/nibbles.ui.h:7
+#| msgid "_Number of players:"
+msgid "Number of players"
+msgstr "Pelaajien määrä"
+
+#: ../data/nibbles.ui.h:8
+#| msgid "Number of human players."
+msgid "Select the number of human players."
+msgstr "Valitse ihmispelaajien määrä"
+
+#: ../data/nibbles.ui.h:9
+#| msgid "Next:"
+msgid "_Next"
+msgstr "_Seuraava"
+
+#: ../data/nibbles.ui.h:10
+msgid "Controls"
+msgstr "Ohjaimet"
+
+#: ../data/nibbles.ui.h:11
+#| msgid "_Restart"
+msgid "_Start"
+msgstr "_Käynnistä"
+
+#: ../data/nibbles.ui.h:12
+msgid "Paused"
+msgstr "Keskeytetty"
+
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Ihmispelaajien määrä"
+msgid "Width of the window in pixels"
+msgstr "Ikkunan leveys kuvapisteinä"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Ihmispelaajien määrä."
+#| msgid "Width of the window in pixels"
+msgid "Width of the window in pixels."
+msgstr "Ikkunan leveys kuvapisteinä."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "Tekoälypelaajien määrä"
+msgid "Height of the window in pixels"
+msgstr "Ikkunan korkeus kuvapisteinä"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "Tekoälypelaajien määrä."
+#| msgid "Height of the window in pixels"
+msgid "Height of the window in pixels."
+msgstr "Ikkunan korkeus kuvapisteinä."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Pelin nopeus"
+#, fuzzy
+#| msgid "Width of the window in pixels"
+msgid "true if the window is maximized"
+msgstr "Ikkunan leveys kuvapisteinä"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Pelin nopeus (1=nopea, 4=hidas)."
+#, fuzzy
+#| msgid "Width of the window in pixels"
+msgid "true if the window is maximized."
+msgstr "Ikkunan leveys kuvapisteinä"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Huijausbonukset päälle"
+msgid "Is this the first run"
+msgstr "Onko kyseessä ensimmäinen käynnistyskerta"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Huijausbonukset päälle."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
+"Tämän asettaminen vaikuttaa siihen, näytetäänkö ensimmäisen käynnistyskerran "
+"ohje."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Sattumanvarainen tasojärjestys"
+msgid "Size of game tiles"
+msgstr "Pelissä käytettävien esineiden koko"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Sattumanvarainen tasojärjestys."
+msgid "Size of game tiles."
+msgstr "Pelissä käytettävien esineiden koko."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -165,202 +219,124 @@ msgid "Enable sounds."
 msgstr "Äänet päälle."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "Pelissä käytettävien esineiden koko"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Pelissä käytettävien esineiden koko."
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Color to use for worm"
 msgstr "Käytettävä madon väri"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Color to use for worm."
 msgstr "Madon väri."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Use relative movement"
 msgstr "Käytä suhteellista liikettä"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Käytä suhteellista liikettä (esim. vasen tai oikea ainoastaan)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Move up"
 msgstr "Liikuta ylös"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Key to use for motion up."
 msgstr "Näppäin ylös siirtämiseen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Move down"
 msgstr "Liikuta alas"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Key to use for motion down."
 msgstr "Näppäin alas siirtämiseen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Move left"
 msgstr "Siirry vasemmalle"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion left."
 msgstr "Näppäin vasemmalle siirtämiseen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Move right"
 msgstr "Siirry oikealle"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion right."
 msgstr "Näppäin oikealle siirtämiseen."
 
-#: ../src/board.c:250
+#: ../data/player-score-box.ui.h:1
+msgid "Worm"
+msgstr "Mato"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:96
+msgid "Show release version"
+msgstr "Näytä julkaisuversio"
+
+#: ../src/gnome-nibbles.vala:365
+#| msgid "Do you want to start a new game?"
+msgid "Are you sure you want to start a new game?"
+msgstr "Haluatko varmasti aloittaa uuden pelin?"
+
+#: ../src/gnome-nibbles.vala:366
+#| msgid "If you start a new game, your current progress will be lost."
+msgid "If you start a new game, the current one will be lost."
+msgstr "Jos aloitat uuden pelin, nykyisen peli lopetetaan."
+
+#: ../src/gnome-nibbles.vala:393
+#| msgid "_Reset"
+msgid "_Resume"
+msgstr "_Jatka"
+
+#: ../src/gnome-nibbles.vala:477 ../src/gnome-nibbles.vala:674
 #, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Nibbles ei voinut ladata tasotiedostoa:\n"
-"%s\n"
-"\n"
-"Tarkista nibbles-asennuksesi"
+#| msgid "Level:"
+msgid "Level %d"
+msgstr "Taso %d"
 
-#: ../src/board.c:269
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:556
+#| msgid "Difficulty:"
+msgid "Difficulty Level:"
+msgstr "Vaikeusaste:"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:654
 #, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Tasotiedosto näyttää olevan viallinen:\n"
-"%s\n"
-"\n"
-"Tarkista nibbles-asennuksesi"
+#| msgid "Level completed."
+msgid "Level %d Completed!"
+msgstr "Taso %d läpäisty!"
 
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "Valitsemasi pikanäppäin on jo määritetty."
+#: ../src/gnome-nibbles.vala:661
+msgid "_Next Level"
+msgstr "S_euraava taso"
 
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Tuntematon komento"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Aika"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Pisteet"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
+#: ../src/gnome-nibbles.vala:704
 #, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%d min %d s"
+#| msgid "%u point"
+#| msgid_plural "%u points"
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d piste"
+msgstr[1] "%d pistettä"
 
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Päiväys"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Sulje"
-
-#: ../src/gnibbles.c:82
+#: ../src/gnome-nibbles.vala:713
 #, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Nibbles ei löytänyt kuvatiedostoa:\n"
-"%s\n"
-"\n"
-"Tarkista nibbles-asennuksesi"
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(%d pistettä enemmän pistetaulukkoa varten)"
 
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "Nibblesin tulokset"
+#: ../src/gnome-nibbles.vala:719
+#| msgid "_Play Game"
+msgid "_Play Again"
+msgstr "_Pelaa uudelleen"
 
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Nopeus:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Onnittelut!"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "Teit parhaan tuloksen!"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "Tuloksesi pääsi top-10 listalle."
-
-#: ../src/main.c:62
-msgctxt "game speed"
-msgid "Beginner"
-msgstr "Aloittelija"
-
-#: ../src/main.c:63
-msgctxt "game speed"
-msgid "Slow"
-msgstr "Hidas"
-
-#: ../src/main.c:64
-msgctxt "game speed"
-msgid "Medium"
-msgstr "Tavallinen"
-
-#: ../src/main.c:65
-msgctxt "game speed"
-msgid "Fast"
-msgstr "Nopea"
-
-#: ../src/main.c:66
-msgctxt "game speed"
-msgid "Beginner with Fakes"
-msgstr "Aloittelija huijausten kera"
-
-#: ../src/main.c:67
-msgctxt "game speed"
-msgid "Slow with Fakes"
-msgstr "Hidas huijausten kera"
-
-#: ../src/main.c:68
-msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr "Tavallinen huijausten kera"
-
-#: ../src/main.c:69
-msgctxt "game speed"
-msgid "Fast with Fakes"
-msgstr "Nopea huijausten kera"
-
-#: ../src/main.c:257
-#| msgid "A worm game for GNOME."
+#: ../src/gnome-nibbles.vala:767
 msgid "A worm game for GNOME"
 msgstr "Matopeli Gnomelle"
 
-#: ../src/main.c:260
+#: ../src/gnome-nibbles.vala:776
 msgid "translator-credits"
 msgstr ""
 "Jiri Grönroos, 2012-2015\n"
@@ -381,111 +357,218 @@ msgstr ""
 "  Timo Jyrinki https://launchpad.net/~timo-jyrinki\n"
 "  eGetin https://launchpad.net/~egetin"
 
-#: ../src/preferences.c:225
-msgid "Preferences"
-msgstr "Asetukset"
-
-#: ../src/preferences.c:238
-msgid "Game"
-msgstr "Peli"
-
-#. Speed
-#: ../src/preferences.c:254
-msgid "Speed"
-msgstr "Nopeus"
-
-#: ../src/preferences.c:259
-msgid "Nibbles newbie"
-msgstr "Aloittelija"
-
-#: ../src/preferences.c:269
-msgid "My second day"
-msgstr "Vähän pelannut"
-
-#: ../src/preferences.c:279
-msgid "Not too shabby"
-msgstr "Ei turhan huono"
-
-#: ../src/preferences.c:289
-msgid "Finger-twitching good"
-msgstr "Salamasormi"
-
-#: ../src/preferences.c:303 ../src/preferences.c:426
-msgid "Options"
-msgstr "Valinnat"
-
-#: ../src/preferences.c:310
-msgid "_Play levels in random order"
-msgstr "_Pelaa tasoja satunnaisessa järjestyksessä"
-
-#: ../src/preferences.c:318
-msgid "_Enable fake bonuses"
-msgstr "_Huijausbonukset päälle"
-
-#: ../src/preferences.c:326
-msgid "E_nable sounds"
-msgstr "Ää_net päälle"
-
-#: ../src/preferences.c:339
-msgid "_Starting level:"
-msgstr "_Aloitustaso:"
-
-#: ../src/preferences.c:364
-msgid "Number of _human players:"
-msgstr "_Ihmispelaajien määrä:"
-
-#: ../src/preferences.c:381
-msgid "Number of _AI players:"
-msgstr "_Tekoälypelaajien määrä:"
-
-#: ../src/preferences.c:402
-msgid "Worm"
-msgstr "Mato"
-
-#: ../src/preferences.c:411
-msgid "Keyboard Options"
-msgstr "Näppäimistövalinnat"
-
-#: ../src/preferences.c:431
-msgid "_Use relative movement"
-msgstr "Käytä _suhteellista liikettä"
-
-#: ../src/preferences.c:438
-msgid "_Worm color:"
-msgstr "_Madon väri:"
-
-#: ../src/preferences.c:444
-msgid "Red"
-msgstr "Punainen"
-
-#: ../src/preferences.c:445
-msgid "Green"
-msgstr "Vihreä"
-
-#: ../src/preferences.c:446
-msgid "Blue"
-msgstr "Sininen"
-
-#: ../src/preferences.c:447
-msgid "Yellow"
-msgstr "Keltainen"
-
-#: ../src/preferences.c:448
-msgid "Cyan"
-msgstr "Syaani"
-
-#: ../src/preferences.c:449
-msgid "Purple"
-msgstr "Violetti"
-
-#: ../src/preferences.c:450
-msgid "Gray"
-msgstr "Harmaa"
-
-#: ../src/scoreboard.c:48
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/nibbles-view.vala:574
 #, c-format
-msgid "Worm %d:"
-msgstr "Mato %d:"
+#| msgid "Player One:"
+msgid "Player %d"
+msgstr "Pelaaja %d"
+
+#~ msgid "Number of human players"
+#~ msgstr "Ihmispelaajien määrä"
+
+#~ msgid "Number of AI players"
+#~ msgstr "Tekoälypelaajien määrä"
+
+#~ msgid "Number of AI players."
+#~ msgstr "Tekoälypelaajien määrä."
+
+#~ msgid "Game speed"
+#~ msgstr "Pelin nopeus"
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "Pelin nopeus (1=nopea, 4=hidas)."
+
+#~ msgid "Enable fake bonuses"
+#~ msgstr "Huijausbonukset päälle"
+
+#~ msgid "Enable fake bonuses."
+#~ msgstr "Huijausbonukset päälle."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "Sattumanvarainen tasojärjestys"
+
+#~ msgid "Play levels in random order."
+#~ msgstr "Sattumanvarainen tasojärjestys."
+
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Nibbles ei voinut ladata tasotiedostoa:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Tarkista nibbles-asennuksesi"
+
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Tasotiedosto näyttää olevan viallinen:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Tarkista nibbles-asennuksesi"
+
+#~ msgid "The shortcut you selected is already assigned."
+#~ msgstr "Valitsemasi pikanäppäin on jo määritetty."
+
+#~ msgid "Unknown Command"
+#~ msgstr "Tuntematon komento"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "Aika"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "Pisteet"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%d min %d s"
+
+#~ msgid "Date"
+#~ msgstr "Päiväys"
+
+#~ msgid "_Close"
+#~ msgstr "_Sulje"
+
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Nibbles ei löytänyt kuvatiedostoa:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Tarkista nibbles-asennuksesi"
+
+#~ msgid "Nibbles Scores"
+#~ msgstr "Nibblesin tulokset"
+
+#~ msgid "Speed:"
+#~ msgstr "Nopeus:"
+
+#~ msgid "Congratulations!"
+#~ msgstr "Onnittelut!"
+
+#~ msgid "Your score is the best!"
+#~ msgstr "Teit parhaan tuloksen!"
+
+#~ msgid "Your score has made the top ten."
+#~ msgstr "Tuloksesi pääsi top-10 listalle."
+
+#~ msgctxt "game speed"
+#~ msgid "Beginner"
+#~ msgstr "Aloittelija"
+
+#~ msgctxt "game speed"
+#~ msgid "Slow"
+#~ msgstr "Hidas"
+
+#~ msgctxt "game speed"
+#~ msgid "Medium"
+#~ msgstr "Tavallinen"
+
+#~ msgctxt "game speed"
+#~ msgid "Fast"
+#~ msgstr "Nopea"
+
+#~ msgctxt "game speed"
+#~ msgid "Beginner with Fakes"
+#~ msgstr "Aloittelija huijausten kera"
+
+#~ msgctxt "game speed"
+#~ msgid "Slow with Fakes"
+#~ msgstr "Hidas huijausten kera"
+
+#~ msgctxt "game speed"
+#~ msgid "Medium with Fakes"
+#~ msgstr "Tavallinen huijausten kera"
+
+#~ msgctxt "game speed"
+#~ msgid "Fast with Fakes"
+#~ msgstr "Nopea huijausten kera"
+
+#~ msgid "Preferences"
+#~ msgstr "Asetukset"
+
+#~ msgid "Game"
+#~ msgstr "Peli"
+
+#~ msgid "Speed"
+#~ msgstr "Nopeus"
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "Aloittelija"
+
+#~ msgid "My second day"
+#~ msgstr "Vähän pelannut"
+
+#~ msgid "Not too shabby"
+#~ msgstr "Ei turhan huono"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "Salamasormi"
+
+#~ msgid "Options"
+#~ msgstr "Valinnat"
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "_Pelaa tasoja satunnaisessa järjestyksessä"
+
+#~ msgid "_Enable fake bonuses"
+#~ msgstr "_Huijausbonukset päälle"
+
+#~ msgid "E_nable sounds"
+#~ msgstr "Ää_net päälle"
+
+#~ msgid "_Starting level:"
+#~ msgstr "_Aloitustaso:"
+
+#~ msgid "Number of _human players:"
+#~ msgstr "_Ihmispelaajien määrä:"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "_Tekoälypelaajien määrä:"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "Näppäimistövalinnat"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "Käytä _suhteellista liikettä"
+
+#~ msgid "_Worm color:"
+#~ msgstr "_Madon väri:"
+
+#~ msgid "Red"
+#~ msgstr "Punainen"
+
+#~ msgid "Green"
+#~ msgstr "Vihreä"
+
+#~ msgid "Blue"
+#~ msgstr "Sininen"
+
+#~ msgid "Yellow"
+#~ msgstr "Keltainen"
+
+#~ msgid "Cyan"
+#~ msgstr "Syaani"
+
+#~ msgid "Purple"
+#~ msgstr "Violetti"
+
+#~ msgid "Gray"
+#~ msgstr "Harmaa"
+
+#~ msgid "Worm %d:"
+#~ msgstr "Mato %d:"
 
 #~ msgid ""
 #~ "A worm game for GNOME\n"
@@ -577,12 +660,6 @@ msgstr "Mato %d:"
 
 #~ msgid "_Redo Move"
 #~ msgstr "_Tee siirto uudestaan"
-
-#~ msgid "_Reset"
-#~ msgstr "_Alusta"
-
-#~ msgid "_Restart"
-#~ msgstr "_Aloita alusta"
 
 #~ msgid "_Undo Move"
 #~ msgstr "_Peru siirto"
@@ -765,9 +842,6 @@ msgstr "Mato %d:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Vastustaja:"
-
-#~ msgid "Difficulty:"
-#~ msgstr "Vaikeusaste:"
 
 #~ msgid "Game Duration:"
 #~ msgstr "Pelin kesto:"
@@ -1238,9 +1312,6 @@ msgstr "Mato %d:"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Pelin avaus epäonnistui: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Näytä julkaisuversio"
-
 #~ msgid ""
 #~ "Run '%s --help' to see a full list of available command line options."
 #~ msgstr "Suorita \"%s --help\" nähdäksesi kaikki komentorivivalitsimet."
@@ -1286,9 +1357,6 @@ msgstr "Mato %d:"
 
 #~ msgid "Scores"
 #~ msgstr "Pisteet"
-
-#~ msgid "Next:"
-#~ msgstr "Seuraava:"
 
 #~ msgid "0"
 #~ msgstr "0"
@@ -1341,14 +1409,6 @@ msgstr "Mato %d:"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Pelin esikatselu edellisestä tallennetusta kerrasta."
-
-#~| msgid "The width of the main window in pixels."
-#~ msgid "Width of the window in pixels"
-#~ msgstr "Ikkunan leveys kuvapisteinä"
-
-#~| msgid "The height of the main window in pixels."
-#~ msgid "Height of the window in pixels"
-#~ msgstr "Ikkunan korkeus kuvapisteinä"
 
 #~ msgctxt "board size"
 #~ msgid "Small"
@@ -1516,12 +1576,6 @@ msgstr "Mato %d:"
 
 #~ msgid "Four-in-a-Row Preferences"
 #~ msgstr "Neljä rivissä -pelin asetukset"
-
-#~| msgid ""
-#~| "Player One:\n"
-#~| "%s"
-#~ msgid "Player One:"
-#~ msgstr "Pelaaja 1:"
 
 #~ msgid "Human"
 #~ msgstr "Ihminen"
@@ -1906,9 +1960,6 @@ msgstr "Mato %d:"
 #~ msgid "Safe Teleports:"
 #~ msgstr "Turvallisia teleporttauksia:"
 
-#~ msgid "Level:"
-#~ msgstr "Taso:"
-
 #~ msgid "Remaining:"
 #~ msgstr "Jäljellä:"
 
@@ -1949,9 +2000,6 @@ msgstr "Mato %d:"
 #~ msgctxt "mahjongg map name"
 #~ msgid "Difficult"
 #~ msgstr "Vaikea"
-
-#~ msgid "Paused"
-#~ msgstr "Keskeytetty"
 
 #~ msgid "Moves Left:"
 #~ msgstr "Siirtoja jäljellä:"
@@ -2367,10 +2415,6 @@ msgstr "Mato %d:"
 #~ msgid "_Number of mines:"
 #~ msgstr "M_iinojen määrä:"
 
-#~| msgid "Player Names"
-#~ msgid "_Play Game"
-#~ msgstr "_Pelaa"
-
 #~ msgid "<b>%d</b> mine"
 #~ msgid_plural "<b>%d</b> mines"
 #~ msgstr[0] "<b>%d</b> miina"
@@ -2387,13 +2431,6 @@ msgstr "Mato %d:"
 
 #~ msgid "Size:"
 #~ msgstr "Koko:"
-
-#~| msgid "Do you want to start a new game with this map?"
-#~ msgid "Do you want to start a new game?"
-#~ msgstr "Haluatko aloittaa uuden pelin?"
-
-#~ msgid "If you start a new game, your current progress will be lost."
-#~ msgstr "Jos aloitat uuden pelin, nykyisen pelisi katoaa."
 
 #~ msgid "Keep Current Game"
 #~ msgstr "Pysy nykyisessä pelissä"
@@ -2634,9 +2671,6 @@ msgstr "Mato %d:"
 #~ msgid "Y location of window"
 #~ msgstr "Y ikkunan sijainti"
 
-#~ msgid "Level completed."
-#~ msgstr "Taso läpäisty."
-
 #~ msgid "The Puzzle Has Been Solved!"
 #~ msgstr "Arvoitus on ratkaistu!"
 
@@ -2810,9 +2844,6 @@ msgstr "Mato %d:"
 
 #~ msgid "Human Players"
 #~ msgstr "Ihmispelaajat"
-
-#~ msgid "_Number of players:"
-#~ msgstr "_Pelaajien määrä:"
 
 #~ msgid "Computer Opponents"
 #~ msgstr "Tietokonevastustajat"
@@ -3131,9 +3162,6 @@ msgstr "Mato %d:"
 #~ msgid "Show _where the block will land"
 #~ msgstr "Näytä mihin palikka _laskeutuu"
 
-#~ msgid "Controls"
-#~ msgstr "Ohjaimet"
-
 #~ msgid "Theme"
 #~ msgstr "Teema"
 
@@ -3203,13 +3231,6 @@ msgstr "Mato %d:"
 #~ msgid "Clear the screen by removing groups of colored and shaped tiles"
 #~ msgstr ""
 #~ "Tyhjennä ruutu poistamalla värillisten ja eri muotoisten laattojen ryhmiä"
-
-#~| msgid "%d point"
-#~| msgid_plural "%d points"
-#~ msgid "%u point"
-#~ msgid_plural "%u points"
-#~ msgstr[0] "%u piste"
-#~ msgstr[1] "%u pistettä"
 
 #~ msgid "Small"
 #~ msgstr "Pieni"
