@@ -4,98 +4,57 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games nibbles master\n"
-"POT-Creation-Date: 2013-12-18 21:02+0000\n"
-"PO-Revision-Date: 2013-12-19 23:25+0100\n"
+"POT-Creation-Date: 2015-11-02 21:24+0000\n"
+"PO-Revision-Date: 2015-11-02 23:10+0100\n"
 "Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
 "Mario Blättermann <mario.blaettermann@gmail.com>, 2008, 2011, 2012\n"
-"Christian Kirbach <Christian.Kirbach@gmail.com>, 2013"
+"Christian Kirbach <Christian.Kirbach@gmail.com>, 2013, 2015"
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:19(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/nibbles.png' md5='5c04c52509830b87cd6b69adf2dceb34'"
-msgstr "original"
-
-#: C/index.page:12(credit/name) C/basics.page:14(credit/name)
-#: C/controls-change.page:16(credit/name)
-#: C/controls-default.page:14(credit/name) C/fake-bonus.page:14(credit/name)
-#: C/multi-player.page:16(credit/name) C/preferences.page:14(credit/name)
-#: C/rel-movement.page:14(credit/name) C/scores.page:14(credit/name)
+#. (itstool) path: credit/name
+#: C/basics.page:14 C/controls-change.page:16 C/controls-default.page:14
+#: C/fake-bonus.page:14 C/index.page:12 C/multi-player.page:16
+#: C/preferences.page:14 C/rel-movement.page:14 C/scores.page:14
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
-#: C/index.page:16(info/desc)
-msgid "Index"
-msgstr "Stichwortverzeichnis"
-
-#: C/index.page:19(page/title)
-msgid "<_:media-1/> Nibbles"
-msgstr "<_:media-1/> Nibbles"
-
-#: C/index.page:21(page/p)
-msgid ""
-"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
-"swallow as many objects as you can while avoiding maze walls and other "
-"worms. You have to complete 26 levels to finish the game."
-msgstr ""
-"<app>Nibbles</app> ist ein Schlangen-Spiel für GNOME. Ziel des Spiels ist es "
-"so viele Objekte wie möglich zu verschlingen, während Sie Wände und andere "
-"Würmer umgehen. Zum Beenden des Spiels müssen Sie 26 Spielstufen abschließen."
-
-#: C/index.page:26(section/title)
-msgid "Game play"
-msgstr "Spielverlauf"
-
-#: C/index.page:30(section/title)
-msgid "Preferences"
-msgstr "Einstellungen"
-
-#: C/basics.page:18(credit/name) C/controls-change.page:20(credit/name)
-#: C/controls-default.page:18(credit/name) C/fake-bonus.page:18(credit/name)
-#: C/multi-player.page:20(credit/name) C/preferences.page:18(credit/name)
-#: C/rel-movement.page:18(credit/name)
+#. (itstool) path: credit/name
+#: C/basics.page:18 C/controls-change.page:20 C/controls-default.page:18
+#: C/fake-bonus.page:18 C/multi-player.page:20 C/preferences.page:18
+#: C/rel-movement.page:18
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
-#: C/basics.page:22(info/desc)
+#. (itstool) path: info/desc
+#: C/basics.page:22
 msgid ""
 "Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
 msgstr ""
 "Starten, pausieren, im Vollbildmodus spielen und beenden von <app>Nibbles</"
 "app>."
 
-#: C/basics.page:25(page/title)
+#. (itstool) path: page/title
+#: C/basics.page:25
 msgid "Basic instructions"
 msgstr "Grundlegende Anleitung"
 
-#: C/basics.page:28(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:28
 msgid "Start a new game"
 msgstr "Ein neues Spiel starten"
 
-#: C/basics.page:30(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:30
 msgid ""
 "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New</"
 "gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
@@ -105,11 +64,13 @@ msgstr ""
 "\">Neu</gui></guiseq> oder drücken Sie <keyseq><key>Strg</key><key>N</key></"
 "keyseq>, um ein neues Spiel zu starten."
 
-#: C/basics.page:38(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:38
 msgid "Pause and resume your game"
 msgstr "Das Spiel pausieren und fortsetzen"
 
-#: C/basics.page:40(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:40
 msgid ""
 "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause</"
 "gui></guiseq> to pause your game. You can resume your game by selecting "
@@ -121,11 +82,13 @@ msgstr ""
 "indem Sie <guiseq><gui style=\"menu\">Spiel</gui> <gui style=\"menuitem"
 "\">Fortsetzen</gui></guiseq> wählen."
 
-#: C/basics.page:48(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:48
 msgid "Play <app>Nibbles</app> in fullscreen mode"
 msgstr "<app>Nibbles</app> im Vollbildmodus spielen"
 
-#: C/basics.page:50(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:50
 msgid ""
 "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
 "\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
@@ -137,11 +100,13 @@ msgstr ""
 "Vollbildmodus zu spielen. Drücken Sie erneut <key>F11</key>, um auf die "
 "voreingestellte Bildgröße zurückzuschalten."
 
-#: C/basics.page:58(section/title)
+#. (itstool) path: section/title
+#: C/basics.page:58
 msgid "Quit <app>Nibbles</app>"
 msgstr "<app>Nibbles</app> beenden"
 
-#: C/basics.page:60(section/p)
+#. (itstool) path: section/p
+#: C/basics.page:60
 msgid ""
 "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit</"
 "gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
@@ -151,15 +116,18 @@ msgstr ""
 "\">Beenden</gui></guiseq> oder drücken Sie jederzeit <keyseq><key>Strg</"
 "key><key>Q</key></keyseq>, um <app>Nibbles</app> zu beenden."
 
-#: C/controls-change.page:24(info/desc)
+#. (itstool) path: info/desc
+#: C/controls-change.page:24
 msgid "Set custom control keys."
 msgstr "Eigene Steuerungstasten festlegen."
 
-#: C/controls-change.page:27(page/title)
+#. (itstool) path: page/title
+#: C/controls-change.page:27
 msgid "Change the default controls"
 msgstr "Ändern der voreingestellten Steuerung"
 
-#: C/controls-change.page:29(page/p)
+#. (itstool) path: page/p
+#: C/controls-change.page:29
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -171,8 +139,9 @@ msgstr ""
 "\"multi-player\">Mehrspieler</link>-Spiele, wenn mehr als eine Steuerung "
 "notwendig werden. So ändern Sie die voreingestellte Steuerung:"
 
-#: C/controls-change.page:36(item/p) C/fake-bonus.page:35(item/p)
-#: C/multi-player.page:44(item/p) C/rel-movement.page:66(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:36 C/fake-bonus.page:35 C/multi-player.page:44
+#: C/rel-movement.page:66
 msgid ""
 "Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
 "\">Preferences</gui></guiseq>."
@@ -181,12 +150,14 @@ msgstr ""
 "\"menuitem\">Eigenschaften</gui> <gui style=\"menuitem\">Spiel</gui></"
 "guiseq>."
 
-#: C/controls-change.page:40(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:40
 msgid "Select the tab for the player whose controls you want to change."
 msgstr ""
 "Wählen Sie den Reiter des Spielers, dessen Steuerung Sie ändern wollen."
 
-#: C/controls-change.page:42(note/p)
+#. (itstool) path: note/p
+#: C/controls-change.page:42
 msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
@@ -194,7 +165,8 @@ msgstr ""
 "Spieler 1 steuert <gui>Wurm 1</gui>, Spieler 2 steuert<gui>Wurm 2</gui>, "
 "Spieler 3 steuert<gui>Wurm 3</gui> und so weiter."
 
-#: C/controls-change.page:47(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:47
 msgid ""
 "In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
 "then click on the control. This highlights the line and the words <gui>New "
@@ -205,12 +177,14 @@ msgstr ""
 "Worte <gui>Neue Tastenkombination …</gui> erscheinen an Stelle der alten "
 "Kombination."
 
-#: C/controls-change.page:53(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:53
 msgid "Press the key you want to use instead of the default key."
 msgstr ""
 "Drücken Sie die Taste, die Sie anstelle der Voreinstellung verwenden wollen."
 
-#: C/controls-change.page:55(note/p)
+#. (itstool) path: note/p
+#: C/controls-change.page:55
 msgid ""
 "To keep the old setting click <gui>New accelerator…</gui> again, right click "
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
@@ -222,7 +196,8 @@ msgstr ""
 "auf eine beliebige Stelle innerhalb des Fensters <gui>Nibbles-Einstellungen</"
 "gui>."
 
-#: C/controls-change.page:61(item/p)
+#. (itstool) path: item/p
+#: C/controls-change.page:61
 msgid ""
 "Repeat the above step to change the other default keys for the current "
 "player, then select the tab for the next player whose controls you want to "
@@ -233,7 +208,8 @@ msgstr ""
 "den nächsten Spieler, dessen Steuerung angepasst werden soll, und "
 "wiederholen Sie den Vorgang."
 
-#: C/controls-change.page:67(page/p)
+#. (itstool) path: page/p
+#: C/controls-change.page:67
 msgid ""
 "For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
 "<gui>Left</gui> control line and click it, then press <key>A</key> on your "
@@ -244,15 +220,18 @@ msgstr ""
 "Mausklick und drücken Sie anschließend <key>A</key> auf Ihrer Tastatur, "
 "sobald Sie <gui>Neue Tastenkombination …</gui> in der Zeile sehen."
 
-#: C/controls-default.page:23(info/desc)
+#. (itstool) path: info/desc
+#: C/controls-default.page:23
 msgid "Default keys for <app>Nibbles.</app>"
 msgstr "Voreingestellte Tasten für <app>Nibbles</app>."
 
-#: C/controls-default.page:26(page/title)
+#. (itstool) path: page/title
+#: C/controls-default.page:26
 msgid "Keyboard Controls"
 msgstr "Tastatursteuerung"
 
-#: C/controls-default.page:28(page/p)
+#. (itstool) path: page/p
+#: C/controls-default.page:28
 msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
@@ -260,30 +239,36 @@ msgstr ""
 "Verwenden Sie die folgenden voreingestellten Tasten zur Steuerung der "
 "Wurmbewegungen im Einzelspieler-Modus:"
 
-#: C/controls-default.page:33(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:33
 msgid "<key>Up</key> to move the worm up"
 msgstr "<key>↑</key> um den Wurm nach oben zu bewegen."
 
-#: C/controls-default.page:36(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:36
 msgid "<key>Down</key> to move the worm down"
 msgstr "<key>↓</key> um den Wurm nach unten zu bewegen."
 
-#: C/controls-default.page:39(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:39
 msgid "<key>Left</key> to move the worm left"
 msgstr "<key>←</key> um den Wurm nach links zu bewegen."
 
-#: C/controls-default.page:42(item/p)
+#. (itstool) path: item/p
+#: C/controls-default.page:42
 msgid "<key>Right</key> to move the worm right"
 msgstr "<key>→</key> um den Wurm nach rechts zu bewegen."
 
-#: C/controls-default.page:47(note/p)
+#. (itstool) path: note/p
+#: C/controls-default.page:47
 msgid ""
 "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
 "Sie können die voreingestellte Steuerung <link xref=\"controls-default"
 "\">ändern</link>."
 
-#: C/controls-default.page:51(page/p)
+#. (itstool) path: page/p
+#: C/controls-default.page:51
 msgid ""
 "All worm movements happen with respect to the screen unless <link xref=\"rel-"
 "movement\">relative movement</link> is enabled. This means that when you "
@@ -297,18 +282,21 @@ msgstr ""
 "dem Bildschirm bewegt. Wenn Sie <key>→</key> bewegt sich der Wurm auf dem "
 "Bildschirm nach rechts usw."
 
-#: C/fake-bonus.page:22(info/desc)
+#. (itstool) path: info/desc
+#: C/fake-bonus.page:22
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
 "Setzen Sie als zusätzliche Herausforderung unechte Boni in <app>Nibbles</"
 "app> ein."
 
-#: C/fake-bonus.page:26(page/title)
+#. (itstool) path: page/title
+#: C/fake-bonus.page:26
 msgid "What are fake bonuses?"
 msgstr "Was sind unechte Boni?"
 
-#: C/fake-bonus.page:28(page/p)
+#. (itstool) path: page/p
+#: C/fake-bonus.page:28
 msgid ""
 "Fake bonuses look like regular bonus shapes but do not give you any points "
 "when your worm swallows them. They cause a reversal in the movement of your "
@@ -318,11 +306,13 @@ msgstr ""
 "wenn Ihr Wurm sie frisst. Sie bewirken eine Umkehrung der Bewegungsrichtung "
 "ihres Wurms."
 
-#: C/fake-bonus.page:32(page/p)
+#. (itstool) path: page/p
+#: C/fake-bonus.page:32
 msgid "To enable fake bonuses:"
 msgstr "So schalten Sie unechte Boni ein:"
 
-#: C/fake-bonus.page:39(item/p)
+#. (itstool) path: item/p
+#: C/fake-bonus.page:39
 msgid ""
 "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
 "is unchecked."
@@ -330,11 +320,13 @@ msgstr ""
 "Wählen Sie das Ankreuzfeld <gui style=\"checkbox\">Unechte Boni aktivieren</"
 "gui> aus, falls es abgewählt ist."
 
-#: C/fake-bonus.page:43(item/p)
+#. (itstool) path: item/p
+#: C/fake-bonus.page:43
 msgid "Click <gui>Close</gui>."
 msgstr "Klicken Sie auf <gui>Schließen</gui>."
 
-#: C/fake-bonus.page:48(note/p)
+#. (itstool) path: note/p
+#: C/fake-bonus.page:48
 msgid ""
 "Set all preferences before starting a new game. Preferences cannot be "
 "changed in the middle of a game."
@@ -342,15 +334,49 @@ msgstr ""
 "Legen Sie vor dem Starten eines neuen Spiels alle Einstellungen fest. "
 "Einstellungen können nicht während eines laufenden Spiels geändert werden."
 
-#: C/multi-player.page:24(info/desc)
+#. (itstool) path: info/desc
+#: C/index.page:16
+msgid "Index"
+msgstr "Stichwortverzeichnis"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Nibbles"
+
+#. (itstool) path: page/p
+#: C/index.page:21
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other "
+"worms. You have to complete 26 levels to finish the game."
+msgstr ""
+"<app>Nibbles</app> ist ein Schlangen-Spiel für GNOME. Ziel des Spiels ist es "
+"so viele Objekte wie möglich zu verschlingen, während Sie Wände und andere "
+"Würmer umgehen. Zum Beenden des Spiels müssen Sie 26 Spielstufen abschließen."
+
+#. (itstool) path: section/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Spielverlauf"
+
+#. (itstool) path: section/title
+#: C/index.page:30
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#. (itstool) path: info/desc
+#: C/multi-player.page:24
 msgid "Play <app>Nibbles</app> with additional players."
 msgstr "So spielen Sie <app>Nibbles</app> mit weiteren Spielern."
 
-#: C/multi-player.page:27(page/title)
+#. (itstool) path: page/title
+#: C/multi-player.page:27
 msgid "Multi-player games"
 msgstr "Spiel mit mehreren Spielern"
 
-#: C/multi-player.page:29(page/p)
+#. (itstool) path: page/p
+#: C/multi-player.page:29
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. While a player "
 "controls <gui>Worm 1</gui> in a single-player game, players can additionally "
@@ -366,11 +392,13 @@ msgstr ""
 "und <gui>Worm 2</gui>, in einem Dreispieler-Spiel <gui>Wurm 1</gui>, "
 "<gui>Wurm 2</gui> und <gui>Wurm 3</gui> und so weiter."
 
-#: C/multi-player.page:37(section/title)
+#. (itstool) path: section/title
+#: C/multi-player.page:37
 msgid "Choose the number of players"
 msgstr "Die Anzahl der Spieler wählen"
 
-#: C/multi-player.page:39(section/p)
+#. (itstool) path: section/p
+#: C/multi-player.page:39
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. To set the number of "
 "players:"
@@ -378,7 +406,8 @@ msgstr ""
 "<app>Nibbles</app> kann von bis zu sechs Spielern gespielt werden. So legen "
 "Sie die Anzahl der Spieler fest:"
 
-#: C/multi-player.page:48(item/p)
+#. (itstool) path: item/p
+#: C/multi-player.page:48
 msgid ""
 "Set the <gui style=\"input\">Number of human players</gui> to the required "
 "number, a maximum of 6. You can do this by using the <gui style=\"button\">"
@@ -390,7 +419,8 @@ msgstr ""
 "<gui style=\"button\">+</gui> und <gui style=\"button\">-</gui> oder geben "
 "Sie die Anzahl der Spieler mit der Tastatur an die entsprechende Stelle ein."
 
-#: C/multi-player.page:57(note/p)
+#. (itstool) path: note/p
+#: C/multi-player.page:57
 msgid ""
 "You can watch a <app>Nibbles</app> game without participating. To observe a "
 "game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
@@ -402,107 +432,20 @@ msgstr ""
 "menschlichen Spieler</gui> auf 0 fest und <gui style=\"input\">Anzahl "
 "Computerspieler</gui> auf eine beliebige Zahl zwischen 1 und 6."
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:66(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-red.svg' md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:70(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-green.svg' md5='950becba28c6dca50a1157efe5b96f1d'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:74(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-blue.svg' md5='7f5cb0d784fdf25d604882472cb504b9'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:78(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-yellow.svg' "
-"md5='a81bc4335b8ee337363f7e818eb74ec0'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:82(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-cyan.svg' md5='62c0ac58f26769ab7eba85a255191257'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:86(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-magenta.svg' "
-"md5='00ede40fb89479b830636d02dcd33680'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/preferences.page:90(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/snake-grey.svg' md5='8b1ff44ff3d43292f5843f15c9187f9c'"
-msgstr "original"
-
-#: C/preferences.page:22(info/desc)
+#. (itstool) path: info/desc
+#: C/preferences.page:22
 msgid "Change default speed, worm color, level order and sound settings."
 msgstr ""
 "So ändern Sie die voreingestellte Geschwindigkeit, die Wurmfarbe, die "
 "Spielstufenreihenfolge und Toneinstellungen."
 
-#: C/preferences.page:25(page/title)
+#. (itstool) path: page/title
+#: C/preferences.page:25
 msgid "Edit general preferences"
 msgstr "Allgemeine Einstellungen bearbeiten"
 
-#: C/preferences.page:27(page/p)
+#. (itstool) path: page/p
+#: C/preferences.page:27
 msgid ""
 "The general preferences for <app>Nibbles</app> can be changed by selecting "
 "<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
@@ -512,11 +455,13 @@ msgstr ""
 "<guiseq><gui style=\"menu\">Einstellungen</gui> <gui style=\"menuitem"
 "\">Einstellungen</gui></guiseq>."
 
-#: C/preferences.page:32(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:32
 msgid "Speed"
 msgstr "Geschwindigkeit"
 
-#: C/preferences.page:34(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:34
 msgid ""
 "There are four available speeds in <app>Nibbles</app>. These are, in "
 "increasing order:"
@@ -524,23 +469,28 @@ msgstr ""
 "Es gibt vier verschiedene Geschwindigkeiten in <app>Nibbles</app>. Diese "
 "sind in aufsteigender Reihenfolge:"
 
-#: C/preferences.page:39(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:39
 msgid "Nibbles Newbie"
 msgstr "Nibbles-Neuling"
 
-#: C/preferences.page:42(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:42
 msgid "My second day"
 msgstr "Mein zweiter Tag"
 
-#: C/preferences.page:45(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:45
 msgid "Not too shabby"
 msgstr "Nicht zu schäbig"
 
-#: C/preferences.page:48(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:48
 msgid "Finger twitching good"
 msgstr "Gute Fingerfertigkeiten"
 
-#: C/preferences.page:52(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:52
 msgid ""
 "Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
 "style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
@@ -550,43 +500,53 @@ msgstr ""
 "gui> <gui style=\"menuitem\">Einstellungen</gui></guiseq> festgelegt durch "
 "Wahl einer der vier Wahlmöglichkeiten auf der linken Seite."
 
-#: C/preferences.page:59(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:59
 msgid "Change worm colors"
 msgstr "Wurmfarbe ändern"
 
-#: C/preferences.page:61(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:61
 msgid "There are seven available worm colors:"
 msgstr "Es gibt sieben mögliche Wurmfarben:"
 
-#: C/preferences.page:65(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:65
 msgid "<_:media-1/> Red"
 msgstr "<_:media-1/> Rot"
 
-#: C/preferences.page:69(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:69
 msgid "<_:media-1/> Green"
 msgstr "<_:media-1/> Grün"
 
-#: C/preferences.page:73(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:73
 msgid "<_:media-1/> Blue"
 msgstr "<_:media-1/> Blau"
 
-#: C/preferences.page:77(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:77
 msgid "<_:media-1/> Yellow"
 msgstr "<_:media-1/> Gelb"
 
-#: C/preferences.page:81(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:81
 msgid "<_:media-1/> Cyan"
 msgstr "<_:media-1/> Zyan"
 
-#: C/preferences.page:85(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:85
 msgid "<_:media-1/> Purple"
 msgstr "<_:media-1/> Violett"
 
-#: C/preferences.page:89(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:89
 msgid "<_:media-1/> Gray"
 msgstr "<_:media-1/> Grau"
 
-#: C/preferences.page:94(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:94
 msgid ""
 "These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
 "style=\"menuitem\">Preferences</gui></guiseq>."
@@ -594,7 +554,8 @@ msgstr ""
 "Diese können unter <guiseq><gui style=\"menu\">Einstellungen</gui> <gui "
 "style=\"menuitem\">Einstellungen</gui></guiseq> geändert werden."
 
-#: C/preferences.page:99(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:99
 msgid ""
 "Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
 "edit."
@@ -602,7 +563,8 @@ msgstr ""
 "Wählen Sie irgendeinen der <gui>Wurm</gui>-Reiter, um den Wurm zu wählen, "
 "den Sie bearbeiten wollen."
 
-#: C/preferences.page:103(item/p)
+#. (itstool) path: item/p
+#: C/preferences.page:103
 msgid ""
 "On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
 "Pick a color out of the available colors in the drop-down menu to change the "
@@ -612,11 +574,13 @@ msgstr ""
 "Sie eine Farbe aus der Liste möglicher Farben des Aufklapp-Menüs, um das "
 "Erscheinungsbild des Wurms anzupassen."
 
-#: C/preferences.page:112(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:112
 msgid "Sounds"
 msgstr "Klänge"
 
-#: C/preferences.page:114(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:114
 msgid ""
 "You can enable or disable sounds in <app>Nibbles</app> by checking or "
 "unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
@@ -628,11 +592,13 @@ msgstr ""
 "style=\"menu\">Einstellungen</gui> <gui style=\"menuitem\">Einstellungen</"
 "gui></guiseq> an- oder abwählen."
 
-#: C/preferences.page:122(section/title)
+#. (itstool) path: section/title
+#: C/preferences.page:122
 msgid "Play levels in random order"
 msgstr "Level in zufälliger Reihenfolge spielen"
 
-#: C/preferences.page:124(section/p)
+#. (itstool) path: section/p
+#: C/preferences.page:124
 msgid ""
 "Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
 "gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
@@ -645,43 +611,42 @@ msgstr ""
 "an, um die verschiedenen Stufen in <app>Nibbles</app> in zufälliger "
 "Reihenfolge zu spielen.."
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:41(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#: C/rel-movement.page:41
 msgctxt "_"
 msgid ""
 "external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
 msgstr "original"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:48(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#: C/rel-movement.page:48
 msgctxt "_"
 msgid ""
 "external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 msgstr "original"
 
-#: C/rel-movement.page:22(info/desc)
+#. (itstool) path: info/desc
+#: C/rel-movement.page:22
 msgid "Enable relative movement."
 msgstr "Relative Bewegungen einschalten."
 
-#: C/rel-movement.page:25(page/title)
+#. (itstool) path: page/title
+#: C/rel-movement.page:25
 msgid "Relative movement"
 msgstr "Relative Bewegung"
 
-#: C/rel-movement.page:27(page/p)
+#. (itstool) path: page/p
+#: C/rel-movement.page:27
 msgid ""
-"When relative movement is enabled, the worm is manouvered using just the "
+"When relative movement is enabled, the worm is maneuvered using just the "
 "default <key>Left</key> and <key>Right</key> keys or other <link xref="
 "\"controls-change\">customized keys</link> that control the leftward and "
 "rightward movement of a worm. When the <key>Left</key> key is pressed, the "
@@ -689,7 +654,7 @@ msgid ""
 "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
 "instead of moving towards the right of the screen."
 msgstr ""
-"Wenn relative Bewegung aktiviert ist, wird der Wurm nur mit den "
+"Wenn relative Bewegung eingeschaltet ist, wird der Wurm nur mit den "
 "Standardtasten <key>←</key> und <key>→</key> oder den <link xref=\"controls-"
 "change\">benutzerdefinierten Tasten</link> für die Links- und Rechtsbewegung "
 "des Wurmes gesteuert. Wenn die <key>←</key> Taste gedrückt wird, biegt der "
@@ -697,23 +662,28 @@ msgstr ""
 "die <key>→</key> Taste gedrückt wird, biegt der Wurm nach rechts ab, "
 "anstelle sich zur rechten Fensterseite zu bewegen."
 
-#: C/rel-movement.page:39(figure/title)
-msgid "Starting postion:"
+#. (itstool) path: figure/title
+#: C/rel-movement.page:39
+msgid "Starting position:"
 msgstr "Startposition:"
 
-#: C/rel-movement.page:40(figure/desc)
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:40
 msgid "The location of the worm before you decide to move it."
 msgstr "Der Ort des Wurms, bevor Sie sich entschließen, ihn zu bewegen."
 
-#: C/rel-movement.page:46(figure/title)
+#. (itstool) path: figure/title
+#: C/rel-movement.page:46
 msgid "On pressing the <key>Left</key> key:"
 msgstr "Beim Drücken der Taste <key>←</key>:"
 
-#: C/rel-movement.page:47(figure/desc)
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:47
 msgid "The worm turns left and begins to move downwards."
 msgstr "Der Wurm dreht nach links und bewegt sich abwärts."
 
-#: C/rel-movement.page:55(note/p)
+#. (itstool) path: note/p
+#: C/rel-movement.page:55
 msgid ""
 "If relative movement was not enabled, you would press the <key>Down</key> "
 "key to achieve the above result."
@@ -721,11 +691,13 @@ msgstr ""
 "Wenn relative Bewegung nicht aktiviert wäre, so würden Sie die Taste <key>↓</"
 "key> drücken, um das gleiche zu bewirken."
 
-#: C/rel-movement.page:62(page/p)
+#. (itstool) path: page/p
+#: C/rel-movement.page:62
 msgid "To enable relative movement:"
 msgstr "So schalten Sie relative Bewegung ein:"
 
-#: C/rel-movement.page:70(item/p)
+#. (itstool) path: item/p
+#: C/rel-movement.page:70
 msgid ""
 "Select the worm for which relative movement has to be enabled by clicking "
 "the appropriate <gui>Worm</gui> tab."
@@ -733,7 +705,8 @@ msgstr ""
 "Wählen Sie den Wurm, für den relative Bewegung aktiviert werden soll, indem "
 "Sie den entsprechenden <gui>Wurm</gui>-Reiter auswählen."
 
-#: C/rel-movement.page:74(item/p)
+#. (itstool) path: item/p
+#: C/rel-movement.page:74
 msgid ""
 "Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
 "is unchecked."
@@ -741,82 +714,23 @@ msgstr ""
 "Wählen Sie das Ankreuzfeld <gui style=\"checkbox\">Relative Bewegung "
 "verwenden</gui> an, falls es abgewählt ist."
 
-#: C/rel-movement.page:78(item/p)
+#. (itstool) path: item/p
+#: C/rel-movement.page:78
 msgid "Click <gui style=\"button\">Close</gui>."
 msgstr "Klicken Sie auf <gui style=\"button\">Schließen</gui>."
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:28(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
-msgctxt "_"
-msgid "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:48(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
-msgctxt "_"
-msgid "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:64(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/worm_op.png' md5='b6ccbcdd5d11fe28a75fd23c0d96483a'"
-msgctxt "_"
-msgid ""
-"external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:74(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
-msgctxt "_"
-msgid ""
-"external ref='figures/ice-cream.svg' md5='4892ededb56e306922c5442b46ca2a7c'"
-msgstr "original"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/scores.page:83(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
-msgctxt "_"
-msgid ""
-"external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
-msgstr "original"
-
-#: C/scores.page:18(info/desc)
+#. (itstool) path: info/desc
+#: C/scores.page:18
 msgid "Swallow different bonuses to score points."
 msgstr "Verschlingen Sie verschiedene Boni, um Punkte zu erzielen."
 
-#: C/scores.page:21(page/title)
+#. (itstool) path: page/title
+#: C/scores.page:21
 msgid "Scoring points in <app>Nibbles</app>"
 msgstr "Punkte in <app>Nibbles</app> erzielen"
 
-#: C/scores.page:23(page/p)
+#. (itstool) path: page/p
+#: C/scores.page:23
 msgid ""
 "You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
 "different kinds of bonuses in Nibbles:"
@@ -824,7 +738,8 @@ msgstr ""
 "Sie erzielen Punkte in <app>Nibbles</app>, indem Sie Boni verschlingen. Es "
 "gibt 5 verschiedene Arten von Boni in Nibbles:"
 
-#: C/scores.page:27(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:27
 msgid ""
 "The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
 "length of the worm. The points you gain on eating the donut vary from level "
@@ -845,7 +760,8 @@ msgstr ""
 "26 Punkte für den ersten Donut, 52 Punkte für den zweiten Donut und so "
 "weiter."
 
-#: C/scores.page:39(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:39
 msgid ""
 "The donut order count does not depend on the number of donuts already eaten "
 "by a worm. If the game is in level 1 and if player 1 eats the first donut, "
@@ -860,7 +776,8 @@ msgstr ""
 "entscheidet sich bis zum 10. Donut keine Donuts zu verschlingen und erhält "
 "dann sofort 10 Punkte."
 
-#: C/scores.page:47(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:47
 msgid ""
 "The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
 "does not cause an increase in the length of your worm."
@@ -868,7 +785,8 @@ msgstr ""
 "Der herzförmige Bonus <_:media-1/> : Dieser Bonus gewährt ein Extra-Leben "
 "und verursacht keine Verlängerung des Wurms."
 
-#: C/scores.page:52(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:52
 msgid ""
 "The number of lives remaining for a worm is given by the number on the left "
 "of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
@@ -878,7 +796,8 @@ msgstr ""
 "Kommas der Wurmpunkte gegeben. Wenn die Wurmpunkte 10,005 sind, so hat der "
 "Wurm noch 10 verbleibende Leben."
 
-#: C/scores.page:57(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:57
 msgid ""
 "You cannot get extra lives by scoring 10,000 points or more. If you have "
 "scored 12345 points with 10 lives remaining, your score will be 10,12345."
@@ -887,7 +806,8 @@ msgstr ""
 "Punkte erzielen. Angenommen Sie erzielten 12345 Punkte mit 10 verbleibenden "
 "Leben, so beträgt Ihre Punktzahl 10,12345."
 
-#: C/scores.page:63(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:63
 msgid ""
 "The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
 "increase in the length of the worm and does not give you any points. It "
@@ -897,11 +817,13 @@ msgstr ""
 "Verlängerung des Wurms und erzielt keine Punkte. Er bewirkt eine Umkehrung "
 "der Bewegungsrichtung aller anderen Würmer im Spiel."
 
-#: C/scores.page:69(note/p)
+#. (itstool) path: note/p
+#: C/scores.page:69
 msgid "This bonus has no effect in a single-player game."
 msgstr "Dieser Bonus hat keine Auswirkungen in einem Einzelspieler-Spiel."
 
-#: C/scores.page:73(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:73
 msgid ""
 "The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
 "increase in the length of the worm than the donut-shaped bonus. The points "
@@ -915,7 +837,8 @@ msgstr ""
 "Wurmes ab. Je größer der Level und je länger der Wurm, desto mehr Punkte "
 "können beim Verschlingen erreicht werden."
 
-#: C/scores.page:82(item/p)
+#. (itstool) path: item/p
+#: C/scores.page:82
 msgid ""
 "The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
 "length of the worm. The points given by this bonus depend on the level "
@@ -927,15 +850,126 @@ msgstr ""
 "Spielstufe und der Wurmlänge ab. Je höher die Spielstufe und je länger der "
 "Wurm, desto mehr Punkte werden mit diesem Bonus erzielt."
 
-#: C/legal.xml:4(p/link)
+#. (itstool) path: p/link
+#: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 msgstr ""
 "Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 "
 "Nicht Angepasst"
 
-#: C/legal.xml:3(license/p)
+#. (itstool) path: license/p
+#: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Dieses Werk wird unter <_:link-1/> verbreitet."
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/nibbles.png' md5='5c04c52509830b87cd6b69adf2dceb34'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-red.svg' "
+#~ "md5='14ee7aa4c668db0b30fc54cc8b3232cc'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-green.svg' "
+#~ "md5='950becba28c6dca50a1157efe5b96f1d'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-blue.svg' "
+#~ "md5='7f5cb0d784fdf25d604882472cb504b9'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-yellow.svg' "
+#~ "md5='a81bc4335b8ee337363f7e818eb74ec0'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-cyan.svg' "
+#~ "md5='62c0ac58f26769ab7eba85a255191257'"
+#~ msgstr "original"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-magenta.svg' "
+#~ "md5='00ede40fb89479b830636d02dcd33680'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/snake-grey.svg' "
+#~ "md5='8b1ff44ff3d43292f5843f15c9187f9c'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/donut.svg' md5='ec22b13abdc75367470bbb9fc7e0dc3f'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/playing.png' md5='68c63b494278113a82ac864a277891c4'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/life.svg' md5='7145289879d75e009e75d30c8e941fd4'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/worm_op.png' md5='b6ccbcdd5d11fe28a75fd23c0d96483a'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/diamond.svg' md5='2c16ddd7dfd530779345f489c5fcba3c'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/game.png' md5='3103fe2ce969c658bf74cbf66fb2ec64'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/ice-cream.svg' "
+#~ "md5='4892ededb56e306922c5442b46ca2a7c'"
+#~ msgstr "original"
+
+#~| msgctxt "_"
+#~| msgid ""
+#~| "external ref='figures/intro.png' md5='fba0b0fc807a1eed13d9b5bba6a8d9fa'"
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/cherry.svg' md5='9917f9a0b5cd8a8c4bb8d5be67517b8a'"
+#~ msgstr "original"
 
 #~ msgid "<application>Nibbles</application> Manual"
 #~ msgstr "<application>Nibbles</application>-Handbuch"
