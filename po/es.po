@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-02 08:03+0000\n"
-"PO-Revision-Date: 2015-02-02 11:18+0100\n"
+"POT-Creation-Date: 2015-11-15 21:22+0000\n"
+"PO-Revision-Date: 2015-11-17 16:22+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -23,6 +23,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
+
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "Jugador"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
@@ -67,8 +71,9 @@ msgstr ""
 "Juegue contra un máximo de cinco gusanos enemigos o comparta su teclado para "
 "jugar con un amigo."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
-#: ../src/main.c:718
+#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
+#: ../src/gnome-nibbles.vala:424 ../src/gnome-nibbles.vala:764
+#: ../src/gnome-nibbles.vala:803
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -76,45 +81,115 @@ msgstr "Nibbles"
 msgid "game;snake;board;"
 msgstr "juego;serpiente;tablero;"
 
+#: ../data/nibbles-menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Preferencias"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Scores"
+msgstr "_Puntuación"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Help"
+msgstr "Ay_uda"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_About"
+msgstr "_Acerca de"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Quit"
+msgstr "_Salir"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:369
+msgid "_New Game"
+msgstr "Juego _nuevo"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:398
+msgid "_Pause"
+msgstr "_Pausa"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "_Jugar"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Bienvenidos, gusanos."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr ""
+
+#: ../data/nibbles.ui.h:7
+#| msgid "_Number of players:"
+msgid "Number of players"
+msgstr "Número de jugadores"
+
+#: ../data/nibbles.ui.h:8
+#| msgid "Number of human players."
+msgid "Select the number of human players."
+msgstr "Seleccione el número de jugadores humanos."
+
+#: ../data/nibbles.ui.h:9
+#| msgid "Next:"
+msgid "_Next"
+msgstr "_Siguiente"
+
+#: ../data/nibbles.ui.h:10
+msgid "Controls"
+msgstr "Controles"
+
+#: ../data/nibbles.ui.h:11
+msgid "_Start"
+msgstr "_Iniciar"
+
+#: ../data/nibbles.ui.h:12
+msgid "Paused"
+msgstr "Detenido"
+
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Número de jugadores humanos"
+msgid "Width of the window in pixels"
+msgstr "Anchura de la ventana en píxeles"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Número de jugadores humanos."
+#| msgid "Width of the window in pixels"
+msgid "Width of the window in pixels."
+msgstr "Anchura de la ventana en píxeles."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "Número de jugadores con IA"
+msgid "Height of the window in pixels"
+msgstr "Altura de la ventana en píxeles"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "Número de jugadores IA."
+#| msgid "Height of the window in pixels"
+msgid "Height of the window in pixels."
+msgstr "Altura de la ventana en píxeles."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Velocidad del juego"
+msgid "true if the window is maximized"
+msgstr "cierto si la ventana está maximizada"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Velocidad del juego (1=rápido, 4=lento)."
+#| msgid "true if the window is maximized"
+msgid "true if the window is maximized."
+msgstr "cierto si la ventana está maximizada."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Activar bonificaciones falsas"
+msgid "Is this the first run"
+msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Activar bonificaciones falsas."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Jugar niveles en orden aleatorio"
+msgid "Size of game tiles"
+msgstr "Tamaño de las fichas"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Jugar niveles en orden aleatorio."
+msgid "Size of game tiles."
+msgstr "Tamaño de las fichas."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -133,202 +208,124 @@ msgid "Enable sounds."
 msgstr "Activar sonidos."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "Tamaño de las fichas"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Tamaño de las fichas."
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Color to use for worm"
 msgstr "El color del gusano"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Color to use for worm."
 msgstr "El color del gusano."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Use relative movement"
 msgstr "Usar movimiento relativo"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Usar movimiento relativo (p.ej. solamente derecha o izquierda)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Move up"
 msgstr "Subir"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Key to use for motion up."
 msgstr "Tecla para subir."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Move down"
 msgstr "Bajar"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Key to use for motion down."
 msgstr "Tecla para bajar."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Move left"
 msgstr "Mover izquierda"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion left."
 msgstr "Tecla para ir a la izquierda."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Move right"
 msgstr "Mover derecha"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion right."
 msgstr "Tecla para ir a la derecha."
 
-#: ../src/board.c:250
+#: ../data/player-score-box.ui.h:1
+msgid "Worm"
+msgstr "Gusano"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:96
+msgid "Show release version"
+msgstr "Mostrar el número de versión"
+
+#: ../src/gnome-nibbles.vala:365
+#| msgid "Do you want to start a new game?"
+msgid "Are you sure you want to start a new game?"
+msgstr "¿Seguro que quiere empezar una partida nueva?"
+
+#: ../src/gnome-nibbles.vala:366
+#| msgid "If you start a new game, your current progress will be lost."
+msgid "If you start a new game, the current one will be lost."
+msgstr "Si empieza una partida nueva, se perderá la actual."
+
+#: ../src/gnome-nibbles.vala:393
+#| msgid "_Reset"
+msgid "_Resume"
+msgstr "_Reanudar"
+
+#: ../src/gnome-nibbles.vala:477 ../src/gnome-nibbles.vala:674
 #, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
+#| msgid "Level:"
+msgid "Level %d"
+msgstr "Nivel %d"
+
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:556
+#| msgid "Difficulty:"
+msgid "Difficulty Level:"
+msgstr "Nivel de dificultad:"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:654
+#, c-format
+#| msgid "Level completed."
+msgid "Level %d Completed!"
+msgstr "Nivel %d completado."
+
+#: ../src/gnome-nibbles.vala:661
+msgid "_Next Level"
+msgstr "_Siguiente nivel"
+
+#: ../src/gnome-nibbles.vala:704
+#, c-format
+#| msgid "%u point"
+#| msgid_plural "%u points"
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d punto"
+msgstr[1] "%d puntos"
+
+#: ../src/gnome-nibbles.vala:713
+#, c-format
+msgid "(%d more points to reach the leaderboard)"
 msgstr ""
-"Nibbles no pudo cargar el archivo de niveles:\n"
-"%s\n"
-"\n"
-"Revise su instalación de Nibbles"
 
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"El archivo del nivel parece estar dañado:\n"
-"%s\n"
-"\n"
-"Revise su instalación de Nibbles"
+#: ../src/gnome-nibbles.vala:719
+#| msgid "_Play Game"
+msgid "_Play Again"
+msgstr "_Jugar otra vez"
 
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "El atajo que ha seleccionado ya está asignado."
-
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Comando desconocido"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Tiempo"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Puntuación"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$dm %2$ds"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Fecha"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Cerrar"
-
-#: ../src/gnibbles.c:82
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Nibbles no pudo encontrar el archivo de mapa de píxeles:\n"
-"%s\n"
-"\n"
-"Revise su instalación de Nibbles"
-
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "Puntuación de Nibbles"
-
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Velocidad:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Enhorabuena."
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "Su puntuación es la mejor"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "Su puntuación ha alcanzado los 10 mejores."
-
-#: ../src/main.c:62
-msgctxt "game speed"
-msgid "Beginner"
-msgstr "Principiante"
-
-#: ../src/main.c:63
-msgctxt "game speed"
-msgid "Slow"
-msgstr "Lento"
-
-#: ../src/main.c:64
-msgctxt "game speed"
-msgid "Medium"
-msgstr "Mediano"
-
-#: ../src/main.c:65
-msgctxt "game speed"
-msgid "Fast"
-msgstr "Rápido"
-
-#: ../src/main.c:66
-msgctxt "game speed"
-msgid "Beginner with Fakes"
-msgstr "Principiante con falsos"
-
-#: ../src/main.c:67
-msgctxt "game speed"
-msgid "Slow with Fakes"
-msgstr "Lento con falsos"
-
-#: ../src/main.c:68
-msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr "Medio con falsos"
-
-#: ../src/main.c:69
-msgctxt "game speed"
-msgid "Fast with Fakes"
-msgstr "Rápido con falsos"
-
-#: ../src/main.c:222
-#| msgid "A worm game for GNOME."
+#: ../src/gnome-nibbles.vala:767
 msgid "A worm game for GNOME"
 msgstr "Un juego de gusanos para GNOME."
 
-#: ../src/main.c:225
+#: ../src/gnome-nibbles.vala:776
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -337,111 +334,218 @@ msgstr ""
 "Germán Poo Caamaño <gpoo@ubiobio.cl>\n"
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
-#: ../src/preferences.c:223
-msgid "Preferences"
-msgstr "Preferencias"
-
-#: ../src/preferences.c:236
-msgid "Game"
-msgstr "Juego"
-
-#. Speed
-#: ../src/preferences.c:252
-msgid "Speed"
-msgstr "Velocidad"
-
-#: ../src/preferences.c:257
-msgid "Nibbles newbie"
-msgstr "Novato de Nibbles"
-
-#: ../src/preferences.c:267
-msgid "My second day"
-msgstr "Mi segundo día"
-
-#: ../src/preferences.c:277
-msgid "Not too shabby"
-msgstr "No demasiado malo"
-
-#: ../src/preferences.c:287
-msgid "Finger-twitching good"
-msgstr "Prestidigitador"
-
-#: ../src/preferences.c:301 ../src/preferences.c:424
-msgid "Options"
-msgstr "Opciones"
-
-#: ../src/preferences.c:308
-msgid "_Play levels in random order"
-msgstr "_Jugar niveles en orden aleatorio"
-
-#: ../src/preferences.c:316
-msgid "_Enable fake bonuses"
-msgstr "_Activar bonificaciones falsas"
-
-#: ../src/preferences.c:324
-msgid "E_nable sounds"
-msgstr "A_ctivar sonidos"
-
-#: ../src/preferences.c:337
-msgid "_Starting level:"
-msgstr "_Nivel inicial:"
-
-#: ../src/preferences.c:362
-msgid "Number of _human players:"
-msgstr "Número de j_ugadores humanos:"
-
-#: ../src/preferences.c:379
-msgid "Number of _AI players:"
-msgstr "Número de j_ugadores IA:"
-
-#: ../src/preferences.c:400
-msgid "Worm"
-msgstr "Gusano"
-
-#: ../src/preferences.c:409
-msgid "Keyboard Options"
-msgstr "Opciones del teclado"
-
-#: ../src/preferences.c:429
-msgid "_Use relative movement"
-msgstr "_Usar movimiento relativo"
-
-#: ../src/preferences.c:436
-msgid "_Worm color:"
-msgstr "Color del _gusano:"
-
-#: ../src/preferences.c:442
-msgid "Red"
-msgstr "Rojo"
-
-#: ../src/preferences.c:443
-msgid "Green"
-msgstr "Verde"
-
-#: ../src/preferences.c:444
-msgid "Blue"
-msgstr "Azul"
-
-#: ../src/preferences.c:445
-msgid "Yellow"
-msgstr "Amarillo"
-
-#: ../src/preferences.c:446
-msgid "Cyan"
-msgstr "Cian"
-
-#: ../src/preferences.c:447
-msgid "Purple"
-msgstr "Púrpura"
-
-#: ../src/preferences.c:448
-msgid "Gray"
-msgstr "Gris"
-
-#: ../src/scoreboard.c:48
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/nibbles-view.vala:574
 #, c-format
-msgid "Worm %d:"
-msgstr "Gusano %d:"
+#| msgid "Player"
+msgid "Player %d"
+msgstr "Jugador %d"
+
+#~ msgid "Number of human players"
+#~ msgstr "Número de jugadores humanos"
+
+#~ msgid "Number of AI players"
+#~ msgstr "Número de jugadores con IA"
+
+#~ msgid "Number of AI players."
+#~ msgstr "Número de jugadores IA."
+
+#~ msgid "Game speed"
+#~ msgstr "Velocidad del juego"
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "Velocidad del juego (1=rápido, 4=lento)."
+
+#~ msgid "Enable fake bonuses"
+#~ msgstr "Activar bonificaciones falsas"
+
+#~ msgid "Enable fake bonuses."
+#~ msgstr "Activar bonificaciones falsas."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "Jugar niveles en orden aleatorio"
+
+#~ msgid "Play levels in random order."
+#~ msgstr "Jugar niveles en orden aleatorio."
+
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Nibbles no pudo cargar el archivo de niveles:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Revise su instalación de Nibbles"
+
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "El archivo del nivel parece estar dañado:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Revise su instalación de Nibbles"
+
+#~ msgid "The shortcut you selected is already assigned."
+#~ msgstr "El atajo que ha seleccionado ya está asignado."
+
+#~ msgid "Unknown Command"
+#~ msgstr "Comando desconocido"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "Tiempo"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "Puntuación"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%1$dm %2$ds"
+
+#~ msgid "Date"
+#~ msgstr "Fecha"
+
+#~ msgid "_Close"
+#~ msgstr "_Cerrar"
+
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Nibbles no pudo encontrar el archivo de mapa de píxeles:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Revise su instalación de Nibbles"
+
+#~ msgid "Nibbles Scores"
+#~ msgstr "Puntuación de Nibbles"
+
+#~ msgid "Speed:"
+#~ msgstr "Velocidad:"
+
+#~ msgid "Congratulations!"
+#~ msgstr "Enhorabuena."
+
+#~ msgid "Your score is the best!"
+#~ msgstr "Su puntuación es la mejor"
+
+#~ msgid "Your score has made the top ten."
+#~ msgstr "Su puntuación ha alcanzado los 10 mejores."
+
+#~ msgctxt "game speed"
+#~ msgid "Beginner"
+#~ msgstr "Principiante"
+
+#~ msgctxt "game speed"
+#~ msgid "Slow"
+#~ msgstr "Lento"
+
+#~ msgctxt "game speed"
+#~ msgid "Medium"
+#~ msgstr "Mediano"
+
+#~ msgctxt "game speed"
+#~ msgid "Fast"
+#~ msgstr "Rápido"
+
+#~ msgctxt "game speed"
+#~ msgid "Beginner with Fakes"
+#~ msgstr "Principiante con falsos"
+
+#~ msgctxt "game speed"
+#~ msgid "Slow with Fakes"
+#~ msgstr "Lento con falsos"
+
+#~ msgctxt "game speed"
+#~ msgid "Medium with Fakes"
+#~ msgstr "Medio con falsos"
+
+#~ msgctxt "game speed"
+#~ msgid "Fast with Fakes"
+#~ msgstr "Rápido con falsos"
+
+#~ msgid "Preferences"
+#~ msgstr "Preferencias"
+
+#~ msgid "Game"
+#~ msgstr "Juego"
+
+#~ msgid "Speed"
+#~ msgstr "Velocidad"
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "Novato de Nibbles"
+
+#~ msgid "My second day"
+#~ msgstr "Mi segundo día"
+
+#~ msgid "Not too shabby"
+#~ msgstr "No demasiado malo"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "Prestidigitador"
+
+#~ msgid "Options"
+#~ msgstr "Opciones"
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "_Jugar niveles en orden aleatorio"
+
+#~ msgid "_Enable fake bonuses"
+#~ msgstr "_Activar bonificaciones falsas"
+
+#~ msgid "E_nable sounds"
+#~ msgstr "A_ctivar sonidos"
+
+#~ msgid "_Starting level:"
+#~ msgstr "_Nivel inicial:"
+
+#~ msgid "Number of _human players:"
+#~ msgstr "Número de j_ugadores humanos:"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "Número de j_ugadores IA:"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "Opciones del teclado"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "_Usar movimiento relativo"
+
+#~ msgid "_Worm color:"
+#~ msgstr "Color del _gusano:"
+
+#~ msgid "Red"
+#~ msgstr "Rojo"
+
+#~ msgid "Green"
+#~ msgstr "Verde"
+
+#~ msgid "Blue"
+#~ msgstr "Azul"
+
+#~ msgid "Yellow"
+#~ msgstr "Amarillo"
+
+#~ msgid "Cyan"
+#~ msgstr "Cian"
+
+#~ msgid "Purple"
+#~ msgstr "Púrpura"
+
+#~ msgid "Gray"
+#~ msgstr "Gris"
+
+#~ msgid "Worm %d:"
+#~ msgstr "Gusano %d:"
 
 #~ msgid ""
 #~ "A worm game for GNOME\n"
@@ -471,32 +575,11 @@ msgstr "Gusano %d:"
 #~ msgid "_Settings"
 #~ msgstr "Aju_stes"
 
-#~ msgid "_Help"
-#~ msgstr "Ay_uda"
-
-#~ msgid "_New Game"
-#~ msgstr "Juego _nuevo"
-
 #~ msgid "_End Game"
 #~ msgstr "Finalizar el ju_ego"
 
-#~ msgid "_Pause"
-#~ msgstr "_Pausa"
-
-#~ msgid "_Scores"
-#~ msgstr "_Puntuación"
-
-#~ msgid "_Quit"
-#~ msgstr "_Salir"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Preferencias"
-
 #~ msgid "_Contents"
 #~ msgstr "Índ_ice"
-
-#~ msgid "_About"
-#~ msgstr "_Acerca de"
 
 #~ msgid "New Game"
 #~ msgstr "Partida nueva"
@@ -572,9 +655,6 @@ msgstr "Gusano %d:"
 
 #~ msgid "_Redo Move"
 #~ msgstr "_Rehacer movimiento"
-
-#~ msgid "_Reset"
-#~ msgstr "_Reiniciar"
 
 #~ msgid "_Restart"
 #~ msgstr "_Reiniciar"
@@ -754,9 +834,6 @@ msgstr "Gusano %d:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Oponente:"
-
-#~ msgid "Difficulty:"
-#~ msgstr "Dificultad:"
 
 #~ msgid "Game Duration:"
 #~ msgstr "Duración del juego:"
@@ -1216,9 +1293,6 @@ msgstr "Gusano %d:"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Falló al cargar la partida: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Mostrar el número de versión"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FILE]: jugar a Ajedrez"
 
@@ -1269,9 +1343,6 @@ msgstr "Gusano %d:"
 
 #~ msgid "Scores"
 #~ msgstr "Puntuación"
-
-#~ msgid "Next:"
-#~ msgstr "Siguiente:"
 
 #~ msgid "0"
 #~ msgstr "0"
@@ -1324,15 +1395,6 @@ msgstr "Gusano %d:"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Previsualización de la última sesión guardada."
-
-#~ msgid "Width of the window in pixels"
-#~ msgstr "Anchura de la ventana en píxeles"
-
-#~ msgid "Height of the window in pixels"
-#~ msgstr "Altura de la ventana en píxeles"
-
-#~ msgid "true if the window is maximized"
-#~ msgstr "cierto si la ventana está maximizada"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "cierto si la ventana está en pantalla completa"
@@ -1882,9 +1944,6 @@ msgstr "Gusano %d:"
 #~ msgid "Safe Teleports:"
 #~ msgstr "Teletransportes seguros:"
 
-#~ msgid "Level:"
-#~ msgstr "Nivel:"
-
 #~ msgid "Remaining:"
 #~ msgstr "Quedan:"
 
@@ -1925,9 +1984,6 @@ msgstr "Gusano %d:"
 #~ msgctxt "mahjongg map name"
 #~ msgid "Difficult"
 #~ msgstr "Dificultad"
-
-#~ msgid "Paused"
-#~ msgstr "Detenido"
 
 #~ msgid "Moves Left:"
 #~ msgstr "Movimientos restantes:"
@@ -2398,9 +2454,6 @@ msgstr "Gusano %d:"
 #~ msgid "_Number of mines:"
 #~ msgstr "_Número de minas:"
 
-#~ msgid "_Play Game"
-#~ msgstr "_Jugar partida"
-
 #~ msgid "<b>%d</b> mine"
 #~ msgid_plural "<b>%d</b> mines"
 #~ msgstr[0] "<b>%d</b> mina"
@@ -2417,12 +2470,6 @@ msgstr "Gusano %d:"
 
 #~ msgid "Size:"
 #~ msgstr "Tamaño:"
-
-#~ msgid "Do you want to start a new game?"
-#~ msgstr "¿Quiere empezar una partida nueva?"
-
-#~ msgid "If you start a new game, your current progress will be lost."
-#~ msgstr "Si inicia una partida nueva, perderá su progreso actual."
 
 #~ msgid "Keep Current Game"
 #~ msgstr "Mantener el juego actual"
@@ -2662,9 +2709,6 @@ msgstr "Gusano %d:"
 #~ msgid "Y location of window"
 #~ msgstr "Coordenada Y de la ventana"
 
-#~ msgid "Level completed."
-#~ msgstr "Nivel completado."
-
 #~ msgid "The Puzzle Has Been Solved!"
 #~ msgstr "El puzle ha sido resuelto."
 
@@ -2841,9 +2885,6 @@ msgstr "Gusano %d:"
 
 #~ msgid "Human Players"
 #~ msgstr "Jugadores humanos"
-
-#~ msgid "_Number of players:"
-#~ msgstr "_Número de jugadores:"
 
 #~ msgid "Computer Opponents"
 #~ msgstr "Oponentes electrónicos"
@@ -3156,9 +3197,6 @@ msgstr "Gusano %d:"
 #~ msgid "Show _where the block will land"
 #~ msgstr "Mostrar _dónde aterrizará el bloque"
 
-#~ msgid "Controls"
-#~ msgstr "Controles"
-
 #~ msgid "Theme"
 #~ msgstr "Tema"
 
@@ -3225,11 +3263,6 @@ msgstr "Gusano %d:"
 #~ msgid "Clear the screen by removing groups of colored and shaped tiles"
 #~ msgstr ""
 #~ "Limpie la pantalla eliminando grupos de fichas coloreadas y con formas"
-
-#~ msgid "%u point"
-#~ msgid_plural "%u points"
-#~ msgstr[0] "%u punto"
-#~ msgstr[1] "%u puntos"
 
 #~ msgid "Small"
 #~ msgstr "Pequeño"
@@ -5514,9 +5547,6 @@ msgstr "Gusano %d:"
 #~ msgid "_Game name:"
 #~ msgstr "Nombre del jue_go:"
 
-#~ msgid "_Start"
-#~ msgstr "_Iniciar"
-
 #~ msgid "_White:"
 #~ msgstr "_Blanco:"
 
@@ -5693,9 +5723,6 @@ msgstr "Gusano %d:"
 
 #~ msgid "Seat"
 #~ msgstr "Asiento"
-
-#~ msgid "Player"
-#~ msgstr "Jugador"
 
 #~ msgid "Spectator"
 #~ msgstr "Espectador"
