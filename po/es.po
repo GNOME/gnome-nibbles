@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-11-15 21:22+0000\n"
-"PO-Revision-Date: 2015-11-17 16:22+0100\n"
+"POT-Creation-Date: 2015-11-17 21:27+0000\n"
+"PO-Revision-Date: 2015-11-18 13:17+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -119,20 +119,17 @@ msgstr "Bienvenidos, gusanos."
 
 #: ../data/nibbles.ui.h:6
 msgid "Eat the treats before the other worms, but don't hit anything!"
-msgstr ""
+msgstr "Cómase la comida antes que otros gusanos, pero no choque contra ella."
 
 #: ../data/nibbles.ui.h:7
-#| msgid "_Number of players:"
 msgid "Number of players"
 msgstr "Número de jugadores"
 
 #: ../data/nibbles.ui.h:8
-#| msgid "Number of human players."
 msgid "Select the number of human players."
 msgstr "Seleccione el número de jugadores humanos."
 
 #: ../data/nibbles.ui.h:9
-#| msgid "Next:"
 msgid "_Next"
 msgstr "_Siguiente"
 
@@ -153,7 +150,6 @@ msgid "Width of the window in pixels"
 msgstr "Anchura de la ventana en píxeles"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-#| msgid "Width of the window in pixels"
 msgid "Width of the window in pixels."
 msgstr "Anchura de la ventana en píxeles."
 
@@ -162,7 +158,6 @@ msgid "Height of the window in pixels"
 msgstr "Altura de la ventana en píxeles"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-#| msgid "Height of the window in pixels"
 msgid "Height of the window in pixels."
 msgstr "Altura de la ventana en píxeles."
 
@@ -171,17 +166,18 @@ msgid "true if the window is maximized"
 msgstr "cierto si la ventana está maximizada"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-#| msgid "true if the window is maximized"
 msgid "true if the window is maximized."
 msgstr "cierto si la ventana está maximizada."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
 msgid "Is this the first run"
-msgstr ""
+msgstr "Si es la primera ejecución"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr ""
+"Opción de configuración para decidir si se muestra el diálogo de ayuda de "
+"ejecución por primera vez o no."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
@@ -265,36 +261,30 @@ msgid "Show release version"
 msgstr "Mostrar el número de versión"
 
 #: ../src/gnome-nibbles.vala:365
-#| msgid "Do you want to start a new game?"
 msgid "Are you sure you want to start a new game?"
 msgstr "¿Seguro que quiere empezar una partida nueva?"
 
 #: ../src/gnome-nibbles.vala:366
-#| msgid "If you start a new game, your current progress will be lost."
 msgid "If you start a new game, the current one will be lost."
 msgstr "Si empieza una partida nueva, se perderá la actual."
 
 #: ../src/gnome-nibbles.vala:393
-#| msgid "_Reset"
 msgid "_Resume"
 msgstr "_Reanudar"
 
 #: ../src/gnome-nibbles.vala:477 ../src/gnome-nibbles.vala:674
 #, c-format
-#| msgid "Level:"
 msgid "Level %d"
 msgstr "Nivel %d"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
 #: ../src/gnome-nibbles.vala:556
-#| msgid "Difficulty:"
 msgid "Difficulty Level:"
 msgstr "Nivel de dificultad:"
 
 #. Translators: the %d is the number of the level that was completed.
 #: ../src/gnome-nibbles.vala:654
 #, c-format
-#| msgid "Level completed."
 msgid "Level %d Completed!"
 msgstr "Nivel %d completado."
 
@@ -304,8 +294,6 @@ msgstr "_Siguiente nivel"
 
 #: ../src/gnome-nibbles.vala:704
 #, c-format
-#| msgid "%u point"
-#| msgid_plural "%u points"
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d punto"
@@ -314,10 +302,9 @@ msgstr[1] "%d puntos"
 #: ../src/gnome-nibbles.vala:713
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
-msgstr ""
+msgstr "(%d puntos más para la clasificación)"
 
 #: ../src/gnome-nibbles.vala:719
-#| msgid "_Play Game"
 msgid "_Play Again"
 msgstr "_Jugar otra vez"
 
@@ -337,7 +324,6 @@ msgstr ""
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
 #: ../src/nibbles-view.vala:574
 #, c-format
-#| msgid "Player"
 msgid "Player %d"
 msgstr "Jugador %d"
 
