@@ -140,6 +140,11 @@ public class NibblesGame : Object
         start ();
     }
 
+    public void reset ()
+    {
+        current_level = start_level;
+    }
+
     private void end ()
     {
         stop ();

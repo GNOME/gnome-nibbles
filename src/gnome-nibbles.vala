@@ -296,6 +296,8 @@ public class Nibbles : Gtk.Application
     {
         settings.set_boolean ("first-run", false);
 
+        game.reset ();
+
         view.new_level (game.current_level);
         view.connect_worm_signals ();
 
