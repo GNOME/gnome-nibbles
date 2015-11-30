@@ -503,6 +503,17 @@ public class NibblesView : GtkClutter.Embed
             worm.died.connect (worm_died_cb);
             worm.tail_reduced.connect (worm_tail_reduced_cb);
             worm.reversed.connect (worm_reversed_cb);
+            worm.notify["is-materialized"].connect (() => {
+                uint8 opacity;
+                opacity = worm.is_materialized ? 0xff : 0x50;
+
+                var actors = worm_actors.get (worm);
+
+                actors.save_easing_state ();
+                actors.set_easing_duration (NibblesGame.GAMEDELAY * 10);
+                actors.set_opacity (opacity);
+                actors.restore_easing_state ();
+            });
         }
     }
 
@@ -633,6 +644,8 @@ public class NibblesView : GtkClutter.Embed
         actors.set_pivot_point (0.5f, 0.5f);
         actors.set_opacity (0xff);
         actors.restore_easing_state ();
+
+        worm.dematerialize (game.board, 3);
 
         Timeout.add (NibblesGame.GAMEDELAY * 27, () => {
             worm.is_stopped = false;

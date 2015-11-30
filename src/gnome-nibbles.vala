@@ -177,7 +177,7 @@ public class Nibbles : Gtk.Application
         game = new NibblesGame (settings);
         game.log_score.connect (log_score_cb);
         game.level_completed.connect (level_completed_cb);
-        game.notify["is_paused"].connect (() => {
+        game.notify["is-paused"].connect (() => {
             if (game.is_paused)
                 statusbar_stack.set_visible_child_name ("paused");
             else

@@ -58,6 +58,8 @@ public class Worm : Object
     public bool is_human;
     public bool keypress = false;
     public bool is_stopped = false;
+    public bool is_materialized { get; private set; default = true; }
+    private int rounds_dematerialized;
 
     public int lives { get; set; }
     public int change;
@@ -182,11 +184,17 @@ public class Worm : Object
         if (board[head.x, head.y] != NibblesGame.EMPTYCHAR)
             bonus_found ();
 
-        /* Mark the tile as occupied by the worm's body */
-        board[head.x, head.y] = NibblesGame.WORMCHAR + id;
+        /* Mark the tile as occupied by the worm's body, if it is materialized */
+        if (is_materialized)
+            board[head.x, head.y] = NibblesGame.WORMCHAR + id;
+        else
+            rounds_dematerialized -= 1;
 
         if (!key_queue.is_empty)
             dequeue_keypress ();
+
+        if (rounds_dematerialized == 1)
+            materialize (board);
     }
 
     public void reduce_tail (int[,] board, int erase_size)
@@ -231,18 +239,24 @@ public class Worm : Object
     public bool can_move_to (int[,] board, int numworms)
     {
         var position = position_move ();
+        int next_position = board[position.x, position.y];
 
-        if (board[position.x, position.y] > NibblesGame.EMPTYCHAR
-            && board[position.x, position.y] < 'z' + numworms)
-        {
+        if (next_position > NibblesGame.EMPTYCHAR
+            && next_position < NibblesGame.WORMCHAR)
             return false;
-        }
+
+        if (next_position >= NibblesGame.WORMCHAR
+            && next_position < NibblesGame.WORMCHAR + numworms)
+            return !is_materialized;
 
         return true;
     }
 
     public bool will_collide_with_head (Worm other_worm)
     {
+        if (!is_materialized || !other_worm.is_materialized)
+            return false;
+
         var worm_pos = position_move ();
         var other_worm_pos = other_worm.position_move ();
 
@@ -257,6 +271,33 @@ public class Worm : Object
         change = STARTING_LENGTH - 1;
         for (int i = 0; i < STARTING_LENGTH; i++)
             move (board);
+    }
+
+    private void materialize (int [,] board)
+    {
+        foreach (var pos in list)
+        {
+            if (board[pos.x, pos.y] != NibblesGame.EMPTYCHAR)
+            {
+                rounds_dematerialized += 1;
+                return;
+            }
+        }
+        foreach (var pos in list)
+            board[pos.x, pos.y] = NibblesGame.WORMCHAR + id;
+        is_materialized = true;
+        rounds_dematerialized = 0;
+    }
+
+    public void dematerialize (int [,] board, int rounds)
+    {
+        rounds_dematerialized = rounds;
+        is_materialized = false;
+        foreach (var pos in list)
+        {
+            if (board[pos.x, pos.y] == NibblesGame.WORMCHAR + id)
+                board[pos.x, pos.y] = NibblesGame.EMPTYCHAR;
+        }
     }
 
     public void add_life ()
@@ -275,6 +316,9 @@ public class Worm : Object
     public void reset (int[,] board)
     {
         is_stopped = true;
+        is_materialized = false;
+        rounds_dematerialized = 0;
+
         key_queue.clear ();
 
         lose_life ();
