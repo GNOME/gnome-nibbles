@@ -416,7 +416,8 @@ public class NibblesGame : Object
     {
         if (bonus.fake)
         {
-            reverse_worms (worm);
+            worm.reverse (board);
+
             return;
         }
 
