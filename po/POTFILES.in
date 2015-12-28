@@ -8,5 +8,7 @@ data/gnome-nibbles.desktop.in
 [type: gettext/glade]data/nibbles.ui
 data/org.gnome.nibbles.gschema.xml
 [type: gettext/glade]data/player-score-box.ui
+[type: gettext/glade]data/preferences-dialog.ui
 src/gnome-nibbles.vala
 src/nibbles-view.vala
+src/preferences-dialog.vala
