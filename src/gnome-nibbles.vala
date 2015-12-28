@@ -51,6 +51,9 @@ public class Nibbles : Gtk.Application
     private Scoreboard scoreboard;
     private Gdk.Pixbuf scoreboard_life;
 
+    /* Preferences dialog */
+    private PreferencesDialog preferences_dialog = null;
+
     /* Rendering of the game */
     private NibblesView? view;
 
@@ -77,6 +80,7 @@ public class Nibbles : Gtk.Application
         {"start-game", start_game_cb},
         {"new-game", new_game_cb},
         {"pause", pause_cb},
+        {"preferences", preferences_cb},
         {"scores", scores_cb},
         {"about", about_cb},
         {"quit", quit}
@@ -131,11 +135,15 @@ public class Nibbles : Gtk.Application
         add_action_entries (menu_entries, this);
 
         settings = new Settings ("org.gnome.nibbles");
+        settings.changed.connect (settings_changed_cb);
+
+
         worm_settings = new Gee.ArrayList<Settings> ();
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
         {
             var name = "org.gnome.nibbles.worm%d".printf(i);
             worm_settings.add (new Settings (name));
+            worm_settings[i].changed.connect (worm_settings_changed_cb);
         }
 
         set_accels_for_action ("app.quit", {"<Primary>q"});
@@ -401,6 +409,62 @@ public class Nibbles : Gtk.Application
                 view.grab_focus ();
             }
         }
+    }
+
+    /*\
+    * * Settings changed events
+    \*/
+
+    private void settings_changed_cb (string key)
+    {
+        switch (key)
+        {
+            case "speed":
+                game.speed = settings.get_int (key);
+                break;
+            case "sound":
+                view.is_muted = !settings.get_boolean (key);
+                break;
+            case "fakes":
+                game.fakes = settings.get_boolean (key);
+                break;
+        }
+    }
+
+    private void worm_settings_changed_cb (Settings changed_worm_settings, string key)
+    {
+        /* Empty worm properties means game has not started yet */
+        if (game.worm_props.size == 0)
+            return;
+
+        var id = worm_settings.index_of (changed_worm_settings);
+
+        if (id >= game.numworms)
+            return;
+
+        var worm = game.worms[id];
+        var properties = game.worm_props.get (worm);
+
+        switch (key)
+        {
+            case "color":
+                properties.color = NibblesView.colorval_from_name (changed_worm_settings.get_string ("color"));
+                break;
+            case "key-up":
+                properties.up = changed_worm_settings.get_int ("key-up");
+                break;
+            case "key-down":
+                properties.down = changed_worm_settings.get_int ("key-down");
+                break;
+            case "key-left":
+                properties.left = changed_worm_settings.get_int ("key-left");
+                break;
+            case "key-right":
+                properties.right = changed_worm_settings.get_int ("key-right");
+                break;
+        }
+
+        game.worm_props.set (worm, properties);
     }
 
     /*\
@@ -689,6 +753,37 @@ public class Nibbles : Gtk.Application
 
             return Source.REMOVE;
         });
+    }
+
+    private void preferences_cb ()
+    {
+        var should_unpause = false;
+        if (game.is_running)
+        {
+            pause_action.activate (null);
+            should_unpause = true;
+        }
+
+        if (preferences_dialog != null)
+        {
+            preferences_dialog.present ();
+
+            if (should_unpause)
+                pause_action.activate (null);
+
+            return;
+        }
+
+        preferences_dialog = new PreferencesDialog (window, settings, worm_settings);
+
+        preferences_dialog.destroy.connect (() => {
+            preferences_dialog = null;
+
+            if (should_unpause)
+                pause_action.activate (null);
+        });
+
+        preferences_dialog.run ();
     }
 
     private void game_over (int score, long last_score)

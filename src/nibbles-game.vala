@@ -37,6 +37,8 @@ public class NibblesGame : Object
     public const int MAX_AI = 5;
     public const int MAX_WORMS = 6;
 
+    public const int MAX_SPEED = 4;
+
     public const int WIDTH = 92;
     public const int HEIGHT = 66;
     public const int CAPACITY = WIDTH * HEIGHT;
@@ -49,7 +51,7 @@ public class NibblesGame : Object
 
     public int start_level { get; private set; }
     public int current_level { get; private set; }
-    public int speed { get; private set; default = 2; }
+    public int speed { get; set; }
 
     /* Board data */
     public int tile_size { get; set; }
@@ -73,7 +75,7 @@ public class NibblesGame : Object
     private uint main_id = 0;
     private uint add_bonus_id = 0;
 
-    public bool fakes { get; private set; default = false; }
+    public bool fakes { get; set; }
 
     public signal void worm_moved (Worm worm);
     public signal void bonus_applied (Worm worm);
@@ -538,12 +540,16 @@ public class NibblesGame : Object
     {
         tile_size = settings.get_int ("tile-size");
         start_level = settings.get_int ("start-level");
+        speed = settings.get_int ("speed");
+        fakes = settings.get_boolean ("fakes");
     }
 
     public void save_properties (Settings settings)
     {
         settings.set_int ("tile-size", tile_size);
         settings.set_int ("start-level", start_level);
+        settings.set_int ("speed", speed);
+        settings.set_boolean ("fakes", fakes);
     }
 
     public void load_worm_properties (Gee.ArrayList<Settings> worm_settings)

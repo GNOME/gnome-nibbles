@@ -32,10 +32,21 @@
       <summary>Game level to start on</summary>
       <description>Game level to start on.</description>
     </key>
+    <key name="speed" type="i">
+      <default>2</default>
+      <range min="1" max="4"/>
+      <summary>Worms movement speed</summary>
+      <description>Worms movement speed.</description>
+    </key>
     <key name="sound" type="b">
       <default>true</default>
       <summary>Enable sounds</summary>
       <description>Enable sounds.</description>
+    </key>
+    <key name="fakes" type="b">
+      <default>false</default>
+      <summary>Enable fake bonuses</summary>
+      <description>Enable fake bonuses.</description>
     </key>
   </schema>
   <schema id="org.gnome.nibbles.worm0" path="/org/gnome/nibbles/worm0/">

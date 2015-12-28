@@ -6,6 +6,7 @@
     <file alias="scoreboard.ui">@top_srcdir@/data/scoreboard.ui</file>
     <file alias="player-score-box.ui">@top_srcdir@/data/player-score-box.ui</file>
     <file alias="controls-grid.ui">@top_srcdir@/data/controls-grid.ui</file>
+    <file alias="preferences-dialog.ui">@top_srcdir@/data/preferences-dialog.ui</file>
   </gresource>
   <gresource prefix="/org/gnome/nibbles/gtk">
     <file alias="menus.ui">@top_srcdir@/data/nibbles-menus.ui</file>

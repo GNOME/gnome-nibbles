@@ -10,6 +10,7 @@ gnome_nibbles_SOURCES = \
 	worm.vala \
 	boni.vala \
 	warp.vala \
+	preferences-dialog.vala \
 	$(BUILT_SOURCES)
 
 gnome_nibbles_CFLAGS = -w
