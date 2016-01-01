@@ -164,8 +164,8 @@ msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
 msgstr ""
-"Hráč 1 ovládá <gui>Červa 1</gui>, hráč 2 <gui>Červa 2</gui>, hráč 3 "
-"<gui>Červa 3</gui> atd."
+"Hráč 1 ovládá <gui>Červíka 1</gui>, hráč 2 <gui>Červíka 2</gui>, hráč 3 "
+"<gui>Červíka 3</gui> atd."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:47
@@ -232,28 +232,28 @@ msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
 msgstr ""
-"K ovládání pohybu svého červa v režimu pro jednoho hráče používejte "
+"K ovládání pohybu svého červíka v režimu pro jednoho hráče používejte "
 "následující klávesy:"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:33
 msgid "<key>Up</key> to move the worm up"
-msgstr "<key>↑</key> pro pohyb červa nahoru"
+msgstr "<key>↑</key> pro pohyb červíka nahoru"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:36
 msgid "<key>Down</key> to move the worm down"
-msgstr "<key>↓</key> pro pohyb červa dolů"
+msgstr "<key>↓</key> pro pohyb červíka dolů"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:39
 msgid "<key>Left</key> to move the worm left"
-msgstr "<key>←</key> pro pohyb červa doleva"
+msgstr "<key>←</key> pro pohyb červíka doleva"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:42
 msgid "<key>Right</key> to move the worm right"
-msgstr "<key>→</key> pro pohyb červa doprava"
+msgstr "<key>→</key> pro pohyb červíka doprava"
 
 #. (itstool) path: note/p
 #: C/controls-default.page:47
@@ -271,9 +271,9 @@ msgid ""
 "you press <key>Right</key> the worm moves towards the right of the screen "
 "and so on."
 msgstr ""
-"Všechny pohyby červů jsou vztaženy vůči obrazovce, ledaže zapnete <link xref="
+"Všechny pohyby červíků jsou vztaženy vůči obrazovce, ledaže zapnete <link xref="
 "\"rel-movement\">relativní pohyby</link>. To znamená, že když zmáčknete "
-"<key>←</key>, červ se bude bude pohybovat směrem k levému okraji obrazovky, "
+"<key>←</key>, červík se bude bude pohybovat směrem k levému okraji obrazovky, "
 "když zmáčknete <key>→</key>, bude se pohybovat k pravému okraji apod."
 
 #. (itstool) path: info/desc
@@ -296,7 +296,7 @@ msgid ""
 "worm."
 msgstr ""
 "Falešné bonusy vypadají vzhledově jako normální bonusy, ale nepřidají vám "
-"žádné body, když je spolknete. Navíc způsobí obrácení pohybu vašeho červa."
+"žádné body, když je spolknete. Navíc způsobí obrácení pohybu vašeho červíka."
 
 #. (itstool) path: page/p
 #: C/fake-bonus.page:32
@@ -344,7 +344,7 @@ msgid ""
 "worms. You have to complete 26 levels to finish the game."
 msgstr ""
 "<app>Nibbles</app> je hra „hadi“ pro GNOME. Cílem hry je spolykat co nejvíce "
-"předmětů můžete a přitom se snažit nevrazit do zdi nebo do jiného červa. Pro "
+"předmětů můžete a přitom se snažit nevrazit do zdi nebo do jiného červíka. Pro "
 "dokončení hry musíte projít 26 úrovní."
 
 #. (itstool) path: section/title
@@ -378,10 +378,10 @@ msgid ""
 "and <gui>Worm 3</gui> and so on."
 msgstr ""
 "Hru <app>Červíci</app> může hrát až šest hráčů naráz. Zatímco ve hře pro "
-"jednoho hráče ovládá hráč <gui>Červa 1</gui>, ve hře pro více hráčů mohou "
-"další hráči ovládat <gui>Červa 2</gui> až <gui>Červa 6</gui>. Ve hře pro dva "
-"hráče ovládáte <gui>Červa 1</gui> a <gui>Červa 2</gui>, ve hře pro tři hráče "
-"<gui>Červa 1</gui>, <gui>Červa 2</gui> a <gui>Červa 3</gui> atd."
+"jednoho hráče ovládá hráč <gui>červíka 1</gui>, ve hře pro více hráčů mohou "
+"další hráči ovládat <gui>červíka 2</gui> až <gui>červíka 6</gui>. Ve hře pro dva "
+"hráče ovládáte <gui>červíka 1</gui> a <gui>červíka 2</gui>, ve hře pro tři hráče "
+"<gui>červíka 1</gui>, <gui>červíka 2</gui> a <gui>červíka 3</gui> atd."
 
 #. (itstool) path: section/title
 #: C/multi-player.page:37
@@ -425,7 +425,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/preferences.page:22
 msgid "Change default speed, worm color, level order and sound settings."
-msgstr "Změňte výchozí rychlost, barvu červů, pořadí úrovní a nastavení zvuku."
+msgstr "Změňte výchozí rychlost, barvu červíků, pořadí úrovní a nastavení zvuku."
 
 #. (itstool) path: page/title
 #: C/preferences.page:25
@@ -495,7 +495,7 @@ msgstr "Změna barvy červa"
 #. (itstool) path: section/p
 #: C/preferences.page:61
 msgid "There are seven available worm colors:"
-msgstr "K dispozici je sedm barev červů:"
+msgstr "K dispozici je sedm barev červíků:"
 
 #. (itstool) path: item/p
 #: C/preferences.page:65
@@ -547,7 +547,7 @@ msgid ""
 "Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
 "edit."
 msgstr ""
-"Vyberte jednu z karet <gui>Červ x</gui> patřící červovi, kterého chcete "
+"Vyberte jednu z karet <gui>Červík x</gui> patřící červíkovi, kterého chcete "
 "upravit."
 
 #. (itstool) path: item/p
@@ -557,9 +557,9 @@ msgid ""
 "Pick a color out of the available colors in the drop-down menu to change the "
 "appearance of the worm."
 msgstr ""
-"Po levé straně uvidíte <gui style=\"group\">Barva červa</gui>. V "
+"Po levé straně uvidíte <gui style=\"group\">Barva červíka</gui>. V "
 "rozbalovacím seznamu vedle si vyberte jednu z dostupných barev a tím vzhled "
-"červa změníte."
+"červíka změníte."
 
 #. (itstool) path: section/title
 #: C/preferences.page:112
@@ -642,10 +642,10 @@ msgid ""
 "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
 "instead of moving towards the right of the screen."
 msgstr ""
-"Když je zapnutý relativní pohyb, manévruje se červy pomocí výchozích kláves "
+"Když je zapnutý relativní pohyb, manévruje se červíky pomocí výchozích kláves "
 "<key>←</key> a <key>→</key>, případně jinými <link xref=\"controls-change"
 "\">vlastními klávesami</link>, které ovládají pohyb ve směru doleva a "
-"doprava. Po zmáčknutí <key>←</key> červ zahne doleva, místo aby se začal "
+"doprava. Po zmáčknutí <key>←</key> červík zahne doleva, místo aby se začal "
 "pohybovat k levému okraji obrazovky. Obdobně po zmáčknutí <key>→</key> zahne "
 "doprava, namísto aby zamířil přímo v pravém směru obrazovky."
 
@@ -657,7 +657,7 @@ msgstr "Počáteční pozice:"
 #. (itstool) path: figure/desc
 #: C/rel-movement.page:40
 msgid "The location of the worm before you decide to move it."
-msgstr "Poloha červa než se rozhodnete jej ovlivnit."
+msgstr "Poloha červíka, než se rozhodnete jej ovlivnit."
 
 #. (itstool) path: figure/title
 #: C/rel-movement.page:46
@@ -667,7 +667,7 @@ msgstr "Po zmáčknutí klávesy <key>←</key>:"
 #. (itstool) path: figure/desc
 #: C/rel-movement.page:47
 msgid "The worm turns left and begins to move downwards."
-msgstr "Červ zahnul doleva a začal se pohybovat dolů."
+msgstr "Červík zahnul doleva a začal se pohybovat dolů."
 
 #. (itstool) path: note/p
 #: C/rel-movement.page:55
@@ -689,8 +689,8 @@ msgid ""
 "Select the worm for which relative movement has to be enabled by clicking "
 "the appropriate <gui>Worm</gui> tab."
 msgstr ""
-"Vyberte červa, pro kterého chcete relativní pohyb povolit, kliknutím na "
-"příslušnou kartu <gui>Červ x</gui>."
+"Vyberte červíka, pro kterého chcete relativní pohyb povolit, kliknutím na "
+"příslušnou kartu <gui>Červík x</gui>."
 
 #. (itstool) path: item/p
 #: C/rel-movement.page:74
@@ -737,7 +737,7 @@ msgid ""
 "will give you 6 points and so on. In level 26, therefore, the first donut "
 "will give you 26 points, the second donut will give you 52 points and so on."
 msgstr ""
-"Bonus ve tvaru koblížku <_:media-1/>: Tento bonus způsobí prodloužení červa. "
+"Bonus ve tvaru koblížku <_:media-1/>: Tento bonus způsobí prodloužení červíka. "
 "Body získané snězením koblížku odvisí podle úrovně a jsou násobkem čísla "
 "úrovně. V úrovni 1 vám dá první koblížek 1 bod, druhý 2 body, třetí 3 body "
 "atd. V úrovni 2 vám dá první koblížek 2 body, druhý 4 body, třetí 6 bodů "
@@ -752,7 +752,7 @@ msgid ""
 "third player may choose to not eat any donuts till the tenth donut and score "
 "10 points at once."
 msgstr ""
-"Pořadí koblížků nesouvisí s počtem kliblížků, které červ již snědl. Když je "
+"Pořadí koblížků nesouvisí s počtem kliblížků, které červík již snědl. Když je "
 "hra v úrovni 1 a hráč 1 sní první koblížek, dostane 1 bod. Když hráč 2 sní "
 "druhý koblížek dostane 2 body. Třetí hráč nemusí ze začítku sníst žádný a "
 "počkat si třeba až na desátý koblížek a pak dostane 10 bodů naráz."
@@ -764,7 +764,7 @@ msgid ""
 "does not cause an increase in the length of your worm."
 msgstr ""
 "Bonus ve tvaru srdce <_:media-1/>: Tento bonus vám přidá navíc jeden život a "
-"nezpůsobí prodloužení červa."
+"nezpůsobí prodloužení červíka."
 
 #. (itstool) path: note/p
 #: C/scores.page:52
@@ -773,8 +773,8 @@ msgid ""
 "of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
 "lives remaining."
 msgstr ""
-"Počet životů, které červu zbývají, je uveden číslem před čárkou ve skóre "
-"červa. Když má například skóre 10,005, zbývá mu 10 životů."
+"Počet životů, které červíkovi zbývají, je uveden číslem před čárkou ve skóre "
+"červíka. Když má například skóre 10,005, zbývá mu 10 životů."
 
 #. (itstool) path: note/p
 #: C/scores.page:57
@@ -792,8 +792,8 @@ msgid ""
 "increase in the length of the worm and does not give you any points. It "
 "causes a reversal in the movement of all the other worms in the game."
 msgstr ""
-"Bonus ve tvaru diamantu <_:media-1/>: Tento bonus způsobní prodloužení červa "
-"a nepřidá vám žádné body. Způsobí také obrácení pohybu všech ostatních červů "
+"Bonus ve tvaru diamantu <_:media-1/>: Tento bonus způsobní prodloužení červíka "
+"a nepřidá vám žádné body. Způsobí také obrácení pohybu všech ostatních červíků "
 "ve hře."
 
 #. (itstool) path: note/p
@@ -811,9 +811,9 @@ msgid ""
 "points are scored on eating this bonus."
 msgstr ""
 "Bonus ve tvaru zmrzlinky <_:media-1/>: Tento bonus způsobí významně větší "
-"prodloužení červa, než bonus ve tvaru koblížku. Body přidělené za tento "
-"bonus značně závisí na čísle úrovně a délce červa. Čím vyšší úroveň a delší "
-"červ, tím víc bodů snězením tohoto bonusu získáte."
+"prodloužení červíka, než bonus ve tvaru koblížku. Body přidělené za tento "
+"bonus značně závisí na čísle úrovně a délce červíka. Čím vyšší úroveň a delší "
+"červík, tím víc bodů snězením tohoto bonusu získáte."
 
 #. (itstool) path: item/p
 #: C/scores.page:82
@@ -824,8 +824,8 @@ msgid ""
 "longer the worm, the more the points are scored on eating this bonus."
 msgstr ""
 "Bonus ve tvaru třešínek <_:media-1/>: Tento bonus způsobí zkrácení délky "
-"červa. Body přidělené za tento bonus záleží na čísle úrovně a délce červa. "
-"Čím vyšší úroveň a delší červ, tím víc bodů snězením tohoto bonusu získáte."
+"červíka. Body přidělené za tento bonus záleží na čísle úrovně a délce červíka. "
+"Čím vyšší úroveň a delší červík, tím víc bodů snězením tohoto bonusu získáte."
 
 #. (itstool) path: p/link
 #: C/legal.xml:4
