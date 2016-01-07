@@ -8,15 +8,15 @@
 # Sami Pesonen <sampeson@iki.fi>, 2002-2005.
 # Ilkka Tuohela <hile@iki.fi>, 2005-2009.
 # Timo Jyrinki <timo.jyrinki@iki.fi>, 2008.
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013, 2014, 2015.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-31 09:26+0000\n"
-"PO-Revision-Date: 2015-10-31 13:32+0200\n"
+"POT-Creation-Date: 2016-01-07 09:28+0000\n"
+"PO-Revision-Date: 2016-01-07 23:09+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -29,7 +29,6 @@ msgstr ""
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
 #: ../data/controls-grid.ui.h:1
-#| msgid "Player One:"
 msgid "Player"
 msgstr "Pelaaja"
 
@@ -77,8 +76,8 @@ msgstr ""
 "näppäimistö hänen kanssaan."
 
 #: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
-#: ../src/gnome-nibbles.vala:424 ../src/gnome-nibbles.vala:764
-#: ../src/gnome-nibbles.vala:798
+#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
+#: ../src/gnome-nibbles.vala:900
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -106,11 +105,11 @@ msgstr "_Tietoja"
 msgid "_Quit"
 msgstr "_Lopeta"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:369
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
 msgid "_New Game"
 msgstr "_Uusi peli"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:398
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
 msgid "_Pause"
 msgstr "_Keskeytä"
 
@@ -127,26 +126,22 @@ msgid "Eat the treats before the other worms, but don't hit anything!"
 msgstr "Syö lahjat ennen muita matoja, mutta älä osu mihinkään!"
 
 #: ../data/nibbles.ui.h:7
-#| msgid "_Number of players:"
 msgid "Number of players"
 msgstr "Pelaajien määrä"
 
 #: ../data/nibbles.ui.h:8
-#| msgid "Number of human players."
 msgid "Select the number of human players."
 msgstr "Valitse ihmispelaajien määrä"
 
 #: ../data/nibbles.ui.h:9
-#| msgid "Next:"
 msgid "_Next"
 msgstr "_Seuraava"
 
-#: ../data/nibbles.ui.h:10
+#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Ohjaimet"
 
 #: ../data/nibbles.ui.h:11
-#| msgid "_Restart"
 msgid "_Start"
 msgstr "_Käynnistä"
 
@@ -159,7 +154,6 @@ msgid "Width of the window in pixels"
 msgstr "Ikkunan leveys kuvapisteinä"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-#| msgid "Width of the window in pixels"
 msgid "Width of the window in pixels."
 msgstr "Ikkunan leveys kuvapisteinä."
 
@@ -168,7 +162,6 @@ msgid "Height of the window in pixels"
 msgstr "Ikkunan korkeus kuvapisteinä"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-#| msgid "Height of the window in pixels"
 msgid "Height of the window in pixels."
 msgstr "Ikkunan korkeus kuvapisteinä."
 
@@ -211,58 +204,78 @@ msgid "Game level to start on."
 msgstr "Aloituskenttä."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Madon liikkumisnopeus"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Madon liikkumisnopeus."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Äänet päälle"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Äänet päälle."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Huijausbonukset päälle"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Huijausbonukset päälle."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Color to use for worm"
 msgstr "Käytettävä madon väri"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Color to use for worm."
 msgstr "Madon väri."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Use relative movement"
 msgstr "Käytä suhteellista liikettä"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Käytä suhteellista liikettä (esim. vasen tai oikea ainoastaan)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../src/preferences-dialog.vala:110
 msgid "Move up"
 msgstr "Liikuta ylös"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion up."
 msgstr "Näppäin ylös siirtämiseen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../src/preferences-dialog.vala:113
 msgid "Move down"
 msgstr "Liikuta alas"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion down."
 msgstr "Näppäin alas siirtämiseen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:116
 msgid "Move left"
 msgstr "Siirry vasemmalle"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion left."
 msgstr "Näppäin vasemmalle siirtämiseen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:119
 msgid "Move right"
 msgstr "Siirry oikealle"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion right."
 msgstr "Näppäin oikealle siirtämiseen."
 
@@ -270,76 +283,139 @@ msgstr "Näppäin oikealle siirtämiseen."
 msgid "Worm"
 msgstr "Mato"
 
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Asetukset"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Nopeus"
+
+#: ../data/preferences-dialog.ui.h:3
+#| msgctxt "game speed"
+#| msgid "Fast"
+msgid "_Fast"
+msgstr "_Nopea"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Medium"
+msgstr "_Keskitaso"
+
+#: ../data/preferences-dialog.ui.h:5
+#| msgctxt "game speed"
+#| msgid "Slow"
+msgid "_Slow"
+msgstr "_Hidas"
+
+#: ../data/preferences-dialog.ui.h:6
+#| msgctxt "game speed"
+#| msgid "Beginner"
+msgid "_Beginner"
+msgstr "_Aloittelija"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Valinnat"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "Ää_net päälle"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "_Huijausbonukset päälle"
+
+#: ../data/preferences-dialog.ui.h:10
+#| msgid "General"
+msgid "_General"
+msgstr "_Yleiset"
+
+#: ../data/preferences-dialog.ui.h:12
+#| msgid "_Worm color:"
+msgid "Worm color"
+msgstr "Madon väri"
+
+#: ../data/preferences-dialog.ui.h:13
+#| msgid "Worm"
+msgid "Worm _1"
+msgstr "Mato _1"
+
+#: ../data/preferences-dialog.ui.h:14
+#| msgid "Worm"
+msgid "Worm _2"
+msgstr "Mato _2"
+
+#: ../data/preferences-dialog.ui.h:15
+#| msgid "Worm"
+msgid "Worm _3"
+msgstr "Mato _3"
+
+#: ../data/preferences-dialog.ui.h:16
+#| msgid "Worm"
+msgid "Worm _4"
+msgstr "Mato _4"
+
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:96
+#: ../src/gnome-nibbles.vala:100
 msgid "Show release version"
 msgstr "Näytä julkaisuversio"
 
-#: ../src/gnome-nibbles.vala:365
-#| msgid "Do you want to start a new game?"
+#: ../src/gnome-nibbles.vala:375
 msgid "Are you sure you want to start a new game?"
 msgstr "Haluatko varmasti aloittaa uuden pelin?"
 
-#: ../src/gnome-nibbles.vala:366
-#| msgid "If you start a new game, your current progress will be lost."
+#: ../src/gnome-nibbles.vala:376
 msgid "If you start a new game, the current one will be lost."
 msgstr "Jos aloitat uuden pelin, nykyisen peli lopetetaan."
 
-#: ../src/gnome-nibbles.vala:393
-#| msgid "_Reset"
+#: ../src/gnome-nibbles.vala:403
 msgid "_Resume"
 msgstr "_Jatka"
 
-#: ../src/gnome-nibbles.vala:477 ../src/gnome-nibbles.vala:674
+#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
 #, c-format
-#| msgid "Level:"
 msgid "Level %d"
 msgstr "Taso %d"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:556
-#| msgid "Difficulty:"
+#: ../src/gnome-nibbles.vala:622
 msgid "Difficulty Level:"
 msgstr "Vaikeusaste:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:654
+#: ../src/gnome-nibbles.vala:720
 #, c-format
-#| msgid "Level completed."
 msgid "Level %d Completed!"
 msgstr "Taso %d läpäisty!"
 
-#: ../src/gnome-nibbles.vala:661
+#: ../src/gnome-nibbles.vala:727
 msgid "_Next Level"
 msgstr "S_euraava taso"
 
-#: ../src/gnome-nibbles.vala:704
+#: ../src/gnome-nibbles.vala:801
 #, c-format
-#| msgid "%u point"
-#| msgid_plural "%u points"
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d piste"
 msgstr[1] "%d pistettä"
 
-#: ../src/gnome-nibbles.vala:713
+#: ../src/gnome-nibbles.vala:810
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d pistettä enemmän pistetaulukkoa varten)"
 
-#: ../src/gnome-nibbles.vala:719
-#| msgid "_Play Game"
+#: ../src/gnome-nibbles.vala:816
 msgid "_Play Again"
 msgstr "_Pelaa uudelleen"
 
-#: ../src/gnome-nibbles.vala:767
+#: ../src/gnome-nibbles.vala:864
 msgid "A worm game for GNOME"
 msgstr "Matopeli Gnomelle"
 
-#: ../src/gnome-nibbles.vala:776
+#: ../src/gnome-nibbles.vala:873
 msgid "translator-credits"
 msgstr ""
-"Jiri Grönroos, 2012-2015\n"
+"Jiri Grönroos, 2012-2016\n"
 "Timo Jyrinki, 2008\n"
 "Ilkka Tuohela, 2006-2009\n"
 "Sami Pesonen, 2002-2005\n"
@@ -358,11 +434,24 @@ msgstr ""
 "  eGetin https://launchpad.net/~egetin"
 
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/nibbles-view.vala:574
+#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
 #, c-format
-#| msgid "Player One:"
 msgid "Player %d"
 msgstr "Pelaaja %d"
+
+#: ../src/preferences-dialog.vala:122
+#| msgid "Options"
+msgid "Action"
+msgstr "Toiminto"
+
+#: ../src/preferences-dialog.vala:129
+msgid "Key"
+msgstr "Näppäin"
+
+#: ../src/preferences-dialog.vala:212
+#| msgid "The shortcut you selected is already assigned."
+msgid "The key you selected is already assigned!"
+msgstr "Valitsemasi näppäinyhdistelmä on jo määritetty!"
 
 #~ msgid "Number of human players"
 #~ msgstr "Ihmispelaajien määrä"
@@ -378,12 +467,6 @@ msgstr "Pelaaja %d"
 
 #~ msgid "Game speed (1=fast, 4=slow)."
 #~ msgstr "Pelin nopeus (1=nopea, 4=hidas)."
-
-#~ msgid "Enable fake bonuses"
-#~ msgstr "Huijausbonukset päälle"
-
-#~ msgid "Enable fake bonuses."
-#~ msgstr "Huijausbonukset päälle."
 
 #~ msgid "Play levels in random order"
 #~ msgstr "Sattumanvarainen tasojärjestys"
@@ -412,9 +495,6 @@ msgstr "Pelaaja %d"
 #~ "%s\n"
 #~ "\n"
 #~ "Tarkista nibbles-asennuksesi"
-
-#~ msgid "The shortcut you selected is already assigned."
-#~ msgstr "Valitsemasi pikanäppäin on jo määritetty."
 
 #~ msgid "Unknown Command"
 #~ msgstr "Tuntematon komento"
@@ -464,20 +544,8 @@ msgstr "Pelaaja %d"
 #~ msgstr "Tuloksesi pääsi top-10 listalle."
 
 #~ msgctxt "game speed"
-#~ msgid "Beginner"
-#~ msgstr "Aloittelija"
-
-#~ msgctxt "game speed"
-#~ msgid "Slow"
-#~ msgstr "Hidas"
-
-#~ msgctxt "game speed"
 #~ msgid "Medium"
 #~ msgstr "Tavallinen"
-
-#~ msgctxt "game speed"
-#~ msgid "Fast"
-#~ msgstr "Nopea"
 
 #~ msgctxt "game speed"
 #~ msgid "Beginner with Fakes"
@@ -495,14 +563,8 @@ msgstr "Pelaaja %d"
 #~ msgid "Fast with Fakes"
 #~ msgstr "Nopea huijausten kera"
 
-#~ msgid "Preferences"
-#~ msgstr "Asetukset"
-
 #~ msgid "Game"
 #~ msgstr "Peli"
-
-#~ msgid "Speed"
-#~ msgstr "Nopeus"
 
 #~ msgid "Nibbles newbie"
 #~ msgstr "Aloittelija"
@@ -516,17 +578,8 @@ msgstr "Pelaaja %d"
 #~ msgid "Finger-twitching good"
 #~ msgstr "Salamasormi"
 
-#~ msgid "Options"
-#~ msgstr "Valinnat"
-
 #~ msgid "_Play levels in random order"
 #~ msgstr "_Pelaa tasoja satunnaisessa järjestyksessä"
-
-#~ msgid "_Enable fake bonuses"
-#~ msgstr "_Huijausbonukset päälle"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "Ää_net päälle"
 
 #~ msgid "_Starting level:"
 #~ msgstr "_Aloitustaso:"
@@ -542,9 +595,6 @@ msgstr "Pelaaja %d"
 
 #~ msgid "_Use relative movement"
 #~ msgstr "Käytä _suhteellista liikettä"
-
-#~ msgid "_Worm color:"
-#~ msgstr "_Madon väri:"
 
 #~ msgid "Red"
 #~ msgstr "Punainen"
@@ -1340,14 +1390,8 @@ msgstr "Pelaaja %d"
 #~ msgid "_Small"
 #~ msgstr "_Pieni"
 
-#~ msgid "_Medium"
-#~ msgstr "_Keskitaso"
-
 #~ msgid "_Large"
 #~ msgstr "_Suuri"
-
-#~ msgid "General"
-#~ msgstr "Yleisasetukset"
 
 #~ msgid "_Use fast moves"
 #~ msgstr "Käytä _nopeita siirtoja"
