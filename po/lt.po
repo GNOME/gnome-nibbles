@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-11-19 19:56+0000\n"
-"PO-Revision-Date: 2015-11-20 21:23+0200\n"
+"POT-Creation-Date: 2016-01-18 10:54+0000\n"
+"PO-Revision-Date: 2015-12-31 19:57+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -74,8 +74,8 @@ msgstr ""
 "žaiskite su draugu."
 
 #: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
-#: ../src/gnome-nibbles.vala:424 ../src/gnome-nibbles.vala:764
-#: ../src/gnome-nibbles.vala:803
+#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
+#: ../src/gnome-nibbles.vala:900
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -103,11 +103,11 @@ msgstr "_Apie"
 msgid "_Quit"
 msgstr "_Išeiti"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:369
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
 msgid "_New Game"
 msgstr "_Naujas žaidimas"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:398
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
 msgid "_Pause"
 msgstr "_Pristabdyti"
 
@@ -136,7 +136,7 @@ msgstr "Pasirinkite žaidžiančių žmonių skaičių."
 msgid "_Next"
 msgstr "_Kitas"
 
-#: ../data/nibbles.ui.h:10
+#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Valdikliai"
 
@@ -199,58 +199,78 @@ msgid "Game level to start on."
 msgstr "Pradinis žaidimo lygis."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Kirmėlių judėjimo greitis"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Kirmėlių judėjimo greitis."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Įjungti garsus"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Įjungti garsus."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Įjungti netikras premijas"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Įjungti netikras premijas."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Color to use for worm"
 msgstr "Kirmėlės spalva"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Color to use for worm."
 msgstr "Kirmėlės spalva."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Use relative movement"
 msgstr "Naudoti reliatyvų judėjimą"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Naudoti santykinį judėjimą (t.y. tik kairėn ir dešinėn)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../src/preferences-dialog.vala:110
 msgid "Move up"
 msgstr "Perkelti aukštyn"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion up."
 msgstr "Judėjimo aukštyn klavišas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../src/preferences-dialog.vala:113
 msgid "Move down"
 msgstr "Perkelti žemyn"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion down."
 msgstr "Judėjimo žemyn klavišas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:116
 msgid "Move left"
 msgstr "Eiti kairėn"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion left."
 msgstr "Judėjimo kairėn klavišas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:119
 msgid "Move right"
 msgstr "Eiti dešinėn"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion right."
 msgstr "Judėjimo dešinėn klavišas."
 
@@ -258,44 +278,104 @@ msgstr "Judėjimo dešinėn klavišas."
 msgid "Worm"
 msgstr "Kirmėlė"
 
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Nustatymai"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Greitis"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "_Pradedantysis"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "_Lėtai"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "_Vidutiniškai"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "_Greitai"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Nustatymai"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "Įj_ungti garsus"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "Įj_ungti netikras premijas"
+
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "_Bendra"
+
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "Kirmėlės spalva:"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "Kirmėlė _1"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "Kirmėlė _2"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "Kirmėlė _3"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "Kirmėlė _4"
+
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:96
+#: ../src/gnome-nibbles.vala:100
 msgid "Show release version"
 msgstr "Rodyti laidos versiją"
 
-#: ../src/gnome-nibbles.vala:365
+#: ../src/gnome-nibbles.vala:375
 msgid "Are you sure you want to start a new game?"
 msgstr "Ar tikrai norite pradėti naują žaidimą?"
 
-#: ../src/gnome-nibbles.vala:366
+#: ../src/gnome-nibbles.vala:376
 msgid "If you start a new game, the current one will be lost."
 msgstr "Jei pradėsite naują žaidimą, esamas žaidimas bus prarastas."
 
-#: ../src/gnome-nibbles.vala:393
+#: ../src/gnome-nibbles.vala:403
 msgid "_Resume"
 msgstr "_Tęsti"
 
-#: ../src/gnome-nibbles.vala:477 ../src/gnome-nibbles.vala:674
+#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
 #, c-format
 msgid "Level %d"
 msgstr "Lygis %d"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:556
+#: ../src/gnome-nibbles.vala:622
 msgid "Difficulty Level:"
 msgstr "Sudėtingumo lygis:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:654
+#: ../src/gnome-nibbles.vala:720
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Lygis %d užbaigtas!"
 
-#: ../src/gnome-nibbles.vala:661
+#: ../src/gnome-nibbles.vala:727
 msgid "_Next Level"
 msgstr "_Kitas lygis"
 
-#: ../src/gnome-nibbles.vala:704
+#: ../src/gnome-nibbles.vala:801
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -303,20 +383,20 @@ msgstr[0] "%d taškas"
 msgstr[1] "%d taškai"
 msgstr[2] "%d taškų"
 
-#: ../src/gnome-nibbles.vala:713
+#: ../src/gnome-nibbles.vala:810
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(dar %d taškų, kad patektumėte į lyderių poziciją)"
 
-#: ../src/gnome-nibbles.vala:719
+#: ../src/gnome-nibbles.vala:816
 msgid "_Play Again"
 msgstr "Ža_isti dar kartą"
 
-#: ../src/gnome-nibbles.vala:767
+#: ../src/gnome-nibbles.vala:864
 msgid "A worm game for GNOME"
 msgstr "GNOME kirmelės žaidimas"
 
-#: ../src/gnome-nibbles.vala:776
+#: ../src/gnome-nibbles.vala:873
 msgid "translator-credits"
 msgstr ""
 "Paskutinis vertėjas:\n"
@@ -329,10 +409,22 @@ msgstr ""
 "Gediminas Paulauskas <menesis@chatsubo.lt>"
 
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:961 ../src/nibbles-view.vala:574
+#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
 #, c-format
 msgid "Player %d"
 msgstr "Žaidėjas %d"
+
+#: ../src/preferences-dialog.vala:122
+msgid "Action"
+msgstr "Veiksmas"
+
+#: ../src/preferences-dialog.vala:129
+msgid "Key"
+msgstr "Klavišas"
+
+#: ../src/preferences-dialog.vala:212
+msgid "The key you selected is already assigned!"
+msgstr "Pasirinktas klavišas jau yra priskirtas!"
 
 #~ msgid "Number of human players"
 #~ msgstr "Žaidžiančių žmonių skaičius"
@@ -345,12 +437,6 @@ msgstr "Žaidėjas %d"
 
 #~ msgid "Game speed (1=fast, 4=slow)."
 #~ msgstr "Žaidimo greitis (1=greitas, 4=lėtas)."
-
-#~ msgid "Enable fake bonuses"
-#~ msgstr "Įjungti netikras premijas"
-
-#~ msgid "Enable fake bonuses."
-#~ msgstr "Įjungti netikras premijas."
 
 #~ msgid "Play levels in random order"
 #~ msgstr "Žaisti lygius atsitiktine tvarka"
@@ -379,9 +465,6 @@ msgstr "Žaidėjas %d"
 #~ "%s\n"
 #~ "\n"
 #~ "Patikrinkite, ar Gnibbles įdiegtas korektiškai"
-
-#~ msgid "The shortcut you selected is already assigned."
-#~ msgstr "Pasirinktas trumpinys jau priskirtas."
 
 #~ msgid "Unknown Command"
 #~ msgstr "Nežinoma komanda"
@@ -431,22 +514,6 @@ msgstr "Žaidėjas %d"
 #~ msgstr "Jūsų taškai pateko į top 10."
 
 #~ msgctxt "game speed"
-#~ msgid "Beginner"
-#~ msgstr "Pradedančiajam"
-
-#~ msgctxt "game speed"
-#~ msgid "Slow"
-#~ msgstr "Lėtai"
-
-#~ msgctxt "game speed"
-#~ msgid "Medium"
-#~ msgstr "Vidutiniškai"
-
-#~ msgctxt "game speed"
-#~ msgid "Fast"
-#~ msgstr "Greitai"
-
-#~ msgctxt "game speed"
 #~ msgid "Beginner with Fakes"
 #~ msgstr "Pradedančiajam, su apgaule"
 
@@ -462,14 +529,8 @@ msgstr "Žaidėjas %d"
 #~ msgid "Fast with Fakes"
 #~ msgstr "Greitai, su apgaule "
 
-#~ msgid "Preferences"
-#~ msgstr "Nustatymai"
-
 #~ msgid "Game"
 #~ msgstr "Žaidimas"
-
-#~ msgid "Speed"
-#~ msgstr "Greitis"
 
 #~ msgid "Nibbles newbie"
 #~ msgstr "Nibbles naujokas"
@@ -483,17 +544,8 @@ msgstr "Žaidėjas %d"
 #~ msgid "Finger-twitching good"
 #~ msgstr "Pirštus trukčioju gerai"
 
-#~ msgid "Options"
-#~ msgstr "Nustatymai"
-
 #~ msgid "_Play levels in random order"
 #~ msgstr "Žai_sti lygius atsitiktine tvarka"
-
-#~ msgid "_Enable fake bonuses"
-#~ msgstr "Įj_ungti netikras premijas"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "Įj_ungti garsus"
 
 #~ msgid "_Starting level:"
 #~ msgstr "_Pradinis lygis:"
@@ -509,9 +561,6 @@ msgstr "Žaidėjas %d"
 
 #~ msgid "_Use relative movement"
 #~ msgstr "_Naudoti reliatyvų judėjimą"
-
-#~ msgid "_Worm color:"
-#~ msgstr "_Gyvatės spalva:"
 
 #~ msgid "Red"
 #~ msgstr "Raudona"
