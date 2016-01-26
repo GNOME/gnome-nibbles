@@ -8,23 +8,27 @@
 # Andras Timar <timar at gnome dot hu>, 2002, 2003.
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Szabolcs Varga <shirokuma at shirokuma dot hu>, 2005.
-# Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2016.
 # Balázs Úr <urbalazs at gmail dot com>, 2013, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-01-30 20:05+0000\n"
-"PO-Revision-Date: 2015-01-30 22:09+0100\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
+"POT-Creation-Date: 2016-01-24 21:30+0000\n"
+"PO-Revision-Date: 2016-01-26 15:22+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <openscope at gmail dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "Játékos"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
@@ -68,8 +72,9 @@ msgstr ""
 "Játsszon önállóan akár öt ellenséges kukac ellen, vagy ossza meg "
 "billentyűzetét egy barátjával játszva."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:578
-#: ../src/main.c:718
+#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
+#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
+#: ../src/gnome-nibbles.vala:900
 msgid "Nibbles"
 msgstr "Kukacok"
 
@@ -77,45 +82,112 @@ msgstr "Kukacok"
 msgid "game;snake;board;"
 msgstr "játék;kígyó;tábla;"
 
+#: ../data/nibbles-menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Beállítások"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Scores"
+msgstr "_Pontszámok"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Help"
+msgstr "_Súgó"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_About"
+msgstr "_Névjegy"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Quit"
+msgstr "_Kilépés"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
+msgid "_New Game"
+msgstr "Ú_j játék"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
+msgid "_Pause"
+msgstr "_Szünet"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "Játsszunk"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Üdvözlet, kukacok."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr ""
+"Egye meg a finomságokat a többi kukac előtt, de ne menjen neki semminek!"
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "Játékosok száma"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "Válassza ki az emberi játékosok számát."
+
+#: ../data/nibbles.ui.h:9
+msgid "_Next"
+msgstr "_Következő"
+
+#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "Vezérlés"
+
+#: ../data/nibbles.ui.h:11
+msgid "_Start"
+msgstr "In_dítás"
+
+#: ../data/nibbles.ui.h:12
+msgid "Paused"
+msgstr "Szüneteltetve"
+
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Emberi játékosok száma"
+msgid "Width of the window in pixels"
+msgstr "Az ablak szélessége képpontokban"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Emberi játékosok száma."
+msgid "Width of the window in pixels."
+msgstr "Az ablak szélessége képpontokban."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "Gépi játékosok száma"
+msgid "Height of the window in pixels"
+msgstr "Az ablak magassága képpontokban"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "Gépi játékosok száma."
+msgid "Height of the window in pixels."
+msgstr "Az ablak magassága képpontokban."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Játéksebesség"
+msgid "true if the window is maximized"
+msgstr "igaz, ha az ablak teljes méretű"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Játéksebesség (1=gyors, 4=lassú)."
+msgid "true if the window is maximized."
+msgstr "igaz, ha az ablak teljes méretű"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Hamis bónuszok bekapcsolása"
+msgid "Is this the first run"
+msgstr "Ez az első indítás?"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Hamis bónuszok bekapcsolása."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
+"Beállítás annak eldöntéséhez, hogy megjelenjen-e az első indításkori "
+"párbeszédablak vagy sem."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Szintek játszása véletlen sorrendben"
+msgid "Size of game tiles"
+msgstr "Játékkockák mérete"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Szintek játszása véletlen sorrendben."
+msgid "Size of game tiles."
+msgstr "Játékkockák mérete."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -126,210 +198,203 @@ msgid "Game level to start on."
 msgstr "Kezdőszint."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Kukacok mozgási sebessége"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Kukacok mozgási sebessége."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Hangok bekapcsolása"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Hangok bekapcsolása."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "Játékkockák mérete"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Játékkockák mérete."
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Hamis bónuszok bekapcsolása"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Hamis bónuszok bekapcsolása."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Color to use for worm"
 msgstr "A kukachoz használandó szín"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Color to use for worm."
 msgstr "A kukachoz használandó szín."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Use relative movement"
 msgstr "Relatív mozgatás használata"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Relatív mozgatás használata (vagyis csak balra vagy jobbra)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../src/preferences-dialog.vala:110
 msgid "Move up"
 msgstr "Mozgás felfelé"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion up."
 msgstr "Billentyű a felfelé mozgáshoz."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../src/preferences-dialog.vala:113
 msgid "Move down"
 msgstr "Mozgás lefelé"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion down."
 msgstr "Billentyű a lefelé mozgáshoz."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:116
 msgid "Move left"
 msgstr "Mozgás balra"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion left."
 msgstr "Billentyű a balra mozgáshoz."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:119
 msgid "Move right"
 msgstr "Mozgás jobbra"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion right."
 msgstr "Billentyű a jobbra mozgáshoz."
 
-#: ../src/board.c:250
+#: ../data/player-score-box.ui.h:1
+msgid "Worm"
+msgstr "Kukac"
+
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Beállítások"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Sebesség"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "_Kezdő"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "_Lassú"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "Kö_zepes"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "_Gyors"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Beállítások"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "Ha_ngok bekapcsolása"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "_Hamis bónuszok bekapcsolása"
+
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "Á_ltalános"
+
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "Kukac színe"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "_1. kukac"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "_2. kukac"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "_3. kukac"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "_4. kukac"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:100
+msgid "Show release version"
+msgstr "Kiadási verziószám megjelenítése"
+
+#: ../src/gnome-nibbles.vala:375
+msgid "Are you sure you want to start a new game?"
+msgstr "Szeretne új játékot kezdeni?"
+
+#: ../src/gnome-nibbles.vala:376
+msgid "If you start a new game, the current one will be lost."
+msgstr "Ha új játékot indít, akkor a jelenlegi állás elvész."
+
+#: ../src/gnome-nibbles.vala:403
+msgid "_Resume"
+msgstr "_Folytatás"
+
+#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
 #, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"A Kukacok nem találta a következő szintfájlt:\n"
-"%s\n"
-"\n"
-"Ellenőrizze a Kukacok telepítést"
+msgid "Level %d"
+msgstr "%d. szint"
 
-#: ../src/board.c:269
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:622
+msgid "Difficulty Level:"
+msgstr "Nehézségi szint:"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:720
 #, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"A szintfájl sérültnek tűnik:\n"
-"%s\n"
-"\n"
-"Ellenőrizze a Kukacok telepítést"
+msgid "Level %d Completed!"
+msgstr "%d. szint teljesítve!"
 
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "A kiválasztott gyorsbillentyű már társítva van."
+#: ../src/gnome-nibbles.vala:727
+msgid "_Next Level"
+msgstr "_Következő szint"
 
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Ismeretlen parancs"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Idő"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Pontszám"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
+#: ../src/gnome-nibbles.vala:801
 #, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$dp %2$dmp"
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d pont"
+msgstr[1] "%d pont"
 
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Dátum"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Bezárás"
-
-#: ../src/gnibbles.c:82
+#: ../src/gnome-nibbles.vala:810
 #, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"A Kukacok nem találta a következő képfájlt:\n"
-"%s\n"
-"\n"
-"Ellenőrizze a Kukacok telepítést"
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(még %d pont a toplista eléréséhez)"
 
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "Kukacok pontszámok"
+#: ../src/gnome-nibbles.vala:816
+msgid "_Play Again"
+msgstr "_Játék újra"
 
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Sebesség:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Gratulálok!"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "Pontszáma a legjobb!"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "Pontszáma benne van az első tízben."
-
-#: ../src/main.c:62
-msgctxt "game speed"
-msgid "Beginner"
-msgstr "Kezdő"
-
-#: ../src/main.c:63
-msgctxt "game speed"
-msgid "Slow"
-msgstr "Lassú"
-
-#: ../src/main.c:64
-msgctxt "game speed"
-msgid "Medium"
-msgstr "Közepes"
-
-#: ../src/main.c:65
-msgctxt "game speed"
-msgid "Fast"
-msgstr "Gyors"
-
-#: ../src/main.c:66
-msgctxt "game speed"
-msgid "Beginner with Fakes"
-msgstr "Kezdő hamisítványokkal"
-
-#: ../src/main.c:67
-msgctxt "game speed"
-msgid "Slow with Fakes"
-msgstr "Lassú hamisítványokkal"
-
-#: ../src/main.c:68
-msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr "Közepes hamisítványokkal"
-
-#: ../src/main.c:69
-msgctxt "game speed"
-msgid "Fast with Fakes"
-msgstr "Gyors hamisítványokkal"
-
-#: ../src/main.c:222
-#| msgid "A worm game for GNOME."
+#: ../src/gnome-nibbles.vala:864
 msgid "A worm game for GNOME"
 msgstr "Egy kukacos játék a GNOME-hoz"
 
-#: ../src/main.c:225
+#: ../src/gnome-nibbles.vala:873
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -338,113 +403,193 @@ msgstr ""
 "Kovács Emese <emese at gnome dot hu>\n"
 "Nagy Gergely <greg at gnome dot hu>\n"
 "Tímár András <timar at gnome dot hu>\n"
-"Varga Szabolcs <shirokuma at shirokuma dot hu>"
+"Varga Szabolcs <shirokuma at shirokuma dot hu>\n"
+"Meskó Balázs <meskobalazs at gmail dot com>"
 
-#: ../src/preferences.c:223
-msgid "Preferences"
-msgstr "Beállítások"
-
-#: ../src/preferences.c:236
-msgid "Game"
-msgstr "Játék"
-
-#. Speed
-#: ../src/preferences.c:252
-msgid "Speed"
-msgstr "Sebesség"
-
-#: ../src/preferences.c:257
-msgid "Nibbles newbie"
-msgstr "Kukacok kezdő"
-
-#: ../src/preferences.c:267
-msgid "My second day"
-msgstr "Második napom"
-
-#: ../src/preferences.c:277
-msgid "Not too shabby"
-msgstr "Nem túl kopott"
-
-#: ../src/preferences.c:287
-msgid "Finger-twitching good"
-msgstr "Viszket az ujjam, olyan jó"
-
-#: ../src/preferences.c:301 ../src/preferences.c:424
-msgid "Options"
-msgstr "Beállítások"
-
-#: ../src/preferences.c:308
-msgid "_Play levels in random order"
-msgstr "_Szintek játszása véletlen sorrendben"
-
-#: ../src/preferences.c:316
-msgid "_Enable fake bonuses"
-msgstr "_Hamis bónuszok bekapcsolása"
-
-#: ../src/preferences.c:324
-msgid "E_nable sounds"
-msgstr "Ha_ngok bekapcsolása"
-
-#: ../src/preferences.c:337
-msgid "_Starting level:"
-msgstr "_Kezdőszint:"
-
-#: ../src/preferences.c:362
-msgid "Number of _human players:"
-msgstr "_Emberi játékosok száma:"
-
-#: ../src/preferences.c:379
-msgid "Number of _AI players:"
-msgstr "Gé_pi játékosok száma:"
-
-#: ../src/preferences.c:400
-msgid "Worm"
-msgstr "Kukac"
-
-#: ../src/preferences.c:409
-msgid "Keyboard Options"
-msgstr "Billentyűzet beállításai"
-
-#: ../src/preferences.c:429
-msgid "_Use relative movement"
-msgstr "Relatív _mozgatás használata"
-
-#: ../src/preferences.c:436
-msgid "_Worm color:"
-msgstr "K_ukac színe:"
-
-#: ../src/preferences.c:442
-msgid "Red"
-msgstr "Vörös"
-
-#: ../src/preferences.c:443
-msgid "Green"
-msgstr "Zöld"
-
-#: ../src/preferences.c:444
-msgid "Blue"
-msgstr "Kék"
-
-#: ../src/preferences.c:445
-msgid "Yellow"
-msgstr "Sárga"
-
-#: ../src/preferences.c:446
-msgid "Cyan"
-msgstr "Ciánkék"
-
-#: ../src/preferences.c:447
-msgid "Purple"
-msgstr "Bíbor"
-
-#: ../src/preferences.c:448
-msgid "Gray"
-msgstr "Szürke"
-
-#: ../src/scoreboard.c:48
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
 #, c-format
-msgid "Worm %d:"
-msgstr "Kukac %d:"
+msgid "Player %d"
+msgstr "%d. játékos"
+
+#: ../src/preferences-dialog.vala:122
+msgid "Action"
+msgstr "Művelet"
+
+#: ../src/preferences-dialog.vala:129
+msgid "Key"
+msgstr "Kulcs"
+
+#: ../src/preferences-dialog.vala:212
+msgid "The key you selected is already assigned!"
+msgstr "A kiválasztott kulcs már társítva van."
+
+#~ msgid "Number of human players"
+#~ msgstr "Emberi játékosok száma"
+
+#~ msgid "Number of AI players"
+#~ msgstr "Gépi játékosok száma"
+
+#~ msgid "Number of AI players."
+#~ msgstr "Gépi játékosok száma."
+
+#~ msgid "Game speed"
+#~ msgstr "Játéksebesség"
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "Játéksebesség (1=gyors, 4=lassú)."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "Szintek játszása véletlen sorrendben"
+
+#~ msgid "Play levels in random order."
+#~ msgstr "Szintek játszása véletlen sorrendben."
+
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "A Kukacok nem találta a következő szintfájlt:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Ellenőrizze a Kukacok telepítést"
+
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "A szintfájl sérültnek tűnik:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Ellenőrizze a Kukacok telepítést"
+
+#~ msgid "Unknown Command"
+#~ msgstr "Ismeretlen parancs"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "Idő"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "Pontszám"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%1$dp %2$dmp"
+
+#~ msgid "Date"
+#~ msgstr "Dátum"
+
+#~ msgid "_Close"
+#~ msgstr "_Bezárás"
+
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "A Kukacok nem találta a következő képfájlt:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Ellenőrizze a Kukacok telepítést"
+
+#~ msgid "Nibbles Scores"
+#~ msgstr "Kukacok pontszámok"
+
+#~ msgid "Speed:"
+#~ msgstr "Sebesség:"
+
+#~ msgid "Congratulations!"
+#~ msgstr "Gratulálok!"
+
+#~ msgid "Your score is the best!"
+#~ msgstr "Pontszáma a legjobb!"
+
+#~ msgid "Your score has made the top ten."
+#~ msgstr "Pontszáma benne van az első tízben."
+
+#~ msgctxt "game speed"
+#~ msgid "Medium"
+#~ msgstr "Közepes"
+
+#~ msgctxt "game speed"
+#~ msgid "Beginner with Fakes"
+#~ msgstr "Kezdő hamisítványokkal"
+
+#~ msgctxt "game speed"
+#~ msgid "Slow with Fakes"
+#~ msgstr "Lassú hamisítványokkal"
+
+#~ msgctxt "game speed"
+#~ msgid "Medium with Fakes"
+#~ msgstr "Közepes hamisítványokkal"
+
+#~ msgctxt "game speed"
+#~ msgid "Fast with Fakes"
+#~ msgstr "Gyors hamisítványokkal"
+
+#~ msgid "Game"
+#~ msgstr "Játék"
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "Kukacok kezdő"
+
+#~ msgid "My second day"
+#~ msgstr "Második napom"
+
+#~ msgid "Not too shabby"
+#~ msgstr "Nem túl kopott"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "Viszket az ujjam, olyan jó"
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "_Szintek játszása véletlen sorrendben"
+
+#~ msgid "_Starting level:"
+#~ msgstr "_Kezdőszint:"
+
+#~ msgid "Number of _human players:"
+#~ msgstr "_Emberi játékosok száma:"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "Gé_pi játékosok száma:"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "Billentyűzet beállításai"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "Relatív _mozgatás használata"
+
+#~ msgid "Red"
+#~ msgstr "Vörös"
+
+#~ msgid "Green"
+#~ msgstr "Zöld"
+
+#~ msgid "Blue"
+#~ msgstr "Kék"
+
+#~ msgid "Yellow"
+#~ msgstr "Sárga"
+
+#~ msgid "Cyan"
+#~ msgstr "Ciánkék"
+
+#~ msgid "Purple"
+#~ msgstr "Bíbor"
+
+#~ msgid "Gray"
+#~ msgstr "Szürke"
+
+#~ msgid "Worm %d:"
+#~ msgstr "Kukac %d:"
 
 #~| msgid ""
 #~| "A worm game for GNOME.\n"
@@ -541,18 +686,8 @@ msgstr "Kukac %d:"
 #~ msgid "_New"
 #~ msgstr "Ú_j"
 
-#~ msgid "_New Game"
-#~ msgstr "Ú_j játék"
-
 #~ msgid "_Redo Move"
 #~ msgstr "_Mégis a lépést"
-
-# aisleriot/dialog.c:112
-#~ msgid "_Reset"
-#~ msgstr "_Visszaállítás"
-
-#~ msgid "_Restart"
-#~ msgstr "Ú_jraindítás"
 
 #~ msgid "_Undo Move"
 #~ msgstr "Mozgatás _visszavonása"
@@ -572,15 +707,9 @@ msgstr "Kukac %d:"
 #~ msgid "Player _List"
 #~ msgstr "_Játékoslista"
 
-#~ msgid "_Pause"
-#~ msgstr "_Szünet"
-
 # aisleriot/dialog.c:112
 #~ msgid "Res_ume"
 #~ msgstr "_Folytatás"
-
-#~ msgid "_Scores"
-#~ msgstr "_Pontszámok"
 
 #~ msgid "_End Game"
 #~ msgstr "Játék be_fejezése"
@@ -636,9 +765,6 @@ msgstr "Kukac %d:"
 
 #~ msgid "_Settings"
 #~ msgstr "_Beállítások"
-
-#~ msgid "_Help"
-#~ msgstr "_Súgó"
 
 #~ msgid "Chess"
 #~ msgstr "Sakk"
@@ -755,9 +881,6 @@ msgstr "Kukac %d:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Ellenfél:"
-
-#~ msgid "Difficulty:"
-#~ msgstr "Nehézség:"
 
 #~ msgid "Game Duration:"
 #~ msgstr "A játék hossza:"
@@ -1211,9 +1334,6 @@ msgstr "Kukac %d:"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "A játék megnyitása sikertelen: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Verziószám megjelenítése"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FÁJL] – Sakk"
 
@@ -1246,14 +1366,8 @@ msgstr "Kukac %d:"
 #~ msgid "_Small"
 #~ msgstr "_Kicsi"
 
-#~ msgid "_Medium"
-#~ msgstr "Kö_zepes"
-
 #~ msgid "_Large"
 #~ msgstr "_Nagy"
-
-#~ msgid "General"
-#~ msgstr "Általános"
 
 #~ msgid "_Use fast moves"
 #~ msgstr "_Gyors mozgások használata"
@@ -1263,9 +1377,6 @@ msgstr "Kukac %d:"
 
 #~ msgid "Scores"
 #~ msgstr "Pontszámok"
-
-#~ msgid "Next:"
-#~ msgstr "Következő:"
 
 #~ msgid "0"
 #~ msgstr "0"
@@ -1318,15 +1429,6 @@ msgstr "Kukac %d:"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Az utolsó mentett menet játék előképe."
-
-#~ msgid "Width of the window in pixels"
-#~ msgstr "Az ablak szélessége képpontokban"
-
-#~ msgid "Height of the window in pixels"
-#~ msgstr "Az ablak magassága képpontokban"
-
-#~ msgid "true if the window is maximized"
-#~ msgstr "Az ablak teljes méretű-e"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "Az ablak teljes képernyős-e"
@@ -1497,9 +1599,6 @@ msgstr "Kukac %d:"
 
 #~ msgid "Four-in-a-Row Preferences"
 #~ msgstr "A Négyet egy sorba játék beállításai"
-
-#~ msgid "Player One:"
-#~ msgstr "1. játékos:"
 
 #~ msgid "Human"
 #~ msgstr "Ember"
@@ -1868,9 +1967,6 @@ msgstr "Kukac %d:"
 #~ msgid "Safe Teleports:"
 #~ msgstr "Biztonságos teleportok:"
 
-#~ msgid "Level:"
-#~ msgstr "Szint:"
-
 #~ msgid "Remaining:"
 #~ msgstr "Hátra van:"
 
@@ -1912,23 +2008,11 @@ msgstr "Kukac %d:"
 #~ msgid "Difficult"
 #~ msgstr "Nehéz"
 
-#~ msgid "Paused"
-#~ msgstr "Szüneteltetve"
-
 #~ msgid "Moves Left:"
 #~ msgstr "Hátralévő lépések:"
 
 #~ msgid "_Restart Game"
 #~ msgstr "Játék új_raindítása"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Beállítások"
-
-#~ msgid "_About"
-#~ msgstr "_Névjegy"
-
-#~ msgid "_Quit"
-#~ msgstr "_Kilépés"
 
 #~ msgid "Hint"
 #~ msgstr "Javaslat"
@@ -2392,9 +2476,6 @@ msgstr "Kukac %d:"
 #~ msgid "_Number of mines:"
 #~ msgstr "_Aknák száma:"
 
-#~ msgid "_Play Game"
-#~ msgstr "_Játék indítása"
-
 #~ msgid "<b>%d</b> mine"
 #~ msgid_plural "<b>%d</b> mines"
 #~ msgstr[0] "<b>%d</b> akna"
@@ -2411,12 +2492,6 @@ msgstr "Kukac %d:"
 
 #~ msgid "Size:"
 #~ msgstr "Méret:"
-
-#~ msgid "Do you want to start a new game?"
-#~ msgstr "Szeretne új játékot indítani?"
-
-#~ msgid "If you start a new game, your current progress will be lost."
-#~ msgstr "Ha új játékot indít, akkor a jelenlegi állás elvész."
 
 #~ msgid "Keep Current Game"
 #~ msgstr "A jelenlegi játék folytatása"
@@ -2654,9 +2729,6 @@ msgstr "Kukac %d:"
 #~ msgid "Y location of window"
 #~ msgstr "Az ablak Y koordinátája"
 
-#~ msgid "Level completed."
-#~ msgstr "Szint teljesítve."
-
 #~ msgid "The Puzzle Has Been Solved!"
 #~ msgstr "Ezt megoldotta!"
 
@@ -2829,9 +2901,6 @@ msgstr "Kukac %d:"
 
 #~ msgid "Human Players"
 #~ msgstr "Élő játékosok"
-
-#~ msgid "_Number of players:"
-#~ msgstr "_Játékosok száma:"
 
 #~ msgid "Computer Opponents"
 #~ msgstr "Számítógépes ellenfelek"
@@ -3143,9 +3212,6 @@ msgstr "Kukac %d:"
 #~ msgid "Show _where the block will land"
 #~ msgstr "A blokk _várható helyének megjelenítése"
 
-#~ msgid "Controls"
-#~ msgstr "Vezérlés"
-
 #~ msgid "Theme"
 #~ msgstr "Téma"
 
@@ -3213,11 +3279,6 @@ msgstr "Kukac %d:"
 #~ msgstr ""
 #~ "Tisztítsa meg a képernyőt az egyező színű és formájú csempecsoportok "
 #~ "eltávolításával"
-
-#~ msgid "%u point"
-#~ msgid_plural "%u points"
-#~ msgstr[0] "%u pont"
-#~ msgstr[1] "%u pont"
 
 #~ msgid "Small"
 #~ msgstr "Kicsi"
