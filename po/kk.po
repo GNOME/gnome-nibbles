@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-08-12 19:53+0000\n"
-"PO-Revision-Date: 2015-09-21 16:50+0500\n"
+"POT-Creation-Date: 2016-02-08 21:31+0000\n"
+"PO-Revision-Date: 2016-02-09 09:49+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,7 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.6\n"
+
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr ""
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
@@ -50,8 +54,9 @@ msgid ""
 "play with a friend."
 msgstr ""
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
-#: ../src/main.c:704
+#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
+#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
+#: ../src/gnome-nibbles.vala:900
 msgid "Nibbles"
 msgstr ""
 
@@ -60,71 +65,107 @@ msgid "game;snake;board;"
 msgstr ""
 
 #: ../data/nibbles-menus.ui.h:1
-msgid "_New Game"
-msgstr "Ж_аңа ойын"
-
-#: ../data/nibbles-menus.ui.h:2
-msgid "_Pause"
-msgstr "_Аялдату"
-
-#: ../data/nibbles-menus.ui.h:3
 msgid "_Preferences"
 msgstr "_Баптаулар"
 
-#: ../data/nibbles-menus.ui.h:4
+#: ../data/nibbles-menus.ui.h:2
 msgid "_Scores"
 msgstr "_Есептер"
 
-#: ../data/nibbles-menus.ui.h:5
+#: ../data/nibbles-menus.ui.h:3
 msgid "_Help"
 msgstr "_Көмек"
 
-#: ../data/nibbles-menus.ui.h:6
+#: ../data/nibbles-menus.ui.h:4
 msgid "_About"
 msgstr "О_сы туралы"
 
-#: ../data/nibbles-menus.ui.h:7
+#: ../data/nibbles-menus.ui.h:5
 msgid "_Quit"
 msgstr "_Шығу"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
+msgid "_New Game"
+msgstr "Ж_аңа ойын"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
+msgid "_Pause"
+msgstr "_Аялдату"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
 msgstr ""
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr ""
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr ""
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr ""
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr ""
+
+#: ../data/nibbles.ui.h:9
+msgid "_Next"
+msgstr "_Келесі"
+
+#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "Басқару пернелері"
+
+#: ../data/nibbles.ui.h:11
+msgid "_Start"
+msgstr "Ба_стау"
+
+#: ../data/nibbles.ui.h:12
+msgid "Paused"
+msgstr "Аялдатылған"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:1
+msgid "Width of the window in pixels"
+msgstr "Терезе ені, пиксельмен"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr ""
+msgid "Width of the window in pixels."
+msgstr "Терезе ені, пиксельмен."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr ""
+msgid "Height of the window in pixels"
+msgstr "Терезе биіктігі, пиксельмен"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr ""
+msgid "Height of the window in pixels."
+msgstr "Терезе биіктігі, пиксельмен."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Ойын жылдамдығы"
+msgid "true if the window is maximized"
+msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Ойын жылдамдығы (1=жылдам, 4=баяу)."
+msgid "true if the window is maximized."
+msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
+msgid "Is this the first run"
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
+msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
+msgid "Size of game tiles"
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
+msgid "Size of game tiles."
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
@@ -136,311 +177,286 @@ msgid "Game level to start on."
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
-msgid "Enable sounds"
+msgid "Worms movement speed"
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:14
-msgid "Enable sounds."
+msgid "Worms movement speed."
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr ""
+msgid "Enable sounds"
+msgstr "Дыбыстарды іске қосу"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr ""
+msgid "Enable sounds."
+msgstr "Дыбыстарды іске қосу."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
-msgid "Color to use for worm"
+msgid "Enable fake bonuses"
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:18
-msgid "Color to use for worm."
+msgid "Enable fake bonuses."
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:19
-msgid "Use relative movement"
+msgid "Color to use for worm"
 msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Color to use for worm."
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Use relative movement"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Use relative movement (ie. left or right only)."
 msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../src/preferences-dialog.vala:110
 msgid "Move up"
 msgstr "Жоғары жылжыту"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion up."
 msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../src/preferences-dialog.vala:113
 msgid "Move down"
 msgstr "Төмен жылжыту"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion down."
 msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:116
 msgid "Move left"
 msgstr "Солға жылжыту"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion left."
 msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:119
 msgid "Move right"
 msgstr "Оңға жылжыту"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion right."
 msgstr ""
 
-#: ../src/board.c:250
-#, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr ""
-
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Белгісіз команда"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Уақыт"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Нәтиже"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$dм %2$dс"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Күні"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Жабу"
-
-#: ../src/gnibbles.c:82
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr ""
-
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Жылдамдық:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Құттықтаймыз!"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr ""
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr ""
-
-#: ../src/main.c:62
-msgctxt "game speed"
-msgid "Beginner"
-msgstr "Бастауыш"
-
-#: ../src/main.c:63
-msgctxt "game speed"
-msgid "Slow"
-msgstr "Баяу"
-
-#: ../src/main.c:64
-msgctxt "game speed"
-msgid "Medium"
-msgstr "Орташа"
-
-#: ../src/main.c:65
-msgctxt "game speed"
-msgid "Fast"
-msgstr "Жылдам"
-
-#: ../src/main.c:66
-msgctxt "game speed"
-msgid "Beginner with Fakes"
-msgstr ""
-
-#: ../src/main.c:67
-msgctxt "game speed"
-msgid "Slow with Fakes"
-msgstr ""
-
-#: ../src/main.c:68
-msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr ""
-
-#: ../src/main.c:69
-msgctxt "game speed"
-msgid "Fast with Fakes"
-msgstr ""
-
-#: ../src/main.c:257
-msgid "A worm game for GNOME"
-msgstr ""
-
-#: ../src/main.c:260
-msgid "translator-credits"
-msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
-
-#: ../src/preferences.c:225
-msgid "Preferences"
-msgstr "Қалаулар"
-
-#: ../src/preferences.c:238
-msgid "Game"
-msgstr "Ойын"
-
-#. Speed
-#: ../src/preferences.c:254
-msgid "Speed"
-msgstr "Жылдамдық"
-
-#: ../src/preferences.c:259
-msgid "Nibbles newbie"
-msgstr ""
-
-#: ../src/preferences.c:269
-msgid "My second day"
-msgstr ""
-
-#: ../src/preferences.c:279
-msgid "Not too shabby"
-msgstr ""
-
-#: ../src/preferences.c:289
-msgid "Finger-twitching good"
-msgstr ""
-
-#: ../src/preferences.c:303 ../src/preferences.c:426
-msgid "Options"
-msgstr "Опциялар"
-
-#: ../src/preferences.c:310
-msgid "_Play levels in random order"
-msgstr ""
-
-#: ../src/preferences.c:318
-msgid "_Enable fake bonuses"
-msgstr ""
-
-#: ../src/preferences.c:326
-msgid "E_nable sounds"
-msgstr ""
-
-#: ../src/preferences.c:339
-msgid "_Starting level:"
-msgstr ""
-
-#: ../src/preferences.c:364
-msgid "Number of _human players:"
-msgstr ""
-
-#: ../src/preferences.c:381
-msgid "Number of _AI players:"
-msgstr ""
-
-#: ../src/preferences.c:402
+#: ../data/player-score-box.ui.h:1
 msgid "Worm"
 msgstr ""
 
-#: ../src/preferences.c:411
-msgid "Keyboard Options"
-msgstr "Пернетақта"
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Қалаулар"
 
-#: ../src/preferences.c:431
-msgid "_Use relative movement"
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Жылдамдық"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "_Бастауыш"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "Ба_яу"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "О_рташа"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "Ж_ылдам"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Опциялар"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
 msgstr ""
 
-#: ../src/preferences.c:438
-msgid "_Worm color:"
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
 msgstr ""
 
-#: ../src/preferences.c:444
-msgid "Red"
-msgstr "Қызыл"
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "_Жалпы"
 
-#: ../src/preferences.c:445
-msgid "Green"
-msgstr "Жасыл"
-
-#: ../src/preferences.c:446
-msgid "Blue"
-msgstr "Көк"
-
-#: ../src/preferences.c:447
-msgid "Yellow"
-msgstr "Сары"
-
-#: ../src/preferences.c:448
-msgid "Cyan"
-msgstr "көгілдір"
-
-#: ../src/preferences.c:449
-msgid "Purple"
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
 msgstr ""
 
-#: ../src/preferences.c:450
-msgid "Gray"
-msgstr "Сұр"
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr ""
 
-#: ../src/scoreboard.c:48
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr ""
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr ""
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr ""
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:100
+msgid "Show release version"
+msgstr "Нұсқа ақпаратын көрсету"
+
+#: ../src/gnome-nibbles.vala:375
+msgid "Are you sure you want to start a new game?"
+msgstr ""
+
+#: ../src/gnome-nibbles.vala:376
+msgid "If you start a new game, the current one will be lost."
+msgstr ""
+
+#: ../src/gnome-nibbles.vala:403
+msgid "_Resume"
+msgstr "Жа_лғастыру"
+
+#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
 #, c-format
-msgid "Worm %d:"
+msgid "Level %d"
+msgstr "Деңгей %d"
+
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:622
+msgid "Difficulty Level:"
 msgstr ""
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:720
+#, c-format
+msgid "Level %d Completed!"
+msgstr ""
+
+#: ../src/gnome-nibbles.vala:727
+msgid "_Next Level"
+msgstr ""
+
+#: ../src/gnome-nibbles.vala:801
+#, c-format
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] ""
+
+#: ../src/gnome-nibbles.vala:810
+#, c-format
+msgid "(%d more points to reach the leaderboard)"
+msgstr ""
+
+#: ../src/gnome-nibbles.vala:816
+msgid "_Play Again"
+msgstr "Қайта о_йнау"
+
+#: ../src/gnome-nibbles.vala:864
+msgid "A worm game for GNOME"
+msgstr ""
+
+#: ../src/gnome-nibbles.vala:873
+msgid "translator-credits"
+msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
+
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
+#, c-format
+msgid "Player %d"
+msgstr ""
+
+#: ../src/preferences-dialog.vala:122
+msgid "Action"
+msgstr "Әрекет"
+
+#: ../src/preferences-dialog.vala:129
+msgid "Key"
+msgstr "Перне"
+
+#: ../src/preferences-dialog.vala:212
+msgid "The key you selected is already assigned!"
+msgstr ""
+
+#~ msgid "Game speed"
+#~ msgstr "Ойын жылдамдығы"
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "Ойын жылдамдығы (1=жылдам, 4=баяу)."
+
+#~ msgid "Unknown Command"
+#~ msgstr "Белгісіз команда"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "Уақыт"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "Нәтиже"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%1$dм %2$dс"
+
+#~ msgid "Date"
+#~ msgstr "Күні"
+
+#~ msgid "_Close"
+#~ msgstr "_Жабу"
+
+#~ msgid "Speed:"
+#~ msgstr "Жылдамдық:"
+
+#~ msgid "Congratulations!"
+#~ msgstr "Құттықтаймыз!"
+
+#~ msgctxt "game speed"
+#~ msgid "Medium"
+#~ msgstr "Орташа"
+
+#~ msgid "Game"
+#~ msgstr "Ойын"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "Пернетақта"
+
+#~ msgid "Red"
+#~ msgstr "Қызыл"
+
+#~ msgid "Green"
+#~ msgstr "Жасыл"
+
+#~ msgid "Blue"
+#~ msgstr "Көк"
+
+#~ msgid "Yellow"
+#~ msgstr "Сары"
+
+#~ msgid "Cyan"
+#~ msgstr "көгілдір"
+
+#~ msgid "Gray"
+#~ msgstr "Сұр"
 
 #~ msgid "A list of recently played games."
 #~ msgstr "Соңғы ойналған ойындар тізімі."
-
-#~ msgid "Animations"
-#~ msgstr "Анимациялар"
 
 #~ msgid "Recently played games"
 #~ msgstr "Соңғы ойналған ойындар"
@@ -531,10 +547,6 @@ msgstr ""
 #~ msgid "_View"
 #~ msgstr "_Түрі"
 
-#, fuzzy
-#~ msgid "_Control"
-#~ msgstr "Control-H"
-
 #~ msgid "Close this window"
 #~ msgstr "Бұл терезені жабу"
 
@@ -599,12 +611,6 @@ msgstr ""
 #~ msgid "an empty space"
 #~ msgstr "бос орын"
 
-#~ msgid "The height of the window"
-#~ msgstr "Терезе биіктігі"
-
-#~ msgid "The width of the window"
-#~ msgstr "Терезе ені"
-
 #~ msgid "New Game"
 #~ msgstr "Жаңа ойын"
 
@@ -643,9 +649,6 @@ msgstr ""
 
 #~ msgid "_Black:"
 #~ msgstr "Қа_ра:"
-
-#~ msgid "_Start"
-#~ msgstr "Ба_стау"
 
 #~ msgid "_White:"
 #~ msgstr "_Ақ:"
@@ -792,13 +795,6 @@ msgstr ""
 #~ msgid "_Image:"
 #~ msgstr "Суре_т:"
 
-#~ msgctxt "preferences"
-#~ msgid "General"
-#~ msgstr "Жалпы"
-
-#~ msgid "Next:"
-#~ msgstr "Келесі:"
-
 #~ msgid "Background color"
 #~ msgstr "Фон түсі"
 
@@ -836,9 +832,6 @@ msgstr ""
 #~ msgid "_Background color:"
 #~ msgstr "Ф_он түсі:"
 
-#~ msgid "Level:"
-#~ msgstr "Деңгейі:"
-
 #~ msgid "Remaining:"
 #~ msgstr "Қалған:"
 
@@ -863,20 +856,11 @@ msgstr ""
 #~ msgid "Theme"
 #~ msgstr "Тақырыбы"
 
-#~ msgid "Paused"
-#~ msgstr "Аялдатылған"
-
 #~ msgid "Details"
 #~ msgstr "Көбірек"
 
-#~ msgid "_Medium"
-#~ msgstr "О_рташа"
-
 #~ msgid "New game"
 #~ msgstr "Жаңа ойын"
-
-#~ msgid "_Reset"
-#~ msgstr "_Тастау"
 
 #~ msgid "_Undo"
 #~ msgstr "Бол_дырмау"
