@@ -1,5 +1,5 @@
 # French translation of gnome-nibbles.
-# Copyright (C) 1998-2015 Free Software Foundation, Inc.
+# Copyright (C) 1998-2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-nibbles package.
 #
 # Vincent Renardias <vincent@ldsol.com>, 1998-1999.
@@ -16,7 +16,7 @@
 # Pierre Slamich <pierre.slamich@gmail.com>, 2006.
 # Marc Lorber <linux-lorber@club-internet.fr>, 2006
 # Pierre Slamich <pierre.slamich@gmail.com>, 2006.
-# Claude Paroz <claude@2xlibre.net>, 2007-2015.
+# Claude Paroz <claude@2xlibre.net>, 2007-2016.
 # Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007-2008.
 # Didier Vidal <didier-devel@melix.net>, 2007.
 # Pierre Lemaire <pierre.lemaire@kamick.org>, 2008.
@@ -29,8 +29,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-24 20:04+0000\n"
-"PO-Revision-Date: 2015-02-24 23:45+0100\n"
+"POT-Creation-Date: 2016-02-10 21:27+0000\n"
+"PO-Revision-Date: 2016-02-11 09:08+0100\n"
 "Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -38,6 +38,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "Joueur"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
@@ -83,8 +87,9 @@ msgstr ""
 "Jouez tout seul face à au plus cinq vers ennemis, ou partagez votre clavier "
 "pour jouer avec un ami."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:216 ../src/main.c:576
-#: ../src/main.c:669
+#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
+#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
+#: ../src/gnome-nibbles.vala:900
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -93,72 +98,111 @@ msgid "game;snake;board;"
 msgstr "jeu;serpent;plateau;"
 
 #: ../data/nibbles-menus.ui.h:1
-msgid "_New Game"
-msgstr "_Nouvelle partie"
-
-#: ../data/nibbles-menus.ui.h:2
-msgid "_Pause"
-msgstr "P_ause"
-
-#: ../data/nibbles-menus.ui.h:3
 msgid "_Preferences"
 msgstr "P_références"
 
-#: ../data/nibbles-menus.ui.h:4
+#: ../data/nibbles-menus.ui.h:2
 msgid "_Scores"
 msgstr "_Scores"
 
-#: ../data/nibbles-menus.ui.h:5
+#: ../data/nibbles-menus.ui.h:3
 msgid "_Help"
 msgstr "Aid_e"
 
-#: ../data/nibbles-menus.ui.h:6
+#: ../data/nibbles-menus.ui.h:4
 msgid "_About"
 msgstr "À _propos"
 
-#: ../data/nibbles-menus.ui.h:7
+#: ../data/nibbles-menus.ui.h:5
 msgid "_Quit"
 msgstr "_Quitter"
 
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
+msgid "_New Game"
+msgstr "_Nouvelle partie"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
+msgid "_Pause"
+msgstr "P_ause"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "_Jouons"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Bienvenue, les vers."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr ""
+"Mangez les friandises avant les autres vers, mais ne foncez dans rien du tout !"
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "Nombre de joueurs"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "Choisissez le nombre de joueurs humains."
+
+#: ../data/nibbles.ui.h:9
+msgid "_Next"
+msgstr "_Suivant"
+
+#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "Contrôles"
+
+#: ../data/nibbles.ui.h:11
+msgid "_Start"
+msgstr "_Commencer"
+
+#: ../data/nibbles.ui.h:12
+msgid "Paused"
+msgstr "En pause"
+
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Nombre de joueurs humains"
+msgid "Width of the window in pixels"
+msgstr "Largeur de la fenêtre en pixels"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Nombre de joueurs humains."
+msgid "Width of the window in pixels."
+msgstr "Largeur de la fenêtre en pixels."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "Nombre de joueurs IA"
+msgid "Height of the window in pixels"
+msgstr "Hauteur de la fenêtre en pixels"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "Nombre de joueurs IA."
+msgid "Height of the window in pixels."
+msgstr "Hauteur de la fenêtre en pixels."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Vitesse du jeu"
+msgid "true if the window is maximized"
+msgstr "vrai si la fenêtre est maximisée"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Vitesse du jeu (1=rapide, 4=lent)."
+msgid "true if the window is maximized."
+msgstr "vrai si la fenêtre est maximisée."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Activer les faux bonus"
+msgid "Is this the first run"
+msgstr "Est-ce le premier lancement ?"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Activer les faux bonus."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
+"Paramètre définissant si la boîte de dialogue des premières instructions "
+"doit être affichée."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Jouer les niveaux dans un ordre aléatoire"
+msgid "Size of game tiles"
+msgstr "Taille des tuiles de jeu"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Jouer les niveaux dans un ordre aléatoire."
+msgid "Size of game tiles."
+msgstr "Taille des tuiles de jeu."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -169,213 +213,204 @@ msgid "Game level to start on."
 msgstr "Niveau de départ."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Vitesse de mouvement des vers"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Vitesse de mouvement des vers."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Activer les sons"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Activer les sons."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "Taille des tuiles de jeu"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Taille des tuiles de jeu."
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Activer les faux bonus"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Activer les faux bonus."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Color to use for worm"
 msgstr "Couleur à utiliser pour le ver"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Color to use for worm."
 msgstr "Couleur à utiliser pour le ver."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Use relative movement"
 msgstr "Utiliser des mouvement relatifs"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Use relative movement (ie. left or right only)."
 msgstr ""
 "Utiliser des mouvements relatifs (c'est-à-dire droite et gauche seulement)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../src/preferences-dialog.vala:110
 msgid "Move up"
 msgstr "Se déplacer vers le haut"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion up."
 msgstr "Touche à utiliser pour se déplacer vers le haut."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../src/preferences-dialog.vala:113
 msgid "Move down"
 msgstr "Se déplacer vers le bas"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion down."
 msgstr "Touche à utiliser pour se déplacer vers le bas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:116
 msgid "Move left"
 msgstr "Déplacer à gauche"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion left."
 msgstr "Touche à utiliser pour se déplacer à gauche."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:119
 msgid "Move right"
 msgstr "Déplacer à droite"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion right."
 msgstr "Touche à utiliser pour se déplacer à droite."
 
-#: ../src/board.c:250
+#: ../data/player-score-box.ui.h:1
+msgid "Worm"
+msgstr "Ver"
+
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Préférences"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Vitesse"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "_Débutant"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "_Lent"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "_Intermédiaire"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "_Rapide"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Options"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "A_ctiver les sons"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "_Activer les faux bonus"
+
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "_Général"
+
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "Couleur des vers"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "Ver _1"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "Ver _2"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "Ver _3"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "Ver _4"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:100
+msgid "Show release version"
+msgstr "Affiche la version"
+
+#: ../src/gnome-nibbles.vala:375
+msgid "Are you sure you want to start a new game?"
+msgstr "Voulez-vous vraiment commencer une nouvelle partie ?"
+
+#: ../src/gnome-nibbles.vala:376
+msgid "If you start a new game, the current one will be lost."
+msgstr "Si vous commencez une nouvelle partie, la partie actuelle sera perdue."
+
+#: ../src/gnome-nibbles.vala:403
+msgid "_Resume"
+msgstr "_Reprendre"
+
+#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
 #, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Nibbles n'a pu charger le fichier de niveau :\n"
-"%s\n"
-"\n"
-"Vérifiez votre installation de Nibbles"
+msgid "Level %d"
+msgstr "Niveau %d"
 
-#: ../src/board.c:269
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:622
+msgid "Difficulty Level:"
+msgstr "Niveau de difficulté :"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:720
 #, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Le fichier de niveau semble endommagé :\n"
-"%s\n"
-"\n"
-"Vérifiez votre installation de Nibbles"
+msgid "Level %d Completed!"
+msgstr "Niveau %d terminé !"
 
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "Le raccourci sélectionné est déjà attribué."
+#: ../src/gnome-nibbles.vala:727
+msgid "_Next Level"
+msgstr "Niveau _suivant"
 
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Commande inconnue"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Durée"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Score"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
+#: ../src/gnome-nibbles.vala:801
 #, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$d m %2$d s"
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d point"
+msgstr[1] "%d points"
 
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Date"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Fermer"
-
-#: ../src/gnibbles.c:82
+#: ../src/gnome-nibbles.vala:810
 #, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Nibbles n'a pu trouver l'image :\n"
-"%s\n"
-"\n"
-"Vérifiez votre installation de Nibbles"
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(%d points supplémentaire pour atteindre les meilleurs scores)"
 
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "Scores Nibbles"
+#: ../src/gnome-nibbles.vala:816
+msgid "_Play Again"
+msgstr "_Rejouer"
 
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Vitesse :"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Félicitations !"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "Votre score est le meilleur !"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "Votre score est entré au top 10."
-
-#: ../src/main.c:62
-msgctxt "game speed"
-msgid "Beginner"
-msgstr "Débutant"
-
-#: ../src/main.c:63
-msgctxt "game speed"
-msgid "Slow"
-msgstr "Lent"
-
-#: ../src/main.c:64
-msgctxt "game speed"
-msgid "Medium"
-msgstr "Intermédiaire"
-
-#: ../src/main.c:65
-msgctxt "game speed"
-msgid "Fast"
-msgstr "Rapide"
-
-# sans doute faudrait-il trouver un terme commun pour ces « feintes » 
-# (cette entrée et les suivantes) et les « faux bonus » 
-# (quelques entrées plus loin) : dans tous les cas, ce sont des « fake ».
-#: ../src/main.c:66
-msgctxt "game speed"
-msgid "Beginner with Fakes"
-msgstr "Débutant avec feintes"
-
-#: ../src/main.c:67
-msgctxt "game speed"
-msgid "Slow with Fakes"
-msgstr "Lent avec feintes"
-
-#: ../src/main.c:68
-msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr "Intermédiaire avec feintes"
-
-#: ../src/main.c:69
-msgctxt "game speed"
-msgid "Fast with Fakes"
-msgstr "Rapide avec feintes"
-
-#: ../src/main.c:222
+#: ../src/gnome-nibbles.vala:864
 msgid "A worm game for GNOME"
 msgstr "Un jeu de ver pour GNOME"
 
-#: ../src/main.c:225
+#: ../src/gnome-nibbles.vala:873
 msgid "translator-credits"
 msgstr ""
 "Christophe Merlet <redfox@redfoxcenter.org>\n"
@@ -390,108 +425,20 @@ msgstr ""
 "Didier Vidal <didier-devel@melix.net>\n"
 "Pierre Lemaire <pierre.lemaire@kamick.org>"
 
-#: ../src/preferences.c:223
-msgid "Preferences"
-msgstr "Préférences"
-
-#: ../src/preferences.c:236
-msgid "Game"
-msgstr "Jeu"
-
-#. Speed
-#: ../src/preferences.c:252
-msgid "Speed"
-msgstr "Vitesse"
-
-#: ../src/preferences.c:257
-msgid "Nibbles newbie"
-msgstr "Débutant à Nibbles"
-
-#: ../src/preferences.c:267
-msgid "My second day"
-msgstr "Mon deuxième jour"
-
-#: ../src/preferences.c:277
-msgid "Not too shabby"
-msgstr "Pas trop nul"
-
-#: ../src/preferences.c:287
-msgid "Finger-twitching good"
-msgstr "Les doigts dans le nez"
-
-#: ../src/preferences.c:301 ../src/preferences.c:424
-msgid "Options"
-msgstr "Options"
-
-#: ../src/preferences.c:308
-msgid "_Play levels in random order"
-msgstr "J_ouer les niveaux dans un ordre aléatoire"
-
-#: ../src/preferences.c:316
-msgid "_Enable fake bonuses"
-msgstr "_Activer les faux bonus"
-
-#: ../src/preferences.c:324
-msgid "E_nable sounds"
-msgstr "A_ctiver les sons"
-
-#: ../src/preferences.c:337
-msgid "_Starting level:"
-msgstr "Niveau de dé_part :"
-
-#: ../src/preferences.c:362
-msgid "Number of _human players:"
-msgstr "No_mbre de joueurs humains :"
-
-#: ../src/preferences.c:379
-msgid "Number of _AI players:"
-msgstr "Nombre de joueurs _IA :"
-
-#: ../src/preferences.c:400
-msgid "Worm"
-msgstr "Ver"
-
-#: ../src/preferences.c:409
-msgid "Keyboard Options"
-msgstr "Options du clavier"
-
-#: ../src/preferences.c:429
-msgid "_Use relative movement"
-msgstr "_Utiliser des mouvement relatifs"
-
-#: ../src/preferences.c:436
-msgid "_Worm color:"
-msgstr "Couleur du _ver :"
-
-#: ../src/preferences.c:442
-msgid "Red"
-msgstr "Rouge"
-
-#: ../src/preferences.c:443
-msgid "Green"
-msgstr "Vert"
-
-#: ../src/preferences.c:444
-msgid "Blue"
-msgstr "Bleu"
-
-#: ../src/preferences.c:445
-msgid "Yellow"
-msgstr "Jaune"
-
-#: ../src/preferences.c:446
-msgid "Cyan"
-msgstr "Cyan"
-
-#: ../src/preferences.c:447
-msgid "Purple"
-msgstr "Violet"
-
-#: ../src/preferences.c:448
-msgid "Gray"
-msgstr "Gris"
-
-#: ../src/scoreboard.c:48
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
 #, c-format
-msgid "Worm %d:"
-msgstr "Ver %d :"
+msgid "Player %d"
+msgstr "Joueur %d"
+
+#: ../src/preferences-dialog.vala:122
+msgid "Action"
+msgstr "Action"
+
+#: ../src/preferences-dialog.vala:129
+msgid "Key"
+msgstr "Touche"
+
+#: ../src/preferences-dialog.vala:212
+msgid "The key you selected is already assigned!"
+msgstr "La touche sélectionnée est déjà attribuée."
