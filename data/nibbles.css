@@ -1,5 +1,5 @@
-GtkApplicationWindow.main-window {
-    background: rgba (0, 0, 0, 1);
+.window-background {
+  background-color: rgba(0, 0, 0, 1);
 }
 .menu-title {
   font-size: 2.5em;
@@ -11,12 +11,33 @@ GtkApplicationWindow.main-window {
 .play {
   font-size: 1em;
 }
-GtkToggleButton.number-box {
-    font-size: 3em;
-    font-family: Sans;
-    font-weight: bold;
+.number-box {
+  font-size: 3em;
+  font-weight: bold;
+  font-family: Sans;
+  background-image: linear-gradient(to bottom, #3e4444);
 }
-GtkLabel.countdown {
-    font-size: 2em;
-    color: rgba(229, 229, 229, 1);
+.number-box:hover {
+  background-image: linear-gradient(to bottom, rgba(60, 69, 71, 0.8));
+}
+.number-box:focus {
+  background-image: linear-gradient(to bottom, #215d9c);
+}
+.number-box-focus:hover {
+  background-image: linear-gradient(to bottom, #2260a0, #1f5894 60%, #1d538b);
+}
+.controls-button {
+  padding: 4px 8px;
+  border: 1px solid;
+  border-radius: 3px;
+  color: #eeeeec;
+  outline-color: rgba(238, 238, 236, 0.3);
+  border-color: #1c1f1f;
+  background-image: linear-gradient(to bottom, #343a3a, #2f3434 60%, #2a2f2f);
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.81176);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 1px rgba(238, 238, 236, 0);
+}
+.countdown {
+  font-size: 2em;
+  color: rgba(229, 229, 229, 1);
 }

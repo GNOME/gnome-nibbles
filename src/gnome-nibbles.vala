@@ -568,21 +568,21 @@ public class Nibbles : Gtk.Application
 
     private void change_number_of_players_cb (Gtk.ToggleButton button)
     {
-        if (!button.get_active () && button.get_style_context ().has_class ("suggested-action"))
+        if (!button.get_active () && button.get_style_context ().has_class ("number-box-focus"))
         {
             button.set_active (true);
         }
-        else if (button.get_active () && !button.get_style_context ().has_class ("suggested-action"))
+        else if (button.get_active () && !button.get_style_context ().has_class ("number-box-focus"))
         {
             next_button_revealer.set_reveal_child (true);
-            button.get_style_context ().add_class ("suggested-action");
+            button.get_style_context ().add_class ("number-box-focus");
             foreach (var other_button in number_of_players_buttons)
             {
                 if (button != other_button)
                 {
                     if (other_button.get_active ())
                     {
-                        other_button.get_style_context ().remove_class ("suggested-action");
+                        other_button.get_style_context ().remove_class ("number-box-focus");
                         other_button.set_active (false);
                         break;
                     }

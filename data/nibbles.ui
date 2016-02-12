@@ -29,7 +29,6 @@
     </object>
     <object class="GtkApplicationWindow" id="nibbles-window">
         <property name="title" translatable="yes">Nibbles</property>
-        <style><class name="main-window"/></style>
         <child>
             <object class="GtkOverlay" id="main_overlay">
                 <property name="visible">True</property>
@@ -37,6 +36,7 @@
                     <object class="GtkBox" id="vbox">
                         <property name="visible">True</property>
                         <property name="orientation">vertical</property>
+                        <style><class name="window-background"/></style>
                         <child>
                             <object class="GtkStack" id="main_stack">
                                 <property name="visible">True</property>
@@ -167,7 +167,6 @@
                                                                 <property name="width-request">150</property>
                                                                 <style>
                                                                     <class name="number-box"/>
-                                                                    <class name="osd"/>
                                                                 </style>
                                                             </object>
                                                             <packing>
@@ -182,7 +181,6 @@
                                                                 <property name="width-request">150</property>
                                                                 <style>
                                                                     <class name="number-box"/>
-                                                                    <class name="osd"/>
                                                                 </style>
                                                             </object>
                                                             <packing>
@@ -197,7 +195,6 @@
                                                                 <property name="width-request">150</property>
                                                                 <style>
                                                                     <class name="number-box"/>
-                                                                    <class name="osd"/>
                                                                 </style>
                                                             </object>
                                                             <packing>
@@ -212,7 +209,6 @@
                                                                 <property name="width-request">150</property>
                                                                 <style>
                                                                     <class name="number-box"/>
-                                                                    <class name="osd"/>
                                                                 </style>
                                                             </object>
                                                             <packing>
