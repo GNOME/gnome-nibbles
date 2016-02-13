@@ -20,7 +20,7 @@
 .number-box:hover {
   background-image: linear-gradient(to bottom, rgba(60, 69, 71, 0.8));
 }
-.number-box:focus {
+.number-box:checked {
   background-image: linear-gradient(to bottom, #215d9c);
 }
 .number-box-focus:hover {
