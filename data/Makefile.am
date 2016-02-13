@@ -1,14 +1,5 @@
 SUBDIRS = icons levels pix
 
-dbusservicedir = $(datadir)/dbus-1/services
-dbusservice_DATA = org.gnome.Nibbles.service
-
-org.gnome.Nibbles.service: Makefile
-	$(AM_V_GEN) (echo '[D-BUS Service]'; \
-		     echo 'Name=org.gnome.Nibbles'; \
-		     echo 'Exec=${bindir}/gnome-nibbles --gapplication-service') > $@.tmp && \
-		    mv $@.tmp $@
-
 desktopdir = $(datadir)/applications
 desktop_in_files = org.gnome.Nibbles.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
@@ -46,13 +37,11 @@ dist_sounds_DATA = \
 
 EXTRA_DIST = \
 	$(appstream_in_files) \
-	$(dbusservice_DATA) \
 	$(desktop_in_files) \
 	$(gsettings_SCHEMAS)
 
 CLEANFILES = \
 	$(appstream_XML) \
-	$(dbusservice_DATA) \
 	$(desktop_DATA)
 
 AM_DISTCHECK_CONFIGURE_FLAGS == --enable-appdata-check

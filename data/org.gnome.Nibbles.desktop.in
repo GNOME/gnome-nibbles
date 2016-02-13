@@ -8,4 +8,3 @@ Terminal=false
 Type=Application
 Categories=GNOME;GTK;Game;ArcadeGame;
 StartupNotify=true
-DBusActivatable=true
