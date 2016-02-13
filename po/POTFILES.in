@@ -2,10 +2,10 @@
 # Please keep this file in alphabetical order.
 [encoding: UTF-8]
 [type: gettext/glade]data/controls-grid.ui
-data/gnome-nibbles.appdata.xml.in
-data/gnome-nibbles.desktop.in
 [type: gettext/glade]data/nibbles-menus.ui
 [type: gettext/glade]data/nibbles.ui
+data/org.gnome.Nibbles.appdata.xml.in
+data/org.gnome.Nibbles.desktop.in
 data/org.gnome.nibbles.gschema.xml
 [type: gettext/glade]data/player-score-box.ui
 [type: gettext/glade]data/preferences-dialog.ui
