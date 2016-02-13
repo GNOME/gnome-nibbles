@@ -650,8 +650,6 @@ public class Nibbles : Gtk.Application
         /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
         scorecats.add (new Games.Scores.Category ("fast-fakes", _("Fast with Fakes")));
 
-        var importer = new Games.Scores.Importer (Games.Scores.Importer.OldFormat.C_GAMES_MULTI_FILE_FORMAT,
-                                                  get_new_scores_key);
         scores_context = new Games.Scores.Context.with_importer (
             "gnome-nibbles",
             /* Displayed on the scores dialog, preceeding a difficulty. */
@@ -659,7 +657,7 @@ public class Nibbles : Gtk.Application
             window,
             category_request,
             Games.Scores.Style.PLAIN_DESCENDING,
-            importer);
+            new Games.Scores.DirectoryImporter (get_new_scores_key));
     }
 
     private Games.Scores.Category get_scores_category (int speed, bool fakes)
