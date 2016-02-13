@@ -596,14 +596,14 @@ public class Nibbles : Gtk.Application
     * * Scoring
     \*/
 
-    private Games.Scores.Category category_request (string key)
+    private Games.Scores.Category? category_request (string key)
     {
         foreach (var cat in scorecats)
         {
             if (key == cat.key)
                 return cat;
         }
-        assert_not_reached ();
+        return null;
     }
 
     private void create_scores ()
