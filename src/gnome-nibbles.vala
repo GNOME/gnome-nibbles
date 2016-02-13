@@ -687,6 +687,9 @@ public class Nibbles : Gtk.Application
                                         get_scores_category (game.speed, game.fakes),
                                         null,
                                         (object, result) => {
+
+            pause_action.set_enabled (false);
+
             try
             {
                 if (scores_context.add_score.end (result))
