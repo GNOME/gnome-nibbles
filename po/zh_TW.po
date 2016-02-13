@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-games 3.3.91\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-11-06 21:27+0000\n"
-"PO-Revision-Date: 2015-11-08 14:45+0800\n"
+"POT-Creation-Date: 2016-02-12 09:31+0000\n"
+"PO-Revision-Date: 2016-02-12 21:51+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional)\n"
 "Language: zh_TW\n"
@@ -66,8 +66,8 @@ msgid ""
 msgstr "您可以對抗最多五隻敵人蟲蟲，或者也可以跟您的朋友共用鍵盤一起玩。"
 
 #: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
-#: ../src/gnome-nibbles.vala:424 ../src/gnome-nibbles.vala:764
-#: ../src/gnome-nibbles.vala:803
+#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
+#: ../src/gnome-nibbles.vala:900
 msgid "Nibbles"
 msgstr "貪食蛇"
 
@@ -95,11 +95,11 @@ msgstr "關於(_A)"
 msgid "_Quit"
 msgstr "結束(_Q)"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:369
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
 msgid "_New Game"
 msgstr "開新局(_N)"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:398
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
 msgid "_Pause"
 msgstr "暫停(_P)"
 
@@ -112,7 +112,6 @@ msgid "Welcome, worms."
 msgstr "歡迎，蟲蟲。"
 
 #: ../data/nibbles.ui.h:6
-#, fuzzy
 msgid "Eat the treats before the other worms, but don't hit anything!"
 msgstr "在其他蟲蟲之前吃獎賞，但不要撞到東西！"
 
@@ -128,7 +127,7 @@ msgstr "選擇人類玩家數目。"
 msgid "_Next"
 msgstr "下一步(_N)"
 
-#: ../data/nibbles.ui.h:10
+#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "控制"
 
@@ -169,9 +168,8 @@ msgid "Is this the first run"
 msgstr "這是第一次玩嗎"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-#, fuzzy
 msgid "Setting to decide whether to show first-run hint dialog or not."
-msgstr "設定是否顯示第一次執行提示對話方塊。"
+msgstr "決定是否顯示第一次執行密訣對話盒的設定值。"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
@@ -190,58 +188,78 @@ msgid "Game level to start on."
 msgstr "開始時的級數"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "蟲蟲的移動速度"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "蟲蟲的移動速度。"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "開啟音效"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "開啟音效。"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "可出現假的獎勵"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "可出現假的獎勵"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Color to use for worm"
 msgstr "蟲蟲的顏色"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Color to use for worm."
 msgstr "蟲蟲的顏色"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Use relative movement"
 msgstr "蛇的方向改變會根據當時的蛇頭方向計算"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Use relative movement (ie. left or right only)."
 msgstr "蛇的方向改變會根據當時的蛇頭方向計算 (即是只可以向左或者向右轉)"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../src/preferences-dialog.vala:110
 msgid "Move up"
 msgstr "向上移動"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion up."
 msgstr "表示向上所用的按鍵"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../src/preferences-dialog.vala:113
 msgid "Move down"
 msgstr "向下移動"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion down."
 msgstr "表示向下所用的按鍵"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:116
 msgid "Move left"
 msgstr "向左移動"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion left."
 msgstr "表示向左所用的按鍵"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:119
 msgid "Move right"
 msgstr "向右移動"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion right."
 msgstr "表示向右所用的按鍵"
 
@@ -249,63 +267,123 @@ msgstr "表示向右所用的按鍵"
 msgid "Worm"
 msgstr "蟲蟲"
 
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "偏好設定"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "速度"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "初學者(_B)"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "慢速(_S)"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "中(_M)"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "快速(_F)"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "選項"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "開啟音效(_N)"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "可出現假的獎勵(_E)"
+
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "一般(_G)"
+
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "蟲蟲顏色"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "蟲蟲_1"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "蟲蟲_2"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "蟲蟲_3"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "蟲蟲_4"
+
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:96
+#: ../src/gnome-nibbles.vala:100
 msgid "Show release version"
 msgstr "顯示釋出版本"
 
-#: ../src/gnome-nibbles.vala:365
+#: ../src/gnome-nibbles.vala:375
 msgid "Are you sure you want to start a new game?"
 msgstr "你確定你想要開新局嗎？"
 
-#: ../src/gnome-nibbles.vala:366
+#: ../src/gnome-nibbles.vala:376
 msgid "If you start a new game, the current one will be lost."
 msgstr "如果你開新局，現在的遊戲將會遺失。"
 
-#: ../src/gnome-nibbles.vala:393
+#: ../src/gnome-nibbles.vala:403
 msgid "_Resume"
 msgstr "繼續(_R)"
 
-#: ../src/gnome-nibbles.vala:477 ../src/gnome-nibbles.vala:674
+#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
 #, c-format
 msgid "Level %d"
 msgstr "第 %d 級"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:556
+#: ../src/gnome-nibbles.vala:622
 msgid "Difficulty Level:"
 msgstr "難度等級："
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:654
+#: ../src/gnome-nibbles.vala:720
 #, c-format
 msgid "Level %d Completed!"
 msgstr "已完成第 %d 級！"
 
-#: ../src/gnome-nibbles.vala:661
+#: ../src/gnome-nibbles.vala:727
 msgid "_Next Level"
 msgstr "下一級(_N)"
 
-#: ../src/gnome-nibbles.vala:704
+#: ../src/gnome-nibbles.vala:801
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d 分"
 
-#: ../src/gnome-nibbles.vala:713
+#: ../src/gnome-nibbles.vala:810
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(再 %d 分就能進入排行榜)"
 
-#: ../src/gnome-nibbles.vala:719
+#: ../src/gnome-nibbles.vala:816
 msgid "_Play Again"
 msgstr "再玩一次(_P)"
 
-#: ../src/gnome-nibbles.vala:767
+#: ../src/gnome-nibbles.vala:864
 msgid "A worm game for GNOME"
 msgstr "GNOME 版本貪食蛇遊戲"
 
-#: ../src/gnome-nibbles.vala:776
+#: ../src/gnome-nibbles.vala:873
 msgid "translator-credits"
 msgstr ""
 "如對翻譯有任何意見，請送一封電子郵件給\n"
@@ -316,10 +394,22 @@ msgstr ""
 "Fernando <bv1al@journalist.com.tw>, 1999"
 
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/nibbles-view.vala:574
+#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
 #, c-format
 msgid "Player %d"
 msgstr "玩家 %d"
+
+#: ../src/preferences-dialog.vala:122
+msgid "Action"
+msgstr "動作"
+
+#: ../src/preferences-dialog.vala:129
+msgid "Key"
+msgstr "按鍵"
+
+#: ../src/preferences-dialog.vala:212
+msgid "The key you selected is already assigned!"
+msgstr "您所選擇的按鍵已經被指派了！"
 
 #~ msgid "Number of human players"
 #~ msgstr "人類玩家數目"
@@ -332,12 +422,6 @@ msgstr "玩家 %d"
 
 #~ msgid "Game speed (1=fast, 4=slow)."
 #~ msgstr "遊戲速度 (1 表示快，4 表示慢)"
-
-#~ msgid "Enable fake bonuses"
-#~ msgstr "可出現假的獎勵"
-
-#~ msgid "Enable fake bonuses."
-#~ msgstr "可出現假的獎勵"
 
 #~ msgid "Play levels in random order"
 #~ msgstr "隨機選擇級數"
@@ -366,9 +450,6 @@ msgstr "玩家 %d"
 #~ "%s\n"
 #~ "\n"
 #~ "請檢查是否已正確安裝貪食蛇"
-
-#~ msgid "The shortcut you selected is already assigned."
-#~ msgstr "您所選擇的快捷鍵已經被指派了。"
 
 #~ msgid "Unknown Command"
 #~ msgstr "不明指令"
@@ -418,20 +499,8 @@ msgstr "玩家 %d"
 #~ msgstr "您的分數進入頭十名。"
 
 #~ msgctxt "game speed"
-#~ msgid "Beginner"
-#~ msgstr "新手"
-
-#~ msgctxt "game speed"
-#~ msgid "Slow"
-#~ msgstr "慢速"
-
-#~ msgctxt "game speed"
 #~ msgid "Medium"
 #~ msgstr "普通"
-
-#~ msgctxt "game speed"
-#~ msgid "Fast"
-#~ msgstr "快速"
 
 #~ msgctxt "game speed"
 #~ msgid "Beginner with Fakes"
@@ -452,9 +521,6 @@ msgstr "玩家 %d"
 #~ msgid "Game"
 #~ msgstr "遊戲"
 
-#~ msgid "Speed"
-#~ msgstr "速度"
-
 #~ msgid "Nibbles newbie"
 #~ msgstr "貪食蛇遊戲新手"
 
@@ -467,17 +533,8 @@ msgstr "玩家 %d"
 #~ msgid "Finger-twitching good"
 #~ msgstr "十分靈活"
 
-#~ msgid "Options"
-#~ msgstr "選項"
-
 #~ msgid "_Play levels in random order"
 #~ msgstr "隨機選擇級數(_P)"
-
-#~ msgid "_Enable fake bonuses"
-#~ msgstr "可出現假的獎勵(_E)"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "開啟音效(_N)"
 
 #~ msgid "_Starting level:"
 #~ msgstr "開始級數(_S)："
@@ -493,9 +550,6 @@ msgstr "玩家 %d"
 
 #~ msgid "_Use relative movement"
 #~ msgstr "方向鍵會根據當時的方向改變意義(_U)"
-
-#~ msgid "_Worm color:"
-#~ msgstr "蟲蟲的顏色(_W)："
 
 #~ msgid "Red"
 #~ msgstr "紅"
@@ -1280,14 +1334,8 @@ msgstr "玩家 %d"
 #~ msgid "_Small"
 #~ msgstr "小(_S)"
 
-#~ msgid "_Medium"
-#~ msgstr "中(_M)"
-
 #~ msgid "_Large"
 #~ msgstr "大(_L)"
-
-#~ msgid "General"
-#~ msgstr "一般"
 
 #~ msgid "_Use fast moves"
 #~ msgstr "快速移動(_U)"
