@@ -606,6 +606,30 @@ public class Nibbles : Gtk.Application
         return null;
     }
 
+    private string? get_new_scores_key (string old_key)
+    {
+        switch (old_key)
+        {
+            case "1.0":
+                return "fast";
+            case "2.0":
+                return "medium";
+            case "3.0":
+                return "slow";
+            case "4.0":
+                return "beginner";
+            case "1.1":
+                return "fast-fakes";
+            case "2.1":
+                return "medium-fakes";
+            case "3.1":
+                return "slow-fakes";
+            case "4.1":
+                return "beginner-fakes";
+        }
+        return null;
+    }
+
     private void create_scores ()
     {
         scorecats = new Gee.LinkedList<Games.Scores.Category> ();
@@ -626,12 +650,16 @@ public class Nibbles : Gtk.Application
         /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
         scorecats.add (new Games.Scores.Category ("fast-fakes", _("Fast with Fakes")));
 
-        scores_context = new Games.Scores.Context ("gnome-nibbles",
-                                                   /* Displayed on the scores dialog, preceeding a difficulty. */
-                                                   _("Difficulty Level:"),
-                                                   window,
-                                                   category_request,
-                                                   Games.Scores.Style.PLAIN_DESCENDING);
+        var importer = new Games.Scores.Importer (Games.Scores.Importer.OldFormat.C_GAMES_MULTI_FILE_FORMAT,
+                                                  get_new_scores_key);
+        scores_context = new Games.Scores.Context.with_importer (
+            "gnome-nibbles",
+            /* Displayed on the scores dialog, preceeding a difficulty. */
+            _("Difficulty Level:"),
+            window,
+            category_request,
+            Games.Scores.Style.PLAIN_DESCENDING,
+            importer);
     }
 
     private Games.Scores.Category get_scores_category (int speed, bool fakes)
