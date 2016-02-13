@@ -608,14 +608,22 @@ public class Nibbles : Gtk.Application
     private void create_scores ()
     {
         scorecats = new Gee.LinkedList<Games.Scores.Category> ();
-        scorecats.add (new Games.Scores.Category ("beginner", "Beginner"));
-        scorecats.add (new Games.Scores.Category ("slow", "Slow"));
-        scorecats.add (new Games.Scores.Category ("medium", "Medium"));
-        scorecats.add (new Games.Scores.Category ("fast", "Fast"));
-        scorecats.add (new Games.Scores.Category ("beginner-fakes", "Beginner with Fakes"));
-        scorecats.add (new Games.Scores.Category ("slow-fakes", "Slow with Fakes"));
-        scorecats.add (new Games.Scores.Category ("medium-fakes", "Medium with Fakes"));
-        scorecats.add (new Games.Scores.Category ("fast-fakes", "Fast with Fakes"));
+        /* Translators: Difficulty level displayed on the scores dialog */
+        scorecats.add (new Games.Scores.Category ("beginner", _("Beginner")));
+        /* Translators: Difficulty level displayed on the scores dialog */
+        scorecats.add (new Games.Scores.Category ("slow", _("Slow")));
+        /* Translators: Difficulty level displayed on the scores dialog */
+        scorecats.add (new Games.Scores.Category ("medium", _("Medium")));
+        /* Translators: Difficulty level displayed on the scores dialog */
+        scorecats.add (new Games.Scores.Category ("fast", _("Fast")));
+        /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
+        scorecats.add (new Games.Scores.Category ("beginner-fakes", _("Beginner with Fakes")));
+        /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
+        scorecats.add (new Games.Scores.Category ("slow-fakes", _("Slow with Fakes")));
+        /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
+        scorecats.add (new Games.Scores.Category ("medium-fakes", _("Medium with Fakes")));
+        /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
+        scorecats.add (new Games.Scores.Category ("fast-fakes", _("Fast with Fakes")));
 
         scores_context = new Games.Scores.Context ("gnome-nibbles",
                                                    /* Displayed on the scores dialog, preceeding a difficulty. */
