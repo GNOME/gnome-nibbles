@@ -693,47 +693,39 @@ public class Nibbles : Gtk.Application
 
     private void log_score_cb (int score)
     {
-        // FIXME: Need a better end game experience if we return early here.
-        // Leaving the player with a blank screen is not good. Make sure the
-        // new game and pause buttons do something sane (e.g. pause should be
-        // insensitive; new game should start a new game on level one and not
-        // trigger the scores dialog to be opened if the high scores table is
-        // not yet filled....)
-
         /* Disable these here to prevent the user clicking the buttons before the score is saved */
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
 
+        var scores = scores_context.get_high_scores (get_scores_category (game.speed, game.fakes));
+        var lowest_high_score = (scores.size == 10 ? scores.last ().score : -1);
+
         if (game.numhumans != 1)
+        {
+            game_over (score, lowest_high_score);
             return;
+        }
 
         if (game.start_level != 1)
+        {
+            game_over (score, lowest_high_score);
             return;
-
-        if (score <= 0)
-            return;
+        }
 
         scores_context.add_score.begin (score,
                                         get_scores_category (game.speed, game.fakes),
                                         null,
                                         (object, result) => {
-
-            pause_action.set_enabled (false);
-
             try
             {
-                if (scores_context.add_score.end (result))
-                    // FIXME: Need a better end game experience here too. Same warnings apply.
-                    return;
+                scores_context.add_score.end (result);
             }
             catch (GLib.Error e)
             {
                 warning ("Failed to add score: %s", e.message);
             }
 
-            // Not a high score...
-            var scores = scores_context.get_high_scores (get_scores_category (game.speed, game.fakes));
-            game_over (score, scores.last ().score);
+            game_over (score, lowest_high_score);
         });
     }
 
@@ -828,8 +820,10 @@ public class Nibbles : Gtk.Application
         preferences_dialog.run ();
     }
 
-    private void game_over (int score, long last_score)
+    private void game_over (int score, long lowest_high_score)
     {
+        var is_high_score = (score > lowest_high_score);
+
         var game_over_label = new Gtk.Label (_(@"Game Over!"));
         game_over_label.halign = Gtk.Align.CENTER;
         game_over_label.valign = Gtk.Align.START;
@@ -845,7 +839,7 @@ public class Nibbles : Gtk.Application
         score_label.set_margin_top (window_height / 3 + 80);
         score_label.show ();
 
-        var points_left = last_score - score;
+        var points_left = lowest_high_score - score;
         var points_left_label = new Gtk.Label (_("(%d more points to reach the leaderboard)").printf (points_left));
         points_left_label.halign = Gtk.Align.CENTER;
         points_left_label.valign = Gtk.Align.START;
@@ -860,8 +854,13 @@ public class Nibbles : Gtk.Application
         button.get_style_context ().add_class ("suggested-action");
         button.clicked.connect (() => {
             game_over_label.destroy ();
-            score_label.destroy ();
-            points_left_label.destroy ();
+
+            if (game.numhumans == 1)
+                score_label.destroy ();
+
+            if (game.numhumans == 1 && !is_high_score)
+                points_left_label.destroy ();
+
             button.destroy ();
 
             new_game_action.set_enabled (true);
@@ -872,8 +871,10 @@ public class Nibbles : Gtk.Application
         button.show ();
 
         overlay.add_overlay (game_over_label);
-        overlay.add_overlay (score_label);
-        overlay.add_overlay (points_left_label);
+        if (game.numhumans == 1)
+            overlay.add_overlay (score_label);
+        if (game.numhumans == 1 && !is_high_score)
+            overlay.add_overlay (points_left_label);
         overlay.add_overlay (button);
 
         button.grab_focus ();
