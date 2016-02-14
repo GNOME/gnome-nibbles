@@ -657,7 +657,7 @@ public class Nibbles : Gtk.Application
             window,
             category_request,
             Games.Scores.Style.PLAIN_DESCENDING,
-            new Games.Scores.DirectoryImporter (get_new_scores_key));
+            new Games.Scores.DirectoryImporter.with_convert_func (get_new_scores_key));
     }
 
     private Games.Scores.Category get_scores_category (int speed, bool fakes)
