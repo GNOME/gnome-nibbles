@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-06 15:14+0100\n"
-"PO-Revision-Date: 2016-02-06 15:15+0100\n"
+"POT-Creation-Date: 2016-02-14 17:49+0100\n"
+"PO-Revision-Date: 2016-02-14 17:50+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -37,58 +37,6 @@ msgstr ""
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
 msgstr "Gracz"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
-msgid "GNOME Nibbles"
-msgstr "Robaki GNOME"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Przeprowadzenie robaka przez labirynt"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
-msgstr ""
-"Kontrolowanie robaka jedzącego bonusy i rosnącego wzdłuż. Należy "
-"wymanewrować wrogie robaki, jednocześnie jedząc pączki i lody, aby zwiększyć "
-"swoją długość. Każdy robak ma dziesięć żyć, które może stracić wchodząc w "
-"ścianę, innego robaka lub samego siebie. Wrogie robaki próbują zjeść te same "
-"bonusy, więc należy być ostrożnym: jeśli staną się za długie, to nie "
-"zostanie miejsca na ruch."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
-msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
-msgstr ""
-"Przygoda trwa przez 26 map o zwiększającym się poziomie trudności. "
-"Początkowe poziomy są zwykle otwarte z niewieloma ścianami, ale później "
-"ciasne miejsca i teleporty czynią grę jeszcze ciekawszą."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Można grać samemu przeciwko do pięciu wrogich robaków, lub podzielić się "
-"klawiaturą z innym graczem."
-
-#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
-#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
-#: ../src/gnome-nibbles.vala:900
-msgid "Nibbles"
-msgstr "Robaki"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "gra;gierka;wąż;snake;snejk;planszowa;plansza;"
 
 #: ../data/nibbles-menus.ui.h:1
 msgid "_Preferences"
@@ -110,11 +58,17 @@ msgstr "_O grze"
 msgid "_Quit"
 msgstr "Za_kończ"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:491 ../src/gnome-nibbles.vala:899
+#: ../src/gnome-nibbles.vala:938
+msgid "Nibbles"
+msgstr "Robaki"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:380
 msgid "_New Game"
 msgstr "_Nowa gra"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:409
 msgid "_Pause"
 msgstr "W_strzymaj"
 
@@ -153,6 +107,52 @@ msgstr "_Rozpocznij"
 #: ../data/nibbles.ui.h:12
 msgid "Paused"
 msgstr "Wstrzymano"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
+msgid "GNOME Nibbles"
+msgstr "Robaki GNOME"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Przeprowadzenie robaka przez labirynt"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+"Kontrolowanie robaka jedzącego bonusy i rosnącego wzdłuż. Należy "
+"wymanewrować wrogie robaki, jednocześnie jedząc pączki i lody, aby zwiększyć "
+"swoją długość. Każdy robak ma dziesięć żyć, które może stracić wchodząc w "
+"ścianę, innego robaka lub samego siebie. Wrogie robaki próbują zjeść te same "
+"bonusy, więc należy być ostrożnym: jeśli staną się za długie, to nie "
+"zostanie miejsca na ruch."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"Przygoda trwa przez 26 map o zwiększającym się poziomie trudności. "
+"Początkowe poziomy są zwykle otwarte z niewieloma ścianami, ale później "
+"ciasne miejsca i teleporty czynią grę jeszcze ciekawszą."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Można grać samemu przeciwko do pięciu wrogich robaków, lub podzielić się "
+"klawiaturą z innym graczem."
+
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "gra;gierka;wąż;snake;snejk;planszowa;plansza;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Width of the window in pixels"
@@ -349,39 +349,79 @@ msgstr "_4. robak"
 msgid "Show release version"
 msgstr "Wyświetla wersję wydania"
 
-#: ../src/gnome-nibbles.vala:375
+#: ../src/gnome-nibbles.vala:376
 msgid "Are you sure you want to start a new game?"
 msgstr "Na pewno rozpocząć nową grę?"
 
-#: ../src/gnome-nibbles.vala:376
+#: ../src/gnome-nibbles.vala:377
 msgid "If you start a new game, the current one will be lost."
 msgstr "Rozpoczęcie nowej gry spowoduje utratę obecnej."
 
-#: ../src/gnome-nibbles.vala:403
+#: ../src/gnome-nibbles.vala:404
 msgid "_Resume"
 msgstr "_Wznów"
 
-#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
+#: ../src/gnome-nibbles.vala:544 ../src/gnome-nibbles.vala:778
 #, c-format
 msgid "Level %d"
 msgstr "%d. poziom"
 
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:637
+msgid "Beginner"
+msgstr "Początkujący"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:639
+msgid "Slow"
+msgstr "Wolna"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:641
+msgid "Medium"
+msgstr "Średnia"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:643
+msgid "Fast"
+msgstr "Szybka"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:645
+msgid "Beginner with Fakes"
+msgstr "Początkujący z fałszywymi premiami"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:647
+msgid "Slow with Fakes"
+msgstr "Wolna z fałszywymi premiami"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:649
+msgid "Medium with Fakes"
+msgstr "Średnia z fałszywymi premiami"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:651
+msgid "Fast with Fakes"
+msgstr "Szybka z fałszywymi premiami"
+
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:622
+#: ../src/gnome-nibbles.vala:656
 msgid "Difficulty Level:"
 msgstr "Poziom trudności:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:720
+#: ../src/gnome-nibbles.vala:758
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Ukończono %d. poziom!"
 
-#: ../src/gnome-nibbles.vala:727
+#: ../src/gnome-nibbles.vala:765
 msgid "_Next Level"
 msgstr "_Następny poziom"
 
-#: ../src/gnome-nibbles.vala:801
+#: ../src/gnome-nibbles.vala:839
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -389,20 +429,20 @@ msgstr[0] "%d punkt"
 msgstr[1] "%d punkty"
 msgstr[2] "%d punktów"
 
-#: ../src/gnome-nibbles.vala:810
+#: ../src/gnome-nibbles.vala:848
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(brakujące punkty, aby znaleźć się na liście najlepszych: %d)"
 
-#: ../src/gnome-nibbles.vala:816
+#: ../src/gnome-nibbles.vala:854
 msgid "_Play Again"
 msgstr "_Zagraj jeszcze raz"
 
-#: ../src/gnome-nibbles.vala:864
+#: ../src/gnome-nibbles.vala:902
 msgid "A worm game for GNOME"
 msgstr "Gra w robaki dla środowiska GNOME"
 
-#: ../src/gnome-nibbles.vala:873
+#: ../src/gnome-nibbles.vala:911
 msgid "translator-credits"
 msgstr ""
 "Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
@@ -420,7 +460,7 @@ msgstr ""
 "Aviary.pl <gnomepl@aviary.pl>, 2007-2016"
 
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1096 ../src/nibbles-view.vala:585
 #, c-format
 msgid "Player %d"
 msgstr "%d. gracz"
