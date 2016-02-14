@@ -5,22 +5,23 @@
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013.
 # Tiago S. <almosthumane@portugalmail.pt>, 2014.
 # Pedro Albuquerque <palbuquerque73@gmail.com>, 2015.
+# Bruno Ramalhete <bram.512@gmail.com>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.12\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-29 09:27+0000\n"
-"PO-Revision-Date: 2015-11-05 06:32+0000\n"
-"Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-nibbles&keywords=I18N"
+"+L10N&component=general\n"
+"POT-Creation-Date: 2016-01-03 21:29+0000\n"
+"PO-Revision-Date: 2016-01-13 23:23+0000\n"
+"Last-Translator: Bruno Ramalhete <bram.512@gmail.com>\n"
 "Language-Team: Português <palbuquerque73@gmail.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\\n\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\\n;\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -30,47 +31,36 @@ msgstr "Jogador"
 msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
+#: ../data/gnome-nibbles.appdata.xml.in.h:2 ../data/gnome-nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Guie uma minhoca através de um labirinto"
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:3
 msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver enemy worms while eating doughnuts and ice "
+"cream to increase your length. Each worm has ten lives and loses one by running into a wall, another worm, or itself. "
+"The enemy worms are after the same bonuses that you are, so be careful: if they become too large, you won't have much "
+"room for movement."
 msgstr ""
-"Controle uma minhoca na sua senda por comer mais bónus e tornar-se mais "
-"longa. Finte minhocas inimigas enquanto come donuts e gelados para aumentar "
-"o seu comprimento. Cada minhoca tem dez vidas e perde uma se bater numa "
-"parece, minhoca ou em si própria. As minhocas inimigas estão atrás dos "
-"mesmos bónus, pelo que há que ser cuidadoso: se elas se tornarem muito "
-"grandes não haverá espaço para se movimentarem."
+"Controle uma minhoca na sua senda por comer mais bónus e tornar-se mais longa. Finte minhocas inimigas enquanto come "
+"donuts e gelados para aumentar o seu comprimento. Cada minhoca tem dez vidas e perde uma se bater numa parede, "
+"minhoca ou em si própria. As minhocas inimigas estão atrás dos mesmos bónus, pelo que há que ser cuidadoso: se elas "
+"se tornarem muito grandes não haverá espaço para se movimentarem."
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:4
 msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
+"The adventure progresses through 26 maps of increasing difficulty. The early levels are mostly open with a few walls, "
+"but later on, cramped spaces and teleporters make things more interesting."
 msgstr ""
-"A aventura progride através de 26 mapas de dificuldade crescente. Os níveis "
-"iniciais são maioritariamente abertos com poucas paredes mas, mais tarde, "
-"espaços apertados e teletransportadores tornam as coisas mais interessantes."
+"A aventura progride através de 26 mapas de dificuldade crescente. Os níveis iniciais são maioritariamente abertos com "
+"poucas paredes mas, mais tarde, espaços apertados e teletransportadores tornam as coisas mais interessantes."
 
 #: ../data/gnome-nibbles.appdata.xml.in.h:5
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Jogue sozinho contra até cinco minhocas inimigas ou partilhe o seu teclado "
-"para jogar com um amigo."
+msgid "Play on your own against up to five enemy worms, or share your keyboard to play with a friend."
+msgstr "Jogue sozinho contra até cinco minhocas inimigas ou partilhe o seu teclado para jogar com um amigo."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
-#: ../src/gnome-nibbles.vala:424 ../src/gnome-nibbles.vala:764
-#: ../src/gnome-nibbles.vala:798
+#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1 ../src/gnome-nibbles.vala:490
+#: ../src/gnome-nibbles.vala:861 ../src/gnome-nibbles.vala:900
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -88,7 +78,7 @@ msgstr "_Pontuação"
 
 #: ../data/nibbles-menus.ui.h:3
 msgid "_Help"
-msgstr "A_Juda"
+msgstr "A_juda"
 
 #: ../data/nibbles-menus.ui.h:4
 msgid "_About"
@@ -98,11 +88,11 @@ msgstr "_Sobre"
 msgid "_Quit"
 msgstr "_Sair"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:369
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
 msgid "_New Game"
 msgstr "_Novo jogo"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:398
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
 msgid "_Pause"
 msgstr "_Pausa"
 
@@ -116,8 +106,7 @@ msgstr "Boas vindas, vermes."
 
 #: ../data/nibbles.ui.h:6
 msgid "Eat the treats before the other worms, but don't hit anything!"
-msgstr ""
-"Coma as goluseimas antes dos outros vermes mas não acerte em mais nada!"
+msgstr "Coma as goluseimas antes dos outros vermes mas não acerte em mais nada!"
 
 #: ../data/nibbles.ui.h:7
 msgid "Number of players"
@@ -129,9 +118,9 @@ msgstr "Selecione o número de jogadores humanos."
 
 #: ../data/nibbles.ui.h:9
 msgid "_Next"
-msgstr "Segui_Nte"
+msgstr "Segui_nte"
 
-#: ../data/nibbles.ui.h:10
+#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Controlos"
 
@@ -173,8 +162,7 @@ msgstr "É a primeira vez"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Setting to decide whether to show first-run hint dialog or not."
-msgstr ""
-"Definição para decidir se é mostrado o diálogo de sugestões no primeiro jogo."
+msgstr "Definição para decidir se é mostrado o diálogo de sugestões no primeiro jogo."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
@@ -193,134 +181,223 @@ msgid "Game level to start on."
 msgstr "Nível de jogo inicial."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Velocidade de movimento das minhocas"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Velocidade de movimento das minhocas."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Ativar sons"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Ativar sons."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Ativar bónus falsos"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Ativar bónus falsos."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
 msgid "Color to use for worm"
 msgstr "Cor a utilizar para a minhoca"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
 msgid "Color to use for worm."
 msgstr "Cor a utilizar para a minhoca."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Use relative movement"
 msgstr "Utilizar movimento relativo"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Utilizar movimento relativo (isto é, só esquerda ou direita)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences-dialog.vala:110
 msgid "Move up"
 msgstr "Mover acima"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Key to use for motion up."
 msgstr "Tecla a utilizar para mover acima."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
+#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences-dialog.vala:113
 msgid "Move down"
 msgstr "Mover abaixo"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Key to use for motion down."
 msgstr "Tecla a utilizar para mover abaixo."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences-dialog.vala:116
 msgid "Move left"
 msgstr "Mover à esquerda"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion left."
 msgstr "Tecla a utilizar para mover à esquerda."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../data/org.gnome.nibbles.gschema.xml.h:29 ../src/preferences-dialog.vala:119
 msgid "Move right"
 msgstr "Mover à direita"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion right."
 msgstr "Tecla a utilizar para mover à direita."
 
 #: ../data/player-score-box.ui.h:1
 msgid "Worm"
-msgstr "Verme"
+msgstr "Minhoca"
+
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "_Preferências"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Velocidade"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Fast"
+msgstr "Rápida"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Medium"
+msgstr "Média"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Slow"
+msgstr "Lenta"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Beginner"
+msgstr "Iniciante"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Opções"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "A_tivar sons"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "_Ativar bónus falsos"
+
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "_Geral"
+
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "Cor da minhoca"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "Minhoca _1"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "Minhoca _2"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "Minhoca _3"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "Minhoca _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:96
+#: ../src/gnome-nibbles.vala:100
 msgid "Show release version"
 msgstr "Mostrar a versão de lançamento"
 
-#: ../src/gnome-nibbles.vala:365
+#: ../src/gnome-nibbles.vala:375
 msgid "Are you sure you want to start a new game?"
 msgstr "Tem a certeza que quer iniciar um novo jogo?"
 
-#: ../src/gnome-nibbles.vala:366
+#: ../src/gnome-nibbles.vala:376
 msgid "If you start a new game, the current one will be lost."
 msgstr "Se iniciar um novo jogo, o seu progresso atual será perdido."
 
-#: ../src/gnome-nibbles.vala:393
+#: ../src/gnome-nibbles.vala:403
 msgid "_Resume"
 msgstr "_Retomar"
 
-#: ../src/gnome-nibbles.vala:477 ../src/gnome-nibbles.vala:674
+#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
 #, c-format
 msgid "Level %d"
 msgstr "Nível %d"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:556
+#: ../src/gnome-nibbles.vala:622
 msgid "Difficulty Level:"
 msgstr "Nível de dificuldade:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:654
+#: ../src/gnome-nibbles.vala:720
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nível %d terminado!"
 
-#: ../src/gnome-nibbles.vala:661
+#: ../src/gnome-nibbles.vala:727
 msgid "_Next Level"
 msgstr "_Nível seguinte"
 
-#: ../src/gnome-nibbles.vala:704
+#: ../src/gnome-nibbles.vala:801
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d ponto"
 msgstr[1] "%d pontos"
 
-#: ../src/gnome-nibbles.vala:713
+#: ../src/gnome-nibbles.vala:810
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d mais pontos para alcançar o pódio)"
 
-#: ../src/gnome-nibbles.vala:719
+#: ../src/gnome-nibbles.vala:816
 msgid "_Play Again"
 msgstr "_Jogar novamente"
 
-#: ../src/gnome-nibbles.vala:767
+#: ../src/gnome-nibbles.vala:864
 msgid "A worm game for GNOME"
 msgstr "Um jogo de minhocas para o GNOME"
 
-#: ../src/gnome-nibbles.vala:776
+#: ../src/gnome-nibbles.vala:873
 msgid "translator-credits"
 msgstr ""
+"Bruno Ramalhete <bram.512@gmail.com>\n"
 "Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Tiago S. <almosthumane@portugalmail.pt>\n"
 "Pedro Albuquerque <palbuquerque73@gmail.com>"
 
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/nibbles-view.vala:574
+#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
 #, c-format
 msgid "Player %d"
 msgstr "Jogador %d"
+
+#: ../src/preferences-dialog.vala:122
+msgid "Action"
+msgstr "Ação"
+
+#: ../src/preferences-dialog.vala:129
+msgid "Key"
+msgstr "Tecla"
+
+#: ../src/preferences-dialog.vala:212
+msgid "The key you selected is already assigned!"
+msgstr "O atalho que escolheu já foi atribuído."
 
 #~ msgid "Number of human players"
 #~ msgstr "Número de jogadores humanos"
@@ -333,12 +410,6 @@ msgstr "Jogador %d"
 
 #~ msgid "Game speed (1=fast, 4=slow)."
 #~ msgstr "Velocidade de jogo (1=rápida, 4=lenta)."
-
-#~ msgid "Enable fake bonuses"
-#~ msgstr "Ativar bónus falsos"
-
-#~ msgid "Enable fake bonuses."
-#~ msgstr "Ativar bónus falsos."
 
 #~ msgid "Play levels in random order"
 #~ msgstr "Níveis de jogo por ordem aleatória"
@@ -367,9 +438,6 @@ msgstr "Jogador %d"
 #~ "%s\n"
 #~ "\n"
 #~ "Por favor, verifique a sua instalação do Nibbles"
-
-#~ msgid "The shortcut you selected is already assigned."
-#~ msgstr "O atalho que escolheu já foi atribuído."
 
 #~ msgid "Unknown Command"
 #~ msgstr "Comando desconhecido"
@@ -406,9 +474,6 @@ msgstr "Jogador %d"
 #~ msgid "Nibbles Scores"
 #~ msgstr "Pontuações do Nibbles"
 
-#~ msgid "Speed:"
-#~ msgstr "Velocidade:"
-
 #~ msgid "Congratulations!"
 #~ msgstr "Parabéns!"
 
@@ -417,22 +482,6 @@ msgstr "Jogador %d"
 
 #~ msgid "Your score has made the top ten."
 #~ msgstr "A sua pontuação entrou para as 10 melhores."
-
-#~ msgctxt "game speed"
-#~ msgid "Beginner"
-#~ msgstr "Iniciado"
-
-#~ msgctxt "game speed"
-#~ msgid "Slow"
-#~ msgstr "Lenta"
-
-#~ msgctxt "game speed"
-#~ msgid "Medium"
-#~ msgstr "Média"
-
-#~ msgctxt "game speed"
-#~ msgid "Fast"
-#~ msgstr "Rápida"
 
 #~ msgctxt "game speed"
 #~ msgid "Beginner with Fakes"
