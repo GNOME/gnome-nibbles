@@ -656,7 +656,7 @@ public class Nibbles : Gtk.Application
             _("Difficulty Level:"),
             window,
             category_request,
-            Games.Scores.Style.PLAIN_DESCENDING,
+            Games.Scores.Style.POINTS_GREATER_IS_BETTER,
             new Games.Scores.DirectoryImporter.with_convert_func (get_new_scores_key));
     }
 
