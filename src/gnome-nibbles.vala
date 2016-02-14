@@ -700,6 +700,10 @@ public class Nibbles : Gtk.Application
         // trigger the scores dialog to be opened if the high scores table is
         // not yet filled....)
 
+        /* Disable these here to prevent the user clicking the buttons before the score is saved */
+        new_game_action.set_enabled (false);
+        pause_action.set_enabled (false);
+
         if (game.numhumans != 1)
             return;
 
@@ -826,9 +830,6 @@ public class Nibbles : Gtk.Application
 
     private void game_over (int score, long last_score)
     {
-        new_game_action.set_enabled (false);
-        pause_action.set_enabled (false);
-
         var game_over_label = new Gtk.Label (_(@"Game Over!"));
         game_over_label.halign = Gtk.Align.CENTER;
         game_over_label.valign = Gtk.Align.START;
