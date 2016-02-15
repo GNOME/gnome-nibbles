@@ -138,7 +138,6 @@ public class Nibbles : Gtk.Application
         settings = new Settings ("org.gnome.nibbles");
         settings.changed.connect (settings_changed_cb);
 
-
         worm_settings = new Gee.ArrayList<Settings> ();
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
         {
