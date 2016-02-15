@@ -216,6 +216,10 @@ public class Nibbles : Gtk.Application
         frame.add (view);
         frame.show ();
 
+        /* Number of worms */
+        game.numhumans = settings.get_int ("players");
+        game.numai = settings.get_int ("ai");
+
         /* Controls screen */
         arrow_pixbuf = view.load_pixmap_file ("arrow.svg", 5 * game.tile_size, 5 * game.tile_size);
         arrow_key_pixbuf = view.load_pixmap_file ("arrow-key.svg", 5 * game.tile_size, 5 * game.tile_size);
@@ -505,6 +509,9 @@ public class Nibbles : Gtk.Application
         main_stack.set_transition_type (Gtk.StackTransitionType.NONE);
         main_stack.set_visible_child_name ("number_of_players");
         main_stack.set_transition_type (type);
+
+        number_of_players_buttons[game.numhumans - 1].set_active (true);
+        number_of_ai_buttons[game.numai].set_active (true);
     }
 
     private void show_controls_screen_cb ()
@@ -517,6 +524,9 @@ public class Nibbles : Gtk.Application
                 int numhumans = -1;
                 button.get_label ().scanf ("_%d", &numhumans);
                 game.numhumans = numhumans;
+
+                /* Remember the option for the following runs */
+                settings.set_int ("players", game.numhumans);
                 break;
             }
         }
@@ -529,6 +539,9 @@ public class Nibbles : Gtk.Application
                 int numai = -1;
                 button.get_label ().scanf ("_%d", &numai);
                 game.numai = numai;
+
+                /* Remember the option for the following runs */
+                settings.set_int ("ai", game.numai);
                 break;
             }
         }

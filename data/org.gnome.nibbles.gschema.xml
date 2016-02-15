@@ -48,6 +48,18 @@
       <summary>Enable fake bonuses</summary>
       <description>Enable fake bonuses.</description>
     </key>
+    <key name="players" type="i">
+      <default>1</default>
+      <range min="1" max="4"/>
+      <summary>Number of human players</summary>
+      <description>Number of human players.</description>
+    </key>
+    <key name="ai" type="i">
+      <default>3</default>
+      <range min="0" max="5"/>
+      <summary>Number of AI players</summary>
+      <description>Number of AI players.</description>
+    </key>
   </schema>
   <schema id="org.gnome.nibbles.worm0" path="/org/gnome/nibbles/worm0/">
     <key name="color" type="s">
