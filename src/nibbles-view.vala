@@ -895,15 +895,6 @@ public class NibblesView : GtkClutter.Embed
     }
 
     /*\
-    * * Input handling
-    \*/
-
-    public override bool key_press_event (Gdk.EventKey event)
-    {
-        return game.handle_keypress (event.keyval);
-    }
-
-    /*\
     * * Sound
     \*/
 
