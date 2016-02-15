@@ -114,7 +114,7 @@
                                                 <property name="pack-type">end</property>
                                             </packing>
                                         </child>
-                                    </object>
+                                    </object> <!-- End of first_run -->
                                     <packing>
                                         <property name="name">first_run</property>
                                     </packing>
@@ -124,6 +124,7 @@
                                         <property name="visible">True</property>
                                         <property name="orientation">vertical</property>
                                         <property name="halign">center</property>
+                                        <property name="width-request">644</property>
                                         <child>
                                             <object class="GtkBox">
                                                 <property name="visible">True</property>
@@ -142,115 +143,207 @@
                                                                 <style><class name="menu-title"/></style>
                                                             </object>
                                                         </child>
+                                                    </object>
+                                                </child>
+                                                <child>
+                                                    <object class="GtkBox">
+                                                        <property name="visible">True</property>
+                                                        <property name="orientation">vertical</property>
+                                                        <property name="spacing">10</property>
                                                         <child>
                                                             <object class="GtkLabel">
                                                                 <property name="visible">True</property>
                                                                 <property name="label" translatable="yes">Select the number of human players.</property>
                                                             </object>
                                                         </child>
+                                                        <child>
+                                                            <object class="GtkBox" id="number_of_players_box">
+                                                                <property name="visible">True</property>
+                                                                <property name="orientation">horizontal</property>
+                                                                <property name="valign">center</property>
+                                                                <property name="halign">center</property>
+                                                                <property name="spacing">10</property>
+                                                                <property name="vexpand">True</property>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="players1">
+                                                                        <property name="visible">True</property>
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_1</property>
+                                                                        <property name="active">True</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="players2">
+                                                                        <property name="visible">True</property>
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_2</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="players3">
+                                                                        <property name="visible">True</property>
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_3</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="players4">
+                                                                        <property name="visible">True</property>
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_4</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
+                                                            </object>
+                                                        </child>
                                                     </object>
                                                 </child>
                                                 <child>
-                                                    <object class="GtkBox" id="number_of_players_box">
+                                                    <object class="GtkBox">
                                                         <property name="visible">True</property>
-                                                        <property name="orientation">horizontal</property>
-                                                        <property name="width-request">630</property>
-                                                        <property name="height-request">90</property>
-                                                        <property name="valign">center</property>
+                                                        <property name="orientation">vertical</property>
                                                         <property name="spacing">10</property>
-                                                        <property name="vexpand">True</property>
                                                         <child>
-                                                            <object class="GtkToggleButton" id="players1">
+                                                            <object class="GtkLabel">
                                                                 <property name="visible">True</property>
-                                                                <property name="use-underline">True</property>
-                                                                <property name="label">_1</property>
-                                                                <property name="width-request">150</property>
-                                                                <style>
-                                                                    <class name="number-box"/>
-                                                                </style>
+                                                                <property name="label" translatable="yes">Select the number of computer players.</property>
                                                             </object>
-                                                            <packing>
-                                                                <property name="pack-type">start</property>
-                                                            </packing>
                                                         </child>
                                                         <child>
-                                                            <object class="GtkToggleButton" id="players2">
+                                                            <object class="GtkBox" id="number_of_ai_box">
                                                                 <property name="visible">True</property>
-                                                                <property name="use-underline">True</property>
-                                                                <property name="label">_2</property>
-                                                                <property name="width-request">150</property>
-                                                                <style>
-                                                                    <class name="number-box"/>
-                                                                </style>
+                                                                <property name="orientation">horizontal</property>
+                                                                <property name="valign">center</property>
+                                                                <property name="halign">center</property>
+                                                                <property name="spacing">10</property>
+                                                                <property name="vexpand">True</property>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="ai0">
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_0</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="ai1">
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_1</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="ai2">
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_2</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="ai3">
+                                                                        <property name="visible">True</property>
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_3</property>
+                                                                        <property name="active">True</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="ai4">
+                                                                        <property name="visible">True</property>
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_4</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
+                                                                <child>
+                                                                    <object class="GtkToggleButton" id="ai5">
+                                                                        <property name="visible">True</property>
+                                                                        <property name="use-underline">True</property>
+                                                                        <property name="label">_5</property>
+                                                                        <style>
+                                                                            <class name="number-box"/>
+                                                                        </style>
+                                                                    </object>
+                                                                    <packing>
+                                                                        <property name="pack-type">start</property>
+                                                                    </packing>
+                                                                </child>
                                                             </object>
-                                                            <packing>
-                                                                <property name="pack-type">start</property>
-                                                            </packing>
-                                                        </child>
-                                                        <child>
-                                                            <object class="GtkToggleButton" id="players3">
-                                                                <property name="visible">True</property>
-                                                                <property name="use-underline">True</property>
-                                                                <property name="label">_3</property>
-                                                                <property name="width-request">150</property>
-                                                                <style>
-                                                                    <class name="number-box"/>
-                                                                </style>
-                                                            </object>
-                                                            <packing>
-                                                                <property name="pack-type">start</property>
-                                                            </packing>
-                                                        </child>
-                                                        <child>
-                                                            <object class="GtkToggleButton" id="players4">
-                                                                <property name="visible">True</property>
-                                                                <property name="use-underline">True</property>
-                                                                <property name="label">_4</property>
-                                                                <property name="width-request">150</property>
-                                                                <style>
-                                                                    <class name="number-box"/>
-                                                                </style>
-                                                            </object>
-                                                            <packing>
-                                                                <property name="pack-type">start</property>
-                                                            </packing>
                                                         </child>
                                                     </object>
-                                                    <packing>
-                                                        <property name="pack-type">start</property>
-                                                    </packing>
                                                 </child>
-                                                </object>
-                                                <packing>
-                                                    <property name="pack-type">start</property>
-                                                </packing>
+                                            </object>
+                                            <packing>
+                                                <property name="pack-type">start</property>
+                                            </packing>
                                         </child>
                                         <child>
-                                            <object class="GtkRevealer" id="next_button_revealer">
+                                            <object class="GtkButton">
                                                 <property name="visible">True</property>
-                                                <property name="transition-type">4</property> <!-- SLIDE_UP -->
-                                                <property name="transition-duration">500</property>
-                                                <child>
-                                                    <object class="GtkButton">
-                                                        <property name="visible">True</property>
-                                                        <property name="use-underline">True</property>
-                                                        <property name="label" translatable="yes">_Next</property>
-                                                        <property name="action-name">app.show-controls-screen</property>
-                                                        <property name="width-request">116</property>
-                                                        <property name="height-request">34</property>
-                                                        <property name="halign">center</property>
-                                                        <style>
-                                                            <class name="suggested-action"/>
-                                                            <class name="play"/>
-                                                        </style>
-                                                    </object>
-                                                </child>
+                                                <property name="use-underline">True</property>
+                                                <property name="label" translatable="yes">_Next</property>
+                                                <property name="action-name">app.show-controls-screen</property>
+                                                <property name="width-request">116</property>
+                                                <property name="height-request">34</property>
+                                                <property name="halign">center</property>
+                                                <style>
+                                                    <class name="suggested-action"/>
+                                                    <class name="play"/>
+                                                </style>
                                             </object>
                                             <packing>
                                                 <property name="pack-type">end</property>
                                             </packing>
                                         </child>
-                                    </object>
+                                    </object> <!-- End of number_of_players -->
                                     <packing>
                                         <property name="name">number_of_players</property>
                                     </packing>

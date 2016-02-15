@@ -15,6 +15,7 @@
   font-size: 3em;
   font-weight: bold;
   font-family: Sans;
+  padding: 1px 38px;
   background-image: linear-gradient(to bottom, #3e4444);
 }
 .number-box:hover {
@@ -22,9 +23,6 @@
 }
 .number-box:checked {
   background-image: linear-gradient(to bottom, #215d9c);
-}
-.number-box-focus:hover {
-  background-image: linear-gradient(to bottom, #2260a0, #1f5894 60%, #1d538b);
 }
 .controls-button {
   padding: 4px 8px;

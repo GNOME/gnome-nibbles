@@ -39,7 +39,7 @@ public class Nibbles : Gtk.Application
 
     /* Pre-game screen widgets */
     private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
-    private Gtk.Revealer next_button_revealer;
+    private Gee.LinkedList<Gtk.ToggleButton> number_of_ai_buttons;
 
     private Gtk.Box grids_box;
     private Gdk.Pixbuf arrow_pixbuf;
@@ -93,11 +93,11 @@ public class Nibbles : Gtk.Application
         {"back", back_cb}
     };
 
-    private static const OptionEntry[] option_entries =
+    private const OptionEntry[] option_entries =
     {
         { "version", 'v', 0, OptionArg.NONE, null,
         /* Help string for command line --version flag */
-        N_("Show release version"), null},
+        N_("Show release version"), null },
 
         { null }
     };
@@ -175,7 +175,13 @@ public class Nibbles : Gtk.Application
             button.toggled.connect (change_number_of_players_cb);
             number_of_players_buttons.add (button);
         }
-        next_button_revealer = (Gtk.Revealer) builder.get_object ("next_button_revealer");
+        number_of_ai_buttons = new Gee.LinkedList<Gtk.ToggleButton> ();
+        for (int i = 0; i <= NibblesGame.MAX_AI; i++)
+        {
+            var button = (Gtk.ToggleButton) builder.get_object ("ai%d".printf (i));
+            button.toggled.connect (change_number_of_ai_cb);
+            number_of_ai_buttons.add (button);
+        }
         grids_box = (Gtk.Box) builder.get_object ("grids_box");
         window.set_titlebar (headerbar);
 
@@ -508,8 +514,22 @@ public class Nibbles : Gtk.Application
         {
             if (button.get_active ())
             {
-                var label = button.get_label ();
-                game.numhumans = int.parse (label.replace ("_", ""));
+                int numhumans = -1;
+                button.get_label ().scanf ("_%d", &numhumans);
+                game.numhumans = numhumans;
+                break;
+            }
+        }
+
+        /* Save selected number of computer players before changing the screen */
+        foreach (var button in number_of_ai_buttons)
+        {
+            if (button.get_active ())
+            {
+                int numai = -1;
+                button.get_label ().scanf ("_%d", &numai);
+                game.numai = numai;
+                break;
             }
         }
 
@@ -567,27 +587,69 @@ public class Nibbles : Gtk.Application
 
     private void change_number_of_players_cb (Gtk.ToggleButton button)
     {
-        if (!button.get_active () && button.get_style_context ().has_class ("number-box-focus"))
+        foreach (var other_button in number_of_players_buttons)
         {
-            button.set_active (true);
-        }
-        else if (button.get_active () && !button.get_style_context ().has_class ("number-box-focus"))
-        {
-            next_button_revealer.set_reveal_child (true);
-            button.get_style_context ().add_class ("number-box-focus");
-            foreach (var other_button in number_of_players_buttons)
+            if (button != other_button)
             {
-                if (button != other_button)
+                if (other_button.get_active ())
                 {
-                    if (other_button.get_active ())
-                    {
-                        other_button.get_style_context ().remove_class ("number-box-focus");
-                        other_button.set_active (false);
-                        break;
-                    }
+                    /* We are blocking the signal to prevent another callback when setting the previous
+                     * checked button to inactive
+                     */
+                    SignalHandler.block_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
+                    other_button.set_active (false);
+                    SignalHandler.unblock_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
+                    break;
                 }
             }
         }
+        button.set_active (true);
+
+        int numhumans = -1;
+        button.get_label ().scanf ("_%d", &numhumans);
+
+        int min_ai = 4 - numhumans;
+        int max_ai = NibblesGame.MAX_WORMS - numhumans;
+        for (int i = 0; i < min_ai; i++)
+        {
+            number_of_ai_buttons[i].hide ();
+        }
+        for (int i = min_ai; i <= max_ai; i++)
+        {
+            number_of_ai_buttons[i].show ();
+        }
+        for (int i = max_ai + 1; i < number_of_ai_buttons.size; i++)
+        {
+            number_of_ai_buttons[i].hide ();
+        }
+
+        if (numhumans == 4)
+        {
+            number_of_ai_buttons[0].show ();
+        }
+
+        number_of_ai_buttons[min_ai].set_active (true);
+    }
+
+    private void change_number_of_ai_cb (Gtk.ToggleButton button)
+    {
+        foreach (var other_button in number_of_ai_buttons)
+        {
+            if (button != other_button)
+            {
+                if (other_button.get_active ())
+                {
+                    /* We are blocking the signal to prevent another callback when setting the previous
+                     * checked button to inactive
+                     */
+                    SignalHandler.block_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
+                    other_button.set_active (false);
+                    SignalHandler.unblock_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
+                    break;
+                }
+            }
+        }
+        button.set_active (true);
     }
 
     /*\
