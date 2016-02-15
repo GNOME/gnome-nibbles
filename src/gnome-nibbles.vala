@@ -1055,15 +1055,7 @@ public class Nibbles : Gtk.Application
         }
         catch (Error e)
         {
-            var dialog = new Gtk.MessageDialog (null,
-                                                Gtk.DialogFlags.MODAL,
-                                                Gtk.MessageType.ERROR,
-                                                Gtk.ButtonsType.NONE,
-                                                "Unable to initialize Clutter:\n%s", e.message);
-            dialog.set_title (Environment.get_application_name ());
-            dialog.run ();
-            dialog.destroy ();
-            return Posix.EXIT_FAILURE;
+            error ("Unable to initialize Clutter: %s", e.message);
         }
 
         return new Nibbles ().run (args);
