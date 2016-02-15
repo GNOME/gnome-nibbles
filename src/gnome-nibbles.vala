@@ -938,13 +938,8 @@ public class Nibbles : Gtk.Application
         button.get_style_context ().add_class ("suggested-action");
         button.clicked.connect (() => {
             game_over_label.destroy ();
-
-            if (game.numhumans == 1)
-                score_label.destroy ();
-
-            if (game.numhumans == 1 && !is_high_score)
-                points_left_label.destroy ();
-
+            score_label.destroy ();
+            points_left_label.destroy ();
             button.destroy ();
 
             new_game_action.set_enabled (true);
