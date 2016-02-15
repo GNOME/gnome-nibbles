@@ -106,7 +106,7 @@ public class Nibbles : Gtk.Application
     public Nibbles ()
     {
         Object (application_id: "org.gnome.nibbles", flags: ApplicationFlags.FLAGS_NONE);
-        Environment.set_prgname ("org.gnome.Nibbles");
+
         add_main_option_entries (option_entries);
     }
 
@@ -126,6 +126,14 @@ public class Nibbles : Gtk.Application
     protected override void startup ()
     {
         base.startup ();
+
+        unowned string[]? argv = null;
+        GtkClutter.init (ref argv);
+
+        Environment.set_prgname ("org.gnome.Nibbles");
+        Environment.set_application_name (_("Nibbles"));
+
+        Gtk.Window.set_default_icon_name ("gnome-nibbles");
 
         Gtk.Settings.get_default ().set ("gtk-application-prefer-dark-theme", true);
 
@@ -1029,34 +1037,6 @@ public class Nibbles : Gtk.Application
         Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
-
-        var context = new OptionContext ("");
-
-        context.add_group (Gtk.get_option_group (false));
-        context.add_group (Clutter.get_option_group_without_init ());
-
-        try
-        {
-            context.parse (ref args);
-        }
-        catch (Error e)
-        {
-            stderr.printf ("%s\n", e.message);
-            return Posix.EXIT_FAILURE;
-        }
-
-        Environment.set_application_name (_("Nibbles"));
-
-        Gtk.Window.set_default_icon_name ("gnome-nibbles");
-
-        try
-        {
-            GtkClutter.init_with_args (ref args, "", new OptionEntry[0], null);
-        }
-        catch (Error e)
-        {
-            error ("Unable to initialize Clutter: %s", e.message);
-        }
 
         return new Nibbles ().run (args);
     }
