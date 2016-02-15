@@ -1,3 +1,22 @@
+3.19.90 - February 15, 2016
+===========================
+
+Dependencies: GTK+ 3.18
+
+* Fix CSS problems
+* Add proper end game screens for all possible outcomes
+* Use the new scores import API from libgames-support
+* Fix problem with buttons breaking the game during the end game screens
+* Fix window size increasing with GTK+ 3.20
+* Fix bug with worm being briefly uncontrollable at the start of a level
+* Add buttons for selecting the number of AI players
+* Update project license
+* Add screen congratulating the player when reaching the last level of the game
+* Updated translations
+
+===========================
+
+
 3.19.4 - January 18, 2016
 =========================
 
