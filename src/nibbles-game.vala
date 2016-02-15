@@ -47,7 +47,7 @@ public class NibblesGame : Object
     public const char WORMCHAR = 'w';
     public const char WARPCHAR = 'W';
 
-    private const int MAX_LEVEL = 26;
+    public const int MAX_LEVEL = 26;
 
     public int start_level { get; private set; }
     public int current_level { get; private set; }
@@ -79,7 +79,7 @@ public class NibblesGame : Object
 
     public signal void worm_moved (Worm worm);
     public signal void bonus_applied (Worm worm);
-    public signal void log_score (int score);
+    public signal void log_score (int score, int level_reached);
     public signal void animate_end_game ();
     public signal void level_completed ();
 
@@ -161,7 +161,7 @@ public class NibblesGame : Object
         {
             end ();
 
-            log_score (worms.first ().score);
+            log_score (worms.first ().score, current_level);
 
             return Source.REMOVE;
         }
@@ -173,7 +173,7 @@ public class NibblesGame : Object
             if (winner == null)
                 return Source.REMOVE;
 
-            log_score (winner.score);
+            log_score (winner.score, current_level);
 
             return Source.REMOVE;
         }
@@ -184,8 +184,10 @@ public class NibblesGame : Object
             animate_end_game ();
             level_completed ();
 
-            if (current_level < MAX_LEVEL)
-                current_level++;
+            current_level++;
+
+            if (current_level == MAX_LEVEL + 1)
+                log_score (worms.first ().score, current_level);
 
             return Source.REMOVE;
         }

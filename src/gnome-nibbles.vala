@@ -775,7 +775,7 @@ public class Nibbles : Gtk.Application
         return scorecats.first ();
     }
 
-    private void log_score_cb (int score)
+    private void log_score_cb (int score, int level_reached)
     {
         /* Disable these here to prevent the user clicking the buttons before the score is saved */
         new_game_action.set_enabled (false);
@@ -786,13 +786,13 @@ public class Nibbles : Gtk.Application
 
         if (game.numhumans != 1)
         {
-            game_over (score, lowest_high_score);
+            game_over (score, lowest_high_score, level_reached);
             return;
         }
 
         if (game.start_level != 1)
         {
-            game_over (score, lowest_high_score);
+            game_over (score, lowest_high_score, level_reached);
             return;
         }
 
@@ -809,7 +809,7 @@ public class Nibbles : Gtk.Application
                 warning ("Failed to add score: %s", e.message);
             }
 
-            game_over (score, lowest_high_score);
+            game_over (score, lowest_high_score, level_reached);
         });
     }
 
@@ -831,6 +831,9 @@ public class Nibbles : Gtk.Application
 
     private void level_completed_cb ()
     {
+        if (game.current_level == NibblesGame.MAX_LEVEL)
+            return;
+
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
 
@@ -904,16 +907,24 @@ public class Nibbles : Gtk.Application
         preferences_dialog.run ();
     }
 
-    private void game_over (int score, long lowest_high_score)
+    private void game_over (int score, long lowest_high_score, int level_reached)
     {
         var is_high_score = (score > lowest_high_score);
+        var is_game_won = (level_reached == NibblesGame.MAX_LEVEL + 1);
 
-        var game_over_label = new Gtk.Label (_(@"Game Over!"));
+        var game_over_label = new Gtk.Label (is_game_won ? _("Congratulations!") : _("Game Over!"));
         game_over_label.halign = Gtk.Align.CENTER;
         game_over_label.valign = Gtk.Align.START;
-        game_over_label.set_margin_top (window_height / 3);
+        game_over_label.set_margin_top (150);
         game_over_label.get_style_context ().add_class ("menu-title");
         game_over_label.show ();
+
+        var msg_label = new Gtk.Label (_("You have completed the game."));
+        msg_label.halign = Gtk.Align.CENTER;
+        msg_label.valign = Gtk.Align.START;
+        msg_label.set_margin_top (window_height / 3);
+        msg_label.get_style_context ().add_class ("menu-title");
+        msg_label.show ();
 
         var score_string = ngettext ("%d Point".printf (score), "%d Points".printf (score), score);
         var score_label = new Gtk.Label (@"<b>$(score_string)</b>");
@@ -941,6 +952,7 @@ public class Nibbles : Gtk.Application
             score_label.destroy ();
             points_left_label.destroy ();
             button.destroy ();
+            msg_label.destroy ();
 
             new_game_action.set_enabled (true);
             pause_action.set_enabled (true);
@@ -950,6 +962,8 @@ public class Nibbles : Gtk.Application
         button.show ();
 
         overlay.add_overlay (game_over_label);
+        if (is_game_won)
+            overlay.add_overlay (msg_label);
         if (game.numhumans == 1)
             overlay.add_overlay (score_label);
         if (game.numhumans == 1 && !is_high_score)
