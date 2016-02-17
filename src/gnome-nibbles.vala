@@ -74,6 +74,7 @@ public class Nibbles : Gtk.Application
 
     private uint countdown_id = 0;
     private const int COUNTDOWN_TIME = 3;
+    private int seconds = 0;
 
     private const ActionEntry action_entries[] =
     {
@@ -255,6 +256,29 @@ public class Nibbles : Gtk.Application
         base.shutdown ();
     }
 
+    private bool countdown_cb ()
+    {
+        seconds--;
+
+        if (seconds == 0)
+        {
+            statusbar_stack.set_visible_child_name ("scoreboard");
+            view.name_labels.hide ();
+
+            game.add_bonus (true);
+            game.start ();
+
+            pause_action.set_enabled (true);
+            back_action.set_enabled (true);
+
+            countdown_id = 0;
+            return Source.REMOVE;
+        }
+
+        countdown.set_label (seconds.to_string ());
+        return Source.CONTINUE;
+    }
+
     /*\
     * * Window events
     \*/
@@ -350,29 +374,13 @@ public class Nibbles : Gtk.Application
     {
         statusbar_stack.set_visible_child_name ("countdown");
 
-        var seconds = COUNTDOWN_TIME;
+        new_game_action.set_enabled (true);
+
+        seconds = COUNTDOWN_TIME;
         view.name_labels.show ();
-        countdown_id = Timeout.add (1000, () => {
-            countdown.set_label (seconds.to_string ());
-            if (seconds == 0)
-            {
-                statusbar_stack.set_visible_child_name ("scoreboard");
-                view.name_labels.hide ();
-                countdown.set_label (COUNTDOWN_TIME.to_string ());
 
-                game.add_bonus (true);
-                game.start ();
-
-                new_game_action.set_enabled (true);
-                pause_action.set_enabled (true);
-                back_action.set_enabled (true);
-
-                countdown_id = 0;
-                return Source.REMOVE;
-            }
-            seconds--;
-            return Source.CONTINUE;
-        });
+        countdown.set_label (COUNTDOWN_TIME.to_string ());
+        countdown_id = Timeout.add_seconds (1, countdown_cb);
     }
 
     private void restart_game ()
@@ -385,6 +393,12 @@ public class Nibbles : Gtk.Application
 
     private void new_game_cb ()
     {
+        if (countdown_id != 0)
+        {
+            Source.remove (countdown_id);
+            countdown_id = 0;
+        }
+
         if (game.is_running)
             game.stop ();
 
@@ -403,7 +417,11 @@ public class Nibbles : Gtk.Application
             if ((response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT)
                 && !game.is_paused)
             {
-                game.start ();
+                if (seconds == 0)
+                    game.start ();
+                else
+                    countdown_id = Timeout.add_seconds (1, countdown_cb);
+
                 view.grab_focus ();
             }
 
@@ -854,9 +872,6 @@ public class Nibbles : Gtk.Application
         button.clicked.connect (() => {
             label.destroy ();
             button.destroy ();
-
-            new_game_action.set_enabled (true);
-            pause_action.set_enabled (true);
 
             headerbar.set_title (_("Level %d").printf (game.current_level));
 
