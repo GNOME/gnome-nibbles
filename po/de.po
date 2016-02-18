@@ -14,7 +14,7 @@
 # Philipp Kerling <k.philipp@gmail.com>, 2007-2008.
 # Björn Deiseroth <service@dual-creators.de>, 2007.
 # Andre Klapper <ak-47@gmx.net>, 2008-2009.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2010-2013, 2015, 2016.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2010-2013, 2015-2016.
 # Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009-2012.
 # Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>, 2012.
 # Bernd Homuth <dev@hmt.im>, 2015.
@@ -24,16 +24,16 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-15 16:36+0000\n"
-"PO-Revision-Date: 2016-02-15 20:12+0100\n"
+"POT-Creation-Date: 2016-02-17 21:34+0000\n"
+"PO-Revision-Date: 2016-02-18 09:35+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
-"Language: de_DE\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -60,16 +60,16 @@ msgid "_Quit"
 msgstr "_Beenden"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:499 ../src/gnome-nibbles.vala:974
-#: ../src/gnome-nibbles.vala:1013
+#: ../src/gnome-nibbles.vala:510 ../src/gnome-nibbles.vala:994
+#: ../src/gnome-nibbles.vala:1033
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:388
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:399
 msgid "_New Game"
 msgstr "_Neues Spiel"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:417
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:428
 msgid "_Pause"
 msgstr "_Pause"
 
@@ -373,99 +373,111 @@ msgstr "Wurm _4"
 msgid "Show release version"
 msgstr "Programmversion anzeigen"
 
-#: ../src/gnome-nibbles.vala:384
+#: ../src/gnome-nibbles.vala:395
 msgid "Are you sure you want to start a new game?"
 msgstr "Sind Sie sicher, dass Sie ein neues Spiel starten wollen?"
 
-#: ../src/gnome-nibbles.vala:385
+#: ../src/gnome-nibbles.vala:396
 msgid "If you start a new game, the current one will be lost."
 msgstr "Wenn Sie ein neues Spiel starten, wird das laufende Spiel beendet."
 
-#: ../src/gnome-nibbles.vala:412
+#: ../src/gnome-nibbles.vala:423
 msgid "_Resume"
 msgstr "Fo_rtsetzen"
 
-#: ../src/gnome-nibbles.vala:575 ../src/gnome-nibbles.vala:847
+#: ../src/gnome-nibbles.vala:586 ../src/gnome-nibbles.vala:861
 #, c-format
 msgid "Level %d"
 msgstr "Spielstufe %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:710
+#: ../src/gnome-nibbles.vala:721
 msgid "Beginner"
 msgstr "Anfänger"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:712
+#: ../src/gnome-nibbles.vala:723
 msgid "Slow"
 msgstr "Langsam"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:714
+#: ../src/gnome-nibbles.vala:725
 msgid "Medium"
 msgstr "Mittel"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:716
+#: ../src/gnome-nibbles.vala:727
 msgid "Fast"
 msgstr "Schnell"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:718
+#: ../src/gnome-nibbles.vala:729
 msgid "Beginner with Fakes"
 msgstr "Anfänger, mit Attrappen"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:720
+#: ../src/gnome-nibbles.vala:731
 msgid "Slow with Fakes"
 msgstr "Langsam, mit Attrappen"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:722
+#: ../src/gnome-nibbles.vala:733
 msgid "Medium with Fakes"
 msgstr "Mittel, mit Attrappen"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:724
+#: ../src/gnome-nibbles.vala:735
 msgid "Fast with Fakes"
 msgstr "Schnell, mit Attrappen"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:729
+#: ../src/gnome-nibbles.vala:740
 msgid "Difficulty Level:"
 msgstr "Schwierigkeitsgrad:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:827
+#: ../src/gnome-nibbles.vala:841
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Spielstufe %d erfolgreich beendet!"
 
-#: ../src/gnome-nibbles.vala:834
+#: ../src/gnome-nibbles.vala:848
 msgid "_Next Level"
 msgstr "_Nächste Spielstufe"
 
-#: ../src/gnome-nibbles.vala:907
+#: ../src/gnome-nibbles.vala:915
+msgid "Congratulations!"
+msgstr "Glückwunsch!"
+
+#: ../src/gnome-nibbles.vala:915
+msgid "Game Over!"
+msgstr "Spiel vorbei!"
+
+#: ../src/gnome-nibbles.vala:922
+msgid "You have completed the game."
+msgstr "Sie haben das Spiel beendet."
+
+#: ../src/gnome-nibbles.vala:929
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d Punkt"
 msgstr[1] "%d Punkte"
 
-#: ../src/gnome-nibbles.vala:916
+#: ../src/gnome-nibbles.vala:938
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(noch %d Punkte bis zum Erreichen der Bestenliste)"
 
-#: ../src/gnome-nibbles.vala:922
+#: ../src/gnome-nibbles.vala:944
 msgid "_Play Again"
 msgstr "Erneut s_pielen"
 
-#: ../src/gnome-nibbles.vala:977
+#: ../src/gnome-nibbles.vala:997
 msgid "A worm game for GNOME"
 msgstr "Ein Wurmspiel für GNOME"
 
-#: ../src/gnome-nibbles.vala:986
+#: ../src/gnome-nibbles.vala:1006
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -485,7 +497,7 @@ msgstr ""
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>"
 
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1171 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1191 ../src/nibbles-view.vala:585
 #, c-format
 msgid "Player %d"
 msgstr "Spieler %d"
@@ -502,306 +514,3 @@ msgstr "Taste"
 msgid "The key you selected is already assigned!"
 msgstr "Die von Ihnen gewählte Taste ist bereits zugewiesen."
 
-#~ msgid "Game speed"
-#~ msgstr "Spielgeschwindigkeit"
-
-#~ msgid "Game speed (1=fast, 4=slow)."
-#~ msgstr "Spielgeschwindigkeit (1=schnell, 4=schnell)."
-
-#~ msgid "Play levels in random order"
-#~ msgstr "Spielstufen in zufälliger Reihenfolge spielen"
-
-#~ msgid "Play levels in random order."
-#~ msgstr "Spielstufen in zufälliger Reihenfolge spielen."
-
-#~ msgid ""
-#~ "Nibbles couldn't load level file:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Please check your Nibbles installation"
-#~ msgstr ""
-#~ "Level-Datei konnte nicht geladen werden:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Bitte überprüfen Sie Ihre Nibbles-Installation"
-
-#~ msgid ""
-#~ "Level file appears to be damaged:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Please check your Nibbles installation"
-#~ msgstr ""
-#~ "Level-Datei scheint beschädigt zu sein:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Bitte überprüfen Sie Ihre Nibbles-Installation"
-
-#~ msgid "Unknown Command"
-#~ msgstr "Unbekannter Befehl"
-
-#~ msgctxt "score-dialog"
-#~ msgid "Time"
-#~ msgstr "Zeit"
-
-#~ msgctxt "score-dialog"
-#~ msgid "Score"
-#~ msgstr "Ergebnis"
-
-#~ msgctxt "score-dialog"
-#~ msgid "%1$dm %2$ds"
-#~ msgstr "%1$dmin %2$ds"
-
-#~ msgid "Date"
-#~ msgstr "Datum"
-
-#~ msgid "_Close"
-#~ msgstr "S_chließen"
-
-#~ msgid ""
-#~ "Nibbles couldn't find pixmap file:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Please check your Nibbles installation"
-#~ msgstr ""
-#~ "Pixmap-Datei konnte nicht von Nibbles gefunden werden:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Bitte überprüfen Sie Ihre Nibbles-Installation."
-
-#~ msgid "Nibbles Scores"
-#~ msgstr "Nibbles-Ergebnisse"
-
-#~ msgid "Speed:"
-#~ msgstr "Geschwindigkeit:"
-
-#~ msgid "Congratulations!"
-#~ msgstr "Glückwunsch!"
-
-#~ msgid "Your score is the best!"
-#~ msgstr "Ihr Ergebnis ist das beste!"
-
-#~ msgid "Your score has made the top ten."
-#~ msgstr "Dieses Ergebnis hat für einen Top 10-Eintrag gereicht."
-
-#~ msgid "Game"
-#~ msgstr "Spiel"
-
-#~ msgid "Nibbles newbie"
-#~ msgstr "Nibbles-Neuling"
-
-#~ msgid "My second day"
-#~ msgstr "Mein zweiter Tag"
-
-#~ msgid "Not too shabby"
-#~ msgstr "Nicht allzu grauslig"
-
-#~ msgid "Finger-twitching good"
-#~ msgstr "Leistungsgrenze der Anatomie"
-
-#~ msgid "_Play levels in random order"
-#~ msgstr "Spielstufen in _zufälliger Reihenfolge spielen"
-
-#~ msgid "_Starting level:"
-#~ msgstr "Anfangs_spielstufe:"
-
-#~ msgid "Number of _human players:"
-#~ msgstr "Anzahl der _menschlichen Spieler:"
-
-#~ msgid "Number of _AI players:"
-#~ msgstr "Anzahl der _Computerspieler:"
-
-#~ msgid "Keyboard Options"
-#~ msgstr "Tastaturoptionen"
-
-#~ msgid "_Use relative movement"
-#~ msgstr "_Relative Bewegungen verwenden"
-
-#~ msgid "Red"
-#~ msgstr "Rot"
-
-#~ msgid "Green"
-#~ msgstr "Grün"
-
-#~ msgid "Blue"
-#~ msgstr "Blau"
-
-#~ msgid "Yellow"
-#~ msgstr "Gelb"
-
-#~ msgid "Cyan"
-#~ msgstr "Zyan"
-
-#~ msgid "Purple"
-#~ msgstr "Purpur"
-
-#~ msgid "Gray"
-#~ msgstr "Grau"
-
-#~ msgid "Worm %d:"
-#~ msgstr "Wurm %d:"
-
-#~ msgid ""
-#~ "A worm game for GNOME\n"
-#~ "\n"
-#~ "Nibbles is a part of GNOME Games."
-#~ msgstr ""
-#~ "Ein Wurmspiel für GNOME.\n"
-#~ "\n"
-#~ "Nibbles ist ein Teil der GNOME-Spiele."
-
-#~ msgid "New Game"
-#~ msgstr "Neues Spiel"
-
-#~ msgctxt "score-dialog"
-#~ msgid "Name"
-#~ msgstr "Name"
-
-#~ msgid "View help for this game"
-#~ msgstr "Hilfe für dieses Spiel anzeigen"
-
-#~ msgid "End the current game"
-#~ msgstr "Das momentane Spiel beenden"
-
-#~ msgid "Toggle fullscreen mode"
-#~ msgstr "Vollbildmodus umschalten"
-
-#~ msgid "Get a hint for your next move"
-#~ msgstr "Einen Tipp für Ihren nächsten Zug bekommen"
-
-#~ msgid "Leave fullscreen mode"
-#~ msgstr "Vollbildmodus verlassen"
-
-#~ msgid "Start a new multiplayer network game"
-#~ msgstr "Eine neue Netzwerk-Spielpartie beginnen"
-
-#~ msgid "End the current network game and return to network server"
-#~ msgstr ""
-#~ "Das aktuelle Netzwerkspiel beenden und zum Netzwerkserver zurückkehren"
-
-#~ msgid "Start a new game"
-#~ msgstr "Eine neue Spielpartie beginnen"
-
-#~ msgid "Pause the game"
-#~ msgstr "Spiel pausieren"
-
-#~ msgid "Show a list of players in the network game"
-#~ msgstr "Eine Liste der Spieler des aktuellen Netzwerkspiels anzeigen"
-
-#~ msgid "Redo the undone move"
-#~ msgstr "Den zuletzt zurückgenommenen Zug wiederholen"
-
-#~ msgid "Restart the game"
-#~ msgstr "Dieses Spiel neu starten"
-
-#~ msgid "Resume the paused game"
-#~ msgstr "Das angehaltene Spiel fortsetzen"
-
-#~ msgid "View the scores"
-#~ msgstr "Die Ergebnisse anzeigen"
-
-#~ msgid "Undo the last move"
-#~ msgstr "Den letzten Zug zurücknehmen"
-
-#~ msgid "About this game"
-#~ msgstr "Info zu diesem Spiel"
-
-#~ msgid "Close this window"
-#~ msgstr "Dieses Fenster schließen"
-
-#~ msgid "Configure the game"
-#~ msgstr "Das Spiel konfigurieren"
-
-#~ msgid "Quit this game"
-#~ msgstr "Dieses Spiel beenden"
-
-#~ msgid "_Contents"
-#~ msgstr "I_nhalt"
-
-#~ msgid "_Fullscreen"
-#~ msgstr "_Vollbild"
-
-#~ msgid "_Hint"
-#~ msgstr "_Tipp"
-
-#~ msgid "_New"
-#~ msgstr "_Neu"
-
-#~ msgid "_Redo Move"
-#~ msgstr "Zug _wiederholen"
-
-#~ msgid "_Undo Move"
-#~ msgstr "Zug _rückgängig"
-
-#~ msgid "_Deal"
-#~ msgstr "_Geben"
-
-#~ msgid "_Leave Fullscreen"
-#~ msgstr "Vollbild _verlassen"
-
-#~ msgid "Network _Game"
-#~ msgstr "_Netzwerkspiel"
-
-#~ msgid "L_eave Game"
-#~ msgstr "Spiel _verlassen"
-
-#~ msgid "Res_ume"
-#~ msgstr "_Fortsetzen"
-
-#~ msgid "_End Game"
-#~ msgstr "Spiel _beenden"
-
-#~ msgid ""
-#~ "%s is free software; you can redistribute it and/or modify it under the "
-#~ "terms of the GNU General Public License as published by the Free Software "
-#~ "Foundation; either version %d of the License, or (at your option) any "
-#~ "later version."
-#~ msgstr ""
-#~ "%s ist freie Software, Sie können sie weitergeben und/oder verändern "
-#~ "solange Sie sich an die Regeln der GNU General Public License halten, so "
-#~ "wie sie von der Free Software Foundation festgelegt wurden; entweder in "
-#~ "Version %d der Lizenz oder (nach Ihrem Ermessen) in jeder folgenden "
-#~ "Lizenz."
-
-#~ msgid ""
-#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-#~ "details."
-#~ msgstr ""
-#~ "%s wurde mit dem Ziel veröffentlicht, dass Sie es nützlich finden, jedoch "
-#~ "OHNE JEDWEDE GARANTIE, sogar ohne eine implizite Garantie der "
-#~ "VERKAUFBARKEIT oder der NUTZBARKEIT FÜR EINEN SPEZIELLEN ZWECK. Schauen "
-#~ "Sie für weitere Informationen bitten in der GNU General Public License "
-#~ "(GNU GPL) nach."
-
-#~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
-#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
-#~ msgstr ""
-#~ "Mit %s sollten Sie außerdem eine Kopie der GNU General Public License "
-#~ "erhalten haben. Wenn dem nicht so ist, so schreiben Sie bitte an die Free "
-#~ "Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA "
-#~ "02110-1301, USA."
-
-#~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
-#~ msgstr ""
-#~ "Sie sollten eine Kopie der GNU General Public License erhalten haben. "
-#~ "Wenn dem nicht so ist, so lesen Sie bitte <http://www.gnu.org/licenses/>."
-
-#~ msgid "GNOME Games web site"
-#~ msgstr "GNOME Games-Website"
-
-#~ msgid "Game over! The game has been won by %s!"
-#~ msgstr "Spiel beendet! %s hat das Spiel gewonnen!"
-
-#~ msgid "_Game"
-#~ msgstr "_Spiel"
-
-#~ msgid "_View"
-#~ msgstr "_Ansicht"
-
-#~ msgid "_Settings"
-#~ msgstr "_Einstellungen"
