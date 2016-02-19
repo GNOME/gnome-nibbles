@@ -812,7 +812,7 @@ public class NibblesView : GtkClutter.Embed
         level.remove_child (bonus_actor);
     }
 
-    private void bonus_applied_cb (Worm worm)
+    private void bonus_applied_cb (Bonus bonus, Worm worm)
     {
         var actors = worm_actors.get (worm);
         var actor = actors.last_child;
@@ -824,8 +824,6 @@ public class NibblesView : GtkClutter.Embed
         actor.set_pivot_point (0.5f, 0.5f);
         actor.restore_easing_state ();
 
-        /* Play sound based on applied bonus */
-        var bonus = game.boni.bonuses.last ();
         switch (bonus.type)
         {
             case BonusType.REGULAR:
@@ -844,7 +842,7 @@ public class NibblesView : GtkClutter.Embed
                 play_sound ("reverse");
                 break;
             default:
-                break;
+                assert_not_reached ();
         }
     }
 

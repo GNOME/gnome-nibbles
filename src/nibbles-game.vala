@@ -78,7 +78,7 @@ public class NibblesGame : Object
     public bool fakes { get; set; }
 
     public signal void worm_moved (Worm worm);
-    public signal void bonus_applied (Worm worm);
+    public signal void bonus_applied (Bonus bonus, Worm worm);
     public signal void log_score (int score, int level_reached);
     public signal void animate_end_game ();
     public signal void level_completed ();
@@ -466,7 +466,7 @@ public class NibblesGame : Object
         if (bonus == null)
             return;
         apply_bonus (bonus, worm);
-        bonus_applied (worm);
+        bonus_applied (bonus, worm);
 
         if (board[worm.head.x, worm.head.y] == BonusType.REGULAR + 'A'
             && !bonus.fake)
