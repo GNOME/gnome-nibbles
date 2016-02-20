@@ -37,8 +37,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-29 13:21+0200\n"
-"PO-Revision-Date: 2015-12-29 13:24+0200\n"
+"POT-Creation-Date: 2016-02-18 09:31+0000\n"
+"PO-Revision-Date: 2016-02-18 23:03+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
@@ -46,64 +46,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
 msgstr "Παίκτης"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
-msgid "GNOME Nibbles"
-msgstr "Μπουκιές GNOME"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Οδηγήστε το σκουλήκι μέσα σε έναν λαβύρινθο"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
-msgstr ""
-"Ελέγξτε ένα σκουλήκι κατά την αναζήτησή του να φάει επιβραβεύσεις και να "
-"γίνει μακρύτερο. Εξαρθρώστε τα εχθρικά σκουλήκια ενώ τρώνε ντόνατς και "
-"παγωτά, για να αυξήσετε το μήκος σας. Κάθε σκουλήκι έχει δέκα ζωές και χάνει "
-"μία όταν πέφτει σε έναν τοίχο, σε έαν άλλο σκουλήκι, ή στον εαυτό του. Τα "
-"εχθρικά σκουλήκια αποσκοπούν στις ίδιες επιβραβεύσεις που έχετε, γι' αυτό "
-"προσέξτε: αν γίνουν υπερβολικά μεγάλα, δεν θα έχετε πολύ χώρο για μετακίνηση."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
-msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
-msgstr ""
-"Η περιπέτεια προχωρά μέσα από 26 χάρτες αυξανόμενης δυσκολίας. Τα πρώτα "
-"επίπεδα είναι ως επί το πλείστον ανοικτά, με λίγους τοίχους, αλλά κατόπιν, "
-"στενοί χώροι και οι τηλεμεταφορές κάνουν τα πράγματα πιο ενδιαφέροντα."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Παίξτε μόνοι σας μέχρι και εναντίον πέντε εχθρικών σκουληκιών, ή μοιραστείτε "
-"το πληκτρολόγιο σας για να παίξετε με έναν φίλο."
-
-#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
-#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
-#: ../src/gnome-nibbles.vala:900
-msgid "Nibbles"
-msgstr "Μπουκιές"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "παιχνίδι;φίδι;πίνακας;game;snake;board;"
 
 #: ../data/nibbles-menus.ui.h:1
 msgid "_Preferences"
@@ -125,11 +73,17 @@ msgstr "_Περί"
 msgid "_Quit"
 msgstr "Έ_ξοδος"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:510 ../src/gnome-nibbles.vala:994
+#: ../src/gnome-nibbles.vala:1033
+msgid "Nibbles"
+msgstr "Μπουκιές"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:399
 msgid "_New Game"
 msgstr "_Νέο παιχνίδι"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:428
 msgid "_Pause"
 msgstr "Π_αύση"
 
@@ -155,20 +109,70 @@ msgid "Select the number of human players."
 msgstr "Επιλογή αριθμού ανθρώπινων παικτών."
 
 #: ../data/nibbles.ui.h:9
+msgid "Select the number of computer players."
+msgstr "Επιλογή αριθμού ανθρώπινων παικτών."
+
+#: ../data/nibbles.ui.h:10
 msgid "_Next"
 msgstr "Επόμε_νο"
 
-#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Έλεγχοι"
 
-#: ../data/nibbles.ui.h:11
+#: ../data/nibbles.ui.h:12
 msgid "_Start"
 msgstr "Έ_ναρξη"
 
-#: ../data/nibbles.ui.h:12
+#: ../data/nibbles.ui.h:13
 msgid "Paused"
 msgstr "Σε παύση"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
+msgid "GNOME Nibbles"
+msgstr "Μπουκιές GNOME"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Οδηγήστε το σκουλήκι μέσα σε έναν λαβύρινθο"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+"Ελέγξτε ένα σκουλήκι κατά την αναζήτησή του να φάει επιβραβεύσεις και να "
+"γίνει μακρύτερο. Εξαρθρώστε τα εχθρικά σκουλήκια ενώ τρώνε ντόνατς και "
+"παγωτά, για να αυξήσετε το μήκος σας. Κάθε σκουλήκι έχει δέκα ζωές και χάνει "
+"μία όταν πέφτει σε έναν τοίχο, σε έαν άλλο σκουλήκι, ή στον εαυτό του. Τα "
+"εχθρικά σκουλήκια αποσκοπούν στις ίδιες επιβραβεύσεις που έχετε, γι' αυτό "
+"προσέξτε: αν γίνουν υπερβολικά μεγάλα, δεν θα έχετε πολύ χώρο για μετακίνηση."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"Η περιπέτεια προχωρά μέσα από 26 χάρτες αυξανόμενης δυσκολίας. Τα πρώτα "
+"επίπεδα είναι ως επί το πλείστον ανοικτά, με λίγους τοίχους, αλλά κατόπιν, "
+"στενοί χώροι και οι τηλεμεταφορές κάνουν τα πράγματα πιο ενδιαφέροντα."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Παίξτε μόνοι σας μέχρι και εναντίον πέντε εχθρικών σκουληκιών, ή μοιραστείτε "
+"το πληκτρολόγιο σας για να παίξετε με έναν φίλο."
+
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "παιχνίδι;φίδι;πίνακας;game;snake;board;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Width of the window in pixels"
@@ -214,11 +218,11 @@ msgstr "Μέγεθος των πλακιδίων του παιχνιδιού."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
-msgstr "Αρχικό επίπεδο παιγνιδιού κατά την εκκίνηση"
+msgstr "Αρχικό επίπεδο παιχνιδιού κατά την εκκίνηση"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:12
 msgid "Game level to start on."
-msgstr "Αρχικό επίπεδο παιγνιδιού κατά την εκκίνηση."
+msgstr "Αρχικό επίπεδο παιχνιδιού κατά την εκκίνηση."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
 msgid "Worms movement speed"
@@ -238,61 +242,77 @@ msgstr "Ενεργοποίηση ήχων."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Enable fake bonuses"
-msgstr "Ενεργοποίηση ψεύτικων επιβραβεύσεων"
+msgstr "Ενεργοποίηση ψευδών επιβραβεύσεων"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Enable fake bonuses."
-msgstr "Ενεργοποίηση ψεύτικων επιβραβεύσεων."
+msgstr "Ενεργοποίηση ψευδών επιβραβεύσεων."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Αριθμός ανθρώπινων παικτών"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "Αριθμός ανθρώπινων παικτών."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "Αριθμός παικτών με τεχνητή νοημοσύνη"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "Αριθμός παικτών με τεχτητή νοημοσύνη."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "Χρώμα που θα χρησιμοποιείται για το σκουλήκι"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "Χρώμα που θα χρησιμοποιείται για το σκουλήκι."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Χρήση σχετικής κίνησης"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Χρήση σχετικής κίνησης (δηλαδή, μόνο δεξιά ή μόνο αριστερά)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
 #: ../src/preferences-dialog.vala:110
 msgid "Move up"
 msgstr "Μετακίνηση προς τα πάνω"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Πλήκτρο για κίνηση προς τα πάνω."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
 #: ../src/preferences-dialog.vala:113
 msgid "Move down"
 msgstr "Μετακίνηση προς τα κάτω"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Πλήκτρο για κίνηση προς τα κάτω."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
 #: ../src/preferences-dialog.vala:116
 msgid "Move left"
 msgstr "Μετακίνηση προς τα αριστερά"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Πλήκτρο για κίνηση προς τα αριστερά."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
 #: ../src/preferences-dialog.vala:119
 msgid "Move right"
 msgstr "Μετακίνηση προς τα δεξιά"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:30
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Πλήκτρο για κίνηση προς τα δεξιά."
 
@@ -309,20 +329,20 @@ msgid "Speed"
 msgstr "Ταχύτητα"
 
 #: ../data/preferences-dialog.ui.h:3
-msgid "_Fast"
-msgstr "Γρήγορη"
+msgid "_Beginner"
+msgstr "_Αρχάριος"
 
 #: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "_Αργή"
+
+#: ../data/preferences-dialog.ui.h:5
 msgid "_Medium"
 msgstr "Μεσαία"
 
-#: ../data/preferences-dialog.ui.h:5
-msgid "_Slow"
-msgstr "Αργή"
-
 #: ../data/preferences-dialog.ui.h:6
-msgid "_Beginner"
-msgstr "_Αρχάριος"
+msgid "_Fast"
+msgstr "_Γρήγορη"
 
 #: ../data/preferences-dialog.ui.h:7
 msgid "Options"
@@ -334,7 +354,7 @@ msgstr "Ενε_ργοποίηση ήχων"
 
 #: ../data/preferences-dialog.ui.h:9
 msgid "_Enable fake bonuses"
-msgstr "_Ενεργοποίηση εικονικών επιβραβεύσεων"
+msgstr "_Ενεργοποίηση ψευδών επιβραβεύσεων"
 
 #: ../data/preferences-dialog.ui.h:10
 msgid "_General"
@@ -365,59 +385,111 @@ msgstr "Σκουλήκι _4"
 msgid "Show release version"
 msgstr "Προβολή της έκδοσης"
 
-#: ../src/gnome-nibbles.vala:375
+#: ../src/gnome-nibbles.vala:395
 msgid "Are you sure you want to start a new game?"
 msgstr "Θέλετε να ξεκινήσετε νέο παιχνίδι;"
 
-#: ../src/gnome-nibbles.vala:376
+#: ../src/gnome-nibbles.vala:396
 msgid "If you start a new game, the current one will be lost."
 msgstr "Αν ξεκινήσετε ένα νέο παιχνίδι, η τωρινή σας πρόοδος θα χαθεί."
 
-#: ../src/gnome-nibbles.vala:403
+#: ../src/gnome-nibbles.vala:423
 msgid "_Resume"
 msgstr "_Συνέχεια"
 
-#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
+#: ../src/gnome-nibbles.vala:586 ../src/gnome-nibbles.vala:861
 #, c-format
 msgid "Level %d"
 msgstr "Επίπεδο %d"
 
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:721
+msgid "Beginner"
+msgstr "Αρχάριος"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:723
+msgid "Slow"
+msgstr "Αργό"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:725
+msgid "Medium"
+msgstr "Μεσαίο"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:727
+msgid "Fast"
+msgstr "Γρήγορο"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:729
+msgid "Beginner with Fakes"
+msgstr "Αρχάριος με ψευδείς επιβραβεύσεις"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:731
+msgid "Slow with Fakes"
+msgstr "Αργό με ψευδείς επιβραβεύσεις"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:733
+msgid "Medium with Fakes"
+msgstr "Μέτριο με ψευδείς επιβραβεύσεις"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:735
+msgid "Fast with Fakes"
+msgstr "Γρήγορο με ψευδείς επιβραβεύσεις"
+
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:622
+#: ../src/gnome-nibbles.vala:740
 msgid "Difficulty Level:"
 msgstr "Επίπεδο δυσκολίας:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:720
+#: ../src/gnome-nibbles.vala:841
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Ολοκληρώθηκε το επίπεδο %d!"
 
-#: ../src/gnome-nibbles.vala:727
+#: ../src/gnome-nibbles.vala:848
 msgid "_Next Level"
 msgstr "Επό_μενο επίπεδο"
 
-#: ../src/gnome-nibbles.vala:801
+#: ../src/gnome-nibbles.vala:915
+msgid "Congratulations!"
+msgstr "Συγχαρητήρια!"
+
+#: ../src/gnome-nibbles.vala:915
+msgid "Game Over!"
+msgstr "Τέλος παιχνιδιού!"
+
+#: ../src/gnome-nibbles.vala:922
+msgid "You have completed the game."
+msgstr "Έχετε ολοκληρώσει το παιχνίδι."
+
+#: ../src/gnome-nibbles.vala:929
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d πόντος"
 msgstr[1] "%d πόντοι"
 
-#: ../src/gnome-nibbles.vala:810
+#: ../src/gnome-nibbles.vala:938
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d πόντοι ακόμη για να φτάσετε στην υψηλότερη βαθμολογία)"
 
-#: ../src/gnome-nibbles.vala:816
+#: ../src/gnome-nibbles.vala:944
 msgid "_Play Again"
 msgstr "Π_αίξτε ξανά"
 
-#: ../src/gnome-nibbles.vala:864
+#: ../src/gnome-nibbles.vala:997
 msgid "A worm game for GNOME"
 msgstr "Παιχνίδι με σκουλήκι για το GNOME."
 
-#: ../src/gnome-nibbles.vala:873
+#: ../src/gnome-nibbles.vala:1006
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -432,7 +504,7 @@ msgstr ""
 "http://gnome.gr/"
 
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1191 ../src/nibbles-view.vala:585
 #, c-format
 msgid "Player %d"
 msgstr "Παίκτης %d"
@@ -448,15 +520,6 @@ msgstr "Πλήκτρο"
 #: ../src/preferences-dialog.vala:212
 msgid "The key you selected is already assigned!"
 msgstr "Το πλήκτρο που επιλέξατε έχει ήδη εκχωρηθεί!"
-
-#~ msgid "Number of human players"
-#~ msgstr "Αριθμός ανθρώπινων παικτών"
-
-#~ msgid "Number of AI players."
-#~ msgstr "Αριθμός παικτών με τεχτητή νοημοσύνη."
-
-#~ msgid "Game speed"
-#~ msgstr "Ταχύτητα παιχνιδιού"
 
 #~ msgid "Game speed (1=fast, 4=slow)."
 #~ msgstr "Ταχύτητα παιχνιδιού (1=γρήγορο, 4=αργό)."
@@ -530,46 +593,11 @@ msgstr "Το πλήκτρο που επιλέξατε έχει ήδη εκχωρ
 #~ msgid "Speed:"
 #~ msgstr "Ταχύτητα:"
 
-#~ msgid "Congratulations!"
-#~ msgstr "Συγχαρητήρια!"
-
 #~ msgid "Your score is the best!"
 #~ msgstr "Η βαθμολογία σας είναι η καλύτερη!"
 
 #~ msgid "Your score has made the top ten."
 #~ msgstr "Η βαθμολογία σας είναι στην κορυφαία δεκάδα."
-
-#~ msgctxt "game speed"
-#~ msgid "Beginner"
-#~ msgstr "Αρχάριος"
-
-#~ msgctxt "game speed"
-#~ msgid "Slow"
-#~ msgstr "Αργό"
-
-#~ msgctxt "game speed"
-#~ msgid "Medium"
-#~ msgstr "Μεσαίο"
-
-#~ msgctxt "game speed"
-#~ msgid "Fast"
-#~ msgstr "Γρήγορο"
-
-#~ msgctxt "game speed"
-#~ msgid "Beginner with Fakes"
-#~ msgstr "Αρχάριος με ψευδείς επιβραβεύσεις"
-
-#~ msgctxt "game speed"
-#~ msgid "Slow with Fakes"
-#~ msgstr "Αργό με ψευδείς επιβραβεύσεις"
-
-#~ msgctxt "game speed"
-#~ msgid "Medium with Fakes"
-#~ msgstr "Μέτριο με ψευδείς επιβραβεύσεις"
-
-#~ msgctxt "game speed"
-#~ msgid "Fast with Fakes"
-#~ msgstr "Γρήγορο με ψευδείς επιβραβεύσεις"
 
 #~ msgid "Game"
 #~ msgstr "Παιχνίδι"
