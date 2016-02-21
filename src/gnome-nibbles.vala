@@ -83,6 +83,7 @@ public class Nibbles : Gtk.Application
         {"pause", pause_cb},
         {"preferences", preferences_cb},
         {"scores", scores_cb},
+        {"help", help_cb},
         {"about", about_cb},
         {"quit", quit}
     };
@@ -157,6 +158,7 @@ public class Nibbles : Gtk.Application
 
         set_accels_for_action ("app.quit", {"<Primary>q"});
         set_accels_for_action ("app.back", {"Escape"});
+        set_accels_for_action ("app.help", {"F1"});
         new_game_action = (SimpleAction) lookup_action ("new-game");
         pause_action = (SimpleAction) lookup_action ("pause");
         back_action = (SimpleAction) lookup_action ("back");
@@ -996,6 +998,18 @@ public class Nibbles : Gtk.Application
         button.grab_focus ();
 
         overlay.show ();
+    }
+
+    private void help_cb ()
+    {
+        try
+        {
+            Gtk.show_uri (window.get_screen (), "help:gnome-nibbles", Gtk.get_current_event_time ());
+        }
+        catch (Error e)
+        {
+            warning ("Unable to open help: %s", e.message);
+        }
     }
 
     private void about_cb ()
