@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-15 09:29+0000\n"
-"PO-Revision-Date: 2016-02-16 13:18+0100\n"
+"POT-Creation-Date: 2016-02-22 09:32+0000\n"
+"PO-Revision-Date: 2016-02-22 17:11+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -49,16 +49,16 @@ msgid "_Quit"
 msgstr "_Salir"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:489 ../src/gnome-nibbles.vala:899
-#: ../src/gnome-nibbles.vala:938
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1031
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:378
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
 msgid "_New Game"
 msgstr "Juego _nuevo"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:407
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
 msgid "_Pause"
 msgstr "_Pausa"
 
@@ -83,18 +83,23 @@ msgid "Select the number of human players."
 msgstr "Seleccione el número de jugadores humanos."
 
 #: ../data/nibbles.ui.h:9
+#| msgid "Select the number of human players."
+msgid "Select the number of computer players."
+msgstr "Seleccione el número de jugadores no humanos."
+
+#: ../data/nibbles.ui.h:10
 msgid "_Next"
 msgstr "_Siguiente"
 
-#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Controles"
 
-#: ../data/nibbles.ui.h:11
+#: ../data/nibbles.ui.h:12
 msgid "_Start"
 msgstr "_Iniciar"
 
-#: ../data/nibbles.ui.h:12
+#: ../data/nibbles.ui.h:13
 msgid "Paused"
 msgstr "Detenido"
 
@@ -220,54 +225,71 @@ msgid "Enable fake bonuses."
 msgstr "Activar bonificaciones falsas."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Número de jugadores humanos"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#| msgid "Number of human players"
+msgid "Number of human players."
+msgstr "Número de jugadores humanos."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "Número de jugadores con IA"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "Número de jugadores IA."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "El color del gusano"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "El color del gusano."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Usar movimiento relativo"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Usar movimiento relativo (p.ej. solamente derecha o izquierda)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
-#: ../src/preferences-dialog.vala:110
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Subir"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Tecla para subir."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
-#: ../src/preferences-dialog.vala:113
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Bajar"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Tecla para bajar."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27
-#: ../src/preferences-dialog.vala:116
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Mover izquierda"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Tecla para ir a la izquierda."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:29
-#: ../src/preferences-dialog.vala:119
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Mover derecha"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:30
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Tecla para ir a la derecha."
 
@@ -336,114 +358,116 @@ msgid "Worm _4"
 msgstr "Gusano _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:100
+#: ../src/gnome-nibbles.vala:102
 msgid "Show release version"
 msgstr "Mostrar el número de versión"
 
-#: ../src/gnome-nibbles.vala:374
+#: ../src/gnome-nibbles.vala:419
 msgid "Are you sure you want to start a new game?"
 msgstr "¿Seguro que quiere empezar una partida nueva?"
 
-#: ../src/gnome-nibbles.vala:375
+#: ../src/gnome-nibbles.vala:420
 msgid "If you start a new game, the current one will be lost."
 msgstr "Si empieza una partida nueva, se perderá la actual."
 
-#: ../src/gnome-nibbles.vala:402
+#: ../src/gnome-nibbles.vala:451
 msgid "_Resume"
 msgstr "_Reanudar"
 
-#: ../src/gnome-nibbles.vala:542 ../src/gnome-nibbles.vala:772
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
 msgid "Level %d"
 msgstr "Nivel %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:635
-#| msgid "_Beginner"
+#: ../src/gnome-nibbles.vala:749
 msgid "Beginner"
 msgstr "Principiante"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:637
-#| msgid "_Slow"
+#: ../src/gnome-nibbles.vala:751
 msgid "Slow"
 msgstr "Lento"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:639
+#: ../src/gnome-nibbles.vala:753
 msgid "Medium"
 msgstr "Mediano"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:641
-#| msgid "_Fast"
+#: ../src/gnome-nibbles.vala:755
 msgid "Fast"
 msgstr "Rápido"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:643
-#| msgctxt "game speed"
-#| msgid "Beginner with Fakes"
+#: ../src/gnome-nibbles.vala:757
 msgid "Beginner with Fakes"
 msgstr "Principiante con falsos"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:645
-#| msgctxt "game speed"
-#| msgid "Slow with Fakes"
+#: ../src/gnome-nibbles.vala:759
 msgid "Slow with Fakes"
 msgstr "Lento con falsos"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:647
-#| msgctxt "game speed"
-#| msgid "Medium with Fakes"
+#: ../src/gnome-nibbles.vala:761
 msgid "Medium with Fakes"
 msgstr "Medio con falsos"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:649
-#| msgctxt "game speed"
-#| msgid "Fast with Fakes"
+#: ../src/gnome-nibbles.vala:763
 msgid "Fast with Fakes"
 msgstr "Rápido con falsos"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:654
+#: ../src/gnome-nibbles.vala:768
 msgid "Difficulty Level:"
 msgstr "Nivel de dificultad:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:752
+#: ../src/gnome-nibbles.vala:869
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nivel %d completado."
 
-#: ../src/gnome-nibbles.vala:759
+#: ../src/gnome-nibbles.vala:876
 msgid "_Next Level"
 msgstr "_Siguiente nivel"
 
-#: ../src/gnome-nibbles.vala:832
+#: ../src/gnome-nibbles.vala:940
+msgid "Congratulations!"
+msgstr "Enhorabuena."
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Game Over!"
+msgstr "Juego terminado"
+
+#: ../src/gnome-nibbles.vala:947
+#| msgid "You have left the table."
+msgid "You have completed the game."
+msgstr "Ha completado el juego."
+
+#: ../src/gnome-nibbles.vala:954
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d punto"
 msgstr[1] "%d puntos"
 
-#: ../src/gnome-nibbles.vala:841
+#: ../src/gnome-nibbles.vala:963
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d puntos más para la clasificación)"
 
-#: ../src/gnome-nibbles.vala:847
+#: ../src/gnome-nibbles.vala:969
 msgid "_Play Again"
 msgstr "_Jugar otra vez"
 
-#: ../src/gnome-nibbles.vala:902
+#: ../src/gnome-nibbles.vala:1034
 msgid "A worm game for GNOME"
 msgstr "Un juego de gusanos para GNOME."
 
-#: ../src/gnome-nibbles.vala:911
+#: ../src/gnome-nibbles.vala:1043
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -453,31 +477,22 @@ msgstr ""
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1096 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
 #, c-format
 msgid "Player %d"
 msgstr "Jugador %d"
 
-#: ../src/preferences-dialog.vala:122
+#: ../src/preferences-dialog.vala:140
 msgid "Action"
 msgstr "Acción"
 
-#: ../src/preferences-dialog.vala:129
+#: ../src/preferences-dialog.vala:147
 msgid "Key"
 msgstr "Tecla"
 
-#: ../src/preferences-dialog.vala:212
+#: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "La tecla que ha seleccionado ya está asignada."
-
-#~ msgid "Number of human players"
-#~ msgstr "Número de jugadores humanos"
-
-#~ msgid "Number of AI players"
-#~ msgstr "Número de jugadores con IA"
-
-#~ msgid "Number of AI players."
-#~ msgstr "Número de jugadores IA."
 
 #~ msgid "Game speed"
 #~ msgstr "Velocidad del juego"
@@ -550,9 +565,6 @@ msgstr "La tecla que ha seleccionado ya está asignada."
 
 #~ msgid "Speed:"
 #~ msgstr "Velocidad:"
-
-#~ msgid "Congratulations!"
-#~ msgstr "Enhorabuena."
 
 #~ msgid "Your score is the best!"
 #~ msgstr "Su puntuación es la mejor"
@@ -1512,9 +1524,6 @@ msgstr "La tecla que ha seleccionado ya está asignada."
 
 #~ msgid "_Board size:"
 #~ msgstr "Tamaño del ta_blero:"
-
-#~ msgid "Game Over!"
-#~ msgstr "Juego terminado"
 
 #~ msgid "You can't move there!"
 #~ msgstr "No puede mover ahí"
@@ -6546,9 +6555,6 @@ msgstr "La tecla que ha seleccionado ya está asignada."
 
 #~ msgid "You have been booted from the table by %s."
 #~ msgstr "Ha sido expulsado de la mesa por %s."
-
-#~ msgid "You have left the table."
-#~ msgstr "Ha abandonado la mesa."
 
 #~ msgid "There was an error with the game server."
 #~ msgstr "Hubo un error con el servidor de juegos."
