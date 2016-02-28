@@ -15,10 +15,10 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-24 21:30+0000\n"
-"PO-Revision-Date: 2016-01-26 15:22+0100\n"
-"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
-"Language-Team: Hungarian <openscope at gmail dot com>\n"
+"POT-Creation-Date: 2016-02-26 21:29+0000\n"
+"PO-Revision-Date: 2016-02-28 15:21+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng at ubuntu dot com>\n"
+"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,58 +29,6 @@ msgstr ""
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
 msgstr "Játékos"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
-msgid "GNOME Nibbles"
-msgstr "GNOME Kukacok"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Kukac irányítása egy labirintusban"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
-msgstr ""
-"Irányítson egy kukacot a küldetésén a bónuszok megevésére és hosszabbodásra. "
-"Manőverezze ki az ellenséges kukacokat, miközben fánkok és jégkrémek "
-"megevésével növeli a kukac hosszát. Minden kukacnak tíz élete van, és "
-"elveszít egyet, ha falba, másik kukacba vagy saját magába ütközik. Az "
-"ellenséges kukacok ugyanazokat a bónuszokat próbálják elérni, így legyen "
-"óvatos: ha túl nagyra nőnek, nem marad túl sok helye mozogni."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
-msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
-msgstr ""
-"A kaland 26, egyre nehezebb térképen zajlik. A korai szintek nagyrészt "
-"nyitottak, kevés fallal, de később a zsúfolt terek és a teleportálók "
-"érdekesebbé teszik a játékot."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Játsszon önállóan akár öt ellenséges kukac ellen, vagy ossza meg "
-"billentyűzetét egy barátjával játszva."
-
-#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
-#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
-#: ../src/gnome-nibbles.vala:900
-msgid "Nibbles"
-msgstr "Kukacok"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "játék;kígyó;tábla;"
 
 #: ../data/nibbles-menus.ui.h:1
 msgid "_Preferences"
@@ -102,11 +50,17 @@ msgstr "_Névjegy"
 msgid "_Quit"
 msgstr "_Kilépés"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1031
+msgid "Nibbles"
+msgstr "Kukacok"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
 msgid "_New Game"
 msgstr "Ú_j játék"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
 msgid "_Pause"
 msgstr "_Szünet"
 
@@ -132,20 +86,71 @@ msgid "Select the number of human players."
 msgstr "Válassza ki az emberi játékosok számát."
 
 #: ../data/nibbles.ui.h:9
+#| msgid "Select the number of human players."
+msgid "Select the number of computer players."
+msgstr "Válassza ki a gépi játékosok számát."
+
+#: ../data/nibbles.ui.h:10
 msgid "_Next"
 msgstr "_Következő"
 
-#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Vezérlés"
 
-#: ../data/nibbles.ui.h:11
+#: ../data/nibbles.ui.h:12
 msgid "_Start"
 msgstr "In_dítás"
 
-#: ../data/nibbles.ui.h:12
+#: ../data/nibbles.ui.h:13
 msgid "Paused"
 msgstr "Szüneteltetve"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
+msgid "GNOME Nibbles"
+msgstr "GNOME Kukacok"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Kukac irányítása egy labirintusban"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+"Irányítson egy kukacot a küldetésén a bónuszok megevésére és hosszabbodásra. "
+"Manőverezze ki az ellenséges kukacokat, miközben fánkok és jégkrémek "
+"megevésével növeli a kukac hosszát. Minden kukacnak tíz élete van, és "
+"elveszít egyet, ha falba, másik kukacba vagy saját magába ütközik. Az "
+"ellenséges kukacok ugyanazokat a bónuszokat próbálják elérni, így legyen "
+"óvatos: ha túl nagyra nőnek, nem marad túl sok helye mozogni."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"A kaland 26, egyre nehezebb térképen zajlik. A korai szintek nagyrészt "
+"nyitottak, kevés fallal, de később a zsúfolt terek és a teleportálók "
+"érdekesebbé teszik a játékot."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Játsszon önállóan akár öt ellenséges kukac ellen, vagy ossza meg "
+"billentyűzetét egy barátjával játszva."
+
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "játék;kígyó;tábla;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Width of the window in pixels"
@@ -222,54 +227,71 @@ msgid "Enable fake bonuses."
 msgstr "Hamis bónuszok bekapcsolása."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Emberi játékosok száma"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#| msgid "Number of human players"
+msgid "Number of human players."
+msgstr "Emberi játékosok száma."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "Gépi játékosok száma"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "Gépi játékosok száma."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "A kukachoz használandó szín"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "A kukachoz használandó szín."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Relatív mozgatás használata"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Relatív mozgatás használata (vagyis csak balra vagy jobbra)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
-#: ../src/preferences-dialog.vala:110
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Mozgás felfelé"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Billentyű a felfelé mozgáshoz."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
-#: ../src/preferences-dialog.vala:113
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Mozgás lefelé"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Billentyű a lefelé mozgáshoz."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27
-#: ../src/preferences-dialog.vala:116
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Mozgás balra"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Billentyű a balra mozgáshoz."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:29
-#: ../src/preferences-dialog.vala:119
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Mozgás jobbra"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:30
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Billentyű a jobbra mozgáshoz."
 
@@ -338,63 +360,126 @@ msgid "Worm _4"
 msgstr "_4. kukac"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:100
+#: ../src/gnome-nibbles.vala:102
 msgid "Show release version"
 msgstr "Kiadási verziószám megjelenítése"
 
-#: ../src/gnome-nibbles.vala:375
+#: ../src/gnome-nibbles.vala:419
 msgid "Are you sure you want to start a new game?"
 msgstr "Szeretne új játékot kezdeni?"
 
-#: ../src/gnome-nibbles.vala:376
+#: ../src/gnome-nibbles.vala:420
 msgid "If you start a new game, the current one will be lost."
 msgstr "Ha új játékot indít, akkor a jelenlegi állás elvész."
 
-#: ../src/gnome-nibbles.vala:403
+#: ../src/gnome-nibbles.vala:451
 msgid "_Resume"
 msgstr "_Folytatás"
 
-#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
 msgid "Level %d"
 msgstr "%d. szint"
 
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:749
+#| msgid "_Beginner"
+msgid "Beginner"
+msgstr "Kezdő"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:751
+#| msgid "_Slow"
+msgid "Slow"
+msgstr "Lassú"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:753
+msgid "Medium"
+msgstr "Közepes"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:755
+#| msgid "_Fast"
+msgid "Fast"
+msgstr "Gyors"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:757
+#| msgctxt "game speed"
+#| msgid "Beginner with Fakes"
+msgid "Beginner with Fakes"
+msgstr "Kezdő hamisítványokkal"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:759
+#| msgctxt "game speed"
+#| msgid "Slow with Fakes"
+msgid "Slow with Fakes"
+msgstr "Lassú hamisítványokkal"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:761
+#| msgctxt "game speed"
+#| msgid "Medium with Fakes"
+msgid "Medium with Fakes"
+msgstr "Közepes hamisítványokkal"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
+#| msgctxt "game speed"
+#| msgid "Fast with Fakes"
+msgid "Fast with Fakes"
+msgstr "Gyors hamisítványokkal"
+
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:622
+#: ../src/gnome-nibbles.vala:768
 msgid "Difficulty Level:"
 msgstr "Nehézségi szint:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:720
+#: ../src/gnome-nibbles.vala:869
 #, c-format
 msgid "Level %d Completed!"
 msgstr "%d. szint teljesítve!"
 
-#: ../src/gnome-nibbles.vala:727
+#: ../src/gnome-nibbles.vala:876
 msgid "_Next Level"
 msgstr "_Következő szint"
 
-#: ../src/gnome-nibbles.vala:801
+#: ../src/gnome-nibbles.vala:940
+msgid "Congratulations!"
+msgstr "Gratulálok!"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Game Over!"
+msgstr "Vége a játéknak!"
+
+#: ../src/gnome-nibbles.vala:947
+msgid "You have completed the game."
+msgstr "A játék befejeződött."
+
+#: ../src/gnome-nibbles.vala:954
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d pont"
 msgstr[1] "%d pont"
 
-#: ../src/gnome-nibbles.vala:810
+#: ../src/gnome-nibbles.vala:963
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(még %d pont a toplista eléréséhez)"
 
-#: ../src/gnome-nibbles.vala:816
+#: ../src/gnome-nibbles.vala:969
 msgid "_Play Again"
 msgstr "_Játék újra"
 
-#: ../src/gnome-nibbles.vala:864
+#: ../src/gnome-nibbles.vala:1034
 msgid "A worm game for GNOME"
 msgstr "Egy kukacos játék a GNOME-hoz"
 
-#: ../src/gnome-nibbles.vala:873
+#: ../src/gnome-nibbles.vala:1043
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -407,31 +492,22 @@ msgstr ""
 "Meskó Balázs <meskobalazs at gmail dot com>"
 
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
 #, c-format
 msgid "Player %d"
 msgstr "%d. játékos"
 
-#: ../src/preferences-dialog.vala:122
+#: ../src/preferences-dialog.vala:140
 msgid "Action"
 msgstr "Művelet"
 
-#: ../src/preferences-dialog.vala:129
+#: ../src/preferences-dialog.vala:147
 msgid "Key"
 msgstr "Kulcs"
 
-#: ../src/preferences-dialog.vala:212
+#: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "A kiválasztott kulcs már társítva van."
-
-#~ msgid "Number of human players"
-#~ msgstr "Emberi játékosok száma"
-
-#~ msgid "Number of AI players"
-#~ msgstr "Gépi játékosok száma"
-
-#~ msgid "Number of AI players."
-#~ msgstr "Gépi játékosok száma."
 
 #~ msgid "Game speed"
 #~ msgstr "Játéksebesség"
@@ -505,9 +581,6 @@ msgstr "A kiválasztott kulcs már társítva van."
 #~ msgid "Speed:"
 #~ msgstr "Sebesség:"
 
-#~ msgid "Congratulations!"
-#~ msgstr "Gratulálok!"
-
 #~ msgid "Your score is the best!"
 #~ msgstr "Pontszáma a legjobb!"
 
@@ -517,22 +590,6 @@ msgstr "A kiválasztott kulcs már társítva van."
 #~ msgctxt "game speed"
 #~ msgid "Medium"
 #~ msgstr "Közepes"
-
-#~ msgctxt "game speed"
-#~ msgid "Beginner with Fakes"
-#~ msgstr "Kezdő hamisítványokkal"
-
-#~ msgctxt "game speed"
-#~ msgid "Slow with Fakes"
-#~ msgstr "Lassú hamisítványokkal"
-
-#~ msgctxt "game speed"
-#~ msgid "Medium with Fakes"
-#~ msgstr "Közepes hamisítványokkal"
-
-#~ msgctxt "game speed"
-#~ msgid "Fast with Fakes"
-#~ msgstr "Gyors hamisítványokkal"
 
 #~ msgid "Game"
 #~ msgstr "Játék"
@@ -1479,9 +1536,6 @@ msgstr "A kiválasztott kulcs már társítva van."
 #~ msgid "_Board size:"
 #~ msgstr "A tábla _mérete:"
 
-#~ msgid "Game Over!"
-#~ msgstr "Vége a játéknak!"
-
 #~ msgid "You can't move there!"
 #~ msgstr "Nem léphet oda!"
 
@@ -2161,9 +2215,6 @@ msgstr "A kiválasztott kulcs már társítva van."
 
 #~ msgid "Easy"
 #~ msgstr "Könnyű"
-
-#~ msgid "Medium"
-#~ msgstr "Közepes"
 
 #~ msgid "Hard"
 #~ msgstr "Nehéz"
