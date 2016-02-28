@@ -162,8 +162,8 @@ private class PreferencesDialog : Gtk.Dialog
 
             var id = combo_boxes.index_of (combo_box);
 
-            var color = worm_settings[id].get_string ("color");
-            combo_box.set_active (NibblesView.colorval_from_name (color));
+            var color = worm_settings[id].get_enum ("color");
+            combo_box.set_active (color);
             combo_box.changed.connect (combo_box_changed_cb);
         }
     }
@@ -267,8 +267,8 @@ private class PreferencesDialog : Gtk.Dialog
     private void combo_box_changed_cb (Gtk.ComboBox combo_box)
     {
         var id = combo_boxes.index_of ((Gtk.ComboBoxText) combo_box);
-        var color_new = NibblesView.colorval_name (combo_box.get_active ());
-        var color_old = worm_settings[id].get_string ("color");
+        var color_new = combo_box.get_active ();
+        var color_old = worm_settings[id].get_enum ("color");
 
         if (color_new == color_old)
             return;
@@ -276,9 +276,9 @@ private class PreferencesDialog : Gtk.Dialog
         /* Swap the colors if the new color is already set for another worm */
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
         {
-            if (i != id && worm_settings[i].get_string ("color") == color_new)
+            if (i != id && worm_settings[i].get_enum ("color") == color_new)
             {
-                worm_settings[i].set_string ("color", color_old);
+                worm_settings[i].set_enum ("color", color_old);
 
                 /* Update swapped colors in UI */
                 if (i < NibblesGame.MAX_HUMANS)
@@ -288,7 +288,7 @@ private class PreferencesDialog : Gtk.Dialog
                         var index = combo_boxes.index_of (cbox);
                         if (index == i)
                         {
-                            cbox.set_active (NibblesView.colorval_from_name (color_old));
+                            cbox.set_active (color_old);
                             break;
                         }
                     }
@@ -298,6 +298,6 @@ private class PreferencesDialog : Gtk.Dialog
             }
         }
 
-        worm_settings[id].set_string ("color", color_new);
+        worm_settings[id].set_enum ("color", color_new);
     }
 }

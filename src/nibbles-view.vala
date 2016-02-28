@@ -909,21 +909,6 @@ public class NibblesView : GtkClutter.Embed
                                      Canberra.PROP_MEDIA_FILENAME, path);
     }
 
-    /*\
-    * * Color conversion (name <-> value)
-    \*/
-
-    public static int colorval_from_name (string name)
-    {
-        for (int i = 0; i < NUM_COLORS; i++)
-        {
-            if (color_lookup[i] == name)
-                return i;
-        }
-
-        return 0;
-    }
-
     public static string colorval_name (int colorval)
     {
         return color_lookup[colorval];

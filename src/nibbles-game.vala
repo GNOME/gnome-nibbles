@@ -560,7 +560,7 @@ public class NibblesGame : Object
         foreach (var worm in worms)
         {
             var properties = WormProperties ();
-            properties.color = NibblesView.colorval_from_name (worm_settings[worm.id].get_string ("color"));
+            properties.color = worm_settings[worm.id].get_enum ("color");
             properties.up = worm_settings[worm.id].get_int ("key-up");
             properties.down = worm_settings[worm.id].get_int ("key-down");
             properties.left = worm_settings[worm.id].get_int ("key-left");

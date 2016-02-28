@@ -496,7 +496,7 @@ public class Nibbles : Gtk.Application
         switch (key)
         {
             case "color":
-                properties.color = NibblesView.colorval_from_name (changed_worm_settings.get_string ("color"));
+                properties.color = changed_worm_settings.get_enum ("color");
                 break;
             case "key-up":
                 properties.up = changed_worm_settings.get_int ("key-up");

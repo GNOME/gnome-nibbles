@@ -1,4 +1,12 @@
 <schemalist>
+  <enum id="org.gnome.nibbles.Color">
+    <value value="0" nick="red"/>
+    <value value="1" nick="green"/>
+    <value value="2" nick="blue"/>
+    <value value="3" nick="yellow"/>
+    <value value="4" nick="cyan"/>
+    <value value="5" nick="purple"/>
+  </enum>
   <schema id="org.gnome.nibbles" path="/org/gnome/nibbles/" gettext-domain="gnome-nibbles">
     <key name="window-width" type="i">
       <default>730</default>
@@ -62,7 +70,7 @@
     </key>
   </schema>
   <schema id="org.gnome.nibbles.worm0" path="/org/gnome/nibbles/worm0/">
-    <key name="color" type="s">
+    <key name="color" enum="org.gnome.nibbles.Color">
       <default>'red'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -94,7 +102,7 @@
     </key>
   </schema>
   <schema id="org.gnome.nibbles.worm1" path="/org/gnome/nibbles/worm1/">
-    <key name="color" type="s">
+    <key name="color" enum="org.gnome.nibbles.Color">
       <default>'green'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -126,7 +134,7 @@
     </key>
   </schema>
   <schema id="org.gnome.nibbles.worm2" path="/org/gnome/nibbles/worm2/">
-    <key name="color" type="s">
+    <key name="color" enum="org.gnome.nibbles.Color">
       <default>'blue'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -158,7 +166,7 @@
     </key>
   </schema>
   <schema id="org.gnome.nibbles.worm3" path="/org/gnome/nibbles/worm3/">
-    <key name="color" type="s">
+    <key name="color" enum="org.gnome.nibbles.Color">
       <default>'yellow'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -190,7 +198,7 @@
     </key>
   </schema>
   <schema id="org.gnome.nibbles.worm4" path="/org/gnome/nibbles/worm4/">
-    <key name="color" type="s">
+    <key name="color" enum="org.gnome.nibbles.Color">
       <default>'cyan'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -222,7 +230,7 @@
     </key>
   </schema>
   <schema id="org.gnome.nibbles.worm5" path="/org/gnome/nibbles/worm5/">
-    <key name="color" type="s">
+    <key name="color" enum="org.gnome.nibbles.Color">
       <default>'purple'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
