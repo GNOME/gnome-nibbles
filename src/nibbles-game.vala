@@ -441,7 +441,7 @@ public class NibblesGame : Object
                 {
                     worm.score += ((worm.length + worm.change / 2) * current_level);
                     worm.reduce_tail (board, worm.length / 2);
-                    worm.change -= (worm.length + worm.change) /2;
+                    worm.change -= (worm.length + worm.change) / 2;
                 }
                 break;
             case BonusType.LIFE:
