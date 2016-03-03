@@ -440,7 +440,7 @@ public class NibblesGame : Object
                 if (worm.length + worm.change > 2)
                 {
                     worm.score += ((worm.length + worm.change / 2) * current_level);
-                    worm.reduce_tail (board, (worm.length + worm.change) / 2);
+                    worm.reduce_tail (board, worm.length / 2);
                     worm.change -= (worm.length + worm.change) /2;
                 }
                 break;

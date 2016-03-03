@@ -201,11 +201,6 @@ public class Worm : Object
     {
         if (erase_size > 0)
         {
-            if (length <= erase_size)
-            {
-                reset (board);
-            }
-
             for (int i = 0; i < erase_size; i++)
             {
                 board[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
