@@ -443,8 +443,6 @@ public class NibblesView : GtkClutter.Embed
             "bonus3.svg",
             "life.svg",
             "diamond.svg",
-            "bonus4.svg",
-            "bonus5.svg",
             "questionmark.svg"
         };
 
@@ -473,7 +471,7 @@ public class NibblesView : GtkClutter.Embed
             "snake-magenta.svg"
         };
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 6; i++)
         {
             boni_pixmaps[i] = load_pixmap_file (bonus_files[i],
                                                 2 * game.tile_size, 2 * game.tile_size);
