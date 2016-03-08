@@ -26,8 +26,6 @@ public enum BonusType
     DOUBLE,
     LIFE,
     REVERSE,
-    CUT,
-    SWITCH,
     WARP
 }
 
