@@ -471,19 +471,19 @@ public class NibblesView : GtkClutter.Embed
             "snake-magenta.svg"
         };
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < bonus_files.length; i++)
         {
             boni_pixmaps[i] = load_pixmap_file (bonus_files[i],
                                                 2 * game.tile_size, 2 * game.tile_size);
         }
 
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i < small_files.length; i++)
         {
             wall_pixmaps[i] = load_pixmap_file (small_files[i],
                                                 2 * game.tile_size, 2 * game.tile_size);
         }
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < worm_files.length; i++)
         {
             worm_pixmaps[i] = load_pixmap_file (worm_files[i],
                                                 game.tile_size, game.tile_size);
