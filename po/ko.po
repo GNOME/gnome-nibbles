@@ -1,4 +1,3 @@
-# gnome-nibbles Korean translation
 # This file is distributed under the same license as the gnome-nibbles package.
 #
 # From gnome-games:
@@ -21,26 +20,105 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-07 08:07+0000\n"
-"PO-Revision-Date: 2015-03-08 04:25+0900\n"
-"Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
+"POT-Creation-Date: 2016-03-06 21:32+0000\n"
+"PO-Revision-Date: 2016-03-08 11:58+0900\n"
+"Last-Translator: Youngbin Han <sukso96100@gmail.com>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
-"Language: Korean\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.7\n"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "플레이어"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_Preferences"
+msgstr "기본 설정(_P)"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Scores"
+msgstr "점수(_S)"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Help"
+msgstr "도움말(_H)"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_About"
+msgstr "정보(_A)"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Quit"
+msgstr "끝내기(_Q)"
+
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1031
+msgid "Nibbles"
+msgstr "니블즈"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
+msgid "_New Game"
+msgstr "새 게임(_N)"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
+msgid "_Pause"
+msgstr "일시 중지(_P)"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "시작합시다(_P)"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "벌레들이여, 환영합니다."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr ""
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "플레이어의 수"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "사람 플레이어의 수를 선택하세요."
+
+#: ../data/nibbles.ui.h:9
+msgid "Select the number of computer players."
+msgstr "AI 플레이어의 수를 선택하세요."
+
+#: ../data/nibbles.ui.h:10
+msgid "_Next"
+msgstr "다음(_N)"
+
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "제어"
+
+#: ../data/nibbles.ui.h:12
+msgid "_Start"
+msgstr "시작(_ S)"
+
+#: ../data/nibbles.ui.h:13
+msgid "Paused"
+msgstr "일시 중지(_P)"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "그놈 니블즈"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "벌레를 조종해 미로를 통과합니다"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -54,7 +132,7 @@ msgstr ""
 "있으니 주의하십시오. 적 벌레가 너무 길어지면 움직일 공간이 없어질 수도 있습니"
 "다."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -63,7 +141,7 @@ msgstr ""
 "난이도에 따라 26개의 맵을 진행합니다. 앞쪽 단계에서는 벽만 있지만, 나중에는 "
 "까다로운 공간과 순간 이동 따위로 더 재미있어집니다."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -71,82 +149,49 @@ msgstr ""
 "다른 다섯 마리 벌레를 상대로 플레이하거나, 키보드를 나눠 써 친구와 플레이합니"
 "다."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
-#: ../src/main.c:704
-msgid "Nibbles"
-msgstr "니블즈"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "game;게임;snake;스네이크;board;보드;"
 
-#: ../data/nibbles-menus.ui.h:1
-msgid "_New Game"
-msgstr "새 게임(_N)"
-
-#: ../data/nibbles-menus.ui.h:2
-msgid "_Pause"
-msgstr "일시 중지(_P)"
-
-#: ../data/nibbles-menus.ui.h:3
-msgid "_Preferences"
-msgstr "기본 설정(_P)"
-
-#: ../data/nibbles-menus.ui.h:4
-msgid "_Scores"
-msgstr "점수(_S)"
-
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Help"
-msgstr "도움말(_H)"
-
-#: ../data/nibbles-menus.ui.h:6
-msgid "_About"
-msgstr "정보(_A)"
-
-#: ../data/nibbles-menus.ui.h:7
-msgid "_Quit"
-msgstr "끝내기(_Q)"
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "사람 플레이어의 수"
+msgid "Width of the window in pixels"
+msgstr "창 너비(픽셀)"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "사람 플레이어의 수."
+msgid "Width of the window in pixels."
+msgstr "창 너비(픽셀)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "AI 플레이어의 수"
+msgid "Height of the window in pixels"
+msgstr "창 높이(픽셀)"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "AI 플레이어의 수."
+msgid "Height of the window in pixels."
+msgstr "창 높이(픽셀)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "게임 속도"
+msgid "true if the window is maximized"
+msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "게임 속도(1=빨리, 4=느리게)."
+msgid "true if the window is maximized."
+msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "가짜 보너스 사용"
+msgid "Is this the first run"
+msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "가짜 보너스 사용."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "임의의 순서로 각 단계를 플레이"
+msgid "Size of game tiles"
+msgstr "게임 타일의 크기"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "임의의 순서로 각 단계를 플레이."
+msgid "Size of game tiles."
+msgstr "게임 타일의 크기."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -157,314 +202,421 @@ msgid "Game level to start on."
 msgstr "시작할 게임 단계."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "벌레 움직임 속도"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "벌레 움직임 속도"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "사운드 사용"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "사운드 사용."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "게임 타일의 크기"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "게임 타일의 크기."
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "가짜 보너스 사용"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "가짜 보너스 사용."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "사람 플레이어의 수"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "사람 플레이어의 수."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "AI 플레이어의 수"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "AI 플레이어의 수."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "벌레에 사용할 색"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "벌레에 사용할 색."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "상대적인 움직임"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "상대적인 움직임(즉, 왼쪽과 오른쪽만 사용 가능)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "위로 옮기기"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "위로 이동할 때 사용할 키."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "아래로 옮기기"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "아래로 이동할 때 사용할 키."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "왼쪽으로 이동"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "왼쪽으로 이동할 때 사용할 키."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "오른쪽으로 이동"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "오른쪽으로 이동할 때 사용할 키."
 
-#: ../src/board.c:250
-#, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"니블즈에서 레벨 파일을 읽어들일 수 없습니다:\n"
-"%s\n"
-"\n"
-"니블즈를 제대로 설치했는지 확인하십시오"
-
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"레벨 파일이 손상된 것 같습니다:\n"
-"%s\n"
-"\n"
-"니블즈를 제대로 설치했는지 확인하십시오"
-
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "선택한 바로 가기는 이미 할당되었습니다."
-
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "알 수 없는 명령"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "시간"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "점수"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$d분 %2$d초"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "시각"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "닫기(_C)"
-
-#: ../src/gnibbles.c:82
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"니블즈에서 픽스맵 파일을 찾을 수 없습니다:\n"
-"%s\n"
-"\n"
-"니블즈를 제대로 설치했는지 확인하십시오"
-
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "니블즈 점수"
-
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "속도:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "축하합니다!"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "최고 점수입니다!"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "점수가 10위 안에 들었습니다."
-
-#: ../src/main.c:62
-msgctxt "game speed"
-msgid "Beginner"
-msgstr "초보자"
-
-#: ../src/main.c:63
-msgctxt "game speed"
-msgid "Slow"
-msgstr "느리게"
-
-#: ../src/main.c:64
-msgctxt "game speed"
-msgid "Medium"
-msgstr "중간"
-
-#: ../src/main.c:65
-msgctxt "game speed"
-msgid "Fast"
-msgstr "빠르게"
-
-#: ../src/main.c:66
-msgctxt "game speed"
-msgid "Beginner with Fakes"
-msgstr "초보자(속임수 사용)"
-
-#: ../src/main.c:67
-msgctxt "game speed"
-msgid "Slow with Fakes"
-msgstr "느리게(속임수 사용)"
-
-#: ../src/main.c:68
-msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr "중간(속임수 사용)"
-
-#: ../src/main.c:69
-msgctxt "game speed"
-msgid "Fast with Fakes"
-msgstr "빠르게(속임수 사용)"
-
-#: ../src/main.c:257
-msgid "A worm game for GNOME"
-msgstr "그놈 벌레 게임"
-
-#: ../src/main.c:260
-msgid "translator-credits"
-msgstr "류창우 <cwryu@debian.org>"
-
-#: ../src/preferences.c:225
-msgid "Preferences"
-msgstr "기본 설정"
-
-#: ../src/preferences.c:238
-msgid "Game"
-msgstr "게임"
-
-#. Speed
-#: ../src/preferences.c:254
-msgid "Speed"
-msgstr "속도"
-
-#: ../src/preferences.c:259
-msgid "Nibbles newbie"
-msgstr "니블즈 초보"
-
-#: ../src/preferences.c:269
-msgid "My second day"
-msgstr "두 번째 날"
-
-#: ../src/preferences.c:279
-msgid "Not too shabby"
-msgstr "너무 시시하지 않게"
-
-#: ../src/preferences.c:289
-msgid "Finger-twitching good"
-msgstr "기도나 하는 게 좋을 걸"
-
-#: ../src/preferences.c:303 ../src/preferences.c:426
-msgid "Options"
-msgstr "옵션"
-
-#: ../src/preferences.c:310
-msgid "_Play levels in random order"
-msgstr "임의의 순서로 각 단계를 플레이(_P)"
-
-#: ../src/preferences.c:318
-msgid "_Enable fake bonuses"
-msgstr "가짜 보너스 사용(_E)"
-
-#: ../src/preferences.c:326
-msgid "E_nable sounds"
-msgstr "사운드 사용(_N)"
-
-#: ../src/preferences.c:339
-msgid "_Starting level:"
-msgstr "시작 단계(_S):"
-
-#: ../src/preferences.c:364
-msgid "Number of _human players:"
-msgstr "사람 플레이어의 수(_H):"
-
-#: ../src/preferences.c:381
-msgid "Number of _AI players:"
-msgstr "AI 플레이어의 수(_A):"
-
-#: ../src/preferences.c:402
+#: ../data/player-score-box.ui.h:1
 msgid "Worm"
 msgstr "벌레"
 
-#: ../src/preferences.c:411
-msgid "Keyboard Options"
-msgstr "키보드 옵션"
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "기본 설정"
 
-#: ../src/preferences.c:431
-msgid "_Use relative movement"
-msgstr "상대적인 움직임(_U)"
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "속도"
 
-#: ../src/preferences.c:438
-msgid "_Worm color:"
-msgstr "벌레 색(_W):"
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "초보자"
 
-#: ../src/preferences.c:444
-msgid "Red"
-msgstr "빨강"
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "느리게"
 
-#: ../src/preferences.c:445
-msgid "Green"
-msgstr "녹색"
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "중간"
 
-#: ../src/preferences.c:446
-msgid "Blue"
-msgstr "파랑"
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "빠르게"
 
-#: ../src/preferences.c:447
-msgid "Yellow"
-msgstr "노랑"
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "옵션"
 
-#: ../src/preferences.c:448
-msgid "Cyan"
-msgstr "청록"
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "사운드 사용(_N)"
 
-#: ../src/preferences.c:449
-msgid "Purple"
-msgstr "자주색"
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "가짜 보너스 사용(_E)"
 
-#: ../src/preferences.c:450
-msgid "Gray"
-msgstr "회색"
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "일반(_G)"
 
-#: ../src/scoreboard.c:48
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "벌레 색"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "벌레 1(_1)"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "벌레 2(_2)"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "벌레 3(_3)"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "벌레 4(_4)"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:102
+msgid "Show release version"
+msgstr "릴리즈 버전 보이기"
+
+#: ../src/gnome-nibbles.vala:419
+msgid "Are you sure you want to start a new game?"
+msgstr "게임을 새로 시작하시겠습니까?"
+
+#: ../src/gnome-nibbles.vala:420
+msgid "If you start a new game, the current one will be lost."
+msgstr "게임을 새로 시작하시면, 현제 게임은 사라집니다."
+
+#: ../src/gnome-nibbles.vala:451
+msgid "_Resume"
+msgstr "이어서 하기(_R)"
+
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
-msgid "Worm %d:"
-msgstr "벌레 %d:"
+msgid "Level %d"
+msgstr "%d 단계"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:749
+msgid "Beginner"
+msgstr "초보자"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:751
+msgid "Slow"
+msgstr "느리게"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:753
+msgid "Medium"
+msgstr "중간"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:755
+msgid "Fast"
+msgstr "빠르게"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:757
+msgid "Beginner with Fakes"
+msgstr "초보자(속임수 사용)"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:759
+msgid "Slow with Fakes"
+msgstr "느리게(속임수 사용)"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:761
+msgid "Medium with Fakes"
+msgstr "중간(속임수 사용)"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
+msgid "Fast with Fakes"
+msgstr "빠르게(속임수 사용)"
+
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:768
+msgid "Difficulty Level:"
+msgstr "난이도:"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:869
+#, c-format
+msgid "Level %d Completed!"
+msgstr "%d 단계를 완료하셨습니다!"
+
+#: ../src/gnome-nibbles.vala:876
+msgid "_Next Level"
+msgstr "다음 단계(_N)"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Congratulations!"
+msgstr "축하합니다!"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Game Over!"
+msgstr "게임 오버!"
+
+#: ../src/gnome-nibbles.vala:947
+msgid "You have completed the game."
+msgstr "게임을 완료하셨습니다."
+
+#: ../src/gnome-nibbles.vala:954
+#, c-format
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d 포인트"
+
+#: ../src/gnome-nibbles.vala:963
+#, c-format
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(리더보드에 등재되려면, %d 포인트가 더 있으면 됩니다)"
+
+#: ../src/gnome-nibbles.vala:969
+msgid "_Play Again"
+msgstr "다시 하기(_P)"
+
+#: ../src/gnome-nibbles.vala:1034
+msgid "A worm game for GNOME"
+msgstr "그놈 벌레 게임"
+
+#: ../src/gnome-nibbles.vala:1043
+msgid "translator-credits"
+msgstr ""
+"류창우 <cwryu@debian.org>\n"
+"한영빈 <sukso96100@gmail.com>"
+
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#, c-format
+msgid "Player %d"
+msgstr "플레이어 %d"
+
+#: ../src/preferences-dialog.vala:140
+msgid "Action"
+msgstr "액션"
+
+#: ../src/preferences-dialog.vala:147
+msgid "Key"
+msgstr "키"
+
+#: ../src/preferences-dialog.vala:230
+msgid "The key you selected is already assigned!"
+msgstr "선택한 키는 이미 할당되었습니다."
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "게임 속도(1=빨리, 4=느리게)."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "임의의 순서로 각 단계를 플레이"
+
+#~ msgid "Play levels in random order."
+#~ msgstr "임의의 순서로 각 단계를 플레이."
+
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "니블즈에서 레벨 파일을 읽어들일 수 없습니다:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "니블즈를 제대로 설치했는지 확인하십시오"
+
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "레벨 파일이 손상된 것 같습니다:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "니블즈를 제대로 설치했는지 확인하십시오"
+
+#~ msgid "Unknown Command"
+#~ msgstr "알 수 없는 명령"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "시간"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "점수"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%1$d분 %2$d초"
+
+#~ msgid "Date"
+#~ msgstr "시각"
+
+#~ msgid "_Close"
+#~ msgstr "닫기(_C)"
+
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "니블즈에서 픽스맵 파일을 찾을 수 없습니다:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "니블즈를 제대로 설치했는지 확인하십시오"
+
+#~ msgid "Nibbles Scores"
+#~ msgstr "니블즈 점수"
+
+#~ msgid "Speed:"
+#~ msgstr "속도:"
+
+#~ msgid "Your score is the best!"
+#~ msgstr "최고 점수입니다!"
+
+#~ msgid "Your score has made the top ten."
+#~ msgstr "점수가 10위 안에 들었습니다."
+
+#~ msgid "Game"
+#~ msgstr "게임"
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "니블즈 초보"
+
+#~ msgid "My second day"
+#~ msgstr "두 번째 날"
+
+#~ msgid "Not too shabby"
+#~ msgstr "너무 시시하지 않게"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "기도나 하는 게 좋을 걸"
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "임의의 순서로 각 단계를 플레이(_P)"
+
+#~ msgid "_Starting level:"
+#~ msgstr "시작 단계(_S):"
+
+#~ msgid "Number of _human players:"
+#~ msgstr "사람 플레이어의 수(_H):"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "AI 플레이어의 수(_A):"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "키보드 옵션"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "상대적인 움직임(_U)"
+
+#~ msgid "Red"
+#~ msgstr "빨강"
+
+#~ msgid "Green"
+#~ msgstr "녹색"
+
+#~ msgid "Blue"
+#~ msgstr "파랑"
+
+#~ msgid "Yellow"
+#~ msgstr "노랑"
+
+#~ msgid "Cyan"
+#~ msgstr "청록"
+
+#~ msgid "Purple"
+#~ msgstr "자주색"
+
+#~ msgid "Gray"
+#~ msgstr "회색"
+
+#~ msgid "Worm %d:"
+#~ msgstr "벌레 %d:"
