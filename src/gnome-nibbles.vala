@@ -1071,7 +1071,10 @@ private class Scoreboard : Gtk.Box
         var color = Pango.Color ();
         color.parse (color_name);
 
-        var box = new PlayerScoreBox (@"Worm $(worm.id + 1)", color, worm.score, worm.lives, life_pixbuf);
+        /* FIXME: Consider changing this to "Worm %d"
+         * It's set to "Player %d" for now to avoid a string change for 3.20.
+         */
+        var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf);
         boxes.set (box, worm);
         add (box);
     }
