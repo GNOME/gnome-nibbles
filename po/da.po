@@ -1,5 +1,5 @@
 # Danish translation of gnome-games.
-# Copyright (C) 1998-2015 Free Software Foundation, Inc.
+# Copyright (C) 1998-2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 # Anders Wegge Jakobsen <wegge@wegge.dk>, 1998.
 # Kenneth Christiansen <kenneth@ripen.dk>, 1998-2001
@@ -7,37 +7,120 @@
 # Ole Laursen <olau@hardworking.dk>, 2001, 02, 03, 04.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2004, 05.
 # flemming christensen <fc@stromata.dk>, 2011.
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007-2015.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007-2016.
+# scootergrisen, 2016.
 #
 # Konventioner:
 #
-#   Gnibbles, Nibbles -> Orme
+#    Gnibbles, Nibbles -> Orme
 #
 # Husk at tilføje dig i credit-listen (besked id "translator-credits")
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-15 16:10+0100\n"
-"PO-Revision-Date: 2015-03-15 15:58+0100\n"
+"POT-Creation-Date: 2016-03-19 03:55+0100\n"
+"PO-Revision-Date: 2016-03-19 03:54+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "Spiller"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Indstillinger"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Scores"
+msgstr "_Resultater"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Help"
+msgstr "_Hjælp"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_About"
+msgstr "_Om"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Quit"
+msgstr "_Afslut"
+
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1031
+msgid "Nibbles"
+msgstr "Orme"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
+msgid "_New Game"
+msgstr "_Nyt spil"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
+msgid "_Pause"
+msgstr "_Pause"
+
+# Lidt kedelig, indrømmet.  En mere direkte oversættelse virker dog ikke helt så naturlig, synes jeg.
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "_Spil"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Velkommen, orme."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr "Spis godbidderne før de andre orme, men uden at ramme noget."
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "Antal spillere"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "Vælg antal menneskespillere."
+
+#: ../data/nibbles.ui.h:9
+#, fuzzy
+msgid "Select the number of computer players."
+msgstr "Vælg kontrolstilen"
+
+#: ../data/nibbles.ui.h:10
+msgid "_Next"
+msgstr "_Næste"
+
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "Styreenheder"
+
+#: ../data/nibbles.ui.h:12
+msgid "_Start"
+msgstr "_Start"
+
+#: ../data/nibbles.ui.h:13
+msgid "Paused"
+msgstr "Pause"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "GNOME Orme"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Styr en orm rundt i en labyrint"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -52,7 +135,7 @@ msgstr ""
 "vær forsigtig: Hvis de bliver for store, vil du ikke have meget plads at "
 "bevæge dig på."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -62,7 +145,7 @@ msgstr ""
 "er mest åbne med nogle få mure, men senere vil der være klaustrofobiske "
 "nicher og teleporteringsenheder, som gør tingene mere interessante."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -70,82 +153,51 @@ msgstr ""
 "Spil alene mod op til fem fjendtlige orme, eller del dit tastatur for at "
 "spille med en ven."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
-#: ../src/main.c:704
-msgid "Nibbles"
-msgstr "Orme"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "spil;slanger;orme;orm;bræt;"
 
-#: ../data/nibbles-menus.ui.h:1
-msgid "_New Game"
-msgstr "_Nyt spil"
-
-#: ../data/nibbles-menus.ui.h:2
-msgid "_Pause"
-msgstr "_Pause"
-
-#: ../data/nibbles-menus.ui.h:3
-msgid "_Preferences"
-msgstr "_Indstillinger"
-
-#: ../data/nibbles-menus.ui.h:4
-msgid "_Scores"
-msgstr "_Resultater"
-
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Help"
-msgstr "_Hjælp"
-
-#: ../data/nibbles-menus.ui.h:6
-msgid "_About"
-msgstr "_Om"
-
-#: ../data/nibbles-menus.ui.h:7
-msgid "_Quit"
-msgstr "_Afslut"
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Antal menneskelige spillere"
+msgid "Width of the window in pixels"
+msgstr "Bredden af vinduet i billedpunkter"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Antal menneskelige spillere."
+msgid "Width of the window in pixels."
+msgstr "Bredden af vinduet i billedpunkter."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "Antal computerstyrede spillere"
+msgid "Height of the window in pixels"
+msgstr "Højden af vinduet i billedpunkter"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "Antal computerstyrede spillere."
+msgid "Height of the window in pixels."
+msgstr "Højden af vinduet i billedpunkter."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Spilhastighed"
+msgid "true if the window is maximized"
+msgstr "sand hvis vinduet er maksimeret"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Spilhastighed (1 = hurtig, 4 = langsom)."
+msgid "true if the window is maximized."
+msgstr "sand hvis vinduet er maksimeret."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Aktivér falske bonuser"
+msgid "Is this the first run"
+msgstr "Er dette første start"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Aktivér falske bonuser."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
+"Indstilling til at bestemme om dialogen med fif til første kørsel skal vises "
+"eller ej."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Spil baner i tilfældig rækkefølge"
+msgid "Size of game tiles"
+msgstr "Størrelse af spilfliser"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Spil baner i tilfældig rækkefølge."
+msgid "Size of game tiles."
+msgstr "Størrelse af spilfliser."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -156,209 +208,280 @@ msgid "Game level to start on."
 msgstr "Spilbane der startes på."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Ormenes hastighed"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Ormenes hastighed."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Aktivér lyde"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Aktivér lyde."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "Størrelse af spilfliser"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Størrelse af spilfliser."
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Aktivér falske bonuser"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Aktivér falske bonuser."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Antal menneskelige spillere"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "Antal menneskelige spillere."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "Antal computerstyrede spillere"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "Antal computerstyrede spillere."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "Farve der skal bruges til orm"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "Farve der skal bruges til orm."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Benyt relativ bevægelse"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Benyt relativ bevægelse (dvs. til venstre eller højre kun)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Flyt op"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Tast til at bevæge orm opad."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Flyt ned"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Tast til at bevæge orm nedad."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Træk til venstre"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Tast til at bevæge orm til venstre."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Træk til højre"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Tast til at bevæge orm til højre."
 
-#: ../src/board.c:250
+#: ../data/player-score-box.ui.h:1
+msgid "Worm"
+msgstr "Orm"
+
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Indstillinger"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Hastighed"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "_Begynder"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "_Langsom"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "_Mellem"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "_Hurtig"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Indstillinger"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "A_ktivér lyde"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "_Aktivér falske bonuser"
+
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "_Generelt"
+
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "Ormens farve"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "Orm _1"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "Orm _2"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "Orm _3"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "Orm _4"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:102
+msgid "Show release version"
+msgstr "Vis udgivelsesversion"
+
+#: ../src/gnome-nibbles.vala:419
+msgid "Are you sure you want to start a new game?"
+msgstr "Er du sikker på, at du starte et nyt spil?"
+
+#: ../src/gnome-nibbles.vala:420
+msgid "If you start a new game, the current one will be lost."
+msgstr "Hvis du starter et nyt spil, vil det nuværende gå tabt."
+
+#: ../src/gnome-nibbles.vala:451
+msgid "_Resume"
+msgstr "_Fortsæt"
+
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Orme kunne ikke indlæse banefilen:\n"
-"%s\n"
-"\n"
-"Kontrollér venligst installationen af Orme"
+msgid "Level %d"
+msgstr "Bane %d"
 
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Banefilen synes at være beskadiget:\n"
-"%s\n"
-"\n"
-"Kontrollér venligst installationen af Orme"
-
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "Genvejstasten, du valgte, er allerede tildelt."
-
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Ukendt kommando"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Tid"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Resultat"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$dm %2$ds"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Dato"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Luk"
-
-#: ../src/gnibbles.c:82
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Orme kunne ikke finde pixmap-fil:\n"
-"%s\n"
-"\n"
-"Kontrollér venligst installationen af Orme"
-
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "Resultater for Orme"
-
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Hastighed:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Tillykke!"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "Du har opnået det bedste resultat!"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "Dit resultat kom på top ti."
-
-#: ../src/main.c:62
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:749
+#, fuzzy
 msgid "Beginner"
 msgstr "Begynder"
 
-#: ../src/main.c:63
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:751
+#, fuzzy
 msgid "Slow"
 msgstr "Langsom"
 
-#: ../src/main.c:64
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:753
 msgid "Medium"
 msgstr "Mellem"
 
-#: ../src/main.c:65
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:755
+#, fuzzy
 msgid "Fast"
 msgstr "Hurtig"
 
-#: ../src/main.c:66
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:757
+#, fuzzy
 msgid "Beginner with Fakes"
 msgstr "Begynder med forfalskninger"
 
-#: ../src/main.c:67
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:759
+#, fuzzy
 msgid "Slow with Fakes"
 msgstr "Langsom med forfalskninger"
 
-#: ../src/main.c:68
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:761
+#, fuzzy
 msgid "Medium with Fakes"
 msgstr "Mellem med forfalskninger"
 
-#: ../src/main.c:69
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
+#, fuzzy
 msgid "Fast with Fakes"
 msgstr "Hurtig med forfalskninger"
 
-#: ../src/main.c:257
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:768
+msgid "Difficulty Level:"
+msgstr "Sværhedsgrad:"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:869
+#, c-format
+msgid "Level %d Completed!"
+msgstr "Bane %d fuldført!"
+
+#: ../src/gnome-nibbles.vala:876
+msgid "_Next Level"
+msgstr "_Næste niveau"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Congratulations!"
+msgstr "Tillykke!"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Game Over!"
+msgstr "Spillet er slut!"
+
+#: ../src/gnome-nibbles.vala:947
+#, fuzzy
+msgid "You have completed the game."
+msgstr "Du har forladt bordet."
+
+#: ../src/gnome-nibbles.vala:954
+#, c-format
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d point"
+msgstr[1] "%d point"
+
+#: ../src/gnome-nibbles.vala:963
+#, c-format
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(%d flere point for at komme på førertavlen)"
+
+# Dette må være ok for at undgå Spil spil
+#: ../src/gnome-nibbles.vala:969
+msgid "_Play Again"
+msgstr "_Spil igen"
+
+#: ../src/gnome-nibbles.vala:1034
 msgid "A worm game for GNOME"
 msgstr "Et ormespil til GNOME"
 
-#: ../src/main.c:260
+#: ../src/gnome-nibbles.vala:1043
 msgid "translator-credits"
 msgstr ""
 "Anders Wegge Jakobsen\n"
@@ -367,115 +490,167 @@ msgstr ""
 "Martin Willemoes Hansen\n"
 "Ole Laursen\n"
 "Ask Hjorth Larsen\n"
+"scootergrisen\n"
 "\n"
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
-#: ../src/preferences.c:225
-msgid "Preferences"
-msgstr "Indstillinger"
-
-#: ../src/preferences.c:238
-msgid "Game"
-msgstr "Spil"
-
-#. Speed
-#: ../src/preferences.c:254
-msgid "Speed"
-msgstr "Hastighed"
-
-#: ../src/preferences.c:259
-msgid "Nibbles newbie"
-msgstr "Nybegynder"
-
-#: ../src/preferences.c:269
-msgid "My second day"
-msgstr "Min anden dag"
-
-#: ../src/preferences.c:279
-msgid "Not too shabby"
-msgstr "Ikke så dårligt"
-
-#: ../src/preferences.c:289
-msgid "Finger-twitching good"
-msgstr "Fingervridende god"
-
-#: ../src/preferences.c:303 ../src/preferences.c:426
-msgid "Options"
-msgstr "Indstillinger"
-
-#: ../src/preferences.c:310
-msgid "_Play levels in random order"
-msgstr "_Spil baner i tilfældig rækkefølge"
-
-#: ../src/preferences.c:318
-msgid "_Enable fake bonuses"
-msgstr "_Aktivér falske bonuser"
-
-#: ../src/preferences.c:326
-msgid "E_nable sounds"
-msgstr "A_ktivér lyde"
-
-#: ../src/preferences.c:339
-msgid "_Starting level:"
-msgstr "_Startbane:"
-
-#: ../src/preferences.c:364
-msgid "Number of _human players:"
-msgstr "Antal _menneskelige spillere:"
-
-#: ../src/preferences.c:381
-msgid "Number of _AI players:"
-msgstr "Antal _computerstyrede spillere:"
-
-#: ../src/preferences.c:402
-msgid "Worm"
-msgstr "Orm"
-
-#: ../src/preferences.c:411
-msgid "Keyboard Options"
-msgstr "Tastaturindstillinger"
-
-#: ../src/preferences.c:431
-msgid "_Use relative movement"
-msgstr "_Benyt relativ bevægelse"
-
-#: ../src/preferences.c:438
-msgid "_Worm color:"
-msgstr "_Ormefarve:"
-
-#: ../src/preferences.c:444
-msgid "Red"
-msgstr "Rød"
-
-#: ../src/preferences.c:445
-msgid "Green"
-msgstr "Grøn"
-
-#: ../src/preferences.c:446
-msgid "Blue"
-msgstr "Blå"
-
-#: ../src/preferences.c:447
-msgid "Yellow"
-msgstr "Gul"
-
-#: ../src/preferences.c:448
-msgid "Cyan"
-msgstr "Cyan"
-
-#: ../src/preferences.c:449
-msgid "Purple"
-msgstr "Lilla"
-
-#: ../src/preferences.c:450
-msgid "Gray"
-msgstr "Grå"
-
-#: ../src/scoreboard.c:48
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:583
 #, c-format
-msgid "Worm %d:"
-msgstr "Orm %d:"
+msgid "Player %d"
+msgstr "Spiller %d"
+
+#: ../src/preferences-dialog.vala:140
+msgid "Action"
+msgstr "Handling"
+
+#: ../src/preferences-dialog.vala:147
+msgid "Key"
+msgstr "Tast"
+
+#: ../src/preferences-dialog.vala:230
+msgid "The key you selected is already assigned!"
+msgstr "Den valgte genvejstast er allerede blevet tildelt."
+
+#~ msgid "Game speed"
+#~ msgstr "Spilhastighed"
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "Spilhastighed (1 = hurtig, 4 = langsom)."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "Spil baner i tilfældig rækkefølge"
+
+#~ msgid "Play levels in random order."
+#~ msgstr "Spil baner i tilfældig rækkefølge."
+
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Orme kunne ikke indlæse banefilen:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Kontrollér venligst installationen af Orme"
+
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Banefilen synes at være beskadiget:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Kontrollér venligst installationen af Orme"
+
+#~ msgid "Unknown Command"
+#~ msgstr "Ukendt kommando"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "Tid"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "Resultat"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%1$dm %2$ds"
+
+#~ msgid "Date"
+#~ msgstr "Dato"
+
+#~ msgid "_Close"
+#~ msgstr "_Luk"
+
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Orme kunne ikke finde pixmap-fil:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Kontrollér venligst installationen af Orme"
+
+#~ msgid "Nibbles Scores"
+#~ msgstr "Resultater for Orme"
+
+#~ msgid "Speed:"
+#~ msgstr "Hastighed:"
+
+#~ msgid "Your score is the best!"
+#~ msgstr "Du har opnået det bedste resultat!"
+
+#~ msgid "Your score has made the top ten."
+#~ msgstr "Dit resultat kom på top ti."
+
+#~ msgctxt "game speed"
+#~ msgid "Medium"
+#~ msgstr "Mellem"
+
+#~ msgid "Game"
+#~ msgstr "Spil"
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "Nybegynder"
+
+#~ msgid "My second day"
+#~ msgstr "Min anden dag"
+
+#~ msgid "Not too shabby"
+#~ msgstr "Ikke så dårligt"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "Fingervridende god"
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "_Spil baner i tilfældig rækkefølge"
+
+#~ msgid "_Starting level:"
+#~ msgstr "_Startbane:"
+
+#~ msgid "Number of _human players:"
+#~ msgstr "Antal _menneskelige spillere:"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "Antal _computerstyrede spillere:"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "Tastaturindstillinger"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "_Benyt relativ bevægelse"
+
+#~ msgid "Red"
+#~ msgstr "Rød"
+
+#~ msgid "Green"
+#~ msgstr "Grøn"
+
+#~ msgid "Blue"
+#~ msgstr "Blå"
+
+#~ msgid "Yellow"
+#~ msgstr "Gul"
+
+#~ msgid "Cyan"
+#~ msgstr "Cyan"
+
+#~ msgid "Purple"
+#~ msgstr "Lilla"
+
+#~ msgid "Gray"
+#~ msgstr "Grå"
+
+#~ msgid "Worm %d:"
+#~ msgstr "Orm %d:"
 
 #~ msgid ""
 #~ "A worm game for GNOME\n"
@@ -568,9 +743,6 @@ msgstr "Orm %d:"
 
 #~ msgid "_Redo Move"
 #~ msgstr "_Omgør træk"
-
-#~ msgid "_Reset"
-#~ msgstr "_Nulstil"
 
 #~ msgid "_Restart"
 #~ msgstr "_Genstart"
@@ -1231,9 +1403,6 @@ msgstr "Orm %d:"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Kunne ikke åbne spillet: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Vis udgivelsesversion"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FIL] - Spil Skak"
 
@@ -1267,14 +1436,8 @@ msgstr "Orm %d:"
 #~ msgid "_Small"
 #~ msgstr "_Lille"
 
-#~ msgid "_Medium"
-#~ msgstr "_Mellem"
-
 #~ msgid "_Large"
 #~ msgstr "_Stor"
-
-#~ msgid "General"
-#~ msgstr "General"
 
 #~ msgid "_Use fast moves"
 #~ msgstr "_Benyt hurtige træk"
@@ -1284,9 +1447,6 @@ msgstr "Orm %d:"
 
 #~ msgid "Scores"
 #~ msgstr "Resultater"
-
-#~ msgid "Next:"
-#~ msgstr "Næste:"
 
 #~ msgid "0"
 #~ msgstr "0"
@@ -1340,15 +1500,6 @@ msgstr "Orm %d:"
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Spilforhåndsvisning fra sidste gemte session."
 
-#~ msgid "Width of the window in pixels"
-#~ msgstr "Bredden af vinduet i billedpunkter"
-
-#~ msgid "Height of the window in pixels"
-#~ msgstr "Højden af vinduet i billedpunkter"
-
-#~ msgid "true if the window is maximized"
-#~ msgstr "sand hvis vinduet er maksimeret"
-
 #~ msgid "true if the window is fullscren"
 #~ msgstr "sand hvis vinduet er i fuldskærmstilstand"
 
@@ -1397,9 +1548,6 @@ msgstr "Orm %d:"
 
 #~ msgid "_Board size:"
 #~ msgstr "_Brætstørrelse:"
-
-#~ msgid "Game Over!"
-#~ msgstr "Spillet er slut!"
 
 #~ msgid "You can't move there!"
 #~ msgstr "Kan ikke flytte dertil!"
@@ -1892,9 +2040,6 @@ msgstr "Orm %d:"
 #~ msgid "Safe Teleports:"
 #~ msgstr "Sikre teleporteringer:"
 
-#~ msgid "Level:"
-#~ msgstr "Bane:"
-
 #~ msgid "Remaining:"
 #~ msgstr "Tilbage:"
 
@@ -1935,9 +2080,6 @@ msgstr "Orm %d:"
 #~ msgctxt "mahjongg map name"
 #~ msgid "Difficult"
 #~ msgstr "Svært"
-
-#~ msgid "Paused"
-#~ msgstr "Pause"
 
 #~ msgid "Moves Left:"
 #~ msgstr "Tilbageværende træk:"
@@ -2093,9 +2235,6 @@ msgstr "Orm %d:"
 
 #~ msgid "Easy"
 #~ msgstr "Let"
-
-#~ msgid "Medium"
-#~ msgstr "Mellem"
 
 #~ msgid "Hard"
 #~ msgstr "Svær"
@@ -2410,10 +2549,6 @@ msgstr "Orm %d:"
 #~ msgid "_Number of mines:"
 #~ msgstr "_Antal miner:"
 
-# Dette må være ok for at undgå Spil spil
-#~ msgid "_Play Game"
-#~ msgstr "Start _spil"
-
 #~ msgid "<b>%d</b> mine"
 #~ msgid_plural "<b>%d</b> mines"
 #~ msgstr[0] "<b>%d</b> mine"
@@ -2430,12 +2565,6 @@ msgstr "Orm %d:"
 
 #~ msgid "Size:"
 #~ msgstr "Størrelse:"
-
-#~ msgid "Do you want to start a new game?"
-#~ msgstr "Vil du starte et nyt spil?"
-
-#~ msgid "If you start a new game, your current progress will be lost."
-#~ msgstr "Hvis du starter et nyt spil, vil dine nuværende fremskridt gå tabt."
 
 #~ msgid "Keep Current Game"
 #~ msgstr "Behold det aktuelle spil"
@@ -2856,9 +2985,6 @@ msgstr "Orm %d:"
 #~ msgid "Human Players"
 #~ msgstr "Menneskespillere"
 
-#~ msgid "_Number of players:"
-#~ msgstr "_Antal spillere:"
-
 #~ msgid "Computer Opponents"
 #~ msgstr "Computermodstandere"
 
@@ -3170,9 +3296,6 @@ msgstr "Orm %d:"
 #~ msgid "Show _where the block will land"
 #~ msgstr "Vis _hvor klodsen vil lande"
 
-#~ msgid "Controls"
-#~ msgstr "Styreenheder"
-
 #~ msgid "Theme"
 #~ msgstr "Tema"
 
@@ -3243,11 +3366,6 @@ msgstr "Orm %d:"
 #~ msgid "Clear the screen by removing groups of colored and shaped tiles"
 #~ msgstr ""
 #~ "Ryd skærmen ved at fjerne grupper af ensfarvede og ens udformede brikker"
-
-#~ msgid "%u point"
-#~ msgid_plural "%u points"
-#~ msgstr[0] "%u point"
-#~ msgstr[1] "%u point"
 
 #~ msgid "Small"
 #~ msgstr "Lille"
@@ -3646,9 +3764,6 @@ msgstr "Orm %d:"
 #~ msgid "_Click to Move"
 #~ msgstr "_Klik for at flytte"
 
-#~ msgid "Select the style of control"
-#~ msgstr "Vælg kontrolstilen"
-
 #~ msgid ""
 #~ "Select whether to drag the tiles or to click on the source then the "
 #~ "destination."
@@ -3667,9 +3782,6 @@ msgstr "Orm %d:"
 
 #~ msgid "_Use quick moves"
 #~ msgstr "_Benyt hurtige træk"
-
-#~ msgid "Animation"
-#~ msgstr "Animation"
 
 #~ msgid "None"
 #~ msgstr "Ingen"
@@ -5510,9 +5622,6 @@ msgstr "Orm %d:"
 #~ msgid "_Game name:"
 #~ msgstr "Spil_navn:"
 
-#~ msgid "_Start"
-#~ msgstr "_Start"
-
 #~ msgid "_White:"
 #~ msgstr "_Hvid:"
 
@@ -5682,9 +5791,6 @@ msgstr "Orm %d:"
 
 #~ msgid "Seat"
 #~ msgstr "Sæde"
-
-#~ msgid "Player"
-#~ msgstr "Spiller"
 
 #~ msgid "Spectator"
 #~ msgstr "Tilskuer"
@@ -6420,9 +6526,6 @@ msgstr "Orm %d:"
 
 #~ msgid "You have been booted from the table by %s."
 #~ msgstr "Du er blevet bortvist fra bordet af %s."
-
-#~ msgid "You have left the table."
-#~ msgstr "Du har forladt bordet."
 
 #~ msgid "There was an error with the game server."
 #~ msgstr "Der opstod en fejl med spilserveren."
@@ -7797,9 +7900,6 @@ msgstr "Orm %d:"
 #~ msgid "Choose the _level of difficulty for your new game."
 #~ msgstr "Vælg _sværhedsgrad for det nye spil."
 
-#~ msgid "_Play"
-#~ msgstr "_Spil"
-
 #~ msgid "Choose _game"
 #~ msgstr "Vælg _spil"
 
@@ -7829,9 +7929,6 @@ msgstr "Orm %d:"
 
 #~ msgid "Number of trial-and-errors necessary to solve: "
 #~ msgstr "Antal gæt nødvendige til løsning: "
-
-#~ msgid "Difficulty value: "
-#~ msgstr "Sværhedsgrad: "
 
 #~ msgid "Difficulty"
 #~ msgstr "Sværhedsgrad"
@@ -8201,12 +8298,6 @@ msgstr "Orm %d:"
 
 #~ msgid "Bad Move"
 #~ msgstr "Dårligt træk"
-
-#~ msgid "Level Complete"
-#~ msgstr "Bane fuldført"
-
-#~ msgid "Player Dead"
-#~ msgstr "Spiller død"
 
 #~ msgid "Player Teleport"
 #~ msgstr "Spillerteleportering"
