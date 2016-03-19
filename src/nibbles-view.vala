@@ -153,12 +153,12 @@ public class NibblesView : GtkClutter.Embed
     public const int NUM_COLORS = 6;
     public static string[] color_lookup =
     {
-      "red",
-      "green",
-      "blue",
-      "yellow",
-      "cyan",
-      "purple"
+      N_("red"),
+      N_("green"),
+      N_("blue"),
+      N_("yellow"),
+      N_("cyan"),
+      N_("purple")
     };
 
     public NibblesView (NibblesGame game)
@@ -909,6 +909,6 @@ public class NibblesView : GtkClutter.Embed
 
     public static string colorval_name (int colorval)
     {
-        return color_lookup[colorval];
+        return _(color_lookup[colorval]);
     }
 }
