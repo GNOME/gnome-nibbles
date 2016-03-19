@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-10 08:11+0000\n"
-"PO-Revision-Date: 2015-03-10 21:38+0300\n"
+"POT-Creation-Date: 2016-03-18 21:33+0000\n"
+"PO-Revision-Date: 2016-03-19 11:38+0300\n"
 "Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -28,19 +28,98 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.6.9\n"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "Игрок"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_Preferences"
+msgstr "Па_раметры"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Scores"
+msgstr "Резу_льтаты"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Help"
+msgstr "_Справка"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_About"
+msgstr "О при_ложении"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Quit"
+msgstr "_Завершить"
+
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1031
+msgid "Nibbles"
+msgstr "Червячок"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
+msgid "_New Game"
+msgstr "_Новая игра"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
+msgid "_Pause"
+msgstr "_Пауза"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "Давайте сыграем!"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Добро пожаловать, червячки."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr ""
+"Съешьте лакомство быстрее остальных червячков, но ни во что не врезайтесь!"
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "Количество игроков"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "Выберите количество игроков-людей."
+
+#: ../data/nibbles.ui.h:9
+msgid "Select the number of computer players."
+msgstr "Выберите количество компьютерных игроков."
+
+#: ../data/nibbles.ui.h:10
+msgid "_Next"
+msgstr "_Далее"
+
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "Управление"
+
+#: ../data/nibbles.ui.h:12
+msgid "_Start"
+msgstr "_Начать"
+
+#: ../data/nibbles.ui.h:13
+msgid "Paused"
+msgstr "Приостановлено"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "Червячки GNOME"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Управляйте растущим прожорливым червячком в лабиринте"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -55,7 +134,7 @@ msgstr ""
 "охотятся за бонусами, будьте осторожны: если другие червячки станут слишком "
 "большими, у вас не будет достаточного пространства для передвижения."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -65,7 +144,7 @@ msgstr ""
 "уровни почти не имеют преград, но затем на уровнях начинают появляться "
 "стены. Узенькие лазейки и телепорты делают игру более интересной."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -73,82 +152,51 @@ msgstr ""
 "Сыграйте против других червячков (до 5 соперников) или поделитесь "
 "клавиатурой с другой."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
-#: ../src/main.c:704
-msgid "Nibbles"
-msgstr "Червячок"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "игра;змейка;настольная;"
 
-#: ../data/nibbles-menus.ui.h:1
-msgid "_New Game"
-msgstr "_Новая игра"
-
-#: ../data/nibbles-menus.ui.h:2
-msgid "_Pause"
-msgstr "_Пауза"
-
-#: ../data/nibbles-menus.ui.h:3
-msgid "_Preferences"
-msgstr "Па_раметры"
-
-#: ../data/nibbles-menus.ui.h:4
-msgid "_Scores"
-msgstr "Резу_льтаты"
-
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Help"
-msgstr "_Справка"
-
-#: ../data/nibbles-menus.ui.h:6
-msgid "_About"
-msgstr "О при_ложении"
-
-#: ../data/nibbles-menus.ui.h:7
-msgid "_Quit"
-msgstr "_Завершить"
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Число игроков"
+msgid "Width of the window in pixels"
+msgstr "Ширина окна в пикселах"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Число игроков."
+msgid "Width of the window in pixels."
+msgstr "Ширина окна в пикселах."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "Число компьютерных игроков"
+msgid "Height of the window in pixels"
+msgstr "Высота окна в пикселах"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "Число компьютерных игроков."
+msgid "Height of the window in pixels."
+msgstr "Высота окна в пикселах."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Скорость игры"
+msgid "true if the window is maximized"
+msgstr "Окно максимального размера"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Скорость игры (1=быстрая, 4=медленная)."
+msgid "true if the window is maximized."
+msgstr "Окно максимального размера."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Разрешить фальшивые бонусы"
+msgid "Is this the first run"
+msgstr "Первый запуск"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Разрешить фальшивые бонусы."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
+"Параметр, по которому определяется, нужно ли показывать диалоговое окно с "
+"подсказкой при первом запуске."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Случайно предлагать уровни"
+msgid "Size of game tiles"
+msgstr "Размер узора"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Случайно предлагать уровни."
+msgid "Size of game tiles."
+msgstr "Размер узора."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -159,319 +207,295 @@ msgid "Game level to start on."
 msgstr "Уровень начала игры."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Скорость движения червячков"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Скорость движения червячков."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Включить звуки"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Включить звуки."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "Размер узора"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Размер узора."
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Разрешить фальшивые бонусы"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Разрешить фальшивые бонусы."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Число игроков"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "Число игроков."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "Число компьютерных игроков"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "Число компьютерных игроков."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "Цвет червячка"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "Цвет червячка."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Использовать относительное перемещение"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Использовать относительное перемещение (т.е. только влево или вправо)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Двигаться вверх"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Кнопка для движения вверх."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Двигаться вниз"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Кнопка для движения вниз."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Влево"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Кнопка для движения влево."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Вправо"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Кнопка для движения вправо."
 
-#: ../src/board.c:250
+#: ../data/player-score-box.ui.h:1
+msgid "Worm"
+msgstr "Червячок"
+
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Параметры"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Скорость"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "Для _начинающих"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "_Медленно"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "_Обычно"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "_Быстро"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Параметры"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "Включить _звуки"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "Разрешить _фальшивые бонусы"
+
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "_Основные"
+
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "Цвет червячка"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "Червячок _1"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "Червячок _2"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "Червячок _3"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "Червячок _4"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:102
+msgid "Show release version"
+msgstr "Показать номер версии"
+
+#: ../src/gnome-nibbles.vala:419
+msgid "Are you sure you want to start a new game?"
+msgstr "Уверены, что хотите начать новую игру?"
+
+#: ../src/gnome-nibbles.vala:420
+msgid "If you start a new game, the current one will be lost."
+msgstr "Если вы начнёте новую игру, текущая игра будет потеряна."
+
+#: ../src/gnome-nibbles.vala:451
+msgid "_Resume"
+msgstr "_Запустить"
+
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Не удалось загрузить файл уровня:\n"
-"%s\n"
-"\n"
-"Проверьте установку Червячка"
+msgid "Level %d"
+msgstr "Уровень %d"
 
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Файл уровня повреждён:\n"
-"%s\n"
-"\n"
-"Проверьте установку Червячка"
-
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "Выбранная комбинация клавиш уже используется."
-
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Неизвестная команда"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Время"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Очки"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$dмин. %2$dс"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Дата"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Закрыть"
-
-#: ../src/gnibbles.c:82
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Не удалось найти файл изображения:\n"
-"%s\n"
-"\n"
-"Проверьте установку Червячка"
-
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "Результаты игры «Червячок»"
-
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Скорость:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Поздравляем!"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "Ваш результат — лучший!"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "Ваш результат попал в десятку лучших."
-
-#: ../src/main.c:62
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:749
 msgid "Beginner"
 msgstr "Для начинающих"
 
-#: ../src/main.c:63
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:751
 msgid "Slow"
 msgstr "Медленно"
 
-#: ../src/main.c:64
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:753
 msgid "Medium"
 msgstr "Обычно"
 
-#: ../src/main.c:65
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:755
 msgid "Fast"
 msgstr "Быстро"
 
-#: ../src/main.c:66
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:757
 msgid "Beginner with Fakes"
-msgstr "Для начинающих, но с обманками"
+msgstr "Для начинающих, но с фальшивками"
 
-#: ../src/main.c:67
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:759
 msgid "Slow with Fakes"
-msgstr "Медленно и с обманками"
+msgstr "Медленно и с фальшивками"
 
-#: ../src/main.c:68
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:761
 msgid "Medium with Fakes"
-msgstr "Обычно и с обманками"
+msgstr "Обычно и с фальшивками"
 
-#: ../src/main.c:69
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
 msgid "Fast with Fakes"
-msgstr "Быстро и с обманками"
+msgstr "Быстро и с фальшивками"
 
-#: ../src/main.c:257
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:768
+msgid "Difficulty Level:"
+msgstr "Уровень сложности:"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:869
+#, c-format
+msgid "Level %d Completed!"
+msgstr "Уровень %d завершён!"
+
+#: ../src/gnome-nibbles.vala:876
+msgid "_Next Level"
+msgstr "_Следующий уровень"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Congratulations!"
+msgstr "Поздравляем!"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Game Over!"
+msgstr "Игра окончена!"
+
+#: ../src/gnome-nibbles.vala:947
+msgid "You have completed the game."
+msgstr "Вы прошли игру."
+
+#: ../src/gnome-nibbles.vala:954
+#, c-format
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d очко"
+msgstr[1] "%d очка"
+msgstr[2] "%d очков"
+
+#: ../src/gnome-nibbles.vala:963
+#, c-format
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(до попадания на доску почёта осталось набрать очков: %d)"
+
+#: ../src/gnome-nibbles.vala:969
+msgid "_Play Again"
+msgstr "_Сыграть ещё раз"
+
+#: ../src/gnome-nibbles.vala:1034
 msgid "A worm game for GNOME"
 msgstr "Игра в червячка для среды GNOME"
 
-#: ../src/main.c:260
+#: ../src/gnome-nibbles.vala:1043
 msgid "translator-credits"
 msgstr ""
 "Валек Филиппов aka frob\n"
 "Дмитрий Мастрюков\n"
 "Вячеслав Диконов\n"
 "Михаил Яхонтов\n"
-"Леонид Кантер"
+"Леонид Кантер\n"
+"Юрий Мясоедов"
 
-#: ../src/preferences.c:225
-msgid "Preferences"
-msgstr "Параметры"
-
-#: ../src/preferences.c:238
-msgid "Game"
-msgstr "Игра"
-
-#. Speed
-#: ../src/preferences.c:254
-msgid "Speed"
-msgstr "Скорость"
-
-#: ../src/preferences.c:259
-msgid "Nibbles newbie"
-msgstr "Новый червячок"
-
-#: ../src/preferences.c:269
-msgid "My second day"
-msgstr "Уже второй день играю!"
-
-#: ../src/preferences.c:279
-msgid "Not too shabby"
-msgstr "Я не полный чайник"
-
-#: ../src/preferences.c:289
-msgid "Finger-twitching good"
-msgstr "Мастер работы с кнопками"
-
-#: ../src/preferences.c:303 ../src/preferences.c:426
-msgid "Options"
-msgstr "Параметры"
-
-#: ../src/preferences.c:310
-msgid "_Play levels in random order"
-msgstr "_Случайно предлагать уровни"
-
-#: ../src/preferences.c:318
-msgid "_Enable fake bonuses"
-msgstr "Разрешить _фальшивые бонусы"
-
-#: ../src/preferences.c:326
-msgid "E_nable sounds"
-msgstr "Включить _звуки"
-
-#: ../src/preferences.c:339
-msgid "_Starting level:"
-msgstr "_Начальный уровень:"
-
-#: ../src/preferences.c:364
-msgid "Number of _human players:"
-msgstr "Число _игроков:"
-
-#: ../src/preferences.c:381
-msgid "Number of _AI players:"
-msgstr "Число _компьютерных игроков:"
-
-#: ../src/preferences.c:402
-msgid "Worm"
-msgstr "Червячок"
-
-#: ../src/preferences.c:411
-msgid "Keyboard Options"
-msgstr "Параметры клавиатуры"
-
-#: ../src/preferences.c:431
-msgid "_Use relative movement"
-msgstr "Использовать _относительное перемещение"
-
-#: ../src/preferences.c:438
-msgid "_Worm color:"
-msgstr "Цвет _червячка:"
-
-#: ../src/preferences.c:444
-msgid "Red"
-msgstr "Красный"
-
-#: ../src/preferences.c:445
-msgid "Green"
-msgstr "Зелёный"
-
-#: ../src/preferences.c:446
-msgid "Blue"
-msgstr "Синий"
-
-#: ../src/preferences.c:447
-msgid "Yellow"
-msgstr "Жёлтый"
-
-#: ../src/preferences.c:448
-msgid "Cyan"
-msgstr "Голубой"
-
-#: ../src/preferences.c:449
-msgid "Purple"
-msgstr "Пурпурный"
-
-#: ../src/preferences.c:450
-msgid "Gray"
-msgstr "Серый"
-
-#: ../src/scoreboard.c:48
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:583
 #, c-format
-msgid "Worm %d:"
-msgstr "Червячок %d:"
+msgid "Player %d"
+msgstr "Игрок %d"
+
+#: ../src/preferences-dialog.vala:140
+msgid "Action"
+msgstr "Действие"
+
+#: ../src/preferences-dialog.vala:147
+msgid "Key"
+msgstr "Клавиша"
+
+#: ../src/preferences-dialog.vala:230
+msgid "The key you selected is already assigned!"
+msgstr "Выбранная клавиша уже используется!"
