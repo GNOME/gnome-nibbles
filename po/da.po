@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-20 23:32+0100\n"
-"PO-Revision-Date: 2016-03-20 03:13+0100\n"
+"POT-Creation-Date: 2016-03-20 23:58+0100\n"
+"PO-Revision-Date: 2016-03-20 23:50+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -497,32 +497,28 @@ msgid "Player %d"
 msgstr "Spiller %d"
 
 #: ../src/nibbles-view.vala:156
-#, fuzzy
 msgid "red"
-msgstr "Rød"
+msgstr "rød"
 
 #: ../src/nibbles-view.vala:157
-#, fuzzy
 msgid "green"
-msgstr "Grøn"
+msgstr "grøn"
 
 #: ../src/nibbles-view.vala:158
 msgid "blue"
-msgstr ""
+msgstr "blå"
 
 #: ../src/nibbles-view.vala:159
-#, fuzzy
 msgid "yellow"
-msgstr "Gul"
+msgstr "gul"
 
 #: ../src/nibbles-view.vala:160
 msgid "cyan"
-msgstr ""
+msgstr "cyan"
 
 #: ../src/nibbles-view.vala:161
-#, fuzzy
 msgid "purple"
-msgstr "Lilla"
+msgstr "lilla"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
