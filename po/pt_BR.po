@@ -22,25 +22,24 @@
 # Flamarion Jorge <jorge.flamarion@gmail.com>, 2011.
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Enrico Nicoletto <liverig@gmail.com>, 2013.
-# afael Fontenelle <rffontenelle@gmail.com>, 2013, 2014.
 # Felipe Braga <fbobraga@gmail.com>, 2015.
 # Artur de Aquino Morais <artur.morais93@outlook.com>, 2016.
-#
+# Rafael Fontenelle <rafaelff@gnome.org>, 2013, 2014, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-23 09:27+0000\n"
-"PO-Revision-Date: 2016-02-23 10:09-0300\n"
-"Last-Translator: Artur de Aquino Morais <artur.morais93@outlook.com>\n"
-"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"POT-Creation-Date: 2016-03-20 09:36+0000\n"
+"PO-Revision-Date: 2016-03-20 16:08-0200\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Language-Team: ]\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/controls-grid.ui.h:1
@@ -169,7 +168,7 @@ msgstr "jogo;snake;cobra;minhoca;tabuleiro;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Width of the window in pixels"
-msgstr "A largura da janela em pixels."
+msgstr "A largura da janela em pixels"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
 msgid "Width of the window in pixels."
@@ -177,7 +176,7 @@ msgstr "Largura da janela em pixels."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
 msgid "Height of the window in pixels"
-msgstr "A altura da janela em pixels."
+msgstr "A altura da janela em pixels"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
 msgid "Height of the window in pixels."
@@ -355,7 +354,7 @@ msgstr "_Geral"
 
 #: ../data/preferences-dialog.ui.h:12
 msgid "Worm color"
-msgstr "Cor da minhoca:"
+msgstr "Cor da minhoca"
 
 #: ../data/preferences-dialog.ui.h:13
 msgid "Worm _1"
@@ -502,11 +501,43 @@ msgstr ""
 "Rafael Fontenelle <rffontenelle@gmail.com>\n"
 "Artur de Aquino Morais <artur.morais93@outlook.com>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Jogador %d"
+
+#: ../src/nibbles-view.vala:156
+#| msgid "Red"
+msgid "red"
+msgstr "vermelho"
+
+#: ../src/nibbles-view.vala:157
+#| msgid "Green"
+msgid "green"
+msgstr "verde"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "azul"
+
+#: ../src/nibbles-view.vala:159
+#| msgid "Yellow"
+msgid "yellow"
+msgstr "amarelo"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "ciano"
+
+#: ../src/nibbles-view.vala:161
+#| msgid "Purple"
+msgid "purple"
+msgstr "roxo"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
@@ -635,23 +666,11 @@ msgstr "A tecla que você selecionou já está atribuída!"
 #~ msgid "_Use relative movement"
 #~ msgstr "_Usar movimento relativo"
 
-#~ msgid "Red"
-#~ msgstr "Vermelho"
-
-#~ msgid "Green"
-#~ msgstr "Verde"
-
 #~ msgid "Blue"
 #~ msgstr "Azul"
 
-#~ msgid "Yellow"
-#~ msgstr "Amarelo"
-
 #~ msgid "Cyan"
 #~ msgstr "Ciano"
-
-#~ msgid "Purple"
-#~ msgstr "Roxo"
 
 #~ msgid "Gray"
 #~ msgstr "Cinza"
