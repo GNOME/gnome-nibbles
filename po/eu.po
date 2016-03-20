@@ -2,35 +2,112 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013.
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2014, 2015.
 #
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2014, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-24 14:49+0100\n"
-"PO-Revision-Date: 2015-03-24 14:49+0100\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-20 19:43+0100\n"
+"PO-Revision-Date: 2016-03-20 19:54+0100\n"
+"Last-Translator: dooteo <dooteo@zundan.com>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "Jokalaria"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Hobespenak"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Scores"
+msgstr "_Puntuazioak"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Help"
+msgstr "La_guntza"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_About"
+msgstr "Honi _buruz"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Quit"
+msgstr "_Irten"
+
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1031
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
+msgid "_New Game"
+msgstr "_Joko berria"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
+msgid "_Pause"
+msgstr "_Pausarazi"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "Joka _dezagun!"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Ongi etorri harrak!"
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr "Jan gauzak beste harren baino lehenago, baina ez ukitu ezer!"
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "Jokalari kopurua"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "Hautatu giza jokalarien kopurua."
+
+#: ../data/nibbles.ui.h:9
+msgid "Select the number of computer players."
+msgstr "Hautatu ordenagailu jokalarien kopurua."
+
+#: ../data/nibbles.ui.h:10
+msgid "_Next"
+msgstr "_Hurrengoa"
+
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "Kontrolak"
+
+#: ../data/nibbles.ui.h:12
+msgid "_Start"
+msgstr "_Hasi"
+
+#: ../data/nibbles.ui.h:13
+msgid "Paused"
+msgstr "Pausarazita"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Gidatu harra labirintoan zehar"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -45,7 +122,7 @@ msgstr ""
 "etsaiak zu bezalaxe bonus-en atzetik dabiltza, kontu ibili beraz: luzeegiak "
 "badira ez duzu leku handirik izango mugitzeko."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -55,7 +132,7 @@ msgstr ""
 "mailak pareta gutxi batzuekin daude, baina ondorengoetan lekuak estutzen "
 "dira eta telegarraioak gauzak interesgarriagoak egiten dituzte."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -63,82 +140,51 @@ msgstr ""
 "Jokatu zizareak diren bost etsairen kontra, edo partekatu teklatua lagun "
 "batekin jokatzeko."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
-#: ../src/main.c:704
-msgid "Nibbles"
-msgstr "Nibbles"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "jokoa;sugea;mahai-jokoa;"
 
-#: ../data/nibbles-menus.ui.h:1
-msgid "_New Game"
-msgstr "_Joko berria"
-
-#: ../data/nibbles-menus.ui.h:2
-msgid "_Pause"
-msgstr "_Pausarazi"
-
-#: ../data/nibbles-menus.ui.h:3
-msgid "_Preferences"
-msgstr "_Hobespenak"
-
-#: ../data/nibbles-menus.ui.h:4
-msgid "_Scores"
-msgstr "_Puntuazioak"
-
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Help"
-msgstr "La_guntza"
-
-#: ../data/nibbles-menus.ui.h:6
-msgid "_About"
-msgstr "Honi _buruz"
-
-#: ../data/nibbles-menus.ui.h:7
-msgid "_Quit"
-msgstr "_Irten"
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Giza jokalarien kopurua"
+msgid "Width of the window in pixels"
+msgstr "Leihoaren zabalera (pixeletan)"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Giza jokalarien kopurua."
+msgid "Width of the window in pixels."
+msgstr "Leihoaren zabalera (pixeletan)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "AAko jokalarien kopurua"
+msgid "Height of the window in pixels"
+msgstr "Leihoaren altuera (pixeletan)"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "AAko jokalarien kopurua."
+msgid "Height of the window in pixels."
+msgstr "Leihoaren altuera (pixeletan)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Jokoaren abiadura"
+msgid "true if the window is maximized"
+msgstr "Ezarri true (egia) gisa leihoa maximizatzeko"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Jokoaren abiadura (1=azkar, 4=motel)."
+msgid "true if the window is maximized."
+msgstr "Ezarri true (egia) gisa leihoa maximizatzeko."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Gaitu gainordain faltsuak"
+msgid "Is this the first run"
+msgstr "Aurreneko exekuzioa da"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Gaitu gainordain faltsuak."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
+"Aurreneko exekuzioaren argibideen elkarrizketa-koadroa erakusteko "
+"edo ez ezarpena."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Jokoaren mailak ausazko hurrenkeran"
+msgid "Size of game tiles"
+msgstr "Fitxen tamaina"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Jokoaren mailak ausazko hurrenkeran."
+msgid "Size of game tiles."
+msgstr "Fitxen tamaina."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -149,317 +195,446 @@ msgid "Game level to start on."
 msgstr "Jokoa zein mailatan hasiko den."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Harren mugimenduen abiadura"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Harren mugimenduen abiadura."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Gaitu soinuak"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Gaitu soinuak."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "Fitxen tamaina"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Fitxen tamaina."
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Gaitu gainordain faltsuak"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Gaitu gainordain faltsuak."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Giza jokalarien kopurua"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "Giza jokalarien kopurua."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "AAko jokalarien kopurua"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "AAko jokalarien kopurua."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "Harraren kolorea"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "Harraren kolorea."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Erabili mugimendu erlatiboa"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Erabili mugimendu erlatiboa (adib. ezkerrera edo eskuinera bakarrik)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Eraman gorantz"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Gora joateko tekla."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Eraman beherantz"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Behera joateko tekla."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Mugitu ezkerrera"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Ezkerrera joateko tekla."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Mugitu eskuinera"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Eskuinera joateko tekla."
 
-#: ../src/board.c:250
-#, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Nibbles-ek ezin izan du maila-fitxategia kargatu:\n"
-"%s\n"
-"\n"
-"Begiratu Nibbles-en instalazioa ondo dagoen"
-
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Badirudi maila-fitxategia hondatuta dagoela:\n"
-"%s\n"
-"\n"
-"Begiratu Nibbles-en instalazioa ondo dagoen"
-
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "Hautatutako lasterbidea jadanik esleituta dago."
-
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Komando ezezaguna"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Denbora"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Puntuazioa"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%dm %ds"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Data"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "It_xi"
-
-#: ../src/gnibbles.c:82
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Nibbles-ek ezin izan du pixmap fitxategia aurkitu:\n"
-"%s\n"
-"\n"
-"Begiratu Nibbles-en instalazioa ondo dagoen"
-
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "Nibbles-eko puntuazioak"
-
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Abiadura:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Zorionak!"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "Zure puntuazioa onena da!"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "Zure puntuazioa hamar onenen artean dago."
-
-#: ../src/main.c:62
-msgctxt "game speed"
-msgid "Beginner"
-msgstr "Hasiberria"
-
-#: ../src/main.c:63
-msgctxt "game speed"
-msgid "Slow"
-msgstr "Motela"
-
-#: ../src/main.c:64
-msgctxt "game speed"
-msgid "Medium"
-msgstr "Tartekoa"
-
-#: ../src/main.c:65
-msgctxt "game speed"
-msgid "Fast"
-msgstr "Bizkorra"
-
-#: ../src/main.c:66
-msgctxt "game speed"
-msgid "Beginner with Fakes"
-msgstr "Gezurrezko hasiberria"
-
-#: ../src/main.c:67
-msgctxt "game speed"
-msgid "Slow with Fakes"
-msgstr "Gezurrezko motela"
-
-#: ../src/main.c:68
-msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr "Gezurrezko tartekoa"
-
-#: ../src/main.c:69
-msgctxt "game speed"
-msgid "Fast with Fakes"
-msgstr "Gezurrezko bizkorra"
-
-#: ../src/main.c:257
-msgid "A worm game for GNOME"
-msgstr "GNOMEren har-jokoa"
-
-#: ../src/main.c:260
-msgid "translator-credits"
-msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
-
-#: ../src/preferences.c:225
-msgid "Preferences"
-msgstr "Hobespenak"
-
-#: ../src/preferences.c:238
-msgid "Game"
-msgstr "Jokoa"
-
-#. Speed
-#: ../src/preferences.c:254
-msgid "Speed"
-msgstr "Abiadura"
-
-#: ../src/preferences.c:259
-msgid "Nibbles newbie"
-msgstr "Nibbles-en hasiberria"
-
-#: ../src/preferences.c:269
-msgid "My second day"
-msgstr "Bigarren eguna"
-
-#: ../src/preferences.c:279
-msgid "Not too shabby"
-msgstr "Ez horren traketsa"
-
-#: ../src/preferences.c:289
-msgid "Finger-twitching good"
-msgstr "Bikaina"
-
-#: ../src/preferences.c:303 ../src/preferences.c:426
-msgid "Options"
-msgstr "Aukerak"
-
-#: ../src/preferences.c:310
-msgid "_Play levels in random order"
-msgstr "_Jokoaren mailak ausazko hurrenkeran"
-
-#: ../src/preferences.c:318
-msgid "_Enable fake bonuses"
-msgstr "_Gaitu gainordain faltsuak"
-
-#: ../src/preferences.c:326
-msgid "E_nable sounds"
-msgstr "_Gaitu soinuak"
-
-#: ../src/preferences.c:339
-msgid "_Starting level:"
-msgstr "_Hasierako maila:"
-
-#: ../src/preferences.c:364
-msgid "Number of _human players:"
-msgstr "_Giza jokalarien kopurua:"
-
-#: ../src/preferences.c:381
-msgid "Number of _AI players:"
-msgstr "AAko jokalarien kopurua:"
-
-#: ../src/preferences.c:402
+#: ../data/player-score-box.ui.h:1
 msgid "Worm"
 msgstr "Harra"
 
-#: ../src/preferences.c:411
-msgid "Keyboard Options"
-msgstr "Teklatuaren aukerak"
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Hobespenak"
 
-#: ../src/preferences.c:431
-msgid "_Use relative movement"
-msgstr "_Erabili mugimendu erlatiboa"
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Abiadura"
 
-#: ../src/preferences.c:438
-msgid "_Worm color:"
-msgstr "_Harraren kolorea:"
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "_Hasiberria"
 
-#: ../src/preferences.c:444
-msgid "Red"
-msgstr "Gorria"
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "_Motela"
 
-#: ../src/preferences.c:445
-msgid "Green"
-msgstr "Berdea"
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "_Tartekoa"
 
-#: ../src/preferences.c:446
-msgid "Blue"
-msgstr "Urdina"
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "_Bizkorra"
 
-#: ../src/preferences.c:447
-msgid "Yellow"
-msgstr "Horia"
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Aukerak"
 
-#: ../src/preferences.c:448
-msgid "Cyan"
-msgstr "Ziana"
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "_Gaitu soinuak"
 
-#: ../src/preferences.c:449
-msgid "Purple"
-msgstr "Morea"
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "_Gaitu gainordain faltsuak"
 
-#: ../src/preferences.c:450
-msgid "Gray"
-msgstr "Grisa"
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "_Orokorra"
 
-#: ../src/scoreboard.c:48
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "Harraren kolorea"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "1. harra"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "2. harra"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "3. harra"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "4. harra"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:102
+msgid "Show release version"
+msgstr "Erakutsi argitaratze-bertsioa"
+
+#: ../src/gnome-nibbles.vala:419
+msgid "Are you sure you want to start a new game?"
+msgstr "Ziur zaude joko berria hastea nahi duzula?"
+
+#: ../src/gnome-nibbles.vala:420
+msgid "If you start a new game, the current one will be lost."
+msgstr "Joko berri bat hasten baduzu, unekoa galduko duzu."
+
+#: ../src/gnome-nibbles.vala:451
+msgid "_Resume"
+msgstr "_Jarraitu"
+
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
-msgid "Worm %d:"
-msgstr "%d harra:"
+msgid "Level %d"
+msgstr "%d. maila"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:749
+msgid "Beginner"
+msgstr "Hasiberria"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:751
+msgid "Slow"
+msgstr "Motela"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:753
+msgid "Medium"
+msgstr "Tartekoa"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:755
+msgid "Fast"
+msgstr "Bizkorra"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:757
+msgid "Beginner with Fakes"
+msgstr "Gezurrezko hasiberria"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:759
+msgid "Slow with Fakes"
+msgstr "Gezurrezko motela"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:761
+msgid "Medium with Fakes"
+msgstr "Gezurrezko tartekoa"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
+msgid "Fast with Fakes"
+msgstr "Gezurrezko bizkorra"
+
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:768
+msgid "Difficulty Level:"
+msgstr "Zailtasun maila:"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:869
+#, c-format
+msgid "Level %d Completed!"
+msgstr "%d. maila osatu da."
+
+#: ../src/gnome-nibbles.vala:876
+msgid "_Next Level"
+msgstr "_Hurrengo maila"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Congratulations!"
+msgstr "Zorionak!"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Game Over!"
+msgstr "Amaitu da!"
+
+#: ../src/gnome-nibbles.vala:947
+msgid "You have completed the game."
+msgstr "Jokoa osatu duzu."
+
+#: ../src/gnome-nibbles.vala:954
+#, c-format
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "Puntu %d"
+msgstr[1] "%d puntu"
+
+#: ../src/gnome-nibbles.vala:963
+#, c-format
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(%d puntu gehiago aurrendari izateko)"
+
+#: ../src/gnome-nibbles.vala:969
+msgid "_Play Again"
+msgstr "Jokatu _berriro"
+
+#: ../src/gnome-nibbles.vala:1034
+msgid "A worm game for GNOME"
+msgstr "GNOMEren har-jokoa"
+
+#: ../src/gnome-nibbles.vala:1043
+msgid "translator-credits"
+msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
+
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
+#, c-format
+msgid "Player %d"
+msgstr "%d. jokalaria"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "gorria"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "berdea"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "urdina"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "horia"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "cyana"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "purpura"
+
+#: ../src/preferences-dialog.vala:140
+msgid "Action"
+msgstr "Ekintza"
+
+#: ../src/preferences-dialog.vala:147
+msgid "Key"
+msgstr "Tekla"
+
+#: ../src/preferences-dialog.vala:230
+msgid "The key you selected is already assigned!"
+msgstr "Hautatutako tekla jadanik esleituta dago."
+
+#~ msgid "Game speed"
+#~ msgstr "Jokoaren abiadura"
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "Jokoaren abiadura (1=azkar, 4=motel)."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "Jokoaren mailak ausazko hurrenkeran"
+
+#~ msgid "Play levels in random order."
+#~ msgstr "Jokoaren mailak ausazko hurrenkeran."
+
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Nibbles-ek ezin izan du maila-fitxategia kargatu:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Begiratu Nibbles-en instalazioa ondo dagoen"
+
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Badirudi maila-fitxategia hondatuta dagoela:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Begiratu Nibbles-en instalazioa ondo dagoen"
+
+#~ msgid "Unknown Command"
+#~ msgstr "Komando ezezaguna"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "Denbora"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "Puntuazioa"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%dm %ds"
+
+#~ msgid "Date"
+#~ msgstr "Data"
+
+#~ msgid "_Close"
+#~ msgstr "It_xi"
+
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Nibbles-ek ezin izan du pixmap fitxategia aurkitu:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Begiratu Nibbles-en instalazioa ondo dagoen"
+
+#~ msgid "Nibbles Scores"
+#~ msgstr "Nibbles-eko puntuazioak"
+
+#~ msgid "Speed:"
+#~ msgstr "Abiadura:"
+
+#~ msgid "Your score is the best!"
+#~ msgstr "Zure puntuazioa onena da!"
+
+#~ msgid "Your score has made the top ten."
+#~ msgstr "Zure puntuazioa hamar onenen artean dago."
+
+#~ msgctxt "game speed"
+#~ msgid "Medium"
+#~ msgstr "Tartekoa"
+
+#~ msgid "Game"
+#~ msgstr "Jokoa"
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "Nibbles-en hasiberria"
+
+#~ msgid "My second day"
+#~ msgstr "Bigarren eguna"
+
+#~ msgid "Not too shabby"
+#~ msgstr "Ez horren traketsa"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "Bikaina"
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "_Jokoaren mailak ausazko hurrenkeran"
+
+#~ msgid "_Starting level:"
+#~ msgstr "_Hasierako maila:"
+
+#~ msgid "Number of _human players:"
+#~ msgstr "_Giza jokalarien kopurua:"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "AAko jokalarien kopurua:"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "Teklatuaren aukerak"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "_Erabili mugimendu erlatiboa"
+
+#~ msgid "Blue"
+#~ msgstr "Urdina"
+
+#~ msgid "Cyan"
+#~ msgstr "Ziana"
+
+#~ msgid "Gray"
+#~ msgstr "Grisa"
+
+#~ msgid "Worm %d:"
+#~ msgstr "%d harra:"
 
 #~ msgid ""
 #~ "A worm game for GNOME\n"
@@ -552,12 +727,6 @@ msgstr "%d harra:"
 #~ msgid "_Redo Move"
 #~ msgstr "B_erregin mugimendua"
 
-#~ msgid "_Reset"
-#~ msgstr "_Berrezarri"
-
-#~ msgid "_Restart"
-#~ msgstr "_Hasi berriro"
-
 #~ msgid "_Undo Move"
 #~ msgstr "_Desegin mugimendua"
 
@@ -572,9 +741,6 @@ msgstr "%d harra:"
 
 #~ msgid "L_eave Game"
 #~ msgstr "_Bertan behera utzi jokoa"
-
-#~ msgid "Player _List"
-#~ msgstr "_Jokalari-zerrenda"
 
 #~ msgid "Res_ume"
 #~ msgstr "_Berrekin"
@@ -668,14 +834,8 @@ msgstr "%d harra:"
 #~ msgid "The width of the window"
 #~ msgstr "Leihoaren zabalera"
 
-#~ msgid "The width of the main window in pixels."
-#~ msgstr "Leiho nagusiaren zabalera (pixeletan)"
-
 #~ msgid "The height of the window"
 #~ msgstr "Leihoaren altuera"
-
-#~ msgid "The height of the main window in pixels."
-#~ msgstr "Leiho nagusiaren altuera (pixeletan)"
 
 #~ msgid "A flag to enable maximized mode"
 #~ msgstr "Modu maximizatua gaitzeko bandera"
@@ -745,14 +905,8 @@ msgstr "%d harra:"
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Xake motor aurkariaren zailtasuna"
 
-#~ msgid "Play as:"
-#~ msgstr "Jokatu honela:"
-
 #~ msgid "Opposing Player:"
 #~ msgstr "Jokalari aurkaria:"
-
-#~ msgid "Difficulty:"
-#~ msgstr "Zailtasuna:"
 
 #~ msgid "Game Duration:"
 #~ msgstr "Jokoaren iraupena:"
@@ -1211,9 +1365,6 @@ msgstr "%d harra:"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Huts egin du jokoa irekitzean: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Erakutsi argitaratze-bertsioa"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FITXATEGIA] - Jokatu xakean"
 
@@ -1245,23 +1396,14 @@ msgstr "%d harra:"
 #~ msgid "_Small"
 #~ msgstr "_Txikia"
 
-#~ msgid "_Medium"
-#~ msgstr "_Tartekoa"
-
 #~ msgid "_Large"
 #~ msgstr "_Handia"
-
-#~ msgid "General"
-#~ msgstr "Orokorra"
 
 #~ msgid "_Use fast moves"
 #~ msgstr "_Erabili mugimendu bizkorrak"
 
 #~ msgid "Five or more"
 #~ msgstr "Bost edo gehiago"
-
-#~ msgid "Next:"
-#~ msgstr "Hurrengoa:"
 
 #~ msgid "0"
 #~ msgstr "0"
@@ -1363,9 +1505,6 @@ msgstr "%d harra:"
 
 #~ msgid "_Board size:"
 #~ msgstr "_Taularen tamaina:"
-
-#~ msgid "Game Over!"
-#~ msgstr "Amaitu da!"
 
 #~ msgid "You can't move there!"
 #~ msgstr "Ezin da horra eraman!"
@@ -1480,13 +1619,6 @@ msgstr "%d harra:"
 #~ "gidatutako ordenagailu-jokalari batekin.\n"
 #~ "\n"
 #~ "GNOME Games-ekoa da \"Lauko artzain-jokoa\"."
-
-#~ msgid ""
-#~ "Player One:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Lehen jokalaria:\n"
-#~ "%s"
 
 #~ msgid ""
 #~ "Player Two:\n"
@@ -1900,9 +2032,6 @@ msgstr "%d harra:"
 #~ msgid "Safe Teleports:"
 #~ msgstr "Aldentze seguruak:"
 
-#~ msgid "Level:"
-#~ msgstr "Maila:"
-
 #~ msgid "Remaining:"
 #~ msgstr "Falta:"
 
@@ -1965,9 +2094,6 @@ msgstr "%d harra:"
 
 #~ msgid "Easy"
 #~ msgstr "Erraza"
-
-#~ msgid "Medium"
-#~ msgstr "Tartekoa"
 
 #~ msgid "Hard"
 #~ msgstr "Zaila"
@@ -2340,9 +2466,6 @@ msgstr "%d harra:"
 #~ msgid "Mines Preferences"
 #~ msgstr "Minen hobespenak"
 
-#~ msgid "Paused"
-#~ msgstr "Pausarazita"
-
 #~ msgid "Tetravex"
 #~ msgstr "Tetravex"
 
@@ -2557,9 +2680,6 @@ msgstr "%d harra:"
 #~ msgid "Y location of window"
 #~ msgstr "Leihoaren Y posizioa"
 
-#~ msgid "Level completed."
-#~ msgstr "Maila osatu da."
-
 #~ msgid "The Puzzle Has Been Solved!"
 #~ msgstr "Buru-hausgarria ebatzi duzu!"
 
@@ -2729,9 +2849,6 @@ msgstr "%d harra:"
 
 #~ msgid "Human Players"
 #~ msgstr "Giza jokalariak"
-
-#~ msgid "_Number of players:"
-#~ msgstr "_Jokalari kopurua:"
 
 #~ msgid "Computer Opponents"
 #~ msgstr "Ordenagailu-aurkariak"
@@ -2949,9 +3066,6 @@ msgstr "%d harra:"
 #~ msgid "Moves Left:"
 #~ msgstr "Zenbat mugimendu:"
 
-#~ msgid "Do you want to start a new game with this map?"
-#~ msgstr "Mapa honekin joko berria hastea nahi duzu?"
-
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr ""
 #~ "Jokatzen jarraitzen baduzu, hurrengo jokoak mapa berria erabiliko du."
@@ -3161,9 +3275,6 @@ msgstr "%d harra:"
 #~ msgid "Theme"
 #~ msgstr "Gaia"
 
-#~ msgid "Controls"
-#~ msgstr "Kontrolak"
-
 #~ msgid "Block Style"
 #~ msgstr "Blokeen estiloa"
 
@@ -3246,11 +3357,6 @@ msgstr "%d harra:"
 
 #~ msgid "No points"
 #~ msgstr "Punturik ez"
-
-#~ msgid "%d point"
-#~ msgid_plural "%d points"
-#~ msgstr[0] "puntu %d"
-#~ msgstr[1] "%d puntu"
 
 #~ msgid "Swell Foop Scores"
 #~ msgstr "Swell Foop-eko puntuazioa"
@@ -3540,9 +3646,6 @@ msgstr "%d harra:"
 #~ msgid "_Click to Move"
 #~ msgstr "_Egin klik mugitzeko"
 
-#~ msgid "Select the style of control"
-#~ msgstr "Hautatu kontrol-estiloa"
-
 #~ msgid ""
 #~ "Select whether to drag the tiles or to click on the source then the "
 #~ "destination."
@@ -3567,9 +3670,6 @@ msgstr "%d harra:"
 
 #~ msgid "_Use quick moves"
 #~ msgstr "_Erabili mugimendu bizkorrak"
-
-#~ msgid "Animation"
-#~ msgstr "Animazioa"
 
 #~ msgid "None"
 #~ msgstr "Bat ere ez"
