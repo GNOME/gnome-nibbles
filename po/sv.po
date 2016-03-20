@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-15 19:58+0000\n"
-"PO-Revision-Date: 2016-02-16 19:30+0100\n"
+"POT-Creation-Date: 2016-03-20 09:36+0000\n"
+"PO-Revision-Date: 2016-03-20 12:10+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -48,16 +48,16 @@ msgid "_Quit"
 msgstr "A_vsluta"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:510 ../src/gnome-nibbles.vala:994
-#: ../src/gnome-nibbles.vala:1033
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1031
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:399
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
 msgid "_New Game"
 msgstr "_Nytt spel"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:428
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
 msgid "_Pause"
 msgstr "P_aus"
 
@@ -254,7 +254,7 @@ msgid "Use relative movement (ie. left or right only)."
 msgstr "Använd relativ rörelse (dvs endast vänster eller höger)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:27
-#: ../src/preferences-dialog.vala:110
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Flytta uppåt"
 
@@ -263,7 +263,7 @@ msgid "Key to use for motion up."
 msgstr "Tangent att använda för rörelse uppåt."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:29
-#: ../src/preferences-dialog.vala:113
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Flytta nedåt"
 
@@ -272,7 +272,7 @@ msgid "Key to use for motion down."
 msgstr "Tangent att använda för rörelse nedåt."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:31
-#: ../src/preferences-dialog.vala:116
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Flytta vänster"
 
@@ -281,7 +281,7 @@ msgid "Key to use for motion left."
 msgstr "Tangent att använda för rörelse åt vänster."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:33
-#: ../src/preferences-dialog.vala:119
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Flytta höger"
 
@@ -354,115 +354,115 @@ msgid "Worm _4"
 msgstr "Mask _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:100
+#: ../src/gnome-nibbles.vala:102
 msgid "Show release version"
 msgstr "Visa utgåvans version"
 
-#: ../src/gnome-nibbles.vala:395
+#: ../src/gnome-nibbles.vala:419
 msgid "Are you sure you want to start a new game?"
 msgstr "Är du säker på att du vill starta ett nytt spel?"
 
-#: ../src/gnome-nibbles.vala:396
+#: ../src/gnome-nibbles.vala:420
 msgid "If you start a new game, the current one will be lost."
 msgstr "Om du startar ett nytt spel kommer det nuvarande spelet gå förlorat."
 
-#: ../src/gnome-nibbles.vala:423
+#: ../src/gnome-nibbles.vala:451
 msgid "_Resume"
 msgstr "_Fortsätt"
 
-#: ../src/gnome-nibbles.vala:586 ../src/gnome-nibbles.vala:861
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
 msgid "Level %d"
 msgstr "Nivå %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:721
+#: ../src/gnome-nibbles.vala:749
 msgid "Beginner"
 msgstr "Nybörjare"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:723
+#: ../src/gnome-nibbles.vala:751
 msgid "Slow"
 msgstr "Långsam"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:725
+#: ../src/gnome-nibbles.vala:753
 msgid "Medium"
 msgstr "Mellan"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:727
+#: ../src/gnome-nibbles.vala:755
 msgid "Fast"
 msgstr "Snabb"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:729
+#: ../src/gnome-nibbles.vala:757
 msgid "Beginner with Fakes"
 msgstr "Nybörjare med attrapper"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:731
+#: ../src/gnome-nibbles.vala:759
 msgid "Slow with Fakes"
 msgstr "Långsam med attrapper"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:733
+#: ../src/gnome-nibbles.vala:761
 msgid "Medium with Fakes"
 msgstr "Mellan med attrapper"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:735
+#: ../src/gnome-nibbles.vala:763
 msgid "Fast with Fakes"
 msgstr "Snabb med attrapper"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:740
+#: ../src/gnome-nibbles.vala:768
 msgid "Difficulty Level:"
 msgstr "Svårighetsgrad:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:841
+#: ../src/gnome-nibbles.vala:869
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nivå %d färdig!"
 
-#: ../src/gnome-nibbles.vala:848
+#: ../src/gnome-nibbles.vala:876
 msgid "_Next Level"
 msgstr "_Nästa nivå"
 
-#: ../src/gnome-nibbles.vala:915
+#: ../src/gnome-nibbles.vala:940
 msgid "Congratulations!"
 msgstr "Gratulerar!"
 
-#: ../src/gnome-nibbles.vala:915
+#: ../src/gnome-nibbles.vala:940
 msgid "Game Over!"
 msgstr "Spelet är slut!"
 
-#: ../src/gnome-nibbles.vala:922
+#: ../src/gnome-nibbles.vala:947
 msgid "You have completed the game."
 msgstr "Du har klarat spelet."
 
-#: ../src/gnome-nibbles.vala:929
+#: ../src/gnome-nibbles.vala:954
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d poäng"
 msgstr[1] "%d poäng"
 
-#: ../src/gnome-nibbles.vala:938
+#: ../src/gnome-nibbles.vala:963
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d poäng till för att nå topplistan)"
 
-#: ../src/gnome-nibbles.vala:944
+#: ../src/gnome-nibbles.vala:969
 msgid "_Play Again"
 msgstr "S_pela igen"
 
-#: ../src/gnome-nibbles.vala:997
+#: ../src/gnome-nibbles.vala:1034
 msgid "A worm game for GNOME"
 msgstr "Ett maskspel för GNOME"
 
-#: ../src/gnome-nibbles.vala:1006
+#: ../src/gnome-nibbles.vala:1043
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -475,21 +475,49 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>."
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1191 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Spelare %d"
 
-#: ../src/preferences-dialog.vala:122
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "röd"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "grön"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "blå"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "gul"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "cyan"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "lila"
+
+#: ../src/preferences-dialog.vala:140
 msgid "Action"
 msgstr "Åtgärd"
 
-#: ../src/preferences-dialog.vala:129
+#: ../src/preferences-dialog.vala:147
 msgid "Key"
 msgstr "Tangent"
 
-#: ../src/preferences-dialog.vala:212
+#: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Tangenten du valde används redan!"
 
@@ -601,23 +629,11 @@ msgstr "Tangenten du valde används redan!"
 #~ msgid "_Use relative movement"
 #~ msgstr "_Använd relativ rörelse"
 
-#~ msgid "Red"
-#~ msgstr "Röd"
-
-#~ msgid "Green"
-#~ msgstr "Grön"
-
 #~ msgid "Blue"
 #~ msgstr "Blå"
 
-#~ msgid "Yellow"
-#~ msgstr "Gul"
-
 #~ msgid "Cyan"
 #~ msgstr "Cyan"
-
-#~ msgid "Purple"
-#~ msgstr "Lila"
 
 #~ msgid "Gray"
 #~ msgstr "Grå"
