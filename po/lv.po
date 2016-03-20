@@ -9,10 +9,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lv\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-ni"
-"bbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-05 09:32+0000\n"
-"PO-Revision-Date: 2016-03-05 14:22+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"nibbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-03-20 09:36+0000\n"
+"PO-Revision-Date: 2016-03-20 21:29+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -84,7 +84,6 @@ msgid "Select the number of human players."
 msgstr "Izvēlies cilvēku spēlētāju skaits."
 
 #: ../data/nibbles.ui.h:9
-#| msgid "Select the number of human players."
 msgid "Select the number of computer players."
 msgstr "Izvēlies cilvēku spēlētāju skaitu."
 
@@ -224,22 +223,18 @@ msgid "Enable fake bonuses."
 msgstr "Aktivizēti neīstos bonusus."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:19
-#| msgid "Number of players"
 msgid "Number of human players"
 msgstr "Cilvēku spēlētāju skaits"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:20
-#| msgid "Number of players"
 msgid "Number of human players."
 msgstr "Cilvēku spēlētāju skaits."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:21
-#| msgid "Number of players"
 msgid "Number of AI players"
 msgstr "MI spēlētāju skaits"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:22
-#| msgid "Number of players"
 msgid "Number of AI players."
 msgstr "MI spēlētāju skaits."
 
@@ -383,25 +378,21 @@ msgstr "Līmenis %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:749
-#| msgid "_Beginner"
 msgid "Beginner"
 msgstr "Iesācēju"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:751
-#| msgid "_Slow"
 msgid "Slow"
 msgstr "Lēna"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:753
-#| msgid "_Medium"
 msgid "Medium"
 msgstr "Vidēja"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:755
-#| msgid "_Fast"
 msgid "Fast"
 msgstr "Ātra"
 
@@ -480,11 +471,39 @@ msgstr ""
 "Sandra Zabarovska <sandra.zabarovska@gmail.com>\n"
 "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Spēlētājs %d"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "sarkans"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "zaļš"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "zils"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "dzeltens"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "ciāna"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "purpura"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
