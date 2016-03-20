@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-29 21:33+0000\n"
+"POT-Creation-Date: 2016-03-20 02:09+0000\n"
 "PO-Revision-Date: 2016-03-01 10:09+0100\n"
 "Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -498,11 +498,39 @@ msgstr ""
 "Didier Vidal <didier-devel@melix.net>\n"
 "Pierre Lemaire <pierre.lemaire@kamick.org>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Joueur %d"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "rouge"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "vert"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "bleu"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "jaune"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "cyan"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "violet"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
