@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-19 03:55+0100\n"
-"PO-Revision-Date: 2016-03-19 03:54+0100\n"
+"POT-Creation-Date: 2016-03-20 23:32+0100\n"
+"PO-Revision-Date: 2016-03-20 03:13+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -91,9 +91,8 @@ msgid "Select the number of human players."
 msgstr "Vælg antal menneskespillere."
 
 #: ../data/nibbles.ui.h:9
-#, fuzzy
 msgid "Select the number of computer players."
-msgstr "Vælg kontrolstilen"
+msgstr "Vælg antallet af computerspillere."
 
 #: ../data/nibbles.ui.h:10
 msgid "_Next"
@@ -387,13 +386,11 @@ msgstr "Bane %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:749
-#, fuzzy
 msgid "Beginner"
 msgstr "Begynder"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:751
-#, fuzzy
 msgid "Slow"
 msgstr "Langsom"
 
@@ -404,31 +401,26 @@ msgstr "Mellem"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:755
-#, fuzzy
 msgid "Fast"
 msgstr "Hurtig"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:757
-#, fuzzy
 msgid "Beginner with Fakes"
 msgstr "Begynder med forfalskninger"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:759
-#, fuzzy
 msgid "Slow with Fakes"
 msgstr "Langsom med forfalskninger"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:761
-#, fuzzy
 msgid "Medium with Fakes"
 msgstr "Mellem med forfalskninger"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:763
-#, fuzzy
 msgid "Fast with Fakes"
 msgstr "Hurtig med forfalskninger"
 
@@ -456,9 +448,8 @@ msgid "Game Over!"
 msgstr "Spillet er slut!"
 
 #: ../src/gnome-nibbles.vala:947
-#, fuzzy
 msgid "You have completed the game."
-msgstr "Du har forladt bordet."
+msgstr "Du har gennemført spillet."
 
 #: ../src/gnome-nibbles.vala:954
 #, c-format
@@ -495,11 +486,43 @@ msgstr ""
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:583
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Spiller %d"
+
+#: ../src/nibbles-view.vala:156
+#, fuzzy
+msgid "red"
+msgstr "Rød"
+
+#: ../src/nibbles-view.vala:157
+#, fuzzy
+msgid "green"
+msgstr "Grøn"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr ""
+
+#: ../src/nibbles-view.vala:159
+#, fuzzy
+msgid "yellow"
+msgstr "Gul"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr ""
+
+#: ../src/nibbles-view.vala:161
+#, fuzzy
+msgid "purple"
+msgstr "Lilla"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
@@ -628,23 +651,11 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "_Use relative movement"
 #~ msgstr "_Benyt relativ bevægelse"
 
-#~ msgid "Red"
-#~ msgstr "Rød"
-
-#~ msgid "Green"
-#~ msgstr "Grøn"
-
 #~ msgid "Blue"
 #~ msgstr "Blå"
 
-#~ msgid "Yellow"
-#~ msgstr "Gul"
-
 #~ msgid "Cyan"
 #~ msgstr "Cyan"
-
-#~ msgid "Purple"
-#~ msgstr "Lilla"
 
 #~ msgid "Gray"
 #~ msgstr "Grå"
@@ -6631,7 +6642,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Adgangskode:"
 
 #~ msgid "Email:"
-#~ msgstr "E-post:"
+#~ msgstr "E-mail:"
 
 #~ msgid "Authentication type"
 #~ msgstr "Godkendelsestype"
