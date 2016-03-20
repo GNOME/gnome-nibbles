@@ -11,20 +11,20 @@ msgstr ""
 "Project-Id-Version: Gnomove igre\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-15 19:58+0000\n"
-"PO-Revision-Date: 2016-02-15 21:37+0200\n"
-"Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
+"POT-Creation-Date: 2016-03-20 08:01+0000\n"
+"PO-Revision-Date: 2016-03-20 09:19+0100\n"
+"Last-Translator: Marko M. Kostić <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Project-Style: gnome\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../data/controls-grid.ui.h:1
-#| msgid "Player _List"
 msgid "Player"
 msgstr "Igrač"
 
@@ -49,16 +49,16 @@ msgid "_Quit"
 msgstr "_Izađi"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:510 ../src/gnome-nibbles.vala:994
-#: ../src/gnome-nibbles.vala:1033
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1031
 msgid "Nibbles"
 msgstr "Zmiček"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:399
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
 msgid "_New Game"
 msgstr "_Nova igra"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:428
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
 msgid "_Pause"
 msgstr "_Pauza"
 
@@ -75,17 +75,14 @@ msgid "Eat the treats before the other worms, but don't hit anything!"
 msgstr "Pojedite slatkiše pre ostalih crvića, ali nemojte nigde da udarite!"
 
 #: ../data/nibbles.ui.h:7
-#| msgid "Number of AI players"
 msgid "Number of players"
 msgstr "Broj igrača"
 
 #: ../data/nibbles.ui.h:8
-#| msgid "Number of human players."
 msgid "Select the number of human players."
 msgstr "Izaberite broj ljudskih igrača."
 
 #: ../data/nibbles.ui.h:9
-#| msgid "Number of human players."
 msgid "Select the number of computer players."
 msgstr "Izaberite broj mašinskih igrača."
 
@@ -98,12 +95,10 @@ msgid "Controls"
 msgstr "Kontrole"
 
 #: ../data/nibbles.ui.h:12
-#| msgid "_Restart"
 msgid "_Start"
 msgstr "_Počni"
 
 #: ../data/nibbles.ui.h:13
-#| msgid "_Pause"
 msgid "Paused"
 msgstr "Zaustavljeno"
 
@@ -260,7 +255,7 @@ msgid "Use relative movement (ie. left or right only)."
 msgstr "Koristi relativno kretanje (npr. samo levo ili desno)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:27
-#: ../src/preferences-dialog.vala:110
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Pomera gore"
 
@@ -269,7 +264,7 @@ msgid "Key to use for motion up."
 msgstr "Taster za kretanje na gore."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:29
-#: ../src/preferences-dialog.vala:113
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Pomera dole"
 
@@ -278,7 +273,7 @@ msgid "Key to use for motion down."
 msgstr "Taster za kretanje na dole."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:31
-#: ../src/preferences-dialog.vala:116
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Pomera levo"
 
@@ -287,7 +282,7 @@ msgid "Key to use for motion left."
 msgstr "Taster za kretanje na levo."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:33
-#: ../src/preferences-dialog.vala:119
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Pomera desno"
 
@@ -308,26 +303,18 @@ msgid "Speed"
 msgstr "Brzina"
 
 #: ../data/preferences-dialog.ui.h:3
-#| msgctxt "game speed"
-#| msgid "Beginner"
 msgid "_Beginner"
 msgstr "_Početnički"
 
 #: ../data/preferences-dialog.ui.h:4
-#| msgctxt "game speed"
-#| msgid "Slow"
 msgid "_Slow"
 msgstr "_Sporo"
 
 #: ../data/preferences-dialog.ui.h:5
-#| msgctxt "game speed"
-#| msgid "Medium"
 msgid "_Medium"
 msgstr "_Srednje"
 
 #: ../data/preferences-dialog.ui.h:6
-#| msgctxt "game speed"
-#| msgid "Fast"
 msgid "_Fast"
 msgstr "_Brzo"
 
@@ -348,138 +335,115 @@ msgid "_General"
 msgstr "_Opšte"
 
 #: ../data/preferences-dialog.ui.h:12
-#| msgid "_Worm color:"
 msgid "Worm color"
 msgstr "Boja crvića"
 
 #: ../data/preferences-dialog.ui.h:13
-#| msgid "Worm"
 msgid "Worm _1"
 msgstr "Crvić br. _1"
 
 #: ../data/preferences-dialog.ui.h:14
-#| msgid "Worm"
 msgid "Worm _2"
 msgstr "Crvić br. _2"
 
 #: ../data/preferences-dialog.ui.h:15
-#| msgid "Worm"
 msgid "Worm _3"
 msgstr "Crvić br. _3"
 
 #: ../data/preferences-dialog.ui.h:16
-#| msgid "Worm"
 msgid "Worm _4"
 msgstr "Crvić br. _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:100
+#: ../src/gnome-nibbles.vala:102
 msgid "Show release version"
 msgstr "Prikazuje izdanje programa"
 
-#: ../src/gnome-nibbles.vala:395
+#: ../src/gnome-nibbles.vala:419
 msgid "Are you sure you want to start a new game?"
 msgstr "Da li sigurno želite da započnete novu igru?"
 
-#: ../src/gnome-nibbles.vala:396
+#: ../src/gnome-nibbles.vala:420
 msgid "If you start a new game, the current one will be lost."
 msgstr "Ako započnete novu igru, ova će biti izgubljena."
 
-#: ../src/gnome-nibbles.vala:423
-#| msgid "_Reset"
+#: ../src/gnome-nibbles.vala:451
 msgid "_Resume"
 msgstr "_Nastavi"
 
-#: ../src/gnome-nibbles.vala:586 ../src/gnome-nibbles.vala:861
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
 msgid "Level %d"
 msgstr "%d. nivo"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:721
-#| msgctxt "game speed"
-#| msgid "Beginner"
+#: ../src/gnome-nibbles.vala:749
 msgid "Beginner"
 msgstr "Početnički"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:723
-#| msgctxt "game speed"
-#| msgid "Slow"
+#: ../src/gnome-nibbles.vala:751
 msgid "Slow"
 msgstr "Sporo"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:725
-#| msgctxt "game speed"
-#| msgid "Medium"
+#: ../src/gnome-nibbles.vala:753
 msgid "Medium"
 msgstr "Srednje"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:727
-#| msgctxt "game speed"
-#| msgid "Fast"
+#: ../src/gnome-nibbles.vala:755
 msgid "Fast"
 msgstr "Brzo"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:729
-#| msgctxt "game speed"
-#| msgid "Beginner with Fakes"
+#: ../src/gnome-nibbles.vala:757
 msgid "Beginner with Fakes"
 msgstr "Početnički sa trikovima"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:731
-#| msgctxt "game speed"
-#| msgid "Slow with Fakes"
+#: ../src/gnome-nibbles.vala:759
 msgid "Slow with Fakes"
 msgstr "Sporo sa trikovima"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:733
-#| msgctxt "game speed"
-#| msgid "Medium with Fakes"
+#: ../src/gnome-nibbles.vala:761
 msgid "Medium with Fakes"
 msgstr "Srednje sa trikovima"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:735
-#| msgctxt "game speed"
-#| msgid "Fast with Fakes"
+#: ../src/gnome-nibbles.vala:763
 msgid "Fast with Fakes"
 msgstr "Brzo sa trikovima"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:740
+#: ../src/gnome-nibbles.vala:768
 msgid "Difficulty Level:"
 msgstr "Nivo težine:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:841
+#: ../src/gnome-nibbles.vala:869
 #, c-format
 msgid "Level %d Completed!"
 msgstr "%d. nivo je završen!"
 
-#: ../src/gnome-nibbles.vala:848
+#: ../src/gnome-nibbles.vala:876
 msgid "_Next Level"
 msgstr "_Sledeći nivo"
 
-#: ../src/gnome-nibbles.vala:915
+#: ../src/gnome-nibbles.vala:940
 msgid "Congratulations!"
 msgstr "Čestitamo!"
 
-#: ../src/gnome-nibbles.vala:915
-#| msgid "Game speed"
+#: ../src/gnome-nibbles.vala:940
 msgid "Game Over!"
 msgstr "Igra je gotova!"
 
-#: ../src/gnome-nibbles.vala:922
+#: ../src/gnome-nibbles.vala:947
 msgid "You have completed the game."
 msgstr "Završili ste igru."
 
-#: ../src/gnome-nibbles.vala:929
+#: ../src/gnome-nibbles.vala:954
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -487,46 +451,72 @@ msgstr[0] "%d bod"
 msgstr[1] "%d boda"
 msgstr[2] "%d bodova"
 
-#: ../src/gnome-nibbles.vala:938
+#: ../src/gnome-nibbles.vala:963
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(još %d boda da pređete u vođstvo)"
 
-#: ../src/gnome-nibbles.vala:944
+#: ../src/gnome-nibbles.vala:969
 msgid "_Play Again"
 msgstr "_Igraj opet"
 
-#: ../src/gnome-nibbles.vala:997
+#: ../src/gnome-nibbles.vala:1034
 msgid "A worm game for GNOME"
 msgstr "Gnomova igra crvića"
 
-#: ../src/gnome-nibbles.vala:1006
+#: ../src/gnome-nibbles.vala:1043
 msgid "translator-credits"
 msgstr ""
 "Dušan Marjanović <madafaka@root.co.yu>\n"
 "Miloš Popović    <gpopac@gmail.com>\n"
 "Branko Kokanović <branko.kokanovic@gmail.com>\n"
 "Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
+"Marko M. Kostić <marko.m.kostic@gmail.com>\n"
 "\n"
 "http://prevod.org — prevod na srpski jezik"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1191 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
 #, c-format
-#| msgid "Player _List"
 msgid "Player %d"
 msgstr "Igrač br. %d"
 
-#: ../src/preferences-dialog.vala:122
-#| msgid "Options"
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "crvena"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "zelena"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "plava"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "žuta"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "svetlo zeleno plava"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "ljubičasta"
+
+#: ../src/preferences-dialog.vala:140
 msgid "Action"
 msgstr "Radnja"
 
-#: ../src/preferences-dialog.vala:129
+#: ../src/preferences-dialog.vala:147
 msgid "Key"
 msgstr "Taster"
 
-#: ../src/preferences-dialog.vala:212
-#| msgid "The shortcut you selected is already assigned."
+#: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Taster koji ste izabrali je već dodeljen!"
