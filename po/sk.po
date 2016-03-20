@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-25 09:31+0000\n"
-"PO-Revision-Date: 2016-02-25 17:47+0100\n"
+"POT-Creation-Date: 2016-03-20 02:09+0000\n"
+"PO-Revision-Date: 2016-03-20 09:00+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -139,7 +139,8 @@ msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
-"Hraj až proti piatim červíkom alebo proti priateľovi na spoločnej klávesnici."
+"Hrajte až proti piatim červíkom alebo proti priateľovi na spoločnej "
+"klávesnici."
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -477,11 +478,47 @@ msgstr ""
 "Ján Kyselica <kyselica.jan@gmail.com>\n"
 "Dušan Kazik <prescott66@gmail.com>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Hráč č. %d"
+
+# PK: spravny rod?
+# PM: Farba hráča, Farba červíka
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "červená"
+
+# PK: spravny rod?
+# PM: Farba červíka
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "zelená"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "modrá"
+
+# PK: spravny rod?
+# PM: Farba hráča, Farba červíka
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "žltá"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "azúrová"
+
+# PK: spravny rod?
+# PM: Farba červíka
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "purpurová"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
@@ -605,33 +642,13 @@ msgstr "Vybratá klávesa už je priradený!"
 
 # PK: spravny rod?
 # PM: Farba hráča, Farba červíka
-#~ msgid "Red"
-#~ msgstr "Červená"
-
-# PK: spravny rod?
-# PM: Farba červíka
-#~ msgid "Green"
-#~ msgstr "Zelená"
-
-# PK: spravny rod?
-# PM: Farba hráča, Farba červíka
 #~ msgid "Blue"
 #~ msgstr "Modrá"
-
-# PK: spravny rod?
-# PM: Farba hráča, Farba červíka
-#~ msgid "Yellow"
-#~ msgstr "Žltá"
 
 # PK: spravny rod?
 # PM: Farba červíka
 #~ msgid "Cyan"
 #~ msgstr "Azúrová"
-
-# PK: spravny rod?
-# PM: Farba červíka
-#~ msgid "Purple"
-#~ msgstr "Purpurová"
 
 # PK: spravny rod?
 # PM: Farba červíka
