@@ -7,7 +7,8 @@
 #
 # Updated for gnome-nibbles:
 #
-# Changwoo Ryu <cwryu@debian.org>, 2013-2015.
+# Changwoo Ryu <cwryu@debian.org>, 2013-2016.
+# Youngbin Han <sukso96100@gmail.com>, 2016.
 #
 #
 # 새로 번역하신 분은 아래 "translator-credits"에 추가하세요.
@@ -18,11 +19,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-06 21:32+0000\n"
-"PO-Revision-Date: 2016-03-08 11:58+0900\n"
-"Last-Translator: Youngbin Han <sukso96100@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-nibbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-03-20 09:36+0000\n"
+"PO-Revision-Date: 2016-03-21 00:20+0900\n"
+"Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgstr "벌레들이여, 환영합니다."
 
 #: ../data/nibbles.ui.h:6
 msgid "Eat the treats before the other worms, but don't hit anything!"
-msgstr ""
+msgstr "다른 벌레보다 먼저 먹이를 먹고, 부딪히지 마세요!"
 
 #: ../data/nibbles.ui.h:7
 msgid "Number of players"
@@ -471,11 +471,39 @@ msgstr ""
 "류창우 <cwryu@debian.org>\n"
 "한영빈 <sukso96100@gmail.com>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "플레이어 %d"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "빨강"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "녹색"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "파랑"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "노랑"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "청록"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "자주"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
@@ -597,23 +625,11 @@ msgstr "선택한 키는 이미 할당되었습니다."
 #~ msgid "_Use relative movement"
 #~ msgstr "상대적인 움직임(_U)"
 
-#~ msgid "Red"
-#~ msgstr "빨강"
-
-#~ msgid "Green"
-#~ msgstr "녹색"
-
 #~ msgid "Blue"
 #~ msgstr "파랑"
 
-#~ msgid "Yellow"
-#~ msgstr "노랑"
-
 #~ msgid "Cyan"
 #~ msgstr "청록"
-
-#~ msgid "Purple"
-#~ msgstr "자주색"
 
 #~ msgid "Gray"
 #~ msgstr "회색"
