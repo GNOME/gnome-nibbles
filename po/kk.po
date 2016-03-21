@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-05 09:32+0000\n"
-"PO-Revision-Date: 2016-03-05 15:40+0500\n"
+"POT-Creation-Date: 2016-03-20 21:32+0000\n"
+"PO-Revision-Date: 2016-03-21 07:56+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
-msgstr ""
+msgstr "Ойыншы"
 
 #: ../data/nibbles-menus.ui.h:1
 msgid "_Preferences"
@@ -47,7 +47,7 @@ msgstr "_Шығу"
 #: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
 #: ../src/gnome-nibbles.vala:1031
 msgid "Nibbles"
-msgstr ""
+msgstr "Nibbles"
 
 #: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
 msgid "_New Game"
@@ -99,7 +99,7 @@ msgstr "Аялдатылған"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
-msgstr ""
+msgstr "GNOME Nibbles"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
 #: ../data/org.gnome.Nibbles.desktop.in.h:2
@@ -274,7 +274,7 @@ msgstr ""
 
 #: ../data/player-score-box.ui.h:1
 msgid "Worm"
-msgstr ""
+msgstr "Құрт"
 
 #: ../data/preferences-dialog.ui.h:1
 msgid "Preferences"
@@ -306,7 +306,7 @@ msgstr "Опциялар"
 
 #: ../data/preferences-dialog.ui.h:8
 msgid "E_nable sounds"
-msgstr ""
+msgstr "Дыбыстарды і_ске қосу"
 
 #: ../data/preferences-dialog.ui.h:9
 msgid "_Enable fake bonuses"
@@ -318,23 +318,23 @@ msgstr "_Жалпы"
 
 #: ../data/preferences-dialog.ui.h:12
 msgid "Worm color"
-msgstr ""
+msgstr "Құрт түсі"
 
 #: ../data/preferences-dialog.ui.h:13
 msgid "Worm _1"
-msgstr ""
+msgstr "Құрт _1"
 
 #: ../data/preferences-dialog.ui.h:14
 msgid "Worm _2"
-msgstr ""
+msgstr "Құрт _2"
 
 #: ../data/preferences-dialog.ui.h:15
 msgid "Worm _3"
-msgstr ""
+msgstr "Құрт _3"
 
 #: ../data/preferences-dialog.ui.h:16
 msgid "Worm _4"
-msgstr ""
+msgstr "Құрт _4"
 
 #. Help string for command line --version flag
 #: ../src/gnome-nibbles.vala:102
@@ -343,7 +343,7 @@ msgstr "Нұсқа ақпаратын көрсету"
 
 #: ../src/gnome-nibbles.vala:419
 msgid "Are you sure you want to start a new game?"
-msgstr ""
+msgstr "Жаңа ойынды бастауды шынымен қалайсыз ба?"
 
 #: ../src/gnome-nibbles.vala:420
 msgid "If you start a new game, the current one will be lost."
@@ -401,7 +401,7 @@ msgstr ""
 #. Displayed on the scores dialog, preceeding a difficulty.
 #: ../src/gnome-nibbles.vala:768
 msgid "Difficulty Level:"
-msgstr ""
+msgstr "Қиындық деңгейі:"
 
 #. Translators: the %d is the number of the level that was completed.
 #: ../src/gnome-nibbles.vala:869
@@ -429,7 +429,7 @@ msgstr ""
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
-msgstr[0] ""
+msgstr[0] "%d ұпай"
 
 #: ../src/gnome-nibbles.vala:963
 #, c-format
@@ -442,16 +442,44 @@ msgstr "Қайта о_йнау"
 
 #: ../src/gnome-nibbles.vala:1034
 msgid "A worm game for GNOME"
-msgstr ""
+msgstr "GNOME үшін құрттар ойыны"
 
 #: ../src/gnome-nibbles.vala:1043
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
+msgstr "Ойыншы %d"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "қызыл"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "жасыл"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr ""
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "сары"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr ""
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
 msgstr ""
 
 #: ../src/preferences-dialog.vala:140
@@ -503,17 +531,8 @@ msgstr ""
 #~ msgid "Keyboard Options"
 #~ msgstr "Пернетақта"
 
-#~ msgid "Red"
-#~ msgstr "Қызыл"
-
-#~ msgid "Green"
-#~ msgstr "Жасыл"
-
 #~ msgid "Blue"
 #~ msgstr "Көк"
-
-#~ msgid "Yellow"
-#~ msgstr "Сары"
 
 #~ msgid "Cyan"
 #~ msgstr "көгілдір"
