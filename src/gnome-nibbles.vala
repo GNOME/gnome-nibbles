@@ -951,7 +951,8 @@ public class Nibbles : Gtk.Application
         msg_label.get_style_context ().add_class ("menu-title");
         msg_label.show ();
 
-        var score_string = ngettext ("%d Point".printf (score), "%d Points".printf (score), score);
+        var score_string = ngettext ("%d Point", "%d Points", score);
+        score_string = score_string.printf (score);
         var score_label = new Gtk.Label (@"<b>$(score_string)</b>");
         score_label.set_use_markup (true);
         score_label.halign = Gtk.Align.CENTER;
