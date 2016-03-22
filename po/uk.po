@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-06 21:02+0200\n"
-"PO-Revision-Date: 2016-03-06 21:18+0300\n"
+"POT-Creation-Date: 2016-03-22 22:27+0200\n"
+"PO-Revision-Date: 2016-03-22 22:28+0300\n"
 "Last-Translator: Daniel Korostil <ted.korostiled@gmail.com>\n"
 "Language-Team: linux.org.ua\n"
 "Language: uk\n"
@@ -47,7 +47,7 @@ msgstr "Ви_йти"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1031
+#: ../src/gnome-nibbles.vala:1032
 msgid "Nibbles"
 msgstr "Хробак"
 
@@ -445,20 +445,20 @@ msgstr[0] "%d бал"
 msgstr[1] "%d бали"
 msgstr[2] "%d балів"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:964
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d — треба ще, щоб вибитись у лідери)"
 
-#: ../src/gnome-nibbles.vala:969
+#: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
 msgstr "_Зіграти ще раз"
 
-#: ../src/gnome-nibbles.vala:1034
+#: ../src/gnome-nibbles.vala:1035
 msgid "A worm game for GNOME"
 msgstr "Гра «Хробак» для GNOME"
 
-#: ../src/gnome-nibbles.vala:1043
+#: ../src/gnome-nibbles.vala:1044
 msgid "translator-credits"
 msgstr ""
 "Юрій Сирота\n"
@@ -466,11 +466,39 @@ msgstr ""
 "Wanderlust <wanderlust@ukr.net\n"
 ">Daniel Korostil <ted.korostiled@gmail.com>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Гравець %d"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "червоний"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "зелений"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "синій"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "жовтий"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "блакитний"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "бузковий"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
@@ -593,23 +621,11 @@ msgstr "Вибране клавішу вже призначено!"
 #~ msgid "_Use relative movement"
 #~ msgstr "_Відносний рух"
 
-#~ msgid "Red"
-#~ msgstr "Червоний"
-
-#~ msgid "Green"
-#~ msgstr "Зелений"
-
 #~ msgid "Blue"
 #~ msgstr "Синій"
 
-#~ msgid "Yellow"
-#~ msgstr "Жовтий"
-
 #~ msgid "Cyan"
 #~ msgstr "Голубий"
-
-#~ msgid "Purple"
-#~ msgstr "Бузковий"
 
 #~ msgid "Gray"
 #~ msgstr "Сірий"
