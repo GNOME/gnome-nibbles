@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-05 09:32+0000\n"
-"PO-Revision-Date: 2016-03-05 19:36+0200\n"
+"POT-Creation-Date: 2016-03-23 09:47+0000\n"
+"PO-Revision-Date: 2016-03-23 14:26+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -54,7 +54,7 @@ msgstr "_Lopeta"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1031
+#: ../src/gnome-nibbles.vala:1032
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -87,7 +87,6 @@ msgid "Select the number of human players."
 msgstr "Valitse ihmispelaajien määrä"
 
 #: ../data/nibbles.ui.h:9
-#| msgid "Select the number of human players."
 msgid "Select the number of computer players."
 msgstr "Valitse tietokonepelaajien määrä."
 
@@ -171,12 +170,10 @@ msgid "Height of the window in pixels."
 msgstr "Ikkunan korkeus kuvapisteinä."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-#| msgid "Width of the window in pixels"
 msgid "true if the window is maximized"
 msgstr "tosi jos ikkuna on suurennettu"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-#| msgid "Width of the window in pixels"
 msgid "true if the window is maximized."
 msgstr "tosi jos ikkuna on suurennettu."
 
@@ -235,7 +232,6 @@ msgid "Number of human players"
 msgstr "Ihmispelaajien määrä"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:20
-#| msgid "Number of human players"
 msgid "Number of human players."
 msgstr "Ihmispelaajien määrä."
 
@@ -387,13 +383,11 @@ msgstr "Taso %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:749
-#| msgid "_Beginner"
 msgid "Beginner"
 msgstr "Aloittelija"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:751
-#| msgid "_Slow"
 msgid "Slow"
 msgstr "Hidas"
 
@@ -404,35 +398,26 @@ msgstr "Melko vaikea"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:755
-#| msgid "_Fast"
 msgid "Fast"
 msgstr "Nopea"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:757
-#| msgctxt "game speed"
-#| msgid "Beginner with Fakes"
 msgid "Beginner with Fakes"
 msgstr "Aloittelija huijausten kera"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:759
-#| msgctxt "game speed"
-#| msgid "Slow with Fakes"
 msgid "Slow with Fakes"
 msgstr "Hidas huijausten kera"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:761
-#| msgctxt "game speed"
-#| msgid "Medium with Fakes"
 msgid "Medium with Fakes"
 msgstr "Melko vaikea huijausten kera"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:763
-#| msgctxt "game speed"
-#| msgid "Fast with Fakes"
 msgid "Fast with Fakes"
 msgstr "Nopea huijausten kera"
 
@@ -470,20 +455,20 @@ msgid_plural "%d Points"
 msgstr[0] "%d piste"
 msgstr[1] "%d pistettä"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:964
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d pistettä enemmän pistetaulukkoa varten)"
 
-#: ../src/gnome-nibbles.vala:969
+#: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
 msgstr "_Pelaa uudelleen"
 
-#: ../src/gnome-nibbles.vala:1034
+#: ../src/gnome-nibbles.vala:1035
 msgid "A worm game for GNOME"
 msgstr "Matopeli Gnomelle"
 
-#: ../src/gnome-nibbles.vala:1043
+#: ../src/gnome-nibbles.vala:1044
 msgid "translator-credits"
 msgstr ""
 "Jiri Grönroos, 2012-2016\n"
@@ -504,11 +489,43 @@ msgstr ""
 "  Timo Jyrinki https://launchpad.net/~timo-jyrinki\n"
 "  eGetin https://launchpad.net/~egetin"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Pelaaja %d"
+
+#: ../src/nibbles-view.vala:156
+#| msgid "Red"
+msgid "red"
+msgstr "punainen"
+
+#: ../src/nibbles-view.vala:157
+#| msgid "Green"
+msgid "green"
+msgstr "vihreä"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "sininen"
+
+#: ../src/nibbles-view.vala:159
+#| msgid "Yellow"
+msgid "yellow"
+msgstr "keltainen"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "syaani"
+
+#: ../src/nibbles-view.vala:161
+#| msgid "Purple"
+msgid "purple"
+msgstr "violetti"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
@@ -637,23 +654,11 @@ msgstr "Valitsemasi näppäinyhdistelmä on jo määritetty!"
 #~ msgid "_Use relative movement"
 #~ msgstr "Käytä _suhteellista liikettä"
 
-#~ msgid "Red"
-#~ msgstr "Punainen"
-
-#~ msgid "Green"
-#~ msgstr "Vihreä"
-
 #~ msgid "Blue"
 #~ msgstr "Sininen"
 
-#~ msgid "Yellow"
-#~ msgstr "Keltainen"
-
 #~ msgid "Cyan"
 #~ msgstr "Syaani"
-
-#~ msgid "Purple"
-#~ msgstr "Violetti"
 
 #~ msgid "Gray"
 #~ msgstr "Harmaa"
