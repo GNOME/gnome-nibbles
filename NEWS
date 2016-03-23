@@ -1,3 +1,16 @@
+3.20.0 - March 23, 2016
+=======================
+
+* Internationalization bugs fixed
+* Updated translations
+
+3.19.92 - March 8, 2016
+=======================
+
+* Fix a crash when eating a cherry shortly after an apple or a banana.
+* Fix minor style issue.
+* Updated translations
+
 3.19.91 - February 28, 2016
 ===========================
 
