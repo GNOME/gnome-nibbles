@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-21 04:12+0000\n"
-"PO-Revision-Date: 2016-02-18 23:47+0200\n"
+"POT-Creation-Date: 2016-03-21 03:38+0000\n"
+"PO-Revision-Date: 2016-03-20 20:01+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -53,7 +53,7 @@ msgstr "_Išeiti"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1031
+#: ../src/gnome-nibbles.vala:1032
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -455,20 +455,20 @@ msgstr[0] "%d taškas"
 msgstr[1] "%d taškai"
 msgstr[2] "%d taškų"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:964
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(dar %d taškų, kad patektumėte į lyderių poziciją)"
 
-#: ../src/gnome-nibbles.vala:969
+#: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
 msgstr "Ža_isti dar kartą"
 
-#: ../src/gnome-nibbles.vala:1034
+#: ../src/gnome-nibbles.vala:1035
 msgid "A worm game for GNOME"
 msgstr "GNOME kirmelės žaidimas"
 
-#: ../src/gnome-nibbles.vala:1043
+#: ../src/gnome-nibbles.vala:1044
 msgid "translator-credits"
 msgstr ""
 "Paskutinis vertėjas:\n"
@@ -480,11 +480,39 @@ msgstr ""
 "Tomas Kuliavas <tokul@users.sf.net>,\n"
 "Gediminas Paulauskas <menesis@chatsubo.lt>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Žaidėjas %d"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "raudona"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "žalia"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "mėlyna"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "geltona"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "žalsvai mėlyna"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "violetinė"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
@@ -606,23 +634,11 @@ msgstr "Pasirinktas klavišas jau yra priskirtas!"
 #~ msgid "_Use relative movement"
 #~ msgstr "_Naudoti reliatyvų judėjimą"
 
-#~ msgid "Red"
-#~ msgstr "Raudona"
-
-#~ msgid "Green"
-#~ msgstr "Žalia"
-
 #~ msgid "Blue"
 #~ msgstr "Mėlyna"
 
-#~ msgid "Yellow"
-#~ msgstr "Geltona"
-
 #~ msgid "Cyan"
 #~ msgstr "Žalsvai melsva"
-
-#~ msgid "Purple"
-#~ msgstr "Violetinė"
 
 #~ msgid "Gray"
 #~ msgstr "Pilka"
