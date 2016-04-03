@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-23 09:47+0000\n"
-"PO-Revision-Date: 2016-03-23 16:02+0100\n"
+"POT-Creation-Date: 2016-04-03 08:48+0000\n"
+"PO-Revision-Date: 2016-04-03 10:51+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -249,7 +249,7 @@ msgstr "Moviment relatîf (par esempli nome çampe o diestre)."
 #: ../data/org.gnome.nibbles.gschema.xml.h:27
 #: ../src/preferences-dialog.vala:128
 msgid "Move up"
-msgstr "Sposte in su"
+msgstr "Sposte in sù"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
@@ -258,7 +258,7 @@ msgstr "Boton di doprâ par movi viers l'alt."
 #: ../data/org.gnome.nibbles.gschema.xml.h:29
 #: ../src/preferences-dialog.vala:131
 msgid "Move down"
-msgstr "Sposte in ju"
+msgstr "Sposte in jù"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
