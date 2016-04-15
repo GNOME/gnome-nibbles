@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-04-08 08:50+0000\n"
-"PO-Revision-Date: 2016-04-08 12:01+0200\n"
+"POT-Creation-Date: 2016-04-15 20:49+0000\n"
+"PO-Revision-Date: 2016-04-16 01:13+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -353,7 +353,7 @@ msgstr "Mostre il numar di version"
 
 #: ../src/gnome-nibbles.vala:419
 msgid "Are you sure you want to start a new game?"
-msgstr "Sigûr di volê tacâ une gnove partide?"
+msgstr "Sigûrs di volê tacâ une gnove partide?"
 
 #: ../src/gnome-nibbles.vala:420
 msgid "If you start a new game, the current one will be lost."
