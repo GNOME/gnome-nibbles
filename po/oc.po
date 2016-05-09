@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-15 19:58+0000\n"
-"PO-Revision-Date: 2016-02-29 22:50+0200\n"
+"POT-Creation-Date: 2016-04-29 08:57+0000\n"
+"PO-Revision-Date: 2016-05-08 18:24+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
 "Language: oc\n"
@@ -46,16 +46,16 @@ msgid "_Quit"
 msgstr "_Quitar"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:510 ../src/gnome-nibbles.vala:994
-#: ../src/gnome-nibbles.vala:1033
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1032
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:399
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
 msgid "_New Game"
 msgstr "_Novèla partida"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:428
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
 msgid "_Pause"
 msgstr "P_ausa"
 
@@ -72,17 +72,14 @@ msgid "Eat the treats before the other worms, but don't hit anything!"
 msgstr ""
 
 #: ../data/nibbles.ui.h:7
-#| msgid "Number of AI players"
 msgid "Number of players"
 msgstr "Nombre de jogaires"
 
 #: ../data/nibbles.ui.h:8
-#| msgid "Number of human players."
 msgid "Select the number of human players."
 msgstr "Seleccionar lo nombre de jogaires umans."
 
 #: ../data/nibbles.ui.h:9
-#| msgid "Number of human players."
 msgid "Select the number of computer players."
 msgstr ""
 
@@ -99,7 +96,6 @@ msgid "_Start"
 msgstr ""
 
 #: ../data/nibbles.ui.h:13
-#| msgid "_Pause"
 msgid "Paused"
 msgstr "Pausa"
 
@@ -110,7 +106,7 @@ msgstr "GNOME Nibbles"
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
 #: ../data/org.gnome.Nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
-msgstr "Guider un vèrm a travèrs un laberint"
+msgstr "Guidar un vèrm a travèrs un laberint"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
 msgid ""
@@ -251,10 +247,10 @@ msgstr "Utilizar de movements relatius"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
-msgstr "Utilizar de movements relatius (es a dire drecha e esquèrra solament)."
+msgstr "Utilizar de movements relatius (es a dire dreita e esquèrra solament)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:27
-#: ../src/preferences-dialog.vala:110
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Se desplaçar cap amont"
 
@@ -263,7 +259,7 @@ msgid "Key to use for motion up."
 msgstr "Tòca d'utilizar per se desplaçar cap amont."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:29
-#: ../src/preferences-dialog.vala:113
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Se desplaçar cap aval"
 
@@ -272,7 +268,7 @@ msgid "Key to use for motion down."
 msgstr "Tòca d'utilizar per se desplaçar cap aval."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:31
-#: ../src/preferences-dialog.vala:116
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Desplaçar a esquèrra"
 
@@ -281,13 +277,13 @@ msgid "Key to use for motion left."
 msgstr "Tòca d'utilizar per se desplaçar a esquèrra."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:33
-#: ../src/preferences-dialog.vala:119
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
-msgstr "Desplaçar a drecha"
+msgstr "Desplaçar a dreita"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
-msgstr "Tòca d'utilizar per se desplaçar a drecha."
+msgstr "Tòca d'utilizar per se desplaçar a dreita."
 
 #: ../data/player-score-box.ui.h:1
 msgid "Worm"
@@ -302,26 +298,18 @@ msgid "Speed"
 msgstr "Velocitat"
 
 #: ../data/preferences-dialog.ui.h:3
-#| msgctxt "game speed"
-#| msgid "Beginner"
 msgid "_Beginner"
 msgstr "_Debutant"
 
 #: ../data/preferences-dialog.ui.h:4
-#| msgctxt "game speed"
-#| msgid "Slow"
 msgid "_Slow"
 msgstr "_Lent"
 
 #: ../data/preferences-dialog.ui.h:5
-#| msgctxt "game speed"
-#| msgid "Medium"
 msgid "_Medium"
 msgstr "_Intermediari"
 
 #: ../data/preferences-dialog.ui.h:6
-#| msgctxt "game speed"
-#| msgid "Fast"
 msgid "_Fast"
 msgstr "_Rapid"
 
@@ -342,180 +330,188 @@ msgid "_General"
 msgstr ""
 
 #: ../data/preferences-dialog.ui.h:12
-#| msgid "_Worm color:"
 msgid "Worm color"
 msgstr "Color del vèrm"
 
 #: ../data/preferences-dialog.ui.h:13
-#| msgid "Worm"
 msgid "Worm _1"
 msgstr "Vèrm _1"
 
 #: ../data/preferences-dialog.ui.h:14
-#| msgid "Worm"
 msgid "Worm _2"
 msgstr "Vèrm _2"
 
 #: ../data/preferences-dialog.ui.h:15
-#| msgid "Worm"
 msgid "Worm _3"
 msgstr "Vèrm _3"
 
 #: ../data/preferences-dialog.ui.h:16
-#| msgid "Worm"
 msgid "Worm _4"
 msgstr "Vèrm _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:100
+#: ../src/gnome-nibbles.vala:102
 msgid "Show release version"
 msgstr ""
 
-#: ../src/gnome-nibbles.vala:395
+#: ../src/gnome-nibbles.vala:419
 msgid "Are you sure you want to start a new game?"
 msgstr ""
 
-#: ../src/gnome-nibbles.vala:396
+#: ../src/gnome-nibbles.vala:420
 msgid "If you start a new game, the current one will be lost."
 msgstr ""
 
-#: ../src/gnome-nibbles.vala:423
+#: ../src/gnome-nibbles.vala:451
 msgid "_Resume"
 msgstr ""
 
-#: ../src/gnome-nibbles.vala:586 ../src/gnome-nibbles.vala:861
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
 msgid "Level %d"
 msgstr ""
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:721
-#| msgctxt "game speed"
-#| msgid "Beginner"
+#: ../src/gnome-nibbles.vala:749
 msgid "Beginner"
 msgstr "Debutant"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:723
-#| msgctxt "game speed"
-#| msgid "Slow"
+#: ../src/gnome-nibbles.vala:751
 msgid "Slow"
 msgstr "Lent"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:725
-#| msgctxt "game speed"
-#| msgid "Medium"
+#: ../src/gnome-nibbles.vala:753
 msgid "Medium"
 msgstr "Intermediari"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:727
-#| msgctxt "game speed"
-#| msgid "Fast"
+#: ../src/gnome-nibbles.vala:755
 msgid "Fast"
 msgstr "Rapid"
 
-# sans doute faudrait-il trouver un terme commun pour ces « feintes » 
-# (cette entrée e les suivantes) e les « faux bonus » 
-# (quelques entrées plus loin) : dans tous les cas, ce son des « fake ».
+# sans doute faudrait-il trobar un terme commun per ces « fintas » 
+# (cette entrada e les seguentas) e les « faux bonus » 
+# (quelques entradas plus loin) : dins totes los cas, ce son des « fake ».
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:729
-#| msgctxt "game speed"
-#| msgid "Beginner with Fakes"
+#: ../src/gnome-nibbles.vala:757
 msgid "Beginner with Fakes"
 msgstr "Debutant amb fintas"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:731
-#| msgctxt "game speed"
-#| msgid "Slow with Fakes"
+#: ../src/gnome-nibbles.vala:759
 msgid "Slow with Fakes"
 msgstr "Lent amb fintas"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:733
-#| msgctxt "game speed"
-#| msgid "Medium with Fakes"
+#: ../src/gnome-nibbles.vala:761
 msgid "Medium with Fakes"
 msgstr "Intermediari amb fintas"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:735
-#| msgctxt "game speed"
-#| msgid "Fast with Fakes"
+#: ../src/gnome-nibbles.vala:763
 msgid "Fast with Fakes"
 msgstr "Rapid amb fintas"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:740
+#: ../src/gnome-nibbles.vala:768
 msgid "Difficulty Level:"
 msgstr "Nivèl de dificultat :"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:841
+#: ../src/gnome-nibbles.vala:869
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nivèl %d acabat !"
 
-#: ../src/gnome-nibbles.vala:848
+#: ../src/gnome-nibbles.vala:876
 msgid "_Next Level"
 msgstr "_Nivèl seguent"
 
-#: ../src/gnome-nibbles.vala:915
+#: ../src/gnome-nibbles.vala:940
 msgid "Congratulations!"
 msgstr "Felicitacions !"
 
-#: ../src/gnome-nibbles.vala:915
-#| msgid "Game speed"
+#: ../src/gnome-nibbles.vala:940
 msgid "Game Over!"
 msgstr "Partida acabada !"
 
-#: ../src/gnome-nibbles.vala:922
+#: ../src/gnome-nibbles.vala:947
 msgid "You have completed the game."
 msgstr ""
 
-#: ../src/gnome-nibbles.vala:929
+#: ../src/gnome-nibbles.vala:954
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d punt"
 msgstr[1] "%d punts"
 
-#: ../src/gnome-nibbles.vala:938
+#: ../src/gnome-nibbles.vala:964
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr ""
 
-#: ../src/gnome-nibbles.vala:944
+#: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
 msgstr "_Ensajatz tornamai"
 
-#: ../src/gnome-nibbles.vala:997
+#: ../src/gnome-nibbles.vala:1035
 msgid "A worm game for GNOME"
 msgstr "Un jòc de vèrm per GNOME"
 
-#: ../src/gnome-nibbles.vala:1006
+#: ../src/gnome-nibbles.vala:1044
 msgid "translator-credits"
 msgstr "Cédric Valmary <cvalmary@yahoo.fr>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1191 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Jogaire %d"
 
-#: ../src/preferences-dialog.vala:122
-#| msgid "Options"
+#: ../src/nibbles-view.vala:156
+#| msgid "Red"
+msgid "red"
+msgstr "roge"
+
+#: ../src/nibbles-view.vala:157
+#| msgid "Green"
+msgid "green"
+msgstr "verd"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "blau"
+
+#: ../src/nibbles-view.vala:159
+#| msgid "Yellow"
+msgid "yellow"
+msgstr "jaune"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "cian"
+
+#: ../src/nibbles-view.vala:161
+#| msgid "Purple"
+msgid "purple"
+msgstr "violet"
+
+#: ../src/preferences-dialog.vala:140
 msgid "Action"
 msgstr "Accion"
 
-#: ../src/preferences-dialog.vala:129
+#: ../src/preferences-dialog.vala:147
 msgid "Key"
 msgstr "Clau"
 
-#: ../src/preferences-dialog.vala:212
-#| msgid "The shortcut you selected is already assigned."
+#: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "La clau seleccionada es ja atribuida !"
 
@@ -627,23 +623,11 @@ msgstr "La clau seleccionada es ja atribuida !"
 #~ msgid "_Use relative movement"
 #~ msgstr "_Utilizar de movement relatius"
 
-#~ msgid "Red"
-#~ msgstr "Roge"
-
-#~ msgid "Green"
-#~ msgstr "Verd"
-
 #~ msgid "Blue"
 #~ msgstr "Blau"
 
-#~ msgid "Yellow"
-#~ msgstr "Jaune"
-
 #~ msgid "Cyan"
 #~ msgstr "Cian"
-
-#~ msgid "Purple"
-#~ msgstr "Violet"
 
 #~ msgid "Gray"
 #~ msgstr "Gris"
