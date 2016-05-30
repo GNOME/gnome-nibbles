@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-04-29 08:57+0000\n"
+"POT-Creation-Date: 2016-05-23 17:59+0000\n"
 "PO-Revision-Date: 2016-05-08 18:24+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
@@ -476,12 +476,10 @@ msgid "Player %d"
 msgstr "Jogaire %d"
 
 #: ../src/nibbles-view.vala:156
-#| msgid "Red"
 msgid "red"
 msgstr "roge"
 
 #: ../src/nibbles-view.vala:157
-#| msgid "Green"
 msgid "green"
 msgstr "verd"
 
@@ -490,7 +488,6 @@ msgid "blue"
 msgstr "blau"
 
 #: ../src/nibbles-view.vala:159
-#| msgid "Yellow"
 msgid "yellow"
 msgstr "jaune"
 
@@ -499,7 +496,6 @@ msgid "cyan"
 msgstr "cian"
 
 #: ../src/nibbles-view.vala:161
-#| msgid "Purple"
 msgid "purple"
 msgstr "violet"
 
