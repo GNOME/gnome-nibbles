@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/nibbles/ui">
+    <file>nibbles.ui</file>
+    <file>nibbles.css</file>
+    <file>scoreboard.ui</file>
+    <file>player-score-box.ui</file>
+    <file>controls-grid.ui</file>
+    <file>preferences-dialog.ui</file>
+  </gresource>
+  <gresource prefix="/org/gnome/nibbles/gtk">
+    <file alias="menus.ui">nibbles-menus.ui</file>
+  </gresource>
+</gresources>
+

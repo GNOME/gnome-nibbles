@@ -76,6 +76,5 @@ data/pix/Makefile
 help/Makefile
 po/Makefile.in
 src/Makefile
-src/gnome-nibbles.gresource.xml
 ])
 AC_OUTPUT

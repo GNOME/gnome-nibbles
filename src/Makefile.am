@@ -34,16 +34,17 @@ gnome_nibbles_VALAFLAGS = \
 	--pkg libgames-support-1.0 \
 	--pkg gee-0.8 \
 	--target-glib=$(GLIB_REQUIRED) \
-	--gresources=$(builddir)/gnome-nibbles.gresource.xml
+	--gresources=$(top_srcdir)/data/gnome-nibbles.gresource.xml
 
 gnome_nibbles_LDADD = \
 	$(GNOME_NIBBLES_LIBS)
 
-gnome-nibbles-resources.c: gnome-nibbles.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies gnome-nibbles.gresource.xml)
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --sourcedir=$(builddir) --generate-source $<
+resources = $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir=$(top_srcdir)/data $(top_srcdir)/data/gnome-nibbles.gresource.xml)
+
+gnome-nibbles-resources.c: $(top_srcdir)/data/gnome-nibbles.gresource.xml $(resources)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/data --generate-source $<
 
 CLEANFILES = \
-	gnome-nibbles.gresource.xml \
 	gnome-nibbles-resources.c
 
 -include $(top_srcdir)/git.mk
