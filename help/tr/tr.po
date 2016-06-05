@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-nibbles gnome-3-20\n"
+"Project-Id-Version: gnome-nibbles master\n"
 "POT-Creation-Date: 2016-06-05 06:57+0000\n"
 "PO-Revision-Date: 2016-06-05 10:14+0300\n"
 "Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
