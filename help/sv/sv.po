@@ -2,16 +2,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: nibbles doc\n"
-"POT-Creation-Date: 2015-03-27 20:16+0000\n"
-"PO-Revision-Date: 2015-04-18 20:58+0100\n"
-"Last-Translator: Erik Sköldås <erik.skoldas@tele2.se>\n"
+"POT-Creation-Date: 2016-05-05 09:03+0000\n"
+"PO-Revision-Date: 2016-06-14 22:00+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -636,14 +636,6 @@ msgstr "Relativ rörelse"
 
 #. (itstool) path: page/p
 #: C/rel-movement.page:27
-#| msgid ""
-#| "When relative movement is enabled, the worm is manouvered using just the "
-#| "default <key>Left</key> and <key>Right</key> keys or other <link xref="
-#| "\"controls-change\">customized keys</link> that control the leftward and "
-#| "rightward movement of a worm. When the <key>Left</key> key is pressed, "
-#| "the worm turns left, instead of moving towards the left of the screen. "
-#| "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
-#| "instead of moving towards the right of the screen."
 msgid ""
 "When relative movement is enabled, the worm is maneuvered using just the "
 "default <key>Left</key> and <key>Right</key> keys or other <link xref="
@@ -664,7 +656,6 @@ msgstr ""
 
 #. (itstool) path: figure/title
 #: C/rel-movement.page:39
-#| msgid "Starting postion:"
 msgid "Starting position:"
 msgstr "Startposition:"
 
@@ -851,9 +842,9 @@ msgstr ""
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
-msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Erkännande-DelaLika 3.0 Unported"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
-msgstr "Det här programmet är licensierat under <_:link-1/>."
+msgstr "Det här verket är licensierat under licensen <_:link-1/>."
