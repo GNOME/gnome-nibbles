@@ -38,7 +38,8 @@ dist_sounds_DATA = \
 EXTRA_DIST = \
 	$(appstream_in_files) \
 	$(desktop_in_files) \
-	$(gsettings_SCHEMAS)
+	$(gsettings_SCHEMAS) \
+	gnome-nibbles.gresource.xml
 
 CLEANFILES = \
 	$(appstream_XML) \
