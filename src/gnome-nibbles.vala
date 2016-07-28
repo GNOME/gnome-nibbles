@@ -1037,7 +1037,7 @@ public class Nibbles : Gtk.Application
                                "Copyright © 1999–2008 Sean MacIsaac, Ian Peters, Andreas Røsdal\n" +
                                "Copyright © 2009 Guillaume Beland\n" +
                                "Copyright © 2015 Iulian-Gabriel Radu",
-                               "license-type", Gtk.License.GPL_2_0,
+                               "license-type", Gtk.License.GPL_3_0,
                                "authors", authors,
                                "documenters", documenters,
                                "artists", artists,
