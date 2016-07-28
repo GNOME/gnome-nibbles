@@ -47,7 +47,7 @@ private class WormActor : Clutter.Actor
 
 private class BonusTexture : GtkClutter.Texture
 {
-    public static const float SIZE_MULTIPLIER = 2;
+    public const float SIZE_MULTIPLIER = 2;
 
     public override void show ()
     {
@@ -73,7 +73,7 @@ private class BonusTexture : GtkClutter.Texture
 
 private class WarpTexture: GtkClutter.Texture
 {
-    public static const float SIZE_MULTIPLIER = 2;
+    public const float SIZE_MULTIPLIER = 2;
 
     public override void show ()
     {
