@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:12+0200\n"
-"PO-Revision-Date: 2016-03-03 15:16+0200\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"POT-Creation-Date: 2016-08-14 16:51+0300\n"
+"PO-Revision-Date: 2016-08-14 17:02+0300\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,7 @@ msgstr "י_ציאה"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1031
+#: ../src/gnome-nibbles.vala:1032
 msgid "Nibbles"
 msgstr "כרסומים"
 
@@ -118,6 +118,11 @@ msgid ""
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won't have much room for movement."
 msgstr ""
+"לשלוט בתולעת במשימתה לאכול בונוסים ולהתארך. להתגבר על תולעי אויב בזמן אכילת "
+"סופגניות וגלידות על מננת להגביר את קצב הגדילה. כל תולעת עשר חיים ומאבדת חיים "
+"בהתנגשות בקיר, בתולעת אחרת או בעצמה. תולעי האויב הולכות אחרי אותם הבונוסים "
+"שהתולעת שלך אחריה, כך יש להיזהר: אם הם נהיים ארוכים מדי, לא יהיה לך מספיק "
+"מרווח לתזוזה."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
@@ -125,12 +130,20 @@ msgid ""
 "levels are mostly open with a few walls, but later on, cramped spaces and "
 "teleporters make things more interesting."
 msgstr ""
+"ההרפתקה עוברת דרך 26 מפות בקושי הולך וגדל. השלבים הראשונים לרוב נפתחים עם "
+"מספר בודד של תולעים, אך לאחר מכן המרווח מצטמצם ומעבר במרחב עושה את הדברים "
+"למעניינים יותר."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
+"שחק בעצמיך אל מול עד חמש תולעי אויב, או שתף את המקלדת שלך לשחק עם חברים."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "מיזם GNOME"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -436,20 +449,20 @@ msgid_plural "%d Points"
 msgstr[0] "נקודה אחת"
 msgstr[1] "%d נקודות"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:964
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(עוד %d נקודות כדי להשיג את המוביל)"
 
-#: ../src/gnome-nibbles.vala:969
+#: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
 msgstr "ל_שחק שוב"
 
-#: ../src/gnome-nibbles.vala:1034
+#: ../src/gnome-nibbles.vala:1035
 msgid "A worm game for GNOME"
 msgstr "משחק תולעת ל־GNOME"
 
-#: ../src/gnome-nibbles.vala:1043
+#: ../src/gnome-nibbles.vala:1044
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -464,11 +477,39 @@ msgstr ""
 "פרויקט תרגום GNOME לעברית:\n"
 "‏http://gnome-il.berlios.de"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1192 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "שחקן %d"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "אדום"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "ירוק"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "כחול"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "צהוב"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "ציאן"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "סגול"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
@@ -597,23 +638,11 @@ msgstr "המפתח הנבחר כבר הוקצה!"
 #~ msgid "_Use relative movement"
 #~ msgstr "השתמש בתנועה _יחסית"
 
-#~ msgid "Red"
-#~ msgstr "אדום"
-
-#~ msgid "Green"
-#~ msgstr "ירוק"
-
 #~ msgid "Blue"
 #~ msgstr "כחול"
 
-#~ msgid "Yellow"
-#~ msgstr "צהוב"
-
 #~ msgid "Cyan"
 #~ msgstr "תכלת"
-
-#~ msgid "Purple"
-#~ msgstr "סגול"
 
 #~ msgid "Gray"
 #~ msgstr "אפור"
