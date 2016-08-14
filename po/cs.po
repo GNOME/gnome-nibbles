@@ -23,10 +23,10 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-20 09:36+0000\n"
-"PO-Revision-Date: 2016-03-20 14:24+0100\n"
+"POT-Creation-Date: 2016-08-13 20:23+0000\n"
+"PO-Revision-Date: 2016-08-14 12:40+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
-"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgstr "U_končit"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1031
+#: ../src/gnome-nibbles.vala:1032
 msgid "Nibbles"
 msgstr "Červíci"
 
@@ -156,6 +156,10 @@ msgid ""
 msgstr ""
 "Zahrajte si na vlastní pěst až proti pěti nepřátelským červíkům nebo se "
 "podělte o klávesnici při hraní s přáteli."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Projekt GNOME"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -464,20 +468,20 @@ msgstr[0] "%d bod"
 msgstr[1] "%d body"
 msgstr[2] "%d bodů"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:964
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(o %d bodů více a byli byste ve vedoucí tabulce)"
 
-#: ../src/gnome-nibbles.vala:969
+#: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
 msgstr "_Hrát znovu"
 
-#: ../src/gnome-nibbles.vala:1034
+#: ../src/gnome-nibbles.vala:1035
 msgid "A worm game for GNOME"
 msgstr "Hra s červíky pro GNOME"
 
-#: ../src/gnome-nibbles.vala:1043
+#: ../src/gnome-nibbles.vala:1044
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -498,7 +502,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
