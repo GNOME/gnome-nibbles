@@ -31,7 +31,7 @@ gnome_nibbles_VALAFLAGS = \
 	--pkg clutter-gtk-1.0 \
 	--pkg libcanberra \
 	--pkg libcanberra-gtk \
-	--pkg libgames-support-1.0 \
+	--pkg libgnome-games-support-1.0 \
 	--pkg gee-0.8 \
 	--target-glib=$(GLIB_REQUIRED) \
 	--gresources=$(top_srcdir)/data/gnome-nibbles.gresource.xml
