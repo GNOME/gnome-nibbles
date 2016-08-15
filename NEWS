@@ -1,3 +1,12 @@
+3.21.90 - August 15, 2016
+=========================
+
+* Set default widgets on new game screens
+* Work around broken GtkStack transitions on Wayland
+* Fix incorrect license displayed in preferences dialog
+* Build with new libgnome-games-support
+* Updated translations
+
 3.21.4 - July 17, 2016
 ======================
 
