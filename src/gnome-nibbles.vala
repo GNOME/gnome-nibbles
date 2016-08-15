@@ -544,10 +544,9 @@ public class Nibbles : Gtk.Application
         new_game_button.hide ();
         pause_button.hide ();
 
-        var type = main_stack.get_transition_type ();
         main_stack.set_transition_type (Gtk.StackTransitionType.NONE);
         main_stack.set_visible_child_name ("number_of_players");
-        main_stack.set_transition_type (type);
+        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
 
         number_of_players_buttons[game.numhumans - 1].set_active (true);
         number_of_ai_buttons[game.numai].set_active (true);
@@ -606,6 +605,11 @@ public class Nibbles : Gtk.Application
 
     private void show_game_view ()
     {
+        /* FIXME: If there's a transition set, on Wayland, the ClutterEmbed
+         * will show outside the game's window. Don't change the transition
+         * type when that's no longer a problem.
+         */
+        main_stack.set_transition_type (Gtk.StackTransitionType.NONE);
         new_game_button.show ();
         pause_button.show ();
 
@@ -613,6 +617,8 @@ public class Nibbles : Gtk.Application
 
         headerbar.set_title (_("Level %d").printf (game.current_level));
         main_stack.set_visible_child_name ("game_box");
+
+        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
     }
 
     private void back_cb ()
