@@ -40,6 +40,8 @@ public class Nibbles : Gtk.Application
     /* Pre-game screen widgets */
     private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
     private Gee.LinkedList<Gtk.ToggleButton> number_of_ai_buttons;
+    private Gtk.Button next_button;
+    private Gtk.Button start_button;
 
     private Gtk.Box grids_box;
     private Gdk.Pixbuf arrow_pixbuf;
@@ -194,6 +196,8 @@ public class Nibbles : Gtk.Application
             button.toggled.connect (change_number_of_ai_cb);
             number_of_ai_buttons.add (button);
         }
+        next_button = (Gtk.Button) builder.get_object ("next_button");
+        start_button = (Gtk.Button) builder.get_object ("start_button");
         grids_box = (Gtk.Box) builder.get_object ("grids_box");
         window.set_titlebar (headerbar);
 
@@ -544,12 +548,14 @@ public class Nibbles : Gtk.Application
         new_game_button.hide ();
         pause_button.hide ();
 
+        number_of_players_buttons[game.numhumans - 1].set_active (true);
+        number_of_ai_buttons[game.numai].set_active (true);
+
+        window.set_default (next_button);
+
         main_stack.set_transition_type (Gtk.StackTransitionType.NONE);
         main_stack.set_visible_child_name ("number_of_players");
         main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
-
-        number_of_players_buttons[game.numhumans - 1].set_active (true);
-        number_of_ai_buttons[game.numai].set_active (true);
     }
 
     private void show_controls_screen_cb ()
@@ -599,6 +605,8 @@ public class Nibbles : Gtk.Application
                 grids_box.add (grid);
             }
         }
+
+        window.set_default (start_button);
 
         main_stack.set_visible_child_name ("controls");
     }

@@ -326,8 +326,9 @@
                                             </packing>
                                         </child>
                                         <child>
-                                            <object class="GtkButton">
+                                            <object class="GtkButton" id="next_button">
                                                 <property name="visible">True</property>
+                                                <property name="can-default">True</property>
                                                 <property name="use-underline">True</property>
                                                 <property name="label" translatable="yes">_Next</property>
                                                 <property name="action-name">app.show-controls-screen</property>
@@ -377,8 +378,9 @@
                                             </object>
                                         </child>
                                         <child>
-                                            <object class="GtkButton">
+                                            <object class="GtkButton" id="start_button">
                                                 <property name="visible">True</property>
+                                                <property name="can-default">True</property>
                                                 <property name="use-underline">True</property>
                                                 <property name="label" translatable="yes">_Start</property>
                                                 <property name="action-name">app.start-game</property>
