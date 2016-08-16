@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-22 09:45+0000\n"
-"PO-Revision-Date: 2016-03-22 12:26+0100\n"
+"POT-Creation-Date: 2016-08-13 20:23+0000\n"
+"PO-Revision-Date: 2016-08-16 12:16+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -144,6 +144,10 @@ msgid ""
 msgstr ""
 "Juegue contra un máximo de cinco gusanos enemigos o comparta su teclado para "
 "jugar con un amigo."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "El proyecto GNOME"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -467,7 +471,7 @@ msgstr "Un juego de gusanos para GNOME."
 #: ../src/gnome-nibbles.vala:1044
 msgid "translator-credits"
 msgstr ""
-"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2016\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2008\n"
 "Lucas Vieites <lucas@asixinformatica.com>, 2002-2008\n"
 "Germán Poo Caamaño <gpoo@ubiobio.cl>\n"
@@ -484,12 +488,10 @@ msgid "Player %d"
 msgstr "Jugador %d"
 
 #: ../src/nibbles-view.vala:156
-#| msgid "Red"
 msgid "red"
 msgstr "rojo"
 
 #: ../src/nibbles-view.vala:157
-#| msgid "Green"
 msgid "green"
 msgstr "verde"
 
@@ -498,7 +500,6 @@ msgid "blue"
 msgstr "azul"
 
 #: ../src/nibbles-view.vala:159
-#| msgid "Yellow"
 msgid "yellow"
 msgstr "amarillo"
 
@@ -507,7 +508,6 @@ msgid "cyan"
 msgstr "cián"
 
 #: ../src/nibbles-view.vala:161
-#| msgid "Purple"
 msgid "purple"
 msgstr "púrpura"
 
