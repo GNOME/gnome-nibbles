@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-20 09:36+0000\n"
-"PO-Revision-Date: 2016-03-20 12:10+0100\n"
+"POT-Creation-Date: 2016-08-13 20:23+0000\n"
+"PO-Revision-Date: 2016-08-20 22:45+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -49,7 +49,7 @@ msgstr "A_vsluta"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1031
+#: ../src/gnome-nibbles.vala:1032
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -142,6 +142,10 @@ msgid ""
 msgstr ""
 "Spela ensam mot upp till fem motståndarmaskar, eller dela med dig av ditt "
 "tangentbord för att spela med en vän."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "GNOME-projektet"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -449,20 +453,20 @@ msgid_plural "%d Points"
 msgstr[0] "%d poäng"
 msgstr[1] "%d poäng"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:964
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d poäng till för att nå topplistan)"
 
-#: ../src/gnome-nibbles.vala:969
+#: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
 msgstr "S_pela igen"
 
-#: ../src/gnome-nibbles.vala:1034
+#: ../src/gnome-nibbles.vala:1035
 msgid "A worm game for GNOME"
 msgstr "Ett maskspel för GNOME"
 
-#: ../src/gnome-nibbles.vala:1043
+#: ../src/gnome-nibbles.vala:1044
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -479,7 +483,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
