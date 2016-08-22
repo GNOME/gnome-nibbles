@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-04-15 20:49+0000\n"
-"PO-Revision-Date: 2016-04-16 01:13+0200\n"
+"POT-Creation-Date: 2016-08-13 20:23+0000\n"
+"PO-Revision-Date: 2016-08-22 22:50+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -137,6 +137,10 @@ msgid ""
 msgstr ""
 "Zuie di bessôl cuintri un massim di 5 viers o condivît la tô tastiere cuntun "
 "ami."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Il progjet GNOME"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
