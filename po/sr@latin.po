@@ -453,6 +453,7 @@ msgid_plural "%d Points"
 msgstr[0] "%d bod"
 msgstr[1] "%d boda"
 msgstr[2] "%d bodova"
+msgstr[3] "Jedan bod"
 
 #: ../src/gnome-nibbles.vala:964
 #, c-format
