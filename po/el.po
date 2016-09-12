@@ -37,16 +37,16 @@ msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-21 09:34+0000\n"
-"PO-Revision-Date: 2016-03-21 13:02+0200\n"
-"Last-Translator: Yannis Koutsoukos <giankoyt@gmail.com>\n"
+"POT-Creation-Date: 2016-08-13 20:23+0000\n"
+"PO-Revision-Date: 2016-09-12 11:03+0300\n"
+"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/controls-grid.ui.h:1
@@ -169,6 +169,10 @@ msgid ""
 msgstr ""
 "Παίξτε μόνοι σας μέχρι και εναντίον πέντε εχθρικών σκουληκιών, ή μοιραστείτε "
 "το πληκτρολόγιο σας για να παίξετε με έναν φίλο."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Το έργο GNOME"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -514,12 +518,10 @@ msgid "Player %d"
 msgstr "Παίκτης %d"
 
 #: ../src/nibbles-view.vala:156
-#| msgid "Red"
 msgid "red"
 msgstr "κόκκινο"
 
 #: ../src/nibbles-view.vala:157
-#| msgid "Green"
 msgid "green"
 msgstr "πράσινο"
 
@@ -528,7 +530,6 @@ msgid "blue"
 msgstr "μπλε"
 
 #: ../src/nibbles-view.vala:159
-#| msgid "Yellow"
 msgid "yellow"
 msgstr "κίτρινο"
 
@@ -537,7 +538,6 @@ msgid "cyan"
 msgstr "κυανό"
 
 #: ../src/nibbles-view.vala:161
-#| msgid "Purple"
 msgid "purple"
 msgstr "μωβ"
 
