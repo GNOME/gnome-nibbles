@@ -8,9 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-20 19:43+0100\n"
-"PO-Revision-Date: 2016-03-20 19:54+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-ni"
+"bbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-08-13 20:23+0000\n"
+"PO-Revision-Date: 2016-09-20 12:14+0100\n"
 "Last-Translator: dooteo <dooteo@zundan.com>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
@@ -46,7 +47,7 @@ msgstr "_Irten"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1031
+#: ../src/gnome-nibbles.vala:1032
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -140,6 +141,10 @@ msgstr ""
 "Jokatu zizareak diren bost etsairen kontra, edo partekatu teklatua lagun "
 "batekin jokatzeko."
 
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "GNOME proiektua"
+
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "jokoa;sugea;mahai-jokoa;"
@@ -175,8 +180,8 @@ msgstr "Aurreneko exekuzioa da"
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr ""
-"Aurreneko exekuzioaren argibideen elkarrizketa-koadroa erakusteko "
-"edo ez ezarpena."
+"Aurreneko exekuzioaren argibideen elkarrizketa-koadroa erakusteko edo ez "
+"ezarpena."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
@@ -446,20 +451,20 @@ msgid_plural "%d Points"
 msgstr[0] "Puntu %d"
 msgstr[1] "%d puntu"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:964
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d puntu gehiago aurrendari izateko)"
 
-#: ../src/gnome-nibbles.vala:969
+#: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
 msgstr "Jokatu _berriro"
 
-#: ../src/gnome-nibbles.vala:1034
+#: ../src/gnome-nibbles.vala:1035
 msgid "A worm game for GNOME"
 msgstr "GNOMEren har-jokoa"
 
-#: ../src/gnome-nibbles.vala:1043
+#: ../src/gnome-nibbles.vala:1044
 msgid "translator-credits"
 msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 
@@ -467,7 +472,7 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1077 ../src/gnome-nibbles.vala:1195
+#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
