@@ -5,10 +5,10 @@
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-nibbles 3.19.x\n"
+"Project-Id-Version: gnome-nibbles 3.23.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-10 13:07+0100\n"
-"PO-Revision-Date: 2016-01-10 13:11+0100\n"
+"POT-Creation-Date: 2016-10-16 12:29+0200\n"
+"PO-Revision-Date: 2016-10-16 12:29+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -20,58 +20,6 @@ msgstr ""
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
 msgstr "Spiller"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
-msgid "GNOME Nibbles"
-msgstr "GNOME Nibbles"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Led en orm rundt i en labyrint"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
-msgstr ""
-"Kontroller en mark på sin ferd mot å bli lengre ved å spise bonuser. "
-"Utmanøvrer fiendens marker mens du spiser smultringer og iskrem for å bli "
-"lengre. Hver mark har ti liv, og taper ett hvis den treffer en vegg, en "
-"annen mark eller seg selv. Fiendlige marker går etter de samme bonusene som "
-"deg, så vær forsiktig. Hvis de blir for lange har du ikke mye plass å bevege "
-"deg på."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
-msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
-msgstr ""
-"Eventyret går gjennom 26 kart med økende vanskelighetsgrad. De første "
-"nivåene er for det meste åpne med noen få vegger, men senere blir det mindre "
-"plass og teleportører gjør ting mer interessant."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Spill selv mot opp til fem fiendeormer, eller del tastaturet for å spille "
-"med en venn."
-
-#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
-#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
-#: ../src/gnome-nibbles.vala:900
-msgid "Nibbles"
-msgstr "Nibbles"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "spill;orm;brett;"
 
 #: ../data/nibbles-menus.ui.h:1
 msgid "_Preferences"
@@ -93,11 +41,17 @@ msgstr "_Om"
 msgid "_Quit"
 msgstr "A_vslutt"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
+#: ../src/gnome-nibbles.vala:1046
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "_Nytt spill"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "_Pause"
 
@@ -122,20 +76,74 @@ msgid "Select the number of human players."
 msgstr "Velg antall menneskelige spillere."
 
 #: ../data/nibbles.ui.h:9
+msgid "Select the number of computer players."
+msgstr "Velg antall datamaskinspillere."
+
+#: ../data/nibbles.ui.h:10
 msgid "_Next"
 msgstr "_Neste"
 
-#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Kontroller"
 
-#: ../data/nibbles.ui.h:11
+#: ../data/nibbles.ui.h:12
 msgid "_Start"
 msgstr "_Start"
 
-#: ../data/nibbles.ui.h:12
+#: ../data/nibbles.ui.h:13
 msgid "Paused"
 msgstr "Pause"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
+msgid "GNOME Nibbles"
+msgstr "GNOME Nibbles"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Led en orm rundt i en labyrint"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won't have much room for movement."
+msgstr ""
+"Kontroller en mark på sin ferd mot å bli lengre ved å spise bonuser. "
+"Utmanøvrer fiendens marker mens du spiser smultringer og iskrem for å bli "
+"lengre. Hver mark har ti liv, og taper ett hvis den treffer en vegg, en "
+"annen mark eller seg selv. Fiendlige marker går etter de samme bonusene som "
+"deg, så vær forsiktig. Hvis de blir for lange har du ikke mye plass å bevege "
+"deg på."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"Eventyret går gjennom 26 kart med økende vanskelighetsgrad. De første "
+"nivåene er for det meste åpne med noen få vegger, men senere blir det mindre "
+"plass og teleportører gjør ting mer interessant."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Spill selv mot opp til fem fiendeormer, eller del tastaturet for å spille "
+"med en venn."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "GNOME prosjektet"
+
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "spill;orm;brett;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Width of the window in pixels"
@@ -167,7 +175,9 @@ msgstr "Er dette første gang programmet kjøres"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Setting to decide whether to show first-run hint dialog or not."
-msgstr "Settes for å bestemme om dialogen med hing for første kjøring vises eller ikke."
+msgstr ""
+"Settes for å bestemme om dialogen med hing for første kjøring vises eller "
+"ikke."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
@@ -210,54 +220,70 @@ msgid "Enable fake bonuses."
 msgstr "Slå på falske bonuser."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Antall menneskelige spillere"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "Antall menneskelige spillere"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "Antall datamaskinspillere"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "Antall datamaskinspillere"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "Farge på ormen"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "Farge på ormen."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Bruk relativ bevegelse"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Bruk relativ bevegelse (kun venstre eller høyre)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
-#: ../src/preferences-dialog.vala:110
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Flytt opp"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Tast som brukes for å flytte opp."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
-#: ../src/preferences-dialog.vala:113
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Flytt ned"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Tast som skal brukes for å flytte ned."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27
-#: ../src/preferences-dialog.vala:116
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Flytt til venstre"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Tast som brukes for å gå til venstre."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:29
-#: ../src/preferences-dialog.vala:119
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Flytt til høyre"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:30
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Tast som brukes for å gå til høyre."
 
@@ -274,20 +300,20 @@ msgid "Speed"
 msgstr "Hastighet"
 
 #: ../data/preferences-dialog.ui.h:3
-msgid "_Fast"
-msgstr "_Rask"
+msgid "_Beginner"
+msgstr "_Begynner"
 
 #: ../data/preferences-dialog.ui.h:4
-msgid "_Medium"
-msgstr "_Middels"
-
-#: ../data/preferences-dialog.ui.h:5
 msgid "_Slow"
 msgstr "_Sakte"
 
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "_Middels"
+
 #: ../data/preferences-dialog.ui.h:6
-msgid "_Beginner"
-msgstr "_Begynner"
+msgid "_Fast"
+msgstr "_Rask"
 
 #: ../data/preferences-dialog.ui.h:7
 msgid "Options"
@@ -326,83 +352,163 @@ msgid "Worm _4"
 msgstr "Orm _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:100
+#: ../src/gnome-nibbles.vala:104
 msgid "Show release version"
 msgstr "Vis versjon"
 
-#: ../src/gnome-nibbles.vala:375
+#: ../src/gnome-nibbles.vala:423
 msgid "Are you sure you want to start a new game?"
 msgstr "Er du sikker på at du vil starte et nytt spill?"
 
-#: ../src/gnome-nibbles.vala:376
+#: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
 msgstr "Hvis du starter et nytt spill vil dette gå tapt."
 
-#: ../src/gnome-nibbles.vala:403
+#: ../src/gnome-nibbles.vala:455
 msgid "_Resume"
 msgstr "_Gjenoppta"
 
-#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:900
 #, c-format
 msgid "Level %d"
 msgstr "Nivå %d"
 
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
+msgid "Beginner"
+msgstr "Begynner"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:765
+msgid "Slow"
+msgstr "Sakte"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:767
+msgid "Medium"
+msgstr "Middels"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:769
+msgid "Fast"
+msgstr "Rask"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:771
+msgid "Beginner with Fakes"
+msgstr "Begynner med falske bonuser"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:773
+msgid "Slow with Fakes"
+msgstr "Sakte med falske bonuser"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:775
+msgid "Medium with Fakes"
+msgstr "Middels med falske bonuser"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:777
+msgid "Fast with Fakes"
+msgstr "Rask med falske bonuser"
+
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:622
+#: ../src/gnome-nibbles.vala:782
 msgid "Difficulty Level:"
 msgstr "Vanskelighetsnivå:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:720
+#: ../src/gnome-nibbles.vala:883
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nivå %d fullført!"
 
-#: ../src/gnome-nibbles.vala:727
+#: ../src/gnome-nibbles.vala:890
 msgid "_Next Level"
 msgstr "_Neste nivå"
 
-#: ../src/gnome-nibbles.vala:801
+#: ../src/gnome-nibbles.vala:954
+msgid "Congratulations!"
+msgstr "Gratulerer!"
+
+#: ../src/gnome-nibbles.vala:954
+msgid "Game Over!"
+msgstr "Spillet er over!"
+
+#: ../src/gnome-nibbles.vala:961
+msgid "You have completed the game."
+msgstr "Du har fullført spillet."
+
+#: ../src/gnome-nibbles.vala:968
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d poeng"
 msgstr[1] "%d poeng"
 
-#: ../src/gnome-nibbles.vala:810
+#: ../src/gnome-nibbles.vala:978
 #, c-format
 msgid "(%d more points to reach the leaderboard)"
 msgstr "(%d poeng igjen for å ta ledelsen)"
 
-#: ../src/gnome-nibbles.vala:816
+#: ../src/gnome-nibbles.vala:984
 msgid "_Play Again"
 msgstr "S_pill igjen"
 
-#: ../src/gnome-nibbles.vala:864
+#: ../src/gnome-nibbles.vala:1049
 msgid "A worm game for GNOME"
 msgstr "Et ormespill for GNOME"
 
-#: ../src/gnome-nibbles.vala:873
+#: ../src/gnome-nibbles.vala:1058
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
 "Espen Stefansen <espens@svn.gnome.org>\n"
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1092 ../src/gnome-nibbles.vala:1210
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "Spiller %d"
 
-#: ../src/preferences-dialog.vala:122
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "rød"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "grønn"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "blå"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "gul"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "turkis"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "lilla"
+
+#: ../src/preferences-dialog.vala:140
 msgid "Action"
 msgstr "Handling"
 
-#: ../src/preferences-dialog.vala:129
+#: ../src/preferences-dialog.vala:147
 msgid "Key"
 msgstr "Nøkkel"
 
-#: ../src/preferences-dialog.vala:212
+#: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Nøkkelen du valgte er allerede tildelt!"
