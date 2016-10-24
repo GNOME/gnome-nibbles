@@ -32,6 +32,7 @@
         <child>
             <object class="GtkOverlay" id="main_overlay">
                 <property name="visible">True</property>
+                <property name="can-default">True</property>
                 <child>
                     <object class="GtkBox" id="vbox">
                         <property name="visible">True</property>

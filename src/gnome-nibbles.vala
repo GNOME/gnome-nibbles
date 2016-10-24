@@ -893,6 +893,7 @@ public class Nibbles : Gtk.Application
         button.valign = Gtk.Align.END;
         button.set_margin_bottom (100);
         button.get_style_context ().add_class ("suggested-action");
+        button.set_can_default (true);
         button.clicked.connect (() => {
             label.destroy ();
             button.destroy ();
@@ -906,10 +907,11 @@ public class Nibbles : Gtk.Application
         overlay.add_overlay (button);
 
         overlay.show ();
+        overlay.grab_default ();
 
         Timeout.add (500, () => {
             button.show ();
-            button.grab_focus ();
+            button.grab_default ();
 
             return Source.REMOVE;
         });
