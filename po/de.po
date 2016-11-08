@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-11-08 05:25+0000\n"
-"PO-Revision-Date: 2016-11-08 10:03+0100\n"
+"POT-Creation-Date: 2016-11-08 09:04+0000\n"
+"PO-Revision-Date: 2016-11-08 10:05+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -61,7 +61,7 @@ msgstr "_Beenden"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1046
+#: ../src/gnome-nibbles.vala:1048
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -389,7 +389,7 @@ msgstr "Wenn Sie ein neues Spiel starten, wird das laufende Spiel beendet."
 msgid "_Resume"
 msgstr "Fo_rtsetzen"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:900
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
 msgid "Level %d"
 msgstr "Spielstufe %d"
@@ -449,39 +449,39 @@ msgstr "Spielstufe %d erfolgreich beendet!"
 msgid "_Next Level"
 msgstr "_Nächste Spielstufe"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Congratulations!"
 msgstr "Glückwunsch!"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Game Over!"
 msgstr "Spiel vorbei!"
 
-#: ../src/gnome-nibbles.vala:961
+#: ../src/gnome-nibbles.vala:963
 msgid "You have completed the game."
 msgstr "Sie haben das Spiel beendet."
 
-#: ../src/gnome-nibbles.vala:968
+#: ../src/gnome-nibbles.vala:970
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d Punkt"
 msgstr[1] "%d Punkte"
 
-#: ../src/gnome-nibbles.vala:978
+#: ../src/gnome-nibbles.vala:980
 #, c-format
-msgid "(%f more points to reach the leaderboard)"
-msgstr "(noch %f Punkte bis zum Erreichen der Bestenliste)"
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(noch %d Punkte bis zum Erreichen der Bestenliste)"
 
-#: ../src/gnome-nibbles.vala:984
+#: ../src/gnome-nibbles.vala:986
 msgid "_Play Again"
 msgstr "Erneut s_pielen"
 
-#: ../src/gnome-nibbles.vala:1049
+#: ../src/gnome-nibbles.vala:1051
 msgid "A worm game for GNOME"
 msgstr "Ein Wurmspiel für GNOME"
 
-#: ../src/gnome-nibbles.vala:1058
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -505,7 +505,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1092 ../src/gnome-nibbles.vala:1210
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
