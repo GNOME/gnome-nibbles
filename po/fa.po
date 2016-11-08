@@ -451,8 +451,8 @@ msgstr[1] "%Id امتیاز"
 
 #: ../src/gnome-nibbles.vala:964
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(%Id امتیاز دیگر لازم است تا وارد تابلو بهترین‌ها بشوید)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(%Ild امتیاز دیگر لازم است تا وارد تابلو بهترین‌ها بشوید)"
 
 #: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"

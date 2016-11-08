@@ -457,8 +457,8 @@ msgstr[3] "Jedan bod"
 
 #: ../src/gnome-nibbles.vala:964
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(još %d boda da pređete u vođstvo)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(još %ld boda da pređete u vođstvo)"
 
 #: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"

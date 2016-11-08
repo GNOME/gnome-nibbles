@@ -463,8 +463,8 @@ msgstr[2] "%d punktów"
 
 #: ../src/gnome-nibbles.vala:978
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(brakujące punkty, aby znaleźć się na liście najlepszych: %d)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(brakujące punkty, aby znaleźć się na liście najlepszych: %ld)"
 
 #: ../src/gnome-nibbles.vala:984
 msgid "_Play Again"

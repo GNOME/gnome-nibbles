@@ -391,8 +391,8 @@ msgstr "Intermediari"
 msgid "Fast"
 msgstr "Rapid"
 
-# sans doute faudrait-il trobar un terme commun per ces « fintas » 
-# (cette entrada e les seguentas) e les « faux bonus » 
+# sans doute faudrait-il trobar un terme commun per ces « fintas »
+# (cette entrada e les seguentas) e les « faux bonus »
 # (quelques entradas plus loin) : dins totes los cas, ce son des « fake ».
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:757
@@ -450,7 +450,7 @@ msgstr[1] "%d punts"
 
 #: ../src/gnome-nibbles.vala:964
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
+msgid "(%ld more points to reach the leaderboard)"
 msgstr ""
 
 #: ../src/gnome-nibbles.vala:970

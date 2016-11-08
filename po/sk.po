@@ -462,8 +462,8 @@ msgstr[2] "%d body"
 
 #: ../src/gnome-nibbles.vala:964
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(%d bodov do dosiahnutia tabuľky najlepších hráčov)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(%ld bodov do dosiahnutia tabuľky najlepších hráčov)"
 
 #: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
