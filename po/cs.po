@@ -20,11 +20,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-nibbles master\n"
+"Project-Id-Version: gnome-nibbles gnome-3.22\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-13 20:23+0000\n"
-"PO-Revision-Date: 2016-08-14 12:40+0200\n"
+"POT-Creation-Date: 2016-11-08 05:25+0000\n"
+"PO-Revision-Date: 2016-11-08 10:01+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -60,16 +60,16 @@ msgid "_Quit"
 msgstr "U_končit"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1032
+#: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
+#: ../src/gnome-nibbles.vala:1046
 msgid "Nibbles"
 msgstr "Červíci"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "_Nová hra"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "_Pozastavit"
 
@@ -372,95 +372,95 @@ msgid "Worm _4"
 msgstr "Červík _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:102
+#: ../src/gnome-nibbles.vala:104
 msgid "Show release version"
 msgstr "Zobrazit verzi vydání"
 
-#: ../src/gnome-nibbles.vala:419
+#: ../src/gnome-nibbles.vala:423
 msgid "Are you sure you want to start a new game?"
 msgstr "Opravdu chcete začít novou hru?"
 
-#: ../src/gnome-nibbles.vala:420
+#: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
 msgstr "Pokud začnete novou hru, ta současná bude zahozena."
 
-#: ../src/gnome-nibbles.vala:451
+#: ../src/gnome-nibbles.vala:455
 msgid "_Resume"
 msgstr "Pok_račovat"
 
-#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:900
 #, c-format
 msgid "Level %d"
 msgstr "Úroveň %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:749
+#: ../src/gnome-nibbles.vala:763
 msgid "Beginner"
 msgstr "Začátečník"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:751
+#: ../src/gnome-nibbles.vala:765
 msgid "Slow"
 msgstr "Pomalé"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:753
+#: ../src/gnome-nibbles.vala:767
 msgid "Medium"
 msgstr "Střední"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:755
+#: ../src/gnome-nibbles.vala:769
 msgid "Fast"
 msgstr "Rychlé"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:757
+#: ../src/gnome-nibbles.vala:771
 msgid "Beginner with Fakes"
 msgstr "Začátečník s falšemi"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:759
+#: ../src/gnome-nibbles.vala:773
 msgid "Slow with Fakes"
 msgstr "Pomalé s falšemi"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:761
+#: ../src/gnome-nibbles.vala:775
 msgid "Medium with Fakes"
 msgstr "Střední s falšemi"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:763
+#: ../src/gnome-nibbles.vala:777
 msgid "Fast with Fakes"
 msgstr "Rychlé s falšemi"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:768
+#: ../src/gnome-nibbles.vala:782
 msgid "Difficulty Level:"
 msgstr "Úroveň obtížnosti:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:869
+#: ../src/gnome-nibbles.vala:883
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Úroveň %d dokončena!"
 
-#: ../src/gnome-nibbles.vala:876
+#: ../src/gnome-nibbles.vala:890
 msgid "_Next Level"
 msgstr "_Následující úroveň"
 
-#: ../src/gnome-nibbles.vala:940
+#: ../src/gnome-nibbles.vala:954
 msgid "Congratulations!"
 msgstr "Gratulujeme!"
 
-#: ../src/gnome-nibbles.vala:940
+#: ../src/gnome-nibbles.vala:954
 msgid "Game Over!"
 msgstr "Konec hry!"
 
-#: ../src/gnome-nibbles.vala:947
+#: ../src/gnome-nibbles.vala:961
 msgid "You have completed the game."
 msgstr "Dokončili jste hru."
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:968
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -468,20 +468,20 @@ msgstr[0] "%d bod"
 msgstr[1] "%d body"
 msgstr[2] "%d bodů"
 
-#: ../src/gnome-nibbles.vala:964
+#: ../src/gnome-nibbles.vala:978
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(o %d bodů více a byli byste ve vedoucí tabulce)"
+msgid "(%f more points to reach the leaderboard)"
+msgstr "(o %f bodů více a byli byste ve vedoucí tabulce)"
 
-#: ../src/gnome-nibbles.vala:970
+#: ../src/gnome-nibbles.vala:984
 msgid "_Play Again"
 msgstr "_Hrát znovu"
 
-#: ../src/gnome-nibbles.vala:1035
+#: ../src/gnome-nibbles.vala:1049
 msgid "A worm game for GNOME"
 msgstr "Hra s červíky pro GNOME"
 
-#: ../src/gnome-nibbles.vala:1044
+#: ../src/gnome-nibbles.vala:1058
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -502,7 +502,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/gnome-nibbles.vala:1092 ../src/gnome-nibbles.vala:1210
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -543,3 +543,4 @@ msgstr "Klávesa"
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Klávesa, kterou jste vybrali, je již přiřazená!"
+
