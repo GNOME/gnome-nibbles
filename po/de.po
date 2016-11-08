@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-13 20:23+0000\n"
-"PO-Revision-Date: 2016-08-21 11:59+0200\n"
+"POT-Creation-Date: 2016-11-08 05:25+0000\n"
+"PO-Revision-Date: 2016-11-08 10:03+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -60,16 +60,16 @@ msgid "_Quit"
 msgstr "_Beenden"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1032
+#: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
+#: ../src/gnome-nibbles.vala:1046
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "_Neues Spiel"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "_Pause"
 
@@ -373,115 +373,115 @@ msgid "Worm _4"
 msgstr "Wurm _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:102
+#: ../src/gnome-nibbles.vala:104
 msgid "Show release version"
 msgstr "Programmversion anzeigen"
 
-#: ../src/gnome-nibbles.vala:419
+#: ../src/gnome-nibbles.vala:423
 msgid "Are you sure you want to start a new game?"
 msgstr "Sind Sie sicher, dass Sie ein neues Spiel starten wollen?"
 
-#: ../src/gnome-nibbles.vala:420
+#: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
 msgstr "Wenn Sie ein neues Spiel starten, wird das laufende Spiel beendet."
 
-#: ../src/gnome-nibbles.vala:451
+#: ../src/gnome-nibbles.vala:455
 msgid "_Resume"
 msgstr "Fo_rtsetzen"
 
-#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:900
 #, c-format
 msgid "Level %d"
 msgstr "Spielstufe %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:749
+#: ../src/gnome-nibbles.vala:763
 msgid "Beginner"
 msgstr "Anfänger"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:751
+#: ../src/gnome-nibbles.vala:765
 msgid "Slow"
 msgstr "Langsam"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:753
+#: ../src/gnome-nibbles.vala:767
 msgid "Medium"
 msgstr "Mittel"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:755
+#: ../src/gnome-nibbles.vala:769
 msgid "Fast"
 msgstr "Schnell"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:757
+#: ../src/gnome-nibbles.vala:771
 msgid "Beginner with Fakes"
 msgstr "Anfänger, mit Attrappen"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:759
+#: ../src/gnome-nibbles.vala:773
 msgid "Slow with Fakes"
 msgstr "Langsam, mit Attrappen"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:761
+#: ../src/gnome-nibbles.vala:775
 msgid "Medium with Fakes"
 msgstr "Mittel, mit Attrappen"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:763
+#: ../src/gnome-nibbles.vala:777
 msgid "Fast with Fakes"
 msgstr "Schnell, mit Attrappen"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:768
+#: ../src/gnome-nibbles.vala:782
 msgid "Difficulty Level:"
 msgstr "Schwierigkeitsgrad:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:869
+#: ../src/gnome-nibbles.vala:883
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Spielstufe %d erfolgreich beendet!"
 
-#: ../src/gnome-nibbles.vala:876
+#: ../src/gnome-nibbles.vala:890
 msgid "_Next Level"
 msgstr "_Nächste Spielstufe"
 
-#: ../src/gnome-nibbles.vala:940
+#: ../src/gnome-nibbles.vala:954
 msgid "Congratulations!"
 msgstr "Glückwunsch!"
 
-#: ../src/gnome-nibbles.vala:940
+#: ../src/gnome-nibbles.vala:954
 msgid "Game Over!"
 msgstr "Spiel vorbei!"
 
-#: ../src/gnome-nibbles.vala:947
+#: ../src/gnome-nibbles.vala:961
 msgid "You have completed the game."
 msgstr "Sie haben das Spiel beendet."
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:968
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d Punkt"
 msgstr[1] "%d Punkte"
 
-#: ../src/gnome-nibbles.vala:964
+#: ../src/gnome-nibbles.vala:978
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(noch %d Punkte bis zum Erreichen der Bestenliste)"
+msgid "(%f more points to reach the leaderboard)"
+msgstr "(noch %f Punkte bis zum Erreichen der Bestenliste)"
 
-#: ../src/gnome-nibbles.vala:970
+#: ../src/gnome-nibbles.vala:984
 msgid "_Play Again"
 msgstr "Erneut s_pielen"
 
-#: ../src/gnome-nibbles.vala:1035
+#: ../src/gnome-nibbles.vala:1049
 msgid "A worm game for GNOME"
 msgstr "Ein Wurmspiel für GNOME"
 
-#: ../src/gnome-nibbles.vala:1044
+#: ../src/gnome-nibbles.vala:1058
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -505,7 +505,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/gnome-nibbles.vala:1092 ../src/gnome-nibbles.vala:1210
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
