@@ -447,8 +447,8 @@ msgstr[2] "%d балів"
 
 #: ../src/gnome-nibbles.vala:964
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(%d — треба ще, щоб вибитись у лідери)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(%ld — треба ще, щоб вибитись у лідери)"
 
 #: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"

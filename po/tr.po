@@ -497,8 +497,8 @@ msgstr[0] "%d Puan"
 
 #: ../src/gnome-nibbles.vala:964
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(liderler sıralamasına ulaşmak için %d puan daha gerekiyor)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(liderler sıralamasına ulaşmak için %ld puan daha gerekiyor)"
 
 #: ../src/gnome-nibbles.vala:970
 #| msgid "Playing"

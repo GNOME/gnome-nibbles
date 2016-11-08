@@ -444,8 +444,8 @@ msgstr[0] "%d 分"
 
 #: ../src/gnome-nibbles.vala:961
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(再 %d 分就能進入排行榜)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(再 %ld 分就能進入排行榜)"
 
 #: ../src/gnome-nibbles.vala:967
 msgid "_Play Again"

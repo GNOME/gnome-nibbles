@@ -377,8 +377,8 @@ msgstr[1] "%d точки"
 
 #: ../src/gnome-nibbles.vala:810
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(трябват ви още %d точки, за да влезете в челното класиране)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(трябват ви още %ld точки, за да влезете в челното класиране)"
 
 #: ../src/gnome-nibbles.vala:816
 msgid "_Play Again"

@@ -454,8 +454,8 @@ msgstr[0] "%d 포인트"
 
 #: ../src/gnome-nibbles.vala:963
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(리더보드에 등재되려면, %d 포인트가 더 있으면 됩니다)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(리더보드에 등재되려면, %ld 포인트가 더 있으면 됩니다)"
 
 #: ../src/gnome-nibbles.vala:969
 msgid "_Play Again"

@@ -464,8 +464,8 @@ msgstr[1] "%d point"
 
 #: ../src/gnome-nibbles.vala:978
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(%d flere point for at komme på førertavlen)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(%ld flere point for at komme på førertavlen)"
 
 # Dette må være ok for at undgå Spil spil
 #: ../src/gnome-nibbles.vala:984

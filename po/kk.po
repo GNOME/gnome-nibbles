@@ -433,7 +433,7 @@ msgstr[0] "%d ұпай"
 
 #: ../src/gnome-nibbles.vala:963
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
+msgid "(%ld more points to reach the leaderboard)"
 msgstr ""
 
 #: ../src/gnome-nibbles.vala:969

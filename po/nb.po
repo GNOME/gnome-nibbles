@@ -449,8 +449,8 @@ msgstr[1] "%d poeng"
 
 #: ../src/gnome-nibbles.vala:978
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(%d poeng igjen for å ta ledelsen)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(%ld poeng igjen for å ta ledelsen)"
 
 #: ../src/gnome-nibbles.vala:984
 msgid "_Play Again"

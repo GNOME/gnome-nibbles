@@ -461,8 +461,8 @@ msgstr[2] "%d taškų"
 
 #: ../src/gnome-nibbles.vala:964
 #, c-format
-msgid "(%d more points to reach the leaderboard)"
-msgstr "(dar %d taškų, kad patektumėte į lyderių poziciją)"
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(dar %ld taškų, kad patektumėte į lyderių poziciją)"
 
 #: ../src/gnome-nibbles.vala:970
 msgid "_Play Again"
