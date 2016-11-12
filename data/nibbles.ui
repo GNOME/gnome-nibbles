@@ -56,7 +56,7 @@
                                             <object class="GtkButton">
                                                 <property name="visible">True</property>
                                                 <property name="use-underline">True</property>
-                                                <property name="label" translatable="yes">Let's _Play</property>
+                                                <property name="label" translatable="yes">Let’s _Play</property>
                                                 <property name="action-name">app.show-new-game-screen</property>
                                                 <property name="halign">center</property>
                                                 <property name="valign">end</property>
@@ -102,7 +102,7 @@
                                                 <child>
                                                     <object class="GtkLabel">
                                                         <property name="visible">True</property>
-                                                        <property name="label" translatable="yes">Eat the treats before the other worms, but don't hit anything!</property>
+                                                        <property name="label" translatable="yes">Eat the treats before the other worms, but don’t hit anything!</property>
                                                         <property name="valign">1</property> <!-- START -->
                                                         <style><class name="tip"/></style>
                                                     </object>
