@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-16 10:50+0200\n"
-"PO-Revision-Date: 2016-08-16 10:51+0200\n"
+"POT-Creation-Date: 2016-11-16 13:59+0100\n"
+"PO-Revision-Date: 2016-11-16 14:00+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -56,7 +56,7 @@ msgstr "Za_kończ"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1046
+#: ../src/gnome-nibbles.vala:1048
 msgid "Nibbles"
 msgstr "Robaki"
 
@@ -69,7 +69,7 @@ msgid "_Pause"
 msgstr "W_strzymaj"
 
 #: ../data/nibbles.ui.h:4
-msgid "Let's _Play"
+msgid "Let’s _Play"
 msgstr "_Zacznij grę"
 
 #: ../data/nibbles.ui.h:5
@@ -77,7 +77,7 @@ msgid "Welcome, worms."
 msgstr "Witajcie, robaki."
 
 #: ../data/nibbles.ui.h:6
-msgid "Eat the treats before the other worms, but don't hit anything!"
+msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "Zjedz smakołyki przed innymi robakami, ale nie uderz się w coś!"
 
 #: ../data/nibbles.ui.h:7
@@ -123,7 +123,7 @@ msgid ""
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
+"careful: if they become too large, you won’t have much room for movement."
 msgstr ""
 "Kontrolowanie robaka jedzącego bonusy i rosnącego wzdłuż. Należy "
 "wymanewrować wrogie robaki, jednocześnie jedząc pączki i lody, aby zwiększyć "
@@ -381,7 +381,7 @@ msgstr "Rozpoczęcie nowej gry spowoduje utratę obecnej."
 msgid "_Resume"
 msgstr "_Wznów"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:900
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
 msgid "Level %d"
 msgstr "%d. poziom"
@@ -441,19 +441,19 @@ msgstr "Ukończono %d. poziom!"
 msgid "_Next Level"
 msgstr "_Następny poziom"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Congratulations!"
 msgstr "Gratulacje!"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Game Over!"
 msgstr "Koniec gry!"
 
-#: ../src/gnome-nibbles.vala:961
+#: ../src/gnome-nibbles.vala:963
 msgid "You have completed the game."
 msgstr "Ukończono grę."
 
-#: ../src/gnome-nibbles.vala:968
+#: ../src/gnome-nibbles.vala:970
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -461,20 +461,20 @@ msgstr[0] "%d punkt"
 msgstr[1] "%d punkty"
 msgstr[2] "%d punktów"
 
-#: ../src/gnome-nibbles.vala:978
+#: ../src/gnome-nibbles.vala:980
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(brakujące punkty, aby znaleźć się na liście najlepszych: %ld)"
 
-#: ../src/gnome-nibbles.vala:984
+#: ../src/gnome-nibbles.vala:986
 msgid "_Play Again"
 msgstr "_Zagraj jeszcze raz"
 
-#: ../src/gnome-nibbles.vala:1049
+#: ../src/gnome-nibbles.vala:1051
 msgid "A worm game for GNOME"
 msgstr "Gra w robaki dla środowiska GNOME"
 
-#: ../src/gnome-nibbles.vala:1058
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
@@ -495,7 +495,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1092 ../src/gnome-nibbles.vala:1210
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
