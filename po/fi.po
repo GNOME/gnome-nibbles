@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-13 20:23+0000\n"
-"PO-Revision-Date: 2016-08-14 15:41+0300\n"
+"POT-Creation-Date: 2016-11-12 12:44+0000\n"
+"PO-Revision-Date: 2016-12-16 22:03+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -53,21 +53,22 @@ msgid "_Quit"
 msgstr "_Lopeta"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1032
+#: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
+#: ../src/gnome-nibbles.vala:1048
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "_Uusi peli"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "_Keskeytä"
 
 #: ../data/nibbles.ui.h:4
-msgid "Let's _Play"
+#| msgid "Let's _Play"
+msgid "Let’s _Play"
 msgstr "_Pelataan"
 
 #: ../data/nibbles.ui.h:5
@@ -75,7 +76,8 @@ msgid "Welcome, worms."
 msgstr "Tervetuloa, madot."
 
 #: ../data/nibbles.ui.h:6
-msgid "Eat the treats before the other worms, but don't hit anything!"
+#| msgid "Eat the treats before the other worms, but don't hit anything!"
+msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "Syö lahjat ennen muita matoja, mutta älä osu mihinkään!"
 
 #: ../data/nibbles.ui.h:7
@@ -116,12 +118,19 @@ msgid "Guide a worm around a maze"
 msgstr "Ohjaa matoa sokkelossa ympäriinsä"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
+#| msgid ""
+#| "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+#| "enemy worms while eating doughnuts and ice cream to increase your length. "
+#| "Each worm has ten lives and loses one by running into a wall, another "
+#| "worm, or itself. The enemy worms are after the same bonuses that you are, "
+#| "so be careful: if they become too large, you won't have much room for "
+#| "movement."
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
+"careful: if they become too large, you won’t have much room for movement."
 msgstr ""
 "Ohjaa matoa, kun se seikkailee bonuksia syöden ja suuremmaksi kasvaen. "
 "Taktikoi vastustajamadot pois pelistä samalla syöden donitseja ja jäätelöä. "
@@ -364,115 +373,115 @@ msgid "Worm _4"
 msgstr "Mato _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:102
+#: ../src/gnome-nibbles.vala:104
 msgid "Show release version"
 msgstr "Näytä julkaisuversio"
 
-#: ../src/gnome-nibbles.vala:419
+#: ../src/gnome-nibbles.vala:423
 msgid "Are you sure you want to start a new game?"
 msgstr "Haluatko varmasti aloittaa uuden pelin?"
 
-#: ../src/gnome-nibbles.vala:420
+#: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
 msgstr "Jos aloitat uuden pelin, nykyisen peli lopetetaan."
 
-#: ../src/gnome-nibbles.vala:451
+#: ../src/gnome-nibbles.vala:455
 msgid "_Resume"
 msgstr "_Jatka"
 
-#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
 msgid "Level %d"
 msgstr "Taso %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:749
+#: ../src/gnome-nibbles.vala:763
 msgid "Beginner"
 msgstr "Aloittelija"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:751
+#: ../src/gnome-nibbles.vala:765
 msgid "Slow"
 msgstr "Hidas"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:753
+#: ../src/gnome-nibbles.vala:767
 msgid "Medium"
 msgstr "Melko vaikea"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:755
+#: ../src/gnome-nibbles.vala:769
 msgid "Fast"
 msgstr "Nopea"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:757
+#: ../src/gnome-nibbles.vala:771
 msgid "Beginner with Fakes"
 msgstr "Aloittelija huijausten kera"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:759
+#: ../src/gnome-nibbles.vala:773
 msgid "Slow with Fakes"
 msgstr "Hidas huijausten kera"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:761
+#: ../src/gnome-nibbles.vala:775
 msgid "Medium with Fakes"
 msgstr "Melko vaikea huijausten kera"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:763
+#: ../src/gnome-nibbles.vala:777
 msgid "Fast with Fakes"
 msgstr "Nopea huijausten kera"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:768
+#: ../src/gnome-nibbles.vala:782
 msgid "Difficulty Level:"
 msgstr "Vaikeusaste:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:869
+#: ../src/gnome-nibbles.vala:883
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Taso %d läpäisty!"
 
-#: ../src/gnome-nibbles.vala:876
+#: ../src/gnome-nibbles.vala:890
 msgid "_Next Level"
 msgstr "S_euraava taso"
 
-#: ../src/gnome-nibbles.vala:940
+#: ../src/gnome-nibbles.vala:956
 msgid "Congratulations!"
 msgstr "Onnittelut!"
 
-#: ../src/gnome-nibbles.vala:940
+#: ../src/gnome-nibbles.vala:956
 msgid "Game Over!"
 msgstr "Peli päättyi!"
 
-#: ../src/gnome-nibbles.vala:947
+#: ../src/gnome-nibbles.vala:963
 msgid "You have completed the game."
 msgstr "Läpäisit pelin."
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:970
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d piste"
 msgstr[1] "%d pistettä"
 
-#: ../src/gnome-nibbles.vala:964
+#: ../src/gnome-nibbles.vala:980
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld pistettä enemmän pistetaulukkoa varten)"
 
-#: ../src/gnome-nibbles.vala:970
+#: ../src/gnome-nibbles.vala:986
 msgid "_Play Again"
 msgstr "_Pelaa uudelleen"
 
-#: ../src/gnome-nibbles.vala:1035
+#: ../src/gnome-nibbles.vala:1051
 msgid "A worm game for GNOME"
 msgstr "Matopeli Gnomelle"
 
-#: ../src/gnome-nibbles.vala:1044
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Jiri Grönroos, 2012-2016\n"
@@ -497,7 +506,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
