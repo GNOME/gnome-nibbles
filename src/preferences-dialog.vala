@@ -222,11 +222,11 @@ private class PreferencesDialog : Gtk.Dialog
             {
                 valid = false;
 
-                /* Translators: This string appears when one tries to assign an already assigned key */
                 var dialog = new Gtk.MessageDialog (window,
                                                     Gtk.DialogFlags.DESTROY_WITH_PARENT,
                                                     Gtk.MessageType.WARNING,
                                                     Gtk.ButtonsType.OK,
+                                                    /* Translators: This string appears when one tries to assign an already assigned key */
                                                     _("The key you selected is already assigned!"));
 
                 dialog.run ();
