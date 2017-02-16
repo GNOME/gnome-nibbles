@@ -18,8 +18,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-12 02:09+0200\n"
+"Report-Msgid-Bugs-To: "
+"http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-nibbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-11-12 12:44+0000\n"
 "PO-Revision-Date: 2016-03-20 23:50+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -57,7 +58,7 @@ msgstr "_Afslut"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1046
+#: ../src/gnome-nibbles.vala:1048
 msgid "Nibbles"
 msgstr "Orme"
 
@@ -71,7 +72,7 @@ msgstr "_Pause"
 
 # Lidt kedelig, indrømmet.  En mere direkte oversættelse virker dog ikke helt så naturlig, synes jeg.
 #: ../data/nibbles.ui.h:4
-msgid "Let's _Play"
+msgid "Let’s _Play"
 msgstr "_Spil"
 
 #: ../data/nibbles.ui.h:5
@@ -79,7 +80,7 @@ msgid "Welcome, worms."
 msgstr "Velkommen, orme."
 
 #: ../data/nibbles.ui.h:6
-msgid "Eat the treats before the other worms, but don't hit anything!"
+msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "Spis godbidderne før de andre orme, men uden at ramme noget."
 
 #: ../data/nibbles.ui.h:7
@@ -125,7 +126,7 @@ msgid ""
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
+"careful: if they become too large, you won’t have much room for movement."
 msgstr ""
 "Styr en orm i sin evige søgen efter at fortære bonusser og vokse. Udmanøvrér "
 "fjendtlige orme, mens du spiser donuts og is for at blive længere. Hver orm "
@@ -383,7 +384,7 @@ msgstr "Hvis du starter et nyt spil, vil det nuværende gå tabt."
 msgid "_Resume"
 msgstr "_Fortsæt"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:900
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
 msgid "Level %d"
 msgstr "Bane %d"
@@ -443,40 +444,40 @@ msgstr "Bane %d fuldført!"
 msgid "_Next Level"
 msgstr "_Næste niveau"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Congratulations!"
 msgstr "Tillykke!"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Game Over!"
 msgstr "Spillet er slut!"
 
-#: ../src/gnome-nibbles.vala:961
+#: ../src/gnome-nibbles.vala:963
 msgid "You have completed the game."
 msgstr "Du har gennemført spillet."
 
-#: ../src/gnome-nibbles.vala:968
+#: ../src/gnome-nibbles.vala:970
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d point"
 msgstr[1] "%d point"
 
-#: ../src/gnome-nibbles.vala:978
+#: ../src/gnome-nibbles.vala:980
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld flere point for at komme på førertavlen)"
 
 # Dette må være ok for at undgå Spil spil
-#: ../src/gnome-nibbles.vala:984
+#: ../src/gnome-nibbles.vala:986
 msgid "_Play Again"
 msgstr "_Spil igen"
 
-#: ../src/gnome-nibbles.vala:1049
+#: ../src/gnome-nibbles.vala:1051
 msgid "A worm game for GNOME"
 msgstr "Et ormespil til GNOME"
 
-#: ../src/gnome-nibbles.vala:1058
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Anders Wegge Jakobsen\n"
@@ -494,7 +495,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1092 ../src/gnome-nibbles.vala:1210
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -701,8 +702,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Start et nyt netværksspil med flere spillere"
 
 #~ msgid "End the current network game and return to network server"
-#~ msgstr ""
-#~ "Afslut det aktuelle netværksspil og vend tilbage til netværksserveren"
+#~ msgstr "Afslut det aktuelle netværksspil og vend tilbage til netværksserveren"
 
 #~ msgid "Start a new game"
 #~ msgstr "Start et nyt spil"
@@ -785,13 +785,12 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid ""
 #~ "%s is free software; you can redistribute it and/or modify it under the "
 #~ "terms of the GNU General Public License as published by the Free Software "
-#~ "Foundation; either version %d of the License, or (at your option) any "
-#~ "later version."
+#~ "Foundation; either version %d of the License, or (at your option) any later "
+#~ "version."
 #~ msgstr ""
-#~ "%s er fri software; det kan distribueres og/eller modificeres som "
-#~ "betinget af GNU General Public License, udarbejdet af Free Software "
-#~ "Foundation; enten version %d af licensen eller, efter eget valg, enhver "
-#~ "nyere version."
+#~ "%s er fri software; det kan distribueres og/eller modificeres som betinget "
+#~ "af GNU General Public License, udarbejdet af Free Software Foundation; enten "
+#~ "version %d af licensen eller, efter eget valg, enhver nyere version."
 
 #~ msgid ""
 #~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
@@ -799,26 +798,26 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 #~ "details."
 #~ msgstr ""
-#~ "%s distribueres i håb om at det viser sig nyttigt, men UDEN NOGEN "
-#~ "GARANTI; selv uden de underforståede garantier SALGBARHED eller EGNETHED "
-#~ "TIL ET BESTEMT FORMÅL, idet der henvises til GNU General Public License "
-#~ "for detaljer."
+#~ "%s distribueres i håb om at det viser sig nyttigt, men UDEN NOGEN GARANTI; "
+#~ "selv uden de underforståede garantier SALGBARHED eller EGNETHED TIL ET "
+#~ "BESTEMT FORMÅL, idet der henvises til GNU General Public License for "
+#~ "detaljer."
 
 #~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
-#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
+#~ "You should have received a copy of the GNU General Public License along with "
+#~ "%s; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, "
+#~ "Fifth Floor, Boston, MA  02110-1301  USA"
 #~ msgstr ""
-#~ "Du bør have modtaget en kopi af GNU General Public License sammen med %s; "
-#~ "er dette ikke tilfældet, så skriv til Free Software Foundation, Inc., 51 "
+#~ "Du bør have modtaget en kopi af GNU General Public License sammen med %s; er "
+#~ "dette ikke tilfældet, så skriv til Free Software Foundation, Inc., 51 "
 #~ "Franklin Street, Femte sal, Boston, MA  02110-1301  USA"
 
 #~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
+#~ "You should have received a copy of the GNU General Public License along with "
+#~ "this program.  If not, see <http://www.gnu.org/licenses/>."
 #~ msgstr ""
-#~ "Du bør have modtaget en kopi af GNU General Public License sammen med %s; "
-#~ "er dette ikke tilfældet, så se <http://www.gnu.org/licenses/>."
+#~ "Du bør have modtaget en kopi af GNU General Public License sammen med %s; er "
+#~ "dette ikke tilfældet, så se <http://www.gnu.org/licenses/>."
 
 #~ msgid "GNOME Games web site"
 #~ msgstr "Hjemmeside for GNOME Games"
@@ -886,12 +885,12 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "The piece to promote pawns to"
 #~ msgstr "Brikken som bønder forfremmes til"
 
-# Når man taler om schema så handler det i reglen om GConf
+#~ # Når man taler om schema så handler det i reglen om GConf
 #~ msgid ""
 #~ "The piece to promote to when a human player moves a pawn to the far rank"
 #~ msgstr ""
-#~ "Brikken som der forfremmes til idet en menneskespiller flytter en bonde "
-#~ "til den modsatte række"
+#~ "Brikken som der forfremmes til idet en menneskespiller flytter en bonde til "
+#~ "den modsatte række"
 
 #~ msgid "A flag to enable 3D mode"
 #~ msgstr "Et flag der aktiverer 3D-tilstand"
@@ -955,7 +954,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Difficulty:"
 #~ msgstr "Sværhedsgrad:"
 
-# Det er velsagtens vigtigt at der er det rigtige antal mellemrum bagefter, hvorved forstås at strengen nok skal have en ganske bestemt længde
+#~ # Det er velsagtens vigtigt at der er det rigtige antal mellemrum bagefter, hvorved forstås at strengen nok skal have en ganske bestemt længde
 #~ msgid "Game Duration:"
 #~ msgstr "Spillets varighed:"
 
@@ -1011,7 +1010,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Human"
 #~ msgstr "Menneske"
 
-# ligesom 7-kabale, men man kan se alle kortene fra starten
+#~ # ligesom 7-kabale, men man kan se alle kortene fra starten
 #~ msgctxt "chess-player"
 #~ msgid "White"
 #~ msgstr "Hvid"
@@ -1072,8 +1071,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Standard Algebraic"
 #~ msgstr "Standardalgebraisk"
 
-# Indtil nogen kan finde et accepteret dansk ord, må vi hellere benytte figurine som her:
-# http://da.wikipedia.org/wiki/Algebraisk_notation
+#~ # Indtil nogen kan finde et accepteret dansk ord, må vi hellere benytte figurine som her:
+#~ # http://da.wikipedia.org/wiki/Algebraisk_notation
 #~ msgctxt "chess-move-format"
 #~ msgid "Figurine"
 #~ msgstr "Figurine (symboler)"
@@ -1337,14 +1336,12 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 
 #~ msgid "No piece has been taken or pawn moved in the last fifty moves"
 #~ msgstr ""
-#~ "Ingen brik er blevet slået, og ingen bonde flyttet i de sidste halvtreds "
-#~ "træk"
+#~ "Ingen brik er blevet slået, og ingen bonde flyttet i de sidste halvtreds træk"
 
 #~ msgid "Opponent has run out of time"
 #~ msgstr "Modstanderen er løbet tør for tid"
 
-#~ msgid ""
-#~ "The same board state has occurred three times (three fold repetition)"
+#~ msgid "The same board state has occurred three times (three fold repetition)"
 #~ msgstr "Den samme brætstilling er forekommet tre gange (tre gentagelser)"
 
 #~ msgid "Neither player can cause checkmate (insufficient material)"
@@ -1359,7 +1356,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "The game has been abandoned"
 #~ msgstr "Spillet er blevet forladt"
 
-# Det er godtnok en ekstrem formulering indenfor skak
+#~ # Det er godtnok en ekstrem formulering indenfor skak
 #~ msgid "One of the players has died"
 #~ msgstr "En af spillerne er død"
 
@@ -1417,8 +1414,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FIL] - Spil Skak"
 
-#~ msgid ""
-#~ "Run '%s --help' to see a full list of available command line options."
+#~ msgid "Run '%s --help' to see a full list of available command line options."
 #~ msgstr ""
 #~ "Kør \"%s\" --help' for at se en fuldstændig liste over tilgængelige "
 #~ "kommandolinjetilvalg."
@@ -1469,11 +1465,9 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Banestørrelse"
 
 #~ msgid ""
-#~ "Playing field size. 1=Small, 2=Medium, 3=Large. Any other value is "
-#~ "invalid."
+#~ "Playing field size. 1=Small, 2=Medium, 3=Large. Any other value is invalid."
 #~ msgstr ""
-#~ "Banestørrelse. 1=Lille, 2=Mellemstor, 3=Stor. Alle andre værdier er "
-#~ "ugyldige."
+#~ "Banestørrelse. 1=Lille, 2=Mellemstor, 3=Stor. Alle andre værdier er ugyldige."
 
 #~ msgid "Ball style"
 #~ msgstr "Boldstil"
@@ -1585,8 +1579,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "Zero is human; one through three correspond to the level of the computer "
 #~ "player."
 #~ msgstr ""
-#~ "Nul er menneske; Et til tre svarer til sværhedsgraden for "
-#~ "computerspilleren."
+#~ "Nul er menneske; Et til tre svarer til sværhedsgraden for computerspilleren."
 
 #~ msgid "Level of Player Two"
 #~ msgstr "Niveau for spiller to"
@@ -1641,7 +1634,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Jeg vandt!"
 
 #~ msgid "Thinking..."
-#~ msgstr "Tænker..."
+#~ msgstr "Tænker …"
 
 #~ msgid "%s wins!"
 #~ msgstr "%s vinder!"
@@ -1777,11 +1770,11 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Benyt supersikre træk"
 
 #~ msgid ""
-#~ "Use super safe moves. The player is alerted when there is no safe move "
-#~ "and the only option is to teleport out."
+#~ "Use super safe moves. The player is alerted when there is no safe move and "
+#~ "the only option is to teleport out."
 #~ msgstr ""
-#~ "Benyt supersikre træk. Spilleren blive advaret når der ikke er nogen "
-#~ "sikre træk og den eneste mulighed er at teleportere sig væk."
+#~ "Benyt supersikre træk. Spilleren blive advaret når der ikke er nogen sikre "
+#~ "træk og den eneste mulighed er at teleportere sig væk."
 
 #~ msgid "Enable game sounds"
 #~ msgstr "Aktivér spillyde"
@@ -2019,8 +2012,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "_Benyt sikre træk"
 
 #~ msgid "Prevent accidental moves that result in getting killed."
-#~ msgstr ""
-#~ "Forhindr træk som ved et uheld forårsager at man bliver slået ihjel."
+#~ msgstr "Forhindr træk som ved et uheld forårsager at man bliver slået ihjel."
 
 #~ msgid "U_se super safe moves"
 #~ msgstr "B_enyt supersikre træk"
@@ -2129,13 +2121,11 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Der er ikke flere mulige træk tilbage."
 
 #~ msgid ""
-#~ "Each puzzle has at least one solution.  You can undo your moves and try "
-#~ "and find the solution for a time penalty, restart this game or start an "
-#~ "new one."
+#~ "Each puzzle has at least one solution.  You can undo your moves and try and "
+#~ "find the solution for a time penalty, restart this game or start an new one."
 #~ msgstr ""
-#~ "Hver opgave har mindst én løsning.  Du kan fortryde dine træk og forsøge "
-#~ "at finde løsningen mod en tidsstraf, genstarte dette spil eller starte et "
-#~ "nyt."
+#~ "Hver opgave har mindst én løsning.  Du kan fortryde dine træk og forsøge at "
+#~ "finde løsningen mod en tidsstraf, genstarte dette spil eller starte et nyt."
 
 #~ msgid "_New game"
 #~ msgstr "_Nyt spil"
@@ -2182,7 +2172,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Print Games"
 #~ msgstr "Udskriv spil"
 
-# Det er vitterlig antallet af sudokuer der skal udskrives (strengen betyder jo egentlig "nummeret på det sudoku-spil der udskrives", hvilket ville være vigtigt hvis man f.eks. angav en random seed til generatoren og dermed havde nummererede spil)
+#~ # Det er vitterlig antallet af sudokuer der skal udskrives (strengen betyder jo egentlig "nummeret på det sudoku-spil der udskrives", hvilket ville være vigtigt hvis man f.eks. angav en random seed til generatoren og dermed havde nummererede spil)
 #~ msgid "_Number of sudoku to print: "
 #~ msgstr "_Antal sudokuer der skal udskrives: "
 
@@ -2209,8 +2199,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 
 #~ msgid "_Include games you've already played in list of games to print"
 #~ msgstr ""
-#~ "_Inkludér spil du allerede har spillet i listen over spil der skal "
-#~ "udskrives"
+#~ "_Inkludér spil du allerede har spillet i listen over spil der skal udskrives"
 
 #~ msgid "_Saved Games"
 #~ msgstr "_Gemte spil"
@@ -2234,13 +2223,13 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "GNOME Sudoku"
 
 #~ msgid ""
-#~ "GNOME Sudoku is a simple Sudoku generator and player. Sudoku is a "
-#~ "Japanese logic puzzle.\n"
+#~ "GNOME Sudoku is a simple Sudoku generator and player. Sudoku is a Japanese "
+#~ "logic puzzle.\n"
 #~ "\n"
 #~ "GNOME Sudoku is a part of GNOME Games."
 #~ msgstr ""
-#~ "GNOME Sudoku er en simpel Sudokugenerator og -spiller. Sudoku er et "
-#~ "japansk logisk spil.\n"
+#~ "GNOME Sudoku er en simpel Sudokugenerator og -spiller. Sudoku er et japansk "
+#~ "logisk spil.\n"
 #~ "\n"
 #~ "GNOME Sudoku er en del af GNOME Games."
 
@@ -2272,7 +2261,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Last played on %A at %I:%M %p"
 #~ msgstr "Sidst spillet %A klokken %H:%M"
 
-# f.eks. 17. september 2017
+#~ # f.eks. 17. september 2017
 #~ msgid "Last played on %B %e %Y"
 #~ msgstr "Sidst spillet %e. %B %Y"
 
@@ -2325,13 +2314,13 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Gør sidste handling om"
 
 #~ msgid "Puzzle _Statistics..."
-#~ msgstr "Opgave_statistik..."
+#~ msgstr "Opgave_statistik …"
 
 #~ msgid "_Print..."
-#~ msgstr "_Udskriv..."
+#~ msgstr "_Udskriv …"
 
 #~ msgid "Print _Multiple Sudokus..."
-#~ msgstr "Udskriv _flere sudokuer..."
+#~ msgstr "Udskriv _flere sudokuer …"
 
 #~ msgid "_Tools"
 #~ msgstr "Vær_ktøjer"
@@ -2360,8 +2349,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "_Track Additions"
 #~ msgstr "_Spor tilføjelser"
 
-#~ msgid ""
-#~ "Mark new additions in a separate color so you can keep track of them."
+#~ msgid "Mark new additions in a separate color so you can keep track of them."
 #~ msgstr ""
 #~ "Markér nye tilføjelser med separat farve, så du kan holde styr på dem."
 
@@ -2425,7 +2413,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Very Hard"
 #~ msgstr "Meget svær"
 
-# Evt. udelukkelse
+#~ # Evt. udelukkelse
 #~ msgid "Number of moves instantly fillable by elimination: "
 #~ msgstr "Antal træk der umiddelbart kan udfyldes ved udelukkelse: "
 
@@ -2519,11 +2507,11 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Aktivér automatisk placering af flag"
 
 #~ msgid ""
-#~ "Set to true to have gnomine automatically flag squares as mined when "
-#~ "enough squares are revealed"
+#~ "Set to true to have gnomine automatically flag squares as mined when enough "
+#~ "squares are revealed"
 #~ msgstr ""
-#~ "Sæt til \"true\" for at få gnomine til automatisk at sætte flag på "
-#~ "felter, når tilstrækkeligt mange felter er afsløret"
+#~ "Sæt til \"true\" for at få gnomine til automatisk at sætte flag på felter, "
+#~ "når tilstrækkeligt mange felter er afsløret"
 
 #~ msgid "Number of columns in a custom game"
 #~ msgstr "Antal kolonner i et brugertilpasset spil"
@@ -2544,7 +2532,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Custom"
 #~ msgstr "Selvvalgt"
 
-# ??
+#~ # ??
 #~ msgid "_Replay Size"
 #~ msgstr "Størrelse af _genafspilning"
 
@@ -2592,10 +2580,10 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Graphics:"
 #~ msgstr "Grafiktema:"
 
-# Bemærk at hint betyder noget ganske andet i denne sammenhæng end andre steder i filen
+#~ # Bemærk at hint betyder noget ganske andet i denne sammenhæng end andre steder i filen
 #~ msgid ""
-#~ "The popular logic puzzle minesweeper. Clear mines from a board using "
-#~ "hints from squares you have already uncovered.\n"
+#~ "The popular logic puzzle minesweeper. Clear mines from a board using hints "
+#~ "from squares you have already uncovered.\n"
 #~ "\n"
 #~ "Mines is a part of GNOME Games."
 #~ msgstr ""
@@ -2655,8 +2643,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "The size of the playing grid"
 #~ msgstr "Størrelsen af spillefeltet"
 
-#~ msgid ""
-#~ "The value of this key is used to decide the size of the playing grid."
+#~ msgid "The value of this key is used to decide the size of the playing grid."
 #~ msgstr ""
 #~ "Værdien af denne nøgle bruges til at bestemme spillets gitterstørrelse."
 
@@ -2687,15 +2674,15 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "\n"
 #~ "Tetravex is a part of GNOME Games."
 #~ msgstr ""
-#~ "GNOME Tetravex er en simpel opgave hvor nogle brikker skal arrangeres så "
-#~ "de samme numre rører hinanden.\n"
+#~ "GNOME Tetravex er en simpel opgave hvor nogle brikker skal arrangeres så de "
+#~ "samme numre rører hinanden.\n"
 #~ "\n"
 #~ "Tetravex er en del af GNOME Games."
 
 #~ msgid "Klotski"
 #~ msgstr "Klotski"
 
-# (Dette er værktøjstippet i GNOME-menuen; det er med vilje at dette forfærdelige ordspil bliver brugt)
+#~ # (Dette er værktøjstippet i GNOME-menuen; det er med vilje at dette forfærdelige ordspil bliver brugt)
 #~ msgid "Slide blocks to solve the puzzle"
 #~ msgstr "\"Klodsede\" opgaver"
 
@@ -2711,7 +2698,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Daisy"
 #~ msgstr "Tusindfryd"
 
-# Da de fleste strenge her i området er navne på blomster, refereres der sikkert også til "viol" her fremfor violet
+#~ # Da de fleste strenge her i området er navne på blomster, refereres der sikkert også til "viol" her fremfor violet
 #~ msgid "Violet"
 #~ msgstr "Viol"
 
@@ -2721,7 +2708,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Pansy"
 #~ msgstr "Stedmoderblomst"
 
-# Blomsternavn jf. de andre strenge i området
+#~ # Blomsternavn jf. de andre strenge i området
 #~ msgid "Snowdrop"
 #~ msgstr "Vintergæk"
 
@@ -2865,7 +2852,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Tali"
 #~ msgstr "Yatzy"
 
-# Nogen må lige finde på en god oversættelse hvis vi skal være "smarte"
+#~ # Nogen må lige finde på en god oversættelse hvis vi skal være "smarte"
 #~ msgid "Beat the odds in a poker-style dice game"
 #~ msgstr "Spil et pokerlignende terningspil"
 
@@ -2876,8 +2863,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Pause mellem kast"
 
 #~ msgid ""
-#~ "Choose whether or not to insert a delay between the computer's dice rolls "
-#~ "so the player can follow what it is doing."
+#~ "Choose whether or not to insert a delay between the computer's dice rolls so "
+#~ "the player can follow what it is doing."
 #~ msgstr ""
 #~ "Vælg om der skal indsættes en pause mellem computerens terningkast så "
 #~ "spilleren kan følge hvad der sker."
@@ -2886,8 +2873,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Vis computerens tanker"
 
 #~ msgid ""
-#~ "If set to true, a dump of the AI's working will be done to standard "
-#~ "output."
+#~ "If set to true, a dump of the AI's working will be done to standard output."
 #~ msgstr ""
 #~ "Hvis denne sættes til \"true\" vil et dump af de aktive computerspilleres "
 #~ "arbejde blive sendt til standard uddata."
@@ -2898,7 +2884,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Score: %d"
 #~ msgstr "Stilling: %d"
 
-# ???
+#~ # ???
 #~ msgid "Field used"
 #~ msgstr "Benyttet felt"
 
@@ -3225,15 +3211,14 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "The number of rows that are filled with random blocks at the start of the "
 #~ "game."
 #~ msgstr ""
-#~ "Antallet af rækker der er fyldt med tilfældige blokke i starten af "
-#~ "spillet."
+#~ "Antallet af rækker der er fyldt med tilfældige blokke i starten af spillet."
 
 #~ msgid "The density of filled rows"
 #~ msgstr "Tæthed af fyldte rækker"
 
 #~ msgid ""
-#~ "The density of blocks in rows filled at the start of the game. The value "
-#~ "is between 0 (for no blocks) and 10 (for a completely filled row)."
+#~ "The density of blocks in rows filled at the start of the game. The value is "
+#~ "between 0 (for no blocks) and 10 (for a completely filled row)."
 #~ msgstr ""
 #~ "Tætheden af blokke i rækker der er fyldt i starten af spillet. Værdien er "
 #~ "mellem 0 (for ingen blokke) og 10 (for en helt fyldt række)."
@@ -3355,16 +3340,16 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Use more flashy, but slower, animations."
 #~ msgstr "Benyt mere iøjnefaldende, men langsommere, animationer."
 
-# Yuck!  Der er folk der kritiserer the GIMP for at have valgt et dårligt navn...
+#~ # Yuck!  Der er folk der kritiserer the GIMP for at have valgt et dårligt navn...
 #~ msgid "Swell Foop"
 #~ msgstr "Swell Foop"
 
 #~ msgid "_Number of colors:"
 #~ msgstr "_Antal farver:"
 
-# setup -> konfiguration :: preferences -> indstillinger :: settings -> opsætning
-#
-# Man kunne gøre dette anderledes, men med forskellige oversættelser undgås situationen med en menu kaldet indstillinger, indeholdende et menupunkt kaldet indstillinger
+#~ # setup -> konfiguration :: preferences -> indstillinger :: settings -> opsætning
+#~ #
+#~ # Man kunne gøre dette anderledes, men med forskellige oversættelser undgås situationen med en menu kaldet indstillinger, indeholdende et menupunkt kaldet indstillinger
 #~ msgid "Setup"
 #~ msgstr "Konfiguration"
 
@@ -3400,13 +3385,13 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Resultater for Swell Foop"
 
 #~ msgid ""
-#~ "I want to play that game! You know, they all light-up and you click on "
-#~ "them and they vanish!\n"
+#~ "I want to play that game! You know, they all light-up and you click on them "
+#~ "and they vanish!\n"
 #~ "\n"
 #~ "Swell Foop is a part of GNOME Games."
 #~ msgstr ""
-#~ "Jeg vil spille det spil! Du ved, de hvirvler rundt, du klikker på dem og "
-#~ "de forsvinder!\n"
+#~ "Jeg vil spille det spil! Du ved, de hvirvler rundt, du klikker på dem og de "
+#~ "forsvinder!\n"
 #~ "\n"
 #~ "Swell Foop er en del af GNOME Games."
 
@@ -3530,35 +3515,33 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "The name of the key used to move north-east. The name is a standard X key "
 #~ "name."
 #~ msgstr ""
-#~ "Navnet på tasten til at flytte mod nordøst. Navnet er et standard X-"
-#~ "tastenavn."
+#~ "Navnet på tasten til at flytte mod nordøst. Navnet er et standard "
+#~ "X-tastenavn."
 
 #~ msgid ""
 #~ "The name of the key used to move north-west. The name is a standard X key "
 #~ "name."
 #~ msgstr ""
-#~ "Navnet på tasten til at flytte mod nordvest. Navnet er et standard X-"
-#~ "tastenavn."
+#~ "Navnet på tasten til at flytte mod nordvest. Navnet er et standard "
+#~ "X-tastenavn."
 
 #~ msgid ""
 #~ "The name of the key used to move north. The name is a standard X key name."
 #~ msgstr ""
-#~ "Navnet på tasten til at flytte mod nord. Navnet er et standard X-"
-#~ "tastenavn."
+#~ "Navnet på tasten til at flytte mod nord. Navnet er et standard X-tastenavn."
 
 #~ msgid ""
 #~ "The name of the key used to move south-east. The name is a standard X key "
 #~ "name."
 #~ msgstr ""
-#~ "Navnet på tasten til at flytte mod sydøst. Navnet er et standard X-"
-#~ "tastenavn."
+#~ "Navnet på tasten til at flytte mod sydøst. Navnet er et standard X-tastenavn."
 
 #~ msgid ""
 #~ "The name of the key used to move south-west. The name is a standard X key "
 #~ "name."
 #~ msgstr ""
-#~ "Navnet på tasten til at flytte mod sydvest. Navnet er et standard X-"
-#~ "tastenavn."
+#~ "Navnet på tasten til at flytte mod sydvest. Navnet er et standard "
+#~ "X-tastenavn."
 
 #~ msgid ""
 #~ "The name of the key used to move south. The name is a standard X key name."
@@ -3568,15 +3551,14 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid ""
 #~ "The name of the key used to move west. The name is a standard X key name."
 #~ msgstr ""
-#~ "Navnet på tasten til at flytte mod vest. Navnet er et standard X-"
-#~ "tastenavn."
+#~ "Navnet på tasten til at flytte mod vest. Navnet er et standard X-tastenavn."
 
 #~ msgid ""
-#~ "The name of the key used to teleport randomly. The name is a standard X "
-#~ "key name."
+#~ "The name of the key used to teleport randomly. The name is a standard X key "
+#~ "name."
 #~ msgstr ""
-#~ "Navnet på tasten til at teleportere tilfældigt. Navnet er et standard X-"
-#~ "tastenavn."
+#~ "Navnet på tasten til at teleportere tilfældigt. Navnet er et standard "
+#~ "X-tastenavn."
 
 #~ msgid ""
 #~ "The name of the key used to teleport safely (if possible). The name is a "
@@ -3595,8 +3577,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Baggrundsfarven i et format som gdk_color_parse forstår."
 
 #~ msgid ""
-#~ "This selects whether or not to draw the background image over the "
-#~ "background color."
+#~ "This selects whether or not to draw the background image over the background "
+#~ "color."
 #~ msgstr ""
 #~ "Dette vælger om baggrundsbilledet tegnes over baggrundsfarven eller ej."
 
@@ -3653,7 +3635,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Klik på en firkant, enhver firkant"
 
 #~ msgid "Maybe they're all mines ..."
-#~ msgstr "Måske er de alle miner ..."
+#~ msgstr "Måske er de alle miner …"
 
 #~ msgid "Warnings"
 #~ msgstr "Advarsler"
@@ -3779,8 +3761,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "Select whether to drag the tiles or to click on the source then the "
 #~ "destination."
 #~ msgstr ""
-#~ "Vælg mellem træk og slip eller at klikke først på startpunkt så på "
-#~ "slutpunkt."
+#~ "Vælg mellem træk og slip eller at klikke først på startpunkt så på slutpunkt."
 
 #~ msgid "Regular"
 #~ msgstr "Regulær"
@@ -3854,13 +3835,13 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Could not show help for “%s”"
 #~ msgstr "Kunne ikke vise hjælp til “%s”"
 
-# tile -> brikker vs felter.  I swell-foop er det brikker, men der er en fælles streng for de to programmer, hvori 'tiles' indgår, så vi har muligvis et problem.
+#~ # tile -> brikker vs felter.  I swell-foop er det brikker, men der er en fælles streng for de to programmer, hvori 'tiles' indgår, så vi har muligvis et problem.
 #~ msgid ""
-#~ "If enabled, the default background color from the user's default GNOME "
-#~ "theme is used to draw the tiles."
+#~ "If enabled, the default background color from the user's default GNOME theme "
+#~ "is used to draw the tiles."
 #~ msgstr ""
-#~ "Hvis aktiveret, vil standardbaggrundsfarven fra brugerens GNOME-tema "
-#~ "blive brugt til at tegne brikkerne med."
+#~ "Hvis aktiveret, vil standardbaggrundsfarven fra brugerens GNOME-tema blive "
+#~ "brugt til at tegne brikkerne med."
 
 #~ msgid "Whether or not to use the GNOME theme colors"
 #~ msgstr "Hvorvidt GNOMEs temafarver skal bruges"
@@ -3912,23 +3893,22 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 
 #~ msgid ""
 #~ "Sudoku is not able to start because required application files are not "
-#~ "installed. If you are currently upgrading your system please wait until "
-#~ "the upgrade has completed."
+#~ "installed. If you are currently upgrading your system please wait until the "
+#~ "upgrade has completed."
 #~ msgstr ""
 #~ "Sudoku kan ikke starte fordi påkrævede applikationsfiler ikke er "
-#~ "installeret. Hvis du er ved at opgradere dit system, så vent venligst "
-#~ "indtil opgraderingen er overstået."
+#~ "installeret. Hvis du er ved at opgradere dit system, så vent venligst indtil "
+#~ "opgraderingen er overstået."
 
 #~ msgid ""
 #~ "%s is free software; you can redistribute it and/or modify it under the "
 #~ "terms of the GNU General Public License as published by the Free Software "
-#~ "Foundation; either version 2 of the License, or (at your option) any "
-#~ "later version."
+#~ "Foundation; either version 2 of the License, or (at your option) any later "
+#~ "version."
 #~ msgstr ""
-#~ "%s er fri software; det kan distribueres og/eller modificeres som "
-#~ "betinget af GNU General Public License, udarbejdet af Free Software "
-#~ "Foundation; enten version 2 af licensen eller, efter eget valg, enhver "
-#~ "nyere version."
+#~ "%s er fri software; det kan distribueres og/eller modificeres som betinget "
+#~ "af GNU General Public License, udarbejdet af Free Software Foundation; enten "
+#~ "version 2 af licensen eller, efter eget valg, enhver nyere version."
 
 #~ msgid "Unable to make data directory %(dir)s: %(error)s"
 #~ msgstr "Kunne ikke oprette datakatalog %(dir)s: %(error)s"
@@ -3950,10 +3930,9 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "games played, best time (in seconds) and worst time (also in seconds). "
 #~ "Unplayed games do not need to be represented."
 #~ msgstr ""
-#~ "En liste af strenge udformede som femtupler: navn, vundne, totalt "
-#~ "spillede spil, bedste tid (i sekunder) og dårligste tid (også i "
-#~ "sekunder). Spil der ikke er blevet prøvet, behøver ikke at blive "
-#~ "repræsenteret."
+#~ "En liste af strenge udformede som femtupler: navn, vundne, totalt spillede "
+#~ "spil, bedste tid (i sekunder) og dårligste tid (også i sekunder). Spil der "
+#~ "ikke er blevet prøvet, behøver ikke at blive repræsenteret."
 
 #~ msgid "Animations"
 #~ msgstr "Animationer"
@@ -3965,8 +3944,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "Select whether to drag the cards or to click on the source then the "
 #~ "destination."
 #~ msgstr ""
-#~ "Vælg mellem træk og slip eller at klikke først på startpunkt så på "
-#~ "slutpunkt."
+#~ "Vælg mellem træk og slip eller at klikke først på startpunkt så på slutpunkt."
 
 #~ msgid "Statistics of games played"
 #~ msgstr "Statistik for spillede spil"
@@ -3998,7 +3976,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "_Select"
 #~ msgstr "_Vælg"
 
-# o.k.
+#~ # o.k.
 #~ msgid "FreeCell Solitaire"
 #~ msgstr "Napoleon"
 
@@ -4009,8 +3987,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "Aisleriot cannot load the file “%s”. Please check your Aisleriot "
 #~ "installation."
 #~ msgstr ""
-#~ "Kabale kan ikke indlæse filen “%s”. Kontrollér venligst din installation "
-#~ "af Kabale."
+#~ "Kabale kan ikke indlæse filen “%s”. Kontrollér venligst din installation af "
+#~ "Kabale."
 
 #~ msgctxt "slot type"
 #~ msgid "foundation"
@@ -4075,7 +4053,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "This game is unable to provide a hint."
 #~ msgstr "Dette spil kan ikke give fif."
 
-# Før stod der "Top" som oversættelse til Peek. Men da der ingen kommentar er tilknyttet antager jeg at det er en fejl (det engelske ord for top skulle have været Peak). Derfor rettet til Smugkig
+#~ # Før stod der "Top" som oversættelse til Peek. Men da der ingen kommentar er tilknyttet antager jeg at det er en fejl (det engelske ord for top skulle have været Peak). Derfor rettet til Smugkig
 #~ msgid "Peek"
 #~ msgstr "Smugkig"
 
@@ -4124,18 +4102,18 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Osmosis"
 #~ msgstr "Osmose"
 
-# Fra wikipedia: King's Audience (also known as Queen's Audience is a solitaire card game which uses a deck of 52 playing cards. It is so named because the King and Queen of each suit seem to watch the action.
+#~ # Fra wikipedia: King's Audience (also known as Queen's Audience is a solitaire card game which uses a deck of 52 playing cards. It is so named because the King and Queen of each suit seem to watch the action.
 #~ msgid "Kings Audience"
 #~ msgstr "Kongens tilhørere"
 
 #~ msgid "Glenwood"
 #~ msgstr "Glenwood"
 
-# det gælder om at 'parre' kortene to og to
+#~ # det gælder om at 'parre' kortene to og to
 #~ msgid "Gay Gordons"
 #~ msgstr "Muntre par"
 
-# o.k.  Dvs. der findes en kabale der tilsyneladende hedder Monta Carlo, men jeg tror det er en trykfejl - Monte Carlo virker mere realistisk
+#~ # o.k.  Dvs. der findes en kabale der tilsyneladende hedder Monta Carlo, men jeg tror det er en trykfejl - Monte Carlo virker mere realistisk
 #~ msgid "Monte Carlo"
 #~ msgstr "Monte Carlo"
 
@@ -4157,7 +4135,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Escalator"
 #~ msgstr "Rulletrappe"
 
-# UKENDTE KORTSPIL BEGYNDER HER
+#~ # UKENDTE KORTSPIL BEGYNDER HER
 #~ msgid "Agnes"
 #~ msgstr "Agnes"
 
@@ -4185,7 +4163,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Backbone"
 #~ msgstr "Knogle"
 
-# o.k.
+#~ # o.k.
 #~ msgid "Yukon"
 #~ msgstr "Yukon"
 
@@ -4204,11 +4182,11 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Streets And Alleys"
 #~ msgstr "Gader og stræder"
 
-# ligner en labyrint
+#~ # ligner en labyrint
 #~ msgid "Maze"
 #~ msgstr "Labyrint"
 
-# o.k.
+#~ # o.k.
 #~ msgid "Clock"
 #~ msgstr "Ur"
 
@@ -4218,7 +4196,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Canfield"
 #~ msgstr "Canfield"
 
-# Da der ingen kommentar er der retfærdiggør nuværende oversættelse af Thirteen til Fyrre, så ændrer jeg den til Tretten
+#~ # Da der ingen kommentar er der retfærdiggør nuværende oversættelse af Thirteen til Fyrre, så ændrer jeg den til Tretten
 #~ msgid "Thirteen"
 #~ msgstr "Tretten"
 
@@ -4249,7 +4227,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Yield"
 #~ msgstr "Udbytte"
 
-# Der er allerede en der hedder "labyrint", så vi har brug for et andet navn. Jeg ved dog ikke om held er det rigtige eftersom det blot stod der i forvejen
+#~ # Der er allerede en der hedder "labyrint", så vi har brug for et andet navn. Jeg ved dog ikke om held er det rigtige eftersom det blot stod der i forvejen
 #~ msgid "Labyrinth"
 #~ msgstr "Held"
 
@@ -4265,7 +4243,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Block Ten"
 #~ msgstr "Blok-ti"
 
-# Will-o-the-wisp er blot en lygtemand (og altså egentlig ikke noget med lygtemandens vilje)
+#~ # Will-o-the-wisp er blot en lygtemand (og altså egentlig ikke noget med lygtemandens vilje)
 #~ msgid "Will O The Wisp"
 #~ msgstr "Lygtemand"
 
@@ -4275,7 +4253,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Eagle Wing"
 #~ msgstr "Ørnevinge"
 
-# Treize er fransk for tretten (og altså ikke tredive som der pt. står i oversættelsen). Jeg retter den til Treize
+#~ # Treize er fransk for tretten (og altså ikke tredive som der pt. står i oversættelsen). Jeg retter den til Treize
 #~ msgid "Treize"
 #~ msgstr "Treize"
 
@@ -4303,11 +4281,11 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Bakers Dozen"
 #~ msgstr "Bagerdusin"
 
-# ligesom 7-kabale, men man kan se alle kortene fra starten
+#~ # ligesom 7-kabale, men man kan se alle kortene fra starten
 #~ msgid "Whitehead"
 #~ msgstr "Åben 7-kabale"
 
-# o.k.
+#~ # o.k.
 #~ msgid "Freecell"
 #~ msgstr "Napoleon"
 
@@ -4335,7 +4313,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Thumb And Pouch"
 #~ msgstr "Tommel og taske"
 
-# o.k.
+#~ # o.k.
 #~ msgid "Klondike"
 #~ msgstr "7-kabale"
 
@@ -4345,7 +4323,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Template"
 #~ msgstr "Skabelon"
 
-# o.k.
+#~ # o.k.
 #~ msgid "Golf"
 #~ msgstr "Golf"
 
@@ -4663,8 +4641,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "different games to be played.\n"
 #~ "AisleRiot is a part of GNOME Games."
 #~ msgstr ""
-#~ "Kabale indeholder en regelbaseret kabalemotor der giver mulighed for "
-#~ "mange\n"
+#~ "Kabale indeholder en regelbaseret kabalemotor der giver mulighed for mange\n"
 #~ "forskellige typer spil.\n"
 #~ "Kabale er en del af GNOME Games."
 
@@ -4693,7 +4670,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "_Report"
 #~ msgstr "_Rapportér"
 
-# o.k.
+#~ # o.k.
 #~ msgid "Freecell Solitaire"
 #~ msgstr "Napoleon"
 
@@ -4701,7 +4678,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "_Kontrol"
 
 #~ msgid "_Select Game..."
-#~ msgstr "_Vælg spil..."
+#~ msgstr "_Vælg spil …"
 
 #~ msgid "Play a different game"
 #~ msgstr "Spil et andet spil"
@@ -4722,7 +4699,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Vis hjælp til Kabale"
 
 #~ msgid "Install card themes…"
-#~ msgstr "Installér korttemaer…"
+#~ msgstr "Installér korttemaer …"
 
 #~ msgid "Install new card themes from the distribution packages repositories"
 #~ msgstr "Installér nye korttemaer fra distributionens pakkearkiver"
@@ -5069,24 +5046,23 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Har du læst hjælpefilen?"
 
 #~ msgid "I could sure use a backrub right about now..."
-#~ msgstr "Jeg kunne godt trænge til en rygmassage lige nu..."
+#~ msgstr "Jeg kunne godt trænge til en rygmassage lige nu …"
 
 #~ msgid "If you're ever lost and alone in the woods, hug a tree"
 #~ msgstr "Hvis du nogensinde føler dig ensom i skoven, så omfavn et træ"
 
 #~ msgid ""
-#~ "Just because a crosswalk looks like a hopscotch board doesn't mean it is "
-#~ "one"
+#~ "Just because a crosswalk looks like a hopscotch board doesn't mean it is one"
 #~ msgstr ""
-#~ "Bare fordi en fodgængerovergang ligner en hinkestensplads betyder det "
-#~ "ikke at det er én"
+#~ "Bare fordi en fodgængerovergang ligner en hinkestensplads betyder det ikke "
+#~ "at det er én"
 
 #~ msgid "Look both ways before you cross the street"
 #~ msgstr "Se dig om til begge sider før du går over gaden"
 
-# den dobbelte tankestreg er amerikansk typografi
+#~ # den dobbelte tankestreg er amerikansk typografi
 #~ msgid "Monitors won't give you Vitamin D -- but sunlight will..."
-#~ msgstr "Skærme kan ikke give dig vitamin D - men sollys kan..."
+#~ msgstr "Skærme kan ikke give dig vitamin D - men sollys kan …"
 
 #~ msgid "Never blow in a dog's ear"
 #~ msgstr "Pust aldrig i en hunds øre"
@@ -5182,7 +5158,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Move ~a off the board"
 #~ msgstr "Flyt ~a væk fra bordet"
 
-# ?????
+#~ # ?????
 #~ msgid "Bug! make-hint called on false move."
 #~ msgstr "Fejl! make-hint blev kaldt på et ugyldigt træk."
 
@@ -5219,7 +5195,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Place a two in the leftmost slot of row ~a."
 #~ msgstr "Læg en toer på pladsen længst til venstre i række ~a."
 
-# Det ville være fristende at skrive ~a'eren, men det går ikke for billedkort
+#~ # Det ville være fristende at skrive ~a'eren, men det går ikke for billedkort
 #~ msgid "Place the ~a next to ~a."
 #~ msgstr "Læg ~a ved siden af ~a."
 
@@ -5395,7 +5371,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Match the top two cards of the waste."
 #~ msgstr "Match de to øverste kort fra affaldsbunken."
 
-# Fra manualen: multiplier scoring betyder at for hvert kort man "gør noget ved", så får man dobbelt antal points: 1 for det første, 2 for det næste, 4, 8, ...
+#~ # Fra manualen: multiplier scoring betyder at for hvert kort man "gør noget ved", så får man dobbelt antal points: 1 for det første, 2 for det næste, 4, 8, ...
 #~ msgid "Multiplier Scoring"
 #~ msgstr "Pointfordobling"
 
@@ -5536,8 +5512,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid ""
 #~ "The side of the board that is in the foreground, either 'white', 'black', "
 #~ "'current' (the current player), 'human' (the side of the current human "
-#~ "player) or 'facetoface' (suitable for players on each side of screen, e."
-#~ "g. handhelds)"
+#~ "player) or 'facetoface' (suitable for players on each side of screen, e.g. "
+#~ "handhelds)"
 #~ msgstr ""
 #~ "Siden af brættet der er i forgrunden, enten \"white\", \"black\", "
 #~ "\"current\" (den nuværende spiller) eller \"human\" (den nuværende "
@@ -5556,7 +5532,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Communication:"
 #~ msgstr "Kommunikation:"
 
-# Dette kan jo hentyde til en fil, og så er oversættelsen ikke så god
+#~ # Dette kan jo hentyde til en fil, og så er oversættelsen ikke så god
 #~ msgid "Executable:"
 #~ msgstr "Eksekverbar:"
 
@@ -5620,7 +5596,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Move _Time:"
 #~ msgstr "_Tid til flytning:"
 
-# Mon ikke fields refererer til f.eks. hvorvidt sort og hvid styres af computer eller menneske, sværhedsgrad og den slags
+#~ # Mon ikke fields refererer til f.eks. hvorvidt sort og hvid styres af computer eller menneske, sværhedsgrad og den slags
 #~ msgid "Start the game. The game can be started once all fields are complete"
 #~ msgstr "Start spillet. Spillet kan startes så snart alle felter er udfyldt"
 
@@ -5649,8 +5625,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Blødgør kanter for 3D-elementer (anti-alias)"
 
 #~ msgid ""
-#~ "View the chess board by default in 2D mode, or optionally in 3D mode "
-#~ "using OpenGL."
+#~ "View the chess board by default in 2D mode, or optionally in 3D mode using "
+#~ "OpenGL."
 #~ msgstr ""
 #~ "Vis skakspillet i 2D pr. standard, eller ved tilvalg i 3D-tilstand med "
 #~ "OpenGL."
@@ -5660,8 +5636,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 
 #~ msgid ""
 #~ "Chess is not able to start because required application files are not "
-#~ "installed. If you are currently upgrading your system please wait until "
-#~ "the upgrade has completed."
+#~ "installed. If you are currently upgrading your system please wait until the "
+#~ "upgrade has completed."
 #~ msgstr ""
 #~ "Skak kan ikke starte, da påkrævede applikationsfiler ikke er installeret. "
 #~ "Hvis du er ved at opgradere dit system, så vent venligst indtil "
@@ -5724,10 +5700,9 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 
 #~ msgid ""
 #~ "You may claim a draw when:\n"
-#~ "a) The board has been in the same state three times (Three fold "
-#~ "repetition)\n"
-#~ "b) Fifty moves have occurred where no pawn has moved and no piece has "
-#~ "been captured (50 move rule)"
+#~ "a) The board has been in the same state three times (Three fold repetition)\n"
+#~ "b) Fifty moves have occurred where no pawn has moved and no piece has been "
+#~ "captured (50 move rule)"
 #~ msgstr ""
 #~ "Du kan erklære remis når:\n"
 #~ "a) Samme brætstilling er forekommet tre gange (tre gentagelser)\n"
@@ -5789,7 +5764,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Koblet af"
 
 #~ msgid "New profile..."
-#~ msgstr "Ny profil..."
+#~ msgstr "Ny profil …"
 
 #~ msgid "Table"
 #~ msgstr "Bord"
@@ -5919,11 +5894,11 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "glChess has crashed. Please report this bug to http://bugzilla.gnome.org\n"
 #~ "Debug output:"
 #~ msgstr ""
-#~ "glChess er brudt ned. Rapportér venligst denne fejl til http://bugzilla."
-#~ "gnome.org\n"
+#~ "glChess er brudt ned. Rapportér venligst denne fejl til "
+#~ "http://bugzilla.gnome.org\n"
 #~ "Fejlsøgerdata:"
 
-# Hvis det er interessant at der står gl foran, så er det også interessant at endelsen er "chess" fremfor "skak", indtil andet er bevist
+#~ # Hvis det er interessant at der står gl foran, så er det også interessant at endelsen er "chess" fremfor "skak", indtil andet er bevist
 #~ msgid "glChess"
 #~ msgstr "glChess"
 
@@ -6031,7 +6006,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Criteria:"
 #~ msgstr "Kriterier:"
 
-# Man genererer næppe en *policy*, så det er nok generatoren der har en policy
+#~ # Man genererer næppe en *policy*, så det er nok generatoren der har en policy
 #~ msgid "Generate Policy"
 #~ msgstr "Generatorretningslinjer"
 
@@ -6186,8 +6161,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Vis sandsynligheder"
 
 #~ msgid ""
-#~ "Display the probabilities of each dealer hand outcome and the expected "
-#~ "value of your hand."
+#~ "Display the probabilities of each dealer hand outcome and the expected value "
+#~ "of your hand."
 #~ msgstr ""
 #~ "Vis sandsynlighederne for hver af kortgiverens udfald og den forventede "
 #~ "værdi af din hånd."
@@ -6283,10 +6258,9 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Ønsker du forsikring?"
 
 #~ msgid ""
-#~ "Insurance is a side wager of 50% of the original wager that the dealer "
-#~ "has a natural 21 (aka blackjack) that is offered when the dealer's face "
-#~ "up card is an ace. If the dealer has a natural 21 then the player is paid "
-#~ "double."
+#~ "Insurance is a side wager of 50% of the original wager that the dealer has a "
+#~ "natural 21 (aka blackjack) that is offered when the dealer's face up card is "
+#~ "an ace. If the dealer has a natural 21 then the player is paid double."
 #~ msgstr ""
 #~ "Forsikring er en sideindsats på 50% af den originale indsats, på at "
 #~ "kortgiveren har en naturlig 21 (Blackjack). Muligheden for dette er til "
@@ -6385,19 +6359,19 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "To stand means to stop adding cards to your hand.  Do this by clicking on "
 #~ "the dealer's cards or by selecting the option from the Control menu."
 #~ msgstr ""
-#~ "At stå betyder et stop for tilføjelse af kort til din hånd. Gør dette ved "
-#~ "at klikke på kortgiverens kort eller ved at vælge valgmuligheden i "
+#~ "At stå betyder et stop for tilføjelse af kort til din hånd. Gør dette ved at "
+#~ "klikke på kortgiverens kort eller ved at vælge valgmuligheden i "
 #~ "kontrolmenuen."
 
 #~ msgid "The best option is to hit"
 #~ msgstr "Den bedste mulighed er at købe"
 
 #~ msgid ""
-#~ "To hit means to add another card to your hand.  Do this by clicking once "
-#~ "on your cards or by selecting the option from the Control menu."
+#~ "To hit means to add another card to your hand.  Do this by clicking once on "
+#~ "your cards or by selecting the option from the Control menu."
 #~ msgstr ""
-#~ "At købe betyder at et nyt kort tilføjes din hånd. Gør dette ved at klikke "
-#~ "på dine kort eller ved at vælge valgmuligheden i kontrolmenuen."
+#~ "At købe betyder at et nyt kort tilføjes din hånd. Gør dette ved at klikke på "
+#~ "dine kort eller ved at vælge valgmuligheden i kontrolmenuen."
 
 #~ msgid "The best option is to double down"
 #~ msgstr "Den bedste mulighed er doble ned"
@@ -6407,17 +6381,16 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "more card.  Do this by clicking once on the chips at the bottom of the "
 #~ "window or by selecting the option from the Control menu."
 #~ msgstr ""
-#~ "At doble ned betyder at den oprindelige satsning fordobles og modtagelsen "
-#~ "af præcist ét kort mere. Gør dette ved at klikke en enkelt gang på "
-#~ "jetonerne i bunden af vinduet eller ved at vælge valgmuligheden i "
-#~ "kontrolmenuen."
+#~ "At doble ned betyder at den oprindelige satsning fordobles og modtagelsen af "
+#~ "præcist ét kort mere. Gør dette ved at klikke en enkelt gang på jetonerne i "
+#~ "bunden af vinduet eller ved at vælge valgmuligheden i kontrolmenuen."
 
 #~ msgid "The best option is to split"
 #~ msgstr "Den bedste mulighed er at splitte"
 
 #~ msgid ""
-#~ "To split means to divide your current hand into two separate hands.  Do "
-#~ "this by dragging one of your cards and dropping it off to the side or by "
+#~ "To split means to divide your current hand into two separate hands.  Do this "
+#~ "by dragging one of your cards and dropping it off to the side or by "
 #~ "selecting the option from the Control menu."
 #~ msgstr ""
 #~ "At splitte betyder at opdele din nuværende hånd i to separate hænder. Gør "
@@ -6428,12 +6401,11 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Den bedste mulighed er at give op"
 
 #~ msgid ""
-#~ "To surrender means to give up half your wager and not complete the hand.  "
-#~ "Do this by selecting the option from the Control menu."
+#~ "To surrender means to give up half your wager and not complete the hand.  Do "
+#~ "this by selecting the option from the Control menu."
 #~ msgstr ""
-#~ "At give op betyder at du mister halvdelen af din satsning og ikke "
-#~ "færdiggøre hånden. Gør dette ved at vælge valgmuligheden fra "
-#~ "kontrolmenuen."
+#~ "At give op betyder at du mister halvdelen af din satsning og ikke færdiggøre "
+#~ "hånden. Gør dette ved at vælge valgmuligheden fra kontrolmenuen."
 
 #~ msgid ""
 #~ "Blackjack is a casino-style card game.\n"
@@ -6445,7 +6417,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "Blackjack er en del af GNOME Games."
 
 #~ msgid "Computing basic strategy..."
-#~ msgstr "Beregner basal strategi..."
+#~ msgstr "Beregner basal strategi …"
 
 #~ msgid "Bust"
 #~ msgstr "Gået over"
@@ -6459,7 +6431,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Win"
 #~ msgstr "Vundet"
 
-# blackjack-terminologi
+#~ # blackjack-terminologi
 #~ msgid "Push"
 #~ msgstr "Uafgjort"
 
@@ -6665,7 +6637,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Deity"
 #~ msgstr "Guddom"
 
-# Eller vagtpost. Men det lyder lidt kedeligt
+#~ # Eller vagtpost. Men det lyder lidt kedeligt
 #~ msgid "Sentinel"
 #~ msgstr "Vogter"
 
@@ -6675,8 +6647,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Knight"
 #~ msgstr "Ridder"
 
-# UKENDTE KORTSPIL BEGYNDER HER
-# Ovenstående passer da vist ikke helt længere, strengene synes at høre til et bestemt spil
+#~ # UKENDTE KORTSPIL BEGYNDER HER
+#~ # Ovenstående passer da vist ikke helt længere, strengene synes at høre til et bestemt spil
 #~ msgid "Angel"
 #~ msgstr "Engel"
 
@@ -6756,17 +6728,16 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "/kick <username> .......... Kick a player from the room"
 #~ msgstr "/kick <brugernavn> ........ Smid en spiller ud fra rummet"
 
-#~ msgid ""
-#~ "/gag <username> ........... Gag a player to prevent them from talking"
+#~ msgid "/gag <username> ........... Gag a player to prevent them from talking"
 #~ msgstr "/gag <brugernavn> ......... Forhindr en spiller i at tale"
 
 #~ msgid ""
-#~ "/ungag <username> ......... Reverse the gag operation to allow a player "
-#~ "to talk"
+#~ "/ungag <username> ......... Reverse the gag operation to allow a player to "
+#~ "talk"
 #~ msgstr ""
 #~ "/ungag <brugernavn> ....... Annullér gag-operationen så spilleren kan tale"
 
-# Det er måske ikke det friskeste, mest nutidige sprog, men computerkyndige vil nemmere kunne se forskel på kick/ban når der bruges glosen bandlys
+#~ # Det er måske ikke det friskeste, mest nutidige sprog, men computerkyndige vil nemmere kunne se forskel på kick/ban når der bruges glosen bandlys
 #~ msgid "/ban <username> ........... Ban a player from the server"
 #~ msgstr "/ban <brugernavn> ......... Bandlys en spiller fra serveren"
 
@@ -6794,7 +6765,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Chat Commands"
 #~ msgstr "Chatkommandoer"
 
-# Længden af denne streng er velsagtens bestemmende for antallet af prikker der bruges til udfyldning af linjerne der dokumenterer kommandoer
+#~ # Længden af denne streng er velsagtens bestemmende for antallet af prikker der bruges til udfyldning af linjerne der dokumenterer kommandoer
 #~ msgid "-------------"
 #~ msgstr "-------------"
 
@@ -6926,7 +6897,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Record:"
 #~ msgstr "Rekord:"
 
-# Evt. bedømmelse. Men i skakhenseende bruger man også ordet rating på dansk (i hvertfald den af mine venner der har forstand på det)
+#~ # Evt. bedømmelse. Men i skakhenseende bruger man også ordet rating på dansk (i hvertfald den af mine venner der har forstand på det)
 #~ msgid "Rating:"
 #~ msgstr "Rating:"
 
@@ -6963,11 +6934,11 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Ignore"
 #~ msgstr "Ignorér"
 
-# Tusind tak, programmører
+#~ # Tusind tak, programmører
 #~ msgid "#%d"
 #~ msgstr "#%d"
 
-# Hvad sker der for dem?
+#~ # Hvad sker der for dem?
 #~ msgid "L"
 #~ msgstr "L"
 
@@ -7016,7 +6987,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "You can't join a room; you're not logged in"
 #~ msgstr "Du kan ikke gå ind i et rum; du er ikke logget ind"
 
-# "in between" betyder jo også at man er udenfor det (in between jobs = arbejdsløs), men afhængigt af hvad de mener kan det oversættes forskelligt
+#~ # "in between" betyder jo også at man er udenfor det (in between jobs = arbejdsløs), men afhængigt af hvad de mener kan det oversættes forskelligt
 #~ msgid "You're already in between rooms"
 #~ msgstr "Du er allerede mellem forskellige rum"
 
@@ -7078,7 +7049,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Computer"
 #~ msgstr "Computer"
 
-# Vi gætter på at det er et verbum eftersom de ligger i noget der hedder launch.c
+#~ # Vi gætter på at det er et verbum eftersom de ligger i noget der hedder launch.c
 #~ msgid "Open"
 #~ msgstr "Åbn"
 
@@ -7191,7 +7162,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Player Stats"
 #~ msgstr "Spillerstatistik"
 
-# Jeg er ikke klar over om der findes en standardiseret dansk oversættelse
+#~ # Jeg er ikke klar over om der findes en standardiseret dansk oversættelse
 #~ msgid "MOTD"
 #~ msgstr "Dagens meddelelse"
 
@@ -7331,10 +7302,9 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Resultater for Gnometris"
 
 #~ msgid ""
-#~ "The GNOME version of Reversi. The goal is to control the most disks on "
-#~ "the board."
-#~ msgstr ""
-#~ "GNOME-udgaven af Reversi. Målet er at styre flest skiver på brættet."
+#~ "The GNOME version of Reversi. The goal is to control the most disks on the "
+#~ "board."
+#~ msgstr "GNOME-udgaven af Reversi. Målet er at styre flest skiver på brættet."
 
 #~ msgid "Player Chat"
 #~ msgstr "Spillerchat"
@@ -7351,7 +7321,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "-"
 #~ msgstr "-"
 
-# Nu må de lige spænde hjelmen
+#~ # Nu må de lige spænde hjelmen
 #~ msgid "#"
 #~ msgstr "#"
 
@@ -7395,8 +7365,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "Setting this to FALSE means the pieces fall slowly, but gracefully. A "
 #~ "setting of TRUE causes the pieces to fall quickly and jerkily."
 #~ msgstr ""
-#~ "Hvis dette sættes til \"FALSE\" falder delene langsomt, men graciøst. "
-#~ "Sættes dette til \"TRUE\" falder delene hurtigt og rykvis."
+#~ "Hvis dette sættes til \"FALSE\" falder delene langsomt, men graciøst. Sættes "
+#~ "dette til \"TRUE\" falder delene hurtigt og rykvis."
 
 #~ msgid "The board size"
 #~ msgstr "Brætstørrelsen"
@@ -7408,8 +7378,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Højen på det tilpassede bræt, 101 &gt; højde &gt; 3."
 
 #~ msgid ""
-#~ "The size of the board to use. 1 = Custom, 2 = Small, 3 = Medium, 4 = "
-#~ "Large."
+#~ "The size of the board to use. 1 = Custom, 2 = Small, 3 = Medium, 4 = Large."
 #~ msgstr ""
 #~ "Brætstørrelsen. 1 = Brugertilpasset, 2 = Lille, 3 = Mellemstor, 4 = Stor."
 
@@ -7429,7 +7398,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Samspil-tema"
 
 #~ msgid "_Theme..."
-#~ msgstr "_Tema..."
+#~ msgstr "_Tema …"
 
 #~ msgid "_Fast Animation"
 #~ msgstr "_Hurtig animation"
@@ -7444,7 +7413,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "Det er umuligt at spille spillet. Kontrollér venligst at spillet er "
 #~ "installeret korrekt og prøv igen."
 
-# Bedste bud; nævnes ikke i manualen til same gnome
+#~ # Bedste bud; nævnes ikke i manualen til same gnome
 #~ msgid "Same GNOME (Clutter)"
 #~ msgstr "Samspil (rod)"
 
@@ -7554,7 +7523,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Fuldskærmstilstand"
 
 #~ msgid "Entering custom grid..."
-#~ msgstr "Indlæser brugerdefineret tabel..."
+#~ msgstr "Indlæser brugerdefineret tabel …"
 
 #~ msgid "Print Sudoku"
 #~ msgid_plural "Print Sudokus"
@@ -7567,18 +7536,18 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "_Stop"
 #~ msgstr "_Stop"
 
-# Manual for strftime
-# http://manpages.courier-mta.org/htmlman3/strftime.3.html
-#
-# %p er AM/PM eller tilsvarende streng for det aktuelle locale (gad vide hvad det er)
-#
-# strftime virker som følger (i python):
-#
-# >>> import time
-# >>> time.strftime('hello world - %A %R %p')
-# 'hello world - Sunday 15:09 PM'
-#
-# Dermed behøver man ikke bevare antallet af %A, %p osv. som det ellers typisk er tilfældet med strengsubstitution
+#~ # Manual for strftime
+#~ # http://manpages.courier-mta.org/htmlman3/strftime.3.html
+#~ #
+#~ # %p er AM/PM eller tilsvarende streng for det aktuelle locale (gad vide hvad det er)
+#~ #
+#~ # strftime virker som følger (i python):
+#~ #
+#~ # >>> import time
+#~ # >>> time.strftime('hello world - %A %R %p')
+#~ # 'hello world - Sunday 15:09 PM'
+#~ #
+#~ # Dermed behøver man ikke bevare antallet af %A, %p osv. som det ellers typisk er tilfældet med strengsubstitution
 #~ msgid "Today %R %p"
 #~ msgstr "I dag %R"
 
@@ -7668,8 +7637,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "%(move)s Black %(piece)s at %1$s takes the white %(victim_piece)s at %2$s "
 #~ "(%(result)s)"
 #~ msgstr ""
-#~ "%(move)s Sort %(piece)s på %1$s slår den hvide %(victim_piece)s på "
-#~ "%(end)s (%(result)s)"
+#~ "%(move)s Sort %(piece)s på %1$s slår den hvide %(victim_piece)s på %(end)s "
+#~ "(%(result)s)"
 
 #~ msgid "%(move)s White %(piece)s moves from %1$s to %2$s (%(result)s)"
 #~ msgstr "%(move)s Hvid %(piece)s flytter fra %1$s til %2$s (%(result)s)"
@@ -7683,7 +7652,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "You have been disconnected from the server"
 #~ msgstr "Du er blevet koblet af serveren"
 
-# ?????
+#~ # ?????
 #~ msgid "glines|Medium"
 #~ msgstr "Mellem"
 
@@ -7733,8 +7702,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "Do you want to finish the current game or start playing with the new map "
 #~ "immediately?"
 #~ msgstr ""
-#~ "Vil du færdiggøre det nuværende spil eller med det samme starte et spil "
-#~ "med den nye bane?"
+#~ "Vil du færdiggøre det nuværende spil eller med det samme starte et spil med "
+#~ "den nye bane?"
 
 #~ msgid "_Finish"
 #~ msgstr "_Afslut"
@@ -7761,7 +7730,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr ""
 #~ "Dette navn er allerede registreret og kan derfor ikke bruges af en gæst"
 
-# Ville det være mere naturligt at skrive: "navnet blev ikke fundet"?
+#~ # Ville det være mere naturligt at skrive: "navnet blev ikke fundet"?
 #~ msgid "No such name was found"
 #~ msgstr "Intet sådant navn fundet"
 
@@ -7805,11 +7774,9 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Ny"
 
 #~ msgid ""
-#~ "<b><big>Some games have been changed. Save changes before closing?</big></"
-#~ "b>"
+#~ "<b><big>Some games have been changed. Save changes before closing?</big></b>"
 #~ msgstr ""
-#~ "<b><big>Nogle spil er blevet ændret. Gem ændringer for afslutning?</big></"
-#~ "b>"
+#~ "<b><big>Nogle spil er blevet ændret. Gem ændringer for afslutning?</big></b>"
 
 #~ msgid "<b><big>Unable to enable 3D mode</big></b>"
 #~ msgstr "<b><big>Kan ikke aktivere 3D-tilstand</big></b>"
@@ -7840,8 +7807,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "You are still able to play chess in 2D without these packages."
 #~ msgstr ""
 #~ "Dit system har ikke det nødvendige programmel til at anvende 3D-tilstand. "
-#~ "Kontakt venligst din systemadministrator og bed om installation af "
-#~ "<i>OpenGL Python bindings</i> og <i>GtkGLExt Python bindings</i>.\n"
+#~ "Kontakt venligst din systemadministrator og bed om installation af <i>OpenGL "
+#~ "Python bindings</i> og <i>GtkGLExt Python bindings</i>.\n"
 #~ "\n"
 #~ "Du kan stadig spille skak i 2D uden disse pakker."
 
@@ -7858,7 +7825,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Hvor mange gange ønsker du at kaste?"
 
 #~ msgid "Generating ..."
-#~ msgstr "Genererer ..."
+#~ msgstr "Genererer …"
 
 #~ msgid "Results"
 #~ msgstr "Resultater"
@@ -7887,7 +7854,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "_AI Information"
 #~ msgstr "_AI information"
 
-# Nu må de lige tage sig sammen
+#~ # Nu må de lige tage sig sammen
 #~ msgid " - %(check_status)s"
 #~ msgstr " - %(check_status)s"
 
@@ -7990,8 +7957,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "A comma seperated list of recently played games. The filenames are stored "
 #~ "here, not the actual game name."
 #~ msgstr ""
-#~ "En kommasepareret liste af de senest spillede spil. Filnavnene gemmes "
-#~ "her, ikke selve spilnavnet."
+#~ "En kommasepareret liste af de senest spillede spil. Filnavnene gemmes her, "
+#~ "ikke selve spilnavnet."
 
 #~ msgid "The height of the main window."
 #~ msgstr "Højden af hovedvinduet."
@@ -8025,7 +7992,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Kabalekort"
 
 #~ msgid "_Cards..."
-#~ msgstr "_Kort..."
+#~ msgstr "_Kort …"
 
 #~ msgid "Aisleriot"
 #~ msgstr "Kabale"
@@ -8110,8 +8077,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid ""
 #~ "Background of game is black; otherwise, the background will follow your "
 #~ "theme colors."
-#~ msgstr ""
-#~ "Spillets baggrund er sort; ellers vil baggrunden følge dit farvetema."
+#~ msgstr "Spillets baggrund er sort; ellers vil baggrunden følge dit farvetema."
 
 #~ msgid ""
 #~ "The height of the playing window in pixels. At minimum it should be 240."
@@ -8121,23 +8087,23 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "The width of the playing window in pixels. At minimum it should be 320."
 #~ msgstr "Bredden af spilvinduet i punkter. Bør mindst være 320."
 
-# Jeg kan ikke finde nogen god oversættelse, så med mindre nogen har et bedre forslag bruger vi detteher gamle platte ordspil
+#~ # Jeg kan ikke finde nogen god oversættelse, så med mindre nogen har et bedre forslag bruger vi detteher gamle platte ordspil
 #~ msgid "Sliding Block Puzzles"
 #~ msgstr "\"Klodsede\" opgaver"
 
 #~ msgid ""
-#~ "The requested height of the main window in pixels. If this isn't big "
-#~ "enough it will be ignored."
+#~ "The requested height of the main window in pixels. If this isn't big enough "
+#~ "it will be ignored."
 #~ msgstr ""
 #~ "Den forespurgte højde af hovedvinduet i billedpunkter. Hvis dette ikke er "
 #~ "stort nok vil det blive ignoreret."
 
 #~ msgid ""
-#~ "The requested width of the main window in pixels. If this isn't big "
-#~ "enough it will be ignored."
+#~ "The requested width of the main window in pixels. If this isn't big enough "
+#~ "it will be ignored."
 #~ msgstr ""
-#~ "Den forespurgte bredde af hovedvinduet i billedpunkter. Hvis dette ikke "
-#~ "er stort nok vil det blive ignoreret."
+#~ "Den forespurgte bredde af hovedvinduet i billedpunkter. Hvis dette ikke er "
+#~ "stort nok vil det blive ignoreret."
 
 #~ msgid "There was an error accessing GConf: %s"
 #~ msgstr "Der opstod en fejl under tilgang til GConf: %s"
@@ -8178,18 +8144,18 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "I stedet vil standardtemaet blive indlæst."
 
 #~ msgid ""
-#~ "The requested height of the main window in pixels. Note that the widgets "
-#~ "the window contains are at least 200 pixels high."
+#~ "The requested height of the main window in pixels. Note that the widgets the "
+#~ "window contains are at least 200 pixels high."
 #~ msgstr ""
-#~ "Den forespurgte højde af hovedvinduet i punkter. Bemærk at kontrollerne "
-#~ "som vinduet indeholder, er mindst 200 punkter høj."
+#~ "Den forespurgte højde af hovedvinduet i punkter. Bemærk at kontrollerne som "
+#~ "vinduet indeholder, er mindst 200 punkter høj."
 
 #~ msgid ""
-#~ "The requested width of the main window in pixels. Note that the widgets "
-#~ "the window contains are at least 320 pixels wide."
+#~ "The requested width of the main window in pixels. Note that the widgets the "
+#~ "window contains are at least 320 pixels wide."
 #~ msgstr ""
-#~ "Den forespurgte bredde af hovedvinduet i punkter. Bemærk at kontrollerne "
-#~ "som vinduet indeholder, er mindst 320 punkter bred."
+#~ "Den forespurgte bredde af hovedvinduet i punkter. Bemærk at kontrollerne som "
+#~ "vinduet indeholder, er mindst 320 punkter bred."
 
 #~ msgid "The window height"
 #~ msgstr "Vindueshøjden"
@@ -8200,7 +8166,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Sorry!"
 #~ msgstr "Undskyld!"
 
-# Browser
+#~ # Browser
 #~ msgid "Galeon - New"
 #~ msgstr "Galeon - Ny"
 
@@ -8288,7 +8254,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "Bonus"
 #~ msgstr "Bonus"
 
-# det er til lydlisten
+#~ # det er til lydlisten
 #~ msgid "Bonus Appears"
 #~ msgstr "Bonus dukker op"
 
@@ -8339,8 +8305,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 
 #~ msgid ""
 #~ "The mode of network game to use. 1 = Server, 2 = LAN Host, 3 = LAN Client."
-#~ msgstr ""
-#~ "Tilstande for netværksspil. 1 = server, 2 = LAN-vært, 3 = LAN-klient."
+#~ msgstr "Tilstande for netværksspil. 1 = server, 2 = LAN-vært, 3 = LAN-klient."
 
 #~ msgid "The player's nickname"
 #~ msgstr "Spillerens kælenavn"
@@ -8349,15 +8314,15 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Spillerens kælenavn."
 
 #~ msgid ""
-#~ "This string identifies the default game to connect to or create "
-#~ "(depending on mode)."
+#~ "This string identifies the default game to connect to or create (depending "
+#~ "on mode)."
 #~ msgstr ""
-#~ "Denne streng identificerer standardspillet der skal oprettes eller "
-#~ "forbindes til (afhængig af tilstand)."
+#~ "Denne streng identificerer standardspillet der skal oprettes eller forbindes "
+#~ "til (afhængig af tilstand)."
 
 #~ msgid ""
-#~ "When using server mode, which game server to contact. This accepts the "
-#~ "usual hostname or dotted quad notation."
+#~ "When using server mode, which game server to contact. This accepts the usual "
+#~ "hostname or dotted quad notation."
 #~ msgstr ""
 #~ "Hvilken spil-server der skal kontaktes, når server-tilstanden er i brug. "
 #~ "Værtsnavn- eller IP-adresse-notation er tilladt."
@@ -8365,11 +8330,9 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgid "_High Scores"
 #~ msgstr "_High Scores"
 
-#~ msgid ""
-#~ "<span size=\"large\" style=\"italic\" weight=\"bold\">You win!</span>"
+#~ msgid "<span size=\"large\" style=\"italic\" weight=\"bold\">You win!</span>"
 #~ msgstr ""
-#~ "<span size=\"large\" style=\"italic\" weight=\"bold\">Du har vundet!</"
-#~ "span>"
+#~ "<span size=\"large\" style=\"italic\" weight=\"bold\">Du har vundet!</span>"
 
 #~ msgid "Congratulations."
 #~ msgstr "Tillykke."
@@ -8387,8 +8350,7 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Ataxx"
 
 #~ msgid "A disk-flipping game where you attempt to dominate the board."
-#~ msgstr ""
-#~ "Et spil hvor man forsøger at dominere brættet, ved at vende brikker."
+#~ msgstr "Et spil hvor man forsøger at dominere brættet, ved at vende brikker."
 
 #~ msgid "Compete to dominate the board in a Reversi-like game"
 #~ msgstr "Kæmp for at dominere brættet i et Othello-lignende spil"
@@ -8409,8 +8371,8 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ "Zero corresponds to no animations, one is partial animations, two is "
 #~ "complete animations."
 #~ msgstr ""
-#~ "0 svarer til ingen animeringer, 1 er delvise animeringer, 2 er "
-#~ "fuldstændige animeringer."
+#~ "0 svarer til ingen animeringer, 1 er delvise animeringer, 2 er fuldstændige "
+#~ "animeringer."
 
 #~ msgid "Ataxx Preferences"
 #~ msgstr "Indstillinger for Ataxx"
@@ -8428,17 +8390,18 @@ msgstr "Den valgte genvejstast er allerede blevet tildelt."
 #~ msgstr "Brug visuelle effekter ved brikvending"
 
 #~ msgid ""
-#~ "Put all the white pieces at the bottom and all the black pieces on the "
-#~ "top of the board when a game is over"
+#~ "Put all the white pieces at the bottom and all the black pieces on the top "
+#~ "of the board when a game is over"
 #~ msgstr ""
-#~ "Læg alle hvide brikker i bunden og alle sorte brikker i toppen af "
-#~ "brættet, når spillet er forbi"
+#~ "Læg alle hvide brikker i bunden og alle sorte brikker i toppen af brættet, "
+#~ "når spillet er forbi"
 
 #~ msgid "The appearance of the pieces"
 #~ msgstr "Brikkernes udseende"
 
 #~ msgid "%s..."
-#~ msgstr "%s..."
+#~ msgstr "%s …"
 
 #~ msgid "Invalid game data"
 #~ msgstr "Ugyldige spildata"
+
