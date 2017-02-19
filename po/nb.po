@@ -6,9 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles 3.23.x\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 12:29+0200\n"
-"PO-Revision-Date: 2017-02-19 17:46+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"nibbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-02-13 08:54+0000\n"
+"PO-Revision-Date: 2017-02-19 17:49+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -43,7 +44,7 @@ msgstr "A_vslutt"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1046
+#: ../src/gnome-nibbles.vala:1048
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -56,7 +57,7 @@ msgid "_Pause"
 msgstr "_Pause"
 
 #: ../data/nibbles.ui.h:4
-msgid "Let's _Play"
+msgid "Let’s _Play"
 msgstr "La oss s_pille"
 
 #: ../data/nibbles.ui.h:5
@@ -64,7 +65,7 @@ msgid "Welcome, worms."
 msgstr "Velkommen, marker."
 
 #: ../data/nibbles.ui.h:6
-msgid "Eat the treats before the other worms, but don't hit anything!"
+msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "Spis godteriet før de andre markene, men ikke treff noe!"
 
 #: ../data/nibbles.ui.h:7
@@ -110,7 +111,7 @@ msgid ""
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
+"careful: if they become too large, you won’t have much room for movement."
 msgstr ""
 "Kontroller en mark på sin ferd mot å bli lengre ved å spise bonuser. "
 "Utmanøvrer fiendens marker mens du spiser smultringer og iskrem for å bli "
@@ -368,7 +369,7 @@ msgstr "Hvis du starter et nytt spill vil dette gå tapt."
 msgid "_Resume"
 msgstr "_Gjenoppta"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:900
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
 msgid "Level %d"
 msgstr "Nivå %d"
@@ -428,39 +429,39 @@ msgstr "Nivå %d fullført!"
 msgid "_Next Level"
 msgstr "_Neste nivå"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Congratulations!"
 msgstr "Gratulerer!"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Game Over!"
 msgstr "Spillet er over!"
 
-#: ../src/gnome-nibbles.vala:961
+#: ../src/gnome-nibbles.vala:963
 msgid "You have completed the game."
 msgstr "Du har fullført spillet."
 
-#: ../src/gnome-nibbles.vala:968
+#: ../src/gnome-nibbles.vala:970
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d poeng"
 msgstr[1] "%d poeng"
 
-#: ../src/gnome-nibbles.vala:978
+#: ../src/gnome-nibbles.vala:980
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld poeng igjen for å ta ledelsen)"
 
-#: ../src/gnome-nibbles.vala:984
+#: ../src/gnome-nibbles.vala:986
 msgid "_Play Again"
 msgstr "S_pill igjen"
 
-#: ../src/gnome-nibbles.vala:1049
+#: ../src/gnome-nibbles.vala:1051
 msgid "A worm game for GNOME"
 msgstr "Et ormespill for GNOME"
 
-#: ../src/gnome-nibbles.vala:1058
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
@@ -471,7 +472,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1092 ../src/gnome-nibbles.vala:1210
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -509,6 +510,7 @@ msgstr "Handling"
 msgid "Key"
 msgstr "Nøkkel"
 
+#. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Nøkkelen du valgte er allerede tildelt!"
