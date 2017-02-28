@@ -9,10 +9,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games 3.3.91\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-20 21:32+0000\n"
-"PO-Revision-Date: 2016-02-23 09:17+0800\n"
+"POT-Creation-Date: 2017-02-26 01:10+0000\n"
+"PO-Revision-Date: 2017-02-28 13:52+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional)\n"
 "Language: zh_TW\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Bookmarks: -1,4,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #: ../data/controls-grid.ui.h:1
@@ -48,21 +48,21 @@ msgid "_Quit"
 msgstr "結束(_Q)"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:134 ../src/gnome-nibbles.vala:536
-#: ../src/gnome-nibbles.vala:1017
+#: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
+#: ../src/gnome-nibbles.vala:1048
 msgid "Nibbles"
 msgstr "貪食蛇"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:421
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "開新局(_N)"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:454
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "暫停(_P)"
 
 #: ../data/nibbles.ui.h:4
-msgid "Let's _Play"
+msgid "Let’s _Play"
 msgstr "開始玩(_P)"
 
 #: ../data/nibbles.ui.h:5
@@ -70,7 +70,7 @@ msgid "Welcome, worms."
 msgstr "歡迎，蟲蟲。"
 
 #: ../data/nibbles.ui.h:6
-msgid "Eat the treats before the other worms, but don't hit anything!"
+msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "在其他蟲蟲之前吃獎賞，但不要撞到東西！"
 
 #: ../data/nibbles.ui.h:7
@@ -117,7 +117,7 @@ msgid ""
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
+"careful: if they become too large, you won’t have much room for movement."
 msgstr ""
 "控制蟲蟲讓牠吃下獎賞並且變得愈來愈長。用智慧避開敵人，同時吃下甜甜圈和冰淇淋"
 "來增加您的長度。每隻蟲蟲有十條命，每次撞到牆壁、另一隻蟲或牠自己時就會失去一"
@@ -138,6 +138,10 @@ msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr "您可以對抗最多五隻敵人蟲蟲，或者也可以跟您的朋友共用鍵盤一起玩。"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "GNOME 計畫"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
@@ -348,114 +352,114 @@ msgid "Worm _4"
 msgstr "蟲蟲_4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:101
+#: ../src/gnome-nibbles.vala:104
 msgid "Show release version"
 msgstr "顯示釋出版本"
 
-#: ../src/gnome-nibbles.vala:417
+#: ../src/gnome-nibbles.vala:423
 msgid "Are you sure you want to start a new game?"
 msgstr "你確定你想要開新局嗎？"
 
-#: ../src/gnome-nibbles.vala:418
+#: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
 msgstr "如果你開新局，現在的遊戲將會遺失。"
 
-#: ../src/gnome-nibbles.vala:449
+#: ../src/gnome-nibbles.vala:455
 msgid "_Resume"
 msgstr "繼續(_R)"
 
-#: ../src/gnome-nibbles.vala:612 ../src/gnome-nibbles.vala:884
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
 msgid "Level %d"
 msgstr "第 %d 級"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:747
+#: ../src/gnome-nibbles.vala:763
 msgid "Beginner"
 msgstr "新手"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:749
+#: ../src/gnome-nibbles.vala:765
 msgid "Slow"
 msgstr "慢速"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:751
+#: ../src/gnome-nibbles.vala:767
 msgid "Medium"
 msgstr "中等"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:753
+#: ../src/gnome-nibbles.vala:769
 msgid "Fast"
 msgstr "快速"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:755
+#: ../src/gnome-nibbles.vala:771
 msgid "Beginner with Fakes"
 msgstr "新手，有假的獎勵"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:757
+#: ../src/gnome-nibbles.vala:773
 msgid "Slow with Fakes"
 msgstr "慢速，有假的獎勵"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:759
+#: ../src/gnome-nibbles.vala:775
 msgid "Medium with Fakes"
 msgstr "中等速度，有假的獎勵"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:761
+#: ../src/gnome-nibbles.vala:777
 msgid "Fast with Fakes"
 msgstr "快速，有假的獎勵"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:766
+#: ../src/gnome-nibbles.vala:782
 msgid "Difficulty Level:"
 msgstr "難度等級："
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:867
+#: ../src/gnome-nibbles.vala:883
 #, c-format
 msgid "Level %d Completed!"
 msgstr "已完成第 %d 級！"
 
-#: ../src/gnome-nibbles.vala:874
+#: ../src/gnome-nibbles.vala:890
 msgid "_Next Level"
 msgstr "下一級(_N)"
 
-#: ../src/gnome-nibbles.vala:938
+#: ../src/gnome-nibbles.vala:956
 msgid "Congratulations!"
 msgstr "恭喜！"
 
-#: ../src/gnome-nibbles.vala:938
+#: ../src/gnome-nibbles.vala:956
 msgid "Game Over!"
 msgstr "玩完了！"
 
-#: ../src/gnome-nibbles.vala:945
+#: ../src/gnome-nibbles.vala:963
 msgid "You have completed the game."
 msgstr "您已經完成這個遊戲。"
 
-#: ../src/gnome-nibbles.vala:952
+#: ../src/gnome-nibbles.vala:970
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d 分"
 
-#: ../src/gnome-nibbles.vala:961
+#: ../src/gnome-nibbles.vala:980
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(再 %ld 分就能進入排行榜)"
 
-#: ../src/gnome-nibbles.vala:967
+#: ../src/gnome-nibbles.vala:986
 msgid "_Play Again"
 msgstr "再玩一次(_P)"
 
-#: ../src/gnome-nibbles.vala:1020
+#: ../src/gnome-nibbles.vala:1051
 msgid "A worm game for GNOME"
 msgstr "GNOME 版本貪食蛇遊戲"
 
-#: ../src/gnome-nibbles.vala:1029
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "如對翻譯有任何意見，請送一封電子郵件給\n"
@@ -465,11 +469,39 @@ msgstr ""
 "Abel Cheung <abel@oaka.org>, 2001-07\n"
 "Fernando <bv1al@journalist.com.tw>, 1999"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1178 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "玩家 %d"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "紅色"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "綠色"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "藍色"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "黃色"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "青色"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "紫色"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
@@ -479,6 +511,7 @@ msgstr "動作"
 msgid "Key"
 msgstr "按鍵"
 
+#. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "您所選擇的按鍵已經被指派了！"
@@ -594,23 +627,11 @@ msgstr "您所選擇的按鍵已經被指派了！"
 #~ msgid "_Use relative movement"
 #~ msgstr "方向鍵會根據當時的方向改變意義(_U)"
 
-#~ msgid "Red"
-#~ msgstr "紅"
-
-#~ msgid "Green"
-#~ msgstr "綠"
-
 #~ msgid "Blue"
 #~ msgstr "藍"
 
-#~ msgid "Yellow"
-#~ msgstr "黃"
-
 #~ msgid "Cyan"
 #~ msgstr "氰藍"
-
-#~ msgid "Purple"
-#~ msgstr "紫"
 
 #~ msgid "Gray"
 #~ msgstr "灰"
