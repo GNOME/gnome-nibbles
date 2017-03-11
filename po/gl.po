@@ -10,21 +10,23 @@
 # Antón Méixome <meixome@mancomun.org>, 2009.
 # Fran Diéguez <frandieguez@gnome.org>, 2009, 2010, 2011.
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.
-# Fran Dieguez <frandieguez@gnome.org>, 2011, 2012, 2013, 2015, 2016.
+# Fran Dieguez <frandieguez@gnome.org>, 2011, 2012, 2013, 2015, 2016, 2017.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-05 00:08+0200\n"
-"PO-Revision-Date: 2016-09-05 00:08+0200\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"nibbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-02-26 01:10+0000\n"
+"PO-Revision-Date: 2017-03-11 03:45+0100\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
-"Language-Team: Galician\n"
+"Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Gtranslator 2.91.7\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/controls-grid.ui.h:1
@@ -53,7 +55,7 @@ msgstr "_Saír"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1046
+#: ../src/gnome-nibbles.vala:1048
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -66,7 +68,8 @@ msgid "_Pause"
 msgstr "_Pausa"
 
 #: ../data/nibbles.ui.h:4
-msgid "Let's _Play"
+#| msgid "Let's _Play"
+msgid "Let’s _Play"
 msgstr "_Xoguemos"
 
 #: ../data/nibbles.ui.h:5
@@ -74,7 +77,8 @@ msgid "Welcome, worms."
 msgstr "Benvidos, vermes."
 
 #: ../data/nibbles.ui.h:6
-msgid "Eat the treats before the other worms, but don't hit anything!"
+#| msgid "Eat the treats before the other worms, but don't hit anything!"
+msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "Coma a comida antes que os outros vermes, pero non choque contra ela!"
 
 #: ../data/nibbles.ui.h:7
@@ -115,15 +119,22 @@ msgid "Guide a worm around a maze"
 msgstr "Guíe un verme arredor dun labirinto"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
+#| msgid ""
+#| "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+#| "enemy worms while eating doughnuts and ice cream to increase your length. "
+#| "Each worm has ten lives and loses one by running into a wall, another "
+#| "worm, or itself. The enemy worms are after the same bonuses that you are, "
+#| "so be careful: if they become too large, you won't have much room for "
+#| "movement."
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
+"careful: if they become too large, you won’t have much room for movement."
 msgstr ""
 "Controla un verme na súa cruzada para comer bonus e ser máis longo. Rodea "
-"vermes inimigos mentres comes rosquillas e xeado para incrementar a túa "
+"aos vermes inimigos mentres comes rosquillas e xeado para incrementar a túa "
 "lonxitude. Cada verme ten dez vidas e perde unha ao petar cunha parede, "
 "outro verme ou a si mesmo. Os vermes inimigos buscan os mesmos bonus que ti, "
 "polo que ten coidado: se crecen dabondo non haberá sitio para todos."
@@ -377,7 +388,7 @@ msgstr "Se inicia un xogo novo, o seu actual perderase."
 msgid "_Resume"
 msgstr "_Continuar"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:900
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
 msgid "Level %d"
 msgstr "Nivel %d"
@@ -437,39 +448,39 @@ msgstr "Nivel %d completado!"
 msgid "_Next Level"
 msgstr "_Seguinte nivel"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Congratulations!"
 msgstr "Parabéns!"
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:956
 msgid "Game Over!"
 msgstr "Fin da partida!"
 
-#: ../src/gnome-nibbles.vala:961
+#: ../src/gnome-nibbles.vala:963
 msgid "You have completed the game."
 msgstr "Completou o xogo."
 
-#: ../src/gnome-nibbles.vala:968
+#: ../src/gnome-nibbles.vala:970
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d punto"
 msgstr[1] "%d puntos"
 
-#: ../src/gnome-nibbles.vala:978
+#: ../src/gnome-nibbles.vala:980
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld puntos máis para acadar o liderado)"
 
-#: ../src/gnome-nibbles.vala:984
+#: ../src/gnome-nibbles.vala:986
 msgid "_Play Again"
 msgstr "_Xogar de novo"
 
-#: ../src/gnome-nibbles.vala:1049
+#: ../src/gnome-nibbles.vala:1051
 msgid "A worm game for GNOME"
 msgstr "Un xogo de vermes para GNOME"
 
-#: ../src/gnome-nibbles.vala:1058
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Fran Dieguez <frandieguez@gnome.org>, 2009-2016;\n"
@@ -486,7 +497,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1092 ../src/gnome-nibbles.vala:1210
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -524,6 +535,7 @@ msgstr "Acción"
 msgid "Key"
 msgstr "Chave"
 
+#. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "O atallo que seleccionou xa está asignado!"
