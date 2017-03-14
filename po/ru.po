@@ -18,19 +18,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-13 20:23+0000\n"
-"PO-Revision-Date: 2016-09-16 12:40+0300\n"
-"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
+"POT-Creation-Date: 2017-02-26 01:10+0000\n"
+"PO-Revision-Date: 2017-03-14 21:02+0400\n"
+"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -57,29 +57,29 @@ msgid "_Quit"
 msgstr "_Завершить"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
-#: ../src/gnome-nibbles.vala:1032
+#: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
+#: ../src/gnome-nibbles.vala:1048
 msgid "Nibbles"
 msgstr "Червячок"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "_Новая игра"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "_Пауза"
 
 #: ../data/nibbles.ui.h:4
-msgid "Let's _Play"
-msgstr "Давайте сыграем!"
+msgid "Let’s _Play"
+msgstr "Давайте _сыграем!"
 
 #: ../data/nibbles.ui.h:5
 msgid "Welcome, worms."
 msgstr "Добро пожаловать, червячки."
 
 #: ../data/nibbles.ui.h:6
-msgid "Eat the treats before the other worms, but don't hit anything!"
+msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
 "Съешьте лакомство быстрее остальных червячков, но ни во что не врезайтесь!"
 
@@ -126,7 +126,7 @@ msgid ""
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
+"careful: if they become too large, you won’t have much room for movement."
 msgstr ""
 "Управляйте червячком: ешьте бонусы — червячок станет длиннее. Попробуйте "
 "перехитрить вражеских червячков, поедая пончики и мороженое. У каждого "
@@ -368,95 +368,95 @@ msgid "Worm _4"
 msgstr "Червячок _4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:102
+#: ../src/gnome-nibbles.vala:104
 msgid "Show release version"
 msgstr "Показать номер версии"
 
-#: ../src/gnome-nibbles.vala:419
+#: ../src/gnome-nibbles.vala:423
 msgid "Are you sure you want to start a new game?"
 msgstr "Уверены, что хотите начать новую игру?"
 
-#: ../src/gnome-nibbles.vala:420
+#: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
 msgstr "Если вы начнёте новую игру, текущая игра будет потеряна."
 
-#: ../src/gnome-nibbles.vala:451
+#: ../src/gnome-nibbles.vala:455
 msgid "_Resume"
 msgstr "_Запустить"
 
-#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
 msgid "Level %d"
 msgstr "Уровень %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:749
+#: ../src/gnome-nibbles.vala:763
 msgid "Beginner"
 msgstr "Для начинающих"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:751
+#: ../src/gnome-nibbles.vala:765
 msgid "Slow"
 msgstr "Медленно"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:753
+#: ../src/gnome-nibbles.vala:767
 msgid "Medium"
 msgstr "Обычно"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:755
+#: ../src/gnome-nibbles.vala:769
 msgid "Fast"
 msgstr "Быстро"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:757
+#: ../src/gnome-nibbles.vala:771
 msgid "Beginner with Fakes"
 msgstr "Для начинающих, но с фальшивками"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:759
+#: ../src/gnome-nibbles.vala:773
 msgid "Slow with Fakes"
 msgstr "Медленно и с фальшивками"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:761
+#: ../src/gnome-nibbles.vala:775
 msgid "Medium with Fakes"
 msgstr "Обычно и с фальшивками"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:763
+#: ../src/gnome-nibbles.vala:777
 msgid "Fast with Fakes"
 msgstr "Быстро и с фальшивками"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:768
+#: ../src/gnome-nibbles.vala:782
 msgid "Difficulty Level:"
 msgstr "Уровень сложности:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:869
+#: ../src/gnome-nibbles.vala:883
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Уровень %d завершён!"
 
-#: ../src/gnome-nibbles.vala:876
+#: ../src/gnome-nibbles.vala:890
 msgid "_Next Level"
 msgstr "_Следующий уровень"
 
-#: ../src/gnome-nibbles.vala:940
+#: ../src/gnome-nibbles.vala:956
 msgid "Congratulations!"
 msgstr "Поздравляем!"
 
-#: ../src/gnome-nibbles.vala:940
+#: ../src/gnome-nibbles.vala:956
 msgid "Game Over!"
 msgstr "Игра окончена!"
 
-#: ../src/gnome-nibbles.vala:947
+#: ../src/gnome-nibbles.vala:963
 msgid "You have completed the game."
 msgstr "Вы прошли игру."
 
-#: ../src/gnome-nibbles.vala:954
+#: ../src/gnome-nibbles.vala:970
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -464,20 +464,20 @@ msgstr[0] "%d очко"
 msgstr[1] "%d очка"
 msgstr[2] "%d очков"
 
-#: ../src/gnome-nibbles.vala:964
+#: ../src/gnome-nibbles.vala:980
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(до попадания на доску почёта осталось набрать очков: %ld)"
 
-#: ../src/gnome-nibbles.vala:970
+#: ../src/gnome-nibbles.vala:986
 msgid "_Play Again"
 msgstr "_Сыграть ещё раз"
 
-#: ../src/gnome-nibbles.vala:1035
+#: ../src/gnome-nibbles.vala:1051
 msgid "A worm game for GNOME"
 msgstr "Игра в червячка для среды GNOME"
 
-#: ../src/gnome-nibbles.vala:1044
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Stas Solovey <whats_up@tut.by>, 2016.\n"
@@ -488,7 +488,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -526,6 +526,7 @@ msgstr "Действие"
 msgid "Key"
 msgstr "Клавиша"
 
+#. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Выбранная клавиша уже используется!"
