@@ -1,0 +1,41 @@
+{
+    "app-id": "org.gnome.Nibbles",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "command": "gnome-nibbles",
+    "tags": ["nightly"],
+    "copy-icon": true,
+    "rename-icon": "gnome-nibbles",
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Wayland access */
+        "--socket=wayland",
+        /* Sound! */
+        "--socket=pulseaudio",
+        /* OpenGL access */
+        "--device=dri",
+        /* dconf */
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+    ],
+    "build-options": {
+        "cflags": "-O2 -g"
+    },
+    "cleanup": ["/include", "/lib/*.la", "/lib/pkgconfig",
+                "/share/man", "/share/vala"],
+    "modules": [
+        "org.gnome.games-support.modules.json",
+        {
+            "name": "gnome-nibbles",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/gnome-nibbles"
+                }
+            ]
+        }
+    ]
+}
