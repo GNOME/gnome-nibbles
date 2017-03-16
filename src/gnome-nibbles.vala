@@ -108,7 +108,7 @@ public class Nibbles : Gtk.Application
 
     public Nibbles ()
     {
-        Object (application_id: "org.gnome.nibbles", flags: ApplicationFlags.FLAGS_NONE);
+        Object (application_id: "org.gnome.Nibbles", flags: ApplicationFlags.FLAGS_NONE);
 
         add_main_option_entries (option_entries);
     }

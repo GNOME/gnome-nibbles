@@ -8,7 +8,7 @@
     <file>controls-grid.ui</file>
     <file>preferences-dialog.ui</file>
   </gresource>
-  <gresource prefix="/org/gnome/nibbles/gtk">
+  <gresource prefix="/org/gnome/Nibbles/gtk">
     <file alias="menus.ui">nibbles-menus.ui</file>
   </gresource>
 </gresources>
