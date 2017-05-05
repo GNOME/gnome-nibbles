@@ -1,23 +1,23 @@
 # Friulian translation for gnome-nibbles.
 # Copyright (C) 2015 gnome-nibbles's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-nibbles package.
-# Fabio Tomat <f.t.public@gmail.com>, 2015.
+# Fabio Tomat <f.t.public@gmail.com>, 2015, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-11-12 12:44+0000\n"
-"PO-Revision-Date: 2016-11-13 21:34+0100\n"
+"POT-Creation-Date: 2017-02-26 01:10+0000\n"
+"PO-Revision-Date: 2017-05-05 10:50+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
-"Language-Team: Friulian <fur@li.org>\n"
+"Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -67,7 +67,7 @@ msgstr "Benvignût, vier."
 
 #: ../data/nibbles.ui.h:6
 msgid "Eat the treats before the other worms, but don’t hit anything!"
-msgstr "Mangje i bombons prime di chei altris viers, ma no stâ trussâ nuie!"
+msgstr "Mangje i bombons prime di chei altris viers, ma no sta trussâ nuie!"
 
 #: ../data/nibbles.ui.h:7
 msgid "Number of players"
@@ -505,6 +505,7 @@ msgstr "Azion"
 msgid "Key"
 msgstr "Tast"
 
+#. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Il tast selezionât al è za assegnât!"
