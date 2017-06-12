@@ -876,6 +876,8 @@ public class Nibbles : Gtk.Application
         if (game.current_level == NibblesGame.MAX_LEVEL)
             return;
 
+        view.hide ();
+
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
 
@@ -899,6 +901,8 @@ public class Nibbles : Gtk.Application
             button.destroy ();
 
             headerbar.set_title (_("Level %d").printf (game.current_level));
+
+            view.show ();
 
             restart_game ();
         });
