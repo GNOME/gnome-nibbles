@@ -4,16 +4,16 @@
 #
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
-# Matic Žgur <mr.zgur@gmail.com>, 2006-2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007-2015.
+# Matic Žgur <mr.zgur@gmail.com>, 2006–2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007–2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-28 20:06+0000\n"
-"PO-Revision-Date: 2015-02-28 21:17+0100\n"
+"POT-Creation-Date: 2017-07-21 18:46+0200\n"
+"PO-Revision-Date: 2017-07-21 18:48+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -23,18 +23,98 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.0.1\n"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "Igralec"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Možnosti"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Scores"
+msgstr "_Točke"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Help"
+msgstr "Pomo_č"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_About"
+msgstr "_O programu"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Quit"
+msgstr "_Končaj"
+
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:135 ../src/gnome-nibbles.vala:538
+#: ../src/gnome-nibbles.vala:1032
+msgid "Nibbles"
+msgstr "Črvi"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:423
+msgid "_New Game"
+msgstr "_Nova Igra"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:456
+msgid "_Pause"
+msgstr "_Premor"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let's _Play"
+msgstr "Začni z _igro"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Dobrodošli, črvi!"
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don't hit anything!"
+msgstr ""
+"Pospravite dobrote pred drugimi črvi, vendar se ne dotaknite ovir in drugih "
+"črvov!"
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "Število igralcev"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "Število človeških igralcev."
+
+#: ../data/nibbles.ui.h:9
+msgid "Select the number of computer players."
+msgstr "Število računalniških igralcev."
+
+#: ../data/nibbles.ui.h:10
+msgid "_Next"
+msgstr "_Naslednji"
+
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "Tipke"
+
+#: ../data/nibbles.ui.h:12
+msgid "_Start"
+msgstr "_Začni"
+
+#: ../data/nibbles.ui.h:13
+msgid "Paused"
+msgstr "Premor"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "GNOME Črvi"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
 msgstr "Vodenje črva po labirintu"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -45,10 +125,11 @@ msgstr ""
 "Pri igri je treba voditi črva na po polju na zaslonu. Izogibati se je treba "
 "drugim črvom, med gibanjem pa pojesti čim več sladic, sladoleda in drugih "
 "dobrot. Z vsakim grižljajem postane črv večji in težje vodljiv med ovirami, "
-"ki predstavljajo trenutno smrt. Tudi drugi črvi želijo jesti in rasti. To je "
-"lahko problem, saj ostane vedno manj prostora za premikanje."
+"ki predstavljajo trenutno smrt. Vsak žrv ima na voljo deset življenj. Tudi "
+"drugi črvi želijo jesti in rasti. To je lahko problem, saj ostane vedno manj "
+"prostora za premikanje."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -58,7 +139,7 @@ msgstr ""
 "večinoma odprte, z nekaj zidovi, kasnejše pa vključujejo ovire in "
 "teleporterje, ki popestrijo dogajanje."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -66,82 +147,49 @@ msgstr ""
 "Igro je mogoče igrati proti računalniku ali pa s prijateljem. Ena tipkovnica "
 "omogoča igro v dvoje."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:251 ../src/main.c:611
-#: ../src/main.c:704
-msgid "Nibbles"
-msgstr "Črvi"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "igra;kaža;tabla;plošča;"
 
-#: ../data/nibbles-menus.ui.h:1
-msgid "_New Game"
-msgstr "_Nova Igra"
-
-#: ../data/nibbles-menus.ui.h:2
-msgid "_Pause"
-msgstr "_Premor"
-
-#: ../data/nibbles-menus.ui.h:3
-msgid "_Preferences"
-msgstr "_Možnosti"
-
-#: ../data/nibbles-menus.ui.h:4
-msgid "_Scores"
-msgstr "_Točke"
-
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Help"
-msgstr "Pomo_č"
-
-#: ../data/nibbles-menus.ui.h:6
-msgid "_About"
-msgstr "_O programu"
-
-#: ../data/nibbles-menus.ui.h:7
-msgid "_Quit"
-msgstr "_Končaj"
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Število človeških igralcev"
+msgid "Width of the window in pixels"
+msgstr "Širina okna v točkah"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Število človeških igralcev."
+msgid "Width of the window in pixels."
+msgstr "Širina okna v točkah."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "Število računalniških igralcev"
+msgid "Height of the window in pixels"
+msgstr "Višina okna v točkah"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "Število računalniških igralcev."
+msgid "Height of the window in pixels."
+msgstr "Višina okna v točkah."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Hitrost igre"
+msgid "true if the window is maximized"
+msgstr "prav, če je okno razpeto"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Hitrost igre (1=hitro, 4=počasi)."
+msgid "true if the window is maximized."
+msgstr "prav, če je okno razpeto."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Omogoči lažni bonus"
+msgid "Is this the first run"
+msgstr "Ali je igra zagnana prvič?"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Omogoči lažni bonus."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr "Nastavitve, ki določajo, ali naj se pojavi okno z namigi ali ne."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Ravni v naključnem vrstnem redu"
+msgid "Size of game tiles"
+msgstr "Velikost igralnih ploščic"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Ravni v naključnem vrstnem redu"
+msgid "Size of game tiles."
+msgstr "Velikost igralnih ploščic."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -152,321 +200,501 @@ msgid "Game level to start on."
 msgstr "Raven težavnosti, pri kateri si želite začeti igrati."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Hitrost črva"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Hitrost premikanja črva."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Omogoči zvoke"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Omogoči zvok."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "velikost igralnih ploščic"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Velikost igralnih ploščic."
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Omogoči lažni bonus"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Omogoči lažni bonus."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Število človeških igralcev"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "Število človeških igralcev."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "Število računalniških igralcev"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "Število računalniških igralcev."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "Barva črva"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "Barva črva."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Uporabi relativne premike"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Uporabi relativne premike (tj. le levo ali desno)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:421
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Premakni navzgor"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Tipka za premikanje gor."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:422
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Premakni navzdol"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Tipka za premikanje dol."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Premaknite se v levo"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Tipka za premikanje levo."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Premaknite se v desno"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Tipka za premikanje desno."
 
-#: ../src/board.c:250
-#, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Ni mogoče najti datoteke z ravnmi igre:\n"
-"%s\n"
-"\n"
-"Preverite namestitev igre."
-
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Raven igre je videti poškodovana:\n"
-"%s\n"
-"\n"
-"Preverite namestitev igre."
-
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "Izbrana tipkovna bližnjica je že določena."
-
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Neznan ukaz"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Čas"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Rezultat"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$dm %2$ds"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Datum"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Zapri"
-
-#: ../src/gnibbles.c:82
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Ni mogoče najti datoteke s sliko:\n"
-"%s\n"
-"\n"
-"Preverite vašo namestitev igre."
-
-#: ../src/gnibbles.c:340
-msgid "Nibbles Scores"
-msgstr "Točke pri Nibblesu"
-
-#: ../src/gnibbles.c:343
-msgid "Speed:"
-msgstr "Hitrost:"
-
-#: ../src/gnibbles.c:348
-msgid "Congratulations!"
-msgstr "Čestitke!"
-
-#: ../src/gnibbles.c:349
-msgid "Your score is the best!"
-msgstr "Vaše rezultat je najboljši!"
-
-#: ../src/gnibbles.c:350
-msgid "Your score has made the top ten."
-msgstr "Vaš rezultat se uvršča med najboljših deset."
-
-#: ../src/main.c:62
-msgctxt "game speed"
-msgid "Beginner"
-msgstr "Začetnik"
-
-#: ../src/main.c:63
-msgctxt "game speed"
-msgid "Slow"
-msgstr "Počasno"
-
-#: ../src/main.c:64
-msgctxt "game speed"
-msgid "Medium"
-msgstr "Srednja"
-
-#: ../src/main.c:65
-msgctxt "game speed"
-msgid "Fast"
-msgstr "Hitro"
-
-#: ../src/main.c:66
-msgctxt "game speed"
-msgid "Beginner with Fakes"
-msgstr "Začetnik s pomočjo"
-
-#: ../src/main.c:67
-msgctxt "game speed"
-msgid "Slow with Fakes"
-msgstr "Počasno s pomočjo"
-
-#: ../src/main.c:68
-msgctxt "game speed"
-msgid "Medium with Fakes"
-msgstr "Običajno s pomočjo"
-
-#: ../src/main.c:69
-msgctxt "game speed"
-msgid "Fast with Fakes"
-msgstr "Hitro s pomočjo"
-
-#: ../src/main.c:257
-msgid "A worm game for GNOME"
-msgstr "Igra s črvom za GNOME"
-
-#: ../src/main.c:260
-msgid "translator-credits"
-msgstr ""
-"Matic Žgur <mr.zgur@gmail.com>\n"
-"Matej Erman <matej.erman@guest.arnes.si>\n"
-"Tadej Janež <tadej_janez@email.si>\n"
-"Matej Urbančič <mateju@svn.gnome.org>"
-
-#: ../src/preferences.c:225
-msgid "Preferences"
-msgstr "Možnosti"
-
-#: ../src/preferences.c:238
-msgid "Game"
-msgstr "Igra"
-
-#. Speed
-#: ../src/preferences.c:254
-msgid "Speed"
-msgstr "Hitrost"
-
-#: ../src/preferences.c:259
-msgid "Nibbles newbie"
-msgstr "Nibbles začetnik"
-
-#: ../src/preferences.c:269
-msgid "My second day"
-msgstr "Moj drugi dan"
-
-#: ../src/preferences.c:279
-msgid "Not too shabby"
-msgstr "Kar spreten"
-
-#: ../src/preferences.c:289
-msgid "Finger-twitching good"
-msgstr "Dober s prsti"
-
-#: ../src/preferences.c:303 ../src/preferences.c:426
-msgid "Options"
-msgstr "Možnosti"
-
-#: ../src/preferences.c:310
-msgid "_Play levels in random order"
-msgstr "_Ravni v naključnem vrstnem redu"
-
-#: ../src/preferences.c:318
-msgid "_Enable fake bonuses"
-msgstr "Omogoči lažni _bonus"
-
-#: ../src/preferences.c:326
-msgid "E_nable sounds"
-msgstr "Omogoči _zvoke"
-
-#: ../src/preferences.c:339
-msgid "_Starting level:"
-msgstr "_Začetna ravni: "
-
-#: ../src/preferences.c:364
-msgid "Number of _human players:"
-msgstr "Število _človeških igralcev:"
-
-#: ../src/preferences.c:381
-msgid "Number of _AI players:"
-msgstr "Število _računalniških igralcev:"
-
-#: ../src/preferences.c:402
+#: ../data/player-score-box.ui.h:1
 msgid "Worm"
 msgstr "Črv"
 
-#: ../src/preferences.c:411
-msgid "Keyboard Options"
-msgstr "Možnosti tipkovnice"
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Možnosti"
 
-#: ../src/preferences.c:431
-msgid "_Use relative movement"
-msgstr "_Uporabi relativne premike"
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Hitrost"
 
-#: ../src/preferences.c:438
-msgid "_Worm color:"
-msgstr "B_arva črva:"
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "_Začetnik"
 
-#: ../src/preferences.c:444
-msgid "Red"
-msgstr "Rdeča"
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "_Počasi"
 
-#: ../src/preferences.c:445
-msgid "Green"
-msgstr "Zelena"
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "_Srednje"
 
-#: ../src/preferences.c:446
-msgid "Blue"
-msgstr "Modra"
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "_Hitro"
 
-#: ../src/preferences.c:447
-msgid "Yellow"
-msgstr "Rumena"
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Možnosti"
 
-#: ../src/preferences.c:448
-msgid "Cyan"
-msgstr "Sinja"
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "Omogoči _zvoke"
 
-#: ../src/preferences.c:449
-msgid "Purple"
-msgstr "Škrlatna"
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "Omogoči lažni _bonus"
 
-#: ../src/preferences.c:450
-msgid "Gray"
-msgstr "Siva"
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "_Splošno"
 
-#: ../src/scoreboard.c:48
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "Barva črva"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "Črv _1"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "Črv _2"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "Črv _3"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "Črv _4"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:102
+msgid "Show release version"
+msgstr "Pokaži podrobnosti različice"
+
+#: ../src/gnome-nibbles.vala:419
+msgid "Are you sure you want to start a new game?"
+msgstr "Ali ste prepričani, da želite začeti novo igro?"
+
+#: ../src/gnome-nibbles.vala:420
+msgid "If you start a new game, the current one will be lost."
+msgstr "Z začetkom nove igre, se trenutna igra konča."
+
+#: ../src/gnome-nibbles.vala:451
+msgid "_Resume"
+msgstr "Na_daljuj"
+
+#: ../src/gnome-nibbles.vala:614 ../src/gnome-nibbles.vala:886
 #, c-format
-msgid "Worm %d:"
-msgstr "Črv %d:"
+msgid "Level %d"
+msgstr "Raven %d"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:749
+msgid "Beginner"
+msgstr "Začetnik"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:751
+msgid "Slow"
+msgstr "Počasno"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:753
+msgid "Medium"
+msgstr "Srednje"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:755
+msgid "Fast"
+msgstr "Hitro"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:757
+msgid "Beginner with Fakes"
+msgstr "Začetnik z lažnimi bonusi"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:759
+msgid "Slow with Fakes"
+msgstr "Počasi z lažnimi bonusi"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:761
+msgid "Medium with Fakes"
+msgstr "Srednje hitro z lažnimi bonusi"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
+msgid "Fast with Fakes"
+msgstr "Hitro z lažnimi bonusi"
+
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:768
+msgid "Difficulty Level:"
+msgstr "Raven zahtevnosti:"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:869
+#, c-format
+msgid "Level %d Completed!"
+msgstr "Raven %d je končana!"
+
+#: ../src/gnome-nibbles.vala:876
+msgid "_Next Level"
+msgstr "_Naslednja raven"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Congratulations!"
+msgstr "Čestitke!"
+
+#: ../src/gnome-nibbles.vala:940
+msgid "Game Over!"
+msgstr "Konec igre!"
+
+#: ../src/gnome-nibbles.vala:947
+msgid "You have completed the game."
+msgstr "Končali ste igro."
+
+#: ../src/gnome-nibbles.vala:954
+#, c-format
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d točk"
+msgstr[1] "%d točka"
+msgstr[2] "%d točki"
+msgstr[3] "%d točke"
+
+#: ../src/gnome-nibbles.vala:964
+#, c-format
+msgid "(%d more points to reach the leaderboard)"
+msgstr "(še %d točk do vpisa na seznam najboljših)"
+
+#: ../src/gnome-nibbles.vala:970
+msgid "_Play Again"
+msgstr "_Nova igra"
+
+#: ../src/gnome-nibbles.vala:1035
+msgid "A worm game for GNOME"
+msgstr "Igra s črvom za GNOME"
+
+#: ../src/gnome-nibbles.vala:1044
+msgid "translator-credits"
+msgstr ""
+"Matej Urbančič <mateju@svn.gnome.org>\n"
+"Matej Erman\n"
+"Tadej Janež\n"
+"Matic Žgur"
+
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1078 ../src/gnome-nibbles.vala:1196
+#: ../src/nibbles-view.vala:583
+#, c-format
+msgid "Player %d"
+msgstr "Igralec %d"
+
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "rdeča"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "zelena"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "modra"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "rumena"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "sinja"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "škrlatna"
+
+#: ../src/preferences-dialog.vala:140
+msgid "Action"
+msgstr "Akcijske igre"
+
+#: ../src/preferences-dialog.vala:147
+msgid "Key"
+msgstr "Ključ"
+
+#: ../src/preferences-dialog.vala:230
+msgid "The key you selected is already assigned!"
+msgstr "Izbran ključ je že dodeljen!"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Projekt GNOME"
+
+#~ msgid "Game speed"
+#~ msgstr "Hitrost igre"
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "Hitrost igre (1=hitro, 4=počasi)."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "Ravni v naključnem vrstnem redu"
+
+#~ msgid "Play levels in random order."
+#~ msgstr "Ravni v naključnem vrstnem redu"
+
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Ni mogoče najti datoteke z ravnmi igre:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Preverite namestitev igre."
+
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Raven igre je videti poškodovana:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Preverite namestitev igre."
+
+#~ msgid "The shortcut you selected is already assigned."
+#~ msgstr "Izbrana tipkovna bližnjica je že določena."
+
+#~ msgid "Unknown Command"
+#~ msgstr "Neznan ukaz"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "Čas"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "Rezultat"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%1$dm %2$ds"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid "_Close"
+#~ msgstr "_Zapri"
+
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Ni mogoče najti datoteke s sliko:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Preverite vašo namestitev igre."
+
+#~ msgid "Nibbles Scores"
+#~ msgstr "Točke pri Nibblesu"
+
+#~ msgid "Speed:"
+#~ msgstr "Hitrost:"
+
+#~ msgid "Your score is the best!"
+#~ msgstr "Vaše rezultat je najboljši!"
+
+#~ msgid "Your score has made the top ten."
+#~ msgstr "Vaš rezultat se uvršča med najboljših deset."
+
+#~ msgctxt "game speed"
+#~ msgid "Beginner"
+#~ msgstr "Začetnik"
+
+#~ msgctxt "game speed"
+#~ msgid "Slow"
+#~ msgstr "Počasno"
+
+#~ msgctxt "game speed"
+#~ msgid "Medium"
+#~ msgstr "Srednja"
+
+#~ msgctxt "game speed"
+#~ msgid "Fast"
+#~ msgstr "Hitro"
+
+#~ msgctxt "game speed"
+#~ msgid "Beginner with Fakes"
+#~ msgstr "Začetnik s pomočjo"
+
+#~ msgctxt "game speed"
+#~ msgid "Slow with Fakes"
+#~ msgstr "Počasno s pomočjo"
+
+#~ msgctxt "game speed"
+#~ msgid "Medium with Fakes"
+#~ msgstr "Običajno s pomočjo"
+
+#~ msgctxt "game speed"
+#~ msgid "Fast with Fakes"
+#~ msgstr "Hitro s pomočjo"
+
+#~ msgid "Game"
+#~ msgstr "Igra"
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "Nibbles začetnik"
+
+#~ msgid "My second day"
+#~ msgstr "Moj drugi dan"
+
+#~ msgid "Not too shabby"
+#~ msgstr "Kar spreten"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "Dober s prsti"
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "_Ravni v naključnem vrstnem redu"
+
+#~ msgid "_Starting level:"
+#~ msgstr "_Začetna ravni: "
+
+#~ msgid "Number of _human players:"
+#~ msgstr "Število _človeških igralcev:"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "Število _računalniških igralcev:"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "Možnosti tipkovnice"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "_Uporabi relativne premike"
+
+#~ msgid "_Worm color:"
+#~ msgstr "B_arva črva:"
+
+#~ msgid "Red"
+#~ msgstr "Rdeča"
+
+#~ msgid "Green"
+#~ msgstr "Zelena"
+
+#~ msgid "Blue"
+#~ msgstr "Modra"
+
+#~ msgid "Yellow"
+#~ msgstr "Rumena"
+
+#~ msgid "Cyan"
+#~ msgstr "Sinja"
+
+#~ msgid "Purple"
+#~ msgstr "Škrlatna"
+
+#~ msgid "Gray"
+#~ msgstr "Siva"
+
+#~ msgid "Worm %d:"
+#~ msgstr "Črv %d:"
 
 #~ msgid ""
 #~ "A worm game for GNOME\n"
