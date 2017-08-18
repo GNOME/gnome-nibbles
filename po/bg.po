@@ -1,10 +1,10 @@
 # Bulgarian translation of gnome-nibbles po-file.
 # Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
-# Copyright (C) 2009, 2010, 2012, 2016 Free Software Foundation, Inc.
+# Copyright (C) 2009, 2010, 2012, 2016, 2017 Free Software Foundation, Inc.
 # Copyright (C) 2010, 2012 Krasimir Chonov <mk2616@abv.bg>.
 # Evgeni Boevski <linkej@yahoo.com>, 2002, 2003.
 # Rostislav "zbrox" Raykov <zbrox@i-space.org>, 2004, 2005, 2006.
-# Alexander Shopov <ash@kambanaria.org>, 2007, 2008, 2009, 2010, 2012, 2016.
+# Alexander Shopov <ash@kambanaria.org>, 2007, 2008, 2009, 2010, 2012, 2016, 2017.
 # Yavor Doganov <yavor@gnu.org>, 2008.
 # Krasimir Chonov <mk2616@abv.bg>, 2010, 2012.
 #
@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 06:47+0200\n"
-"PO-Revision-Date: 2016-01-18 06:46+0200\n"
+"POT-Creation-Date: 2017-09-02 08:58+0300\n"
+"PO-Revision-Date: 2017-08-18 20:33+0200\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -25,57 +25,6 @@ msgstr ""
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
 msgstr "Играч"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
-msgid "GNOME Nibbles"
-msgstr "Змия"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Управляване на змия през лабиринт"
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
-msgstr ""
-"Управлявайте змия — тя расте като яде. Трябва да надхитрите змиите-"
-"конкуренти за понички и сладолед. Всяка змия има по 10 живота, които губи "
-"като се удари в стена, друга змия или себе си. Другите змии също растат, "
-"когато ядат, така че внимавайте да не пораснат и да няма място за вашата "
-"змия де се развихри."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
-msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
-msgstr ""
-"В играта има 26 карти с повишаваща се трудност. Началните нива са с малко "
-"стени, но при следващите пространството намалява, а ситуацията се усложнява "
-"от телепортери."
-
-#: ../data/gnome-nibbles.appdata.xml.in.h:5
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Можете да играете самостоятелно срещу до пет компютърни противника, а може "
-"да играете срещу друг човек като ползвате една обща клавиатура."
-
-#: ../data/gnome-nibbles.desktop.in.h:1 ../data/nibbles.ui.h:1
-#: ../src/gnome-nibbles.vala:490 ../src/gnome-nibbles.vala:861
-#: ../src/gnome-nibbles.vala:900
-msgid "Nibbles"
-msgstr "Змия"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
-msgid "game;snake;board;"
-msgstr "червеи;змия;game;snake;board;"
 
 #: ../data/nibbles-menus.ui.h:1
 msgid "_Preferences"
@@ -97,16 +46,22 @@ msgstr "_Относно"
 msgid "_Quit"
 msgstr "_Спиране на програмата"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:379
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
+#: ../src/gnome-nibbles.vala:1048
+msgid "Nibbles"
+msgstr "Змия"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "_Нова игра"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:408
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "_Пауза"
 
 #: ../data/nibbles.ui.h:4
-msgid "Let's _Play"
+msgid "Let’s _Play"
 msgstr "_Начало"
 
 #: ../data/nibbles.ui.h:5
@@ -114,10 +69,9 @@ msgid "Welcome, worms."
 msgstr "Здравейте, змии!"
 
 #: ../data/nibbles.ui.h:6
-msgid "Eat the treats before the other worms, but don't hit anything!"
+msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
-"Изяжте лакомствата преди да ги стигнат другите, но внимавайте да не се "
-"сблъскате някъде!"
+"Изяжте лакомствата преди да ги стигнат другите, без да се сблъскате някъде!"
 
 #: ../data/nibbles.ui.h:7
 msgid "Number of players"
@@ -128,20 +82,73 @@ msgid "Select the number of human players."
 msgstr "Брой играчи — хора."
 
 #: ../data/nibbles.ui.h:9
+msgid "Select the number of computer players."
+msgstr "Брой играчи — компютър."
+
+#: ../data/nibbles.ui.h:10
 msgid "_Next"
 msgstr "_Следващ"
 
-#: ../data/nibbles.ui.h:10 ../data/preferences-dialog.ui.h:11
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Клавиши"
 
-#: ../data/nibbles.ui.h:11
+#: ../data/nibbles.ui.h:12
 msgid "_Start"
 msgstr "_Начало"
 
-#: ../data/nibbles.ui.h:12
+#: ../data/nibbles.ui.h:13
 msgid "Paused"
 msgstr "На пауза"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
+msgid "GNOME Nibbles"
+msgstr "Змия"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Управляване на змия през лабиринт"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won’t have much room for movement."
+msgstr ""
+"Управлявайте змия — тя расте като яде. Трябва да надхитрите змиите-"
+"конкуренти за понички и сладолед. Всяка змия има по 10 живота, които губи "
+"като се удари в стена, друга змия или себе си. Другите змии също растат, "
+"когато ядат, така че внимавайте да не пораснат и да няма място за вашата "
+"змия де се развихри."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"В играта има 26 карти с повишаваща се трудност. Началните нива са с малко "
+"стени, но при следващите пространството намалява, а ситуацията се усложнява "
+"от телепортери."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Можете да играете самостоятелно срещу до пет компютърни противника, а може "
+"да играете срещу друг човек като ползвате една обща клавиатура."
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Проектът GNOME"
+
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
+msgid "game;snake;board;"
+msgstr "червей;червеи;змия;змии;game;snake;board;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Width of the window in pixels"
@@ -209,61 +216,77 @@ msgstr "Включване на звук."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
 msgid "Enable fake bonuses"
-msgstr "Разрешаване на фалшиви бонуси"
+msgstr "Разрешаване на фалшиви ябълки"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:18
 msgid "Enable fake bonuses."
-msgstr "Разрешаване на фалшиви бонуси."
+msgstr "Разрешаване на фалшиви ябълки."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Брой играчи — хора"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "Брой играчи — хора."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "Брой играчи — компютър"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "Брой играчи — компютър."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "Цвят на змията"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "Цвят на змията."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Използване на относителни движения"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr "Използване на относителни движения (напр. само ляво или дясно)"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
-#: ../src/preferences-dialog.vala:110
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Движение нагоре"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Клавиш за движение нагоре."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
-#: ../src/preferences-dialog.vala:113
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Движение надолу"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Клавиш за движение надолу."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27
-#: ../src/preferences-dialog.vala:116
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Движение наляво"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Клавиш за движение наляво."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:29
-#: ../src/preferences-dialog.vala:119
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Движение надясно"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:30
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Клавиш за движение надясно."
 
@@ -280,20 +303,20 @@ msgid "Speed"
 msgstr "Скорост"
 
 #: ../data/preferences-dialog.ui.h:3
-msgid "_Fast"
-msgstr "_Бързо"
+msgid "_Beginner"
+msgstr "_Много бавно"
 
 #: ../data/preferences-dialog.ui.h:4
-msgid "_Medium"
-msgstr "_Средно"
-
-#: ../data/preferences-dialog.ui.h:5
 msgid "_Slow"
 msgstr "Б_авно"
 
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "_Средно"
+
 #: ../data/preferences-dialog.ui.h:6
-msgid "_Beginner"
-msgstr "_Много бавно"
+msgid "_Fast"
+msgstr "_Бързо"
 
 #: ../data/preferences-dialog.ui.h:7
 msgid "Options"
@@ -305,7 +328,7 @@ msgstr "_Включване на звуците"
 
 #: ../data/preferences-dialog.ui.h:9
 msgid "_Enable fake bonuses"
-msgstr "_Разрешаване на фалшиви бонуси"
+msgstr "_Разрешаване на фалшиви ябълки"
 
 #: ../data/preferences-dialog.ui.h:10
 msgid "_General"
@@ -332,63 +355,115 @@ msgid "Worm _4"
 msgstr "_4-та змия"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:100
+#: ../src/gnome-nibbles.vala:104
 msgid "Show release version"
 msgstr "Показване на версията"
 
-#: ../src/gnome-nibbles.vala:375
+#: ../src/gnome-nibbles.vala:423
 msgid "Are you sure you want to start a new game?"
 msgstr "Искате ли да започнете нова игра?"
 
-#: ../src/gnome-nibbles.vala:376
+#: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
 msgstr "Ако започнете нова игра, ще загубите текущото постижение."
 
-#: ../src/gnome-nibbles.vala:403
+#: ../src/gnome-nibbles.vala:455
 msgid "_Resume"
 msgstr "_Продължаване"
 
-#: ../src/gnome-nibbles.vala:543 ../src/gnome-nibbles.vala:740
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
 msgid "Level %d"
 msgstr "%d-о ниво"
 
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
+msgid "Beginner"
+msgstr "Много бавно"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:765
+msgid "Slow"
+msgstr "Бавно"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:767
+msgid "Medium"
+msgstr "Средно"
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:769
+msgid "Fast"
+msgstr "Бързо"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:771
+msgid "Beginner with Fakes"
+msgstr "Много бавно с фалшиви ябълки"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:773
+msgid "Slow with Fakes"
+msgstr "Бавно с фалшиви ябълки"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:775
+msgid "Medium with Fakes"
+msgstr "Средно с фалшиви ябълки"
+
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:777
+msgid "Fast with Fakes"
+msgstr "Бързо с фалшиви ябълки"
+
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:622
+#: ../src/gnome-nibbles.vala:782
 msgid "Difficulty Level:"
 msgstr "Трудност:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:720
+#: ../src/gnome-nibbles.vala:883
 #, c-format
 msgid "Level %d Completed!"
 msgstr "%d-о ниво е завършено."
 
-#: ../src/gnome-nibbles.vala:727
+#: ../src/gnome-nibbles.vala:890
 msgid "_Next Level"
 msgstr "_Следващо ниво"
 
-#: ../src/gnome-nibbles.vala:801
+#: ../src/gnome-nibbles.vala:956
+msgid "Congratulations!"
+msgstr "Честито!"
+
+#: ../src/gnome-nibbles.vala:956
+msgid "Game Over!"
+msgstr "Играта свърши!"
+
+#: ../src/gnome-nibbles.vala:963
+msgid "You have completed the game."
+msgstr "Завършихте играта."
+
+#: ../src/gnome-nibbles.vala:970
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d точка"
 msgstr[1] "%d точки"
 
-#: ../src/gnome-nibbles.vala:810
+#: ../src/gnome-nibbles.vala:980
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(трябват ви още %ld точки, за да влезете в челното класиране)"
 
-#: ../src/gnome-nibbles.vala:816
+#: ../src/gnome-nibbles.vala:986
 msgid "_Play Again"
 msgstr "_Нова игра"
 
-#: ../src/gnome-nibbles.vala:864
+#: ../src/gnome-nibbles.vala:1051
 msgid "A worm game for GNOME"
 msgstr "Игра със змия за GNOME."
 
-#: ../src/gnome-nibbles.vala:873
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Ростислав „zbrox“ Райков <zbrox@i-space.org>\n"
@@ -402,20 +477,49 @@ msgstr ""
 "Докладвайте за грешки на <a href=\"http://gnome.cult.bg/bugs\">http://gnome."
 "cult.bg/bugs</a>"
 
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1058 ../src/nibbles-view.vala:585
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
+#: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
 msgstr "%d-и играч"
 
-#: ../src/preferences-dialog.vala:122
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "червено"
+
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "зелено"
+
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "синьо"
+
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "жълто"
+
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "циан"
+
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "виолетово"
+
+#: ../src/preferences-dialog.vala:140
 msgid "Action"
 msgstr "Действие"
 
-#: ../src/preferences-dialog.vala:129
+#: ../src/preferences-dialog.vala:147
 msgid "Key"
 msgstr "Клавиш"
 
-#: ../src/preferences-dialog.vala:212
+#. Translators: This string appears when one tries to assign an already assigned key
+#: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Избраният клавиш вече се ползва."
