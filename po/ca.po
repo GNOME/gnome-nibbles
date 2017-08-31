@@ -125,7 +125,7 @@ msgstr ""
 "llarg. Supereu els cucs enemics, mentre mengeu dònuts i gelats per augmentar "
 "de mida. Cada cuc té deu vides i perd una en xocar contra una paret, un "
 "altre cuc o contra si mateix. Els cucs enemics volen les mateixes "
-"bonificacions que vós, així que aneu amb compte: si es tornen massa llargs, "
+"bonificacions que vós, així que aneu amb compte: si es tornen massa grans, "
 "no tindreu gaire espai per a moure-us."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
@@ -257,7 +257,7 @@ msgstr "Utilitza moviment relatiu"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
-msgstr "Utilitza moviment relatiu (p.e. només esquerra i dreta)."
+msgstr "Utilitza moviment relatiu (p. ex. només esquerra i dreta)."
 
 #
 #: ../data/org.gnome.nibbles.gschema.xml.h:27
