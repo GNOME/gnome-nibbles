@@ -1,5 +1,5 @@
 # Polish translation for gnome-nibbles.
-# Copyright © 1998-2016 the gnome-nibbles authors.
+# Copyright © 1998-2017 the gnome-nibbles authors.
 # This file is distributed under the same license as the gnome-nibbles package.
 # Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002.
 # Marcin Gorycki <mgo@olicom.dk>, 1999.
@@ -12,15 +12,15 @@
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008.
 # Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010.
 # Wojciech Kapusta <wkapusta@aviary.pl>, 2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2016.
-# Aviary.pl <community-poland@mozilla.org>, 2007-2016.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2017.
+# Aviary.pl <community-poland@mozilla.org>, 2007-2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-16 13:59+0100\n"
-"PO-Revision-Date: 2016-11-16 14:00+0100\n"
+"POT-Creation-Date: 2017-09-20 04:04+0200\n"
+"PO-Revision-Date: 2017-09-20 04:05+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -115,7 +115,7 @@ msgstr "Robaki GNOME"
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
 #: ../data/org.gnome.Nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
-msgstr "Przeprowadzenie robaka przez labirynt"
+msgstr "Przeprowadzanie robaka przez labirynt"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
 msgid ""
@@ -125,12 +125,12 @@ msgid ""
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won’t have much room for movement."
 msgstr ""
-"Kontrolowanie robaka jedzącego bonusy i rosnącego wzdłuż. Należy "
-"wymanewrować wrogie robaki, jednocześnie jedząc pączki i lody, aby zwiększyć "
-"swoją długość. Każdy robak ma dziesięć żyć, które może stracić wchodząc "
-"w ścianę, innego robaka lub samego siebie. Wrogie robaki próbują zjeść te "
-"same bonusy, więc należy być ostrożnym: jeśli staną się za długie, to nie "
-"zostanie miejsca na ruch."
+"Sterowanie robakiem zjadającym premie i rosnącym wzdłuż. Należy wymanewrować "
+"wrogie robaki, jednocześnie zjadając pączki i lody, aby zwiększyć swoją "
+"długość. Każdy robak ma dziesięć żyć, które może stracić wchodząc w ścianę, "
+"innego robaka lub samego siebie. Wrogie robaki próbują zjeść te same premie, "
+"więc należy być ostrożnym: jeśli staną się za długie, to nie zostanie "
+"miejsca na ruch."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
@@ -140,7 +140,7 @@ msgid ""
 msgstr ""
 "Przygoda trwa przez 26 map o zwiększającym się poziomie trudności. "
 "Początkowe poziomy są zwykle otwarte z niewieloma ścianami, ale później "
-"ciasne miejsca i teleporty czynią grę jeszcze ciekawszą."
+"ciasne przejścia i teleporty czynią grę jeszcze ciekawszą."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
@@ -188,9 +188,7 @@ msgstr "Czy to pierwsze uruchomienie"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Setting to decide whether to show first-run hint dialog or not."
-msgstr ""
-"Ustawienie określające, czy wyświetlono już okno wskazówek podczas "
-"pierwszego uruchomienia."
+msgstr "Czy wyświetlono już okno wskazówek podczas pierwszego uruchomienia."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
@@ -198,7 +196,7 @@ msgstr "Wielkość kafelków gry"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
 msgid "Size of game tiles."
-msgstr "Wielkość kafelków."
+msgstr "Wielkość kafelków gry."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -250,7 +248,7 @@ msgstr "Liczba graczy sterowanych przez komputer."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
-msgstr "Kolor używany dla robaka"
+msgstr "Kolor robaka"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
@@ -262,7 +260,7 @@ msgstr "Ruch względny"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
-msgstr "Ruch względny (np. tylko w lewo lub prawo)."
+msgstr "Ruch względny (tzn. tylko w lewo i prawo)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:27
 #: ../src/preferences-dialog.vala:128
@@ -285,7 +283,7 @@ msgstr "Klawisz ruchu w dół."
 #: ../data/org.gnome.nibbles.gschema.xml.h:31
 #: ../src/preferences-dialog.vala:134
 msgid "Move left"
-msgstr "Przesunięcie w lewo"
+msgstr "Ruch w lewo"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
@@ -294,7 +292,7 @@ msgstr "Klawisz ruchu w lewo."
 #: ../data/org.gnome.nibbles.gschema.xml.h:33
 #: ../src/preferences-dialog.vala:137
 msgid "Move right"
-msgstr "Przesunięcie w prawo"
+msgstr "Ruch w prawo"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
@@ -488,8 +486,8 @@ msgstr ""
 "Tomasz Dominikowski <dominikowski@gmail.com>, 2008\n"
 "Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010\n"
 "Wojciech Kapusta <wkapusta@aviary.pl>, 2009\n"
-"Piotr Drąg <piotrdrag@gmail.com>, 2010-2016\n"
-"Aviary.pl <community-poland@mozilla.org>, 2007-2016"
+"Piotr Drąg <piotrdrag@gmail.com>, 2010-2017\n"
+"Aviary.pl <community-poland@mozilla.org>, 2007-2017"
 
 #. FIXME: Consider changing this to "Worm %d"
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
@@ -533,6 +531,7 @@ msgstr "Działanie"
 msgid "Key"
 msgstr "Klawisz"
 
+#. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Wybrany klawisz został już przydzielony."

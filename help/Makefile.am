@@ -30,6 +30,6 @@ HELP_FILES =	\
 	scores.page	\
 	legal.xml
 
-HELP_LINGUAS = cs de el es fr hu sv tr
+HELP_LINGUAS = cs de el es fr hu pl sv tr
 
 -include $(top_srcdir)/git.mk
