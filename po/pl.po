@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 04:04+0200\n"
-"PO-Revision-Date: 2017-09-20 04:05+0200\n"
+"POT-Creation-Date: 2017-09-30 23:10+0200\n"
+"PO-Revision-Date: 2017-09-30 23:11+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -40,7 +40,7 @@ msgstr "_Preferencje"
 
 #: ../data/nibbles-menus.ui.h:2
 msgid "_Scores"
-msgstr "_Wynik"
+msgstr "_Wyniki"
 
 #: ../data/nibbles-menus.ui.h:3
 msgid "_Help"
