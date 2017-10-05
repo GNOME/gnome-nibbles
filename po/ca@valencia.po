@@ -9,41 +9,127 @@
 # Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012, 2014.
 # Carles Ferrando <carles.ferrando@gmail.com>, 2010.
 # Jordi Serratosa <jordis@softcatala.cat>, 2012.
+# Walter Garcia-Fontes <walter.garcia@upf.edu>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-17 01:25+0200\n"
-"PO-Revision-Date: 2014-08-17 01:25+0200\n"
-"Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"nibbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-09-21 08:23+0000\n"
+"PO-Revision-Date: 2017-01-20 09:11+0100\n"
+"Last-Translator: Xavi Ivars <xavi.ivars@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
-"Language: ca@valencia\n"
+"Language: ca-valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bits\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:1
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "Jugador"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Preferències"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Scores"
+msgstr "_Puntuació"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Help"
+msgstr "_Ajuda"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_About"
+msgstr "_Quant a"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Quit"
+msgstr "I_x"
+
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
+#: ../src/gnome-nibbles.vala:1048
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
+msgid "_New Game"
+msgstr "_Nova partida"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
+msgid "_Pause"
+msgstr "_Pausa"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let’s _Play"
+msgstr "Som-hi"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "Benvinguts, cucs."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don’t hit anything!"
+msgstr ""
+"Mengeu les llaminadures abans que els altres cucs, però no colpegeu res!"
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "Nombre de jugadors"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "Selecciona el nombre de jugadors humans."
+
+#: ../data/nibbles.ui.h:9
+msgid "Select the number of computer players."
+msgstr "Selecciona el nombre de jugadors de l'ordinador."
+
+#: ../data/nibbles.ui.h:10
+msgid "_Next"
+msgstr "_Següent"
+
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "Controls"
+
+#: ../data/nibbles.ui.h:12
+msgid "_Start"
+msgstr "_Comença"
+
+#: ../data/nibbles.ui.h:13
+msgid "Paused"
+msgstr "Pausat"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
 msgstr "GNOME Nibbles"
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
+#: ../data/org.gnome.Nibbles.desktop.in.h:2
+msgid "Guide a worm around a maze"
+msgstr "Guieu un cuc per un laberint"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
 "Each worm has ten lives and loses one by running into a wall, another worm, "
 "or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won't have much room for movement."
+"careful: if they become too large, you won’t have much room for movement."
 msgstr ""
 "Controleu un cuc en la seua recerca per menjar bonificacions i ser més "
 "llarg. Supereu els cucs enemics, mentre mengeu dònuts i gelats per augmentar "
 "de mida. Cada cuc té deu vides i perd una en xocar contra una paret, un "
 "altre cuc o contra si mateix. Els cucs enemics volen les mateixes "
-"bonificacions que vós, així que aneu amb compte. Si es tornen massa llargs, "
+"bonificacions que vós, així que aneu amb compte: si es tornen massa grans, "
 "no tindreu gaire espai per a moure-vos."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:3
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
@@ -53,7 +139,7 @@ msgstr ""
 "són principalment oberts, amb pocs murs, però després els espais reduïts i "
 "els teletransportadors fan les coses més interessants."
 
-#: ../data/gnome-nibbles.appdata.xml.in.h:4
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
@@ -61,58 +147,54 @@ msgstr ""
 "Jugueu tot sol contra fins a 5 cucs enemics, o compartiu el teclat per jugar "
 "amb un amic."
 
-#: ../data/gnome-nibbles.desktop.in.h:1 ../src/main.c:228 ../src/main.c:597
-#: ../src/main.c:712
-msgid "Nibbles"
-msgstr "Nibbles"
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "El projecte GNOME"
 
-#: ../data/gnome-nibbles.desktop.in.h:2
-msgid "Guide a worm around a maze"
-msgstr "Guieu un cuc per un laberint"
-
-#: ../data/gnome-nibbles.desktop.in.h:3
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
 msgstr "joc;serp;tauler;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-msgid "Number of human players"
-msgstr "Nombre de jugadors humans"
+msgid "Width of the window in pixels"
+msgstr "Amplària de la finestra en píxels"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-msgid "Number of human players."
-msgstr "Nombre de jugadors humans."
+msgid "Width of the window in pixels."
+msgstr "Amplària de la finestra en píxels."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-msgid "Number of AI players"
-msgstr "Nombre de jugadors per IA"
+msgid "Height of the window in pixels"
+msgstr "Alçària de la finestra en píxels"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-msgid "Number of AI players."
-msgstr "Nombre de jugadors per IA."
+msgid "Height of the window in pixels."
+msgstr "Alçària de la finestra en píxels."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "Game speed"
-msgstr "Velocitat del joc"
+msgid "true if the window is maximized"
+msgstr "cert si la finestra està maximitzada"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "Velocitat del joc (1=ràpid, 4=lent)."
+msgid "true if the window is maximized."
+msgstr "cert si la finestra està maximitzada."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Enable fake bonuses"
-msgstr "Habilita les bonificacions falses"
+msgid "Is this the first run"
+msgstr "És això la primera execució"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Enable fake bonuses."
-msgstr "Habilita les bonificacions falses."
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
+"Configuració per decidir si mostrar una pista de primera execució o no."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
-msgid "Play levels in random order"
-msgstr "Juga els nivells en orde aleatori"
+msgid "Size of game tiles"
+msgstr "Mida de les fitxes del joc"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
-msgid "Play levels in random order."
-msgstr "Juga els nivells en orde aleatori."
+msgid "Size of game tiles."
+msgstr "Mida de les fitxes del joc."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -123,216 +205,272 @@ msgid "Game level to start on."
 msgstr "Nivell per començar."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr "Velocitat de moviment dels cucs"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr "Velocitat de moviment dels cucs."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
 msgstr "Habilita el so"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
 msgid "Enable sounds."
 msgstr "Habilita el so."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
-msgid "Size of game tiles"
-msgstr "Mida de les fitxes del joc"
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
-msgid "Size of game tiles."
-msgstr "Mida de les fitxes del joc."
-
 #: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "Habilita les bonificacions falses"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "Habilita les bonificacions falses."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "Nombre de jugadors humans"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "Nombre de jugadors humans."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "Nombre de jugadors per IA"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "Nombre de jugadors per IA."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "Color del cuc"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "Color del cuc."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "Utilitza moviment relatiu"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
-msgstr "Utilitza moviment relatiu (p.e. només esquerra i dreta)."
+msgstr "Utilitza moviment relatiu (p. ex. només esquerra i dreta)."
 
 #
-#: ../data/org.gnome.nibbles.gschema.xml.h:21 ../src/preferences.c:419
+#: ../data/org.gnome.nibbles.gschema.xml.h:27
+#: ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "Mou cap amunt"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "Tecla a utilitzar per moure cap amunt."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23 ../src/preferences.c:420
+#: ../data/org.gnome.nibbles.gschema.xml.h:29
+#: ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "Mou cap avall"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "Tecla a utilitzar per moure cap avall."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25 ../src/preferences.c:417
+#: ../data/org.gnome.nibbles.gschema.xml.h:31
+#: ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "Mou a l'esquerra"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "Tecla a utilitzar per moure cap a l'esquerra."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences.c:418
+#: ../data/org.gnome.nibbles.gschema.xml.h:33
+#: ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "Mou a la dreta"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "Tecla a utilitzar per moure cap a la dreta."
 
-#: ../src/board.c:250
+#: ../data/player-score-box.ui.h:1
+msgid "Worm"
+msgstr "Cuc"
+
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "Preferències"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "Velocitat"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "_Principiant"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "_Lent"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "_Mitjà"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "_Ràpid"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "Opcions"
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "_Habilita el so"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "Habilita l_es bonificacions falses"
+
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "_General"
+
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "Color del cuc"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "Cuc_1"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "Cuc_2"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "Cuc_3"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "Cuc_4"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:104
+msgid "Show release version"
+msgstr "Mostra la versió del llançament"
+
+#: ../src/gnome-nibbles.vala:423
+msgid "Are you sure you want to start a new game?"
+msgstr "Teniu seguretat d'iniciar una nova partida?"
+
+#: ../src/gnome-nibbles.vala:424
+msgid "If you start a new game, the current one will be lost."
+msgstr "Si inicieu una partida nova, l'actual es perdrà."
+
+#: ../src/gnome-nibbles.vala:455
+msgid "_Resume"
+msgstr "_Continua"
+
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
 #, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"El Nibbles no ha pogut trobar el fitxer de nivells:\n"
-"%s\n"
-"\n"
-"Comproveu la instal·lació del Nibbles"
+msgid "Level %d"
+msgstr "Nivell %d"
 
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"Pareix que el fitxer de nivells està malmés:\n"
-"%s\n"
-"\n"
-"Comproveu la instal·lació del Nibbles"
-
-#: ../src/games-controls.c:108
-msgid "The shortcut you selected is already assigned."
-msgstr "La drecera que heu seleccionat ja està assignada."
-
-#: ../src/games-controls.c:324
-msgid "Unknown Command"
-msgstr "Orde desconeguda"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:132
-msgctxt "score-dialog"
-msgid "Time"
-msgstr "Temps"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:138
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "Puntuació"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:225
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$d m %2$d s"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:430
-msgid "Date"
-msgstr "Data"
-
-#: ../src/games-scores-dialog.c:448
-msgid "_Close"
-msgstr "_Tanca"
-
-#: ../src/gnibbles.c:82
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"El Nibbles no ha pogut trobar el fitxer de mapa de bits:\n"
-"%s\n"
-"\n"
-"Comproveu la instal·lació del Nibbles"
-
-#: ../src/gnibbles.c:334
-msgid "Nibbles Scores"
-msgstr "Puntuacions del Nibbles"
-
-#: ../src/gnibbles.c:337
-msgid "Speed:"
-msgstr "Velocitat:"
-
-#: ../src/gnibbles.c:342
-msgid "Congratulations!"
-msgstr "Felicitats!"
-
-#: ../src/gnibbles.c:343
-msgid "Your score is the best!"
-msgstr "Heu fet la millor puntuació!"
-
-#: ../src/gnibbles.c:344
-msgid "Your score has made the top ten."
-msgstr "La vostra puntuació és entre les deu primeres."
-
-#: ../src/main.c:62
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
 msgid "Beginner"
 msgstr "Principiant"
 
-#: ../src/main.c:63
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:765
 msgid "Slow"
 msgstr "Lent"
 
-#: ../src/main.c:64
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:767
 msgid "Medium"
 msgstr "Mitjà"
 
-#: ../src/main.c:65
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:769
 msgid "Fast"
 msgstr "Ràpid"
 
-#: ../src/main.c:66
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:771
 msgid "Beginner with Fakes"
 msgstr "Principiant amb falsificacions"
 
-#: ../src/main.c:67
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:773
 msgid "Slow with Fakes"
 msgstr "Lent amb falsificacions"
 
-#: ../src/main.c:68
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:775
 msgid "Medium with Fakes"
 msgstr "Mitjà amb falsificacions"
 
-#: ../src/main.c:69
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:777
 msgid "Fast with Fakes"
 msgstr "Ràpid amb falsificacions"
 
-#: ../src/main.c:234
-msgid ""
-"A worm game for GNOME\n"
-"\n"
-"Nibbles is a part of GNOME Games."
-msgstr ""
-"Un joc de cucs per al GNOME.\n"
-"\n"
-"El Nibbles forma part dels jocs del GNOME."
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:782
+msgid "Difficulty Level:"
+msgstr "Nivell de dificultat:"
 
-#: ../src/main.c:237
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:883
+#, c-format
+msgid "Level %d Completed!"
+msgstr "S'ha completat el nivell %d!"
+
+#: ../src/gnome-nibbles.vala:890
+msgid "_Next Level"
+msgstr "_Nivell següent"
+
+#: ../src/gnome-nibbles.vala:956
+msgid "Congratulations!"
+msgstr "Felicitats!"
+
+#: ../src/gnome-nibbles.vala:956
+msgid "Game Over!"
+msgstr "Fi de la partida."
+
+#: ../src/gnome-nibbles.vala:963
+msgid "You have completed the game."
+msgstr "Heu completat la partida."
+
+#: ../src/gnome-nibbles.vala:970
+#, c-format
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "%d punt"
+msgstr[1] "%d punts"
+
+#: ../src/gnome-nibbles.vala:980
+#, c-format
+msgid "(%ld more points to reach the leaderboard)"
+msgstr "(%ld més punts per assolir taula dels líders)"
+
+#: ../src/gnome-nibbles.vala:986
+msgid "_Play Again"
+msgstr "_Torna a jugar"
+
+#: ../src/gnome-nibbles.vala:1051
+msgid "A worm game for GNOME"
+msgstr "Un joc de cucs per al GNOME"
+
+#: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Jordi Vila <gnome@softcatala.net>\n"
@@ -340,111 +478,175 @@ msgstr ""
 "Xavier Conde <xaviconde@eresmas.com>\n"
 "Jesús Corrius <jesus@softcatala.org>\n"
 "Josep Puigdemont <josep.puigdemont@gmail.com>\n"
-"David Planella <david.planella@gmail.com>"
+"David Planella <david.planella@gmail.com>\n"
+"Walter Garcia-fontes <walter.garcia@upf.edu>"
 
-#: ../src/preferences.c:223
-msgid "Preferences"
-msgstr "Preferències"
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
+#: ../src/nibbles-view.vala:583
+#, c-format
+msgid "Player %d"
+msgstr "Jugador %d"
 
-#: ../src/preferences.c:236
-msgid "Game"
-msgstr "Partida"
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "roig"
 
-#. Speed
-#: ../src/preferences.c:252
-msgid "Speed"
-msgstr "Velocitat"
+#: ../src/nibbles-view.vala:157
+msgid "green"
+msgstr "verd"
 
-#: ../src/preferences.c:257
-msgid "Nibbles newbie"
-msgstr "Principiant del Nibbles"
+#: ../src/nibbles-view.vala:158
+msgid "blue"
+msgstr "blau"
 
-#: ../src/preferences.c:267
-msgid "My second day"
-msgstr "Segona vegada"
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
+msgstr "groc"
 
-#: ../src/preferences.c:277
-msgid "Not too shabby"
-msgstr "No gaire tronat"
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "cian"
 
-#: ../src/preferences.c:287
-msgid "Finger-twitching good"
-msgstr "Avançat"
+#: ../src/nibbles-view.vala:161
+msgid "purple"
+msgstr "violeta"
 
-#: ../src/preferences.c:301 ../src/preferences.c:424
-msgid "Options"
-msgstr "Opcions"
+#: ../src/preferences-dialog.vala:140
+msgid "Action"
+msgstr "Acció"
 
-#: ../src/preferences.c:308
-msgid "_Play levels in random order"
-msgstr "_Juga els nivells en orde aleatori"
+#: ../src/preferences-dialog.vala:147
+msgid "Key"
+msgstr "Tecla"
 
-#: ../src/preferences.c:316
-msgid "_Enable fake bonuses"
-msgstr "Habilita l_es bonificacions falses"
+#. Translators: This string appears when one tries to assign an already assigned key
+#: ../src/preferences-dialog.vala:230
+msgid "The key you selected is already assigned!"
+msgstr "La tecla que heu seleccionat ja està assignada."
 
-#: ../src/preferences.c:324
-msgid "E_nable sounds"
-msgstr "_Habilita el so"
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "Velocitat del joc (1=ràpid, 4=lent)."
 
-#: ../src/preferences.c:337
-msgid "_Starting level:"
-msgstr "Nivell _inicial:"
+#~ msgid "Play levels in random order"
+#~ msgstr "Juga els nivells en ordre aleatori"
 
-#: ../src/preferences.c:362
-msgid "Number of _human players:"
-msgstr "Nombre de jugadors _humans:"
+#~ msgid "Play levels in random order."
+#~ msgstr "Juga els nivells en ordre aleatori."
 
-#: ../src/preferences.c:379
-msgid "Number of _AI players:"
-msgstr "Nombre de j_ugadors IA:"
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "El Nibbles no ha pogut trobar el fitxer de nivells:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Comproveu la instal·lació del Nibbles"
 
-#: ../src/preferences.c:400
-msgid "Worm"
-msgstr "Cuc"
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Sembla que el fitxer de nivells està malmès:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Comproveu la instal·lació del Nibbles"
 
-#: ../src/preferences.c:409
-msgid "Keyboard Options"
-msgstr "Opcions del teclat"
+#~ msgid "Unknown Command"
+#~ msgstr "Ordre desconeguda"
 
-#: ../src/preferences.c:429
-msgid "_Use relative movement"
-msgstr "_Utilitza un moviment relatiu"
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr "Temps"
 
-#: ../src/preferences.c:436
-msgid "_Worm color:"
-msgstr "_Color del cuc:"
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%1$d m %2$d s"
 
-#: ../src/preferences.c:442
-msgid "Red"
-msgstr "Roig"
+#~ msgid "Date"
+#~ msgstr "Data"
 
-#: ../src/preferences.c:443
-msgid "Green"
-msgstr "Verd"
+#~ msgid "_Close"
+#~ msgstr "_Tanca"
 
-#: ../src/preferences.c:444
-msgid "Blue"
-msgstr "Blau"
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "El Nibbles no ha pogut trobar el fitxer de mapa de bits:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Comproveu la instal·lació del Nibbles"
 
-#: ../src/preferences.c:445
-msgid "Yellow"
-msgstr "Groc"
+#~ msgid "Nibbles Scores"
+#~ msgstr "Puntuacions del Nibbles"
 
-#: ../src/preferences.c:446
-msgid "Cyan"
-msgstr "Blau Cel"
+#~ msgid "Speed:"
+#~ msgstr "Velocitat:"
 
-#: ../src/preferences.c:447
-msgid "Purple"
-msgstr "Violeta"
+#~ msgid "Your score is the best!"
+#~ msgstr "Heu fet la millor puntuació!"
 
-#: ../src/preferences.c:448
-msgid "Gray"
-msgstr "Gris"
+#~ msgid "Your score has made the top ten."
+#~ msgstr "La vostra puntuació és entre les deu primeres."
+
+#~ msgid ""
+#~ "A worm game for GNOME\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "Un joc de cucs per al GNOME.\n"
+#~ "\n"
+#~ "El Nibbles forma part dels jocs del GNOME."
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "Principiant del Nibbles"
+
+#~ msgid "My second day"
+#~ msgstr "Segona vegada"
+
+#~ msgid "Not too shabby"
+#~ msgstr "No gaire tronat"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "Avançat"
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "_Juga els nivells en ordre aleatori"
+
+#~ msgid "_Starting level:"
+#~ msgstr "Nivell _inicial:"
+
+#~ msgid "Number of _human players:"
+#~ msgstr "Nombre de jugadors _humans:"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "Nombre de j_ugadors IA:"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "Opcions del teclat"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "_Utilitza un moviment relatiu"
+
+#~ msgid "Blue"
+#~ msgstr "Blau"
+
+#~ msgid "Cyan"
+#~ msgstr "Blau Cel"
+
+#~ msgid "Gray"
+#~ msgstr "Gris"
 
 #
-#: ../src/scoreboard.c:48
-#, c-format
-msgid "Worm %d:"
-msgstr "Cuc %d:"
+#~ msgid "Worm %d:"
+#~ msgstr "Cuc %d:"
