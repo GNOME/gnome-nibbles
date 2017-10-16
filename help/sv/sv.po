@@ -1,17 +1,18 @@
 # Erik Sköldås <erik.skoldas@tele2.se>, 2015.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: nibbles doc\n"
-"POT-Creation-Date: 2016-05-05 09:03+0000\n"
-"PO-Revision-Date: 2016-06-14 22:00+0200\n"
+"POT-Creation-Date: 2017-07-25 10:11+0000\n"
+"PO-Revision-Date: 2017-10-17 00:21+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -600,30 +601,6 @@ msgstr ""
 "<gui style=\"menuitem\">Inställningar</gui></guiseq> för att spela nivåerna "
 "i <app>Nibbles</app> i en slumpmässig ordning."
 
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:41
-msgctxt "_"
-msgid ""
-"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-msgstr ""
-"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:48
-msgctxt "_"
-msgid ""
-"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
-msgstr ""
-"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
-
 #. (itstool) path: info/desc
 #: C/rel-movement.page:22
 msgid "Enable relative movement."
@@ -664,6 +641,18 @@ msgstr "Startposition:"
 msgid "The location of the worm before you decide to move it."
 msgstr "Maskens placering innan du bestämmer dig för att flytta den."
 
+#. (itstool) path: figure/media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:41
+msgctxt "_"
+msgid ""
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+msgstr ""
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+
 #. (itstool) path: figure/title
 #: C/rel-movement.page:46
 msgid "On pressing the <key>Left</key> key:"
@@ -673,6 +662,18 @@ msgstr "Att trycka på <key>←</key>-tangenten:"
 #: C/rel-movement.page:47
 msgid "The worm turns left and begins to move downwards."
 msgstr "Masken svänger åt vänster och börjar röra sig nedåt."
+
+#. (itstool) path: figure/media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:48
+msgctxt "_"
+msgid ""
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgstr ""
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
 
 #. (itstool) path: note/p
 #: C/rel-movement.page:55
