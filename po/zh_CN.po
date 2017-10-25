@@ -1,4 +1,4 @@
-# Chinese simplified translation for Gnome-games.
+# Chinese simplified translation for gnome-nibbles.
 # Copyright 2011 Free Software Foundation, Inc.
 # Aron Xu <aronxu@gnome.org>, 2011.
 # YunQiang Su <wzssyqa@gmail.com>, 2011, 2012.
@@ -7,11 +7,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Project-Id-Version: gnome-nibbles 3.24\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-01-28 01:12+0000\n"
-"PO-Revision-Date: 2017-02-13 16:49+0800\n"
+"POT-Creation-Date: 2017-03-20 22:38+0000\n"
+"PO-Revision-Date: 2017-03-09 20:25+0800\n"
 "Last-Translator: Mandy Wang <wangmychn@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -68,9 +68,8 @@ msgid "Welcome, worms."
 msgstr "欢迎你，贪吃的蛇。"
 
 #: ../data/nibbles.ui.h:6
-#, fuzzy
 msgid "Eat the treats before the other worms, but don’t hit anything!"
-msgstr "抢在其他蛇之前吃掉小食，但是小心不要撞到任何东西！"
+msgstr "抢在其它蛇之前吃掉小食，但是小心不要撞到任何东西！"
 
 #: ../data/nibbles.ui.h:7
 msgid "Number of players"
@@ -110,7 +109,6 @@ msgid "Guide a worm around a maze"
 msgstr "小蛇游走于迷宫"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
-#, fuzzy
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -118,9 +116,10 @@ msgid ""
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won’t have much room for movement."
 msgstr ""
-"帮助蛇吃到食物并长大。靠自己的智慧吃掉油炸圈饼和冰淇淋来长大，同时躲开蠕虫敌"
-"人。每条蠕虫有10条命，每撞上墙、其他蠕虫或自己会减一条。蠕虫是随你蛇的生长而"
-"生长的，因此要当心：如果它们长太长，你的蛇就没地方移动了。"
+"控制一条蛇，让它在任务中去吃食物，并变得更长。吃甜甜圈和冰淇淋可以增加蛇的长"
+"度并同时超越敌方的蛇。每条蛇有十次生命，当撞到另一堵墙、另一只蛇或其本身时会"
+"失掉一条生命。敌方的蛇和你一样也会去吃食物，所以要小心：如果他们变得太大，你"
+"将会没有足够的运动空间。"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
