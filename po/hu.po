@@ -536,4 +536,3 @@ msgstr "Billentyű"
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "A kiválasztott billentyű már társítva van."
-

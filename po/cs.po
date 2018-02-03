@@ -543,4 +543,3 @@ msgstr "Klávesa"
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Klávesa, kterou jste vybrali, je již přiřazená!"
-

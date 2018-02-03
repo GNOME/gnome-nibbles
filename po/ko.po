@@ -127,11 +127,10 @@ msgid ""
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won’t have much room for movement."
 msgstr ""
-"보너스를 먹고 더 길어지려면 벌레를 조종하세요. 적을 이기면서 도넛과 아이스"
-"크림을 먹어 길이를 늘리세요. 벌레마다 목숨이 10개 있고 벽이나 다른 벌레나 자"
-"기 자신과 부딪히면 목숨을 잃습니다. 적 벌레도 여러분과 같은 보너스를 노리고 "
-"있으니 주의하십시오. 적 벌레가 너무 길어지면 움직일 공간이 없어질 수도 있습니"
-"다."
+"보너스를 먹고 더 길어지려면 벌레를 조종하세요. 적을 이기면서 도넛과 아이스크"
+"림을 먹어 길이를 늘리세요. 벌레마다 목숨이 10개 있고 벽이나 다른 벌레나 자기 "
+"자신과 부딪히면 목숨을 잃습니다. 적 벌레도 여러분과 같은 보너스를 노리고 있으"
+"니 주의하십시오. 적 벌레가 너무 길어지면 움직일 공간이 없어질 수도 있습니다."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
@@ -522,123 +521,3 @@ msgstr "키"
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "선택한 키는 이미 할당되었습니다."
-
-#~ msgid "Game speed (1=fast, 4=slow)."
-#~ msgstr "게임 속도(1=빨리, 4=느리게)."
-
-#~ msgid "Play levels in random order"
-#~ msgstr "임의의 순서로 각 단계를 플레이"
-
-#~ msgid "Play levels in random order."
-#~ msgstr "임의의 순서로 각 단계를 플레이."
-
-#~ msgid ""
-#~ "Nibbles couldn't load level file:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Please check your Nibbles installation"
-#~ msgstr ""
-#~ "니블즈에서 레벨 파일을 읽어들일 수 없습니다:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "니블즈를 제대로 설치했는지 확인하십시오"
-
-#~ msgid ""
-#~ "Level file appears to be damaged:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Please check your Nibbles installation"
-#~ msgstr ""
-#~ "레벨 파일이 손상된 것 같습니다:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "니블즈를 제대로 설치했는지 확인하십시오"
-
-#~ msgid "Unknown Command"
-#~ msgstr "알 수 없는 명령"
-
-#~ msgctxt "score-dialog"
-#~ msgid "Time"
-#~ msgstr "시간"
-
-#~ msgctxt "score-dialog"
-#~ msgid "Score"
-#~ msgstr "점수"
-
-#~ msgctxt "score-dialog"
-#~ msgid "%1$dm %2$ds"
-#~ msgstr "%1$d분 %2$d초"
-
-#~ msgid "Date"
-#~ msgstr "시각"
-
-#~ msgid "_Close"
-#~ msgstr "닫기(_C)"
-
-#~ msgid ""
-#~ "Nibbles couldn't find pixmap file:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Please check your Nibbles installation"
-#~ msgstr ""
-#~ "니블즈에서 픽스맵 파일을 찾을 수 없습니다:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "니블즈를 제대로 설치했는지 확인하십시오"
-
-#~ msgid "Nibbles Scores"
-#~ msgstr "니블즈 점수"
-
-#~ msgid "Speed:"
-#~ msgstr "속도:"
-
-#~ msgid "Your score is the best!"
-#~ msgstr "최고 점수입니다!"
-
-#~ msgid "Your score has made the top ten."
-#~ msgstr "점수가 10위 안에 들었습니다."
-
-#~ msgid "Game"
-#~ msgstr "게임"
-
-#~ msgid "Nibbles newbie"
-#~ msgstr "니블즈 초보"
-
-#~ msgid "My second day"
-#~ msgstr "두 번째 날"
-
-#~ msgid "Not too shabby"
-#~ msgstr "너무 시시하지 않게"
-
-#~ msgid "Finger-twitching good"
-#~ msgstr "기도나 하는 게 좋을 걸"
-
-#~ msgid "_Play levels in random order"
-#~ msgstr "임의의 순서로 각 단계를 플레이(_P)"
-
-#~ msgid "_Starting level:"
-#~ msgstr "시작 단계(_S):"
-
-#~ msgid "Number of _human players:"
-#~ msgstr "사람 플레이어의 수(_H):"
-
-#~ msgid "Number of _AI players:"
-#~ msgstr "AI 플레이어의 수(_A):"
-
-#~ msgid "Keyboard Options"
-#~ msgstr "키보드 옵션"
-
-#~ msgid "_Use relative movement"
-#~ msgstr "상대적인 움직임(_U)"
-
-#~ msgid "Blue"
-#~ msgstr "파랑"
-
-#~ msgid "Cyan"
-#~ msgstr "청록"
-
-#~ msgid "Gray"
-#~ msgstr "회색"
-
-#~ msgid "Worm %d:"
-#~ msgstr "벌레 %d:"
