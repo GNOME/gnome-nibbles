@@ -1,13 +1,13 @@
 # Polish translation for gnome-nibbles help.
 # Copyright © 2017 the gnome-nibbles authors.
-# This file is distributed under the same license as the gnome-nibbles package.
+# This file is distributed under the same license as the gnome-nibbles help.
 # Piotr Drąg <piotrdrag@gmail.com>, 2017.
 # Aviary.pl <community-poland@mozilla.org>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles-help\n"
-"POT-Creation-Date: 2017-09-15 16:05+0000\n"
+"POT-Creation-Date: 2017-09-21 08:23+0000\n"
 "PO-Revision-Date: 2017-09-20 03:58+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
