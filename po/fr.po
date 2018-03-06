@@ -30,8 +30,8 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-26 01:10+0000\n"
-"PO-Revision-Date: 2017-03-06 16:02+0100\n"
+"POT-Creation-Date: 2017-08-26 17:14+0000\n"
+"PO-Revision-Date: 2017-09-08 16:02+0100\n"
 "Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
 "Language-Team: français <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -80,7 +80,6 @@ msgid "_Pause"
 msgstr "P_ause"
 
 #: ../data/nibbles.ui.h:4
-#| msgid "Let's _Play"
 msgid "Let’s _Play"
 msgstr "_Jouons"
 
@@ -89,7 +88,6 @@ msgid "Welcome, worms."
 msgstr "Bienvenue, les vers."
 
 #: ../data/nibbles.ui.h:6
-#| msgid "Eat the treats before the other worms, but don't hit anything!"
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
 "Mangez les friandises avant les autres vers, mais ne foncez dans rien du "
@@ -125,7 +123,7 @@ msgstr "En pause"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
 msgid "GNOME Nibbles"
-msgstr "GNOME Nibbles"
+msgstr "Grignotages de GNOME"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
 #: ../data/org.gnome.Nibbles.desktop.in.h:2
@@ -133,13 +131,6 @@ msgid "Guide a worm around a maze"
 msgstr "Guider un ver à travers un labyrinthe"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
-#| msgid ""
-#| "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-#| "enemy worms while eating doughnuts and ice cream to increase your length. "
-#| "Each worm has ten lives and loses one by running into a wall, another "
-#| "worm, or itself. The enemy worms are after the same bonuses that you are, "
-#| "so be careful: if they become too large, you won't have much room for "
-#| "movement."
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -150,9 +141,9 @@ msgstr ""
 "Contrôlez un ver dans sa quête de bonus à avaler pour devenir plus long. "
 "Prenez le dessus sur les vers ennemis tout en avalant des beignets et des "
 "glaces pour augmenter votre longueur. Chaque ver a dix vies et en perd une "
-"s'il se cogne contre un mur, un autre ver ou contre lui-même. Les vers "
-"ennemis cherchent les mêmes bonus que vous, alors faites attention : s'ils "
-"deviennent trop longs, vous n'aurez plus beaucoup d'espace pour vous "
+"s’il se cogne contre un mur, un autre ver ou contre lui-même. Les vers "
+"ennemis cherchent les mêmes bonus que vous, alors faites attention : s’ils "
+"deviennent trop longs, vous n’aurez plus beaucoup d’espace pour vous "
 "déplacer."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
@@ -161,7 +152,7 @@ msgid ""
 "levels are mostly open with a few walls, but later on, cramped spaces and "
 "teleporters make things more interesting."
 msgstr ""
-"L'aventure progresse à travers 26 cartes de difficulté croissante. Les "
+"L’aventure progresse à travers 26 cartes de difficulté croissante. Les "
 "premiers niveaux sont pour la plupart ouverts avec quelques murs, mais par "
 "la suite, des espaces exigus et des téléporteurs rendent les choses plus "
 "intéressantes."
@@ -266,11 +257,11 @@ msgstr "Nombre de joueurs humains."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:21
 msgid "Number of AI players"
-msgstr "Nombre de joueurs d'intelligence artificielle"
+msgstr "Nombre de joueurs d’intelligence artificielle"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:22
 msgid "Number of AI players."
-msgstr "Nombre de joueurs d'intelligence artificielle."
+msgstr "Nombre de joueurs d’intelligence artificielle."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
@@ -287,7 +278,7 @@ msgstr "Utiliser des mouvement relatifs"
 #: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
 msgstr ""
-"Utiliser des mouvements relatifs (c'est-à-dire droite et gauche seulement)."
+"Utiliser des mouvements relatifs (c’est-à-dire droite et gauche seulement)."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:27
 #: ../src/preferences-dialog.vala:128
