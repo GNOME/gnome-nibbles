@@ -10,18 +10,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.ro\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 23:38+0100\n"
-"PO-Revision-Date: 2011-03-16 17:36+0200\n"
-"Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"nibbles&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2018-02-03 22:54+0000\n"
+"PO-Revision-Date: 2018-04-02 22:42+0300\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28@gmail.com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);;\n"
-"X-Generator: Virtaal 0.6.1\n"
+"20)) ? 1 : 2);\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Launchpad-Export-Date: 2009-11-27 09:12+0000\n"
 
 #: ../data/controls-grid.ui.h:1
@@ -29,9 +30,8 @@ msgid "Player"
 msgstr "Jucător"
 
 #: ../data/nibbles-menus.ui.h:1
-#, fuzzy
 msgid "_Preferences"
-msgstr "Preferințe"
+msgstr "_Preferințe"
 
 #: ../data/nibbles-menus.ui.h:2
 msgid "_Scores"
@@ -46,9 +46,8 @@ msgid "_About"
 msgstr "_Despre"
 
 #: ../data/nibbles-menus.ui.h:5
-#, fuzzy
 msgid "_Quit"
-msgstr "Ieșire"
+msgstr "_Ieșire"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
@@ -66,35 +65,31 @@ msgstr "_Pauză"
 
 #: ../data/nibbles.ui.h:4
 msgid "Let’s _Play"
-msgstr ""
+msgstr "Hai să _jucăm"
 
 #: ../data/nibbles.ui.h:5
 msgid "Welcome, worms."
-msgstr ""
+msgstr "Bine ați venit, râme."
 
 #: ../data/nibbles.ui.h:6
 msgid "Eat the treats before the other worms, but don’t hit anything!"
-msgstr ""
+msgstr "Mâncați bunătățile înaintea celorlalte râme, dar nu loviți nimic!"
 
 #: ../data/nibbles.ui.h:7
-#, fuzzy
 msgid "Number of players"
-msgstr "_Numărul jucătorilor:"
+msgstr "Numărul de jucători"
 
 #: ../data/nibbles.ui.h:8
-#, fuzzy
 msgid "Select the number of human players."
-msgstr "Număr de jucători reali."
+msgstr "Selectați numărul de jucători reali."
 
 #: ../data/nibbles.ui.h:9
-#, fuzzy
 msgid "Select the number of computer players."
-msgstr "Selectați stilul de control"
+msgstr "Selectați numărul de jucători calculator."
 
 #: ../data/nibbles.ui.h:10
-#, fuzzy
 msgid "_Next"
-msgstr "Următoarele:"
+msgstr "_Următorul"
 
 #: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
@@ -102,16 +97,15 @@ msgstr "Controale"
 
 #: ../data/nibbles.ui.h:12
 msgid "_Start"
-msgstr "_Start"
+msgstr "Î_ncepe"
 
 #: ../data/nibbles.ui.h:13
 msgid "Paused"
 msgstr "Pauză"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
-#, fuzzy
 msgid "GNOME Nibbles"
-msgstr "Nibbles"
+msgstr "Nibbles GNOME"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
 #: ../data/org.gnome.Nibbles.desktop.in.h:2
@@ -126,6 +120,12 @@ msgid ""
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won’t have much room for movement."
 msgstr ""
+"Controlați o râmă în misiunea acesteia de a mânca bonusuri și a deveni mai "
+"lungă. Dejucați planurile râmelor inamice în timp ce mâncați gogoși și "
+"înghețată pentru a vă mări lungimea. Fiecare râmă are zece vieți și pierde "
+"una prin intrarea într-un zid, altă râmă, sau ea însăși. Râmele inamice "
+"urmăresc aceleași bonusuri pe care le urmăriți, așa că trebuie să fiți "
+"atent: dacă devin prea lungi, nu veți avea prea mult spațiu pentru deplasare."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
@@ -133,56 +133,59 @@ msgid ""
 "levels are mostly open with a few walls, but later on, cramped spaces and "
 "teleporters make things more interesting."
 msgstr ""
+"Aventura progresează prin 26 de hărți cu dificultate în creștere. Nivelurile "
+"de început sunt deschise în cea mai mare parte cu câțiva pereți, dar mai "
+"târziu, spațiile înghesuite și teleportoarele fac lucrurile mai interesante."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
+"Jucați singur împotriva a cel mult cinci râme inamice, sau împărțiți "
+"tastatura pentru jocul cu un prieten."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
 msgid "The GNOME Project"
-msgstr ""
+msgstr "Proiectul GNOME"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
-msgstr ""
+msgstr "game;snake;board;joc;șarpe;tablă;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-#, fuzzy
 msgid "Width of the window in pixels"
-msgstr "Mărimea în pixeli a ferestrei principale."
+msgstr "Lățimea ferestrei în pixeli"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-#, fuzzy
 msgid "Width of the window in pixels."
-msgstr "Mărimea în pixeli a ferestrei principale."
+msgstr "Lățimea ferestrei în pixeli."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-#, fuzzy
 msgid "Height of the window in pixels"
-msgstr "Înălțimea în pixeli a ferestrei principale."
+msgstr "Înălțimea ferestrei în pixeli"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-#, fuzzy
 msgid "Height of the window in pixels."
-msgstr "Înălțimea în pixeli a ferestrei principale."
+msgstr "Înălțimea ferestrei în pixeli."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:5
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "adevărat dacă fereastra este maximizată"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:6
 msgid "true if the window is maximized."
-msgstr ""
+msgstr "adevărat dacă fereastra este maximizată."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
 msgid "Is this the first run"
-msgstr ""
+msgstr "Aceasta este prima rulare"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr ""
+"Configurarea pentru a decide dacă se afișează sau nu dialogul de indiciu al "
+"primei rulări."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
@@ -202,11 +205,11 @@ msgstr "Nivelul de pornire."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
 msgid "Worms movement speed"
-msgstr ""
+msgstr "Viteza de deplasare a râmelor"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:14
 msgid "Worms movement speed."
-msgstr ""
+msgstr "Viteza de deplasare a râmelor."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
@@ -305,23 +308,20 @@ msgid "Speed"
 msgstr "Viteză"
 
 #: ../data/preferences-dialog.ui.h:3
-#, fuzzy
 msgid "_Beginner"
-msgstr "Începător"
+msgstr "În_cepător"
 
 #: ../data/preferences-dialog.ui.h:4
-#, fuzzy
 msgid "_Slow"
-msgstr "Încet"
+msgstr "Î_ncet"
 
 #: ../data/preferences-dialog.ui.h:5
 msgid "_Medium"
 msgstr "_Mediu"
 
 #: ../data/preferences-dialog.ui.h:6
-#, fuzzy
 msgid "_Fast"
-msgstr "Repede"
+msgstr "_Rapid"
 
 #: ../data/preferences-dialog.ui.h:7
 msgid "Options"
@@ -336,68 +336,58 @@ msgid "_Enable fake bonuses"
 msgstr "_Activează bonusurile false"
 
 #: ../data/preferences-dialog.ui.h:10
-#, fuzzy
 msgid "_General"
-msgstr "General"
+msgstr "_General"
 
 #: ../data/preferences-dialog.ui.h:12
-#, fuzzy
 msgid "Worm color"
-msgstr "Culoare _râmă:"
+msgstr "Culoare râmă"
 
 #: ../data/preferences-dialog.ui.h:13
-#, fuzzy
 msgid "Worm _1"
-msgstr "Râmă"
+msgstr "Râmă_1"
 
 #: ../data/preferences-dialog.ui.h:14
-#, fuzzy
 msgid "Worm _2"
-msgstr "Râmă"
+msgstr "Râmă_2"
 
 #: ../data/preferences-dialog.ui.h:15
-#, fuzzy
 msgid "Worm _3"
-msgstr "Râmă"
+msgstr "Râmă_3"
 
 #: ../data/preferences-dialog.ui.h:16
-#, fuzzy
 msgid "Worm _4"
-msgstr "Râmă"
+msgstr "Râmă_4"
 
 #. Help string for command line --version flag
 #: ../src/gnome-nibbles.vala:104
 msgid "Show release version"
-msgstr ""
+msgstr "Afișează versiunea de lansare"
 
 #: ../src/gnome-nibbles.vala:423
-#, fuzzy
 msgid "Are you sure you want to start a new game?"
-msgstr "Doriți să ieșiți?"
+msgstr "Sigur doriți să începeți un joc nou?"
 
 #: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
-msgstr ""
+msgstr "Dacă începeți un joc nou, jocul curent va fi pierdut."
 
 #: ../src/gnome-nibbles.vala:455
-#, fuzzy
 msgid "_Resume"
-msgstr "_Re-începe"
+msgstr "_Reîncepe"
 
 #: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
-#, fuzzy, c-format
+#, c-format
 msgid "Level %d"
-msgstr "Nivel:"
+msgstr "Nivelul %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:763
-#, fuzzy
 msgid "Beginner"
 msgstr "Începător"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:765
-#, fuzzy
 msgid "Slow"
 msgstr "Încet"
 
@@ -408,49 +398,43 @@ msgstr "Mediu"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:769
-#, fuzzy
 msgid "Fast"
-msgstr "Repede"
+msgstr "Rapid"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:771
-#, fuzzy
 msgid "Beginner with Fakes"
 msgstr "Începător cu falsuri"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:773
-#, fuzzy
 msgid "Slow with Fakes"
-msgstr "Lent cu falsuri"
+msgstr "Încet cu falsuri"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:775
-#, fuzzy
 msgid "Medium with Fakes"
 msgstr "Mediu cu falsuri"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:777
-#, fuzzy
 msgid "Fast with Fakes"
 msgstr "Rapid cu falsuri"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
 #: ../src/gnome-nibbles.vala:782
-#, fuzzy
 msgid "Difficulty Level:"
-msgstr "Dificultate:"
+msgstr "Nivelul de dificultate:"
 
 #. Translators: the %d is the number of the level that was completed.
 #: ../src/gnome-nibbles.vala:883
-#, fuzzy, c-format
+#, c-format
 msgid "Level %d Completed!"
-msgstr "Nivel complet."
+msgstr "Nivelul %d completat!"
 
 #: ../src/gnome-nibbles.vala:890
 msgid "_Next Level"
-msgstr ""
+msgstr "_Nivelul următor"
 
 #: ../src/gnome-nibbles.vala:956
 msgid "Congratulations!"
@@ -461,12 +445,11 @@ msgid "Game Over!"
 msgstr "Jocul s-a terminat!"
 
 #: ../src/gnome-nibbles.vala:963
-#, fuzzy
 msgid "You have completed the game."
-msgstr "Ați părăsit masa."
+msgstr "Ați completat jocul."
 
 #: ../src/gnome-nibbles.vala:970
-#, fuzzy, c-format
+#, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d punct"
@@ -476,23 +459,22 @@ msgstr[2] "%d de puncte"
 #: ../src/gnome-nibbles.vala:980
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
-msgstr ""
+msgstr "(încă %ld puncte pentru a ajunge în lista celor care conduc)"
 
 #: ../src/gnome-nibbles.vala:986
-#, fuzzy
 msgid "_Play Again"
-msgstr "Desfășurarea jocului"
+msgstr "_Joacă din nou"
 
 #: ../src/gnome-nibbles.vala:1051
-#, fuzzy
 msgid "A worm game for GNOME"
-msgstr "Un joc cu râmă pentru GNOME."
+msgstr "Un joc cu râmă pentru GNOME"
 
 #: ../src/gnome-nibbles.vala:1060
 msgid "translator-credits"
 msgstr ""
 "Mugurel Tudor <mugurelu@gnome.ro>\n"
 "Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
+"Florentina Mușat <florentina.musat.28@gmail.com>\n"
 "\n"
 "Launchpad Contributions:\n"
 "  Adi Roiban https://launchpad.net/~adiroiban\n"
@@ -516,49 +498,43 @@ msgstr ""
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
 #: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
 #: ../src/nibbles-view.vala:583
-#, fuzzy, c-format
+#, c-format
 msgid "Player %d"
-msgstr "Jucător"
+msgstr "Jucătorul %d"
 
 #: ../src/nibbles-view.vala:156
-#, fuzzy
 msgid "red"
-msgstr "Roșu"
+msgstr "roșu"
 
 #: ../src/nibbles-view.vala:157
-#, fuzzy
 msgid "green"
-msgstr "Verde"
+msgstr "verde"
 
 #: ../src/nibbles-view.vala:158
 msgid "blue"
-msgstr ""
+msgstr "albastru"
 
 #: ../src/nibbles-view.vala:159
-#, fuzzy
 msgid "yellow"
-msgstr "Galben"
+msgstr "galben"
 
 #: ../src/nibbles-view.vala:160
 msgid "cyan"
-msgstr ""
+msgstr "cyan"
 
 #: ../src/nibbles-view.vala:161
-#, fuzzy
 msgid "purple"
-msgstr "Purpuriu"
+msgstr "purpuriu"
 
 #: ../src/preferences-dialog.vala:140
-#, fuzzy
 msgid "Action"
-msgstr "Animație"
+msgstr "Acțiune"
 
 #: ../src/preferences-dialog.vala:147
 msgid "Key"
-msgstr ""
+msgstr "Tastă"
 
 #. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
-#, fuzzy
 msgid "The key you selected is already assigned!"
-msgstr "Acel nume de utilizator este deja în folosință."
+msgstr "Tasta pe care ați selectat-o este deja atribuită!"
