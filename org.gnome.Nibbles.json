@@ -33,7 +33,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://git.gnome.org/browse/gnome-nibbles"
+                    "url": "https://gitlab.gnome.org/GNOME/gnome-nibbles.git"
                 }
             ]
         }
