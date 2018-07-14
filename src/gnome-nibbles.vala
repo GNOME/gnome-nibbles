@@ -136,7 +136,7 @@ public class Nibbles : Gtk.Application
         Environment.set_prgname ("org.gnome.Nibbles");
         Environment.set_application_name (_("Nibbles"));
 
-        Gtk.Window.set_default_icon_name ("gnome-nibbles");
+        Gtk.Window.set_default_icon_name ("org.gnome.Nibbles");
 
         Gtk.Settings.get_default ().set ("gtk-application-prefer-dark-theme", true);
 
@@ -1050,7 +1050,7 @@ public class Nibbles : Gtk.Application
 
         Gtk.show_about_dialog (window,
                                "program-name", _("Nibbles"),
-                               "logo-icon-name", "gnome-nibbles",
+                               "logo-icon-name", "org.gnome.Nibbles",
                                "version", VERSION,
                                "comments", _("A worm game for GNOME"),
                                "copyright",
