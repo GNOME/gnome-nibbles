@@ -902,9 +902,9 @@ public class NibblesView : GtkClutter.Embed
         var filename = @"$(name).ogg";
         var path = Path.build_filename (SOUND_DIRECTORY, filename, null);
 
-        CanberraGtk.play_for_widget (this, 0,
-                                     Canberra.PROP_MEDIA_NAME, name,
-                                     Canberra.PROP_MEDIA_FILENAME, path);
+        // CanberraGtk.play_for_widget (this, 0,
+        //                              Canberra.PROP_MEDIA_NAME, name,
+        //                              Canberra.PROP_MEDIA_FILENAME, path);
     }
 
     public static string colorval_name (int colorval)
