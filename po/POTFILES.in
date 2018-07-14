@@ -1,14 +1,13 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
-[encoding: UTF-8]
-[type: gettext/glade]data/controls-grid.ui
-[type: gettext/glade]data/nibbles-menus.ui
-[type: gettext/glade]data/nibbles.ui
+data/controls-grid.ui
+data/nibbles-menus.ui
+data/nibbles.ui
 data/org.gnome.Nibbles.appdata.xml.in
 data/org.gnome.Nibbles.desktop.in
 data/org.gnome.nibbles.gschema.xml
-[type: gettext/glade]data/player-score-box.ui
-[type: gettext/glade]data/preferences-dialog.ui
+data/player-score-box.ui
+data/preferences-dialog.ui
 src/gnome-nibbles.vala
 src/nibbles-view.vala
 src/preferences-dialog.vala

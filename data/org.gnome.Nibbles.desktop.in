@@ -1,8 +1,10 @@
 [Desktop Entry]
-_Name=Nibbles
-_Comment=Guide a worm around a maze
-_Keywords=game;snake;board;
+Name=Nibbles
+Comment=Guide a worm around a maze
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=game;snake;board;
 Exec=gnome-nibbles
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=gnome-nibbles
 Terminal=false
 Type=Application
