@@ -29,8 +29,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2018-05-31 13:21+0000\n"
-"PO-Revision-Date: 2018-09-19 14:50-0200\n"
+"POT-Creation-Date: 2018-09-19 17:56+0000\n"
+"PO-Revision-Date: 2018-09-19 15:25-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -67,7 +67,7 @@ msgstr "Sai_r"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1048
+#: ../src/gnome-nibbles.vala:1052
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -195,21 +195,21 @@ msgstr "verdadeiro se a janela estiver maximizada."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:7
 msgid "Is this the first run"
-msgstr "Esta é a primeira corrida"
+msgstr "Esta é a primeira vez"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:8
 msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr ""
-"Configuração para decidir se quer mostrar diálogo dica na primeira corrida "
-"ou não."
+"Configuração para decidir se deve ser mostrado o diálogo dica de primeira "
+"execução ou não."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
-msgstr "Tamanho das pedras do jogo"
+msgstr "Tamanho dos blocos do jogo"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:10
 msgid "Size of game tiles."
-msgstr "Tamanho das pedras do jogo."
+msgstr "Tamanho dos blocos do jogo."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
@@ -392,7 +392,7 @@ msgstr "Se você iniciar um novo jogo, o atual será perdido."
 msgid "_Resume"
 msgstr "_Retornar"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:903
 #, c-format
 msgid "Level %d"
 msgstr "Nível %d"
@@ -443,48 +443,48 @@ msgid "Difficulty Level:"
 msgstr "Nível de dificuldade:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:883
+#: ../src/gnome-nibbles.vala:885
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nível %d concluído!"
 
-#: ../src/gnome-nibbles.vala:890
+#: ../src/gnome-nibbles.vala:892
 msgid "_Next Level"
 msgstr "_Próximo nível"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Congratulations!"
 msgstr "Parabéns!"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Game Over!"
 msgstr "Fim do jogo!"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:967
 msgid "You have completed the game."
 msgstr "Você completou o jogo."
 
-#: ../src/gnome-nibbles.vala:970
+#: ../src/gnome-nibbles.vala:974
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d Ponto"
 msgstr[1] "%d Pontos"
 
-#: ../src/gnome-nibbles.vala:980
+#: ../src/gnome-nibbles.vala:984
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(mais %ld pontos para alcançar a classificação)"
 
-#: ../src/gnome-nibbles.vala:986
+#: ../src/gnome-nibbles.vala:990
 msgid "_Play Again"
 msgstr "_Jogar novamente"
 
-#: ../src/gnome-nibbles.vala:1051
+#: ../src/gnome-nibbles.vala:1055
 msgid "A worm game for GNOME"
 msgstr "Um jogo de minhoca para o GNOME"
 
-#: ../src/gnome-nibbles.vala:1060
+#: ../src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
 "Sandro Nunes Henrique <sandro@conectiva.com.br>\n"
@@ -508,7 +508,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
+#: ../src/gnome-nibbles.vala:1098 ../src/gnome-nibbles.vala:1216
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -540,7 +540,7 @@ msgstr "roxo"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
-msgstr "Ações"
+msgstr "Ação"
 
 #: ../src/preferences-dialog.vala:147
 msgid "Key"
