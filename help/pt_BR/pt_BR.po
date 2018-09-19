@@ -1,0 +1,857 @@
+# Brazilian Portuguese translation for gnome-nibbles.
+# Copyright (C) 2018 gnome-nibbles's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-nibbles package.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-nibbles master\n"
+"POT-Creation-Date: 2018-09-19 17:57+0000\n"
+"PO-Revision-Date: 2018-09-19 14:47-0200\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Virtaal 1.0.0-beta1\n"
+"X-Project-Style: gnome\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Rafael Fontenelle <rafaelff@gnome.org>, 2018"
+
+#. (itstool) path: credit/name
+#: C/basics.page:14 C/controls-change.page:16 C/controls-default.page:14
+#: C/fake-bonus.page:14 C/index.page:12 C/multi-player.page:16
+#: C/preferences.page:14 C/rel-movement.page:14 C/scores.page:14
+msgid "Aruna Sankaranarayanan"
+msgstr "Aruna Sankaranarayanan"
+
+#. (itstool) path: credit/name
+#: C/basics.page:18 C/controls-change.page:20 C/controls-default.page:18
+#: C/fake-bonus.page:18 C/multi-player.page:20 C/preferences.page:18
+#: C/rel-movement.page:18
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#. (itstool) path: info/desc
+#: C/basics.page:22
+msgid ""
+"Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
+msgstr ""
+"Inicie, pause, jogue no modo tela cheia e saída de um jogo do <app>Nibbles</"
+"app>."
+
+#. (itstool) path: page/title
+#: C/basics.page:25
+msgid "Basic instructions"
+msgstr "Instruções básicas"
+
+#. (itstool) path: section/title
+#: C/basics.page:28
+msgid "Start a new game"
+msgstr "Iniciar um novo jogo"
+
+#. (itstool) path: section/p
+#: C/basics.page:30
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New</"
+"gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
+"a new game."
+msgstr ""
+"Selecione <guiseq><gui style=\"menu\">Jogo</gui> <gui style=\"menuitem"
+"\">Novo</gui></guiseq> ou pressiona <keyseq><key>Ctrl</key><key>N</key></"
+"keyseq> para iniciar um novo jogo."
+
+#. (itstool) path: section/title
+#: C/basics.page:38
+msgid "Pause and resume your game"
+msgstr "Pausar ou retornar ao seu jogo"
+
+#. (itstool) path: section/p
+#: C/basics.page:40
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause</"
+"gui></guiseq> to pause your game. You can resume your game by selecting "
+"<guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Resume</gui></"
+"guiseq>."
+msgstr ""
+"Selecione <guiseq><gui style=\"menu\">Jogo</gui> <gui style=\"menuitem"
+"\">Pausar</gui></guiseq> para pausar seu jogo. Você pode retornar ao seu "
+"jogo selecionando <guiseq><gui style=\"menu\">Jogo</gui> <gui style="
+"\"menuitem\">Retornar</gui></guiseq>."
+
+#. (itstool) path: section/title
+#: C/basics.page:48
+msgid "Play <app>Nibbles</app> in fullscreen mode"
+msgstr "Jogar <app>Nibbles</app> em modo tela cheia"
+
+#. (itstool) path: section/p
+#: C/basics.page:50
+msgid ""
+"Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
+"\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
+"fullscreen mode. You can return to the default screen size by pressing "
+"<key>F11</key> again."
+msgstr ""
+"Selecione <guiseq><gui style=\"menu\">Ver</gui> <gui style=\"menuitem\">Tela "
+"cheia</gui></guiseq> ou pressione <key>F11</key> para jogar seu jogo em modo "
+"tela cheia. Você pode retornar ao tamanho de tela padrão pressionando "
+"<key>F11</key> novamente."
+
+#. (itstool) path: section/title
+#: C/basics.page:58
+msgid "Quit <app>Nibbles</app>"
+msgstr "Sair do <app>Nibbles</app>"
+
+#. (itstool) path: section/p
+#: C/basics.page:60
+msgid ""
+"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit</"
+"gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
+"<app>Nibbles</app> at any time."
+msgstr ""
+"Selecione <guiseq><gui style=\"menu\">Jogo</gui> <gui style=\"menuitem"
+"\">Sair</gui></guiseq> ou pressiona <keyseq><key>Ctrl</key><key>Q</key></"
+"keyseq> para sair do <app>Nibbles</app> a qualquer momento."
+
+#. (itstool) path: info/desc
+#: C/controls-change.page:24
+msgid "Set custom control keys."
+msgstr "Defina teclas de controle personalizadas."
+
+#. (itstool) path: page/title
+#: C/controls-change.page:27
+msgid "Change the default controls"
+msgstr "Alterando os controles padrões"
+
+#. (itstool) path: page/p
+#: C/controls-change.page:29
+msgid ""
+"The <link xref=\"controls-default\">default controls</link> can be changed "
+"in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
+"player\">multi-player</link> games, when having more than one set of "
+"controls becomes necessary. To change the default controls:"
+msgstr ""
+"Os <link xref=\"controls-default\">controles padrão</link> podem ser "
+"alterados no <app>Nibbles</app> para se adequarem às suas preferências ou "
+"para jogos <link xref=\"multi-player\">multijogadores</link>, quando houver "
+"mais de um conjunto de controles se torna necessário. Para alterar os "
+"controles padrão:"
+
+#. (itstool) path: item/p
+#: C/controls-change.page:36 C/fake-bonus.page:35 C/multi-player.page:44
+#: C/rel-movement.page:66
+msgid ""
+"Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
+msgstr ""
+"Selecione <guiseq><gui style=\"menu\">Configurações</gui> <gui style="
+"\"menuitem\">Preferências</gui></guiseq>."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:40
+msgid "Select the tab for the player whose controls you want to change."
+msgstr "Selecione a aba para o jogador cujos controles você deseja alterar."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:42
+msgid ""
+"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+"player 3 controls <gui>Worm 3</gui> and so on."
+msgstr ""
+"O jogador 1 controla a <gui>Minhoca 1</gui>, o jogador 2 controla a "
+"<gui>Minhoca 2</gui>, o jogador 3 controla a <gui>Minhoca 3</gui> e assim "
+"por diante."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:47
+msgid ""
+"In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
+"then click on the control. This highlights the line and the words <gui>New "
+"accelerator…</gui> are now present in place of the old control."
+msgstr ""
+"Na lista <gui style=\"group\">Controles por teclado</gui>, selecione a linha "
+"e clique no controle. Isso realça a linha e as palavras <gui>Novo acelerador…"
+"</gui> agora estão presentes no lugar do controle antigo."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:53
+msgid "Press the key you want to use instead of the default key."
+msgstr "Pressione a tecla que você deseja usar em vez da tecla padrão."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:55
+msgid ""
+"To keep the old setting click <gui>New accelerator…</gui> again, right click "
+"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
+"inside the <gui>Nibbles Preferences</gui> box."
+msgstr ""
+"Para manter a configuração antiga, clique em <gui>Novo acelerador…</gui> "
+"novamente, clique com o botão direito do mouse em <gui>Novo acelerador…</"
+"gui>, pressione <key>Esc</key> ou clique em qualquer outro local dentro da "
+"caixa de <gui>Preferências do Nibbles</gui>."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:61
+msgid ""
+"Repeat the above step to change the other default keys for the current "
+"player, then select the tab for the next player whose controls you want to "
+"change and repeat the process."
+msgstr ""
+"Repita o passo acima para mudar as outras teclas padrão do jogador atual, "
+"depois selecione a aba para o próximo jogador cujos controles você quer "
+"alterar e repita o processo."
+
+#. (itstool) path: page/p
+#: C/controls-change.page:67
+msgid ""
+"For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
+"<gui>Left</gui> control line and click it, then press <key>A</key> on your "
+"keyboard when you see <gui>New accelerator…</gui> on the line."
+msgstr ""
+"Por exemplo, para usar <key>A</key> para <gui>Ir para esquerda</gui>, "
+"selecione a linha de controle <gui>Esquerda</gui> e clique nela, então "
+"pressione <key>A</key> em seu teclado quando você vir <gui>Novo acelerador…</"
+"gui> na linha."
+
+#. (itstool) path: info/desc
+#: C/controls-default.page:23
+msgid "Default keys for <app>Nibbles.</app>"
+msgstr "Teclas padrão do <app>Nibbles</app>."
+
+#. (itstool) path: page/title
+#: C/controls-default.page:26
+msgid "Keyboard Controls"
+msgstr "Controle por teclado"
+
+#. (itstool) path: page/p
+#: C/controls-default.page:28
+msgid ""
+"For controlling the movements of your worm in a single-player mode, use the "
+"following default keys:"
+msgstr ""
+"Para controlar os movimentos de sua minhoca no modo de um jogador, use as "
+"seguintes teclas padrão:"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:33
+msgid "<key>Up</key> to move the worm up"
+msgstr "<key>Cima</key> para mover a minhoca para cima"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:36
+msgid "<key>Down</key> to move the worm down"
+msgstr "<key>Baixo</key> para mover a minhoca para baixo"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:39
+msgid "<key>Left</key> to move the worm left"
+msgstr "<key>Esquerda</key> para mover a minhoca para esquerda"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:42
+msgid "<key>Right</key> to move the worm right"
+msgstr "<key>Direita</key> para mover a minhoca para direita"
+
+#. (itstool) path: note/p
+#: C/controls-default.page:47
+msgid ""
+"You can <link xref=\"controls-change\">change</link> the default controls."
+msgstr ""
+"Você pode <link xref=\"controls-change\">alterar</link> os controles padrão."
+
+#. (itstool) path: page/p
+#: C/controls-default.page:51
+msgid ""
+"All worm movements happen with respect to the screen unless <link xref=\"rel-"
+"movement\">relative movement</link> is enabled. This means that when you "
+"press <key>Left</key> the worm moves towards the left of the screen, when "
+"you press <key>Right</key> the worm moves towards the right of the screen "
+"and so on."
+msgstr ""
+"Todos os movimentos de minhoca acontecem com relação à tela a menos que "
+"<link xref=\"rel-movement\">movimento relativo</link> esteja habilitado. "
+"Isto significa que quando você pressiona <key>Esquerda</key> a minhoca se "
+"move para a esquerda da tela, quando você pressiona <key>Direita</key> a "
+"minhoca se move para a direita da tela e assim por diante."
+
+#. (itstool) path: info/desc
+#: C/fake-bonus.page:22
+msgid ""
+"Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
+msgstr ""
+"Use bônus falsos em um jogo do <app>Nibbles</app> para torná-lo mais "
+"desafiador."
+
+#. (itstool) path: page/title
+#: C/fake-bonus.page:26
+msgid "What are fake bonuses?"
+msgstr "O que são bônus falsos?"
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:28
+msgid ""
+"Fake bonuses look like regular bonus shapes but do not give you any points "
+"when your worm swallows them. They cause a reversal in the movement of your "
+"worm."
+msgstr ""
+"Os bônus falsos parecem-se com formas de bônus regulares, mas não lhe dão "
+"pontos quando o seu verme os engole. Eles causam uma reversão no movimento "
+"do seu verme."
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:32
+msgid "To enable fake bonuses:"
+msgstr "Para habilitar bônus falsos:"
+
+#. (itstool) path: item/p
+#: C/fake-bonus.page:39
+msgid ""
+"Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
+"is unchecked."
+msgstr ""
+"Marque a caixa de seleção <gui style=\"checkbox\">Habilitar bônus falsos</"
+"gui> se ela estiver desmarcada."
+
+#. (itstool) path: item/p
+#: C/fake-bonus.page:43
+msgid "Click <gui>Close</gui>."
+msgstr "Clique em <gui>Fechar</gui>."
+
+#. (itstool) path: note/p
+#: C/fake-bonus.page:48
+msgid ""
+"Set all preferences before starting a new game. Preferences cannot be "
+"changed in the middle of a game."
+msgstr ""
+"Defina todas as preferências antes de iniciar um novo jogo. Preferências não "
+"podem ser alteradas no meio de um jogo."
+
+#. (itstool) path: info/desc
+#: C/index.page:16
+msgid "Index"
+msgstr "Índice"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Nibbles"
+
+#. (itstool) path: page/p
+#: C/index.page:21
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other "
+"worms. You have to complete 26 levels to finish the game."
+msgstr ""
+"<app>Nibbles</app> é um jogo de Snake para o GNOME. O objetivo do jogo é "
+"engolir tantos objetos quanto possível, evitando paredes de labirintos e "
+"outros vermes. Você tem que completar 26 níveis para terminar o jogo."
+
+#. (itstool) path: section/title
+#: C/index.page:26
+msgid "Game play"
+msgstr "Jogabilidade"
+
+#. (itstool) path: section/title
+#: C/index.page:30
+msgid "Preferences"
+msgstr "Preferências"
+
+#. (itstool) path: info/desc
+#: C/multi-player.page:24
+msgid "Play <app>Nibbles</app> with additional players."
+msgstr "Jogue <app>Nibbles</app> com jogadores adicionais."
+
+#. (itstool) path: page/title
+#: C/multi-player.page:27
+msgid "Multi-player games"
+msgstr "Jogos de multijogadores"
+
+#. (itstool) path: page/p
+#: C/multi-player.page:29
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. While a player "
+"controls <gui>Worm 1</gui> in a single-player game, players can additionally "
+"control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A two-"
+"player game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>, a "
+"three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
+"and <gui>Worm 3</gui> and so on."
+msgstr ""
+"<app>Nibbles</app> pode ser jogado por até seis jogadores. Enquanto um "
+"jogador controla a <gui>Minhoca 1</gui> em um jogo de um jogador, jogadores "
+"podem controlar adicionalmente <gui>Minhoca 2</gui> até <gui>Minhoca 6</gui> "
+"em um jogo multijogador. Um jogo de dois jogadores permite que você controle "
+"<gui>Minhoca 1</gui> e <gui>Minhoca 2</gui>, um jogo de três jogadores "
+"permite que você controle <gui>Minhoca 1</gui>, <gui>Minhoca 2</gui> e "
+"<gui>Minhoca 3</gui> e assim por diante."
+
+#. (itstool) path: section/title
+#: C/multi-player.page:37
+msgid "Choose the number of players"
+msgstr "Escolher o número de jogadores"
+
+#. (itstool) path: section/p
+#: C/multi-player.page:39
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. To set the number of "
+"players:"
+msgstr ""
+"<app>Nibbles</app> pode ser jogado por até seis jogadores. Para definir o "
+"número de jogadores:"
+
+#. (itstool) path: item/p
+#: C/multi-player.page:48
+msgid ""
+"Set the <gui style=\"input\">Number of human players</gui> to the required "
+"number, a maximum of 6. You can do this by using the <gui style=\"button\">"
+"+</gui> or <gui style=\"button\">-</gui> buttons or by entering the number "
+"of players from the keyboard in the space provided."
+msgstr ""
+"Defina o <gui style=\"input\">Número de jogadores humanos</gui> para o "
+"número necessário, um máximo de 6. Você pode fazer isso usando o <gui style="
+"\"button\">+</gui> ou <gui style=\"button\">-</gui> botões ou digitando o "
+"número de jogadores do teclado no espaço fornecido."
+
+#. (itstool) path: note/p
+#: C/multi-player.page:57
+msgid ""
+"You can watch a <app>Nibbles</app> game without participating. To observe a "
+"game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
+"set the <gui style=\"input\">Number of AI players</gui> to any number "
+"between 1 and 6."
+msgstr ""
+"Você pode assistir a um jogo do <app>Nibbles</app> sem participar. Para "
+"observar um jogo, defina o <gui style=\"input\">Número de jogadores humanos</"
+"gui> como 0 e defina o <gui style=\"input\">Número de jogadores de IA</gui> "
+"para qualquer número entre 1 e 6."
+
+#. (itstool) path: info/desc
+#: C/preferences.page:22
+msgid "Change default speed, worm color, level order and sound settings."
+msgstr ""
+"Altere a velocidade padrão, cor da minhoca, ordem de nível e configurações "
+"de som."
+
+#. (itstool) path: page/title
+#: C/preferences.page:25
+msgid "Edit general preferences"
+msgstr "Editando as preferências gerais"
+
+#. (itstool) path: page/p
+#: C/preferences.page:27
+msgid ""
+"The general preferences for <app>Nibbles</app> can be changed by selecting "
+"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
+msgstr ""
+"As preferências gerais do <app>Nibbles</app> podem ser alterados "
+"selecionando <guiseq><gui style=\"menu\">Configurações</gui> <gui style="
+"\"menuitem\">Preferências</gui></guiseq>."
+
+#. (itstool) path: section/title
+#: C/preferences.page:32
+msgid "Speed"
+msgstr "Velocidade"
+
+#. (itstool) path: section/p
+#: C/preferences.page:34
+msgid ""
+"There are four available speeds in <app>Nibbles</app>. These are, in "
+"increasing order:"
+msgstr ""
+"Há quatro velocidades disponíveis no <app>Nibbles</app>. Estas são, em ordem "
+"crescente:"
+
+#. (itstool) path: item/p
+#: C/preferences.page:39
+msgid "Nibbles Newbie"
+msgstr "Iniciante no Nibbles"
+
+#. (itstool) path: item/p
+#: C/preferences.page:42
+msgid "My second day"
+msgstr "Meu segundo dia"
+
+#. (itstool) path: item/p
+#: C/preferences.page:45
+msgid "Not too shabby"
+msgstr "Não tão ruim"
+
+#. (itstool) path: item/p
+#: C/preferences.page:48
+msgid "Finger twitching good"
+msgstr "Dedos ágeis"
+
+#. (itstool) path: section/p
+#: C/preferences.page:52
+msgid ""
+"Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
+"speed choices given on the left hand side."
+msgstr ""
+"A velocidade pode ser alterada em <guiseq><gui style=\"menu\">Configurações</"
+"gui> <gui style=\"menuitem\">Preferências</gui></guiseq> selecionando uma "
+"das quatro velocidades dadas no seu lado esquerdo."
+
+#. (itstool) path: section/title
+#: C/preferences.page:59
+msgid "Change worm colors"
+msgstr "Alterar as cores da minhoca"
+
+#. (itstool) path: section/p
+#: C/preferences.page:61
+msgid "There are seven available worm colors:"
+msgstr "Essas são as sete cores de minhocas disponíveis:"
+
+#. (itstool) path: item/p
+#: C/preferences.page:65
+msgid "<_:media-1/> Red"
+msgstr "<_:media-1/> vermelho"
+
+#. (itstool) path: item/p
+#: C/preferences.page:69
+msgid "<_:media-1/> Green"
+msgstr "<_:media-1/> verde"
+
+#. (itstool) path: item/p
+#: C/preferences.page:73
+msgid "<_:media-1/> Blue"
+msgstr "<_:media-1/> azul"
+
+#. (itstool) path: item/p
+#: C/preferences.page:77
+msgid "<_:media-1/> Yellow"
+msgstr "<_:media-1/> amarelo"
+
+#. (itstool) path: item/p
+#: C/preferences.page:81
+msgid "<_:media-1/> Cyan"
+msgstr "<_:media-1/> ciano"
+
+#. (itstool) path: item/p
+#: C/preferences.page:85
+msgid "<_:media-1/> Purple"
+msgstr "<_:media-1/> roxo"
+
+#. (itstool) path: item/p
+#: C/preferences.page:89
+msgid "<_:media-1/> Gray"
+msgstr "<_:media-1/> cinza"
+
+#. (itstool) path: section/p
+#: C/preferences.page:94
+msgid ""
+"These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+"style=\"menuitem\">Preferences</gui></guiseq>."
+msgstr ""
+"Essas podem ser alteradas em <guiseq><gui style=\"menu\">Configurações</gui> "
+"<gui style=\"menuitem\">Preferências</gui></guiseq>."
+
+#. (itstool) path: item/p
+#: C/preferences.page:99
+msgid ""
+"Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
+"edit."
+msgstr ""
+"Selecione qualquer uma das abas de <gui>Minhoca</gui> para escolher a "
+"minhoca que você deseja editar."
+
+#. (itstool) path: item/p
+#: C/preferences.page:103
+msgid ""
+"On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
+"Pick a color out of the available colors in the drop-down menu to change the "
+"appearance of the worm."
+msgstr ""
+"Do seu lado esquerdo, você verá <gui style=\"group\">Cor da minhoca</gui>. "
+"Escolha uma dentre as cores disponíveis no menu suspenso para alterar a "
+"aparência da minhoca."
+
+#. (itstool) path: section/title
+#: C/preferences.page:112
+msgid "Sounds"
+msgstr "Sons"
+
+#. (itstool) path: section/p
+#: C/preferences.page:114
+msgid ""
+"You can enable or disable sounds in <app>Nibbles</app> by checking or "
+"unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
+"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+"\">Preferences</gui></guiseq>."
+msgstr ""
+"Você pode habilitar ou desabilitar sons no <app>Nibbles</app> marcando ou "
+"desmarcando a caixa de seleção <gui style=\"checkbox\">Habilitar sons</gui> "
+"em <guiseq><gui style=\"menu\">Configurações</gui> <gui style=\"menuitem"
+"\">Preferências</gui></guiseq>."
+
+#. (itstool) path: section/title
+#: C/preferences.page:122
+msgid "Play levels in random order"
+msgstr "Jogue níveis em ordem aleatória"
+
+#. (itstool) path: section/p
+#: C/preferences.page:124
+msgid ""
+"Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
+"gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
+"\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
+"<app>Nibbles</app> in random order."
+msgstr ""
+"Marque ou desmarque a caixa de seleção <gui style=\"checkbox\">Jogar níveis "
+"em ordem aleatória</gui> em <guiseq><gui style=\"menu\">Configurações</gui> "
+"<gui style=\"menuitem\">Preferências</gui></guiseq> para jogar os diferentes "
+"níveis no <app>Nibbles</app> em ordem aleatória."
+
+#. (itstool) path: info/desc
+#: C/rel-movement.page:22
+msgid "Enable relative movement."
+msgstr "Habilite movimento relativo."
+
+#. (itstool) path: page/title
+#: C/rel-movement.page:25
+msgid "Relative movement"
+msgstr "Movimento relativo"
+
+#. (itstool) path: page/p
+#: C/rel-movement.page:27
+msgid ""
+"When relative movement is enabled, the worm is maneuvered using just the "
+"default <key>Left</key> and <key>Right</key> keys or other <link xref="
+"\"controls-change\">customized keys</link> that control the leftward and "
+"rightward movement of a worm. When the <key>Left</key> key is pressed, the "
+"worm turns left, instead of moving towards the left of the screen. "
+"Similarly, when the <key>Right</key> key is pressed, the worm turns right "
+"instead of moving towards the right of the screen."
+msgstr ""
+"Quando o movimento relativo é ativado, a minhoca é manejada usando apenas as "
+"teclas <key>Esquerda</key> e <key>Direita</key> ou outras <link xref="
+"\"controls-change\">teclas personalizadas</link> que controlam o movimento "
+"para a esquerda e para a direita de uma minhoca. Quando a tecla "
+"<key>Esquerda</key> é pressionada, a minhoca vira à esquerda, em vez de se "
+"mover para a esquerda da tela. Da mesma forma, quando a tecla <key>Direita</"
+"key> é pressionada, a minhoca vira para a direita em vez de se mover para a "
+"direita da tela."
+
+#. (itstool) path: figure/title
+#: C/rel-movement.page:39
+msgid "Starting position:"
+msgstr "Posição inicial:"
+
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:40
+msgid "The location of the worm before you decide to move it."
+msgstr "A localização da minhoca antes de decidir movê-la."
+
+#. (itstool) path: figure/media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:41
+msgctxt "_"
+msgid ""
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+msgstr ""
+"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+
+#. (itstool) path: figure/title
+#: C/rel-movement.page:46
+msgid "On pressing the <key>Left</key> key:"
+msgstr "Ao pressionar a tecla <key>Esquerda</key>:"
+
+#. (itstool) path: figure/desc
+#: C/rel-movement.page:47
+msgid "The worm turns left and begins to move downwards."
+msgstr "A minhoca vira à esquerda e começa a se mover para baixo."
+
+#. (itstool) path: figure/media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rel-movement.page:48
+msgctxt "_"
+msgid ""
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
+msgstr ""
+"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
+
+#. (itstool) path: note/p
+#: C/rel-movement.page:55
+msgid ""
+"If relative movement was not enabled, you would press the <key>Down</key> "
+"key to achieve the above result."
+msgstr ""
+"Se o movimento relativo não estiver habilitado, pressione a tecla "
+"<key>Baixo</key> para obter o resultado acima."
+
+#. (itstool) path: page/p
+#: C/rel-movement.page:62
+msgid "To enable relative movement:"
+msgstr "Para habilitar o movimento relativo:"
+
+#. (itstool) path: item/p
+#: C/rel-movement.page:70
+msgid ""
+"Select the worm for which relative movement has to be enabled by clicking "
+"the appropriate <gui>Worm</gui> tab."
+msgstr ""
+"Selecione a minhoca para o qual o movimento relativo deve ser habilitado "
+"clicando na aba <gui>Minhoca</gui> apropriada."
+
+#. (itstool) path: item/p
+#: C/rel-movement.page:74
+msgid ""
+"Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
+"is unchecked."
+msgstr ""
+"Marque a caixa de seleção <gui style=\"checkbox\">Usar movimento relativo</"
+"gui> se ela estiver desmarcada."
+
+#. (itstool) path: item/p
+#: C/rel-movement.page:78
+msgid "Click <gui style=\"button\">Close</gui>."
+msgstr "Clique em <gui style=\"button\">Fechar</gui>."
+
+#. (itstool) path: info/desc
+#: C/scores.page:18
+msgid "Swallow different bonuses to score points."
+msgstr "Engula diferentes bônus para marcar pontos."
+
+#. (itstool) path: page/title
+#: C/scores.page:21
+msgid "Scoring points in <app>Nibbles</app>"
+msgstr "Pontuando no <app>Nibbles</app>"
+
+#. (itstool) path: page/p
+#: C/scores.page:23
+msgid ""
+"You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
+"different kinds of bonuses in Nibbles:"
+msgstr ""
+"Você pode ganhar pontos em <app>Nibbles</app> comendo bônus. Existem 5 tipos "
+"diferentes de bônus em Nibbles:"
+
+#. (itstool) path: item/p
+#: C/scores.page:27
+msgid ""
+"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the donut vary from level "
+"to level and are multiples of the level number. In level 1, the first donut "
+"will give you 1 point, the second donut will give you 2 points, the third "
+"donut will give you 3 points and so on. In level 2, the first donut will "
+"give you 2 points, the second donut will give you 4 points, the third donut "
+"will give you 6 points and so on. In level 26, therefore, the first donut "
+"will give you 26 points, the second donut will give you 52 points and so on."
+msgstr ""
+"O bônus em forma de rosca <_:media-1/> : Esse bônus causa um aumento no "
+"comprimento da minhoca. Os pontos que você ganha ao comer a rosca variam de "
+"nível para nível e são múltiplos do número do nível. No nível 1, a primeira "
+"rosca lhe dará 1 ponto, a segunda rosca lhe dará 2 pontos, a terceira rosca "
+"lhe dará 3 pontos e assim por diante. No nível 2, a primeira rosca lhe dará "
+"2 pontos, a terceira rosca lhe dará 4 pontos, a terceira rosca lhe dará 6 "
+"pontos e assim por diante. No nível 26, portanto, a primeira rosca lhe dará "
+"26 pontos, a segunda rosca lhe dará 52 pontos e assim por diante."
+
+#. (itstool) path: note/p
+#: C/scores.page:39
+msgid ""
+"The donut order count does not depend on the number of donuts already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first donut, "
+"he scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
+"third player may choose to not eat any donuts till the tenth donut and score "
+"10 points at once."
+msgstr ""
+"A contagem de ordem de roscas não depende do número de roscas já comidas por "
+"uma minhoca. Se o jogo está no nível 1 e se o jogador 1 come a primeira "
+"rosca, ela marca 1 ponto, se o jogador 2 come a segunda rosca, ela marca 2 "
+"pontos; um terceiro jogador pode optar por não comer rosquinhas até a décima "
+"rosca e marcar 10 pontos de uma só vez."
+
+#. (itstool) path: item/p
+#: C/scores.page:47
+msgid ""
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
+"does not cause an increase in the length of your worm."
+msgstr ""
+"O bônus em forma de coração <_:media-1/> : Este bônus lhe dá uma vida extra "
+"e não causa um aumento no comprimento da sua minhoca."
+
+#. (itstool) path: note/p
+#: C/scores.page:52
+msgid ""
+"The number of lives remaining for a worm is given by the number on the left "
+"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
+"lives remaining."
+msgstr ""
+"O número de vidas restantes para uma minhoca é dado pelo número à esquerda "
+"da vírgula na pontuação de uma minhoca. Se a pontuação de uma minhoca for "
+"10,005, a minhoca terá 10 vidas restantes."
+
+#. (itstool) path: note/p
+#: C/scores.page:57
+msgid ""
+"You cannot get extra lives by scoring 10,000 points or more. If you have "
+"scored 12345 points with 10 lives remaining, your score will be 10,12345."
+msgstr ""
+"Você não pode obter vidas extras marcando 10,000 pontos ou mais. Se você "
+"marcou 12345 pontos e 10 vidas restantes, sua pontuação será de 10,12345."
+
+#. (itstool) path: item/p
+#: C/scores.page:63
+msgid ""
+"The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
+"increase in the length of the worm and does not give you any points. It "
+"causes a reversal in the movement of all the other worms in the game."
+msgstr ""
+"O bônus em forma de diamante <_:media-1/> : Este bônus não causa um aumento "
+"no comprimento da minhoca e não lhe dá nenhum ponto. Ele provoca uma "
+"inversão no movimento de todas as outras minhocas no jogo."
+
+#. (itstool) path: note/p
+#: C/scores.page:69
+msgid "This bonus has no effect in a single-player game."
+msgstr "Esse bônus não tem efeito em um jogo de um jogador."
+
+#. (itstool) path: item/p
+#: C/scores.page:73
+msgid ""
+"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
+"increase in the length of the worm than the donut-shaped bonus. The points "
+"given by this bonus vary depending on the level number and the length of the "
+"worm. The higher the level number and the longer the worm, the more the "
+"points are scored on eating this bonus."
+msgstr ""
+"O bônus em formato de sorvete <_:media-1/> : Esse bônus causa um aumento "
+"maior no comprimento da minhoca do que o bônus em forma de rosca. Os pontos "
+"dados por este bônus variam dependendo do número do nível e do comprimento "
+"da minhoca. Quanto maior o número do nível e quanto maior a minhoca, mais os "
+"pontos são pontuados ao comer esse bônus."
+
+#. (itstool) path: item/p
+#: C/scores.page:82
+msgid ""
+"The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
+"length of the worm. The points given by this bonus depend on the level "
+"number and the length of the worm. The higher the level number and the "
+"longer the worm, the more the points are scored on eating this bonus."
+msgstr ""
+"O bônus em formato de cereja <_:media-1/> : Esse bônus causa uma diminuição "
+"no comprimento da minhoca. Os pontos dados por este bônus dependem do número "
+"do nível e do comprimento da minhoca. Quanto maior o número do nível e "
+"quanto maior a minhoca, mais os pontos são pontuados ao comer esse bônus."
+
+#. (itstool) path: p/link
+#: C/legal.xml:4
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Atribuição-Compartilhada Igual 3.0 Não Adaptada"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Esta obra é licenciada sob uma licença <_:link-1/>."
