@@ -11,10 +11,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master.ml\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-07-22 04:05+0000\n"
-"PO-Revision-Date: 2013-05-03 20:02+0530\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
+"POT-Creation-Date: 2018-09-19 18:29+0000\n"
+"PO-Revision-Date: 2018-10-26 22:36+0800\n"
 "Last-Translator: Nandaja Varma <nandaja.varma@gmail.com>\n"
 "Language-Team: Malayalam team\n"
 "Language: ml\n"
@@ -22,434 +21,618 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnibbles.desktop.in.in.h:1 ../src/main.c:156 ../src/main.c:678
-#: ../src/main.c:746
+#: ../data/controls-grid.ui.h:1
+msgid "Player"
+msgstr "കളിക്കാരന്‍ %d"
+
+#: ../data/nibbles-menus.ui.h:1
+msgid "_Preferences"
+msgstr "മുന്‍ഗണനകള്‍ (_P)"
+
+#: ../data/nibbles-menus.ui.h:2
+msgid "_Scores"
+msgstr "സ്കോറുകള്‍ (_S)"
+
+#: ../data/nibbles-menus.ui.h:3
+msgid "_Help"
+msgstr "സഹായം (_H)"
+
+#: ../data/nibbles-menus.ui.h:4
+msgid "_About"
+msgstr "ഗ്നോം നിബ്ബിള്‍സിനെ കുറിച്ച് (_A)"
+
+#: ../data/nibbles-menus.ui.h:5
+msgid "_Quit"
+msgstr "അടയ്ക്കുക (_Q)"
+
+#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1 ../src/gnome-nibbles.vala:137
+#: ../src/gnome-nibbles.vala:542 ../src/gnome-nibbles.vala:1052
 msgid "Nibbles"
 msgstr "നിബിള്‍സ്"
 
-#: ../data/gnibbles.desktop.in.in.h:2
+#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
+msgid "_New Game"
+msgstr "പുതിയ കളി (_N)"
+
+#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
+msgid "_Pause"
+msgstr "താൽക്കാലികമായി നിർത്തുക (_P)"
+
+#: ../data/nibbles.ui.h:4
+msgid "Let’s _Play"
+msgstr "നമുക്ക് കളിക്കാം (_P)"
+
+#: ../data/nibbles.ui.h:5
+msgid "Welcome, worms."
+msgstr "സ്വാഗതം, പുഴുക്കളേ."
+
+#: ../data/nibbles.ui.h:6
+msgid "Eat the treats before the other worms, but don’t hit anything!"
+msgstr "മറ്റു പുഴുക്കള്‍ക്ക് മുന്നേ ഭക്ഷണങ്ങള്‍ കഴിക്കുക, പക്ഷേ ഒന്നിലും തട്ടരുത്!"
+
+#: ../data/nibbles.ui.h:7
+msgid "Number of players"
+msgstr "കളിക്കാരുടെ എണ്ണം"
+
+#: ../data/nibbles.ui.h:8
+msgid "Select the number of human players."
+msgstr "മനുഷ്യരുടെ എണ്ണം തിരഞ്ഞെടുക്കുക."
+
+#: ../data/nibbles.ui.h:9
+msgid "Select the number of computer players."
+msgstr "കമ്പ്യൂട്ടർ കളിക്കാരുടെ എണ്ണം തെരഞ്ഞെടുക്കുക."
+
+#: ../data/nibbles.ui.h:10
+msgid "_Next"
+msgstr "അടുത്തത് (_N)"
+
+#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+msgid "Controls"
+msgstr "നിയന്ത്രണങ്ങൾ"
+
+#: ../data/nibbles.ui.h:12
+msgid "_Start"
+msgstr "ആരംഭിക്കുക (_S)"
+
+#: ../data/nibbles.ui.h:13
+msgid "Paused"
+msgstr "താൽക്കാലികമായി നിർത്തി"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
+msgid "GNOME Nibbles"
+msgstr "ഗ്നോം നിബിള്‍സ്"
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2 ../data/org.gnome.Nibbles.desktop.in.h:2
 msgid "Guide a worm around a maze"
-msgstr "ദുര്‍ഘടമാര്‍ഗ്ഗത്തിലൂടെയുള്ള യാത്രയില്‍ പുഴുവിനെ നയിക്കുക"
+msgstr "ദുര്‍ഘടമാര്‍ഗ്ഗത്തിലൂടെയുള്ള യാത്രയില്‍ പുഴുവിനെ വഴികാട്ടുക "
 
-#: ../data/gnibbles.desktop.in.in.h:3
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver enemy worms while "
+"eating doughnuts and ice cream to increase your length. Each worm has ten lives and loses one by "
+"running into a wall, another worm, or itself. The enemy worms are after the same bonuses that "
+"you are, so be careful: if they become too large, you won’t have much room for movement."
+msgstr ""
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early levels are mostly "
+"open with a few walls, but later on, cramped spaces and teleporters make things more interesting."
+msgstr ""
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to play with a friend."
+msgstr ""
+
+#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "ദി ഗ്നോം പ്രോജക്ട്"
+
+#: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
-msgstr "കളി;പാമ്പ്;പലക;"
+msgstr "game;snake;board;"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:1
-msgid "Number of human players"
-msgstr "കളിക്കാരുടെ എണ്ണം "
+#: ../data/org.gnome.nibbles.gschema.xml.h:1
+msgid "Width of the window in pixels"
+msgstr "ജാലകത്തിന്റെ വീതി പിക്സലുകളിൽ"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:2
-msgid "Number of human players."
-msgstr "കളിക്കാരുടെ എണ്ണം. "
+#: ../data/org.gnome.nibbles.gschema.xml.h:2
+msgid "Width of the window in pixels."
+msgstr "ജാലകത്തിന്റെ വീതി പിക്സലുകളിൽ."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:3
-msgid "Number of AI players"
-msgstr "AI കളിക്കാരുടെ എണ്ണം"
+#: ../data/org.gnome.nibbles.gschema.xml.h:3
+msgid "Height of the window in pixels"
+msgstr "ജാലകത്തിന്റെ ഉയരം പിക്സലുകളിൽ"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:4
-msgid "Number of AI players."
-msgstr "AI കളിക്കാരുടെ എണ്ണം."
+#: ../data/org.gnome.nibbles.gschema.xml.h:4
+msgid "Height of the window in pixels."
+msgstr "ജാലകത്തിന്റെ ഉയരം പിക്സലുകളിൽ."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:5
-msgid "Game speed"
-msgstr "കളിയുടെ വേഗത"
+#: ../data/org.gnome.nibbles.gschema.xml.h:7
+msgid "Is this the first run"
+msgstr "ഇത് ആദ്യ കളി ആണോ"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "കളിയുടെ വേഗത (1=വേഗം, 4=പതിയെ)."
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:7
-msgid "Enable fake bonuses"
-msgstr "വ്യാജമായ ബോണസ്സുകള്‍ സജ്ജമാക്കുക"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:8
-msgid "Enable fake bonuses."
-msgstr "വ്യാജമായ ബോണസ്സുകള്‍ സജ്ജമാക്കുക."
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:9
-msgid "Play levels in random order"
-msgstr "ഏതെങ്കിലും ക്രമത്തില്‍ ലവലുകള്‍ കളിക്കുക"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:10
-msgid "Play levels in random order."
-msgstr "ഏതെങ്കിലും ക്രമത്തില്‍ ലവലുകള്‍ കളിക്കുക."
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:11
-msgid "Game level to start on"
-msgstr "കളി തുടങ്ങേണ്ട നില"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:12
-msgid "Game level to start on."
-msgstr "കളി തുടങ്ങേണ്ട നില."
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:13
-msgid "Enable sounds"
-msgstr "ശബ്ദം സജ്ജമാക്കുക"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:14
-msgid "Enable sounds."
-msgstr "ശബ്ദം സജ്ജമാക്കുക."
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:15
+#: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
 msgstr "കളിയുടെ കട്ടകളുടെ വലിപ്പം"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:16
+#: ../data/org.gnome.nibbles.gschema.xml.h:10
 msgid "Size of game tiles."
 msgstr "കളിയുടെ കട്ടകളുടെ വലിപ്പം."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:17
+#: ../data/org.gnome.nibbles.gschema.xml.h:11
+msgid "Game level to start on"
+msgstr "കളി തുടങ്ങേണ്ട നില"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:12
+msgid "Game level to start on."
+msgstr "കളി തുടങ്ങേണ്ട നില."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:15
+msgid "Enable sounds"
+msgstr "ശബ്ദം സജ്ജമാക്കുക"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:16
+msgid "Enable sounds."
+msgstr "ശബ്ദം സജ്ജമാക്കുക."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:17
+msgid "Enable fake bonuses"
+msgstr "വ്യാജമായ ബോണസ്സുകള്‍ സജ്ജമാക്കുക"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:18
+msgid "Enable fake bonuses."
+msgstr "വ്യാജമായ ബോണസ്സുകള്‍ സജ്ജമാക്കുക."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:19
+msgid "Number of human players"
+msgstr "കളിക്കാരുടെ എണ്ണം "
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:20
+msgid "Number of human players."
+msgstr "കളിക്കാരുടെ എണ്ണം. "
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:21
+msgid "Number of AI players"
+msgstr "കമ്പ്യുട്ടര്‍ കളിക്കാരുടെ എണ്ണം"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:22
+msgid "Number of AI players."
+msgstr "കമ്പ്യുട്ടര്‍ കളിക്കാരുടെ എണ്ണം."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:23
 msgid "Color to use for worm"
 msgstr "പുഴുവിനുള്ള നിറം"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:18
+#: ../data/org.gnome.nibbles.gschema.xml.h:24
 msgid "Color to use for worm."
 msgstr "പുഴുവിനുള്ള നിറം."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:19
+#: ../data/org.gnome.nibbles.gschema.xml.h:25
 msgid "Use relative movement"
 msgstr "ആപേക്ഷിക ചലനം ഉപയോഗിക്കുക"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:20
+#: ../data/org.gnome.nibbles.gschema.xml.h:26
 msgid "Use relative movement (ie. left or right only)."
-msgstr "ആപേക്ഷിക ചലനം സാധ്യമാക്കുക (അതായത് ഇടതും വലതും മാത്രം)"
+msgstr "ആപേക്ഷിക ചലനം ഉപയോഗിക്കുക (അതായത് ഇടതും വലതും മാത്രം)"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:450
+#: ../data/org.gnome.nibbles.gschema.xml.h:27 ../src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "മുകളിലേക്ക് നീങ്ങുക"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:22
+#: ../data/org.gnome.nibbles.gschema.xml.h:28
 msgid "Key to use for motion up."
 msgstr "മുകളിലേക്ക് നീങ്ങുന്നതിനുളള കീ."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:451
+#: ../data/org.gnome.nibbles.gschema.xml.h:29 ../src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "താഴേക്ക് നീങ്ങുക"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:24
+#: ../data/org.gnome.nibbles.gschema.xml.h:30
 msgid "Key to use for motion down."
 msgstr "താഴേക്ക് നീങ്ങുന്നതിനുളള കീ."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:448
+#: ../data/org.gnome.nibbles.gschema.xml.h:31 ../src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "ഇടത്തേക്ക് നീങ്ങുക"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:26
+#: ../data/org.gnome.nibbles.gschema.xml.h:32
 msgid "Key to use for motion left."
 msgstr "ഇടത്തേക്ക് നീങ്ങുന്നതിനുളള കീ."
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:449
+#: ../data/org.gnome.nibbles.gschema.xml.h:33 ../src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "വലത്തേക്ക് നീങ്ങുക"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:28
+#: ../data/org.gnome.nibbles.gschema.xml.h:34
 msgid "Key to use for motion right."
 msgstr "വലത്തേക്ക് നീങ്ങുന്നതിനുളള കീ."
 
-#: ../src/board.c:250
+#: ../data/player-score-box.ui.h:1
+msgid "Worm"
+msgstr "പുഴു"
+
+#: ../data/preferences-dialog.ui.h:1
+msgid "Preferences"
+msgstr "മുന്‍ഗണനകള്‍"
+
+#: ../data/preferences-dialog.ui.h:2
+msgid "Speed"
+msgstr "വേഗത"
+
+#: ../data/preferences-dialog.ui.h:3
+msgid "_Beginner"
+msgstr "തുടക്കക്കാരന്‍ (_B)"
+
+#: ../data/preferences-dialog.ui.h:4
+msgid "_Slow"
+msgstr "പതിയെ (_S)"
+
+#: ../data/preferences-dialog.ui.h:5
+msgid "_Medium"
+msgstr "ഇടത്തരം (_M)"
+
+#: ../data/preferences-dialog.ui.h:6
+msgid "_Fast"
+msgstr "വേഗത്തില്‍ (_F)"
+
+#: ../data/preferences-dialog.ui.h:7
+msgid "Options"
+msgstr "ഉപാധികള്‍ "
+
+#: ../data/preferences-dialog.ui.h:8
+msgid "E_nable sounds"
+msgstr "ശബ്ദം ക്രമീകരിക്കുക (_n)"
+
+#: ../data/preferences-dialog.ui.h:9
+msgid "_Enable fake bonuses"
+msgstr "വ്യാജമായ ബോണസ്സുകള്‍ സജ്ജമാക്കുക (_E)"
+
+#: ../data/preferences-dialog.ui.h:10
+msgid "_General"
+msgstr "പൊതുവായ (_G)"
+
+#: ../data/preferences-dialog.ui.h:12
+msgid "Worm color"
+msgstr "പുഴുവിന്റെ നിറം"
+
+#: ../data/preferences-dialog.ui.h:13
+msgid "Worm _1"
+msgstr "പുഴു _1"
+
+#: ../data/preferences-dialog.ui.h:14
+msgid "Worm _2"
+msgstr "പുഴു _2"
+
+#: ../data/preferences-dialog.ui.h:15
+msgid "Worm _3"
+msgstr "പുഴു _3"
+
+#: ../data/preferences-dialog.ui.h:16
+msgid "Worm _4"
+msgstr "പുഴു _4"
+
+#. Help string for command line --version flag
+#: ../src/gnome-nibbles.vala:104
+msgid "Show release version"
+msgstr "റിലീസ് പതിപ്പു് കാണിക്കുക"
+
+#: ../src/gnome-nibbles.vala:423
+msgid "Are you sure you want to start a new game?"
+msgstr "ഒരു പുതിയ കളി കളിക്കണമെന്നത് തീർച്ചയാണോ?"
+
+#: ../src/gnome-nibbles.vala:424
+msgid "If you start a new game, the current one will be lost."
+msgstr "നിങ്ങൾ ഒരു പുതിയ ഗെയിം ആരംഭിച്ചാൽ, നിലവിലുള്ളത് നഷ്ടമാകും."
+
+#: ../src/gnome-nibbles.vala:455
+msgid "_Resume"
+msgstr "പുനരാരംഭിക്കുക (_R)"
+
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:903
 #, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"നിബിള്‍സിന് ലവല്‍ ഫയല്‍ ലഭ്യമായില്ല:\n"
-"%s\n"
-"\n"
-"ദയവായി നിബിള്‍സിന്റെ ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക"
+msgid "Level %d"
+msgstr "%d നില "
 
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"ലെവല്‍ ഫയലിന് കേടുപാട് പറ്റിയതായി കാണുന്നു:\n"
-"%s\n"
-"\n"
-"ദയവായി നിബിള്‍സിന്റെ ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക"
-
-#: ../src/games-controls.c:288
-msgid "Unknown Command"
-msgstr "അപരിചിതമായ കമാന്‍ഡ്"
-
-#. Score dialog column header for the score time (e.g. 1 minute)
-#: ../src/games-scores-dialog.c:136
-msgctxt "score-dialog"
-msgid "Time"
-msgstr " സമയം"
-
-#. Score dialog column header for the score value (e.g. 30 moves)
-#: ../src/games-scores-dialog.c:142
-msgctxt "score-dialog"
-msgid "Score"
-msgstr "സ്കോര്‍"
-
-#. Score format for time based scores.  %1$d is the time in minutes, %2$d is the time in seconds
-#: ../src/games-scores-dialog.c:307
-#, c-format
-msgctxt "score-dialog"
-msgid "%1$dm %2$ds"
-msgstr "%1$dm %2$ds"
-
-#: ../src/games-scores-dialog.c:470
-msgid "New Game"
-msgstr "പുതിയ കളി"
-
-#. Score dialog column header for the name of the player who recorded the score
-#: ../src/games-scores-dialog.c:571
-msgctxt "score-dialog"
-msgid "Name"
-msgstr "പേര്"
-
-#. Score dialog column header for the date the score was recorded
-#: ../src/games-scores-dialog.c:580
-msgid "Date"
-msgstr "തീയതി"
-
-#: ../src/gnibbles.c:82
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
-msgstr ""
-"നിബിള്‍സിന് pixmap ഫയല്‍ ലഭ്യമായില്ല:\n"
-"%s\n"
-"\n"
-"ദയവായി നിബിള്‍സിന്റെ ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക"
-
-#: ../src/gnibbles.c:342
-msgid "Nibbles Scores"
-msgstr "നിബിള്‍സിന്റെ സ്കോറുകള്‍"
-
-#: ../src/gnibbles.c:345
-msgid "Speed:"
-msgstr "വേഗത:"
-
-#: ../src/gnibbles.c:350
-msgid "Congratulations!"
-msgstr "അഭിനന്ദങ്ങള്‍, നിങ്ങള്‍ ജയിച്ചിരിക്കുന്നു!"
-
-#: ../src/gnibbles.c:351
-msgid "Your score is the best!"
-msgstr "നിങ്ങളുടെ സ്കോര്‍ ഒന്നാമതെത്തിയിരിക്കുന്നു!"
-
-#: ../src/gnibbles.c:352
-msgid "Your score has made the top ten."
-msgstr "നിങ്ങളുടെ സ്കോര്‍ ആദ്യത്തെ പത്തിലായിരിക്കുന്നു."
-
-#: ../src/main.c:64
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:763
 msgid "Beginner"
 msgstr "തുടക്കക്കാരന്‍"
 
-#: ../src/main.c:65
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:765
 msgid "Slow"
 msgstr "പതിയെ"
 
-#: ../src/main.c:66
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:767
 msgid "Medium"
 msgstr "ഇടത്തരം"
 
-#: ../src/main.c:67
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:769
 msgid "Fast"
 msgstr "വേഗത്തില്‍"
 
-#: ../src/main.c:68
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:771
 msgid "Beginner with Fakes"
-msgstr "തുടക്കക്കാരന്‍"
+msgstr "തുടക്കക്കാരന്‍ - വ്യാജത്തോട് കൂടി"
 
-#: ../src/main.c:69
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:773
 msgid "Slow with Fakes"
-msgstr "ഫേക്കുകളുടെ സ്പീട് കുറക്കുക"
+msgstr "പതിയെ - വ്യാജത്തോട് കൂടി"
 
-#: ../src/main.c:70
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:775
 msgid "Medium with Fakes"
-msgstr "ഫേക്കുകളുടെ സ്പീട് ഇടത്തരമാക്കുക"
+msgstr "ഇടത്തരം - വ്യാജത്തോട് കൂടി"
 
-#: ../src/main.c:71
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: ../src/gnome-nibbles.vala:777
 msgid "Fast with Fakes"
-msgstr "ഫേക്കുകളുടെ സ്പീട് കൂട്ടുക"
+msgstr "വേഗത്തില്‍ - വ്യാജത്തോട് കൂടി"
 
-#: ../src/main.c:163
-msgid ""
-"A worm game for GNOME.\n"
-"\n"
-"Nibbles is a part of GNOME Games."
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: ../src/gnome-nibbles.vala:782
+msgid "Difficulty Level:"
+msgstr "ബുദ്ധിമുട്ട് നില"
+
+#. Translators: the %d is the number of the level that was completed.
+#: ../src/gnome-nibbles.vala:885
+#, c-format
+msgid "Level %d Completed!"
+msgstr "\"%d\" നില പൂർത്തിയായി!"
+
+#: ../src/gnome-nibbles.vala:892
+msgid "_Next Level"
+msgstr "അടുത്ത നില (_N)"
+
+#: ../src/gnome-nibbles.vala:960
+msgid "Congratulations!"
+msgstr "അഭിനന്ദങ്ങള്‍, നിങ്ങള്‍ ജയിച്ചിരിക്കുന്നു!"
+
+#: ../src/gnome-nibbles.vala:960
+msgid "Game Over!"
+msgstr "കളി ഓവർ"
+
+#: ../src/gnome-nibbles.vala:967
+msgid "You have completed the game."
+msgstr "നിങ്ങൾ കളി പൂർത്തിയാക്കി."
+
+#: ../src/gnome-nibbles.vala:974
+#, c-format
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] "\"%d\" പോയിന്റ്"
+msgstr[1] "\"%d\" പോയിന്റുകൾ"
+
+#: ../src/gnome-nibbles.vala:984
+#, c-format
+msgid "(%ld more points to reach the leaderboard)"
 msgstr ""
-"ഒരു ഗ്നോം കളി\n"
-"\n"
-"നിബ്ബിള്‍സ് ഗ്നോം കളികളുടെ ഭാഗമാണു്"
 
-#: ../src/main.c:166
+#: ../src/gnome-nibbles.vala:990
+msgid "_Play Again"
+msgstr "വീണ്ടും കളിക്കുക (_P)"
+
+#: ../src/gnome-nibbles.vala:1055
+msgid "A worm game for GNOME"
+msgstr "ഗ്നോമിനുള്ള ഒരു പുഴു കളി"
+
+#: ../src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
 "എഫ്.എസ്.എഫ് - ഇന്ത്യ <gnu@gnu.org.in>\n"
 "അനി പീറ്റര്‍ <apeter@redhat.com>\n"
 "അഭിഷേക് ജേക്കബ് <abhishekjacob123@gmail.com>\n"
 "Mohammed Sadiq <sadiqpkp@gmail.com>\n"
-"നന്ദജ വര്‍മ്മ <nandaja.varma@gmail.com>"
+"നന്ദജ വര്‍മ്മ <nandaja.varma@gmail.com>\n"
+"Aishwarya Rajan <aishwarya.rjn2000@gmail.com>\n"
+"അനീഷ് ഷീല <aneesh.nl@gmail.com>"
 
-#: ../src/main.c:169
-msgid "GNOME Games web site"
-msgstr "ഗ്നോ കളികളുടെ വെബ് സൈറ്റ്"
-
-#: ../src/main.c:470
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: ../src/gnome-nibbles.vala:1098 ../src/gnome-nibbles.vala:1216 ../src/nibbles-view.vala:583
 #, c-format
-msgid "Game over! The game has been won by %s!"
-msgstr "കളി കഴിഞ്ഞിരിക്കുന്ന! കളി %s ജയിച്ചിരിക്കുന്നു!"
+msgid "Player %d"
+msgstr "കളിക്കാരന്‍ %d"
 
-#: ../src/main.c:583
-msgid "_Game"
-msgstr "_കളി"
+#: ../src/nibbles-view.vala:156
+msgid "red"
+msgstr "ചുവപ്പ്"
 
-#: ../src/main.c:584
-msgid "_View"
-msgstr "_കാഴ്ച"
-
-#: ../src/main.c:585
-msgid "_Settings"
-msgstr "_ക്രമികരണങ്ങള്‍ "
-
-#: ../src/main.c:586
-msgid "_Help"
-msgstr "_സഹായം"
-
-#: ../src/main.c:587
-msgid "_New Game"
-msgstr "പുതിയ കളി (_N)"
-
-#: ../src/main.c:589
-msgid "_End Game"
-msgstr "കളി _അവസാനിപ്പിക്കുക"
-
-#: ../src/main.c:591
-msgid "_Scores"
-msgstr "_സ്കോറുകള്‍"
-
-#: ../src/main.c:596
-msgid "_Contents"
-msgstr "_ഉള്ളടക്കം"
-
-#: ../src/preferences.c:238
-msgid "Nibbles Preferences"
-msgstr "Nibbles മുന്‍ഗണനകള്‍"
-
-#: ../src/preferences.c:251
-msgid "Game"
-msgstr "കളി "
-
-#. Speed
-#: ../src/preferences.c:267
-msgid "Speed"
-msgstr "വേഗത"
-
-#: ../src/preferences.c:272
-msgid "Nibbles newbie"
-msgstr "Nibbles newbie"
-
-#: ../src/preferences.c:282
-msgid "My second day"
-msgstr "എന്റെ രണ്ടാമത്തെ ദിവസം"
-
-#: ../src/preferences.c:292
-msgid "Not too shabby"
-msgstr "മോശമില്ല"
-
-#: ../src/preferences.c:302
-msgid "Finger-twitching good"
-msgstr "കേമമായിരിക്കുന്നു "
-
-#: ../src/preferences.c:316 ../src/preferences.c:455
-msgid "Options"
-msgstr "ഉപാധികള്‍"
-
-#: ../src/preferences.c:323
-msgid "_Play levels in random order"
-msgstr "ഏതെങ്കിലും ക്രമത്തില്‍ ലവലുകള്‍ കളിക്കുക (_P)"
-
-#: ../src/preferences.c:333
-msgid "_Enable fake bonuses"
-msgstr "വ്യാജമായ ബോണസ്സുകള്‍ സജ്ജമാക്കുക (_E)"
-
-#: ../src/preferences.c:343
-msgid "E_nable sounds"
-msgstr "ശബ്ദം ക്രമീകരിക്കുക (_n)"
-
-#: ../src/preferences.c:356
-msgid "_Starting level:"
-msgstr "കളി തുടങ്ങേണ്ട നില: (_S)"
-
-#: ../src/preferences.c:385
-msgid "Number of _human players:"
-msgstr "കളിക്കാരുടെ എണ്ണം: (_h)"
-
-#: ../src/preferences.c:406
-msgid "Number of _AI players:"
-msgstr "AI കളിക്കാരുടെ എണ്ണം: (_A)"
-
-#: ../src/preferences.c:431
-msgid "Worm"
-msgstr "വേം"
-
-#: ../src/preferences.c:440
-msgid "Keyboard Options"
-msgstr "കീബോര്‍ഡ് ഐച്ഛികങ്ങള്‍"
-
-#: ../src/preferences.c:460
-msgid "_Use relative movement"
-msgstr "ആപേക്ഷിക ചലനം ഉപയോഗിക്കുക"
-
-#: ../src/preferences.c:467
-msgid "_Worm color:"
-msgstr "_പുഴുവിന്റെ നിറം:"
-
-#: ../src/preferences.c:473
-msgid "Red"
-msgstr "ചെമപ്പ്"
-
-#: ../src/preferences.c:474
-msgid "Green"
+#: ../src/nibbles-view.vala:157
+msgid "green"
 msgstr "പച്ച"
 
-#: ../src/preferences.c:475
-msgid "Blue"
+#: ../src/nibbles-view.vala:158
+msgid "blue"
 msgstr "നീല"
 
-#: ../src/preferences.c:476
-msgid "Yellow"
+#: ../src/nibbles-view.vala:159
+msgid "yellow"
 msgstr "മഞ്ഞ"
 
-#: ../src/preferences.c:477
-msgid "Cyan"
-msgstr "സിയന്"
+#: ../src/nibbles-view.vala:160
+msgid "cyan"
+msgstr "സിയാന്‍"
 
-#: ../src/preferences.c:478
-msgid "Purple"
+#: ../src/nibbles-view.vala:161
+msgid "purple"
 msgstr "പര്‍പ്പിള്‍"
 
-#: ../src/preferences.c:479
-msgid "Gray"
-msgstr "ഗ്രേ"
+#: ../src/preferences-dialog.vala:140
+msgid "Action"
+msgstr "ആക്ഷന്‍"
 
-#: ../src/scoreboard.c:48
-#, c-format
-msgid "Worm %d:"
-msgstr "വേം %d:"
+#: ../src/preferences-dialog.vala:147
+msgid "Key"
+msgstr "കീ"
+
+#. Translators: This string appears when one tries to assign an already assigned key
+#: ../src/preferences-dialog.vala:230
+msgid "The key you selected is already assigned!"
+msgstr "നിങ്ങൾ തിരഞ്ഞെടുത്ത കീ ഇതിനകം തന്നെ ഉപയോഗിച്ചു!"
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "കളിയുടെ വേഗത (1=വേഗം, 4=പതിയെ)."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "ഏതെങ്കിലും ക്രമത്തില്‍ ലവലുകള്‍ കളിക്കുക"
+
+#~ msgid "Play levels in random order."
+#~ msgstr "ഏതെങ്കിലും ക്രമത്തില്‍ ലവലുകള്‍ കളിക്കുക."
+
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "നിബിള്‍സിന് ലവല്‍ ഫയല്‍ ലഭ്യമായില്ല:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "ദയവായി നിബിള്‍സിന്റെ ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക"
+
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "ലെവല്‍ ഫയലിന് കേടുപാട് പറ്റിയതായി കാണുന്നു:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "ദയവായി നിബിള്‍സിന്റെ ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക"
+
+#~ msgid "Unknown Command"
+#~ msgstr "അപരിചിതമായ കമാന്‍ഡ്"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Time"
+#~ msgstr " സമയം"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Score"
+#~ msgstr "സ്കോര്‍"
+
+#~ msgctxt "score-dialog"
+#~ msgid "%1$dm %2$ds"
+#~ msgstr "%1$dm %2$ds"
+
+#~ msgid "New Game"
+#~ msgstr "പുതിയ കളി"
+
+#~ msgctxt "score-dialog"
+#~ msgid "Name"
+#~ msgstr "പേര്"
+
+#~ msgid "Date"
+#~ msgstr "തീയതി"
+
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "നിബിള്‍സിന് pixmap ഫയല്‍ ലഭ്യമായില്ല:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "ദയവായി നിബിള്‍സിന്റെ ഇന്‍സ്റ്റലേഷന്‍ പരിശോധിക്കുക"
+
+#~ msgid "Nibbles Scores"
+#~ msgstr "നിബിള്‍സിന്റെ സ്കോറുകള്‍"
+
+#~ msgid "Speed:"
+#~ msgstr "വേഗത:"
+
+#~ msgid "Your score is the best!"
+#~ msgstr "നിങ്ങളുടെ സ്കോര്‍ ഒന്നാമതെത്തിയിരിക്കുന്നു!"
+
+#~ msgid "Your score has made the top ten."
+#~ msgstr "നിങ്ങളുടെ സ്കോര്‍ ആദ്യത്തെ പത്തിലായിരിക്കുന്നു."
+
+#~ msgid ""
+#~ "A worm game for GNOME.\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "ഒരു ഗ്നോം കളി\n"
+#~ "\n"
+#~ "നിബ്ബിള്‍സ് ഗ്നോം കളികളുടെ ഭാഗമാണു്"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "ഗ്നോ കളികളുടെ വെബ് സൈറ്റ്"
+
+#~ msgid "Game over! The game has been won by %s!"
+#~ msgstr "കളി കഴിഞ്ഞിരിക്കുന്ന! കളി %s ജയിച്ചിരിക്കുന്നു!"
+
+#~ msgid "_Game"
+#~ msgstr "_കളി"
+
+#~ msgid "_View"
+#~ msgstr "_കാഴ്ച"
+
+#~ msgid "_Settings"
+#~ msgstr "_ക്രമികരണങ്ങള്‍ "
+
+#~ msgid "_End Game"
+#~ msgstr "കളി _അവസാനിപ്പിക്കുക"
+
+#~ msgid "_Contents"
+#~ msgstr "_ഉള്ളടക്കം"
+
+#~ msgid "Game"
+#~ msgstr "കളി "
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "Nibbles newbie"
+
+#~ msgid "My second day"
+#~ msgstr "എന്റെ രണ്ടാമത്തെ ദിവസം"
+
+#~ msgid "Not too shabby"
+#~ msgstr "മോശമില്ല"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "കേമമായിരിക്കുന്നു "
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "ഏതെങ്കിലും ക്രമത്തില്‍ ലവലുകള്‍ കളിക്കുക (_P)"
+
+#~ msgid "_Starting level:"
+#~ msgstr "കളി തുടങ്ങേണ്ട നില: (_S)"
+
+#~ msgid "Number of _human players:"
+#~ msgstr "കളിക്കാരുടെ എണ്ണം: (_h)"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "AI കളിക്കാരുടെ എണ്ണം: (_A)"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "കീബോര്‍ഡ് ഐച്ഛികങ്ങള്‍"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "ആപേക്ഷിക ചലനം ഉപയോഗിക്കുക"
+
+#~ msgid "Blue"
+#~ msgstr "നീല"
+
+#~ msgid "Cyan"
+#~ msgstr "സിയന്"
+
+#~ msgid "Gray"
+#~ msgstr "ഗ്രേ"
+
+#~ msgid "Worm %d:"
+#~ msgstr "വേം %d:"
