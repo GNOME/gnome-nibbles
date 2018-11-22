@@ -1,37 +1,24 @@
-# Esperanto translation for gnome-games.
-# Copyright (c) 2005 Canonical Ltd, and Rosetta Contributors 2005
-# This file is distributed under the same license as the gnome-games package.
-#
-# FIRST AUTHOR < >, 2005.
-# Billy HAND < >, 2008.
-# Sergio ĤLUTĈIN < >, 2009.
-# Arturo < >, 2009.
-# Benno SCHULENBERG < >, 2010.
-# Robert BOGENSCHNEIDER < >, 2010.
-# Alekso42 < >, 2010.
-# Miguel PÉREZ < >, 2010.
-# Michael MORONI < >, 2011.
-# Serge LEBLANC < >, 2011.
-# Miĥa-Johano WALTER < >, 2011.
-# Tiffany Antopolski <tiffany.antopolski@gmail.com>, 2011, 2012.
-# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010, 2011, 2012.
-#
+# Esperanto translation for gnome-mahjongg.
+# Copyright (C) 2011 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-mahjongg package.
+# Tiffany ANTOPOLSKI <tiffany.antopolski@gmail.com>, 2011, 2012.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2011, 2012, 2018.
+# Carmen Bianca BAKKER <carmen@carmenbianca.eu>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 23:34+0100\n"
-"PO-Revision-Date: 2012-03-09 22:20+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
+"POT-Creation-Date: 2018-09-19 17:56+0000\n"
+"PO-Revision-Date: 2018-11-22 16:21+0200\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
-"Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
+"Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Virtaal 0.7.1-rc1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-DamnedLies-Scope: partial\n"
-"X-Launchpad-Export-Date: 2012-01-11 17:32+0000\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/controls-grid.ui.h:1
@@ -40,7 +27,7 @@ msgstr "Ludanto"
 
 #: ../data/nibbles-menus.ui.h:1
 msgid "_Preferences"
-msgstr "_Preferoj"
+msgstr "_Agordoj"
 
 #: ../data/nibbles-menus.ui.h:2
 msgid "_Scores"
@@ -60,7 +47,7 @@ msgstr "_Fini"
 
 #: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1048
+#: ../src/gnome-nibbles.vala:1052
 msgid "Nibbles"
 msgstr "Ronĝaj Vermoj"
 
@@ -70,39 +57,35 @@ msgstr "_Nova ludo"
 
 #: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
-msgstr "_Paŭzo"
+msgstr "_Paŭzigi"
 
 #: ../data/nibbles.ui.h:4
 msgid "Let’s _Play"
-msgstr ""
+msgstr "Ni _ludu"
 
 #: ../data/nibbles.ui.h:5
 msgid "Welcome, worms."
-msgstr ""
+msgstr "Bonvenon, vermoj."
 
 #: ../data/nibbles.ui.h:6
 msgid "Eat the treats before the other worms, but don’t hit anything!"
-msgstr ""
+msgstr "Manĝu la dolĉaĵojn antaŭ ol la aliaj vermoj, sed ne trafu ion ajn!"
 
 #: ../data/nibbles.ui.h:7
-#, fuzzy
 msgid "Number of players"
-msgstr "_Nombro da ludantoj:"
+msgstr "Nombro da ludantoj"
 
 #: ../data/nibbles.ui.h:8
-#, fuzzy
 msgid "Select the number of human players."
-msgstr "Nombro da homaj ludantoj."
+msgstr "Elektu la nombron da homaj ludantoj."
 
 #: ../data/nibbles.ui.h:9
-#, fuzzy
 msgid "Select the number of computer players."
-msgstr "Elekti stirstilon"
+msgstr "Elektu la nombron da komputilaj ludantoj."
 
 #: ../data/nibbles.ui.h:10
-#, fuzzy
 msgid "_Next"
-msgstr "Sekva:"
+msgstr "_Sekva"
 
 #: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
@@ -110,16 +93,15 @@ msgstr "Stiriloj"
 
 #: ../data/nibbles.ui.h:12
 msgid "_Start"
-msgstr "_Starti"
+msgstr "_Komenci"
 
 #: ../data/nibbles.ui.h:13
 msgid "Paused"
-msgstr "Paŭzigite"
+msgstr "Paŭzigita"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
-#, fuzzy
 msgid "GNOME Nibbles"
-msgstr "Ronĝaj Vermoj"
+msgstr "GNOME Ronĝaj Vermoj"
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
 #: ../data/org.gnome.Nibbles.desktop.in.h:2
@@ -134,6 +116,11 @@ msgid ""
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won’t have much room for movement."
 msgstr ""
+"Mastrumu vermon por ke ĝi manĝu plusojn kaj igu pli longe. Evitu malamikajn "
+"vermojn manĝante benjetojn kaj glaciaĵojn por plilongiĝi. Ĉiu vermo havas "
+"dek vivojn kaj perdos unu per trafi muron, alian vermon, aŭ sin mem. La "
+"malamikaj vermoj celas la samajn plusojn, do atentu: se ili kreskiĝis tro "
+"longe, vi ne havos multe da spaco por movado."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
 msgid ""
@@ -141,56 +128,41 @@ msgid ""
 "levels are mostly open with a few walls, but later on, cramped spaces and "
 "teleporters make things more interesting."
 msgstr ""
+"La aventuro progresas tra 26 mapoj de kreskanta malfacileco. La fruaj "
+"niveloj plejparte estas malfermaj kun malmultaj muroj, sed poste malvastaj "
+"spacoj kaj teleportejoj tute ŝanĝas la ludon."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
+"Ludu sole kontraŭ ĝis kvin malamikaj vermoj, aŭ kunhavigu vian klavaron por "
+"ludi kune kun amiko."
 
 #: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
 msgid "The GNOME Project"
-msgstr ""
+msgstr "La GNOME Projekto"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
-msgstr ""
+msgstr "ludo;vermo;tabulo;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
-#, fuzzy
 msgid "Width of the window in pixels"
-msgstr "La larĝo de la ĉefa fenestro per rastrumeroj."
+msgstr "Larĝo de la fenestro en bilderoj"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:2
-#, fuzzy
 msgid "Width of the window in pixels."
-msgstr "La larĝo de la ĉefa fenestro per rastrumeroj."
+msgstr "Larĝo de la fenestro en bilderoj."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:3
-#, fuzzy
 msgid "Height of the window in pixels"
-msgstr "La alto de la ĉefa fenestro per rastrumeroj."
+msgstr "Alto de la fenestro en bilderoj"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:4
-#, fuzzy
 msgid "Height of the window in pixels."
-msgstr "La alto de la ĉefa fenestro per rastrumeroj."
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:5
-msgid "true if the window is maximized"
-msgstr ""
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:6
-msgid "true if the window is maximized."
-msgstr ""
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:7
-msgid "Is this the first run"
-msgstr ""
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:8
-msgid "Setting to decide whether to show first-run hint dialog or not."
-msgstr ""
+msgstr "Alto de la fenestro en bilderoj."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
@@ -207,14 +179,6 @@ msgstr "Ludenda nivelo"
 #: ../data/org.gnome.nibbles.gschema.xml.h:12
 msgid "Game level to start on."
 msgstr "Ludenda nivelo."
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:13
-msgid "Worms movement speed"
-msgstr ""
-
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
-msgid "Worms movement speed."
-msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
@@ -313,23 +277,20 @@ msgid "Speed"
 msgstr "Rapideco"
 
 #: ../data/preferences-dialog.ui.h:3
-#, fuzzy
 msgid "_Beginner"
-msgstr "Komencanto"
+msgstr "_Komencanto"
 
 #: ../data/preferences-dialog.ui.h:4
-#, fuzzy
 msgid "_Slow"
-msgstr "Malrapida"
+msgstr "M_alrapida"
 
 #: ../data/preferences-dialog.ui.h:5
 msgid "_Medium"
 msgstr "_Meza"
 
 #: ../data/preferences-dialog.ui.h:6
-#, fuzzy
 msgid "_Fast"
-msgstr "Rapida"
+msgstr "_Rapida"
 
 #: ../data/preferences-dialog.ui.h:7
 msgid "Options"
@@ -337,41 +298,35 @@ msgstr "Opcioj"
 
 #: ../data/preferences-dialog.ui.h:8
 msgid "E_nable sounds"
-msgstr "E_nŝalti sonojn"
+msgstr "Ŝalti _sonojn"
 
 #: ../data/preferences-dialog.ui.h:9
 msgid "_Enable fake bonuses"
-msgstr "_Enŝalti falsajn plusojn"
+msgstr "Ŝ_alti falsajn plusojn"
 
 #: ../data/preferences-dialog.ui.h:10
-#, fuzzy
 msgid "_General"
-msgstr "Ĝenerala"
+msgstr "Ĝ_enerala"
 
 #: ../data/preferences-dialog.ui.h:12
-#, fuzzy
 msgid "Worm color"
-msgstr "Vermokoloro:"
+msgstr "Vermokoloro"
 
 #: ../data/preferences-dialog.ui.h:13
-#, fuzzy
 msgid "Worm _1"
-msgstr "Vermo"
+msgstr "Vermo _1"
 
 #: ../data/preferences-dialog.ui.h:14
-#, fuzzy
 msgid "Worm _2"
-msgstr "Vermo"
+msgstr "Vermo _2"
 
 #: ../data/preferences-dialog.ui.h:15
-#, fuzzy
 msgid "Worm _3"
-msgstr "Vermo"
+msgstr "Vermo _3"
 
 #: ../data/preferences-dialog.ui.h:16
-#, fuzzy
 msgid "Worm _4"
-msgstr "Vermo"
+msgstr "Vermo _4"
 
 #. Help string for command line --version flag
 #: ../src/gnome-nibbles.vala:104
@@ -379,191 +334,159 @@ msgid "Show release version"
 msgstr "Montri eldonversion"
 
 #: ../src/gnome-nibbles.vala:423
-#, fuzzy
 msgid "Are you sure you want to start a new game?"
-msgstr "Ĉu vi volas ekludi novan ludo kun tiu ĉi mapon?"
+msgstr "Ĉu vi certe volas komenci novan ludon?"
 
 #: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
-msgstr ""
+msgstr "Se vi volas komenci novan ludon, la aktualan vi malgajnos."
 
 #: ../src/gnome-nibbles.vala:455
-#, fuzzy
 msgid "_Resume"
-msgstr "_Reagordi"
+msgstr "_Daŭrigi"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
-#, fuzzy, c-format
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:903
+#, c-format
 msgid "Level %d"
-msgstr "Nivelo:"
+msgstr "Nivelo %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:763
-#, fuzzy
 msgid "Beginner"
 msgstr "Komencanto"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:765
-#, fuzzy
 msgid "Slow"
 msgstr "Malrapida"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:767
 msgid "Medium"
-msgstr "Meze"
+msgstr "Meza"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:769
-#, fuzzy
 msgid "Fast"
 msgstr "Rapida"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:771
-#, fuzzy
 msgid "Beginner with Fakes"
 msgstr "Komencanto kun falsaĵoj"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:773
-#, fuzzy
 msgid "Slow with Fakes"
 msgstr "Malrapida kun falsaĵoj"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:775
-#, fuzzy
 msgid "Medium with Fakes"
 msgstr "Meza kun falsaĵoj"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:777
-#, fuzzy
 msgid "Fast with Fakes"
 msgstr "Rapida kun falsaĵoj"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
 #: ../src/gnome-nibbles.vala:782
-#, fuzzy
 msgid "Difficulty Level:"
-msgstr "Malfacileco:"
+msgstr "Malfacileca nivelo:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:883
-#, fuzzy, c-format
+#: ../src/gnome-nibbles.vala:885
+#, c-format
 msgid "Level %d Completed!"
-msgstr "Nivelo finita."
+msgstr "Nivelo %d plenumita!"
 
-#: ../src/gnome-nibbles.vala:890
+#: ../src/gnome-nibbles.vala:892
 msgid "_Next Level"
-msgstr ""
+msgstr "_Sekva nivelo"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Congratulations!"
 msgstr "Gratulojn!"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Game Over!"
 msgstr "Ludo finita!"
 
-#: ../src/gnome-nibbles.vala:963
-#, fuzzy
+#: ../src/gnome-nibbles.vala:967
 msgid "You have completed the game."
-msgstr "Vi plenumis la puzlon en %(totalTime)s"
+msgstr "Vi plenumis la ludon."
 
-#: ../src/gnome-nibbles.vala:970
-#, fuzzy, c-format
+#: ../src/gnome-nibbles.vala:974
+#, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d poento"
 msgstr[1] "%d poentoj"
 
-#: ../src/gnome-nibbles.vala:980
+#: ../src/gnome-nibbles.vala:984
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
-msgstr ""
+msgstr "(%ld pli da poentoj por atingi la ĉampionejon)"
 
-#: ../src/gnome-nibbles.vala:986
-#, fuzzy
+#: ../src/gnome-nibbles.vala:990
 msgid "_Play Again"
-msgstr "Ludi kiel:"
+msgstr "_Ludi denove"
 
-#: ../src/gnome-nibbles.vala:1051
-#, fuzzy
+#: ../src/gnome-nibbles.vala:1055
 msgid "A worm game for GNOME"
-msgstr "Ludilo kun vermoj por GNOME."
+msgstr "Ludilo kun vermoj por GNOME"
 
-#: ../src/gnome-nibbles.vala:1060
+#: ../src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Alekso42 https://launchpad.net/~alekso42\n"
-"  Arturo https://launchpad.net/~asly-esperanto\n"
-"  Benno Schulenberg https://launchpad.net/~bennoschulenberg\n"
-"  Billy Hand https://launchpad.net/~billythethird\n"
-"  Johano https://launchpad.net/~johanohepton\n"
-"  Kristjan SCHMIDT https://launchpad.net/~kristjan-eo\n"
-"  Marek Blahuš https://launchpad.net/~s-launchpad-blahus-cz\n"
-"  Michael Moroni https://launchpad.net/~airon90\n"
-"  Miguel Pérez https://launchpad.net/~rraton-esperanto\n"
-"  Robert BOGENSCHNEIDER https://launchpad.net/~robog\n"
-"  Serge Leblanc https://launchpad.net/~serge-leblanc\n"
-"  Sergio Ĥlutĉin https://launchpad.net/~sergej-hlutchin\n"
-"  Thomas Heinis https://launchpad.net/~th-sitrino\n"
-"\n"
-"GNOME Contributions:\n"
-"  Tiffany Antopolski"
+"Kristjan SCHMIDT\n"
+"Tiffany ANTOPOLSKI\n"
+"Carmen Bianca BAKKER <carmen@carmenbianca.eu>"
 
 #. FIXME: Consider changing this to "Worm %d"
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
+#: ../src/gnome-nibbles.vala:1098 ../src/gnome-nibbles.vala:1216
 #: ../src/nibbles-view.vala:583
-#, fuzzy, c-format
+#, c-format
 msgid "Player %d"
-msgstr "Ludanto"
+msgstr "Ludanto %d"
 
 #: ../src/nibbles-view.vala:156
-#, fuzzy
 msgid "red"
-msgstr "Ruĝo"
+msgstr "ruĝo"
 
 #: ../src/nibbles-view.vala:157
-#, fuzzy
 msgid "green"
-msgstr "Verdo"
+msgstr "verdo"
 
 #: ../src/nibbles-view.vala:158
 msgid "blue"
-msgstr ""
+msgstr "bluo"
 
 #: ../src/nibbles-view.vala:159
-#, fuzzy
 msgid "yellow"
-msgstr "Flavo"
+msgstr "flavo"
 
 #: ../src/nibbles-view.vala:160
 msgid "cyan"
-msgstr ""
+msgstr "bluverdo"
 
 #: ../src/nibbles-view.vala:161
-#, fuzzy
 msgid "purple"
-msgstr "Purpuro"
+msgstr "purpuro"
 
 #: ../src/preferences-dialog.vala:140
-#, fuzzy
 msgid "Action"
-msgstr "Animacio"
+msgstr "Ago"
 
 #: ../src/preferences-dialog.vala:147
 msgid "Key"
-msgstr ""
+msgstr "Klavo"
 
 #. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
-msgstr ""
+msgstr "La klavo, kiun vi elektis, jam estas asignita!"
