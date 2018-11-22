@@ -1,6 +1,6 @@
-# Esperanto translation for gnome-mahjongg.
+# Esperanto translation for gnome-nibbles.
 # Copyright (C) 2011 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-mahjongg package.
+# This file is distributed under the same license as the gnome-nibbles package.
 # Tiffany ANTOPOLSKI <tiffany.antopolski@gmail.com>, 2011, 2012.
 # Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2011, 2012, 2018.
 # Carmen Bianca BAKKER <carmen@carmenbianca.eu>, 2018.
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2018-09-19 17:56+0000\n"
-"PO-Revision-Date: 2018-11-22 16:21+0200\n"
+"POT-Creation-Date: 2018-11-22 15:21+0000\n"
+"PO-Revision-Date: 2018-11-22 16:25+0200\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
 "Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
 "Language: eo\n"
@@ -164,6 +164,24 @@ msgstr "Alto de la fenestro en bilderoj"
 msgid "Height of the window in pixels."
 msgstr "Alto de la fenestro en bilderoj."
 
+#: ../data/org.gnome.nibbles.gschema.xml.h:5
+#| msgid "Width of the window in pixels"
+msgid "true if the window is maximized"
+msgstr "vera se la fenestro estas maksimumigita"
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:6
+#| msgid "Width of the window in pixels."
+msgid "true if the window is maximized."
+msgstr "vera se la fenestro estas maksimumigita."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:7
+msgid "Is this the first run"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:8
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
+
 #: ../data/org.gnome.nibbles.gschema.xml.h:9
 msgid "Size of game tiles"
 msgstr "Grando de ludkaheloj"
@@ -179,6 +197,14 @@ msgstr "Ludenda nivelo"
 #: ../data/org.gnome.nibbles.gschema.xml.h:12
 msgid "Game level to start on."
 msgstr "Ludenda nivelo."
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:13
+msgid "Worms movement speed"
+msgstr ""
+
+#: ../data/org.gnome.nibbles.gschema.xml.h:14
+msgid "Worms movement speed."
+msgstr ""
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:15
 msgid "Enable sounds"
