@@ -2,7 +2,6 @@
 # Please keep this file in alphabetical order.
 [encoding: UTF-8]
 [type: gettext/glade]data/controls-grid.ui
-[type: gettext/glade]data/nibbles-menus.ui
 [type: gettext/glade]data/nibbles.ui
 data/org.gnome.Nibbles.appdata.xml.in
 data/org.gnome.Nibbles.desktop.in
