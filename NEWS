@@ -1,3 +1,10 @@
+3.31.3 - December 10, 2018
+==========================
+
+- Fix display of level completed label and next level button (#22, Pedro Aldatxarren)
+- Replace app menu with window menu (Jeremy Bicha)
+- Updated translations
+
 3.23.92 - March 13, 2017
 ========================
 
