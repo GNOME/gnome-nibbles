@@ -1,19 +1,18 @@
 # Swedish messages for gnome-nibbles.
-# Copyright © 1999-2016 Free Software Foundation, Inc.
+# Copyright © 1999-2018 Free Software Foundation, Inc.
 # Andreas Persenius <ndap@swipnet.se>, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>
 # Martin Norbäck <d95mback@dtek.chalmers.se>, 2000.
 # Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-11-12 12:44+0000\n"
-"PO-Revision-Date: 2016-11-28 19:20+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
+"POT-Creation-Date: 2018-12-06 19:01+0000\n"
+"PO-Revision-Date: 2018-12-28 11:19+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,83 +20,79 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.2\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
 msgstr "Spelare"
 
-#: ../data/nibbles-menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Inställningar"
-
-#: ../data/nibbles-menus.ui.h:2
+#: ../data/nibbles.ui.h:1
 msgid "_Scores"
 msgstr "_Poäng"
 
-#: ../data/nibbles-menus.ui.h:3
+#: ../data/nibbles.ui.h:2
+msgid "_Preferences"
+msgstr "_Inställningar"
+
+#: ../data/nibbles.ui.h:3
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: ../data/nibbles-menus.ui.h:4
-msgid "_About"
-msgstr "_Om"
+#: ../data/nibbles.ui.h:4
+msgid "_About Nibbles"
+msgstr "_Om Nibbles"
 
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Quit"
-msgstr "A_vsluta"
-
-#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../data/nibbles.ui.h:5 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1048
+#: ../src/gnome-nibbles.vala:1052
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
+#: ../data/nibbles.ui.h:6 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "_Nytt spel"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
+#: ../data/nibbles.ui.h:7 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "P_aus"
 
-#: ../data/nibbles.ui.h:4
+#: ../data/nibbles.ui.h:8
 msgid "Let’s _Play"
 msgstr "_Börja spela"
 
-#: ../data/nibbles.ui.h:5
+#: ../data/nibbles.ui.h:9
 msgid "Welcome, worms."
 msgstr "Välkomna, maskar."
 
-#: ../data/nibbles.ui.h:6
+#: ../data/nibbles.ui.h:10
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "Ät godsakerna innan de andra maskarna, men krocka inte med något!"
 
-#: ../data/nibbles.ui.h:7
+#: ../data/nibbles.ui.h:11
 msgid "Number of players"
 msgstr "Antal spelare"
 
-#: ../data/nibbles.ui.h:8
+#: ../data/nibbles.ui.h:12
 msgid "Select the number of human players."
 msgstr "Välj antalet mänskliga spelare."
 
-#: ../data/nibbles.ui.h:9
+#: ../data/nibbles.ui.h:13
 msgid "Select the number of computer players."
 msgstr "Välj antalet datorspelare."
 
-#: ../data/nibbles.ui.h:10
+#: ../data/nibbles.ui.h:14
 msgid "_Next"
 msgstr "_Nästa"
 
-#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+#: ../data/nibbles.ui.h:15 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Styrning"
 
-#: ../data/nibbles.ui.h:12
+#: ../data/nibbles.ui.h:16
 msgid "_Start"
 msgstr "_Starta"
 
-#: ../data/nibbles.ui.h:13
+#: ../data/nibbles.ui.h:17
 msgid "Paused"
 msgstr "Pausad"
 
@@ -374,7 +369,7 @@ msgstr "Om du startar ett nytt spel kommer det nuvarande spelet gå förlorat."
 msgid "_Resume"
 msgstr "_Fortsätt"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:903
 #, c-format
 msgid "Level %d"
 msgstr "Nivå %d"
@@ -425,48 +420,48 @@ msgid "Difficulty Level:"
 msgstr "Svårighetsgrad:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:883
+#: ../src/gnome-nibbles.vala:885
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nivå %d färdig!"
 
-#: ../src/gnome-nibbles.vala:890
+#: ../src/gnome-nibbles.vala:892
 msgid "_Next Level"
 msgstr "_Nästa nivå"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Congratulations!"
 msgstr "Gratulerar!"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Game Over!"
 msgstr "Spelet är slut!"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:967
 msgid "You have completed the game."
 msgstr "Du har klarat spelet."
 
-#: ../src/gnome-nibbles.vala:970
+#: ../src/gnome-nibbles.vala:974
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d poäng"
 msgstr[1] "%d poäng"
 
-#: ../src/gnome-nibbles.vala:980
+#: ../src/gnome-nibbles.vala:984
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld poäng till för att nå topplistan)"
 
-#: ../src/gnome-nibbles.vala:986
+#: ../src/gnome-nibbles.vala:990
 msgid "_Play Again"
 msgstr "S_pela igen"
 
-#: ../src/gnome-nibbles.vala:1051
+#: ../src/gnome-nibbles.vala:1055
 msgid "A worm game for GNOME"
 msgstr "Ett maskspel för GNOME"
 
-#: ../src/gnome-nibbles.vala:1060
+#: ../src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -483,7 +478,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
+#: ../src/gnome-nibbles.vala:1098 ../src/gnome-nibbles.vala:1216
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -521,6 +516,13 @@ msgstr "Åtgärd"
 msgid "Key"
 msgstr "Tangent"
 
+#. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Tangenten du valde används redan!"
+
+#~ msgid "_About"
+#~ msgstr "_Om"
+
+#~ msgid "_Quit"
+#~ msgstr "A_vsluta"
