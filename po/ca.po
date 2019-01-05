@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-20 19:19+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
+"POT-Creation-Date: 2018-12-06 19:01+0000\n"
 "PO-Revision-Date: 2017-01-20 09:11+0100\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -29,78 +29,74 @@ msgstr ""
 msgid "Player"
 msgstr "Jugador"
 
-#: ../data/nibbles-menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Preferències"
-
-#: ../data/nibbles-menus.ui.h:2
+#: ../data/nibbles.ui.h:1
 msgid "_Scores"
 msgstr "_Puntuació"
 
-#: ../data/nibbles-menus.ui.h:3
+#: ../data/nibbles.ui.h:2
+msgid "_Preferences"
+msgstr "_Preferències"
+
+#: ../data/nibbles.ui.h:3
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: ../data/nibbles-menus.ui.h:4
-msgid "_About"
-msgstr "_Quant a"
+#: ../data/nibbles.ui.h:4
+msgid "_About Nibbles"
+msgstr "Quant al Nibbles"
 
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Quit"
-msgstr "_Surt"
-
-#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../data/nibbles.ui.h:5 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1048
+#: ../src/gnome-nibbles.vala:1052
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
+#: ../data/nibbles.ui.h:6 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
-msgstr "_Nova partida"
+msgstr "_Partida nova"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
+#: ../data/nibbles.ui.h:7 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "_Pausa"
 
-#: ../data/nibbles.ui.h:4
+#: ../data/nibbles.ui.h:8
 msgid "Let’s _Play"
 msgstr "Som-hi"
 
-#: ../data/nibbles.ui.h:5
+#: ../data/nibbles.ui.h:9
 msgid "Welcome, worms."
 msgstr "Benvinguts, cucs."
 
-#: ../data/nibbles.ui.h:6
+#: ../data/nibbles.ui.h:10
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
 "Mengeu les llaminadures abans que els altres cucs, però no colpegeu res!"
 
-#: ../data/nibbles.ui.h:7
+#: ../data/nibbles.ui.h:11
 msgid "Number of players"
 msgstr "Nombre de jugadors"
 
-#: ../data/nibbles.ui.h:8
+#: ../data/nibbles.ui.h:12
 msgid "Select the number of human players."
 msgstr "Selecciona el nombre de jugadors humans."
 
-#: ../data/nibbles.ui.h:9
+#: ../data/nibbles.ui.h:13
 msgid "Select the number of computer players."
 msgstr "Selecciona el nombre de jugadors de l'ordinador."
 
-#: ../data/nibbles.ui.h:10
+#: ../data/nibbles.ui.h:14
 msgid "_Next"
 msgstr "_Següent"
 
-#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+#: ../data/nibbles.ui.h:15 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Controls"
 
-#: ../data/nibbles.ui.h:12
+#: ../data/nibbles.ui.h:16
 msgid "_Start"
 msgstr "_Comença"
 
-#: ../data/nibbles.ui.h:13
+#: ../data/nibbles.ui.h:17
 msgid "Paused"
 msgstr "Pausat"
 
@@ -377,7 +373,7 @@ msgstr "Si inicieu una partida nova, l'actual es perdrà."
 msgid "_Resume"
 msgstr "_Continua"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:903
 #, c-format
 msgid "Level %d"
 msgstr "Nivell %d"
@@ -428,48 +424,48 @@ msgid "Difficulty Level:"
 msgstr "Nivell de dificultat:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:883
+#: ../src/gnome-nibbles.vala:885
 #, c-format
 msgid "Level %d Completed!"
 msgstr "S'ha completat el nivell %d!"
 
-#: ../src/gnome-nibbles.vala:890
+#: ../src/gnome-nibbles.vala:892
 msgid "_Next Level"
 msgstr "_Nivell següent"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Congratulations!"
 msgstr "Felicitats!"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Game Over!"
 msgstr "Fi de la partida."
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:967
 msgid "You have completed the game."
 msgstr "Heu completat la partida."
 
-#: ../src/gnome-nibbles.vala:970
+#: ../src/gnome-nibbles.vala:974
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d punt"
 msgstr[1] "%d punts"
 
-#: ../src/gnome-nibbles.vala:980
+#: ../src/gnome-nibbles.vala:984
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld més punts per assolir taula dels líders)"
 
-#: ../src/gnome-nibbles.vala:986
+#: ../src/gnome-nibbles.vala:990
 msgid "_Play Again"
 msgstr "_Torna a jugar"
 
-#: ../src/gnome-nibbles.vala:1051
+#: ../src/gnome-nibbles.vala:1055
 msgid "A worm game for GNOME"
 msgstr "Un joc de cucs per al GNOME"
 
-#: ../src/gnome-nibbles.vala:1060
+#: ../src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
 "Jordi Vila <gnome@softcatala.net>\n"
@@ -484,7 +480,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
+#: ../src/gnome-nibbles.vala:1098 ../src/gnome-nibbles.vala:1216
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -522,6 +518,8 @@ msgstr "Acció"
 msgid "Key"
 msgstr "Tecla"
 
+#. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "La tecla que heu seleccionat ja està assignada."
+
