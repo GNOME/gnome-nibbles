@@ -2,8 +2,6 @@
 HELP_ID = gnome-nibbles
 
 HELP_MEDIA =	\
-	figures/after-rel.png	\
-	figures/before-rel.png	\
 	figures/cherry.svg	\
 	figures/diamond.svg	\
 	figures/donut.svg	\
@@ -26,7 +24,6 @@ HELP_FILES =	\
 	index.page	\
 	multi-player.page	\
 	preferences.page	\
-	rel-movement.page	\
 	scores.page	\
 	legal.xml
 

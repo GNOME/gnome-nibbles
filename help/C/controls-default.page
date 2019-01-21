@@ -7,6 +7,7 @@
     <link type="guide" xref="index#play"/>
 
     <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="candidate"/>
+    <revision pkgversion="3.24" version="0.2" date="2019-01-21" status="candidate"/>
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
@@ -47,11 +48,5 @@
     <p>You can <link xref="controls-change">change</link> the default
     controls.</p>
   </note>
-
-  <p>All worm movements happen with respect to the screen unless
-  <link xref="rel-movement">relative movement</link> is enabled. This means
-  that when you press <key>Left</key> the worm moves towards the left of the
-  screen, when you press <key>Right</key> the worm moves towards the right of
-  the screen and so on.</p>
 
 </page>
