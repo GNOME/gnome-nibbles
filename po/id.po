@@ -8,95 +8,90 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-11-12 12:44+0000\n"
-"PO-Revision-Date: 2017-02-25 19:20+0700\n"
-"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
+"POT-Creation-Date: 2019-01-05 12:04+0000\n"
+"PO-Revision-Date: 2019-01-12 20:00+0700\n"
+"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Rosetta-Export-Date: 2007-04-23 05:58:10+0000\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
 msgstr "Pemain"
 
-#: ../data/nibbles-menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Preferensi"
-
-#: ../data/nibbles-menus.ui.h:2
+#: ../data/nibbles.ui.h:1
 msgid "_Scores"
 msgstr "_Nilai"
 
-#: ../data/nibbles-menus.ui.h:3
+#: ../data/nibbles.ui.h:2
+msgid "_Preferences"
+msgstr "_Preferensi"
+
+#: ../data/nibbles.ui.h:3
 msgid "_Help"
 msgstr "_Bantuan"
 
-#: ../data/nibbles-menus.ui.h:4
-msgid "_About"
-msgstr "Tent_ang"
+#: ../data/nibbles.ui.h:4
+msgid "_About Nibbles"
+msgstr "Tent_ang Nibbles"
 
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Quit"
-msgstr "_Keluar"
-
-#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../data/nibbles.ui.h:5 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1048
+#: ../src/gnome-nibbles.vala:1052
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
+#: ../data/nibbles.ui.h:6 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "Permai_nan Baru"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
+#: ../data/nibbles.ui.h:7 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "_Jeda"
 
-#: ../data/nibbles.ui.h:4
+#: ../data/nibbles.ui.h:8
 msgid "Let’s _Play"
 msgstr "Ayo _Bermain"
 
-#: ../data/nibbles.ui.h:5
+#: ../data/nibbles.ui.h:9
 msgid "Welcome, worms."
 msgstr "Selamat Datang!"
 
-#: ../data/nibbles.ui.h:6
+#: ../data/nibbles.ui.h:10
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "Makan suguhan sebelum cacing lainnya, namun jangan memukul apa-apa!"
 
-#: ../data/nibbles.ui.h:7
+#: ../data/nibbles.ui.h:11
 msgid "Number of players"
 msgstr "Jumlah pemain "
 
-#: ../data/nibbles.ui.h:8
+#: ../data/nibbles.ui.h:12
 msgid "Select the number of human players."
 msgstr "Pilih jumlah pemain manusia."
 
-#: ../data/nibbles.ui.h:9
+#: ../data/nibbles.ui.h:13
 msgid "Select the number of computer players."
 msgstr "Pilih jumlah pemain komputer."
 
-#: ../data/nibbles.ui.h:10
+#: ../data/nibbles.ui.h:14
 msgid "_Next"
 msgstr "Sela_njutnya"
 
-#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+#: ../data/nibbles.ui.h:15 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Kontrol"
 
-#: ../data/nibbles.ui.h:12
+#: ../data/nibbles.ui.h:16
 msgid "_Start"
 msgstr "_Mulai"
 
-#: ../data/nibbles.ui.h:13
+#: ../data/nibbles.ui.h:17
 msgid "Paused"
 msgstr "Jeda"
 
@@ -375,7 +370,7 @@ msgstr "Jika Anda memulai permainan baru, yang sekarang akan hilang."
 msgid "_Resume"
 msgstr "_Lanjutkan"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:903
 #, c-format
 msgid "Level %d"
 msgstr "Tingkat %d"
@@ -426,47 +421,48 @@ msgid "Difficulty Level:"
 msgstr "Tingkat Kesulitan"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:883
+#: ../src/gnome-nibbles.vala:885
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Tingkat %d Selesai!"
 
-#: ../src/gnome-nibbles.vala:890
+#: ../src/gnome-nibbles.vala:892
 msgid "_Next Level"
 msgstr "Ti_ngkat Berikutnya"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Congratulations!"
 msgstr "Selamat!"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Game Over!"
 msgstr "Permainan Usai!"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:967
 msgid "You have completed the game."
 msgstr "Anda telah menyelesaikan permainan."
 
-#: ../src/gnome-nibbles.vala:970
+#: ../src/gnome-nibbles.vala:974
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d Poin"
+msgstr[1] "%d Poin"
 
-#: ../src/gnome-nibbles.vala:980
+#: ../src/gnome-nibbles.vala:984
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld lebih banyak poin untuk mencapai leaderboard)"
 
-#: ../src/gnome-nibbles.vala:986
+#: ../src/gnome-nibbles.vala:990
 msgid "_Play Again"
 msgstr "M_ain Lagi"
 
-#: ../src/gnome-nibbles.vala:1051
+#: ../src/gnome-nibbles.vala:1055
 msgid "A worm game for GNOME"
 msgstr "Permainan cacing untuk GNOME"
 
-#: ../src/gnome-nibbles.vala:1060
+#: ../src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
 "Mohammad DAMT <mdamt@bisnisweb.com>\n"
@@ -474,13 +470,13 @@ msgstr ""
 "Andika Triwidada <andika@gmail.com>, 2010, 2012, 2013, 2014.\n"
 "Vincent Sebastian The <vincent.s.the@gmail.com>, 2011, 2012.\n"
 "Dirgita <dirgitadevina@yahoo.co.id>, 2012.\n"
-"Kukuh Syafaat <syafaatkukuh@gmail.com>, 2017."
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019."
 
 #. FIXME: Consider changing this to "Worm %d"
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
+#: ../src/gnome-nibbles.vala:1098 ../src/gnome-nibbles.vala:1216
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -518,6 +514,13 @@ msgstr "Aksi"
 msgid "Key"
 msgstr "Kunci"
 
+#. Translators: This string appears when one tries to assign an already assigned key
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "Kunci yang Anda pilih telah dipakai."
+
+#~ msgid "_About"
+#~ msgstr "Tent_ang"
+
+#~ msgid "_Quit"
+#~ msgstr "_Keluar"
