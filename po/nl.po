@@ -34,14 +34,13 @@
 # Wouter Bolsterlee <wbolster@gnome.org>, 2008.
 # Redmar <redmar@ubuntu-nl.org>, 2011.
 # Justin van Steijn <jvs@fsfe.org>, 2015, 2016.
-# Nathan Follens <nthn@unseen.is>, 2017.
+# Nathan Follens <nthn@unseen.is>, 2017, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-26 01:10+0000\n"
-"PO-Revision-Date: 2017-09-11 18:39+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
+"POT-Creation-Date: 2018-12-06 19:01+0000\n"
+"PO-Revision-Date: 2019-02-24 15:35+0100\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -50,85 +49,81 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Launchpad-Export-Date: 2011-09-18 07:04+0000\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
 msgstr "Speler"
 
-#: ../data/nibbles-menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Voorkeuren"
-
-#: ../data/nibbles-menus.ui.h:2
+#: ../data/nibbles.ui.h:1
 msgid "_Scores"
 msgstr "_Scores"
 
-#: ../data/nibbles-menus.ui.h:3
+#: ../data/nibbles.ui.h:2
+msgid "_Preferences"
+msgstr "_Voorkeuren"
+
+#: ../data/nibbles.ui.h:3
 msgid "_Help"
 msgstr "_Hulp"
 
-#: ../data/nibbles-menus.ui.h:4
-msgid "_About"
-msgstr "I_nfo"
+#: ../data/nibbles.ui.h:4
+msgid "_About Nibbles"
+msgstr "_Over Nibbles"
 
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Quit"
-msgstr "_Afsluiten"
-
-#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
+#: ../data/nibbles.ui.h:5 ../data/org.gnome.Nibbles.desktop.in.h:1
 #: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1048
+#: ../src/gnome-nibbles.vala:1052
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
+#: ../data/nibbles.ui.h:6 ../src/gnome-nibbles.vala:427
 msgid "_New Game"
 msgstr "_Nieuw spel"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
+#: ../data/nibbles.ui.h:7 ../src/gnome-nibbles.vala:460
 msgid "_Pause"
 msgstr "_Pauzeren"
 
-#: ../data/nibbles.ui.h:4
+#: ../data/nibbles.ui.h:8
 msgid "Let’s _Play"
 msgstr "Laten we s_pelen"
 
-#: ../data/nibbles.ui.h:5
+#: ../data/nibbles.ui.h:9
 msgid "Welcome, worms."
 msgstr "Welkom, wormen."
 
-#: ../data/nibbles.ui.h:6
+#: ../data/nibbles.ui.h:10
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "Eet de traktaties voordat andere wormen dit doen, maar raak niets!"
 
-#: ../data/nibbles.ui.h:7
+#: ../data/nibbles.ui.h:11
 msgid "Number of players"
 msgstr "Aantal spelers"
 
-#: ../data/nibbles.ui.h:8
+#: ../data/nibbles.ui.h:12
 msgid "Select the number of human players."
 msgstr "Selecteer het aantal menselijke spelers."
 
-#: ../data/nibbles.ui.h:9
+#: ../data/nibbles.ui.h:13
 msgid "Select the number of computer players."
 msgstr "Selecteer het aantal computerspelers."
 
 # komende/volgende/hierna
 # volgende knikkers
-#: ../data/nibbles.ui.h:10
+#: ../data/nibbles.ui.h:14
 msgid "_Next"
 msgstr "_Volgende"
 
-#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+#: ../data/nibbles.ui.h:15 ../data/preferences-dialog.ui.h:11
 msgid "Controls"
 msgstr "Elementen"
 
-#: ../data/nibbles.ui.h:12
+#: ../data/nibbles.ui.h:16
 msgid "_Start"
 msgstr "_Starten"
 
-#: ../data/nibbles.ui.h:13
+#: ../data/nibbles.ui.h:17
 msgid "Paused"
 msgstr "Gepauzeerd"
 
@@ -418,7 +413,7 @@ msgstr "Als u een nieuw spel start, gaat het huidige spel verloren."
 msgid "_Resume"
 msgstr "_Hervatten"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
+#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:903
 #, c-format
 msgid "Level %d"
 msgstr "Niveau %d"
@@ -469,48 +464,48 @@ msgid "Difficulty Level:"
 msgstr "Moeilijkheidsgraad:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:883
+#: ../src/gnome-nibbles.vala:885
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Niveau %d voltooid!"
 
-#: ../src/gnome-nibbles.vala:890
+#: ../src/gnome-nibbles.vala:892
 msgid "_Next Level"
 msgstr "_Volgend level"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Congratulations!"
 msgstr "Gefeliciteerd!"
 
-#: ../src/gnome-nibbles.vala:956
+#: ../src/gnome-nibbles.vala:960
 msgid "Game Over!"
 msgstr "Spel afgelopen!"
 
-#: ../src/gnome-nibbles.vala:963
+#: ../src/gnome-nibbles.vala:967
 msgid "You have completed the game."
 msgstr "U heeft het spel voltooid."
 
-#: ../src/gnome-nibbles.vala:970
+#: ../src/gnome-nibbles.vala:974
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d punt"
 msgstr[1] "%d punten"
 
-#: ../src/gnome-nibbles.vala:980
+#: ../src/gnome-nibbles.vala:984
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(nog %ld punten om het leidersbord te bereiken)"
 
-#: ../src/gnome-nibbles.vala:986
+#: ../src/gnome-nibbles.vala:990
 msgid "_Play Again"
 msgstr "_Nogmaals spelen"
 
-#: ../src/gnome-nibbles.vala:1051
+#: ../src/gnome-nibbles.vala:1055
 msgid "A worm game for GNOME"
 msgstr "Een slangenspel voor Gnome"
 
-#: ../src/gnome-nibbles.vala:1060
+#: ../src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
 "Tino Meinen\n"
@@ -546,7 +541,7 @@ msgstr ""
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
+#: ../src/gnome-nibbles.vala:1098 ../src/gnome-nibbles.vala:1216
 #: ../src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
@@ -588,3 +583,9 @@ msgstr "Toets"
 #: ../src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
 msgstr "De toets die u geselecteerd heeft is al toegewezen!"
+
+#~ msgid "_About"
+#~ msgstr "I_nfo"
+
+#~ msgid "_Quit"
+#~ msgstr "_Afsluiten"
