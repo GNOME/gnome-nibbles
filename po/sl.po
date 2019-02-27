@@ -5,14 +5,14 @@
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006–2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007–2018.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007–2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
 "POT-Creation-Date: 2018-12-06 20:26+0000\n"
-"PO-Revision-Date: 2018-12-09 21:41+0100\n"
+"PO-Revision-Date: 2019-02-16 21:01+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: ../data/controls-grid.ui.h:1
 msgid "Player"
@@ -148,7 +148,7 @@ msgstr "Projekt GNOME"
 
 #: ../data/org.gnome.Nibbles.desktop.in.h:3
 msgid "game;snake;board;"
-msgstr "igra;kaža;tabla;plošča;"
+msgstr "igra;kača;kače;črvi;krvtabla;plošča;"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:1
 msgid "Width of the window in pixels"
@@ -192,11 +192,11 @@ msgstr "Velikost igralnih ploščic."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:11
 msgid "Game level to start on"
-msgstr "Raven težavnosti, pri kateri si želite začeti"
+msgstr "Raven začetne težavnosti"
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:12
 msgid "Game level to start on."
-msgstr "Raven težavnosti, pri kateri si želite začeti igrati."
+msgstr "Raven težavnosti, s katero želite začeti igro."
 
 #: ../data/org.gnome.nibbles.gschema.xml.h:13
 msgid "Worms movement speed"
@@ -304,19 +304,19 @@ msgstr "Hitrost"
 
 #: ../data/preferences-dialog.ui.h:3
 msgid "_Beginner"
-msgstr "_Začetnik"
+msgstr "_Začetniška"
 
 #: ../data/preferences-dialog.ui.h:4
 msgid "_Slow"
-msgstr "_Počasi"
+msgstr "_Počasno"
 
 #: ../data/preferences-dialog.ui.h:5
 msgid "_Medium"
-msgstr "_Srednje"
+msgstr "_Srednje hitro"
 
 #: ../data/preferences-dialog.ui.h:6
 msgid "_Fast"
-msgstr "_Hitro"
+msgstr "_Zelo hitro"
 
 #: ../data/preferences-dialog.ui.h:7
 msgid "Options"
@@ -365,7 +365,7 @@ msgstr "Ali ste prepričani, da želite začeti novo igro?"
 
 #: ../src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
-msgstr "Z začetkom nove igre, se trenutna igra konča."
+msgstr "Z novo igro, se trenutna igra prekine."
 
 #: ../src/gnome-nibbles.vala:455
 msgid "_Resume"
@@ -384,17 +384,17 @@ msgstr "Začetnik"
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:765
 msgid "Slow"
-msgstr "Počasno"
+msgstr "Počasnež"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:767
 msgid "Medium"
-msgstr "Srednje"
+msgstr "Povprečnež"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:769
 msgid "Fast"
-msgstr "Hitro"
+msgstr "Zahtevno"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: ../src/gnome-nibbles.vala:771
@@ -509,7 +509,7 @@ msgstr "škrlatna"
 
 #: ../src/preferences-dialog.vala:140
 msgid "Action"
-msgstr "Akcijske igre"
+msgstr "Premik"
 
 #: ../src/preferences-dialog.vala:147
 msgid "Key"
