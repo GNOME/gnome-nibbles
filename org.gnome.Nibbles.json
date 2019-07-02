@@ -27,8 +27,8 @@
         "org.gnome.games-support.modules.json",
         {
             "name": "gnome-nibbles",
-            "buildsyste": "meson",
-            "builddir" : "true",
+            "buildsystem": "meson",
+            "builddir" : true,
             "sources": [
                 {
                     "type": "git",
