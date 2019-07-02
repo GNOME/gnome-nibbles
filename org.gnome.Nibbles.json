@@ -21,9 +21,6 @@
         "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
-    "build-options": {
-        "cflags": "-O2 -g"
-    },
     "cleanup": ["/include", "/lib/*.la", "/lib/pkgconfig",
                 "/share/man", "/share/vala"],
     "modules": [
