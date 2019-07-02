@@ -28,7 +28,7 @@
         {
             "name": "gnome-nibbles",
             "buildsyste": "meson",
-            "builddir" : "true",
+            "builddir" : true,
             "sources": [
                 {
                     "type": "git",
