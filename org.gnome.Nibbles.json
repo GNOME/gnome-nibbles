@@ -5,8 +5,6 @@
     "sdk": "org.gnome.Sdk",
     "command": "gnome-nibbles",
     "tags": ["nightly"],
-    "copy-icon": true,
-    "rename-icon": "gnome-nibbles",
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
         /* X11 + XShm access */
@@ -24,11 +22,18 @@
     "cleanup": ["/include", "/lib/*.la", "/lib/pkgconfig",
                 "/share/man", "/share/vala"],
     "modules": [
-        "org.gnome.games-support.modules.json",
+        {
+            "name": "libgnome-games-support",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libgnome-games-support.git"
+                }
+            ]
+        },       
         {
             "name": "gnome-nibbles",
             "buildsystem": "meson",
-            "builddir" : true,
             "sources": [
                 {
                     "type": "git",
