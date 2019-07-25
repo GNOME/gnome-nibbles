@@ -110,9 +110,6 @@ private class WarpTexture: GtkClutter.Texture
 
 public class NibblesView : GtkClutter.Embed
 {
-    /* Sound */
-    public bool is_muted;
-
     /* Pixmaps */
     private Gdk.Pixbuf wall_pixmaps[11];
     private Gdk.Pixbuf worm_pixmaps[6];
@@ -894,18 +891,63 @@ public class NibblesView : GtkClutter.Embed
     * * Sound
     \*/
 
+    internal bool is_muted { internal set; private get; default = true; }
+
+    private GSound.Context sound_context;
+    private SoundContextState sound_context_state = SoundContextState.INITIAL;
+
+    private enum SoundContextState
+    {
+        INITIAL,
+        WORKING,
+        ERRORED
+    }
+
+    private void init_sound ()
+     // requires (sound_context_state == SoundContextState.INITIAL)
+    {
+        try
+        {
+            sound_context = new GSound.Context ();
+            sound_context_state = SoundContextState.WORKING;
+        }
+        catch (Error e)
+        {
+            warning (e.message);
+            sound_context_state = SoundContextState.ERRORED;
+        }
+    }
+
     private void play_sound (string name)
     {
-        if (is_muted)
-            return;
-
-        var filename = @"$(name).ogg";
-        var path = Path.build_filename (SOUND_DIRECTORY, filename, null);
-
-        CanberraGtk.play_for_widget (this, 0,
-                                     Canberra.PROP_MEDIA_NAME, name,
-                                     Canberra.PROP_MEDIA_FILENAME, path);
+        if (!is_muted)
+        {
+            if (sound_context_state == SoundContextState.INITIAL)
+                init_sound ();
+            if (sound_context_state == SoundContextState.WORKING)
+                _play_sound (name, sound_context);
+        }
     }
+
+    private static void _play_sound (string _name, GSound.Context sound_context)
+     // requires (sound_context_state == SoundContextState.WORKING)
+    {
+        string name = _name + ".ogg";
+        string path = Path.build_filename (SOUND_DIRECTORY, name);
+        try
+        {
+            sound_context.play_simple (null, GSound.Attribute.MEDIA_NAME, name,
+                                             GSound.Attribute.MEDIA_FILENAME, path);
+        }
+        catch (Error e)
+        {
+            warning (e.message);
+        }
+    }
+
+    /*\
+    * * Utility
+    \*/
 
     public static string colorval_name (int colorval)
     {
