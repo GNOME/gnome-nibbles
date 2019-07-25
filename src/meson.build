@@ -13,16 +13,15 @@ gnome_nibbles_sources = [
 ]
 
 gnome_nibbles_deps = [
+    clutter_dep,
+    clutter_gtk_dep,
     gee_dep,
     gio_dep,
     glib_dep,
+    gsound_dep,
     gtk_dep,
-    clutter_dep,
-    clutter_gtk_dep,
-    canberra_dep,
-    canberra_gtk3_dep,
     libgnome_games_support_dep,
-    posix_dep,
+    posix_dep
 ]
 
 gnome_nibbles_vala_args = [

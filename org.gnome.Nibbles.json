@@ -23,6 +23,16 @@
                 "/share/man", "/share/vala"],
     "modules": [
         {
+            "name" : "gsound",
+            "buildsystem" : "autotools",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/gsound.git"
+                }
+            ]
+        },
+        {
             "name": "libgnome-games-support",
             "sources": [
                 {
