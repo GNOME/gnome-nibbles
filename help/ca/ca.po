@@ -65,7 +65,7 @@ msgstr ""
 #. (itstool) path: section/title
 #: C/basics.page:38
 msgid "Pause and resume your game"
-msgstr "Pausar i reprendre el joc"
+msgstr "Fer una pausa i reprendre el joc"
 
 #. (itstool) path: section/p
 #: C/basics.page:40
@@ -76,7 +76,7 @@ msgid ""
 "style=\"menuitem\">Resume</gui></guiseq>."
 msgstr ""
 "Seleccioneu <guiseq><gui style=\"menu\">Joc</gui> <gui "
-"style=\"menuitem\">Pausa</gui></guiseq> per pausar el joc. Podeu reprendre "
+"style=\"menuitem\">Pausa</gui></guiseq> per fer una pausa al joc. Podeu reprendre "
 "el joc seleccionant <guiseq><gui style=\"menu\">Joc</gui> <gui "
 "style=\"menuitem\">Reprendre</gui></guiseq>."
 
@@ -162,7 +162,7 @@ msgid ""
 "player 3 controls <gui>Worm 3</gui> and so on."
 msgstr ""
 "Controls del jugador 1 <gui>Cuc 1</gui>, controls del jugador 2 <gui>Cuc "
-"2</gui>, controls del jugador 3 <gui>Cuc 3</gui> etcètera."
+"2</gui>, controls del jugador 3 <gui>Cuc 3</gui>, etcètera."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:47
@@ -173,7 +173,7 @@ msgid ""
 msgstr ""
 "A la llista de <gui style=\"group\">Controls de teclat</gui>, seleccioneu la"
 " línia, aleshores feu clic al control. Així es destaca la línia i les "
-"paraules <gui>Nou accelerador…</gui> es mostren enlloc del control antic."
+"paraules <gui>Nou accelerador…</gui> es mostren en lloc del control antic."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:53
@@ -237,22 +237,22 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/controls-default.page:33
 msgid "<key>Up</key> to move the worm up"
-msgstr "<key>RePàg</key> per moure el cuc amunt"
+msgstr "<key>Fletxa amunt</key> per moure el cuc amunt"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:36
 msgid "<key>Down</key> to move the worm down"
-msgstr "<key>AvPàg</key> per moure el cuc avall"
+msgstr "<key>Fletxa avall</key> per moure el cuc avall"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:39
 msgid "<key>Left</key> to move the worm left"
-msgstr "<key>Esquerra</key> per moure el cuc a l'esquerra"
+msgstr "<key>Fletxa esquerra</key> per moure el cuc a l'esquerra"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:42
 msgid "<key>Right</key> to move the worm right"
-msgstr "<key>Dreta</key> per moure el cuc a la dreta"
+msgstr "<key>Fletxa dreta</key> per moure el cuc a la dreta"
 
 #. (itstool) path: note/p
 #: C/controls-default.page:47
@@ -311,7 +311,7 @@ msgid ""
 "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
 "is unchecked."
 msgstr ""
-"Comproveu que la caixa de verificació <gui style=\"checkbox\">Activar les "
+"Comproveu que casella de selecció <gui style=\"checkbox\">Habilita les "
 "bonificacions falses</gui> no estigui marcada."
 
 #. (itstool) path: item/p
@@ -502,7 +502,7 @@ msgstr "Canviar el color del cuc"
 #. (itstool) path: section/p
 #: C/preferences.page:61
 msgid "There are seven available worm colors:"
-msgstr "Hi ha set colors disponibles pel cuc"
+msgstr "Hi ha set colors disponibles pel cuc:"
 
 #. (itstool) path: item/p
 #: C/preferences.page:65
@@ -768,7 +768,7 @@ msgstr ""
 "El recompte de punts no depèn del nombre de dònuts menjats per un cuc. Si el"
 " joc està al nivell 1 i el jugador 1 es menja el primer dònut, marca 1 punt,"
 " si el jugador 2 menja el segon dònut, obté 2 punts; un tercer jugador pot "
-"optar per no menjar-ne fins a la desè dònut i obtenir 10 punts de cop."
+"optar per no menjar-ne fins al desè dònut i obtenir 10 punts de cop."
 
 #. (itstool) path: item/p
 #: C/scores.page:47
@@ -786,7 +786,7 @@ msgid ""
 "of the comma in a worm's score. If a worm's score is 10,005, the worm has 10"
 " lives remaining."
 msgstr ""
-"El nombre de vides que resten a un cuc el dona el número que hi ha a "
+"El nombre de vides que resten a un cuc el dóna el número que hi ha a "
 "l'esquerra de la coma a la puntuació del cuc. Si la puntuació d'un cuc és de"
 " 10,005, el cuc té 10 vides restants."
 
@@ -808,12 +808,12 @@ msgid ""
 msgstr ""
 "La bonificació en forma de diamant <_:media-1/> : Aquesta bonificació no "
 "causa un augment en la longitud del cuc i no us dóna cap punt. Provoca una "
-"inversió en el moviment de tots els altres cucs del joc"
+"inversió en el moviment de tots els altres cucs del joc."
 
 #. (itstool) path: note/p
 #: C/scores.page:69
 msgid "This bonus has no effect in a single-player game."
-msgstr "Aquesta bonificació no te efecte en el cas de jugar un únic jugador."
+msgstr "Aquesta bonificació no té efecte en el cas de jugar un únic jugador."
 
 #. (itstool) path: item/p
 #: C/scores.page:73
