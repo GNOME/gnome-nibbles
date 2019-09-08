@@ -1,22 +1,23 @@
 # gnome-games ja.po.
-# Copyright (C) 1998-2010 Free Software Foundation, Inc.
+# Copyright (C) 1998-2019 Free Software Foundation, Inc.
 # Yukihiro Nakai <Nakai@technologist.com>, 1998.
 # Akira Higuchi <a-higuti@math.sci.hokudai.ac.jp>, 1999.
 # Yuusuke Tahara <tahara@gnome.gr.jp>, 2000.
-# Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2002, 2010.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2001-2009.
+# Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2002, 2010.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
 # Satoru SATOH <ss@gnome.gr.jp>, 2006.
 # Shushi KUROSE <md81bird@hitaki.net>, 2012.
 # Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2013.
+# sicklylife <translation@sicklylife.jp>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-2-32\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
 "POT-Creation-Date: 2019-07-02 17:48+0000\n"
-"PO-Revision-Date: 2013-09-16 12:56+0900\n"
-"Last-Translator: Jiro Matsuzawa <jmatsuzawa@gnome.org>\n"
+"PO-Revision-Date: 2019-09-08 18:00+0900\n"
+"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -26,27 +27,23 @@ msgstr ""
 
 #: data/controls-grid.ui:12
 msgid "Player"
-msgstr ""
+msgstr "プレイヤー"
 
 #: data/nibbles.ui:6
 msgid "_Scores"
-msgstr ""
+msgstr "スコア(_S)"
 
 #: data/nibbles.ui:12
-#, fuzzy
-#| msgid "Nibbles Preferences"
 msgid "_Preferences"
-msgstr "Nibbles の設定"
+msgstr "設定(_P)"
 
 #: data/nibbles.ui:16
 msgid "_Help"
 msgstr "ヘルプ(_H)"
 
 #: data/nibbles.ui:21
-#, fuzzy
-#| msgid "Nibbles"
 msgid "_About Nibbles"
-msgstr "Nibbles"
+msgstr "Nibbles について(_A)"
 
 #: data/nibbles.ui:28 data/nibbles.ui:72 data/org.gnome.Nibbles.desktop.in:3
 #: src/gnome-nibbles.vala:137 src/gnome-nibbles.vala:542
@@ -60,61 +57,54 @@ msgstr "新しいゲーム(_N)"
 
 #: data/nibbles.ui:45 src/gnome-nibbles.vala:460
 msgid "_Pause"
-msgstr ""
+msgstr "一時停止(_P)"
 
 #: data/nibbles.ui:100
 msgid "Let’s _Play"
-msgstr ""
+msgstr "始める(_P)"
 
 #: data/nibbles.ui:136
 msgid "Welcome, worms."
-msgstr ""
+msgstr "ようこそ、いも虫たち。"
 
 #: data/nibbles.ui:146
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
+"他のいも虫や壁に当たらないようにしながら、おやつをたくさん食べましょう!"
 
 #: data/nibbles.ui:184
-#, fuzzy
-#| msgid "Number of AI players"
 msgid "Number of players"
-msgstr "AI プレイヤーの数"
+msgstr "プレイヤーの数"
 
 #: data/nibbles.ui:198
-#, fuzzy
-#| msgid "Number of human players."
 msgid "Select the number of human players."
-msgstr "プレイする人の数です。"
+msgstr "プレイする人間のプレイヤーの数を選択してください。"
 
 #: data/nibbles.ui:274
-#, fuzzy
-#| msgid "Number of human players."
 msgid "Select the number of computer players."
-msgstr "プレイする人の数です。"
+msgstr "プレイするコンピューターのプレイヤーの数を選択してください。"
 
 #: data/nibbles.ui:375
 msgid "_Next"
-msgstr ""
+msgstr "次へ(_N)"
 
 #: data/nibbles.ui:407 data/preferences-dialog.ui:191
 #: data/preferences-dialog.ui:286 data/preferences-dialog.ui:381
 #: data/preferences-dialog.ui:476
 msgid "Controls"
-msgstr ""
+msgstr "コントロール"
 
 #: data/nibbles.ui:427
 msgid "_Start"
-msgstr ""
+msgstr "開始(_S)"
 
 #: data/nibbles.ui:471
 msgid "Paused"
-msgstr ""
+msgstr "一時停止"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:7
-#, fuzzy
-#| msgid "Nibbles"
 msgid "GNOME Nibbles"
-msgstr "Nibbles"
+msgstr "GNOME Nibbles"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:10
 msgid ""
@@ -140,7 +130,7 @@ msgstr ""
 
 #: data/org.gnome.Nibbles.appdata.xml.in:46
 msgid "The GNOME Project"
-msgstr ""
+msgstr "The GNOME Project"
 
 #: data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
@@ -342,42 +332,28 @@ msgid "Worm"
 msgstr "いも虫"
 
 #: data/preferences-dialog.ui:7
-#, fuzzy
-#| msgid "Nibbles Preferences"
 msgid "Preferences"
-msgstr "Nibbles の設定"
+msgstr "の設定"
 
 #: data/preferences-dialog.ui:35
 msgid "Speed"
 msgstr "スピード"
 
 #: data/preferences-dialog.ui:52
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Beginner"
 msgid "_Beginner"
-msgstr "初心者"
+msgstr "初心者(_B)"
 
 #: data/preferences-dialog.ui:67
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Slow"
 msgid "_Slow"
-msgstr "低速"
+msgstr "低速(_S)"
 
 #: data/preferences-dialog.ui:83
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Medium"
 msgid "_Medium"
-msgstr "中速"
+msgstr "中速(_M)"
 
 #: data/preferences-dialog.ui:99
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Fast"
 msgid "_Fast"
-msgstr "高速"
+msgstr "高速(_F)"
 
 #: data/preferences-dialog.ui:126
 msgid "Options"
@@ -393,185 +369,151 @@ msgstr "偽物のボーナスを有効にする(_E)"
 
 #: data/preferences-dialog.ui:174
 msgid "_General"
-msgstr ""
+msgstr "全般(_G)"
 
 #: data/preferences-dialog.ui:237 data/preferences-dialog.ui:332
 #: data/preferences-dialog.ui:427 data/preferences-dialog.ui:522
-#, fuzzy
-#| msgid "_Worm color:"
 msgid "Worm color"
-msgstr "いも虫の色(_W):"
+msgstr "いも虫の色"
 
 #: data/preferences-dialog.ui:269
-#, fuzzy
-#| msgid "Worm"
 msgid "Worm _1"
-msgstr "いも虫"
+msgstr "いも虫 _1"
 
 #: data/preferences-dialog.ui:364
-#, fuzzy
-#| msgid "Worm"
 msgid "Worm _2"
-msgstr "いも虫"
+msgstr "いも虫 _2"
 
 #: data/preferences-dialog.ui:459
-#, fuzzy
-#| msgid "Worm"
 msgid "Worm _3"
-msgstr "いも虫"
+msgstr "いも虫 _3"
 
 #: data/preferences-dialog.ui:554
-#, fuzzy
-#| msgid "Worm"
 msgid "Worm _4"
-msgstr "いも虫"
+msgstr "いも虫 _4"
 
 #. Help string for command line --version flag
 #: src/gnome-nibbles.vala:104
 msgid "Show release version"
-msgstr ""
+msgstr "バージョンを表示する"
 
 #: src/gnome-nibbles.vala:423
 msgid "Are you sure you want to start a new game?"
-msgstr ""
+msgstr "新しいゲームを始めてもよろしいですか?"
 
 #: src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
-msgstr ""
+msgstr "新しいゲームを始める場合、今のゲームは破棄します。"
 
 #: src/gnome-nibbles.vala:455
 msgid "_Resume"
-msgstr ""
+msgstr "再開(_R)"
 
 #: src/gnome-nibbles.vala:626 src/gnome-nibbles.vala:903
 #, c-format
 msgid "Level %d"
-msgstr ""
+msgstr "レベル %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: src/gnome-nibbles.vala:763
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Beginner"
 msgid "Beginner"
 msgstr "初心者"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: src/gnome-nibbles.vala:765
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Slow"
 msgid "Slow"
 msgstr "低速"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: src/gnome-nibbles.vala:767
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Medium"
 msgid "Medium"
 msgstr "中速"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: src/gnome-nibbles.vala:769
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Fast"
 msgid "Fast"
 msgstr "高速"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: src/gnome-nibbles.vala:771
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Beginner with Fakes"
 msgid "Beginner with Fakes"
 msgstr "まやかしの初心者"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: src/gnome-nibbles.vala:773
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Slow with Fakes"
 msgid "Slow with Fakes"
 msgstr "まやかしの低速"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: src/gnome-nibbles.vala:775
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Medium with Fakes"
 msgid "Medium with Fakes"
 msgstr "まやかしの中速"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
 #: src/gnome-nibbles.vala:777
-#, fuzzy
-#| msgctxt "game speed"
-#| msgid "Fast with Fakes"
 msgid "Fast with Fakes"
 msgstr "まやかしの高速"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
 #: src/gnome-nibbles.vala:782
 msgid "Difficulty Level:"
-msgstr ""
+msgstr "難易度:"
 
 #. Translators: the %d is the number of the level that was completed.
 #: src/gnome-nibbles.vala:885
 #, c-format
 msgid "Level %d Completed!"
-msgstr ""
+msgstr "レベル %d 制覇!"
 
 #: src/gnome-nibbles.vala:892
 msgid "_Next Level"
-msgstr ""
+msgstr "次のレベル(_N)"
 
 #: src/gnome-nibbles.vala:960
 msgid "Congratulations!"
-msgstr ""
+msgstr "おめでとうございます!"
 
 #: src/gnome-nibbles.vala:960
-#, fuzzy
-#| msgid "Game speed"
 msgid "Game Over!"
-msgstr "ゲームのスピード"
+msgstr "ゲームオーバー!"
 
 #: src/gnome-nibbles.vala:967
 msgid "You have completed the game."
-msgstr ""
+msgstr "ゲームを制覇しました。"
 
 #: src/gnome-nibbles.vala:974
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
-msgstr[0] ""
+msgstr[0] "%d ポイント"
 
 #: src/gnome-nibbles.vala:984
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
-msgstr ""
+msgstr "(あと %ld ポイントでスコアボードに届きます)"
 
 #: src/gnome-nibbles.vala:990
 msgid "_Play Again"
-msgstr ""
+msgstr "再プレイ(_P)"
 
 #: src/gnome-nibbles.vala:1055
 msgid "A worm game for GNOME"
-msgstr ""
+msgstr "GNOME のいも虫ゲーム"
 
 #: src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
 "相花 毅 <takeshi.aihana@gmail.com>\n"
-"佐藤 暁 <ss@gnome.gr.jp>\n"
-"KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>\n"
 "草野 貴之 <AE5T-KSN@asahi-net.or.jp>\n"
-"Yuusuke Tahara <tahara@gnome.gr.jp>\n"
-"Akira Higuchi <a-higuti@math.sci.hokudai.ac.jp>\n"
-"Yukihiro Nakai <Nakai@technologist.com>\n"
+"佐藤 暁 <ss@gnome.gr.jp>\n"
+"日本 GNOME ユーザー会 <http://www.gnome.gr.jp>\n"
 "松澤 二郎 <jmatsuzawa@gnome.org>\n"
-"日本GNOMEユーザー会 <http://www.gnome.gr.jp>"
+"Akira Higuchi <a-higuti@math.sci.hokudai.ac.jp>\n"
+"KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>\n"
+"Shushi KUROSE <md81bird@hitaki.net>\n"
+"sicklylife <translation@sicklylife.jp>\n"
+"Yukihiro Nakai <Nakai@technologist.com>\n"
+"Yuusuke Tahara <tahara@gnome.gr.jp>"
 
 #. FIXME: Consider changing this to "Worm %d"
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
@@ -581,54 +523,44 @@ msgstr ""
 #: src/nibbles-view.vala:583
 #, c-format
 msgid "Player %d"
-msgstr ""
+msgstr "プレイヤー %d"
 
 #: src/nibbles-view.vala:156
-#, fuzzy
-#| msgid "Red"
 msgid "red"
 msgstr "赤色"
 
 #: src/nibbles-view.vala:157
-#, fuzzy
-#| msgid "Green"
 msgid "green"
 msgstr "緑色"
 
 #: src/nibbles-view.vala:158
 msgid "blue"
-msgstr ""
+msgstr "青色"
 
 #: src/nibbles-view.vala:159
-#, fuzzy
-#| msgid "Yellow"
 msgid "yellow"
 msgstr "黄色"
 
 #: src/nibbles-view.vala:160
 msgid "cyan"
-msgstr ""
+msgstr "シアン"
 
 #: src/nibbles-view.vala:161
-#, fuzzy
-#| msgid "Purple"
 msgid "purple"
 msgstr "紫色"
 
 #: src/preferences-dialog.vala:140
-#, fuzzy
-#| msgid "Options"
 msgid "Action"
-msgstr "オプション"
+msgstr "動作"
 
 #: src/preferences-dialog.vala:147
 msgid "Key"
-msgstr ""
+msgstr "キー"
 
 #. Translators: This string appears when one tries to assign an already assigned key
 #: src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
-msgstr ""
+msgstr "選択したキーはすでに割り当て済みです!"
 
 #~ msgid "Game speed (1=fast, 4=slow)."
 #~ msgstr "ゲームの進行スピードです (1=高速 4=低速)。"
