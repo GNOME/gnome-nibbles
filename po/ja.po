@@ -13,9 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-2-32\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"nibbles&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-07 14:48+0000\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
+"POT-Creation-Date: 2019-07-02 17:48+0000\n"
 "PO-Revision-Date: 2013-09-16 12:56+0900\n"
 "Last-Translator: Jiro Matsuzawa <jmatsuzawa@gnome.org>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
@@ -25,225 +24,543 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnibbles.desktop.in.in.h:1 ../src/main.c:156 ../src/main.c:668
-#: ../src/main.c:740
+#: data/controls-grid.ui:12
+msgid "Player"
+msgstr ""
+
+#: data/nibbles.ui:6
+msgid "_Scores"
+msgstr ""
+
+#: data/nibbles.ui:12
+#, fuzzy
+#| msgid "Nibbles Preferences"
+msgid "_Preferences"
+msgstr "Nibbles の設定"
+
+#: data/nibbles.ui:16
+msgid "_Help"
+msgstr "ヘルプ(_H)"
+
+#: data/nibbles.ui:21
+#, fuzzy
+#| msgid "Nibbles"
+msgid "_About Nibbles"
+msgstr "Nibbles"
+
+#: data/nibbles.ui:28 data/nibbles.ui:72 data/org.gnome.Nibbles.desktop.in:3
+#: src/gnome-nibbles.vala:137 src/gnome-nibbles.vala:542
+#: src/gnome-nibbles.vala:1052
 msgid "Nibbles"
 msgstr "Nibbles"
 
-#: ../data/gnibbles.desktop.in.in.h:2
+#: data/nibbles.ui:34 src/gnome-nibbles.vala:427
+msgid "_New Game"
+msgstr "新しいゲーム(_N)"
+
+#: data/nibbles.ui:45 src/gnome-nibbles.vala:460
+msgid "_Pause"
+msgstr ""
+
+#: data/nibbles.ui:100
+msgid "Let’s _Play"
+msgstr ""
+
+#: data/nibbles.ui:136
+msgid "Welcome, worms."
+msgstr ""
+
+#: data/nibbles.ui:146
+msgid "Eat the treats before the other worms, but don’t hit anything!"
+msgstr ""
+
+#: data/nibbles.ui:184
+#, fuzzy
+#| msgid "Number of AI players"
+msgid "Number of players"
+msgstr "AI プレイヤーの数"
+
+#: data/nibbles.ui:198
+#, fuzzy
+#| msgid "Number of human players."
+msgid "Select the number of human players."
+msgstr "プレイする人の数です。"
+
+#: data/nibbles.ui:274
+#, fuzzy
+#| msgid "Number of human players."
+msgid "Select the number of computer players."
+msgstr "プレイする人の数です。"
+
+#: data/nibbles.ui:375
+msgid "_Next"
+msgstr ""
+
+#: data/nibbles.ui:407 data/preferences-dialog.ui:191
+#: data/preferences-dialog.ui:286 data/preferences-dialog.ui:381
+#: data/preferences-dialog.ui:476
+msgid "Controls"
+msgstr ""
+
+#: data/nibbles.ui:427
+msgid "_Start"
+msgstr ""
+
+#: data/nibbles.ui:471
+msgid "Paused"
+msgstr ""
+
+#: data/org.gnome.Nibbles.appdata.xml.in:7
+#, fuzzy
+#| msgid "Nibbles"
+msgid "GNOME Nibbles"
+msgstr "Nibbles"
+
+#: data/org.gnome.Nibbles.appdata.xml.in:10
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating doughnuts and ice cream to increase your length. "
+"Each worm has ten lives and loses one by running into a wall, another worm, "
+"or itself. The enemy worms are after the same bonuses that you are, so be "
+"careful: if they become too large, you won’t have much room for movement."
+msgstr ""
+
+#: data/org.gnome.Nibbles.appdata.xml.in:17
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+
+#: data/org.gnome.Nibbles.appdata.xml.in:22
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+
+#: data/org.gnome.Nibbles.appdata.xml.in:46
+msgid "The GNOME Project"
+msgstr ""
+
+#: data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
 msgstr "迷路をさまよう虫を導いてください"
 
-#: ../data/gnibbles.desktop.in.in.h:3
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Nibbles.desktop.in:6
 msgid "game;snake;board;"
 msgstr "game;snake;board;ゲーム;スネーク;ヘビ;へび;ボード;"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:1
-msgid "Number of human players"
-msgstr "プレイヤーの人数"
+#: data/org.gnome.nibbles.gschema.xml:13
+msgid "Width of the window in pixels"
+msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:2
-msgid "Number of human players."
-msgstr "プレイする人の数です。"
+#: data/org.gnome.nibbles.gschema.xml:14
+msgid "Width of the window in pixels."
+msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:3
-msgid "Number of AI players"
-msgstr "AI プレイヤーの数"
+#: data/org.gnome.nibbles.gschema.xml:18
+msgid "Height of the window in pixels"
+msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:4
-msgid "Number of AI players."
-msgstr "プレイする AI (人工知能) の数です。"
+#: data/org.gnome.nibbles.gschema.xml:19
+msgid "Height of the window in pixels."
+msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:5
-msgid "Game speed"
-msgstr "ゲームのスピード"
+#: data/org.gnome.nibbles.gschema.xml:23
+msgid "true if the window is maximized"
+msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:6
-msgid "Game speed (1=fast, 4=slow)."
-msgstr "ゲームの進行スピードです (1=高速 4=低速)。"
+#: data/org.gnome.nibbles.gschema.xml:24
+msgid "true if the window is maximized."
+msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:7
-msgid "Enable fake bonuses"
-msgstr "偽物のボーナスを有効にする"
+#: data/org.gnome.nibbles.gschema.xml:28
+msgid "Is this the first run"
+msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:8
-msgid "Enable fake bonuses."
-msgstr "偽物のボーナスを出します。"
+#: data/org.gnome.nibbles.gschema.xml:29
+msgid "Setting to decide whether to show first-run hint dialog or not."
+msgstr ""
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:9
-msgid "Play levels in random order"
-msgstr "プレイするレベルをランダムに切り替える"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:10
-msgid "Play levels in random order."
-msgstr "プレイするゲームレベルをランダムに切り替えます。"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:11
-msgid "Game level to start on"
-msgstr "ゲーム開始時のレベル"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:12
-msgid "Game level to start on."
-msgstr "ゲーム開始時のレベルです"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:13
-msgid "Enable sounds"
-msgstr "サウンドを有効にする"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:14
-msgid "Enable sounds."
-msgstr "サウンドを有効にします。"
-
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:15
+#: data/org.gnome.nibbles.gschema.xml:34
 msgid "Size of game tiles"
 msgstr "ゲーム盤の大きさ"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:16
+#: data/org.gnome.nibbles.gschema.xml:35
 msgid "Size of game tiles."
 msgstr "プレイするゲーム盤の大きさです。"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:17
+#: data/org.gnome.nibbles.gschema.xml:40
+msgid "Game level to start on"
+msgstr "ゲーム開始時のレベル"
+
+#: data/org.gnome.nibbles.gschema.xml:41
+msgid "Game level to start on."
+msgstr "ゲーム開始時のレベルです"
+
+#: data/org.gnome.nibbles.gschema.xml:46
+msgid "Worms movement speed"
+msgstr ""
+
+#: data/org.gnome.nibbles.gschema.xml:47
+msgid "Worms movement speed."
+msgstr ""
+
+#: data/org.gnome.nibbles.gschema.xml:51
+msgid "Enable sounds"
+msgstr "サウンドを有効にする"
+
+#: data/org.gnome.nibbles.gschema.xml:52
+msgid "Enable sounds."
+msgstr "サウンドを有効にします。"
+
+#: data/org.gnome.nibbles.gschema.xml:56
+msgid "Enable fake bonuses"
+msgstr "偽物のボーナスを有効にする"
+
+#: data/org.gnome.nibbles.gschema.xml:57
+msgid "Enable fake bonuses."
+msgstr "偽物のボーナスを出します。"
+
+#: data/org.gnome.nibbles.gschema.xml:62
+msgid "Number of human players"
+msgstr "プレイヤーの人数"
+
+#: data/org.gnome.nibbles.gschema.xml:63
+msgid "Number of human players."
+msgstr "プレイする人の数です。"
+
+#: data/org.gnome.nibbles.gschema.xml:68
+msgid "Number of AI players"
+msgstr "AI プレイヤーの数"
+
+#: data/org.gnome.nibbles.gschema.xml:69
+msgid "Number of AI players."
+msgstr "プレイする AI (人工知能) の数です。"
+
+#: data/org.gnome.nibbles.gschema.xml:75 data/org.gnome.nibbles.gschema.xml:107
+#: data/org.gnome.nibbles.gschema.xml:139
+#: data/org.gnome.nibbles.gschema.xml:171
+#: data/org.gnome.nibbles.gschema.xml:203
+#: data/org.gnome.nibbles.gschema.xml:235
 msgid "Color to use for worm"
 msgstr "いも虫の色"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:18
+#: data/org.gnome.nibbles.gschema.xml:76 data/org.gnome.nibbles.gschema.xml:108
+#: data/org.gnome.nibbles.gschema.xml:140
+#: data/org.gnome.nibbles.gschema.xml:172
+#: data/org.gnome.nibbles.gschema.xml:204
+#: data/org.gnome.nibbles.gschema.xml:236
 msgid "Color to use for worm."
 msgstr "いも虫の色です。"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:19
+#: data/org.gnome.nibbles.gschema.xml:80 data/org.gnome.nibbles.gschema.xml:112
+#: data/org.gnome.nibbles.gschema.xml:144
+#: data/org.gnome.nibbles.gschema.xml:176
+#: data/org.gnome.nibbles.gschema.xml:208
+#: data/org.gnome.nibbles.gschema.xml:240
 msgid "Use relative movement"
 msgstr "相対移動にする"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:20
+#: data/org.gnome.nibbles.gschema.xml:81 data/org.gnome.nibbles.gschema.xml:113
+#: data/org.gnome.nibbles.gschema.xml:145
+#: data/org.gnome.nibbles.gschema.xml:177
+#: data/org.gnome.nibbles.gschema.xml:209
+#: data/org.gnome.nibbles.gschema.xml:241
 msgid "Use relative movement (ie. left or right only)."
 msgstr "相対的に移動させるようにします (つまり左または右のみ移動可)。"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:21 ../src/preferences.c:450
+#: data/org.gnome.nibbles.gschema.xml:85 data/org.gnome.nibbles.gschema.xml:117
+#: data/org.gnome.nibbles.gschema.xml:149
+#: data/org.gnome.nibbles.gschema.xml:181
+#: data/org.gnome.nibbles.gschema.xml:213
+#: data/org.gnome.nibbles.gschema.xml:245 src/preferences-dialog.vala:128
 msgid "Move up"
 msgstr "上へ移動する"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:22
+#: data/org.gnome.nibbles.gschema.xml:86 data/org.gnome.nibbles.gschema.xml:118
+#: data/org.gnome.nibbles.gschema.xml:150
+#: data/org.gnome.nibbles.gschema.xml:182
+#: data/org.gnome.nibbles.gschema.xml:214
+#: data/org.gnome.nibbles.gschema.xml:246
 msgid "Key to use for motion up."
 msgstr "上へ移動する際に使用するキーです。"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:23 ../src/preferences.c:451
+#: data/org.gnome.nibbles.gschema.xml:90 data/org.gnome.nibbles.gschema.xml:122
+#: data/org.gnome.nibbles.gschema.xml:154
+#: data/org.gnome.nibbles.gschema.xml:186
+#: data/org.gnome.nibbles.gschema.xml:218
+#: data/org.gnome.nibbles.gschema.xml:250 src/preferences-dialog.vala:131
 msgid "Move down"
 msgstr "下へ移動する"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:24
+#: data/org.gnome.nibbles.gschema.xml:91 data/org.gnome.nibbles.gschema.xml:123
+#: data/org.gnome.nibbles.gschema.xml:155
+#: data/org.gnome.nibbles.gschema.xml:187
+#: data/org.gnome.nibbles.gschema.xml:219
+#: data/org.gnome.nibbles.gschema.xml:251
 msgid "Key to use for motion down."
 msgstr "下へ移動する際に使用するキーです。"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:25 ../src/preferences.c:448
+#: data/org.gnome.nibbles.gschema.xml:95 data/org.gnome.nibbles.gschema.xml:127
+#: data/org.gnome.nibbles.gschema.xml:159
+#: data/org.gnome.nibbles.gschema.xml:191
+#: data/org.gnome.nibbles.gschema.xml:223
+#: data/org.gnome.nibbles.gschema.xml:255 src/preferences-dialog.vala:134
 msgid "Move left"
 msgstr "左へ移動する"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:26
+#: data/org.gnome.nibbles.gschema.xml:96 data/org.gnome.nibbles.gschema.xml:128
+#: data/org.gnome.nibbles.gschema.xml:160
+#: data/org.gnome.nibbles.gschema.xml:192
+#: data/org.gnome.nibbles.gschema.xml:224
+#: data/org.gnome.nibbles.gschema.xml:256
 msgid "Key to use for motion left."
 msgstr "左へ移動する際に使用するキーです。"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:27 ../src/preferences.c:449
+#: data/org.gnome.nibbles.gschema.xml:100
+#: data/org.gnome.nibbles.gschema.xml:132
+#: data/org.gnome.nibbles.gschema.xml:164
+#: data/org.gnome.nibbles.gschema.xml:196
+#: data/org.gnome.nibbles.gschema.xml:228
+#: data/org.gnome.nibbles.gschema.xml:260 src/preferences-dialog.vala:137
 msgid "Move right"
 msgstr "右へ移動する"
 
-#: ../data/org.gnome.nibbles.gschema.xml.in.h:28
+#: data/org.gnome.nibbles.gschema.xml:101
+#: data/org.gnome.nibbles.gschema.xml:133
+#: data/org.gnome.nibbles.gschema.xml:165
+#: data/org.gnome.nibbles.gschema.xml:197
+#: data/org.gnome.nibbles.gschema.xml:229
+#: data/org.gnome.nibbles.gschema.xml:261
 msgid "Key to use for motion right."
 msgstr "右へ移動する際に使用するキーです。"
 
-#: ../src/board.c:250
-#, c-format
-msgid ""
-"Nibbles couldn't load level file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
+#: data/player-score-box.ui:15
+msgid "Worm"
+msgstr "いも虫"
+
+#: data/preferences-dialog.ui:7
+#, fuzzy
+#| msgid "Nibbles Preferences"
+msgid "Preferences"
+msgstr "Nibbles の設定"
+
+#: data/preferences-dialog.ui:35
+msgid "Speed"
+msgstr "スピード"
+
+#: data/preferences-dialog.ui:52
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Beginner"
+msgid "_Beginner"
+msgstr "初心者"
+
+#: data/preferences-dialog.ui:67
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Slow"
+msgid "_Slow"
+msgstr "低速"
+
+#: data/preferences-dialog.ui:83
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Medium"
+msgid "_Medium"
+msgstr "中速"
+
+#: data/preferences-dialog.ui:99
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Fast"
+msgid "_Fast"
+msgstr "高速"
+
+#: data/preferences-dialog.ui:126
+msgid "Options"
+msgstr "オプション"
+
+#: data/preferences-dialog.ui:143
+msgid "E_nable sounds"
+msgstr "サウンドを有効にする(_N)"
+
+#: data/preferences-dialog.ui:155
+msgid "_Enable fake bonuses"
+msgstr "偽物のボーナスを有効にする(_E)"
+
+#: data/preferences-dialog.ui:174
+msgid "_General"
 msgstr ""
-"レベルファイルを読み込めませんでした:\n"
-"%s\n"
-"\n"
-"Nibbles のインストールを確認してください。"
 
-#: ../src/board.c:269
-#, c-format
-msgid ""
-"Level file appears to be damaged:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
+#: data/preferences-dialog.ui:237 data/preferences-dialog.ui:332
+#: data/preferences-dialog.ui:427 data/preferences-dialog.ui:522
+#, fuzzy
+#| msgid "_Worm color:"
+msgid "Worm color"
+msgstr "いも虫の色(_W):"
+
+#: data/preferences-dialog.ui:269
+#, fuzzy
+#| msgid "Worm"
+msgid "Worm _1"
+msgstr "いも虫"
+
+#: data/preferences-dialog.ui:364
+#, fuzzy
+#| msgid "Worm"
+msgid "Worm _2"
+msgstr "いも虫"
+
+#: data/preferences-dialog.ui:459
+#, fuzzy
+#| msgid "Worm"
+msgid "Worm _3"
+msgstr "いも虫"
+
+#: data/preferences-dialog.ui:554
+#, fuzzy
+#| msgid "Worm"
+msgid "Worm _4"
+msgstr "いも虫"
+
+#. Help string for command line --version flag
+#: src/gnome-nibbles.vala:104
+msgid "Show release version"
 msgstr ""
-"レベルファイルが壊れているようです:\n"
-"%s\n"
-"\n"
-"Nibbles のインストールを確認してください。"
 
-#: ../src/games-controls.c:288
-msgid "Unknown Command"
-msgstr "不明なコマンド"
-
-#: ../src/gnibbles.c:81
-#, c-format
-msgid ""
-"Nibbles couldn't find pixmap file:\n"
-"%s\n"
-"\n"
-"Please check your Nibbles installation"
+#: src/gnome-nibbles.vala:423
+msgid "Are you sure you want to start a new game?"
 msgstr ""
-"Pixmap ファイルが見つけられませんでした:\n"
-"%s\n"
-"\n"
-"Nibbles のインストールを確認してください。"
 
-#: ../src/main.c:64
-msgctxt "game speed"
+#: src/gnome-nibbles.vala:424
+msgid "If you start a new game, the current one will be lost."
+msgstr ""
+
+#: src/gnome-nibbles.vala:455
+msgid "_Resume"
+msgstr ""
+
+#: src/gnome-nibbles.vala:626 src/gnome-nibbles.vala:903
+#, c-format
+msgid "Level %d"
+msgstr ""
+
+#. Translators: Difficulty level displayed on the scores dialog
+#: src/gnome-nibbles.vala:763
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Beginner"
 msgid "Beginner"
 msgstr "初心者"
 
-#: ../src/main.c:65
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: src/gnome-nibbles.vala:765
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Slow"
 msgid "Slow"
 msgstr "低速"
 
-#: ../src/main.c:66
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: src/gnome-nibbles.vala:767
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Medium"
 msgid "Medium"
 msgstr "中速"
 
-#: ../src/main.c:67
-msgctxt "game speed"
+#. Translators: Difficulty level displayed on the scores dialog
+#: src/gnome-nibbles.vala:769
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Fast"
 msgid "Fast"
 msgstr "高速"
 
-#: ../src/main.c:68
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: src/gnome-nibbles.vala:771
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Beginner with Fakes"
 msgid "Beginner with Fakes"
 msgstr "まやかしの初心者"
 
-#: ../src/main.c:69
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: src/gnome-nibbles.vala:773
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Slow with Fakes"
 msgid "Slow with Fakes"
 msgstr "まやかしの低速"
 
-#: ../src/main.c:70
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: src/gnome-nibbles.vala:775
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Medium with Fakes"
 msgid "Medium with Fakes"
 msgstr "まやかしの中速"
 
-#: ../src/main.c:71
-msgctxt "game speed"
+#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
+#: src/gnome-nibbles.vala:777
+#, fuzzy
+#| msgctxt "game speed"
+#| msgid "Fast with Fakes"
 msgid "Fast with Fakes"
 msgstr "まやかしの高速"
 
-#: ../src/main.c:163
-msgid ""
-"A worm game for GNOME.\n"
-"\n"
-"Nibbles is a part of GNOME Games."
+#. Displayed on the scores dialog, preceeding a difficulty.
+#: src/gnome-nibbles.vala:782
+msgid "Difficulty Level:"
 msgstr ""
-"GNOME 版のいも虫ゲームです。\n"
-"\n"
-"Nibbles は GNOME ゲーム集の一部です。"
 
-#: ../src/main.c:166
+#. Translators: the %d is the number of the level that was completed.
+#: src/gnome-nibbles.vala:885
+#, c-format
+msgid "Level %d Completed!"
+msgstr ""
+
+#: src/gnome-nibbles.vala:892
+msgid "_Next Level"
+msgstr ""
+
+#: src/gnome-nibbles.vala:960
+msgid "Congratulations!"
+msgstr ""
+
+#: src/gnome-nibbles.vala:960
+#, fuzzy
+#| msgid "Game speed"
+msgid "Game Over!"
+msgstr "ゲームのスピード"
+
+#: src/gnome-nibbles.vala:967
+msgid "You have completed the game."
+msgstr ""
+
+#: src/gnome-nibbles.vala:974
+#, c-format
+msgid "%d Point"
+msgid_plural "%d Points"
+msgstr[0] ""
+
+#: src/gnome-nibbles.vala:984
+#, c-format
+msgid "(%ld more points to reach the leaderboard)"
+msgstr ""
+
+#: src/gnome-nibbles.vala:990
+msgid "_Play Again"
+msgstr ""
+
+#: src/gnome-nibbles.vala:1055
+msgid "A worm game for GNOME"
+msgstr ""
+
+#: src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
 "相花 毅 <takeshi.aihana@gmail.com>\n"
@@ -256,145 +573,179 @@ msgstr ""
 "松澤 二郎 <jmatsuzawa@gnome.org>\n"
 "日本GNOMEユーザー会 <http://www.gnome.gr.jp>"
 
-#: ../src/main.c:169
-msgid "GNOME Games web site"
-msgstr "GNOME ゲーム集のウェブサイト"
-
-#: ../src/main.c:464
+#. FIXME: Consider changing this to "Worm %d"
+#. * It's set to "Player %d" for now to avoid a string change for 3.20.
+#.
+#. Translators: the player's number, e.g. "Player 1" or "Player 2".
+#: src/gnome-nibbles.vala:1098 src/gnome-nibbles.vala:1216
+#: src/nibbles-view.vala:583
 #, c-format
-msgid "Game over! The game has been won by %s!"
-msgstr "ゲームオーバーです! %s の勝利です!"
+msgid "Player %d"
+msgstr ""
 
-#: ../src/main.c:577
-msgid "_Game"
-msgstr "ゲーム(_G)"
-
-#: ../src/main.c:578
-msgid "_View"
-msgstr "表示(_V)"
-
-#: ../src/main.c:579
-msgid "_Settings"
-msgstr "設定(_S)"
-
-#: ../src/main.c:580
-msgid "_Help"
-msgstr "ヘルプ(_H)"
-
-#: ../src/main.c:581
-msgid "_New Game"
-msgstr "新しいゲーム(_N)"
-
-#: ../src/main.c:583
-msgid "_End Game"
-msgstr "ゲームの終了(_E)"
-
-#: ../src/main.c:588
-msgid "_Contents"
-msgstr "目次(_C)"
-
-#: ../src/preferences.c:238
-msgid "Nibbles Preferences"
-msgstr "Nibbles の設定"
-
-#: ../src/preferences.c:251
-msgid "Game"
-msgstr "ゲーム"
-
-#. Speed
-#: ../src/preferences.c:267
-msgid "Speed"
-msgstr "スピード"
-
-#: ../src/preferences.c:272
-msgid "Nibbles newbie"
-msgstr "Nibbles の初心者"
-
-#: ../src/preferences.c:282
-msgid "My second day"
-msgstr "遊び始めて二日目"
-
-#: ../src/preferences.c:292
-msgid "Not too shabby"
-msgstr "ちょっと自慢できる程度"
-
-#: ../src/preferences.c:302
-msgid "Finger-twitching good"
-msgstr "指の動きが絶好調な人"
-
-#: ../src/preferences.c:316 ../src/preferences.c:455
-msgid "Options"
-msgstr "オプション"
-
-#: ../src/preferences.c:323
-msgid "_Play levels in random order"
-msgstr "プレイするレベルをランダムに切り替える(_P)"
-
-#: ../src/preferences.c:333
-msgid "_Enable fake bonuses"
-msgstr "偽物のボーナスを有効にする(_E)"
-
-#: ../src/preferences.c:343
-msgid "E_nable sounds"
-msgstr "サウンドを有効にする(_N)"
-
-#: ../src/preferences.c:356
-msgid "_Starting level:"
-msgstr "開始時のレベル(_S):"
-
-#: ../src/preferences.c:385
-msgid "Number of _human players:"
-msgstr "プレイヤーの人数(_H):"
-
-#: ../src/preferences.c:406
-msgid "Number of _AI players:"
-msgstr "AI プレイヤーの数(_A):"
-
-#: ../src/preferences.c:431
-msgid "Worm"
-msgstr "いも虫"
-
-#: ../src/preferences.c:440
-msgid "Keyboard Options"
-msgstr "キーボードオプション"
-
-#: ../src/preferences.c:460
-msgid "_Use relative movement"
-msgstr "相対移動にする(_U)"
-
-#: ../src/preferences.c:467
-msgid "_Worm color:"
-msgstr "いも虫の色(_W):"
-
-#: ../src/preferences.c:473
-msgid "Red"
+#: src/nibbles-view.vala:156
+#, fuzzy
+#| msgid "Red"
+msgid "red"
 msgstr "赤色"
 
-#: ../src/preferences.c:474
-msgid "Green"
+#: src/nibbles-view.vala:157
+#, fuzzy
+#| msgid "Green"
+msgid "green"
 msgstr "緑色"
 
-#: ../src/preferences.c:475
-msgid "Blue"
-msgstr "青色"
+#: src/nibbles-view.vala:158
+msgid "blue"
+msgstr ""
 
-#: ../src/preferences.c:476
-msgid "Yellow"
+#: src/nibbles-view.vala:159
+#, fuzzy
+#| msgid "Yellow"
+msgid "yellow"
 msgstr "黄色"
 
-#: ../src/preferences.c:477
-msgid "Cyan"
-msgstr "シアン"
+#: src/nibbles-view.vala:160
+msgid "cyan"
+msgstr ""
 
-#: ../src/preferences.c:478
-msgid "Purple"
+#: src/nibbles-view.vala:161
+#, fuzzy
+#| msgid "Purple"
+msgid "purple"
 msgstr "紫色"
 
-#: ../src/preferences.c:479
-msgid "Gray"
-msgstr "灰色"
+#: src/preferences-dialog.vala:140
+#, fuzzy
+#| msgid "Options"
+msgid "Action"
+msgstr "オプション"
 
-#: ../src/scoreboard.c:48
-#, c-format
-msgid "Worm %d:"
-msgstr "いも虫 %d: "
+#: src/preferences-dialog.vala:147
+msgid "Key"
+msgstr ""
+
+#. Translators: This string appears when one tries to assign an already assigned key
+#: src/preferences-dialog.vala:230
+msgid "The key you selected is already assigned!"
+msgstr ""
+
+#~ msgid "Game speed (1=fast, 4=slow)."
+#~ msgstr "ゲームの進行スピードです (1=高速 4=低速)。"
+
+#~ msgid "Play levels in random order"
+#~ msgstr "プレイするレベルをランダムに切り替える"
+
+#~ msgid "Play levels in random order."
+#~ msgstr "プレイするゲームレベルをランダムに切り替えます。"
+
+#~ msgid ""
+#~ "Nibbles couldn't load level file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "レベルファイルを読み込めませんでした:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Nibbles のインストールを確認してください。"
+
+#~ msgid ""
+#~ "Level file appears to be damaged:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "レベルファイルが壊れているようです:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Nibbles のインストールを確認してください。"
+
+#~ msgid "Unknown Command"
+#~ msgstr "不明なコマンド"
+
+#~ msgid ""
+#~ "Nibbles couldn't find pixmap file:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Please check your Nibbles installation"
+#~ msgstr ""
+#~ "Pixmap ファイルが見つけられませんでした:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Nibbles のインストールを確認してください。"
+
+#~ msgid ""
+#~ "A worm game for GNOME.\n"
+#~ "\n"
+#~ "Nibbles is a part of GNOME Games."
+#~ msgstr ""
+#~ "GNOME 版のいも虫ゲームです。\n"
+#~ "\n"
+#~ "Nibbles は GNOME ゲーム集の一部です。"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "GNOME ゲーム集のウェブサイト"
+
+#~ msgid "Game over! The game has been won by %s!"
+#~ msgstr "ゲームオーバーです! %s の勝利です!"
+
+#~ msgid "_Game"
+#~ msgstr "ゲーム(_G)"
+
+#~ msgid "_View"
+#~ msgstr "表示(_V)"
+
+#~ msgid "_Settings"
+#~ msgstr "設定(_S)"
+
+#~ msgid "_End Game"
+#~ msgstr "ゲームの終了(_E)"
+
+#~ msgid "_Contents"
+#~ msgstr "目次(_C)"
+
+#~ msgid "Game"
+#~ msgstr "ゲーム"
+
+#~ msgid "Nibbles newbie"
+#~ msgstr "Nibbles の初心者"
+
+#~ msgid "My second day"
+#~ msgstr "遊び始めて二日目"
+
+#~ msgid "Not too shabby"
+#~ msgstr "ちょっと自慢できる程度"
+
+#~ msgid "Finger-twitching good"
+#~ msgstr "指の動きが絶好調な人"
+
+#~ msgid "_Play levels in random order"
+#~ msgstr "プレイするレベルをランダムに切り替える(_P)"
+
+#~ msgid "_Starting level:"
+#~ msgstr "開始時のレベル(_S):"
+
+#~ msgid "Number of _human players:"
+#~ msgstr "プレイヤーの人数(_H):"
+
+#~ msgid "Number of _AI players:"
+#~ msgstr "AI プレイヤーの数(_A):"
+
+#~ msgid "Keyboard Options"
+#~ msgstr "キーボードオプション"
+
+#~ msgid "_Use relative movement"
+#~ msgstr "相対移動にする(_U)"
+
+#~ msgid "Blue"
+#~ msgstr "青色"
+
+#~ msgid "Cyan"
+#~ msgstr "シアン"
+
+#~ msgid "Gray"
+#~ msgstr "灰色"
+
+#~ msgid "Worm %d:"
+#~ msgstr "いも虫 %d: "
