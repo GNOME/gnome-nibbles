@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gnome-games gnome-2-32\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
 "POT-Creation-Date: 2019-07-02 17:48+0000\n"
-"PO-Revision-Date: 2019-09-08 18:00+0900\n"
+"PO-Revision-Date: 2019-09-09 18:00+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -31,7 +31,7 @@ msgstr "プレイヤー"
 
 #: data/nibbles.ui:6
 msgid "_Scores"
-msgstr "スコア(_S)"
+msgstr "得点(_S)"
 
 #: data/nibbles.ui:12
 msgid "_Preferences"
@@ -70,7 +70,7 @@ msgstr "ようこそ、いも虫たち。"
 #: data/nibbles.ui:146
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
-"他のいも虫や壁に当たらないようにしながら、おやつをたくさん食べましょう!"
+"他のいも虫や壁を避けつつ、おやつをたくさん食べましょう!"
 
 #: data/nibbles.ui:184
 msgid "Number of players"
@@ -78,11 +78,11 @@ msgstr "プレイヤーの数"
 
 #: data/nibbles.ui:198
 msgid "Select the number of human players."
-msgstr "プレイする人間のプレイヤーの数を選択してください。"
+msgstr "人間のプレイヤー数を選択してください。"
 
 #: data/nibbles.ui:274
 msgid "Select the number of computer players."
-msgstr "プレイするコンピューターのプレイヤーの数を選択してください。"
+msgstr "コンピューターのプレイヤー数を選択してください。"
 
 #: data/nibbles.ui:375
 msgid "_Next"
@@ -333,7 +333,7 @@ msgstr "いも虫"
 
 #: data/preferences-dialog.ui:7
 msgid "Preferences"
-msgstr "の設定"
+msgstr "設定"
 
 #: data/preferences-dialog.ui:35
 msgid "Speed"
@@ -403,7 +403,7 @@ msgstr "新しいゲームを始めてもよろしいですか?"
 
 #: src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
-msgstr "新しいゲームを始める場合、今のゲームは破棄します。"
+msgstr "新しいゲームを始める場合、今のゲームは中止します。"
 
 #: src/gnome-nibbles.vala:455
 msgid "_Resume"
@@ -490,7 +490,7 @@ msgstr[0] "%d ポイント"
 #: src/gnome-nibbles.vala:984
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
-msgstr "(あと %ld ポイントでスコアボードに届きます)"
+msgstr "(あと %ld ポイントで上位に入ります)"
 
 #: src/gnome-nibbles.vala:990
 msgid "_Play Again"
@@ -527,19 +527,19 @@ msgstr "プレイヤー %d"
 
 #: src/nibbles-view.vala:156
 msgid "red"
-msgstr "赤色"
+msgstr "赤"
 
 #: src/nibbles-view.vala:157
 msgid "green"
-msgstr "緑色"
+msgstr "緑"
 
 #: src/nibbles-view.vala:158
 msgid "blue"
-msgstr "青色"
+msgstr "青"
 
 #: src/nibbles-view.vala:159
 msgid "yellow"
-msgstr "黄色"
+msgstr "黄"
 
 #: src/nibbles-view.vala:160
 msgid "cyan"
@@ -547,7 +547,7 @@ msgstr "シアン"
 
 #: src/nibbles-view.vala:161
 msgid "purple"
-msgstr "紫色"
+msgstr "紫"
 
 #: src/preferences-dialog.vala:140
 msgid "Action"
