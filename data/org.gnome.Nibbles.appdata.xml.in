@@ -29,6 +29,9 @@
       <image>https://people.gnome.org/~mcatanzaro/gnome-nibbles.png</image>
     </screenshot>
   </screenshots>
+  <releases>
+    <release version="3.34.0" date="2019-09-10" />
+  </releases>
   <launchable type="desktop-id">org.gnome.Nibbles.desktop</launchable>
   <url type="homepage">https://wiki.gnome.org/Apps/Nibbles</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-nibbles/issues</url>
