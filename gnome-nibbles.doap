@@ -14,17 +14,17 @@
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
   <programming-language>Vala</programming-language>
 
-  <maintainer>
+  <author>
     <foaf:Person>
       <foaf:name>Michael Catanzaro</foaf:name>
       <foaf:mbox rdf:resource="mailto:mcatanzaro@gnome.org" />
       <gnome:userid>mcatanzaro</gnome:userid>
     </foaf:Person>
-  </maintainer>
+  </author>
   <maintainer>
     <foaf:Person>
       <foaf:name>Iulian-Gabriel Radu</foaf:name>
-      <foaf:mbox rdf:resource="mailto:iulian.radu67@gmail.com" />
+      <foaf:mbox rdf:resource="mailto:iulianradu@gnome.org" />
       <gnome:userid>iulianradu</gnome:userid>
     </foaf:Person>
   </maintainer>
