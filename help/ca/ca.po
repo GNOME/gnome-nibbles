@@ -212,7 +212,7 @@ msgid ""
 "keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
 "Per exemple, per utilitzar <key>A</key> per <gui>Moure a l'esquerra</gui>, "
-"seleccioneu la línia de control <gui>Esquerra</gui>i feu-li clic, aleshores "
+"seleccioneu la línia de control <gui>Esquerra</gui> i feu-li clic, aleshores "
 "premeu <key>A</key> quan veieu <gui>Nou accelerador…</gui> a la línia."
 
 #. (itstool) path: info/desc
@@ -346,7 +346,7 @@ msgid ""
 "worms. You have to complete 26 levels to finish the game."
 msgstr ""
 "<app>Nibbles</app> és un joc per al GNOME. L'objectiu del joc és empassar-se "
-"tants objectes com sigui possible evitant les parets de laberint i altres "
+"tants objectes com sigui possible evitant les parets del laberint i altres "
 "cucs. Ha de completar 26 nivells per acabar el joc."
 
 #. (itstool) path: section/title
@@ -384,7 +384,7 @@ msgstr ""
 "poden controlar del <gui>Cuc 2</gui> al <gui>Cuc 6</gui> en un joc multi-"
 "jugador. Un joc amb dos jugadors us permet controlar el <gui>Cuc 1</gui> i "
 "el <gui>Cuc 2</gui>, un joc amb tres jugadors us permet controlar el "
-"<gui>Cuc 1</gui>, <gui>Cuc 2</gui> i el <gui>Cuc 3</gui> etcètera."
+"<gui>Cuc 1</gui>, el <gui>Cuc 2</gui> i el <gui>Cuc 3</gui>, etcètera."
 
 #. (itstool) path: section/title
 #: C/multi-player.page:37
@@ -398,7 +398,7 @@ msgid ""
 "players:"
 msgstr ""
 "<app>Nibbles</app> el poden jugar fins a sis jugadors. Per configurar el "
-"nombre de jugadors::"
+"nombre de jugadors:"
 
 #. (itstool) path: item/p
 #: C/multi-player.page:48
@@ -431,7 +431,7 @@ msgstr ""
 msgid "Change default speed, worm color, level order and sound settings."
 msgstr ""
 "Canvieu la velocitat predeterminada, el color del cuc, l'ordre dels nivells "
-"i la configuració de so. "
+"i la configuració de so."
 
 #. (itstool) path: page/title
 #: C/preferences.page:25
@@ -554,7 +554,7 @@ msgid ""
 "Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
 "edit."
 msgstr ""
-"Seleccioneu qualsevol de les pestanyes <gui>Cuc</gui> per el triar el cuc "
+"Seleccioneu qualsevol de les pestanyes <gui>Cuc</gui> per triar el cuc "
 "que voleu editar."
 
 #. (itstool) path: item/p
@@ -582,7 +582,7 @@ msgid ""
 "style=\"menuitem\">Preferences</gui></guiseq>."
 msgstr ""
 "Podeu activar o desactivar els sons a <app>Nibbles</app> marcant o "
-"desmarcant el quadre de text <gui style=\"checkbox\">Activar sons</gui> a "
+"desmarcant el quadre de text <gui style=\"checkbox\">Habilita el so</gui> a "
 "<guiseq><gui style=\"menu\">Configuració</gui> <gui "
 "style=\"menuitem\">Preferències</gui></guiseq>."
 
@@ -601,7 +601,7 @@ msgid ""
 msgstr ""
 "Marqueu o desmarqueu el quadre de text <gui style=\"checkbox\">Jugar els "
 "nivells en ordre aleatori</gui> a <guiseq><gui "
-"style=\"menu\">Preferències</gui> <gui "
+"style=\"menu\">Configuració</gui> <gui "
 "style=\"menuitem\">Preferències</gui></guiseq> per jugar els nivells de "
 "<app>Nibbles</app> ordre aleatori."
 
