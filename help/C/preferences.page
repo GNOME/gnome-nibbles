@@ -7,6 +7,7 @@
     <link type="guide" xref="index#preferences"/>
 
     <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
+    <revision pkgversion="3.34" version="0.2" date="2020-01-05" status="review"/>
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
@@ -115,16 +116,6 @@
   unchecking the <gui style="checkbox">Enable sounds</gui> checkbox in
   <guiseq><gui style="menu">Settings</gui>
   <gui style="menuitem">Preferences</gui></guiseq>.</p>
-
-</section>
-
-<section id="random-levels">
-  <title>Play levels in random order</title>
-
-  <p>Check or uncheck the <gui style="checkbox">Play levels in random
-  order</gui> checkbox in <guiseq><gui style="menu">Settings</gui>
-  <gui style="menuitem">Preferences</gui></guiseq>
-  to play the different levels in <app>Nibbles</app> in random order.</p>
 
 </section>
 
