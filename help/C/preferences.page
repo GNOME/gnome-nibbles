@@ -32,24 +32,6 @@
 <section id="speed">
   <title>Speed</title>
 
-  <p>There are four available speeds in <app>Nibbles</app>. These are, in
-  increasing order:</p>
-
-  <list>
-    <item>
-      <p>Nibbles Newbie</p>
-    </item>
-    <item>
-      <p>My second day</p>
-    </item>
-    <item>
-      <p>Not too shabby</p>
-    </item>
-    <item>
-      <p>Finger twitching good</p>
-    </item>
-  </list>
-
   <p>Speed can be changed in <guiseq><gui style="menu">Settings</gui>
   <gui style="menuitem">Preferences</gui></guiseq> by selecting one of
   the four speed choices given on the left hand side.</p>
