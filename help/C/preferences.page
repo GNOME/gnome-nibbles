@@ -26,15 +26,22 @@
   <title>Edit general preferences</title>
 
   <p>The general preferences for <app>Nibbles</app> can be changed by
-  selecting <guiseq><gui style="menu">Settings</gui>
-  <gui style="menuitem">Preferences</gui></guiseq>.</p>
+  pressing the menu button in the top-right corner of the window and selecting
+  <gui style="menuitem">Preferences</gui>.</p>
 
 <section id="speed">
   <title>Speed</title>
 
-  <p>Speed can be changed in <guiseq><gui style="menu">Settings</gui>
-  <gui style="menuitem">Preferences</gui></guiseq> by selecting one of
-  the four speed choices given on the left hand side.</p>
+  <p>To change the speed:</p>
+  <steps>
+    <item>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">Preferences</gui>.</p>
+    </item>
+    <item>
+      <p>Select one of the four speed choices given on the left hand side.</p>
+    </item>
+  </steps>
 
 </section>
 
@@ -74,17 +81,18 @@
     </item>
   </list>
 
-  <p>These can be changed in <guiseq><gui style="menu">Settings</gui>
-  <gui style="menuitem">Preferences</gui></guiseq>.</p>
-
+  <p>To change worm colors:</p>
   <steps>
     <item>
-      <p>Select any of the <gui>Worm</gui> tabs to choose the worm that you
-      wish to edit.</p>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">Preferences</gui>.</p>
     </item>
     <item>
-      <p>On your left hand side you will see
-      <gui style="group">Worm color</gui>. Pick a color out of the available
+      <p>Select any of the <gui style="tab">Worm</gui> tabs to choose the worm
+      that you wish to edit.</p>
+    </item>
+    <item>
+      <p>Under <gui>Worm color</gui>, pick a color out of the available
       colors in the drop-down menu to change the appearance of the worm.</p>
     </item>
   </steps>
@@ -94,10 +102,16 @@
 <section id="sound">
   <title>Sounds</title>
 
-  <p>You can enable or disable sounds in <app>Nibbles</app> by checking or
-  unchecking the <gui style="checkbox">Enable sounds</gui> checkbox in
-  <guiseq><gui style="menu">Settings</gui>
-  <gui style="menuitem">Preferences</gui></guiseq>.</p>
+  <p>To enable or disable sounds:</p>
+  <steps>
+    <item>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">Preferences</gui>.</p>
+    </item>
+    <item>
+      <p>Check or uncheck <gui style="checkbox">Enable sounds</gui>.</p>
+    </item>
+  </steps>
 
 </section>
 
