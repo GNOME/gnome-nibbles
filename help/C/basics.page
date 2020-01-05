@@ -7,6 +7,7 @@
     <link type="guide" xref="index#play"/>
 
     <revision pkgversion="3.8" version="0.1" date="2013-03-07" status="review"/>
+    <revision pkgversion="3.34" version="0.2" date="2020-01-05" status="review"/>
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
@@ -27,20 +28,17 @@
 <section id="start">
   <title>Start a new game</title>
 
-  <p>Select <guiseq><gui style="menu">Game</gui>
-  <gui style="menuitem">New</gui></guiseq>
-  or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start a new
-  game.</p>
+  <p>Press the <gui style="button">New Game</gui> button in the header bar to start a new
+  game when being in a game.</p>
+  <p>Press the <gui style="button">Play Again</gui> button when you have finished a game.</p>
 
 </section>
 
 <section id="pause">
   <title>Pause and resume your game</title>
 
-  <p>Select <guiseq><gui style="menu">Game</gui>
-  <gui style="menuitem">Pause</gui></guiseq> to pause your game.
-  You can resume your game by selecting <guiseq><gui style="menu">Game</gui>
-  <gui style="menuitem">Resume</gui></guiseq>.</p>
+  <p>Press the <gui style="button">New Game</gui> button in the header bar to pause your game.
+  You can resume your game by pressing the <gui style="button">Resume</gui> button.</p>
 
 </section>
 
@@ -57,8 +55,7 @@
 <section id="quit">
   <title>Quit <app>Nibbles</app></title>
 
-  <p>Select <guiseq><gui style="menu">Game</gui>
-  <gui style="menuitem">Quit</gui></guiseq> or press
+  <p>Press the <gui style="button">⨯</gui> button in the header bar or press
   <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app>
   at any time.</p>
 
