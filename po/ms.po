@@ -4,116 +4,105 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Games 2.0.x\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 23:38+0100\n"
-"PO-Revision-Date: 2003-11-24 01:54+0800\n"
-"Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
+"POT-Creation-Date: 2019-09-27 09:07+0000\n"
+"PO-Revision-Date: 2019-12-28 17:55+0800\n"
+"Last-Translator: abuyop <abuyop@gmail.com>\n"
 "Language-Team: Projek Gabai <gabai-penyumbang@lists.sourceforge.org>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: ../data/controls-grid.ui.h:1
-#, fuzzy
+#: data/controls-grid.ui:12
 msgid "Player"
-msgstr "_Pemain"
+msgstr "Pemain"
 
-#: ../data/nibbles-menus.ui.h:1
-#, fuzzy
-msgid "_Preferences"
-msgstr "Keutamaan"
-
-#: ../data/nibbles-menus.ui.h:2
-#, fuzzy
+#: data/nibbles.ui:6
 msgid "_Scores"
-msgstr "Markah."
+msgstr "_Skor"
 
-#: ../data/nibbles-menus.ui.h:3
-#, fuzzy
+#: data/nibbles.ui:12
+msgid "_Preferences"
+msgstr "Ke_utamaan"
+
+#: data/nibbles.ui:16
 msgid "_Help"
-msgstr "Bantuan"
+msgstr "_Bantuan"
 
-#: ../data/nibbles-menus.ui.h:4
-msgid "_About"
-msgstr ""
+#: data/nibbles.ui:21
+msgid "_About Nibbles"
+msgstr "Perih_al Gigitan"
 
-#: ../data/nibbles-menus.ui.h:5
-msgid "_Quit"
-msgstr ""
-
-#: ../data/nibbles.ui.h:1 ../data/org.gnome.Nibbles.desktop.in.h:1
-#: ../src/gnome-nibbles.vala:137 ../src/gnome-nibbles.vala:542
-#: ../src/gnome-nibbles.vala:1048
+#: data/nibbles.ui:28 data/nibbles.ui:72 data/org.gnome.Nibbles.desktop.in:3
+#: src/gnome-nibbles.vala:137 src/gnome-nibbles.vala:542
+#: src/gnome-nibbles.vala:1052
 msgid "Nibbles"
-msgstr "Nibbles"
+msgstr "Gigitan"
 
-#: ../data/nibbles.ui.h:2 ../src/gnome-nibbles.vala:427
-#, fuzzy
+#: data/nibbles.ui:34 src/gnome-nibbles.vala:427
 msgid "_New Game"
-msgstr "Permainan Baru"
+msgstr "Permainan _Baharu"
 
-#: ../data/nibbles.ui.h:3 ../src/gnome-nibbles.vala:460
-#, fuzzy
+#: data/nibbles.ui:45 src/gnome-nibbles.vala:460
 msgid "_Pause"
-msgstr "Kaku"
+msgstr "_Jeda"
 
-#: ../data/nibbles.ui.h:4
+#: data/nibbles.ui:100
 msgid "Let’s _Play"
-msgstr ""
+msgstr "_Jom Main"
 
-#: ../data/nibbles.ui.h:5
+#: data/nibbles.ui:136
 msgid "Welcome, worms."
-msgstr ""
+msgstr "Selamat datang, si cacing."
 
-#: ../data/nibbles.ui.h:6
+#: data/nibbles.ui:146
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
+"Makan kudapan yang ada sebelum cacing lain dapat, tetapi jangan langgar apa-"
+"apa!"
 
-#: ../data/nibbles.ui.h:7
-#, fuzzy
+#: data/nibbles.ui:184
 msgid "Number of players"
-msgstr "Bilangan pemain."
+msgstr "Bilangan pemain"
 
-#: ../data/nibbles.ui.h:8
-#, fuzzy
+#: data/nibbles.ui:198
 msgid "Select the number of human players."
-msgstr "Bilangan pemain."
+msgstr "Pilih bilangan pemain manusia."
 
-#: ../data/nibbles.ui.h:9
-#, fuzzy
+#: data/nibbles.ui:274
 msgid "Select the number of computer players."
-msgstr "Selesaikan permainan"
+msgstr "Pilih bilangan pemain komputer."
 
-#: ../data/nibbles.ui.h:10
-#, fuzzy
+#: data/nibbles.ui:375
 msgid "_Next"
-msgstr "Bola Berikutnya:"
+msgstr "_Berikutnya"
 
-#: ../data/nibbles.ui.h:11 ../data/preferences-dialog.ui.h:11
+#: data/nibbles.ui:407 data/preferences-dialog.ui:191
+#: data/preferences-dialog.ui:286 data/preferences-dialog.ui:381
+#: data/preferences-dialog.ui:476
 msgid "Controls"
-msgstr ""
+msgstr "Kawalan"
 
-#: ../data/nibbles.ui.h:12
-#, fuzzy
+#: data/nibbles.ui:427
 msgid "_Start"
-msgstr "Mula semula"
+msgstr "_Mula"
 
-#: ../data/nibbles.ui.h:13
+#: data/nibbles.ui:471
 msgid "Paused"
-msgstr "Kaku"
+msgstr "Dijeda"
 
-#: ../data/org.gnome.Nibbles.appdata.xml.in.h:1
-#, fuzzy
+#: data/org.gnome.Nibbles.appdata.xml.in:7
 msgid "GNOME Nibbles"
-msgstr "Nibbles"
+msgstr "Gigitan GNOME"
 
-#: ../data/org.gnome.Nibbles.appdata.xml.in.h:2
-#: ../data/org.gnome.Nibbles.desktop.in.h:2
+#: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
-msgstr ""
+msgstr "Pandu seekor cacing mengharungi sebuah pagar sesat"
 
-#: ../data/org.gnome.Nibbles.appdata.xml.in.h:3
+#: data/org.gnome.Nibbles.appdata.xml.in:10
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating doughnuts and ice cream to increase your length. "
@@ -121,422 +110,452 @@ msgid ""
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won’t have much room for movement."
 msgstr ""
+"Kawal seekor cacing yang mahu makan bonus dan menjadi lebih panjang. "
+"Kalahkan cacing-cacing musuh ketika menikmati donut dan aiskrim untuk "
+"menjadi lebih panjang. Setiap ekor cacing mempunyai sepuluh hayat dan akan "
+"hilang satu sekiranya melanggar dinding, cacing lain, atau diri sendiri. "
+"Cacing-cacing musuh juga mahukan bonus-bonus yang sama, jadi berhati-hati: "
+"jika mereka menjadi terlalu besar, anda akan kekurangan ruang untuk bergerak "
+"bebas."
 
-#: ../data/org.gnome.Nibbles.appdata.xml.in.h:4
+#: data/org.gnome.Nibbles.appdata.xml.in:17
 msgid ""
 "The adventure progresses through 26 maps of increasing difficulty. The early "
 "levels are mostly open with a few walls, but later on, cramped spaces and "
 "teleporters make things more interesting."
 msgstr ""
+"Permainan berlanjutan menerusi 26 peta yang kesukaran semakin meningkat. "
+"Aras-aras awal lebih terbuka dan kurang dinding, tetapi aras-aras berikutnya "
+"lebih sempit dan ada teleport yang menambah lagi keseronokan bermain."
 
-#: ../data/org.gnome.Nibbles.appdata.xml.in.h:5
+#: data/org.gnome.Nibbles.appdata.xml.in:22
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
+"Bermain sehingga lima ekor cacing musuh, atau berkongsi papan kekunci anda "
+"untuk bermain bersama-sama rakan anda."
 
-#: ../data/org.gnome.Nibbles.appdata.xml.in.h:6
+#: data/org.gnome.Nibbles.appdata.xml.in:49
 msgid "The GNOME Project"
-msgstr ""
+msgstr "Projek GNOME"
 
-#: ../data/org.gnome.Nibbles.desktop.in.h:3
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Nibbles.desktop.in:6
 msgid "game;snake;board;"
-msgstr ""
+msgstr "permainan;ular;papan;"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:1
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:13
 msgid "Width of the window in pixels"
-msgstr "Lebar bagi tetingkap utama, dalam piksel, pada permulaan"
+msgstr "Lebar tetingkap dalam piksel"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:2
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:14
 msgid "Width of the window in pixels."
-msgstr "Lebar bagi tetingkap utama, dalam piksel, pada permulaan"
+msgstr "Lebar tetingkap dalam piksel."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:3
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:18
 msgid "Height of the window in pixels"
-msgstr "Tinggi bagi tetingkap utama, dalam piksel, pada permulaan"
+msgstr "Tinggi tetingkap dalam piksel"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:4
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:19
 msgid "Height of the window in pixels."
-msgstr "Tinggi bagi tetingkap utama, dalam piksel, pada permulaan"
+msgstr "Tinggi tetingkap dalam piksel."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:5
+#: data/org.gnome.nibbles.gschema.xml:23
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "benar jika tetingkap dimaksimumkan"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:6
+#: data/org.gnome.nibbles.gschema.xml:24
 msgid "true if the window is maximized."
-msgstr ""
+msgstr "benar jika tetingkap dimaksimumkan."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:7
+#: data/org.gnome.nibbles.gschema.xml:28
 msgid "Is this the first run"
-msgstr ""
+msgstr "Adakah ini pertama kali dijalankan"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:8
+#: data/org.gnome.nibbles.gschema.xml:29
 msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr ""
+"Tetapan untuk tentukan sama ada mahu tunjukkan dialog pembayang pertama-kali "
+"atau sebaliknya."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:9
+#: data/org.gnome.nibbles.gschema.xml:34
 msgid "Size of game tiles"
 msgstr "Saiz jubin permainan"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:10
+#: data/org.gnome.nibbles.gschema.xml:35
 msgid "Size of game tiles."
 msgstr "Saiz jubin permainan."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:11
+#: data/org.gnome.nibbles.gschema.xml:40
 msgid "Game level to start on"
-msgstr "Aras Permainan untuk dimulakan"
+msgstr "Aras Permainan yang dimulakan"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:12
+#: data/org.gnome.nibbles.gschema.xml:41
 msgid "Game level to start on."
-msgstr "Aras Permainan untuk dimulakan."
+msgstr "Aras Permainan yang dimulakan."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:13
+#: data/org.gnome.nibbles.gschema.xml:46
 msgid "Worms movement speed"
-msgstr ""
+msgstr "Kelajuan gerakan cacing"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:14
+#: data/org.gnome.nibbles.gschema.xml:47
 msgid "Worms movement speed."
-msgstr ""
+msgstr "Kelajuan gerakan cacing."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:15
+#: data/org.gnome.nibbles.gschema.xml:51
 msgid "Enable sounds"
-msgstr "Hidupkan bunyi"
+msgstr "Benarkan bunyi"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:16
+#: data/org.gnome.nibbles.gschema.xml:52
 msgid "Enable sounds."
-msgstr "Hidupkan bunyi."
+msgstr "Benarkan bunyi."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:17
+#: data/org.gnome.nibbles.gschema.xml:56
 msgid "Enable fake bonuses"
-msgstr "Hidupkan bonus palsu"
+msgstr "Benarkan bonus palsu"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:18
+#: data/org.gnome.nibbles.gschema.xml:57
 msgid "Enable fake bonuses."
-msgstr "Hidupkan bonus palsu."
+msgstr "Benarkan bonus palsu."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:19
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:62
 msgid "Number of human players"
-msgstr "Bilangan pemain"
+msgstr "Bilangan pemain manusia"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:20
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:63
 msgid "Number of human players."
-msgstr "Bilangan pemain."
+msgstr "Bilangan pemain manusia."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:21
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:68
 msgid "Number of AI players"
-msgstr "Bilangan pemain"
+msgstr "Bilangan pemain AI"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:22
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:69
 msgid "Number of AI players."
-msgstr "Bilangan pemain."
+msgstr "Bilangan pemain AI."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:23
+#: data/org.gnome.nibbles.gschema.xml:75 data/org.gnome.nibbles.gschema.xml:107
+#: data/org.gnome.nibbles.gschema.xml:139
+#: data/org.gnome.nibbles.gschema.xml:171
+#: data/org.gnome.nibbles.gschema.xml:203
+#: data/org.gnome.nibbles.gschema.xml:235
 msgid "Color to use for worm"
-msgstr "Warna digunakan untuk cecacing"
+msgstr "Warna untuk cacing"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:24
+#: data/org.gnome.nibbles.gschema.xml:76 data/org.gnome.nibbles.gschema.xml:108
+#: data/org.gnome.nibbles.gschema.xml:140
+#: data/org.gnome.nibbles.gschema.xml:172
+#: data/org.gnome.nibbles.gschema.xml:204
+#: data/org.gnome.nibbles.gschema.xml:236
 msgid "Color to use for worm."
-msgstr "Warna digunakan untuk cecacing."
+msgstr "Warna untuk cacing."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:25
+#: data/org.gnome.nibbles.gschema.xml:80 data/org.gnome.nibbles.gschema.xml:112
+#: data/org.gnome.nibbles.gschema.xml:144
+#: data/org.gnome.nibbles.gschema.xml:176
+#: data/org.gnome.nibbles.gschema.xml:208
+#: data/org.gnome.nibbles.gschema.xml:240
 msgid "Use relative movement"
-msgstr "Guna pergerakan relatif"
+msgstr "Guna gerakan relatif"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:26
+#: data/org.gnome.nibbles.gschema.xml:81 data/org.gnome.nibbles.gschema.xml:113
+#: data/org.gnome.nibbles.gschema.xml:145
+#: data/org.gnome.nibbles.gschema.xml:177
+#: data/org.gnome.nibbles.gschema.xml:209
+#: data/org.gnome.nibbles.gschema.xml:241
 msgid "Use relative movement (ie. left or right only)."
-msgstr ""
+msgstr "Guna gerakan relatif (iaitu kiri atau kanan sahaja)."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:27
-#: ../src/preferences-dialog.vala:128
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:85 data/org.gnome.nibbles.gschema.xml:117
+#: data/org.gnome.nibbles.gschema.xml:149
+#: data/org.gnome.nibbles.gschema.xml:181
+#: data/org.gnome.nibbles.gschema.xml:213
+#: data/org.gnome.nibbles.gschema.xml:245 src/preferences-dialog.vala:128
 msgid "Move up"
-msgstr "_Pindah"
+msgstr "Gerak ke atas"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:28
+#: data/org.gnome.nibbles.gschema.xml:86 data/org.gnome.nibbles.gschema.xml:118
+#: data/org.gnome.nibbles.gschema.xml:150
+#: data/org.gnome.nibbles.gschema.xml:182
+#: data/org.gnome.nibbles.gschema.xml:214
+#: data/org.gnome.nibbles.gschema.xml:246
 msgid "Key to use for motion up."
-msgstr ""
+msgstr "Kekunci yang digunakan untuk gerak ke atas."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:29
-#: ../src/preferences-dialog.vala:131
-#, fuzzy
+#: data/org.gnome.nibbles.gschema.xml:90 data/org.gnome.nibbles.gschema.xml:122
+#: data/org.gnome.nibbles.gschema.xml:154
+#: data/org.gnome.nibbles.gschema.xml:186
+#: data/org.gnome.nibbles.gschema.xml:218
+#: data/org.gnome.nibbles.gschema.xml:250 src/preferences-dialog.vala:131
 msgid "Move down"
-msgstr "Turunkan kepingan ke bawah"
+msgstr "Gerak ke bawah"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:30
+#: data/org.gnome.nibbles.gschema.xml:91 data/org.gnome.nibbles.gschema.xml:123
+#: data/org.gnome.nibbles.gschema.xml:155
+#: data/org.gnome.nibbles.gschema.xml:187
+#: data/org.gnome.nibbles.gschema.xml:219
+#: data/org.gnome.nibbles.gschema.xml:251
 msgid "Key to use for motion down."
-msgstr "Kekunci digunakan untuk bergerak ke bawah."
+msgstr "Kekunci yang digunakan untuk gerak ke bawah."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:31
-#: ../src/preferences-dialog.vala:134
+#: data/org.gnome.nibbles.gschema.xml:95 data/org.gnome.nibbles.gschema.xml:127
+#: data/org.gnome.nibbles.gschema.xml:159
+#: data/org.gnome.nibbles.gschema.xml:191
+#: data/org.gnome.nibbles.gschema.xml:223
+#: data/org.gnome.nibbles.gschema.xml:255 src/preferences-dialog.vala:134
 msgid "Move left"
-msgstr "Gerakan kekiri"
+msgstr "Gerak ke kiri"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:32
+#: data/org.gnome.nibbles.gschema.xml:96 data/org.gnome.nibbles.gschema.xml:128
+#: data/org.gnome.nibbles.gschema.xml:160
+#: data/org.gnome.nibbles.gschema.xml:192
+#: data/org.gnome.nibbles.gschema.xml:224
+#: data/org.gnome.nibbles.gschema.xml:256
 msgid "Key to use for motion left."
-msgstr "Kekunci digunakan untuk bergerak ke kiri."
+msgstr "Kekunci yang digunakan untuk gerak ke kiri."
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:33
-#: ../src/preferences-dialog.vala:137
+#: data/org.gnome.nibbles.gschema.xml:100
+#: data/org.gnome.nibbles.gschema.xml:132
+#: data/org.gnome.nibbles.gschema.xml:164
+#: data/org.gnome.nibbles.gschema.xml:196
+#: data/org.gnome.nibbles.gschema.xml:228
+#: data/org.gnome.nibbles.gschema.xml:260 src/preferences-dialog.vala:137
 msgid "Move right"
-msgstr "Gerakan ke kanan"
+msgstr "Gerak ke kanan"
 
-#: ../data/org.gnome.nibbles.gschema.xml.h:34
+#: data/org.gnome.nibbles.gschema.xml:101
+#: data/org.gnome.nibbles.gschema.xml:133
+#: data/org.gnome.nibbles.gschema.xml:165
+#: data/org.gnome.nibbles.gschema.xml:197
+#: data/org.gnome.nibbles.gschema.xml:229
+#: data/org.gnome.nibbles.gschema.xml:261
 msgid "Key to use for motion right."
-msgstr "Kekunci digunakan untuk bergerak ke kanan."
+msgstr "Kekunci yang digunakan untuk gerak ke kanan."
 
-#: ../data/player-score-box.ui.h:1
+#: data/player-score-box.ui:15
 msgid "Worm"
 msgstr "Cacing"
 
-#: ../data/preferences-dialog.ui.h:1
+#: data/preferences-dialog.ui:7
 msgid "Preferences"
 msgstr "Keutamaan"
 
-#: ../data/preferences-dialog.ui.h:2
+#: data/preferences-dialog.ui:35
 msgid "Speed"
 msgstr "Kelajuan"
 
-#: ../data/preferences-dialog.ui.h:3
+#: data/preferences-dialog.ui:52
 msgid "_Beginner"
-msgstr ""
+msgstr "P_emula"
 
-#: ../data/preferences-dialog.ui.h:4
-#, fuzzy
+#: data/preferences-dialog.ui:67
 msgid "_Slow"
-msgstr "Kuning"
+msgstr "Pe_rlahan"
 
-#: ../data/preferences-dialog.ui.h:5
+#: data/preferences-dialog.ui:83
 msgid "_Medium"
-msgstr "_Medium"
+msgstr "_Sederhana"
 
-#: ../data/preferences-dialog.ui.h:6
-#, fuzzy
+#: data/preferences-dialog.ui:99
 msgid "_Fast"
-msgstr "Muka:"
+msgstr "Pa_ntas"
 
-#: ../data/preferences-dialog.ui.h:7
+#: data/preferences-dialog.ui:126
 msgid "Options"
 msgstr "Opsyen"
 
-#: ../data/preferences-dialog.ui.h:8
-#, fuzzy
+#: data/preferences-dialog.ui:143
 msgid "E_nable sounds"
-msgstr "Hidupkan bunyi"
+msgstr "Be_narkan bunyi"
 
-#: ../data/preferences-dialog.ui.h:9
-#, fuzzy
+#: data/preferences-dialog.ui:155
 msgid "_Enable fake bonuses"
-msgstr "Hidupkan bonus palsu"
+msgstr "B_enarkan bonus palsu"
 
-#: ../data/preferences-dialog.ui.h:10
-#, fuzzy
+#: data/preferences-dialog.ui:174
 msgid "_General"
-msgstr "Umum"
+msgstr "_Am"
 
-#: ../data/preferences-dialog.ui.h:12
-#, fuzzy
+#: data/preferences-dialog.ui:237 data/preferences-dialog.ui:332
+#: data/preferences-dialog.ui:427 data/preferences-dialog.ui:522
 msgid "Worm color"
-msgstr "Warna cacing:"
+msgstr "Warna cacing"
 
-#: ../data/preferences-dialog.ui.h:13
-#, fuzzy
+#: data/preferences-dialog.ui:269
 msgid "Worm _1"
-msgstr "Cacing"
+msgstr "Cacing_1"
 
-#: ../data/preferences-dialog.ui.h:14
-#, fuzzy
+#: data/preferences-dialog.ui:364
 msgid "Worm _2"
-msgstr "Cacing"
+msgstr "Cacing_2"
 
-#: ../data/preferences-dialog.ui.h:15
-#, fuzzy
+#: data/preferences-dialog.ui:459
 msgid "Worm _3"
-msgstr "Cacing"
+msgstr "Cacing_3"
 
-#: ../data/preferences-dialog.ui.h:16
-#, fuzzy
+#: data/preferences-dialog.ui:554
 msgid "Worm _4"
-msgstr "Cacing"
+msgstr "Cacing_4"
 
 #. Help string for command line --version flag
-#: ../src/gnome-nibbles.vala:104
+#: src/gnome-nibbles.vala:104
 msgid "Show release version"
-msgstr ""
+msgstr "Tunjuk versi keluaran"
 
-#: ../src/gnome-nibbles.vala:423
-#, fuzzy
+#: src/gnome-nibbles.vala:423
 msgid "Are you sure you want to start a new game?"
-msgstr "Telah digunakan! Dimana anda ingin meletakkanya?"
+msgstr "Anda pasti mahu memulakan satu permainan baharu?"
 
-#: ../src/gnome-nibbles.vala:424
+#: src/gnome-nibbles.vala:424
 msgid "If you start a new game, the current one will be lost."
-msgstr ""
+msgstr "Jika anda memulakan satu permainan baharu, yang semasa akan hilang."
 
-#: ../src/gnome-nibbles.vala:455
-#, fuzzy
+#: src/gnome-nibbles.vala:455
 msgid "_Resume"
-msgstr "_Ulangtetap"
+msgstr "Sambung Se_mula"
 
-#: ../src/gnome-nibbles.vala:626 ../src/gnome-nibbles.vala:901
-#, fuzzy, c-format
+#: src/gnome-nibbles.vala:626 src/gnome-nibbles.vala:903
+#, c-format
 msgid "Level %d"
-msgstr "Peringkat:"
+msgstr "Aras %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:763
+#: src/gnome-nibbles.vala:763
 msgid "Beginner"
-msgstr ""
+msgstr "Pemula"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:765
-#, fuzzy
+#: src/gnome-nibbles.vala:765
 msgid "Slow"
-msgstr "Kuning"
+msgstr "Perlahan"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:767
+#: src/gnome-nibbles.vala:767
 msgid "Medium"
-msgstr "Medium"
+msgstr "Sederhana"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:769
-#, fuzzy
+#: src/gnome-nibbles.vala:769
 msgid "Fast"
-msgstr "Muka:"
+msgstr "Pantas"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:771
+#: src/gnome-nibbles.vala:771
 msgid "Beginner with Fakes"
-msgstr ""
+msgstr "Pemula dengan Palsu"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:773
+#: src/gnome-nibbles.vala:773
 msgid "Slow with Fakes"
-msgstr ""
+msgstr "Perlahan dengan Palsu"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:775
+#: src/gnome-nibbles.vala:775
 msgid "Medium with Fakes"
-msgstr ""
+msgstr "Sederhana dengan Palsu"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: ../src/gnome-nibbles.vala:777
+#: src/gnome-nibbles.vala:777
 msgid "Fast with Fakes"
-msgstr ""
+msgstr "Pantas dengan Palsu"
 
 #. Displayed on the scores dialog, preceeding a difficulty.
-#: ../src/gnome-nibbles.vala:782
+#: src/gnome-nibbles.vala:782
 msgid "Difficulty Level:"
-msgstr ""
+msgstr "Tahap kesukaran:"
 
 #. Translators: the %d is the number of the level that was completed.
-#: ../src/gnome-nibbles.vala:883
-#, fuzzy, c-format
+#: src/gnome-nibbles.vala:885
+#, c-format
 msgid "Level %d Completed!"
-msgstr "Peringkat Selesai"
+msgstr "Aras %d Selesai!"
 
-#: ../src/gnome-nibbles.vala:890
+#: src/gnome-nibbles.vala:892
 msgid "_Next Level"
-msgstr ""
+msgstr "Aras _Berikutnya"
 
-#: ../src/gnome-nibbles.vala:956
-#, fuzzy
+#: src/gnome-nibbles.vala:960
 msgid "Congratulations!"
-msgstr "Tahniah."
+msgstr "Tahniah!"
 
-#: ../src/gnome-nibbles.vala:956
+#: src/gnome-nibbles.vala:960
 msgid "Game Over!"
 msgstr "Permainan Tamat!"
 
-#: ../src/gnome-nibbles.vala:963
+#: src/gnome-nibbles.vala:967
 msgid "You have completed the game."
-msgstr ""
+msgstr "Anda berjaya menamatkan permainan."
 
-#: ../src/gnome-nibbles.vala:970
+#: src/gnome-nibbles.vala:974
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Mata"
 
-#: ../src/gnome-nibbles.vala:980
+#: src/gnome-nibbles.vala:984
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
-msgstr ""
+msgstr "(%ld mata lagi untuk menduduki papan juara)"
 
-#: ../src/gnome-nibbles.vala:986
-#, fuzzy
+#: src/gnome-nibbles.vala:990
 msgid "_Play Again"
-msgstr "Nama Pemain"
+msgstr "_Main Lagi"
 
-#: ../src/gnome-nibbles.vala:1051
-#, fuzzy
+#: src/gnome-nibbles.vala:1055
 msgid "A worm game for GNOME"
-msgstr "Permainan Cecacing untuk GNOME."
+msgstr "Sebuah permainan Cacing untuk GNOME"
 
-#: ../src/gnome-nibbles.vala:1060
+#: src/gnome-nibbles.vala:1064
 msgid "translator-credits"
 msgstr ""
-"\"kenang daku semasa bermain..ahaks...'\n"
-"Noor Azurah Anuar <gbumla@yahoo.com>, Bandar Hilir."
+"abuyop\n"
+"'kenang daku semasa bermain..ahaks...'\n"
+"Noor Azurah Anuar <gbumla@yahoo.com>, Bandar Hilir"
 
 #. FIXME: Consider changing this to "Worm %d"
 #. * It's set to "Player %d" for now to avoid a string change for 3.20.
 #.
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#: ../src/gnome-nibbles.vala:1094 ../src/gnome-nibbles.vala:1212
-#: ../src/nibbles-view.vala:583
-#, fuzzy, c-format
+#: src/gnome-nibbles.vala:1098 src/gnome-nibbles.vala:1216
+#: src/nibbles-view.vala:580
+#, c-format
 msgid "Player %d"
-msgstr "Pemain Mati"
+msgstr "Pemain %d"
 
-#: ../src/nibbles-view.vala:156
-#, fuzzy
+#: src/nibbles-view.vala:153
 msgid "red"
-msgstr "Merah"
+msgstr "merah"
 
-#: ../src/nibbles-view.vala:157
-#, fuzzy
+#: src/nibbles-view.vala:154
 msgid "green"
-msgstr "Hijau"
+msgstr "hijau"
 
-#: ../src/nibbles-view.vala:158
+#: src/nibbles-view.vala:155
 msgid "blue"
-msgstr ""
+msgstr "biru"
 
-#: ../src/nibbles-view.vala:159
-#, fuzzy
+#: src/nibbles-view.vala:156
 msgid "yellow"
-msgstr "Kuning"
+msgstr "kuning"
 
-#: ../src/nibbles-view.vala:160
+#: src/nibbles-view.vala:157
 msgid "cyan"
-msgstr ""
+msgstr "sian"
 
-#: ../src/nibbles-view.vala:161
-#, fuzzy
+#: src/nibbles-view.vala:158
 msgid "purple"
-msgstr "Ungu"
+msgstr "ungu"
 
-#: ../src/preferences-dialog.vala:140
-#, fuzzy
+#: src/preferences-dialog.vala:140
 msgid "Action"
-msgstr "Animasi"
+msgstr "Aksi"
 
-#: ../src/preferences-dialog.vala:147
+#: src/preferences-dialog.vala:147
 msgid "Key"
-msgstr ""
+msgstr "Kekunci"
 
 #. Translators: This string appears when one tries to assign an already assigned key
-#: ../src/preferences-dialog.vala:230
+#: src/preferences-dialog.vala:230
 msgid "The key you selected is already assigned!"
-msgstr ""
+msgstr "Kekunci yang anda pilih telah diumpuk!"
