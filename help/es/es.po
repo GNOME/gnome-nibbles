@@ -438,7 +438,7 @@ msgid ""
 msgstr ""
 "Las preferencias generales de <app>Nibbles</app> se pueden cambiar pulsando "
 "el botón de menú en la esquina superior derecha de la ventana y eligiendo "
-"<gui style=\"menuitem\">Preferencias</gui></guiseq>."
+"<gui style=\"menuitem\">Preferencias</gui>."
 
 #. (itstool) path: section/title
 #: C/preferences.page:33
