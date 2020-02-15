@@ -654,6 +654,7 @@ public class Nibbles : Gtk.Application
 
     private void change_number_of_players_cb (Gtk.ToggleButton button)
     {
+        var is_same_button = true;
         foreach (var other_button in number_of_players_buttons)
         {
             if (button != other_button)
@@ -666,10 +667,21 @@ public class Nibbles : Gtk.Application
                     SignalHandler.block_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
                     other_button.set_active (false);
                     SignalHandler.unblock_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
+                    is_same_button = false;
                     break;
                 }
             }
         }
+
+        /* Ignore clicks on the same button. */
+        if (is_same_button)
+        {
+            SignalHandler.block_matched (button, SignalMatchType.DATA, 0, 0, null, null, this);
+            button.set_active (true);
+            SignalHandler.unblock_matched (button, SignalMatchType.DATA, 0, 0, null, null, this);
+            return;
+        }
+
         button.set_active (true);
 
         int numhumans = -1;
