@@ -158,6 +158,7 @@ public class Nibbles : Gtk.Application
             worm_settings[i].changed.connect (worm_settings_changed_cb);
         }
 
+        set_accels_for_action ("app.new-game", {"<Primary>n"});
         set_accels_for_action ("app.quit", {"<Primary>q"});
         set_accels_for_action ("app.back", {"Escape"});
         set_accels_for_action ("app.help", {"F1"});
