@@ -75,11 +75,6 @@
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
     </key>
-    <key name="move-relative" type="b">
-      <default>false</default>
-      <summary>Use relative movement</summary>
-      <description>Use relative movement (ie. left or right only).</description>
-    </key>
     <key name="key-up" type="i">
       <default>65362</default>
       <summary>Move up</summary>
@@ -106,11 +101,6 @@
       <default>'green'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
-    </key>
-    <key name="move-relative" type="b">
-      <default>false</default>
-      <summary>Use relative movement</summary>
-      <description>Use relative movement (ie. left or right only).</description>
     </key>
     <key name="key-up" type="i">
       <default>119</default>
@@ -139,11 +129,6 @@
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
     </key>
-    <key name="move-relative" type="b">
-      <default>false</default>
-      <summary>Use relative movement</summary>
-      <description>Use relative movement (ie. left or right only).</description>
-    </key>
     <key name="key-up" type="i">
       <default>116</default>
       <summary>Move up</summary>
@@ -170,11 +155,6 @@
       <default>'yellow'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
-    </key>
-    <key name="move-relative" type="b">
-      <default>false</default>
-      <summary>Use relative movement</summary>
-      <description>Use relative movement (ie. left or right only).</description>
     </key>
     <key name="key-up" type="i">
       <default>56</default>
@@ -203,11 +183,6 @@
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
     </key>
-    <key name="move-relative" type="b">
-      <default>false</default>
-      <summary>Use relative movement</summary>
-      <description>Use relative movement (ie. left or right only).</description>
-    </key>
     <key name="key-up" type="i">
       <default>65362</default>
       <summary>Move up</summary>
@@ -234,11 +209,6 @@
       <default>'purple'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
-    </key>
-    <key name="move-relative" type="b">
-      <default>false</default>
-      <summary>Use relative movement</summary>
-      <description>Use relative movement (ie. left or right only).</description>
     </key>
     <key name="key-up" type="i">
       <default>65362</default>
