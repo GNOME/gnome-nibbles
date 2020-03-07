@@ -1,7 +1,7 @@
 project('gnome-nibbles', ['c', 'vala'],
   license: 'GPL3+',
   meson_version: '>= 0.44.1',
-  version: '3.35.90'
+  version: '3.36.0'
 )
 
 gnome = import('gnome')
