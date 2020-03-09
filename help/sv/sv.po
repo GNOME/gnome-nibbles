@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: nibbles doc\n"
-"POT-Creation-Date: 2020-02-14 16:18+0000\n"
-"PO-Revision-Date: 2020-03-08 21:14+0100\n"
+"POT-Creation-Date: 2020-03-08 20:16+0000\n"
+"PO-Revision-Date: 2020-03-09 18:05+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -75,7 +75,6 @@ msgstr ""
 msgid "Pause and resume your game"
 msgstr "Pausa och återuppta ditt spel"
 
-# https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/34
 #. (itstool) path: section/p
 #: C/basics.page:40
 msgid ""
@@ -83,7 +82,7 @@ msgid ""
 "pause your game. You can resume your game by pressing the <gui style=\"button"
 "\">Resume</gui> button."
 msgstr ""
-"Tryck på knappen <gui style=\"button\">Paus</gui> i rubrikraden för att "
+"Tryck på knappen <gui style=\"button\">Nytt spel</gui> i rubrikraden för att "
 "pausa spelet. Du kan återuppta ditt spel genom att trycka på knappen <gui "
 "style=\"button\">Fortsätt</gui>."
 
