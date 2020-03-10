@@ -1,13 +1,13 @@
 # Czech translation of gnibbles help.
 # Copyright (C) 2009 the author(s) of gnome-games.
 # This file is distributed under the same license as the gnibbles help.
-# Marek Černocký <marek@manet.cz>, 2009, 2011, 2013, 2015.
+# Marek Černocký <marek@manet.cz>, 2009, 2011, 2013, 2015, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games\n"
-"POT-Creation-Date: 2015-04-24 19:23+0000\n"
-"PO-Revision-Date: 2015-04-24 22:41+0200\n"
+"Project-Id-Version: gnome-nibbles\n"
+"POT-Creation-Date: 2020-03-08 20:16+0000\n"
+"PO-Revision-Date: 2020-03-10 09:53+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -26,47 +26,50 @@ msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>, 2013"
 
 #. (itstool) path: credit/name
-#: C/basics.page:14 C/controls-change.page:16 C/controls-default.page:14
-#: C/fake-bonus.page:14 C/index.page:12 C/multi-player.page:16
-#: C/preferences.page:14 C/rel-movement.page:14 C/scores.page:14
+#: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
+#: C/fake-bonus.page:15 C/index.page:12 C/multi-player.page:16
+#: C/preferences.page:15 C/scores.page:14
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
 #. (itstool) path: credit/name
-#: C/basics.page:18 C/controls-change.page:20 C/controls-default.page:18
-#: C/fake-bonus.page:18 C/multi-player.page:20 C/preferences.page:18
-#: C/rel-movement.page:18
+#: C/basics.page:19 C/controls-change.page:21 C/controls-default.page:19
+#: C/fake-bonus.page:19 C/multi-player.page:20 C/preferences.page:19
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
-#: C/basics.page:22
-msgid ""
-"Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
-msgstr ""
-"Spuštění, pozastavení, hraní v režimu celé obrazovky a ukončení hry "
-"<app>Červíci</app>."
+#: C/basics.page:23
+msgid "Start, pause, and quit a game of <app>Nibbles</app>."
+msgstr "Jak spustit, pozastavit a ukončit hraní hry <app>Červíci</app>."
 
 #. (itstool) path: page/title
-#: C/basics.page:25
+#: C/basics.page:26
 msgid "Basic instructions"
 msgstr "Úvodní instrukce"
 
 #. (itstool) path: section/title
-#: C/basics.page:28
+#: C/basics.page:29
 msgid "Start a new game"
 msgstr "Spuštění nové hry"
 
 #. (itstool) path: section/p
-#: C/basics.page:30
+#: C/basics.page:31
 msgid ""
-"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New</"
-"gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
-"a new game."
+"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
+"start a new game when being in a game."
 msgstr ""
-"Když chcete začít novou hru, vyberte <guiseq><gui style=\"menu\">Hra</gui> "
-"<gui style=\"menuitem\">Nová</gui></guiseq> nebo zmáčkněte "
-"<keyseq><key>Ctrl</key><key>N</key></keyseq>."
+"Novou hru, když máte jinou rozehranou, spustíte zmáčknutím tlačítka <gui "
+"style=\"button\">Nová hra</gui> v záhlavní liště."
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press the <gui style=\"button\">Play Again</gui> button when you have "
+"finished a game."
+msgstr ""
+"Pokud máte nějakou hru dohranou, zmáčkněte tlačítko <gui style=\"button\">"
+"Hrát znovu</gui>."
 
 #. (itstool) path: section/title
 #: C/basics.page:38
@@ -76,62 +79,42 @@ msgstr "Pozastavení a pokračování hry"
 #. (itstool) path: section/p
 #: C/basics.page:40
 msgid ""
-"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause</"
-"gui></guiseq> to pause your game. You can resume your game by selecting "
-"<guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Resume</gui></"
-"guiseq>."
+"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
+"pause your game. You can resume your game by pressing the <gui style=\"button"
+"\">Resume</gui> button."
 msgstr ""
-"Volbou <guiseq><gui style=\"menu\">Hra</gui> <gui style=\"menuitem"
-"\">Pozastavit</gui></guiseq> svoji hru pozastavíte. Pokračovat můžete pomocí "
-"<guiseq><gui style=\"menu\">Hra</gui> <gui style=\"menuitem\">Pokračovat</"
-"gui></guiseq>."
+"Pro pozastavení hry zmáčkněte tlačítko <gui style=\"button\">Pozastavit</gui> "
+"na záhlavní liště. Pokračovat můžete zmáčknutím tlačítka <gui style="
+"\"button\">Pokračovat</gui></guiseq>."
 
 #. (itstool) path: section/title
-#: C/basics.page:48
-msgid "Play <app>Nibbles</app> in fullscreen mode"
-msgstr "Hraní <app>Červíků</app> v režimu celé obrazovky"
-
-#. (itstool) path: section/p
-#: C/basics.page:50
-msgid ""
-"Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
-"\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
-"fullscreen mode. You can return to the default screen size by pressing "
-"<key>F11</key> again."
-msgstr ""
-"Jestli chcete hrát přes celou obrazovku, vyberte <guiseq><gui style=\"menu"
-"\">Zobrazit</gui> <gui style=\"menuitem\">Celá obrazovka</gui></guiseq> nebo "
-"zmáčkněte <key>F11</key>. Opětovným zmáčknutím <key>F11</key> se vrátíte na "
-"původní velikost."
-
-#. (itstool) path: section/title
-#: C/basics.page:58
+#: C/basics.page:46
 msgid "Quit <app>Nibbles</app>"
 msgstr "Ukončení <app>Červíků</app>"
 
 #. (itstool) path: section/p
-#: C/basics.page:60
+#: C/basics.page:48
 msgid ""
-"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit</"
-"gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
-"<app>Nibbles</app> at any time."
+"Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+"<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
+"any time."
 msgstr ""
-"Hru <app>Červíci</app> můžete kdykoliv ukončit pomocí nabídky <guiseq><gui "
-"style=\"menu\">Hra</gui> <gui style=\"menuitem\">Ukončit</gui></guiseq> nebo "
-"zmáčknutím <keyseq><key>Ctrl</key><key>Q</key></keyseq>."
+"Hru <app>Červíci</app> můžete kdykoliv ukončit zmáčknutím tlačítka <gui style="
+"\"button\">⨯</gui> na záhlavní liště nebo zmáčknutím <keyseq><key>Ctrl</key>"
+"<key>Q</key></keyseq>."
 
 #. (itstool) path: info/desc
-#: C/controls-change.page:24
+#: C/controls-change.page:25
 msgid "Set custom control keys."
 msgstr "Nastavte si vlastní ovládací klávesy."
 
 #. (itstool) path: page/title
-#: C/controls-change.page:27
+#: C/controls-change.page:28
 msgid "Change the default controls"
 msgstr "Jak změnit výchozí ovládání"
 
 #. (itstool) path: page/p
-#: C/controls-change.page:29
+#: C/controls-change.page:30
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -144,22 +127,22 @@ msgstr ""
 "než jedna sada ovládacích kláves. Změnu provedete následovně:"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:36 C/fake-bonus.page:35 C/multi-player.page:44
-#: C/rel-movement.page:66
+#: C/controls-change.page:37 C/fake-bonus.page:36 C/multi-player.page:44
+#: C/preferences.page:38 C/preferences.page:87 C/preferences.page:108
 msgid ""
-"Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-"\">Preferences</gui></guiseq>."
+"Press the menu button in the top-right corner of the window and select <gui "
+"style=\"menuitem\">Preferences</gui>."
 msgstr ""
-"Vyberte <guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
-"\">Předvolby</gui></guiseq>."
+"Zmáčkněte tlačítko nabídky v pravém horním rohu okna a vyberte <gui style="
+"\"menuitem\">Předvolby</gui>."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:40
+#: C/controls-change.page:41
 msgid "Select the tab for the player whose controls you want to change."
 msgstr "Vybertu kartu hráče, u kterého chcete ovládání změnit."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:42
+#: C/controls-change.page:43
 msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
@@ -168,23 +151,23 @@ msgstr ""
 "<gui>Červíka 3</gui> atd."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:47
+#: C/controls-change.page:48
 msgid ""
-"In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
-"then click on the control. This highlights the line and the words <gui>New "
-"accelerator…</gui> are now present in place of the old control."
+"In the <gui style=\"group\">Controls</gui> list, select the line, then click "
+"on the control. This highlights the line and the words <gui>New accelerator…"
+"</gui> are now present in place of the old control."
 msgstr ""
-"V seznamu <gui style=\"group\">Ovládání klavesnicí</gui> vyberte řádek a "
-"klikněte na název klávesy. Řádek bude zvýrazněný a ovládací klávesa se "
-"nahradí textem <gui>Nová klávesová zkratka…</gui>\"."
+"V seznamu <gui style=\"group\">Ovládání</gui> vyberte řádek a klikněte na "
+"název klávesy. Řádek bude zvýrazněný a ovládací klávesa se nahradí textem "
+"<gui>Nová klávesová zkratka…</gui>\"."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:53
+#: C/controls-change.page:54
 msgid "Press the key you want to use instead of the default key."
 msgstr "Zmáčkněte klávesu, kterou chcete místo té výchozí používat."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:55
+#: C/controls-change.page:56
 msgid ""
 "To keep the old setting click <gui>New accelerator…</gui> again, right click "
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
@@ -196,7 +179,7 @@ msgstr ""
 "Červíků</gui>."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:61
+#: C/controls-change.page:62
 msgid ""
 "Repeat the above step to change the other default keys for the current "
 "player, then select the tab for the next player whose controls you want to "
@@ -206,7 +189,7 @@ msgstr ""
 "dalšího hráče, jehož ovládání chcete změni a tak dále postup opakujte."
 
 #. (itstool) path: page/p
-#: C/controls-change.page:67
+#: C/controls-change.page:68
 msgid ""
 "For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
 "<gui>Left</gui> control line and click it, then press <key>A</key> on your "
@@ -217,17 +200,17 @@ msgstr ""
 "<gui>Nová klávesová zkratka…</gui> zmáčkněte na klávesnici <key>A</key>."
 
 #. (itstool) path: info/desc
-#: C/controls-default.page:23
+#: C/controls-default.page:24
 msgid "Default keys for <app>Nibbles.</app>"
 msgstr "Výchozí klávesy pro <app>Červíky</app>."
 
 #. (itstool) path: page/title
-#: C/controls-default.page:26
+#: C/controls-default.page:27
 msgid "Keyboard Controls"
 msgstr "Ovládání klávesnicí"
 
 #. (itstool) path: page/p
-#: C/controls-default.page:28
+#: C/controls-default.page:29
 msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
@@ -236,60 +219,46 @@ msgstr ""
 "následující klávesy:"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:33
+#: C/controls-default.page:34
 msgid "<key>Up</key> to move the worm up"
 msgstr "<key>↑</key> pro pohyb červíka nahoru"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:36
+#: C/controls-default.page:37
 msgid "<key>Down</key> to move the worm down"
 msgstr "<key>↓</key> pro pohyb červíka dolů"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:39
+#: C/controls-default.page:40
 msgid "<key>Left</key> to move the worm left"
 msgstr "<key>←</key> pro pohyb červíka doleva"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:42
+#: C/controls-default.page:43
 msgid "<key>Right</key> to move the worm right"
 msgstr "<key>→</key> pro pohyb červíka doprava"
 
 #. (itstool) path: note/p
-#: C/controls-default.page:47
+#: C/controls-default.page:48
 msgid ""
 "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
 "Výchozí ovládání si můžete <link xref=\"controls-change\">změnit</link>."
 
-#. (itstool) path: page/p
-#: C/controls-default.page:51
-msgid ""
-"All worm movements happen with respect to the screen unless <link xref=\"rel-"
-"movement\">relative movement</link> is enabled. This means that when you "
-"press <key>Left</key> the worm moves towards the left of the screen, when "
-"you press <key>Right</key> the worm moves towards the right of the screen "
-"and so on."
-msgstr ""
-"Všechny pohyby červíků jsou vztaženy vůči obrazovce, ledaže zapnete <link xref="
-"\"rel-movement\">relativní pohyby</link>. To znamená, že když zmáčknete "
-"<key>←</key>, červík se bude bude pohybovat směrem k levému okraji obrazovky, "
-"když zmáčknete <key>→</key>, bude se pohybovat k pravému okraji apod."
-
 #. (itstool) path: info/desc
-#: C/fake-bonus.page:22
+#: C/fake-bonus.page:23
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
 "Používejte v <app>Červících</app> falešné bonusy, ať je hra více dobrodružná."
 
 #. (itstool) path: page/title
-#: C/fake-bonus.page:26
+#: C/fake-bonus.page:27
 msgid "What are fake bonuses?"
 msgstr "Co jsou to falešné bonusy?"
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:28
+#: C/fake-bonus.page:29
 msgid ""
 "Fake bonuses look like regular bonus shapes but do not give you any points "
 "when your worm swallows them. They cause a reversal in the movement of your "
@@ -299,12 +268,12 @@ msgstr ""
 "žádné body, když je spolknete. Navíc způsobí obrácení pohybu vašeho červíka."
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:32
+#: C/fake-bonus.page:33
 msgid "To enable fake bonuses:"
 msgstr "Když chcete falešné bonusy povolit:"
 
 #. (itstool) path: item/p
-#: C/fake-bonus.page:39
+#: C/fake-bonus.page:40
 msgid ""
 "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
 "is unchecked."
@@ -312,13 +281,8 @@ msgstr ""
 "V případě, že políčko <gui style=\"checkbox\">Povolit falešné bonusy</gui> "
 "není zaškrtnuté, zaškrtněte jej."
 
-#. (itstool) path: item/p
-#: C/fake-bonus.page:43
-msgid "Click <gui>Close</gui>."
-msgstr "Klikněte na <gui>Zavřít</gui>."
-
 #. (itstool) path: note/p
-#: C/fake-bonus.page:48
+#: C/fake-bonus.page:46
 msgid ""
 "Set all preferences before starting a new game. Preferences cannot be "
 "changed in the middle of a game."
@@ -344,8 +308,8 @@ msgid ""
 "worms. You have to complete 26 levels to finish the game."
 msgstr ""
 "<app>Nibbles</app> je hra „hadi“ pro GNOME. Cílem hry je spolykat co nejvíce "
-"předmětů můžete a přitom se snažit nevrazit do zdi nebo do jiného červíka. Pro "
-"dokončení hry musíte projít 26 úrovní."
+"předmětů můžete a přitom se snažit nevrazit do zdi nebo do jiného červíka. "
+"Pro dokončení hry musíte projít 26 úrovní."
 
 #. (itstool) path: section/title
 #: C/index.page:26
@@ -379,9 +343,10 @@ msgid ""
 msgstr ""
 "Hru <app>Červíci</app> může hrát až šest hráčů naráz. Zatímco ve hře pro "
 "jednoho hráče ovládá hráč <gui>červíka 1</gui>, ve hře pro více hráčů mohou "
-"další hráči ovládat <gui>červíka 2</gui> až <gui>červíka 6</gui>. Ve hře pro dva "
-"hráče ovládáte <gui>červíka 1</gui> a <gui>červíka 2</gui>, ve hře pro tři hráče "
-"<gui>červíka 1</gui>, <gui>červíka 2</gui> a <gui>červíka 3</gui> atd."
+"další hráči ovládat <gui>červíka 2</gui> až <gui>červíka 6</gui>. Ve hře pro "
+"dva hráče ovládáte <gui>červíka 1</gui> a <gui>červíka 2</gui>, ve hře pro "
+"tři hráče <gui>červíka 1</gui>, <gui>červíka 2</gui> a <gui>červíka 3</gui> "
+"atd."
 
 #. (itstool) path: section/title
 #: C/multi-player.page:37
@@ -423,288 +388,126 @@ msgstr ""
 "rozmezí 1 až 6."
 
 #. (itstool) path: info/desc
-#: C/preferences.page:22
+#: C/preferences.page:23
 msgid "Change default speed, worm color, level order and sound settings."
-msgstr "Změňte výchozí rychlost, barvu červíků, pořadí úrovní a nastavení zvuku."
+msgstr ""
+"Změňte výchozí rychlost, barvu červíků, pořadí úrovní a nastavení zvuku."
 
 #. (itstool) path: page/title
-#: C/preferences.page:25
+#: C/preferences.page:26
 msgid "Edit general preferences"
 msgstr "Jak upravit obecné předvolby"
 
 #. (itstool) path: page/p
-#: C/preferences.page:27
+#: C/preferences.page:28
 msgid ""
-"The general preferences for <app>Nibbles</app> can be changed by selecting "
-"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-"\">Preferences</gui></guiseq>."
+"The general preferences for <app>Nibbles</app> can be changed by pressing "
+"the menu button in the top-right corner of the window and selecting <gui "
+"style=\"menuitem\">Preferences</gui>."
 msgstr ""
-"Obecné předvolby <app>Červíků</app> najdete pod <guiseq><gui style=\"menu"
-"\">Nastavení</gui> <gui style=\"menuitem\">Předvolby</gui></guiseq>."
+"K obecným předvolbám <app>Červíků</app> se dostanete zmáčknutím tlačítka "
+"nabídky v pravém horním rohu okna a následným výběrem <gui style=\"menuitem\">"
+"Předvolby</gui>."
 
 #. (itstool) path: section/title
-#: C/preferences.page:32
+#: C/preferences.page:33
 msgid "Speed"
 msgstr "Rychlost"
 
 #. (itstool) path: section/p
-#: C/preferences.page:34
-msgid ""
-"There are four available speeds in <app>Nibbles</app>. These are, in "
-"increasing order:"
-msgstr ""
-"K dispozici jsou čtyři různé rychlosti <app>Červíků</app>. Ve vzestupném "
-"pořadí to jsou:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:39
-msgid "Nibbles Newbie"
-msgstr "Nováček v červících"
+#: C/preferences.page:35
+msgid "To change the speed:"
+msgstr "Když chcete změnit rychlost:"
 
 #. (itstool) path: item/p
 #: C/preferences.page:42
-msgid "My second day"
-msgstr "Můj druhý den"
-
-#. (itstool) path: item/p
-#: C/preferences.page:45
-msgid "Not too shabby"
-msgstr "Ne moc špatný"
-
-#. (itstool) path: item/p
-#: C/preferences.page:48
-msgid "Finger twitching good"
-msgstr "Tak dobrý, že má křeč v prstech"
-
-#. (itstool) path: section/p
-#: C/preferences.page:52
-msgid ""
-"Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
-"style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
-"speed choices given on the left hand side."
-msgstr ""
-"Rychlost můžete změnit v <guiseq><gui style=\"menu\">Nastavení</gui> <gui "
-"style=\"menuitem\">Předvolby</gui></guiseq> výběrem jedné ze čtyř rychlostí "
-"nabízených po levé straně."
+msgid "Select one of the four speed choices given on the left hand side."
+msgstr "Vyberte jednu ze čtyř rychlostí nabízených na levé straně."
 
 #. (itstool) path: section/title
-#: C/preferences.page:59
+#: C/preferences.page:49
 msgid "Change worm colors"
 msgstr "Změna barvy červa"
 
 #. (itstool) path: section/p
-#: C/preferences.page:61
+#: C/preferences.page:51
 msgid "There are seven available worm colors:"
 msgstr "K dispozici je sedm barev červíků:"
 
 #. (itstool) path: item/p
-#: C/preferences.page:65
+#: C/preferences.page:55
 msgid "<_:media-1/> Red"
 msgstr "<_:media-1/> červený"
 
 #. (itstool) path: item/p
-#: C/preferences.page:69
+#: C/preferences.page:59
 msgid "<_:media-1/> Green"
 msgstr "<_:media-1/> zelený"
 
 #. (itstool) path: item/p
-#: C/preferences.page:73
+#: C/preferences.page:63
 msgid "<_:media-1/> Blue"
 msgstr "<_:media-1/> modrý"
 
 #. (itstool) path: item/p
-#: C/preferences.page:77
+#: C/preferences.page:67
 msgid "<_:media-1/> Yellow"
 msgstr "<_:media-1/> žlutý"
 
 #. (itstool) path: item/p
-#: C/preferences.page:81
+#: C/preferences.page:71
 msgid "<_:media-1/> Cyan"
 msgstr "<_:media-1/> azurový"
 
 #. (itstool) path: item/p
-#: C/preferences.page:85
+#: C/preferences.page:75
 msgid "<_:media-1/> Purple"
 msgstr "<_:media-1/> purpurový"
 
 #. (itstool) path: item/p
-#: C/preferences.page:89
+#: C/preferences.page:79
 msgid "<_:media-1/> Gray"
 msgstr "<_:media-1/> šedý"
 
 #. (itstool) path: section/p
-#: C/preferences.page:94
-msgid ""
-"These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
-"style=\"menuitem\">Preferences</gui></guiseq>."
-msgstr ""
-"Měnit je můžete v <guiseq><gui style=\"menu\">Nastavení</gui> <gui style="
-"\"menuitem\">Předvolby</gui></guiseq>."
+#: C/preferences.page:84
+msgid "To change worm colors:"
+msgstr "Když chcete změnit barvy červíků:"
 
 #. (itstool) path: item/p
-#: C/preferences.page:99
+#: C/preferences.page:91
 msgid ""
-"Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
-"edit."
+"Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
+"you wish to edit."
 msgstr ""
-"Vyberte jednu z karet <gui>Červík x</gui> patřící červíkovi, kterého chcete "
-"upravit."
+"Vyberte jednu z karet <gui style=\"tab\">Červík x</gui> patřící červíkovi, "
+"kterého chcete upravit."
 
 #. (itstool) path: item/p
-#: C/preferences.page:103
+#: C/preferences.page:95
 msgid ""
-"On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
-"Pick a color out of the available colors in the drop-down menu to change the "
-"appearance of the worm."
+"Under <gui>Worm color</gui>, pick a color out of the available colors in the "
+"drop-down menu to change the appearance of the worm."
 msgstr ""
-"Po levé straně uvidíte <gui style=\"group\">Barva červíka</gui>. V "
-"rozbalovacím seznamu vedle si vyberte jednu z dostupných barev a tím vzhled "
-"červíka změníte."
+"V rozbalovací nabídce <gui>Barva červíka</gui> vyberte jednu z dostupných "
+"barev a tím vzhled červíka změníte."
 
 #. (itstool) path: section/title
-#: C/preferences.page:112
+#: C/preferences.page:103
 msgid "Sounds"
 msgstr "Zvuky"
 
 #. (itstool) path: section/p
-#: C/preferences.page:114
-msgid ""
-"You can enable or disable sounds in <app>Nibbles</app> by checking or "
-"unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
-"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-"\">Preferences</gui></guiseq>."
-msgstr ""
-"Zvuky ve hře <app>Červíci</app> můžete povolit nebo zakázat zaškrtnutím nebo "
-"zrušením zaškrtnutí políčka <gui style=\"checkbox\">Povilit zvuky</gui> v "
-"<guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
-"\">Předvolby</gui></guiseq>."
-
-#. (itstool) path: section/title
-#: C/preferences.page:122
-msgid "Play levels in random order"
-msgstr "Hraní úrovní v náhodném pořadí"
-
-#. (itstool) path: section/p
-#: C/preferences.page:124
-msgid ""
-"Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
-"gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
-"\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
-"<app>Nibbles</app> in random order."
-msgstr ""
-"Pro hraní různých úrovní <app>Červíků</app> v náhodném pořadí zaškrtněte "
-"políčko <gui style=\"checkbox\">Hrát úrovně v náhodném pořadí</gui> v "
-"<guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
-"\">Předvolby</gui></guiseq>."
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:41
-msgctxt "_"
-msgid ""
-"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-msgstr ""
-"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:48
-msgctxt "_"
-msgid ""
-"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
-msgstr ""
-"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
-
-#. (itstool) path: info/desc
-#: C/rel-movement.page:22
-msgid "Enable relative movement."
-msgstr "Povolte relativní pohyb."
-
-#. (itstool) path: page/title
-#: C/rel-movement.page:25
-msgid "Relative movement"
-msgstr "Relativní pohyb"
-
-#. (itstool) path: page/p
-#: C/rel-movement.page:27
-msgid ""
-"When relative movement is enabled, the worm is maneuvered using just the "
-"default <key>Left</key> and <key>Right</key> keys or other <link xref="
-"\"controls-change\">customized keys</link> that control the leftward and "
-"rightward movement of a worm. When the <key>Left</key> key is pressed, the "
-"worm turns left, instead of moving towards the left of the screen. "
-"Similarly, when the <key>Right</key> key is pressed, the worm turns right "
-"instead of moving towards the right of the screen."
-msgstr ""
-"Když je zapnutý relativní pohyb, manévruje se červíky pomocí výchozích kláves "
-"<key>←</key> a <key>→</key>, případně jinými <link xref=\"controls-change"
-"\">vlastními klávesami</link>, které ovládají pohyb ve směru doleva a "
-"doprava. Po zmáčknutí <key>←</key> červík zahne doleva, místo aby se začal "
-"pohybovat k levému okraji obrazovky. Obdobně po zmáčknutí <key>→</key> zahne "
-"doprava, namísto aby zamířil přímo v pravém směru obrazovky."
-
-#. (itstool) path: figure/title
-#: C/rel-movement.page:39
-msgid "Starting position:"
-msgstr "Počáteční pozice:"
-
-#. (itstool) path: figure/desc
-#: C/rel-movement.page:40
-msgid "The location of the worm before you decide to move it."
-msgstr "Poloha červíka, než se rozhodnete jej ovlivnit."
-
-#. (itstool) path: figure/title
-#: C/rel-movement.page:46
-msgid "On pressing the <key>Left</key> key:"
-msgstr "Po zmáčknutí klávesy <key>←</key>:"
-
-#. (itstool) path: figure/desc
-#: C/rel-movement.page:47
-msgid "The worm turns left and begins to move downwards."
-msgstr "Červík zahnul doleva a začal se pohybovat dolů."
-
-#. (itstool) path: note/p
-#: C/rel-movement.page:55
-msgid ""
-"If relative movement was not enabled, you would press the <key>Down</key> "
-"key to achieve the above result."
-msgstr ""
-"Kdyby nebyl zapnutý relativní pohyb, dosáhli byste stejného výsledku "
-"zmáčknutím klávesy <key>↓</key>."
-
-#. (itstool) path: page/p
-#: C/rel-movement.page:62
-msgid "To enable relative movement:"
-msgstr "Když chcete zapnout relativní pohyb:"
+#: C/preferences.page:105
+msgid "To enable or disable sounds:"
+msgstr "Když chcete povolit nebo zakázat zvuky:"
 
 #. (itstool) path: item/p
-#: C/rel-movement.page:70
-msgid ""
-"Select the worm for which relative movement has to be enabled by clicking "
-"the appropriate <gui>Worm</gui> tab."
+#: C/preferences.page:112
+msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgstr ""
-"Vyberte červíka, pro kterého chcete relativní pohyb povolit, kliknutím na "
-"příslušnou kartu <gui>Červík x</gui>."
-
-#. (itstool) path: item/p
-#: C/rel-movement.page:74
-msgid ""
-"Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
-"is unchecked."
-msgstr ""
-"V případě, že není zaškrtnuté políčko <gui style=\"checkbox\">Používat "
-"relativní pohyb</gui>, zaškrtněte jej."
-
-#. (itstool) path: item/p
-#: C/rel-movement.page:78
-msgid "Click <gui style=\"button\">Close</gui>."
-msgstr "Klikněte na <gui style=\"button\">Zavřít</gui>."
+"Zaškrtněte, nebo zrušte zaškrtnutí políčka <gui style=\"checkbox\">Povolit "
+"zvuky</gui>."
 
 #. (itstool) path: info/desc
 #: C/scores.page:18
@@ -737,11 +540,12 @@ msgid ""
 "will give you 6 points and so on. In level 26, therefore, the first donut "
 "will give you 26 points, the second donut will give you 52 points and so on."
 msgstr ""
-"Bonus ve tvaru koblížku <_:media-1/>: Tento bonus způsobí prodloužení červíka. "
-"Body získané snězením koblížku odvisí podle úrovně a jsou násobkem čísla "
-"úrovně. V úrovni 1 vám dá první koblížek 1 bod, druhý 2 body, třetí 3 body "
-"atd. V úrovni 2 vám dá první koblížek 2 body, druhý 4 body, třetí 6 bodů "
-"atd. Analogicky v úrovni 26 vám dá první koblížek 26 bodů, drůhý 52 bodů atd."
+"Bonus ve tvaru koblížku <_:media-1/>: Tento bonus způsobí prodloužení "
+"červíka. Body získané snězením koblížku odvisí podle úrovně a jsou násobkem "
+"čísla úrovně. V úrovni 1 vám dá první koblížek 1 bod, druhý 2 body, třetí 3 "
+"body atd. V úrovni 2 vám dá první koblížek 2 body, druhý 4 body, třetí 6 "
+"bodů atd. Analogicky v úrovni 26 vám dá první koblížek 26 bodů, drůhý 52 "
+"bodů atd."
 
 #. (itstool) path: note/p
 #: C/scores.page:39
@@ -752,10 +556,10 @@ msgid ""
 "third player may choose to not eat any donuts till the tenth donut and score "
 "10 points at once."
 msgstr ""
-"Pořadí koblížků nesouvisí s počtem kliblížků, které červík již snědl. Když je "
-"hra v úrovni 1 a hráč 1 sní první koblížek, dostane 1 bod. Když hráč 2 sní "
-"druhý koblížek dostane 2 body. Třetí hráč nemusí ze začítku sníst žádný a "
-"počkat si třeba až na desátý koblížek a pak dostane 10 bodů naráz."
+"Pořadí koblížků nesouvisí s počtem kliblížků, které červík již snědl. Když "
+"je hra v úrovni 1 a hráč 1 sní první koblížek, dostane 1 bod. Když hráč 2 "
+"sní druhý koblížek dostane 2 body. Třetí hráč nemusí ze začítku sníst žádný "
+"a počkat si třeba až na desátý koblížek a pak dostane 10 bodů naráz."
 
 #. (itstool) path: item/p
 #: C/scores.page:47
@@ -792,9 +596,9 @@ msgid ""
 "increase in the length of the worm and does not give you any points. It "
 "causes a reversal in the movement of all the other worms in the game."
 msgstr ""
-"Bonus ve tvaru diamantu <_:media-1/>: Tento bonus způsobní prodloužení červíka "
-"a nepřidá vám žádné body. Způsobí také obrácení pohybu všech ostatních červíků "
-"ve hře."
+"Bonus ve tvaru diamantu <_:media-1/>: Tento bonus způsobní prodloužení "
+"červíka a nepřidá vám žádné body. Způsobí také obrácení pohybu všech "
+"ostatních červíků ve hře."
 
 #. (itstool) path: note/p
 #: C/scores.page:69
@@ -812,8 +616,8 @@ msgid ""
 msgstr ""
 "Bonus ve tvaru zmrzlinky <_:media-1/>: Tento bonus způsobí významně větší "
 "prodloužení červíka, než bonus ve tvaru koblížku. Body přidělené za tento "
-"bonus značně závisí na čísle úrovně a délce červíka. Čím vyšší úroveň a delší "
-"červík, tím víc bodů snězením tohoto bonusu získáte."
+"bonus značně závisí na čísle úrovně a délce červíka. Čím vyšší úroveň a "
+"delší červík, tím víc bodů snězením tohoto bonusu získáte."
 
 #. (itstool) path: item/p
 #: C/scores.page:82
@@ -824,8 +628,9 @@ msgid ""
 "longer the worm, the more the points are scored on eating this bonus."
 msgstr ""
 "Bonus ve tvaru třešínek <_:media-1/>: Tento bonus způsobí zkrácení délky "
-"červíka. Body přidělené za tento bonus záleží na čísle úrovně a délce červíka. "
-"Čím vyšší úroveň a delší červík, tím víc bodů snězením tohoto bonusu získáte."
+"červíka. Body přidělené za tento bonus záleží na čísle úrovně a délce "
+"červíka. Čím vyšší úroveň a delší červík, tím víc bodů snězením tohoto "
+"bonusu získáte."
 
 #. (itstool) path: p/link
 #: C/legal.xml:4
@@ -836,3 +641,186 @@ msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Tato práce je vydána pod licencí <_:link-1/>"
+
+#~ msgid ""
+#~ "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
+#~ "\">New</gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></"
+#~ "keyseq> to start a new game."
+#~ msgstr ""
+#~ "Když chcete začít novou hru, vyberte <guiseq><gui style=\"menu\">Hra</"
+#~ "gui> <gui style=\"menuitem\">Nová</gui></guiseq> nebo zmáčkněte "
+#~ "<keyseq><key>Ctrl</key><key>N</key></keyseq>."
+
+#~ msgid "Play <app>Nibbles</app> in fullscreen mode"
+#~ msgstr "Hraní <app>Červíků</app> v režimu celé obrazovky"
+
+#~ msgid ""
+#~ "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
+#~ "\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
+#~ "fullscreen mode. You can return to the default screen size by pressing "
+#~ "<key>F11</key> again."
+#~ msgstr ""
+#~ "Jestli chcete hrát přes celou obrazovku, vyberte <guiseq><gui style=\"menu"
+#~ "\">Zobrazit</gui> <gui style=\"menuitem\">Celá obrazovka</gui></guiseq> "
+#~ "nebo zmáčkněte <key>F11</key>. Opětovným zmáčknutím <key>F11</key> se "
+#~ "vrátíte na původní velikost."
+
+#~ msgid ""
+#~ "Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+#~ "\">Preferences</gui></guiseq>."
+#~ msgstr ""
+#~ "Vyberte <guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
+#~ "\">Předvolby</gui></guiseq>."
+
+#~ msgid ""
+#~ "All worm movements happen with respect to the screen unless <link xref="
+#~ "\"rel-movement\">relative movement</link> is enabled. This means that "
+#~ "when you press <key>Left</key> the worm moves towards the left of the "
+#~ "screen, when you press <key>Right</key> the worm moves towards the right "
+#~ "of the screen and so on."
+#~ msgstr ""
+#~ "Všechny pohyby červíků jsou vztaženy vůči obrazovce, ledaže zapnete <link "
+#~ "xref=\"rel-movement\">relativní pohyby</link>. To znamená, že když "
+#~ "zmáčknete <key>←</key>, červík se bude bude pohybovat směrem k levému "
+#~ "okraji obrazovky, když zmáčknete <key>→</key>, bude se pohybovat k "
+#~ "pravému okraji apod."
+
+#~ msgid "Click <gui>Close</gui>."
+#~ msgstr "Klikněte na <gui>Zavřít</gui>."
+
+#~ msgid ""
+#~ "There are four available speeds in <app>Nibbles</app>. These are, in "
+#~ "increasing order:"
+#~ msgstr ""
+#~ "K dispozici jsou čtyři různé rychlosti <app>Červíků</app>. Ve vzestupném "
+#~ "pořadí to jsou:"
+
+#~ msgid "Nibbles Newbie"
+#~ msgstr "Nováček v červících"
+
+#~ msgid "My second day"
+#~ msgstr "Můj druhý den"
+
+#~ msgid "Not too shabby"
+#~ msgstr "Ne moc špatný"
+
+#~ msgid "Finger twitching good"
+#~ msgstr "Tak dobrý, že má křeč v prstech"
+
+#~ msgid ""
+#~ "Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+#~ "style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the "
+#~ "four speed choices given on the left hand side."
+#~ msgstr ""
+#~ "Rychlost můžete změnit v <guiseq><gui style=\"menu\">Nastavení</gui> <gui "
+#~ "style=\"menuitem\">Předvolby</gui></guiseq> výběrem jedné ze čtyř "
+#~ "rychlostí nabízených po levé straně."
+
+#~ msgid ""
+#~ "These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+#~ "style=\"menuitem\">Preferences</gui></guiseq>."
+#~ msgstr ""
+#~ "Měnit je můžete v <guiseq><gui style=\"menu\">Nastavení</gui> <gui style="
+#~ "\"menuitem\">Předvolby</gui></guiseq>."
+
+#~ msgid ""
+#~ "You can enable or disable sounds in <app>Nibbles</app> by checking or "
+#~ "unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
+#~ "<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+#~ "\">Preferences</gui></guiseq>."
+#~ msgstr ""
+#~ "Zvuky ve hře <app>Červíci</app> můžete povolit nebo zakázat zaškrtnutím "
+#~ "nebo zrušením zaškrtnutí políčka <gui style=\"checkbox\">Povilit zvuky</"
+#~ "gui> v <guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
+#~ "\">Předvolby</gui></guiseq>."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "Hraní úrovní v náhodném pořadí"
+
+#~ msgid ""
+#~ "Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
+#~ "gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
+#~ "\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
+#~ "<app>Nibbles</app> in random order."
+#~ msgstr ""
+#~ "Pro hraní různých úrovní <app>Červíků</app> v náhodném pořadí zaškrtněte "
+#~ "políčko <gui style=\"checkbox\">Hrát úrovně v náhodném pořadí</gui> v "
+#~ "<guiseq><gui style=\"menu\">Nastavení</gui> <gui style=\"menuitem"
+#~ "\">Předvolby</gui></guiseq>."
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/before-rel.png' "
+#~ "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+#~ msgstr ""
+#~ "external ref='figures/before-rel.png' "
+#~ "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/after-rel.png' "
+#~ "md5='face859122668e3ec20b98cfdcc0bd2d'"
+#~ msgstr ""
+#~ "external ref='figures/after-rel.png' "
+#~ "md5='face859122668e3ec20b98cfdcc0bd2d'"
+
+#~ msgid "Enable relative movement."
+#~ msgstr "Povolte relativní pohyb."
+
+#~ msgid "Relative movement"
+#~ msgstr "Relativní pohyb"
+
+#~ msgid ""
+#~ "When relative movement is enabled, the worm is maneuvered using just the "
+#~ "default <key>Left</key> and <key>Right</key> keys or other <link xref="
+#~ "\"controls-change\">customized keys</link> that control the leftward and "
+#~ "rightward movement of a worm. When the <key>Left</key> key is pressed, "
+#~ "the worm turns left, instead of moving towards the left of the screen. "
+#~ "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
+#~ "instead of moving towards the right of the screen."
+#~ msgstr ""
+#~ "Když je zapnutý relativní pohyb, manévruje se červíky pomocí výchozích "
+#~ "kláves <key>←</key> a <key>→</key>, případně jinými <link xref=\"controls-"
+#~ "change\">vlastními klávesami</link>, které ovládají pohyb ve směru doleva "
+#~ "a doprava. Po zmáčknutí <key>←</key> červík zahne doleva, místo aby se "
+#~ "začal pohybovat k levému okraji obrazovky. Obdobně po zmáčknutí <key>→</"
+#~ "key> zahne doprava, namísto aby zamířil přímo v pravém směru obrazovky."
+
+#~ msgid "Starting position:"
+#~ msgstr "Počáteční pozice:"
+
+#~ msgid "The location of the worm before you decide to move it."
+#~ msgstr "Poloha červíka, než se rozhodnete jej ovlivnit."
+
+#~ msgid "On pressing the <key>Left</key> key:"
+#~ msgstr "Po zmáčknutí klávesy <key>←</key>:"
+
+#~ msgid "The worm turns left and begins to move downwards."
+#~ msgstr "Červík zahnul doleva a začal se pohybovat dolů."
+
+#~ msgid ""
+#~ "If relative movement was not enabled, you would press the <key>Down</key> "
+#~ "key to achieve the above result."
+#~ msgstr ""
+#~ "Kdyby nebyl zapnutý relativní pohyb, dosáhli byste stejného výsledku "
+#~ "zmáčknutím klávesy <key>↓</key>."
+
+#~ msgid "To enable relative movement:"
+#~ msgstr "Když chcete zapnout relativní pohyb:"
+
+#~ msgid ""
+#~ "Select the worm for which relative movement has to be enabled by clicking "
+#~ "the appropriate <gui>Worm</gui> tab."
+#~ msgstr ""
+#~ "Vyberte červíka, pro kterého chcete relativní pohyb povolit, kliknutím na "
+#~ "příslušnou kartu <gui>Červík x</gui>."
+
+#~ msgid ""
+#~ "Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if "
+#~ "it is unchecked."
+#~ msgstr ""
+#~ "V případě, že není zaškrtnuté políčko <gui style=\"checkbox\">Používat "
+#~ "relativní pohyb</gui>, zaškrtněte jej."
+
+#~ msgid "Click <gui style=\"button\">Close</gui>."
+#~ msgstr "Klikněte na <gui style=\"button\">Zavřít</gui>."
