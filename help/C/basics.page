@@ -37,7 +37,7 @@
 <section id="pause">
   <title>Pause and resume your game</title>
 
-  <p>Press the <gui style="button">New Game</gui> button in the header bar to pause your game.
+  <p>Press the <gui style="button">Pause</gui> button in the header bar to pause your game.
   You can resume your game by pressing the <gui style="button">Resume</gui> button.</p>
 
 </section>
