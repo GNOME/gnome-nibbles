@@ -32,16 +32,6 @@ install_data([
     'teleport.ogg'
 ], install_dir: sounddir)
 
-# UI files
-install_data([
-    'nibbles.ui',
-    'nibbles.css',
-    'scoreboard.ui',
-    'player-score-box.ui',
-    'controls-grid.ui',
-    'preferences-dialog.ui'
-], install_dir: pkgdatadir)
-
 # Icons
 foreach size: [ '16x16', '22x22', '24x24', '32x32', '48x48' ]
     install_data(join_paths('icons', 'hicolor', size, 'org.gnome.Nibbles.png'),
