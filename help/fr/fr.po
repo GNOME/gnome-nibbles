@@ -7,20 +7,21 @@
 # Bruno Brouard <annoa.b@gmail.com>, 2008,2011.
 # Alain Lojewski <allomervan@gmail.com>, 2012.
 # Julien Hardelin <jhardlin@orange.fr>, 2013, 2014.
+# Charles Monzat <charles.monzat@free.fr>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnibbles doc fr\n"
-"POT-Creation-Date: 2015-09-20 14:45+0000\n"
-"PO-Revision-Date: 2015-09-20 16:44+0200\n"
-"Last-Translator: Julien Hardelin <jhardlin@orange.fr>\n"
-"Language-Team: français <GNOME French Team <gnomefr@traduc.org>>\n"
+"POT-Creation-Date: 2020-03-20 09:58+0000\n"
+"PO-Revision-Date: 2020-03-25 17:50+0100\n"
+"Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
+"Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 3.34.0\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -29,50 +30,55 @@ msgstr ""
 "Claude Paroz <claude@2xlibre.net>, 2007-2008\n"
 "Bruno Brouard <annoa.b@gmail.com>, 2008,2011\n"
 "Alain Lojewski <allomervan@gmail.com>, 2012\n"
-"Julien Hardelin <jhardlin@orange.fr>, 2014"
+"Julien Hardelin <jhardlin@orange.fr>, 2014\n"
+"Charles Monzat <charles.monzat@free.fr>, 2020"
 
 #. (itstool) path: credit/name
-#: C/basics.page:14 C/controls-change.page:16 C/controls-default.page:14
-#: C/fake-bonus.page:14 C/index.page:12 C/multi-player.page:16
-#: C/preferences.page:14 C/rel-movement.page:14 C/scores.page:14
+#: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
+#: C/fake-bonus.page:15 C/index.page:12 C/multi-player.page:16
+#: C/preferences.page:15 C/scores.page:14
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
 #. (itstool) path: credit/name
-#: C/basics.page:18 C/controls-change.page:20 C/controls-default.page:18
-#: C/fake-bonus.page:18 C/multi-player.page:20 C/preferences.page:18
-#: C/rel-movement.page:18
+#: C/basics.page:19 C/controls-change.page:21 C/controls-default.page:19
+#: C/fake-bonus.page:19 C/multi-player.page:20 C/preferences.page:19
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
-#: C/basics.page:22
-msgid ""
-"Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</app>."
-msgstr ""
-"Démarrez, mettez en pause, jouez en mode plein écran et quittez une partie "
-"de <app>Nibbles</app>."
+#: C/basics.page:23
+msgid "Start, pause, and quit a game of <app>Nibbles</app>."
+msgstr "Démarrer, mettre en pause et quitter une partie de <app>Nibbles</app>."
 
 #. (itstool) path: page/title
-#: C/basics.page:25
+#: C/basics.page:26
 msgid "Basic instructions"
 msgstr "Instructions de base"
 
 #. (itstool) path: section/title
-#: C/basics.page:28
+#: C/basics.page:29
 msgid "Start a new game"
-msgstr "Démarrage d'une nouvelle partie"
+msgstr "Démarrer une nouvelle partie"
 
 #. (itstool) path: section/p
-#: C/basics.page:30
+#: C/basics.page:31
 msgid ""
-"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">New</"
-"gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></keyseq> to start "
-"a new game."
+"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
+"start a new game when being in a game."
 msgstr ""
-"Sélectionnez <guiseq><gui style=\"menu\">Jeu</gui> <gui style=\"menuitem"
-"\">Nouveau</gui></guiseq> ou appuyez sur <keyseq><key>Ctrl</key><key>N</"
-"key></keyseq> pour démarrer une nouvelle partie."
+"Cliquez sur le bouton <gui style=\"button\">Nouvelle partie</gui> situé dans "
+"la barre d’en-tête pour démarrer une nouvelle partie pendant une partie déjà "
+"engagée."
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press the <gui style=\"button\">Play Again</gui> button when you have "
+"finished a game."
+msgstr ""
+"Cliquez sur le bouton <gui style=\"button\">Rejouer</gui> quand vous avez "
+"terminé une partie."
 
 #. (itstool) path: section/title
 #: C/basics.page:38
@@ -82,141 +88,125 @@ msgstr "Mettre en pause et reprendre la partie"
 #. (itstool) path: section/p
 #: C/basics.page:40
 msgid ""
-"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Pause</"
-"gui></guiseq> to pause your game. You can resume your game by selecting "
-"<guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Resume</gui></"
-"guiseq>."
+"Press the <gui style=\"button\">Pause</gui> button in the header bar to "
+"pause your game. You can resume your game by pressing the <gui style=\"button"
+"\">Resume</gui> button."
 msgstr ""
-"Sélectionnez <guiseq><gui style=\"menu\">Jeu</gui> <gui style=\"menuitem"
-"\">Pause</gui></guiseq> pour mettre votre partie en pause. Vous pouvez "
-"reprendre la partie en sélectionnant <guiseq><gui style=\"menu\">Jeu</gui> "
-"<gui style=\"menuitem\">Reprendre</gui></guiseq>."
+"Cliquez sur le bouton <gui style=\"button\">Pause</gui> situé dans la barre "
+"d’en-tête pour mettre votre partie en pause. Vous pouvez reprendre la partie "
+"en cliquant sur le bouton <gui style=\"button\">Reprendre</gui>."
 
 #. (itstool) path: section/title
-#: C/basics.page:48
-msgid "Play <app>Nibbles</app> in fullscreen mode"
-msgstr "Jouer à <app>Nibbles</app> en mode plein écran"
-
-#. (itstool) path: section/p
-#: C/basics.page:50
-msgid ""
-"Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
-"\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
-"fullscreen mode. You can return to the default screen size by pressing "
-"<key>F11</key> again."
-msgstr ""
-"Sélectionnez <guiseq><gui style=\"menu\">Affichage</gui> <gui style="
-"\"menuitem\">Plein écran</gui></guiseq> ou appuyez sur <key>F11</key> pour "
-"jouer en mode plein écran. Vous pouvez revenir à la taille d'écran par "
-"défaut en appuyant à nouveau sur <key>F11</key>."
-
-#. (itstool) path: section/title
-#: C/basics.page:58
+#: C/basics.page:46
 msgid "Quit <app>Nibbles</app>"
 msgstr "Quitter <app>Nibbles</app>"
 
 #. (itstool) path: section/p
-#: C/basics.page:60
+#: C/basics.page:48
 msgid ""
-"Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem\">Quit</"
-"gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit "
-"<app>Nibbles</app> at any time."
+"Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+"<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
+"any time."
 msgstr ""
-"Sélectionnez <guiseq><gui style=\"menu\">Jeu</gui> <gui style=\"menuitem"
-"\">Quitter</gui></guiseq> ou appuyez sur <keyseq><key>Ctrl</key><key>Q</"
-"key></keyseq> pour quitter <app>Nibbles</app> à tout moment."
+"Cliquez sur le bouton <gui style=\"button\">⨯</gui> situé dans la barre d’en-"
+"tête ou appuyez sur <keyseq><key>Ctrl</key><key>Q</key></keyseq> pour "
+"quitter <app>Nibbles</app> à tout moment."
 
 #. (itstool) path: info/desc
-#: C/controls-change.page:24
+#: C/controls-change.page:25
 msgid "Set custom control keys."
 msgstr "Définir des touches de contrôle personnalisées."
 
 #. (itstool) path: page/title
-#: C/controls-change.page:27
+#: C/controls-change.page:28
 msgid "Change the default controls"
 msgstr "Modification des contrôles par défaut"
 
 #. (itstool) path: page/p
-#: C/controls-change.page:29
+#: C/controls-change.page:30
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
 "player\">multi-player</link> games, when having more than one set of "
 "controls becomes necessary. To change the default controls:"
 msgstr ""
-"On peut changer les <link xref=\"controls-default\">Contrôles par défaut</"
-"link> dans <app>Nibbles</app> pour convenir à vos préférences ou dans le cas "
-"de parties <link xref=\"multi-player\">multi-joueurs</link>, quand disposer "
-"de plusieurs jeux de contrôles devient nécessaire. Pour changer les "
+"Les <link xref=\"controls-default\">Contrôles par défaut</link> peuvent être "
+"modifiés dans <app>Nibbles</app> pour convenir à vos préférences ou dans le "
+"cas de parties <link xref=\"multi-player\">multi-joueurs</link>, quand "
+"disposer de plusieurs jeux de contrôles devient nécessaire. Pour changer les "
 "contrôles par défaut :"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:36 C/fake-bonus.page:35 C/multi-player.page:44
-#: C/rel-movement.page:66
+#: C/controls-change.page:37 C/fake-bonus.page:36 C/multi-player.page:44
+#: C/preferences.page:38 C/preferences.page:87 C/preferences.page:108
 msgid ""
-"Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-"\">Preferences</gui></guiseq>."
+"Press the menu button in the top-right corner of the window and select <gui "
+"style=\"menuitem\">Preferences</gui>."
 msgstr ""
-"Sélectionnez <guiseq><gui style=\"menu\">Paramètres</gui> <gui style="
-"\"menuitem\">Préférences</gui></guiseq>."
+"Cliquez sur le bouton de menu situé dans le coin supérieur droit de la "
+"fenêtre et sélectionnez <gui style=\"menuitem\">Préférences</gui>."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:40
+#: C/controls-change.page:41
 msgid "Select the tab for the player whose controls you want to change."
 msgstr ""
-"Sélectionnez l'onglet pour le joueur dont vous voulez changer les contrôles."
+"Sélectionnez l’onglet pour le joueur dont vous voulez changer les contrôles."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:42
+#: C/controls-change.page:43
 msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
 msgstr ""
 "Le joueur 1 contrôle le <gui>Ver 1</gui>, le joueur 2 contrôle le <gui>Ver "
-"2</gui>, le joueur 3 contrôle le <gui>Ver 3</gui> et ainsi de suite,"
+"2</gui>, le joueur 3 contrôle le <gui>Ver 3</gui> et ainsi de suite."
 
+# « New accelerator » traduit par « Nouveau raccourci », afin d’uniformiser avec l’interface utilisateur (Charles).
 #. (itstool) path: item/p
-#: C/controls-change.page:47
+#: C/controls-change.page:48
 msgid ""
-"In the <gui style=\"group\">Keyboard Controls</gui> list, select the line, "
-"then click on the control. This highlights the line and the words <gui>New "
-"accelerator…</gui> are now present in place of the old control."
+"In the <gui style=\"group\">Controls</gui> list, select the line, then click "
+"on the control. This highlights the line and the words <gui>New accelerator…"
+"</gui> are now present in place of the old control."
 msgstr ""
-"Dans la liste des <gui style=\"group\">Commandes au clavier</gui>, "
-"sélectionnez la ligne et cliquez sur le contrôle. La ligne est surlignée, et "
-"les mots <gui>Nouvel accélérateur</gui> remplacent l'ancien contrôle."
+"Dans la liste des <gui style=\"group\">Contrôles</gui>, sélectionnez la "
+"ligne et cliquez sur le contrôle. La ligne est mise en surbrillance, et les "
+"mots <gui>Nouveau raccourci</gui> remplacent l’ancien contrôle."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:53
+#: C/controls-change.page:54
 msgid "Press the key you want to use instead of the default key."
 msgstr ""
 "Appuyez sur la touche que vous voulez utiliser à la place de la touche par "
 "défaut."
 
+# « New accelerator » traduit par « Nouveau raccourci », afin d’uniformiser avec l’interface utilisateur (Charles).
 #. (itstool) path: note/p
-#: C/controls-change.page:55
+#: C/controls-change.page:56
 msgid ""
 "To keep the old setting click <gui>New accelerator…</gui> again, right click "
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
 "inside the <gui>Nibbles Preferences</gui> box."
 msgstr ""
-"Pour conserver l'ancien paramétrage cliquez à nouveau sur <gui>Nouvel "
-"accélérateur</gui>, appuyez sur <key>Échap</key> ou cliquer n'importe où "
-"ailleurs dans la boîte de dialogue des <gui>Préférences de Nibbles</gui>."
+"Pour conserver l’ancien paramétrage, cliquez à nouveau sur <gui>Nouveau "
+"raccourci</gui>, faites un clic droit sur <gui>Nouveau raccourci</gui>, "
+"appuyez sur <key>Échap</key> ou cliquez n’importe où ailleurs dans la boîte "
+"de dialogue des <gui>Préférences de Nibbles</gui>."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:61
+#: C/controls-change.page:62
 msgid ""
 "Repeat the above step to change the other default keys for the current "
 "player, then select the tab for the next player whose controls you want to "
 "change and repeat the process."
 msgstr ""
 "Répétez les étapes précédentes pour changer les autres touches par défaut "
-"concernant le joueur actuel, puis sélectionnez l'onglet du joueur suivant "
+"concernant le joueur actuel, puis sélectionnez l’onglet du joueur suivant "
 "dont vous voulez changer les contrôles, et répétez le processus."
 
+# « New accelerator » traduit par « Nouveau raccourci », afin d’uniformiser avec l’interface utilisateur (Charles).
 #. (itstool) path: page/p
-#: C/controls-change.page:67
+#: C/controls-change.page:68
 msgid ""
 "For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
 "<gui>Left</gui> control line and click it, then press <key>A</key> on your "
@@ -225,20 +215,20 @@ msgstr ""
 "Par exemple, si vous désirez utiliser la touche <key>A</key> pour le "
 "<gui>Déplacement gauche</gui>, cliquez sur la ligne de contrôle <gui>Gauche</"
 "gui> et appuyez sur la touche <key>A</key> du clavier quand vous apercevez "
-"<gui>Nouvel accélérateur</gui> sur la ligne."
+"<gui>Nouveau raccourci</gui> sur la ligne."
 
 #. (itstool) path: info/desc
-#: C/controls-default.page:23
+#: C/controls-default.page:24
 msgid "Default keys for <app>Nibbles.</app>"
-msgstr "Les touches par défaut de <app>Nibbles</app>"
+msgstr "Les touches par défaut de <app>Nibbles.</app>"
 
 #. (itstool) path: page/title
-#: C/controls-default.page:26
+#: C/controls-default.page:27
 msgid "Keyboard Controls"
 msgstr "Commandes au clavier"
 
 #. (itstool) path: page/p
-#: C/controls-default.page:28
+#: C/controls-default.page:29
 msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
@@ -247,50 +237,35 @@ msgstr ""
 "touches par défaut suivantes :"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:33
+#: C/controls-default.page:34
 msgid "<key>Up</key> to move the worm up"
 msgstr "<key>Flèche haut</key> pour déplacer le ver vers le haut"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:36
+#: C/controls-default.page:37
 msgid "<key>Down</key> to move the worm down"
 msgstr "<key>Flèche bas</key> pour déplacer le ver vers le bas"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:39
+#: C/controls-default.page:40
 msgid "<key>Left</key> to move the worm left"
 msgstr "<key>Flèche gauche</key> pour déplacer le ver vers la gauche"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:42
+#: C/controls-default.page:43
 msgid "<key>Right</key> to move the worm right"
 msgstr "<key>Flèche droite</key> pour déplacer le ver vers la droite"
 
 #. (itstool) path: note/p
-#: C/controls-default.page:47
+#: C/controls-default.page:48
 msgid ""
 "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
 "Vous pouvez <link xref=\"controls-change\">changer</link> les touches de "
 "contrôle par défaut."
 
-#. (itstool) path: page/p
-#: C/controls-default.page:51
-msgid ""
-"All worm movements happen with respect to the screen unless <link xref=\"rel-"
-"movement\">relative movement</link> is enabled. This means that when you "
-"press <key>Left</key> the worm moves towards the left of the screen, when "
-"you press <key>Right</key> the worm moves towards the right of the screen "
-"and so on."
-msgstr ""
-"Tous les mouvements du ver se produisent par rapport à l'écran à moins que "
-"les <link xref=\"rel-movement\">mouvements relatifs</link> ne soit activés. "
-"Ce qui signifie que lorsque vous appuyez sur <key>Flèche gauche</key> le ver "
-"se déplace vers la gauche de l'écran, quand vous appuyez sur <key>Flèche "
-"droite</key> le ver se déplace vers la droite de l'écran et ainsi de suite."
-
 #. (itstool) path: info/desc
-#: C/fake-bonus.page:22
+#: C/fake-bonus.page:23
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
@@ -298,12 +273,12 @@ msgstr ""
 "plus difficile."
 
 #. (itstool) path: page/title
-#: C/fake-bonus.page:26
+#: C/fake-bonus.page:27
 msgid "What are fake bonuses?"
 msgstr "Que sont les faux bonus ?"
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:28
+#: C/fake-bonus.page:29
 msgid ""
 "Fake bonuses look like regular bonus shapes but do not give you any points "
 "when your worm swallows them. They cause a reversal in the movement of your "
@@ -314,26 +289,21 @@ msgstr ""
 "sens de déplacement du ver."
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:32
+#: C/fake-bonus.page:33
 msgid "To enable fake bonuses:"
 msgstr "Pour activer les faux bonus :"
 
 #. (itstool) path: item/p
-#: C/fake-bonus.page:39
+#: C/fake-bonus.page:40
 msgid ""
 "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
 "is unchecked."
 msgstr ""
 "Cochez la case <gui style=\"checkbox\">Activer les faux bonus</gui> si ce "
-"n'est pas déjà fait."
-
-#. (itstool) path: item/p
-#: C/fake-bonus.page:43
-msgid "Click <gui>Close</gui>."
-msgstr "Cliquez sur <gui>Fermer</gui>."
+"n’est pas déjà fait."
 
 #. (itstool) path: note/p
-#: C/fake-bonus.page:48
+#: C/fake-bonus.page:46
 msgid ""
 "Set all preferences before starting a new game. Preferences cannot be "
 "changed in the middle of a game."
@@ -358,9 +328,9 @@ msgid ""
 "swallow as many objects as you can while avoiding maze walls and other "
 "worms. You have to complete 26 levels to finish the game."
 msgstr ""
-"<app>Nibbles</app> est un jeu de ver pour GNOME. Le but du jeu est d'avaler "
-"autant d'objets que vous le pouvez en évitant les murs d'un labyrinthe et "
-"d'autres vers. Vous devrez venir à bout de 26 niveaux avant de finir le jeu."
+"<app>Nibbles</app> est un jeu de ver pour GNOME. Le but du jeu est d’avaler "
+"autant d’objets que vous le pouvez en évitant les murs d’un labyrinthe et "
+"d’autres vers. Vous devrez venir à bout de 26 niveaux avant de finir le jeu."
 
 #. (itstool) path: section/title
 #: C/index.page:26
@@ -375,7 +345,7 @@ msgstr "Préférences"
 #. (itstool) path: info/desc
 #: C/multi-player.page:24
 msgid "Play <app>Nibbles</app> with additional players."
-msgstr "Jouer à <app>Nibbles</app> en compagnie d'autres joueurs."
+msgstr "Jouer à <app>Nibbles</app> en compagnie d’autres joueurs."
 
 #. (itstool) path: page/title
 #: C/multi-player.page:27
@@ -392,8 +362,8 @@ msgid ""
 "three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
 "and <gui>Worm 3</gui> and so on."
 msgstr ""
-"Jusqu'à six joueurs peuvent jouer ensemble à <app>Nibbles</app>. Dans une "
-"partie à un seul joueur, le joueur ne contrôle que le <gui>Ver 1</gui>.Dans "
+"Jusqu’à six joueurs peuvent jouer ensemble à <app>Nibbles</app>. Dans une "
+"partie à un seul joueur, le joueur ne contrôle que le <gui>Ver 1</gui>. Dans "
 "une partie à plusieurs joueurs, les autres joueurs peuvent contrôler les "
 "vers <gui>ver 2</gui> à <gui>ver 6</gui>. Une partie à deux joueurs "
 "contrôlera les vers <gui>Ver 1</gui> et <gui>Ver 2</gui>, une partie à trois "
@@ -411,7 +381,7 @@ msgid ""
 "<app>Nibbles</app> can be played by up to six players. To set the number of "
 "players:"
 msgstr ""
-"Jusqu'à six joueurs peuvent jouer ensemble à <app>Nibbles</app>. Pour fixer "
+"Jusqu’à six joueurs peuvent jouer ensemble à <app>Nibbles</app>. Pour fixer "
 "le nombre de joueurs :"
 
 #. (itstool) path: item/p
@@ -425,7 +395,7 @@ msgstr ""
 "Réglez le <gui style=\"input\">Nombre de joueurs humains</gui> au nombre "
 "voulu, avec un maximum de 6. Vous pouvez le faire en vous servant des "
 "boutons <gui style=\"button\">+</gui> ou <gui style=\"button\">-</gui>, ou "
-"en saisissant le nombre de joueurs avec le clavier dans l'espace attribué."
+"en saisissant le nombre de joueurs avec le clavier dans l’espace attribué."
 
 #. (itstool) path: note/p
 #: C/multi-player.page:57
@@ -435,295 +405,134 @@ msgid ""
 "set the <gui style=\"input\">Number of AI players</gui> to any number "
 "between 1 and 6."
 msgstr ""
-"Vous pouvez surveiller une partie de <app>Nibbles</app> sans y participer. "
+"Vous pouvez regarder une partie de <app>Nibbles</app> sans y participer. "
 "Pour simplement observer une partie, réglez le <gui style=\"input\">Nombre "
 "de joueurs</gui> à 0 et réglez le <gui style=\"input\">Nombre de joueurs IA</"
-"gui> à une valeur entre 1 et 6."
+"gui> à une valeur comprise entre 1 et 6."
 
 #. (itstool) path: info/desc
-#: C/preferences.page:22
+#: C/preferences.page:23
 msgid "Change default speed, worm color, level order and sound settings."
 msgstr ""
-"Changer la vitesse par défaut, la couleur du ver, l'ordre des niveaux et les "
+"Changer la vitesse par défaut, la couleur du ver, l’ordre des niveaux et les "
 "paramètres du son."
 
 #. (itstool) path: page/title
-#: C/preferences.page:25
+#: C/preferences.page:26
 msgid "Edit general preferences"
 msgstr "Modification des préférences générales"
 
 #. (itstool) path: page/p
-#: C/preferences.page:27
+#: C/preferences.page:28
 msgid ""
-"The general preferences for <app>Nibbles</app> can be changed by selecting "
-"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-"\">Preferences</gui></guiseq>."
+"The general preferences for <app>Nibbles</app> can be changed by pressing "
+"the menu button in the top-right corner of the window and selecting <gui "
+"style=\"menuitem\">Preferences</gui>."
 msgstr ""
 "Les préférences générales de <app>Nibbles</app> peuvent être modifiées en "
-"passant par <guiseq><gui style=\"menu\">Paramètres</gui> <gui style="
-"\"menuitem\">Préférences</gui></guiseq>."
+"cliquant sur le bouton de menu situé dans le coin supérieur droit de la "
+"fenêtre, puis en sélectionnant <gui style=\"menuitem\">Préférences</gui>."
 
 #. (itstool) path: section/title
-#: C/preferences.page:32
+#: C/preferences.page:33
 msgid "Speed"
 msgstr "Vitesse"
 
 #. (itstool) path: section/p
-#: C/preferences.page:34
-msgid ""
-"There are four available speeds in <app>Nibbles</app>. These are, in "
-"increasing order:"
-msgstr "Quatre vitesses sont disponibles dans <app>Nibbles</app>. Ce sont :"
-
-#. (itstool) path: item/p
-#: C/preferences.page:39
-msgid "Nibbles Newbie"
-msgstr "Débutant à Nibbles"
+#: C/preferences.page:35
+msgid "To change the speed:"
+msgstr "Pour changer la vitesse :"
 
 #. (itstool) path: item/p
 #: C/preferences.page:42
-msgid "My second day"
-msgstr "Mon deuxième jour"
-
-#. (itstool) path: item/p
-#: C/preferences.page:45
-msgid "Not too shabby"
-msgstr "Pas trop nul"
-
-#. (itstool) path: item/p
-#: C/preferences.page:48
-msgid "Finger twitching good"
-msgstr "Les doigts dans le nez"
-
-#. (itstool) path: section/p
-#: C/preferences.page:52
-msgid ""
-"Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
-"style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the four "
-"speed choices given on the left hand side."
+msgid "Select one of the four speed choices given on the left hand side."
 msgstr ""
-"La vitesse peut être modifiée dans <guiseq><gui style=\"menu\">Paramètres</"
-"gui> <gui style=\"menuitem\">Préférences</gui></guiseq> en sélectionnant un "
-"des quatre choix de vitesse offerts à gauche."
+"Sélectionnez l’un des quatre choix de vitesse indiqués sur le côté gauche."
 
 #. (itstool) path: section/title
-#: C/preferences.page:59
+#: C/preferences.page:49
 msgid "Change worm colors"
 msgstr "Changement de la couleur du ver"
 
 #. (itstool) path: section/p
-#: C/preferences.page:61
+#: C/preferences.page:51
 msgid "There are seven available worm colors:"
 msgstr "Sept couleurs sont disponibles pour le ver :"
 
 #. (itstool) path: item/p
-#: C/preferences.page:65
+#: C/preferences.page:55
 msgid "<_:media-1/> Red"
 msgstr "<_:media-1/> Rouge"
 
 #. (itstool) path: item/p
-#: C/preferences.page:69
+#: C/preferences.page:59
 msgid "<_:media-1/> Green"
 msgstr "<_:media-1/> Vert"
 
 #. (itstool) path: item/p
-#: C/preferences.page:73
+#: C/preferences.page:63
 msgid "<_:media-1/> Blue"
 msgstr "<_:media-1/> Bleu"
 
 #. (itstool) path: item/p
-#: C/preferences.page:77
+#: C/preferences.page:67
 msgid "<_:media-1/> Yellow"
 msgstr "<_:media-1/> Jaune"
 
 #. (itstool) path: item/p
-#: C/preferences.page:81
+#: C/preferences.page:71
 msgid "<_:media-1/> Cyan"
 msgstr "<_:media-1/> Cyan"
 
 #. (itstool) path: item/p
-#: C/preferences.page:85
+#: C/preferences.page:75
 msgid "<_:media-1/> Purple"
 msgstr "<_:media-1/> Violet"
 
 #. (itstool) path: item/p
-#: C/preferences.page:89
+#: C/preferences.page:79
 msgid "<_:media-1/> Gray"
 msgstr "<_:media-1/> Gris"
 
 #. (itstool) path: section/p
-#: C/preferences.page:94
-msgid ""
-"These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
-"style=\"menuitem\">Preferences</gui></guiseq>."
-msgstr ""
-"Vous pouvez faire le changement dans <guiseq><gui style=\"menu\">Paramètres</"
-"gui> <gui style=\"menuitem\">Préférences</gui></guiseq>."
+#: C/preferences.page:84
+msgid "To change worm colors:"
+msgstr "Pour changer la couleur du ver :"
 
 #. (itstool) path: item/p
-#: C/preferences.page:99
+#: C/preferences.page:91
 msgid ""
-"Select any of the <gui>Worm</gui> tabs to choose the worm that you wish to "
-"edit."
+"Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
+"you wish to edit."
 msgstr ""
-"Sélectionnez l'onglet du <gui>Ver</gui> pour choisir le ver à modifier."
+"Sélectionnez l’un des onglets <gui style=\"tab\">Ver</gui> pour choisir le "
+"ver que vous souhaitez modifier."
 
 #. (itstool) path: item/p
-#: C/preferences.page:103
+#: C/preferences.page:95
 msgid ""
-"On your left hand side you will see <gui style=\"group\">Worm color</gui>. "
-"Pick a color out of the available colors in the drop-down menu to change the "
-"appearance of the worm."
+"Under <gui>Worm color</gui>, pick a color out of the available colors in the "
+"drop-down menu to change the appearance of the worm."
 msgstr ""
-"Sur votre gauche, vous verrez <gui style=\"group\">Couleur du ver</gui>. "
-"Choisissez une couleur parmi celles qui sont disponibles dans la liste "
-"déroulante pour changer l'apparence du ver."
+"Dans la section <gui>Couleur des vers</gui>, choisissez une couleur parmi "
+"celles qui sont disponibles dans la liste déroulante pour changer "
+"l’apparence du ver."
 
 #. (itstool) path: section/title
-#: C/preferences.page:112
+#: C/preferences.page:103
 msgid "Sounds"
 msgstr "Sons"
 
 #. (itstool) path: section/p
-#: C/preferences.page:114
-msgid ""
-"You can enable or disable sounds in <app>Nibbles</app> by checking or "
-"unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
-"<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-"\">Preferences</gui></guiseq>."
-msgstr ""
-"Vous pouvez activer ou désactiver les sons dans <app>Nibbles</app> en "
-"cochant ou dé-cochant la case <gui style=\"checkbox\">Activer les sons</gui> "
-"dans <guiseq><gui style=\"menu\">Paramètres</gui> <gui style=\"menuitem"
-"\">Préférences</gui></guiseq>."
-
-#. (itstool) path: section/title
-#: C/preferences.page:122
-msgid "Play levels in random order"
-msgstr "Jouer les niveaux dans un ordre aléatoire"
-
-#. (itstool) path: section/p
-#: C/preferences.page:124
-msgid ""
-"Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
-"gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
-"\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
-"<app>Nibbles</app> in random order."
-msgstr ""
-"Cochez ou dé-cochez la case <gui style=\"checkbox\">Jouer dans un ordre "
-"aléatoire</gui> dans <guiseq><gui style=\"menu\">paramètres</gui> <gui style="
-"\"menuitem\">Préférences</gui></guiseq> pour jouer les différents niveaux de "
-"<app>Nibbles</app> dans un ordre aléatoire."
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:41
-msgctxt "_"
-msgid ""
-"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-msgstr ""
-"external ref='figures/before-rel.png' md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rel-movement.page:48
-msgctxt "_"
-msgid ""
-"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
-msgstr ""
-"external ref='figures/after-rel.png' md5='face859122668e3ec20b98cfdcc0bd2d'"
-
-#. (itstool) path: info/desc
-#: C/rel-movement.page:22
-msgid "Enable relative movement."
-msgstr "Activer les mouvements relatifs"
-
-#. (itstool) path: page/title
-#: C/rel-movement.page:25
-msgid "Relative movement"
-msgstr "Mouvements relatifs"
-
-#. (itstool) path: page/p
-#: C/rel-movement.page:27
-msgid ""
-"When relative movement is enabled, the worm is maneuvered using just the "
-"default <key>Left</key> and <key>Right</key> keys or other <link xref="
-"\"controls-change\">customized keys</link> that control the leftward and "
-"rightward movement of a worm. When the <key>Left</key> key is pressed, the "
-"worm turns left, instead of moving towards the left of the screen. "
-"Similarly, when the <key>Right</key> key is pressed, the worm turns right "
-"instead of moving towards the right of the screen."
-msgstr ""
-"Quand les mouvements relatifs sont activés, le ver est manœuvré seulement "
-"avec la <key>Touche gauche</key> et la <key>Touche droite</key> ou d'autres "
-"<link xref=\"controls-change\">touches personnalisées</link> contrôlant les "
-"mouvements vers la gauche ou la droite du ver. Quand on appuie sur la "
-"<key>Touche gauche</key>, le ver va vers sa gauche au lieu d'aller vers la "
-"gauche de l'écran. De même, quand on appuie sur la <key>Touche droite</key>, "
-"le ver va vers sa droite au lieu d'aller vers la droite de l'écran."
-
-#. (itstool) path: figure/title
-#: C/rel-movement.page:39
-msgid "Starting position:"
-msgstr "Position de départ :"
-
-#. (itstool) path: figure/desc
-#: C/rel-movement.page:40
-msgid "The location of the worm before you decide to move it."
-msgstr "Position du ver avant que vous décidiez de le déplacer."
-
-#. (itstool) path: figure/title
-#: C/rel-movement.page:46
-msgid "On pressing the <key>Left</key> key:"
-msgstr "Lors de l'appui sur la <key>Touche gauche</key> :"
-
-#. (itstool) path: figure/desc
-#: C/rel-movement.page:47
-msgid "The worm turns left and begins to move downwards."
-msgstr "Le ver tourne à gauche et commence à se déplacer vers le bas."
-
-#. (itstool) path: note/p
-#: C/rel-movement.page:55
-msgid ""
-"If relative movement was not enabled, you would press the <key>Down</key> "
-"key to achieve the above result."
-msgstr ""
-"Si les mouvements relatifs n'étaient pas activés, vous auriez dû appuyer sur "
-"la <key>Touche bas</key> pour obtenir le même résultat."
-
-#. (itstool) path: page/p
-#: C/rel-movement.page:62
-msgid "To enable relative movement:"
-msgstr "Pour activer les mouvements relatifs :"
+#: C/preferences.page:105
+msgid "To enable or disable sounds:"
+msgstr "Pour activer ou désactiver les sons :"
 
 #. (itstool) path: item/p
-#: C/rel-movement.page:70
-msgid ""
-"Select the worm for which relative movement has to be enabled by clicking "
-"the appropriate <gui>Worm</gui> tab."
+#: C/preferences.page:112
+msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgstr ""
-"Sélectionnez le ver dont les mouvements relatifs doivent être activés en "
-"cliquant sur l'onglet correspondant à ce <gui>ver</gui>."
-
-#. (itstool) path: item/p
-#: C/rel-movement.page:74
-msgid ""
-"Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if it "
-"is unchecked."
-msgstr ""
-"Cochez la case <gui style=\"checkbox\">Utiliser les mouvements relatifs</"
-"gui> si elle ne l'est pas déjà."
-
-#. (itstool) path: item/p
-#: C/rel-movement.page:78
-msgid "Click <gui style=\"button\">Close</gui>."
-msgstr "Cliquez sur <gui style=\"button\">Close</gui>."
+"Cochez ou décochez la case <gui style=\"checkbox\">Activer les sons</gui>."
 
 #. (itstool) path: info/desc
 #: C/scores.page:18
@@ -762,9 +571,9 @@ msgstr ""
 "le beignet varient de niveau en niveau et sont un multiple du numéro de "
 "niveau. Au niveau 1, le premier beignet vous donnera 1 point, le deuxième "
 "beignet vous donnera 2 points, le troisième trois et ainsi de suite. Au "
-"niveau 2, le premier beignet vous donnera 2 points, le deuxième quatre et le "
+"niveau 2, le premier beignet vous donnera 2 points, le deuxième quatre, le "
 "troisième 6 et ainsi de suite. Au niveau 26, le premier beignet vous donnera "
-"26 points, le deuxième 52 et ainsi de suite\"."
+"26 points, le deuxième 52 et ainsi de suite."
 
 #. (itstool) path: note/p
 #: C/scores.page:39
@@ -779,7 +588,7 @@ msgstr ""
 "ver. Si la partie est au niveau 1 et si le joueur 1 mange le premier "
 "beignet, il marque 1 point, le joueur 2 qui mange le deuxième beignet marque "
 "2 points ; un troisième joueur peut décider de ne manger aucun beignet avant "
-"le dixième et marquer alors 10 points d'un coup."
+"le dixième et marquer alors 10 points d’un coup."
 
 #. (itstool) path: item/p
 #: C/scores.page:47
@@ -788,7 +597,7 @@ msgid ""
 "does not cause an increase in the length of your worm."
 msgstr ""
 "Le bonus en forme de cœur <_:media-1/> : ce bonus vous donne une vie "
-"supplémentaire n'entraîne pas d'accroissement de la longueur du ver."
+"supplémentaire et n’entraîne pas d’accroissement de la longueur du ver."
 
 #. (itstool) path: note/p
 #: C/scores.page:52
@@ -798,7 +607,7 @@ msgid ""
 "lives remaining."
 msgstr ""
 "Le nombre de vies restantes pour un ver est indiqué par le nombre à gauche "
-"de la virgule dans le score de ce ver. Si le score d'un ver est 10,005, il "
+"de la virgule dans le score de ce ver. Si le score d’un ver est 10,005, il "
 "reste 10 vies à ce ver."
 
 #. (itstool) path: note/p
@@ -807,7 +616,7 @@ msgid ""
 "You cannot get extra lives by scoring 10,000 points or more. If you have "
 "scored 12345 points with 10 lives remaining, your score will be 10,12345."
 msgstr ""
-"Vous ne pouvez pas obtenir de vie supplémentaire au-delà de 10.000 points "
+"Vous ne pouvez pas obtenir de vie supplémentaire au-delà de 10 000 points "
 "marqués. Si vous avez marqué 12345 points avec 10 vies restantes, votre "
 "score sera 10,12345."
 
@@ -818,8 +627,8 @@ msgid ""
 "increase in the length of the worm and does not give you any points. It "
 "causes a reversal in the movement of all the other worms in the game."
 msgstr ""
-"Le bonus en forme de diamant <_:media-1/> : ce bonus n'entraîne pas "
-"d'allongement du ver et ne vous donne aucun point. Il provoque l'inversion "
+"Le bonus en forme de diamant <_:media-1/> : ce bonus n’entraîne pas "
+"d’allongement du ver et ne vous donne aucun point. Il provoque l’inversion "
 "du sens de déplacement de tous les autres vers."
 
 #. (itstool) path: note/p
@@ -852,20 +661,204 @@ msgid ""
 msgstr ""
 "Le bonus en forme de cerise <_:media-1/> : ce bonus entraîne une diminution "
 "de la longueur du ver. Les points donnés par ce bonus dépendent du niveau "
-"atteint et de la longueur du ver. Plus ces paramètres sont élevés, et plus "
-"de points sont marqués en mangeant ce bonus."
+"atteint et de la longueur du ver. Plus ces paramètres sont élevés et plus de "
+"points sont marqués en mangeant ce bonus."
 
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 msgstr ""
 "Creative Commons Paternité-Partage dans des conditions identiques à "
-"l'initiale 3.0 non transposée"
+"l’initiale 3.0 non transposé"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Ce travail est écrit sous licence <_:link-1/>."
+
+#~ msgid ""
+#~ "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
+#~ "\">New</gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></"
+#~ "keyseq> to start a new game."
+#~ msgstr ""
+#~ "Sélectionnez <guiseq><gui style=\"menu\">Jeu</gui> <gui style=\"menuitem"
+#~ "\">Nouveau</gui></guiseq> ou appuyez sur <keyseq><key>Ctrl</key><key>N</"
+#~ "key></keyseq> pour démarrer une nouvelle partie."
+
+#~ msgid "Play <app>Nibbles</app> in fullscreen mode"
+#~ msgstr "Jouer à <app>Nibbles</app> en mode plein écran"
+
+#~ msgid ""
+#~ "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
+#~ "\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
+#~ "fullscreen mode. You can return to the default screen size by pressing "
+#~ "<key>F11</key> again."
+#~ msgstr ""
+#~ "Sélectionnez <guiseq><gui style=\"menu\">Affichage</gui> <gui style="
+#~ "\"menuitem\">Plein écran</gui></guiseq> ou appuyez sur <key>F11</key> "
+#~ "pour jouer en mode plein écran. Vous pouvez revenir à la taille d'écran "
+#~ "par défaut en appuyant à nouveau sur <key>F11</key>."
+
+#~ msgid ""
+#~ "Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+#~ "\">Preferences</gui></guiseq>."
+#~ msgstr ""
+#~ "Sélectionnez <guiseq><gui style=\"menu\">Paramètres</gui> <gui style="
+#~ "\"menuitem\">Préférences</gui></guiseq>."
+
+#~ msgid ""
+#~ "All worm movements happen with respect to the screen unless <link xref="
+#~ "\"rel-movement\">relative movement</link> is enabled. This means that "
+#~ "when you press <key>Left</key> the worm moves towards the left of the "
+#~ "screen, when you press <key>Right</key> the worm moves towards the right "
+#~ "of the screen and so on."
+#~ msgstr ""
+#~ "Tous les mouvements du ver se produisent par rapport à l'écran à moins "
+#~ "que les <link xref=\"rel-movement\">mouvements relatifs</link> ne soit "
+#~ "activés. Ce qui signifie que lorsque vous appuyez sur <key>Flèche gauche</"
+#~ "key> le ver se déplace vers la gauche de l'écran, quand vous appuyez sur "
+#~ "<key>Flèche droite</key> le ver se déplace vers la droite de l'écran et "
+#~ "ainsi de suite."
+
+#~ msgid "Click <gui>Close</gui>."
+#~ msgstr "Cliquez sur <gui>Fermer</gui>."
+
+#~ msgid ""
+#~ "There are four available speeds in <app>Nibbles</app>. These are, in "
+#~ "increasing order:"
+#~ msgstr "Quatre vitesses sont disponibles dans <app>Nibbles</app>. Ce sont :"
+
+#~ msgid "Nibbles Newbie"
+#~ msgstr "Débutant à Nibbles"
+
+#~ msgid "My second day"
+#~ msgstr "Mon deuxième jour"
+
+#~ msgid "Not too shabby"
+#~ msgstr "Pas trop nul"
+
+#~ msgid "Finger twitching good"
+#~ msgstr "Les doigts dans le nez"
+
+#~ msgid ""
+#~ "Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+#~ "style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the "
+#~ "four speed choices given on the left hand side."
+#~ msgstr ""
+#~ "La vitesse peut être modifiée dans <guiseq><gui style=\"menu"
+#~ "\">Paramètres</gui> <gui style=\"menuitem\">Préférences</gui></guiseq> en "
+#~ "sélectionnant un des quatre choix de vitesse offerts à gauche."
+
+#~ msgid ""
+#~ "These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
+#~ "style=\"menuitem\">Preferences</gui></guiseq>."
+#~ msgstr ""
+#~ "Vous pouvez faire le changement dans <guiseq><gui style=\"menu"
+#~ "\">Paramètres</gui> <gui style=\"menuitem\">Préférences</gui></guiseq>."
+
+#~ msgid ""
+#~ "You can enable or disable sounds in <app>Nibbles</app> by checking or "
+#~ "unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
+#~ "<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
+#~ "\">Preferences</gui></guiseq>."
+#~ msgstr ""
+#~ "Vous pouvez activer ou désactiver les sons dans <app>Nibbles</app> en "
+#~ "cochant ou dé-cochant la case <gui style=\"checkbox\">Activer les sons</"
+#~ "gui> dans <guiseq><gui style=\"menu\">Paramètres</gui> <gui style="
+#~ "\"menuitem\">Préférences</gui></guiseq>."
+
+#~ msgid "Play levels in random order"
+#~ msgstr "Jouer les niveaux dans un ordre aléatoire"
+
+#~ msgid ""
+#~ "Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
+#~ "gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
+#~ "\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
+#~ "<app>Nibbles</app> in random order."
+#~ msgstr ""
+#~ "Cochez ou dé-cochez la case <gui style=\"checkbox\">Jouer dans un ordre "
+#~ "aléatoire</gui> dans <guiseq><gui style=\"menu\">paramètres</gui> <gui "
+#~ "style=\"menuitem\">Préférences</gui></guiseq> pour jouer les différents "
+#~ "niveaux de <app>Nibbles</app> dans un ordre aléatoire."
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/before-rel.png' "
+#~ "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+#~ msgstr ""
+#~ "external ref='figures/before-rel.png' "
+#~ "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/after-rel.png' "
+#~ "md5='face859122668e3ec20b98cfdcc0bd2d'"
+#~ msgstr ""
+#~ "external ref='figures/after-rel.png' "
+#~ "md5='face859122668e3ec20b98cfdcc0bd2d'"
+
+#~ msgid "Enable relative movement."
+#~ msgstr "Activer les mouvements relatifs"
+
+#~ msgid "Relative movement"
+#~ msgstr "Mouvements relatifs"
+
+#~ msgid ""
+#~ "When relative movement is enabled, the worm is maneuvered using just the "
+#~ "default <key>Left</key> and <key>Right</key> keys or other <link xref="
+#~ "\"controls-change\">customized keys</link> that control the leftward and "
+#~ "rightward movement of a worm. When the <key>Left</key> key is pressed, "
+#~ "the worm turns left, instead of moving towards the left of the screen. "
+#~ "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
+#~ "instead of moving towards the right of the screen."
+#~ msgstr ""
+#~ "Quand les mouvements relatifs sont activés, le ver est manœuvré seulement "
+#~ "avec la <key>Touche gauche</key> et la <key>Touche droite</key> ou "
+#~ "d'autres <link xref=\"controls-change\">touches personnalisées</link> "
+#~ "contrôlant les mouvements vers la gauche ou la droite du ver. Quand on "
+#~ "appuie sur la <key>Touche gauche</key>, le ver va vers sa gauche au lieu "
+#~ "d'aller vers la gauche de l'écran. De même, quand on appuie sur la "
+#~ "<key>Touche droite</key>, le ver va vers sa droite au lieu d'aller vers "
+#~ "la droite de l'écran."
+
+#~ msgid "Starting position:"
+#~ msgstr "Position de départ :"
+
+#~ msgid "The location of the worm before you decide to move it."
+#~ msgstr "Position du ver avant que vous décidiez de le déplacer."
+
+#~ msgid "On pressing the <key>Left</key> key:"
+#~ msgstr "Lors de l'appui sur la <key>Touche gauche</key> :"
+
+#~ msgid "The worm turns left and begins to move downwards."
+#~ msgstr "Le ver tourne à gauche et commence à se déplacer vers le bas."
+
+#~ msgid ""
+#~ "If relative movement was not enabled, you would press the <key>Down</key> "
+#~ "key to achieve the above result."
+#~ msgstr ""
+#~ "Si les mouvements relatifs n'étaient pas activés, vous auriez dû appuyer "
+#~ "sur la <key>Touche bas</key> pour obtenir le même résultat."
+
+#~ msgid "To enable relative movement:"
+#~ msgstr "Pour activer les mouvements relatifs :"
+
+#~ msgid ""
+#~ "Select the worm for which relative movement has to be enabled by clicking "
+#~ "the appropriate <gui>Worm</gui> tab."
+#~ msgstr ""
+#~ "Sélectionnez le ver dont les mouvements relatifs doivent être activés en "
+#~ "cliquant sur l'onglet correspondant à ce <gui>ver</gui>."
+
+#~ msgid ""
+#~ "Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if "
+#~ "it is unchecked."
+#~ msgstr ""
+#~ "Cochez la case <gui style=\"checkbox\">Utiliser les mouvements relatifs</"
+#~ "gui> si elle ne l'est pas déjà."
+
+#~ msgid "Click <gui style=\"button\">Close</gui>."
+#~ msgstr "Cliquez sur <gui style=\"button\">Close</gui>."
 
 #~ msgid ""
 #~ "Nibbles is a worm game for GNOME. The player controls a 2D worm while "
