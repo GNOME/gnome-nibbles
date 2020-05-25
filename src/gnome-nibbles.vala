@@ -20,6 +20,9 @@ using Gtk;
 
 public class Nibbles : Gtk.Application
 {
+    /* Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
+    private const string PROGRAM_NAME = _("Nibbles");
+
     /* Application and worm settings */
     private GLib.Settings settings;
     private Gee.ArrayList<GLib.Settings> worm_settings;
@@ -101,11 +104,9 @@ public class Nibbles : Gtk.Application
 
     private const OptionEntry[] option_entries =
     {
-        { "version", 'v', 0, OptionArg.NONE, null,
-        /* Help string for command line --version flag */
-        N_("Show release version"), null },
-
-        { null }
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null, N_("Show release version"), null },
+        {}
     };
 
     public Nibbles ()
@@ -136,7 +137,7 @@ public class Nibbles : Gtk.Application
         GtkClutter.init (ref argv);
 
         Environment.set_prgname ("org.gnome.Nibbles");
-        Environment.set_application_name (_("Nibbles"));
+        Environment.set_application_name (PROGRAM_NAME);
 
         Window.set_default_icon_name ("org.gnome.Nibbles");
 
@@ -427,10 +428,15 @@ public class Nibbles : Gtk.Application
                                         DialogFlags.MODAL,
                                         MessageType.WARNING,
                                         ButtonsType.OK_CANCEL,
+                                        /* Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running */
                                         _("Are you sure you want to start a new game?"));
+
+
+        /* Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running */
         dialog.secondary_text = _("If you start a new game, the current one will be lost.");
 
         var button = (Button) dialog.get_widget_for_response (ResponseType.OK);
+        /* Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running */
         button.set_label (_("_New Game"));
         dialog.response.connect ((response_id) => {
             if (response_id == ResponseType.OK)
@@ -459,11 +465,13 @@ public class Nibbles : Gtk.Application
             if (game.is_running)
             {
                 game.pause ();
+                /* Translators: label of the Pause button, when the game is paused */
                 pause_button.set_label (_("_Resume"));
             }
             else
             {
                 game.unpause ();
+                /* Translators: label of the Pause button, when the game is running */
                 pause_button.set_label (_("_Pause"));
                 view.grab_focus ();
             }
@@ -546,7 +554,7 @@ public class Nibbles : Gtk.Application
         if (game.is_running)
             game.stop ();
 
-        headerbar.set_title (_("Nibbles"));
+        headerbar.set_title (PROGRAM_NAME);
 
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -630,7 +638,8 @@ public class Nibbles : Gtk.Application
 
         back_action.set_enabled (false);
 
-        headerbar.set_title (_("Level %d").printf (game.current_level));
+        /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
+        headerbar.set_title (_("Level %d").printf (game.current_level));        // TODO unduplicate, 1/2
         main_stack.set_visible_child_name ("game_box");
 
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
@@ -797,7 +806,7 @@ public class Nibbles : Gtk.Application
 
         scores_context = new Games.Scores.Context.with_importer (
             "gnome-nibbles",
-            /* Displayed on the scores dialog, preceeding a difficulty. */
+            /* Translators: label displayed on the scores dialog, preceeding a difficulty. */
             _("Difficulty Level:"),
             window,
             category_request,
@@ -900,7 +909,7 @@ public class Nibbles : Gtk.Application
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
 
-        // Translators: the %d is the number of the level that was completed.
+        /* Translators: label that appears at the end of a level; the %d is the number of the level that was completed */
         var label = new Label (_("Level %d Completed!").printf (game.current_level));
         label.halign = Align.CENTER;
         label.valign = Align.START;
@@ -908,6 +917,7 @@ public class Nibbles : Gtk.Application
         label.get_style_context ().add_class ("menu-title");
         label.show ();
 
+        /* Translators: label of a button that appears at the end of a level; starts next level */
         var button = new Button.with_label (_("_Next Level"));
         button.set_use_underline (true);
         button.halign = Align.CENTER;
@@ -919,7 +929,8 @@ public class Nibbles : Gtk.Application
             label.destroy ();
             button.destroy ();
 
-            headerbar.set_title (_("Level %d").printf (game.current_level));
+            /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
+            headerbar.set_title (_("Level %d").printf (game.current_level));    // TODO unduplicate, 2/2
 
             view.show ();
 
@@ -976,13 +987,19 @@ public class Nibbles : Gtk.Application
         var is_high_score = (score > lowest_high_score);
         var is_game_won = (level_reached == NibblesGame.MAX_LEVEL + 1);
 
-        var game_over_label = new Label (is_game_won ? _("Congratulations!") : _("Game Over!"));
+        /* Translators: label displayed at the end of a level, if the player finished all the levels */
+        var game_over_label = new Label (is_game_won ? _("Congratulations!")
+
+
+        /* Translators: label displayed at the end of a level, if the player did not finished all the levels */
+                                                     : _("Game Over!"));
         game_over_label.halign = Align.CENTER;
         game_over_label.valign = Align.START;
         game_over_label.set_margin_top (150);
         game_over_label.get_style_context ().add_class ("menu-title");
         game_over_label.show ();
 
+        /* Translators: label displayed at the end of a level, if the player finished all the levels */
         var msg_label = new Label (_("You have completed the game."));
         msg_label.halign = Align.CENTER;
         msg_label.valign = Align.START;
@@ -1000,12 +1017,14 @@ public class Nibbles : Gtk.Application
         score_label.show ();
 
         var points_left = lowest_high_score - score;
+        /* Translators: label displayed at the end of a level, if the player did not score enough to have its score saved */
         var points_left_label = new Label (_("(%ld more points to reach the leaderboard)").printf (points_left));
         points_left_label.halign = Align.CENTER;
         points_left_label.valign = Align.START;
         points_left_label.set_margin_top (window_height / 3 + 100);
         points_left_label.show ();
 
+        /* Translators: label of a button displayed at the end of a level; restarts the game */
         var button = new Button.with_label (_("_Play Again"));
         button.set_use_underline (true);
         button.halign = Align.CENTER;
@@ -1054,32 +1073,56 @@ public class Nibbles : Gtk.Application
 
     private void about_cb ()
     {
-        const string authors[] = { "Sean MacIsaac",
-                                   "Ian Peters",
-                                   "Andreas Røsdal",
-                                   "Guillaume Beland",
-                                   "Iulian-Gabriel Radu",
-                                   null };
+        string [] authors = {
+        /* Translators: text crediting an author, in the about dialog */
+            _("Sean MacIsaac"),
 
-        const string documenters[] = { "Kevin Breit",
-                                       null };
 
-        const string artists[] = { "Allan Day",
-                                  null };
+        /* Translators: text crediting an author, in the about dialog */
+            _("Ian Peters"),
+
+
+        /* Translators: text crediting an author, in the about dialog */
+            _("Andreas Røsdal"),
+
+
+        /* Translators: text crediting an author, in the about dialog */
+            _("Guillaume Beland"),
+
+
+        /* Translators: text crediting an author, in the about dialog */
+            _("Iulian-Gabriel Radu")
+        };
+
+        /* Translators: text crediting a documenter, in the about dialog */
+        string [] documenters = { _("Kevin Breit") };
+
+
+        /* Translators: text crediting a designer, in the about dialog */
+        string [] artists = { _("Allan Day") };
 
         show_about_dialog (window,
-                           "program-name", _("Nibbles"),
-                           "logo-icon-name", "org.gnome.Nibbles",
+                           "program-name", PROGRAM_NAME,
                            "version", VERSION,
+                           /* Translators: small description of the game, seen in the About dialog */
                            "comments", _("A worm game for GNOME"),
+                           "logo-icon-name", "org.gnome.Nibbles",
                            "copyright",
-                           "Copyright © 1999–2008 Sean MacIsaac, Ian Peters, Andreas Røsdal\n" +
-                           "Copyright © 2009 Guillaume Beland\n" +
-                           "Copyright © 2015 Iulian-Gabriel Radu",
-                           "license-type", License.GPL_3_0,
+                             /* Translators: text crediting some maintainers, seen in the About dialog */
+                             _("Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal") + "\n" +
+
+
+                             /* Translators: text crediting a maintainer, seen in the About dialog */
+                             _("Copyright © 2009 – Guillaume Beland") + "\n" +
+
+
+                             /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
+                             _("Copyright © %u-%u – Iulian-Gabriel Radu").printf (2015, 2020),
+                           "license-type", License.GPL_3_0, // means "GNU General Public License, version 3.0 or later"
                            "authors", authors,
                            "documenters", documenters,
                            "artists", artists,
+                           /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
                            "translator-credits", _("translator-credits"),
                            "website", "https://wiki.gnome.org/Apps/Nibbles/"
                            );
@@ -1114,7 +1157,7 @@ private class Scoreboard : Box
         /* FIXME: Consider changing this to "Worm %d"
          * It's set to "Player %d" for now to avoid a string change for 3.20.
          */
-        var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf);
+        var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf); // TODO document for translators where this string appears 1/2
         boxes.set (box, worm);
         add (box);
     }
@@ -1216,7 +1259,7 @@ private class ControlsGrid : Grid
         color.parse (NibblesView.colorval_name (worm_props.color));
 
         /* Translators: the player's number, e.g. "Player 1" or "Player 2". */
-        var player_id = _("Player %d").printf (worm_id + 1);
+        var player_id = _("Player %d").printf (worm_id + 1); // TODO document for translators where this string appears 2/2
         name_label.set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\">$(player_id)</span></b>");
 
         arrow_up.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.NONE));
