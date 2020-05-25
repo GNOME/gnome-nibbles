@@ -37,8 +37,6 @@ gnome_nibbles_sources = [
 ]
 
 gnome_nibbles_deps = [
-    clutter_dep,
-    clutter_gtk_dep,
     gee_dep,
     gio_dep,
     glib_dep,
