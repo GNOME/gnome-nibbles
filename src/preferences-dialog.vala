@@ -16,59 +16,42 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Gtk;
+
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/preferences-dialog.ui")]
-private class PreferencesDialog : Gtk.Dialog
+private class PreferencesDialog : Dialog
 {
-    private Gtk.ApplicationWindow window;
+    private ApplicationWindow window;
 
-    private Settings settings;
-    private Gee.ArrayList<Settings> worm_settings;
+    private GLib.Settings settings;
+    private Gee.ArrayList<GLib.Settings> worm_settings;
 
-    [GtkChild]
-    private Gtk.Notebook notebook;
-    [GtkChild]
-    private Gtk.RadioButton beginner_radio_button;
-    [GtkChild]
-    private Gtk.RadioButton slow_radio_button;
-    [GtkChild]
-    private Gtk.RadioButton medium_radio_button;
-    [GtkChild]
-    private Gtk.RadioButton fast_radio_button;
-    [GtkChild]
-    private Gtk.CheckButton sound_check_button;
-    [GtkChild]
-    private Gtk.CheckButton fakes_check_button;
-    [GtkChild]
-    private Gtk.ListStore list_store_1;
-    [GtkChild]
-    private Gtk.ListStore list_store_2;
-    [GtkChild]
-    private Gtk.ListStore list_store_3;
-    [GtkChild]
-    private Gtk.ListStore list_store_4;
-    [GtkChild]
-    private Gtk.TreeView tree_view_1;
-    [GtkChild]
-    private Gtk.TreeView tree_view_2;
-    [GtkChild]
-    private Gtk.TreeView tree_view_3;
-    [GtkChild]
-    private Gtk.TreeView tree_view_4;
-    [GtkChild]
-    private Gtk.ComboBoxText combo_box_1;
-    [GtkChild]
-    private Gtk.ComboBoxText combo_box_2;
-    [GtkChild]
-    private Gtk.ComboBoxText combo_box_3;
-    [GtkChild]
-    private Gtk.ComboBoxText combo_box_4;
+    [GtkChild] private Notebook         notebook;
+    [GtkChild] private RadioButton      beginner_radio_button;
+    [GtkChild] private RadioButton      slow_radio_button;
+    [GtkChild] private RadioButton      medium_radio_button;
+    [GtkChild] private RadioButton      fast_radio_button;
+    [GtkChild] private CheckButton      sound_check_button;
+    [GtkChild] private CheckButton      fakes_check_button;
+    [GtkChild] private Gtk.ListStore    list_store_1;
+    [GtkChild] private Gtk.ListStore    list_store_2;
+    [GtkChild] private Gtk.ListStore    list_store_3;
+    [GtkChild] private Gtk.ListStore    list_store_4;
+    [GtkChild] private TreeView         tree_view_1;
+    [GtkChild] private TreeView         tree_view_2;
+    [GtkChild] private TreeView         tree_view_3;
+    [GtkChild] private TreeView         tree_view_4;
+    [GtkChild] private ComboBoxText     combo_box_1;
+    [GtkChild] private ComboBoxText     combo_box_2;
+    [GtkChild] private ComboBoxText     combo_box_3;
+    [GtkChild] private ComboBoxText     combo_box_4;
 
-    private Gee.ArrayList<Gtk.RadioButton> radio_buttons;
-    private Gee.ArrayList<Gtk.ListStore> list_stores;
-    private Gee.ArrayList<Gtk.TreeView> tree_views;
-    private Gee.ArrayList<Gtk.ComboBoxText> combo_boxes;
+    private Gee.ArrayList<RadioButton>      radio_buttons;
+    private Gee.ArrayList<Gtk.ListStore>    list_stores;
+    private Gee.ArrayList<TreeView>         tree_views;
+    private Gee.ArrayList<ComboBoxText>     combo_boxes;
 
-    public PreferencesDialog (Gtk.ApplicationWindow window, Settings settings, Gee.ArrayList<Settings> worm_settings)
+    public PreferencesDialog (ApplicationWindow window, GLib.Settings settings, Gee.ArrayList<GLib.Settings> worm_settings)
     {
         Object (use_header_bar: 1);
 
@@ -83,7 +66,7 @@ private class PreferencesDialog : Gtk.Dialog
         this.set_transient_for (window);
 
         /* Speed radio buttons */
-        radio_buttons = new Gee.ArrayList<Gtk.RadioButton> ();
+        radio_buttons = new Gee.ArrayList<RadioButton> ();
         radio_buttons.add (beginner_radio_button);
         radio_buttons.add (slow_radio_button);
         radio_buttons.add (medium_radio_button);
@@ -105,7 +88,7 @@ private class PreferencesDialog : Gtk.Dialog
         fakes_check_button.toggled.connect (fakes_toggles_cb);
 
         /* Control keys */
-        tree_views = new Gee.ArrayList<Gtk.TreeView> ();
+        tree_views = new Gee.ArrayList<TreeView> ();
         tree_views.add (tree_view_1);
         tree_views.add (tree_view_2);
         tree_views.add (tree_view_3);
@@ -122,7 +105,7 @@ private class PreferencesDialog : Gtk.Dialog
             var id = list_stores.index_of (list_store);
             var tree_view = tree_views[id];
 
-            Gtk.TreeIter iter;
+            TreeIter iter;
             list_store.append (out iter);
             var keyval = worm_settings[id].get_int ("key-up");
             list_store.set (iter, 0, "key-up", 1, _("Move up"), 2, keyval);
@@ -136,12 +119,12 @@ private class PreferencesDialog : Gtk.Dialog
             keyval = worm_settings[id].get_int ("key-right");
             list_store.set (iter, 0, "key-right", 1, _("Move right"), 2, keyval);
 
-            var label_renderer = new Gtk.CellRendererText ();
+            var label_renderer = new CellRendererText ();
             tree_view.insert_column_with_attributes (-1, _("Action"), label_renderer, "text", 1);
 
-            var key_renderer = new Gtk.CellRendererAccel ();
+            var key_renderer = new CellRendererAccel ();
             key_renderer.editable = true;
-            key_renderer.accel_mode = Gtk.CellRendererAccelMode.OTHER;
+            key_renderer.accel_mode = CellRendererAccelMode.OTHER;
             key_renderer.accel_edited.connect (accel_edited_cb);
             key_renderer.accel_cleared.connect (accel_cleared_cb);
             tree_view.insert_column_with_attributes (-1, _("Key"), key_renderer, "accel-key", 2);
@@ -149,7 +132,7 @@ private class PreferencesDialog : Gtk.Dialog
         }
 
         /* Worm color */
-        combo_boxes = new Gee.ArrayList<Gtk.ComboBoxText> ();
+        combo_boxes = new Gee.ArrayList<ComboBoxText> ();
         combo_boxes.add (combo_box_1);
         combo_boxes.add (combo_box_2);
         combo_boxes.add (combo_box_3);
@@ -168,11 +151,11 @@ private class PreferencesDialog : Gtk.Dialog
         }
     }
 
-    private void radio_button_toggled_cb (Gtk.ToggleButton button)
+    private void radio_button_toggled_cb (ToggleButton button)
     {
         if (button.get_active ())
         {
-            var speed = NibblesGame.MAX_SPEED - radio_buttons.index_of ((Gtk.RadioButton) button);
+            var speed = NibblesGame.MAX_SPEED - radio_buttons.index_of ((RadioButton) button);
             settings.set_int ("speed", speed);
         }
     }
@@ -189,17 +172,17 @@ private class PreferencesDialog : Gtk.Dialog
         settings.set_boolean ("fakes", has_fakes);
     }
 
-    private void accel_edited_cb (Gtk.CellRendererAccel cell, string path_string, uint keyval,
+    private void accel_edited_cb (CellRendererAccel cell, string path_string, uint keyval,
                                   Gdk.ModifierType mask, uint hardware_keycode)
     {
-        var path = new Gtk.TreePath.from_string (path_string);
+        var path = new TreePath.from_string (path_string);
         if (path == null)
             return;
 
         var id = notebook.get_current_page () - 1;
         var list_store = list_stores[id];
 
-        Gtk.TreeIter it;
+        TreeIter it;
         if (!list_store.get_iter (out it, path))
             return;
 
@@ -222,12 +205,12 @@ private class PreferencesDialog : Gtk.Dialog
             {
                 valid = false;
 
-                var dialog = new Gtk.MessageDialog (window,
-                                                    Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                                                    Gtk.MessageType.WARNING,
-                                                    Gtk.ButtonsType.OK,
-                                                    /* Translators: This string appears when one tries to assign an already assigned key */
-                                                    _("The key you selected is already assigned!"));
+                var dialog = new MessageDialog (window,
+                                                DialogFlags.DESTROY_WITH_PARENT,
+                                                MessageType.WARNING,
+                                                ButtonsType.OK,
+                                                /* Translators: This string appears when one tries to assign an already assigned key */
+                                                _("The key you selected is already assigned!"));
 
                 dialog.run ();
                 dialog.destroy ();
@@ -242,16 +225,16 @@ private class PreferencesDialog : Gtk.Dialog
         }
     }
 
-    private void accel_cleared_cb (Gtk.CellRendererAccel cell, string path_string)
+    private void accel_cleared_cb (CellRendererAccel cell, string path_string)
     {
-        var path = new Gtk.TreePath.from_string (path_string);
+        var path = new TreePath.from_string (path_string);
         if (path == null)
             return;
 
         var id = notebook.get_current_page () - 1;
         var list_store = list_stores[id];
 
-        Gtk.TreeIter it;
+        TreeIter it;
         if (!list_store.get_iter (out it, path))
             return;
 
@@ -264,9 +247,9 @@ private class PreferencesDialog : Gtk.Dialog
         worm_settings[id].set_int (key, 0);
     }
 
-    private void combo_box_changed_cb (Gtk.ComboBox combo_box)
+    private void combo_box_changed_cb (ComboBox combo_box)
     {
-        var id = combo_boxes.index_of ((Gtk.ComboBoxText) combo_box);
+        var id = combo_boxes.index_of ((ComboBoxText) combo_box);
         var color_new = combo_box.get_active ();
         var color_old = worm_settings[id].get_enum ("color");
 
