@@ -170,10 +170,12 @@ public class Nibbles : Gtk.Application
         window = builder.get_object ("nibbles-window") as Gtk.ApplicationWindow;
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
-        window.key_press_event.connect (key_press_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
+
+        key_controller = new Gtk.EventControllerKey (window);
+        key_controller.key_pressed.connect (key_press_event_cb);
 
         headerbar = (Gtk.HeaderBar) builder.get_object ("headerbar");
         overlay = (Gtk.Overlay) builder.get_object ("main_overlay");
@@ -303,9 +305,10 @@ public class Nibbles : Gtk.Application
      * your first key press ignored everytime by the start of a new level, thus
      * making your worm unresponsive to your command.
      */
-    private bool key_press_event_cb (Gtk.Widget widget, Gdk.EventKey event)
+    private Gtk.EventControllerKey key_controller;          // for keeping in memory
+    private bool key_press_event_cb (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
-        return game.handle_keypress (event.keyval);
+        return game.handle_keypress (keyval);
     }
 
     private void size_allocate_cb (Gtk.Allocation allocation)
