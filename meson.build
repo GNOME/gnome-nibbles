@@ -24,7 +24,7 @@ gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0', version: '>= @0@'.format(glib_version))
 glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_version))
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
-gtk_dep = dependency('gtk+-3.0', version: '>= 3.24.0')
+gtk_dep = dependency('gtk4', version: '>= 3.99.2')
 libgnome_games_support_dep = dependency('libgnome-games-support-1', version: '>= 1.7.1')
 
 valac = meson.get_compiler('vala')
