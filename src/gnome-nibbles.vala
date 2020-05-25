@@ -114,14 +114,7 @@ private class Nibbles : Gtk.Application
 
     private inline void help_cb ()
     {
-        try
-        {
-            show_uri_on_window (window, "help:gnome-nibbles", get_current_event_time ());
-        }
-        catch (Error e)
-        {
-            warning ("Unable to open help: %s", e.message);
-        }
+        show_uri (window, "help:gnome-nibbles", Gdk.CURRENT_TIME);
     }
 
     private inline void about_cb ()
