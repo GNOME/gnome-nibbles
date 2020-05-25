@@ -18,8 +18,6 @@ bindir      = join_paths(prefix, get_option ('bindir'))
 # Dependencies
 glib_version = '2.42.0'
 
-clutter_dep = dependency('clutter-1.0', version: '>= 1.22.0')
-clutter_gtk_dep = dependency('clutter-gtk-1.0', version: '>= 1.4.0')
 gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0', version: '>= @0@'.format(glib_version))
 glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_version))
