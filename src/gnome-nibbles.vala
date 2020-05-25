@@ -85,7 +85,9 @@ private class Nibbles : Gtk.Application
 
         var css_provider = new CssProvider ();
         css_provider.load_from_resource ("/org/gnome/nibbles/ui/nibbles.css");
-        StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
+        Gdk.Display? gdk_display = Gdk.Display.get_default ();
+        if (gdk_display != null) // else..?
+            StyleContext.add_provider_for_display ((!) gdk_display, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         add_action_entries (action_entries, this);
 
