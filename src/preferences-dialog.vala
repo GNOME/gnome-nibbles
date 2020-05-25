@@ -108,18 +108,23 @@ private class PreferencesDialog : Dialog
             TreeIter iter;
             list_store.append (out iter);
             var keyval = worm_settings[id].get_int ("key-up");
+            /* Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm up */
             list_store.set (iter, 0, "key-up", 1, _("Move up"), 2, keyval);
             list_store.append (out iter);
             keyval = worm_settings[id].get_int ("key-down");
+            /* Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm down */
             list_store.set (iter, 0, "key-down", 1, _("Move down"), 2, keyval);
             list_store.append (out iter);
             keyval = worm_settings[id].get_int ("key-left");
+            /* Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm left */
             list_store.set (iter, 0, "key-left", 1, _("Move left"), 2, keyval);
             list_store.append (out iter);
             keyval = worm_settings[id].get_int ("key-right");
+            /* Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm right */
             list_store.set (iter, 0, "key-right", 1, _("Move right"), 2, keyval);
 
             var label_renderer = new CellRendererText ();
+            /* Translators: in the Preferences dialog, label of a column in a table for changing the keys to move the given worm (available for each playable worm); are listed there all the actions a player can do with its worm; the other column is "Key" */
             tree_view.insert_column_with_attributes (-1, _("Action"), label_renderer, "text", 1);
 
             var key_renderer = new CellRendererAccel ();
@@ -127,6 +132,7 @@ private class PreferencesDialog : Dialog
             key_renderer.accel_mode = CellRendererAccelMode.OTHER;
             key_renderer.accel_edited.connect (accel_edited_cb);
             key_renderer.accel_cleared.connect (accel_cleared_cb);
+            /* Translators: in the Preferences dialog, label of a column in a table for changing the keys to move the given worm (available for each playable worm); are listed there all the keys a player can use with its worm; the other column is "Action" */
             tree_view.insert_column_with_attributes (-1, _("Key"), key_renderer, "accel-key", 2);
 
         }
@@ -209,7 +215,7 @@ private class PreferencesDialog : Dialog
                                                 DialogFlags.DESTROY_WITH_PARENT,
                                                 MessageType.WARNING,
                                                 ButtonsType.OK,
-                                                /* Translators: This string appears when one tries to assign an already assigned key */
+                                                /* Translators: label of a MessageDialog that appears when one tries to assign an already assigned key */
                                                 _("The key you selected is already assigned!"));
 
                 dialog.run ();

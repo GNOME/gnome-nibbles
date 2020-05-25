@@ -15,7 +15,7 @@ localedir = join_paths(prefix, get_option('localedir'))
 podir = join_paths(meson.source_root(), 'po')
 
 # Dependencies
-glib_version = '2.40.0'
+glib_version = '2.42.0'
 
 clutter_dep = dependency('clutter-1.0', version: '>= 1.22.0')
 clutter_gtk_dep = dependency('clutter-gtk-1.0', version: '>= 1.4.0')
