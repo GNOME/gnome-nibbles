@@ -16,40 +16,42 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Gtk;
+
 public class Nibbles : Gtk.Application
 {
     /* Application and worm settings */
-    private Settings settings;
-    private Gee.ArrayList<Settings> worm_settings;
+    private GLib.Settings settings;
+    private Gee.ArrayList<GLib.Settings> worm_settings;
 
     /* Main window */
-    private Gtk.ApplicationWindow window;
+    private ApplicationWindow window;
     private bool is_maximized;
     private bool is_tiled;
     private int window_width;
     private int window_height;
 
-    private Gtk.Stack main_stack;
-    private Gtk.Overlay overlay;
+    private Stack main_stack;
+    private Overlay overlay;
 
     /* HeaderBar */
-    private Gtk.HeaderBar headerbar;
-    private Gtk.Button new_game_button;
-    private Gtk.Button pause_button;
+    private HeaderBar headerbar;
+    private Button new_game_button;
+    private Button pause_button;
 
     /* Pre-game screen widgets */
-    private Gee.LinkedList<Gtk.ToggleButton> number_of_players_buttons;
-    private Gee.LinkedList<Gtk.ToggleButton> number_of_ai_buttons;
-    private Gtk.Button next_button;
-    private Gtk.Button start_button;
+    private Gee.LinkedList<ToggleButton> number_of_players_buttons;
+    private Gee.LinkedList<ToggleButton> number_of_ai_buttons;
+    private Button next_button;
+    private Button start_button;
 
-    private Gtk.Box grids_box;
+    private Box grids_box;
     private Gdk.Pixbuf arrow_pixbuf;
     private Gdk.Pixbuf arrow_key_pixbuf;
 
     /* Statusbar widgets */
-    private Gtk.Stack statusbar_stack;
-    private Gtk.Label countdown;
+    private Stack statusbar_stack;
+    private Label countdown;
     private Scoreboard scoreboard;
     private Gdk.Pixbuf scoreboard_life;
 
@@ -59,7 +61,7 @@ public class Nibbles : Gtk.Application
     /* Rendering of the game */
     private NibblesView? view;
 
-    private Gtk.Box game_box;
+    private Box game_box;
     private Games.GridFrame frame;
 
     /* Game being played */
@@ -78,7 +80,7 @@ public class Nibbles : Gtk.Application
     private const int COUNTDOWN_TIME = 3;
     private int seconds = 0;
 
-    private const ActionEntry action_entries[] =
+    private const GLib.ActionEntry action_entries[] =
     {
         {"start-game", start_game_cb},
         {"new-game", new_game_cb},
@@ -90,7 +92,7 @@ public class Nibbles : Gtk.Application
         {"quit", quit}
     };
 
-    private const ActionEntry menu_entries[] =
+    private const GLib.ActionEntry menu_entries[] =
     {
         {"show-new-game-screen", show_new_game_screen_cb},
         {"show-controls-screen", show_controls_screen_cb},
@@ -136,25 +138,25 @@ public class Nibbles : Gtk.Application
         Environment.set_prgname ("org.gnome.Nibbles");
         Environment.set_application_name (_("Nibbles"));
 
-        Gtk.Window.set_default_icon_name ("org.gnome.Nibbles");
+        Window.set_default_icon_name ("org.gnome.Nibbles");
 
         Gtk.Settings.get_default ().set ("gtk-application-prefer-dark-theme", true);
 
-        var css_provider = new Gtk.CssProvider ();
+        var css_provider = new CssProvider ();
         css_provider.load_from_resource ("/org/gnome/nibbles/ui/nibbles.css");
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         add_action_entries (action_entries, this);
         add_action_entries (menu_entries, this);
 
-        settings = new Settings ("org.gnome.nibbles");
+        settings = new GLib.Settings ("org.gnome.nibbles");
         settings.changed.connect (settings_changed_cb);
 
-        worm_settings = new Gee.ArrayList<Settings> ();
+        worm_settings = new Gee.ArrayList<GLib.Settings> ();
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
         {
             var name = "org.gnome.nibbles.worm%d".printf(i);
-            worm_settings.add (new Settings (name));
+            worm_settings.add (new GLib.Settings (name));
             worm_settings[i].changed.connect (worm_settings_changed_cb);
         }
 
@@ -166,42 +168,43 @@ public class Nibbles : Gtk.Application
         pause_action = (SimpleAction) lookup_action ("pause");
         back_action = (SimpleAction) lookup_action ("back");
 
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/nibbles/ui/nibbles.ui");
-        window = builder.get_object ("nibbles-window") as Gtk.ApplicationWindow;
+        var builder = new Builder.from_resource ("/org/gnome/nibbles/ui/nibbles.ui");
+        window = builder.get_object ("nibbles-window") as ApplicationWindow;
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
-        key_controller = new Gtk.EventControllerKey (window);
+        key_controller = new EventControllerKey (window);
         key_controller.key_pressed.connect (key_press_event_cb);
 
-        headerbar = (Gtk.HeaderBar) builder.get_object ("headerbar");
-        overlay = (Gtk.Overlay) builder.get_object ("main_overlay");
-        new_game_button = (Gtk.Button) builder.get_object ("new_game_button");
-        pause_button = (Gtk.Button) builder.get_object ("pause_button");
-        main_stack = (Gtk.Stack) builder.get_object ("main_stack");
-        game_box = (Gtk.Box) builder.get_object ("game_box");
-        statusbar_stack = (Gtk.Stack) builder.get_object ("statusbar_stack");
-        countdown = (Gtk.Label) builder.get_object ("countdown");
-        number_of_players_buttons = new Gee.LinkedList<Gtk.ToggleButton> ();
+        headerbar       = (HeaderBar)   builder.get_object ("headerbar");
+        overlay         = (Overlay)     builder.get_object ("main_overlay");
+        new_game_button = (Button)      builder.get_object ("new_game_button");
+        pause_button    = (Button)      builder.get_object ("pause_button");
+        main_stack      = (Stack)       builder.get_object ("main_stack");
+        game_box        = (Box)         builder.get_object ("game_box");
+        statusbar_stack = (Stack)       builder.get_object ("statusbar_stack");
+        countdown       = (Label)       builder.get_object ("countdown");
+
+        number_of_players_buttons = new Gee.LinkedList<ToggleButton> ();
         for (int i = 0; i < NibblesGame.MAX_HUMANS; i++)
         {
-            var button = (Gtk.ToggleButton) builder.get_object ("players%d".printf (i + 1));
+            var button = (ToggleButton) builder.get_object ("players%d".printf (i + 1));
             button.toggled.connect (change_number_of_players_cb);
             number_of_players_buttons.add (button);
         }
-        number_of_ai_buttons = new Gee.LinkedList<Gtk.ToggleButton> ();
+        number_of_ai_buttons = new Gee.LinkedList<ToggleButton> ();
         for (int i = 0; i <= NibblesGame.MAX_AI; i++)
         {
-            var button = (Gtk.ToggleButton) builder.get_object ("ai%d".printf (i));
+            var button = (ToggleButton) builder.get_object ("ai%d".printf (i));
             button.toggled.connect (change_number_of_ai_cb);
             number_of_ai_buttons.add (button);
         }
-        next_button = (Gtk.Button) builder.get_object ("next_button");
-        start_button = (Gtk.Button) builder.get_object ("start_button");
-        grids_box = (Gtk.Box) builder.get_object ("grids_box");
+        next_button     = (Button)      builder.get_object ("next_button");
+        start_button    = (Button)      builder.get_object ("start_button");
+        grids_box       = (Box)         builder.get_object ("grids_box");
         window.set_titlebar (headerbar);
 
         add_window (window);
@@ -305,13 +308,13 @@ public class Nibbles : Gtk.Application
      * your first key press ignored everytime by the start of a new level, thus
      * making your worm unresponsive to your command.
      */
-    private Gtk.EventControllerKey key_controller;          // for keeping in memory
-    private bool key_press_event_cb (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
+    private EventControllerKey key_controller;          // for keeping in memory
+    private bool key_press_event_cb (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
         return game.handle_keypress (keyval);
     }
 
-    private void size_allocate_cb (Gtk.Allocation allocation)
+    private void size_allocate_cb (Allocation allocation)
     {
         if (is_maximized || is_tiled)
             return;
@@ -420,19 +423,19 @@ public class Nibbles : Gtk.Application
         if (game.is_running)
             game.stop ();
 
-        var dialog = new Gtk.MessageDialog (window,
-                                            Gtk.DialogFlags.MODAL,
-                                            Gtk.MessageType.WARNING,
-                                            Gtk.ButtonsType.OK_CANCEL,
-                                            _("Are you sure you want to start a new game?"));
+        var dialog = new MessageDialog (window,
+                                        DialogFlags.MODAL,
+                                        MessageType.WARNING,
+                                        ButtonsType.OK_CANCEL,
+                                        _("Are you sure you want to start a new game?"));
         dialog.secondary_text = _("If you start a new game, the current one will be lost.");
 
-        var button = (Gtk.Button) dialog.get_widget_for_response (Gtk.ResponseType.OK);
+        var button = (Button) dialog.get_widget_for_response (ResponseType.OK);
         button.set_label (_("_New Game"));
         dialog.response.connect ((response_id) => {
-            if (response_id == Gtk.ResponseType.OK)
+            if (response_id == ResponseType.OK)
                 show_new_game_screen_cb ();
-            if ((response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT)
+            if ((response_id == ResponseType.CANCEL || response_id == ResponseType.DELETE_EVENT)
                 && !game.is_paused)
             {
                 if (seconds == 0)
@@ -487,7 +490,7 @@ public class Nibbles : Gtk.Application
         }
     }
 
-    private void worm_settings_changed_cb (Settings changed_worm_settings, string key)
+    private void worm_settings_changed_cb (GLib.Settings changed_worm_settings, string key)
     {
         /* Empty worm properties means game has not started yet */
         if (game.worm_props.size == 0)
@@ -557,9 +560,9 @@ public class Nibbles : Gtk.Application
 
         window.set_default (next_button);
 
-        main_stack.set_transition_type (Gtk.StackTransitionType.NONE);
+        main_stack.set_transition_type (StackTransitionType.NONE);
         main_stack.set_visible_child_name ("number_of_players");
-        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
+        main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
     }
 
     private void show_controls_screen_cb ()
@@ -621,7 +624,7 @@ public class Nibbles : Gtk.Application
          * will show outside the game's window. Don't change the transition
          * type when that's no longer a problem.
          */
-        main_stack.set_transition_type (Gtk.StackTransitionType.NONE);
+        main_stack.set_transition_type (StackTransitionType.NONE);
         new_game_button.show ();
         pause_button.show ();
 
@@ -630,12 +633,12 @@ public class Nibbles : Gtk.Application
         headerbar.set_title (_("Level %d").printf (game.current_level));
         main_stack.set_visible_child_name ("game_box");
 
-        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
+        main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
     }
 
     private void back_cb ()
     {
-        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_DOWN);
+        main_stack.set_transition_type (StackTransitionType.SLIDE_DOWN);
 
         var child_name = main_stack.get_visible_child_name ();
         switch (child_name)
@@ -652,10 +655,10 @@ public class Nibbles : Gtk.Application
                 break;
         }
 
-        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
+        main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
     }
 
-    private void change_number_of_players_cb (Gtk.ToggleButton button)
+    private void change_number_of_players_cb (ToggleButton button)
     {
         var is_same_button = true;
         foreach (var other_button in number_of_players_buttons)
@@ -713,7 +716,7 @@ public class Nibbles : Gtk.Application
         number_of_ai_buttons[min_ai].set_active (true);
     }
 
-    private void change_number_of_ai_cb (Gtk.ToggleButton button)
+    private void change_number_of_ai_cb (ToggleButton button)
     {
         foreach (var other_button in number_of_ai_buttons)
         {
@@ -898,17 +901,17 @@ public class Nibbles : Gtk.Application
         pause_action.set_enabled (false);
 
         // Translators: the %d is the number of the level that was completed.
-        var label = new Gtk.Label (_("Level %d Completed!").printf (game.current_level));
-        label.halign = Gtk.Align.CENTER;
-        label.valign = Gtk.Align.START;
+        var label = new Label (_("Level %d Completed!").printf (game.current_level));
+        label.halign = Align.CENTER;
+        label.valign = Align.START;
         label.set_margin_top (150);
         label.get_style_context ().add_class ("menu-title");
         label.show ();
 
-        var button = new Gtk.Button.with_label (_("_Next Level"));
+        var button = new Button.with_label (_("_Next Level"));
         button.set_use_underline (true);
-        button.halign = Gtk.Align.CENTER;
-        button.valign = Gtk.Align.END;
+        button.halign = Align.CENTER;
+        button.valign = Align.END;
         button.set_margin_bottom (100);
         button.get_style_context ().add_class ("suggested-action");
         button.set_can_default (true);
@@ -973,40 +976,40 @@ public class Nibbles : Gtk.Application
         var is_high_score = (score > lowest_high_score);
         var is_game_won = (level_reached == NibblesGame.MAX_LEVEL + 1);
 
-        var game_over_label = new Gtk.Label (is_game_won ? _("Congratulations!") : _("Game Over!"));
-        game_over_label.halign = Gtk.Align.CENTER;
-        game_over_label.valign = Gtk.Align.START;
+        var game_over_label = new Label (is_game_won ? _("Congratulations!") : _("Game Over!"));
+        game_over_label.halign = Align.CENTER;
+        game_over_label.valign = Align.START;
         game_over_label.set_margin_top (150);
         game_over_label.get_style_context ().add_class ("menu-title");
         game_over_label.show ();
 
-        var msg_label = new Gtk.Label (_("You have completed the game."));
-        msg_label.halign = Gtk.Align.CENTER;
-        msg_label.valign = Gtk.Align.START;
+        var msg_label = new Label (_("You have completed the game."));
+        msg_label.halign = Align.CENTER;
+        msg_label.valign = Align.START;
         msg_label.set_margin_top (window_height / 3);
         msg_label.get_style_context ().add_class ("menu-title");
         msg_label.show ();
 
         var score_string = ngettext ("%d Point", "%d Points", score);
         score_string = score_string.printf (score);
-        var score_label = new Gtk.Label (@"<b>$(score_string)</b>");
+        var score_label = new Label (@"<b>$(score_string)</b>");
         score_label.set_use_markup (true);
-        score_label.halign = Gtk.Align.CENTER;
-        score_label.valign = Gtk.Align.START;
+        score_label.halign = Align.CENTER;
+        score_label.valign = Align.START;
         score_label.set_margin_top (window_height / 3 + 80);
         score_label.show ();
 
         var points_left = lowest_high_score - score;
-        var points_left_label = new Gtk.Label (_("(%ld more points to reach the leaderboard)").printf (points_left));
-        points_left_label.halign = Gtk.Align.CENTER;
-        points_left_label.valign = Gtk.Align.START;
+        var points_left_label = new Label (_("(%ld more points to reach the leaderboard)").printf (points_left));
+        points_left_label.halign = Align.CENTER;
+        points_left_label.valign = Align.START;
         points_left_label.set_margin_top (window_height / 3 + 100);
         points_left_label.show ();
 
-        var button = new Gtk.Button.with_label (_("_Play Again"));
+        var button = new Button.with_label (_("_Play Again"));
         button.set_use_underline (true);
-        button.halign = Gtk.Align.CENTER;
-        button.valign = Gtk.Align.END;
+        button.halign = Align.CENTER;
+        button.valign = Align.END;
         button.set_margin_bottom (100);
         button.get_style_context ().add_class ("suggested-action");
         button.clicked.connect (() => {
@@ -1041,7 +1044,7 @@ public class Nibbles : Gtk.Application
     {
         try
         {
-            Gtk.show_uri (window.get_screen (), "help:gnome-nibbles", Gtk.get_current_event_time ());
+            show_uri (window.get_screen (), "help:gnome-nibbles", get_current_event_time ());
         }
         catch (Error e)
         {
@@ -1064,22 +1067,22 @@ public class Nibbles : Gtk.Application
         const string artists[] = { "Allan Day",
                                   null };
 
-        Gtk.show_about_dialog (window,
-                               "program-name", _("Nibbles"),
-                               "logo-icon-name", "org.gnome.Nibbles",
-                               "version", VERSION,
-                               "comments", _("A worm game for GNOME"),
-                               "copyright",
-                               "Copyright © 1999–2008 Sean MacIsaac, Ian Peters, Andreas Røsdal\n" +
-                               "Copyright © 2009 Guillaume Beland\n" +
-                               "Copyright © 2015 Iulian-Gabriel Radu",
-                               "license-type", Gtk.License.GPL_3_0,
-                               "authors", authors,
-                               "documenters", documenters,
-                               "artists", artists,
-                               "translator-credits", _("translator-credits"),
-                               "website", "https://wiki.gnome.org/Apps/Nibbles/"
-                               );
+        show_about_dialog (window,
+                           "program-name", _("Nibbles"),
+                           "logo-icon-name", "org.gnome.Nibbles",
+                           "version", VERSION,
+                           "comments", _("A worm game for GNOME"),
+                           "copyright",
+                           "Copyright © 1999–2008 Sean MacIsaac, Ian Peters, Andreas Røsdal\n" +
+                           "Copyright © 2009 Guillaume Beland\n" +
+                           "Copyright © 2015 Iulian-Gabriel Radu",
+                           "license-type", License.GPL_3_0,
+                           "authors", authors,
+                           "documenters", documenters,
+                           "artists", artists,
+                           "translator-credits", _("translator-credits"),
+                           "website", "https://wiki.gnome.org/Apps/Nibbles/"
+                           );
     }
 
     public static int main (string[] args)
@@ -1094,7 +1097,7 @@ public class Nibbles : Gtk.Application
 }
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/scoreboard.ui")]
-private class Scoreboard : Gtk.Box
+private class Scoreboard : Box
 {
     private Gee.HashMap<PlayerScoreBox, Worm> boxes;
 
@@ -1139,27 +1142,24 @@ private class Scoreboard : Gtk.Box
 }
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/player-score-box.ui")]
-private class PlayerScoreBox : Gtk.Box
+private class PlayerScoreBox : Box
 {
-    [GtkChild]
-    private Gtk.Label name_label;
-    [GtkChild]
-    private Gtk.Label score_label;
-    [GtkChild]
-    private Gtk.Grid lives_grid;
+    [GtkChild] private Label name_label;
+    [GtkChild] private Label score_label;
+    [GtkChild] private Grid lives_grid;
 
-    private Gee.LinkedList<Gtk.Image> life_images;
+    private Gee.LinkedList<Image> life_images;
 
     public PlayerScoreBox (string name, Pango.Color color, int score, int lives_left, Gdk.Pixbuf life_pixbuf)
     {
         name_label.set_markup ("<span color=\"" + color.to_string () + "\">" + name + "</span>");
         score_label.set_label (score.to_string ());
 
-        life_images = new Gee.LinkedList<Gtk.Image> ();
+        life_images = new Gee.LinkedList<Image> ();
 
         for (int i = 0; i < Worm.MAX_LIVES; i++)
         {
-            var life = new Gtk.Image.from_pixbuf (life_pixbuf);
+            var life = new Image.from_pixbuf (life_pixbuf);
             life.show ();
 
             if (i >= Worm.STARTING_LIVES)
@@ -1194,34 +1194,21 @@ private class PlayerScoreBox : Gtk.Box
 }
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/controls-grid.ui")]
-private class ControlsGrid : Gtk.Grid
+private class ControlsGrid : Grid
 {
-    [GtkChild]
-    private Gtk.Label name_label;
-    [GtkChild]
-    private Gtk.Image arrow_up;
-    [GtkChild]
-    private Gtk.Image arrow_down;
-    [GtkChild]
-    private Gtk.Image arrow_left;
-    [GtkChild]
-    private Gtk.Image arrow_right;
-    [GtkChild]
-    private Gtk.Overlay move_up;
-    [GtkChild]
-    private Gtk.Label move_up_label;
-    [GtkChild]
-    private Gtk.Overlay move_down;
-    [GtkChild]
-    private Gtk.Label move_down_label;
-    [GtkChild]
-    private Gtk.Overlay move_left;
-    [GtkChild]
-    private Gtk.Label move_left_label;
-    [GtkChild]
-    private Gtk.Overlay move_right;
-    [GtkChild]
-    private Gtk.Label move_right_label;
+    [GtkChild] private Label name_label;
+    [GtkChild] private Image arrow_up;
+    [GtkChild] private Image arrow_down;
+    [GtkChild] private Image arrow_left;
+    [GtkChild] private Image arrow_right;
+    [GtkChild] private Overlay move_up;
+    [GtkChild] private Label move_up_label;
+    [GtkChild] private Overlay move_down;
+    [GtkChild] private Label move_down_label;
+    [GtkChild] private Overlay move_left;
+    [GtkChild] private Label move_left_label;
+    [GtkChild] private Overlay move_right;
+    [GtkChild] private Label move_right_label;
 
     public ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
     {
@@ -1242,7 +1229,7 @@ private class ControlsGrid : Gtk.Grid
         if (upper_key == "UP")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.NONE);
-            move_up.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+            move_up.add_overlay (new Image.from_pixbuf (rotated_pixbuf));
             move_up.show_all ();
         }
         else
@@ -1252,7 +1239,7 @@ private class ControlsGrid : Gtk.Grid
         if (upper_key == "DOWN")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN);
-            move_down.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+            move_down.add_overlay (new Image.from_pixbuf (rotated_pixbuf));
             move_down.show_all ();
         }
         else
@@ -1262,7 +1249,7 @@ private class ControlsGrid : Gtk.Grid
         if (upper_key == "LEFT")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE);
-            move_left.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+            move_left.add_overlay (new Image.from_pixbuf (rotated_pixbuf));
             move_left.show_all ();
         }
         else
@@ -1272,7 +1259,7 @@ private class ControlsGrid : Gtk.Grid
         if (upper_key == "RIGHT")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.CLOCKWISE);
-            move_right.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
+            move_right.add_overlay (new Image.from_pixbuf (rotated_pixbuf));
             move_right.show_all ();
         }
         else
