@@ -150,13 +150,13 @@ public class Nibbles : Gtk.Application
         add_action_entries (action_entries, this);
         add_action_entries (menu_entries, this);
 
-        settings = new GLib.Settings ("org.gnome.nibbles");
+        settings = new GLib.Settings ("org.gnome.Nibbles");
         settings.changed.connect (settings_changed_cb);
 
         worm_settings = new Gee.ArrayList<GLib.Settings> ();
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
         {
-            var name = "org.gnome.nibbles.worm%d".printf(i);
+            var name = "org.gnome.Nibbles.worm%d".printf(i);
             worm_settings.add (new GLib.Settings (name));
             worm_settings[i].changed.connect (worm_settings_changed_cb);
         }
