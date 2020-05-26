@@ -7,12 +7,13 @@ project('gnome-nibbles', ['c', 'vala'],
 gnome = import('gnome')
 i18n = import('i18n')
 
-prefix = get_option('prefix')
-datadir = join_paths(prefix, get_option('datadir'))
-pkgdatadir = join_paths(datadir, meson.project_name())
-sounddir = join_paths(pkgdatadir, 'sounds')
-localedir = join_paths(prefix, get_option('localedir'))
-podir = join_paths(meson.source_root(), 'po')
+prefix      = get_option('prefix')
+datadir     = join_paths(prefix, get_option('datadir'))
+pkgdatadir  = join_paths(datadir, meson.project_name())
+sounddir    = join_paths(pkgdatadir, 'sounds')
+localedir   = join_paths(prefix, get_option('localedir'))
+podir       = join_paths(meson.source_root(), 'po')
+bindir      = join_paths(prefix, get_option ('bindir'))
 
 # Dependencies
 glib_version = '2.42.0'
