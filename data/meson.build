@@ -66,7 +66,7 @@ if appstream_util.found()
 endif
 
 # Gschema
-install_data('org.gnome.nibbles.gschema.xml',
+install_data('org.gnome.Nibbles.gschema.xml',
     install_dir: join_paths(datadir, 'glib-2.0', 'schemas')
 )
 
