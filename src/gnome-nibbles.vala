@@ -221,8 +221,10 @@ private class Nibbles : Gtk.Application
         add_window (window);
 
         /* Create game */
-        game = new NibblesGame ();
-        game.load_properties (settings);
+        game = new NibblesGame (settings.get_int ("tile-size"),
+                                settings.get_int ("start-level"),
+                                settings.get_int ("speed"),
+                                settings.get_boolean ("fakes"));
         game.log_score.connect (log_score_cb);
         game.level_completed.connect (level_completed_cb);
         game.notify["is-paused"].connect (() => {
@@ -281,10 +283,16 @@ private class Nibbles : Gtk.Application
     protected override void shutdown ()
     {
         settings.delay ();
+        // window state
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
-        game.save_properties (settings);
+
+        // game properties
+        settings.set_int ("tile-size", game.tile_size);
+        settings.set_int ("start-level", game.start_level);
+        settings.set_int ("speed", game.speed);
+        settings.set_boolean ("fakes", game.fakes);
         settings.apply ();
 
         base.shutdown ();
