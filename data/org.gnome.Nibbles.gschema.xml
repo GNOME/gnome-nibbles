@@ -1,5 +1,5 @@
 <schemalist>
-  <enum id="org.gnome.nibbles.Color">
+  <enum id="org.gnome.Nibbles.Color">
     <value value="0" nick="red"/>
     <value value="1" nick="green"/>
     <value value="2" nick="blue"/>
@@ -7,7 +7,7 @@
     <value value="4" nick="cyan"/>
     <value value="5" nick="purple"/>
   </enum>
-  <schema id="org.gnome.nibbles" path="/org/gnome/nibbles/" gettext-domain="gnome-nibbles">
+  <schema id="org.gnome.Nibbles" path="/org/gnome/nibbles/" gettext-domain="gnome-nibbles">
     <key name="window-width" type="i">
       <default>730</default>
       <summary>Width of the window in pixels</summary>
@@ -69,8 +69,8 @@
       <description>Number of AI players.</description>
     </key>
   </schema>
-  <schema id="org.gnome.nibbles.worm0" path="/org/gnome/nibbles/worm0/">
-    <key name="color" enum="org.gnome.nibbles.Color">
+  <schema id="org.gnome.Nibbles.worm0" path="/org/gnome/nibbles/worm0/">
+    <key name="color" enum="org.gnome.Nibbles.Color">
       <default>'red'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -96,8 +96,8 @@
       <description>Key to use for motion right.</description>
     </key>
   </schema>
-  <schema id="org.gnome.nibbles.worm1" path="/org/gnome/nibbles/worm1/">
-    <key name="color" enum="org.gnome.nibbles.Color">
+  <schema id="org.gnome.Nibbles.worm1" path="/org/gnome/nibbles/worm1/">
+    <key name="color" enum="org.gnome.Nibbles.Color">
       <default>'green'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -123,8 +123,8 @@
       <description>Key to use for motion right.</description>
     </key>
   </schema>
-  <schema id="org.gnome.nibbles.worm2" path="/org/gnome/nibbles/worm2/">
-    <key name="color" enum="org.gnome.nibbles.Color">
+  <schema id="org.gnome.Nibbles.worm2" path="/org/gnome/nibbles/worm2/">
+    <key name="color" enum="org.gnome.Nibbles.Color">
       <default>'blue'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -150,8 +150,8 @@
       <description>Key to use for motion right.</description>
     </key>
   </schema>
-  <schema id="org.gnome.nibbles.worm3" path="/org/gnome/nibbles/worm3/">
-    <key name="color" enum="org.gnome.nibbles.Color">
+  <schema id="org.gnome.Nibbles.worm3" path="/org/gnome/nibbles/worm3/">
+    <key name="color" enum="org.gnome.Nibbles.Color">
       <default>'yellow'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -177,8 +177,8 @@
       <description>Key to use for motion right.</description>
     </key>
   </schema>
-  <schema id="org.gnome.nibbles.worm4" path="/org/gnome/nibbles/worm4/">
-    <key name="color" enum="org.gnome.nibbles.Color">
+  <schema id="org.gnome.Nibbles.worm4" path="/org/gnome/nibbles/worm4/">
+    <key name="color" enum="org.gnome.Nibbles.Color">
       <default>'cyan'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
@@ -204,8 +204,8 @@
       <description>Key to use for motion right.</description>
     </key>
   </schema>
-  <schema id="org.gnome.nibbles.worm5" path="/org/gnome/nibbles/worm5/">
-    <key name="color" enum="org.gnome.nibbles.Color">
+  <schema id="org.gnome.Nibbles.worm5" path="/org/gnome/nibbles/worm5/">
+    <key name="color" enum="org.gnome.Nibbles.Color">
       <default>'purple'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
