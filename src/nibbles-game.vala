@@ -548,6 +548,7 @@ public class NibblesGame : Object
 
     public void save_properties (Settings settings)
     {
+        // settings is already in delay mode, and apply is managed
         settings.set_int ("tile-size", tile_size);
         settings.set_int ("start-level", start_level);
         settings.set_int ("speed", speed);
