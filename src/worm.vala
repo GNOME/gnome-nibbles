@@ -53,7 +53,7 @@ private class Worm : Object
 
     internal Position starting_position { internal get; private set; }
 
-    internal int id { internal get; private set; }
+    public int id { internal get; protected construct; }
 
     internal bool is_human;
     internal bool keypress = false;
@@ -61,9 +61,9 @@ private class Worm : Object
     internal bool is_materialized { internal get; private set; default = true; }
     private int rounds_dematerialized;
 
-    internal int lives { get; set; }
-    internal int change;
-    internal int score { get; set; }
+    internal int lives  { internal get; internal set; default = STARTING_LIVES; }
+    internal int change { internal get; internal set; default = 0; }
+    internal int score  { internal get; internal set; default = 0; }
 
     internal int length
     {
@@ -87,9 +87,9 @@ private class Worm : Object
 
     private WormDirection starting_direction;
 
-    private Gee.ArrayQueue<WormDirection> key_queue;
+    private Gee.ArrayQueue<WormDirection> key_queue = new Gee.ArrayQueue<WormDirection> ();
 
-    internal Gee.LinkedList<Position?> list { get; private set; }
+    internal Gee.LinkedList<Position?> list { internal get; private set; default = new Gee.LinkedList<Position?> (); }
 
     internal signal void added ();
     internal signal void finish_added ();
@@ -104,12 +104,7 @@ private class Worm : Object
 
     internal Worm (int id)
     {
-        this.id = id;
-        lives = STARTING_LIVES;
-        score = 0;
-        change = 0;
-        list = new Gee.LinkedList<Position?> ();
-        key_queue = new Gee.ArrayQueue<WormDirection> ();
+        Object (id: id);
     }
 
     internal void set_start (int xhead, int yhead, WormDirection direction)
