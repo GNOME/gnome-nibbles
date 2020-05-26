@@ -19,50 +19,46 @@
 // This is a fairly literal translation of the GPLv2+ original by
 // Sean MacIsaac, Ian Peters, Guillaume Béland.
 
-public enum BonusType
+private enum BonusType
 {
     REGULAR,
     HALF,
     DOUBLE,
     LIFE,
     REVERSE,
-    WARP
+    WARP;
 }
 
-public class Bonus : Object
+private class Bonus : Object
 {
-    public int x;
-    public int y;
-    public BonusType type;
-    public bool fake;
-    public int countdown;
+    public int x                { internal get; protected construct; }
+    public int y                { internal get; protected construct; }
+    public BonusType bonus_type { internal get; protected construct; }
+    public bool fake            { internal get; protected construct; }
+    public int countdown        { internal get; internal construct set; }
 
-    public Bonus (int x, int y, BonusType type, bool fake, int countdown)
+    internal Bonus (int x, int y, BonusType bonus_type, bool fake, int countdown)
     {
-        this.x = x;
-        this.y = y;
-        this.type = type;
-        this.fake = fake;
-        this.countdown = countdown;
+        Object (x: x, y: y, bonus_type: bonus_type, fake: fake, countdown: countdown);
     }
 }
 
-public class Boni : Object
+private class Boni : Object
 {
-    public Gee.LinkedList<Bonus> bonuses;
+    internal Gee.LinkedList<Bonus> bonuses;
 
-    public int missed;
-    public int numleft;
-    public int numboni;
-    public int numbonuses;
+    internal int missed;
+    internal int numleft;
+    internal int numboni;
+    private  int numbonuses;
 
-    public const int MAX_BONUSES = 100;
-    public const int MAX_MISSED = 2;
+    private const int MAX_BONUSES = 100;
+    internal const int MAX_MISSED = 2;
 
-    public signal void bonus_added ();
-    public signal void bonus_removed (Bonus bonus);
+    internal signal void bonus_added ();
+    internal signal void bonus_removed (Bonus bonus);
 
-    public Boni (int numworms)
+    internal Boni (int numworms)
     {
         bonuses = new Gee.LinkedList<Bonus> ();
         missed = 0;
@@ -71,22 +67,22 @@ public class Boni : Object
         numleft = numboni;
     }
 
-    public void add_bonus (int[,] board, int x, int y, BonusType type, bool fake, int countdown)
+    internal void add_bonus (int[,] board, int x, int y, BonusType bonus_type, bool fake, int countdown)
     {
         if (numbonuses == MAX_BONUSES)
             return;
 
-        var bonus = new Bonus (x, y, type, fake, countdown);
+        var bonus = new Bonus (x, y, bonus_type, fake, countdown);
         bonuses.add (bonus);
-        board[x, y] = type + 'A';
-        board[x + 1, y] = type + 'A';
-        board[x, y + 1] = type + 'A';
-        board[x + 1, y + 1] = type + 'A';
+        board[x, y] = bonus_type + 'A';
+        board[x + 1, y] = bonus_type + 'A';
+        board[x, y + 1] = bonus_type + 'A';
+        board[x + 1, y + 1] = bonus_type + 'A';
         bonus_added ();
         numbonuses++;
     }
 
-    public void remove_bonus (int[,] board, Bonus bonus)
+    internal void remove_bonus (int[,] board, Bonus bonus)
     {
         board[bonus.x, bonus.y] = NibblesGame.EMPTYCHAR;
         board[bonus.x + 1, bonus.y] = NibblesGame.EMPTYCHAR;
@@ -96,7 +92,7 @@ public class Boni : Object
         bonus_removed (bonus);
     }
 
-    public void reset (int numworms)
+    internal void reset (int numworms)
     {
         bonuses.clear ();
         missed = 0;
@@ -105,14 +101,14 @@ public class Boni : Object
         numleft = numboni;
     }
 
-    public Bonus? get_bonus (int[,] board, int x, int y)
+    internal Bonus? get_bonus (int[,] board, int x, int y)
     {
         foreach (var bonus in bonuses)
         {
-            if ((x == bonus.x && y == bonus.y)
-                || (x == bonus.x + 1 && y == bonus.y)
-                || (x == bonus.x && y == bonus.y + 1)
-                || (x == bonus.x + 1 && y == bonus.y + 1))
+            if ((x == bonus.x     && y == bonus.y)
+             || (x == bonus.x + 1 && y == bonus.y)
+             || (x == bonus.x     && y == bonus.y + 1)
+             || (x == bonus.x + 1 && y == bonus.y + 1))
             {
                 return bonus;
             }
