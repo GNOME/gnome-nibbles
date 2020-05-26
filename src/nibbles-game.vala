@@ -49,12 +49,12 @@ private class NibblesGame : Object
 
     internal const int MAX_LEVEL = 26;
 
-    internal int start_level    { internal get; private set; }
-    internal int current_level  { internal get; private set; }
-    internal int speed          { internal get; internal set; }
+    public int start_level      { internal get; protected construct; }
+    public int current_level    { internal get; protected construct set; }
+    public int speed            { internal get; internal construct set; }
 
     /* Board data */
-    internal int tile_size      { internal get; internal set; }
+    public int tile_size        { internal get; internal construct set; }
     internal int[,] board;
 
     /* Worms data */
@@ -75,7 +75,7 @@ private class NibblesGame : Object
     private uint main_id = 0;
     private uint add_bonus_id = 0;
 
-    internal bool fakes         { internal get; internal set; }
+    public bool fakes           { internal get; internal construct set; }
 
     internal signal void worm_moved (Worm worm);
     internal signal void bonus_applied (Bonus bonus, Worm worm);
@@ -83,8 +83,10 @@ private class NibblesGame : Object
     internal signal void animate_end_game ();
     internal signal void level_completed ();
 
-    internal NibblesGame ()
+    internal NibblesGame (int tile_size, int start_level, int speed, bool fakes)
     {
+        Object (tile_size: tile_size, start_level: start_level, current_level: start_level, speed: speed, fakes: fakes);
+
         boni = new Boni (numworms);
         warp_manager = new WarpManager ();
         board = new int[WIDTH, HEIGHT];
@@ -533,24 +535,6 @@ private class NibblesGame : Object
     /*\
     * * Saving / Loading properties
     \*/
-
-    internal void load_properties (Settings settings)
-    {
-        tile_size = settings.get_int ("tile-size");
-        start_level = settings.get_int ("start-level");
-        speed = settings.get_int ("speed");
-        fakes = settings.get_boolean ("fakes");
-        current_level = start_level;
-    }
-
-    internal void save_properties (Settings settings)
-    {
-        // settings is already in delay mode, and apply is managed
-        settings.set_int ("tile-size", tile_size);
-        settings.set_int ("start-level", start_level);
-        settings.set_int ("speed", speed);
-        settings.set_boolean ("fakes", fakes);
-    }
 
     internal void load_worm_properties (Gee.ArrayList<Settings> worm_settings)
     {
