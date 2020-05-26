@@ -158,7 +158,7 @@ private class PreferencesDialog : Gtk.Dialog
         foreach (var combo_box in combo_boxes)
         {
             for (int i = 0; i < NibblesView.NUM_COLORS; i++)
-                combo_box.append_text (NibblesView.colorval_name (i));
+                combo_box.append_text (NibblesView.colorval_name_translated (i));
 
             var id = combo_boxes.index_of (combo_box);
 

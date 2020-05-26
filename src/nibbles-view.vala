@@ -146,18 +146,6 @@ public class NibblesView : GtkClutter.Embed
         }
     }
 
-    /* Colors */
-    public const int NUM_COLORS = 6;
-    public static string[] color_lookup =
-    {
-      N_("red"),
-      N_("green"),
-      N_("blue"),
-      N_("yellow"),
-      N_("cyan"),
-      N_("purple")
-    };
-
     public NibblesView (NibblesGame game)
     {
         this.game = game;
@@ -580,7 +568,7 @@ public class NibblesView : GtkClutter.Embed
             var player_id = _("Player %d").printf (worm.id + 1);
             var label = new Clutter.Text.with_text ("Monospace 10", @"<b>$(player_id)</b>");
             label.set_use_markup (true);
-            label.set_color (Clutter.Color.from_string (colorval_name (color)));
+            label.set_color (Clutter.Color.from_string (colorval_name_untranslated (color)));
 
             var middle = worm.length / 2;
             if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
@@ -946,11 +934,27 @@ public class NibblesView : GtkClutter.Embed
     }
 
     /*\
-    * * Utility
+    * * Colors
     \*/
 
-    public static string colorval_name (int colorval)
+    internal const int NUM_COLORS = 6;      // only used in preferences-dialog.vala
+    private static string[,] color_lookup =
     {
-        return _(color_lookup[colorval]);
+        { "red",    N_("red")    },
+        { "green",  N_("green")  },
+        { "blue",   N_("blue")   },
+        { "yellow", N_("yellow") },
+        { "cyan",   N_("cyan")   },
+        { "purple", N_("purple") }
+    };
+
+    internal static string colorval_name_untranslated (int colorval)
+    {
+        return color_lookup[colorval, 0];
+    }
+
+    internal static string colorval_name_translated (int colorval)
+    {
+        return _(color_lookup[colorval, 1]);
     }
 }
