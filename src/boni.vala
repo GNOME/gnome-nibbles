@@ -45,27 +45,18 @@ private class Bonus : Object
 
 private class Boni : Object
 {
-    internal Gee.LinkedList<Bonus> bonuses;
+    internal Gee.LinkedList<Bonus> bonuses = new Gee.LinkedList<Bonus> ();
 
-    internal int missed;
-    internal int numleft;
-    internal int numboni;
-    private  int numbonuses;
+    internal int missed = 0;
+    internal int numleft = 8;
+    internal int numboni = 8;
+    private  int numbonuses = 0;
 
     private const int MAX_BONUSES = 100;
     internal const int MAX_MISSED = 2;
 
     internal signal void bonus_added ();
     internal signal void bonus_removed (Bonus bonus);
-
-    internal Boni (int numworms)
-    {
-        bonuses = new Gee.LinkedList<Bonus> ();
-        missed = 0;
-        numboni = 8 + numworms;
-        numbonuses = 0;
-        numleft = numboni;
-    }
 
     internal void add_bonus (int[,] board, int x, int y, BonusType bonus_type, bool fake, int countdown)
     {
