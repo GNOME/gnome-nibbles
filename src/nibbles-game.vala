@@ -55,7 +55,7 @@ private class NibblesGame : Object
 
     /* Board data */
     public int tile_size        { internal get; internal construct set; }
-    internal int[,] board;
+    internal int[,] board = new int[WIDTH, HEIGHT];
 
     /* Worms data */
     internal int numhumans      { internal get; internal set; }
@@ -63,10 +63,10 @@ private class NibblesGame : Object
     internal int numworms       { internal get; private set; }
 
     /* Game models */
-    internal Gee.LinkedList<Worm> worms { get; private set; }
-    public Boni boni { internal get; private construct; default = new Boni (); }
-    internal WarpManager warp_manager { get; private set; }
-    internal Gee.HashMap<Worm, WormProperties?> worm_props { get; private set; }
+    public Gee.LinkedList<Worm> worms                       { internal get; default = new Gee.LinkedList<Worm> (); }
+    public Boni boni                                        { internal get; default = new Boni (); }
+    public WarpManager warp_manager                         { internal get; default = new WarpManager (); }
+    public Gee.HashMap<Worm, WormProperties?> worm_props    { internal get; default = new Gee.HashMap<Worm, WormProperties?> (); }
 
     /* Game controls */
     internal bool is_running    { internal get; private set; default = false; }
@@ -86,11 +86,6 @@ private class NibblesGame : Object
     internal NibblesGame (int tile_size, int start_level, int speed, bool fakes)
     {
         Object (tile_size: tile_size, start_level: start_level, current_level: start_level, speed: speed, fakes: fakes);
-
-        warp_manager = new WarpManager ();
-        board = new int[WIDTH, HEIGHT];
-        worms = new Gee.LinkedList<Worm> ();
-        worm_props = new Gee.HashMap<Worm, WormProperties?> ();
 
         Random.set_seed ((uint32) time_t ());
     }
