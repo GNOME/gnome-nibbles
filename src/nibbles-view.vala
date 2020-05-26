@@ -294,7 +294,11 @@ private class NibblesView : GtkClutter.Embed
                 {
                     switch (game.board[j, i])
                     {
-                        case 'a': // empty space
+                        case '.': // empty space
+                            game.board[j, i] = 'a';
+                            is_wall = false;
+                            break;
+                        case 'a': // kept for compatibility
                             is_wall = false;
                             break;
                         case 'b': // straight up
