@@ -18,7 +18,7 @@
 
 using Gtk;
 
-public class Nibbles : Gtk.Application
+private class Nibbles : Gtk.Application
 {
     /* Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
     private const string PROGRAM_NAME = _("Nibbles");
@@ -109,7 +109,17 @@ public class Nibbles : Gtk.Application
         {}
     };
 
-    public Nibbles ()
+    internal static int main (string[] args)
+    {
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
+
+        return new Nibbles ().run (args);
+    }
+
+    private Nibbles ()
     {
         Object (application_id: "org.gnome.Nibbles", flags: ApplicationFlags.FLAGS_NONE);
 
@@ -141,7 +151,7 @@ public class Nibbles : Gtk.Application
 
         Window.set_default_icon_name ("org.gnome.Nibbles");
 
-        Gtk.Settings.get_default ().set ("gtk-application-prefer-dark-theme", true);
+        Gtk.Settings.get_default ().@set ("gtk-application-prefer-dark-theme", true);
 
         var css_provider = new CssProvider ();
         css_provider.load_from_resource ("/org/gnome/nibbles/ui/nibbles.css");
@@ -211,7 +221,8 @@ public class Nibbles : Gtk.Application
         add_window (window);
 
         /* Create game */
-        game = new NibblesGame (settings);
+        game = new NibblesGame ();
+        game.load_properties (settings);
         game.log_score.connect (log_score_cb);
         game.level_completed.connect (level_completed_cb);
         game.notify["is-paused"].connect (() => {
@@ -380,7 +391,7 @@ public class Nibbles : Gtk.Application
         scoreboard.clear ();
         foreach (var worm in game.worms)
         {
-            var color = game.worm_props.get (worm).color;
+            var color = game.worm_props.@get (worm).color;
             scoreboard.register (worm, NibblesView.colorval_name (color), scoreboard_life);
             worm.notify["lives"].connect (scoreboard.update);
             worm.notify["score"].connect (scoreboard.update);
@@ -512,7 +523,7 @@ public class Nibbles : Gtk.Application
             return;
 
         var worm = game.worms[id];
-        var properties = game.worm_props.get (worm);
+        var properties = game.worm_props.@get (worm);
 
         switch (key)
         {
@@ -533,7 +544,7 @@ public class Nibbles : Gtk.Application
                 break;
         }
 
-        game.worm_props.set (worm, properties);
+        game.worm_props.@set (worm, properties);
     }
 
     /*\
@@ -618,7 +629,7 @@ public class Nibbles : Gtk.Application
         {
             if (worm.is_human)
             {
-                var grid = new ControlsGrid (worm.id, game.worm_props.get (worm), arrow_pixbuf, arrow_key_pixbuf);
+                var grid = new ControlsGrid (worm.id, game.worm_props.@get (worm), arrow_pixbuf, arrow_key_pixbuf);
                 grids_box.add (grid);
             }
         }
@@ -1129,29 +1140,14 @@ public class Nibbles : Gtk.Application
                            "website", "https://wiki.gnome.org/Apps/Nibbles/"
                            );
     }
-
-    public static int main (string[] args)
-    {
-        Intl.setlocale (LocaleCategory.ALL, "");
-        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-        Intl.textdomain (GETTEXT_PACKAGE);
-
-        return new Nibbles ().run (args);
-    }
 }
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/scoreboard.ui")]
 private class Scoreboard : Box
 {
-    private Gee.HashMap<PlayerScoreBox, Worm> boxes;
+    private Gee.HashMap<PlayerScoreBox, Worm> boxes = new Gee.HashMap<PlayerScoreBox, Worm> ();
 
-    public Scoreboard ()
-    {
-        boxes = new Gee.HashMap<PlayerScoreBox, Worm> ();
-    }
-
-    public void register (Worm worm, string color_name, Gdk.Pixbuf life_pixbuf)
+    internal void register (Worm worm, string color_name, Gdk.Pixbuf life_pixbuf)
     {
         var color = Pango.Color ();
         color.parse (color_name);
@@ -1160,22 +1156,22 @@ private class Scoreboard : Box
          * It's set to "Player %d" for now to avoid a string change for 3.20.
          */
         var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf); // TODO document for translators where this string appears 1/2
-        boxes.set (box, worm);
+        boxes.@set (box, worm);
         add (box);
     }
 
-    public void update ()
+    internal void update ()
     {
         foreach (var entry in boxes.entries)
         {
             var box = entry.key;
-            var worm = entry.value;
+            var worm = entry.@value;
 
             box.update (worm.score, worm.lives);
         }
     }
 
-    public void clear ()
+    internal void clear ()
     {
         foreach (var entry in boxes.entries)
         {
@@ -1193,14 +1189,12 @@ private class PlayerScoreBox : Box
     [GtkChild] private Label score_label;
     [GtkChild] private Grid lives_grid;
 
-    private Gee.LinkedList<Image> life_images;
+    private Gee.LinkedList<Image> life_images = new Gee.LinkedList<Image> ();
 
-    public PlayerScoreBox (string name, Pango.Color color, int score, int lives_left, Gdk.Pixbuf life_pixbuf)
+    internal PlayerScoreBox (string name, Pango.Color color, int score, int lives_left, Gdk.Pixbuf life_pixbuf)
     {
         name_label.set_markup ("<span color=\"" + color.to_string () + "\">" + name + "</span>");
         score_label.set_label (score.to_string ());
-
-        life_images = new Gee.LinkedList<Image> ();
 
         for (int i = 0; i < Worm.MAX_LIVES; i++)
         {
@@ -1215,18 +1209,18 @@ private class PlayerScoreBox : Box
         }
     }
 
-    public void update (int score, int lives_left)
+    internal void update (int score, int lives_left)
     {
         update_score (score);
         update_lives (lives_left);
     }
 
-    public void update_score (int score)
+    internal inline void update_score (int score)
     {
         score_label.set_label (score.to_string ());
     }
 
-    public void update_lives (int lives_left)
+    internal void update_lives (int lives_left)
     {
         /* Remove lost lives - if any */
         for (int i = life_images.size - 1; i >= lives_left; i--)
@@ -1255,7 +1249,7 @@ private class ControlsGrid : Grid
     [GtkChild] private Overlay move_right;
     [GtkChild] private Label move_right_label;
 
-    public ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
+    internal ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
     {
         var color = Pango.Color ();
         color.parse (NibblesView.colorval_name (worm_props.color));
