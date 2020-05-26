@@ -64,7 +64,7 @@ private class NibblesGame : Object
 
     /* Game models */
     internal Gee.LinkedList<Worm> worms { get; private set; }
-    internal Boni boni { get; private set; }
+    public Boni boni { internal get; private construct; default = new Boni (); }
     internal WarpManager warp_manager { get; private set; }
     internal Gee.HashMap<Worm, WormProperties?> worm_props { get; private set; }
 
@@ -87,7 +87,6 @@ private class NibblesGame : Object
     {
         Object (tile_size: tile_size, start_level: start_level, current_level: start_level, speed: speed, fakes: fakes);
 
-        boni = new Boni (numworms);
         warp_manager = new WarpManager ();
         board = new int[WIDTH, HEIGHT];
         worms = new Gee.LinkedList<Worm> ();
