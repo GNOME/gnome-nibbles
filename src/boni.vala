@@ -47,9 +47,9 @@ private class Boni : Object
 {
     internal Gee.LinkedList<Bonus> bonuses = new Gee.LinkedList<Bonus> ();
 
-    internal int missed = 0;
-    internal int numleft = 8;
-    internal int numboni = 8;
+    internal int missed     { internal get; internal set; default = 0; }
+    internal int numleft    { internal get; internal set; default = 8; }
+    internal int numboni    { internal get; private set; default = 8; }
     private  int numbonuses = 0;
 
     private const int MAX_BONUSES = 100;
@@ -65,9 +65,9 @@ private class Boni : Object
 
         var bonus = new Bonus (x, y, bonus_type, fake, countdown);
         bonuses.add (bonus);
-        board[x, y] = bonus_type + 'A';
-        board[x + 1, y] = bonus_type + 'A';
-        board[x, y + 1] = bonus_type + 'A';
+        board[x    , y    ] = bonus_type + 'A';
+        board[x + 1, y    ] = bonus_type + 'A';
+        board[x    , y + 1] = bonus_type + 'A';
         board[x + 1, y + 1] = bonus_type + 'A';
         bonus_added ();
         numbonuses++;
@@ -75,9 +75,9 @@ private class Boni : Object
 
     internal void remove_bonus (int[,] board, Bonus bonus)
     {
-        board[bonus.x, bonus.y] = NibblesGame.EMPTYCHAR;
-        board[bonus.x + 1, bonus.y] = NibblesGame.EMPTYCHAR;
-        board[bonus.x, bonus.y + 1] = NibblesGame.EMPTYCHAR;
+        board[bonus.x    , bonus.y    ] = NibblesGame.EMPTYCHAR;
+        board[bonus.x + 1, bonus.y    ] = NibblesGame.EMPTYCHAR;
+        board[bonus.x    , bonus.y + 1] = NibblesGame.EMPTYCHAR;
         board[bonus.x + 1, bonus.y + 1] = NibblesGame.EMPTYCHAR;
 
         bonus_removed (bonus);
@@ -96,8 +96,8 @@ private class Boni : Object
     {
         foreach (var bonus in bonuses)
         {
-            if ((x == bonus.x     && y == bonus.y)
-             || (x == bonus.x + 1 && y == bonus.y)
+            if ((x == bonus.x     && y == bonus.y    )
+             || (x == bonus.x + 1 && y == bonus.y    )
              || (x == bonus.x     && y == bonus.y + 1)
              || (x == bonus.x + 1 && y == bonus.y + 1))
             {

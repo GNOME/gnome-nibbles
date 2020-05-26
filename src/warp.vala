@@ -97,9 +97,9 @@ private class WarpManager: Object
                 warp_added (warp);
             }
 
-            board[x, y] = NibblesGame.WARPCHAR;
-            board[x + 1, y] = NibblesGame.WARPCHAR;
-            board[x, y + 1] = NibblesGame.WARPCHAR;
+            board[x    , y    ] = NibblesGame.WARPCHAR;
+            board[x + 1, y    ] = NibblesGame.WARPCHAR;
+            board[x    , y + 1] = NibblesGame.WARPCHAR;
             board[x + 1, y + 1] = NibblesGame.WARPCHAR;
         }
     }
@@ -108,9 +108,9 @@ private class WarpManager: Object
     {
         foreach (var warp in warps)
         {
-            if ((x == warp.x && y == warp.y)
-             || (x == warp.x + 1 && y == warp.y)
-             || (x == warp.x && y == warp.y + 1)
+            if ((x == warp.x     && y == warp.y    )
+             || (x == warp.x + 1 && y == warp.y    )
+             || (x == warp.x     && y == warp.y + 1)
              || (x == warp.x + 1 && y == warp.y + 1))
                 return warp;
         }
