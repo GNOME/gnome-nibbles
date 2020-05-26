@@ -21,7 +21,7 @@
 
 private enum WormDirection
 {
-    NONE,
+    NONE,   // unused, but allows to cast an integer from 1 to 4 into the four directions
     RIGHT,
     DOWN,
     LEFT,
@@ -153,7 +153,7 @@ private class Worm : Object
                     position.x = 0;
                 break;
             default:
-                break;
+                assert_not_reached ();
         }
 
         /* Add a new body piece */
@@ -354,7 +354,7 @@ private class Worm : Object
                     position.x = 0;
                 break;
             default:
-                break;
+                assert_not_reached ();
         }
 
         return position;
@@ -507,6 +507,8 @@ private class Worm : Object
                 case WormDirection.RIGHT:
                     cx += 1;
                     break;
+                default:
+                    assert_not_reached ();
             }
 
             if (cx >= NibblesGame.WIDTH)
@@ -588,6 +590,8 @@ private class Worm : Object
             case WormDirection.RIGHT:
                 cx += 1;
                 break;
+            default:
+                assert_not_reached ();
         }
 
         if (cx >= NibblesGame.WIDTH)
@@ -639,6 +643,8 @@ private class Worm : Object
                     if (dx < 0 && dx >= -3 && dy >= -1 && dy <= 1)
                         return true;
                     break;
+                default:
+                    assert_not_reached ();
             }
         }
 
@@ -666,6 +672,8 @@ private class Worm : Object
             case WormDirection.RIGHT:
                 x += 1;
                 break;
+            default:
+                assert_not_reached ();
         }
 
         if (x >= NibblesGame.WIDTH)
