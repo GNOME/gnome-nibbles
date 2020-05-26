@@ -19,71 +19,71 @@
 // This is a fairly literal translation of the GPLv2+ original by
 // Sean MacIsaac, Ian Peters, Guillaume Béland.
 
-public enum GameStatus
+private enum GameStatus
 {
     GAMEOVER,
     VICTORY,
-    NEWROUND
+    NEWROUND;
 }
 
-public class NibblesGame : Object
+private class NibblesGame : Object
 {
-    public const int MINIMUM_TILE_SIZE = 7;
+    internal const int MINIMUM_TILE_SIZE = 7;
 
-    public const int GAMEDELAY = 35;
-    public const int BONUSDELAY = 100;
+    internal const int GAMEDELAY = 35;
+    private const int BONUSDELAY = 100;
 
-    public const int MAX_HUMANS = 4;
-    public const int MAX_AI = 5;
-    public const int MAX_WORMS = 6;
+    internal const int MAX_HUMANS = 4;
+    internal const int MAX_AI = 5;
+    internal const int MAX_WORMS = 6;
 
-    public const int MAX_SPEED = 4;
+    internal const int MAX_SPEED = 4;
 
-    public const int WIDTH = 92;
-    public const int HEIGHT = 66;
-    public const int CAPACITY = WIDTH * HEIGHT;
+    internal const int WIDTH = 92;
+    internal const int HEIGHT = 66;
+    internal const int CAPACITY = WIDTH * HEIGHT;
 
-    public const char EMPTYCHAR = 'a';
-    public const char WORMCHAR = 'w';
-    public const char WARPCHAR = 'W';
+    internal const char EMPTYCHAR = 'a';
+    internal const char WORMCHAR = 'w';     // only used in worm.vala
+    internal const char WARPCHAR = 'W';     // only used in warp.vala
 
-    public const int MAX_LEVEL = 26;
+    internal const int MAX_LEVEL = 26;
 
-    public int start_level { get; private set; }
-    public int current_level { get; private set; }
-    public int speed { get; set; }
+    internal int start_level    { internal get; private set; }
+    internal int current_level  { internal get; private set; }
+    internal int speed          { internal get; internal set; }
 
     /* Board data */
-    public int tile_size { get; set; }
-    public int[,] board;
+    internal int tile_size      { internal get; internal set; }
+    internal int[,] board;
 
     /* Worms data */
-    public int numhumans { get; set; }
-    public int numai { get; set; }
-    public int numworms { get; private set; }
+    internal int numhumans      { internal get; internal set; }
+    internal int numai          { internal get; internal set; }
+    internal int numworms       { internal get; private set; }
 
     /* Game models */
-    public Gee.LinkedList<Worm> worms { get; private set; }
-    public Boni boni { get; private set; }
-    public WarpManager warp_manager { get; private set; }
-    public Gee.HashMap<Worm, WormProperties?> worm_props { get; private set; }
+    internal Gee.LinkedList<Worm> worms { get; private set; }
+    internal Boni boni { get; private set; }
+    internal WarpManager warp_manager { get; private set; }
+    internal Gee.HashMap<Worm, WormProperties?> worm_props { get; private set; }
 
     /* Game controls */
-    public bool is_running { get; private set; default = false; }
-    public bool is_paused { get; private set; }
+    internal bool is_running    { internal get; private set; default = false; }
+    internal bool is_paused     { internal get; private set; default = false; }
 
     private uint main_id = 0;
     private uint add_bonus_id = 0;
 
-    public bool fakes { get; set; }
+    internal bool fakes         { internal get; internal set; }
 
-    public signal void worm_moved (Worm worm);
-    public signal void bonus_applied (Bonus bonus, Worm worm);
-    public signal void log_score (int score, int level_reached);
-    public signal void animate_end_game ();
-    public signal void level_completed ();
+    internal signal void worm_moved (Worm worm);
+    internal signal void bonus_applied (Bonus bonus, Worm worm);
+    internal signal void log_score (int score, int level_reached);
+    internal signal void animate_end_game ();
+    internal signal void level_completed ();
 
-    public NibblesGame (Settings settings)
+    internal NibblesGame ()
     {
         boni = new Boni (numworms);
         warp_manager = new WarpManager ();
@@ -91,18 +91,14 @@ public class NibblesGame : Object
         worms = new Gee.LinkedList<Worm> ();
         worm_props = new Gee.HashMap<Worm, WormProperties?> ();
 
-        is_paused = false;
-
         Random.set_seed ((uint32) time_t ());
-        load_properties (settings);
-        current_level = start_level;
     }
 
     /*\
     * * Game controls
     \*/
 
-    public void start ()
+    internal void start ()
     {
         is_running = true;
 
@@ -113,7 +109,7 @@ public class NibblesGame : Object
         Source.set_name_by_id (add_bonus_id, "[Nibbles] add_bonus_cb");
     }
 
-    public void stop ()
+    internal void stop ()
     {
         is_running = false;
 
@@ -130,19 +126,19 @@ public class NibblesGame : Object
         }
     }
 
-    public void pause ()
+    internal void pause ()
     {
         is_paused = true;
         stop ();
     }
 
-    public void unpause ()
+    internal void unpause ()
     {
         is_paused = false;
         start ();
     }
 
-    public void reset ()
+    internal inline void reset ()
     {
         current_level = start_level;
     }
@@ -153,7 +149,7 @@ public class NibblesGame : Object
         animate_end_game ();
     }
 
-    public bool main_loop_cb ()
+    internal bool main_loop_cb ()
     {
         var status = get_game_status ();
 
@@ -200,7 +196,7 @@ public class NibblesGame : Object
     * * Handling worms
     \*/
 
-    public void create_worms ()
+    internal void create_worms ()
     {
         worms.clear ();
 
@@ -215,7 +211,7 @@ public class NibblesGame : Object
         }
     }
 
-    public void add_worms ()
+    internal void add_worms ()
     {
         foreach (var worm in worms)
         {
@@ -228,7 +224,7 @@ public class NibblesGame : Object
         }
     }
 
-    public void move_worms ()
+    internal void move_worms ()
     {
         if (boni.missed > Boni.MAX_MISSED)
         {
@@ -246,7 +242,7 @@ public class NibblesGame : Object
         {
             if (bonus.countdown-- == 0)
             {
-                if (bonus.type == BonusType.REGULAR && !bonus.fake)
+                if (bonus.bonus_type == BonusType.REGULAR && !bonus.fake)
                 {
                     found.add (bonus);
                     boni.remove_bonus (board, bonus);
@@ -320,7 +316,7 @@ public class NibblesGame : Object
     * * Handling bonuses
     \*/
 
-    public void add_bonus (bool regular)
+    internal void add_bonus (bool regular)
     {
         bool good = false;
         int x = 0, y = 0;
@@ -416,7 +412,7 @@ public class NibblesGame : Object
         }
     }
 
-    public void apply_bonus (Bonus bonus, Worm worm)
+    internal void apply_bonus (Bonus bonus, Worm worm)
     {
         if (bonus.fake)
         {
@@ -453,14 +449,14 @@ public class NibblesGame : Object
         }
     }
 
-    public bool add_bonus_cb ()
+    internal bool add_bonus_cb ()
     {
         add_bonus (false);
 
         return Source.CONTINUE;
     }
 
-    public void bonus_found_cb (Worm worm)
+    internal void bonus_found_cb (Worm worm)
     {
         var bonus = boni.get_bonus (board, worm.head.x, worm.head.y);
         if (bonus == null)
@@ -486,7 +482,7 @@ public class NibblesGame : Object
         }
     }
 
-    public void warp_found_cb (Worm worm)
+    internal void warp_found_cb (Worm worm)
     {
         var warp = warp_manager.get_warp (worm.head.x, worm.head.y);
         if (warp == null)
@@ -495,7 +491,7 @@ public class NibblesGame : Object
         worm.warp (warp);
     }
 
-    public GameStatus? get_game_status ()
+    internal GameStatus? get_game_status ()
     {
         var worms_left = 0;
         foreach (var worm in worms)
@@ -523,7 +519,7 @@ public class NibblesGame : Object
         return null;
     }
 
-    public Worm? get_winner ()
+    internal Worm? get_winner ()
     {
         foreach (var worm in worms)
         {
@@ -538,15 +534,16 @@ public class NibblesGame : Object
     * * Saving / Loading properties
     \*/
 
-    public void load_properties (Settings settings)
+    internal void load_properties (Settings settings)
     {
         tile_size = settings.get_int ("tile-size");
         start_level = settings.get_int ("start-level");
         speed = settings.get_int ("speed");
         fakes = settings.get_boolean ("fakes");
+        current_level = start_level;
     }
 
-    public void save_properties (Settings settings)
+    internal void save_properties (Settings settings)
     {
         // settings is already in delay mode, and apply is managed
         settings.set_int ("tile-size", tile_size);
@@ -555,7 +552,7 @@ public class NibblesGame : Object
         settings.set_boolean ("fakes", fakes);
     }
 
-    public void load_worm_properties (Gee.ArrayList<Settings> worm_settings)
+    internal void load_worm_properties (Gee.ArrayList<Settings> worm_settings)
     {
         worm_props.clear ();
         foreach (var worm in worms)
@@ -567,11 +564,11 @@ public class NibblesGame : Object
             properties.left = worm_settings[worm.id].get_int ("key-left");
             properties.right = worm_settings[worm.id].get_int ("key-right");
 
-            worm_props.set (worm, properties);
+            worm_props.@set (worm, properties);
         }
     }
 
-    public bool handle_keypress (uint keyval)
+    internal bool handle_keypress (uint keyval)
     {
         if (!is_running)
             return false;

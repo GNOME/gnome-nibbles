@@ -51,7 +51,7 @@ private class PreferencesDialog : Dialog
     private Gee.ArrayList<TreeView>         tree_views;
     private Gee.ArrayList<ComboBoxText>     combo_boxes;
 
-    public PreferencesDialog (ApplicationWindow window, GLib.Settings settings, Gee.ArrayList<GLib.Settings> worm_settings)
+    internal PreferencesDialog (ApplicationWindow window, GLib.Settings settings, Gee.ArrayList<GLib.Settings> worm_settings)
     {
         Object (use_header_bar: 1);
 
@@ -109,19 +109,19 @@ private class PreferencesDialog : Dialog
             list_store.append (out iter);
             var keyval = worm_settings[id].get_int ("key-up");
             /* Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm up */
-            list_store.set (iter, 0, "key-up", 1, _("Move up"), 2, keyval);
+            list_store.@set (iter, 0, "key-up", 1, _("Move up"), 2, keyval);
             list_store.append (out iter);
             keyval = worm_settings[id].get_int ("key-down");
             /* Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm down */
-            list_store.set (iter, 0, "key-down", 1, _("Move down"), 2, keyval);
+            list_store.@set (iter, 0, "key-down", 1, _("Move down"), 2, keyval);
             list_store.append (out iter);
             keyval = worm_settings[id].get_int ("key-left");
             /* Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm left */
-            list_store.set (iter, 0, "key-left", 1, _("Move left"), 2, keyval);
+            list_store.@set (iter, 0, "key-left", 1, _("Move left"), 2, keyval);
             list_store.append (out iter);
             keyval = worm_settings[id].get_int ("key-right");
             /* Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm right */
-            list_store.set (iter, 0, "key-right", 1, _("Move right"), 2, keyval);
+            list_store.@set (iter, 0, "key-right", 1, _("Move right"), 2, keyval);
 
             var label_renderer = new CellRendererText ();
             /* Translators: in the Preferences dialog, label of a column in a table for changing the keys to move the given worm (available for each playable worm); are listed there all the actions a player can do with its worm; the other column is "Key" */
@@ -193,7 +193,7 @@ private class PreferencesDialog : Dialog
             return;
 
         string? key = null;
-        list_store.get (it, 0, out key);
+        list_store.@get (it, 0, out key);
         if (key == null)
             return;
 
@@ -226,7 +226,7 @@ private class PreferencesDialog : Dialog
 
         if (valid)
         {
-            list_store.set (it, 2, keyval);
+            list_store.@set (it, 2, keyval);
             worm_settings[id].set_int (key, (int) keyval);
         }
     }
@@ -245,11 +245,11 @@ private class PreferencesDialog : Dialog
             return;
 
         string? key = null;
-        list_store.get (it, 0, out key);
+        list_store.@get (it, 0, out key);
         if (key == null)
             return;
 
-        list_store.set (it, 2, 0);
+        list_store.@set (it, 2, 0);
         worm_settings[id].set_int (key, 0);
     }
 
