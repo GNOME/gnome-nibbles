@@ -269,10 +269,12 @@ public class Nibbles : Gtk.Application
 
     protected override void shutdown ()
     {
+        settings.delay ();
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
         game.save_properties (settings);
+        settings.apply ();
 
         base.shutdown ();
     }
