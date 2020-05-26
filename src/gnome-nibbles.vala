@@ -400,7 +400,7 @@ private class Nibbles : Gtk.Application
         foreach (var worm in game.worms)
         {
             var color = game.worm_props.@get (worm).color;
-            scoreboard.register (worm, NibblesView.colorval_name (color), scoreboard_life);
+            scoreboard.register (worm, NibblesView.colorval_name_untranslated (color), scoreboard_life);
             worm.notify["lives"].connect (scoreboard.update);
             worm.notify["score"].connect (scoreboard.update);
         }
@@ -1160,10 +1160,8 @@ private class Scoreboard : Box
         var color = Pango.Color ();
         color.parse (color_name);
 
-        /* FIXME: Consider changing this to "Worm %d"
-         * It's set to "Player %d" for now to avoid a string change for 3.20.
-         */
-        var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf); // TODO document for translators where this string appears 1/2
+        /* Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player */
+        var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf); // FIXME: Consider changing this to "Worm %d"; It's set to "Player %d" for now to avoid a string change for 3.20.
         boxes.@set (box, worm);
         add (box);
     }
@@ -1260,10 +1258,10 @@ private class ControlsGrid : Grid
     internal ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
     {
         var color = Pango.Color ();
-        color.parse (NibblesView.colorval_name (worm_props.color));
+        color.parse (NibblesView.colorval_name_untranslated (worm_props.color));
 
-        /* Translators: the player's number, e.g. "Player 1" or "Player 2". */
-        var player_id = _("Player %d").printf (worm_id + 1); // TODO document for translators where this string appears 2/2
+        /* Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player */
+        var player_id = _("Player %d").printf (worm_id + 1);
         name_label.set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\">$(player_id)</span></b>");
 
         arrow_up.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.NONE));
