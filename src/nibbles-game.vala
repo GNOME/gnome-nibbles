@@ -140,6 +140,7 @@ private class NibblesGame : Object
     internal inline void reset ()
     {
         current_level = start_level;
+        is_paused = false;
     }
 
     private void end ()
