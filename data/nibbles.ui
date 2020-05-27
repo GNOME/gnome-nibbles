@@ -4,13 +4,13 @@
         <section>
             <item>
                 <attribute name="label" translatable="yes">_Scores</attribute>
-                <attribute name="action">app.scores</attribute>
+                <attribute name="action">win.scores</attribute>
             </item>
         </section>
         <section>
             <item>
                 <attribute name="label" translatable="yes">_Preferences</attribute>
-                <attribute name="action">app.preferences</attribute>
+                <attribute name="action">win.preferences</attribute>
             </item>
             <item>
                 <attribute name="label" translatable="yes">_Help</attribute>
@@ -23,53 +23,55 @@
             </item>
         </section>
     </menu>
-    <object class="GtkHeaderBar" id="headerbar">
-        <property name="visible">True</property>
+    <template class="NibblesWindow" parent="GtkApplicationWindow">
         <property name="title" translatable="yes">Nibbles</property>
-        <property name="show-close-button">True</property>
-        <child>
-            <object class="GtkButton" id="new_game_button">
-                <property name="visible">False</property>
-                <property name="use-underline">True</property>
-                <property name="label" translatable="yes">_New Game</property>
-                <property name="action-name">app.new-game</property>
-            </object>
-            <packing>
-                <property name="pack-type">start</property>
-            </packing>
-        </child>
-        <child>
-            <object class="GtkButton" id="pause_button">
-                <property name="visible">False</property>
-                <property name="use-underline">True</property>
-                <property name="label" translatable="yes">_Pause</property>
-                <property name="action-name">app.pause</property>
-            </object>
-            <packing>
-                <property name="pack-type">end</property>
-            </packing>
-        </child>
-        <child>
-            <object class="GtkMenuButton" id="menu_button">
+        <child type="titlebar">
+            <object class="GtkHeaderBar" id="headerbar">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="menu-model">app-menu</property>
+                <property name="title" translatable="yes">Nibbles</property>
+                <property name="show-close-button">True</property>
                 <child>
-                    <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="icon_name">open-menu-symbolic</property>
-                        <property name="icon_size">1</property>
+                    <object class="GtkButton" id="new_game_button">
+                        <property name="visible">False</property>
+                        <property name="use-underline">True</property>
+                        <property name="label" translatable="yes">_New Game</property>
+                        <property name="action-name">win.new-game</property>
                     </object>
+                    <packing>
+                        <property name="pack-type">start</property>
+                    </packing>
+                </child>
+                <child>
+                    <object class="GtkButton" id="pause_button">
+                        <property name="visible">False</property>
+                        <property name="use-underline">True</property>
+                        <property name="label" translatable="yes">_Pause</property>
+                        <property name="action-name">win.pause</property>
+                    </object>
+                    <packing>
+                        <property name="pack-type">end</property>
+                    </packing>
+                </child>
+                <child>
+                    <object class="GtkMenuButton" id="menu_button">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="menu-model">app-menu</property>
+                        <child>
+                            <object class="GtkImage">
+                                <property name="visible">True</property>
+                                <property name="icon_name">open-menu-symbolic</property>
+                                <property name="icon_size">1</property>
+                            </object>
+                        </child>
+                    </object>
+                    <packing>
+                        <property name="pack_type">end</property>
+                        <property name="position">1</property>
+                    </packing>
                 </child>
             </object>
-            <packing>
-                <property name="pack_type">end</property>
-                <property name="position">1</property>
-            </packing>
         </child>
-    </object>
-    <object class="GtkApplicationWindow" id="nibbles-window">
-        <property name="title" translatable="yes">Nibbles</property>
         <child>
             <object class="GtkOverlay" id="main_overlay">
                 <property name="visible">True</property>
@@ -98,7 +100,7 @@
                                                 <property name="visible">True</property>
                                                 <property name="use-underline">True</property>
                                                 <property name="label" translatable="yes">Let’s _Play</property>
-                                                <property name="action-name">app.show-new-game-screen</property>
+                                                <property name="action-name">win.show-new-game-screen</property>
                                                 <property name="halign">center</property>
                                                 <property name="valign">end</property>
                                                 <property name="width-request">140</property>
@@ -373,7 +375,7 @@
                                                 <property name="can-default">True</property>
                                                 <property name="use-underline">True</property>
                                                 <property name="label" translatable="yes">_Next</property>
-                                                <property name="action-name">app.show-controls-screen</property>
+                                                <property name="action-name">win.show-controls-screen</property>
                                                 <property name="width-request">116</property>
                                                 <property name="height-request">34</property>
                                                 <property name="halign">center</property>
@@ -425,7 +427,7 @@
                                                 <property name="can-default">True</property>
                                                 <property name="use-underline">True</property>
                                                 <property name="label" translatable="yes">_Start</property>
-                                                <property name="action-name">app.start-game</property>
+                                                <property name="action-name">win.start-game</property>
                                                 <property name="halign">center</property>
                                                 <property name="width-request">116</property>
                                                 <property name="height-request">34</property>
@@ -496,5 +498,5 @@
                 </child>
             </object>
         </child>
-    </object> <!-- End of nibbles_app -->
+    </template> <!-- End of nibbles_app -->
 </interface>

@@ -7,6 +7,7 @@ gnome_nibbles_sources = [
     'gnome-nibbles.vala',
     'nibbles-game.vala',
     'nibbles-view.vala',
+    'nibbles-window.vala',
     'preferences-dialog.vala',
     'scoreboard.vala',
     'warp.vala',
