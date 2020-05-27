@@ -53,7 +53,7 @@ private class Boni : Object
 
     private const int MAX_BONUSES = 100;
 
-    internal signal void bonus_added ();
+    internal signal void bonus_added (Bonus bonus);
     internal signal void bonus_removed (Bonus bonus);
 
     internal void add_bonus (int[,] board, int x, int y, BonusType bonus_type, bool fake, int countdown)
@@ -67,7 +67,7 @@ private class Boni : Object
         board[x + 1, y    ] = bonus_type + 'A';
         board[x    , y + 1] = bonus_type + 'A';
         board[x + 1, y + 1] = bonus_type + 'A';
-        bonus_added ();
+        bonus_added (bonus);
         numbonuses++;
     }
 

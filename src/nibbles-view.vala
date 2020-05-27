@@ -756,10 +756,8 @@ private class NibblesView : GtkClutter.Embed
     * * Bonuses drawing
     \*/
 
-    private void bonus_added_cb ()
+    private void bonus_added_cb (Bonus bonus)
     {
-        /* Last bonus added to the list is the one that needs a texture */
-        var bonus = game.boni.bonuses.last ();
         var actor = new BonusTexture ();
         try
         {
