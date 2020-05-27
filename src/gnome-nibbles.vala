@@ -236,7 +236,6 @@ private class Nibbles : Gtk.Application
 
         /* Create view */
         view = new NibblesView (game);
-        view.configure_event.connect (configure_event_cb);
         view.is_muted = !settings.get_boolean ("sound");
         view.show ();
 
@@ -349,40 +348,6 @@ private class Nibbles : Gtk.Application
         /* We don’t save this state, but track it for saving size allocation */
         if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
             is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
-        return false;
-    }
-
-    private bool configure_event_cb (Gdk.EventConfigure event)
-    {
-        int tile_size, ts_x, ts_y;
-
-        /* Compute the new tile size based on the size of the
-         * drawing area, rounded down.
-         */
-        ts_x = event.width / NibblesGame.WIDTH;
-        ts_y = event.height / NibblesGame.HEIGHT;
-        if (ts_x * NibblesGame.WIDTH > event.width)
-            ts_x--;
-        if (ts_y * NibblesGame.HEIGHT > event.height)
-            ts_y--;
-        tile_size = int.min (ts_x, ts_y);
-
-        if (tile_size == 0 || game.tile_size == 0)
-            return true;
-
-        if (game.tile_size != tile_size)
-        {
-            view.get_stage ().set_size (tile_size * NibblesGame.WIDTH, tile_size * NibblesGame.HEIGHT);
-
-            view.board_rescale (tile_size);
-            view.boni_rescale (tile_size);
-            view.warps_rescale (tile_size);
-            foreach (var worm in game.worms)
-                worm.rescaled (tile_size);
-
-            game.tile_size = tile_size;
-        }
-
         return false;
     }
 
