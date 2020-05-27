@@ -10,5 +10,6 @@ data/preferences-dialog.ui
 src/controls.vala
 src/gnome-nibbles.vala
 src/nibbles-view.vala
+src/nibbles-window.vala
 src/preferences-dialog.vala
 src/scoreboard.vala
