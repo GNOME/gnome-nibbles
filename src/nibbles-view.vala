@@ -826,7 +826,7 @@ private class NibblesView : GtkClutter.Embed
 
     internal void boni_rescale (int tile_size)
     {
-        foreach (var bonus in game.boni.bonuses)
+        foreach (var bonus in bonus_actors.keys)
         {
             var actor = bonus_actors.@get (bonus);
             actor.set_size (tile_size, tile_size);
