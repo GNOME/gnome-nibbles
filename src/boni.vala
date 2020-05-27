@@ -45,7 +45,7 @@ private class Bonus : Object
 
 private class Boni : Object
 {
-    internal Gee.LinkedList<Bonus> bonuses = new Gee.LinkedList<Bonus> ();
+    private Gee.LinkedList<Bonus> bonuses = new Gee.LinkedList<Bonus> ();
 
     internal int numleft    { internal get; internal set; default = 8; }
     internal int numboni    { internal get; private set; default = 8; }
