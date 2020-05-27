@@ -146,9 +146,9 @@ private class NibblesView : GtkClutter.Embed
         }
     }
 
-    internal NibblesView (NibblesGame game)
+    internal NibblesView (NibblesGame game, bool is_muted)
     {
-        Object (game: game);
+        Object (game: game, is_muted: is_muted);
 
         stage = (Clutter.Stage) get_stage ();
         Clutter.Color stage_color = { 0x00, 0x00, 0x00, 0xff };
@@ -908,7 +908,7 @@ private class NibblesView : GtkClutter.Embed
     * * Sound
     \*/
 
-    internal bool is_muted { internal set; private get; default = true; }
+    public bool is_muted { private get; internal construct set; }
 
     private GSound.Context sound_context;
     private SoundContextState sound_context_state = SoundContextState.INITIAL;

@@ -235,8 +235,7 @@ private class Nibbles : Gtk.Application
         });
 
         /* Create view */
-        view = new NibblesView (game);
-        view.is_muted = !settings.get_boolean ("sound");
+        view = new NibblesView (game, !settings.get_boolean ("sound"));
         view.show ();
 
         frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
