@@ -468,6 +468,14 @@
                               </packing>
                             </child>
                             <child>
+                              <object class="Scoreboard" id="scoreboard">
+                                <property name="visible">True</property>
+                              </object>
+                              <packing>
+                                <property name="name">scoreboard</property>
+                              </packing>
+                            </child>
+                            <child>
                               <object class="GtkLabel">
                                 <property name="visible">True</property>
                                 <property name="label" translatable="yes">Paused</property>
