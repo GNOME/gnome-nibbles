@@ -443,22 +443,15 @@ private class NibblesGame : Object
         apply_bonus (bonus, worm);
         bonus_applied (bonus, worm);
 
-        if (board[worm.head.x, worm.head.y] == BonusType.REGULAR + 'A'
-            && !bonus.fake)
-        {
-            // FIXME: see Boni.on_worms_move()
-            boni.remove_bonus (board, bonus);
-            boni.bonuses.remove (bonus);
+        bool real_bonus = board[worm.head.x, worm.head.y] == BonusType.REGULAR + 'A'
+                       && !bonus.fake;
 
-            if (boni.numleft != 0)
-                add_bonus (true);
-        }
-        else
-        {
-            // FIXME: see Boni.on_worms_move()
-            boni.remove_bonus (board, bonus);
-            boni.bonuses.remove (bonus);
-        }
+        // FIXME: see Boni.on_worms_move()
+        boni.remove_bonus (board, bonus);
+        boni.bonuses.remove (bonus);
+
+        if (real_bonus && boni.numleft != 0)
+            add_bonus (true);
     }
 
     internal void warp_found_cb (Worm worm)
