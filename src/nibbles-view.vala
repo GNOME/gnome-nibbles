@@ -160,6 +160,40 @@ private class NibblesView : GtkClutter.Embed
         load_pixmap ();
     }
 
+    protected override bool configure_event (Gdk.EventConfigure event)
+    {
+        int tile_size, ts_x, ts_y;
+
+        /* Compute the new tile size based on the size of the
+         * drawing area, rounded down.
+         */
+        ts_x = event.width / NibblesGame.WIDTH;
+        ts_y = event.height / NibblesGame.HEIGHT;
+        if (ts_x * NibblesGame.WIDTH > event.width)
+            ts_x--;
+        if (ts_y * NibblesGame.HEIGHT > event.height)
+            ts_y--;
+        tile_size = int.min (ts_x, ts_y);
+
+        if (tile_size == 0 || game.tile_size == 0)
+            return true;
+
+        if (game.tile_size != tile_size)
+        {
+            get_stage ().set_size (tile_size * NibblesGame.WIDTH, tile_size * NibblesGame.HEIGHT);
+
+            board_rescale (tile_size);
+            boni_rescale  (tile_size);
+            warps_rescale (tile_size);
+            foreach (var worm in game.worms)
+                worm.rescaled (tile_size);
+
+            game.tile_size = tile_size;
+        }
+
+        return false;
+    }
+
     /*\
     * * Level creationg and loading
     \*/
@@ -497,7 +531,7 @@ private class NibblesView : GtkClutter.Embed
         }
     }
 
-    internal void board_rescale (int tile_size)
+    private void board_rescale (int tile_size)
     {
         int board_width, board_height;
         float x_pos, y_pos;
@@ -824,7 +858,7 @@ private class NibblesView : GtkClutter.Embed
         }
     }
 
-    internal void boni_rescale (int tile_size)
+    private void boni_rescale (int tile_size)
     {
         foreach (var bonus in bonus_actors.keys)
         {
@@ -861,7 +895,7 @@ private class NibblesView : GtkClutter.Embed
         warp_actors.@set (warp, actor);
     }
 
-    internal void warps_rescale (int tile_size)
+    private void warps_rescale (int tile_size)
     {
         foreach (var warp in game.warp_manager.warps)
         {
