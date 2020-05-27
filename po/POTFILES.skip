@@ -1,3 +1,4 @@
 src/gnome-nibbles.c
 src/nibbles-view.c
 src/preferences-dialog.c
+src/scoreboard.c
