@@ -446,9 +446,7 @@ private class NibblesGame : Object
         bool real_bonus = board[worm.head.x, worm.head.y] == BonusType.REGULAR + 'A'
                        && !bonus.fake;
 
-        // FIXME: see Boni.on_worms_move()
         boni.remove_bonus (board, bonus);
-        boni.bonuses.remove (bonus);
 
         if (real_bonus && boni.numleft != 0)
             add_bonus (true);
