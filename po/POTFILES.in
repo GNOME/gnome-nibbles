@@ -7,6 +7,7 @@ data/org.gnome.Nibbles.desktop.in
 data/org.gnome.nibbles.gschema.xml
 data/player-score-box.ui
 data/preferences-dialog.ui
+src/controls.vala
 src/gnome-nibbles.vala
 src/nibbles-view.vala
 src/preferences-dialog.vala
