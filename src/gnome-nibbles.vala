@@ -49,7 +49,7 @@ private class Nibbles : Gtk.Application
         return new Nibbles ().run (args);
     }
 
-    private Nibbles ()
+    private inline Nibbles ()
     {
         Object (application_id: "org.gnome.Nibbles", flags: ApplicationFlags.FLAGS_NONE);
 
@@ -96,15 +96,12 @@ private class Nibbles : Gtk.Application
 
         window = new NibblesWindow ();
         add_window (window);
-
-        window.show ();
     }
 
     protected override void activate ()
     {
-        base.activate ();
-
         window.present ();
+        base.activate ();
     }
 
     protected override void shutdown ()
@@ -113,7 +110,7 @@ private class Nibbles : Gtk.Application
         base.shutdown ();
     }
 
-    private void help_cb ()
+    private inline void help_cb ()
     {
         try
         {
@@ -125,7 +122,7 @@ private class Nibbles : Gtk.Application
         }
     }
 
-    private void about_cb ()
+    private inline void about_cb ()
     {
         string [] authors = {
         /* Translators: text crediting an author, in the about dialog */
