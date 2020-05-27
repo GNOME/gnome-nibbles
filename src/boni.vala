@@ -117,12 +117,12 @@ private class Boni : Object
         {
             if (bonus.countdown-- == 0)
             {
-                bool missed = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
+                bool real_bonus = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
 
                 found.add (bonus);
                 remove_bonus (board, bonus);
 
-                if (missed)
+                if (real_bonus)
                 {
                     increase_missed ();
                     missed_bonuses_to_replace++;
