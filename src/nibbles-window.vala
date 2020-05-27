@@ -64,7 +64,7 @@ private class NibblesWindow : ApplicationWindow
     /* Statusbar widgets */
     [GtkChild] private Stack statusbar_stack;
     [GtkChild] private Label countdown;
-    private Scoreboard scoreboard;
+    [GtkChild] private Scoreboard scoreboard;
     private Gdk.Pixbuf scoreboard_life;
 
     /* Preferences dialog */
@@ -178,10 +178,7 @@ private class NibblesWindow : ApplicationWindow
         game_box.pack_start (frame);
 
         /* Create scoreboard */
-        scoreboard = new Scoreboard ();
         scoreboard_life = view.load_pixmap_file ("scoreboard-life.svg", 2 * game.tile_size, 2 * game.tile_size);
-        scoreboard.show ();
-        statusbar_stack.add_named (scoreboard, "scoreboard");
 
         frame.add (view);
         frame.show ();
