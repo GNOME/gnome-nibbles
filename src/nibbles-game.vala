@@ -222,7 +222,7 @@ private class NibblesGame : Object
 
     internal void move_worms ()
     {
-        if (boni.missed > Boni.MAX_MISSED)
+        if (boni.too_many_missed ())
         {
             foreach (var worm in worms)
             {
@@ -238,18 +238,15 @@ private class NibblesGame : Object
         {
             if (bonus.countdown-- == 0)
             {
-                if (bonus.bonus_type == BonusType.REGULAR && !bonus.fake)
-                {
-                    found.add (bonus);
-                    boni.remove_bonus (board, bonus);
-                    boni.missed++;
+                bool missed = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
 
-                    add_bonus (true);
-                }
-                else
+                found.add (bonus);
+                boni.remove_bonus (board, bonus);
+
+                if (missed)
                 {
-                    found.add (bonus);
-                    boni.remove_bonus (board, bonus);
+                    boni.increase_missed ();
+                    add_bonus (true);
                 }
             }
         }
@@ -362,7 +359,7 @@ private class NibblesGame : Object
             }
             boni.add_bonus (board, x, y, BonusType.REGULAR, false, 300);
         }
-        else if (boni.missed <= Boni.MAX_MISSED)
+        else if (!boni.too_many_missed ())
         {
             if (Random.int_range (0, 7) != 0)
                 good = false;

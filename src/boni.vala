@@ -47,13 +47,11 @@ private class Boni : Object
 {
     internal Gee.LinkedList<Bonus> bonuses = new Gee.LinkedList<Bonus> ();
 
-    internal int missed     { internal get; internal set; default = 0; }
     internal int numleft    { internal get; internal set; default = 8; }
     internal int numboni    { internal get; private set; default = 8; }
     private  int numbonuses = 0;
 
     private const int MAX_BONUSES = 100;
-    internal const int MAX_MISSED = 2;
 
     internal signal void bonus_added ();
     internal signal void bonus_removed (Bonus bonus);
@@ -86,7 +84,7 @@ private class Boni : Object
     internal void reset (int numworms)
     {
         bonuses.clear ();
-        missed = 0;
+        reset_missed ();
         numboni = 8 + numworms;
         numbonuses = 0;
         numleft = numboni;
@@ -106,5 +104,27 @@ private class Boni : Object
         }
 
         return null;
+    }
+
+    /*\
+    * * missed
+    \*/
+
+    private uint8 missed = 0;
+    private const uint8 MAX_MISSED = 2;
+
+    internal inline bool too_many_missed ()
+    {
+        return missed > MAX_MISSED;
+    }
+
+    internal inline void increase_missed ()
+    {
+        missed++;
+    }
+
+    private inline void reset_missed ()
+    {
+        missed = 0;
     }
 }
