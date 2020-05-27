@@ -79,6 +79,7 @@ private class Boni : Object
         board[bonus.x + 1, bonus.y + 1] = NibblesGame.EMPTYCHAR;
 
         bonus_removed (bonus);
+        bonuses.remove (bonus);
     }
 
     internal void reset (int numworms)
@@ -110,26 +111,24 @@ private class Boni : Object
     {
         missed_bonuses_to_replace = 0;
 
-        // FIXME Use an iterator instead of a second list and
-        // remove from the bonuses list inside remove_bonus()
+        // FIXME Use an iterator instead of a second list
         var found = new Gee.LinkedList<Bonus> ();
         foreach (var bonus in bonuses)
-        {
             if (bonus.countdown-- == 0)
-            {
-                bool real_bonus = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
-
                 found.add (bonus);
-                remove_bonus (board, bonus);
 
-                if (real_bonus)
-                {
-                    increase_missed ();
-                    missed_bonuses_to_replace++;
-                }
+        foreach (var bonus in found)
+        {
+            bool real_bonus = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
+
+            remove_bonus (board, bonus);
+
+            if (real_bonus)
+            {
+                increase_missed ();
+                missed_bonuses_to_replace++;
             }
         }
-        bonuses.remove_all (found);
     }
 
     /*\
