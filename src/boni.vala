@@ -106,6 +106,32 @@ private class Boni : Object
         return null;
     }
 
+    internal void on_worms_move (int[,] board, out uint8 missed_bonuses_to_replace)
+    {
+        missed_bonuses_to_replace = 0;
+
+        // FIXME Use an iterator instead of a second list and
+        // remove from the bonuses list inside remove_bonus()
+        var found = new Gee.LinkedList<Bonus> ();
+        foreach (var bonus in bonuses)
+        {
+            if (bonus.countdown-- == 0)
+            {
+                bool missed = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
+
+                found.add (bonus);
+                remove_bonus (board, bonus);
+
+                if (missed)
+                {
+                    increase_missed ();
+                    missed_bonuses_to_replace++;
+                }
+            }
+        }
+        bonuses.remove_all (found);
+    }
+
     /*\
     * * missed
     \*/
@@ -118,7 +144,7 @@ private class Boni : Object
         return missed > MAX_MISSED;
     }
 
-    internal inline void increase_missed ()
+    private inline void increase_missed ()
     {
         missed++;
     }
