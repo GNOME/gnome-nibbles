@@ -3,6 +3,7 @@
 gnome_nibbles_sources = [
     'vapi/config.vapi',
     'boni.vala',
+    'controls.vala',
     'gnome-nibbles.vala',
     'nibbles-game.vala',
     'nibbles-view.vala',
