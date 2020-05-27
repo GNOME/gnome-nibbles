@@ -234,27 +234,10 @@ private class NibblesGame : Object
             }
         }
 
-        // FIXME 1/3: Use an iterator instead of a second list and remove
-        // from the boni.bonuses list inside boni.remove_bonus ()
-        var found = new Gee.LinkedList<Bonus> ();
-        foreach (var bonus in boni.bonuses)
-        {
-            if (bonus.countdown-- == 0)
-            {
-                bool missed = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
-
-                found.add (bonus);
-                boni.remove_bonus (board, bonus);
-
-                if (missed)
-                {
-                    boni.increase_missed ();
-                    add_bonus (true);
-                }
-            }
-        }
-        boni.bonuses.remove_all (found);
-        // END FIXME
+        uint8 missed_bonuses_to_replace;
+        boni.on_worms_move (board, out missed_bonuses_to_replace);
+        for (uint8 i = 0; i < missed_bonuses_to_replace; i++)
+            add_bonus (true);
 
         var dead_worms = new Gee.LinkedList<Worm> ();
         foreach (var worm in worms)
@@ -463,7 +446,7 @@ private class NibblesGame : Object
         if (board[worm.head.x, worm.head.y] == BonusType.REGULAR + 'A'
             && !bonus.fake)
         {
-            // FIXME: 2/3
+            // FIXME: see Boni.on_worms_move()
             boni.remove_bonus (board, bonus);
             boni.bonuses.remove (bonus);
 
@@ -472,7 +455,7 @@ private class NibblesGame : Object
         }
         else
         {
-            // FIXME: 3/3
+            // FIXME: see Boni.on_worms_move()
             boni.remove_bonus (board, bonus);
             boni.bonuses.remove (bonus);
         }
