@@ -94,8 +94,11 @@ private class NibblesGame : Object
     * * Game controls
     \*/
 
-    internal void start ()
+    internal void start (bool add_initial_bonus)
     {
+        if (add_initial_bonus)
+            add_bonus (true);
+
         is_running = true;
 
         main_id = Timeout.add (GAMEDELAY * speed, main_loop_cb);
@@ -131,7 +134,7 @@ private class NibblesGame : Object
     internal void unpause ()
     {
         is_paused = false;
-        start ();
+        start (/* add initial bonus */ false);
     }
 
     internal inline void reset ()
@@ -309,7 +312,7 @@ private class NibblesGame : Object
     * * Handling bonuses
     \*/
 
-    internal void add_bonus (bool regular)
+    private void add_bonus (bool regular)
     {
         bool good = false;
         int x = 0, y = 0;

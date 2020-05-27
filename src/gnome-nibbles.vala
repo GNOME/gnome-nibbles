@@ -307,8 +307,7 @@ private class Nibbles : Gtk.Application
             statusbar_stack.set_visible_child_name ("scoreboard");
             view.name_labels.hide ();
 
-            game.add_bonus (true);
-            game.start ();
+            game.start (/* add initial bonus */ true);
 
             pause_action.set_enabled (true);
             back_action.set_enabled (true);
@@ -466,7 +465,7 @@ private class Nibbles : Gtk.Application
                 && !game.is_paused)
             {
                 if (seconds == 0)
-                    game.start ();
+                    game.start (/* add initial bonus */ false);
                 else
                     countdown_id = Timeout.add_seconds (1, countdown_cb);
 
