@@ -1,3 +1,22 @@
+# Tests
+
+nibbles_tests = executable(
+    'nibbles_tests',
+    [
+        'boni.vala',
+        'nibbles-game.vala',
+        'nibbles-test.vala',
+        'worm.vala',
+        'warp.vala',
+    ],
+    dependencies : [
+        gee_dep,
+        gio_dep,
+        glib_dep,
+    ]
+)
+test('nibbles-tests', nibbles_tests)
+
 # gnome-nibbles executable
 
 gnome_nibbles_sources = [
