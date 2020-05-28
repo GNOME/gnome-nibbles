@@ -107,7 +107,6 @@ private class NibblesWindow : ApplicationWindow
             worm_settings[i].changed.connect (worm_settings_changed_cb);
         }
 
-        size_allocate.connect (size_allocate_cb);
         map.connect (init_state_watcher);
         set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
@@ -244,13 +243,15 @@ private class NibblesWindow : ApplicationWindow
             assert_not_reached ();
         surface = (Gdk.Toplevel) (!) nullable_surface;
         surface.notify ["state"].connect (on_window_state_event);
+        surface.size_changed.connect (on_size_changed);
     }
 
-    private void size_allocate_cb (Allocation allocation)
+    private inline void on_size_changed (Gdk.Surface _surface, int width, int height)
     {
         if (window_is_maximized || window_is_tiled)
             return;
-        get_size (out window_width, out window_height);
+        window_width  = width;
+        window_height = height;
     }
 
     private const Gdk.SurfaceState tiled_state = Gdk.SurfaceState.TILED
