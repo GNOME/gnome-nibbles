@@ -83,11 +83,11 @@ private class NibblesGame : Object
     internal signal void animate_end_game ();
     internal signal void level_completed ();
 
-    internal NibblesGame (int tile_size, int start_level, int speed, bool fakes)
+    internal NibblesGame (int tile_size, int start_level, int speed, bool fakes, bool no_random = false)
     {
         Object (tile_size: tile_size, start_level: start_level, current_level: start_level, speed: speed, fakes: fakes);
 
-        Random.set_seed ((uint32) time_t ());
+        Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
 
     /*\
@@ -101,10 +101,23 @@ private class NibblesGame : Object
 
         is_running = true;
 
-        main_id = Timeout.add (GAMEDELAY * speed, main_loop_cb);
+        int worms_delay;
+        int bonus_delay;
+        switch (speed)
+        {
+            case 0: worms_delay = 7; bonus_delay = 20; break;  // used by tests
+            default:
+                if (speed > MAX_SPEED)
+                    assert_not_reached ();
+                worms_delay = GAMEDELAY * speed;
+                bonus_delay = BONUSDELAY * speed;
+                break;
+        }
+
+        main_id = Timeout.add (worms_delay, main_loop_cb);
         Source.set_name_by_id (main_id, "[Nibbles] main_loop_cb");
 
-        add_bonus_id = Timeout.add (BONUSDELAY * speed, add_bonus_cb);
+        add_bonus_id = Timeout.add (bonus_delay, add_bonus_cb);
         Source.set_name_by_id (add_bonus_id, "[Nibbles] add_bonus_cb");
     }
 
