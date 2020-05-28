@@ -108,7 +108,7 @@ private class NibblesWindow : ApplicationWindow
         }
 
         size_allocate.connect (size_allocate_cb);
-        window_state_event.connect (window_state_event_cb);
+        map.connect (init_state_watcher);
         set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
             maximize ();
@@ -236,6 +236,16 @@ private class NibblesWindow : ApplicationWindow
         return game.handle_keypress (keyval);
     }
 
+    private Gdk.Toplevel surface;
+    private inline void init_state_watcher ()
+    {
+        Gdk.Surface? nullable_surface = get_surface ();  // TODO report bug, get_surface() returns a nullable Surface
+        if (nullable_surface == null || !((!) nullable_surface is Gdk.Toplevel))
+            assert_not_reached ();
+        surface = (Gdk.Toplevel) (!) nullable_surface;
+        surface.notify ["state"].connect (on_window_state_event);
+    }
+
     private void size_allocate_cb (Allocation allocation)
     {
         if (window_is_maximized || window_is_tiled)
@@ -243,14 +253,19 @@ private class NibblesWindow : ApplicationWindow
         get_size (out window_width, out window_height);
     }
 
-    private bool window_state_event_cb (Gdk.EventWindowState event)
+    private const Gdk.SurfaceState tiled_state = Gdk.SurfaceState.TILED
+                                               | Gdk.SurfaceState.TOP_TILED
+                                               | Gdk.SurfaceState.BOTTOM_TILED
+                                               | Gdk.SurfaceState.LEFT_TILED
+                                               | Gdk.SurfaceState.RIGHT_TILED;
+    private inline void on_window_state_event ()
     {
-        if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
-            window_is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
-        /* We don’t save this state, but track it for saving size allocation */
-        if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
-            window_is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
-        return false;
+        Gdk.SurfaceState state = surface.get_state ();
+
+        window_is_maximized = (state & Gdk.SurfaceState.MAXIMIZED) != 0;
+
+        /* tiled: not saved, but should not change saved window size */
+        window_is_tiled = (state & tiled_state) != 0;
     }
 
     private void start_game ()
