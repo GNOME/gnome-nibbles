@@ -122,7 +122,7 @@ private class NibblesView : GtkClutter.Embed
 
     private Gee.HashMap<Worm,  WormActor>    worm_actors  = new Gee.HashMap<Worm,  WormActor> ();
     private Gee.HashMap<Bonus, BonusTexture> bonus_actors = new Gee.HashMap<Bonus, BonusTexture> ();
-    private Gee.HashMap<Warp,  WarpTexture>  warp_actors  = new Gee.HashMap<Warp,  WarpTexture> ();
+    private Gee.HashSet<WarpTexture>         warp_actors  = new Gee.HashSet<WarpTexture> ();
 
     /* Game being played */
     private NibblesGame _game;
@@ -140,7 +140,7 @@ private class NibblesView : GtkClutter.Embed
 
             _game.bonus_applied.connect (bonus_applied_cb);
 
-            _game.warp_manager.warp_added.connect (warp_added_cb);
+            _game.warp_added.connect (warp_added_cb);
 
             _game.animate_end_game.connect (animate_end_game_cb);
         }
@@ -215,7 +215,7 @@ private class NibblesView : GtkClutter.Embed
             actor.destroy ();
         bonus_actors.clear ();
 
-        foreach (var actor in warp_actors.values)
+        foreach (var actor in warp_actors)
             actor.destroy ();
         warp_actors.clear ();
 
@@ -505,8 +505,8 @@ private class NibblesView : GtkClutter.Embed
         foreach (var worm in game.worms)
             worm_actors.@get (worm).hide ();
 
-        foreach (var warp in game.warp_manager.warps)
-            warp_actors.@get (warp).hide ();
+        foreach (var actor in warp_actors)
+            actor.hide ();
 
         level.save_easing_state ();
         level.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
@@ -800,7 +800,7 @@ private class NibblesView : GtkClutter.Embed
     * * Warps drawing
     \*/
 
-    private void warp_added_cb (Warp warp)
+    private void warp_added_cb (int x, int y)
     {
         var actor = new WarpTexture ();
         try
@@ -817,20 +817,17 @@ private class NibblesView : GtkClutter.Embed
         }
 
         actor.set_size (game.tile_size, game.tile_size);
-        actor.set_position (warp.x * game.tile_size, warp.y * game.tile_size);
+        actor.set_position (x * game.tile_size, y * game.tile_size);
 
         level.add_child (actor);
 
-        warp_actors.@set (warp, actor);
+        warp_actors.add (actor);
     }
 
     private void warps_rescale (int tile_size)
     {
-        foreach (var warp in game.warp_manager.warps)
-        {
-            var actor = warp_actors.@get (warp);
+        foreach (var actor in warp_actors)
             actor.set_size (tile_size, tile_size);
-        }
     }
 
     /*\

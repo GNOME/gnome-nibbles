@@ -64,8 +64,9 @@ private class NibblesGame : Object
     /* Game models */
     public Gee.LinkedList<Worm> worms                       { internal get; default = new Gee.LinkedList<Worm> (); }
     public Boni boni                                        { internal get; default = new Boni (); }
-    public WarpManager warp_manager                         { internal get; default = new WarpManager (); }
     public Gee.HashMap<Worm, WormProperties?> worm_props    { internal get; default = new Gee.HashMap<Worm, WormProperties?> (); }
+
+    private WarpManager warp_manager = new WarpManager ();
 
     /* Game controls */
     internal bool is_running    { internal get; private set; default = false; }
@@ -80,6 +81,12 @@ private class NibblesGame : Object
     internal signal void log_score (int score, int level_reached);
     internal signal void animate_end_game ();
     internal signal void level_completed ();
+    internal signal void warp_added (int x, int y);
+
+    construct
+    {
+        warp_manager.warp_added.connect ((warp) => warp_added (warp.x, warp.y));
+    }
 
     internal NibblesGame (int tile_size, int start_level, int speed, bool fakes, bool no_random = false)
     {
