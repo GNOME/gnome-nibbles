@@ -63,9 +63,9 @@ private class NibblesGame : Object
 
     /* Game models */
     public Gee.LinkedList<Worm> worms                       { internal get; default = new Gee.LinkedList<Worm> (); }
-    public Boni boni                                        { internal get; default = new Boni (); }
     public Gee.HashMap<Worm, WormProperties?> worm_props    { internal get; default = new Gee.HashMap<Worm, WormProperties?> (); }
 
+    private Boni boni = new Boni ();
     private WarpManager warp_manager = new WarpManager ();
 
     /* Game controls */
@@ -82,10 +82,13 @@ private class NibblesGame : Object
     internal signal void animate_end_game ();
     internal signal void level_completed ();
     internal signal void warp_added (int x, int y);
+    internal signal void bonus_added (Bonus bonus);
+    internal signal void bonus_removed (Bonus bonus);
 
     construct
     {
         warp_manager.warp_added.connect ((warp) => warp_added (warp.x, warp.y));
+        boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
     internal NibblesGame (int tile_size, int start_level, int speed, bool fakes, bool no_random = false)
@@ -418,7 +421,7 @@ private class NibblesGame : Object
         if (regular)
         {
             if ((Random.int_range (0, 7) == 0) && fakes)
-                boni.add_bonus (board, x, y, BonusType.REGULAR, true, 300);
+                _add_bonus (x, y, BonusType.REGULAR, true, 300);
 
             good = false;
             while (!good)
@@ -436,7 +439,7 @@ private class NibblesGame : Object
                 if (board[x + 1, y + 1] != EMPTYCHAR)
                     good = false;
             }
-            boni.add_bonus (board, x, y, BonusType.REGULAR, false, 300);
+            _add_bonus (x, y, BonusType.REGULAR, false, 300);
         }
         else if (!boni.too_many_missed ())
         {
@@ -460,17 +463,17 @@ private class NibblesGame : Object
                 case 7:
                 case 8:
                 case 9:
-                    boni.add_bonus (board, x, y, BonusType.HALF, good, 200);
+                    _add_bonus (x, y, BonusType.HALF, good, 200);
                     break;
                 case 10:
                 case 11:
                 case 12:
                 case 13:
                 case 14:
-                    boni.add_bonus (board, x, y, BonusType.DOUBLE, good, 150);
+                    _add_bonus (x, y, BonusType.DOUBLE, good, 150);
                     break;
                 case 15:
-                    boni.add_bonus (board, x, y, BonusType.LIFE, good, 100);
+                    _add_bonus (x, y, BonusType.LIFE, good, 100);
                     break;
                 case 16:
                 case 17:
@@ -478,10 +481,16 @@ private class NibblesGame : Object
                 case 19:
                 case 20:
                     if (numworms > 1)
-                        boni.add_bonus (board, x, y, BonusType.REVERSE, good, 150);
+                        _add_bonus (x, y, BonusType.REVERSE, good, 150);
                     break;
             }
         }
+    }
+    private inline void _add_bonus (int x, int y, BonusType bonus_type, bool fake, int countdown)
+    {
+        Bonus bonus = new Bonus (x, y, bonus_type, fake, countdown);
+        if (boni.add_bonus (board, bonus))
+            bonus_added (bonus);
     }
 
     private void apply_bonus (Bonus bonus, Worm worm)
