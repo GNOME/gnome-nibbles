@@ -198,9 +198,9 @@ private class NibblesView : GtkClutter.Embed
     * * Level creationg and loading
     \*/
 
-    internal void new_level (int level)
+    internal void new_level (int level_id)
     {
-        string level_name = "level%03d.gnl".printf (level);
+        string level_name = "level%03d.gnl".printf (level_id);
         string filename = Path.build_filename (PKGDATADIR, "levels", level_name, null);
 
         FileStream file;
@@ -219,110 +219,43 @@ private class NibblesView : GtkClutter.Embed
             actor.destroy ();
         warp_actors.clear ();
 
-        game.boni.reset (game.numworms);
-        game.warp_manager.warps.clear ();
-
-        string tmpboard;
-        int count = 0;
-        for (int i = 0; i < NibblesGame.HEIGHT; i++)
-        {
-            if ((tmpboard = file.read_line ()) == null)
-                error ("Level file appears to be damaged: %s", filename);
-
-            for (int j = 0; j < NibblesGame.WIDTH; j++)
-            {
-                game.board[j, i] = tmpboard.@get(j);
-                switch (game.board[j, i])
-                {
-                    case 'm':
-                        game.board[j, i] = NibblesGame.EMPTYCHAR;
-                        if (count < game.numworms)
-                        {
-                            game.worms[count].set_start (j, i, WormDirection.UP);
-
-                            var actors = new WormActor ();
-                            stage.add_child (actors);
-                            worm_actors.@set (game.worms[count], actors);
-                            count++;
-                        }
-                        break;
-                    case 'n':
-                        game.board[j, i] = NibblesGame.EMPTYCHAR;
-                        if (count < game.numworms)
-                        {
-                            game.worms[count].set_start (j, i, WormDirection.LEFT);
-
-                            var actors = new WormActor ();
-                            stage.add_child (actors);
-                            worm_actors.@set (game.worms[count], actors);
-                            count++;
-                        }
-                        break;
-                    case 'o':
-                        game.board[j, i] = NibblesGame.EMPTYCHAR;
-                        if (count < game.numworms)
-                        {
-                            game.worms[count].set_start (j, i, WormDirection.DOWN);
-
-                            var actors = new WormActor ();
-                            stage.add_child (actors);
-                            worm_actors.@set (game.worms[count], actors);
-                            count++;
-                        }
-                        break;
-                    case 'p':
-                        game.board[j, i] = NibblesGame.EMPTYCHAR;
-                        if (count < game.numworms)
-                        {
-                            game.worms[count].set_start (j, i, WormDirection.RIGHT);
-
-                            var actors = new WormActor ();
-                            stage.add_child (actors);
-                            worm_actors.@set (game.worms[count], actors);
-                            count++;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
-        load_level ();
-    }
-
-    private void load_level ()
-    {
-        int x_pos, y_pos;
-        GtkClutter.Texture tmp = null;
-        bool is_wall = true;
-
         if (level != null)
         {
             level.remove_all_children ();
             stage.remove_child (level);
         }
-
         level = new Clutter.Actor ();
 
+        string? line;
+        string [] board = {};
+        while ((line = file.read_line ()) != null)
+            board += (!) line;
+        if (!game.load_board (board))
+            error ("Level file appears to be damaged: %s", filename);
+
+        foreach (Worm worm in game.worms)
+        {
+            var actors = new WormActor ();
+            stage.add_child (actors);
+            worm_actors.@set (worm, actors);
+        }
+
         /* Load wall_pixmaps onto the surface */
+        int x_pos, y_pos;
+        GtkClutter.Texture? tmp;
         for (int i = 0; i < NibblesGame.HEIGHT; i++)
         {
             y_pos = i * game.tile_size;
             for (int j = 0; j < NibblesGame.WIDTH; j++)
             {
-                is_wall = true;
+                tmp = null;
                 try
                 {
                     switch (game.board[j, i])
                     {
-                        case '.': // empty space
-                            game.board[j, i] = 'a';
-                            is_wall = false;
+                        case 'a':   // the most common thing on top in the switch
                             break;
-                        case 'a': // kept for compatibility
-                            is_wall = false;
-                            break;
+
                         case 'b': // straight up
                             tmp = new GtkClutter.Texture ();
                             tmp.set_from_pixbuf (wall_pixmaps[0]);
@@ -367,6 +300,19 @@ private class NibblesView : GtkClutter.Embed
                             tmp = new GtkClutter.Texture ();
                             tmp.set_from_pixbuf (wall_pixmaps[10]);
                             break;
+
+                        case 'r': // should have been repleced by NibblesGame.EMPTYCHAR
+                        case 's':
+                        case 't':
+                        case 'u':
+                        case 'v':
+                        case 'w':
+                        case 'x':
+                        case 'y':
+                        case 'z':
+                        case '.': // empty space in files, replaced by an 'a'
+                            assert_not_reached ();
+
                         case 'Q':
                         case 'R':
                         case 'S':
@@ -377,24 +323,7 @@ private class NibblesView : GtkClutter.Embed
                         case 'X':
                         case 'Y':
                         case 'Z':
-                            is_wall = false;
-                            game.warp_manager.add_warp (game.board, j - 1, i - 1, -(game.board[j, i]), 0);
-                            break;
-                        case 'r':
-                        case 's':
-                        case 't':
-                        case 'u':
-                        case 'v':
-                        case 'w':
-                        case 'x':
-                        case 'y':
-                        case 'z':
-                            is_wall = false;
-                            game.warp_manager.add_warp (game.board, -(game.board[j, i] - 'a' + 'A'), 0, j, i);
-                            game.board[j, i] = NibblesGame.EMPTYCHAR;
-                            break;
                         default:
-                            is_wall = false;
                             break;
                     }
                 }
@@ -403,13 +332,13 @@ private class NibblesView : GtkClutter.Embed
                     error ("Error loading level: %s", e.message);
                 }
 
-                if (is_wall)
+                if (tmp != null)
                 {
                     x_pos = j * game.tile_size;
 
-                    tmp.set_size (game.tile_size, game.tile_size);
-                    tmp.set_position (x_pos, y_pos);
-                    level.add_child (tmp);
+                    ((!) tmp).set_size (game.tile_size, game.tile_size);
+                    ((!) tmp).set_position (x_pos, y_pos);
+                    level.add_child ((!) tmp);
                 }
             }
         }
