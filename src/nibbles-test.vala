@@ -41,7 +41,7 @@ namespace NibblesTest
 
     private static void test_games ()
     {
-        NibblesGame game = new NibblesGame (/* TODO tile size */ 42, /* start level */ 1, /* speed */ 0, /* fakes */ false, /* no random */ true);
+        NibblesGame game = new NibblesGame (/* start level */ 1, /* speed */ 0, /* fakes */ false, /* no random */ true);
 
         game.numhumans = 0;
         game.numai = 4;

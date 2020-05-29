@@ -157,8 +157,7 @@ private class NibblesWindow : ApplicationWindow
         number_of_ai_buttons.add (ai5);
 
         /* Create game */
-        game = new NibblesGame (settings.get_int ("tile-size"),
-                                settings.get_int ("start-level"),
+        game = new NibblesGame (settings.get_int ("start-level"),
                                 settings.get_int ("speed"),
                                 settings.get_boolean ("fakes"));
         game.log_score.connect (log_score_cb);
@@ -171,14 +170,16 @@ private class NibblesWindow : ApplicationWindow
         });
 
         /* Create view */
-        view = new NibblesView (game, !settings.get_boolean ("sound"));
+        view = new NibblesView (game,
+                                settings.get_int ("tile-size"),
+                                !settings.get_boolean ("sound"));
         view.show ();
 
         frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
         game_box.pack_start (frame);
 
         /* Create scoreboard */
-        scoreboard_life = view.load_pixmap_file ("scoreboard-life.svg", 2 * game.tile_size, 2 * game.tile_size);
+        scoreboard_life = view.load_pixmap_file ("scoreboard-life.svg", 2 * view.tile_size, 2 * view.tile_size);
 
         frame.add (view);
         frame.show ();
@@ -188,8 +189,8 @@ private class NibblesWindow : ApplicationWindow
         game.numai = settings.get_int ("ai");
 
         /* Controls screen */
-        arrow_pixbuf = view.load_pixmap_file ("arrow.svg", 5 * game.tile_size, 5 * game.tile_size);
-        arrow_key_pixbuf = view.load_pixmap_file ("arrow-key.svg", 5 * game.tile_size, 5 * game.tile_size);
+        arrow_pixbuf = view.load_pixmap_file ("arrow.svg", 5 * view.tile_size, 5 * view.tile_size);
+        arrow_key_pixbuf = view.load_pixmap_file ("arrow-key.svg", 5 * view.tile_size, 5 * view.tile_size);
 
         /* Check whether to display the first run screen */
         var first_run = settings.get_boolean ("first-run");
@@ -211,7 +212,7 @@ private class NibblesWindow : ApplicationWindow
         settings.set_boolean ("window-is-maximized", window_is_maximized);
 
         // game properties
-        settings.set_int ("tile-size", game.tile_size);
+        settings.set_int ("tile-size", view.tile_size);     // TODO why?!
         settings.set_int ("start-level", game.start_level);
         settings.set_int ("speed", game.speed);
         settings.set_boolean ("fakes", game.fakes);

@@ -28,8 +28,6 @@ private enum GameStatus
 
 private class NibblesGame : Object
 {
-    internal const int MINIMUM_TILE_SIZE = 7;
-
     internal const int GAMEDELAY = 35;
 
     internal const int MAX_HUMANS = 4;
@@ -53,7 +51,6 @@ private class NibblesGame : Object
     public int speed            { internal get; internal construct set; }
 
     /* Board data */
-    public int tile_size        { internal get; internal construct set; }
     internal int[,] board = new int[WIDTH, HEIGHT];
 
     /* Worms data */
@@ -91,9 +88,9 @@ private class NibblesGame : Object
         boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
-    internal NibblesGame (int tile_size, int start_level, int speed, bool fakes, bool no_random = false)
+    internal NibblesGame (int start_level, int speed, bool fakes, bool no_random = false)
     {
-        Object (tile_size: tile_size, start_level: start_level, current_level: start_level, speed: speed, fakes: fakes);
+        Object (start_level: start_level, current_level: start_level, speed: speed, fakes: fakes);
 
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }

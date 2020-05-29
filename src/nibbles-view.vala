@@ -110,6 +110,9 @@ private class WarpTexture: GtkClutter.Texture
 
 private class NibblesView : GtkClutter.Embed
 {
+    private const int MINIMUM_TILE_SIZE = 7;
+    public int tile_size { internal get; protected construct set; }
+
     /* Pixmaps */
     private Gdk.Pixbuf wall_pixmaps[11];
     private Gdk.Pixbuf worm_pixmaps[6];
@@ -146,23 +149,23 @@ private class NibblesView : GtkClutter.Embed
         }
     }
 
-    internal NibblesView (NibblesGame game, bool is_muted)
+    internal NibblesView (NibblesGame game, int tile_size, bool is_muted)
     {
-        Object (game: game, is_muted: is_muted);
+        Object (game: game, tile_size: tile_size, is_muted: is_muted);
 
         stage = (Clutter.Stage) get_stage ();
         Clutter.Color stage_color = { 0x00, 0x00, 0x00, 0xff };
         stage.set_background_color (stage_color);
 
-        set_size_request (NibblesGame.MINIMUM_TILE_SIZE * NibblesGame.WIDTH,
-                          NibblesGame.MINIMUM_TILE_SIZE * NibblesGame.HEIGHT);
+        set_size_request (MINIMUM_TILE_SIZE * NibblesGame.WIDTH,
+                          MINIMUM_TILE_SIZE * NibblesGame.HEIGHT);
 
         load_pixmap ();
     }
 
     protected override bool configure_event (Gdk.EventConfigure event)
     {
-        int tile_size, ts_x, ts_y;
+        int new_tile_size, ts_x, ts_y;
 
         /* Compute the new tile size based on the size of the
          * drawing area, rounded down.
@@ -173,22 +176,22 @@ private class NibblesView : GtkClutter.Embed
             ts_x--;
         if (ts_y * NibblesGame.HEIGHT > event.height)
             ts_y--;
-        tile_size = int.min (ts_x, ts_y);
+        new_tile_size = int.min (ts_x, ts_y);
 
-        if (tile_size == 0 || game.tile_size == 0)
+        if (new_tile_size == 0 || tile_size == 0)
             return true;
 
-        if (game.tile_size != tile_size)
+        if (tile_size != new_tile_size)
         {
-            get_stage ().set_size (tile_size * NibblesGame.WIDTH, tile_size * NibblesGame.HEIGHT);
+            get_stage ().set_size (new_tile_size * NibblesGame.WIDTH, new_tile_size * NibblesGame.HEIGHT);
 
-            board_rescale (tile_size);
-            boni_rescale  (tile_size);
-            warps_rescale (tile_size);
+            board_rescale (new_tile_size);
+            boni_rescale  (new_tile_size);
+            warps_rescale (new_tile_size);
             foreach (var worm in game.worms)
-                worm.rescaled (tile_size);
+                worm.rescaled (new_tile_size);
 
-            game.tile_size = tile_size;
+            tile_size = new_tile_size;
         }
 
         return false;
@@ -245,7 +248,7 @@ private class NibblesView : GtkClutter.Embed
         GtkClutter.Texture? tmp;
         for (int i = 0; i < NibblesGame.HEIGHT; i++)
         {
-            y_pos = i * game.tile_size;
+            y_pos = i * tile_size;
             for (int j = 0; j < NibblesGame.WIDTH; j++)
             {
                 tmp = null;
@@ -334,9 +337,9 @@ private class NibblesView : GtkClutter.Embed
 
                 if (tmp != null)
                 {
-                    x_pos = j * game.tile_size;
+                    x_pos = j * tile_size;
 
-                    ((!) tmp).set_size (game.tile_size, game.tile_size);
+                    ((!) tmp).set_size (tile_size, tile_size);
                     ((!) tmp).set_position (x_pos, y_pos);
                     level.add_child ((!) tmp);
                 }
@@ -419,19 +422,19 @@ private class NibblesView : GtkClutter.Embed
         for (int i = 0; i < bonus_files.length; i++)
         {
             boni_pixmaps[i] = load_pixmap_file (bonus_files[i],
-                                                2 * game.tile_size, 2 * game.tile_size);
+                                                2 * tile_size, 2 * tile_size);
         }
 
         for (int i = 0; i < small_files.length; i++)
         {
             wall_pixmaps[i] = load_pixmap_file (small_files[i],
-                                                2 * game.tile_size, 2 * game.tile_size);
+                                                2 * tile_size, 2 * tile_size);
         }
 
         for (int i = 0; i < worm_files.length; i++)
         {
             worm_pixmaps[i] = load_pixmap_file (worm_files[i],
-                                                game.tile_size, game.tile_size);
+                                                tile_size, tile_size);
         }
     }
 
@@ -460,7 +463,7 @@ private class NibblesView : GtkClutter.Embed
         }
     }
 
-    private void board_rescale (int tile_size)
+    private void board_rescale (int new_tile_size)
     {
         int board_width, board_height;
         float x_pos, y_pos;
@@ -468,15 +471,15 @@ private class NibblesView : GtkClutter.Embed
         if (level == null)
             return;
 
-        board_width = NibblesGame.WIDTH * tile_size;
-        board_height = NibblesGame.HEIGHT * tile_size;
+        board_width = NibblesGame.WIDTH * new_tile_size;
+        board_height = NibblesGame.HEIGHT * new_tile_size;
 
         foreach (var actor in level.get_children ())
         {
             actor.get_position (out x_pos, out y_pos);
-            actor.set_position ((x_pos / game.tile_size) * tile_size,
-                                (y_pos / game.tile_size) * tile_size);
-            actor.set_size (tile_size, tile_size);
+            actor.set_position ((x_pos / tile_size) * new_tile_size,
+                                (y_pos / tile_size) * new_tile_size);
+            actor.set_size (new_tile_size, new_tile_size);
         }
 
         if (!name_labels.visible)
@@ -489,13 +492,13 @@ private class NibblesView : GtkClutter.Embed
             var middle = worm.length / 2;
             if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
             {
-                actor.set_x (worm.list[middle].x * tile_size - actor.width / 2 + tile_size / 2);
-                actor.set_y (worm.list[middle].y * tile_size - 5 * tile_size);
+                actor.set_x (worm.list[middle].x * new_tile_size - actor.width / 2 + new_tile_size / 2);
+                actor.set_y (worm.list[middle].y * new_tile_size - 5 * new_tile_size);
             }
             else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
             {
-                actor.set_x (worm.list[middle].x * tile_size - actor.width / 2 + tile_size / 2);
-                actor.set_y (worm.head.y * tile_size - 3 * tile_size);
+                actor.set_x (worm.list[middle].x * new_tile_size - actor.width / 2 + new_tile_size / 2);
+                actor.set_y (worm.head.y * new_tile_size - 3 * new_tile_size);
             }
         }
     }
@@ -533,13 +536,13 @@ private class NibblesView : GtkClutter.Embed
             var middle = worm.length / 2;
             if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
             {
-                label.set_x (worm.list[middle].x * game.tile_size - label.width / 2 + game.tile_size / 2);
-                label.set_y (worm.list[middle].y * game.tile_size - 5 * game.tile_size);
+                label.set_x (worm.list[middle].x * tile_size - label.width / 2 + tile_size / 2);
+                label.set_y (worm.list[middle].y * tile_size - 5 * tile_size);
             }
             else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
             {
-                label.set_x (worm.list[middle].x * game.tile_size - label.width / 2 + game.tile_size / 2);
-                label.set_y (worm.head.y * game.tile_size - 3 * game.tile_size);
+                label.set_x (worm.list[middle].x * tile_size - label.width / 2 + tile_size / 2);
+                label.set_y (worm.head.y * tile_size - 3 * tile_size);
             }
             name_labels.add (label);
         }
@@ -566,8 +569,8 @@ private class NibblesView : GtkClutter.Embed
         {
             error ("Nibbles failed to set texture: %s", e.message);
         }
-        actor.set_size (game.tile_size, game.tile_size);
-        actor.set_position (worm.list.first ().x * game.tile_size, worm.list.first ().y * game.tile_size);
+        actor.set_size (tile_size, tile_size);
+        actor.set_position (worm.list.first ().x * tile_size, worm.list.first ().y * tile_size);
 
         var actors = worm_actors.@get (worm);
         actors.add_child (actor);
@@ -605,7 +608,7 @@ private class NibblesView : GtkClutter.Embed
         worm_added_cb (worm);
     }
 
-    private void worm_rescaled_cb (Worm worm, int tile_size)
+    private void worm_rescaled_cb (Worm worm, int new_tile_size)
     {
         float x_pos, y_pos;
         var actors = worm_actors.@get (worm);
@@ -615,9 +618,9 @@ private class NibblesView : GtkClutter.Embed
         foreach (var actor in actors.get_children ())
         {
             actor.get_position (out x_pos, out y_pos);
-            actor.set_position ((x_pos / game.tile_size) * tile_size,
-                                (y_pos / game.tile_size) * tile_size);
-            actor.set_size (tile_size, tile_size);
+            actor.set_position ((x_pos / tile_size) * new_tile_size,
+                                (y_pos / tile_size) * new_tile_size);
+            actor.set_size (new_tile_size, new_tile_size);
         }
     }
 
@@ -646,7 +649,7 @@ private class NibblesView : GtkClutter.Embed
             actor.get_position (out x, out y);
 
             texture.set_position (x, y);
-            texture.set_size (game.tile_size, game.tile_size);
+            texture.set_size (tile_size, tile_size);
             group.add_child (texture);
         }
 
@@ -691,7 +694,7 @@ private class NibblesView : GtkClutter.Embed
             worm_actors.remove_child (worm_actors.first_child);
 
             texture.set_position (x, y);
-            texture.set_size (game.tile_size, game.tile_size);
+            texture.set_size (tile_size, tile_size);
             group.add_child (texture);
         }
         level.add_child (group);
@@ -710,7 +713,7 @@ private class NibblesView : GtkClutter.Embed
         var count = 0;
         foreach (var actor in actors.get_children ())
         {
-            actor.set_position (worm.list[count].x * game.tile_size, worm.list[count].y * game.tile_size);
+            actor.set_position (worm.list[count].x * tile_size, worm.list[count].y * tile_size);
             count++;
         }
     }
@@ -735,8 +738,8 @@ private class NibblesView : GtkClutter.Embed
             error ("Nibbles failed to set texture: %s", e.message);
         }
 
-        actor.set_size (game.tile_size, game.tile_size);
-        actor.set_position (bonus.x * game.tile_size, bonus.y * game.tile_size);
+        actor.set_size (tile_size, tile_size);
+        actor.set_position (bonus.x * tile_size, bonus.y * tile_size);
 
         level.add_child (actor);
         if (bonus.bonus_type != BonusType.REGULAR)
@@ -787,12 +790,12 @@ private class NibblesView : GtkClutter.Embed
         }
     }
 
-    private void boni_rescale (int tile_size)
+    private void boni_rescale (int new_tile_size)
     {
         foreach (var bonus in bonus_actors.keys)
         {
             var actor = bonus_actors.@get (bonus);
-            actor.set_size (tile_size, tile_size);
+            actor.set_size (new_tile_size, new_tile_size);
         }
     }
 
@@ -816,18 +819,18 @@ private class NibblesView : GtkClutter.Embed
             error ("Nibbles failed to set texture: %s", e.message);
         }
 
-        actor.set_size (game.tile_size, game.tile_size);
-        actor.set_position (x * game.tile_size, y * game.tile_size);
+        actor.set_size (tile_size, tile_size);
+        actor.set_position (x * tile_size, y * tile_size);
 
         level.add_child (actor);
 
         warp_actors.add (actor);
     }
 
-    private void warps_rescale (int tile_size)
+    private void warps_rescale (int new_tile_size)
     {
         foreach (var actor in warp_actors)
-            actor.set_size (tile_size, tile_size);
+            actor.set_size (new_tile_size, new_tile_size);
     }
 
     /*\
