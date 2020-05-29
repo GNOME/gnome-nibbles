@@ -135,8 +135,8 @@ private class NibblesView : GtkClutter.Embed
                 SignalHandler.disconnect_matched (_game, SignalMatchType.DATA, 0, 0, null, null, this);
 
             _game = value;
-            _game.boni.bonus_added.connect (bonus_added_cb);
-            _game.boni.bonus_removed.connect (bonus_removed_cb);
+            _game.bonus_added.connect (bonus_added_cb);
+            _game.bonus_removed.connect (bonus_removed_cb);
 
             _game.bonus_applied.connect (bonus_applied_cb);
 

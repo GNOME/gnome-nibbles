@@ -49,26 +49,24 @@ private class Boni : Object
 
     internal int numleft    { internal get; internal set; default = 8; }
     internal int numboni    { internal get; private set; default = 8; }
-    private  int numbonuses = 0;
+    private uint16 numbonuses = 0;
 
     private const int MAX_BONUSES = 100;
 
-    internal signal void bonus_added (Bonus bonus);
     internal signal void bonus_removed (Bonus bonus);
 
-    internal void add_bonus (int[,] board, int x, int y, BonusType bonus_type, bool fake, int countdown)
+    internal bool add_bonus (int[,] board, owned Bonus bonus)
     {
-        if (numbonuses == MAX_BONUSES)
-            return;
+        if (numbonuses >= MAX_BONUSES)
+            return false;
 
-        var bonus = new Bonus (x, y, bonus_type, fake, countdown);
         bonuses.add (bonus);
-        board[x    , y    ] = bonus_type + 'A';
-        board[x + 1, y    ] = bonus_type + 'A';
-        board[x    , y + 1] = bonus_type + 'A';
-        board[x + 1, y + 1] = bonus_type + 'A';
-        bonus_added (bonus);
+        board[bonus.x    , bonus.y    ] = bonus.bonus_type + 'A';
+        board[bonus.x + 1, bonus.y    ] = bonus.bonus_type + 'A';
+        board[bonus.x    , bonus.y + 1] = bonus.bonus_type + 'A';
+        board[bonus.x + 1, bonus.y + 1] = bonus.bonus_type + 'A';
         numbonuses++;
+        return true;
     }
 
     internal void remove_bonus (int[,] board, Bonus bonus)
