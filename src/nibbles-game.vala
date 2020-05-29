@@ -88,6 +88,97 @@ private class NibblesGame : Object
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
 
+    internal bool load_board (string [] future_board)
+    {
+        if (future_board.length != NibblesGame.HEIGHT)
+            return false;
+
+        boni.reset (numworms);
+        warp_manager.warps.clear ();
+
+        string tmpboard;
+        int count = 0;
+        for (int i = 0; i < NibblesGame.HEIGHT; i++)
+        {
+            tmpboard = future_board [i];
+            if (tmpboard.length != NibblesGame.WIDTH)
+                return false;
+            for (int j = 0; j < NibblesGame.WIDTH; j++)
+            {
+                board[j, i] = tmpboard.@get(j);
+                switch (board[j, i])
+                {
+                    case '.': // readable empty space, but the game internals uses 'a'
+                        board[j, i] = 'a';
+                        break;
+
+                    case 'm':
+                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        if (count < numworms)
+                        {
+                            worms[count].set_start (j, i, WormDirection.UP);
+                            count++;
+                        }
+                        break;
+                    case 'n':
+                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        if (count < numworms)
+                        {
+                            worms[count].set_start (j, i, WormDirection.LEFT);
+                            count++;
+                        }
+                        break;
+                    case 'o':
+                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        if (count < numworms)
+                        {
+                            worms[count].set_start (j, i, WormDirection.DOWN);
+                            count++;
+                        }
+                        break;
+                    case 'p':
+                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        if (count < numworms)
+                        {
+                            worms[count].set_start (j, i, WormDirection.RIGHT);
+                            count++;
+                        }
+                        break;
+
+                    case 'Q':
+                    case 'R':
+                    case 'S':
+                    case 'T':
+                    case 'U':
+                    case 'V':
+                    case 'W':
+                    case 'X':
+                    case 'Y':
+                    case 'Z':
+                        warp_manager.add_warp (board, j - 1, i - 1, -(board[j, i]), 0);
+                        break;
+
+                    case 'r':
+                    case 's':
+                    case 't':
+                    case 'u':
+                    case 'v':
+                    case 'w':
+                    case 'x':
+                    case 'y':
+                    case 'z':
+                        warp_manager.add_warp (board, -(board[j, i] - 'a' + 'A'), 0, j, i);
+                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        break;
+
+                    default:
+                        break;  // return false?
+                }
+            }
+        }
+        return true;
+    }
+
     /*\
     * * Game controls
     \*/
