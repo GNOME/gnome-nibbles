@@ -44,7 +44,7 @@
       <default>2</default>
       <range min="1" max="4"/>
       <summary>Worms movement speed</summary>
-      <description>Worms movement speed.</description>
+      <description>The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”.</description>
     </key>
     <key name="sound" type="b">
       <default>true</default>
