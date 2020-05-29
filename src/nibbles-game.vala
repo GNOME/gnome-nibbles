@@ -149,7 +149,7 @@ private class NibblesGame : Object
         animate_end_game ();
     }
 
-    internal bool main_loop_cb ()
+    private bool main_loop_cb ()
     {
         var status = get_game_status ();
 
@@ -224,7 +224,7 @@ private class NibblesGame : Object
         }
     }
 
-    internal void move_worms ()
+    private void move_worms ()
     {
         if (boni.too_many_missed ())
         {
@@ -392,7 +392,7 @@ private class NibblesGame : Object
         }
     }
 
-    internal void apply_bonus (Bonus bonus, Worm worm)
+    private void apply_bonus (Bonus bonus, Worm worm)
     {
         if (bonus.fake)
         {
@@ -429,14 +429,14 @@ private class NibblesGame : Object
         }
     }
 
-    internal bool add_bonus_cb ()
+    private bool add_bonus_cb ()
     {
         add_bonus (false);
 
         return Source.CONTINUE;
     }
 
-    internal void bonus_found_cb (Worm worm)
+    private void bonus_found_cb (Worm worm)
     {
         var bonus = boni.get_bonus (board, worm.head.x, worm.head.y);
         if (bonus == null)
@@ -453,7 +453,7 @@ private class NibblesGame : Object
             add_bonus (true);
     }
 
-    internal void warp_found_cb (Worm worm)
+    private void warp_found_cb (Worm worm)
     {
         var warp = warp_manager.get_warp (worm.head.x, worm.head.y);
         if (warp == null)
