@@ -31,7 +31,6 @@ private class NibblesGame : Object
     internal const int MINIMUM_TILE_SIZE = 7;
 
     internal const int GAMEDELAY = 35;
-    private const int BONUSDELAY = 100;
 
     internal const int MAX_HUMANS = 4;
     internal const int MAX_AI = 5;
@@ -73,7 +72,6 @@ private class NibblesGame : Object
     internal bool is_paused     { internal get; private set; default = false; }
 
     private uint main_id = 0;
-    private uint add_bonus_id = 0;
 
     public bool fakes           { internal get; internal construct set; }
 
@@ -94,6 +92,7 @@ private class NibblesGame : Object
     * * Game controls
     \*/
 
+    private uint8 bonus_cycle = 0;
     internal void start (bool add_initial_bonus)
     {
         if (add_initial_bonus)
@@ -101,41 +100,23 @@ private class NibblesGame : Object
 
         is_running = true;
 
-        int worms_delay;
-        int bonus_delay;
-        switch (speed)
-        {
-            case 0: worms_delay = 7; bonus_delay = 20; break;  // used by tests
-            default:
-                if (speed > MAX_SPEED)
-                    assert_not_reached ();
-                worms_delay = GAMEDELAY * speed;
-                bonus_delay = BONUSDELAY * speed;
-                break;
-        }
-
-        main_id = Timeout.add (worms_delay, main_loop_cb);
+        main_id = Timeout.add (GAMEDELAY * speed, () => {
+                bonus_cycle = (bonus_cycle + 1) % 3;
+                if (bonus_cycle == 0)
+                    add_bonus (false);
+                return main_loop_cb ();
+            });
         Source.set_name_by_id (main_id, "[Nibbles] main_loop_cb");
-
-        add_bonus_id = Timeout.add (bonus_delay, add_bonus_cb);
-        Source.set_name_by_id (add_bonus_id, "[Nibbles] add_bonus_cb");
     }
 
     internal void stop ()
     {
         is_running = false;
 
-        if (main_id != 0)
-        {
-            Source.remove (main_id);
-            main_id = 0;
-        }
-
-        if (add_bonus_id != 0)
-        {
-            Source.remove (add_bonus_id);
-            add_bonus_id = 0;
-        }
+        if (main_id == 0)
+            return;
+        Source.remove (main_id);
+        main_id = 0;
     }
 
     internal void pause ()
@@ -440,13 +421,6 @@ private class NibblesGame : Object
                 reverse_worms (worm);
                 break;
         }
-    }
-
-    private bool add_bonus_cb ()
-    {
-        add_bonus (false);
-
-        return Source.CONTINUE;
     }
 
     private void bonus_found_cb (Worm worm)
