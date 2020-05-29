@@ -144,8 +144,8 @@ namespace NibblesTest
         assert_true (game.numworms == 4);
         assert_true (game.worms.size == 4);
 
-        // as there is no random, this output should be regular; it is not, surely because relying on two timeouts is racy
-        game.bonus_applied.connect ((bonus, worm) => { Test.message (@"worm $(worm.id) took bonus at [$(bonus.x), $(bonus.y)]"); });
+        uint8 applied_bonus = 0;
+        game.bonus_applied.connect ((bonus, worm) => { applied_bonus++; Test.message (@"worm $(worm.id) took bonus at [$(bonus.x), $(bonus.y)]"); });
 
         game.add_worms ();
         game.start (/* add initial bonus */ true);
@@ -155,12 +155,24 @@ namespace NibblesTest
         assert_true (game.worms.@get (2).head.x ==  9 && game.worms.@get (2).head.y == 39);
         assert_true (game.worms.@get (3).head.x == 51 && game.worms.@get (3).head.y == 45);
 
-        // run until game is finished; takes between 4 and 12 seconds on my computer, depending on worms motivation
+        // run until game is finished
         bool completed = false;
         game.level_completed.connect (() => { completed = true; });
         MainContext context = MainContext.@default ();
         while (!completed)
             context.iteration (/* may block */ false);
+
+        assert_true (applied_bonus == 17);
+
+        assert_true (game.worms.@get (0).lives == 6);
+        assert_true (game.worms.@get (1).lives == 6);
+        assert_true (game.worms.@get (2).lives == 6);
+        assert_true (game.worms.@get (3).lives == 6);
+
+        assert_true (game.worms.@get (0).score == 14);
+        assert_true (game.worms.@get (1).score == 21);
+        assert_true (game.worms.@get (2).score == 37);
+        assert_true (game.worms.@get (3).score == 16);
     }
 
     private const string level_008 = "fccccccccccccccccccccccccccccccccccccccce........dcccccccccccccccccccccccccccccccccccccccccg"
