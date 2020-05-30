@@ -490,7 +490,7 @@ private class NibblesWindow : ApplicationWindow
         if (game.is_running)
             game.stop ();
 
-        headerbar.set_title (Nibbles.PROGRAM_NAME);
+        set_title (Nibbles.PROGRAM_NAME);
 
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -587,7 +587,7 @@ private class NibblesWindow : ApplicationWindow
         back_action.set_enabled (false);
 
         /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
-        headerbar.set_title (_("Level %d").printf (game.current_level));        // TODO unduplicate, 1/2
+        set_title (_("Level %d").printf (game.current_level));        // TODO unduplicate, 1/2
         main_stack.set_visible_child_name ("game_box");
 
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
@@ -802,7 +802,7 @@ private class NibblesWindow : ApplicationWindow
             button.destroy ();
 
             /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
-            headerbar.set_title (_("Level %d").printf (game.current_level));    // TODO unduplicate, 2/2
+            set_title (_("Level %d").printf (game.current_level));    // TODO unduplicate, 2/2
 
             view.show ();
 
