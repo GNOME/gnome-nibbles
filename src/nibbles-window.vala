@@ -926,9 +926,11 @@ private class NibblesWindow : ApplicationWindow
 
         PreferencesDialog preferences_dialog = new PreferencesDialog (this, settings, worm_settings, ((!) variant).get_int32 (), game.numhumans);
 
-        preferences_dialog.destroy.connect (() => {
+        preferences_dialog.close_request.connect (() => {
                 if (should_unpause)
                     pause_action.activate (null);
+
+                return /* do your usual stuff */ false;
             });
 
         preferences_dialog.present ();

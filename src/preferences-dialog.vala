@@ -194,11 +194,16 @@ private class PreferencesDialog : Window
                 /* Translators: label of one of the buttons of a MessageDialog that appears when one tries to assign an already assigned key (with a mnemonic that appears when pressing Alt) */
                 dialog.add_button (_("_Set anyway"), 42);
 
-                int response = dialog.run ();
-                dialog.destroy ();
-                if (response != 42)
-                    valid = false;
-                break;
+                dialog.response.connect ((_dialog, response) => {
+                        _dialog.destroy ();
+                        if (response == 42)
+                        {
+                            list_store.@set (it, 2, keyval);
+                            worm_settings[id].set_int (key, (int) keyval);
+                        }
+                    });
+                dialog.present ();
+                return;
             }
         }
 
