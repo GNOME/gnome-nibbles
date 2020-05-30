@@ -363,7 +363,7 @@ private class NibblesView : GtkClutter.Embed
     * * Pixmaps loading
     \*/
 
-    internal Gdk.Pixbuf load_pixmap_file (string pixmap, int xsize, int ysize)
+    internal static Gdk.Pixbuf load_pixmap_file (string pixmap, int xsize, int ysize)
     {
         var filename = Path.build_filename (PKGDATADIR, "pixmaps", pixmap, null);
         if (filename == null)
