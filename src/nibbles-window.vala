@@ -179,7 +179,7 @@ private class NibblesWindow : ApplicationWindow
         game_box.pack_start (frame);
 
         /* Create scoreboard */
-        scoreboard_life = view.load_pixmap_file ("scoreboard-life.svg", 2 * view.tile_size, 2 * view.tile_size);
+        scoreboard_life = NibblesView.load_pixmap_file ("scoreboard-life.svg", 2 * view.tile_size, 2 * view.tile_size);
 
         frame.add (view);
         frame.show ();
@@ -189,8 +189,8 @@ private class NibblesWindow : ApplicationWindow
         game.numai = settings.get_int ("ai");
 
         /* Controls screen */
-        arrow_pixbuf = view.load_pixmap_file ("arrow.svg", 5 * view.tile_size, 5 * view.tile_size);
-        arrow_key_pixbuf = view.load_pixmap_file ("arrow-key.svg", 5 * view.tile_size, 5 * view.tile_size);
+        arrow_pixbuf = NibblesView.load_pixmap_file ("arrow.svg", 5 * view.tile_size, 5 * view.tile_size);
+        arrow_key_pixbuf = NibblesView.load_pixmap_file ("arrow-key.svg", 5 * view.tile_size, 5 * view.tile_size);
 
         /* Check whether to display the first run screen */
         var first_run = settings.get_boolean ("first-run");
