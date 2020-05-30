@@ -180,39 +180,39 @@ private class NibblesView : Widget
         load_pixmap ();
     }
 
-    protected override bool configure_event (Gdk.EventConfigure event)
-    {
-        int new_tile_size, ts_x, ts_y;
+//    protected override bool configure_event (Gdk.EventConfigure event)
+//    {
+//        int new_tile_size, ts_x, ts_y;
 
-        /* Compute the new tile size based on the size of the
-         * drawing area, rounded down.
-         */
-        ts_x = event.width / NibblesGame.WIDTH;
-        ts_y = event.height / NibblesGame.HEIGHT;
-        if (ts_x * NibblesGame.WIDTH > event.width)
-            ts_x--;
-        if (ts_y * NibblesGame.HEIGHT > event.height)
-            ts_y--;
-        new_tile_size = int.min (ts_x, ts_y);
+//        /* Compute the new tile size based on the size of the
+//         * drawing area, rounded down.
+//         */
+//        ts_x = event.width / NibblesGame.WIDTH;
+//        ts_y = event.height / NibblesGame.HEIGHT;
+//        if (ts_x * NibblesGame.WIDTH > event.width)
+//            ts_x--;
+//        if (ts_y * NibblesGame.HEIGHT > event.height)
+//            ts_y--;
+//        new_tile_size = int.min (ts_x, ts_y);
 
-        if (new_tile_size == 0 || tile_size == 0)
-            return true;
+//        if (new_tile_size == 0 || tile_size == 0)
+//            return true;
 
-        if (tile_size != new_tile_size)
-        {
-            get_stage ().set_size (new_tile_size * NibblesGame.WIDTH, new_tile_size * NibblesGame.HEIGHT);
+//        if (tile_size != new_tile_size)
+//        {
+//            get_stage ().set_size (new_tile_size * NibblesGame.WIDTH, new_tile_size * NibblesGame.HEIGHT);
 
-            board_rescale (new_tile_size);
-            boni_rescale  (new_tile_size);
-            warps_rescale (new_tile_size);
-            foreach (var worm in game.worms)
-                worm.rescaled (new_tile_size);
+//            board_rescale (new_tile_size);
+//            boni_rescale  (new_tile_size);
+//            warps_rescale (new_tile_size);
+//            foreach (var worm in game.worms)
+//                worm.rescaled (new_tile_size);
 
-            tile_size = new_tile_size;
-        }
+//            tile_size = new_tile_size;
+//        }
 
-        return false;
-    }
+//        return false;
+//    }
 
     /*\
     * * Level creation and loading
