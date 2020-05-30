@@ -31,7 +31,7 @@ private class Scoreboard : Box
         /* Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player */
         var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf); // FIXME: Consider changing this to "Worm %d"; It's set to "Player %d" for now to avoid a string change for 3.20.
         boxes.@set (box, worm);
-        add (box);
+        box.insert_before (this, /* insert last */ null);
     }
 
     internal void update ()
