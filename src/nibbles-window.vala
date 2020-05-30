@@ -153,7 +153,6 @@ private class NibblesWindow : ApplicationWindow
         view = new NibblesView (game,
                                 settings.get_int ("tile-size"),
                                 !settings.get_boolean ("sound"));
-        view.show ();
 
         frame = new Games.GridFrame (NibblesView.WIDTH, NibblesView.HEIGHT);
         game_box.pack_start (frame);
@@ -162,7 +161,6 @@ private class NibblesWindow : ApplicationWindow
         scoreboard_life = NibblesView.load_pixmap_file ("scoreboard-life.svg", 2 * view.tile_size, 2 * view.tile_size);
 
         frame.add (view);
-        frame.show ();
 
         /* Number of worms */
         game.numhumans = settings.get_int ("players");
@@ -446,8 +444,6 @@ private class NibblesWindow : ApplicationWindow
 
             dialog.destroy ();
         });
-
-        dialog.show ();
     }
 
     private void pause_cb ()
@@ -883,7 +879,6 @@ private class NibblesWindow : ApplicationWindow
         label.valign = Align.START;
         label.set_margin_top (150);
         label.get_style_context ().add_class ("menu-title");
-        label.show ();
 
         /* Translators: label of a button that appears at the end of a level; starts next level */
         var button = new Button.with_label (_("_Next Level"));
@@ -959,7 +954,6 @@ private class NibblesWindow : ApplicationWindow
         game_over_label.valign = Align.START;
         game_over_label.set_margin_top (150);
         game_over_label.get_style_context ().add_class ("menu-title");
-        game_over_label.show ();
 
         /* Translators: label displayed at the end of a level, if the player finished all the levels */
         msg_label = new Label (_("You have completed the game."));
@@ -967,7 +961,6 @@ private class NibblesWindow : ApplicationWindow
         msg_label.valign = Align.START;
         msg_label.set_margin_top (window_height / 3);
         msg_label.get_style_context ().add_class ("menu-title");
-        msg_label.show ();
 
         var score_string = ngettext ("%d Point", "%d Points", score);
         score_string = score_string.printf (score);
@@ -976,7 +969,6 @@ private class NibblesWindow : ApplicationWindow
         score_label.halign = Align.CENTER;
         score_label.valign = Align.START;
         score_label.set_margin_top (window_height / 3 + 80);
-        score_label.show ();
 
         var points_left = lowest_high_score - score;
         /* Translators: label displayed at the end of a level, if the player did not score enough to have its score saved */
@@ -984,7 +976,6 @@ private class NibblesWindow : ApplicationWindow
         points_left_label.halign = Align.CENTER;
         points_left_label.valign = Align.START;
         points_left_label.set_margin_top (window_height / 3 + 100);
-        points_left_label.show ();
 
         /* Translators: label of a button displayed at the end of a level; restarts the game */
         play_again_button = new Button.with_label (_("_Play Again"));
