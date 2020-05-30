@@ -796,7 +796,7 @@ private class NibblesWindow : ApplicationWindow
         button.valign = Align.END;
         button.set_margin_bottom (100);
         button.get_style_context ().add_class ("suggested-action");
-        button.set_can_default (true);
+//        button.set_can_default (true);
         button.clicked.connect (() => {
             label.destroy ();
             button.destroy ();
@@ -812,11 +812,11 @@ private class NibblesWindow : ApplicationWindow
         overlay.add_overlay (label);
         overlay.add_overlay (button);
 
-        overlay.grab_default ();
+//        overlay.grab_default ();
 
         Timeout.add (500, () => {
             button.show ();
-            button.grab_default ();
+//            button.grab_default ();
 
             return Source.REMOVE;
         });
