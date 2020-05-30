@@ -252,7 +252,7 @@ private class NibblesWindow : ApplicationWindow
         if (seconds == 0)
         {
             statusbar_stack.set_visible_child_name ("scoreboard");
-            view.name_labels.hide ();
+//            view.name_labels.hide ();
 
             game.start (/* add initial bonus */ true);
 
@@ -344,7 +344,7 @@ private class NibblesWindow : ApplicationWindow
         }
         game.add_worms ();
 
-        view.create_name_labels ();
+//        view.create_name_labels ();
 
         show_game_view ();
 
@@ -359,7 +359,7 @@ private class NibblesWindow : ApplicationWindow
         back_action.set_enabled (true);
 
         seconds = COUNTDOWN_TIME;
-        view.name_labels.show ();
+//        view.name_labels.show ();
 
         countdown.set_label (COUNTDOWN_TIME.to_string ());
         countdown_id = Timeout.add_seconds (1, countdown_cb);
