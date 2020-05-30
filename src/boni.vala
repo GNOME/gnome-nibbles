@@ -47,9 +47,9 @@ private class Boni : Object
 {
     private Gee.LinkedList<Bonus> bonuses = new Gee.LinkedList<Bonus> ();
 
-    internal int numleft    { internal get; internal set; default = 8; }
-    internal int numboni    { internal get; private set; default = 8; }
-    private uint16 numbonuses = 0;
+    private uint8 regular_bonus_left = 0;
+    private uint8 regular_bonus_maxi = 0;
+    private uint8 total_bonus_number = 0;
 
     private const int MAX_BONUSES = 100;
 
@@ -57,7 +57,7 @@ private class Boni : Object
 
     internal bool add_bonus (int[,] board, owned Bonus bonus)
     {
-        if (numbonuses >= MAX_BONUSES)
+        if (total_bonus_number >= MAX_BONUSES)
             return false;
 
         bonuses.add (bonus);
@@ -65,7 +65,7 @@ private class Boni : Object
         board[bonus.x + 1, bonus.y    ] = bonus.bonus_type + 'A';
         board[bonus.x    , bonus.y + 1] = bonus.bonus_type + 'A';
         board[bonus.x + 1, bonus.y + 1] = bonus.bonus_type + 'A';
-        numbonuses++;
+        total_bonus_number++;
         return true;
     }
 
@@ -84,9 +84,9 @@ private class Boni : Object
     {
         bonuses.clear ();
         reset_missed ();
-        numboni = 8 + numworms;
-        numbonuses = 0;
-        numleft = numboni;
+        regular_bonus_maxi = 8 + numworms;
+        total_bonus_number = 0;
+        regular_bonus_left = regular_bonus_maxi;
     }
 
     internal Bonus? get_bonus (int[,] board, int x, int y)
@@ -127,6 +127,19 @@ private class Boni : Object
                 missed_bonuses_to_replace++;
             }
         }
+    }
+
+    internal inline int new_regular_bonus_eaten ()
+    {
+        if (regular_bonus_left == 0)
+            assert_not_reached ();
+        regular_bonus_left--;
+        return regular_bonus_maxi - regular_bonus_left;
+    }
+
+    internal inline bool last_regular_bonus ()
+    {
+        return regular_bonus_left == 0;
     }
 
     /*\

@@ -502,9 +502,9 @@ private class NibblesGame : Object
         switch (board[worm.head.x, worm.head.y] - 'A')
         {
             case BonusType.REGULAR:
-                boni.numleft--;
-                worm.change += (boni.numboni - boni.numleft) * Worm.GROW_FACTOR;
-                worm.score += (boni.numboni - boni.numleft) * current_level;
+                int nth_bonus = boni.new_regular_bonus_eaten ();
+                worm.change += nth_bonus * Worm.GROW_FACTOR;
+                worm.score  += nth_bonus * current_level;
                 break;
             case BonusType.DOUBLE:
                 worm.score += (worm.length + worm.change) * current_level;
@@ -540,7 +540,7 @@ private class NibblesGame : Object
 
         boni.remove_bonus (board, bonus);
 
-        if (real_bonus && boni.numleft != 0)
+        if (real_bonus && !boni.last_regular_bonus ())
             add_bonus (true);
     }
 
@@ -575,7 +575,7 @@ private class NibblesGame : Object
             return GameStatus.GAMEOVER;
         }
 
-        if (boni.numleft == 0)
+        if (boni.last_regular_bonus ())
             return GameStatus.NEWROUND;
 
         return null;
