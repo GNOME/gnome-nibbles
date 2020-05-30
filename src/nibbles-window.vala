@@ -64,7 +64,7 @@ private class NibblesWindow : ApplicationWindow
     private NibblesView? view;
 
     [GtkChild] private Box game_box;
-    private Games.GridFrame frame;
+    private AspectFrame frame;
 
     /* Game being played */
     private NibblesGame? game = null;
@@ -155,13 +155,13 @@ private class NibblesWindow : ApplicationWindow
                                 settings.get_int ("tile-size"),
                                 !settings.get_boolean ("sound"));
 
-        frame = new Games.GridFrame (NibblesView.WIDTH, NibblesView.HEIGHT);
+        frame = new AspectFrame (/* x align */ 0.5f, /* y align */ 0.5f, /* ratio ignored */ 0.0f, /* obey child */ true);
         game_box.pack_start (frame);
 
         /* Create scoreboard */
         scoreboard_life = NibblesView.load_pixmap_file ("scoreboard-life.svg", 2 * view.tile_size, 2 * view.tile_size);
 
-        frame.add (view);
+        frame.set_child (view);
 
         /* Number of worms */
         game.numhumans = settings.get_int ("players");
