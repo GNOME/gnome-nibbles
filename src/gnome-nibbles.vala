@@ -46,6 +46,10 @@ private class Nibbles : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
+        Environment.set_prgname ("org.gnome.Nibbles");
+        Environment.set_application_name (PROGRAM_NAME);
+        Window.set_default_icon_name ("org.gnome.Nibbles");
+
         return new Nibbles ().run (args);
     }
 
@@ -72,14 +76,6 @@ private class Nibbles : Gtk.Application
     protected override void startup ()
     {
         base.startup ();
-
-        unowned string[]? argv = null;
-        GtkClutter.init (ref argv);
-
-        Environment.set_prgname ("org.gnome.Nibbles");
-        Environment.set_application_name (PROGRAM_NAME);
-
-        Window.set_default_icon_name ("org.gnome.Nibbles");
 
         Gtk.Settings.get_default ().@set ("gtk-application-prefer-dark-theme", true);
 
