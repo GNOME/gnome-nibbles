@@ -22,12 +22,18 @@ private class NibblesView : Widget
 {
     private class WormView : Object
     {
-        private List<Widget> widgets;
+        private List<Widget> widgets = new List<Widget> ();
 
         internal void set_opacity (uint8 new_opacity)
         {
             foreach (Widget widget in widgets)
                 widget.set_opacity (new_opacity);
+        }
+
+        internal void unparent ()
+        {
+            foreach (Widget widget in widgets)
+                widget.unparent ();
         }
 //        protected override void show ()
 //        {
@@ -56,7 +62,7 @@ private class NibblesView : Widget
 //        }
     }
 
-    private class BonusTexture : Object
+    private class BonusTexture : Widget
     {
 //        private const float SIZE_MULTIPLIER = 2;
 
@@ -82,7 +88,7 @@ private class NibblesView : Widget
 //        }
     }
 
-    private class WarpTexture: Object
+    private class WarpTexture: Widget
     {
 //        private const float SIZE_MULTIPLIER = 2;
 
@@ -243,11 +249,11 @@ private class NibblesView : Widget
             actor.unparent ();
         warp_actors.clear ();
 
-        if (level != null)
-        {
+//        if (level != null)
+//        {
 //            level.remove_all_children ();
 //            stage.remove_child (level);
-        }
+//        }
 //        level = new Clutter.Actor ();
 
         string? line;
@@ -347,8 +353,9 @@ private class NibblesView : Widget
                 if (tmp != null)
                 {
                     ((!) tmp).insert_after (this, /* insert first */ null);
-                    GridLayoutChild child_layout = layout.get_layout_child ((!) tmp);
-                    child_layout.set_position (i, j);
+                    GridLayoutChild child_layout = (GridLayoutChild) layout.get_layout_child ((!) tmp);
+                    child_layout.set_left_attach (i);
+                    child_layout.set_top_attach (j);
                 }
             }
         }
@@ -475,8 +482,8 @@ private class NibblesView : Widget
         int board_width, board_height;
 //        float x_pos, y_pos;
 
-        if (level == null)
-            return;
+//        if (level == null)
+//            return;
 
         board_width = WIDTH * new_tile_size;
         board_height = HEIGHT * new_tile_size;
@@ -514,8 +521,8 @@ private class NibblesView : Widget
 
     private void animate_end_game_cb ()
     {
-        foreach (var worm in game.worms)
-            worm_actors.@get (worm).hide ();
+//        foreach (var worm in game.worms)
+//            worm_actors.@get (worm).hide ();
 
         foreach (var actor in warp_actors)
             actor.hide ();
@@ -761,7 +768,7 @@ private class NibblesView : Widget
     private void bonus_applied_cb (Bonus bonus, Worm worm)
     {
         var actors = worm_actors.@get (worm);
-        var actor = actors.last_child;
+//        var actor = actors.last_child;
 
 //        actor.save_easing_state ();
 //        actor.set_easing_mode (Clutter.AnimationMode.EASE_OUT_QUINT);
