@@ -135,7 +135,7 @@ private class NibblesWindow : ApplicationWindow
                                 !settings.get_boolean ("sound"));
 
         frame = new AspectFrame (/* x align */ 0.5f, /* y align */ 0.5f, /* ratio ignored */ 0.0f, /* obey child */ true);
-        game_box.pack_start (frame);
+        frame.insert_after (game_box, /* insert first */ null);
 
         /* Create scoreboard */
         scoreboard_life = NibblesView.load_pixmap_file ("scoreboard-life.svg", 2 * view.tile_size, 2 * view.tile_size);

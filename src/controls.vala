@@ -36,8 +36,9 @@ private class Controls : Box
 
     internal void prepare (Gee.LinkedList<Worm> worms, Gee.HashMap<Worm, WormProperties> worm_props)
     {
-        foreach (var grid in grids_box.get_children ())
-            grid.destroy ();
+        Widget? widget;
+        while ((widget = grids_box.get_first_child ()) != null)
+            widget.destroy ();
 
         GenericSet<uint> duplicate_keys     = new GenericSet<uint> (direct_hash, direct_equal);
         GenericSet<uint> encountered_keys   = new GenericSet<uint> (direct_hash, direct_equal);
@@ -48,7 +49,7 @@ private class Controls : Box
                 WormProperties worm_prop = worm_props.@get (worm);
 
                 var grid = new ControlsGrid (worm.id, worm_prop, arrow_pixbuf, arrow_key_pixbuf);
-                grids_box.add (grid);
+                grid.insert_after (grids_box, /* insert first */ null);
                 grids.add (grid);
 
                 check_for_duplicates (worm_prop.up,     ref encountered_keys, ref duplicate_keys);
