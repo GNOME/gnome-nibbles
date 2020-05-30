@@ -112,8 +112,9 @@ private class NibblesWindow : ApplicationWindow
         if (settings.get_boolean ("window-is-maximized"))
             maximize ();
 
-        key_controller = new EventControllerKey (this);
+        key_controller = new EventControllerKey ();
         key_controller.key_pressed.connect (key_press_event_cb);
+        ((Widget) this).add_controller (key_controller);
 
         /* Create game */
         game = new NibblesGame (settings.get_int ("start-level"),
