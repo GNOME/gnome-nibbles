@@ -299,6 +299,9 @@
                                   <object class="GtkToggleButton" id="ai0">
                                     <property name="use-underline">True</property>
                                     <property name="label">_0</property>
+                                    <property name="action-name">win.change-number-of-ais</property>
+                                    <property name="action-target">@i 0</property>
+                                    <property name="sensitive" bind-source="ai0" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>
@@ -311,6 +314,9 @@
                                   <object class="GtkToggleButton" id="ai1">
                                     <property name="use-underline">True</property>
                                     <property name="label">_1</property>
+                                    <property name="action-name">win.change-number-of-ais</property>
+                                    <property name="action-target">@i 1</property>
+                                    <property name="sensitive" bind-source="ai1" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>
@@ -323,6 +329,9 @@
                                   <object class="GtkToggleButton" id="ai2">
                                     <property name="use-underline">True</property>
                                     <property name="label">_2</property>
+                                    <property name="action-name">win.change-number-of-ais</property>
+                                    <property name="action-target">@i 2</property>
+                                    <property name="sensitive" bind-source="ai2" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>
@@ -336,7 +345,9 @@
                                     <property name="visible">True</property>
                                     <property name="use-underline">True</property>
                                     <property name="label">_3</property>
-                                    <property name="active">True</property>
+                                    <property name="action-name">win.change-number-of-ais</property>
+                                    <property name="action-target">@i 3</property>
+                                    <property name="sensitive" bind-source="ai3" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>
@@ -350,6 +361,9 @@
                                     <property name="visible">True</property>
                                     <property name="use-underline">True</property>
                                     <property name="label">_4</property>
+                                    <property name="action-name">win.change-number-of-ais</property>
+                                    <property name="action-target">@i 4</property>
+                                    <property name="sensitive" bind-source="ai4" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>
@@ -363,6 +377,9 @@
                                     <property name="visible">True</property>
                                     <property name="use-underline">True</property>
                                     <property name="label">_5</property>
+                                    <property name="action-name">win.change-number-of-ais</property>
+                                    <property name="action-target">@i 5</property>
+                                    <property name="sensitive" bind-source="ai5" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>

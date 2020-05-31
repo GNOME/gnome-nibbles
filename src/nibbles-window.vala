@@ -95,6 +95,7 @@ private class NibblesWindow : ApplicationWindow
         {"preferences", preferences_cb},
         {"scores", scores_cb},
 
+        {"change-number-of-ais", null, "i", "3", change_number_of_ais },
         {"change-humans-number", null, "i", "1", change_humans_number },
         {"show-new-game-screen", show_new_game_screen_cb},
         {"show-controls-screen", show_controls_screen_cb},
@@ -129,17 +130,11 @@ private class NibblesWindow : ApplicationWindow
         key_controller.key_pressed.connect (key_press_event_cb);
 
         number_of_ai_buttons = new Gee.LinkedList<ToggleButton> ();
-        ai0.toggled.connect (change_number_of_ai_cb);
         number_of_ai_buttons.add (ai0);
-        ai1.toggled.connect (change_number_of_ai_cb);
         number_of_ai_buttons.add (ai1);
-        ai2.toggled.connect (change_number_of_ai_cb);
         number_of_ai_buttons.add (ai2);
-        ai3.toggled.connect (change_number_of_ai_cb);
         number_of_ai_buttons.add (ai3);
-        ai4.toggled.connect (change_number_of_ai_cb);
         number_of_ai_buttons.add (ai4);
-        ai5.toggled.connect (change_number_of_ai_cb);
         number_of_ai_buttons.add (ai5);
 
         /* Create game */
@@ -173,7 +168,9 @@ private class NibblesWindow : ApplicationWindow
         /* Number of worms */
         game.numhumans = settings.get_int ("players");
         game.numai = settings.get_int ("ai");
+        ((SimpleAction) lookup_action ("change-number-of-ais")).set_state (game.numai);
         ((SimpleAction) lookup_action ("change-humans-number")).set_state (game.numhumans);
+        update_visible_buttons ();
 
         /* Controls screen */
         arrow_pixbuf = NibblesView.load_pixmap_file ("arrow.svg", 5 * view.tile_size, 5 * view.tile_size);
@@ -471,8 +468,6 @@ private class NibblesWindow : ApplicationWindow
         new_game_button.hide ();
         pause_button.hide ();
 
-        number_of_ai_buttons[game.numai].set_active (true);
-
         set_default (next_button);
 
         main_stack.set_transition_type (StackTransitionType.NONE);
@@ -482,21 +477,6 @@ private class NibblesWindow : ApplicationWindow
 
     private void show_controls_screen_cb ()
     {
-        /* Save selected number of computer players before changing the screen */
-        foreach (var button in number_of_ai_buttons)
-        {
-            if (button.get_active ())
-            {
-                int numai = -1;
-                button.get_label ().scanf ("_%d", &numai);
-                game.numai = numai;
-
-                /* Remember the option for the following runs */
-                settings.set_int ("ai", game.numai);
-                break;
-            }
-        }
-
         /* Create worms and load properties */
         game.create_worms ();
         game.load_worm_properties (worm_settings);
@@ -561,6 +541,8 @@ private class NibblesWindow : ApplicationWindow
 
     private inline void change_humans_number (SimpleAction action, Variant variant)
     {
+        int number_of_worms = game.numhumans + game.numai;
+
         int humans_number = variant.get_int32 ();
         if (humans_number < 1 || humans_number > 4)
             assert_not_reached ();
@@ -568,48 +550,34 @@ private class NibblesWindow : ApplicationWindow
         game.numhumans = humans_number;
         settings.set_int ("players", humans_number);
 
-        int min_ai = 4 - humans_number;
-        int max_ai = NibblesGame.MAX_WORMS - humans_number;
-        for (int i = 0; i < min_ai; i++)
-        {
-            number_of_ai_buttons[i].hide ();
-        }
-        for (int i = min_ai; i <= max_ai; i++)
-        {
-            number_of_ai_buttons[i].show ();
-        }
-        for (int i = max_ai + 1; i < number_of_ai_buttons.size; i++)
-        {
-            number_of_ai_buttons[i].hide ();
-        }
-
-        if (humans_number == 4)
-        {
-            number_of_ai_buttons[0].show ();
-        }
-
-        number_of_ai_buttons[min_ai].set_active (true);
+        update_visible_buttons ();
+        number_of_ai_buttons[number_of_worms - game.numhumans].set_active (true);
     }
 
-    private void change_number_of_ai_cb (ToggleButton button)
+    private void update_visible_buttons ()
     {
-        foreach (var other_button in number_of_ai_buttons)
-        {
-            if (button != other_button)
-            {
-                if (other_button.get_active ())
-                {
-                    /* We are blocking the signal to prevent another callback when setting the previous
-                     * checked button to inactive
-                     */
-                    SignalHandler.block_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
-                    other_button.set_active (false);
-                    SignalHandler.unblock_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
-                    break;
-                }
-            }
-        }
-        button.set_active (true);
+        int min_ai = 4 - game.numhumans;
+        int max_ai = NibblesGame.MAX_WORMS - game.numhumans;
+
+        for (int i = 0; i < min_ai; i++)
+            number_of_ai_buttons[i].hide ();
+        for (int i = min_ai; i <= max_ai; i++)
+            number_of_ai_buttons[i].show ();
+        for (int i = max_ai + 1; i < number_of_ai_buttons.size; i++)
+            number_of_ai_buttons[i].hide ();
+
+        if (game.numhumans == 4)
+            number_of_ai_buttons[0].show ();
+    }
+
+    private inline void change_number_of_ais (SimpleAction action, Variant variant)
+    {
+        int number_of_ais = variant.get_int32 ();
+        if (number_of_ais > 5)
+            assert_not_reached ();
+        action.set_state (number_of_ais);
+        game.numai = number_of_ais;
+        settings.set_int ("ai", number_of_ais);
     }
 
     /*\
