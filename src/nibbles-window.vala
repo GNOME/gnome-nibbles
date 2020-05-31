@@ -178,9 +178,7 @@ private class NibblesWindow : ApplicationWindow
 
         /* Check whether to display the first run screen */
         var first_run = settings.get_boolean ("first-run");
-        if (first_run)
-            show_first_run_screen ();
-        else
+        if (!first_run)
             show_new_game_screen_cb ();
 
         /* Create scores */
@@ -442,11 +440,6 @@ private class NibblesWindow : ApplicationWindow
     /*\
     * * Switching the stack
     \*/
-
-    private void show_first_run_screen ()
-    {
-        main_stack.set_visible_child_name ("first_run");
-    }
 
     private void show_new_game_screen_cb ()
     {
