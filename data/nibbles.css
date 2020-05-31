@@ -17,6 +17,10 @@
   font-family: Sans;
   padding: 1px 38px;
   background-image: linear-gradient(to bottom, #3e4444);
+  color:@theme-fg-color;
+}
+.number-box:disabled {
+  color:@theme-fg-color;
 }
 .number-box:hover {
   background-image: linear-gradient(to bottom, rgba(60, 69, 71, 0.8));

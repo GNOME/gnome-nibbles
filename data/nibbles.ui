@@ -213,7 +213,9 @@
                                     <property name="visible">True</property>
                                     <property name="use-underline">True</property>
                                     <property name="label">_1</property>
-                                    <property name="active">True</property>
+                                    <property name="action-name">win.change-humans-number</property>
+                                    <property name="action-target">@i 1</property>
+                                    <property name="sensitive" bind-source="players1" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>
@@ -227,6 +229,9 @@
                                     <property name="visible">True</property>
                                     <property name="use-underline">True</property>
                                     <property name="label">_2</property>
+                                    <property name="action-name">win.change-humans-number</property>
+                                    <property name="action-target">@i 2</property>
+                                    <property name="sensitive" bind-source="players2" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>
@@ -240,6 +245,9 @@
                                     <property name="visible">True</property>
                                     <property name="use-underline">True</property>
                                     <property name="label">_3</property>
+                                    <property name="action-name">win.change-humans-number</property>
+                                    <property name="action-target">@i 3</property>
+                                    <property name="sensitive" bind-source="players3" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>
@@ -253,6 +261,9 @@
                                     <property name="visible">True</property>
                                     <property name="use-underline">True</property>
                                     <property name="label">_4</property>
+                                    <property name="action-name">win.change-humans-number</property>
+                                    <property name="action-target">@i 4</property>
+                                    <property name="sensitive" bind-source="players4" bind-property="active" bind-flags="invert-boolean"/>
                                     <style>
                                       <class name="number-box"/>
                                     </style>

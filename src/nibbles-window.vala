@@ -41,12 +41,7 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private Button pause_button;
 
     /* Pre-game screen widgets */
-    private Gee.LinkedList<ToggleButton> number_of_players_buttons;
     private Gee.LinkedList<ToggleButton> number_of_ai_buttons;
-    [GtkChild] private ToggleButton players1;
-    [GtkChild] private ToggleButton players2;
-    [GtkChild] private ToggleButton players3;
-    [GtkChild] private ToggleButton players4;
     [GtkChild] private ToggleButton ai0;
     [GtkChild] private ToggleButton ai1;
     [GtkChild] private ToggleButton ai2;
@@ -100,6 +95,7 @@ private class NibblesWindow : ApplicationWindow
         {"preferences", preferences_cb},
         {"scores", scores_cb},
 
+        {"change-humans-number", null, "i", "1", change_humans_number },
         {"show-new-game-screen", show_new_game_screen_cb},
         {"show-controls-screen", show_controls_screen_cb},
         {"back", back_cb}
@@ -131,16 +127,6 @@ private class NibblesWindow : ApplicationWindow
 
         key_controller = new EventControllerKey (this);
         key_controller.key_pressed.connect (key_press_event_cb);
-
-        number_of_players_buttons = new Gee.LinkedList<ToggleButton> ();
-        players1.toggled.connect (change_number_of_players_cb);
-        number_of_players_buttons.add (players1);
-        players2.toggled.connect (change_number_of_players_cb);
-        number_of_players_buttons.add (players2);
-        players3.toggled.connect (change_number_of_players_cb);
-        number_of_players_buttons.add (players3);
-        players4.toggled.connect (change_number_of_players_cb);
-        number_of_players_buttons.add (players4);
 
         number_of_ai_buttons = new Gee.LinkedList<ToggleButton> ();
         ai0.toggled.connect (change_number_of_ai_cb);
@@ -187,6 +173,7 @@ private class NibblesWindow : ApplicationWindow
         /* Number of worms */
         game.numhumans = settings.get_int ("players");
         game.numai = settings.get_int ("ai");
+        ((SimpleAction) lookup_action ("change-humans-number")).set_state (game.numhumans);
 
         /* Controls screen */
         arrow_pixbuf = NibblesView.load_pixmap_file ("arrow.svg", 5 * view.tile_size, 5 * view.tile_size);
@@ -484,7 +471,6 @@ private class NibblesWindow : ApplicationWindow
         new_game_button.hide ();
         pause_button.hide ();
 
-        number_of_players_buttons[game.numhumans - 1].set_active (true);
         number_of_ai_buttons[game.numai].set_active (true);
 
         set_default (next_button);
@@ -496,21 +482,6 @@ private class NibblesWindow : ApplicationWindow
 
     private void show_controls_screen_cb ()
     {
-        /* Save selected number of players before changing the screen */
-        foreach (var button in number_of_players_buttons)
-        {
-            if (button.get_active ())
-            {
-                int numhumans = -1;
-                button.get_label ().scanf ("_%d", &numhumans);
-                game.numhumans = numhumans;
-
-                /* Remember the option for the following runs */
-                settings.set_int ("players", game.numhumans);
-                break;
-            }
-        }
-
         /* Save selected number of computer players before changing the screen */
         foreach (var button in number_of_ai_buttons)
         {
@@ -588,43 +559,17 @@ private class NibblesWindow : ApplicationWindow
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
     }
 
-    private void change_number_of_players_cb (ToggleButton button)
+    private inline void change_humans_number (SimpleAction action, Variant variant)
     {
-        var is_same_button = true;
-        foreach (var other_button in number_of_players_buttons)
-        {
-            if (button != other_button)
-            {
-                if (other_button.get_active ())
-                {
-                    /* We are blocking the signal to prevent another callback when setting the previous
-                     * checked button to inactive
-                     */
-                    SignalHandler.block_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
-                    other_button.set_active (false);
-                    SignalHandler.unblock_matched (other_button, SignalMatchType.DATA, 0, 0, null, null, this);
-                    is_same_button = false;
-                    break;
-                }
-            }
-        }
+        int humans_number = variant.get_int32 ();
+        if (humans_number < 1 || humans_number > 4)
+            assert_not_reached ();
+        action.set_state (humans_number);
+        game.numhumans = humans_number;
+        settings.set_int ("players", humans_number);
 
-        /* Ignore clicks on the same button. */
-        if (is_same_button)
-        {
-            SignalHandler.block_matched (button, SignalMatchType.DATA, 0, 0, null, null, this);
-            button.set_active (true);
-            SignalHandler.unblock_matched (button, SignalMatchType.DATA, 0, 0, null, null, this);
-            return;
-        }
-
-        button.set_active (true);
-
-        int numhumans = -1;
-        button.get_label ().scanf ("_%d", &numhumans);
-
-        int min_ai = 4 - numhumans;
-        int max_ai = NibblesGame.MAX_WORMS - numhumans;
+        int min_ai = 4 - humans_number;
+        int max_ai = NibblesGame.MAX_WORMS - humans_number;
         for (int i = 0; i < min_ai; i++)
         {
             number_of_ai_buttons[i].hide ();
@@ -638,7 +583,7 @@ private class NibblesWindow : ApplicationWindow
             number_of_ai_buttons[i].hide ();
         }
 
-        if (numhumans == 4)
+        if (humans_number == 4)
         {
             number_of_ai_buttons[0].show ();
         }
