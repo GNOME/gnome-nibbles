@@ -41,13 +41,9 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private Button pause_button;
 
     /* Pre-game screen widgets */
-    private Gee.LinkedList<ToggleButton> number_of_ai_buttons;
-    [GtkChild] private ToggleButton ai0;
-    [GtkChild] private ToggleButton ai1;
-    [GtkChild] private ToggleButton ai2;
-    [GtkChild] private ToggleButton ai3;
-    [GtkChild] private ToggleButton ai4;
-    [GtkChild] private ToggleButton ai5;
+    [GtkChild] private ToggleButton worms4;
+    [GtkChild] private ToggleButton worms5;
+    [GtkChild] private ToggleButton worms6;
 
     [GtkChild] private Button next_button;
     [GtkChild] private Button start_button;
@@ -95,7 +91,7 @@ private class NibblesWindow : ApplicationWindow
         {"preferences", preferences_cb},
         {"scores", scores_cb},
 
-        {"change-number-of-ais", null, "i", "3", change_number_of_ais },
+        {"change-worms-number",  null, "i", "4", change_worms_number  },
         {"change-humans-number", null, "i", "1", change_humans_number },
         {"show-new-game-screen", show_new_game_screen_cb},
         {"show-controls-screen", show_controls_screen_cb},
@@ -129,14 +125,6 @@ private class NibblesWindow : ApplicationWindow
         key_controller = new EventControllerKey (this);
         key_controller.key_pressed.connect (key_press_event_cb);
 
-        number_of_ai_buttons = new Gee.LinkedList<ToggleButton> ();
-        number_of_ai_buttons.add (ai0);
-        number_of_ai_buttons.add (ai1);
-        number_of_ai_buttons.add (ai2);
-        number_of_ai_buttons.add (ai3);
-        number_of_ai_buttons.add (ai4);
-        number_of_ai_buttons.add (ai5);
-
         /* Create game */
         game = new NibblesGame (settings.get_int ("start-level"),
                                 settings.get_int ("speed"),
@@ -167,10 +155,17 @@ private class NibblesWindow : ApplicationWindow
 
         /* Number of worms */
         game.numhumans = settings.get_int ("players");
-        game.numai = settings.get_int ("ai");
-        ((SimpleAction) lookup_action ("change-number-of-ais")).set_state (game.numai);
+        int numai = settings.get_int ("ai");
+        if (numai + game.numhumans > NibblesGame.MAX_WORMS
+         || numai + game.numhumans < 4)
+        {
+            numai = 4 - game.numhumans;
+            settings.set_int ("ai", numai);
+        }
+        game.numai = numai;
+        ((SimpleAction) lookup_action ("change-worms-number" )).set_state (game.numhumans + numai);
         ((SimpleAction) lookup_action ("change-humans-number")).set_state (game.numhumans);
-        update_visible_buttons ();
+        update_buttons_labels ();
 
         /* Controls screen */
         arrow_pixbuf = NibblesView.load_pixmap_file ("arrow.svg", 5 * view.tile_size, 5 * view.tile_size);
@@ -543,32 +538,28 @@ private class NibblesWindow : ApplicationWindow
         game.numhumans = humans_number;
         settings.set_int ("players", humans_number);
 
-        update_visible_buttons ();
-        number_of_ai_buttons[number_of_worms - game.numhumans].set_active (true);
+        int number_of_ais = number_of_worms - humans_number;
+        game.numai = number_of_ais;
+        settings.set_int ("ai", number_of_ais);
+        update_buttons_labels ();
     }
 
-    private void update_visible_buttons ()
+    private void update_buttons_labels ()
     {
         int min_ai = 4 - game.numhumans;
-        int max_ai = NibblesGame.MAX_WORMS - game.numhumans;
 
-        for (int i = 0; i < min_ai; i++)
-            number_of_ai_buttons[i].hide ();
-        for (int i = min_ai; i <= max_ai; i++)
-            number_of_ai_buttons[i].show ();
-        for (int i = max_ai + 1; i < number_of_ai_buttons.size; i++)
-            number_of_ai_buttons[i].hide ();
-
-        if (game.numhumans == 4)
-            number_of_ai_buttons[0].show ();
+        worms4.set_label (@"_$min_ai");
+        worms5.set_label (@"_$(min_ai + 1)");
+        worms6.set_label (@"_$(min_ai + 2)");
     }
 
-    private inline void change_number_of_ais (SimpleAction action, Variant variant)
+    private inline void change_worms_number (SimpleAction action, Variant variant)
     {
-        int number_of_ais = variant.get_int32 ();
-        if (number_of_ais > 5)
+        int worms_number = variant.get_int32 ();
+        if (worms_number < 4 || worms_number > 6)
             assert_not_reached ();
-        action.set_state (number_of_ais);
+        action.set_state (worms_number);
+        int number_of_ais = worms_number - game.numhumans;
         game.numai = number_of_ais;
         settings.set_int ("ai", number_of_ais);
     }
