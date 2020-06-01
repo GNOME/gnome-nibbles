@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright (C) 2015-2016 Iulian Radu
+   Copyright (C) 2020 Arnaud Bonatti
+
+   GNOME Nibbles is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   GNOME Nibbles is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <template class="Players" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
+    <property name="width-request">644</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="valign">center</property>
+        <property name="spacing">60</property>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">10</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Number of players</property>
+                <style><class name="menu-title"/></style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">10</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Select the number of human players.</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="orientation">horizontal</property>
+                <property name="valign">center</property>
+                <property name="halign">center</property>
+                <property name="spacing">10</property>
+                <property name="vexpand">True</property>
+                <child>
+                  <object class="GtkToggleButton" id="players1">
+                    <property name="visible">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label">_1</property>
+                    <property name="action-name">players.change-players-number</property>
+                    <property name="action-target">@i 1</property>
+                    <property name="sensitive" bind-source="players1" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="players2">
+                    <property name="visible">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label">_2</property>
+                    <property name="action-name">players.change-players-number</property>
+                    <property name="action-target">@i 2</property>
+                    <property name="sensitive" bind-source="players2" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="players3">
+                    <property name="visible">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label">_3</property>
+                    <property name="action-name">players.change-players-number</property>
+                    <property name="action-target">@i 3</property>
+                    <property name="sensitive" bind-source="players3" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="players4">
+                    <property name="visible">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label">_4</property>
+                    <property name="action-name">players.change-players-number</property>
+                    <property name="action-target">@i 4</property>
+                    <property name="sensitive" bind-source="players4" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">10</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Select the number of computer players.</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="orientation">horizontal</property>
+                <property name="valign">center</property>
+                <property name="halign">center</property>
+                <property name="spacing">10</property>
+                <property name="vexpand">True</property>
+                <child>
+                  <object class="GtkToggleButton" id="worms4">
+                    <property name="visible">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label">_3</property>
+                    <property name="action-name">players.change-nibbles-number</property>
+                    <property name="action-target">@i 4</property>
+                    <property name="sensitive" bind-source="worms4" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="worms5">
+                    <property name="visible">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label">_4</property>
+                    <property name="action-name">players.change-nibbles-number</property>
+                    <property name="action-target">@i 5</property>
+                    <property name="sensitive" bind-source="worms5" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="worms6">
+                    <property name="visible">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label">_5</property>
+                    <property name="action-name">players.change-nibbles-number</property>
+                    <property name="action-target">@i 6</property>
+                    <property name="sensitive" bind-source="worms6" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="pack-type">start</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="visible">True</property>
+        <property name="can-default">True</property>
+        <property name="use-underline">True</property>
+        <property name="label" translatable="yes">_Next</property>
+        <property name="action-name">win.show-controls-screen</property>
+        <property name="width-request">116</property>
+        <property name="height-request">34</property>
+        <property name="halign">center</property>
+        <style>
+          <class name="suggested-action"/>
+          <class name="play"/>
+        </style>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
+  </template>
+</interface>

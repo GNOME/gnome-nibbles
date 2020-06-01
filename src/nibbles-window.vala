@@ -41,12 +41,7 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private Button pause_button;
 
     /* Pre-game screen widgets */
-    [GtkChild] private ToggleButton worms4;
-    [GtkChild] private ToggleButton worms5;
-    [GtkChild] private ToggleButton worms6;
-
-    [GtkChild] private Button next_button;
-
+    [GtkChild] private Players players;
     [GtkChild] private Controls controls;
 
     /* Statusbar widgets */
@@ -88,8 +83,6 @@ private class NibblesWindow : ApplicationWindow
         {"preferences", preferences_cb},
         {"scores", scores_cb},
 
-        {"change-worms-number",  null, "i", "4", change_worms_number  },
-        {"change-humans-number", null, "i", "1", change_humans_number },
         {"show-new-game-screen", show_new_game_screen_cb},
         {"show-controls-screen", show_controls_screen_cb},
         {"back", back_cb}
@@ -160,9 +153,7 @@ private class NibblesWindow : ApplicationWindow
             settings.set_int ("ai", numai);
         }
         game.numai = numai;
-        ((SimpleAction) lookup_action ("change-worms-number" )).set_state (game.numhumans + numai);
-        ((SimpleAction) lookup_action ("change-humans-number")).set_state (game.numhumans);
-        update_buttons_labels ();
+        players.set_values (game.numhumans, numai);
 
         /* Controls screen */
         controls.load_pixmaps (view.tile_size);
@@ -452,8 +443,6 @@ private class NibblesWindow : ApplicationWindow
         new_game_button.hide ();
         pause_button.hide ();
 
-        set_default (next_button);
-
         main_stack.set_transition_type (StackTransitionType.NONE);
         main_stack.set_visible_child_name ("number_of_players");
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
@@ -461,6 +450,13 @@ private class NibblesWindow : ApplicationWindow
 
     private void show_controls_screen_cb ()
     {
+        int numhumans, numai;
+        players.get_values (out numhumans, out numai);
+        game.numhumans = numhumans;
+        game.numai     = numai;
+        settings.set_int ("players", numhumans);
+        settings.set_int ("ai",      numai);
+
         /* Create worms and load properties */
         game.create_worms ();
         game.load_worm_properties (worm_settings);
@@ -509,43 +505,6 @@ private class NibblesWindow : ApplicationWindow
         }
 
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
-    }
-
-    private inline void change_humans_number (SimpleAction action, Variant variant)
-    {
-        int number_of_worms = game.numhumans + game.numai;
-
-        int humans_number = variant.get_int32 ();
-        if (humans_number < 1 || humans_number > 4)
-            assert_not_reached ();
-        action.set_state (humans_number);
-        game.numhumans = humans_number;
-        settings.set_int ("players", humans_number);
-
-        int number_of_ais = number_of_worms - humans_number;
-        game.numai = number_of_ais;
-        settings.set_int ("ai", number_of_ais);
-        update_buttons_labels ();
-    }
-
-    private void update_buttons_labels ()
-    {
-        int min_ai = 4 - game.numhumans;
-
-        worms4.set_label (@"_$min_ai");
-        worms5.set_label (@"_$(min_ai + 1)");
-        worms6.set_label (@"_$(min_ai + 2)");
-    }
-
-    private inline void change_worms_number (SimpleAction action, Variant variant)
-    {
-        int worms_number = variant.get_int32 ();
-        if (worms_number < 4 || worms_number > 6)
-            assert_not_reached ();
-        action.set_state (worms_number);
-        int number_of_ais = worms_number - game.numhumans;
-        game.numai = number_of_ais;
-        settings.set_int ("ai", number_of_ais);
     }
 
     /*\

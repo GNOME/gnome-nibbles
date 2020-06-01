@@ -6,11 +6,13 @@ data/nibbles.ui
 data/org.gnome.Nibbles.appdata.xml.in
 data/org.gnome.Nibbles.desktop.in
 data/org.gnome.nibbles.gschema.xml
+data/players.ui
 data/player-score-box.ui
 data/preferences-dialog.ui
 src/controls.vala
 src/gnome-nibbles.vala
 src/nibbles-view.vala
 src/nibbles-window.vala
+src/players.vala
 src/preferences-dialog.vala
 src/scoreboard.vala

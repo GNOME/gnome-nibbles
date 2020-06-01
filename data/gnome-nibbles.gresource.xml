@@ -5,6 +5,7 @@
     <file preprocess="xml-stripblanks"                  >controls-grid.ui</file>
     <file>nibbles.css</file>
     <file preprocess="xml-stripblanks"                  >nibbles.ui</file>
+    <file preprocess="xml-stripblanks"                  >players.ui</file>
     <file preprocess="xml-stripblanks"                  >player-score-box.ui</file>
     <file preprocess="xml-stripblanks" compressed="true">preferences-dialog.ui</file>
     <file preprocess="xml-stripblanks"                  >scoreboard.ui</file>
