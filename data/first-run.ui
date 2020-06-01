@@ -56,30 +56,25 @@
             <property name="icon-size">6</property> <!-- DIALOG -->
             <property name="pixel-size">96</property>
           </object>
-          <packing>
-            <property name="pack-type">start</property>
-          </packing>
         </child>
         <child>
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="label" translatable="yes">Welcome, worms.</property>
-            <style><class name="menu-title"/></style>
+            <style>
+              <class name="menu-title"/>
+            </style>
           </object>
-          <packing>
-            <property name="pack-type">start</property>
-          </packing>
         </child>
         <child>
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="label" translatable="yes">Eat the treats before the other worms, but don’t hit anything!</property>
             <property name="valign">start</property>
-            <style><class name="tip"/></style>
+            <style>
+              <class name="tip"/>
+            </style>
           </object>
-          <packing>
-            <property name="pack-type">start</property>
-          </packing>
         </child>
       </object>
       <packing>
