@@ -46,11 +46,8 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private ToggleButton worms6;
 
     [GtkChild] private Button next_button;
-    [GtkChild] private Button start_button;
 
-    [GtkChild] private Box grids_box;
-    private Gdk.Pixbuf arrow_pixbuf;
-    private Gdk.Pixbuf arrow_key_pixbuf;
+    [GtkChild] private Controls controls;
 
     /* Statusbar widgets */
     [GtkChild] private Stack statusbar_stack;
@@ -168,8 +165,7 @@ private class NibblesWindow : ApplicationWindow
         update_buttons_labels ();
 
         /* Controls screen */
-        arrow_pixbuf = NibblesView.load_pixmap_file ("arrow.svg", 5 * view.tile_size, 5 * view.tile_size);
-        arrow_key_pixbuf = NibblesView.load_pixmap_file ("arrow-key.svg", 5 * view.tile_size, 5 * view.tile_size);
+        controls.load_pixmaps (view.tile_size);
 
         /* Check whether to display the first run screen */
         var first_run = settings.get_boolean ("first-run");
@@ -469,19 +465,7 @@ private class NibblesWindow : ApplicationWindow
         game.create_worms ();
         game.load_worm_properties (worm_settings);
 
-        foreach (var grid in grids_box.get_children ())
-            grid.destroy ();
-
-        foreach (var worm in game.worms)
-        {
-            if (worm.is_human)
-            {
-                var grid = new ControlsGrid (worm.id, game.worm_props.@get (worm), arrow_pixbuf, arrow_key_pixbuf);
-                grids_box.add (grid);
-            }
-        }
-
-        set_default (start_button);
+        controls.prepare (game.worms, game.worm_props);
 
         main_stack.set_visible_child_name ("controls");
     }
