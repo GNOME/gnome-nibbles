@@ -1,6 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
+ * Copyright (C) 2020 Arnaud Bonatti <arnaud.bonatti@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +18,36 @@
  */
 
 using Gtk;
+
+[GtkTemplate (ui = "/org/gnome/nibbles/ui/controls.ui")]
+private class Controls : Box
+{
+    [GtkChild] private Box grids_box;
+
+    private Gdk.Pixbuf arrow_pixbuf;
+    private Gdk.Pixbuf arrow_key_pixbuf;
+
+    internal void load_pixmaps (int tile_size)
+    {
+        arrow_pixbuf     = NibblesView.load_pixmap_file ("arrow.svg",     5 * tile_size, 5 * tile_size);
+        arrow_key_pixbuf = NibblesView.load_pixmap_file ("arrow-key.svg", 5 * tile_size, 5 * tile_size);
+    }
+
+    internal void prepare (Gee.LinkedList<Worm> worms, Gee.HashMap<Worm, WormProperties?> worm_props)
+    {
+        foreach (var grid in grids_box.get_children ())
+            grid.destroy ();
+
+        foreach (var worm in worms)
+        {
+            if (worm.is_human)
+            {
+                var grid = new ControlsGrid (worm.id, worm_props.@get (worm), arrow_pixbuf, arrow_key_pixbuf);
+                grids_box.add (grid);
+            }
+        }
+    }
+}
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/controls-grid.ui")]
 private class ControlsGrid : Grid

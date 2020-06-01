@@ -1,5 +1,6 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
+data/controls.ui
 data/controls-grid.ui
 data/nibbles.ui
 data/org.gnome.Nibbles.appdata.xml.in
