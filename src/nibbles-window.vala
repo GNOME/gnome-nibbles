@@ -160,7 +160,14 @@ private class NibblesWindow : ApplicationWindow
 
         /* Check whether to display the first run screen */
         var first_run = settings.get_boolean ("first-run");
-        if (!first_run)
+        if (first_run)
+        {
+            FirstRun first_run_panel = new FirstRun ();
+            first_run_panel.show ();
+            main_stack.add (first_run_panel);
+            main_stack.set_visible_child (first_run_panel);
+        }
+        else
             show_new_game_screen_cb ();
 
         /* Create scores */
@@ -820,4 +827,9 @@ private class NibblesWindow : ApplicationWindow
         pause_action.set_enabled (false);
         back_action.set_enabled (false);
     }
+}
+
+[GtkTemplate (ui = "/org/gnome/nibbles/ui/first-run.ui")]
+private class FirstRun : Box
+{
 }

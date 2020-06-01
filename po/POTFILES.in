@@ -2,6 +2,7 @@
 # Please keep this file in alphabetical order.
 data/controls.ui
 data/controls-grid.ui
+data/first-run.ui
 data/nibbles.ui
 data/org.gnome.Nibbles.appdata.xml.in
 data/org.gnome.Nibbles.desktop.in
