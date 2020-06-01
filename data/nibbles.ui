@@ -124,42 +124,37 @@
                 <property name="visible">True</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkStack" id="statusbar_stack">
                     <property name="visible">True</property>
-                    <property name="halign">center</property>
                     <child>
-                      <object class="GtkStack" id="statusbar_stack">
+                      <object class="GtkLabel" id="countdown">
                         <property name="visible">True</property>
-                        <child>
-                          <object class="GtkLabel" id="countdown">
-                            <property name="visible">True</property>
-                            <property name="label">3</property>
-                            <property name="halign">center</property>
-                            <style><class name="countdown"/></style>
-                          </object>
-                          <packing>
-                            <property name="name">countdown</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="Scoreboard" id="scoreboard">
-                            <property name="visible">True</property>
-                          </object>
-                          <packing>
-                            <property name="name">scoreboard</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="visible">True</property>
-                            <property name="label" translatable="yes">Paused</property>
-                            <style><class name="menu-title"/></style>
-                          </object>
-                          <packing>
-                            <property name="name">paused</property>
-                          </packing>
-                        </child>
+                        <property name="label">3</property>
+                        <property name="halign">center</property>
+                        <style><class name="countdown"/></style>
                       </object>
+                      <packing>
+                        <property name="name">countdown</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="Scoreboard" id="scoreboard">
+                        <property name="visible">True</property>
+                        <property name="halign">center</property>
+                      </object>
+                      <packing>
+                        <property name="name">scoreboard</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Paused</property>
+                        <style><class name="menu-title"/></style>
+                      </object>
+                      <packing>
+                        <property name="name">paused</property>
+                      </packing>
                     </child>
                   </object>
                   <packing>
