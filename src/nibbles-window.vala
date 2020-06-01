@@ -168,7 +168,7 @@ private class NibblesWindow : ApplicationWindow
             main_stack.set_visible_child (first_run_panel);
         }
         else
-            show_new_game_screen_cb ();
+            show_new_game_screen ();
 
         /* Create scores */
         create_scores ();
@@ -320,7 +320,7 @@ private class NibblesWindow : ApplicationWindow
         button.set_label (_("_New Game"));
         dialog.response.connect ((response_id) => {
             if (response_id == ResponseType.OK)
-                show_new_game_screen_cb ();
+                show_new_game_screen ();
             if ((response_id == ResponseType.CANCEL || response_id == ResponseType.DELETE_EVENT)
                 && !game.is_paused)
             {
@@ -430,7 +430,12 @@ private class NibblesWindow : ApplicationWindow
     * * Switching the stack
     \*/
 
-    private void show_new_game_screen_cb ()
+    private inline void show_new_game_screen_cb ()
+    {
+        show_new_game_screen (/* after first run */ true);
+    }
+
+    private void show_new_game_screen (bool after_first_run = false)
     {
         if (countdown_id != 0)
         {
@@ -450,7 +455,10 @@ private class NibblesWindow : ApplicationWindow
         new_game_button.hide ();
         pause_button.hide ();
 
-        main_stack.set_transition_type (StackTransitionType.NONE);
+        if (after_first_run)
+            main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
+        else
+            main_stack.set_transition_type (StackTransitionType.NONE);
         main_stack.set_visible_child_name ("number_of_players");
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
     }
@@ -807,7 +815,7 @@ private class NibblesWindow : ApplicationWindow
 
             view.show ();
 
-            show_new_game_screen_cb ();
+            show_new_game_screen ();
         });
         button.show ();
 
