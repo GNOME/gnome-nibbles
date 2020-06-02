@@ -77,15 +77,13 @@ private class NibblesWindow : ApplicationWindow
 
     private const GLib.ActionEntry menu_entries[] =
     {
-        {"start-game", start_game_cb},
-        {"new-game", new_game_cb},
-        {"pause", pause_cb},
-        {"preferences", preferences_cb},
-        {"scores", scores_cb},
+        { "new-game",       new_game_cb     },  // the "New Game" button
+        { "pause",          pause_cb        },
+        { "preferences",    preferences_cb  },
+        { "scores",         scores_cb       },
 
-        {"show-new-game-screen", show_new_game_screen_cb},
-        {"show-controls-screen", show_controls_screen_cb},
-        {"back", back_cb}
+        { "next-screen",    next_screen_cb  },  // called from first-run, players and controls
+        { "back",           back_cb         }   // called on Escape pressed; disabled only during countdown (TODO pause?)
     };
 
     construct
@@ -164,7 +162,7 @@ private class NibblesWindow : ApplicationWindow
         {
             FirstRun first_run_panel = new FirstRun ();
             first_run_panel.show ();
-            main_stack.add (first_run_panel);
+            main_stack.add_named (first_run_panel, "first-run");
             main_stack.set_visible_child (first_run_panel);
         }
         else
@@ -244,7 +242,7 @@ private class NibblesWindow : ApplicationWindow
         return false;
     }
 
-    private void start_game_cb ()
+    private void start_game ()
     {
         settings.set_boolean ("first-run", false);
 
@@ -430,9 +428,23 @@ private class NibblesWindow : ApplicationWindow
     * * Switching the stack
     \*/
 
-    private inline void show_new_game_screen_cb ()
+    private inline void next_screen_cb ()
     {
-        show_new_game_screen (/* after first run */ true);
+        var child_name = main_stack.get_visible_child_name ();
+        switch (child_name)
+        {
+            case "first-run":
+                show_new_game_screen (/* after first run */ true);
+                break;
+            case "number_of_players":
+                show_controls_screen ();
+                break;
+            case "controls":
+                start_game ();
+                break;
+            default:
+                return;
+        }
     }
 
     private void show_new_game_screen (bool after_first_run = false)
@@ -463,7 +475,7 @@ private class NibblesWindow : ApplicationWindow
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
     }
 
-    private void show_controls_screen_cb ()
+    private void show_controls_screen ()
     {
         int numhumans, numai;
         players.get_values (out numhumans, out numai);
@@ -507,7 +519,7 @@ private class NibblesWindow : ApplicationWindow
         var child_name = main_stack.get_visible_child_name ();
         switch (child_name)
         {
-            case "first_run":
+            case "first-run":
                 break;
             case "number_of_players":
                 break;
