@@ -163,6 +163,10 @@ private class NibblesWindow : ApplicationWindow
             FirstRun first_run_panel = new FirstRun ();
             first_run_panel.show ();
             main_stack.add_named (first_run_panel, "first-run");
+
+            new_game_action.set_enabled (false);
+            pause_action.set_enabled (false);
+
             main_stack.set_visible_child (first_run_panel);
         }
         else
