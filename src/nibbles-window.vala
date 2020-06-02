@@ -42,6 +42,7 @@ private class NibblesWindow : ApplicationWindow
 
     /* Pre-game screen widgets */
     [GtkChild] private Players players;
+    [GtkChild] private Speed speed;
     [GtkChild] private Controls controls;
 
     /* Statusbar widgets */
@@ -82,7 +83,7 @@ private class NibblesWindow : ApplicationWindow
         { "preferences",    preferences_cb  },
         { "scores",         scores_cb       },
 
-        { "next-screen",    next_screen_cb  },  // called from first-run, players and controls
+        { "next-screen",    next_screen_cb  },  // called from first-run, players, speed and controls
         { "back",           back_cb         }   // called on Escape pressed; disabled only during countdown (TODO pause?)
     };
 
@@ -95,6 +96,8 @@ private class NibblesWindow : ApplicationWindow
 
         settings = new GLib.Settings ("org.gnome.Nibbles");
         settings.changed.connect (settings_changed_cb);
+        add_action (settings.create_action ("sound"));
+        add_action (settings.create_action ("fakes"));
 
         worm_settings = new Gee.ArrayList<GLib.Settings> ();
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
@@ -152,6 +155,10 @@ private class NibblesWindow : ApplicationWindow
         }
         game.numai = numai;
         players.set_values (game.numhumans, numai);
+
+        /* Speed screen */
+        speed.set_values (settings.get_int ("speed"),
+                          settings.get_boolean ("fakes"));
 
         /* Controls screen */
         controls.load_pixmaps (view.tile_size);
@@ -441,6 +448,9 @@ private class NibblesWindow : ApplicationWindow
                 show_new_game_screen (/* after first run */ true);
                 break;
             case "number_of_players":
+                show_speed_screen ();
+                break;
+            case "speed":
                 show_controls_screen ();
                 break;
             case "controls":
@@ -479,7 +489,7 @@ private class NibblesWindow : ApplicationWindow
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
     }
 
-    private void show_controls_screen ()
+    private void show_speed_screen ()
     {
         int numhumans, numai;
         players.get_values (out numhumans, out numai);
@@ -487,6 +497,19 @@ private class NibblesWindow : ApplicationWindow
         game.numai     = numai;
         settings.set_int ("players", numhumans);
         settings.set_int ("ai",      numai);
+
+        main_stack.set_visible_child_name ("speed");
+    }
+
+    private void show_controls_screen ()
+    {
+        int game_speed;
+        bool fakes;
+        speed.get_values (out game_speed, out fakes);
+        game.speed = game_speed;
+        game.fakes = fakes;
+        settings.set_int ("speed", game_speed);
+        settings.set_boolean ("fakes", fakes);
 
         /* Create worms and load properties */
         game.create_worms ();
@@ -527,8 +550,11 @@ private class NibblesWindow : ApplicationWindow
                 break;
             case "number_of_players":
                 break;
-            case "controls":
+            case "speed":
                 main_stack.set_visible_child_name ("number_of_players");
+                break;
+            case "controls":
+                main_stack.set_visible_child_name ("speed");
                 break;
             case "game_box":
                 new_game_cb ();

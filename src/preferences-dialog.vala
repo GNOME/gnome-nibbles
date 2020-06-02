@@ -27,12 +27,6 @@ private class PreferencesDialog : Dialog
     private Gee.ArrayList<GLib.Settings> worm_settings;
 
     [GtkChild] private Notebook         notebook;
-    [GtkChild] private RadioButton      beginner_radio_button;
-    [GtkChild] private RadioButton      slow_radio_button;
-    [GtkChild] private RadioButton      medium_radio_button;
-    [GtkChild] private RadioButton      fast_radio_button;
-    [GtkChild] private CheckButton      sound_check_button;
-    [GtkChild] private CheckButton      fakes_check_button;
     [GtkChild] private Gtk.ListStore    list_store_1;
     [GtkChild] private Gtk.ListStore    list_store_2;
     [GtkChild] private Gtk.ListStore    list_store_3;
@@ -46,7 +40,6 @@ private class PreferencesDialog : Dialog
     [GtkChild] private ComboBoxText     combo_box_3;
     [GtkChild] private ComboBoxText     combo_box_4;
 
-    private Gee.ArrayList<RadioButton>      radio_buttons;
     private Gee.ArrayList<Gtk.ListStore>    list_stores;
     private Gee.ArrayList<TreeView>         tree_views;
     private Gee.ArrayList<ComboBoxText>     combo_boxes;
@@ -64,28 +57,6 @@ private class PreferencesDialog : Dialog
         });
 
         this.set_transient_for (window);
-
-        /* Speed radio buttons */
-        radio_buttons = new Gee.ArrayList<RadioButton> ();
-        radio_buttons.add (beginner_radio_button);
-        radio_buttons.add (slow_radio_button);
-        radio_buttons.add (medium_radio_button);
-        radio_buttons.add (fast_radio_button);
-
-        foreach (var radio_button in radio_buttons)
-        {
-            var speed = NibblesGame.MAX_SPEED - radio_buttons.index_of (radio_button);
-            radio_button.set_active (speed == settings.get_int ("speed"));
-            radio_button.toggled.connect (radio_button_toggled_cb);
-        }
-
-        /* Sound check button */
-        sound_check_button.set_active (settings.get_boolean ("sound"));
-        sound_check_button.toggled.connect (sound_toggled_cb);
-
-        /* Fake bonuses check button */
-        fakes_check_button.set_active (settings.get_boolean ("fakes"));
-        fakes_check_button.toggled.connect (fakes_toggles_cb);
 
         /* Control keys */
         tree_views = new Gee.ArrayList<TreeView> ();
@@ -155,27 +126,6 @@ private class PreferencesDialog : Dialog
             combo_box.set_active (color);
             combo_box.changed.connect (combo_box_changed_cb);
         }
-    }
-
-    private void radio_button_toggled_cb (ToggleButton button)
-    {
-        if (button.get_active ())
-        {
-            var speed = NibblesGame.MAX_SPEED - radio_buttons.index_of ((RadioButton) button);
-            settings.set_int ("speed", speed);
-        }
-    }
-
-    private void sound_toggled_cb ()
-    {
-        var play_sound = sound_check_button.get_active ();
-        settings.set_boolean ("sound", play_sound);
-    }
-
-    private void fakes_toggles_cb ()
-    {
-        var has_fakes = fakes_check_button.get_active ();
-        settings.set_boolean ("fakes", has_fakes);
     }
 
     private void accel_edited_cb (CellRendererAccel cell, string path_string, uint keyval,

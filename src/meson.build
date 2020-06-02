@@ -30,6 +30,7 @@ gnome_nibbles_sources = [
     'players.vala',
     'preferences-dialog.vala',
     'scoreboard.vala',
+    'speed.vala',
     'warp.vala',
     'worm.vala',
     resources,

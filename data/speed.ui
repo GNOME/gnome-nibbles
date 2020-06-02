@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright (C) 2015-2016 Iulian Radu
+   Copyright (C) 2020 Arnaud Bonatti
+
+   GNOME Nibbles is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   GNOME Nibbles is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <template class="Speed" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="valign">center</property>
+        <property name="spacing">25</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Preferences</property>
+            <property name="valign">center</property>
+            <style>
+              <class name="menu-title"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+            <property name="valign">center</property>
+            <property name="halign">center</property>
+            <property name="spacing">10</property>
+            <property name="vexpand">True</property>
+            <child>
+              <object class="GtkToggleButton" id="speed4">
+                <property name="visible">True</property>
+                <property name="hexpand">True</property>
+                <property name="halign">fill</property>
+                <property name="xalign">0.0</property>
+                <property name="use-underline">True</property>
+                <property name="label" translatable="yes">_Beginner</property>
+                <property name="action-name">speed.change-speed</property>
+                <property name="action-target">@i 4</property>
+                <property name="sensitive" bind-source="speed4" bind-property="active" bind-flags="invert-boolean"/>
+                <style>
+                  <class name="speed-box"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="speed3">
+                <property name="visible">True</property>
+                <property name="hexpand">True</property>
+                <property name="halign">fill</property>
+                <property name="xalign">0.0</property>
+                <property name="use-underline">True</property>
+                <property name="label" translatable="yes">_Slow</property>
+                <property name="action-name">speed.change-speed</property>
+                <property name="action-target">@i 3</property>
+                <property name="sensitive" bind-source="speed3" bind-property="active" bind-flags="invert-boolean"/>
+                <style>
+                  <class name="speed-box"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="speed2">
+                <property name="visible">True</property>
+                <property name="hexpand">True</property>
+                <property name="halign">fill</property>
+                <property name="xalign">0.0</property>
+                <property name="use-underline">True</property>
+                <property name="label" translatable="yes">_Medium</property>
+                <property name="action-name">speed.change-speed</property>
+                <property name="action-target">@i 2</property>
+                <property name="sensitive" bind-source="speed2" bind-property="active" bind-flags="invert-boolean"/>
+                <style>
+                  <class name="speed-box"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="speed1">
+                <property name="visible">True</property>
+                <property name="hexpand">True</property>
+                <property name="halign">fill</property>
+                <property name="xalign">0.0</property>
+                <property name="use-underline">True</property>
+                <property name="label" translatable="yes">_Fast</property>
+                <property name="action-name">speed.change-speed</property>
+                <property name="action-target">@i 1</property>
+                <property name="sensitive" bind-source="speed1" bind-property="active" bind-flags="invert-boolean"/>
+                <style>
+                  <class name="speed-box"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="orientation">horizontal</property>
+                <style>
+                  <class name="speed-separator"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkModelButton" id="fakes_modelbutton">
+                <property name="visible">True</property>
+                <property name="hexpand">True</property>
+                <property name="halign">fill</property>
+                <property name="use-underline">True</property>
+                <property name="text" translatable="yes">_Enable fake bonuses</property>
+                <property name="action-name">win.fakes</property>
+                <style>
+                  <class name="speed-box"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="visible">True</property>
+        <property name="can-default">True</property>
+        <property name="use-underline">True</property>
+        <property name="label" translatable="yes">_Next</property>
+        <property name="action-name">win.next-screen</property>
+        <property name="halign">center</property>
+        <property name="width-request">116</property>
+        <property name="height-request">34</property>
+        <style>
+          <class name="suggested-action"/>
+          <class name="play"/>
+        </style>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
+  </template>
+</interface>

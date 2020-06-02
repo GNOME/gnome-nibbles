@@ -22,6 +22,12 @@
   <menu id="app-menu">
     <section>
       <item>
+        <attribute name="label" translatable="yes">_Sound</attribute>
+        <attribute name="action">win.sound</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
         <attribute name="label" translatable="yes">_Scores</attribute>
         <attribute name="action">win.scores</attribute>
       </item>
@@ -105,6 +111,14 @@
           </object>
           <packing>
             <property name="name">number_of_players</property>
+          </packing>
+        </child>
+        <child>
+          <object class="Speed" id="speed">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="name">speed</property>
           </packing>
         </child>
         <child>
