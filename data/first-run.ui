@@ -28,7 +28,7 @@
         <property name="visible">True</property>
         <property name="use-underline">True</property>
         <property name="label" translatable="yes">Let’s _Play</property>
-        <property name="action-name">win.show-new-game-screen</property>
+        <property name="action-name">win.next-screen</property>
         <property name="halign">center</property>
         <property name="valign">end</property>
         <property name="width-request">140</property>

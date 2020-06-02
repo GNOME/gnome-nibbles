@@ -191,7 +191,7 @@
         <property name="can-default">True</property>
         <property name="use-underline">True</property>
         <property name="label" translatable="yes">_Next</property>
-        <property name="action-name">win.show-controls-screen</property>
+        <property name="action-name">win.next-screen</property>
         <property name="width-request">116</property>
         <property name="height-request">34</property>
         <property name="halign">center</property>
