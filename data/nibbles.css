@@ -1,16 +1,32 @@
 window {
   background-color: rgba(0, 0, 0, 1);
 }
+
+/*\
+* * configuration screens
+\*/
+
 .menu-title {
   font-size: 2.5em;
   font-family: Cantarell;
 }
-.tip {
-  font-size: 1em;
-}
+
 .play {
   font-size: 1em;
 }
+
+/*\
+* * first-run screen
+\*/
+
+.tip {
+  font-size: 1em;
+}
+
+/*\
+* * players screen
+\*/
+
 .number-box {
   font-size: 3em;
   font-weight: bold;
@@ -28,6 +44,11 @@ window {
 .number-box:checked {
   background-image: linear-gradient(to bottom, #215d9c);
 }
+
+/*\
+* * controls screen
+\*/
+
 .controls-button {
   padding: 4px 8px;
   border: 1px solid;
@@ -39,7 +60,16 @@ window {
   text-shadow: 0 -1px rgba(0, 0, 0, 0.81176);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 1px rgba(238, 238, 236, 0);
 }
+
+/*\
+* * game screen
+\*/
+
 .countdown {
   font-size: 2em;
   color: rgba(229, 229, 229, 1);
 }
+
+/*\
+* * the end
+\*/
