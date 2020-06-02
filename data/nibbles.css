@@ -31,8 +31,10 @@ window {
   font-size: 3em;
   font-weight: bold;
   font-family: Sans;
+
   padding: 1px 38px;
   background-image: linear-gradient(to bottom, #3e4444);
+
   color:@theme-fg-color;
 }
 .number-box:disabled {
@@ -43,6 +45,46 @@ window {
 }
 .number-box:checked {
   background-image: linear-gradient(to bottom, #215d9c);
+}
+
+/*\
+* * speed screen
+\*/
+
+/* the speed buttons */
+.speed-box
+{
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: Sans;
+
+  min-width:20em;
+  padding: 1em 1.5em 1em 1.5em;
+  background-image: linear-gradient(to bottom, #3e4444);
+
+  color:@theme-fg-color;
+}
+.speed-box:disabled {
+  color:@theme-fg-color;
+}
+.speed-box:hover {
+  background-image: linear-gradient(to bottom, rgba(60, 69, 71, 0.8));
+}
+.speed-box:checked {
+  background-image: linear-gradient(to bottom, #215d9c);
+}
+
+/* the empty space */
+separator.speed-separator {
+  background-color:transparent;
+  border-color:transparent;
+  padding:0.2em;
+}
+
+/* the checkbutton */
+modelbutton.speed-box > check {
+  min-height: 1em;
+  min-width:  1em;
 }
 
 /*\

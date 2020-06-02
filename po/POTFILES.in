@@ -10,6 +10,7 @@ data/org.gnome.nibbles.gschema.xml
 data/players.ui
 data/player-score-box.ui
 data/preferences-dialog.ui
+data/speed.ui
 src/controls.vala
 src/gnome-nibbles.vala
 src/nibbles-view.vala
@@ -17,3 +18,4 @@ src/nibbles-window.vala
 src/players.vala
 src/preferences-dialog.vala
 src/scoreboard.vala
+src/speed.vala
