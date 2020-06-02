@@ -10,6 +10,7 @@
     <file preprocess="xml-stripblanks"                  >player-score-box.ui</file>
     <file preprocess="xml-stripblanks" compressed="true">preferences-dialog.ui</file>
     <file preprocess="xml-stripblanks"                  >scoreboard.ui</file>
+    <file preprocess="xml-stripblanks"                  >speed.ui</file>
   </gresource>
 </gresources>
 
