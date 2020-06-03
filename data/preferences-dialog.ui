@@ -3,6 +3,7 @@
    This file is part of GNOME Nibbles.
 
    Copyright (C) 2015 Gabriel Ivascu
+   Copyright (C) 2020 Arnaud Bonatti
 
    GNOME Nibbles is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,32 +19,82 @@
    with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <template class="PreferencesDialog" parent="GtkDialog">
+  <object class="GtkComboBoxText" id="worm_combobox">
+    <property name="visible">True</property>
+    <property name="active-id">worm1</property>
+    <items>
+      <item translatable="yes" id="worm1">Worm 1</item>
+      <item translatable="yes" id="worm2">Worm 2</item>
+      <item translatable="yes" id="worm3">Worm 3</item>
+      <item translatable="yes" id="worm4">Worm 4</item>
+    </items>
+    <signal name="changed" handler="on_worm_change"/>
+  </object>
+  <template class="PreferencesDialog" parent="GtkWindow">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="modal">True</property>
-    <property name="title" translatable="yes">Preferences</property>
     <property name="icon_name">gnome-nibbles</property>
-    <child internal-child="vbox">
-      <object class="GtkBox">
+    <child type="titlebar">
+      <object class="GtkHeaderBar">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
-        <property name="can_focus">False</property>
-        <property name="spacing">2</property>
+        <property name="show-close-button">True</property>
+        <property name="custom-title">worm_combobox</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkStack" id="stack">
+        <property name="visible">True</property>
         <child>
-          <object class="GtkNotebook" id="notebook">
+          <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">12</property>
+            <property name="spacing">6</property>
+            <property name="orientation">vertical</property>
             <child>
-              <object class="GtkBox">
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Controls</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="border_width">12</property>
-                <property name="spacing">6</property>
-                <property name="orientation">vertical</property>
+                <property name="xalign">0.5</property>
+                <property name="yalign">0.5</property>
+                <property name="halign">start</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListStore" id="list_store_1">
+                <columns>
+                  <column type="gchararray"/>
+                  <column type="gchararray"/>
+                  <column type="gint"/>
+                </columns>
+              </object>
+              <object class="GtkTreeView" id="tree_view_1">
+                <property name="model">list_store_1</property>
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">horizontal</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">0</property>
+                <property name="column_spacing">12</property>
+                <property name="border_width">0</property>
                 <child>
                   <object class="GtkLabel">
-                    <property name="label" translatable="yes">Controls</property>
+                    <property name="label" translatable="yes">Worm color</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0.5</property>
@@ -53,372 +104,241 @@
                       <attribute name="weight" value="bold"/>
                     </attributes>
                   </object>
-                  <packing>
-                    <property name="pack-type">start</property>
-                  </packing>
                 </child>
                 <child>
-                  <object class="GtkListStore" id="list_store_1">
-                    <columns>
-                      <column type="gchararray"/>
-                      <column type="gchararray"/>
-                      <column type="gint"/>
-                    </columns>
-                  </object>
-                  <object class="GtkTreeView" id="tree_view_1">
-                    <property name="model">list_store_1</property>
+                  <object class="GtkComboBoxText" id="combo_box_1">
                     <property name="visible">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparator">
-                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
                     <property name="can_focus">False</property>
-                    <property name="orientation">horizontal</property>
-                  </object>
-                  <packing>
-                    <property name="pack-type">start</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkGrid">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="row_spacing">0</property>
-                    <property name="column_spacing">12</property>
-                    <property name="border_width">0</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label" translatable="yes">Worm color</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="xalign">0.5</property>
-                        <property name="yalign">0.5</property>
-                        <property name="halign">start</property>
-                        <attributes>
-                          <attribute name="weight" value="bold"/>
-                        </attributes>
-                      </object>
-                      <packing>
-                        <property name="left-attach">0</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkComboBoxText" id="combo_box_1">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="left-attach">1</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
                   </object>
                 </child>
               </object>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel">
-                <property name="use-underline">True</property>
-                <property name="label" translatable="yes">Worm _1</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="tab_fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="border_width">12</property>
-                <property name="spacing">6</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="label" translatable="yes">Controls</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0.5</property>
-                    <property name="yalign">0.5</property>
-                    <property name="halign">start</property>
-                    <attributes>
-                      <attribute name="weight" value="bold"/>
-                    </attributes>
-                  </object>
-                  <packing>
-                    <property name="pack-type">start</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkListStore" id="list_store_2">
-                    <columns>
-                      <column type="gchararray"/>
-                      <column type="gchararray"/>
-                      <column type="guint"/>
-                    </columns>
-                  </object>
-                  <object class="GtkTreeView" id="tree_view_2">
-                    <property name="model">list_store_2</property>
-                    <property name="visible">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparator">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="orientation">horizontal</property>
-                  </object>
-                  <packing>
-                    <property name="pack-type">start</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkGrid">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="row_spacing">0</property>
-                    <property name="column_spacing">12</property>
-                    <property name="border_width">0</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label" translatable="yes">Worm color</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="xalign">0.5</property>
-                        <property name="yalign">0.5</property>
-                        <property name="halign">start</property>
-                        <attributes>
-                          <attribute name="weight" value="bold"/>
-                        </attributes>
-                      </object>
-                      <packing>
-                        <property name="left-attach">0</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkComboBoxText" id="combo_box_2">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="left-attach">1</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel">
-                <property name="use-underline">True</property>
-                <property name="label" translatable="yes">Worm _2</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="tab_fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="border_width">12</property>
-                <property name="spacing">6</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="label" translatable="yes">Controls</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0.5</property>
-                    <property name="yalign">0.5</property>
-                    <property name="halign">start</property>
-                    <attributes>
-                      <attribute name="weight" value="bold"/>
-                    </attributes>
-                  </object>
-                  <packing>
-                    <property name="pack-type">start</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkListStore" id="list_store_3">
-                    <columns>
-                      <column type="gchararray"/>
-                      <column type="gchararray"/>
-                      <column type="guint"/>
-                    </columns>
-                  </object>
-                  <object class="GtkTreeView" id="tree_view_3">
-                    <property name="model">list_store_3</property>
-                    <property name="visible">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparator">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="orientation">horizontal</property>
-                  </object>
-                  <packing>
-                    <property name="pack-type">start</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkGrid">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="row_spacing">0</property>
-                    <property name="column_spacing">12</property>
-                    <property name="border_width">0</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label" translatable="yes">Worm color</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="xalign">0.5</property>
-                        <property name="yalign">0.5</property>
-                        <property name="halign">start</property>
-                        <attributes>
-                          <attribute name="weight" value="bold"/>
-                        </attributes>
-                      </object>
-                      <packing>
-                        <property name="left-attach">0</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkComboBoxText" id="combo_box_3">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="left-attach">1</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel">
-                <property name="use-underline">True</property>
-                <property name="label" translatable="yes">Worm _3</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="tab_fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="border_width">12</property>
-                <property name="spacing">6</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="label" translatable="yes">Controls</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0.5</property>
-                    <property name="yalign">0.5</property>
-                    <property name="halign">start</property>
-                    <attributes>
-                      <attribute name="weight" value="bold"/>
-                    </attributes>
-                  </object>
-                  <packing>
-                    <property name="pack-type">start</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkListStore" id="list_store_4">
-                    <columns>
-                      <column type="gchararray"/>
-                      <column type="gchararray"/>
-                      <column type="guint"/>
-                    </columns>
-                  </object>
-                  <object class="GtkTreeView" id="tree_view_4">
-                    <property name="model">list_store_4</property>
-                    <property name="visible">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparator">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="orientation">horizontal</property>
-                  </object>
-                  <packing>
-                    <property name="pack-type">start</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkGrid">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="row_spacing">0</property>
-                    <property name="column_spacing">12</property>
-                    <property name="border_width">0</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label" translatable="yes">Worm color</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="xalign">0.5</property>
-                        <property name="yalign">0.5</property>
-                        <property name="halign">start</property>
-                        <attributes>
-                          <attribute name="weight" value="bold"/>
-                        </attributes>
-                      </object>
-                      <packing>
-                        <property name="left-attach">0</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkComboBoxText" id="combo_box_4">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                      </object>
-                      <packing>
-                        <property name="left-attach">1</property>
-                        <property name="top-attach">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel">
-                <property name="use-underline">True</property>
-                <property name="label" translatable="yes">Worm _4</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="tab_fill">False</property>
-              </packing>
             </child>
           </object>
           <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="name">worm1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">12</property>
+            <property name="spacing">6</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Controls</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0.5</property>
+                <property name="yalign">0.5</property>
+                <property name="halign">start</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListStore" id="list_store_2">
+                <columns>
+                  <column type="gchararray"/>
+                  <column type="gchararray"/>
+                  <column type="guint"/>
+                </columns>
+              </object>
+              <object class="GtkTreeView" id="tree_view_2">
+                <property name="model">list_store_2</property>
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">horizontal</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">0</property>
+                <property name="column_spacing">12</property>
+                <property name="border_width">0</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Worm color</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0.5</property>
+                    <property name="yalign">0.5</property>
+                    <property name="halign">start</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_box_2">
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">worm2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">12</property>
+            <property name="spacing">6</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Controls</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0.5</property>
+                <property name="yalign">0.5</property>
+                <property name="halign">start</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListStore" id="list_store_3">
+                <columns>
+                  <column type="gchararray"/>
+                  <column type="gchararray"/>
+                  <column type="guint"/>
+                </columns>
+              </object>
+              <object class="GtkTreeView" id="tree_view_3">
+                <property name="model">list_store_3</property>
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">horizontal</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">0</property>
+                <property name="column_spacing">12</property>
+                <property name="border_width">0</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Worm color</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0.5</property>
+                    <property name="yalign">0.5</property>
+                    <property name="halign">start</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_box_3">
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">worm3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">12</property>
+            <property name="spacing">6</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Controls</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0.5</property>
+                <property name="yalign">0.5</property>
+                <property name="halign">start</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListStore" id="list_store_4">
+                <columns>
+                  <column type="gchararray"/>
+                  <column type="gchararray"/>
+                  <column type="guint"/>
+                </columns>
+              </object>
+              <object class="GtkTreeView" id="tree_view_4">
+                <property name="model">list_store_4</property>
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">horizontal</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">0</property>
+                <property name="column_spacing">12</property>
+                <property name="border_width">0</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Worm color</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0.5</property>
+                    <property name="yalign">0.5</property>
+                    <property name="halign">start</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_box_4">
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">worm4</property>
           </packing>
         </child>
       </object>
