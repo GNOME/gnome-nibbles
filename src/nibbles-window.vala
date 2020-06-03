@@ -51,9 +51,6 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private Scoreboard scoreboard;
     private Gdk.Pixbuf scoreboard_life;
 
-    /* Preferences dialog */
-    private PreferencesDialog preferences_dialog = null;
-
     /* Rendering of the game */
     private NibblesView? view;
 
@@ -776,27 +773,22 @@ private class NibblesWindow : ApplicationWindow
             pause_action.activate (null);
             should_unpause = true;
         }
-
-        if (preferences_dialog != null)
+        else if (countdown_id != 0)
         {
-            preferences_dialog.present ();
-
-            if (should_unpause)
-                pause_action.activate (null);
-
-            return;
+            Source.remove (countdown_id);
+            countdown_id = 0;
         }
 
-        preferences_dialog = new PreferencesDialog (this, settings, worm_settings);
+        PreferencesDialog preferences_dialog = new PreferencesDialog (this, settings, worm_settings);
 
         preferences_dialog.destroy.connect (() => {
-            preferences_dialog = null;
+                if (should_unpause)
+                    pause_action.activate (null);
+                else if (seconds != 0)
+                    countdown_id = Timeout.add_seconds (1, countdown_cb);
+            });
 
-            if (should_unpause)
-                pause_action.activate (null);
-        });
-
-        preferences_dialog.run ();
+        preferences_dialog.present ();
     }
 
     private void game_over (int score, long lowest_high_score, int level_reached)

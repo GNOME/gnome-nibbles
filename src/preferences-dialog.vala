@@ -19,14 +19,15 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/preferences-dialog.ui")]
-private class PreferencesDialog : Dialog
+private class PreferencesDialog : Window
 {
     private ApplicationWindow window;
 
     private GLib.Settings settings;
     private Gee.ArrayList<GLib.Settings> worm_settings;
 
-    [GtkChild] private Notebook         notebook;
+    [GtkChild] private Stack            stack;
+    [GtkChild] private ComboBoxText     worm_combobox;
     [GtkChild] private Gtk.ListStore    list_store_1;
     [GtkChild] private Gtk.ListStore    list_store_2;
     [GtkChild] private Gtk.ListStore    list_store_3;
@@ -44,19 +45,13 @@ private class PreferencesDialog : Dialog
     private Gee.ArrayList<TreeView>         tree_views;
     private Gee.ArrayList<ComboBoxText>     combo_boxes;
 
-    internal PreferencesDialog (ApplicationWindow window, GLib.Settings settings, Gee.ArrayList<GLib.Settings> worm_settings)
+    private EventControllerKey key_controller;          // for keeping in memory
+
+    construct
     {
-        Object (use_header_bar: 1);
+        key_controller = new EventControllerKey (this);
+        key_controller.key_pressed.connect (on_key_pressed);
 
-        this.settings = settings;
-        this.worm_settings = worm_settings;
-        this.window = window;
-
-        this.delete_event.connect (hide_on_delete);
-
-        this.set_transient_for (window);
-
-        /* Control keys */
         tree_views = new Gee.ArrayList<TreeView> ();
         tree_views.add (tree_view_1);
         tree_views.add (tree_view_2);
@@ -69,6 +64,22 @@ private class PreferencesDialog : Dialog
         list_stores.add (list_store_3);
         list_stores.add (list_store_4);
 
+        combo_boxes = new Gee.ArrayList<ComboBoxText> ();
+        combo_boxes.add (combo_box_1);
+        combo_boxes.add (combo_box_2);
+        combo_boxes.add (combo_box_3);
+        combo_boxes.add (combo_box_4);
+    }
+
+    internal PreferencesDialog (ApplicationWindow window, GLib.Settings settings, Gee.ArrayList<GLib.Settings> worm_settings)
+    {
+        Object (transient_for: window);
+
+        this.settings = settings;
+        this.worm_settings = worm_settings;
+        this.window = window;
+
+        /* Control keys */
         foreach (var list_store in list_stores)
         {
             var id = list_stores.index_of (list_store);
@@ -103,16 +114,9 @@ private class PreferencesDialog : Dialog
             key_renderer.accel_cleared.connect (accel_cleared_cb);
             /* Translators: in the Preferences dialog, label of a column in a table for changing the keys to move the given worm (available for each playable worm); are listed there all the keys a player can use with its worm; the other column is "Action" */
             tree_view.insert_column_with_attributes (-1, _("Key"), key_renderer, "accel-key", 2);
-
         }
 
         /* Worm color */
-        combo_boxes = new Gee.ArrayList<ComboBoxText> ();
-        combo_boxes.add (combo_box_1);
-        combo_boxes.add (combo_box_2);
-        combo_boxes.add (combo_box_3);
-        combo_boxes.add (combo_box_4);
-
         foreach (var combo_box in combo_boxes)
         {
             for (int i = 0; i < NibblesView.NUM_COLORS; i++)
@@ -126,6 +130,20 @@ private class PreferencesDialog : Dialog
         }
     }
 
+    private inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
+    {
+        string name = (!) (Gdk.keyval_name (keyval) ?? "");
+        if (name == "Escape")
+            destroy ();
+        return false;
+    }
+
+    [GtkCallback]
+    private inline void on_worm_change (ComboBox _worm_combobox)
+    {
+        stack.set_visible_child_name (((ComboBoxText) _worm_combobox).get_active_id ());
+    }
+
     private void accel_edited_cb (CellRendererAccel cell, string path_string, uint keyval,
                                   Gdk.ModifierType mask, uint hardware_keycode)
     {
@@ -133,7 +151,7 @@ private class PreferencesDialog : Dialog
         if (path == null)
             return;
 
-        var id = notebook.get_current_page () - 1;
+        var id = worm_combobox.get_active ();
         var list_store = list_stores[id];
 
         TreeIter it;
@@ -185,7 +203,7 @@ private class PreferencesDialog : Dialog
         if (path == null)
             return;
 
-        var id = notebook.get_current_page () - 1;
+        var id = worm_combobox.get_active ();
         var list_store = list_stores[id];
 
         TreeIter it;
