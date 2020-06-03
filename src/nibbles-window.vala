@@ -78,7 +78,7 @@ private class NibblesWindow : ApplicationWindow
     {
         { "new-game",       new_game_cb     },  // the "New Game" button
         { "pause",          pause_cb        },
-        { "preferences",    preferences_cb  },
+        { "preferences",    preferences_cb, "i" },
         { "scores",         scores_cb       },
 
         { "next-screen",    next_screen_cb  },  // called from first-run, players and speed
@@ -789,7 +789,8 @@ private class NibblesWindow : ApplicationWindow
         });
     }
 
-    private void preferences_cb ()
+    private void preferences_cb (SimpleAction action, Variant? variant)
+        requires (variant != null)
     {
         var should_unpause = false;
         if (game.is_running)
@@ -797,19 +798,12 @@ private class NibblesWindow : ApplicationWindow
             pause_action.activate (null);
             should_unpause = true;
         }
-        else if (countdown_id != 0)
-        {
-            Source.remove (countdown_id);
-            countdown_id = 0;
-        }
 
-        PreferencesDialog preferences_dialog = new PreferencesDialog (this, settings, worm_settings);
+        PreferencesDialog preferences_dialog = new PreferencesDialog (this, settings, worm_settings, ((!) variant).get_int32 (), game.numhumans);
 
         preferences_dialog.destroy.connect (() => {
                 if (should_unpause)
                     pause_action.activate (null);
-                else if (seconds != 0)
-                    countdown_id = Timeout.add_seconds (1, countdown_cb);
             });
 
         preferences_dialog.present ();

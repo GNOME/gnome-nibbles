@@ -27,6 +27,7 @@ private class PreferencesDialog : Window
     private Gee.ArrayList<GLib.Settings> worm_settings;
 
     [GtkChild] private Stack            stack;
+    [GtkChild] private Stack            headerbar_stack;
     [GtkChild] private ComboBoxText     worm_combobox;
     [GtkChild] private Gtk.ListStore    list_store_1;
     [GtkChild] private Gtk.ListStore    list_store_2;
@@ -71,13 +72,19 @@ private class PreferencesDialog : Window
         combo_boxes.add (combo_box_4);
     }
 
-    internal PreferencesDialog (ApplicationWindow window, GLib.Settings settings, Gee.ArrayList<GLib.Settings> worm_settings)
+    internal PreferencesDialog (ApplicationWindow window, GLib.Settings settings, Gee.ArrayList<GLib.Settings> worm_settings, int worm_id, int n_worms)
     {
         Object (transient_for: window);
 
         this.settings = settings;
         this.worm_settings = worm_settings;
         this.window = window;
+
+        if (n_worms == 1)
+            headerbar_stack.set_visible_child_name ("preferences-label");
+        else if (n_worms != 4)
+            for (int i = 3; i > n_worms - 1; i--)
+                worm_combobox.remove (i);
 
         /* Control keys */
         foreach (var list_store in list_stores)
@@ -128,6 +135,9 @@ private class PreferencesDialog : Window
             combo_box.set_active (color);
             combo_box.changed.connect (combo_box_changed_cb);
         }
+
+        /* Choose correct worm */
+        worm_combobox.set_active (worm_id - 1);
     }
 
     private inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
