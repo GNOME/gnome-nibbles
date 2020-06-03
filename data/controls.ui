@@ -41,7 +41,9 @@
             <property name="visible">True</property>
             <property name="orientation">horizontal</property>
             <property name="homogeneous">True</property>
+            <property name="halign">center</property>
             <property name="valign">center</property>
+            <property name="spacing">20</property>
           </object>
         </child>
       </object>
