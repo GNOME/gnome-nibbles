@@ -36,11 +36,6 @@
     </section>
     <section>
       <item>
-        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the Preferences dialog -->
-        <attribute name="label" translatable="yes">_Preferences</attribute>
-        <attribute name="action">win.preferences</attribute>
-      </item>
-      <item>
         <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application -->
         <attribute name="label" translatable="yes">_Help</attribute>
         <attribute name="action">app.help</attribute>
