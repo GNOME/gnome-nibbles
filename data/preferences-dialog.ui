@@ -19,20 +19,38 @@
    with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <object class="GtkComboBoxText" id="worm_combobox">
+  <object class="GtkStack" id="headerbar_stack">
     <property name="visible">True</property>
-    <property name="active-id">worm1</property>
-    <items>
-      <!-- Translators: item in the title-combobox of the Preferences dialog; allows to configure 1st worm controls and color -->
-      <item translatable="yes" id="worm1">Worm 1</item>
-      <!-- Translators: item in the title-combobox of the Preferences dialog; allows to configure 2nd worm controls and color -->
-      <item translatable="yes" id="worm2">Worm 2</item>
-      <!-- Translators: item in the title-combobox of the Preferences dialog; allows to configure 3rd worm controls and color -->
-      <item translatable="yes" id="worm3">Worm 3</item>
-      <!-- Translators: item in the title-combobox of the Preferences dialog; allows to configure 4th worm controls and color -->
-      <item translatable="yes" id="worm4">Worm 4</item>
-    </items>
-    <signal name="changed" handler="on_worm_change"/>
+    <child>
+      <object class="GtkComboBoxText" id="worm_combobox">
+        <property name="visible">True</property>
+        <property name="active-id">worm1</property>
+        <items>
+          <!-- Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 1st worm controls and color -->
+          <item translatable="yes" id="worm1">Worm 1</item>
+          <!-- Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 2nd worm controls and color -->
+          <item translatable="yes" id="worm2">Worm 2</item>
+          <!-- Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 3rd worm controls and color -->
+          <item translatable="yes" id="worm3">Worm 3</item>
+          <!-- Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 4th worm controls and color -->
+          <item translatable="yes" id="worm4">Worm 4</item>
+        </items>
+        <signal name="changed" handler="on_worm_change"/>
+      </object>
+      <packing>
+        <property name="name">preferences-combo</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkLabel">
+        <property name="visible">True</property>
+        <!-- Translators: title of the Controls configuration dialog, if there is only one worm; allows to configure the worm controls and color -->
+        <property name="label" translatable="yes">Controls</property>
+      </object>
+      <packing>
+        <property name="name">preferences-label</property>
+      </packing>
+    </child>
   </object>
   <template class="PreferencesDialog" parent="GtkWindow">
     <property name="can_focus">False</property>
@@ -43,7 +61,7 @@
       <object class="GtkHeaderBar">
         <property name="visible">True</property>
         <property name="show-close-button">True</property>
-        <property name="custom-title">worm_combobox</property>
+        <property name="custom-title">headerbar_stack</property>
       </object>
     </child>
     <child>
