@@ -59,7 +59,7 @@ private class Controls : Box
 }
 
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/controls-grid.ui")]
-private class ControlsGrid : Grid
+private class ControlsGrid : Button
 {
     [GtkChild] private Label name_label;
     [GtkChild] private Image arrow_up;
@@ -81,6 +81,8 @@ private class ControlsGrid : Grid
     internal ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
     {
         this.worm_props = worm_props;
+
+        set_action_target ("i", worm_id + 1);
 
         /* Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player */
         var player_id = _("Player %d").printf (worm_id + 1);

@@ -91,6 +91,30 @@ modelbutton.speed-box > check {
 * * controls screen
 \*/
 
+/* the controls buttons */
+button.controls-box {
+  background-image:-gtk-icontheme('emblem-system-symbolic');
+  background-size:2.5em;
+  background-repeat:no-repeat;
+  background-position:calc(100%-1em) calc(100%-1em);
+  background-color:transparent;
+
+  padding-top:1em;
+
+  border-radius:2em;
+  border-width:6px;
+
+  transition:all 0s;    /* looks impossible to transition the background image color, so disable transitions */
+
+  border-color:#3e4444;
+  color:@insensitive_fg_color;
+}
+button.controls-box:hover {
+  border-color:#215d9c;
+  color:@theme_fg_color;
+}
+
+/* key indicators */
 .controls-button {
   padding: 4px 8px;
   border: 1px solid;
