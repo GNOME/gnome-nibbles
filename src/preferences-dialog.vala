@@ -52,9 +52,7 @@ private class PreferencesDialog : Dialog
         this.worm_settings = worm_settings;
         this.window = window;
 
-        this.response.connect (() => {
-            this.destroy ();
-        });
+        this.delete_event.connect (hide_on_delete);
 
         this.set_transient_for (window);
 
