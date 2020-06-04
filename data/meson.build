@@ -33,12 +33,6 @@ install_data([
 ], install_dir: sounddir)
 
 # Icons
-foreach size: [ '16x16', '22x22', '24x24', '32x32', '48x48' ]
-    install_data(join_paths('icons', 'hicolor', size, 'org.gnome.Nibbles.png'),
-                 install_dir: join_paths (datadir, 'icons', 'hicolor', size, 'apps')
-    )
-endforeach
-
 install_data(join_paths('icons', 'hicolor', 'scalable', 'org.gnome.Nibbles.svg'),
              install_dir: join_paths (datadir, 'icons', 'hicolor', 'scalable', 'apps'))
 install_data(join_paths('icons', 'hicolor', 'symbolic', 'org.gnome.Nibbles-symbolic.svg'),
