@@ -57,13 +57,9 @@ private class ControlsGrid : Grid
     [GtkChild] private Image arrow_down;
     [GtkChild] private Image arrow_left;
     [GtkChild] private Image arrow_right;
-    [GtkChild] private Overlay move_up;
     [GtkChild] private Label move_up_label;
-    [GtkChild] private Overlay move_down;
     [GtkChild] private Label move_down_label;
-    [GtkChild] private Overlay move_left;
     [GtkChild] private Label move_left_label;
-    [GtkChild] private Overlay move_right;
     [GtkChild] private Label move_right_label;
 
     internal ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
@@ -84,41 +80,37 @@ private class ControlsGrid : Grid
         upper_key = Gdk.keyval_name (worm_props.up).up ();
         if (upper_key == "UP")
         {
-            var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.NONE);
-            move_up.add_overlay (new Image.from_pixbuf (rotated_pixbuf));
-            move_up.show_all ();
+            move_up_label.get_style_context ().add_class ("arrow");
+            move_up_label.set_label ("↑");
         }
         else
-            move_up_label.set_markup (@"<b>$(upper_key)</b>");
+            move_up_label.set_label (@"$(upper_key)");
 
         upper_key = Gdk.keyval_name (worm_props.down).up ();
         if (upper_key == "DOWN")
         {
-            var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN);
-            move_down.add_overlay (new Image.from_pixbuf (rotated_pixbuf));
-            move_down.show_all ();
+            move_down_label.get_style_context ().add_class ("arrow");
+            move_down_label.set_label ("↓");
         }
         else
-            move_down_label.set_markup (@"<b>$(upper_key)</b>");
+            move_down_label.set_label (@"$(upper_key)");
 
         upper_key = Gdk.keyval_name (worm_props.left).up ();
         if (upper_key == "LEFT")
         {
-            var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE);
-            move_left.add_overlay (new Image.from_pixbuf (rotated_pixbuf));
-            move_left.show_all ();
+            move_left_label.get_style_context ().add_class ("arrow");
+            move_left_label.set_label ("←");
         }
         else
-            move_left_label.set_markup (@"<b>$(upper_key)</b>");
+            move_left_label.set_label (@"$(upper_key)");
 
         upper_key = Gdk.keyval_name (worm_props.right).up ();
         if (upper_key == "RIGHT")
         {
-            var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.CLOCKWISE);
-            move_right.add_overlay (new Image.from_pixbuf (rotated_pixbuf));
-            move_right.show_all ();
+            move_right_label.get_style_context ().add_class ("arrow");
+            move_right_label.set_label ("→");
         }
         else
-            move_right_label.set_markup (@"<b>$(upper_key)</b>");
+            move_right_label.set_label (@"$(upper_key)");
     }
 }

@@ -46,16 +46,13 @@
       </packing>
     </child>
     <child>
-      <object class="GtkOverlay" id="move_up">
+      <object class="GtkLabel" id="move_up_label">
         <property name="visible">True</property>
-        <child>
-          <object class="GtkLabel" id="move_up_label">
-            <property name="visible">True</property>
-            <property name="height-request">45</property>
-            <property name="width-request">45</property>
-            <style><class name="controls-button"/></style>
-          </object>
-        </child>
+        <property name="height-request">45</property>
+        <property name="width-request">45</property>
+        <style>
+          <class name="controls-button"/>
+        </style>
       </object>
       <packing>
         <property name="left-attach">2</property>
@@ -72,16 +69,13 @@
       </packing>
     </child>
     <child>
-      <object class="GtkOverlay" id="move_left">
+      <object class="GtkLabel" id="move_left_label">
         <property name="visible">True</property>
-        <child>
-          <object class="GtkLabel" id="move_left_label">
-            <property name="visible">True</property>
-            <property name="height-request">45</property>
-            <property name="width-request">45</property>
-            <style><class name="controls-button"/></style>
-          </object>
-        </child>
+        <property name="height-request">45</property>
+        <property name="width-request">45</property>
+        <style>
+          <class name="controls-button"/>
+        </style>
       </object>
       <packing>
         <property name="left-attach">1</property>
@@ -89,16 +83,13 @@
       </packing>
     </child>
     <child>
-      <object class="GtkOverlay" id="move_right">
+      <object class="GtkLabel" id="move_right_label">
         <property name="visible">True</property>
-        <child>
-          <object class="GtkLabel" id="move_right_label">
-            <property name="visible">True</property>
-            <property name="height-request">45</property>
-            <property name="width-request">45</property>
-            <style><class name="controls-button"/></style>
-          </object>
-        </child>
+        <property name="height-request">45</property>
+        <property name="width-request">45</property>
+        <style>
+          <class name="controls-button"/>
+        </style>
       </object>
       <packing>
         <property name="left-attach">3</property>
@@ -115,16 +106,13 @@
       </packing>
     </child>
     <child>
-      <object class="GtkOverlay" id="move_down">
+      <object class="GtkLabel" id="move_down_label">
         <property name="visible">True</property>
-        <child>
-          <object class="GtkLabel" id="move_down_label">
-            <property name="visible">True</property>
-            <property name="height-request">45</property>
-            <property name="width-request">45</property>
-            <style><class name="controls-button"/></style>
-          </object>
-        </child>
+        <property name="height-request">45</property>
+        <property name="width-request">45</property>
+        <style>
+          <class name="controls-button"/>
+        </style>
       </object>
       <packing>
         <property name="left-attach">2</property>
