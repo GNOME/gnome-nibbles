@@ -7,15 +7,16 @@ project('gnome-nibbles', ['c', 'vala'],
 gnome = import('gnome')
 i18n = import('i18n')
 
-prefix = get_option('prefix')
-datadir = join_paths(prefix, get_option('datadir'))
-pkgdatadir = join_paths(datadir, meson.project_name())
-sounddir = join_paths(pkgdatadir, 'sounds')
-localedir = join_paths(prefix, get_option('localedir'))
-podir = join_paths(meson.source_root(), 'po')
+prefix      = get_option('prefix')
+datadir     = join_paths(prefix, get_option('datadir'))
+pkgdatadir  = join_paths(datadir, meson.project_name())
+sounddir    = join_paths(pkgdatadir, 'sounds')
+localedir   = join_paths(prefix, get_option('localedir'))
+podir       = join_paths(meson.source_root(), 'po')
+bindir      = join_paths(prefix, get_option ('bindir'))
 
 # Dependencies
-glib_version = '2.40.0'
+glib_version = '2.42.0'
 
 clutter_dep = dependency('clutter-1.0', version: '>= 1.22.0')
 clutter_gtk_dep = dependency('clutter-gtk-1.0', version: '>= 1.4.0')
@@ -23,7 +24,7 @@ gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0', version: '>= @0@'.format(glib_version))
 glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_version))
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
-gtk_dep = dependency('gtk+-3.0', version: '>= 3.18.0')
+gtk_dep = dependency('gtk+-3.0', version: '>= 3.24.0')
 libgnome_games_support_dep = dependency('libgnome-games-support-1')
 
 valac = meson.get_compiler('vala')

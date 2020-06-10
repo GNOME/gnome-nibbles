@@ -19,38 +19,41 @@
 // This is a fairly literal translation of the GPLv2+ original by
 // Sean MacIsaac, Ian Peters, Guillaume Béland.
 
-public class Warp : Object
+private class Warp : Object
 {
-    public int x;
-    public int y;
+    public int x    { internal get; protected construct set; }
+    public int y    { internal get; protected construct set; }
 
-    public int wx;
-    public int wy;
+    public int wx   { internal get; protected construct set; }
+    public int wy   { internal get; protected construct set; }
 
-    public Warp (int x, int y, int wx, int wy)
+    internal Warp (int x, int y, int wx, int wy)
+    {
+        Object (x: x, y: y, wx: wx, wy: wy);
+    }
+
+    internal void set_x_and_y (int x, int y)
     {
         this.x = x;
         this.y = y;
+    }
 
+    internal void set_wx_and_wy (int wx, int wy)
+    {
         this.wx = wx;
         this.wy = wy;
     }
 }
 
-public class WarpManager: Object
+private class WarpManager: Object
 {
     private const int MAX_WARPS = 200;
 
-    public Gee.LinkedList<Warp> warps;
+    internal Gee.LinkedList<Warp> warps = new Gee.LinkedList<Warp> ();
 
-    public signal void warp_added (Warp warp);
+    internal signal void warp_added (Warp warp);
 
-    public WarpManager ()
-    {
-        warps = new Gee.LinkedList<Warp> ();
-    }
-
-    public void add_warp (int[,] board, int x, int y, int wx, int wy)
+    internal void add_warp (int[,] board, int x, int y, int wx, int wy)
     {
         bool add = true;
 
@@ -60,8 +63,7 @@ public class WarpManager: Object
             {
                 if (warp.wx == x)
                 {
-                    warp.wx = wx;
-                    warp.wy = wy;
+                    warp.set_wx_and_wy (wx, wy);
                     return;
                 }
             }
@@ -77,8 +79,7 @@ public class WarpManager: Object
             {
                 if (warp.x == wx)
                 {
-                    warp.x = x;
-                    warp.y = y;
+                    warp.set_x_and_y (x, y);
                     add = false;
 
                     warp_added (warp);
@@ -96,20 +97,20 @@ public class WarpManager: Object
                 warp_added (warp);
             }
 
-            board[x, y] = NibblesGame.WARPCHAR;
-            board[x + 1, y] = NibblesGame.WARPCHAR;
-            board[x, y + 1] = NibblesGame.WARPCHAR;
+            board[x    , y    ] = NibblesGame.WARPCHAR;
+            board[x + 1, y    ] = NibblesGame.WARPCHAR;
+            board[x    , y + 1] = NibblesGame.WARPCHAR;
             board[x + 1, y + 1] = NibblesGame.WARPCHAR;
         }
     }
 
-    public Warp? get_warp (int x, int y)
+    internal Warp? get_warp (int x, int y)
     {
         foreach (var warp in warps)
         {
-            if ((x == warp.x && y == warp.y)
-             || (x == warp.x + 1 && y == warp.y)
-             || (x == warp.x && y == warp.y + 1)
+            if ((x == warp.x     && y == warp.y    )
+             || (x == warp.x + 1 && y == warp.y    )
+             || (x == warp.x     && y == warp.y + 1)
              || (x == warp.x + 1 && y == warp.y + 1))
                 return warp;
         }

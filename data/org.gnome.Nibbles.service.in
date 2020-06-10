@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.gnome.Nibbles
+Exec=@bindir@/gnome-nibbles --gapplication-service

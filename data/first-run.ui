@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright (C) 2015-2016 Iulian Radu
+   Copyright (C) 2020 Arnaud Bonatti
+
+   GNOME Nibbles is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   GNOME Nibbles is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <template class="FirstRun" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="width-request">350</property>
+    <property name="height-request">350</property>
+    <child>
+      <object class="GtkButton">
+        <property name="visible">True</property>
+        <property name="use-underline">True</property>
+        <property name="label" translatable="yes">Let’s _Play</property>
+        <property name="action-name">win.next-screen</property>
+        <property name="halign">center</property>
+        <property name="valign">end</property>
+        <property name="width-request">140</property>
+        <property name="height-request">40</property>
+        <style>
+          <class name="suggested-action"/>
+          <class name="play"/>
+        </style>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="homogeneous">True</property>
+        <property name="valign">center</property>
+        <property name="vexpand">True</property>
+        <child>
+          <object class="GtkImage">
+            <property name="visible">True</property>
+            <property name="icon-name">org.gnome.Nibbles</property>
+            <property name="icon-size">6</property> <!-- DIALOG -->
+            <property name="pixel-size">96</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Welcome, worms.</property>
+            <style>
+              <class name="menu-title"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Eat the treats before the other worms, but don’t hit anything!</property>
+            <property name="valign">start</property>
+            <style>
+              <class name="tip"/>
+            </style>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
+  </template>
+</interface>

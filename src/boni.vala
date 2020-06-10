@@ -19,105 +19,148 @@
 // This is a fairly literal translation of the GPLv2+ original by
 // Sean MacIsaac, Ian Peters, Guillaume Béland.
 
-public enum BonusType
+private enum BonusType
 {
     REGULAR,
     HALF,
     DOUBLE,
     LIFE,
     REVERSE,
-    WARP
+    WARP;
 }
 
-public class Bonus : Object
+private class Bonus : Object
 {
-    public int x;
-    public int y;
-    public BonusType type;
-    public bool fake;
-    public int countdown;
+    public int x                { internal get; protected construct; }
+    public int y                { internal get; protected construct; }
+    public BonusType bonus_type { internal get; protected construct; }
+    public bool fake            { internal get; protected construct; }
+    public int countdown        { internal get; internal construct set; }
 
-    public Bonus (int x, int y, BonusType type, bool fake, int countdown)
+    internal Bonus (int x, int y, BonusType bonus_type, bool fake, int countdown)
     {
-        this.x = x;
-        this.y = y;
-        this.type = type;
-        this.fake = fake;
-        this.countdown = countdown;
+        Object (x: x, y: y, bonus_type: bonus_type, fake: fake, countdown: countdown);
     }
 }
 
-public class Boni : Object
+private class Boni : Object
 {
-    public Gee.LinkedList<Bonus> bonuses;
+    private Gee.LinkedList<Bonus> bonuses = new Gee.LinkedList<Bonus> ();
 
-    public int missed;
-    public int numleft;
-    public int numboni;
-    public int numbonuses;
+    private uint8 regular_bonus_left = 0;
+    private uint8 regular_bonus_maxi = 0;
+    private uint8 total_bonus_number = 0;
 
-    public const int MAX_BONUSES = 100;
-    public const int MAX_MISSED = 2;
+    private const int MAX_BONUSES = 100;
 
-    public signal void bonus_added ();
-    public signal void bonus_removed (Bonus bonus);
+    internal signal void bonus_removed (Bonus bonus);
 
-    public Boni (int numworms)
+    internal bool add_bonus (int[,] board, owned Bonus bonus)
     {
-        bonuses = new Gee.LinkedList<Bonus> ();
-        missed = 0;
-        numboni = 8 + numworms;
-        numbonuses = 0;
-        numleft = numboni;
-    }
+        if (total_bonus_number >= MAX_BONUSES)
+            return false;
 
-    public void add_bonus (int[,] board, int x, int y, BonusType type, bool fake, int countdown)
-    {
-        if (numbonuses == MAX_BONUSES)
-            return;
-
-        var bonus = new Bonus (x, y, type, fake, countdown);
         bonuses.add (bonus);
-        board[x, y] = type + 'A';
-        board[x + 1, y] = type + 'A';
-        board[x, y + 1] = type + 'A';
-        board[x + 1, y + 1] = type + 'A';
-        bonus_added ();
-        numbonuses++;
+        board[bonus.x    , bonus.y    ] = bonus.bonus_type + 'A';
+        board[bonus.x + 1, bonus.y    ] = bonus.bonus_type + 'A';
+        board[bonus.x    , bonus.y + 1] = bonus.bonus_type + 'A';
+        board[bonus.x + 1, bonus.y + 1] = bonus.bonus_type + 'A';
+        total_bonus_number++;
+        return true;
     }
 
-    public void remove_bonus (int[,] board, Bonus bonus)
+    internal void remove_bonus (int[,] board, Bonus bonus)
     {
-        board[bonus.x, bonus.y] = NibblesGame.EMPTYCHAR;
-        board[bonus.x + 1, bonus.y] = NibblesGame.EMPTYCHAR;
-        board[bonus.x, bonus.y + 1] = NibblesGame.EMPTYCHAR;
+        board[bonus.x    , bonus.y    ] = NibblesGame.EMPTYCHAR;
+        board[bonus.x + 1, bonus.y    ] = NibblesGame.EMPTYCHAR;
+        board[bonus.x    , bonus.y + 1] = NibblesGame.EMPTYCHAR;
         board[bonus.x + 1, bonus.y + 1] = NibblesGame.EMPTYCHAR;
 
         bonus_removed (bonus);
+        bonuses.remove (bonus);
     }
 
-    public void reset (int numworms)
+    internal void reset (int numworms)
     {
         bonuses.clear ();
-        missed = 0;
-        numboni = 8 + numworms;
-        numbonuses = 0;
-        numleft = numboni;
+        reset_missed ();
+        regular_bonus_maxi = 8 + numworms;
+        total_bonus_number = 0;
+        regular_bonus_left = regular_bonus_maxi;
     }
 
-    public Bonus? get_bonus (int[,] board, int x, int y)
+    internal Bonus? get_bonus (int[,] board, int x, int y)
     {
         foreach (var bonus in bonuses)
         {
-            if ((x == bonus.x && y == bonus.y)
-                || (x == bonus.x + 1 && y == bonus.y)
-                || (x == bonus.x && y == bonus.y + 1)
-                || (x == bonus.x + 1 && y == bonus.y + 1))
+            if ((x == bonus.x     && y == bonus.y    )
+             || (x == bonus.x + 1 && y == bonus.y    )
+             || (x == bonus.x     && y == bonus.y + 1)
+             || (x == bonus.x + 1 && y == bonus.y + 1))
             {
                 return bonus;
             }
         }
 
         return null;
+    }
+
+    internal void on_worms_move (int[,] board, out uint8 missed_bonuses_to_replace)
+    {
+        missed_bonuses_to_replace = 0;
+
+        // FIXME Use an iterator instead of a second list
+        var found = new Gee.LinkedList<Bonus> ();
+        foreach (var bonus in bonuses)
+            if (bonus.countdown-- == 0)
+                found.add (bonus);
+
+        foreach (var bonus in found)
+        {
+            bool real_bonus = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
+
+            remove_bonus (board, bonus);
+
+            if (real_bonus)
+            {
+                increase_missed ();
+                missed_bonuses_to_replace++;
+            }
+        }
+    }
+
+    internal inline int new_regular_bonus_eaten ()
+    {
+        if (regular_bonus_left == 0)
+            assert_not_reached ();
+        regular_bonus_left--;
+        return regular_bonus_maxi - regular_bonus_left;
+    }
+
+    internal inline bool last_regular_bonus ()
+    {
+        return regular_bonus_left == 0;
+    }
+
+    /*\
+    * * missed
+    \*/
+
+    private uint8 missed = 0;
+    private const uint8 MAX_MISSED = 2;
+
+    internal inline bool too_many_missed ()
+    {
+        return missed > MAX_MISSED;
+    }
+
+    private inline void increase_missed ()
+    {
+        missed++;
+    }
+
+    private inline void reset_missed ()
+    {
+        missed = 0;
     }
 }

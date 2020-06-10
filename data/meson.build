@@ -38,6 +38,20 @@ install_data(join_paths('icons', 'hicolor', 'scalable', 'org.gnome.Nibbles.svg')
 install_data(join_paths('icons', 'hicolor', 'symbolic', 'org.gnome.Nibbles-symbolic.svg'),
              install_dir: join_paths (datadir, 'icons', 'hicolor', 'symbolic', 'apps'))
 
+# Make D-Bus activatable
+service_conf = configuration_data()
+service_conf.set('bindir', bindir)
+
+service = 'org.gnome.Nibbles.service'
+
+configure_file (
+  input: service + '.in',
+  output: service,
+  install: true,
+  install_dir: join_paths (datadir, 'dbus-1', 'services'),
+  configuration: service_conf
+)
+
 # Appdata
 appdata_file = i18n.merge_file(
     input: 'org.gnome.Nibbles.appdata.xml.in',
@@ -60,7 +74,7 @@ if appstream_util.found()
 endif
 
 # Gschema
-install_data('org.gnome.nibbles.gschema.xml',
+install_data('org.gnome.Nibbles.gschema.xml',
     install_dir: join_paths(datadir, 'glib-2.0', 'schemas')
 )
 

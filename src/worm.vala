@@ -19,22 +19,22 @@
 // This is a fairly literal translation of the GPLv2+ original by
 // Sean MacIsaac, Ian Peters, Guillaume Béland.
 
-public enum WormDirection
+private enum WormDirection
 {
-    NONE,
+    NONE,   // unused, but allows to cast an integer from 1 to 4 into the four directions
     RIGHT,
     DOWN,
     LEFT,
-    UP
+    UP;
 }
 
-public struct Position
+private struct Position
 {
     int x;
     int y;
 }
 
-public struct WormProperties
+private struct WormProperties
 {
     int color;
     uint up;
@@ -43,35 +43,34 @@ public struct WormProperties
     uint right;
 }
 
-public class Worm : Object
+private class Worm : Object
 {
-    public const int STARTING_LENGTH = 5;
-    public const int STARTING_LIVES = 6;
-    public const int MAX_LIVES = 12;
+    private const int STARTING_LENGTH = 5;
+    internal const int STARTING_LIVES = 6;
+    internal const int MAX_LIVES = 12;
 
-    public const int GROW_FACTOR = 4;
+    internal const int GROW_FACTOR = 4;
 
-    public Position starting_position { get; private set; }
+    internal Position starting_position { internal get; private set; }
 
-    public int id { get; private set; }
+    public int id { internal get; protected construct; }
 
-    public bool is_human;
-    public bool keypress = false;
-    public bool is_stopped = false;
-    public bool is_materialized { get; private set; default = true; }
+    internal bool is_human;
+    internal bool keypress = false;
+    internal bool is_stopped = false;
+    internal bool is_materialized { internal get; private set; default = true; }
     private int rounds_dematerialized;
 
-    public int lives { get; set; }
-    public int change;
-    public int score { get; set; }
+    internal int lives  { internal get; internal set; default = STARTING_LIVES; }
+    internal int change { internal get; internal set; default = 0; }
+    internal int score  { internal get; internal set; default = 0; }
 
-    public int length
+    internal int length
     {
         get { return list.size; }
-        set {}
     }
 
-    public Position head
+    internal Position head
     {
         get
         {
@@ -80,40 +79,35 @@ public class Worm : Object
         }
         private set
         {
-            list.set (0, value);
+            list.@set (0, value);
         }
     }
 
-    public WormDirection direction;
+    internal WormDirection direction { internal get; private set; }
 
-    public WormDirection starting_direction;
+    private WormDirection starting_direction;
 
-    private Gee.ArrayQueue<WormDirection> key_queue;
+    private Gee.ArrayQueue<WormDirection> key_queue = new Gee.ArrayQueue<WormDirection> ();
 
-    public Gee.LinkedList<Position?> list { get; private set; }
+    internal Gee.LinkedList<Position?> list { internal get; private set; default = new Gee.LinkedList<Position?> (); }
 
-    public signal void added ();
-    public signal void finish_added ();
-    public signal void moved ();
-    public signal void rescaled (int tile_size);
-    public signal void died ();
-    public signal void tail_reduced (int erase_size);
-    public signal void reversed ();
+    internal signal void added ();
+    internal signal void finish_added ();
+    internal signal void moved ();
+    internal signal void rescaled (int tile_size);
+    internal signal void died ();
+    internal signal void tail_reduced (int erase_size);
+    internal signal void reversed ();
 
-    public signal void bonus_found ();
-    public signal void warp_found ();
+    internal signal void bonus_found ();
+    internal signal void warp_found ();
 
-    public Worm (int id)
+    internal Worm (int id)
     {
-        this.id = id;
-        lives = STARTING_LIVES;
-        score = 0;
-        change = 0;
-        list = new Gee.LinkedList<Position?> ();
-        key_queue = new Gee.ArrayQueue<WormDirection> ();
+        Object (id: id);
     }
 
-    public void set_start (int xhead, int yhead, WormDirection direction)
+    internal void set_start (int xhead, int yhead, WormDirection direction)
     {
         list.clear ();
 
@@ -130,7 +124,7 @@ public class Worm : Object
         key_queue.clear ();
     }
 
-    public void move (int[,] board)
+    internal void move (int[,] board)
     {
         if (is_human)
             keypress = false;
@@ -159,7 +153,7 @@ public class Worm : Object
                     position.x = 0;
                 break;
             default:
-                break;
+                assert_not_reached ();
         }
 
         /* Add a new body piece */
@@ -197,20 +191,20 @@ public class Worm : Object
             materialize (board);
     }
 
-    public void reduce_tail (int[,] board, int erase_size)
+    internal void reduce_tail (int[,] board, int erase_size)
     {
-        if (erase_size > 0)
+        if (erase_size <= 0)
+            return;
+
+        for (int i = 0; i < erase_size; i++)
         {
-            for (int i = 0; i < erase_size; i++)
-            {
-                board[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
-                list.poll_tail ();
-            }
-            tail_reduced (erase_size);
+            board[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
+            list.poll_tail ();
         }
+        tail_reduced (erase_size);
     }
 
-    public void reverse (int[,] board)
+    internal void reverse (int[,] board)
     {
         var reversed_list = new Gee.LinkedList<Position?> ();
         foreach (var pos in list)
@@ -226,12 +220,12 @@ public class Worm : Object
             direction = (list[0].y > list[1].y) ? WormDirection.DOWN : WormDirection.UP;
     }
 
-    public void warp (Warp warp)
+    internal inline void warp (Warp warp)
     {
         head = Position () { x = warp.wx, y = warp.wy };
     }
 
-    public bool can_move_to (int[,] board, int numworms)
+    internal bool can_move_to (int[,] board, int numworms)
     {
         var position = position_move ();
         int next_position = board[position.x, position.y];
@@ -247,7 +241,7 @@ public class Worm : Object
         return true;
     }
 
-    public bool will_collide_with_head (Worm other_worm)
+    internal bool will_collide_with_head (Worm other_worm)
     {
         if (!is_materialized || !other_worm.is_materialized)
             return false;
@@ -261,7 +255,7 @@ public class Worm : Object
         return false;
     }
 
-    public void spawn (int[,] board)
+    internal void spawn (int[,] board)
     {
         change = STARTING_LENGTH - 1;
         for (int i = 0; i < STARTING_LENGTH; i++)
@@ -284,7 +278,7 @@ public class Worm : Object
         rounds_dematerialized = 0;
     }
 
-    public void dematerialize (int [,] board, int rounds)
+    internal void dematerialize (int [,] board, int rounds)
     {
         rounds_dematerialized = rounds;
         is_materialized = false;
@@ -295,7 +289,7 @@ public class Worm : Object
         }
     }
 
-    public void add_life ()
+    internal void add_life ()
     {
         if (lives > MAX_LIVES)
             return;
@@ -303,12 +297,12 @@ public class Worm : Object
         lives++;
     }
 
-    private void lose_life ()
+    private inline void lose_life ()
     {
         lives--;
     }
 
-    public void reset (int[,] board)
+    internal void reset (int[,] board)
     {
         is_stopped = true;
         is_materialized = false;
@@ -360,7 +354,7 @@ public class Worm : Object
                     position.x = 0;
                 break;
             default:
-                break;
+                assert_not_reached ();
         }
 
         return position;
@@ -389,6 +383,7 @@ public class Worm : Object
     /*\
     * * Keys and key presses
     \*/
+
     private uint upper_key (uint keyval)
     {
         if (keyval > 255)
@@ -396,12 +391,12 @@ public class Worm : Object
         return ((char) keyval).toupper ();
     }
 
-    public void handle_direction (WormDirection dir)
+    private void handle_direction (WormDirection dir)
     {
         direction_set (dir);
     }
 
-    public bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties?> worm_props)
+    internal bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties?> worm_props)
     {
         if (lives <= 0 || is_stopped)
             return false;
@@ -409,7 +404,7 @@ public class Worm : Object
         WormProperties properties;
         uint propsUp, propsDown, propsLeft, propsRight, keyvalUpper;
 
-        properties = worm_props.get (this);
+        properties = worm_props.@get (this);
         propsUp = upper_key (properties.up);
         propsLeft = upper_key (properties.left);
         propsDown = upper_key (properties.down);
@@ -440,7 +435,7 @@ public class Worm : Object
         return false;
     }
 
-    public void queue_keypress (WormDirection dir)
+    private void queue_keypress (WormDirection dir)
     {
         /* Ignore duplicates in normal movement mode. This resolves the key
          * repeat issue
@@ -451,8 +446,8 @@ public class Worm : Object
         key_queue.add (dir);
     }
 
-    public void dequeue_keypress ()
-                requires (!key_queue.is_empty)
+    private void dequeue_keypress ()
+        requires (!key_queue.is_empty)
     {
         direction_set (key_queue.poll ());
     }
@@ -474,10 +469,10 @@ public class Worm : Object
      * after 4 billion steps the entire board is likely to have been
      * overwritten anyway.
      */
-    static uint[,] deadend_board = new uint[NibblesGame.WIDTH, NibblesGame.HEIGHT];
-    static uint deadend_runnumber = 0;
+    private static uint[,] deadend_board = new uint[NibblesGame.WIDTH, NibblesGame.HEIGHT];
+    private static uint deadend_runnumber = 0;
 
-    static int ai_deadend (int[,] board, int numworms, int x, int y, int length_left)
+    private static int ai_deadend (int[,] board, int numworms, int x, int y, int length_left)
     {
         int cdir, cx, cy;
 
@@ -512,6 +507,8 @@ public class Worm : Object
                 case WormDirection.RIGHT:
                     cx += 1;
                     break;
+                default:
+                    assert_not_reached ();
             }
 
             if (cx >= NibblesGame.WIDTH)
@@ -593,6 +590,8 @@ public class Worm : Object
             case WormDirection.RIGHT:
                 cx += 1;
                 break;
+            default:
+                assert_not_reached ();
         }
 
         if (cx >= NibblesGame.WIDTH)
@@ -617,7 +616,7 @@ public class Worm : Object
      * that is, that it's within 3 in the direction we're going and within
      * 1 to the side.
      */
-    private bool ai_too_close (Gee.LinkedList<Worm> worms, int numworms)
+    private inline bool ai_too_close (Gee.LinkedList<Worm> worms, int numworms)
     {
         int i = numworms;
         int dx, dy;
@@ -644,6 +643,8 @@ public class Worm : Object
                     if (dx < 0 && dx >= -3 && dy >= -1 && dy <= 1)
                         return true;
                     break;
+                default:
+                    assert_not_reached ();
             }
         }
 
@@ -671,6 +672,8 @@ public class Worm : Object
             case WormDirection.RIGHT:
                 x += 1;
                 break;
+            default:
+                assert_not_reached ();
         }
 
         if (x >= NibblesGame.WIDTH)
@@ -711,7 +714,7 @@ public class Worm : Object
     }
 
     /* Determines the direction of the AI worm. */
-    public void ai_move (int[,] board, int numworms, Gee.LinkedList<Worm> worms)
+    internal void ai_move (int[,] board, int numworms, Gee.LinkedList<Worm> worms)
     {
         var opposite = (direction + 1) % 4 + 1;
 
