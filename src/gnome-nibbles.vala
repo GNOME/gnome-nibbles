@@ -910,7 +910,6 @@ public class Nibbles : Gtk.Application
         overlay.add_overlay (label);
         overlay.add_overlay (button);
 
-        overlay.show ();
         overlay.grab_default ();
 
         Timeout.add (500, () => {
@@ -1000,8 +999,7 @@ public class Nibbles : Gtk.Application
             button.destroy ();
             msg_label.destroy ();
 
-            new_game_action.set_enabled (true);
-            pause_action.set_enabled (true);
+            view.show ();
 
             show_new_game_screen_cb ();
         });
@@ -1018,7 +1016,10 @@ public class Nibbles : Gtk.Application
 
         button.grab_focus ();
 
-        overlay.show ();
+        view.hide ();
+        new_game_action.set_enabled (false);
+        pause_action.set_enabled (false);
+        back_action.set_enabled (false);
     }
 
     private void help_cb ()
