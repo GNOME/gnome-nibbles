@@ -362,6 +362,8 @@ public class Nibbles : Gtk.Application
     {
         settings.set_boolean ("first-run", false);
 
+        if (game.is_paused)
+            set_pause_button_label (/* paused */ false);
         game.reset ();
 
         view.new_level (game.current_level);
@@ -452,14 +454,28 @@ public class Nibbles : Gtk.Application
             if (game.is_running)
             {
                 game.pause ();
-                pause_button.set_label (_("_Resume"));
+                set_pause_button_label (/* paused */ true);
             }
             else
             {
                 game.unpause ();
-                pause_button.set_label (_("_Pause"));
+                set_pause_button_label (/* paused */ false);
                 view.grab_focus ();
             }
+        }
+    }
+
+    private void set_pause_button_label (bool paused)
+    {
+        if (paused)
+        {
+            /* Translators: label of the Pause button, when the game is paused */
+            pause_button.set_label (_("_Resume"));
+        }
+        else
+        {
+            /* Translators: label of the Pause button, when the game is running */
+            pause_button.set_label (_("_Pause"));
         }
     }
 
