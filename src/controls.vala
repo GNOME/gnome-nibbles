@@ -23,6 +23,7 @@ using Gtk;
 private class Controls : Box
 {
     [GtkChild] private Box grids_box;
+    private Gee.LinkedList<ControlsGrid> grids = new Gee.LinkedList<ControlsGrid> ();
 
     private Gdk.Pixbuf arrow_pixbuf;
     private Gdk.Pixbuf arrow_key_pixbuf;
@@ -33,7 +34,7 @@ private class Controls : Box
         arrow_key_pixbuf = NibblesView.load_pixmap_file ("arrow-key.svg", 5 * tile_size, 5 * tile_size);
     }
 
-    internal void prepare (Gee.LinkedList<Worm> worms, Gee.HashMap<Worm, WormProperties?> worm_props)
+    internal void prepare (Gee.LinkedList<Worm> worms, Gee.HashMap<Worm, WormProperties> worm_props)
     {
         foreach (var grid in grids_box.get_children ())
             grid.destroy ();
@@ -44,8 +45,16 @@ private class Controls : Box
             {
                 var grid = new ControlsGrid (worm.id, worm_props.@get (worm), arrow_pixbuf, arrow_key_pixbuf);
                 grids_box.add (grid);
+                grids.add (grid);
             }
         }
+    }
+
+    internal void clean ()
+    {
+        foreach (ControlsGrid grid in grids)
+            grid.disconnect_stuff ();
+        grids.clear ();
     }
 }
 
@@ -62,13 +71,26 @@ private class ControlsGrid : Grid
     [GtkChild] private Label move_left_label;
     [GtkChild] private Label move_right_label;
 
+    private WormProperties worm_props;
+    private ulong    up_handler;
+    private ulong  down_handler;
+    private ulong  left_handler;
+    private ulong right_handler;
+    private ulong color_handler;
+
     internal ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
     {
-        var color = Pango.Color ();
-        color.parse (NibblesView.colorval_name_untranslated (worm_props.color));
+        this.worm_props = worm_props;
 
         /* Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player */
         var player_id = _("Player %d").printf (worm_id + 1);
+        color_handler = worm_props.notify ["color"].connect (() => {
+                var color = Pango.Color ();
+                color.parse (NibblesView.colorval_name_untranslated (worm_props.color));
+                name_label.set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\">$(player_id)</span></b>");
+            });
+        var color = Pango.Color ();
+        color.parse (NibblesView.colorval_name_untranslated (worm_props.color));
         name_label.set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\">$(player_id)</span></b>");
 
         arrow_up.set_from_pixbuf    (arrow.rotate_simple (Gdk.PixbufRotation.NONE));
@@ -76,10 +98,24 @@ private class ControlsGrid : Grid
         arrow_left.set_from_pixbuf  (arrow.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE));
         arrow_right.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.CLOCKWISE));
 
+           up_handler = worm_props.notify ["up"].connect    (() => configure_label (Gdk.keyval_name (worm_props.up),    ref move_up_label));
+         down_handler = worm_props.notify ["down"].connect  (() => configure_label (Gdk.keyval_name (worm_props.down),  ref move_down_label));
+         left_handler = worm_props.notify ["left"].connect  (() => configure_label (Gdk.keyval_name (worm_props.left),  ref move_left_label));
+        right_handler = worm_props.notify ["right"].connect (() => configure_label (Gdk.keyval_name (worm_props.right), ref move_right_label));
+
         configure_label (Gdk.keyval_name (worm_props.up),    ref move_up_label);
         configure_label (Gdk.keyval_name (worm_props.down),  ref move_down_label);
         configure_label (Gdk.keyval_name (worm_props.left),  ref move_left_label);
         configure_label (Gdk.keyval_name (worm_props.right), ref move_right_label);
+    }
+
+    internal void disconnect_stuff ()
+    {
+        worm_props.disconnect (   up_handler);
+        worm_props.disconnect ( down_handler);
+        worm_props.disconnect ( left_handler);
+        worm_props.disconnect (right_handler);
+        worm_props.disconnect (color_handler);
     }
 
     private static void configure_label (string? key_name, ref Label label)
@@ -105,8 +141,14 @@ private class ControlsGrid : Grid
             label.set_text ("→");
         }
         else if (key_name == null || key_name == "")
+        {
+            label.get_style_context ().remove_class ("arrow");
             label.set_text ("");
+        }
         else
+        {
+            label.get_style_context ().remove_class ("arrow");
             label.set_text (@"$(key_name.up ())");
+        }
     }
 }

@@ -53,7 +53,7 @@
         <property name="use-underline">True</property>
         <!-- Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game -->
         <property name="label" translatable="yes">_Start</property>
-        <property name="action-name">win.next-screen</property>
+        <property name="action-name">win.start-game</property>
         <property name="halign">center</property>
         <property name="width-request">116</property>
         <property name="height-request">34</property>
