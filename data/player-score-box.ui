@@ -30,7 +30,6 @@
         <child>
           <object class="GtkLabel" id="name_label">
             <property name="visible">True</property>
-            <property name="label" translatable="yes">Worm</property>
           </object>
           <packing>
             <property name="pack-type">start</property>

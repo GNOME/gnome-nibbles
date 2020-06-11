@@ -27,6 +27,7 @@
       <object class="GtkButton">
         <property name="visible">True</property>
         <property name="use-underline">True</property>
+        <!-- Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
         <property name="label" translatable="yes">Let’s _Play</property>
         <property name="action-name">win.next-screen</property>
         <property name="halign">center</property>
@@ -60,6 +61,7 @@
         <child>
           <object class="GtkLabel">
             <property name="visible">True</property>
+            <!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
             <property name="label" translatable="yes">Welcome, worms.</property>
             <style>
               <class name="menu-title"/>
@@ -69,6 +71,7 @@
         <child>
           <object class="GtkLabel">
             <property name="visible">True</property>
+            <!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
             <property name="label" translatable="yes">Eat the treats before the other worms, but don’t hit anything!</property>
             <property name="valign">start</property>
             <style>
