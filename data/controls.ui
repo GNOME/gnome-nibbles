@@ -30,6 +30,7 @@
         <child>
           <object class="GtkLabel">
             <property name="visible">True</property>
+            <!-- Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player -->
             <property name="label" translatable="yes">Controls</property>
             <property name="valign">center</property>
             <style><class name="menu-title"/></style>
@@ -50,6 +51,7 @@
         <property name="visible">True</property>
         <property name="can-default">True</property>
         <property name="use-underline">True</property>
+        <!-- Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game -->
         <property name="label" translatable="yes">_Start</property>
         <property name="action-name">win.next-screen</property>
         <property name="halign">center</property>

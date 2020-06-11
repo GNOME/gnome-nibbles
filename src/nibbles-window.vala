@@ -372,7 +372,7 @@ private class NibblesWindow : ApplicationWindow
         else
         {
             /* Translators: label of the Pause button, when the game is running */
-            pause_button.set_label (_("_Pause"));
+            pause_button.set_label (_("_Pause"));   // duplicated in nibbles.ui
         }
     }
 

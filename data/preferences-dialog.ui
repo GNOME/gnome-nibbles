@@ -23,9 +23,13 @@
     <property name="visible">True</property>
     <property name="active-id">worm1</property>
     <items>
+      <!-- Translators: item in the title-combobox of the Preferences dialog; allows to configure 1st worm controls and color -->
       <item translatable="yes" id="worm1">Worm 1</item>
+      <!-- Translators: item in the title-combobox of the Preferences dialog; allows to configure 2nd worm controls and color -->
       <item translatable="yes" id="worm2">Worm 2</item>
+      <!-- Translators: item in the title-combobox of the Preferences dialog; allows to configure 3rd worm controls and color -->
       <item translatable="yes" id="worm3">Worm 3</item>
+      <!-- Translators: item in the title-combobox of the Preferences dialog; allows to configure 4th worm controls and color -->
       <item translatable="yes" id="worm4">Worm 4</item>
     </items>
     <signal name="changed" handler="on_worm_change"/>
@@ -54,6 +58,7 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel">
+                <!-- Translators: title of a section in the Preferences dialog (1st worm); allows to configure keyboard controls for the worm -->
                 <property name="label" translatable="yes">Controls</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -94,6 +99,7 @@
                 <property name="border_width">0</property>
                 <child>
                   <object class="GtkLabel">
+                    <!-- Translators: title of a section in the Preferences dialog (1st worm); allows to configure the worm color -->
                     <property name="label" translatable="yes">Worm color</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -128,6 +134,7 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel">
+                <!-- Translators: title of a section in the Preferences dialog (2nd worm); allows to configure keyboard controls for the worm -->
                 <property name="label" translatable="yes">Controls</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -168,6 +175,7 @@
                 <property name="border_width">0</property>
                 <child>
                   <object class="GtkLabel">
+                    <!-- Translators: title of a section in the Preferences dialog (2nd worm); allows to configure the worm color -->
                     <property name="label" translatable="yes">Worm color</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -202,6 +210,7 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel">
+                <!-- Translators: title of a section in the Preferences dialog (3rd worm); allows to configure keyboard controls for the worm -->
                 <property name="label" translatable="yes">Controls</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -242,6 +251,7 @@
                 <property name="border_width">0</property>
                 <child>
                   <object class="GtkLabel">
+                    <!-- Translators: title of a section in the Preferences dialog (3rd worm); allows to configure the worm color -->
                     <property name="label" translatable="yes">Worm color</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -276,6 +286,7 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel">
+                <!-- Translators: title of a section in the Preferences dialog (4th worm); allows to configure keyboard controls for the worm -->
                 <property name="label" translatable="yes">Controls</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -316,6 +327,7 @@
                 <property name="border_width">0</property>
                 <child>
                   <object class="GtkLabel">
+                    <!-- Translators: title of a section in the Preferences dialog (4th worm); allows to configure the worm color -->
                     <property name="label" translatable="yes">Worm color</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
