@@ -37,6 +37,7 @@
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
+                <!-- Translators: title of one of the panels displayed during game configuration; the panel allows to change the number of human and ai worms -->
                 <property name="label" translatable="yes">Number of players</property>
                 <style><class name="menu-title"/></style>
               </object>
@@ -51,6 +52,7 @@
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
+                <!-- Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 1/2/3/4 human players -->
                 <property name="label" translatable="yes">Select the number of human players.</property>
               </object>
             </child>
@@ -126,6 +128,7 @@
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
+                <!-- Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms -->
                 <property name="label" translatable="yes">Select the number of computer players.</property>
               </object>
             </child>
@@ -190,6 +193,7 @@
         <property name="visible">True</property>
         <property name="can-default">True</property>
         <property name="use-underline">True</property>
+        <!-- Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel -->
         <property name="label" translatable="yes">_Next</property>
         <property name="action-name">win.next-screen</property>
         <property name="width-request">116</property>
