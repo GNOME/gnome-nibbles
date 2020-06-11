@@ -68,6 +68,7 @@ private class NibblesWindow : ApplicationWindow
     private SimpleAction new_game_action;
     private SimpleAction pause_action;
     private SimpleAction back_action;
+    private SimpleAction start_game_action;
 
     private uint countdown_id = 0;
     private const int COUNTDOWN_TIME = 3;
@@ -80,16 +81,18 @@ private class NibblesWindow : ApplicationWindow
         { "preferences",    preferences_cb  },
         { "scores",         scores_cb       },
 
-        { "next-screen",    next_screen_cb  },  // called from first-run, players, speed and controls
+        { "next-screen",    next_screen_cb  },  // called from first-run, players and speed
+        { "start-game",     start_game      },  // called from controls
         { "back",           back_cb         }   // called on Escape pressed; disabled only during countdown (TODO pause?)
     };
 
     construct
     {
         add_action_entries (menu_entries, this);
-        new_game_action = (SimpleAction) lookup_action ("new-game");
-        pause_action    = (SimpleAction) lookup_action ("pause");
-        back_action     = (SimpleAction) lookup_action ("back");
+        new_game_action     = (SimpleAction) lookup_action ("new-game");
+        pause_action        = (SimpleAction) lookup_action ("pause");
+        back_action         = (SimpleAction) lookup_action ("back");
+        start_game_action   = (SimpleAction) lookup_action ("start-game");
 
         settings = new GLib.Settings ("org.gnome.Nibbles");
         settings.changed.connect (settings_changed_cb);
@@ -430,6 +433,9 @@ private class NibblesWindow : ApplicationWindow
         }
 
         game.worm_props.@set (worm, properties);
+
+        if (id < game.numhumans)
+            update_start_game_action ();
     }
 
     /*\
@@ -451,8 +457,7 @@ private class NibblesWindow : ApplicationWindow
                 show_controls_screen ();
                 break;
             case "controls":
-                start_game ();
-                break;
+                assert_not_reached ();
             default:
                 return;
         }
@@ -509,12 +514,31 @@ private class NibblesWindow : ApplicationWindow
         settings.set_boolean ("fakes", fakes);
 
         /* Create worms and load properties */
+        controls.clean ();
         game.create_worms ();
         game.load_worm_properties (worm_settings);
+        update_start_game_action ();
 
         controls.prepare (game.worms, game.worm_props);
 
         main_stack.set_visible_child_name ("controls");
+    }
+
+    private void update_start_game_action ()
+    {
+        for (int i = 0; i < game.numhumans; i++)
+        {
+            WormProperties worm_prop = game.worm_props.@get (game.worms.@get (i));
+            if (worm_prop.up    == 0
+             || worm_prop.down  == 0
+             || worm_prop.left  == 0
+             || worm_prop.right == 0)
+            {
+                start_game_action.set_enabled (false);
+                return;
+            }
+        }
+        start_game_action.set_enabled (true);
     }
 
     private void show_game_view ()
