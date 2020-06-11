@@ -59,8 +59,8 @@ private class NibblesGame : Object
     internal int numworms       { internal get; private set; }
 
     /* Game models */
-    public Gee.LinkedList<Worm> worms                       { internal get; default = new Gee.LinkedList<Worm> (); }
-    public Gee.HashMap<Worm, WormProperties?> worm_props    { internal get; default = new Gee.HashMap<Worm, WormProperties?> (); }
+    public Gee.LinkedList<Worm> worms                   { internal get; default = new Gee.LinkedList<Worm> (); }
+    public Gee.HashMap<Worm, WormProperties> worm_props { internal get; default = new Gee.HashMap<Worm, WormProperties> (); }
 
     private Boni boni = new Boni ();
     private WarpManager warp_manager = new WarpManager ();
@@ -660,14 +660,46 @@ private class NibblesGame : Object
         worm_props.clear ();
         foreach (var worm in worms)
         {
-            var properties = WormProperties ();
-            properties.color = worm_settings[worm.id].get_enum ("color");
-            properties.up = worm_settings[worm.id].get_int ("key-up");
-            properties.down = worm_settings[worm.id].get_int ("key-down");
-            properties.left = worm_settings[worm.id].get_int ("key-left");
-            properties.right = worm_settings[worm.id].get_int ("key-right");
+            var properties = new WormProperties ();
+
+            worm_settings[worm.id].bind_with_mapping ("color", properties, "color", SettingsBindFlags.DEFAULT,
+                                                      (prop_value, variant) => { prop_value.set_int (get_color_num (variant.get_string ()));
+                                                                                 return /* success */ true; },
+                                                      (prop_value, variant_type) => { return new Variant.@string (get_color_string (prop_value.get_int ())); },
+                                                      null, null);
+
+            worm_settings[worm.id].bind ("key-up",      properties, "up",       SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-down",    properties, "down",     SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-left",    properties, "left",     SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-right",   properties, "right",    SettingsBindFlags.DEFAULT);
 
             worm_props.@set (worm, properties);
+        }
+    }
+    private static inline string get_color_string (int color)
+    {
+        switch (color)
+        {
+            case 0: return "red";
+            case 1: return "green";
+            case 2: return "blue";
+            case 3: return "yellow";
+            case 4: return "cyan";
+            case 5: return "purple";
+            default: assert_not_reached ();
+        }
+    }
+    private static inline int get_color_num (string color)
+    {
+        switch (color)
+        {
+            case "red":     return 0;
+            case "green":   return 1;
+            case "blue":    return 2;
+            case "yellow":  return 3;
+            case "cyan":    return 4;
+            case "purple":  return 5;
+            default: assert_not_reached ();
         }
     }
 

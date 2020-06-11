@@ -34,13 +34,13 @@ private struct Position
     int y;
 }
 
-private struct WormProperties
+private class WormProperties : Object
 {
-    int color;
-    uint up;
-    uint down;
-    uint left;
-    uint right;
+    internal int color  { internal get; internal set; }
+    internal uint up    { internal get; internal set; }
+    internal uint down  { internal get; internal set; }
+    internal uint left  { internal get; internal set; }
+    internal uint right { internal get; internal set; }
 }
 
 private class Worm : Object
@@ -396,7 +396,7 @@ private class Worm : Object
         direction_set (dir);
     }
 
-    internal bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties?> worm_props)
+    internal bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties> worm_props)
     {
         if (lives <= 0 || is_stopped)
             return false;
