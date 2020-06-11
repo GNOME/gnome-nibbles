@@ -71,46 +71,42 @@ private class ControlsGrid : Grid
         var player_id = _("Player %d").printf (worm_id + 1);
         name_label.set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\">$(player_id)</span></b>");
 
-        arrow_up.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.NONE));
-        arrow_down.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN));
-        arrow_left.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE));
+        arrow_up.set_from_pixbuf    (arrow.rotate_simple (Gdk.PixbufRotation.NONE));
+        arrow_down.set_from_pixbuf  (arrow.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN));
+        arrow_left.set_from_pixbuf  (arrow.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE));
         arrow_right.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.CLOCKWISE));
 
-        string upper_key;
-        upper_key = Gdk.keyval_name (worm_props.up).up ();
-        if (upper_key == "UP")
-        {
-            move_up_label.get_style_context ().add_class ("arrow");
-            move_up_label.set_label ("↑");
-        }
-        else
-            move_up_label.set_label (@"$(upper_key)");
+        configure_label (Gdk.keyval_name (worm_props.up),    ref move_up_label);
+        configure_label (Gdk.keyval_name (worm_props.down),  ref move_down_label);
+        configure_label (Gdk.keyval_name (worm_props.left),  ref move_left_label);
+        configure_label (Gdk.keyval_name (worm_props.right), ref move_right_label);
+    }
 
-        upper_key = Gdk.keyval_name (worm_props.down).up ();
-        if (upper_key == "DOWN")
+    private static void configure_label (string? key_name, ref Label label)
+    {
+        if (key_name == "Up")
         {
-            move_down_label.get_style_context ().add_class ("arrow");
-            move_down_label.set_label ("↓");
+            label.get_style_context ().add_class ("arrow");
+            label.set_text ("↑");
         }
-        else
-            move_down_label.set_label (@"$(upper_key)");
-
-        upper_key = Gdk.keyval_name (worm_props.left).up ();
-        if (upper_key == "LEFT")
+        else if (key_name == "Down")
         {
-            move_left_label.get_style_context ().add_class ("arrow");
-            move_left_label.set_label ("←");
+            label.get_style_context ().add_class ("arrow");
+            label.set_text ("↓");
         }
-        else
-            move_left_label.set_label (@"$(upper_key)");
-
-        upper_key = Gdk.keyval_name (worm_props.right).up ();
-        if (upper_key == "RIGHT")
+        else if (key_name == "Left")
         {
-            move_right_label.get_style_context ().add_class ("arrow");
-            move_right_label.set_label ("→");
+            label.get_style_context ().add_class ("arrow");
+            label.set_text ("←");
         }
+        else if (key_name == "Right")
+        {
+            label.get_style_context ().add_class ("arrow");
+            label.set_text ("→");
+        }
+        else if (key_name == null || key_name == "")
+            label.set_text ("");
         else
-            move_right_label.set_label (@"$(upper_key)");
+            label.set_text (@"$(key_name.up ())");
     }
 }
