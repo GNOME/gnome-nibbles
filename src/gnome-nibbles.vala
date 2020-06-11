@@ -1236,45 +1236,45 @@ private class ControlsGrid : Gtk.Grid
         arrow_left.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE));
         arrow_right.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.CLOCKWISE));
 
-        string upper_key;
-        upper_key = Gdk.keyval_name (worm_props.up).up ();
-        if (upper_key == "UP")
+        string key_name;
+        key_name = Gdk.keyval_name (worm_props.up);
+        if (key_name == "Up")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.NONE);
             move_up.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
             move_up.show_all ();
         }
         else
-            move_up_label.set_markup (@"<b>$(upper_key)</b>");
+            move_up_label.set_markup (@"<b>$(key_name.up ())</b>");
 
-        upper_key = Gdk.keyval_name (worm_props.down).up ();
-        if (upper_key == "DOWN")
+        key_name = Gdk.keyval_name (worm_props.down);
+        if (key_name == "Down")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN);
             move_down.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
             move_down.show_all ();
         }
         else
-            move_down_label.set_markup (@"<b>$(upper_key)</b>");
+            move_down_label.set_markup (@"<b>$(key_name.up ())</b>");
 
-        upper_key = Gdk.keyval_name (worm_props.left).up ();
-        if (upper_key == "LEFT")
+        key_name = Gdk.keyval_name (worm_props.left);
+        if (key_name == "Left")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE);
             move_left.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
             move_left.show_all ();
         }
         else
-            move_left_label.set_markup (@"<b>$(upper_key)</b>");
+            move_left_label.set_markup (@"<b>$(key_name.up ())</b>");
 
-        upper_key = Gdk.keyval_name (worm_props.right).up ();
-        if (upper_key == "RIGHT")
+        key_name = Gdk.keyval_name (worm_props.right);
+        if (key_name == "Right")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.CLOCKWISE);
             move_right.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
             move_right.show_all ();
         }
         else
-            move_right_label.set_markup (@"<b>$(upper_key)</b>");
+            move_right_label.set_markup (@"<b>$(key_name.up ())</b>");
     }
 }
