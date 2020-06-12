@@ -48,6 +48,8 @@ private class PreferencesDialog : Window
 
     private EventControllerKey key_controller;          // for keeping in memory
 
+    public int n_worms { private get; protected construct; }
+
     construct
     {
         key_controller = new EventControllerKey (this);
@@ -74,7 +76,7 @@ private class PreferencesDialog : Window
 
     internal PreferencesDialog (ApplicationWindow window, GLib.Settings settings, Gee.ArrayList<GLib.Settings> worm_settings, int worm_id, int n_worms)
     {
-        Object (transient_for: window);
+        Object (transient_for: window, n_worms: n_worms);
 
         this.settings = settings;
         this.worm_settings = worm_settings;
@@ -173,17 +175,17 @@ private class PreferencesDialog : Window
         if (key == null)
             return;
 
-        if (worm_settings[id].get_int (key) == keyval)
+        if (keyval == worm_settings [id].get_int (key))
             return;
 
         /* Duplicate key check */
         bool valid = true;
-        for (int i = 0; i < NibblesGame.MAX_HUMANS; i++)
+        for (int i = 0; i < n_worms; i++)
         {
-            if (worm_settings[i].get_int ("key-up") == keyval ||
-                worm_settings[i].get_int ("key-down") == keyval ||
-                worm_settings[i].get_int ("key-left") == keyval ||
-                worm_settings[i].get_int ("key-right") == keyval)
+            if (keyval == worm_settings [i].get_int ("key-up")
+             || keyval == worm_settings [i].get_int ("key-down")
+             || keyval == worm_settings [i].get_int ("key-left")
+             || keyval == worm_settings [i].get_int ("key-right"))
             {
                 valid = false;
 
@@ -246,7 +248,7 @@ private class PreferencesDialog : Window
                 worm_settings[i].set_enum ("color", color_old);
 
                 /* Update swapped colors in UI */
-                if (i < NibblesGame.MAX_HUMANS)
+                if (i < n_worms)
                 {
                     foreach (var cbox in combo_boxes)
                     {
