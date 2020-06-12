@@ -39,21 +39,62 @@ private class Controls : Box
         foreach (var grid in grids_box.get_children ())
             grid.destroy ();
 
+        GenericSet<uint> duplicate_keys     = new GenericSet<uint> (direct_hash, direct_equal);
+        GenericSet<uint> encountered_keys   = new GenericSet<uint> (direct_hash, direct_equal);
         foreach (var worm in worms)
         {
             if (worm.is_human)
             {
-                var grid = new ControlsGrid (worm.id, worm_props.@get (worm), arrow_pixbuf, arrow_key_pixbuf);
+                WormProperties worm_prop = worm_props.@get (worm);
+
+                var grid = new ControlsGrid (worm.id, worm_prop, arrow_pixbuf, arrow_key_pixbuf);
                 grids_box.add (grid);
                 grids.add (grid);
+
+                check_for_duplicates (worm_prop.up,     ref encountered_keys, ref duplicate_keys);
+                check_for_duplicates (worm_prop.down,   ref encountered_keys, ref duplicate_keys);
+                check_for_duplicates (worm_prop.left,   ref encountered_keys, ref duplicate_keys);
+                check_for_duplicates (worm_prop.right,  ref encountered_keys, ref duplicate_keys);
             }
         }
+        foreach (ControlsGrid grid in grids)
+        {
+            grid.external_handler = grid.worm_props.notify.connect (() => {
+                    GenericSet<uint> _duplicate_keys    = new GenericSet<uint> (direct_hash, direct_equal);
+                    GenericSet<uint> _encountered_keys  = new GenericSet<uint> (direct_hash, direct_equal);
+                    foreach (var worm in worms)
+                    {
+                        if (worm.is_human)
+                        {
+                            WormProperties worm_prop = worm_props.@get (worm);
+
+                            check_for_duplicates (worm_prop.up,     ref _encountered_keys, ref _duplicate_keys);
+                            check_for_duplicates (worm_prop.down,   ref _encountered_keys, ref _duplicate_keys);
+                            check_for_duplicates (worm_prop.left,   ref _encountered_keys, ref _duplicate_keys);
+                            check_for_duplicates (worm_prop.right,  ref _encountered_keys, ref _duplicate_keys);
+                        }
+                    }
+                    foreach (ControlsGrid _grid in grids)
+                        _grid.mark_duplicated_keys (_duplicate_keys);
+                });
+            grid.mark_duplicated_keys (duplicate_keys);
+        }
+    }
+    private void check_for_duplicates (uint key, ref GenericSet<uint> encountered_keys, ref GenericSet<uint> duplicate_keys)
+    {
+        if (encountered_keys.contains (key))
+            duplicate_keys.add (key);
+        else
+            encountered_keys.add (key);
     }
 
     internal void clean ()
     {
         foreach (ControlsGrid grid in grids)
+        {
+            grid.worm_props.disconnect (grid.external_handler);
             grid.disconnect_stuff ();
+        }
         grids.clear ();
     }
 }
@@ -71,7 +112,8 @@ private class ControlsGrid : Button
     [GtkChild] private Label move_left_label;
     [GtkChild] private Label move_right_label;
 
-    private WormProperties worm_props;
+    internal WormProperties worm_props;
+    internal ulong external_handler;
     private ulong    up_handler;
     private ulong  down_handler;
     private ulong  left_handler;
@@ -109,6 +151,21 @@ private class ControlsGrid : Button
         configure_label (Gdk.keyval_name (worm_props.down),  ref move_down_label);
         configure_label (Gdk.keyval_name (worm_props.left),  ref move_left_label);
         configure_label (Gdk.keyval_name (worm_props.right), ref move_right_label);
+    }
+
+    internal void mark_duplicated_keys (GenericSet<uint> duplicate_keys)
+    {
+        set_duplicate_class (worm_props.up    in duplicate_keys, ref move_up_label);
+        set_duplicate_class (worm_props.down  in duplicate_keys, ref move_down_label);
+        set_duplicate_class (worm_props.left  in duplicate_keys, ref move_left_label);
+        set_duplicate_class (worm_props.right in duplicate_keys, ref move_right_label);
+    }
+    private static void set_duplicate_class (bool new_value, ref Label label)
+    {
+        if (new_value)
+            label.get_style_context ().add_class ("duplicate");
+        else
+            label.get_style_context ().remove_class ("duplicate");
     }
 
     internal void disconnect_stuff ()
