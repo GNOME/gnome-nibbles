@@ -187,17 +187,20 @@ private class PreferencesDialog : Window
              || keyval == worm_settings [i].get_int ("key-left")
              || keyval == worm_settings [i].get_int ("key-right"))
             {
-                valid = false;
-
                 var dialog = new MessageDialog (window,
                                                 DialogFlags.DESTROY_WITH_PARENT,
                                                 MessageType.WARNING,
-                                                ButtonsType.OK,
+                                                ButtonsType.CANCEL,
                                                 /* Translators: label of a MessageDialog that appears when one tries to assign an already assigned key */
                                                 _("The key you selected is already assigned!"));
 
-                dialog.run ();
+                /* Translators: label of one of the buttons of a MessageDialog that appears when one tries to assign an already assigned key (with a mnemonic that appears when pressing Alt) */
+                dialog.add_button (_("_Set anyway"), 42);
+
+                int response = dialog.run ();
                 dialog.destroy ();
+                if (response != 42)
+                    valid = false;
                 break;
             }
         }

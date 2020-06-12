@@ -132,6 +132,10 @@ button.controls-box:hover {
   font-size:175%;
 }
 
+label.duplicate {
+  color:red;
+}
+
 /*\
 * * game screen
 \*/
