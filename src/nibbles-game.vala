@@ -30,8 +30,6 @@ private class NibblesGame : Object
 {
     internal const int GAMEDELAY = 35;
 
-    internal const int MAX_HUMANS = 4;
-    internal const int MAX_AI = 5;
     internal const int MAX_WORMS = 6;
 
     internal const int MAX_SPEED = 4;
