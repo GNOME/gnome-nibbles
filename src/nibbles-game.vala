@@ -145,6 +145,7 @@ public class NibblesGame : Object
     public void reset ()
     {
         current_level = start_level;
+        is_paused = false;
     }
 
     private void end ()

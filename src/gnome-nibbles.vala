@@ -362,6 +362,8 @@ public class Nibbles : Gtk.Application
     {
         settings.set_boolean ("first-run", false);
 
+        if (game.is_paused)
+            set_pause_button_label (/* paused */ false);
         game.reset ();
 
         view.new_level (game.current_level);
@@ -371,7 +373,7 @@ public class Nibbles : Gtk.Application
         foreach (var worm in game.worms)
         {
             var color = game.worm_props.get (worm).color;
-            scoreboard.register (worm, NibblesView.colorval_name (color), scoreboard_life);
+            scoreboard.register (worm, NibblesView.colorval_name_untranslated (color), scoreboard_life);
             worm.notify["lives"].connect (scoreboard.update);
             worm.notify["score"].connect (scoreboard.update);
         }
@@ -452,14 +454,28 @@ public class Nibbles : Gtk.Application
             if (game.is_running)
             {
                 game.pause ();
-                pause_button.set_label (_("_Resume"));
+                set_pause_button_label (/* paused */ true);
             }
             else
             {
                 game.unpause ();
-                pause_button.set_label (_("_Pause"));
+                set_pause_button_label (/* paused */ false);
                 view.grab_focus ();
             }
+        }
+    }
+
+    private void set_pause_button_label (bool paused)
+    {
+        if (paused)
+        {
+            /* Translators: label of the Pause button, when the game is paused */
+            pause_button.set_label (_("_Resume"));
+        }
+        else
+        {
+            /* Translators: label of the Pause button, when the game is running */
+            pause_button.set_label (_("_Pause"));
         }
     }
 
@@ -910,7 +926,6 @@ public class Nibbles : Gtk.Application
         overlay.add_overlay (label);
         overlay.add_overlay (button);
 
-        overlay.show ();
         overlay.grab_default ();
 
         Timeout.add (500, () => {
@@ -1000,8 +1015,7 @@ public class Nibbles : Gtk.Application
             button.destroy ();
             msg_label.destroy ();
 
-            new_game_action.set_enabled (true);
-            pause_action.set_enabled (true);
+            view.show ();
 
             show_new_game_screen_cb ();
         });
@@ -1018,7 +1032,10 @@ public class Nibbles : Gtk.Application
 
         button.grab_focus ();
 
-        overlay.show ();
+        view.hide ();
+        new_game_action.set_enabled (false);
+        pause_action.set_enabled (false);
+        back_action.set_enabled (false);
     }
 
     private void help_cb ()
@@ -1092,10 +1109,8 @@ private class Scoreboard : Gtk.Box
         var color = Pango.Color ();
         color.parse (color_name);
 
-        /* FIXME: Consider changing this to "Worm %d"
-         * It's set to "Player %d" for now to avoid a string change for 3.20.
-         */
-        var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf);
+        /* Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player */
+        var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf); // FIXME: Consider changing this to "Worm %d"; It's set to "Player %d" for now to avoid a string change for 3.20.
         boxes.set (box, worm);
         add (box);
     }
@@ -1210,9 +1225,9 @@ private class ControlsGrid : Gtk.Grid
     public ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
     {
         var color = Pango.Color ();
-        color.parse (NibblesView.colorval_name (worm_props.color));
+        color.parse (NibblesView.colorval_name_untranslated (worm_props.color));
 
-        /* Translators: the player's number, e.g. "Player 1" or "Player 2". */
+        /* Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player */
         var player_id = _("Player %d").printf (worm_id + 1);
         name_label.set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\">$(player_id)</span></b>");
 
@@ -1221,45 +1236,45 @@ private class ControlsGrid : Gtk.Grid
         arrow_left.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE));
         arrow_right.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.CLOCKWISE));
 
-        string upper_key;
-        upper_key = Gdk.keyval_name (worm_props.up).up ();
-        if (upper_key == "UP")
+        string key_name;
+        key_name = Gdk.keyval_name (worm_props.up);
+        if (key_name == "Up")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.NONE);
             move_up.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
             move_up.show_all ();
         }
         else
-            move_up_label.set_markup (@"<b>$(upper_key)</b>");
+            move_up_label.set_markup (@"<b>$(key_name.up ())</b>");
 
-        upper_key = Gdk.keyval_name (worm_props.down).up ();
-        if (upper_key == "DOWN")
+        key_name = Gdk.keyval_name (worm_props.down);
+        if (key_name == "Down")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.UPSIDEDOWN);
             move_down.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
             move_down.show_all ();
         }
         else
-            move_down_label.set_markup (@"<b>$(upper_key)</b>");
+            move_down_label.set_markup (@"<b>$(key_name.up ())</b>");
 
-        upper_key = Gdk.keyval_name (worm_props.left).up ();
-        if (upper_key == "LEFT")
+        key_name = Gdk.keyval_name (worm_props.left);
+        if (key_name == "Left")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE);
             move_left.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
             move_left.show_all ();
         }
         else
-            move_left_label.set_markup (@"<b>$(upper_key)</b>");
+            move_left_label.set_markup (@"<b>$(key_name.up ())</b>");
 
-        upper_key = Gdk.keyval_name (worm_props.right).up ();
-        if (upper_key == "RIGHT")
+        key_name = Gdk.keyval_name (worm_props.right);
+        if (key_name == "Right")
         {
             var rotated_pixbuf = arrow_key.rotate_simple (Gdk.PixbufRotation.CLOCKWISE);
             move_right.add_overlay (new Gtk.Image.from_pixbuf (rotated_pixbuf));
             move_right.show_all ();
         }
         else
-            move_right_label.set_markup (@"<b>$(upper_key)</b>");
+            move_right_label.set_markup (@"<b>$(key_name.up ())</b>");
     }
 }
