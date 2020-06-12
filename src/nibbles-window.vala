@@ -526,17 +526,34 @@ private class NibblesWindow : ApplicationWindow
 
     private void update_start_game_action ()
     {
+        GenericSet<uint> keys = new GenericSet<uint> (direct_hash, direct_equal);
         for (int i = 0; i < game.numhumans; i++)
         {
             WormProperties worm_prop = game.worm_props.@get (game.worms.@get (i));
             if (worm_prop.up    == 0
              || worm_prop.down  == 0
              || worm_prop.left  == 0
-             || worm_prop.right == 0)
+             || worm_prop.right == 0
+             // other keys of the same worm
+             || worm_prop.up    == worm_prop.down
+             || worm_prop.up    == worm_prop.left
+             || worm_prop.up    == worm_prop.right
+             || worm_prop.down  == worm_prop.left
+             || worm_prop.down  == worm_prop.right
+             || worm_prop.right == worm_prop.left
+             // keys of already checked worms
+             || keys.contains (worm_prop.up)
+             || keys.contains (worm_prop.down)
+             || keys.contains (worm_prop.left)
+             || keys.contains (worm_prop.right))
             {
                 start_game_action.set_enabled (false);
                 return;
             }
+            keys.add (worm_prop.up);
+            keys.add (worm_prop.down);
+            keys.add (worm_prop.left);
+            keys.add (worm_prop.right);
         }
         start_game_action.set_enabled (true);
     }
