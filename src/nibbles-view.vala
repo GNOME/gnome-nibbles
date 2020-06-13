@@ -198,7 +198,7 @@ private class NibblesView : GtkClutter.Embed
     }
 
     /*\
-    * * Level creationg and loading
+    * * Level creation and loading
     \*/
 
     internal void new_level (int level_id)
