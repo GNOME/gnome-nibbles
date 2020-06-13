@@ -662,7 +662,7 @@ private class NibblesWindow : ApplicationWindow
 
         scores_context = new Games.Scores.Context.with_importer (
             "gnome-nibbles",
-            /* Translators: label displayed on the scores dialog, preceeding a difficulty. */
+            /* Translators: label displayed on the scores dialog, preceding a difficulty. */
             _("Difficulty Level:"),
             this,
             category_request,
