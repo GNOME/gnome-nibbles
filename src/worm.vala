@@ -763,7 +763,7 @@ private class Worm : Object
         }
 
         /* Avoid walls, dead-ends and other worm's heads. This is done using
-         * an evalution function which is CAPACITY for a wall, 4 if another
+         * an evaluation function which is CAPACITY for a wall, 4 if another
          * worm's head is in the tooclose area, 4 if another worm's head
          * could move to the same location as ours, plus 0 if there's no
          * dead-end, or the amount that doesn't fit for a deadend. olddir's
