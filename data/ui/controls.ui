@@ -49,7 +49,6 @@
     </child>
     <child>
       <object class="GtkButton">
-        <property name="can-default">True</property>
         <property name="use-underline">True</property>
         <!-- Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game -->
         <property name="label" translatable="yes">_Start</property>

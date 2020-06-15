@@ -173,7 +173,6 @@
     </child>
     <child>
       <object class="GtkButton">
-        <property name="can-default">True</property>
         <property name="use-underline">True</property>
         <!-- Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel -->
         <property name="label" translatable="yes">_Next</property>

@@ -47,7 +47,6 @@
               <object class="GtkToggleButton" id="speed4">
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
-                <property name="xalign">0.0</property>
                 <property name="use-underline">True</property>
                 <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "really slow" -->
                 <property name="label" translatable="yes">_Beginner</property>
@@ -63,7 +62,6 @@
               <object class="GtkToggleButton" id="speed3">
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
-                <property name="xalign">0.0</property>
                 <property name="use-underline">True</property>
                 <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "quite slow" -->
                 <property name="label" translatable="yes">_Slow</property>
@@ -79,7 +77,6 @@
               <object class="GtkToggleButton" id="speed2">
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
-                <property name="xalign">0.0</property>
                 <property name="use-underline">True</property>
                 <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "normal" -->
                 <property name="label" translatable="yes">_Medium</property>
@@ -95,7 +92,6 @@
               <object class="GtkToggleButton" id="speed1">
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
-                <property name="xalign">0.0</property>
                 <property name="use-underline">True</property>
                 <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "fast" -->
                 <property name="label" translatable="yes">_Fast</property>
@@ -121,7 +117,7 @@
                 <property name="halign">fill</property>
                 <property name="use-underline">True</property>
                 <!-- Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses -->
-                <property name="text" translatable="yes">_Enable fake bonuses</property>
+                <property name="label" translatable="yes">_Enable fake bonuses</property>
                 <property name="action-name">win.fakes</property>
                 <style>
                   <class name="speed-box"/>
