@@ -54,7 +54,7 @@ button.toggle.text-button.number-box:checked {
 
 /* the speed buttons */
 button.toggle.text-button.speed-box,
-modelbutton.flat.speed-box
+checkbutton.text-button.speed-box
 {
   font-size: 1.5em;
   font-weight: bold;
@@ -68,16 +68,20 @@ modelbutton.flat.speed-box
   color:@theme-fg-color;
 }
 button.toggle.text-button.speed-box:disabled,
-modelbutton.flat.speed-box:disabled {
+checkbutton.text-button.speed-box:disabled {
   color:@theme-fg-color;
 }
 button.toggle.text-button.speed-box:hover,
-modelbutton.flat.speed-box:hover {
+checkbutton.text-button.speed-box:hover {
   background-color: rgba(60, 69, 71, 0.8);
 }
 button.toggle.text-button.speed-box:checked,
-modelbutton.flat.speed-box:checked {
+checkbutton.text-button.speed-box:checked {
   background-color: #215d9c;
+}
+
+button.text-button.toggle.speed-box > label {
+  margin-left:calc(2em + 4px); /* TODO not sure where the 4px are coming from */
 }
 
 /* the empty space */
@@ -88,9 +92,13 @@ separator.speed-separator {
 }
 
 /* the checkbutton */
-modelbutton.speed-box > check {
+checkbutton.text-button.speed-box > check {
   min-height: 1em;
   min-width:  1em;
+}
+
+checkbutton.text-button.speed-box > label {
+  margin-left:1em;
 }
 
 /*\
@@ -102,7 +110,7 @@ button.controls-box {
   background-image:-gtk-icontheme('emblem-system-symbolic');
   background-size:2.5em;
   background-repeat:no-repeat;
-  background-position:calc(100%-1em) calc(100%-1em);
+  background-position:calc(100% - 1em) calc(100% - 1em);
   background-color:transparent;
 
   padding-top:1em;

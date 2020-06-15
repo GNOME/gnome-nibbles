@@ -48,14 +48,21 @@
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="use-underline">True</property>
-                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "really slow" -->
-                <property name="label" translatable="yes">_Beginner</property>
+                <property name="label"/> <!-- needed -->
                 <property name="action-name">speed.change-speed</property>
                 <property name="action-target">@i 4</property>
                 <property name="sensitive" bind-source="speed4" bind-property="active" bind-flags="invert-boolean"/>
                 <style>
                   <class name="speed-box"/>
                 </style>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="use-underline">True</property>
+                    <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "really slow" -->
+                    <property name="label" translatable="yes">_Beginner</property>
+                    <property name="halign">start</property>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
@@ -63,14 +70,21 @@
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="use-underline">True</property>
-                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "quite slow" -->
-                <property name="label" translatable="yes">_Slow</property>
+                <property name="label"/> <!-- needed -->
                 <property name="action-name">speed.change-speed</property>
                 <property name="action-target">@i 3</property>
                 <property name="sensitive" bind-source="speed3" bind-property="active" bind-flags="invert-boolean"/>
                 <style>
                   <class name="speed-box"/>
                 </style>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="use-underline">True</property>
+                    <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "really slow" -->
+                    <property name="label" translatable="yes">_Slow</property>
+                    <property name="halign">start</property>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
@@ -78,14 +92,21 @@
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="use-underline">True</property>
-                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "normal" -->
-                <property name="label" translatable="yes">_Medium</property>
+                <property name="label"/> <!-- needed -->
                 <property name="action-name">speed.change-speed</property>
                 <property name="action-target">@i 2</property>
                 <property name="sensitive" bind-source="speed2" bind-property="active" bind-flags="invert-boolean"/>
                 <style>
                   <class name="speed-box"/>
                 </style>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="use-underline">True</property>
+                    <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "really slow" -->
+                    <property name="label" translatable="yes">_Medium</property>
+                    <property name="halign">start</property>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
@@ -93,14 +114,21 @@
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="use-underline">True</property>
-                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "fast" -->
-                <property name="label" translatable="yes">_Fast</property>
+                <property name="label"/> <!-- needed -->
                 <property name="action-name">speed.change-speed</property>
                 <property name="action-target">@i 1</property>
                 <property name="sensitive" bind-source="speed1" bind-property="active" bind-flags="invert-boolean"/>
                 <style>
                   <class name="speed-box"/>
                 </style>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="use-underline">True</property>
+                    <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "really slow" -->
+                    <property name="label" translatable="yes">_Fast</property>
+                    <property name="halign">start</property>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
