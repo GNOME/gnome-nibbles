@@ -52,8 +52,9 @@ private class PreferencesDialog : Window
 
     construct
     {
-        key_controller = new EventControllerKey (this);
+        key_controller = new EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
+        ((Widget) this).add_controller (key_controller);
 
         tree_views = new Gee.ArrayList<TreeView> ();
         tree_views.add (tree_view_1);
