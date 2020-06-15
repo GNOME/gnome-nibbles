@@ -24,7 +24,7 @@ private class Speed : Box
 {
     private SimpleAction speed_action;
 
-    [GtkChild] private ModelButton fakes_modelbutton;
+    [GtkChild] private CheckButton fakes_button;
     private bool fakes;
 
     private const GLib.ActionEntry [] players_action_entries =
@@ -46,7 +46,7 @@ private class Speed : Box
     {
         speed_action.set_state (speed);
 
-        fakes_modelbutton.active = fakes;
+        fakes_button.active = fakes;
         this.fakes = fakes;
     }
 
@@ -67,6 +67,6 @@ private class Speed : Box
 
     private void allow_fakes (/* SimpleAction _speed_action, Variant? variant */)
     {
-        fakes = fakes_modelbutton.active;
+        fakes = fakes_button.active;
     }
 }
