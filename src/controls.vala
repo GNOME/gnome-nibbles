@@ -47,7 +47,7 @@ private class Controls : Box
                 WormProperties worm_prop = worm_props.@get (worm);
 
                 var grid = new ControlsGrid (worm.id, worm_prop, arrow_pixbuf);
-                grids_box.prepend (grid);
+                grids_box.append (grid);
                 grids.add (grid);
 
                 check_for_duplicates (worm_prop.up,     ref encountered_keys, ref duplicate_keys);
