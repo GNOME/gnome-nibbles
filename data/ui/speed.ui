@@ -23,13 +23,11 @@
     <property name="orientation">vertical</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="valign">center</property>
         <property name="spacing">25</property>
         <child>
           <object class="GtkLabel">
-            <property name="visible">True</property>
             <!-- Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably) -->
             <property name="label" translatable="yes">Preferences</property>
             <property name="valign">center</property>
@@ -40,7 +38,6 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <property name="valign">center</property>
             <property name="halign">center</property>
@@ -48,7 +45,6 @@
             <property name="vexpand">True</property>
             <child>
               <object class="GtkToggleButton" id="speed4">
-                <property name="visible">True</property>
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="xalign">0.0</property>
@@ -65,7 +61,6 @@
             </child>
             <child>
               <object class="GtkToggleButton" id="speed3">
-                <property name="visible">True</property>
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="xalign">0.0</property>
@@ -82,7 +77,6 @@
             </child>
             <child>
               <object class="GtkToggleButton" id="speed2">
-                <property name="visible">True</property>
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="xalign">0.0</property>
@@ -99,7 +93,6 @@
             </child>
             <child>
               <object class="GtkToggleButton" id="speed1">
-                <property name="visible">True</property>
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="xalign">0.0</property>
@@ -116,7 +109,6 @@
             </child>
             <child>
               <object class="GtkSeparator">
-                <property name="visible">True</property>
                 <property name="orientation">horizontal</property>
                 <style>
                   <class name="speed-separator"/>
@@ -125,7 +117,6 @@
             </child>
             <child>
               <object class="GtkModelButton">
-                <property name="visible">True</property>
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="use-underline">True</property>
@@ -143,7 +134,6 @@
     </child>
     <child>
       <object class="GtkButton">
-        <property name="visible">True</property>
         <property name="can-default">True</property>
         <property name="use-underline">True</property>
         <!-- Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel -->
@@ -157,9 +147,6 @@
           <class name="play"/>
         </style>
       </object>
-      <packing>
-        <property name="pack-type">end</property>
-      </packing>
     </child>
   </template>
 </interface>

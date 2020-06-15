@@ -25,40 +25,36 @@
     <property name="width-request">644</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="valign">center</property>
         <property name="spacing">60</property>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <property name="spacing">10</property>
             <child>
               <object class="GtkLabel">
-                <property name="visible">True</property>
                 <!-- Translators: title of one of the panels displayed during game configuration; the panel allows to change the number of human and ai worms -->
                 <property name="label" translatable="yes">Number of players</property>
-                <style><class name="menu-title"/></style>
+                <style>
+                  <class name="menu-title"/>
+                </style>
               </object>
             </child>
           </object>
         </child>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <property name="spacing">10</property>
             <child>
               <object class="GtkLabel">
-                <property name="visible">True</property>
                 <!-- Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 1/2/3/4 human players -->
                 <property name="label" translatable="yes">Select the number of human players.</property>
               </object>
             </child>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
                 <property name="orientation">horizontal</property>
                 <property name="valign">center</property>
                 <property name="halign">center</property>
@@ -66,7 +62,6 @@
                 <property name="vexpand">True</property>
                 <child>
                   <object class="GtkToggleButton" id="players1">
-                    <property name="visible">True</property>
                     <property name="use-underline">True</property>
                     <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play a solo game against AIs (with a mnemonic that appears when pressing Alt) -->
                     <property name="label" translatable="yes">_1</property>
@@ -80,7 +75,6 @@
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="players2">
-                    <property name="visible">True</property>
                     <property name="use-underline">True</property>
                     <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 2 human players (with a mnemonic that appears when pressing Alt) -->
                     <property name="label" translatable="yes">_2</property>
@@ -94,7 +88,6 @@
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="players3">
-                    <property name="visible">True</property>
                     <property name="use-underline">True</property>
                     <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 3 human players (with a mnemonic that appears when pressing Alt) -->
                     <property name="label" translatable="yes">_3</property>
@@ -108,7 +101,6 @@
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="players4">
-                    <property name="visible">True</property>
                     <property name="use-underline">True</property>
                     <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 4 human players (with a mnemonic that appears when pressing Alt) -->
                     <property name="label" translatable="yes">_4</property>
@@ -126,19 +118,16 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <property name="spacing">10</property>
             <child>
               <object class="GtkLabel">
-                <property name="visible">True</property>
                 <!-- Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms -->
                 <property name="label" translatable="yes">Select the number of computer players.</property>
               </object>
             </child>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
                 <property name="orientation">horizontal</property>
                 <property name="valign">center</property>
                 <property name="halign">center</property>
@@ -146,7 +135,6 @@
                 <property name="vexpand">True</property>
                 <child>
                   <object class="GtkToggleButton" id="worms4">
-                    <property name="visible">True</property>
                     <property name="use-underline">True</property>
                     <property name="action-name">players.change-nibbles-number</property>
                     <property name="action-target">@i 4</property>
@@ -158,7 +146,6 @@
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="worms5">
-                    <property name="visible">True</property>
                     <property name="use-underline">True</property>
                     <property name="action-name">players.change-nibbles-number</property>
                     <property name="action-target">@i 5</property>
@@ -170,7 +157,6 @@
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="worms6">
-                    <property name="visible">True</property>
                     <property name="use-underline">True</property>
                     <property name="action-name">players.change-nibbles-number</property>
                     <property name="action-target">@i 6</property>
@@ -185,13 +171,9 @@
           </object>
         </child>
       </object>
-      <packing>
-        <property name="pack-type">start</property>
-      </packing>
     </child>
     <child>
       <object class="GtkButton">
-        <property name="visible">True</property>
         <property name="can-default">True</property>
         <property name="use-underline">True</property>
         <!-- Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel -->
@@ -205,9 +187,6 @@
           <class name="play"/>
         </style>
       </object>
-      <packing>
-        <property name="pack-type">end</property>
-      </packing>
     </child>
   </template>
 </interface>

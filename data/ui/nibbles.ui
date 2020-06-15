@@ -60,11 +60,10 @@
     </style>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="headerbar">
-        <property name="visible">True</property>
         <!-- Translators: title of the window, as displayed in the headerbar -->
         <property name="title" translatable="yes">Nibbles</property>
-        <property name="show-close-button">True</property>
-        <child>
+        <property name="show-title-buttons">True</property>
+        <child type="start">
           <object class="GtkButton" id="new_game_button">
             <property name="visible">False</property>
             <property name="use-underline">True</property>
@@ -72,11 +71,14 @@
             <property name="label" translatable="yes">_New Game</property>
             <property name="action-name">win.new-game</property>
           </object>
-          <packing>
-            <property name="pack-type">start</property>
-          </packing>
         </child>
-        <child>
+        <child type="end">
+          <object class="GtkMenuButton" id="hamburger_menu">
+            <property name="menu-model">app-menu</property>
+            <property name="icon-name">open-menu-symbolic</property>
+          </object>
+        </child>
+        <child type="end">
           <object class="GtkButton" id="pause_button">
             <property name="visible">False</property>
             <property name="use-underline">True</property>
@@ -84,115 +86,100 @@
             <property name="label" translatable="yes">_Pause</property> <!-- duplicated in nibbles-window.vala; keep here else we see the button resize at game start -->
             <property name="action-name">win.pause</property>
           </object>
-          <packing>
-            <property name="pack-type">end</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkMenuButton" id="hamburger_menu">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="menu-model">app-menu</property>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="icon_name">open-menu-symbolic</property>
-                <property name="icon_size">1</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="pack_type">end</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
     </child>
     <child>
       <object class="GtkStack" id="main_stack">
-        <property name="visible">True</property>
         <property name="homogeneous">True</property>
-        <property name="margin">25</property>
-        <property name="expand">True</property>
+        <property name="margin-start">25</property>
+        <property name="margin-end">25</property>
+        <property name="margin-top">25</property>
+        <property name="margin-bottom">25</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
         <property name="transition-type">slide-up</property>
         <property name="transition-duration">500</property>
         <child>
-          <object class="Players" id="players">
-            <property name="visible">True</property>
-          </object>
-          <packing>
+          <object class="GtkStackPage">
             <property name="name">number_of_players</property>
-          </packing>
+            <property name="child">
+              <object class="Players" id="players"/>
+            </property>
+          </object>
         </child>
         <child>
-          <object class="Speed" id="speed">
-            <property name="visible">True</property>
-          </object>
-          <packing>
+          <object class="GtkStackPage">
             <property name="name">speed</property>
-          </packing>
-        </child>
-        <child>
-          <object class="Controls" id="controls">
-            <property name="visible">True</property>
+            <property name="child">
+              <object class="Speed" id="speed"/>
+            </property>
           </object>
-          <packing>
-            <property name="name">controls</property>
-          </packing>
         </child>
         <child>
-          <object class="GtkOverlay" id="overlay">
-            <property name="visible">True</property>
-            <property name="can-default">True</property>
-            <child>
-              <object class="GtkBox" id="game_box">
-                <property name="visible">True</property>
-                <property name="orientation">vertical</property>
+          <object class="GtkStackPage">
+            <property name="name">controls</property>
+            <property name="child">
+              <object class="Controls" id="controls"/>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStackPage">
+            <property name="name">game_box</property>
+            <property name="child">
+              <object class="GtkOverlay" id="overlay">
+                <property name="can-default">True</property>
                 <child>
-                  <object class="GtkStack" id="statusbar_stack">
-                    <property name="visible">True</property>
+                  <object class="GtkBox" id="game_box">
+                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkLabel" id="countdown">
-                        <property name="visible">True</property>
-                        <property name="label">3</property>
-                        <property name="halign">center</property>
-                        <style><class name="countdown"/></style>
+                      <object class="GtkStack" id="statusbar_stack">
+                        <child>
+                          <object class="GtkStackPage">
+                            <property name="name">countdown</property>
+                            <property name="child">
+                              <object class="GtkLabel" id="countdown">
+                                <property name="label">3</property>
+                                <property name="halign">center</property>
+                                <style>
+                                  <class name="countdown"/>
+                                </style>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkStackPage">
+                            <property name="name">scoreboard</property>
+                            <property name="child">
+                              <object class="Scoreboard" id="scoreboard">
+                                <property name="halign">center</property>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkStackPage">
+                            <property name="name">paused</property>
+                            <property name="child">
+                              <object class="GtkLabel">
+                                <!-- Translators: text displayed at the bottom of the window, when the game is paused -->
+                                <property name="label" translatable="yes">Paused</property>
+                                <style>
+                                  <class name="menu-title"/>
+                                </style>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
                       </object>
-                      <packing>
-                        <property name="name">countdown</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="Scoreboard" id="scoreboard">
-                        <property name="visible">True</property>
-                        <property name="halign">center</property>
-                      </object>
-                      <packing>
-                        <property name="name">scoreboard</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <!-- Translators: text displayed at the bottom of the window, when the game is paused -->
-                        <property name="label" translatable="yes">Paused</property>
-                        <style><class name="menu-title"/></style>
-                      </object>
-                      <packing>
-                        <property name="name">paused</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="pack-type">end</property>
-                  </packing>
                 </child>
               </object>
-            </child>
+            </property>
           </object>
-          <packing>
-            <property name="name">game_box</property>
-          </packing>
         </child>
       </object> <!-- End of main_stack -->
     </child>
