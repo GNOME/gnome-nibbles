@@ -116,7 +116,7 @@
               </object>
             </child>
             <child>
-              <object class="GtkModelButton">
+              <object class="GtkCheckButton">
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="use-underline">True</property>
