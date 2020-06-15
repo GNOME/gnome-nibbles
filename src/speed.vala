@@ -24,7 +24,7 @@ private class Speed : Box
 {
     private SimpleAction speed_action;
 
-    [GtkChild] private CheckButton fakes_button;
+    [GtkChild] private ToggleButton fakes_button;
     private bool fakes;
 
     private const GLib.ActionEntry [] players_action_entries =
