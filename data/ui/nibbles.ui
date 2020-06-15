@@ -128,7 +128,6 @@
             <property name="name">game_box</property>
             <property name="child">
               <object class="GtkOverlay" id="overlay">
-                <property name="can-default">True</property>
                 <child>
                   <object class="GtkBox" id="game_box">
                     <property name="orientation">vertical</property>
