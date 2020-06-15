@@ -54,14 +54,14 @@
     </child>
   </object>
   <template class="PreferencesDialog" parent="GtkWindow">
-    <property name="can_focus">False</property>
+    <property name="can-focus">False</property>
 <!--    <property name="border_width">5</property>-->
     <property name="modal">True</property>
-    <property name="icon_name">gnome-nibbles</property>
+    <property name="icon-name">gnome-nibbles</property>
     <child type="titlebar">
       <object class="GtkHeaderBar">
-        <property name="show-close-button">True</property>
-        <property name="custom-title">headerbar_stack</property>
+        <property name="show-title-buttons">True</property>
+        <property name="title-widget">headerbar_stack</property>
       </object>
     </child>
     <child>
@@ -71,7 +71,7 @@
             <property name="name">worm1</property>
             <property name="child">
               <object class="GtkBox">
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
     <!--            <property name="border_width">12</property>-->
                 <property name="spacing">6</property>
                 <property name="orientation">vertical</property>
@@ -79,7 +79,7 @@
                   <object class="GtkLabel">
                     <!-- Translators: title of a section in the Preferences dialog (1st worm); allows to configure keyboard controls for the worm -->
                     <property name="label" translatable="yes">Controls</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="halign">start</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
@@ -100,21 +100,21 @@
                 </child>
                 <child>
                   <object class="GtkSeparator">
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="orientation">horizontal</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkGrid">
-                    <property name="can_focus">False</property>
-                    <property name="row_spacing">0</property>
-                    <property name="column_spacing">12</property>
+                    <property name="can-focus">False</property>
+                    <property name="row-spacing">0</property>
+                    <property name="column-spacing">12</property>
     <!--                <property name="border_width">0</property>-->
                     <child>
                       <object class="GtkLabel">
                         <!-- Translators: title of a section in the Preferences dialog (1st worm); allows to configure the worm color -->
                         <property name="label" translatable="yes">Worm color</property>
-                        <property name="can_focus">False</property>
+                        <property name="can-focus">False</property>
                         <property name="halign">start</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
@@ -124,7 +124,7 @@
                     <child>
                       <object class="GtkComboBoxText" id="combo_box_1">
                         <property name="hexpand">True</property>
-                        <property name="can_focus">False</property>
+                        <property name="can-focus">False</property>
                       </object>
                     </child>
                   </object>
@@ -138,7 +138,7 @@
             <property name="name">worm2</property>
             <property name="child">
               <object class="GtkBox">
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
     <!--            <property name="border_width">12</property>-->
                 <property name="spacing">6</property>
                 <property name="orientation">vertical</property>
@@ -146,7 +146,7 @@
                   <object class="GtkLabel">
                     <!-- Translators: title of a section in the Preferences dialog (2nd worm); allows to configure keyboard controls for the worm -->
                     <property name="label" translatable="yes">Controls</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="halign">start</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
@@ -167,21 +167,21 @@
                 </child>
                 <child>
                   <object class="GtkSeparator">
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="orientation">horizontal</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkGrid">
-                    <property name="can_focus">False</property>
-                    <property name="row_spacing">0</property>
-                    <property name="column_spacing">12</property>
+                    <property name="can-focus">False</property>
+                    <property name="row-spacing">0</property>
+                    <property name="column-spacing">12</property>
     <!--                <property name="border_width">0</property>-->
                     <child>
                       <object class="GtkLabel">
                         <!-- Translators: title of a section in the Preferences dialog (2nd worm); allows to configure the worm color -->
                         <property name="label" translatable="yes">Worm color</property>
-                        <property name="can_focus">False</property>
+                        <property name="can-focus">False</property>
                         <property name="halign">start</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
@@ -191,7 +191,7 @@
                     <child>
                       <object class="GtkComboBoxText" id="combo_box_2">
                         <property name="hexpand">True</property>
-                        <property name="can_focus">False</property>
+                        <property name="can-focus">False</property>
                       </object>
                     </child>
                   </object>
@@ -205,7 +205,7 @@
             <property name="name">worm3</property>
             <property name="child">
               <object class="GtkBox">
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
     <!--            <property name="border_width">12</property>-->
                 <property name="spacing">6</property>
                 <property name="orientation">vertical</property>
@@ -213,7 +213,7 @@
                   <object class="GtkLabel">
                     <!-- Translators: title of a section in the Preferences dialog (3rd worm); allows to configure keyboard controls for the worm -->
                     <property name="label" translatable="yes">Controls</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="halign">start</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
@@ -234,21 +234,21 @@
                 </child>
                 <child>
                   <object class="GtkSeparator">
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="orientation">horizontal</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkGrid">
-                    <property name="can_focus">False</property>
-                    <property name="row_spacing">0</property>
-                    <property name="column_spacing">12</property>
+                    <property name="can-focus">False</property>
+                    <property name="row-spacing">0</property>
+                    <property name="column-spacing">12</property>
     <!--                <property name="border_width">0</property>-->
                     <child>
                       <object class="GtkLabel">
                         <!-- Translators: title of a section in the Preferences dialog (3rd worm); allows to configure the worm color -->
                         <property name="label" translatable="yes">Worm color</property>
-                        <property name="can_focus">False</property>
+                        <property name="can-focus">False</property>
                         <property name="halign">start</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
@@ -258,7 +258,7 @@
                     <child>
                       <object class="GtkComboBoxText" id="combo_box_3">
                         <property name="hexpand">True</property>
-                        <property name="can_focus">False</property>
+                        <property name="can-focus">False</property>
                       </object>
                     </child>
                   </object>
@@ -272,7 +272,7 @@
             <property name="name">worm4</property>
             <property name="child">
               <object class="GtkBox">
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
     <!--            <property name="border_width">12</property>-->
                 <property name="spacing">6</property>
                 <property name="orientation">vertical</property>
@@ -280,7 +280,7 @@
                   <object class="GtkLabel">
                     <!-- Translators: title of a section in the Preferences dialog (4th worm); allows to configure keyboard controls for the worm -->
                     <property name="label" translatable="yes">Controls</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="halign">start</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
@@ -301,21 +301,21 @@
                 </child>
                 <child>
                   <object class="GtkSeparator">
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="orientation">horizontal</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkGrid">
-                    <property name="can_focus">False</property>
-                    <property name="row_spacing">0</property>
-                    <property name="column_spacing">12</property>
+                    <property name="can-focus">False</property>
+                    <property name="row-spacing">0</property>
+                    <property name="column-spacing">12</property>
     <!--                <property name="border_width">0</property>-->
                     <child>
                       <object class="GtkLabel">
                         <!-- Translators: title of a section in the Preferences dialog (4th worm); allows to configure the worm color -->
                         <property name="label" translatable="yes">Worm color</property>
-                        <property name="can_focus">False</property>
+                        <property name="can-focus">False</property>
                         <property name="halign">start</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
@@ -325,7 +325,7 @@
                     <child>
                       <object class="GtkComboBoxText" id="combo_box_4">
                         <property name="hexpand">True</property>
-                        <property name="can_focus">False</property>
+                        <property name="can-focus">False</property>
                       </object>
                     </child>
                   </object>
