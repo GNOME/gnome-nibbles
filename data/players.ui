@@ -21,7 +21,6 @@
 <interface>
   <template class="Players" parent="GtkBox">
     <property name="orientation">vertical</property>
-    <property name="halign">center</property>
     <property name="width-request">644</property>
     <child>
       <object class="GtkBox">
