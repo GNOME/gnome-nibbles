@@ -648,6 +648,17 @@ private class NibblesView : Widget
 
     private void worm_tail_reduced_cb (Worm worm, int erase_size)
     {
+        var actors = worm_actors.@get (worm);
+
+        for (int i = 0; i < erase_size; i++)
+        {
+            var tail_actor = actors.widgets.first ().data;
+            actors.widgets.remove (tail_actor);
+            tail_actor.hide ();
+            tail_actor.unparent ();
+            tail_actor.destroy ();
+        }
+
 //        float x, y;
 //        var group = new Clutter.Actor ();
 //        var worm_actors = worm_actors.@get (worm);
