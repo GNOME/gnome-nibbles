@@ -470,7 +470,7 @@ private class NibblesWindow : ApplicationWindow
                 show_controls_screen ();
                 break;
             case "controls":
-                assert_not_reached ();
+                return; // happens in Gtk4, because the "speed" screen "Next" button continues to be clickable during the transition
             default:
                 return;
         }
