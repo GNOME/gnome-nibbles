@@ -21,8 +21,6 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/preferences-dialog.ui")]
 private class PreferencesDialog : Window
 {
-    private ApplicationWindow window;
-
     private GLib.Settings settings;
     private Gee.ArrayList<GLib.Settings> worm_settings;
 
@@ -81,7 +79,6 @@ private class PreferencesDialog : Window
 
         this.settings = settings;
         this.worm_settings = worm_settings;
-        this.window = window;
 
         if (n_worms == 1)
             headerbar_stack.set_visible_child_name ("preferences-label");
@@ -188,7 +185,7 @@ private class PreferencesDialog : Window
              || keyval == worm_settings [i].get_int ("key-left")
              || keyval == worm_settings [i].get_int ("key-right"))
             {
-                var dialog = new MessageDialog (window,
+                var dialog = new MessageDialog (this,
                                                 DialogFlags.DESTROY_WITH_PARENT,
                                                 MessageType.WARNING,
                                                 ButtonsType.CANCEL,
