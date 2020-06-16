@@ -682,7 +682,8 @@ private class NibblesView : Widget
 
     private void worm_reversed_cb (Worm worm)
     {
-//        var actors = worm_actors.@get (worm);
+        var actors = worm_actors.@get (worm);
+        actors.widgets.reverse ();
 
 //        var count = 0;
 //        foreach (var actor in actors.get_children ())
