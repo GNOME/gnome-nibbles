@@ -61,6 +61,12 @@ private class WormView : Object
 //        set_opacity (0);
 //        restore_easing_state ();
     }
+
+    internal void destroy ()
+    {
+        foreach (Widget widget in widgets)
+            widget.destroy ();
+    }
 }
 
 private class NibblesView : Widget
@@ -174,16 +180,37 @@ private class NibblesView : Widget
             error ("Nibbles couldn't find pixmap file: %s", filename);
 
         foreach (var actor in worm_actors.values)
+        {
+            actor.hide ();
             actor.unparent ();
+            actor.destroy ();
+        }
         worm_actors.clear ();
 
         foreach (var actor in bonus_actors.values)
+        {
+            actor.hide ();
             actor.unparent ();
+            actor.destroy ();
+        }
         bonus_actors.clear ();
 
         foreach (var actor in warp_actors)
+        {
+            actor.hide ();
             actor.unparent ();
+            actor.destroy ();
+        }
         warp_actors.clear ();
+
+        Widget? widget = get_first_child ();
+        while (widget != null)
+        {
+            widget.hide ();
+            widget.unparent ();
+            widget.destroy ();
+            widget = get_first_child ();
+        }
 
 //        if (level != null)
 //        {
