@@ -38,7 +38,10 @@ private class Controls : Box
     {
         Widget? widget;
         while ((widget = grids_box.get_first_child ()) != null)
+        {
+            widget.unparent ();
             widget.destroy ();
+        }
 
         GenericSet<uint> duplicate_keys     = new GenericSet<uint> (direct_hash, direct_equal);
         GenericSet<uint> encountered_keys   = new GenericSet<uint> (direct_hash, direct_equal);
