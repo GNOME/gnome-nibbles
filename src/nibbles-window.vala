@@ -891,7 +891,11 @@ private class NibblesWindow : ApplicationWindow
         button.get_style_context ().add_class ("suggested-action");
 //        button.set_can_default (true);
         button.clicked.connect (() => {
+            label.hide ();
+            label.unparent ();
             label.destroy ();
+            button.hide ();
+            button.unparent ();
             button.destroy ();
 
             /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
