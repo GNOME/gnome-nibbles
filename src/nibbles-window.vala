@@ -131,6 +131,7 @@ private class NibblesWindow : ApplicationWindow
             maximize ();
 
         key_controller = new EventControllerKey ();
+        key_controller.set_propagation_phase (PropagationPhase.CAPTURE);
         key_controller.key_pressed.connect (key_press_event_cb);
         ((Widget) this).add_controller (key_controller);
 

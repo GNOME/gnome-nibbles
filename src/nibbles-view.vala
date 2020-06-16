@@ -22,7 +22,7 @@ private class NibblesView : Widget
 {
     private class WormView : Object
     {
-        private List<Widget> widgets = new List<Widget> ();
+        internal List<Widget> widgets = new List<Widget> ();
 
         internal void set_opacity (uint8 new_opacity)
         {
@@ -51,15 +51,18 @@ private class NibblesView : Widget
 //            restore_easing_state ();
 //        }
 
-//        protected override void hide ()
-//        {
+        internal void hide ()
+        {
+            foreach (Widget widget in widgets)
+                widget.hide ();
+
 //            save_easing_state ();
 //            set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
 //            set_easing_duration (GAMEDELAY * 15);
 //            set_scale (0.4f, 0.4f);
 //            set_opacity (0);
 //            restore_easing_state ();
-//        }
+        }
     }
 
     internal const uint8 WIDTH = 92;
@@ -461,8 +464,8 @@ private class NibblesView : Widget
 
     private void animate_end_game_cb ()
     {
-//        foreach (var worm in game.worms)
-//            worm_actors.@get (worm).hide ();
+        foreach (var worm in game.worms)
+            worm_actors.@get (worm).hide ();
 
         foreach (var actor in warp_actors)
             actor.hide ();
@@ -512,24 +515,16 @@ private class NibblesView : Widget
 
     private void worm_added_cb (Worm worm)
     {
-//        var actor = new GtkClutter.Texture ();
-//        try
-//        {
-//            actor.set_from_pixbuf (worm_pixmaps[game.worm_props.@get (worm).color]);
-//        }
-//        catch (Clutter.TextureError e)
-//        {
-//            error ("Nibbles failed to set texture: %s", e.message);
-//        }
-//        catch (Error e)
-//        {
-//            error ("Nibbles failed to set texture: %s", e.message);
-//        }
-//        actor.set_size (tile_size, tile_size);
-//        actor.set_position (worm.list.first ().x * tile_size, worm.list.first ().y * tile_size);
+        var actor = new Image.from_pixbuf (worm_pixmaps[game.worm_props.@get (worm).color]);
+        actor.pixel_size = tile_size;
+        actor.insert_after (this, /* insert first */ null);
 
-//        var actors = worm_actors.@get (worm);
-//        actors.add_child (actor);
+        GridLayoutChild child_layout = (GridLayoutChild) layout.get_layout_child (actor);
+        child_layout.set_left_attach (worm.list.first ().x);
+        child_layout.set_top_attach (worm.list.first ().y);
+
+        var actors = worm_actors.@get (worm);
+        actors.widgets.append (actor);
     }
 
     private void worm_finish_added_cb (Worm worm)
@@ -552,8 +547,11 @@ private class NibblesView : Widget
     {
         var actors = worm_actors.@get (worm);
 
-//        var tail_actor = actors.first_child;
-//        actors.remove_child (tail_actor);
+        var tail_actor = actors.widgets.first ().data;
+        actors.widgets.remove (tail_actor);
+        tail_actor.hide ();
+        tail_actor.unparent ();
+        tail_actor.destroy ();
         worm_added_cb (worm);
     }
 
