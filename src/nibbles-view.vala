@@ -129,7 +129,7 @@ private class NibblesView : Widget
     public int tile_size { internal get; protected construct set; }
 
     /* Pixmaps */
-    private Gdk.Pixbuf wall_pixmaps[11];
+    private Gdk.Pixbuf wall_pixmaps[12];
     private Gdk.Pixbuf worm_pixmaps[6];
     private Gdk.Pixbuf boni_pixmaps[9];
 
@@ -280,6 +280,7 @@ private class NibblesView : Widget
                     switch (game.board[j, i])
                     {
                         case 'a':   // the most common thing on top in the switch
+                            tmp = new Image.from_pixbuf (wall_pixmaps[11]);
                             break;
 
                         case 'b': // straight up
@@ -349,10 +350,11 @@ private class NibblesView : Widget
 
                 if (tmp != null)
                 {
+                    ((!) tmp).pixel_size = tile_size;
                     ((!) tmp).insert_after (this, /* insert first */ null);
                     GridLayoutChild child_layout = (GridLayoutChild) layout.get_layout_child ((!) tmp);
-                    child_layout.set_left_attach (i);
-                    child_layout.set_top_attach (j);
+                    child_layout.set_left_attach (j);
+                    child_layout.set_top_attach (i);
                 }
             }
         }
@@ -417,7 +419,8 @@ private class NibblesView : Widget
             "wall-tee-right.svg",
             "wall-tee-left.svg",
             "wall-tee-down.svg",
-            "wall-cross.svg"
+            "wall-cross.svg",
+            "empty.svg"
         };
 
         string[] worm_files =
