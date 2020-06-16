@@ -50,6 +50,7 @@
         {
             "name": "libgnome-games-support",
             "buildsystem": "meson",
+            "branch": "arnaudb/wip/gtk4",
             "sources": [
                 {
                     "type": "git",
@@ -60,6 +61,7 @@
         {
             "name": "gnome-nibbles",
             "buildsystem": "meson",
+            "branch": "arnaudb/wip/gtk4",
             "sources": [
                 {
                     "type": "git",
