@@ -600,6 +600,16 @@ private class NibblesView : Widget
 
     private void worm_died_cb (Worm worm)
     {
+        var actors = worm_actors.@get (worm);
+
+        actors.hide ();
+        actors.unparent ();
+        actors.destroy ();
+
+        actors.widgets = new List<Widget> ();
+
+        worm_added_cb (worm);
+
 //        float x, y;
 //        var group = new Clutter.Actor ();
 //        var actors = worm_actors.@get (worm);
