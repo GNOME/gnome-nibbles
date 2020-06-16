@@ -186,7 +186,7 @@ private class PreferencesDialog : Window
              || keyval == worm_settings [i].get_int ("key-right"))
             {
                 var dialog = new MessageDialog (this,
-                                                DialogFlags.DESTROY_WITH_PARENT,
+                                                DialogFlags.MODAL,
                                                 MessageType.WARNING,
                                                 ButtonsType.CANCEL,
                                                 /* Translators: label of a MessageDialog that appears when one tries to assign an already assigned key */
