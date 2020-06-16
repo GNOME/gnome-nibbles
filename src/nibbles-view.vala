@@ -60,32 +60,6 @@ private class WormView : Object
 //    }
 }
 
-private class BonusTexture : Widget
-{
-//    private const float SIZE_MULTIPLIER = 2;
-
-//    protected override void show ()
-//    {
-//        base.show ();
-
-//        set_opacity (0);
-//        set_scale (3.0, 3.0);
-
-//        save_easing_state ();
-//        set_easing_mode (Clutter.AnimationMode.EASE_OUT_BOUNCE);
-//        set_easing_duration (NibblesGame.GAMEDELAY * 20);
-//        set_scale (1.0, 1.0);
-//        set_pivot_point (0.5f, 0.5f);
-//        set_opacity (0xff);
-//        restore_easing_state ();
-//    }
-
-//    internal new void set_size (float width, float height)
-//    {
-//        base.set_size (SIZE_MULTIPLIER * width, SIZE_MULTIPLIER * height);
-//    }
-}
-
 private class WarpTexture: Widget
 {
 //    private const float SIZE_MULTIPLIER = 2;
@@ -139,8 +113,8 @@ private class NibblesView : Widget
 //    internal Clutter.Actor name_labels { get; private set; }
 
     private Gee.HashMap<Worm,  WormView>    worm_actors  = new Gee.HashMap<Worm,  WormView> ();
-    private Gee.HashMap<Bonus, BonusTexture> bonus_actors = new Gee.HashMap<Bonus, BonusTexture> ();
-    private Gee.HashSet<WarpTexture>         warp_actors  = new Gee.HashSet<WarpTexture> ();
+    private Gee.HashMap<Bonus, Image>       bonus_actors = new Gee.HashMap<Bonus, Image> ();
+    private Gee.HashSet<WarpTexture>        warp_actors  = new Gee.HashSet<WarpTexture> ();
 
     private GridLayout layout;
 
@@ -740,24 +714,16 @@ private class NibblesView : Widget
 
     private void bonus_added_cb (Bonus bonus)
     {
-        var actor = new BonusTexture ();
-//        try
-//        {
-//            actor.set_from_pixbuf (boni_pixmaps[bonus.bonus_type]);
-//        }
-//        catch (Clutter.TextureError e)
-//        {
-//            error ("Nibbles failed to set texture: %s", e.message);
-//        }
-//        catch (Error e)
-//        {
-//            error ("Nibbles failed to set texture: %s", e.message);
-//        }
+        var actor = new Image.from_pixbuf (boni_pixmaps [bonus.bonus_type]);
+        actor.pixel_size = 2 * tile_size;
+        actor.insert_after (this, /* insert first */ null);
 
-//        actor.set_size (tile_size, tile_size);
-//        actor.set_position (bonus.x * tile_size, bonus.y * tile_size);
+        GridLayoutChild child_layout = (GridLayoutChild) layout.get_layout_child (actor);
+        child_layout.set_left_attach (bonus.x);
+        child_layout.set_top_attach (bonus.y);
+        child_layout.set_column_span (2);
+        child_layout.set_row_span (2);
 
-//        level.add_child (actor);
         if (bonus.bonus_type != BonusType.REGULAR)
             play_sound ("appear");
 
@@ -769,7 +735,8 @@ private class NibblesView : Widget
         var bonus_actor = bonus_actors.@get (bonus);
         bonus_actors.unset (bonus);
         bonus_actor.hide ();
-//        level.remove_child (bonus_actor);
+        bonus_actor.unparent ();
+        bonus_actor.destroy ();
     }
 
     private void bonus_applied_cb (Bonus bonus, Worm worm)
@@ -811,7 +778,7 @@ private class NibblesView : Widget
         foreach (var bonus in bonus_actors.keys)
         {
             var actor = bonus_actors.@get (bonus);
-//            actor.set_size (new_tile_size, new_tile_size);
+            actor.pixel_size = 2 * new_tile_size;
         }
     }
 
