@@ -27,6 +27,7 @@ small_pix = [
     'wall-tee-left.svg',
     'wall-tee-right.svg',
     'wall-tee-up.svg',
+    'empty.svg'
 ]
 
 scoreboard_pix = [
