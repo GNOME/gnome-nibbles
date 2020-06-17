@@ -50,6 +50,7 @@ private class Scoreboard : Box
         foreach (var entry in boxes.entries)
         {
             var box = entry.key;
+            box.unparent ();
             box.destroy ();
         }
         boxes.clear ();
