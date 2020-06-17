@@ -71,7 +71,6 @@ private class NibblesGame : Object
 
     public bool fakes           { internal get; internal construct set; }
 
-    internal signal void worm_moved (Worm worm);
     internal signal void bonus_applied (Bonus bonus, Worm worm);
     internal signal void log_score (int score, int level_reached);
     internal signal void animate_end_game ();
