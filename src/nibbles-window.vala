@@ -774,7 +774,7 @@ private class NibblesWindow : ApplicationWindow
         if (game.current_level == NibblesGame.MAX_LEVEL)
             return;
 
-        view.hide ();
+        view.hide_content ();
 
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -913,7 +913,7 @@ private class NibblesWindow : ApplicationWindow
 
         button.grab_focus ();
 
-        view.hide ();
+        view.hide_content ();
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
         back_action.set_enabled (false);
