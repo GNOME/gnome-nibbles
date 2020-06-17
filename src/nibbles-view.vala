@@ -612,8 +612,6 @@ private class NibblesView : Widget
 
         actors.widgets = new List<Widget> ();
 
-        worm_added_cb (worm);
-
 //        float x, y;
 //        var group = new Clutter.Actor ();
 //        var actors = worm_actors.@get (worm);
