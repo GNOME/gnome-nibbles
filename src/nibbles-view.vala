@@ -136,6 +136,17 @@ private class NibblesView : Widget
         load_pixmap ();
     }
 
+    internal void hide_content ()
+    {
+        foreach (var actor in bonus_actors.values)
+        {
+            actor.hide ();
+            actor.unparent ();
+            actor.destroy ();
+        }
+        bonus_actors.clear ();
+    }
+
 //    protected override bool configure_event (Gdk.EventConfigure event)
 //    {
 //        int new_tile_size, ts_x, ts_y;
@@ -493,9 +504,6 @@ private class NibblesView : Widget
     {
         foreach (var worm in game.worms)
             worm_actors.@get (worm).hide ();
-
-        foreach (var actor in warp_actors)
-            actor.hide ();
 
 //        level.save_easing_state ();
 //        level.set_easing_mode (Clutter.AnimationMode.EASE_IN_QUAD);
