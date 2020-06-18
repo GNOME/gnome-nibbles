@@ -446,6 +446,7 @@ private class NibblesWindow : ApplicationWindow
 
             dialog.destroy ();
         });
+        dialog.present ();
     }
 
     private void pause_cb ()
