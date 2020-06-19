@@ -1,16 +1,16 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
-data/controls.ui
-data/controls-grid.ui
-data/first-run.ui
-data/nibbles.ui
 data/org.gnome.Nibbles.appdata.xml.in
 data/org.gnome.Nibbles.desktop.in
 data/org.gnome.Nibbles.gschema.xml
-data/players.ui
-data/player-score-box.ui
-data/preferences-dialog.ui
-data/speed.ui
+data/ui/controls.ui
+data/ui/controls-grid.ui
+data/ui/first-run.ui
+data/ui/nibbles.ui
+data/ui/players.ui
+data/ui/player-score-box.ui
+data/ui/preferences-dialog.ui
+data/ui/speed.ui
 src/controls.vala
 src/gnome-nibbles.vala
 src/nibbles-view.vala
