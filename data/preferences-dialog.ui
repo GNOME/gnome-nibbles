@@ -45,7 +45,7 @@
       <object class="GtkLabel">
         <property name="visible">True</property>
         <!-- Translators: title of the Controls configuration dialog, if there is only one worm; allows to configure the worm controls and color -->
-        <property name="label" translatable="yes">Controls</property>
+        <property name="label" translatable="yes">Preferences</property>
       </object>
       <packing>
         <property name="name">preferences-label</property>
