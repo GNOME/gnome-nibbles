@@ -173,6 +173,7 @@ private class NibblesWindow : ApplicationWindow
 
             new_game_action.set_enabled (false);
             pause_action.set_enabled (false);
+            back_action.set_enabled (false);
 
             main_stack.set_visible_child (first_run_panel);
         }
@@ -211,7 +212,6 @@ private class NibblesWindow : ApplicationWindow
             game.start (/* add initial bonus */ true);
 
             pause_action.set_enabled (true);
-            back_action.set_enabled (true);
 
             countdown_id = 0;
             return Source.REMOVE;
@@ -286,6 +286,7 @@ private class NibblesWindow : ApplicationWindow
         statusbar_stack.set_visible_child_name ("countdown");
 
         new_game_action.set_enabled (true);
+        back_action.set_enabled (true);
 
         seconds = COUNTDOWN_TIME;
         view.name_labels.show ();
@@ -568,8 +569,6 @@ private class NibblesWindow : ApplicationWindow
         new_game_button.show ();
         pause_button.show ();
 
-        back_action.set_enabled (false);
-
         /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
         headerbar.set_title (_("Level %d").printf (game.current_level));        // TODO unduplicate, 1/2
         main_stack.set_visible_child_name ("game_box");
@@ -585,7 +584,7 @@ private class NibblesWindow : ApplicationWindow
         switch (child_name)
         {
             case "first-run":
-                break;
+                assert_not_reached ();
             case "number_of_players":
                 break;
             case "speed":
@@ -706,6 +705,7 @@ private class NibblesWindow : ApplicationWindow
         /* Disable these here to prevent the user clicking the buttons before the score is saved */
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
+        back_action.set_enabled (false);
 
         var scores = scores_context.get_high_scores (get_scores_category (game.speed, game.fakes));
         var lowest_high_score = (scores.size == 10 ? scores.last ().score : -1);
@@ -764,6 +764,7 @@ private class NibblesWindow : ApplicationWindow
 
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
+        back_action.set_enabled (false);
 
         /* Translators: label that appears at the end of a level; the %d is the number of the level that was completed */
         var label = new Label (_("Level %d Completed!").printf (game.current_level));
