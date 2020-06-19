@@ -51,6 +51,9 @@
   <template class="NibblesWindow" parent="GtkApplicationWindow">
     <!-- Translators: title of the window, as displayed by the window manager -->
     <property name="title" translatable="yes">Nibbles</property>
+    <style>
+      <class name="nibbles-window"/>
+    </style>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="headerbar">
         <property name="visible">True</property>
