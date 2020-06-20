@@ -156,6 +156,7 @@ private class NibblesGame : Object
                         break;
 
                     // start positions
+                    case '▲':
                     case 'm':
                         board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         if (count < numworms)
@@ -164,6 +165,7 @@ private class NibblesGame : Object
                             count++;
                         }
                         break;
+                    case '◀':
                     case 'n':
                         board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         if (count < numworms)
@@ -172,6 +174,7 @@ private class NibblesGame : Object
                             count++;
                         }
                         break;
+                    case '▼':
                     case 'o':
                         board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         if (count < numworms)
@@ -180,6 +183,7 @@ private class NibblesGame : Object
                             count++;
                         }
                         break;
+                    case '▶':
                     case 'p':
                         board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         if (count < numworms)
