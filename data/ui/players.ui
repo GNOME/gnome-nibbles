@@ -68,7 +68,8 @@
                   <object class="GtkToggleButton" id="players1">
                     <property name="visible">True</property>
                     <property name="use-underline">True</property>
-                    <property name="label">_1</property>
+                    <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play a solo game against AIs (with a mnemonic that appears when pressing Alt) -->
+                    <property name="label" translatable="yes">_1</property>
                     <property name="action-name">players.change-players-number</property>
                     <property name="action-target">@i 1</property>
                     <property name="sensitive" bind-source="players1" bind-property="active" bind-flags="invert-boolean"/>
@@ -81,7 +82,8 @@
                   <object class="GtkToggleButton" id="players2">
                     <property name="visible">True</property>
                     <property name="use-underline">True</property>
-                    <property name="label">_2</property>
+                    <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 2 human players (with a mnemonic that appears when pressing Alt) -->
+                    <property name="label" translatable="yes">_2</property>
                     <property name="action-name">players.change-players-number</property>
                     <property name="action-target">@i 2</property>
                     <property name="sensitive" bind-source="players2" bind-property="active" bind-flags="invert-boolean"/>
@@ -94,7 +96,8 @@
                   <object class="GtkToggleButton" id="players3">
                     <property name="visible">True</property>
                     <property name="use-underline">True</property>
-                    <property name="label">_3</property>
+                    <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 3 human players (with a mnemonic that appears when pressing Alt) -->
+                    <property name="label" translatable="yes">_3</property>
                     <property name="action-name">players.change-players-number</property>
                     <property name="action-target">@i 3</property>
                     <property name="sensitive" bind-source="players3" bind-property="active" bind-flags="invert-boolean"/>
@@ -107,7 +110,8 @@
                   <object class="GtkToggleButton" id="players4">
                     <property name="visible">True</property>
                     <property name="use-underline">True</property>
-                    <property name="label">_4</property>
+                    <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 4 human players (with a mnemonic that appears when pressing Alt) -->
+                    <property name="label" translatable="yes">_4</property>
                     <property name="action-name">players.change-players-number</property>
                     <property name="action-target">@i 4</property>
                     <property name="sensitive" bind-source="players4" bind-property="active" bind-flags="invert-boolean"/>
@@ -144,7 +148,6 @@
                   <object class="GtkToggleButton" id="worms4">
                     <property name="visible">True</property>
                     <property name="use-underline">True</property>
-                    <property name="label">_3</property>
                     <property name="action-name">players.change-nibbles-number</property>
                     <property name="action-target">@i 4</property>
                     <property name="sensitive" bind-source="worms4" bind-property="active" bind-flags="invert-boolean"/>
@@ -157,7 +160,6 @@
                   <object class="GtkToggleButton" id="worms5">
                     <property name="visible">True</property>
                     <property name="use-underline">True</property>
-                    <property name="label">_4</property>
                     <property name="action-name">players.change-nibbles-number</property>
                     <property name="action-target">@i 5</property>
                     <property name="sensitive" bind-source="worms5" bind-property="active" bind-flags="invert-boolean"/>
@@ -170,7 +172,6 @@
                   <object class="GtkToggleButton" id="worms6">
                     <property name="visible">True</property>
                     <property name="use-underline">True</property>
-                    <property name="label">_5</property>
                     <property name="action-name">players.change-nibbles-number</property>
                     <property name="action-target">@i 6</property>
                     <property name="sensitive" bind-source="worms6" bind-property="active" bind-flags="invert-boolean"/>
