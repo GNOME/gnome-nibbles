@@ -313,7 +313,6 @@ private class NibblesView : GtkClutter.Embed
                         case 'x':
                         case 'y':
                         case 'z':
-                        case '.': // empty space in files, replaced by an 'a'
                             assert_not_reached ();
 
                         case 'Q':

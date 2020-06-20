@@ -108,19 +108,56 @@ private class NibblesGame : Object
         for (int i = 0; i < NibblesGame.HEIGHT; i++)
         {
             tmpboard = future_board [i];
-            if (tmpboard.length != NibblesGame.WIDTH)
+            if (tmpboard.char_count () != NibblesGame.WIDTH)
                 return false;
             for (int j = 0; j < NibblesGame.WIDTH; j++)
             {
-                board[j, i] = tmpboard.@get(j);
-                switch (board[j, i])
+                unichar char_value = tmpboard.get_char (tmpboard.index_of_nth_char (j));
+                switch (char_value)
                 {
-                    case '.': // readable empty space, but the game internals uses 'a'
-                        board[j, i] = 'a';
+                    // readable empty tile, but the game internals use an 'a'
+                    case '.':
+                        board[j, i] = (int) 'a';
                         break;
 
+                    // readable walls, but the game internals use ASCII chars
+                    case '┃':
+                        board[j, i] = (int) 'b';
+                        break;
+                    case '━':
+                        board[j, i] = (int) 'c';
+                        break;
+                    case '┗':
+                        board[j, i] = (int) 'd';
+                        break;
+                    case '┛':
+                        board[j, i] = (int) 'e';
+                        break;
+                    case '┏':
+                        board[j, i] = (int) 'f';
+                        break;
+                    case '┓':
+                        board[j, i] = (int) 'g';
+                        break;
+                    case '┻':
+                        board[j, i] = (int) 'h';
+                        break;
+                    case '┣':
+                        board[j, i] = (int) 'i';
+                        break;
+                    case '┫':
+                        board[j, i] = (int) 'j';
+                        break;
+                    case '┳':
+                        board[j, i] = (int) 'k';
+                        break;
+                    case '╋':
+                        board[j, i] = (int) 'l';
+                        break;
+
+                    // start positions
                     case 'm':
-                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         if (count < numworms)
                         {
                             worms[count].set_start (j, i, WormDirection.UP);
@@ -128,7 +165,7 @@ private class NibblesGame : Object
                         }
                         break;
                     case 'n':
-                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         if (count < numworms)
                         {
                             worms[count].set_start (j, i, WormDirection.LEFT);
@@ -136,7 +173,7 @@ private class NibblesGame : Object
                         }
                         break;
                     case 'o':
-                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         if (count < numworms)
                         {
                             worms[count].set_start (j, i, WormDirection.DOWN);
@@ -144,7 +181,7 @@ private class NibblesGame : Object
                         }
                         break;
                     case 'p':
-                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         if (count < numworms)
                         {
                             worms[count].set_start (j, i, WormDirection.RIGHT);
@@ -152,6 +189,7 @@ private class NibblesGame : Object
                         }
                         break;
 
+                    // warps
                     case 'Q':
                     case 'R':
                     case 'S':
@@ -162,6 +200,7 @@ private class NibblesGame : Object
                     case 'X':
                     case 'Y':
                     case 'Z':
+                        board[j, i] = (int) char_value;
                         warp_manager.add_warp (board, j - 1, i - 1, -(board[j, i]), 0);
                         break;
 
@@ -174,12 +213,28 @@ private class NibblesGame : Object
                     case 'x':
                     case 'y':
                     case 'z':
-                        warp_manager.add_warp (board, -(board[j, i] - 'a' + 'A'), 0, j, i);
-                        board[j, i] = NibblesGame.EMPTYCHAR;
+                        warp_manager.add_warp (board, -(((int) char_value) - 'a' + 'A'), 0, j, i);
+                        board[j, i] = (int) NibblesGame.EMPTYCHAR;
+                        break;
+
+                    // old walls, kept for compatibility
+                    case 'a':
+                    case 'b':
+                    case 'c':
+                    case 'd':
+                    case 'e':
+                    case 'f':
+                    case 'g':
+                    case 'h':
+                    case 'i':
+                    case 'j':
+                    case 'k':
+                    case 'l':
+                        board[j, i] = (int) char_value;
                         break;
 
                     default:
-                        break;  // return false?
+                        return false;
                 }
             }
         }
