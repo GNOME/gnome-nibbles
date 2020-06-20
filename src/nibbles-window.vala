@@ -147,12 +147,7 @@ private class NibblesWindow : ApplicationWindow
         /* Number of worms */
         game.numhumans = settings.get_int ("players");
         int numai = settings.get_int ("ai");
-        if (numai + game.numhumans > NibblesGame.MAX_WORMS
-         || numai + game.numhumans < 4)
-        {
-            numai = 4 - game.numhumans;
-            settings.set_int ("ai", numai);
-        }
+        Players.sanitize_ai_number (game.numhumans, ref numai);
         game.numai = numai;
         players.set_values (game.numhumans, numai);
 

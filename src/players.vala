@@ -21,9 +21,9 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/nibbles/ui/players.ui")]
 private class Players : Box
 {
-    [GtkChild] private ToggleButton worms4;
-    [GtkChild] private ToggleButton worms5;
-    [GtkChild] private ToggleButton worms6;
+    [GtkChild] private ToggleButton worms_min;
+    [GtkChild] private ToggleButton worms_mid;
+    [GtkChild] private ToggleButton worms_max;
 
     private SimpleAction nibbles_number_action;
     private SimpleAction players_number_action;
@@ -66,7 +66,7 @@ private class Players : Box
     {
         nibbles_number_action.set_state (players_number + number_of_ais);
         players_number_action.set_state (players_number);
-        update_buttons_labels ();
+        update_ai_buttons ();
     }
 
     internal void get_values (out int players_number, out int number_of_ais)
@@ -82,35 +82,64 @@ private class Players : Box
             assert_not_reached ();
         _players_number_action.set_state (players_number);
 
-        update_buttons_labels ();
+        update_ai_buttons ();
     }
 
-    private void update_buttons_labels ()
+    private void update_ai_buttons ()
     {
+        int nibbles_number = nibbles_number_action.get_state ().get_int32 ();
         switch (players_number_action.get_state ().get_int32 ())
         {
             case 1:
-                worms4.set_label (_(ai3_label));
-                worms5.set_label (_(ai4_label));
-                worms6.set_label (_(ai5_label));
+                worms_min.set_label (_(ai1_label));
+                worms_mid.set_label (_(ai3_label));
+                worms_max.set_label (_(ai5_label));
+                if (nibbles_number == 3)
+                    nibbles_number_action.set_state (2);
+                else if (nibbles_number == 5)
+                    nibbles_number_action.set_state (4);
+                worms_min.set_detailed_action_name ("players.change-nibbles-number(@i 2)");
+                worms_mid.set_detailed_action_name ("players.change-nibbles-number(@i 4)");
+                worms_max.set_detailed_action_name ("players.change-nibbles-number(@i 6)");
                 break;
 
             case 2:
-                worms4.set_label (_(ai2_label));
-                worms5.set_label (_(ai3_label));
-                worms6.set_label (_(ai4_label));
+                worms_min.set_label (_(ai0_label));
+                worms_mid.set_label (_(ai2_label));
+                worms_max.set_label (_(ai4_label));
+                if (nibbles_number == 3)
+                    nibbles_number_action.set_state (2);
+                else if (nibbles_number == 5)
+                    nibbles_number_action.set_state (4);
+                worms_min.set_detailed_action_name ("players.change-nibbles-number(@i 2)");
+                worms_mid.set_detailed_action_name ("players.change-nibbles-number(@i 4)");
+                worms_max.set_detailed_action_name ("players.change-nibbles-number(@i 6)");
                 break;
 
             case 3:
-                worms4.set_label (_(ai1_label));
-                worms5.set_label (_(ai2_label));
-                worms6.set_label (_(ai3_label));
+                worms_min.set_label (_(ai0_label));
+                worms_mid.set_label (_(ai1_label));
+                worms_max.set_label (_(ai3_label));
+                if (nibbles_number == 5)
+                    nibbles_number_action.set_state (4);
+                else if (nibbles_number < 3)
+                    nibbles_number_action.set_state (3);
+                worms_min.set_detailed_action_name ("players.change-nibbles-number(@i 3)");
+                worms_mid.set_detailed_action_name ("players.change-nibbles-number(@i 4)");
+                worms_max.set_detailed_action_name ("players.change-nibbles-number(@i 6)");
                 break;
 
             case 4:
-                worms4.set_label (_(ai0_label));
-                worms5.set_label (_(ai1_label));
-                worms6.set_label (_(ai2_label));
+                worms_min.set_label (_(ai0_label));
+                worms_mid.set_label (_(ai1_label));
+                worms_max.set_label (_(ai2_label));
+                if (nibbles_number == 3)
+                    nibbles_number_action.set_state (4);
+                else if (nibbles_number < 4)
+                    nibbles_number_action.set_state (4);
+                worms_min.set_detailed_action_name ("players.change-nibbles-number(@i 4)");
+                worms_mid.set_detailed_action_name ("players.change-nibbles-number(@i 5)");
+                worms_max.set_detailed_action_name ("players.change-nibbles-number(@i 6)");
                 break;
 
             default:
@@ -121,8 +150,84 @@ private class Players : Box
     private inline void change_nibbles_number (SimpleAction _nibbles_number_action, Variant variant)
     {
         int nibbles_number = variant.get_int32 ();
-        if (nibbles_number < 4 || nibbles_number > 6)
+        if (nibbles_number < 2 || nibbles_number > 6)
             assert_not_reached ();
+
+        int players_number = players_number_action.get_state ().get_int32 ();
+        if (nibbles_number == 3 && players_number != 3)
+            assert_not_reached ();
+        if (nibbles_number == 5 && players_number != 4)
+            assert_not_reached ();
+        if (nibbles_number < players_number)
+            assert_not_reached ();
+
         _nibbles_number_action.set_state (nibbles_number);
+    }
+
+    internal static void sanitize_ai_number (int players_number, ref int ai_number)
+    {
+        switch (players_number)
+        {
+            case 1:
+                if (ai_number == 1
+                 || ai_number == 3
+                 || ai_number == 5)
+                    return;
+
+                if (ai_number < 1)
+                    ai_number = 1;
+                else if (ai_number == 2)
+                    ai_number = 3;
+                else if (ai_number == 4)
+                    ai_number = 3;
+                else if (ai_number > 5)
+                    ai_number = 5;
+                return;
+
+            case 2:
+                if (ai_number == 0
+                 || ai_number == 2
+                 || ai_number == 4)
+                    return;
+
+                if (ai_number < 0)
+                    ai_number = 0;
+                else if (ai_number == 1)
+                    ai_number = 2;
+                else if (ai_number == 3)
+                    ai_number = 2;
+                else if (ai_number > 4)
+                    ai_number = 4;
+                return;
+
+            case 3:
+                if (ai_number == 0
+                 || ai_number == 1
+                 || ai_number == 3)
+                    return;
+
+                if (ai_number < 0)
+                    ai_number = 0;
+                else if (ai_number == 2)
+                    ai_number = 1;
+                else if (ai_number > 3)
+                    ai_number = 3;
+                return;
+
+            case 4:
+                if (ai_number == 0
+                 || ai_number == 1
+                 || ai_number == 2)
+                    return;
+
+                if (ai_number < 0)
+                    ai_number = 0;
+                else if (ai_number > 2)
+                    ai_number = 2;
+                return;
+
+            default:
+                assert_not_reached ();
+        }
     }
 }

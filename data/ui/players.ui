@@ -145,36 +145,36 @@
                 <property name="spacing">10</property>
                 <property name="vexpand">True</property>
                 <child>
-                  <object class="GtkToggleButton" id="worms4">
+                  <object class="GtkToggleButton" id="worms_min">
+                    <property name="visible">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="action-name">players.change-nibbles-number</property>
+                    <property name="action-target">@i 2</property>
+                    <property name="sensitive" bind-source="worms_min" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="worms_mid">
                     <property name="visible">True</property>
                     <property name="use-underline">True</property>
                     <property name="action-name">players.change-nibbles-number</property>
                     <property name="action-target">@i 4</property>
-                    <property name="sensitive" bind-source="worms4" bind-property="active" bind-flags="invert-boolean"/>
+                    <property name="sensitive" bind-source="worms_mid" bind-property="active" bind-flags="invert-boolean"/>
                     <style>
                       <class name="number-box"/>
                     </style>
                   </object>
                 </child>
                 <child>
-                  <object class="GtkToggleButton" id="worms5">
-                    <property name="visible">True</property>
-                    <property name="use-underline">True</property>
-                    <property name="action-name">players.change-nibbles-number</property>
-                    <property name="action-target">@i 5</property>
-                    <property name="sensitive" bind-source="worms5" bind-property="active" bind-flags="invert-boolean"/>
-                    <style>
-                      <class name="number-box"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkToggleButton" id="worms6">
+                  <object class="GtkToggleButton" id="worms_max">
                     <property name="visible">True</property>
                     <property name="use-underline">True</property>
                     <property name="action-name">players.change-nibbles-number</property>
                     <property name="action-target">@i 6</property>
-                    <property name="sensitive" bind-source="worms6" bind-property="active" bind-flags="invert-boolean"/>
+                    <property name="sensitive" bind-source="worms_max" bind-property="active" bind-flags="invert-boolean"/>
                     <style>
                       <class name="number-box"/>
                     </style>
