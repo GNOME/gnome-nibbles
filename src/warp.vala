@@ -136,7 +136,7 @@ private class WarpManager: Object
             }
         }
 
-        if (warps.size == MAX_WARPS)
+        if (warps.size >= MAX_WARPS)
             return;
 
         warps.add (new Warp.from_source (id, x, y));
@@ -153,7 +153,7 @@ private class WarpManager: Object
             }
         }
 
-        if (warps.size == MAX_WARPS)
+        if (warps.size >= MAX_WARPS)
             return;
 
         warps.add (new Warp.from_target (id, x, y));
