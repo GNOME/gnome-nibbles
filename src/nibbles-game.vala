@@ -611,7 +611,9 @@ private class NibblesGame : Object
     {
         int target_x;
         int target_y;
-        if (!warp_manager.get_warp_target (worm.head.x, worm.head.y, out target_x, out target_y))
+        if (!warp_manager.get_warp_target (worm.head.x, worm.head.y,
+                          /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
+                                           out target_x, out target_y))
             return;
 
         worm.warp (target_x, target_y);
