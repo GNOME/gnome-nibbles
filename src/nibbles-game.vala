@@ -81,7 +81,6 @@ private class NibblesGame : Object
     construct
     {
         board = new int [width, height];
-        warp_manager.warp_added.connect ((warp) => warp_added (warp.x, warp.y));
         boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
@@ -98,7 +97,7 @@ private class NibblesGame : Object
             return false;
 
         boni.reset (regular_bonus);
-        warp_manager.warps.clear ();
+        warp_manager.clear_warps ();
 
         string tmpboard;
         int count = 0;
@@ -202,7 +201,14 @@ private class NibblesGame : Object
                     case 'Y':
                     case 'Z':
                         board[j, i] = (int) char_value;
-                        warp_manager.add_warp (board, j - 1, i - 1, -(board[j, i]), 0);
+                        warp_manager.add_warp_source (board[j, i], j - 1, i - 1);
+
+                        board[j - 1, i - 1] = NibblesGame.WARPCHAR;
+                        board[j    , i - 1] = NibblesGame.WARPCHAR;
+                        board[j - 1, i    ] = NibblesGame.WARPCHAR;
+                        board[j    , i    ] = NibblesGame.WARPCHAR;
+
+                        warp_added (j - 1, i - 1);
                         break;
 
                     case 'r':
@@ -214,7 +220,8 @@ private class NibblesGame : Object
                     case 'x':
                     case 'y':
                     case 'z':
-                        warp_manager.add_warp (board, -(((int) char_value) - 'a' + 'A'), 0, j, i);
+                        // do not use the up() method: it depends on the locale, and that could have some weird results ("i".up() is either I or İ, for example)
+                        warp_manager.add_warp_target ((int) char_value - (int) 'a' + (int) 'A', j, i);
                         board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         break;
 
@@ -619,11 +626,12 @@ private class NibblesGame : Object
 
     private void warp_found_cb (Worm worm)
     {
-        var warp = warp_manager.get_warp (worm.head.x, worm.head.y);
-        if (warp == null)
+        int target_x;
+        int target_y;
+        if (!warp_manager.get_warp_target (worm.head.x, worm.head.y, out target_x, out target_y))
             return;
 
-        worm.warp (warp);
+        worm.warp (target_x, target_y);
     }
 
     internal GameStatus? get_game_status ()

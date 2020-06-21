@@ -270,9 +270,9 @@ private class Worm : Object
             direction = (list[0].y > list[1].y) ? WormDirection.DOWN : WormDirection.UP;
     }
 
-    internal inline void warp (Warp warp)
+    internal inline void warp (int x, int y)
     {
-        head = Position () { x = warp.wx, y = warp.wy };
+        head = Position () { x = x, y = y };
     }
 
     internal bool can_move_to (int[,] board, int numworms)
