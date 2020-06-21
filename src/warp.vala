@@ -27,11 +27,11 @@ private class WarpManager: Object
 
         public int id       { internal get; protected construct; }
 
-        public int source_x { internal get; protected construct set; }
-        public int source_y { internal get; protected construct set; }
+        public int source_x { private get; protected construct set; }
+        public int source_y { private get; protected construct set; }
 
-        public int target_x { internal get; protected construct set; }
-        public int target_y { internal get; protected construct set; }
+        public int target_x { private get; protected construct set; }
+        public int target_y { private get; protected construct set; }
 
         internal Warp.from_source (int id, int source_x, int source_y)
         {
@@ -61,6 +61,17 @@ private class WarpManager: Object
             target_x = x;
             target_y = y;
             init_finished = true;
+        }
+
+        internal bool get_target (int x, int y, ref int target_x, ref int target_y)
+        {
+            if ((x != source_x && x != source_x + 1)
+             || (y != source_y && y != source_y + 1))
+                return false;
+
+            target_x = this.target_x;
+            target_y = this.target_y;
+            return true;
         }
     }
 
@@ -104,20 +115,13 @@ private class WarpManager: Object
 
     internal bool get_warp_target (int x, int y, out int target_x, out int target_y)
     {
-        foreach (var warp in warps)
-        {
-            if ((x == warp.source_x     && y == warp.source_y    )
-             || (x == warp.source_x + 1 && y == warp.source_y    )
-             || (x == warp.source_x     && y == warp.source_y + 1)
-             || (x == warp.source_x + 1 && y == warp.source_y + 1))
-            {
-                target_x = warp.target_x;
-                target_y = warp.target_y;
-                return true;
-            }
-        }
         target_x = 0;   // garbage
         target_y = 0;   // garbage
+
+        foreach (var warp in warps)
+            if (warp.get_target (x, y, ref target_x, ref target_y))
+                return true;
+
         return false;
     }
 
