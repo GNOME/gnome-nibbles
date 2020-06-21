@@ -113,6 +113,7 @@ private class NibblesGame : Object
                 {
                     // readable empty tile, but the game internals use an 'a'
                     case '.':
+                    case '+':
                         board[j, i] = (int) 'a';
                         break;
 
