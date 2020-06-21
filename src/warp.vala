@@ -27,50 +27,90 @@ private class WarpManager: Object
 
         public int id       { internal get; protected construct; }
 
-        public int source_x { private get; protected construct set; }
-        public int source_y { private get; protected construct set; }
+        public int source_x { internal get; protected construct set; }
+        public int source_y { internal get; protected construct set; }
 
         public int target_x { private get; protected construct set; }
         public int target_y { private get; protected construct set; }
+
+        public bool bidi    { internal get; protected construct set; }
 
         internal Warp.from_source (int id, int source_x, int source_y)
         {
             Object (id      : id,
                     source_x: source_x,
-                    source_y: source_y);
+                    source_y: source_y,
+                    bidi    : true);    // that is a "maybe for now," until init_finished is set
         }
 
         internal Warp.from_target (int id, int target_x, int target_y)
         {
             Object (id      : id,
                     target_x: target_x,
-                    target_y: target_y);
+                    target_y: target_y,
+                    bidi    : false);
         }
 
         internal void set_source (int x, int y)
             requires (init_finished == false)
         {
-            source_x = x;
-            source_y = y;
+            if (bidi)   // set to "true" when created from source
+            {
+                target_x = x;
+                target_y = y;
+            }
+            else
+            {
+                source_x = x;
+                source_y = y;
+            }
             init_finished = true;
         }
 
         internal void set_target (int x, int y)
             requires (init_finished == false)
+            requires (bidi == true)     // set to "true" when created from source
         {
             target_x = x;
             target_y = y;
+            bidi = false;
             init_finished = true;
         }
 
-        internal bool get_target (int x, int y, ref int target_x, ref int target_y)
+        internal bool get_target (int x, int y, bool horizontal, ref int target_x, ref int target_y)
+            requires (init_finished == true)
         {
             if ((x != source_x && x != source_x + 1)
              || (y != source_y && y != source_y + 1))
                 return false;
 
-            target_x = this.target_x;
-            target_y = this.target_y;
+            if (!bidi)
+            {
+                target_x = this.target_x;
+                target_y = this.target_y;
+            }
+            else if (horizontal)
+            {
+                if (x == source_x)
+                    target_x = this.target_x + 2;
+                else
+                    target_x = this.target_x - 1;
+                if (y == source_y)
+                    target_y = this.target_y;
+                else
+                    target_y = this.target_y + 1;
+            }
+            else
+            {
+                if (x == source_x)
+                    target_x = this.target_x;
+                else
+                    target_x = this.target_x + 1;
+                if (y == source_y)
+                    target_y = this.target_y + 2;
+                else
+                    target_y = this.target_y - 1;
+            }
             return true;
         }
     }
@@ -86,6 +126,12 @@ private class WarpManager: Object
             if (warp.id == id)
             {
                 warp.set_source (x, y);
+                if (warp.bidi)
+                {
+                    Warp bidi_warp = new Warp.from_source (id, x, y);
+                    bidi_warp.set_source (warp.source_x, warp.source_y);
+                    warps.add (bidi_warp);
+                }
                 return;
             }
         }
@@ -113,13 +159,13 @@ private class WarpManager: Object
         warps.add (new Warp.from_target (id, x, y));
     }
 
-    internal bool get_warp_target (int x, int y, out int target_x, out int target_y)
+    internal bool get_warp_target (int x, int y, bool horizontal, out int target_x, out int target_y)
     {
         target_x = 0;   // garbage
         target_y = 0;   // garbage
 
         foreach (var warp in warps)
-            if (warp.get_target (x, y, ref target_x, ref target_y))
+            if (warp.get_target (x, y, horizontal, ref target_x, ref target_y))
                 return true;
 
         return false;
