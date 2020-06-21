@@ -23,6 +23,8 @@ private class WarpManager: Object
 {
     private class Warp : Object
     {
+        private bool init_finished = false;
+
         public int id       { internal get; protected construct; }
 
         public int source_x { internal get; protected construct set; }
@@ -46,15 +48,19 @@ private class WarpManager: Object
         }
 
         internal void set_source (int x, int y)
+            requires (init_finished == false)
         {
             source_x = x;
             source_y = y;
+            init_finished = true;
         }
 
         internal void set_target (int x, int y)
+            requires (init_finished == false)
         {
             target_x = x;
             target_y = y;
+            init_finished = true;
         }
     }
 
