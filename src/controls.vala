@@ -142,15 +142,15 @@ private class ControlsGrid : Button
         arrow_left.set_from_pixbuf  (arrow.rotate_simple (Gdk.PixbufRotation.COUNTERCLOCKWISE));
         arrow_right.set_from_pixbuf (arrow.rotate_simple (Gdk.PixbufRotation.CLOCKWISE));
 
-           up_handler = worm_props.notify ["up"].connect    (() => configure_label (Gdk.keyval_name (worm_props.up),    ref move_up_label));
-         down_handler = worm_props.notify ["down"].connect  (() => configure_label (Gdk.keyval_name (worm_props.down),  ref move_down_label));
-         left_handler = worm_props.notify ["left"].connect  (() => configure_label (Gdk.keyval_name (worm_props.left),  ref move_left_label));
-        right_handler = worm_props.notify ["right"].connect (() => configure_label (Gdk.keyval_name (worm_props.right), ref move_right_label));
+           up_handler = worm_props.notify ["up"].connect    (() => configure_label (worm_props.up,    ref move_up_label));
+         down_handler = worm_props.notify ["down"].connect  (() => configure_label (worm_props.down,  ref move_down_label));
+         left_handler = worm_props.notify ["left"].connect  (() => configure_label (worm_props.left,  ref move_left_label));
+        right_handler = worm_props.notify ["right"].connect (() => configure_label (worm_props.right, ref move_right_label));
 
-        configure_label (Gdk.keyval_name (worm_props.up),    ref move_up_label);
-        configure_label (Gdk.keyval_name (worm_props.down),  ref move_down_label);
-        configure_label (Gdk.keyval_name (worm_props.left),  ref move_left_label);
-        configure_label (Gdk.keyval_name (worm_props.right), ref move_right_label);
+        configure_label (worm_props.up,    ref move_up_label);
+        configure_label (worm_props.down,  ref move_down_label);
+        configure_label (worm_props.left,  ref move_left_label);
+        configure_label (worm_props.right, ref move_right_label);
     }
 
     internal void mark_duplicated_keys (GenericSet<uint> duplicate_keys)
@@ -177,8 +177,9 @@ private class ControlsGrid : Button
         worm_props.disconnect (color_handler);
     }
 
-    private static void configure_label (string? key_name, ref Label label)
+    private static void configure_label (uint key_value, ref Label label)
     {
+        string? key_name = Gdk.keyval_name (key_value);
         if (key_name == "Up")
         {
             label.get_style_context ().add_class ("arrow");
@@ -207,7 +208,7 @@ private class ControlsGrid : Button
         else
         {
             label.get_style_context ().remove_class ("arrow");
-            label.set_text (@"$(key_name.up ())");
+            label.set_text (@"$(accelerator_get_label (key_value, 0))");
         }
     }
 }
