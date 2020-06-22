@@ -291,20 +291,6 @@ private class Worm : Object
         return true;
     }
 
-    internal bool will_collide_with_head (Worm other_worm)
-    {
-        if (!is_materialized || !other_worm.is_materialized)
-            return false;
-
-        var worm_pos = position_move ();
-        var other_worm_pos = other_worm.position_move ();
-
-        if (worm_pos == other_worm_pos)
-            return true;
-
-        return false;
-    }
-
     internal void spawn (int[,] board)
     {
         change = STARTING_LENGTH - 1;
