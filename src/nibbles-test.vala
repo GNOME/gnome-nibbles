@@ -27,6 +27,8 @@ namespace NibblesTest
                                  test_tests);
         Test.add_func ("/Nibbles/test games",
                                  test_games);
+        Test.add_func ("/Nibbles/test heads",
+                                 test_heads);
         return Test.run ();
     }
 
@@ -70,17 +72,17 @@ namespace NibblesTest
         while (!completed)
             context.iteration (/* may block */ false);
 
-        assert_true (applied_bonus == 17);
+        assert_true (applied_bonus == 16);
 
         assert_true (game.worms.@get (0).lives == 6);
-        assert_true (game.worms.@get (1).lives == 6);
+        assert_true (game.worms.@get (1).lives == 5);
         assert_true (game.worms.@get (2).lives == 6);
         assert_true (game.worms.@get (3).lives == 6);
 
-        assert_true (game.worms.@get (0).score == 14);
-        assert_true (game.worms.@get (1).score == 21);
-        assert_true (game.worms.@get (2).score == 37);
-        assert_true (game.worms.@get (3).score == 16);
+        assert_true (game.worms.@get (0).score ==  42);
+        assert_true (game.worms.@get (1).score ==   4);
+        assert_true (game.worms.@get (2).score == 117);
+        assert_true (game.worms.@get (3).score ==   8);
     }
 
     private const int level_008_width  = 92;
@@ -152,5 +154,183 @@ namespace NibblesTest
             "┃..........................................................................................┃",
             "┃..........................................................................................┃",
             "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓........┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+        };
+
+    /*\
+    * * test heads
+    \*/
+
+    private static void test_heads ()
+    {
+        Test.message ("test heads 1");
+        _test_heads (test_heads_1, /* worm 0 */ 6, 4, /* worm 1 */ 11, 4, /* lives */ 6, 6);
+
+        Test.message ("test heads 2");
+        _test_heads (test_heads_2, /* worm 0 */ 6, 4, /* worm 1 */ 11, 4, /* lives */ 6, 5);
+
+        Test.message ("test heads 3");
+        _test_heads (test_heads_3, /* worm 0 */ 6, 4, /* worm 1 */ 10, 4, /* lives */ 6, 6);
+
+        Test.message ("test heads 4");
+        _test_heads (test_heads_4, /* worm 0 */ 6, 4, /* worm 1 */ 10, 4, /* lives */ 0, 0);
+
+        Test.message ("test heads 5");
+        _test_heads (test_heads_5, /* worm 0 */ 6, 1, /* worm 1 */  6, 4, /* lives */ 6, 6);
+
+        Test.message ("test heads 6");
+        _test_heads (test_heads_6, /* worm 0 */ 6, 1, /* worm 1 */  6, 4, /* lives */ 4, 6);
+
+        Test.message ("test heads 9");
+        _test_heads (test_heads_9, /* worm 0 */ 6, 1, /* worm 1 */  6, 4, /* lives */ 6, 5);
+
+        Test.message ("test heads 7");
+        _test_heads (test_heads_7, /* worm 0 */ 6, 2, /* worm 1 */  6, 4, /* lives */ 6, 6);
+
+        Test.message ("test heads 8");
+        _test_heads (test_heads_8, /* worm 0 */ 6, 2, /* worm 1 */  6, 4, /* lives */ 0, 0);
+
+        Test.message ("test heads 0");
+        _test_heads (test_heads_0, /* worm 0 */ 6, 2, /* worm 1 */  6, 4, /* lives */ 6, 6);
+    }
+
+    private static void _test_heads (string [] board,
+                                     int worm_0_x,
+                                     int worm_0_y,
+                                     int worm_1_x,
+                                     int worm_1_y,
+                                     int first_worm_lives,
+                                     int second_worm_lives)
+    {
+        NibblesGame game = new NibblesGame (/* start level */ 0, /* speed */ 0, /* fakes */ false, test_heads_width, test_heads_height, /* no random */ true);
+
+        game.numhumans = 0;
+        game.numai = 2;
+        game.create_worms ();
+
+        game.load_board (board, /* regular bonus */ 1);
+
+        ulong [] worms_handlers = new ulong [game.worms.size];
+        foreach (Worm worm in game.worms)
+            // FIXME we should not have that to do
+            worms_handlers [worm.id] = worm.finish_added.connect (() => { worm.dematerialize (game.board, 3); worm.is_stopped = false; });
+
+        assert_true (game.numworms == 2);
+        assert_true (game.worms.size == 2);
+
+        ulong game_handler_1 = game.bonus_applied.connect ((bonus, worm) => { Test.message (@"worm $(worm.id) took bonus at [$(bonus.x), $(bonus.y)]"); });
+
+        game.add_worms ();
+        game.start (/* add initial bonus */ true);
+
+        assert_true (game.worms.@get (0).lives == 6);
+        assert_true (game.worms.@get (1).lives == 6);
+
+        assert_true (game.worms.@get (0).score == 0);
+        assert_true (game.worms.@get (1).score == 0);
+
+        assert_true (game.worms.@get (0).head.x == worm_0_x && game.worms.@get (0).head.y == worm_0_y);
+        assert_true (game.worms.@get (1).head.x == worm_1_x && game.worms.@get (1).head.y == worm_1_y);
+
+        // run until game is finished
+        bool completed = false;
+        ulong game_handler_2 = game.level_completed.connect (() => { completed = true; });
+        MainContext context = MainContext.@default ();
+        do context.iteration (/* may block */ false);
+        while (!completed && (game.get_game_status () != GameStatus.GAMEOVER));
+
+        assert_true (game.worms.@get (0).lives == first_worm_lives);
+        assert_true (game.worms.@get (1).lives == second_worm_lives);
+
+        // FIXME looks like last bonus is not counted...
+        assert_true (game.worms.@get (0).score == 0);
+        assert_true (game.worms.@get (1).score == 0);
+
+        foreach (Worm worm in game.worms)
+            worm.disconnect (worms_handlers [worm.id]);
+        game.disconnect (game_handler_1);
+        game.disconnect (game_handler_2);
+    }
+
+    private const int test_heads_width = 18;
+    private const int test_heads_height = 6;
+    private const string [] test_heads_1 = {
+            "┏━━━━━━━━━━━━━━━━┓",
+            "┃................┃",
+            "┃................┃",
+            "┣━━━━━━━..━━━━━━━┫",
+            "┃▶..............◀┃",
+            "┗━━━━━━━━━━━━━━━━┛"
+        };
+    private const string [] test_heads_2 = {
+            "┏━━━━━━━━━━━━━━━━┓",
+            "┃................┃",
+            "┃................┃",
+            "┣━━━━━━━.━━━━━━━━┫",
+            "┃▶..............◀┃",
+            "┗━━━━━━━━━━━━━━━━┛"
+        };
+    private const string [] test_heads_3 = {
+            "┏━━━━━━━━━━━━━━━━┓",
+            "┃................┃",
+            "┃................┃",
+            "┣━━━━━━━..━━━━━━━┫",
+            "┃▶.............◀.┃",
+            "┗━━━━━━━━━━━━━━━━┛"
+        };
+    private const string [] test_heads_4 = {
+            "┏━━━━━━━━━━━━━━━━┓",
+            "┃................┃",
+            "┃................┃",
+            "┣━━━━━━━.━━━━━━━━┫",
+            "┃▶.............◀.┃",
+            "┗━━━━━━━━━━━━━━━━┛"
+        };
+    private const string [] test_heads_5 = {
+            "┏━━━━━━━┳━━━━━━━━┓",
+            "┃▶......┃........┃",
+            "┗━━━━━┓..........┃",
+            "┏━━━━━┛..........┃",
+            "┃▶......┃........┃",
+            "┗━━━━━━━┻━━━━━━━━┛"
+        };
+    private const string [] test_heads_6 = {
+            "┏━━━━━━━┳━━━━━━━━┓",
+            "┃▶......┃........┃",
+            "┗━━━━━┓.┃........┃",
+            "┏━━━━━┛..........┃",
+            "┃▶......┃........┃",
+            "┗━━━━━━━┻━━━━━━━━┛"
+        };
+    private const string [] test_heads_9 = {
+            "┏━━━━━━━┳━━━━━━━━┓",
+            "┃▶......┃........┃",
+            "┗━━━━━┓..........┃",
+            "┏━━━━━┛.┃........┃",
+            "┃▶......┃........┃",
+            "┗━━━━━━━┻━━━━━━━━┛"
+        };
+    private const string [] test_heads_7 = {
+            "........┏━━━━━━━━┓",
+            "┏━━━━━━━┛........┃",
+            "┃▶...............┃",
+            "┣━━━━━━..........┃",
+            "┃▶......┃........┃",
+            "┗━━━━━━━┻━━━━━━━━┛"
+        };
+    private const string [] test_heads_8 = {
+            "........┏━━━━━━━━┓",
+            "┏━━━━━━━┫........┃",
+            "┃▶......┃........┃",
+            "┣━━━━━━..........┃",
+            "┃▶......┃........┃",
+            "┗━━━━━━━┻━━━━━━━━┛"
+        };
+    private const string [] test_heads_0 = {
+            "........┏━━━━━━━━┓",
+            "┏━━━━━━━┫........┃",
+            "┃▶......┃........┃",
+            "┣━━━━━━..........┃",
+            "┃▶...............┃",
+            "┗━━━━━━━━━━━━━━━━┛"
         };
 }
