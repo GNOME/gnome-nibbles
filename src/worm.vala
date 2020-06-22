@@ -246,10 +246,7 @@ private class Worm : Object
         if (!is_materialized || !other_worm.is_materialized)
             return false;
 
-        var worm_pos = position_move ();
-        var other_worm_pos = other_worm.position_move ();
-
-        if (worm_pos == other_worm_pos)
+        if (position_move () == other_worm.head)
             return true;
 
         return false;
