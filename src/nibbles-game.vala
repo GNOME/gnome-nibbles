@@ -390,40 +390,56 @@ private class NibblesGame : Object
             add_bonus (true);
 
         var dead_worms = new Gee.LinkedList<Worm> ();
+
+        /* make AIs decide what they will do */
         foreach (var worm in worms)
         {
-            if (worm.is_stopped)
-                continue;
-
-            if (worm.list.is_empty)
+            if (worm.is_stopped
+             || worm.list.is_empty)
                 continue;
 
             if (!worm.is_human)
                 worm.ai_move (board, numworms, worms);
+        }
 
+        /* kill worms which are hitting wall */
+        foreach (var worm in worms)
+        {
+            if (worm.is_stopped
+             || worm.list.is_empty)
+                continue;
+
+            if (!worm.can_move_to (board, numworms))
+                dead_worms.add (worm);
+        }
+
+        /* move worms */
+        foreach (var worm in worms)
+        {
+            if (worm.is_stopped
+             || worm.list.is_empty)
+                continue;
+
+            worm.move (board);
+
+            /* kill worms on heads collision */
             foreach (var other_worm in worms)
             {
                 if (worm != other_worm
-                    && !other_worm.is_stopped
-                    && worm.will_collide_with_head (other_worm))
-                    {
-                        if (!dead_worms.contains (worm))
-                            dead_worms.add (worm);
-                        if (!dead_worms.contains (other_worm))
-                            dead_worms.add (other_worm);
-                        continue;
-                    }
+                 && !other_worm.is_stopped
+                 && !other_worm.list.is_empty
+                 && worm.head.x == other_worm.head.x
+                 && worm.head.y == other_worm.head.y)
+                {
+                    if (!dead_worms.contains (worm))
+                        dead_worms.add (worm);
+                    if (!dead_worms.contains (other_worm))
+                        dead_worms.add (other_worm);
+                }
             }
-
-            if (!worm.can_move_to (board, numworms))
-            {
-                dead_worms.add (worm);
-                continue;
-            }
-
-            worm.move (board);
         }
 
+        /* remove dead worms */
         foreach (var worm in dead_worms)
         {
             if (numworms > 1)
@@ -618,6 +634,8 @@ private class NibblesGame : Object
             if (worm.lives > 0)
                 worms_left += 1;
             else if (worm.is_human && worm.lives <= 0)
+                return GameStatus.GAMEOVER;
+            else if (numhumans == 0 && worm.lives <= 0)
                 return GameStatus.GAMEOVER;
         }
 
