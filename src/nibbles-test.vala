@@ -41,7 +41,7 @@ namespace NibblesTest
 
     private static void test_games ()
     {
-        NibblesGame game = new NibblesGame (/* start level */ 1, /* speed */ 0, /* fakes */ false, /* no random */ true);
+        NibblesGame game = new NibblesGame (/* start level */ 1, /* speed */ 0, /* fakes */ false, level_008_width, level_008_height, /* no random */ true);
 
         game.numhumans = 0;
         game.numai = 4;
@@ -83,7 +83,9 @@ namespace NibblesTest
         assert_true (game.worms.@get (3).score == 16);
     }
 
-    private const string [] level_008 = {
+    private const int level_008_width  = 92;
+    private const int level_008_height = 66;
+    private const string [] level_008  = {
             "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛........┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓",
             "┃..........................................................................................┃",
             "┃..........................................................................................┃",

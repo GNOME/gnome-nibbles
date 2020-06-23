@@ -119,7 +119,9 @@ private class NibblesWindow : ApplicationWindow
         /* Create game */
         game = new NibblesGame (settings.get_int ("start-level"),
                                 settings.get_int ("speed"),
-                                settings.get_boolean ("fakes"));
+                                settings.get_boolean ("fakes"),
+                                NibblesView.WIDTH,
+                                NibblesView.HEIGHT);
         game.log_score.connect (log_score_cb);
         game.level_completed.connect (level_completed_cb);
         game.notify["is-paused"].connect (() => {
@@ -135,7 +137,7 @@ private class NibblesWindow : ApplicationWindow
                                 !settings.get_boolean ("sound"));
         view.show ();
 
-        frame = new Games.GridFrame (NibblesGame.WIDTH, NibblesGame.HEIGHT);
+        frame = new Games.GridFrame (NibblesView.WIDTH, NibblesView.HEIGHT);
         game_box.pack_start (frame);
 
         /* Create scoreboard */
