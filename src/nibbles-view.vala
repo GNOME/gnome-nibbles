@@ -198,7 +198,7 @@ private class NibblesView : GtkClutter.Embed
     }
 
     /*\
-    * * Level creationg and loading
+    * * Level creation and loading
     \*/
 
     internal void new_level (int level_id)
@@ -897,11 +897,17 @@ private class NibblesView : GtkClutter.Embed
     internal const int NUM_COLORS = 6;      // only used in preferences-dialog.vala
     private static string[,] color_lookup =
     {
+        /* Translators: possible color of a worm, as displayed in the Preferences dialog combobox */
         { "red",    N_("red")    },
+        /* Translators: possible color of a worm, as displayed in the Preferences dialog combobox */
         { "green",  N_("green")  },
+        /* Translators: possible color of a worm, as displayed in the Preferences dialog combobox */
         { "blue",   N_("blue")   },
+        /* Translators: possible color of a worm, as displayed in the Preferences dialog combobox */
         { "yellow", N_("yellow") },
+        /* Translators: possible color of a worm, as displayed in the Preferences dialog combobox */
         { "cyan",   N_("cyan")   },
+        /* Translators: possible color of a worm, as displayed in the Preferences dialog combobox */
         { "purple", N_("purple") }
     };
 

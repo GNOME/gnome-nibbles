@@ -42,6 +42,7 @@ private class NibblesWindow : ApplicationWindow
 
     /* Pre-game screen widgets */
     [GtkChild] private Players players;
+    [GtkChild] private Speed speed;
     [GtkChild] private Controls controls;
 
     /* Statusbar widgets */
@@ -49,9 +50,6 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private Label countdown;
     [GtkChild] private Scoreboard scoreboard;
     private Gdk.Pixbuf scoreboard_life;
-
-    /* Preferences dialog */
-    private PreferencesDialog preferences_dialog = null;
 
     /* Rendering of the game */
     private NibblesView? view;
@@ -70,6 +68,7 @@ private class NibblesWindow : ApplicationWindow
     private SimpleAction new_game_action;
     private SimpleAction pause_action;
     private SimpleAction back_action;
+    private SimpleAction start_game_action;
 
     private uint countdown_id = 0;
     private const int COUNTDOWN_TIME = 3;
@@ -79,22 +78,26 @@ private class NibblesWindow : ApplicationWindow
     {
         { "new-game",       new_game_cb     },  // the "New Game" button
         { "pause",          pause_cb        },
-        { "preferences",    preferences_cb  },
+        { "preferences",    preferences_cb, "i" },
         { "scores",         scores_cb       },
 
-        { "next-screen",    next_screen_cb  },  // called from first-run, players and controls
+        { "next-screen",    next_screen_cb  },  // called from first-run, players and speed
+        { "start-game",     start_game      },  // called from controls
         { "back",           back_cb         }   // called on Escape pressed; disabled only during countdown (TODO pause?)
     };
 
     construct
     {
         add_action_entries (menu_entries, this);
-        new_game_action = (SimpleAction) lookup_action ("new-game");
-        pause_action    = (SimpleAction) lookup_action ("pause");
-        back_action     = (SimpleAction) lookup_action ("back");
+        new_game_action     = (SimpleAction) lookup_action ("new-game");
+        pause_action        = (SimpleAction) lookup_action ("pause");
+        back_action         = (SimpleAction) lookup_action ("back");
+        start_game_action   = (SimpleAction) lookup_action ("start-game");
 
         settings = new GLib.Settings ("org.gnome.Nibbles");
         settings.changed.connect (settings_changed_cb);
+        add_action (settings.create_action ("sound"));
+        add_action (settings.create_action ("fakes"));
 
         worm_settings = new Gee.ArrayList<GLib.Settings> ();
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
@@ -153,6 +156,10 @@ private class NibblesWindow : ApplicationWindow
         game.numai = numai;
         players.set_values (game.numhumans, numai);
 
+        /* Speed screen */
+        speed.set_values (settings.get_int ("speed"),
+                          settings.get_boolean ("fakes"));
+
         /* Controls screen */
         controls.load_pixmaps (view.tile_size);
 
@@ -166,6 +173,7 @@ private class NibblesWindow : ApplicationWindow
 
             new_game_action.set_enabled (false);
             pause_action.set_enabled (false);
+            back_action.set_enabled (false);
 
             main_stack.set_visible_child (first_run_panel);
         }
@@ -204,7 +212,6 @@ private class NibblesWindow : ApplicationWindow
             game.start (/* add initial bonus */ true);
 
             pause_action.set_enabled (true);
-            back_action.set_enabled (true);
 
             countdown_id = 0;
             return Source.REMOVE;
@@ -279,6 +286,7 @@ private class NibblesWindow : ApplicationWindow
         statusbar_stack.set_visible_child_name ("countdown");
 
         new_game_action.set_enabled (true);
+        back_action.set_enabled (true);
 
         seconds = COUNTDOWN_TIME;
         view.name_labels.show ();
@@ -368,7 +376,7 @@ private class NibblesWindow : ApplicationWindow
         else
         {
             /* Translators: label of the Pause button, when the game is running */
-            pause_button.set_label (_("_Pause"));
+            pause_button.set_label (_("_Pause"));   // duplicated in nibbles.ui
         }
     }
 
@@ -426,6 +434,9 @@ private class NibblesWindow : ApplicationWindow
         }
 
         game.worm_props.@set (worm, properties);
+
+        if (id < game.numhumans)
+            update_start_game_action ();
     }
 
     /*\
@@ -441,11 +452,13 @@ private class NibblesWindow : ApplicationWindow
                 show_new_game_screen (/* after first run */ true);
                 break;
             case "number_of_players":
+                show_speed_screen ();
+                break;
+            case "speed":
                 show_controls_screen ();
                 break;
             case "controls":
-                start_game ();
-                break;
+                assert_not_reached ();
             default:
                 return;
         }
@@ -479,7 +492,7 @@ private class NibblesWindow : ApplicationWindow
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
     }
 
-    private void show_controls_screen ()
+    private void show_speed_screen ()
     {
         int numhumans, numai;
         players.get_values (out numhumans, out numai);
@@ -488,13 +501,62 @@ private class NibblesWindow : ApplicationWindow
         settings.set_int ("players", numhumans);
         settings.set_int ("ai",      numai);
 
+        main_stack.set_visible_child_name ("speed");
+    }
+
+    private void show_controls_screen ()
+    {
+        int game_speed;
+        bool fakes;
+        speed.get_values (out game_speed, out fakes);
+        game.speed = game_speed;
+        game.fakes = fakes;
+        settings.set_int ("speed", game_speed);
+        settings.set_boolean ("fakes", fakes);
+
         /* Create worms and load properties */
+        controls.clean ();
         game.create_worms ();
         game.load_worm_properties (worm_settings);
+        update_start_game_action ();
 
         controls.prepare (game.worms, game.worm_props);
 
         main_stack.set_visible_child_name ("controls");
+    }
+
+    private void update_start_game_action ()
+    {
+        GenericSet<uint> keys = new GenericSet<uint> (direct_hash, direct_equal);
+        for (int i = 0; i < game.numhumans; i++)
+        {
+            WormProperties worm_prop = game.worm_props.@get (game.worms.@get (i));
+            if (worm_prop.up    == 0
+             || worm_prop.down  == 0
+             || worm_prop.left  == 0
+             || worm_prop.right == 0
+             // other keys of the same worm
+             || worm_prop.up    == worm_prop.down
+             || worm_prop.up    == worm_prop.left
+             || worm_prop.up    == worm_prop.right
+             || worm_prop.down  == worm_prop.left
+             || worm_prop.down  == worm_prop.right
+             || worm_prop.right == worm_prop.left
+             // keys of already checked worms
+             || keys.contains (worm_prop.up)
+             || keys.contains (worm_prop.down)
+             || keys.contains (worm_prop.left)
+             || keys.contains (worm_prop.right))
+            {
+                start_game_action.set_enabled (false);
+                return;
+            }
+            keys.add (worm_prop.up);
+            keys.add (worm_prop.down);
+            keys.add (worm_prop.left);
+            keys.add (worm_prop.right);
+        }
+        start_game_action.set_enabled (true);
     }
 
     private void show_game_view ()
@@ -506,8 +568,6 @@ private class NibblesWindow : ApplicationWindow
         main_stack.set_transition_type (StackTransitionType.NONE);
         new_game_button.show ();
         pause_button.show ();
-
-        back_action.set_enabled (false);
 
         /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
         headerbar.set_title (_("Level %d").printf (game.current_level));        // TODO unduplicate, 1/2
@@ -524,11 +584,14 @@ private class NibblesWindow : ApplicationWindow
         switch (child_name)
         {
             case "first-run":
-                break;
+                assert_not_reached ();
             case "number_of_players":
                 break;
-            case "controls":
+            case "speed":
                 main_stack.set_visible_child_name ("number_of_players");
+                break;
+            case "controls":
+                main_stack.set_visible_child_name ("speed");
                 break;
             case "game_box":
                 new_game_cb ();
@@ -598,7 +661,7 @@ private class NibblesWindow : ApplicationWindow
 
         scores_context = new Games.Scores.Context.with_importer (
             "gnome-nibbles",
-            /* Translators: label displayed on the scores dialog, preceeding a difficulty. */
+            /* Translators: label displayed on the scores dialog, preceding a difficulty. */
             _("Difficulty Level:"),
             this,
             category_request,
@@ -642,6 +705,7 @@ private class NibblesWindow : ApplicationWindow
         /* Disable these here to prevent the user clicking the buttons before the score is saved */
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
+        back_action.set_enabled (false);
 
         var scores = scores_context.get_high_scores (get_scores_category (game.speed, game.fakes));
         var lowest_high_score = (scores.size == 10 ? scores.last ().score : -1);
@@ -700,6 +764,7 @@ private class NibblesWindow : ApplicationWindow
 
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
+        back_action.set_enabled (false);
 
         /* Translators: label that appears at the end of a level; the %d is the number of the level that was completed */
         var label = new Label (_("Level %d Completed!").printf (game.current_level));
@@ -742,7 +807,8 @@ private class NibblesWindow : ApplicationWindow
         });
     }
 
-    private void preferences_cb ()
+    private void preferences_cb (SimpleAction action, Variant? variant)
+        requires (variant != null)
     {
         var should_unpause = false;
         if (game.is_running)
@@ -751,26 +817,14 @@ private class NibblesWindow : ApplicationWindow
             should_unpause = true;
         }
 
-        if (preferences_dialog != null)
-        {
-            preferences_dialog.present ();
-
-            if (should_unpause)
-                pause_action.activate (null);
-
-            return;
-        }
-
-        preferences_dialog = new PreferencesDialog (this, settings, worm_settings);
+        PreferencesDialog preferences_dialog = new PreferencesDialog (this, settings, worm_settings, ((!) variant).get_int32 (), game.numhumans);
 
         preferences_dialog.destroy.connect (() => {
-            preferences_dialog = null;
+                if (should_unpause)
+                    pause_action.activate (null);
+            });
 
-            if (should_unpause)
-                pause_action.activate (null);
-        });
-
-        preferences_dialog.run ();
+        preferences_dialog.present ();
     }
 
     private void game_over (int score, long lowest_high_score, int level_reached)

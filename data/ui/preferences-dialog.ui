@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright (C) 2015 Gabriel Ivascu
+   Copyright (C) 2020 Arnaud Bonatti
+
+   GNOME Nibbles is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   GNOME Nibbles is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <object class="GtkStack" id="headerbar_stack">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkComboBoxText" id="worm_combobox">
+        <property name="visible">True</property>
+        <property name="active-id">worm1</property>
+        <items>
+          <!-- Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 1st worm controls and color -->
+          <item translatable="yes" id="worm1">Worm 1</item>
+          <!-- Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 2nd worm controls and color -->
+          <item translatable="yes" id="worm2">Worm 2</item>
+          <!-- Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 3rd worm controls and color -->
+          <item translatable="yes" id="worm3">Worm 3</item>
+          <!-- Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 4th worm controls and color -->
+          <item translatable="yes" id="worm4">Worm 4</item>
+        </items>
+        <signal name="changed" handler="on_worm_change"/>
+      </object>
+      <packing>
+        <property name="name">preferences-combo</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkLabel">
+        <property name="visible">True</property>
+        <!-- Translators: title of the Controls configuration dialog, if there is only one worm; allows to configure the worm controls and color -->
+        <property name="label" translatable="yes">Preferences</property>
+      </object>
+      <packing>
+        <property name="name">preferences-label</property>
+      </packing>
+    </child>
+  </object>
+  <template class="PreferencesDialog" parent="GtkWindow">
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="modal">True</property>
+    <property name="icon_name">gnome-nibbles</property>
+    <child type="titlebar">
+      <object class="GtkHeaderBar">
+        <property name="visible">True</property>
+        <property name="show-close-button">True</property>
+        <property name="custom-title">headerbar_stack</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkStack" id="stack">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">12</property>
+            <property name="spacing">6</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <!-- Translators: title of a section in the Preferences dialog (1st worm); allows to configure keyboard controls for the worm -->
+                <property name="label" translatable="yes">Controls</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0.5</property>
+                <property name="yalign">0.5</property>
+                <property name="halign">start</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListStore" id="list_store_1">
+                <columns>
+                  <column type="gchararray"/>
+                  <column type="gchararray"/>
+                  <column type="gint"/>
+                </columns>
+              </object>
+              <object class="GtkTreeView" id="tree_view_1">
+                <property name="model">list_store_1</property>
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">horizontal</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">0</property>
+                <property name="column_spacing">12</property>
+                <property name="border_width">0</property>
+                <child>
+                  <object class="GtkLabel">
+                    <!-- Translators: title of a section in the Preferences dialog (1st worm); allows to configure the worm color -->
+                    <property name="label" translatable="yes">Worm color</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0.5</property>
+                    <property name="yalign">0.5</property>
+                    <property name="halign">start</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_box_1">
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">worm1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">12</property>
+            <property name="spacing">6</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <!-- Translators: title of a section in the Preferences dialog (2nd worm); allows to configure keyboard controls for the worm -->
+                <property name="label" translatable="yes">Controls</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0.5</property>
+                <property name="yalign">0.5</property>
+                <property name="halign">start</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListStore" id="list_store_2">
+                <columns>
+                  <column type="gchararray"/>
+                  <column type="gchararray"/>
+                  <column type="guint"/>
+                </columns>
+              </object>
+              <object class="GtkTreeView" id="tree_view_2">
+                <property name="model">list_store_2</property>
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">horizontal</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">0</property>
+                <property name="column_spacing">12</property>
+                <property name="border_width">0</property>
+                <child>
+                  <object class="GtkLabel">
+                    <!-- Translators: title of a section in the Preferences dialog (2nd worm); allows to configure the worm color -->
+                    <property name="label" translatable="yes">Worm color</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0.5</property>
+                    <property name="yalign">0.5</property>
+                    <property name="halign">start</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_box_2">
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">worm2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">12</property>
+            <property name="spacing">6</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <!-- Translators: title of a section in the Preferences dialog (3rd worm); allows to configure keyboard controls for the worm -->
+                <property name="label" translatable="yes">Controls</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0.5</property>
+                <property name="yalign">0.5</property>
+                <property name="halign">start</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListStore" id="list_store_3">
+                <columns>
+                  <column type="gchararray"/>
+                  <column type="gchararray"/>
+                  <column type="guint"/>
+                </columns>
+              </object>
+              <object class="GtkTreeView" id="tree_view_3">
+                <property name="model">list_store_3</property>
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">horizontal</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">0</property>
+                <property name="column_spacing">12</property>
+                <property name="border_width">0</property>
+                <child>
+                  <object class="GtkLabel">
+                    <!-- Translators: title of a section in the Preferences dialog (3rd worm); allows to configure the worm color -->
+                    <property name="label" translatable="yes">Worm color</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0.5</property>
+                    <property name="yalign">0.5</property>
+                    <property name="halign">start</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_box_3">
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">worm3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">12</property>
+            <property name="spacing">6</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <!-- Translators: title of a section in the Preferences dialog (4th worm); allows to configure keyboard controls for the worm -->
+                <property name="label" translatable="yes">Controls</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0.5</property>
+                <property name="yalign">0.5</property>
+                <property name="halign">start</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListStore" id="list_store_4">
+                <columns>
+                  <column type="gchararray"/>
+                  <column type="gchararray"/>
+                  <column type="guint"/>
+                </columns>
+              </object>
+              <object class="GtkTreeView" id="tree_view_4">
+                <property name="model">list_store_4</property>
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">horizontal</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">0</property>
+                <property name="column_spacing">12</property>
+                <property name="border_width">0</property>
+                <child>
+                  <object class="GtkLabel">
+                    <!-- Translators: title of a section in the Preferences dialog (4th worm); allows to configure the worm color -->
+                    <property name="label" translatable="yes">Worm color</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0.5</property>
+                    <property name="yalign">0.5</property>
+                    <property name="halign">start</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_box_4">
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">worm4</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

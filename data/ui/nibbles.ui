@@ -22,37 +22,49 @@
   <menu id="app-menu">
     <section>
       <item>
+        <!-- Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); mutes or unmutes game sound -->
+        <attribute name="label" translatable="yes">_Sound</attribute>
+        <attribute name="action">win.sound</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the Scores dialog -->
         <attribute name="label" translatable="yes">_Scores</attribute>
         <attribute name="action">win.scores</attribute>
       </item>
     </section>
     <section>
       <item>
-        <attribute name="label" translatable="yes">_Preferences</attribute>
-        <attribute name="action">win.preferences</attribute>
-      </item>
-      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application -->
         <attribute name="label" translatable="yes">_Help</attribute>
         <attribute name="action">app.help</attribute>
         <attribute name="accel">F1</attribute>
       </item>
       <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the About dialog -->
         <attribute name="label" translatable="yes">_About Nibbles</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>
   </menu>
   <template class="NibblesWindow" parent="GtkApplicationWindow">
+    <!-- Translators: title of the window, as displayed by the window manager -->
     <property name="title" translatable="yes">Nibbles</property>
+    <style>
+      <class name="nibbles-window"/>
+    </style>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="headerbar">
         <property name="visible">True</property>
+        <!-- Translators: title of the window, as displayed in the headerbar -->
         <property name="title" translatable="yes">Nibbles</property>
         <property name="show-close-button">True</property>
         <child>
           <object class="GtkButton" id="new_game_button">
             <property name="visible">False</property>
             <property name="use-underline">True</property>
+            <!-- Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game -->
             <property name="label" translatable="yes">_New Game</property>
             <property name="action-name">win.new-game</property>
           </object>
@@ -64,7 +76,8 @@
           <object class="GtkButton" id="pause_button">
             <property name="visible">False</property>
             <property name="use-underline">True</property>
-            <property name="label" translatable="yes">_Pause</property>
+            <!-- Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game -->
+            <property name="label" translatable="yes">_Pause</property> <!-- duplicated in nibbles-window.vala; keep here else we see the button resize at game start -->
             <property name="action-name">win.pause</property>
           </object>
           <packing>
@@ -105,6 +118,14 @@
           </object>
           <packing>
             <property name="name">number_of_players</property>
+          </packing>
+        </child>
+        <child>
+          <object class="Speed" id="speed">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="name">speed</property>
           </packing>
         </child>
         <child>
@@ -149,6 +170,7 @@
                     <child>
                       <object class="GtkLabel">
                         <property name="visible">True</property>
+                        <!-- Translators: text displayed at the bottom of the window, when the game is paused -->
                         <property name="label" translatable="yes">Paused</property>
                         <style><class name="menu-title"/></style>
                       </object>

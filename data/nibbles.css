@@ -1,4 +1,4 @@
-window {
+window.nibbles-window {
   background-color: rgba(0, 0, 0, 1);
 }
 
@@ -27,28 +27,100 @@ window {
 * * players screen
 \*/
 
-.number-box {
+button.toggle.text-button.number-box {
   font-size: 3em;
   font-weight: bold;
   font-family: Sans;
+
   padding: 1px 38px;
-  background-image: linear-gradient(to bottom, #3e4444);
+  background-color: #3e4444;
+  background-image: none;
+
   color:@theme-fg-color;
 }
-.number-box:disabled {
+button.toggle.text-button.number-box:disabled {
   color:@theme-fg-color;
 }
-.number-box:hover {
-  background-image: linear-gradient(to bottom, rgba(60, 69, 71, 0.8));
+button.toggle.text-button.number-box:hover {
+  background-color: rgba(60, 69, 71, 0.8);
 }
-.number-box:checked {
-  background-image: linear-gradient(to bottom, #215d9c);
+button.toggle.text-button.number-box:checked {
+  background-color: #215d9c;
+}
+
+/*\
+* * speed screen
+\*/
+
+/* the speed buttons */
+button.toggle.text-button.speed-box,
+modelbutton.flat.speed-box
+{
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: Sans;
+
+  min-width:20em;
+  padding: 1em 1.5em 1em 1.5em;
+  background-color: #3e4444;
+  background-image: none;
+
+  color:@theme-fg-color;
+}
+button.toggle.text-button.speed-box:disabled,
+modelbutton.flat.speed-box:disabled {
+  color:@theme-fg-color;
+}
+button.toggle.text-button.speed-box:hover,
+modelbutton.flat.speed-box:hover {
+  background-color: rgba(60, 69, 71, 0.8);
+}
+button.toggle.text-button.speed-box:checked,
+modelbutton.flat.speed-box:checked {
+  background-color: #215d9c;
+}
+
+/* the empty space */
+separator.speed-separator {
+  background-color:transparent;
+  border-color:transparent;
+  padding:0.2em;
+}
+
+/* the checkbutton */
+modelbutton.speed-box > check {
+  min-height: 1em;
+  min-width:  1em;
 }
 
 /*\
 * * controls screen
 \*/
 
+/* the controls buttons */
+button.controls-box {
+  background-image:-gtk-icontheme('emblem-system-symbolic');
+  background-size:2.5em;
+  background-repeat:no-repeat;
+  background-position:calc(100%-1em) calc(100%-1em);
+  background-color:transparent;
+
+  padding-top:1em;
+
+  border-radius:2em;
+  border-width:6px;
+
+  transition:all 0s;    /* looks impossible to transition the background image color, so disable transitions */
+
+  border-color:#3e4444;
+  color:@insensitive_fg_color;
+}
+button.controls-box:hover {
+  border-color:#215d9c;
+  color:@theme_fg_color;
+}
+
+/* key indicators */
 .controls-button {
   padding: 4px 8px;
   border: 1px solid;
@@ -59,6 +131,15 @@ window {
   background-image: linear-gradient(to bottom, #343a3a, #2f3434 60%, #2a2f2f);
   text-shadow: 0 -1px rgba(0, 0, 0, 0.81176);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 1px rgba(238, 238, 236, 0);
+  font-weight:bold;
+}
+
+.controls-button.arrow {
+  font-size:175%;
+}
+
+label.duplicate {
+  color:red;
 }
 
 /*\

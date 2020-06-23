@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/nibbles/ui">
-    <file preprocess="xml-stripblanks"                  >controls.ui</file>
-    <file preprocess="xml-stripblanks"                  >controls-grid.ui</file>
-    <file preprocess="xml-stripblanks" compressed="true">first-run.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="controls.ui"            >ui/controls.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="controls-grid.ui"       >ui/controls-grid.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="first-run.ui"           >ui/first-run.ui</file>
     <file>nibbles.css</file>
-    <file preprocess="xml-stripblanks"                  >nibbles.ui</file>
-    <file preprocess="xml-stripblanks"                  >players.ui</file>
-    <file preprocess="xml-stripblanks"                  >player-score-box.ui</file>
-    <file preprocess="xml-stripblanks" compressed="true">preferences-dialog.ui</file>
-    <file preprocess="xml-stripblanks"                  >scoreboard.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="nibbles.ui"             >ui/nibbles.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="players.ui"             >ui/players.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="player-score-box.ui"    >ui/player-score-box.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="preferences-dialog.ui"  >ui/preferences-dialog.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="scoreboard.ui"          >ui/scoreboard.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="speed.ui"               >ui/speed.ui</file>
   </gresource>
 </gresources>
-

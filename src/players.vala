@@ -28,6 +28,24 @@ private class Players : Box
     private SimpleAction nibbles_number_action;
     private SimpleAction players_number_action;
 
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set (with a mnemonic that appears when pressing Alt) */
+    private const string ai0_label = N_("_0");
+
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set (with a mnemonic that appears when pressing Alt) */
+    private const string ai1_label = N_("_1");
+
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set (with a mnemonic that appears when pressing Alt) */
+    private const string ai2_label = N_("_2");
+
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set (with a mnemonic that appears when pressing Alt) */
+    private const string ai3_label = N_("_3");
+
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set (with a mnemonic that appears when pressing Alt) */
+    private const string ai4_label = N_("_4");
+
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set (with a mnemonic that appears when pressing Alt) */
+    private const string ai5_label = N_("_5");
+
     private const GLib.ActionEntry [] players_action_entries =
     {
         { "change-nibbles-number", null, "i", "4", change_nibbles_number },
@@ -69,11 +87,35 @@ private class Players : Box
 
     private void update_buttons_labels ()
     {
-        int min_ai = 4 - players_number_action.get_state ().get_int32 ();
+        switch (players_number_action.get_state ().get_int32 ())
+        {
+            case 1:
+                worms4.set_label (_(ai3_label));
+                worms5.set_label (_(ai4_label));
+                worms6.set_label (_(ai5_label));
+                break;
 
-        worms4.set_label (@"_$min_ai");
-        worms5.set_label (@"_$(min_ai + 1)");
-        worms6.set_label (@"_$(min_ai + 2)");
+            case 2:
+                worms4.set_label (_(ai2_label));
+                worms5.set_label (_(ai3_label));
+                worms6.set_label (_(ai4_label));
+                break;
+
+            case 3:
+                worms4.set_label (_(ai1_label));
+                worms5.set_label (_(ai2_label));
+                worms6.set_label (_(ai3_label));
+                break;
+
+            case 4:
+                worms4.set_label (_(ai0_label));
+                worms5.set_label (_(ai1_label));
+                worms6.set_label (_(ai2_label));
+                break;
+
+            default:
+                assert_not_reached ();
+        }
     }
 
     private inline void change_nibbles_number (SimpleAction _nibbles_number_action, Variant variant)
