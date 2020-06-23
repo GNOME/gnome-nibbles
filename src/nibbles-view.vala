@@ -110,6 +110,9 @@ private class WarpTexture: GtkClutter.Texture
 
 private class NibblesView : GtkClutter.Embed
 {
+    internal const int WIDTH = 92;
+    internal const int HEIGHT = 66;
+
     private const int MINIMUM_TILE_SIZE = 7;
     public int tile_size { internal get; protected construct set; }
 
@@ -157,8 +160,8 @@ private class NibblesView : GtkClutter.Embed
         Clutter.Color stage_color = { 0x00, 0x00, 0x00, 0xff };
         stage.set_background_color (stage_color);
 
-        set_size_request (MINIMUM_TILE_SIZE * NibblesGame.WIDTH,
-                          MINIMUM_TILE_SIZE * NibblesGame.HEIGHT);
+        set_size_request (MINIMUM_TILE_SIZE * WIDTH,
+                          MINIMUM_TILE_SIZE * HEIGHT);
 
         load_pixmap ();
     }
@@ -170,11 +173,11 @@ private class NibblesView : GtkClutter.Embed
         /* Compute the new tile size based on the size of the
          * drawing area, rounded down.
          */
-        ts_x = event.width / NibblesGame.WIDTH;
-        ts_y = event.height / NibblesGame.HEIGHT;
-        if (ts_x * NibblesGame.WIDTH > event.width)
+        ts_x = event.width / WIDTH;
+        ts_y = event.height / HEIGHT;
+        if (ts_x * WIDTH > event.width)
             ts_x--;
-        if (ts_y * NibblesGame.HEIGHT > event.height)
+        if (ts_y * HEIGHT > event.height)
             ts_y--;
         new_tile_size = int.min (ts_x, ts_y);
 
@@ -183,7 +186,7 @@ private class NibblesView : GtkClutter.Embed
 
         if (tile_size != new_tile_size)
         {
-            get_stage ().set_size (new_tile_size * NibblesGame.WIDTH, new_tile_size * NibblesGame.HEIGHT);
+            get_stage ().set_size (new_tile_size * WIDTH, new_tile_size * HEIGHT);
 
             board_rescale (new_tile_size);
             boni_rescale  (new_tile_size);
@@ -246,10 +249,10 @@ private class NibblesView : GtkClutter.Embed
         /* Load wall_pixmaps onto the surface */
         int x_pos, y_pos;
         GtkClutter.Texture? tmp;
-        for (int i = 0; i < NibblesGame.HEIGHT; i++)
+        for (int i = 0; i < HEIGHT; i++)
         {
             y_pos = i * tile_size;
-            for (int j = 0; j < NibblesGame.WIDTH; j++)
+            for (int j = 0; j < WIDTH; j++)
             {
                 tmp = null;
                 try
@@ -470,8 +473,8 @@ private class NibblesView : GtkClutter.Embed
         if (level == null)
             return;
 
-        board_width = NibblesGame.WIDTH * new_tile_size;
-        board_height = NibblesGame.HEIGHT * new_tile_size;
+        board_width = WIDTH * new_tile_size;
+        board_height = HEIGHT * new_tile_size;
 
         foreach (var actor in level.get_children ())
         {

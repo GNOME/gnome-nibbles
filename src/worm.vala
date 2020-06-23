@@ -138,9 +138,19 @@ private class Worm : Object
     internal signal void bonus_found ();
     internal signal void warp_found ();
 
-    internal Worm (int id)
+    public int width    { private get; protected construct; }
+    public int height   { private get; protected construct; }
+    public int capacity { private get; protected construct; }
+
+    construct
     {
-        Object (id: id);
+        deadend_board = new uint [width, height];
+    }
+
+    internal Worm (int id, int width, int height)
+    {
+        int capacity = width * height;
+        Object (id: id, width: width, height: height, capacity: capacity);
     }
 
     internal void set_start (int xhead, int yhead, WormDirection direction)
@@ -171,24 +181,24 @@ private class Worm : Object
             case WormDirection.UP:
                 position.y = --head.y;
                 if (position.y < 0)
-                    position.y = NibblesGame.HEIGHT - 1;
+                    position.y = height - 1;
                 break;
 
             case WormDirection.DOWN:
                 position.y = ++head.y;
-                if (position.y >= NibblesGame.HEIGHT)
+                if (position.y >= height)
                     position.y = 0;
                 break;
 
             case WormDirection.LEFT:
                 position.x = --head.x;
                 if (position.x < 0)
-                    position.x = NibblesGame.WIDTH - 1;
+                    position.x = width - 1;
                 break;
 
             case WormDirection.RIGHT:
                 position.x = ++head.x;
-                if (position.x >= NibblesGame.WIDTH)
+                if (position.x >= width)
                     position.x = 0;
                 break;
 
@@ -376,24 +386,24 @@ private class Worm : Object
             case WormDirection.UP:
                 position.y = --head.y;
                 if (position.y < 0)
-                    position.y = NibblesGame.HEIGHT - 1;
+                    position.y = height - 1;
                 break;
 
             case WormDirection.DOWN:
                 position.y = ++head.y;
-                if (position.y >= NibblesGame.HEIGHT)
+                if (position.y >= height)
                     position.y = 0;
                 break;
 
             case WormDirection.LEFT:
                 position.x = --head.x;
                 if (position.x < 0)
-                    position.x = NibblesGame.WIDTH - 1;
+                    position.x = width - 1;
                 break;
 
             case WormDirection.RIGHT:
                 position.x = ++head.x;
-                if (position.x >= NibblesGame.WIDTH)
+                if (position.x >= width)
                     position.x = 0;
                 break;
 
@@ -504,19 +514,22 @@ private class Worm : Object
      * after 4 billion steps the entire board is likely to have been
      * overwritten anyway.
      */
-    private static uint[,] deadend_board = new uint[NibblesGame.WIDTH, NibblesGame.HEIGHT];
+    private static uint[,] deadend_board;
     private static uint deadend_runnumber = 0;
 
     private static int ai_deadend (int[,] board, int numworms, int x, int y, int length_left)
     {
-        if (x >= NibblesGame.WIDTH)
+        uint8 width  = (uint8) /* int */ board.length [0];
+        uint8 height = (uint8) /* int */ board.length [1];
+
+        if (x >= width)
             x = 0;
         else if (x < 0)
-            x = NibblesGame.WIDTH - 1;
-        if (y >= NibblesGame.HEIGHT)
+            x = width - 1;
+        if (y >= height)
             y = 0;
         else if (y < 0)
-            y = NibblesGame.HEIGHT - 1;
+            y = height - 1;
 
         if (length_left <= 0)
             return 0;
@@ -534,14 +547,14 @@ private class Worm : Object
                 default: assert_not_reached ();
             }
 
-            if (cx >= NibblesGame.WIDTH)
+            if (cx >= width)
                 cx = 0;
             else if (cx < 0)
-                cx = NibblesGame.WIDTH - 1;
-            if (cy >= NibblesGame.HEIGHT)
+                cx = width - 1;
+            if (cy >= height)
                 cy = 0;
             else if (cy < 0)
-                cy = NibblesGame.HEIGHT - 1;
+                cy = height - 1;
 
             if ((board[cx, cy] <= NibblesGame.EMPTYCHAR
                 || board[x, y] >= 'z' + numworms)
@@ -570,7 +583,11 @@ private class Worm : Object
     {
         int cx, cy, cl, i;
 
-        if (x < 0 || x >= NibblesGame.WIDTH || y < 0 || y >= NibblesGame.HEIGHT)
+        uint8 width  = (uint8) /* int */ board.length [0];
+        uint8 height = (uint8) /* int */ board.length [1];
+
+        if (x < 0 || x >= width
+         || y < 0 || y >= height)
             return 0;
 
         ++deadend_runnumber;
@@ -585,9 +602,9 @@ private class Worm : Object
                     deadend_board[cx - 1, cy] = deadend_runnumber;
                 if (cy > 0)
                     deadend_board[cx, cy - 1] = deadend_runnumber;
-                if (cx < NibblesGame.WIDTH - 1)
+                if (cx < width - 1)
                     deadend_board[cx + 1, cy] = deadend_runnumber;
-                if (cy < NibblesGame.HEIGHT - 1)
+                if (cy < height - 1)
                     deadend_board[cx, cy + 1] = deadend_runnumber;
             }
         }
@@ -612,21 +629,21 @@ private class Worm : Object
                 assert_not_reached ();
         }
 
-        if (cx >= NibblesGame.WIDTH)
+        if (cx >= width)
             cx = 0;
         else if (cx < 0)
-            cx = NibblesGame.WIDTH - 1;
-        if (cy >= NibblesGame.HEIGHT)
+            cx = width - 1;
+        if (cy >= height)
             cy = 0;
         else if (cy < 0)
-            cy = NibblesGame.HEIGHT - 1;
+            cy = height - 1;
 
         deadend_board[x, y] = deadend_runnumber;
         deadend_board[cx, cy] = deadend_runnumber;
 
         cl = (length * length) / 16;
-        if (cl < NibblesGame.WIDTH)
-            cl = NibblesGame.WIDTH;
+        if (cl < width)
+            cl = width;
         return Worm.ai_deadend (board, numworms, cx, cy, cl);
     }
 
@@ -671,6 +688,9 @@ private class Worm : Object
 
     private static bool ai_wander (int[,] board, int numworms, int x, int y, WormDirection direction, int ox, int oy)
     {
+        uint8 width  = (uint8) /* int */ board.length [0];
+        uint8 height = (uint8) /* int */ board.length [1];
+
         switch (direction)
         {
             case WormDirection.UP:
@@ -689,14 +709,14 @@ private class Worm : Object
                 assert_not_reached ();
         }
 
-        if (x >= NibblesGame.WIDTH)
+        if (x >= width)
             x = 0;
         else if (x < 0)
-            x = NibblesGame.WIDTH - 1;
-        if (y >= NibblesGame.HEIGHT)
+            x = width - 1;
+        if (y >= height)
             y = 0;
         else if (y < 0)
-            y = NibblesGame.HEIGHT - 1;
+            y = height - 1;
 
         switch (board[x, y] - 'A')
         {
@@ -762,7 +782,7 @@ private class Worm : Object
          */
         WormDirection prev_dir = direction;
         WormDirection best_dir = NONE;
-        int best_yet = NibblesGame.CAPACITY * 2;
+        int best_yet = capacity * 2;
 
         int this_len;
         for (int dir = 1; dir <= 4; dir++)
@@ -775,7 +795,7 @@ private class Worm : Object
             this_len = 0;
 
             if (!can_move_to (board, numworms))
-                this_len += NibblesGame.CAPACITY;
+                this_len += capacity;
 
             if (ai_too_close (worms, numworms))
                 this_len += 4;

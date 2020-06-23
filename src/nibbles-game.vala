@@ -34,10 +34,6 @@ private class NibblesGame : Object
 
     internal const int MAX_SPEED = 4;
 
-    internal const int WIDTH = 92;
-    internal const int HEIGHT = 66;
-    internal const int CAPACITY = WIDTH * HEIGHT;
-
     internal const char EMPTYCHAR = 'a';
     internal const char WORMCHAR = 'w';     // only used in worm.vala
     internal const char WARPCHAR = 'W';     // only used in warp.vala
@@ -49,7 +45,10 @@ private class NibblesGame : Object
     public int speed            { internal get; internal construct set; }
 
     /* Board data */
-    internal int[,] board = new int[WIDTH, HEIGHT];
+    internal int[,] board;
+
+    public int width            { internal get; protected construct; }
+    public int height           { internal get; protected construct; }
 
     /* Worms data */
     internal int numhumans      { internal get; internal set; }
@@ -81,20 +80,21 @@ private class NibblesGame : Object
 
     construct
     {
+        board = new int [width, height];
         warp_manager.warp_added.connect ((warp) => warp_added (warp.x, warp.y));
         boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
-    internal NibblesGame (int start_level, int speed, bool fakes, bool no_random = false)
+    internal NibblesGame (int start_level, int speed, bool fakes, int width, int height, bool no_random = false)
     {
-        Object (start_level: start_level, current_level: start_level, speed: speed, fakes: fakes);
+        Object (start_level: start_level, current_level: start_level, speed: speed, fakes: fakes, width: width, height: height);
 
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
 
     internal bool load_board (string [] future_board)
     {
-        if (future_board.length != NibblesGame.HEIGHT)
+        if (future_board.length != height)
             return false;
 
         boni.reset (numworms);
@@ -102,12 +102,12 @@ private class NibblesGame : Object
 
         string tmpboard;
         int count = 0;
-        for (int i = 0; i < NibblesGame.HEIGHT; i++)
+        for (int i = 0; i < height; i++)
         {
             tmpboard = future_board [i];
-            if (tmpboard.char_count () != NibblesGame.WIDTH)
+            if (tmpboard.char_count () != width)
                 return false;
-            for (int j = 0; j < NibblesGame.WIDTH; j++)
+            for (int j = 0; j < width; j++)
             {
                 unichar char_value = tmpboard.get_char (tmpboard.index_of_nth_char (j));
                 switch (char_value)
@@ -351,7 +351,7 @@ private class NibblesGame : Object
         numworms = numai + numhumans;
         for (int i = 0; i < numworms; i++)
         {
-            var worm = new Worm (i);
+            var worm = new Worm (i, width, height);
             worm.bonus_found.connect (bonus_found_cb);
             worm.warp_found.connect (warp_found_cb);
             worm.is_human = (i < numhumans);
@@ -458,8 +458,8 @@ private class NibblesGame : Object
         do
         {
             good = true;
-            x = Random.int_range (0, WIDTH - 1);
-            y = Random.int_range (0, HEIGHT - 1);
+            x = Random.int_range (0, width  - 1);
+            y = Random.int_range (0, height - 1);
 
             if (board[x, y] != EMPTYCHAR)
                 good = false;
@@ -481,8 +481,8 @@ private class NibblesGame : Object
             {
                 good = true;
 
-                x = Random.int_range (0, WIDTH - 1);
-                y = Random.int_range (0, HEIGHT - 1);
+                x = Random.int_range (0, width  - 1);
+                y = Random.int_range (0, height - 1);
                 if (board[x, y] != EMPTYCHAR)
                     good = false;
                 if (board[x + 1, y] != EMPTYCHAR)
