@@ -196,7 +196,6 @@ private class NibblesWindow : ApplicationWindow
 
         // game properties
         settings.set_int ("tile-size", view.tile_size);     // TODO why?!
-        settings.set_int ("start-level", game.start_level);
         settings.set_int ("speed", game.speed);
         settings.set_boolean ("fakes", game.fakes);
         settings.apply ();
@@ -261,7 +260,7 @@ private class NibblesWindow : ApplicationWindow
 
         if (game.is_paused)
             set_pause_button_label (/* paused */ false);
-        game.reset ();
+        game.reset (settings.get_int ("start-level"));
 
         view.new_level (game.current_level);
         view.connect_worm_signals ();
@@ -718,7 +717,7 @@ private class NibblesWindow : ApplicationWindow
             return;
         }
 
-        if (game.start_level != 1)
+        if (game.skip_score)
         {
             game_over (score, lowest_high_score, level_reached);
             return;
