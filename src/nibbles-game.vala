@@ -40,7 +40,7 @@ private class NibblesGame : Object
 
     internal const int MAX_LEVEL = 26;
 
-    public int start_level      { internal get; protected construct; }
+    public bool skip_score      { internal get; protected construct set; }
     public int current_level    { internal get; protected construct set; }
     public int speed            { internal get; internal construct set; }
 
@@ -87,7 +87,7 @@ private class NibblesGame : Object
 
     internal NibblesGame (int start_level, int speed, bool fakes, int width, int height, bool no_random = false)
     {
-        Object (start_level: start_level, current_level: start_level, speed: speed, fakes: fakes, width: width, height: height);
+        Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, fakes: fakes, width: width, height: height);
 
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
@@ -285,8 +285,9 @@ private class NibblesGame : Object
         start (/* add initial bonus */ false);
     }
 
-    internal inline void reset ()
+    internal inline void reset (int start_level)
     {
+        skip_score = start_level != 1;
         current_level = start_level;
         is_paused = false;
     }
