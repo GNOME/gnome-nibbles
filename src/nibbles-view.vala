@@ -236,7 +236,7 @@ private class NibblesView : GtkClutter.Embed
         string [] board = {};
         while ((line = file.read_line ()) != null)
             board += (!) line;
-        if (!game.load_board (board))
+        if (!game.load_board (board, 8 + game.numworms))
             error ("Level file appears to be damaged: %s", filename);
 
         foreach (Worm worm in game.worms)
