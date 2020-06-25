@@ -47,7 +47,7 @@ namespace NibblesTest
         game.numai = 4;
         game.create_worms ();
 
-        game.load_board (level_008);
+        game.load_board (level_008, /* regular bonus = 8 + numworms */ 12);
 
         assert_true (game.numworms == 4);
         assert_true (game.worms.size == 4);

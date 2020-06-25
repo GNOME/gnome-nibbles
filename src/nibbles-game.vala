@@ -92,12 +92,12 @@ private class NibblesGame : Object
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
 
-    internal bool load_board (string [] future_board)
+    internal bool load_board (string [] future_board, uint8 regular_bonus)
     {
         if (future_board.length != height)
             return false;
 
-        boni.reset (numworms);
+        boni.reset (regular_bonus);
         warp_manager.warps.clear ();
 
         string tmpboard;
