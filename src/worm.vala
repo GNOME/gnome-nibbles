@@ -272,9 +272,8 @@ private class Worm : Object
             direction = (list[0].y > list[1].y) ? WormDirection.DOWN : WormDirection.UP;
     }
 
-    internal bool can_move_to (int[,] board, int numworms)
+    internal bool can_move_to (int[,] board, int numworms, Position position)
     {
-        var position = position_move ();
         int next_position = board[position.x, position.y];
 
         if (next_position > NibblesGame.EMPTYCHAR
@@ -363,7 +362,7 @@ private class Worm : Object
         finish_added ();
     }
 
-    private Position position_move ()
+    internal Position position_move ()
     {
         Position position = head;
 
@@ -780,7 +779,7 @@ private class Worm : Object
                 continue;
             this_len = 0;
 
-            if (!can_move_to (board, numworms))
+            if (!can_move_to (board, numworms, position_move ()))
                 this_len += capacity;
 
             if (ai_too_close (worms, numworms))
@@ -818,7 +817,7 @@ private class Worm : Object
             if (opposite == (WormDirection) dir)
                 continue;
 
-            if (!can_move_to (board, numworms))
+            if (!can_move_to (board, numworms, position_move ()))
                 direction = (WormDirection) dir;
         }
     }

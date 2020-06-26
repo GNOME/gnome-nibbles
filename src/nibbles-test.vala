@@ -29,6 +29,8 @@ namespace NibblesTest
                                  test_games);
         Test.add_func ("/Nibbles/test heads",
                                  test_heads);
+        Test.add_func ("/Nibbles/test warps",
+                                 test_warps);
         return Test.run ();
     }
 
@@ -53,7 +55,7 @@ namespace NibblesTest
 
         ulong [] worms_handlers = new ulong [game.worms.size];
         foreach (Worm worm in game.worms)
-            // FIXME we should not have to connect to anything 1/2
+            // FIXME we should not have to connect to anything 1/3
             worms_handlers [worm.id] = worm.finish_added.connect (() => { worm.dematerialize (game.board, 3); worm.is_stopped = false; });
 
         assert_true (game.numworms == 4);
@@ -176,7 +178,7 @@ namespace NibblesTest
         _test_heads (test_heads_1, /* worm 0 */ 6, 4, /* worm 1 */ 11, 4, /* lives */ 6, 6);
 
         Test.message ("test heads 2");
-        _test_heads (test_heads_2, /* worm 0 */ 6, 4, /* worm 1 */ 11, 4, /* lives */ 6, 5);
+        _test_heads (test_heads_2, /* worm 0 */ 6, 4, /* worm 1 */ 11, 4, /* lives */ 6, 4);
 
         Test.message ("test heads 3");
         _test_heads (test_heads_3, /* worm 0 */ 6, 4, /* worm 1 */ 10, 4, /* lives */ 6, 6);
@@ -191,7 +193,7 @@ namespace NibblesTest
         _test_heads (test_heads_6, /* worm 0 */ 6, 1, /* worm 1 */  6, 4, /* lives */ 4, 6);
 
         Test.message ("test heads 9");
-        _test_heads (test_heads_9, /* worm 0 */ 6, 1, /* worm 1 */  6, 4, /* lives */ 6, 5);
+        _test_heads (test_heads_9, /* worm 0 */ 6, 1, /* worm 1 */  6, 4, /* lives */ 6, 4);
 
         Test.message ("test heads 7");
         _test_heads (test_heads_7, /* worm 0 */ 6, 2, /* worm 1 */  6, 4, /* lives */ 6, 6);
@@ -221,7 +223,7 @@ namespace NibblesTest
 
         ulong [] worms_handlers = new ulong [game.worms.size];
         foreach (Worm worm in game.worms)
-            // FIXME we should not have to connect to anything 2/2
+            // FIXME we should not have to connect to anything 2/3
             worms_handlers [worm.id] = worm.finish_added.connect (() => { worm.dematerialize (game.board, 3); worm.is_stopped = false; });
 
         assert_true (game.numworms == 2);
@@ -343,4 +345,106 @@ namespace NibblesTest
             "┃▶...............┃",
             "┗━━━━━━━━━━━━━━━━┛"
         };  /* expected: 6, 6 */
+
+    /*\
+    * * test warps
+    \*/
+
+    private static void test_warps ()
+    {
+        Test.message ("test warps 1");
+        _test_warps (test_warps_1, /* worm 0 */ 6, 4, /* lives */ 6);
+
+        Test.message ("test warps 2");
+        _test_warps (test_warps_2, /* worm 0 */ 6, 4, /* lives */ 0);
+
+        Test.message ("test warps 3");
+        _test_warps (test_warps_3, /* worm 0 */ 9, 4, /* lives */ 0);
+
+        Test.message ("test warps 4");
+        _test_warps (test_warps_4, /* worm 0 */ 9, 4, /* lives */ 6);
+    }
+
+    private static void _test_warps (string [] board,
+                                     int worm_0_x,
+                                     int worm_0_y,
+                                     int expected)
+    {
+        NibblesGame game = new NibblesGame (/* start level */ 0, /* speed */ 0, /* fakes */ false, test_warps_width, test_warps_height, /* no random */ true);
+
+        game.numhumans = 0;
+        game.numai = 1;
+        game.create_worms ();
+
+        game.load_board (board, /* regular bonus */ 1);
+
+        ulong [] worms_handlers = new ulong [game.worms.size];
+        foreach (Worm worm in game.worms)
+            // FIXME we should not have to connect to anything 3/3
+            worms_handlers [worm.id] = worm.finish_added.connect (() => { worm.dematerialize (game.board, 3); worm.is_stopped = false; });
+
+        assert_true (game.numworms == 1);
+        assert_true (game.worms.size == 1);
+
+        ulong game_handler_1 = game.bonus_applied.connect ((bonus, worm) => { Test.message (@"worm $(worm.id) took bonus at [$(bonus.x), $(bonus.y)]"); });
+
+        game.add_worms ();
+        game.start (/* add initial bonus */ true);
+
+        assert_true (game.worms.@get (0).lives == 6);
+        assert_true (game.worms.@get (0).score == 0);
+        assert_true (game.worms.@get (0).head.x == worm_0_x && game.worms.@get (0).head.y == worm_0_y);
+
+        // run until game is finished
+        bool completed = false;
+        ulong game_handler_2 = game.level_completed.connect (() => { completed = true; });
+        MainContext context = MainContext.@default ();
+        do context.iteration (/* may block */ false);
+        while (!completed && (game.get_game_status () != GameStatus.GAMEOVER));
+
+        assert_true (game.worms.@get (0).lives == expected);
+
+        // FIXME looks like last bonus is not counted...
+        assert_true (game.worms.@get (0).score == 0);
+
+        foreach (Worm worm in game.worms)
+            worm.disconnect (worms_handlers [worm.id]);
+        game.disconnect (game_handler_1);
+        game.disconnect (game_handler_2);
+    }
+
+    private const int test_warps_width = 11;
+    private const int test_warps_height = 6;
+    private const string [] test_warps_1 = {
+            "┏━━┓┏━━┓┏━┓",
+            "┃++┗┛..┗┛.┃",
+            "┃+S....┏━━┫",
+            "┣━━━━━━┛++┃",
+            "┃▶......+S┃",
+            "┗━━━━━━━━━┛"
+        }; /* expected: 6 */
+    private const string [] test_warps_2 = {
+            "┏━━━━━━┓┏━┓",
+            "┃++....┗┛.┃",
+            "┃+S┏┓..┏━━┫",
+            "┣━━┛┗━━┛++┃",
+            "┃▶......+S┃",
+            "┗━━━━━━━━━┛"
+        }; /* expected: 0 */
+    private const string [] test_warps_3 = {
+            "┏━━━━━━┳━━┓",
+            "┃......┃++┃",
+            "┃.━┓...┃+S┃",
+            "┃++┣━━━┻━.┃",
+            "┃+S┃▶.....┃",
+            "┗━━┻━━━━━━┛"
+        }; /* expected: 0 */
+    private const string [] test_warps_4 = {
+            "┏━━━━━━┳━━┓",
+            "┃......┃++┃",
+            "┣━.┃...┃+S┃",
+            "┃++┣━━━┻━.┃",
+            "┃+S┃▶.....┃",
+            "┗━━┻━━━━━━┛"
+        }; /* expected: 6 */
 }

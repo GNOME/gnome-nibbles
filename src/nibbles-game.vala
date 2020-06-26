@@ -416,7 +416,15 @@ private class NibblesGame : Object
              || worm.list.is_empty)
                 continue;
 
-            if (!worm.can_move_to (board, numworms))
+            Position position = worm.position_move ();
+            int target_x;
+            int target_y;
+            if (warp_manager.get_warp_target (position.x, position.y,
+                             /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
+                                              out target_x, out target_y))
+                position = Position () { x = target_x, y = target_y };
+
+            if (!worm.can_move_to (board, numworms, position))
                 dead_worms.add (worm);
         }
 
@@ -424,7 +432,8 @@ private class NibblesGame : Object
         foreach (var worm in worms)
         {
             if (worm.is_stopped
-             || worm.list.is_empty)
+             || worm.list.is_empty
+             || worm in dead_worms)
                 continue;
 
             worm.move_part_1 ();
