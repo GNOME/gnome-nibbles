@@ -80,13 +80,13 @@ private class Boni : Object
         bonuses.remove (bonus);
     }
 
-    internal void reset (int numworms)
+    internal void reset (uint8 regular_bonus)
     {
         bonuses.clear ();
         reset_missed ();
-        regular_bonus_maxi = 8 + numworms;
+        regular_bonus_maxi = regular_bonus;
+        regular_bonus_left = regular_bonus;
         total_bonus_number = 0;
-        regular_bonus_left = regular_bonus_maxi;
     }
 
     internal Bonus? get_bonus (int[,] board, int x, int y)

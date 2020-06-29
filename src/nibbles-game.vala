@@ -34,22 +34,21 @@ private class NibblesGame : Object
 
     internal const int MAX_SPEED = 4;
 
-    internal const int WIDTH = 92;
-    internal const int HEIGHT = 66;
-    internal const int CAPACITY = WIDTH * HEIGHT;
-
     internal const char EMPTYCHAR = 'a';
     internal const char WORMCHAR = 'w';     // only used in worm.vala
     internal const char WARPCHAR = 'W';     // only used in warp.vala
 
     internal const int MAX_LEVEL = 26;
 
-    public int start_level      { internal get; protected construct; }
+    public bool skip_score      { internal get; protected construct set; }
     public int current_level    { internal get; protected construct set; }
     public int speed            { internal get; internal construct set; }
 
     /* Board data */
-    internal int[,] board = new int[WIDTH, HEIGHT];
+    internal int[,] board;
+
+    public int width            { internal get; protected construct; }
+    public int height           { internal get; protected construct; }
 
     /* Worms data */
     internal int numhumans      { internal get; internal set; }
@@ -81,33 +80,34 @@ private class NibblesGame : Object
 
     construct
     {
+        board = new int [width, height];
         warp_manager.warp_added.connect ((warp) => warp_added (warp.x, warp.y));
         boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
-    internal NibblesGame (int start_level, int speed, bool fakes, bool no_random = false)
+    internal NibblesGame (int start_level, int speed, bool fakes, int width, int height, bool no_random = false)
     {
-        Object (start_level: start_level, current_level: start_level, speed: speed, fakes: fakes);
+        Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, fakes: fakes, width: width, height: height);
 
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
 
-    internal bool load_board (string [] future_board)
+    internal bool load_board (string [] future_board, uint8 regular_bonus)
     {
-        if (future_board.length != NibblesGame.HEIGHT)
+        if (future_board.length != height)
             return false;
 
-        boni.reset (numworms);
+        boni.reset (regular_bonus);
         warp_manager.warps.clear ();
 
         string tmpboard;
         int count = 0;
-        for (int i = 0; i < NibblesGame.HEIGHT; i++)
+        for (int i = 0; i < height; i++)
         {
             tmpboard = future_board [i];
-            if (tmpboard.char_count () != NibblesGame.WIDTH)
+            if (tmpboard.char_count () != width)
                 return false;
-            for (int j = 0; j < NibblesGame.WIDTH; j++)
+            for (int j = 0; j < width; j++)
             {
                 unichar char_value = tmpboard.get_char (tmpboard.index_of_nth_char (j));
                 switch (char_value)
@@ -285,8 +285,9 @@ private class NibblesGame : Object
         start (/* add initial bonus */ false);
     }
 
-    internal inline void reset ()
+    internal inline void reset (int start_level)
     {
+        skip_score = start_level != 1;
         current_level = start_level;
         is_paused = false;
     }
@@ -351,7 +352,7 @@ private class NibblesGame : Object
         numworms = numai + numhumans;
         for (int i = 0; i < numworms; i++)
         {
-            var worm = new Worm (i);
+            var worm = new Worm (i, width, height);
             worm.bonus_found.connect (bonus_found_cb);
             worm.warp_found.connect (warp_found_cb);
             worm.is_human = (i < numhumans);
@@ -389,40 +390,56 @@ private class NibblesGame : Object
             add_bonus (true);
 
         var dead_worms = new Gee.LinkedList<Worm> ();
+
+        /* make AIs decide what they will do */
         foreach (var worm in worms)
         {
-            if (worm.is_stopped)
-                continue;
-
-            if (worm.list.is_empty)
+            if (worm.is_stopped
+             || worm.list.is_empty)
                 continue;
 
             if (!worm.is_human)
                 worm.ai_move (board, numworms, worms);
+        }
 
+        /* kill worms which are hitting wall */
+        foreach (var worm in worms)
+        {
+            if (worm.is_stopped
+             || worm.list.is_empty)
+                continue;
+
+            if (!worm.can_move_to (board, numworms))
+                dead_worms.add (worm);
+        }
+
+        /* move worms */
+        foreach (var worm in worms)
+        {
+            if (worm.is_stopped
+             || worm.list.is_empty)
+                continue;
+
+            worm.move (board);
+
+            /* kill worms on heads collision */
             foreach (var other_worm in worms)
             {
                 if (worm != other_worm
-                    && !other_worm.is_stopped
-                    && worm.will_collide_with_head (other_worm))
-                    {
-                        if (!dead_worms.contains (worm))
-                            dead_worms.add (worm);
-                        if (!dead_worms.contains (other_worm))
-                            dead_worms.add (other_worm);
-                        continue;
-                    }
+                 && !other_worm.is_stopped
+                 && !other_worm.list.is_empty
+                 && worm.head.x == other_worm.head.x
+                 && worm.head.y == other_worm.head.y)
+                {
+                    if (!dead_worms.contains (worm))
+                        dead_worms.add (worm);
+                    if (!dead_worms.contains (other_worm))
+                        dead_worms.add (other_worm);
+                }
             }
-
-            if (!worm.can_move_to (board, numworms))
-            {
-                dead_worms.add (worm);
-                continue;
-            }
-
-            worm.move (board);
         }
 
+        /* remove dead worms */
         foreach (var worm in dead_worms)
         {
             if (numworms > 1)
@@ -458,8 +475,8 @@ private class NibblesGame : Object
         do
         {
             good = true;
-            x = Random.int_range (0, WIDTH - 1);
-            y = Random.int_range (0, HEIGHT - 1);
+            x = Random.int_range (0, width  - 1);
+            y = Random.int_range (0, height - 1);
 
             if (board[x, y] != EMPTYCHAR)
                 good = false;
@@ -481,8 +498,8 @@ private class NibblesGame : Object
             {
                 good = true;
 
-                x = Random.int_range (0, WIDTH - 1);
-                y = Random.int_range (0, HEIGHT - 1);
+                x = Random.int_range (0, width  - 1);
+                y = Random.int_range (0, height - 1);
                 if (board[x, y] != EMPTYCHAR)
                     good = false;
                 if (board[x + 1, y] != EMPTYCHAR)
@@ -617,6 +634,8 @@ private class NibblesGame : Object
             if (worm.lives > 0)
                 worms_left += 1;
             else if (worm.is_human && worm.lives <= 0)
+                return GameStatus.GAMEOVER;
+            else if (numhumans == 0 && worm.lives <= 0)
                 return GameStatus.GAMEOVER;
         }
 
