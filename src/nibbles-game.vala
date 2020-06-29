@@ -362,7 +362,6 @@ private class NibblesGame : Object
         {
             var worm = new Worm (i, width, height);
             worm.bonus_found.connect (bonus_found_cb);
-            worm.warp_found.connect (warp_found_cb);
             worm.is_human = (i < numhumans);
             worms.add (worm);
         }
@@ -428,7 +427,20 @@ private class NibblesGame : Object
              || worm.list.is_empty)
                 continue;
 
-            worm.move (board);
+            worm.move_part_1 ();
+            if (board[worm.head.x, worm.head.y] == NibblesGame.WARPCHAR)
+            {
+                int target_x;
+                int target_y;
+                if (!warp_manager.get_warp_target (worm.head.x, worm.head.y,
+                                  /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
+                                                   out target_x, out target_y))
+                    assert_not_reached ();
+
+                worm.move_part_2 (board, Position () { x = target_x, y = target_y });
+            }
+            else
+                worm.move_part_2 (board, null);
 
             /* kill worms on heads collision */
             foreach (var other_worm in worms)
@@ -623,18 +635,6 @@ private class NibblesGame : Object
 
         if (real_bonus && !boni.last_regular_bonus ())
             add_bonus (true);
-    }
-
-    private void warp_found_cb (Worm worm)
-    {
-        int target_x;
-        int target_y;
-        if (!warp_manager.get_warp_target (worm.head.x, worm.head.y,
-                          /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
-                                           out target_x, out target_y))
-            return;
-
-        worm.warp (target_x, target_y);
     }
 
     internal GameStatus? get_game_status ()
