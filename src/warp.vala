@@ -1,6 +1,9 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
+ *
+ * Rewrite of the original by Sean MacIsaac, Ian Peters, Guillaume Béland
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
+ * Copyright (C) 2020 Arnaud Bonatti <arnaud.bonatti@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,105 +19,160 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// This is a fairly literal translation of the GPLv2+ original by
-// Sean MacIsaac, Ian Peters, Guillaume Béland.
-
-private class Warp : Object
-{
-    public int x    { internal get; protected construct set; }
-    public int y    { internal get; protected construct set; }
-
-    public int wx   { internal get; protected construct set; }
-    public int wy   { internal get; protected construct set; }
-
-    internal Warp (int x, int y, int wx, int wy)
-    {
-        Object (x: x, y: y, wx: wx, wy: wy);
-    }
-
-    internal void set_x_and_y (int x, int y)
-    {
-        this.x = x;
-        this.y = y;
-    }
-
-    internal void set_wx_and_wy (int wx, int wy)
-    {
-        this.wx = wx;
-        this.wy = wy;
-    }
-}
-
 private class WarpManager: Object
 {
-    private const int MAX_WARPS = 200;
-
-    internal Gee.LinkedList<Warp> warps = new Gee.LinkedList<Warp> ();
-
-    internal signal void warp_added (Warp warp);
-
-    internal void add_warp (int[,] board, int x, int y, int wx, int wy)
+    private class Warp : Object
     {
-        bool add = true;
+        private bool init_finished = false;
 
-        if (x < 0)
+        public int id       { internal get; protected construct; }
+
+        public int source_x { internal get; protected construct set; }
+        public int source_y { internal get; protected construct set; }
+
+        public int target_x { private get; protected construct set; }
+        public int target_y { private get; protected construct set; }
+
+        public bool bidi    { internal get; protected construct set; }
+
+        internal Warp.from_source (int id, int source_x, int source_y)
         {
-            foreach (var warp in warps)
-            {
-                if (warp.wx == x)
-                {
-                    warp.set_wx_and_wy (wx, wy);
-                    return;
-                }
-            }
-
-            if (warps.size == MAX_WARPS)
-                return;
-
-            warps.add (new Warp (x, y, wx, wy));
+            Object (id      : id,
+                    source_x: source_x,
+                    source_y: source_y,
+                    bidi    : true);    // that is a "maybe for now," until init_finished is set
         }
-        else
+
+        internal Warp.from_target (int id, int target_x, int target_y)
         {
-            foreach (var warp in warps)
+            Object (id      : id,
+                    target_x: target_x,
+                    target_y: target_y,
+                    bidi    : false);
+        }
+
+        internal void set_source (int x, int y)
+            requires (init_finished == false)
+        {
+            if (bidi)   // set to "true" when created from source
             {
-                if (warp.x == wx)
-                {
-                    warp.set_x_and_y (x, y);
-                    add = false;
-
-                    warp_added (warp);
-                }
+                target_x = x;
+                target_y = y;
             }
-
-            if (add)
+            else
             {
-                if (warps.size == MAX_WARPS)
-                    return;
-
-                var warp = new Warp (x, y, wx, wy);
-                warps.add (warp);
-
-                warp_added (warp);
+                source_x = x;
+                source_y = y;
             }
+            init_finished = true;
+        }
 
-            board[x    , y    ] = NibblesGame.WARPCHAR;
-            board[x + 1, y    ] = NibblesGame.WARPCHAR;
-            board[x    , y + 1] = NibblesGame.WARPCHAR;
-            board[x + 1, y + 1] = NibblesGame.WARPCHAR;
+        internal void set_target (int x, int y)
+            requires (init_finished == false)
+            requires (bidi == true)     // set to "true" when created from source
+        {
+            target_x = x;
+            target_y = y;
+            bidi = false;
+            init_finished = true;
+        }
+
+        internal bool get_target (int x, int y, bool horizontal, ref int target_x, ref int target_y)
+            requires (init_finished == true)
+        {
+            if ((x != source_x && x != source_x + 1)
+             || (y != source_y && y != source_y + 1))
+                return false;
+
+            if (!bidi)
+            {
+                target_x = this.target_x;
+                target_y = this.target_y;
+            }
+            else if (horizontal)
+            {
+                if (x == source_x)
+                    target_x = this.target_x + 2;
+                else
+                    target_x = this.target_x - 1;
+                if (y == source_y)
+                    target_y = this.target_y;
+                else
+                    target_y = this.target_y + 1;
+            }
+            else
+            {
+                if (x == source_x)
+                    target_x = this.target_x;
+                else
+                    target_x = this.target_x + 1;
+                if (y == source_y)
+                    target_y = this.target_y + 2;
+                else
+                    target_y = this.target_y - 1;
+            }
+            return true;
         }
     }
 
-    internal Warp? get_warp (int x, int y)
+    private const int MAX_WARPS = 200;
+
+    private Gee.LinkedList<Warp> warps = new Gee.LinkedList<Warp> ();
+
+    internal void add_warp_source (int id, int x, int y)
     {
         foreach (var warp in warps)
         {
-            if ((x == warp.x     && y == warp.y    )
-             || (x == warp.x + 1 && y == warp.y    )
-             || (x == warp.x     && y == warp.y + 1)
-             || (x == warp.x + 1 && y == warp.y + 1))
-                return warp;
+            if (warp.id == id)
+            {
+                warp.set_source (x, y);
+                if (warp.bidi)
+                {
+                    Warp bidi_warp = new Warp.from_source (id, x, y);
+                    bidi_warp.set_source (warp.source_x, warp.source_y);
+                    warps.add (bidi_warp);
+                }
+                return;
+            }
         }
 
-        return null;
+        if (warps.size >= MAX_WARPS)
+            return;
+
+        warps.add (new Warp.from_source (id, x, y));
+    }
+
+    internal void add_warp_target (int id, int x, int y)
+    {
+        foreach (var warp in warps)
+        {
+            if (warp.id == id)
+            {
+                warp.set_target (x, y);
+                return;
+            }
+        }
+
+        if (warps.size >= MAX_WARPS)
+            return;
+
+        warps.add (new Warp.from_target (id, x, y));
+    }
+
+    internal bool get_warp_target (int x, int y, bool horizontal, out int target_x, out int target_y)
+    {
+        target_x = 0;   // garbage
+        target_y = 0;   // garbage
+
+        foreach (var warp in warps)
+            if (warp.get_target (x, y, horizontal, ref target_x, ref target_y))
+                return true;
+
+        return false;
+    }
+
+    internal void clear_warps ()
+    {
+        warps.clear ();
     }
 }

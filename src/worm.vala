@@ -136,7 +136,6 @@ private class Worm : Object
     internal signal void reversed ();
 
     internal signal void bonus_found ();
-    internal signal void warp_found ();
 
     public int width    { private get; protected construct; }
     public int height   { private get; protected construct; }
@@ -170,7 +169,7 @@ private class Worm : Object
         key_queue.clear ();
     }
 
-    internal void move (int[,] board)
+    internal void move_part_1 ()
     {
         if (is_human)
             keypress = false;
@@ -208,9 +207,12 @@ private class Worm : Object
 
         /* Add a new body piece */
         list.offer_head (position);
+    }
 
-        if (board[head.x, head.y] == NibblesGame.WARPCHAR)
-            warp_found ();
+    internal void move_part_2 (int[,] board, Position? head_position)
+    {
+        if (head_position != null)
+            head = Position () { x = head_position.x, y = head_position.y };
 
         if (change > 0)
         {
@@ -270,14 +272,8 @@ private class Worm : Object
             direction = (list[0].y > list[1].y) ? WormDirection.DOWN : WormDirection.UP;
     }
 
-    internal inline void warp (Warp warp)
+    internal bool can_move_to (int[,] board, int numworms, Position position)
     {
-        head = Position () { x = warp.wx, y = warp.wy };
-    }
-
-    internal bool can_move_to (int[,] board, int numworms)
-    {
-        var position = position_move ();
         int next_position = board[position.x, position.y];
 
         if (next_position > NibblesGame.EMPTYCHAR
@@ -295,7 +291,10 @@ private class Worm : Object
     {
         change = STARTING_LENGTH - 1;
         for (int i = 0; i < STARTING_LENGTH; i++)
-            move (board);
+        {
+            move_part_1 ();
+            move_part_2 (board, /* no warp */ null);
+        }
     }
 
     private void materialize (int [,] board)
@@ -363,7 +362,7 @@ private class Worm : Object
         finish_added ();
     }
 
-    private Position position_move ()
+    internal Position position_move ()
     {
         Position position = head;
 
@@ -780,7 +779,7 @@ private class Worm : Object
                 continue;
             this_len = 0;
 
-            if (!can_move_to (board, numworms))
+            if (!can_move_to (board, numworms, position_move ()))
                 this_len += capacity;
 
             if (ai_too_close (worms, numworms))
@@ -818,7 +817,7 @@ private class Worm : Object
             if (opposite == (WormDirection) dir)
                 continue;
 
-            if (!can_move_to (board, numworms))
+            if (!can_move_to (board, numworms, position_move ()))
                 direction = (WormDirection) dir;
         }
     }

@@ -81,7 +81,6 @@ private class NibblesGame : Object
     construct
     {
         board = new int [width, height];
-        warp_manager.warp_added.connect ((warp) => warp_added (warp.x, warp.y));
         boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
@@ -98,7 +97,7 @@ private class NibblesGame : Object
             return false;
 
         boni.reset (regular_bonus);
-        warp_manager.warps.clear ();
+        warp_manager.clear_warps ();
 
         string tmpboard;
         int count = 0;
@@ -114,6 +113,7 @@ private class NibblesGame : Object
                 {
                     // readable empty tile, but the game internals use an 'a'
                     case '.':
+                    case '+':
                         board[j, i] = (int) 'a';
                         break;
 
@@ -202,7 +202,14 @@ private class NibblesGame : Object
                     case 'Y':
                     case 'Z':
                         board[j, i] = (int) char_value;
-                        warp_manager.add_warp (board, j - 1, i - 1, -(board[j, i]), 0);
+                        warp_manager.add_warp_source (board[j, i], j - 1, i - 1);
+
+                        board[j - 1, i - 1] = NibblesGame.WARPCHAR;
+                        board[j    , i - 1] = NibblesGame.WARPCHAR;
+                        board[j - 1, i    ] = NibblesGame.WARPCHAR;
+                        board[j    , i    ] = NibblesGame.WARPCHAR;
+
+                        warp_added (j - 1, i - 1);
                         break;
 
                     case 'r':
@@ -214,7 +221,8 @@ private class NibblesGame : Object
                     case 'x':
                     case 'y':
                     case 'z':
-                        warp_manager.add_warp (board, -(((int) char_value) - 'a' + 'A'), 0, j, i);
+                        // do not use the up() method: it depends on the locale, and that could have some weird results ("i".up() is either I or İ, for example)
+                        warp_manager.add_warp_target ((int) char_value - (int) 'a' + (int) 'A', j, i);
                         board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         break;
 
@@ -354,7 +362,6 @@ private class NibblesGame : Object
         {
             var worm = new Worm (i, width, height);
             worm.bonus_found.connect (bonus_found_cb);
-            worm.warp_found.connect (warp_found_cb);
             worm.is_human = (i < numhumans);
             worms.add (worm);
         }
@@ -409,7 +416,15 @@ private class NibblesGame : Object
              || worm.list.is_empty)
                 continue;
 
-            if (!worm.can_move_to (board, numworms))
+            Position position = worm.position_move ();
+            int target_x;
+            int target_y;
+            if (warp_manager.get_warp_target (position.x, position.y,
+                             /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
+                                              out target_x, out target_y))
+                position = Position () { x = target_x, y = target_y };
+
+            if (!worm.can_move_to (board, numworms, position))
                 dead_worms.add (worm);
         }
 
@@ -417,10 +432,24 @@ private class NibblesGame : Object
         foreach (var worm in worms)
         {
             if (worm.is_stopped
-             || worm.list.is_empty)
+             || worm.list.is_empty
+             || worm in dead_worms)
                 continue;
 
-            worm.move (board);
+            worm.move_part_1 ();
+            if (board[worm.head.x, worm.head.y] == NibblesGame.WARPCHAR)
+            {
+                int target_x;
+                int target_y;
+                if (!warp_manager.get_warp_target (worm.head.x, worm.head.y,
+                                  /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
+                                                   out target_x, out target_y))
+                    assert_not_reached ();
+
+                worm.move_part_2 (board, Position () { x = target_x, y = target_y });
+            }
+            else
+                worm.move_part_2 (board, null);
 
             /* kill worms on heads collision */
             foreach (var other_worm in worms)
@@ -615,15 +644,6 @@ private class NibblesGame : Object
 
         if (real_bonus && !boni.last_regular_bonus ())
             add_bonus (true);
-    }
-
-    private void warp_found_cb (Worm worm)
-    {
-        var warp = warp_manager.get_warp (worm.head.x, worm.head.y);
-        if (warp == null)
-            return;
-
-        worm.warp (warp);
     }
 
     internal GameStatus? get_game_status ()
