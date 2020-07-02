@@ -659,9 +659,9 @@ private class NibblesGame : Object
         {
             if (worm.lives > 0)
                 worms_left += 1;
-            else if (worm.is_human && worm.lives <= 0)
+            else if (worm.is_human && worm.lives == 0)
                 return GameStatus.GAMEOVER;
-            else if (numhumans == 0 && worm.lives <= 0)
+            else if (numhumans == 0 && worm.lives == 0)
                 return GameStatus.GAMEOVER;
         }
 
