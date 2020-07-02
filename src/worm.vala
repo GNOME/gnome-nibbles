@@ -598,14 +598,14 @@ private class Worm : Object
         return false;
     }
 
-    private static bool ai_wander (int[,] board, int numworms, Position position, WormDirection direction, int ox, int oy)
+    private static bool ai_wander (int[,] board, int numworms, Position updated_position, WormDirection direction, Position initial_position)
     {
         uint8 width  = (uint8) /* int */ board.length [0];
         uint8 height = (uint8) /* int */ board.length [1];
 
-        position.move (direction, width, height);
+        updated_position.move (direction, width, height);
 
-        switch (board [position.x, position.y] - 'A')
+        switch (board [updated_position.x, updated_position.y] - 'A')
         {
             case BonusType.REGULAR:
                 return true;
@@ -618,18 +618,13 @@ private class Worm : Object
             case BonusType.HALF:
                 return false;
             default:
-                if (board [position.x, position.y] > NibblesGame.EMPTYCHAR
-                 && board [position.x, position.y] < 'z' + numworms)
-                {
-                        return false;
-                }
-                else
-                {
-                    if (ox == position.x && oy == position.y)
-                        return false;
-
-                    return Worm.ai_wander (board, numworms, position, direction, ox, oy);
-                }
+                if (board [updated_position.x, updated_position.y] > NibblesGame.EMPTYCHAR
+                 && board [updated_position.x, updated_position.y] < 'z' + numworms)
+                    return false;
+                if (updated_position.x == initial_position.x
+                 && updated_position.y == initial_position.y)
+                    return false;
+                return ai_wander (board, numworms, updated_position, direction, initial_position);
         }
     }
 
@@ -639,16 +634,16 @@ private class Worm : Object
         WormDirection opposite = direction.opposite ();
 
         /* if no bonus in front */
-        if (!Worm.ai_wander (board, numworms, head, direction, head.x, head.y))
+        if (!ai_wander (board, numworms, head, direction, head))
         {
             /* FIXME worms will prefer to turn left than right */
 
             /* if bonus found to the left */
-            if (Worm.ai_wander (board, numworms, head, direction.turn_left (), head.x, head.y))
+            if (ai_wander (board, numworms, head, direction.turn_left (), head))
                 direction = direction.turn_left ();
 
             /* if bonus found to the right */
-            else if (Worm.ai_wander (board, numworms, head, direction.turn_right (), head.x, head.y))
+            else if (ai_wander (board, numworms, head, direction.turn_right (), head))
                 direction = direction.turn_right ();
 
             /* if no bonus found, move in random direction at random time intervals */
