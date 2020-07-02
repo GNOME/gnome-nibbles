@@ -119,6 +119,7 @@ private class NibblesWindow : ApplicationWindow
         /* Create game */
         game = new NibblesGame (settings.get_int ("start-level"),
                                 settings.get_int ("speed"),
+                                NibblesView.GAMEDELAY,
                                 settings.get_boolean ("fakes"),
                                 NibblesView.WIDTH,
                                 NibblesView.HEIGHT);
