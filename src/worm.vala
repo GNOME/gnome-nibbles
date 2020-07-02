@@ -69,32 +69,36 @@ private struct Position
     int x;
     int y;
 
-    internal void move (WormDirection direction, int width, int height)
+    internal void move (WormDirection direction, uint8 width, uint8 height)
     {
         switch (direction)
         {
             case WormDirection.UP:
-                y--;
-                if (y < 0)
+                if (y == 0)
                     y = height - 1;
+                else
+                    y--;
                 break;
 
             case WormDirection.DOWN:
-                y++;
-                if (y >= height)
+                if (y >= height - 1)
                     y = 0;
+                else
+                    y++;
                 break;
 
             case WormDirection.LEFT:
-                x--;
-                if (x < 0)
+                if (x == 0)
                     x = width - 1;
+                else
+                    x--;
                 break;
 
             case WormDirection.RIGHT:
-                x++;
-                if (x >= width)
+                if (x >= width - 1)
                     x = 0;
+                else
+                    x++;
                 break;
 
             default:
@@ -170,8 +174,8 @@ private class Worm : Object
 
     internal signal void bonus_found ();
 
-    public int width    { private get; protected construct; }
-    public int height   { private get; protected construct; }
+    public uint8 width  { private get; protected construct; }
+    public uint8 height { private get; protected construct; }
     public int capacity { private get; protected construct; }
 
     construct
@@ -179,7 +183,7 @@ private class Worm : Object
         deadend_board = new uint [width, height];
     }
 
-    internal Worm (int id, int width, int height)
+    internal Worm (int id, uint8 width, uint8 height)
     {
         int capacity = width * height;
         Object (id: id, width: width, height: height, capacity: capacity);
@@ -554,7 +558,7 @@ private class Worm : Object
         deadend_board [new_position.x, new_position.y] = deadend_runnumber;
 
         int cl = (length * length) / 16;
-        if (cl < width)
+        if (cl < (int) width)
             cl = width;
         return ai_deadend (board, numworms, new_position, cl);
     }

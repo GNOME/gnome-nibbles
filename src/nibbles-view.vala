@@ -110,8 +110,8 @@ private class NibblesView : GtkClutter.Embed
         }
     }
 
-    internal const int WIDTH = 92;
-    internal const int HEIGHT = 66;
+    internal const uint8 WIDTH = 92;
+    internal const uint8 HEIGHT = 66;
     internal const int GAMEDELAY = 35;
 
     private const int MINIMUM_TILE_SIZE = 7;

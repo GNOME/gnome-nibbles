@@ -60,7 +60,7 @@ namespace NibblesTest
                                             /* speed        */ 0,
                                             /* delay        */ 0,
                                             /* fakes        */ false,
-                                            /* size x and y */ board [0].char_count (), board.length,
+                                            /* size x and y */ (uint8) board [0].char_count (), (uint8) board.length,
                                             /* no random    */ true);
 
         game.numhumans = 0;

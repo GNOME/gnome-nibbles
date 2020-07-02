@@ -47,8 +47,8 @@ private class NibblesGame : Object
     /* Board data */
     internal int[,] board;
 
-    public int width            { internal get; protected construct; }
-    public int height           { internal get; protected construct; }
+    public uint8 width          { internal get; protected construct; }
+    public uint8 height         { internal get; protected construct; }
 
     /* Worms data */
     internal int numhumans      { internal get; internal set; }
@@ -84,7 +84,7 @@ private class NibblesGame : Object
         boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
-    internal NibblesGame (int start_level, int speed, int gamedelay, bool fakes, int width, int height, bool no_random = false)
+    internal NibblesGame (int start_level, int speed, int gamedelay, bool fakes, uint8 width, uint8 height, bool no_random = false)
     {
         Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, gamedelay: gamedelay, fakes: fakes, width: width, height: height);
 
@@ -93,7 +93,7 @@ private class NibblesGame : Object
 
     internal bool load_board (string [] future_board, uint8 regular_bonus)
     {
-        if (future_board.length != height)
+        if (future_board.length != (int) height)
             return false;
 
         boni.reset (regular_bonus);
@@ -101,12 +101,12 @@ private class NibblesGame : Object
 
         string tmpboard;
         int count = 0;
-        for (int i = 0; i < height; i++)
+        for (uint8 i = 0; i < height; i++)
         {
             tmpboard = future_board [i];
-            if (tmpboard.char_count () != width)
+            if (tmpboard.char_count () != (int) width)
                 return false;
-            for (int j = 0; j < width; j++)
+            for (uint8 j = 0; j < width; j++)
             {
                 unichar char_value = tmpboard.get_char (tmpboard.index_of_nth_char (j));
                 switch (char_value)
