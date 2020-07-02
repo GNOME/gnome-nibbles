@@ -531,19 +531,20 @@ private class Worm : Object
 
         for (int i = numworms - 1; i >= 0; i--)
         {
-            int cx = worms[i].head.x;
-            int cy = worms[i].head.y;
-            if (cx != old_position.x || cy != old_position.y)
-            {
-                if (cx > 0)
-                    deadend_board[cx - 1, cy] = deadend_runnumber;
-                if (cy > 0)
-                    deadend_board[cx, cy - 1] = deadend_runnumber;
-                if (cx < width - 1)
-                    deadend_board[cx + 1, cy] = deadend_runnumber;
-                if (cy < height - 1)
-                    deadend_board[cx, cy + 1] = deadend_runnumber;
-            }
+            int target_x = worms [i].head.x;
+            int target_y = worms [i].head.y;
+            if (target_x == old_position.x
+             && target_y == old_position.y)
+                continue;
+
+            if (target_x > 0)           deadend_board [target_x - 1, target_y    ] = deadend_runnumber;
+            else                        deadend_board [width    - 1, target_y    ] = deadend_runnumber;
+            if (target_y > 0)           deadend_board [target_x    , target_y - 1] = deadend_runnumber;
+            else                        deadend_board [target_x    , height   - 1] = deadend_runnumber;
+            if (target_x < width - 1)   deadend_board [target_x + 1, target_y    ] = deadend_runnumber;
+            else                        deadend_board [0           , target_y    ] = deadend_runnumber;
+            if (target_y < height - 1)  deadend_board [target_x    , target_y + 1] = deadend_runnumber;
+            else                        deadend_board [target_x    , 0           ] = deadend_runnumber;
         }
 
         Position new_position = old_position;
@@ -555,7 +556,7 @@ private class Worm : Object
         int cl = (length * length) / 16;
         if (cl < width)
             cl = width;
-        return Worm.ai_deadend (board, numworms, new_position, cl);
+        return ai_deadend (board, numworms, new_position, cl);
     }
 
     /* Check to see if another worm's head is too close in front of us;
