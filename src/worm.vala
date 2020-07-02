@@ -119,8 +119,8 @@ private class WormProperties : Object
 private class Worm : Object
 {
     private const int STARTING_LENGTH = 5;
-    internal const int STARTING_LIVES = 6;
-    internal const int MAX_LIVES = 12;
+    internal const uint8 STARTING_LIVES = 6;
+    internal const uint8 MAX_LIVES = 12;
 
     internal const int GROW_FACTOR = 4;
 
@@ -134,9 +134,9 @@ private class Worm : Object
     internal bool is_materialized { internal get; private set; default = true; }
     private int rounds_dematerialized;
 
-    internal int lives  { internal get; internal set; default = STARTING_LIVES; }
-    internal int change { internal get; internal set; default = 0; }
-    internal int score  { internal get; internal set; default = 0; }
+    internal uint8 lives    { internal get; internal set; default = STARTING_LIVES; }
+    internal int change     { internal get; internal set; default = 0; }
+    internal int score      { internal get; internal set; default = 0; }
 
     internal int length
     {
@@ -348,6 +348,9 @@ private class Worm : Object
 
     private inline void lose_life ()
     {
+        if (lives == 0)
+            return;
+
         lives--;
     }
 
@@ -412,7 +415,7 @@ private class Worm : Object
 
     internal bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties> worm_props)
     {
-        if (lives <= 0 || is_stopped)
+        if (lives == 0 || is_stopped)
             return false;
 
         WormProperties properties;
@@ -713,7 +716,7 @@ private class Worm : Object
         /* Make sure we are at least avoiding walls.
          * Mostly other snakes should avoid our head.
          */
-        for (int dir = 1; dir <= 4; dir++)
+        for (uint8 dir = 1; dir <= 4; dir++)
         {
             if (opposite == (WormDirection) dir)
                 continue;
