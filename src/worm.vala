@@ -313,7 +313,7 @@ private class Worm : Object
         rounds_dematerialized = 0;
     }
 
-    internal void dematerialize (int [,] board, int rounds)
+    internal void dematerialize (int [,] board, int rounds, int gamedelay)
     {
         rounds_dematerialized = rounds;
         is_materialized = false;
@@ -322,6 +322,11 @@ private class Worm : Object
             if (board[pos.x, pos.y] == NibblesGame.WORMCHAR + id)
                 board[pos.x, pos.y] = NibblesGame.EMPTYCHAR;
         }
+
+        Timeout.add (gamedelay * 27, () => {
+                is_stopped = false;
+                return Source.REMOVE;
+            });
     }
 
     internal void add_life ()

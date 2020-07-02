@@ -28,7 +28,6 @@ private enum GameStatus
 
 private class NibblesGame : Object
 {
-    internal const int GAMEDELAY = 35;
 
     internal const int MAX_WORMS = 6;
 
@@ -43,6 +42,7 @@ private class NibblesGame : Object
     public bool skip_score      { internal get; protected construct set; }
     public int current_level    { internal get; protected construct set; }
     public int speed            { internal get; internal construct set; }
+    public int gamedelay        { internal get; protected construct; }
 
     /* Board data */
     internal int[,] board;
@@ -84,9 +84,9 @@ private class NibblesGame : Object
         boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
-    internal NibblesGame (int start_level, int speed, bool fakes, int width, int height, bool no_random = false)
+    internal NibblesGame (int start_level, int speed, int gamedelay, bool fakes, int width, int height, bool no_random = false)
     {
-        Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, fakes: fakes, width: width, height: height);
+        Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, gamedelay: gamedelay, fakes: fakes, width: width, height: height);
 
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
@@ -262,7 +262,7 @@ private class NibblesGame : Object
 
         is_running = true;
 
-        main_id = Timeout.add (GAMEDELAY * speed, () => {
+        main_id = Timeout.add (gamedelay * speed, () => {
                 bonus_cycle = (bonus_cycle + 1) % 3;
                 if (bonus_cycle == 0)
                     add_bonus (false);
@@ -362,6 +362,7 @@ private class NibblesGame : Object
         {
             var worm = new Worm (i, width, height);
             worm.bonus_found.connect (bonus_found_cb);
+            worm.finish_added.connect (worm_dematerialization_request);
             worm.is_human = (i < numhumans);
             worms.add (worm);
         }
@@ -484,6 +485,11 @@ private class NibblesGame : Object
         foreach (var other_worm in worms)
             if (worm != other_worm)
                 other_worm.reverse (board);
+    }
+
+    private void worm_dematerialization_request (Worm worm)
+    {
+        worm.dematerialize (board, /* number of rounds */ 3, gamedelay);
     }
 
     /*\
