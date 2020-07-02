@@ -68,6 +68,39 @@ private struct Position
 {
     int x;
     int y;
+
+    internal void move (WormDirection direction, int width, int height)
+    {
+        switch (direction)
+        {
+            case WormDirection.UP:
+                y--;
+                if (y < 0)
+                    y = height - 1;
+                break;
+
+            case WormDirection.DOWN:
+                y++;
+                if (y >= height)
+                    y = 0;
+                break;
+
+            case WormDirection.LEFT:
+                x--;
+                if (x < 0)
+                    x = width - 1;
+                break;
+
+            case WormDirection.RIGHT:
+                x++;
+                if (x >= width)
+                    x = 0;
+                break;
+
+            default:
+                assert_not_reached ();
+        }
+    }
 }
 
 private class WormProperties : Object
@@ -174,36 +207,8 @@ private class Worm : Object
         if (is_human)
             keypress = false;
 
-        var position = head;
-        switch (direction)
-        {
-            case WormDirection.UP:
-                position.y = --head.y;
-                if (position.y < 0)
-                    position.y = height - 1;
-                break;
-
-            case WormDirection.DOWN:
-                position.y = ++head.y;
-                if (position.y >= height)
-                    position.y = 0;
-                break;
-
-            case WormDirection.LEFT:
-                position.x = --head.x;
-                if (position.x < 0)
-                    position.x = width - 1;
-                break;
-
-            case WormDirection.RIGHT:
-                position.x = ++head.x;
-                if (position.x >= width)
-                    position.x = 0;
-                break;
-
-            default:
-                assert_not_reached ();
-        }
+        Position position = head;
+        position.move (direction, width, height);
 
         /* Add a new body piece */
         list.offer_head (position);
@@ -370,37 +375,7 @@ private class Worm : Object
     internal Position position_move ()
     {
         Position position = head;
-
-        switch (direction)
-        {
-            case WormDirection.UP:
-                position.y = --head.y;
-                if (position.y < 0)
-                    position.y = height - 1;
-                break;
-
-            case WormDirection.DOWN:
-                position.y = ++head.y;
-                if (position.y >= height)
-                    position.y = 0;
-                break;
-
-            case WormDirection.LEFT:
-                position.x = --head.x;
-                if (position.x < 0)
-                    position.x = width - 1;
-                break;
-
-            case WormDirection.RIGHT:
-                position.x = ++head.x;
-                if (position.x >= width)
-                    position.x = 0;
-                break;
-
-            default:
-                assert_not_reached ();
-        }
-
+        position.move (direction, width, height);
         return position;
     }
 
@@ -507,51 +482,25 @@ private class Worm : Object
     private static uint[,] deadend_board;
     private static uint deadend_runnumber = 0;
 
-    private static int ai_deadend (int[,] board, int numworms, int x, int y, int length_left)
+    private static int ai_deadend (int[,] board, int numworms, Position old_position, int length_left)
     {
         uint8 width  = (uint8) /* int */ board.length [0];
         uint8 height = (uint8) /* int */ board.length [1];
-
-        if (x >= width)
-            x = 0;
-        else if (x < 0)
-            x = width - 1;
-        if (y >= height)
-            y = 0;
-        else if (y < 0)
-            y = height - 1;
 
         if (length_left <= 0)
             return 0;
 
         for (int dir = 4; dir > 0; dir--)
         {
-            int cx = x;
-            int cy = y;
-            switch ((WormDirection) dir)
-            {
-                case WormDirection.UP:      cy -= 1; break;
-                case WormDirection.DOWN:    cy += 1; break;
-                case WormDirection.LEFT:    cx -= 1; break;
-                case WormDirection.RIGHT:   cx += 1; break;
-                default: assert_not_reached ();
-            }
+            Position new_position = old_position;
+            new_position.move ((WormDirection) dir, width, height);
 
-            if (cx >= width)
-                cx = 0;
-            else if (cx < 0)
-                cx = width - 1;
-            if (cy >= height)
-                cy = 0;
-            else if (cy < 0)
-                cy = height - 1;
-
-            if ((board[cx, cy] <= NibblesGame.EMPTYCHAR
-                || board[x, y] >= 'z' + numworms)
-                && deadend_board[cx, cy] != deadend_runnumber)
+            if ((board [new_position.x, new_position.y] <= NibblesGame.EMPTYCHAR
+              || board [old_position.x, old_position.y] >= 'z' + numworms)
+             && (deadend_board [new_position.x, new_position.y] != deadend_runnumber))
             {
-                deadend_board[cx, cy] = deadend_runnumber;
-                length_left = ai_deadend (board, numworms, cx, cy, length_left - 1);
+                deadend_board [new_position.x, new_position.y] = deadend_runnumber;
+                length_left = ai_deadend (board, numworms, new_position, length_left - 1);
                 if (length_left <= 0)
                     return 0;
             }
@@ -569,25 +518,23 @@ private class Worm : Object
      * least BOARDWIDTH, so that on the levels with long thin paths a worm
      * won't start down the path if it'll crash at the other end.
      */
-    private static int ai_deadend_after (int[,] board, Gee.LinkedList<Worm> worms, int numworms, int x, int y, WormDirection direction, int length)
+    private static int ai_deadend_after (int[,] board, Gee.LinkedList<Worm> worms, int numworms, Position old_position, WormDirection direction, int length)
     {
-        int cx, cy, cl, i;
-
         uint8 width  = (uint8) /* int */ board.length [0];
         uint8 height = (uint8) /* int */ board.length [1];
 
-        if (x < 0 || x >= width
-         || y < 0 || y >= height)
+        if (old_position.x < 0 || old_position.x >= width
+         || old_position.y < 0 || old_position.y >= height)
             return 0;
 
-        ++deadend_runnumber;
+        deadend_runnumber++;
 
-        i = numworms;
-        while (i-- > 0)
+        for (int i = numworms - 1; i >= 0; i--)
         {
-            cx = worms[i].head.x;
-            cy = worms[i].head.y;
-            if (cx != x || cy != y) {
+            int cx = worms[i].head.x;
+            int cy = worms[i].head.y;
+            if (cx != old_position.x || cy != old_position.y)
+            {
                 if (cx > 0)
                     deadend_board[cx - 1, cy] = deadend_runnumber;
                 if (cy > 0)
@@ -599,42 +546,16 @@ private class Worm : Object
             }
         }
 
-        cx = x;
-        cy = y;
-        switch (direction)
-        {
-            case WormDirection.UP:
-                cy -= 1;
-                break;
-            case WormDirection.DOWN:
-                cy += 1;
-                break;
-            case WormDirection.LEFT:
-                cx -= 1;
-                break;
-            case WormDirection.RIGHT:
-                cx += 1;
-                break;
-            default:
-                assert_not_reached ();
-        }
+        Position new_position = old_position;
+        new_position.move (direction, width, height);
 
-        if (cx >= width)
-            cx = 0;
-        else if (cx < 0)
-            cx = width - 1;
-        if (cy >= height)
-            cy = 0;
-        else if (cy < 0)
-            cy = height - 1;
+        deadend_board [old_position.x, old_position.y] = deadend_runnumber;
+        deadend_board [new_position.x, new_position.y] = deadend_runnumber;
 
-        deadend_board[x, y] = deadend_runnumber;
-        deadend_board[cx, cy] = deadend_runnumber;
-
-        cl = (length * length) / 16;
+        int cl = (length * length) / 16;
         if (cl < width)
             cl = width;
-        return Worm.ai_deadend (board, numworms, cx, cy, cl);
+        return Worm.ai_deadend (board, numworms, new_position, cl);
     }
 
     /* Check to see if another worm's head is too close in front of us;
@@ -676,39 +597,14 @@ private class Worm : Object
         return false;
     }
 
-    private static bool ai_wander (int[,] board, int numworms, int x, int y, WormDirection direction, int ox, int oy)
+    private static bool ai_wander (int[,] board, int numworms, Position position, WormDirection direction, int ox, int oy)
     {
         uint8 width  = (uint8) /* int */ board.length [0];
         uint8 height = (uint8) /* int */ board.length [1];
 
-        switch (direction)
-        {
-            case WormDirection.UP:
-                y -= 1;
-                break;
-            case WormDirection.DOWN:
-                y += 1;
-                break;
-            case WormDirection.LEFT:
-                x -= 1;
-                break;
-            case WormDirection.RIGHT:
-                x += 1;
-                break;
-            default:
-                assert_not_reached ();
-        }
+        position.move (direction, width, height);
 
-        if (x >= width)
-            x = 0;
-        else if (x < 0)
-            x = width - 1;
-        if (y >= height)
-            y = 0;
-        else if (y < 0)
-            y = height - 1;
-
-        switch (board[x, y] - 'A')
+        switch (board [position.x, position.y] - 'A')
         {
             case BonusType.REGULAR:
                 return true;
@@ -721,17 +617,17 @@ private class Worm : Object
             case BonusType.HALF:
                 return false;
             default:
-                if (board[x, y] > NibblesGame.EMPTYCHAR
-                    && board[x, y] < 'z' + numworms)
+                if (board [position.x, position.y] > NibblesGame.EMPTYCHAR
+                 && board [position.x, position.y] < 'z' + numworms)
                 {
                         return false;
                 }
                 else
                 {
-                    if (ox == x && oy == y)
+                    if (ox == position.x && oy == position.y)
                         return false;
 
-                    return Worm.ai_wander (board, numworms, x, y, direction, ox, oy);
+                    return Worm.ai_wander (board, numworms, position, direction, ox, oy);
                 }
         }
     }
@@ -742,16 +638,16 @@ private class Worm : Object
         WormDirection opposite = direction.opposite ();
 
         /* if no bonus in front */
-        if (!Worm.ai_wander (board, numworms, head.x, head.y, direction, head.x, head.y))
+        if (!Worm.ai_wander (board, numworms, head, direction, head.x, head.y))
         {
             /* FIXME worms will prefer to turn left than right */
 
             /* if bonus found to the left */
-            if (Worm.ai_wander (board, numworms, head.x, head.y, direction.turn_left (), head.x, head.y))
+            if (Worm.ai_wander (board, numworms, head, direction.turn_left (), head.x, head.y))
                 direction = direction.turn_left ();
 
             /* if bonus found to the right */
-            else if (Worm.ai_wander (board, numworms, head.x, head.y, direction.turn_right (), head.x, head.y))
+            else if (Worm.ai_wander (board, numworms, head, direction.turn_right (), head.x, head.y))
                 direction = direction.turn_right ();
 
             /* if no bonus found, move in random direction at random time intervals */
@@ -790,7 +686,7 @@ private class Worm : Object
             if (ai_too_close (worms, numworms))
                 this_len += 4;
 
-            this_len += ai_deadend_after (board, worms, numworms, head.x, head.y, direction, length + change);
+            this_len += ai_deadend_after (board, worms, numworms, head, direction, length + change);
 
             if (direction == prev_dir && this_len <= 0)
                 this_len -= 100;
