@@ -799,7 +799,7 @@ private class NibblesView : GtkClutter.Embed
     * * Warps drawing
     \*/
 
-    private void warp_added_cb (int x, int y)
+    private void warp_added_cb (uint8 x, uint8 y)
     {
         var actor = new WarpTexture ();
         try
@@ -816,7 +816,7 @@ private class NibblesView : GtkClutter.Embed
         }
 
         actor.set_size (tile_size, tile_size);
-        actor.set_position (x * tile_size, y * tile_size);
+        actor.set_position ((int) x * tile_size, (int) y * tile_size);
 
         level.add_child (actor);
 

@@ -74,7 +74,7 @@ private class NibblesGame : Object
     internal signal void log_score (int score, int level_reached);
     internal signal void animate_end_game ();
     internal signal void level_completed ();
-    internal signal void warp_added (int x, int y);
+    internal signal void warp_added (uint8 x, uint8 y);
     internal signal void bonus_added (Bonus bonus);
     internal signal void bonus_removed (Bonus bonus);
 
@@ -201,6 +201,9 @@ private class NibblesGame : Object
                     case 'X':
                     case 'Y':
                     case 'Z':
+                        if (j == 0 || i == 0)
+                            return false;
+
                         board[j, i] = (int) char_value;
                         warp_manager.add_warp_source (board[j, i], j - 1, i - 1);
 
@@ -418,8 +421,8 @@ private class NibblesGame : Object
                 continue;
 
             Position position = worm.position_move ();
-            int target_x;
-            int target_y;
+            uint8 target_x;
+            uint8 target_y;
             if (warp_manager.get_warp_target (position.x, position.y,
                              /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
                                               out target_x, out target_y))
@@ -440,8 +443,8 @@ private class NibblesGame : Object
             worm.move_part_1 ();
             if (board[worm.head.x, worm.head.y] == NibblesGame.WARPCHAR)
             {
-                int target_x;
-                int target_y;
+                uint8 target_x;
+                uint8 target_y;
                 if (!warp_manager.get_warp_target (worm.head.x, worm.head.y,
                                   /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
                                                    out target_x, out target_y))

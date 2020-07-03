@@ -66,8 +66,8 @@ private enum WormDirection
 
 private struct Position
 {
-    int x;
-    int y;
+    uint8 x;
+    uint8 y;
 
     internal void move (WormDirection direction, uint8 width, uint8 height)
     {
@@ -189,14 +189,11 @@ private class Worm : Object
         Object (id: id, width: width, height: height, capacity: capacity);
     }
 
-    internal void set_start (int xhead, int yhead, WormDirection direction)
+    internal void set_start (uint8 x, uint8 y, WormDirection direction)
     {
         list.clear ();
 
-        starting_position = Position () {
-            x = xhead,
-            y = yhead
-        };
+        starting_position = Position () { x = x, y = y };
 
         list.add (starting_position);
 

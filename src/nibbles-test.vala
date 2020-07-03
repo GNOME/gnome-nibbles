@@ -45,10 +45,10 @@ namespace NibblesTest
 
     private struct WormTest
     {
-        int start_x;
-        int start_y;
-        int final_lives;
-        int final_score;
+        uint8 start_x;
+        uint8 start_y;
+        uint8 final_lives;
+        int   final_score;
     }
 
     private static void test_board (string [] board,
