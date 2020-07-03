@@ -25,17 +25,17 @@ private class WarpManager: Object
     {
         private bool init_finished = false;
 
-        public int id       { internal get; protected construct; }
+        public int   id         { internal get; protected construct; }
 
-        public int source_x { internal get; protected construct set; }
-        public int source_y { internal get; protected construct set; }
+        public uint8 source_x   { internal get; protected construct set; }
+        public uint8 source_y   { internal get; protected construct set; }
 
-        public int target_x { private get; protected construct set; }
-        public int target_y { private get; protected construct set; }
+        public uint8 target_x   { private get; protected construct set; }
+        public uint8 target_y   { private get; protected construct set; }
 
-        public bool bidi    { internal get; protected construct set; }
+        public bool  bidi       { internal get; protected construct set; }
 
-        internal Warp.from_source (int id, int source_x, int source_y)
+        internal Warp.from_source (int id, uint8 source_x, uint8 source_y)
         {
             Object (id      : id,
                     source_x: source_x,
@@ -43,7 +43,7 @@ private class WarpManager: Object
                     bidi    : true);    // that is a "maybe for now," until init_finished is set
         }
 
-        internal Warp.from_target (int id, int target_x, int target_y)
+        internal Warp.from_target (int id, uint8 target_x, uint8 target_y)
         {
             Object (id      : id,
                     target_x: target_x,
@@ -51,7 +51,7 @@ private class WarpManager: Object
                     bidi    : false);
         }
 
-        internal void set_source (int x, int y)
+        internal void set_source (uint8 x, uint8 y)
             requires (init_finished == false)
         {
             if (bidi)   // set to "true" when created from source
@@ -67,7 +67,7 @@ private class WarpManager: Object
             init_finished = true;
         }
 
-        internal void set_target (int x, int y)
+        internal void set_target (uint8 x, uint8 y)
             requires (init_finished == false)
             requires (bidi == true)     // set to "true" when created from source
         {
@@ -77,7 +77,7 @@ private class WarpManager: Object
             init_finished = true;
         }
 
-        internal bool get_target (int x, int y, bool horizontal, ref int target_x, ref int target_y)
+        internal bool get_target (uint8 x, uint8 y, bool horizontal, ref uint8 target_x, ref uint8 target_y)
             requires (init_finished == true)
         {
             if ((x != source_x && x != source_x + 1)
@@ -93,6 +93,8 @@ private class WarpManager: Object
             {
                 if (x == source_x)
                     target_x = this.target_x + 2;
+                else if (this.target_x == 0)
+                    assert_not_reached ();
                 else
                     target_x = this.target_x - 1;
                 if (y == source_y)
@@ -108,6 +110,8 @@ private class WarpManager: Object
                     target_x = this.target_x + 1;
                 if (y == source_y)
                     target_y = this.target_y + 2;
+                else if (this.target_y == 0)
+                    assert_not_reached ();
                 else
                     target_y = this.target_y - 1;
             }
@@ -115,25 +119,25 @@ private class WarpManager: Object
         }
     }
 
-    private const int MAX_WARPS = 200;
+    private const uint8 MAX_WARPS = 200;
 
     private Gee.LinkedList<Warp> warps = new Gee.LinkedList<Warp> ();
 
-    internal void add_warp_source (int id, int x, int y)
+    internal void add_warp_source (int id, uint8 x, uint8 y)
     {
-        foreach (var warp in warps)
+        foreach (Warp warp in warps)
         {
-            if (warp.id == id)
+            if (warp.id != id)
+                continue;
+
+            warp.set_source (x, y);
+            if (warp.bidi)
             {
-                warp.set_source (x, y);
-                if (warp.bidi)
-                {
-                    Warp bidi_warp = new Warp.from_source (id, x, y);
-                    bidi_warp.set_source (warp.source_x, warp.source_y);
-                    warps.add (bidi_warp);
-                }
-                return;
+                Warp bidi_warp = new Warp.from_source (id, x, y);
+                bidi_warp.set_source (warp.source_x, warp.source_y);
+                warps.add (bidi_warp);
             }
+            return;
         }
 
         if (warps.size >= MAX_WARPS)
@@ -142,15 +146,15 @@ private class WarpManager: Object
         warps.add (new Warp.from_source (id, x, y));
     }
 
-    internal void add_warp_target (int id, int x, int y)
+    internal void add_warp_target (int id, uint8 x, uint8 y)
     {
-        foreach (var warp in warps)
+        foreach (Warp warp in warps)
         {
-            if (warp.id == id)
-            {
-                warp.set_target (x, y);
-                return;
-            }
+            if (warp.id != id)
+                continue;
+
+            warp.set_target (x, y);
+            return;
         }
 
         if (warps.size >= MAX_WARPS)
@@ -159,12 +163,12 @@ private class WarpManager: Object
         warps.add (new Warp.from_target (id, x, y));
     }
 
-    internal bool get_warp_target (int x, int y, bool horizontal, out int target_x, out int target_y)
+    internal bool get_warp_target (uint8 x, uint8 y, bool horizontal, out uint8 target_x, out uint8 target_y)
     {
         target_x = 0;   // garbage
         target_y = 0;   // garbage
 
-        foreach (var warp in warps)
+        foreach (Warp warp in warps)
             if (warp.get_target (x, y, horizontal, ref target_x, ref target_y))
                 return true;
 
