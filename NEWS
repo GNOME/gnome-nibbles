@@ -1,3 +1,11 @@
+3.34.3 - July 3, 2020
+=====================
+
+- Fix bug related to parsing colors on non-English versions of the game (Arnaud Bonatti)
+- Fix end-of-game screen being covered by another view (Arnaud Bonatti)
+- Fix bug causing the game to remain paused if restarted while being paused (Arnaud Bonatti)
+- Fix right arrow on controls screen in Turkish locale
+
 3.34.2 - January 3, 2020
 ========================
 
