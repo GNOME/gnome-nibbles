@@ -31,13 +31,14 @@ private enum BonusType
 
 private class Bonus : Object
 {
-    public int x                { internal get; protected construct; }
-    public int y                { internal get; protected construct; }
+    public uint8 x              { internal get; protected construct; }
+    public uint8 y              { internal get; protected construct; }
     public BonusType bonus_type { internal get; protected construct; }
     public bool fake            { internal get; protected construct; }
-    public int countdown        { internal get; internal construct set; }
 
-    internal Bonus (int x, int y, BonusType bonus_type, bool fake, int countdown)
+    public uint16 countdown     { internal get; internal construct set; }
+
+    internal Bonus (uint8 x, uint8 y, BonusType bonus_type, bool fake, uint16 countdown)
     {
         Object (x: x, y: y, bonus_type: bonus_type, fake: fake, countdown: countdown);
     }
@@ -51,7 +52,7 @@ private class Boni : Object
     private uint8 regular_bonus_maxi = 0;
     private uint8 total_bonus_number = 0;
 
-    private const int MAX_BONUSES = 100;
+    private const uint8 MAX_BONUSES = 100;
 
     internal signal void bonus_removed (Bonus bonus);
 
@@ -89,9 +90,9 @@ private class Boni : Object
         total_bonus_number = 0;
     }
 
-    internal Bonus? get_bonus (int[,] board, int x, int y)
+    internal Bonus? get_bonus (int[,] board, uint8 x, uint8 y)
     {
-        foreach (var bonus in bonuses)
+        foreach (Bonus bonus in bonuses)
         {
             if ((x == bonus.x     && y == bonus.y    )
              || (x == bonus.x + 1 && y == bonus.y    )
@@ -110,12 +111,16 @@ private class Boni : Object
         missed_bonuses_to_replace = 0;
 
         // FIXME Use an iterator instead of a second list
-        var found = new Gee.LinkedList<Bonus> ();
-        foreach (var bonus in bonuses)
-            if (bonus.countdown-- == 0)
+        Gee.LinkedList<Bonus> found = new Gee.LinkedList<Bonus> ();
+        foreach (Bonus bonus in bonuses)
+        {
+            if (bonus.countdown == 0)
                 found.add (bonus);
+            else
+                bonus.countdown--;
+        }
 
-        foreach (var bonus in found)
+        foreach (Bonus bonus in found)
         {
             bool real_bonus = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
 
@@ -129,7 +134,7 @@ private class Boni : Object
         }
     }
 
-    internal inline int new_regular_bonus_eaten ()
+    internal inline uint8 new_regular_bonus_eaten ()
     {
         if (regular_bonus_left == 0)
             assert_not_reached ();
