@@ -502,7 +502,8 @@ private class NibblesGame : Object
     private void add_bonus (bool regular)
     {
         bool good = false;
-        int x = 0, y = 0;
+        uint8 x = 0;
+        uint8 y = 0;
 
         if (!regular)
         {
@@ -513,17 +514,14 @@ private class NibblesGame : Object
         do
         {
             good = true;
-            x = Random.int_range (0, width  - 1);
-            y = Random.int_range (0, height - 1);
 
-            if (board[x, y] != EMPTYCHAR)
-                good = false;
-            if (board[x + 1, y] != EMPTYCHAR)
-                good = false;
-            if (board[x, y + 1] != EMPTYCHAR)
-                good = false;
-            if (board[x + 1, y + 1] != EMPTYCHAR)
-                good = false;
+            x = (uint8) Random.int_range (0, width  - 1);
+            y = (uint8) Random.int_range (0, height - 1);
+
+            if (board [x    , y    ] != EMPTYCHAR) { good = false; continue; }
+            if (board [x + 1, y + 1] != EMPTYCHAR) { good = false; continue; }
+            if (board [x + 1, y    ] != EMPTYCHAR) { good = false; continue; }
+            if (board [x    , y + 1] != EMPTYCHAR) { good = false; continue; }
         } while (!good);
 
         if (regular)
@@ -536,16 +534,13 @@ private class NibblesGame : Object
             {
                 good = true;
 
-                x = Random.int_range (0, width  - 1);
-                y = Random.int_range (0, height - 1);
-                if (board[x, y] != EMPTYCHAR)
-                    good = false;
-                if (board[x + 1, y] != EMPTYCHAR)
-                    good = false;
-                if (board[x, y + 1] != EMPTYCHAR)
-                    good = false;
-                if (board[x + 1, y + 1] != EMPTYCHAR)
-                    good = false;
+                x = (uint8) Random.int_range (0, width  - 1);
+                y = (uint8) Random.int_range (0, height - 1);
+
+                if (board [x    , y    ] != EMPTYCHAR) { good = false; continue; }
+                if (board [x + 1, y + 1] != EMPTYCHAR) { good = false; continue; }
+                if (board [x + 1, y    ] != EMPTYCHAR) { good = false; continue; }
+                if (board [x    , y + 1] != EMPTYCHAR) { good = false; continue; }
             }
             _add_bonus (x, y, BonusType.REGULAR, false, 300);
         }
@@ -594,7 +589,7 @@ private class NibblesGame : Object
             }
         }
     }
-    private inline void _add_bonus (int x, int y, BonusType bonus_type, bool fake, int countdown)
+    private inline void _add_bonus (uint8 x, uint8 y, BonusType bonus_type, bool fake, uint16 countdown)
     {
         Bonus bonus = new Bonus (x, y, bonus_type, fake, countdown);
         if (boni.add_bonus (board, bonus))
@@ -613,9 +608,9 @@ private class NibblesGame : Object
         switch (board[worm.head.x, worm.head.y] - 'A')
         {
             case BonusType.REGULAR:
-                int nth_bonus = boni.new_regular_bonus_eaten ();
-                worm.change += nth_bonus * Worm.GROW_FACTOR;
-                worm.score  += nth_bonus * current_level;
+                uint8 nth_bonus = boni.new_regular_bonus_eaten ();
+                worm.change += (int) nth_bonus * Worm.GROW_FACTOR;
+                worm.score  += (int) nth_bonus * current_level;
                 break;
             case BonusType.DOUBLE:
                 worm.score += (worm.length + worm.change) * current_level;

@@ -527,16 +527,16 @@ private class Worm : Object
         uint8 width  = (uint8) /* int */ board.length [0];
         uint8 height = (uint8) /* int */ board.length [1];
 
-        if (old_position.x < 0 || old_position.x >= width
-         || old_position.y < 0 || old_position.y >= height)
+        if (old_position.x >= width
+         || old_position.y >= height)
             return 0;
 
         deadend_runnumber++;
 
         for (int i = numworms - 1; i >= 0; i--)
         {
-            int target_x = worms [i].head.x;
-            int target_y = worms [i].head.y;
+            uint8 target_x = worms [i].head.x;
+            uint8 target_y = worms [i].head.y;
             if (target_x == old_position.x
              && target_y == old_position.y)
                 continue;
@@ -567,38 +567,41 @@ private class Worm : Object
      * that is, that it's within 3 in the direction we're going and within
      * 1 to the side.
      */
-    private inline bool ai_too_close (Gee.LinkedList<Worm> worms, int numworms)
+    private inline bool ai_too_close (Gee.LinkedList<Worm> worms)
     {
-        int i = numworms;
-        int dx, dy;
-
-        while (i-- > 0)
+        foreach (Worm worm in worms)
         {
-            dx = head.x - worms[i].head.x;
-            dy = head.y - worms[i].head.y;
+            if (worm == this)
+                continue;
+
+            int16 dx = (int16) this.head.x - (int16) worm.head.x;
+            int16 dy = (int16) this.head.y - (int16) worm.head.y;
             switch (direction)
             {
                 case WormDirection.UP:
                     if (dy > 0 && dy <= 3 && dx >= -1 && dx <= 1)
                         return true;
                     break;
+
                 case WormDirection.DOWN:
                     if (dy < 0 && dy >= -3 && dx >= -1 && dx <= 1)
                         return true;
                     break;
+
                 case WormDirection.LEFT:
                     if (dx > 0 && dx <= 3 && dy >= -1 && dy <= 1)
                         return true;
                     break;
+
                 case WormDirection.RIGHT:
                     if (dx < 0 && dx >= -3 && dy >= -1 && dy <= 1)
                         return true;
                     break;
+
                 default:
                     assert_not_reached ();
             }
         }
-
         return false;
     }
 
@@ -683,7 +686,7 @@ private class Worm : Object
             if (!can_move_to (board, numworms, position_move ()))
                 this_len += capacity;
 
-            if (ai_too_close (worms, numworms))
+            if (ai_too_close (worms))
                 this_len += 4;
 
             this_len += ai_deadend_after (board, worms, numworms, head, direction, length + change);

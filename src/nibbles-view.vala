@@ -735,7 +735,7 @@ private class NibblesView : GtkClutter.Embed
         }
 
         actor.set_size (tile_size, tile_size);
-        actor.set_position (bonus.x * tile_size, bonus.y * tile_size);
+        actor.set_position ((int) bonus.x * tile_size, (int) bonus.y * tile_size);
 
         level.add_child (actor);
         if (bonus.bonus_type != BonusType.REGULAR)
