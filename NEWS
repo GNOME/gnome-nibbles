@@ -1,3 +1,12 @@
+3.37.0 - July 4, 2020
+=====================
+
+- Rework worms directions code (Arnaud Bonatti)
+- Many fixes to Control screen (Arnaud Bonatti)
+- Remove preferences dialog and create new pre-game screen with options (Arnaud Bonatti)
+- Updated translations
+- Many other fixes and improvements
+
 3.35.90 - February 14, 2020
 ===========================
 
