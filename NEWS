@@ -1,3 +1,15 @@
+3.36.1 - July 4, 2020
+======================
+
+- Fix button label in documentation (Marek Černocký)
+- Fix bug related to parsing colors on non-English versions of the game (Arnaud Bonatti)
+- Fix end-of-game screen being covered by another view (Arnaud Bonatti)
+- Fix bug causing the game to remain paused if restarted while being paused (Arnaud Bonatti)
+- Fix right arrow on controls screen in Turkish locale
+- Update translations (Swedish - Anders Jonsson, Polish - Piotr Drąg,
+Ukrainian - Yuri Chornoivan, Spanish - Daniel Mustieles García, French - Charles Monzat,
+Kazakh - Baurzhan Muftakhidinov)
+
 3.36.0 - March 7, 2020
 ======================
 
