@@ -660,14 +660,15 @@ private class NibblesWindow : ApplicationWindow
         /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
         scorecats.add (new Games.Scores.Category ("fast-fakes", _("Fast with Fakes")));
 
-        scores_context = new Games.Scores.Context.with_importer (
+        scores_context = new Games.Scores.Context.with_importer_and_icon_name (
             "gnome-nibbles",
             /* Translators: label displayed on the scores dialog, preceding a difficulty. */
             _("Difficulty Level:"),
             this,
             category_request,
             Games.Scores.Style.POINTS_GREATER_IS_BETTER,
-            new Games.Scores.DirectoryImporter.with_convert_func (get_new_scores_key));
+            new Games.Scores.DirectoryImporter.with_convert_func (get_new_scores_key),
+            "org.gnome.Nibbles");
     }
 
     private Games.Scores.Category get_scores_category (int speed, bool fakes)
