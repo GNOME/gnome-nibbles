@@ -18,7 +18,7 @@
 
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/nibbles/ui/nibbles.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/nibbles.ui")]
 private class NibblesWindow : ApplicationWindow
 {
     /* Application and worm settings */
@@ -948,7 +948,7 @@ private class NibblesWindow : ApplicationWindow
     }
 }
 
-[GtkTemplate (ui = "/org/gnome/nibbles/ui/first-run.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/first-run.ui")]
 private class FirstRun : Box
 {
 }
