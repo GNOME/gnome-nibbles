@@ -79,7 +79,7 @@ private class NibblesWindow : ApplicationWindow
     {
         { "hamburger",      hamburger_cb    },
 
-        { "new-game",       new_game_cb     },  // the "New Game" button
+        { "new-game",       new_game_cb     },  // the "New Game" button (during game), or the ctrl-N shortcut (mostly all the time)
         { "pause",          pause_cb        },
         { "preferences",    preferences_cb, "i" },
         { "scores",         scores_cb       },
@@ -176,7 +176,7 @@ private class NibblesWindow : ApplicationWindow
             first_run_panel.show ();
             main_stack.add_named (first_run_panel, "first-run");
 
-            new_game_action.set_enabled (false);
+         // new_game_action.set_enabled (true);
             pause_action.set_enabled (false);
             back_action.set_enabled (false);
 
@@ -311,6 +311,38 @@ private class NibblesWindow : ApplicationWindow
     }
 
     private void new_game_cb ()
+    {
+        var child_name = main_stack.get_visible_child_name ();
+        switch (child_name)
+        {
+            case "first-run":
+            case "number_of_players":
+            case "speed":
+                next_screen_cb ();
+                break;
+            case "controls":
+                start_game ();
+                break;
+            case "game_box":
+                if (end_of_game)    // TODO better
+                {
+                    game_over_label.destroy ();
+                    score_label.destroy ();
+                    points_left_label.destroy ();
+                    play_again_button.destroy ();
+                    msg_label.destroy ();
+
+                    view.show ();
+                    end_of_game = false;
+
+                    show_new_game_screen ();
+                }
+                else
+                    show_new_game_dialog ();
+                break;
+        }
+    }
+    private void show_new_game_dialog ()
     {
         if (countdown_id != 0)
         {
@@ -489,7 +521,7 @@ private class NibblesWindow : ApplicationWindow
 
         headerbar.set_title (Nibbles.PROGRAM_NAME);
 
-        new_game_action.set_enabled (false);
+        new_game_action.set_enabled (true);
         pause_action.set_enabled (false);
         back_action.set_enabled (true);
 
@@ -839,13 +871,19 @@ private class NibblesWindow : ApplicationWindow
         preferences_dialog.present ();
     }
 
+    private bool end_of_game = false;
+    private Label game_over_label;
+    private Label msg_label;
+    private Label score_label;
+    private Label points_left_label;
+    private Button play_again_button;
     private void game_over (int score, long lowest_high_score, int level_reached)
     {
         var is_high_score = (score > lowest_high_score);
         var is_game_won = (level_reached == NibblesGame.MAX_LEVEL + 1);
 
         /* Translators: label displayed at the end of a level, if the player finished all the levels */
-        var game_over_label = new Label (is_game_won ? _("Congratulations!")
+        game_over_label = new Label (is_game_won ? _("Congratulations!")
 
 
         /* Translators: label displayed at the end of a level, if the player did not finished all the levels */
@@ -857,7 +895,7 @@ private class NibblesWindow : ApplicationWindow
         game_over_label.show ();
 
         /* Translators: label displayed at the end of a level, if the player finished all the levels */
-        var msg_label = new Label (_("You have completed the game."));
+        msg_label = new Label (_("You have completed the game."));
         msg_label.halign = Align.CENTER;
         msg_label.valign = Align.START;
         msg_label.set_margin_top (window_height / 3);
@@ -866,7 +904,7 @@ private class NibblesWindow : ApplicationWindow
 
         var score_string = ngettext ("%d Point", "%d Points", score);
         score_string = score_string.printf (score);
-        var score_label = new Label (@"<b>$(score_string)</b>");
+        score_label = new Label (@"<b>$(score_string)</b>");
         score_label.set_use_markup (true);
         score_label.halign = Align.CENTER;
         score_label.valign = Align.START;
@@ -875,31 +913,21 @@ private class NibblesWindow : ApplicationWindow
 
         var points_left = lowest_high_score - score;
         /* Translators: label displayed at the end of a level, if the player did not score enough to have its score saved */
-        var points_left_label = new Label (_("(%ld more points to reach the leaderboard)").printf (points_left));
+        points_left_label = new Label (_("(%ld more points to reach the leaderboard)").printf (points_left));
         points_left_label.halign = Align.CENTER;
         points_left_label.valign = Align.START;
         points_left_label.set_margin_top (window_height / 3 + 100);
         points_left_label.show ();
 
         /* Translators: label of a button displayed at the end of a level; restarts the game */
-        var button = new Button.with_label (_("_Play Again"));
-        button.set_use_underline (true);
-        button.halign = Align.CENTER;
-        button.valign = Align.END;
-        button.set_margin_bottom (100);
-        button.get_style_context ().add_class ("suggested-action");
-        button.clicked.connect (() => {
-            game_over_label.destroy ();
-            score_label.destroy ();
-            points_left_label.destroy ();
-            button.destroy ();
-            msg_label.destroy ();
-
-            view.show ();
-
-            show_new_game_screen ();
-        });
-        button.show ();
+        play_again_button = new Button.with_label (_("_Play Again"));
+        play_again_button.set_use_underline (true);
+        play_again_button.halign = Align.CENTER;
+        play_again_button.valign = Align.END;
+        play_again_button.set_margin_bottom (100);
+        play_again_button.get_style_context ().add_class ("suggested-action");
+        play_again_button.set_action_name ("win.new-game");
+        play_again_button.show ();
 
         overlay.add_overlay (game_over_label);
         if (is_game_won)
@@ -908,12 +936,13 @@ private class NibblesWindow : ApplicationWindow
             overlay.add_overlay (score_label);
         if (game.numhumans == 1 && !is_high_score)
             overlay.add_overlay (points_left_label);
-        overlay.add_overlay (button);
+        overlay.add_overlay (play_again_button);
 
-        button.grab_focus ();
+        play_again_button.grab_focus ();
 
         view.hide ();
-        new_game_action.set_enabled (false);
+        end_of_game = true;
+        new_game_action.set_enabled (true);
         pause_action.set_enabled (false);
         back_action.set_enabled (false);
     }
