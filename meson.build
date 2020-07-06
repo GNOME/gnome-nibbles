@@ -1,6 +1,6 @@
 project('gnome-nibbles', ['c', 'vala'],
   license: 'GPL3+',
-  meson_version: '>= 0.44.1',
+  meson_version: '>= 0.50.1',
   version: '3.37.0'
 )
 
