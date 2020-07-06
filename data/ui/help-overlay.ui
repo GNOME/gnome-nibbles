@@ -88,7 +88,7 @@
                 <property name="visible">True</property>
                 <!-- Translators: shortcut that opens Keyboard Shortcuts window -->
                 <property name="title" translatable="yes" context="shortcut window">Keyboard shortcuts</property>
-                <property name="accelerator">&lt;Primary&gt;question</property> <!-- TODO make &lt;Primary&gt;F1 work -->
+                <property name="accelerator">&lt;Primary&gt;F1 &lt;Primary&gt;question</property>
               </object>
             </child>
             <child>
@@ -101,10 +101,10 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">False</property>
-                <!-- Translators: shortcut (disabled for now) that opens About dialog -->
+                <property name="visible">True</property>
+                <!-- Translators: shortcut that opens About dialog -->
                 <property name="title" translatable="yes" context="shortcut window">About</property>
-                <property name="accelerator">&lt;Shift&gt;F1</property> <!-- TODO implement shortcut -->
+                <property name="accelerator">&lt;Shift&gt;F1</property>
               </object>
             </child>
             <child>

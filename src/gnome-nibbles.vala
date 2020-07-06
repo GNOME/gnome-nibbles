@@ -89,16 +89,29 @@ private class Nibbles : Gtk.Application
 
         add_action_entries (action_entries, this);
 
+        // F1 and friends are managed manually
         set_accels_for_action ("win.new-game",  { "<Primary>n"      });
         set_accels_for_action ("win.pause",     { "<Primary>p",
                                                            "Pause"  });
         set_accels_for_action ("app.quit",      { "<Primary>q"      });
         set_accels_for_action ("win.back",      {          "Escape" });
-        set_accels_for_action ("app.help",      {          "F1"     });
         set_accels_for_action ("win.hamburger", {          "F10",
                                                            "Menu"   });
         window = new NibblesWindow ();
         add_window (window);
+    }
+    internal bool on_f1_pressed (Gdk.ModifierType state)
+    {
+        // TODO close popovers
+        if ((state & Gdk.ModifierType.CONTROL_MASK) != 0)
+            return false;                           // help overlay
+        if ((state & Gdk.ModifierType.SHIFT_MASK) == 0)
+        {
+            help_cb ();
+            return true;
+        }
+        about_cb ();
+        return true;
     }
 
     protected override void activate ()
