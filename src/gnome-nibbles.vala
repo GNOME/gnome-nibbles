@@ -84,7 +84,7 @@ private class Nibbles : Gtk.Application
         Gtk.Settings.get_default ().@set ("gtk-application-prefer-dark-theme", true);
 
         var css_provider = new CssProvider ();
-        css_provider.load_from_resource ("/org/gnome/nibbles/ui/nibbles.css");
+        css_provider.load_from_resource ("/org/gnome/Nibbles/ui/nibbles.css");
         StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         add_action_entries (action_entries, this);

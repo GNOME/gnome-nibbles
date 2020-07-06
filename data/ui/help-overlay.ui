@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright (C) 2020 Arnaud Bonatti
+
+   GNOME Nibbles is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 2 of the License, or
+   (at your option) any later version.
+
+   GNOME Nibbles is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface domain="gnome-nibbles">
+  <requires lib="gtk+" version="3.12"/>
+  <object class="GtkShortcutsWindow" id="help_overlay">
+    <child>
+      <object class="GtkShortcutsSection">
+        <property name="visible">True</property>
+        <property name="max-height">6</property>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="visible">True</property>
+            <!-- Translators: header of the "Next screen" and "Previous screen" shortcuts section -->
+            <property name="title" translatable="yes" context="shortcut window">During game setup</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: shortcut that during game setup switches to the next screen -->
+                <property name="title" translatable="yes" context="shortcut window">Next screen</property>
+                <property name="accelerator">&lt;Primary&gt;n</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: shortcut that during game setup goes back to the previous screen -->
+                <property name="title" translatable="yes" context="shortcut window">Previous screen</property>
+                <property name="accelerator">Escape</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="visible">True</property>
+            <!-- Translators: header of the "Start a new game" and "Pause or unpause" shortcuts section -->
+            <property name="title" translatable="yes" context="shortcut window">During a game</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: shortcut that during a game opens a popup to discard current game and start a new one -->
+                <property name="title" translatable="yes" context="shortcut window">Start a new game</property>
+                <property name="accelerator">&lt;Primary&gt;n Escape</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: shortcut that pauses or unpauses the current game -->
+                <property name="title" translatable="yes" context="shortcut window">Pause or unpause</property>
+                <property name="accelerator">&lt;Primary&gt;p Pause</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="visible">True</property>
+            <!-- Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section -->
+            <property name="title" translatable="yes" context="shortcut window">Generic</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: shortcut that toggles the hamburger menu -->
+                <property name="title" translatable="yes" context="shortcut window">Toggle main menu</property>
+                <property name="accelerator">F10 Menu</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: shortcut that opens Keyboard Shortcuts window -->
+                <property name="title" translatable="yes" context="shortcut window">Keyboard shortcuts</property>
+                <property name="accelerator">&lt;Primary&gt;question</property> <!-- TODO make &lt;Primary&gt;F1 work -->
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: shortcut that opens the application help -->
+                <property name="title" translatable="yes" context="shortcut window">Help</property>
+                <property name="accelerator">F1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">False</property>
+                <!-- Translators: shortcut (disabled for now) that opens About dialog -->
+                <property name="title" translatable="yes" context="shortcut window">About</property>
+                <property name="accelerator">&lt;Shift&gt;F1</property> <!-- TODO implement shortcut -->
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: shortcut that quits application -->
+                <property name="title" translatable="yes" context="shortcut window">Quit</property>
+                <property name="accelerator">&lt;Primary&gt;q</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

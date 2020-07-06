@@ -18,7 +18,7 @@
 
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/nibbles/ui/preferences-dialog.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/preferences-dialog.ui")]
 private class PreferencesDialog : Window
 {
     private GLib.Settings settings;

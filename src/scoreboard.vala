@@ -18,7 +18,7 @@
 
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/nibbles/ui/scoreboard.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/scoreboard.ui")]
 private class Scoreboard : Box
 {
     private Gee.HashMap<PlayerScoreBox, Worm> boxes = new Gee.HashMap<PlayerScoreBox, Worm> ();
@@ -56,7 +56,7 @@ private class Scoreboard : Box
     }
 }
 
-[GtkTemplate (ui = "/org/gnome/nibbles/ui/player-score-box.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/player-score-box.ui")]
 private class PlayerScoreBox : Box
 {
     [GtkChild] private Label name_label;
