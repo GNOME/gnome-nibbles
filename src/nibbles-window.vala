@@ -37,6 +37,7 @@ private class NibblesWindow : ApplicationWindow
 
     /* HeaderBar */
     [GtkChild] private HeaderBar headerbar;
+    [GtkChild] private MenuButton hamburger_menu;
     [GtkChild] private Button new_game_button;
     [GtkChild] private Button pause_button;
 
@@ -76,6 +77,8 @@ private class NibblesWindow : ApplicationWindow
 
     private const GLib.ActionEntry menu_entries[] =
     {
+        { "hamburger",      hamburger_cb    },
+
         { "new-game",       new_game_cb     },  // the "New Game" button
         { "pause",          pause_cb        },
         { "preferences",    preferences_cb, "i" },
@@ -234,7 +237,10 @@ private class NibblesWindow : ApplicationWindow
     private EventControllerKey key_controller;          // for keeping in memory
     private bool key_press_event_cb (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
-        return game.handle_keypress (keyval);
+        if (hamburger_menu.active)
+            return false;
+        else
+            return game.handle_keypress (keyval);
     }
 
     private void size_allocate_cb (Allocation allocation)
@@ -379,6 +385,11 @@ private class NibblesWindow : ApplicationWindow
             /* Translators: label of the Pause button, when the game is running */
             pause_button.set_label (_("_Pause"));   // duplicated in nibbles.ui
         }
+    }
+
+    private void hamburger_cb ()
+    {
+        hamburger_menu.active = !hamburger_menu.active;
     }
 
     /*\

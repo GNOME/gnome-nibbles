@@ -89,11 +89,12 @@ private class Nibbles : Gtk.Application
 
         add_action_entries (action_entries, this);
 
-        set_accels_for_action ("win.new-game", {"<Primary>n"});
-        set_accels_for_action ("app.quit", {"<Primary>q"});
-        set_accels_for_action ("win.back", {"Escape"});
-        set_accels_for_action ("app.help", {"F1"});
-
+        set_accels_for_action ("win.new-game",  { "<Primary>n"      });
+        set_accels_for_action ("app.quit",      { "<Primary>q"      });
+        set_accels_for_action ("win.back",      {          "Escape" });
+        set_accels_for_action ("app.help",      {          "F1"     });
+        set_accels_for_action ("win.hamburger", {          "F10",
+                                                           "Menu"   });
         window = new NibblesWindow ();
         add_window (window);
     }
