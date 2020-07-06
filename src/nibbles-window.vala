@@ -239,6 +239,8 @@ private class NibblesWindow : ApplicationWindow
     {
         if (hamburger_menu.active)
             return false;
+        else if ((!) (Gdk.keyval_name (keyval) ?? "") == "F1")
+            return ((Nibbles) application).on_f1_pressed (state);   // TODO fix dance done with the F1 & <Control>F1 shortcuts that show help overlay
         else
             return game.handle_keypress (keyval);
     }
