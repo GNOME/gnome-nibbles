@@ -85,7 +85,7 @@ msgid ""
 msgstr ""
 "Pro pozastavení hry zmáčkněte tlačítko <gui style=\"button\">Pozastavit</gui> "
 "na záhlavní liště. Pokračovat můžete zmáčknutím tlačítka <gui style="
-"\"button\">Pokračovat</gui></guiseq>."
+"\"button\">Pokračovat</gui>."
 
 #. (itstool) path: section/title
 #: C/basics.page:46
