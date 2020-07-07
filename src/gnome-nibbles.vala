@@ -32,10 +32,24 @@ private class Nibbles : Gtk.Application
         {"quit", quit}
     };
 
+    private static int nibbles = int.MIN;
+    private static int players = int.MIN;
     private const OptionEntry[] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
-        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null, N_("Show release version"), null },
+        { "nibbles",        'n', OptionFlags.NONE, OptionArg.INT,   ref nibbles,    N_("Set number of nibbles (4-6)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help' */
+                                                                                    N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "players",        'p', OptionFlags.NONE, OptionArg.INT,   ref players,    N_("Set number of players (1-4)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help' */
+                                                                                    N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "version",        'v', OptionFlags.NONE, OptionArg.NONE,  null,           N_("Show release version"),                 null },
         {}
     };
 
@@ -63,6 +77,19 @@ private class Nibbles : Gtk.Application
             /* Not translated so can be easily parsed */
             stderr.printf ("gnome-nibbles %s\n", VERSION);
             return Posix.EXIT_SUCCESS;
+        }
+
+        if (nibbles != int.MIN && (nibbles < 4 || nibbles > 6))
+        {
+            /* Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1' */
+            stderr.printf (_("There could only be between 4 and 6 nibbles.") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
+        if (players != int.MIN && (players < 1 || players > 4))
+        {
+            /* Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5' */
+            stderr.printf (_("There could only be between 1 and 4 players.") + "\n");
+            return Posix.EXIT_FAILURE;
         }
 
         /* Activate */
@@ -97,6 +124,29 @@ private class Nibbles : Gtk.Application
         set_accels_for_action ("win.back",      {          "Escape" });
         set_accels_for_action ("win.hamburger", {          "F10",
                                                            "Menu"   });
+        bool nibbles_changed = nibbles != int.MIN;
+        bool players_changed = players != int.MIN;
+        if (nibbles_changed || players_changed)
+        {
+            GLib.Settings settings = new GLib.Settings ("org.gnome.Nibbles");
+            if (nibbles_changed && players_changed)
+            {
+                settings.set_int ("players", players);
+                settings.set_int ("ai", nibbles - players);
+            }
+            else if (players_changed)
+            {
+                int old_ai      = settings.get_int ("ai");
+                int old_players = settings.get_int ("players");
+                settings.set_int ("players", players);
+                int new_ai = ((old_ai + old_players).clamp (4, 6) - players).clamp (0, 5);
+                if (old_ai != new_ai)
+                    settings.set_int ("ai", new_ai);
+            }
+            else // (nibbles_changed)
+                settings.set_int ("ai", nibbles - settings.get_int ("players"));
+        }
+
         window = new NibblesWindow ();
         add_window (window);
     }
