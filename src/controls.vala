@@ -26,12 +26,10 @@ private class Controls : Box
     private Gee.LinkedList<ControlsGrid> grids = new Gee.LinkedList<ControlsGrid> ();
 
     private Gdk.Pixbuf arrow_pixbuf;
-    private Gdk.Pixbuf arrow_key_pixbuf;
 
     internal void load_pixmaps (int tile_size)
     {
-        arrow_pixbuf     = NibblesView.load_pixmap_file ("arrow.svg",     5 * tile_size, 5 * tile_size);
-        arrow_key_pixbuf = NibblesView.load_pixmap_file ("arrow-key.svg", 5 * tile_size, 5 * tile_size);
+        arrow_pixbuf = NibblesView.load_pixmap_file ("arrow.svg", 5 * tile_size, 5 * tile_size);
     }
 
     internal void prepare (Gee.LinkedList<Worm> worms, Gee.HashMap<Worm, WormProperties> worm_props)
@@ -47,7 +45,7 @@ private class Controls : Box
             {
                 WormProperties worm_prop = worm_props.@get (worm);
 
-                var grid = new ControlsGrid (worm.id, worm_prop, arrow_pixbuf, arrow_key_pixbuf);
+                var grid = new ControlsGrid (worm.id, worm_prop, arrow_pixbuf);
                 grids_box.add (grid);
                 grids.add (grid);
 
@@ -120,7 +118,7 @@ private class ControlsGrid : Button
     private ulong right_handler;
     private ulong color_handler;
 
-    internal ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow, Gdk.Pixbuf arrow_key)
+    internal ControlsGrid (int worm_id, WormProperties worm_props, Gdk.Pixbuf arrow)
     {
         this.worm_props = worm_props;
 
