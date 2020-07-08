@@ -34,6 +34,7 @@ private class Nibbles : Gtk.Application
 
     private static int nibbles = int.MIN;
     private static int players = int.MIN;
+    private static int speed   = int.MIN;
     private const OptionEntry[] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
@@ -46,6 +47,12 @@ private class Nibbles : Gtk.Application
         { "players",        'p', OptionFlags.NONE, OptionArg.INT,   ref players,    N_("Set number of players (1-4)"),
 
         /* Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help' */
+                                                                                    N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "speed",          's', OptionFlags.NONE, OptionArg.INT,   ref speed,      N_("Set worms speed (4-1, 4 for slow)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help' */
                                                                                     N_("NUMBER") },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
@@ -91,6 +98,12 @@ private class Nibbles : Gtk.Application
             stderr.printf (_("There could only be between 1 and 4 players.") + "\n");
             return Posix.EXIT_FAILURE;
         }
+        if (speed   != int.MIN && (speed   < 1 || speed   > 4))
+        {
+            /* Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5' */
+            stderr.printf (_("Speed should be between 4 (slow) and 1 (fast).") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
 
         /* Activate */
         return -1;
@@ -126,7 +139,9 @@ private class Nibbles : Gtk.Application
                                                            "Menu"   });
         bool nibbles_changed = nibbles != int.MIN;
         bool players_changed = players != int.MIN;
-        if (nibbles_changed || players_changed)
+        if (nibbles_changed
+         || players_changed
+         || speed != int.MIN)
         {
             GLib.Settings settings = new GLib.Settings ("org.gnome.Nibbles");
             if (nibbles_changed && players_changed)
@@ -145,6 +160,9 @@ private class Nibbles : Gtk.Application
             }
             else // (nibbles_changed)
                 settings.set_int ("ai", nibbles - settings.get_int ("players"));
+
+            if (speed != int.MIN)
+                settings.set_int ("speed", speed);
         }
 
         window = new NibblesWindow ();
