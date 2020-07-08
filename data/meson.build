@@ -22,14 +22,14 @@ endif
 
 # Sound
 install_data([
-    'appear.ogg',
-    'bonus.ogg',
-    'crash.ogg',
-    'gameover.ogg',
-    'gobble.ogg',
-    'life.ogg',
-    'reverse.ogg',
-    'teleport.ogg'
+    join_paths('sounds', 'appear.ogg'),
+    join_paths('sounds', 'bonus.ogg'),
+    join_paths('sounds', 'crash.ogg'),
+    join_paths('sounds', 'gameover.ogg'),
+    join_paths('sounds', 'gobble.ogg'),
+    join_paths('sounds', 'life.ogg'),
+    join_paths('sounds', 'reverse.ogg'),
+    join_paths('sounds', 'teleport.ogg')
 ], install_dir: sounddir)
 
 # Icons
