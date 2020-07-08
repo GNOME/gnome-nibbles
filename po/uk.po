@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-06-23 11:10+0000\n"
-"PO-Revision-Date: 2020-06-23 16:59+0300\n"
+"POT-Creation-Date: 2020-07-08 15:07+0000\n"
+"PO-Revision-Date: 2020-07-08 21:25+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -62,15 +62,15 @@ msgstr ""
 "Пограти самому проти до п'яти ворожих хробаків або поділитись клавіатурою, "
 "щоб пограти з другом."
 
-#: data/org.gnome.Nibbles.appdata.xml.in:52
+#: data/org.gnome.Nibbles.appdata.xml.in:53
 msgid "The GNOME Project"
 msgstr "Проект GNOME"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: title of the window, as displayed in the headerbar
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:53
-#: data/ui/nibbles.ui:61 src/gnome-nibbles.vala:24
+#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:57
+#: data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
 msgid "Nibbles"
 msgstr "Хробак"
 
@@ -292,30 +292,35 @@ msgstr "_Звук"
 msgid "_Scores"
 msgstr "_Результати"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
 #: data/ui/nibbles.ui:40
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавіатурні скорочення"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
+#: data/ui/nibbles.ui:45
 msgid "_Help"
 msgstr "_Довідка"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the About dialog
-#: data/ui/nibbles.ui:46
+#: data/ui/nibbles.ui:50
 msgid "_About Nibbles"
 msgstr "_Про «Хробак»"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
 #. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:68 src/nibbles-window.vala:330
+#: data/ui/nibbles.ui:72 src/nibbles-window.vala:371
 msgid "_New Game"
 msgstr "_Нова гра"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:80 src/nibbles-window.vala:379
+#: data/ui/nibbles.ui:84 src/nibbles-window.vala:420
 msgid "_Pause"
 msgstr "_Пауза"
 
 #. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles.ui:174
+#: data/ui/nibbles.ui:178
 msgid "Paused"
 msgstr "Призупинено"
 
@@ -366,25 +371,21 @@ msgstr "_Далі"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 1st worm controls and color
 #: data/ui/preferences-dialog.ui:30
-#| msgid "Worm _1"
 msgid "Worm 1"
 msgstr "Хробак 1"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 2nd worm controls and color
 #: data/ui/preferences-dialog.ui:32
-#| msgid "Worm _2"
 msgid "Worm 2"
 msgstr "Хробак 2"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 3rd worm controls and color
 #: data/ui/preferences-dialog.ui:34
-#| msgid "Worm _3"
 msgid "Worm 3"
 msgstr "Хробак 3"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 4th worm controls and color
 #: data/ui/preferences-dialog.ui:36
-#| msgid "Worm _4"
 msgid "Worm 4"
 msgstr "Хробак 4"
 
@@ -431,7 +432,7 @@ msgstr "_Увімкнути фальшиві премії"
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/controls.vala:130 src/nibbles-view.vala:530 src/scoreboard.vala:32
+#: src/controls.vala:130 src/nibbles-view.vala:533 src/scoreboard.vala:32
 #, c-format
 msgid "Player %d"
 msgstr "Гравець %d"
@@ -442,63 +443,63 @@ msgid "Show release version"
 msgstr "Показати версію випуску"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:129
+#: src/gnome-nibbles.vala:145
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:133
+#: src/gnome-nibbles.vala:149
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:137
+#: src/gnome-nibbles.vala:153
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:141
+#: src/gnome-nibbles.vala:157
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:145
+#: src/gnome-nibbles.vala:161
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:149
+#: src/gnome-nibbles.vala:165
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:153
+#: src/gnome-nibbles.vala:169
 msgid "Allan Day"
 msgstr "Allan Day"
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:159
+#: src/gnome-nibbles.vala:175
 msgid "A worm game for GNOME"
 msgstr "Гра «Хробак» для GNOME"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:163
+#: src/gnome-nibbles.vala:179
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "© Sean MacIsaac, Ian Peters, Andreas Røsdal, 1999–2008"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:167
+#: src/gnome-nibbles.vala:183
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "© Guillaume Beland, 2009"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:171
+#: src/gnome-nibbles.vala:187
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "© Iulian-Gabriel Radu, %u-%u"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:177
+#: src/gnome-nibbles.vala:193
 msgid "translator-credits"
 msgstr ""
 "Юрій Сирота\n"
@@ -507,128 +508,128 @@ msgstr ""
 ">Daniel Korostil <ted.korostiled@gmail.com>"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:901
+#: src/nibbles-view.vala:904
 msgid "red"
 msgstr "червоний"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:903
+#: src/nibbles-view.vala:906
 msgid "green"
 msgstr "зелений"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:905
+#: src/nibbles-view.vala:908
 msgid "blue"
 msgstr "синій"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:907
+#: src/nibbles-view.vala:910
 msgid "yellow"
 msgstr "жовтий"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:909
+#: src/nibbles-view.vala:912
 msgid "cyan"
 msgstr "блакитний"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:911
+#: src/nibbles-view.vala:914
 msgid "purple"
 msgstr "бузковий"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:322
+#: src/nibbles-window.vala:363
 msgid "Are you sure you want to start a new game?"
 msgstr "Розпочати нову гру?"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:326
+#: src/nibbles-window.vala:367
 msgid "If you start a new game, the current one will be lost."
 msgstr "Якщо ви запустити нову гру, то ця буде втрачена."
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:374
+#: src/nibbles-window.vala:415
 msgid "_Resume"
 msgstr "_Відновити"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:573 src/nibbles-window.vala:790
+#: src/nibbles-window.vala:619 src/nibbles-window.vala:836
 #, c-format
 msgid "Level %d"
 msgstr "Рівень %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:646
+#: src/nibbles-window.vala:692
 msgid "Beginner"
 msgstr "Початківець"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:648
+#: src/nibbles-window.vala:694
 msgid "Slow"
 msgstr "Повільно"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:650
+#: src/nibbles-window.vala:696
 msgid "Medium"
 msgstr "Помірно"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:652
+#: src/nibbles-window.vala:698
 msgid "Fast"
 msgstr "Швидко"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:654
+#: src/nibbles-window.vala:700
 msgid "Beginner with Fakes"
 msgstr "Початківець з шахрайством"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:656
+#: src/nibbles-window.vala:702
 msgid "Slow with Fakes"
 msgstr "Повільно з шахрайством"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:658
+#: src/nibbles-window.vala:704
 msgid "Medium with Fakes"
 msgstr "Помірно з шахрайством"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:660
+#: src/nibbles-window.vala:706
 msgid "Fast with Fakes"
 msgstr "Швидко з шахрайством"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:665
+#: src/nibbles-window.vala:711
 msgid "Difficulty Level:"
 msgstr "Рівень складності:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:770
+#: src/nibbles-window.vala:816
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Рівень %d пройдено!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:778
+#: src/nibbles-window.vala:824
 msgid "_Next Level"
 msgstr "_Наступний рівень"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:836
+#: src/nibbles-window.vala:888
 msgid "Congratulations!"
 msgstr "Вітаємо!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:840
+#: src/nibbles-window.vala:892
 msgid "Game Over!"
 msgstr "Гру завершено!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:848
+#: src/nibbles-window.vala:900
 msgid "You have completed the game."
 msgstr "Ви пройшли гру."
 
-#: src/nibbles-window.vala:855
+#: src/nibbles-window.vala:907
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -637,13 +638,13 @@ msgstr[1] "%d бали"
 msgstr[2] "%d балів"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:866
+#: src/nibbles-window.vala:918
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld — треба ще, щоб вибитись у лідери)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:873
+#: src/nibbles-window.vala:925
 msgid "_Play Again"
 msgstr "_Зіграти ще раз"
 
