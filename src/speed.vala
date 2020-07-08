@@ -19,7 +19,7 @@
 
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/nibbles/ui/speed.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/speed.ui")]
 private class Speed : Box
 {
     private SimpleAction speed_action;

@@ -19,7 +19,7 @@
 
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/nibbles/ui/controls.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/controls.ui")]
 private class Controls : Box
 {
     [GtkChild] private Box grids_box;
@@ -99,7 +99,7 @@ private class Controls : Box
     }
 }
 
-[GtkTemplate (ui = "/org/gnome/nibbles/ui/controls-grid.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/controls-grid.ui")]
 private class ControlsGrid : Button
 {
     [GtkChild] private Label name_label;

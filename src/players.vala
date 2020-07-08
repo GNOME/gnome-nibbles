@@ -18,7 +18,7 @@
 
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/nibbles/ui/players.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/players.ui")]
 private class Players : Box
 {
     [GtkChild] private ToggleButton worms4;

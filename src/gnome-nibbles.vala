@@ -84,18 +84,34 @@ private class Nibbles : Gtk.Application
         Gtk.Settings.get_default ().@set ("gtk-application-prefer-dark-theme", true);
 
         var css_provider = new CssProvider ();
-        css_provider.load_from_resource ("/org/gnome/nibbles/ui/nibbles.css");
+        css_provider.load_from_resource ("/org/gnome/Nibbles/ui/nibbles.css");
         StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         add_action_entries (action_entries, this);
 
-        set_accels_for_action ("win.new-game", {"<Primary>n"});
-        set_accels_for_action ("app.quit", {"<Primary>q"});
-        set_accels_for_action ("win.back", {"Escape"});
-        set_accels_for_action ("app.help", {"F1"});
-
+        // F1 and friends are managed manually
+        set_accels_for_action ("win.new-game",  { "<Primary>n"      });
+        set_accels_for_action ("win.pause",     { "<Primary>p",
+                                                           "Pause"  });
+        set_accels_for_action ("app.quit",      { "<Primary>q"      });
+        set_accels_for_action ("win.back",      {          "Escape" });
+        set_accels_for_action ("win.hamburger", {          "F10",
+                                                           "Menu"   });
         window = new NibblesWindow ();
         add_window (window);
+    }
+    internal bool on_f1_pressed (Gdk.ModifierType state)
+    {
+        // TODO close popovers
+        if ((state & Gdk.ModifierType.CONTROL_MASK) != 0)
+            return false;                           // help overlay
+        if ((state & Gdk.ModifierType.SHIFT_MASK) == 0)
+        {
+            help_cb ();
+            return true;
+        }
+        about_cb ();
+        return true;
     }
 
     protected override void activate ()
