@@ -2,8 +2,8 @@ bonus_pix = [
     'bonus1.svg',
     'bonus2.svg',
     'bonus3.svg',
-    'bonus4.svg',
-    'bonus5.svg',
+#   'bonus4.svg',
+#   'bonus5.svg',
     'diamond.svg',
     'life.svg',
     'questionmark.svg',
@@ -35,7 +35,6 @@ scoreboard_pix = [
 
 controls_pix = [
     'arrow.svg',
-    'arrow-key.svg',
 ]
 
 install_data(bonus_pix + small_pix + scoreboard_pix + controls_pix,
