@@ -4,7 +4,8 @@
       id="index">
 
   <info>
-    <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
+    <revision pkgversion="3.8" version="0.1" date="2013-03-07" status="review"/>
+    <revision pkgversion="3.38" version="0.2" date="2020-07-09" status="review"/>
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
@@ -16,7 +17,7 @@
     <desc>Index</desc>
   </info>
 
-  <title><media type="image" its:translate="no" src="figures/nibbles.png" height="22" /> Nibbles</title>
+  <title><media type="image" its:translate="no" src="figures/nibbles.svg" height="22" /> Nibbles</title>
 
   <p><app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to
   swallow as many objects as you can while avoiding maze walls and other worms.
