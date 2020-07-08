@@ -38,6 +38,7 @@ private class Nibbles : Gtk.Application
     private static int nibbles          = int.MIN;
     private static int players          = int.MIN;
     private static int speed            = int.MIN;
+    private static bool? sound          = null;
     private const OptionEntry[] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
@@ -51,6 +52,9 @@ private class Nibbles : Gtk.Application
 
         /* Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help' */
                                                                                     N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "mute",           0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Turn off the sound"),                   null },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "nibbles",        'n', OptionFlags.NONE, OptionArg.INT,   ref nibbles,    N_("Set number of nibbles (4-6)"),
@@ -69,6 +73,9 @@ private class Nibbles : Gtk.Application
 
         /* Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help' */
                                                                                     N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "unmute",         0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Turn on the sound"),                    null },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "version",        'v', OptionFlags.NONE, OptionArg.NONE,  null,           N_("Show release version"),                 null },
@@ -135,6 +142,11 @@ private class Nibbles : Gtk.Application
             return Posix.EXIT_FAILURE;
         }
 
+        if (options.contains ("mute"))
+            sound = false;
+        else if (options.contains ("unmute"))
+            sound = true;
+
         /* Activate */
         return -1;
     }
@@ -173,7 +185,8 @@ private class Nibbles : Gtk.Application
          || players_changed
          || speed != int.MIN
          || disable_fakes
-         || enable_fakes)
+         || enable_fakes
+         || sound != null)
         {
             GLib.Settings settings = new GLib.Settings ("org.gnome.Nibbles");
             if (nibbles_changed && players_changed)
@@ -200,6 +213,9 @@ private class Nibbles : Gtk.Application
                 settings.set_boolean ("fakes", false);
             else if (enable_fakes)
                 settings.set_boolean ("fakes", true);
+
+            if (sound != null)
+                settings.set_boolean ("sound", (!) sound);
         }
 
         window = new NibblesWindow (level == int.MIN ? 0 : level);
