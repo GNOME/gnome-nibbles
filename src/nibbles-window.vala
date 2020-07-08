@@ -60,6 +60,8 @@ private class NibblesWindow : ApplicationWindow
 
     /* Game being played */
     private NibblesGame? game = null;
+    public  int cli_start_level { private get; internal construct; }
+    private int start_level { private get { return cli_start_level == 0 ? settings.get_int ("start-level") : cli_start_level; }}
 
     /* Used for handling the game's scores */
     private Games.Scores.Context scores_context;
@@ -88,6 +90,11 @@ private class NibblesWindow : ApplicationWindow
         { "start-game",     start_game      },  // called from controls
         { "back",           back_cb         }   // called on Escape pressed; disabled only during countdown (TODO pause?)
     };
+
+    internal NibblesWindow (int cli_start_level)
+    {
+        Object (cli_start_level: cli_start_level);
+    }
 
     construct
     {
@@ -120,7 +127,7 @@ private class NibblesWindow : ApplicationWindow
         key_controller.key_pressed.connect (key_press_event_cb);
 
         /* Create game */
-        game = new NibblesGame (settings.get_int ("start-level"),
+        game = new NibblesGame (start_level,
                                 settings.get_int ("speed"),
                                 settings.get_boolean ("fakes"),
                                 NibblesView.WIDTH,
@@ -268,7 +275,7 @@ private class NibblesWindow : ApplicationWindow
 
         if (game.is_paused)
             set_pause_button_label (/* paused */ false);
-        game.reset (settings.get_int ("start-level"));
+        game.reset (start_level);
 
         view.new_level (game.current_level);
         view.connect_worm_signals ();
