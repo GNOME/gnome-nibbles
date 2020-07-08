@@ -62,6 +62,7 @@ private class NibblesWindow : ApplicationWindow
     private NibblesGame? game = null;
     public  int cli_start_level { private get; internal construct; }
     private int start_level { private get { return cli_start_level == 0 ? settings.get_int ("start-level") : cli_start_level; }}
+    public  bool start_playing  { private get; internal construct; }
 
     /* Used for handling the game's scores */
     private Games.Scores.Context scores_context;
@@ -91,9 +92,9 @@ private class NibblesWindow : ApplicationWindow
         { "back",           back_cb         }   // called on Escape pressed; disabled only during countdown (TODO pause?)
     };
 
-    internal NibblesWindow (int cli_start_level)
+    internal NibblesWindow (int cli_start_level, bool start_playing)
     {
-        Object (cli_start_level: cli_start_level);
+        Object (cli_start_level: cli_start_level, start_playing: start_playing);
     }
 
     construct
@@ -176,8 +177,18 @@ private class NibblesWindow : ApplicationWindow
         controls.load_pixmaps (view.tile_size);
 
         /* Check whether to display the first run screen */
-        var first_run = settings.get_boolean ("first-run");
-        if (first_run)
+        if (start_playing)
+        {
+            game.numhumans = settings.get_int ("players");
+            game.numai     = settings.get_int ("ai");
+            game.speed     = settings.get_int ("speed");
+            game.fakes     = settings.get_boolean ("fakes");
+            game.create_worms ();
+            game.load_worm_properties (worm_settings);
+
+            start_game ();
+        }
+        else if (settings.get_boolean ("first-run"))
         {
             FirstRun first_run_panel = new FirstRun ();
             first_run_panel.show ();

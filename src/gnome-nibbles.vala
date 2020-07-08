@@ -34,6 +34,7 @@ private class Nibbles : Gtk.Application
 
     private static bool disable_fakes   = false;
     private static bool enable_fakes    = false;
+    private static bool start           = false;
     private static int level            = int.MIN;
     private static int nibbles          = int.MIN;
     private static int players          = int.MIN;
@@ -73,6 +74,9 @@ private class Nibbles : Gtk.Application
 
         /* Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help' */
                                                                                     N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "start",          0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Start playing"),                        null },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "unmute",         0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Turn on the sound"),                    null },
@@ -147,6 +151,9 @@ private class Nibbles : Gtk.Application
         else if (options.contains ("unmute"))
             sound = true;
 
+        if (options.contains ("start"))
+            start = true;
+
         /* Activate */
         return -1;
     }
@@ -218,7 +225,7 @@ private class Nibbles : Gtk.Application
                 settings.set_boolean ("sound", (!) sound);
         }
 
-        window = new NibblesWindow (level == int.MIN ? 0 : level);
+        window = new NibblesWindow (level == int.MIN ? 0 : level, start);
         add_window (window);
     }
     internal bool on_f1_pressed (Gdk.ModifierType state)
