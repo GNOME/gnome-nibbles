@@ -34,6 +34,7 @@ private class Nibbles : Gtk.Application
 
     private static bool disable_fakes   = false;
     private static bool enable_fakes    = false;
+    private static int level            = int.MIN;
     private static int nibbles          = int.MIN;
     private static int players          = int.MIN;
     private static int speed            = int.MIN;
@@ -44,6 +45,12 @@ private class Nibbles : Gtk.Application
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "enable-fakes",   'e', OptionFlags.NONE, OptionArg.NONE,  null,           N_("Enable fake bonuses"),                  null },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "level",          'l', OptionFlags.NONE, OptionArg.INT,   ref level,      N_("Start at given level (1-26)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help' */
+                                                                                    N_("NUMBER") },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "nibbles",        'n', OptionFlags.NONE, OptionArg.INT,   ref nibbles,    N_("Set number of nibbles (4-6)"),
@@ -94,6 +101,12 @@ private class Nibbles : Gtk.Application
             return Posix.EXIT_SUCCESS;
         }
 
+        if (level   != int.MIN && (level   < 1 || level  > 26))
+        {
+            /* Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0' */
+            stderr.printf (_("Start level should only be between 1 and 26.") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
         if (nibbles != int.MIN && (nibbles < 4 || nibbles > 6))
         {
             /* Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1' */
@@ -189,7 +202,7 @@ private class Nibbles : Gtk.Application
                 settings.set_boolean ("fakes", true);
         }
 
-        window = new NibblesWindow ();
+        window = new NibblesWindow (level == int.MIN ? 0 : level);
         add_window (window);
     }
     internal bool on_f1_pressed (Gdk.ModifierType state)
