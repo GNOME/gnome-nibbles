@@ -6,6 +6,7 @@ data/org.gnome.Nibbles.gschema.xml
 data/ui/controls.ui
 data/ui/controls-grid.ui
 data/ui/first-run.ui
+data/ui/help-overlay.ui
 data/ui/nibbles.ui
 data/ui/players.ui
 data/ui/player-score-box.ui
