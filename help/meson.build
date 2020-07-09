@@ -11,12 +11,12 @@ gnome_nibbles_help_pages = [
 ]
 
 gnome_nibbles_help_media = [
+    'figures/apple.svg',
+    'figures/banana.svg',
     'figures/cherry.svg',
     'figures/diamond.svg',
-    'figures/donut.svg',
-    'figures/ice-cream.svg',
     'figures/life.svg',
-    'figures/nibbles.png',
+    'figures/nibbles.svg',
     'figures/snake-blue.svg',
     'figures/snake-cyan.svg',
     'figures/snake-green.svg',

@@ -6,13 +6,18 @@
   <info>
     <link type="guide" xref="index#play"/>
 
-    <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
+    <revision pkgversion="3.8" version="0.1" date="2013-03-07" status="review"/>
+    <revision pkgversion="3.38" version="0.2" date="2020-07-09" status="review"/>
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
     <credit type="author">
-    <name>Aruna Sankaranarayanan</name>
-    <email its:translate="no">aruna.evam@gmail.com</email>
+      <name>Aruna Sankaranarayanan</name>
+      <email its:translate="no">aruna.evam@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Arnaud Bonatti</name>
+      <email its:translate="no">arnaud.bonatti@gmail.com</email>
     </credit>
 
     <desc>Swallow different bonuses to score points.</desc>
@@ -24,23 +29,23 @@
     5 different kinds of bonuses in Nibbles:</p>
     <list>
       <item>
-        <p>The donut-shaped bonus
-	<media type="image" its:translate="no" src="figures/donut.svg" height="22" width="22"/> :
+        <p>The apple-shaped bonus
+	<media type="image" its:translate="no" src="figures/apple.svg" height="22" width="22"/> :
 	This bonus causes an increase in the length of the worm.
-	The points you gain on eating the donut vary from level to
+	The points you gain on eating the apple vary from level to
 	level and are multiples of the level number. In level 1, the first
-	donut will give you 1 point, the second donut will give you 2 points,
-	the third donut will give you 3 points and so on. In level 2, the first
-	donut will give you 2 points, the second donut will give you 4 points,
-	the third donut will give you 6 points and so on. In level 26,
-	therefore, the first donut will give you 26 points, the second donut
+	apple will give you 1 point, the second apple will give you 2 points,
+	the third apple will give you 3 points and so on. In level 2, the first
+	apple will give you 2 points, the second apple will give you 4 points,
+	the third apple will give you 6 points and so on. In level 26,
+	therefore, the first apple will give you 26 points, the second apple
 	will give you 52 points and so on.</p>
 	<note style="info">
-	  <p>The donut order count does not depend on the number of donuts
+	  <p>The apple order count does not depend on the number of apples
 	  already eaten by a worm. If the game is in level 1 and if player 1
-	  eats the first donut, he scores 1 point, if player 2 eats the second
-	  donut, he scores 2 points; a third player may choose to not eat any
-	  donuts till the tenth donut and score 10 points at once.</p>
+	  eats the first apple, he scores 1 point, if player 2 eats the second
+	  apple, he scores 2 points; a third player may choose to not eat any
+	  apples till the tenth apple and score 10 points at once.</p>
 	</note>
       </item>
       <item>
@@ -48,16 +53,6 @@
 	<media type="image" its:translate="no" src="figures/life.svg" height="22" width="22"/> :
 	This bonus gives you an extra life and does not cause an increase in
 	the length of your worm.</p>
-        <note style="info">
-          <p>The number of lives remaining for a worm is given by the number
-	  on the left of the comma in a worm's score. If a worm's score is
-	  10,005, the worm has 10 lives remaining.</p>
-	</note>
-	<note style="tip">
-	  <p>You cannot get extra lives by scoring 10,000 points or more. If
-	  you have scored 12345 points with 10 lives remaining, your score will
-	  be 10,12345.</p>
-	</note>
       </item>
       <item>
 	<p>The diamond-shaped bonus
@@ -65,15 +60,12 @@
 	This bonus does	not cause an increase in the length of the worm and
 	does not give you any points. It causes a reversal in the movement
 	of all the other worms in the game.</p>
-	<note style="info">
-	  <p>This bonus has no effect in a single-player game.</p>
-	</note>
       </item>
       <item>
-	<p>The ice-cream-shaped bonus
-	<media type="image" its:translate="no" src="figures/ice-cream.svg" height="22" width="22"/> :
+	<p>The banana-shaped bonus
+	<media type="image" its:translate="no" src="figures/banana.svg" height="22" width="22"/> :
         This bonus causes a greater increase in the length of the worm than
-        the donut-shaped bonus. The points given by this bonus vary
+        the apple-shaped bonus. The points given by this bonus vary
         depending on the level number and the length of the worm. The higher
         the level number and the longer the worm, the more the points are scored
         on eating this bonus.</p>
