@@ -18,6 +18,14 @@
 
 using Gtk;
 
+private enum SetupScreen
+{
+    USUAL,
+    SPEED,
+    CONTROLS,
+    GAME
+}
+
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/nibbles.ui")]
 private class NibblesWindow : ApplicationWindow
 {
@@ -62,7 +70,7 @@ private class NibblesWindow : ApplicationWindow
     private NibblesGame? game = null;
     public  int cli_start_level { private get; internal construct; }
     private int start_level { private get { return cli_start_level == 0 ? settings.get_int ("start-level") : cli_start_level; }}
-    public  bool start_playing  { private get; internal construct; }
+    public  SetupScreen start_screen { private get; internal construct; }
 
     /* Used for handling the game's scores */
     private Games.Scores.Context scores_context;
@@ -92,9 +100,9 @@ private class NibblesWindow : ApplicationWindow
         { "back",           back_cb         }   // called on Escape pressed; disabled only during countdown (TODO pause?)
     };
 
-    internal NibblesWindow (int cli_start_level, bool start_playing)
+    internal NibblesWindow (int cli_start_level, SetupScreen start_screen)
     {
-        Object (cli_start_level: cli_start_level, start_playing: start_playing);
+        Object (cli_start_level: cli_start_level, start_screen: start_screen);
     }
 
     construct
@@ -177,7 +185,7 @@ private class NibblesWindow : ApplicationWindow
         controls.load_pixmaps (view.tile_size);
 
         /* Check whether to display the first run screen */
-        if (start_playing)
+        if (start_screen == SetupScreen.GAME)
         {
             game.numhumans = settings.get_int ("players");
             game.numai     = settings.get_int ("ai");
@@ -187,6 +195,22 @@ private class NibblesWindow : ApplicationWindow
             game.load_worm_properties (worm_settings);
 
             start_game ();
+        }
+        else if (start_screen == SetupScreen.CONTROLS)
+        {
+            game.numhumans = settings.get_int ("players");
+            game.numai     = settings.get_int ("ai");
+            game.speed     = settings.get_int ("speed");
+            game.fakes     = settings.get_boolean ("fakes");
+
+            show_controls_screen ();
+        }
+        else if (start_screen == SetupScreen.SPEED)
+        {
+            game.numhumans = settings.get_int ("players");
+            game.numai     = settings.get_int ("ai");
+
+            main_stack.set_visible_child_name ("speed");
         }
         else if (settings.get_boolean ("first-run"))
         {
@@ -519,6 +543,7 @@ private class NibblesWindow : ApplicationWindow
                 show_speed_screen ();
                 break;
             case "speed":
+                leave_speed_screen ();
                 show_controls_screen ();
                 break;
             case "controls":
@@ -568,7 +593,7 @@ private class NibblesWindow : ApplicationWindow
         main_stack.set_visible_child_name ("speed");
     }
 
-    private void show_controls_screen ()
+    private void leave_speed_screen ()
     {
         int game_speed;
         bool fakes;
@@ -577,8 +602,10 @@ private class NibblesWindow : ApplicationWindow
         game.fakes = fakes;
         settings.set_int ("speed", game_speed);
         settings.set_boolean ("fakes", fakes);
+    }
 
-        /* Create worms and load properties */
+    private void show_controls_screen ()
+    {
         controls.clean ();
         game.create_worms ();
         game.load_worm_properties (worm_settings);

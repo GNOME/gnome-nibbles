@@ -225,7 +225,20 @@ private class Nibbles : Gtk.Application
                 settings.set_boolean ("sound", (!) sound);
         }
 
-        window = new NibblesWindow (level == int.MIN ? 0 : level, start);
+        SetupScreen setup;
+        if (start)
+            setup = SetupScreen.GAME;
+        else if (nibbles_changed && players_changed)
+        {
+            if (speed != int.MIN && (disable_fakes || enable_fakes))
+                setup = SetupScreen.CONTROLS;
+            else
+                setup = SetupScreen.SPEED;
+        }
+        else
+            setup = SetupScreen.USUAL;  // first-run or nibbles-number
+
+        window = new NibblesWindow (level == int.MIN ? 0 : level, setup);
         add_window (window);
     }
     internal bool on_f1_pressed (Gdk.ModifierType state)
