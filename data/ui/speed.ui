@@ -124,14 +124,14 @@
               </object>
             </child>
             <child>
-              <object class="GtkModelButton" id="fakes_modelbutton">
+              <object class="GtkModelButton">
                 <property name="visible">True</property>
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <property name="use-underline">True</property>
                 <!-- Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses -->
                 <property name="text" translatable="yes">_Enable fake bonuses</property>
-                <property name="action-name">win.fakes</property>
+                <property name="action-name">speed.toggle-fakes</property>
                 <style>
                   <class name="speed-box"/>
                 </style>
