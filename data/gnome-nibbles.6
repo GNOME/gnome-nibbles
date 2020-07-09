@@ -26,7 +26,41 @@ board, eating diamonds while avoiding the walls placed around it.
 .P
 The game can be played against the computer or against other players.
 .SH OPTIONS
-This program only accepts the standard GNOME and GTK options.
+.TP
+.B \-d, \-\-disable-fakes
+Disable fake bonuses; cannot be set with \-\-enable-fakes
+.TP
+.B \-e, \-\-enable-fakes
+Enable fake bonuses; cannot be set with \-\-disable-fakes
+.TP
+.B \-l, \-\-level=NUMBER
+Start at given level (1-26)
+.TP
+.B \-n, \-\-nibbles=NUMBER
+Set number of nibbles (4-6)
+.TP
+.B \-p, \-\-players=NUMBER
+Set number of players (1-4)
+.TP
+.B \-p, \-\-speed=NUMBER
+Set worms speed (4-1: 4 for slowest and 1 for fastest)
+.TP
+.B \-\-start
+Start playing immediately
+.PP
+.B \-\-mute
+.br
+.B \-\-unmute
+.RS 7
+Turn off/on the sound;
+.br
+If the two options are given, the game is muted
+.RE
+.TP
+.B \-v, \-\-version
+Print release version and exit
+.P
+This program also accepts the standard GNOME and GTK options.
 .SH AUTHORS
 .B gnome-nibbles
 was written by Sean MacIsaac, Ian Peters and Andreas R\[/o]sdal.

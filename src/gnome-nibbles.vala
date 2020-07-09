@@ -32,10 +32,57 @@ private class Nibbles : Gtk.Application
         {"quit", quit}
     };
 
+    private static bool disable_fakes   = false;
+    private static bool enable_fakes    = false;
+    private static bool start           = false;
+    private static int level            = int.MIN;
+    private static int nibbles          = int.MIN;
+    private static int players          = int.MIN;
+    private static int speed            = int.MIN;
+    private static bool? sound          = null;
     private const OptionEntry[] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
-        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null, N_("Show release version"), null },
+        { "disable-fakes",  'd', OptionFlags.NONE, OptionArg.NONE,  null,           N_("Disable fake bonuses"),                 null },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "enable-fakes",   'e', OptionFlags.NONE, OptionArg.NONE,  null,           N_("Enable fake bonuses"),                  null },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "level",          'l', OptionFlags.NONE, OptionArg.INT,   ref level,      N_("Start at given level (1-26)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help' */
+                                                                                    N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "mute",           0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Turn off the sound"),                   null },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "nibbles",        'n', OptionFlags.NONE, OptionArg.INT,   ref nibbles,    N_("Set number of nibbles (4-6)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help' */
+                                                                                    N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "players",        'p', OptionFlags.NONE, OptionArg.INT,   ref players,    N_("Set number of players (1-4)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help' */
+                                                                                    N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "speed",          's', OptionFlags.NONE, OptionArg.INT,   ref speed,      N_("Set worms speed (4-1, 4 for slow)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help' */
+                                                                                    N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "start",          0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Start playing"),                        null },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "unmute",         0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Turn on the sound"),                    null },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "version",        'v', OptionFlags.NONE, OptionArg.NONE,  null,           N_("Show release version"),                 null },
         {}
     };
 
@@ -64,6 +111,48 @@ private class Nibbles : Gtk.Application
             stderr.printf ("gnome-nibbles %s\n", VERSION);
             return Posix.EXIT_SUCCESS;
         }
+
+        if (level   != int.MIN && (level   < 1 || level  > 26))
+        {
+            /* Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0' */
+            stderr.printf (_("Start level should only be between 1 and 26.") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
+        if (nibbles != int.MIN && (nibbles < 4 || nibbles > 6))
+        {
+            /* Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1' */
+            stderr.printf (_("There could only be between 4 and 6 nibbles.") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
+        if (players != int.MIN && (players < 1 || players > 4))
+        {
+            /* Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5' */
+            stderr.printf (_("There could only be between 1 and 4 players.") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
+        if (speed   != int.MIN && (speed   < 1 || speed   > 4))
+        {
+            /* Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5' */
+            stderr.printf (_("Speed should be between 4 (slow) and 1 (fast).") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
+
+        disable_fakes = options.contains ("disable-fakes");
+        enable_fakes  = options.contains ("enable-fakes");
+        if (disable_fakes && enable_fakes)
+        {
+            /* Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e' */
+            stderr.printf (_("Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive.") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
+
+        if (options.contains ("mute"))
+            sound = false;
+        else if (options.contains ("unmute"))
+            sound = true;
+
+        if (options.contains ("start"))
+            start = true;
 
         /* Activate */
         return -1;
@@ -97,7 +186,59 @@ private class Nibbles : Gtk.Application
         set_accels_for_action ("win.back",      {          "Escape" });
         set_accels_for_action ("win.hamburger", {          "F10",
                                                            "Menu"   });
-        window = new NibblesWindow ();
+        bool nibbles_changed = nibbles != int.MIN;
+        bool players_changed = players != int.MIN;
+        if (nibbles_changed
+         || players_changed
+         || speed != int.MIN
+         || disable_fakes
+         || enable_fakes
+         || sound != null)
+        {
+            GLib.Settings settings = new GLib.Settings ("org.gnome.Nibbles");
+            if (nibbles_changed && players_changed)
+            {
+                settings.set_int ("players", players);
+                settings.set_int ("ai", nibbles - players);
+            }
+            else if (players_changed)
+            {
+                int old_ai      = settings.get_int ("ai");
+                int old_players = settings.get_int ("players");
+                settings.set_int ("players", players);
+                int new_ai = ((old_ai + old_players).clamp (4, 6) - players).clamp (0, 5);
+                if (old_ai != new_ai)
+                    settings.set_int ("ai", new_ai);
+            }
+            else // (nibbles_changed)
+                settings.set_int ("ai", nibbles - settings.get_int ("players"));
+
+            if (speed != int.MIN)
+                settings.set_int ("speed", speed);
+
+            if (disable_fakes)
+                settings.set_boolean ("fakes", false);
+            else if (enable_fakes)
+                settings.set_boolean ("fakes", true);
+
+            if (sound != null)
+                settings.set_boolean ("sound", (!) sound);
+        }
+
+        SetupScreen setup;
+        if (start)
+            setup = SetupScreen.GAME;
+        else if (nibbles_changed && players_changed)
+        {
+            if (speed != int.MIN && (disable_fakes || enable_fakes))
+                setup = SetupScreen.CONTROLS;
+            else
+                setup = SetupScreen.SPEED;
+        }
+        else
+            setup = SetupScreen.USUAL;  // first-run or nibbles-number
+
+        window = new NibblesWindow (level == int.MIN ? 0 : level, setup);
         add_window (window);
     }
     internal bool on_f1_pressed (Gdk.ModifierType state)

@@ -23,14 +23,12 @@ using Gtk;
 private class Speed : Box
 {
     private SimpleAction speed_action;
-
-    [GtkChild] private ModelButton fakes_modelbutton;
-    private bool fakes;
+    private SimpleAction fakes_action;
 
     private const GLib.ActionEntry [] players_action_entries =
     {
-        { "change-speed", null,         "i", "4", change_speed },
-        { "fake-bonuses", allow_fakes }
+        { "change-speed", null, "i",    "4",    change_speed },
+        { "toggle-fakes", null, null,   "true", toggle_fakes }
     };
 
     construct
@@ -40,21 +38,19 @@ private class Speed : Box
         insert_action_group ("speed", action_group);
 
         speed_action = (SimpleAction) action_group.lookup_action ("change-speed");
+        fakes_action = (SimpleAction) action_group.lookup_action ("toggle-fakes");
     }
 
     internal inline void set_values (int speed, bool fakes)
     {
         speed_action.set_state (speed);
-
-        fakes_modelbutton.active = fakes;
-        this.fakes = fakes;
+        fakes_action.set_state (fakes);
     }
 
     internal inline void get_values (out int speed, out bool fakes)
     {
         speed = speed_action.get_state ().get_int32 ();
-
-        fakes = this.fakes;
+        fakes = fakes_action.get_state ().get_boolean ();
     }
 
     private inline void change_speed (SimpleAction _speed_action, Variant variant)
@@ -65,8 +61,8 @@ private class Speed : Box
         _speed_action.set_state (speed);
     }
 
-    private void allow_fakes (/* SimpleAction _speed_action, Variant? variant */)
+    private void toggle_fakes (SimpleAction _fakes_action, Variant? variant)
     {
-        fakes = fakes_modelbutton.active;
+        _fakes_action.set_state (((!) variant).get_boolean ());
     }
 }
