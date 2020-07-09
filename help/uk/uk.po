@@ -6,14 +6,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles gnome-3-36\n"
-"POT-Creation-Date: 2020-04-03 06:37+0000\n"
-"PO-Revision-Date: 2020-05-15 15:45+0300\n"
+"POT-Creation-Date: 2020-07-09 15:05+0000\n"
+"PO-Revision-Date: 2020-07-09 20:29+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.07.70\n"
@@ -25,8 +25,8 @@ msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2020"
 
 #. (itstool) path: credit/name
 #: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
-#: C/fake-bonus.page:15 C/index.page:12 C/multi-player.page:16
-#: C/preferences.page:15 C/scores.page:14
+#: C/fake-bonus.page:15 C/index.page:13 C/multi-player.page:16
+#: C/preferences.page:15 C/scores.page:15
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
@@ -57,8 +57,8 @@ msgid ""
 "Press the <gui style=\"button\">New Game</gui> button in the header bar to "
 "start a new game when being in a game."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">Нова гра</gui> на панелі заголовка,"
-" щоб розпочати нову гру, якщо ви щойно запустили програму."
+"Натисніть кнопку <gui style=\"button\">Нова гра</gui> на панелі заголовка, "
+"щоб розпочати нову гру, якщо ви щойно запустили програму."
 
 #. (itstool) path: section/p
 #: C/basics.page:33
@@ -66,8 +66,8 @@ msgid ""
 "Press the <gui style=\"button\">Play Again</gui> button when you have "
 "finished a game."
 msgstr ""
-"Натисніть розташовану праворуч кнопку <gui style=\"button\">Зіграти знову<"
-"/gui>, якщо ви завершили попередню гру."
+"Натисніть розташовану праворуч кнопку <gui style=\"button\">Зіграти знову</"
+"gui>, якщо ви завершили попередню гру."
 
 #. (itstool) path: section/title
 #: C/basics.page:38
@@ -81,9 +81,9 @@ msgid ""
 "pause your game. You can resume your game by pressing the <gui style=\"button"
 "\">Resume</gui> button."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">Пауза</gui> на панелі заголовка, щоб"
-" призупинити гру. Відновити гру можна натисканням кнопки <gui"
-" style=\"button\">Відновити</gui>."
+"Натисніть кнопку <gui style=\"button\">Пауза</gui> на панелі заголовка, щоб "
+"призупинити гру. Відновити гру можна натисканням кнопки <gui style=\"button"
+"\">Відновити</gui>."
 
 #. (itstool) path: section/title
 #: C/basics.page:46
@@ -97,9 +97,9 @@ msgid ""
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
 "any time."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">⨯</gui> на панелі заголовка вікна"
-" програми або натисніть комбінацію клавіш <keyseq><key>Ctrl</key><key>Q</key"
-"></keyseq>, щоб будь-коли вийти з <app>Хробака</app>."
+"Натисніть кнопку <gui style=\"button\">⨯</gui> на панелі заголовка вікна "
+"програми або натисніть комбінацію клавіш <keyseq><key>Ctrl</key><key>Q</"
+"key></keyseq>, щоб будь-коли вийти з <app>Хробака</app>."
 
 #. (itstool) path: info/desc
 #: C/controls-change.page:25
@@ -119,11 +119,11 @@ msgid ""
 "player\">multi-player</link> games, when having more than one set of "
 "controls becomes necessary. To change the default controls:"
 msgstr ""
-"<link xref=\"controls-default\">Типові засоби керування</link> у <app"
-">Хробаку</app> можна змінити за вашими уподобаннями або для гри з <link"
-" xref=\"multi-player\">декількома гравцями</link>, коли потрібно декілька"
-" наборів клавіш для керування. Щоб змінити типові клавіші керування,"
-" виконайте такі дії:"
+"<link xref=\"controls-default\">Типові засоби керування</link> у "
+"<app>Хробаку</app> можна змінити за вашими уподобаннями або для гри з <link "
+"xref=\"multi-player\">декількома гравцями</link>, коли потрібно декілька "
+"наборів клавіш для керування. Щоб змінити типові клавіші керування, "
+"виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/controls-change.page:37 C/fake-bonus.page:36 C/multi-player.page:44
@@ -132,8 +132,8 @@ msgid ""
 "Press the menu button in the top-right corner of the window and select <gui "
 "style=\"menuitem\">Preferences</gui>."
 msgstr ""
-"Натисніть кнопку меню у верхньому правому куті вікна і виберіть <gui"
-" style=\"menuitem\">Параметри</gui>."
+"Натисніть кнопку меню у верхньому правому куті вікна і виберіть <gui style="
+"\"menuitem\">Параметри</gui>."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:41
@@ -146,8 +146,8 @@ msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
 msgstr ""
-"Гравець 1 керує <gui>Хробаком 1</gui>, гравець 2 керує <gui>Хробаком 2</gui>,"
-" гравець 3 керує <gui>Хробаком 3</gui> тощо."
+"Гравець 1 керує <gui>Хробаком 1</gui>, гравець 2 керує <gui>Хробаком 2</"
+"gui>, гравець 3 керує <gui>Хробаком 3</gui> тощо."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:48
@@ -156,10 +156,10 @@ msgid ""
 "on the control. This highlights the line and the words <gui>New accelerator…"
 "</gui> are now present in place of the old control."
 msgstr ""
-"У списку <gui style=\"group\">Керування</gui> виберіть рядок, потім натисніть"
-" кнопку вибору засобу керування. У відповідь рядок буде підсвічено, а замість"
-" попередньої комбінації клавіш буде показано слова <gui>Нове скорочення…</gui"
-">."
+"У списку <gui style=\"group\">Керування</gui> виберіть рядок, потім "
+"натисніть кнопку вибору засобу керування. У відповідь рядок буде підсвічено, "
+"а замість попередньої комбінації клавіш буде показано слова <gui>Нове "
+"скорочення…</gui>."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:54
@@ -173,10 +173,10 @@ msgid ""
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
 "inside the <gui>Nibbles Preferences</gui> box."
 msgstr ""
-"Щоб зберегти попередню комбінацію клацніть на пункті <gui>Нове скорочення…<"
-"/gui> ще раз, клацніть правою кнопкою на пункті <gui>Нове скорочення…</gui>,"
-" натисніть клавішу <key>Esc</key> або клацніть у будь-якому іншому місці"
-" вікна <gui>Параметри «Хробака»</gui>."
+"Щоб зберегти попередню комбінацію клацніть на пункті <gui>Нове скорочення…</"
+"gui> ще раз, клацніть правою кнопкою на пункті <gui>Нове скорочення…</gui>, "
+"натисніть клавішу <key>Esc</key> або клацніть у будь-якому іншому місці "
+"вікна <gui>Параметри «Хробака»</gui>."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:62
@@ -185,9 +185,9 @@ msgid ""
 "player, then select the tab for the next player whose controls you want to "
 "change and repeat the process."
 msgstr ""
-"Повторіть наведені вище кроки для зміни інших типових комбінацій клавіш для"
-" поточного гравця, потім виберіть вкладку для наступного гравця, чиї засоби"
-" керування ви хочете змінити, і повторіть процедуру."
+"Повторіть наведені вище кроки для зміни інших типових комбінацій клавіш для "
+"поточного гравця, потім виберіть вкладку для наступного гравця, чиї засоби "
+"керування ви хочете змінити, і повторіть процедуру."
 
 #. (itstool) path: page/p
 #: C/controls-change.page:68
@@ -196,10 +196,10 @@ msgid ""
 "<gui>Left</gui> control line and click it, then press <key>A</key> on your "
 "keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
-"Наприклад, щоб скористатися клавішею <key>A</key> для дії <gui>Ліворуч</gui>,"
-" позначте рядок елемента керування <gui>Ліворуч</gui> і клацніть на ньому,"
-" натисніть клавішу <key>A</key> на клавіатурі, коли побачите у рядку напис <"
-"gui>Нове скорочення…</gui>."
+"Наприклад, щоб скористатися клавішею <key>A</key> для дії <gui>Ліворуч</"
+"gui>, позначте рядок елемента керування <gui>Ліворуч</gui> і клацніть на "
+"ньому, натисніть клавішу <key>A</key> на клавіатурі, коли побачите у рядку "
+"напис <gui>Нове скорочення…</gui>."
 
 #. (itstool) path: info/desc
 #: C/controls-default.page:24
@@ -217,8 +217,8 @@ msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
 msgstr ""
-"Для керування рухом вашого хробака у грі з одним гравцем скористайтеся такими"
-" типовими клавішами:"
+"Для керування рухом вашого хробака у грі з одним гравцем скористайтеся "
+"такими типовими клавішами:"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:34
@@ -245,16 +245,16 @@ msgstr "<key>→</key>, щоб хробак рухався праворуч"
 msgid ""
 "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
-"Ви можете <link xref=\"controls-change\">змінити</link> типові клавіші"
-" керування."
+"Ви можете <link xref=\"controls-change\">змінити</link> типові клавіші "
+"керування."
 
 #. (itstool) path: info/desc
 #: C/fake-bonus.page:23
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
-"Скористайтеся фальшивими преміями у грі <app>Хробак</app>, щоб зробити її"
-" складнішою."
+"Скористайтеся фальшивими преміями у грі <app>Хробак</app>, щоб зробити її "
+"складнішою."
 
 #. (itstool) path: page/title
 #: C/fake-bonus.page:27
@@ -268,8 +268,8 @@ msgid ""
 "when your worm swallows them. They cause a reversal in the movement of your "
 "worm."
 msgstr ""
-"Фальшиві премії виглядають як звичайні форми премій, але не дають вам жодних"
-" очок, коли хробак їх ковтає. Вони спричиняють розворот вашого хробака."
+"Фальшиві премії виглядають як звичайні форми премій, але не дають вам жодних "
+"очок, коли хробак їх ковтає. Вони спричиняють розворот вашого хробака."
 
 #. (itstool) path: page/p
 #: C/fake-bonus.page:33
@@ -282,8 +282,8 @@ msgid ""
 "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
 "is unchecked."
 msgstr ""
-"Позначте пункт <gui style=\"checkbox\">Увімкнути фальшиві премії</gui>, якщо"
-" його ще не позначено."
+"Позначте пункт <gui style=\"checkbox\">Увімкнути фальшиві премії</gui>, якщо "
+"його ще не позначено."
 
 #. (itstool) path: note/p
 #: C/fake-bonus.page:46
@@ -291,38 +291,38 @@ msgid ""
 "Set all preferences before starting a new game. Preferences cannot be "
 "changed in the middle of a game."
 msgstr ""
-"Встановіть усі параметри до запуску нової гри. Параметри не можна змінювати"
-" посеред гри."
+"Встановіть усі параметри до запуску нової гри. Параметри не можна змінювати "
+"посеред гри."
 
 #. (itstool) path: info/desc
-#: C/index.page:16
+#: C/index.page:17
 msgid "Index"
 msgstr "Покажчик"
 
 #. (itstool) path: page/title
-#: C/index.page:19
+#: C/index.page:20
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Хробак"
 
 #. (itstool) path: page/p
-#: C/index.page:21
+#: C/index.page:22
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
 "worms. You have to complete 26 levels to finish the game."
 msgstr ""
-"<app>Хробак</app> — гра у змійку для GNOME. Мета гри полягає у ковтанні"
-" якомога більшої кількості об'єктів за допомогою хробака, намагаючись не"
-" врізатися у стіни лабіринту та інших хробаків. Для завершення гри слід"
-" пройти 26 рівнів."
+"<app>Хробак</app> — гра у змійку для GNOME. Мета гри полягає у ковтанні "
+"якомога більшої кількості об'єктів за допомогою хробака, намагаючись не "
+"врізатися у стіни лабіринту та інших хробаків. Для завершення гри слід "
+"пройти 26 рівнів."
 
 #. (itstool) path: section/title
-#: C/index.page:26
+#: C/index.page:27
 msgid "Game play"
 msgstr "Ігровий процес"
 
 #. (itstool) path: section/title
-#: C/index.page:30
+#: C/index.page:31
 msgid "Preferences"
 msgstr "Параметри"
 
@@ -346,12 +346,12 @@ msgid ""
 "three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
 "and <gui>Worm 3</gui> and so on."
 msgstr ""
-"У <app>Хробака</app> можуть одночасно грати до шести гравців. У грі з одним"
-" гравцем перший гравець керує <gui>Хробаком 1</gui>, а у грі з багатьма"
-" гравцями інші гравці можуть керувати хробаками від <gui>Хробака 2</gui> до <"
-"gui>Хробака 6</gui>. У грі з двома гравцями можна керувати <gui>Хробаком 1<"
-"/gui> і <gui>Хробаком 2</gui>, у грі з трьома гравцями —  <gui>Хробаком 1<"
-"/gui>, <gui>Хробаком 2</gui> і <gui>Хробаком 3</gui> тощо."
+"У <app>Хробака</app> можуть одночасно грати до шести гравців. У грі з одним "
+"гравцем перший гравець керує <gui>Хробаком 1</gui>, а у грі з багатьма "
+"гравцями інші гравці можуть керувати хробаками від <gui>Хробака 2</gui> до "
+"<gui>Хробака 6</gui>. У грі з двома гравцями можна керувати <gui>Хробаком 1</"
+"gui> і <gui>Хробаком 2</gui>, у грі з трьома гравцями —  <gui>Хробаком 1</"
+"gui>, <gui>Хробаком 2</gui> і <gui>Хробаком 3</gui> тощо."
 
 #. (itstool) path: section/title
 #: C/multi-player.page:37
@@ -364,8 +364,8 @@ msgid ""
 "<app>Nibbles</app> can be played by up to six players. To set the number of "
 "players:"
 msgstr ""
-"У <app>Хробака</app> може одночасно грати до шести гравців. Щоб встановити"
-" кількість гравців, виконайте такі дії:"
+"У <app>Хробака</app> може одночасно грати до шести гравців. Щоб встановити "
+"кількість гравців, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/multi-player.page:48
@@ -375,11 +375,10 @@ msgid ""
 "+</gui> or <gui style=\"button\">-</gui> buttons or by entering the number "
 "of players from the keyboard in the space provided."
 msgstr ""
-"Встановіть бажане значення у полі <gui style=\"input\">Кількість гравців</gui"
-">. Максимальним є значення 6. Зробити це можна за допомогою кнопок <gui"
-" style=\"button\">"
-"+</gui> та <gui style=\"button\">-</gui> або безпосереднім введенням"
-" кількості гравців у відповідне поле."
+"Встановіть бажане значення у полі <gui style=\"input\">Кількість гравців</"
+"gui>. Максимальним є значення 6. Зробити це можна за допомогою кнопок <gui "
+"style=\"button\">+</gui> та <gui style=\"button\">-</gui> або безпосереднім "
+"введенням кількості гравців у відповідне поле."
 
 #. (itstool) path: note/p
 #: C/multi-player.page:57
@@ -389,17 +388,17 @@ msgid ""
 "set the <gui style=\"input\">Number of AI players</gui> to any number "
 "between 1 and 6."
 msgstr ""
-"Ви можете стежити за грою у <app>Хробака</app>, не беручи у ній участі. Щоб"
-" поспостерігати за грою, встановіть для параметра <gui style=\"input\""
-">Кількість гравців</gui> значення 0, а для параметра <gui style=\"input\""
-">Кількість комп'ютерних гравців</gui> — значення від 1 до 6."
+"Ви можете стежити за грою у <app>Хробака</app>, не беручи у ній участі. Щоб "
+"поспостерігати за грою, встановіть для параметра <gui style=\"input"
+"\">Кількість гравців</gui> значення 0, а для параметра <gui style=\"input"
+"\">Кількість комп'ютерних гравців</gui> — значення від 1 до 6."
 
 #. (itstool) path: info/desc
 #: C/preferences.page:23
 msgid "Change default speed, worm color, level order and sound settings."
 msgstr ""
-"Зміна типової швидкості, кольору хробака, порядку рівнів та параметрів"
-" озвучування."
+"Зміна типової швидкості, кольору хробака, порядку рівнів та параметрів "
+"озвучування."
 
 #. (itstool) path: page/title
 #: C/preferences.page:26
@@ -413,10 +412,9 @@ msgid ""
 "the menu button in the top-right corner of the window and selecting <gui "
 "style=\"menuitem\">Preferences</gui>."
 msgstr ""
-"Загальні налаштування <app>Хробака</app> можна змінити натисканням кнопки"
-" меню у верхньому правому куті вікна програми із наступним вибором пункту <"
-"gui "
-"style=\"menuitem\">Параметри</gui>."
+"Загальні налаштування <app>Хробака</app> можна змінити натисканням кнопки "
+"меню у верхньому правому куті вікна програми із наступним вибором пункту "
+"<gui style=\"menuitem\">Параметри</gui>."
 
 #. (itstool) path: section/title
 #: C/preferences.page:33
@@ -432,8 +430,8 @@ msgstr "Щоб змінити швидкість гри, виконайте та
 #: C/preferences.page:42
 msgid "Select one of the four speed choices given on the left hand side."
 msgstr ""
-"Виберіть один із чотирьох варіантів швидкості, пункти яких показано у лівій"
-" частині вікна."
+"Виберіть один із чотирьох варіантів швидкості, пункти яких показано у лівій "
+"частині вікна."
 
 #. (itstool) path: section/title
 #: C/preferences.page:49
@@ -491,8 +489,8 @@ msgid ""
 "Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
 "you wish to edit."
 msgstr ""
-"Виберіть будь-яку із вкладок <gui style=\"tab\">Хробак</gui>, щоб вибрати"
-" хробака, параметри якого ви хочете змінити."
+"Виберіть будь-яку із вкладок <gui style=\"tab\">Хробак</gui>, щоб вибрати "
+"хробака, параметри якого ви хочете змінити."
 
 #. (itstool) path: item/p
 #: C/preferences.page:95
@@ -500,8 +498,8 @@ msgid ""
 "Under <gui>Worm color</gui>, pick a color out of the available colors in the "
 "drop-down menu to change the appearance of the worm."
 msgstr ""
-"Під міткою <gui>Колір хробака</gui> виберіть колір з доступних кольорів у"
-" спадному меню, щоб змінити вигляд хробака."
+"Під міткою <gui>Колір хробака</gui> виберіть колір з доступних кольорів у "
+"спадному меню, щоб змінити вигляд хробака."
 
 #. (itstool) path: section/title
 #: C/preferences.page:103
@@ -517,135 +515,136 @@ msgstr "Щоб увімкнути або вимкнути звуки, викон
 #: C/preferences.page:112
 msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgstr ""
-"Позначте пункт <gui style=\"checkbox\">Увімкнути звуки</gui> або зніміть з"
-" нього позначку."
+"Позначте пункт <gui style=\"checkbox\">Увімкнути звуки</gui> або зніміть з "
+"нього позначку."
+
+#. (itstool) path: credit/name
+#: C/scores.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. (itstool) path: info/desc
-#: C/scores.page:18
+#: C/scores.page:23
 msgid "Swallow different bonuses to score points."
 msgstr "Ковтайте різні бонуси, щоб заробити залікові очки."
 
 #. (itstool) path: page/title
-#: C/scores.page:21
+#: C/scores.page:26
 msgid "Scoring points in <app>Nibbles</app>"
 msgstr "Залікові очки у <app>Хробаку</app>"
 
 #. (itstool) path: page/p
-#: C/scores.page:23
+#: C/scores.page:28
 msgid ""
 "You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
 "different kinds of bonuses in Nibbles:"
 msgstr ""
-"Очки у <app>Хробаку</app> можна заробити ковтанням премій. У «Хробаку»"
-" передбачено 5 різних типів премій:"
+"Очки у <app>Хробаку</app> можна заробити ковтанням премій. У «Хробаку» "
+"передбачено 5 різних типів премій:"
 
 #. (itstool) path: item/p
-#: C/scores.page:27
+#: C/scores.page:32
+#| msgid ""
+#| "The donut-shaped bonus <_:media-1/> : This bonus causes an increase in "
+#| "the length of the worm. The points you gain on eating the donut vary from "
+#| "level to level and are multiples of the level number. In level 1, the "
+#| "first donut will give you 1 point, the second donut will give you 2 "
+#| "points, the third donut will give you 3 points and so on. In level 2, the "
+#| "first donut will give you 2 points, the second donut will give you 4 "
+#| "points, the third donut will give you 6 points and so on. In level 26, "
+#| "therefore, the first donut will give you 26 points, the second donut will "
+#| "give you 52 points and so on."
 msgid ""
-"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
-"length of the worm. The points you gain on eating the donut vary from level "
-"to level and are multiples of the level number. In level 1, the first donut "
-"will give you 1 point, the second donut will give you 2 points, the third "
-"donut will give you 3 points and so on. In level 2, the first donut will "
-"give you 2 points, the second donut will give you 4 points, the third donut "
-"will give you 6 points and so on. In level 26, therefore, the first donut "
-"will give you 26 points, the second donut will give you 52 points and so on."
+"The apple-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the apple vary from level "
+"to level and are multiples of the level number. In level 1, the first apple "
+"will give you 1 point, the second apple will give you 2 points, the third "
+"apple will give you 3 points and so on. In level 2, the first apple will "
+"give you 2 points, the second apple will give you 4 points, the third apple "
+"will give you 6 points and so on. In level 26, therefore, the first apple "
+"will give you 26 points, the second apple will give you 52 points and so on."
 msgstr ""
-"Премія у формі пончика <_:media-1/>: ця премія збільшує довжину вашого"
-" хробака. Кількість очок, які ви отримаєте ковтанням пончика, залежить від"
-" рівня і є кратною до номера рівня. На першому рівні перший пончик дасть вам"
-" 1 очко, другий — 2 очки, третій — 3 очки тощо. На другому рівні перший"
-" пончик дасть вам 2 очки, другий — 4 очки, третій пончик — 6 очок тощо. На"
-" рівні 26, отже, перший пончик дасть вам 26 очок, другий пончик — 52 очки"
-" тощо."
+"Премія у формі яблучка <_:media-1/>: ця премія збільшує довжину вашого "
+"хробака. Кількість очок, які ви отримаєте ковтанням яблучка, залежить від "
+"рівня і є кратною до номера рівня. На першому рівні перше яблучко дасть вам "
+"1 очко, друге — 2 очки, третє — 3 очки тощо. На другому рівні перше "
+"яблучко дасть вам 2 очки, друге — 4 очки, третє яблучко — 6 очок тощо. На "
+"рівні 26, отже, перше яблучко дасть вам 26 очок, друге яблучко — 52 очки "
+"тощо."
 
 #. (itstool) path: note/p
-#: C/scores.page:39
+#: C/scores.page:44
+#| msgid ""
+#| "The donut order count does not depend on the number of donuts already "
+#| "eaten by a worm. If the game is in level 1 and if player 1 eats the first "
+#| "donut, he scores 1 point, if player 2 eats the second donut, he scores 2 "
+#| "points; a third player may choose to not eat any donuts till the tenth "
+#| "donut and score 10 points at once."
 msgid ""
-"The donut order count does not depend on the number of donuts already eaten "
-"by a worm. If the game is in level 1 and if player 1 eats the first donut, "
-"he scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
-"third player may choose to not eat any donuts till the tenth donut and score "
+"The apple order count does not depend on the number of apples already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first apple, "
+"he scores 1 point, if player 2 eats the second apple, he scores 2 points; a "
+"third player may choose to not eat any apples till the tenth apple and score "
 "10 points at once."
 msgstr ""
-"Вартість пончика в очках не залежить від кількості пончиків, які з'їв"
-" конкретний хробак. Якщо на першому рівні гравець 1 з'їв хробаком перший"
-" пончик, він отримає 1 очко, якщо гравець 2 з'їв хробаком другий пончик, він"
-" отримає 2 очки; третій гравець може не їсти пончиків взагалі, але якщо він"
-" з'їсть десятий пончик, він отримає одразу 10 очок."
+"Вартість яблучка в очках не залежить від кількості пончиків, які з'їв "
+"конкретний хробак. Якщо на першому рівні гравець 1 з'їв хробаком перше"
+" яблучко, він отримає 1 очко, якщо гравець 2 з'їв хробаком друге яблучко, він "
+"отримає 2 очки; третій гравець може не їсти яблучка взагалі, але якщо він "
+"з'їсть десяте яблучко, він отримає одразу 10 очок."
 
 #. (itstool) path: item/p
-#: C/scores.page:47
+#: C/scores.page:52
 msgid ""
 "The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
 "does not cause an increase in the length of your worm."
 msgstr ""
-"Премія у формі серця <_:media-1/>: ця премія надає вам додаткове життя і не"
-" збільшує довжини вашого хробака."
-
-#. (itstool) path: note/p
-#: C/scores.page:52
-msgid ""
-"The number of lives remaining for a worm is given by the number on the left "
-"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
-"lives remaining."
-msgstr ""
-"Кількість життів, які лишилися у хробака, подається як число після коми у"
-" результаті хробака. Якщо результатом хробака є 10,005, у хробака лишилося 5"
-" життів."
-
-#. (itstool) path: note/p
-#: C/scores.page:57
-msgid ""
-"You cannot get extra lives by scoring 10,000 points or more. If you have "
-"scored 12345 points with 10 lives remaining, your score will be 10,12345."
-msgstr ""
-"Ви можете заробити додаткові життя, набравши 10000 або більше очок. Якщо ви"
-" наберете 12345 очок, і у вас лишиться 10 життів, вашим результатом буде"
-" 10,12345."
+"Премія у формі серця <_:media-1/>: ця премія надає вам додаткове життя і не "
+"збільшує довжини вашого хробака."
 
 #. (itstool) path: item/p
-#: C/scores.page:63
+#: C/scores.page:58
 msgid ""
 "The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
 "increase in the length of the worm and does not give you any points. It "
 "causes a reversal in the movement of all the other worms in the game."
 msgstr ""
-"Премія у формі ромба <_:media-1/>: ця премія не збільшує довжини хробака і не"
-" дає вам жодних очок. Вона спричиняє зміну напрямку руху на протилежних для"
-" усіх інших хробаків у грі."
-
-#. (itstool) path: note/p
-#: C/scores.page:69
-msgid "This bonus has no effect in a single-player game."
-msgstr "Ця премія ні на що не впливає у грі із одним гравцем."
+"Премія у формі ромба <_:media-1/>: ця премія не збільшує довжини хробака і "
+"не дає вам жодних очок. Вона спричиняє зміну напрямку руху на протилежних "
+"для усіх інших хробаків у грі."
 
 #. (itstool) path: item/p
-#: C/scores.page:73
+#: C/scores.page:65
+#| msgid ""
+#| "The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
+#| "increase in the length of the worm than the donut-shaped bonus. The "
+#| "points given by this bonus vary depending on the level number and the "
+#| "length of the worm. The higher the level number and the longer the worm, "
+#| "the more the points are scored on eating this bonus."
 msgid ""
-"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
-"increase in the length of the worm than the donut-shaped bonus. The points "
-"given by this bonus vary depending on the level number and the length of the "
-"worm. The higher the level number and the longer the worm, the more the "
-"points are scored on eating this bonus."
+"The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase "
+"in the length of the worm than the apple-shaped bonus. The points given by "
+"this bonus vary depending on the level number and the length of the worm. "
+"The higher the level number and the longer the worm, the more the points are "
+"scored on eating this bonus."
 msgstr ""
-"Премія у формі морозива <_:media-1/>: ця премія спричиняє більше збільшення"
-" довжини, ніж премія у формі пончика. Очки, які надаються за цією премією"
-" залежать від номера рівня та довжини хробака. Чим більшим є номер рівня і"
-" чим довшим є хробак, тим більше очок буде нараховано за з'їдену премію."
+"Премія у формі банана <_:media-1/>: ця премія спричиняє більше збільшення "
+"довжини, ніж премія у формі яблучка. Очки, які надаються за цією премією "
+"залежать від номера рівня та довжини хробака. Чим більшим є номер рівня і "
+"чим довшим є хробак, тим більше очок буде нараховано за з'їдену премію."
 
 #. (itstool) path: item/p
-#: C/scores.page:82
+#: C/scores.page:74
 msgid ""
 "The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
 "length of the worm. The points given by this bonus depend on the level "
 "number and the length of the worm. The higher the level number and the "
 "longer the worm, the more the points are scored on eating this bonus."
 msgstr ""
-"Премія у формі вишеньки <_:media-1/>: ця премія спричиняє зменшення довжини"
-" хробака. Очки, які надаються за цією премією залежать від номера рівня та"
-" довжини хробака. Чим більшим є номер рівня і чим довшим є хробак, тим більше"
-" очок буде нараховано за з'їдену премію."
+"Премія у формі вишеньки <_:media-1/>: ця премія спричиняє зменшення довжини "
+"хробака. Очки, які надаються за цією премією залежать від номера рівня та "
+"довжини хробака. Чим більшим є номер рівня і чим довшим є хробак, тим більше "
+"очок буде нараховано за з'їдену премію."
 
 #. (itstool) path: p/link
 #: C/legal.xml:4
@@ -656,3 +655,23 @@ msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Ця робота розповсюджується за умов дотримання <_:link-1/>."
+
+#~ msgid ""
+#~ "The number of lives remaining for a worm is given by the number on the "
+#~ "left of the comma in a worm's score. If a worm's score is 10,005, the "
+#~ "worm has 10 lives remaining."
+#~ msgstr ""
+#~ "Кількість життів, які лишилися у хробака, подається як число після коми у "
+#~ "результаті хробака. Якщо результатом хробака є 10,005, у хробака лишилося "
+#~ "5 життів."
+
+#~ msgid ""
+#~ "You cannot get extra lives by scoring 10,000 points or more. If you have "
+#~ "scored 12345 points with 10 lives remaining, your score will be 10,12345."
+#~ msgstr ""
+#~ "Ви можете заробити додаткові життя, набравши 10000 або більше очок. Якщо "
+#~ "ви наберете 12345 очок, і у вас лишиться 10 життів, вашим результатом "
+#~ "буде 10,12345."
+
+#~ msgid "This bonus has no effect in a single-player game."
+#~ msgstr "Ця премія ні на що не впливає у грі із одним гравцем."
