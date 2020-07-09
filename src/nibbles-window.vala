@@ -116,7 +116,6 @@ private class NibblesWindow : ApplicationWindow
         settings = new GLib.Settings ("org.gnome.Nibbles");
         settings.changed.connect (settings_changed_cb);
         add_action (settings.create_action ("sound"));
-        add_action (settings.create_action ("fakes"));
 
         worm_settings = new Gee.ArrayList<GLib.Settings> ();
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
