@@ -28,7 +28,6 @@ private enum GameStatus
 
 private class NibblesGame : Object
 {
-    internal const int GAMEDELAY = 35;
 
     internal const int MAX_WORMS = 6;
 
@@ -43,12 +42,13 @@ private class NibblesGame : Object
     public bool skip_score      { internal get; protected construct set; }
     public int current_level    { internal get; protected construct set; }
     public int speed            { internal get; internal construct set; }
+    public int gamedelay        { internal get; protected construct; }
 
     /* Board data */
     internal int[,] board;
 
-    public int width            { internal get; protected construct; }
-    public int height           { internal get; protected construct; }
+    public uint8 width          { internal get; protected construct; }
+    public uint8 height         { internal get; protected construct; }
 
     /* Worms data */
     internal int numhumans      { internal get; internal set; }
@@ -74,7 +74,7 @@ private class NibblesGame : Object
     internal signal void log_score (int score, int level_reached);
     internal signal void animate_end_game ();
     internal signal void level_completed ();
-    internal signal void warp_added (int x, int y);
+    internal signal void warp_added (uint8 x, uint8 y);
     internal signal void bonus_added (Bonus bonus);
     internal signal void bonus_removed (Bonus bonus);
 
@@ -84,16 +84,16 @@ private class NibblesGame : Object
         boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
-    internal NibblesGame (int start_level, int speed, bool fakes, int width, int height, bool no_random = false)
+    internal NibblesGame (int start_level, int speed, int gamedelay, bool fakes, uint8 width, uint8 height, bool no_random = false)
     {
-        Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, fakes: fakes, width: width, height: height);
+        Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, gamedelay: gamedelay, fakes: fakes, width: width, height: height);
 
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
 
     internal bool load_board (string [] future_board, uint8 regular_bonus)
     {
-        if (future_board.length != height)
+        if (future_board.length != (int) height)
             return false;
 
         boni.reset (regular_bonus);
@@ -101,12 +101,12 @@ private class NibblesGame : Object
 
         string tmpboard;
         int count = 0;
-        for (int i = 0; i < height; i++)
+        for (uint8 i = 0; i < height; i++)
         {
             tmpboard = future_board [i];
-            if (tmpboard.char_count () != width)
+            if (tmpboard.char_count () != (int) width)
                 return false;
-            for (int j = 0; j < width; j++)
+            for (uint8 j = 0; j < width; j++)
             {
                 unichar char_value = tmpboard.get_char (tmpboard.index_of_nth_char (j));
                 switch (char_value)
@@ -201,6 +201,9 @@ private class NibblesGame : Object
                     case 'X':
                     case 'Y':
                     case 'Z':
+                        if (j == 0 || i == 0)
+                            return false;
+
                         board[j, i] = (int) char_value;
                         warp_manager.add_warp_source (board[j, i], j - 1, i - 1);
 
@@ -262,7 +265,7 @@ private class NibblesGame : Object
 
         is_running = true;
 
-        main_id = Timeout.add (GAMEDELAY * speed, () => {
+        main_id = Timeout.add (gamedelay * speed, () => {
                 bonus_cycle = (bonus_cycle + 1) % 3;
                 if (bonus_cycle == 0)
                     add_bonus (false);
@@ -362,6 +365,7 @@ private class NibblesGame : Object
         {
             var worm = new Worm (i, width, height);
             worm.bonus_found.connect (bonus_found_cb);
+            worm.finish_added.connect (worm_dematerialization_request);
             worm.is_human = (i < numhumans);
             worms.add (worm);
         }
@@ -417,8 +421,8 @@ private class NibblesGame : Object
                 continue;
 
             Position position = worm.position_move ();
-            int target_x;
-            int target_y;
+            uint8 target_x;
+            uint8 target_y;
             if (warp_manager.get_warp_target (position.x, position.y,
                              /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
                                               out target_x, out target_y))
@@ -439,8 +443,8 @@ private class NibblesGame : Object
             worm.move_part_1 ();
             if (board[worm.head.x, worm.head.y] == NibblesGame.WARPCHAR)
             {
-                int target_x;
-                int target_y;
+                uint8 target_x;
+                uint8 target_y;
                 if (!warp_manager.get_warp_target (worm.head.x, worm.head.y,
                                   /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
                                                    out target_x, out target_y))
@@ -486,6 +490,11 @@ private class NibblesGame : Object
                 other_worm.reverse (board);
     }
 
+    private void worm_dematerialization_request (Worm worm)
+    {
+        worm.dematerialize (board, /* number of rounds */ 3, gamedelay);
+    }
+
     /*\
     * * Handling bonuses
     \*/
@@ -493,7 +502,8 @@ private class NibblesGame : Object
     private void add_bonus (bool regular)
     {
         bool good = false;
-        int x = 0, y = 0;
+        uint8 x = 0;
+        uint8 y = 0;
 
         if (!regular)
         {
@@ -504,17 +514,14 @@ private class NibblesGame : Object
         do
         {
             good = true;
-            x = Random.int_range (0, width  - 1);
-            y = Random.int_range (0, height - 1);
 
-            if (board[x, y] != EMPTYCHAR)
-                good = false;
-            if (board[x + 1, y] != EMPTYCHAR)
-                good = false;
-            if (board[x, y + 1] != EMPTYCHAR)
-                good = false;
-            if (board[x + 1, y + 1] != EMPTYCHAR)
-                good = false;
+            x = (uint8) Random.int_range (0, width  - 1);
+            y = (uint8) Random.int_range (0, height - 1);
+
+            if (board [x    , y    ] != EMPTYCHAR) { good = false; continue; }
+            if (board [x + 1, y + 1] != EMPTYCHAR) { good = false; continue; }
+            if (board [x + 1, y    ] != EMPTYCHAR) { good = false; continue; }
+            if (board [x    , y + 1] != EMPTYCHAR) { good = false; continue; }
         } while (!good);
 
         if (regular)
@@ -527,16 +534,13 @@ private class NibblesGame : Object
             {
                 good = true;
 
-                x = Random.int_range (0, width  - 1);
-                y = Random.int_range (0, height - 1);
-                if (board[x, y] != EMPTYCHAR)
-                    good = false;
-                if (board[x + 1, y] != EMPTYCHAR)
-                    good = false;
-                if (board[x, y + 1] != EMPTYCHAR)
-                    good = false;
-                if (board[x + 1, y + 1] != EMPTYCHAR)
-                    good = false;
+                x = (uint8) Random.int_range (0, width  - 1);
+                y = (uint8) Random.int_range (0, height - 1);
+
+                if (board [x    , y    ] != EMPTYCHAR) { good = false; continue; }
+                if (board [x + 1, y + 1] != EMPTYCHAR) { good = false; continue; }
+                if (board [x + 1, y    ] != EMPTYCHAR) { good = false; continue; }
+                if (board [x    , y + 1] != EMPTYCHAR) { good = false; continue; }
             }
             _add_bonus (x, y, BonusType.REGULAR, false, 300);
         }
@@ -585,7 +589,7 @@ private class NibblesGame : Object
             }
         }
     }
-    private inline void _add_bonus (int x, int y, BonusType bonus_type, bool fake, int countdown)
+    private inline void _add_bonus (uint8 x, uint8 y, BonusType bonus_type, bool fake, uint16 countdown)
     {
         Bonus bonus = new Bonus (x, y, bonus_type, fake, countdown);
         if (boni.add_bonus (board, bonus))
@@ -604,9 +608,9 @@ private class NibblesGame : Object
         switch (board[worm.head.x, worm.head.y] - 'A')
         {
             case BonusType.REGULAR:
-                int nth_bonus = boni.new_regular_bonus_eaten ();
-                worm.change += nth_bonus * Worm.GROW_FACTOR;
-                worm.score  += nth_bonus * current_level;
+                uint8 nth_bonus = boni.new_regular_bonus_eaten ();
+                worm.change += (int) nth_bonus * Worm.GROW_FACTOR;
+                worm.score  += (int) nth_bonus * current_level;
                 break;
             case BonusType.DOUBLE:
                 worm.score += (worm.length + worm.change) * current_level;
@@ -653,9 +657,9 @@ private class NibblesGame : Object
         {
             if (worm.lives > 0)
                 worms_left += 1;
-            else if (worm.is_human && worm.lives <= 0)
+            else if (worm.is_human && worm.lives == 0)
                 return GameStatus.GAMEOVER;
-            else if (numhumans == 0 && worm.lives <= 0)
+            else if (numhumans == 0 && worm.lives == 0)
                 return GameStatus.GAMEOVER;
         }
 

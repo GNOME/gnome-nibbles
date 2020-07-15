@@ -65,12 +65,12 @@ private class PlayerScoreBox : Box
 
     private Gee.LinkedList<Image> life_images = new Gee.LinkedList<Image> ();
 
-    internal PlayerScoreBox (string name, Pango.Color color, int score, int lives_left, Gdk.Pixbuf life_pixbuf)
+    internal PlayerScoreBox (string name, Pango.Color color, int score, uint8 lives_left, Gdk.Pixbuf life_pixbuf)
     {
         name_label.set_markup ("<span color=\"" + color.to_string () + "\">" + name + "</span>");
         score_label.set_label (score.to_string ());
 
-        for (int i = 0; i < Worm.MAX_LIVES; i++)
+        for (uint8 i = 0; i < Worm.MAX_LIVES; i++)
         {
             var life = new Image.from_pixbuf (life_pixbuf);
             life.show ();
@@ -83,7 +83,7 @@ private class PlayerScoreBox : Box
         }
     }
 
-    internal void update (int score, int lives_left)
+    internal void update (int score, uint8 lives_left)
     {
         update_score (score);
         update_lives (lives_left);
@@ -94,14 +94,14 @@ private class PlayerScoreBox : Box
         score_label.set_label (score.to_string ());
     }
 
-    internal void update_lives (int lives_left)
+    internal void update_lives (uint8 lives_left)
     {
         /* Remove lost lives - if any */
-        for (int i = life_images.size - 1; i >= lives_left; i--)
+        for (uint8 i = (uint8) life_images.size - 1; i >= lives_left; i--)
             life_images[i].set_opacity (0);
 
         /* Add new lives - if any */
-        for (int i = 0; i < lives_left; i++)
+        for (uint8 i = 0; i < lives_left; i++)
             life_images[i].set_opacity (1);
     }
 }

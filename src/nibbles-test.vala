@@ -45,10 +45,10 @@ namespace NibblesTest
 
     private struct WormTest
     {
-        int start_x;
-        int start_y;
-        int final_lives;
-        int final_score;
+        uint8 start_x;
+        uint8 start_y;
+        uint8 final_lives;
+        int   final_score;
     }
 
     private static void test_board (string [] board,
@@ -56,18 +56,18 @@ namespace NibblesTest
                                     uint8 final_bonuses,
                                     WormTest [] worms)
     {
-        NibblesGame game = new NibblesGame (/* start level */ 1, /* speed */ 0, /* fakes */ false, board [0].char_count (), board.length, /* no random */ true);
+        NibblesGame game = new NibblesGame (/* start level  */ 1,   // used as score multiplier
+                                            /* speed        */ 0,
+                                            /* delay        */ 0,
+                                            /* fakes        */ false,
+                                            /* size x and y */ (uint8) board [0].char_count (), (uint8) board.length,
+                                            /* no random    */ true);
 
         game.numhumans = 0;
         game.numai = worms.length;
         game.create_worms ();
 
         game.load_board (board, regular_bonuses);
-
-        ulong [] worms_handlers = new ulong [game.worms.size];
-        foreach (Worm worm in game.worms)
-            // FIXME we should not have to connect to anything                  // TODO what’s this 3 in dematerialize?
-            worms_handlers [worm.id] = worm.finish_added.connect (() => { worm.dematerialize (game.board, 3); worm.is_stopped = false; });
 
         assert_true (game.numworms   == worms.length);
         assert_true (game.worms.size == worms.length);
@@ -109,8 +109,6 @@ namespace NibblesTest
 //        Test.message (@"applied bonus: $applied_bonus");
         assert_true (applied_bonus == final_bonuses);
 
-        foreach (Worm worm in game.worms)
-            worm.disconnect (worms_handlers [worm.id]);
         game.disconnect (game_handler_1);
         game.disconnect (game_handler_2);
 
@@ -124,23 +122,23 @@ namespace NibblesTest
     private static void test_games ()
     {
         Test.message ("test board 008");
-        test_board (level_008, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 15,
-                    { WormTest () { start_x =  4, start_y = 14, final_lives = 6, final_score =  11 },
-                      WormTest () { start_x = 18, start_y = 31, final_lives = 5, final_score =  14 },
-                      WormTest () { start_x =  9, start_y = 39, final_lives = 6, final_score = 119 },
-                      WormTest () { start_x = 51, start_y = 45, final_lives = 6, final_score =  19 }});
+        test_board (level_008, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 14,
+                    { WormTest () { start_x =  4, start_y = 14, final_lives = 6, final_score =  20 },
+                      WormTest () { start_x = 18, start_y = 31, final_lives = 5, final_score =  15 },
+                      WormTest () { start_x =  9, start_y = 39, final_lives = 5, final_score =  33 },
+                      WormTest () { start_x = 51, start_y = 45, final_lives = 6, final_score =   8 }});
 
         Test.message ("test board 011");
-        test_board (level_011, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 18,
-                    { WormTest () { start_x = 15, start_y =  9, final_lives = 5, final_score =  12 },
-                      WormTest () { start_x = 44, start_y =  9, final_lives = 6, final_score =   0 },
-                      WormTest () { start_x = 76, start_y =  9, final_lives = 6, final_score =   0 },
-                      WormTest () { start_x = 15, start_y = 56, final_lives = 6, final_score = 115 }});
+        test_board (level_011, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 17,
+                    { WormTest () { start_x = 15, start_y =  9, final_lives = 5, final_score =  76 },
+                      WormTest () { start_x = 44, start_y =  9, final_lives = 6, final_score =   5 },
+                      WormTest () { start_x = 76, start_y =  9, final_lives = 6, final_score =  18 },
+                      WormTest () { start_x = 15, start_y = 56, final_lives = 6, final_score = 100 }});
 
         Test.message ("test board 025");
         test_board (level_025, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 14,
-                    { WormTest () { start_x = 11, start_y =  6, final_lives = 5, final_score =   5 },
-                      WormTest () { start_x = 80, start_y =  6, final_lives = 6, final_score =  26 },
+                    { WormTest () { start_x = 11, start_y =  6, final_lives = 5, final_score =  17 },
+                      WormTest () { start_x = 80, start_y =  6, final_lives = 6, final_score =  14 },
                       WormTest () { start_x = 14, start_y = 37, final_lives = 6, final_score =  22 },
                       WormTest () { start_x = 79, start_y = 27, final_lives = 6, final_score =  22 }});
     }
@@ -416,7 +414,7 @@ namespace NibblesTest
             "┣━━━━━━━.━━━━━━━━┫",
             "┃▶..............◀┃",
             "┗━━━━━━━━━━━━━━━━┛"
-        };  /* expected: 6, 5 */
+        };  /* expected: 6, 4 */
     private const string [] test_heads_3 = {
             "┏━━━━━━━━━━━━━━━━┓",
             "┃................┃",
@@ -456,7 +454,7 @@ namespace NibblesTest
             "┏━━━━━┛.┃........┃",
             "┃▶......┃........┃",
             "┗━━━━━━━┻━━━━━━━━┛"
-        };  /* expected: 6, 5 */
+        };  /* expected: 6, 4 */
     private const string [] test_heads_7 = {
             "........┏━━━━━━━━┓",
             "┏━━━━━━━┛........┃",
