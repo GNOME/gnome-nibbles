@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-06-26 09:55+0000\n"
-"PO-Revision-Date: 2020-06-29 12:19+0200\n"
+"POT-Creation-Date: 2020-07-09 15:00+0000\n"
+"PO-Revision-Date: 2020-07-29 11:35+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -65,15 +65,15 @@ msgstr ""
 "Juegue contra un máximo de cinco gusanos enemigos o comparta su teclado para "
 "jugar con un amigo."
 
-#: data/org.gnome.Nibbles.appdata.xml.in:52
+#: data/org.gnome.Nibbles.appdata.xml.in:53
 msgid "The GNOME Project"
 msgstr "El proyecto GNOME"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: title of the window, as displayed in the headerbar
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:53
-#: data/ui/nibbles.ui:61 src/gnome-nibbles.vala:24
+#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:57
+#: data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -149,7 +149,8 @@ msgstr "Activar sonidos"
 msgid "Enable sounds."
 msgstr "Activar sonidos."
 
-#: data/org.gnome.Nibbles.gschema.xml:56
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: data/org.gnome.Nibbles.gschema.xml:56 src/gnome-nibbles.vala:49
 msgid "Enable fake bonuses"
 msgstr "Activar bonificaciones falsas"
 
@@ -288,6 +289,83 @@ msgstr "Bienvenidos, gusanos."
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr "Cómase la comida antes que otros gusanos, pero no choque contra nada."
 
+#. Translators: header of the "Next screen" and "Previous screen" shortcuts section
+#: data/ui/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "During game setup"
+msgstr "Durante la configuración del juego"
+
+#. Translators: shortcut that during game setup switches to the next screen
+#: data/ui/help-overlay.ui:36
+#| msgid "_Next Level"
+msgctxt "shortcut window"
+msgid "Next screen"
+msgstr "Siguiente pantalla"
+
+#. Translators: shortcut that during game setup goes back to the previous screen
+#: data/ui/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Previous screen"
+msgstr "Pantalla anterior"
+
+#. Translators: header of the "Start a new game" and "Pause or unpause" shortcuts section
+#: data/ui/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "During a game"
+msgstr "Durante una partida"
+
+#. Translators: shortcut that during a game opens a popup to discard current game and start a new one
+#: data/ui/help-overlay.ui:59
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Iniciar un juego nuevo"
+
+#. Translators: shortcut that pauses or unpauses the current game
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Pause or unpause"
+msgstr "Pausar o reanudar"
+
+#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
+#: data/ui/help-overlay.ui:77
+#| msgid "_General"
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "Genérico"
+
+#. Translators: shortcut that toggles the hamburger menu
+#: data/ui/help-overlay.ui:82
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Conmutar el menú principal"
+
+#. Translators: shortcut that opens Keyboard Shortcuts window
+#: data/ui/help-overlay.ui:90
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Atajos del teclado"
+
+#. Translators: shortcut that opens the application help
+#: data/ui/help-overlay.ui:98
+#| msgid "_Help"
+msgctxt "shortcut window"
+msgid "Help"
+msgstr "Ayuda"
+
+#. Translators: shortcut that opens About dialog
+#: data/ui/help-overlay.ui:106
+#| msgid "_About"
+msgctxt "shortcut window"
+msgid "About"
+msgstr "Acerca de"
+
+#. Translators: shortcut that quits application
+#: data/ui/help-overlay.ui:114
+#| msgid "_Quit"
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Salir"
+
 #. Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); mutes or unmutes game sound
 #: data/ui/nibbles.ui:26
 msgid "_Sound"
@@ -298,30 +376,35 @@ msgstr "_Sonido"
 msgid "_Scores"
 msgstr "_Puntuación"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
 #: data/ui/nibbles.ui:40
+msgid "_Keyboard Shortcuts"
+msgstr "_Atajos de teclado"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
+#: data/ui/nibbles.ui:45
 msgid "_Help"
 msgstr "Ay_uda"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the About dialog
-#: data/ui/nibbles.ui:46
+#: data/ui/nibbles.ui:50
 msgid "_About Nibbles"
 msgstr "_Acerca de Nibbles"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
 #. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:68 src/nibbles-window.vala:330
+#: data/ui/nibbles.ui:72 src/nibbles-window.vala:412
 msgid "_New Game"
 msgstr "Juego _nuevo"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:80 src/nibbles-window.vala:379
+#: data/ui/nibbles.ui:84 src/nibbles-window.vala:461
 msgid "_Pause"
 msgstr "_Pausa"
 
 #. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles.ui:174
+#: data/ui/nibbles.ui:178
 msgid "Paused"
 msgstr "Detenido"
 
@@ -372,25 +455,21 @@ msgstr "_Siguiente"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 1st worm controls and color
 #: data/ui/preferences-dialog.ui:30
-#| msgid "Worm _1"
 msgid "Worm 1"
 msgstr "Gusano 1"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 2nd worm controls and color
 #: data/ui/preferences-dialog.ui:32
-#| msgid "Worm _2"
 msgid "Worm 2"
 msgstr "Gusano 2"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 3rd worm controls and color
 #: data/ui/preferences-dialog.ui:34
-#| msgid "Worm _3"
 msgid "Worm 3"
 msgstr "Gusano 3"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 4th worm controls and color
 #: data/ui/preferences-dialog.ui:36
-#| msgid "Worm _4"
 msgid "Worm 4"
 msgstr "Gusano 4"
 
@@ -437,74 +516,153 @@ msgstr "_Activar bonificaciones falsas"
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/controls.vala:130 src/nibbles-view.vala:530 src/scoreboard.vala:32
+#: src/controls.vala:130 src/nibbles-view.vala:533 src/scoreboard.vala:32
 #, c-format
 msgid "Player %d"
 msgstr "Jugador %d"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:38
+#: src/gnome-nibbles.vala:46
+#| msgid "Enable fake bonuses"
+msgid "Disable fake bonuses"
+msgstr "Desactivar bonificaciones falsas"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:52
+msgid "Start at given level (1-26)"
+msgstr "Empezar en el nivel indicado (1-26)"
+
+#. Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:55 src/gnome-nibbles.vala:64
+#: src/gnome-nibbles.vala:70 src/gnome-nibbles.vala:76
+msgid "NUMBER"
+msgstr "NÚMERO"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:58
+msgid "Turn off the sound"
+msgstr "Apagar el sonido"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:61
+msgid "Set number of nibbles (4-6)"
+msgstr "Establecer el número de mordiscos (4-6)"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:67
+#| msgid "Number of players"
+msgid "Set number of players (1-4)"
+msgstr "Establecer número de jugadores (1-4)"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:73
+msgid "Set worms speed (4-1, 4 for slow)"
+msgstr "Establecer velocidad de los gusanos (4-1, 4 el más lento)"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:79
+msgid "Start playing"
+msgstr "Empezar a jugar"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:82
+msgid "Turn on the sound"
+msgstr "Activar el sonido"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:85
 msgid "Show release version"
 msgstr "Mostrar el número de versión"
 
+#. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
+#: src/gnome-nibbles.vala:118
+msgid "Start level should only be between 1 and 26."
+msgstr "El nivel inicial sólo puede estar entre 1 y 26."
+
+#. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
+#: src/gnome-nibbles.vala:124
+msgid "There could only be between 4 and 6 nibbles."
+msgstr "Sólo puede haber entra 4 y 6 mordiscos."
+
+#. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
+#: src/gnome-nibbles.vala:130
+msgid "There could only be between 1 and 4 players."
+msgstr "Sólo puede haber entre 1 y 4 jugadores."
+
+#. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
+#: src/gnome-nibbles.vala:136
+msgid "Speed should be between 4 (slow) and 1 (fast)."
+msgstr "La velocidad debe estar entre 4 (lento) y 1 (rápido)."
+
+#. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
+#: src/gnome-nibbles.vala:145
+msgid ""
+"Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
+msgstr ""
+"Las opciones --disable-fakes (-d) y --enable-fakes (-e) son mutuamente "
+"exclusivas."
+
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:129
+#: src/gnome-nibbles.vala:286
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:133
+#: src/gnome-nibbles.vala:290
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:137
+#: src/gnome-nibbles.vala:294
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:141
+#: src/gnome-nibbles.vala:298
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:145
+#: src/gnome-nibbles.vala:302
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:149
+#: src/gnome-nibbles.vala:306
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:153
+#: src/gnome-nibbles.vala:310
 msgid "Allan Day"
 msgstr "Allan Day"
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:159
+#: src/gnome-nibbles.vala:316
 msgid "A worm game for GNOME"
 msgstr "Un juego de gusanos para GNOME."
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:163
+#: src/gnome-nibbles.vala:320
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:167
+#: src/gnome-nibbles.vala:324
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "Copyright © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:171
+#: src/gnome-nibbles.vala:328
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "Copyright © %u-%u – Iulian-Gabriel Radu"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:177
+#: src/gnome-nibbles.vala:334
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2020\n"
@@ -514,128 +672,128 @@ msgstr ""
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:901
+#: src/nibbles-view.vala:904
 msgid "red"
 msgstr "rojo"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:903
+#: src/nibbles-view.vala:906
 msgid "green"
 msgstr "verde"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:905
+#: src/nibbles-view.vala:908
 msgid "blue"
 msgstr "azul"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:907
+#: src/nibbles-view.vala:910
 msgid "yellow"
 msgstr "amarillo"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:909
+#: src/nibbles-view.vala:912
 msgid "cyan"
 msgstr "cián"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:911
+#: src/nibbles-view.vala:914
 msgid "purple"
 msgstr "púrpura"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:322
+#: src/nibbles-window.vala:404
 msgid "Are you sure you want to start a new game?"
 msgstr "¿Seguro que quiere empezar una partida nueva?"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:326
+#: src/nibbles-window.vala:408
 msgid "If you start a new game, the current one will be lost."
 msgstr "Si empieza una partida nueva, se perderá la actual."
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:374
+#: src/nibbles-window.vala:456
 msgid "_Resume"
 msgstr "_Reanudar"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:573 src/nibbles-window.vala:790
+#: src/nibbles-window.vala:663 src/nibbles-window.vala:880
 #, c-format
 msgid "Level %d"
 msgstr "Nivel %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:646
+#: src/nibbles-window.vala:736
 msgid "Beginner"
 msgstr "Principiante"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:648
+#: src/nibbles-window.vala:738
 msgid "Slow"
 msgstr "Lento"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:650
+#: src/nibbles-window.vala:740
 msgid "Medium"
 msgstr "Mediano"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:652
+#: src/nibbles-window.vala:742
 msgid "Fast"
 msgstr "Rápido"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:654
+#: src/nibbles-window.vala:744
 msgid "Beginner with Fakes"
 msgstr "Principiante con falsos"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:656
+#: src/nibbles-window.vala:746
 msgid "Slow with Fakes"
 msgstr "Lento con falsos"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:658
+#: src/nibbles-window.vala:748
 msgid "Medium with Fakes"
 msgstr "Medio con falsos"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:660
+#: src/nibbles-window.vala:750
 msgid "Fast with Fakes"
 msgstr "Rápido con falsos"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:665
+#: src/nibbles-window.vala:755
 msgid "Difficulty Level:"
 msgstr "Nivel de dificultad:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:770
+#: src/nibbles-window.vala:860
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nivel %d completado."
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:778
+#: src/nibbles-window.vala:868
 msgid "_Next Level"
 msgstr "_Siguiente nivel"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:836
+#: src/nibbles-window.vala:932
 msgid "Congratulations!"
 msgstr "Enhorabuena."
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:840
+#: src/nibbles-window.vala:936
 msgid "Game Over!"
 msgstr "Juego terminado"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:848
+#: src/nibbles-window.vala:944
 msgid "You have completed the game."
 msgstr "Ha completado el juego."
 
-#: src/nibbles-window.vala:855
+#: src/nibbles-window.vala:951
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -643,13 +801,13 @@ msgstr[0] "%d punto"
 msgstr[1] "%d puntos"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:866
+#: src/nibbles-window.vala:962
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld puntos más para la clasificación)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:873
+#: src/nibbles-window.vala:969
 msgid "_Play Again"
 msgstr "_Jugar otra vez"
 
@@ -701,9 +859,6 @@ msgstr "_Establecer de todos modos"
 #~ msgid "E_nable sounds"
 #~ msgstr "A_ctivar sonidos"
 
-#~ msgid "_General"
-#~ msgstr "_General"
-
 #~ msgid "Worms movement speed."
 #~ msgstr "Velocidad de movimiento de los gusanos."
 
@@ -712,9 +867,3 @@ msgstr "_Establecer de todos modos"
 
 #~ msgid "Use relative movement (ie. left or right only)."
 #~ msgstr "Usar movimiento relativo (p.ej. solamente derecha o izquierda)."
-
-#~ msgid "_About"
-#~ msgstr "_Acerca de"
-
-#~ msgid "_Quit"
-#~ msgstr "_Salir"
