@@ -11,11 +11,3 @@ flatpak:
     FLATPAK_MODULE: 'gnome-nibbles'
     MESON_ARGS: ''
     APP_ID: 'org.gnome.Nibbles'
-
-review:
-  dependencies:
-    - 'flatpak'
-  extends: '.review'
-
-stop_review:
-  extends: '.stop_review'
