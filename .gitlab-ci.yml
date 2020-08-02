@@ -11,3 +11,8 @@ flatpak:
     FLATPAK_MODULE: 'gnome-nibbles'
     MESON_ARGS: ''
     APP_ID: 'org.gnome.Nibbles'
+
+nightly:
+    extends: '.publish_nightly'
+    dependencies: ['flatpak']
+    needs: ['flatpak']
