@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: nibbles doc\n"
-"POT-Creation-Date: 2020-03-12 09:22+0000\n"
-"PO-Revision-Date: 2020-03-13 00:26+0100\n"
+"POT-Creation-Date: 2020-07-09 15:05+0000\n"
+"PO-Revision-Date: 2020-08-22 14:06+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -26,8 +26,8 @@ msgstr ""
 
 #. (itstool) path: credit/name
 #: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
-#: C/fake-bonus.page:15 C/index.page:12 C/multi-player.page:16
-#: C/preferences.page:15 C/scores.page:14
+#: C/fake-bonus.page:15 C/index.page:13 C/multi-player.page:16
+#: C/preferences.page:15 C/scores.page:15
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
@@ -293,17 +293,17 @@ msgstr ""
 "inte ändras under pågående spel."
 
 #. (itstool) path: info/desc
-#: C/index.page:16
+#: C/index.page:17
 msgid "Index"
 msgstr "Index"
 
 #. (itstool) path: page/title
-#: C/index.page:19
+#: C/index.page:20
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Nibbles"
 
 #. (itstool) path: page/p
-#: C/index.page:21
+#: C/index.page:22
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -314,12 +314,12 @@ msgstr ""
 "och andra maskar. Du måste klara 26 nivåer för att avsluta spelet."
 
 #. (itstool) path: section/title
-#: C/index.page:26
+#: C/index.page:27
 msgid "Game play"
 msgstr "Spelets gång"
 
 #. (itstool) path: section/title
-#: C/index.page:30
+#: C/index.page:31
 msgid "Preferences"
 msgstr "Inställningar"
 
@@ -509,18 +509,23 @@ msgstr "För att aktivera eller inaktivera ljud:"
 msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgstr "Kryssa i eller avmarkera <gui style=\"checkbox\">Aktivera ljud</gui>."
 
+#. (itstool) path: credit/name
+#: C/scores.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
 #. (itstool) path: info/desc
-#: C/scores.page:18
+#: C/scores.page:23
 msgid "Swallow different bonuses to score points."
 msgstr "Svälj olika bonusar för att få poäng."
 
 #. (itstool) path: page/title
-#: C/scores.page:21
+#: C/scores.page:26
 msgid "Scoring points in <app>Nibbles</app>"
 msgstr "Poängräkning i <app>Nibbles</app>"
 
 #. (itstool) path: page/p
-#: C/scores.page:23
+#: C/scores.page:28
 msgid ""
 "You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
 "different kinds of bonuses in Nibbles:"
@@ -529,43 +534,42 @@ msgstr ""
 "olika typer av bonusar i Nibbles:"
 
 #. (itstool) path: item/p
-#: C/scores.page:27
+#: C/scores.page:32
 msgid ""
-"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
-"length of the worm. The points you gain on eating the donut vary from level "
-"to level and are multiples of the level number. In level 1, the first donut "
-"will give you 1 point, the second donut will give you 2 points, the third "
-"donut will give you 3 points and so on. In level 2, the first donut will "
-"give you 2 points, the second donut will give you 4 points, the third donut "
-"will give you 6 points and so on. In level 26, therefore, the first donut "
-"will give you 26 points, the second donut will give you 52 points and so on."
+"The apple-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the apple vary from level "
+"to level and are multiples of the level number. In level 1, the first apple "
+"will give you 1 point, the second apple will give you 2 points, the third "
+"apple will give you 3 points and so on. In level 2, the first apple will "
+"give you 2 points, the second apple will give you 4 points, the third apple "
+"will give you 6 points and so on. In level 26, therefore, the first apple "
+"will give you 26 points, the second apple will give you 52 points and so on."
 msgstr ""
-"Den munkformade bonusen <_:media-1/> : Bonusen skapar en ökning av längden "
-"på masken. Den poäng du får för att äta munken varierar från nivå till nivå "
-"och multipliceras med nivån. I nivå 1, kommer den första munken ge dig 1 "
-"poäng, den andra munken ger dig 2 poäng, den tredje munken ger dig 3 poäng "
-"och så vidare. I nivå 2, kommer den första munken ge dig 2 poäng, den andra "
-"munken ger dig 4 poäng, den tredje munken ger dig 6 poäng och så vidare. I "
-"nivå 26, kommer därför den första munken ge dig 26 poäng, den andra munken "
-"ger dig 52 poäng och så vidare."
+"Den äppelformade bonusen <_:media-1/> : Bonusen skapar en ökning av längden "
+"på masken. Den poäng du får för att äta äpplet varierar från nivå till nivå "
+"och multipliceras med nivån. På nivå 1 kommer det första äpplet ge dig 1 "
+"poäng, det andra äpplet 2 poäng, det tredje äpplet 3 poäng och så vidare. På "
+"nivå 2 kommer det första äpplet ge dig 2 poäng, det andra äpplet 4 poäng, "
+"det tredje äpplet 6 poäng och så vidare. På nivå 26 kommer därför det första "
+"äpplet ge dig 26 poäng, det andra äpplet 52 poäng och så vidare."
 
 #. (itstool) path: note/p
-#: C/scores.page:39
+#: C/scores.page:44
 msgid ""
-"The donut order count does not depend on the number of donuts already eaten "
-"by a worm. If the game is in level 1 and if player 1 eats the first donut, "
-"he scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
-"third player may choose to not eat any donuts till the tenth donut and score "
+"The apple order count does not depend on the number of apples already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first apple, "
+"he scores 1 point, if player 2 eats the second apple, he scores 2 points; a "
+"third player may choose to not eat any apples till the tenth apple and score "
 "10 points at once."
 msgstr ""
-"Räkningen av munkarna beror inte på antalet munkar som redan ätits av en "
-"mask. Om spelet är i nivå 1 och om spelare 1 äter den första munken, får han "
-"1 poäng, om spelaren 2 äter den andra munken, får han 2 poäng; en tredje "
-"spelare kan välja att inte äta några munkar tills den tionde munken och får "
+"Äpplenas ordning beror inte på antalet äpplen som redan ätits av en mask. Om "
+"spelet är på nivå 1 och om spelare 1 äter det första äpplet, får han 1 "
+"poäng, om spelaren 2 äter det andra äpplet, får han 2 poäng; en tredje "
+"spelare kan välja att inte äta några äpplen tills det tionde äpplet och får "
 "då 10 poäng på en gång."
 
 #. (itstool) path: item/p
-#: C/scores.page:47
+#: C/scores.page:52
 msgid ""
 "The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
 "does not cause an increase in the length of your worm."
@@ -573,28 +577,8 @@ msgstr ""
 "Den hjärtformade bonusen <_:media-1/> : Bonusen ger dig ett extra liv och "
 "skapar inte en ökning i längden av din mask."
 
-#. (itstool) path: note/p
-#: C/scores.page:52
-msgid ""
-"The number of lives remaining for a worm is given by the number on the left "
-"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
-"lives remaining."
-msgstr ""
-"Antalet kvarvarande liv för en mask visas av numret till vänster om "
-"kommatecknet i maskens poäng. Om maskens poäng är 10,005, har den 10 liv "
-"kvar."
-
-#. (itstool) path: note/p
-#: C/scores.page:57
-msgid ""
-"You cannot get extra lives by scoring 10,000 points or more. If you have "
-"scored 12345 points with 10 lives remaining, your score will be 10,12345."
-msgstr ""
-"Du får inga extra liv genom att göra 10.000 poäng eller mer. Om du har 12345 "
-"poäng med 10 kvarvarande liv, kommer din poäng att vara 10,12345."
-
 #. (itstool) path: item/p
-#: C/scores.page:63
+#: C/scores.page:58
 msgid ""
 "The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
 "increase in the length of the worm and does not give you any points. It "
@@ -604,28 +588,23 @@ msgstr ""
 "längden på masken och ger dig inte några poäng. Den ger en ändrad riktning "
 "för alla andra maskar i spelet."
 
-#. (itstool) path: note/p
-#: C/scores.page:69
-msgid "This bonus has no effect in a single-player game."
-msgstr "Den här bonusen har ingen verkan när man spelar ensam."
-
 #. (itstool) path: item/p
-#: C/scores.page:73
+#: C/scores.page:65
 msgid ""
-"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
-"increase in the length of the worm than the donut-shaped bonus. The points "
-"given by this bonus vary depending on the level number and the length of the "
-"worm. The higher the level number and the longer the worm, the more the "
-"points are scored on eating this bonus."
+"The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase "
+"in the length of the worm than the apple-shaped bonus. The points given by "
+"this bonus vary depending on the level number and the length of the worm. "
+"The higher the level number and the longer the worm, the more the points are "
+"scored on eating this bonus."
 msgstr ""
-"Den glassformade bonusen <_:media-1/> : Bonusen skapar en större ökning av "
-"längden av masken än den munkformade bonusen. Poängen som fås av denna bonus "
-"varierar beroende på vilken nivå du är på och längden på masken. Ju högre "
-"nivånummer och ju längre mask, desto mer poäng blir det för att äta denna "
-"bonus."
+"Den bananformade bonusen <_:media-1/> : Bonusen skapar en större ökning av "
+"längden på masken än den äppelformade bonusen. Poängen som fås av denna "
+"bonus varierar beroende på vilken nivå du är på och längden på masken. Ju "
+"högre nivånummer och ju längre mask, desto mer poäng blir det för att äta "
+"denna bonus."
 
 #. (itstool) path: item/p
-#: C/scores.page:82
+#: C/scores.page:74
 msgid ""
 "The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
 "length of the worm. The points given by this bonus depend on the level "
@@ -646,6 +625,25 @@ msgstr "Creative Commons Erkännande-DelaLika 3.0 Unported"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Det här verket är licensierat under licensen <_:link-1/>."
+
+#~ msgid ""
+#~ "The number of lives remaining for a worm is given by the number on the "
+#~ "left of the comma in a worm's score. If a worm's score is 10,005, the "
+#~ "worm has 10 lives remaining."
+#~ msgstr ""
+#~ "Antalet kvarvarande liv för en mask visas av numret till vänster om "
+#~ "kommatecknet i maskens poäng. Om maskens poäng är 10,005, har den 10 liv "
+#~ "kvar."
+
+#~ msgid ""
+#~ "You cannot get extra lives by scoring 10,000 points or more. If you have "
+#~ "scored 12345 points with 10 lives remaining, your score will be 10,12345."
+#~ msgstr ""
+#~ "Du får inga extra liv genom att göra 10.000 poäng eller mer. Om du har "
+#~ "12345 poäng med 10 kvarvarande liv, kommer din poäng att vara 10,12345."
+
+#~ msgid "This bonus has no effect in a single-player game."
+#~ msgstr "Den här bonusen har ingen verkan när man spelar ensam."
 
 #~ msgid ""
 #~ "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
