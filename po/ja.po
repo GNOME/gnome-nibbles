@@ -1,5 +1,5 @@
 # gnome-games ja.po.
-# Copyright (C) 1998-2019 Free Software Foundation, Inc.
+# Copyright (C) 1998-2010, 2012-2013, 2019-2020 Free Software Foundation, Inc.
 # Yukihiro Nakai <Nakai@technologist.com>, 1998.
 # Akira Higuchi <a-higuti@math.sci.hokudai.ac.jp>, 1999.
 # Yuusuke Tahara <tahara@gnome.gr.jp>, 2000.
@@ -9,14 +9,14 @@
 # Satoru SATOH <ss@gnome.gr.jp>, 2006.
 # Shushi KUROSE <md81bird@hitaki.net>, 2012.
 # Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2013.
-# sicklylife <translation@sicklylife.jp>, 2019.
+# sicklylife <translation@sicklylife.jp>, 2019-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-2-32\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
 "POT-Creation-Date: 2020-07-09 15:00+0000\n"
-"PO-Revision-Date: 2019-09-09 18:00+0900\n"
+"PO-Revision-Date: 2020-08-23 00:16+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -31,7 +31,7 @@ msgstr "GNOME Nibbles"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
-msgstr "迷路をさまよう虫を導いてください"
+msgstr "迷路をさまよういも虫を導いてください"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:10
 msgid ""
@@ -74,35 +74,36 @@ msgstr "game;snake;board;ゲーム;スネーク;ヘビ;へび;ボード;"
 
 #: data/org.gnome.Nibbles.gschema.xml:13
 msgid "Width of the window in pixels"
-msgstr ""
+msgstr "ウィンドウの幅 (ピクセル単位)"
 
 #: data/org.gnome.Nibbles.gschema.xml:14
 msgid "Width of the window in pixels."
-msgstr ""
+msgstr "ウィンドウの幅 (ピクセル単位) です。"
 
 #: data/org.gnome.Nibbles.gschema.xml:18
 msgid "Height of the window in pixels"
-msgstr ""
+msgstr "ウィンドウの高さ (ピクセル単位)"
 
 #: data/org.gnome.Nibbles.gschema.xml:19
 msgid "Height of the window in pixels."
-msgstr ""
+msgstr "ウィンドウの高さ (ピクセル単位) です。"
 
 #: data/org.gnome.Nibbles.gschema.xml:23
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "ウィンドウが最小化されている場合は true"
 
 #: data/org.gnome.Nibbles.gschema.xml:24
 msgid "true if the window is maximized."
-msgstr ""
+msgstr "ウィンドウが最小化されている場合は true です。"
 
 #: data/org.gnome.Nibbles.gschema.xml:28
 msgid "Is this the first run"
-msgstr ""
+msgstr "初めて起動したかどうか"
 
 #: data/org.gnome.Nibbles.gschema.xml:29
 msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr ""
+"初回起動時のヒントダイアログを表示するかしないかを決める設定です。"
 
 #: data/org.gnome.Nibbles.gschema.xml:34
 msgid "Size of game tiles"
@@ -118,15 +119,15 @@ msgstr "ゲーム開始時のレベル"
 
 #: data/org.gnome.Nibbles.gschema.xml:41
 msgid "Game level to start on."
-msgstr "ゲーム開始時のレベルです"
+msgstr "ゲーム開始時のレベルです。"
 
 #: data/org.gnome.Nibbles.gschema.xml:46
 msgid "Worms movement speed"
-msgstr ""
+msgstr "いも虫の移動速度"
 
 #: data/org.gnome.Nibbles.gschema.xml:47
 msgid "The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”."
-msgstr ""
+msgstr "いも虫の移動速度です。‘1’が“高速”、‘4’が“低速”を意味します。"
 
 #: data/org.gnome.Nibbles.gschema.xml:51
 msgid "Enable sounds"
@@ -147,7 +148,7 @@ msgstr "偽物のボーナスを出します。"
 
 #: data/org.gnome.Nibbles.gschema.xml:62
 msgid "Number of human players"
-msgstr "プレイヤーの人数"
+msgstr "プレーヤーの人数"
 
 #: data/org.gnome.Nibbles.gschema.xml:63
 msgid "Number of human players."
@@ -155,7 +156,7 @@ msgstr "プレイする人の数です。"
 
 #: data/org.gnome.Nibbles.gschema.xml:68
 msgid "Number of AI players"
-msgstr "AI プレイヤーの数"
+msgstr "AI プレーヤーの数"
 
 #: data/org.gnome.Nibbles.gschema.xml:69
 msgid "Number of AI players."
@@ -192,7 +193,7 @@ msgstr "上へ移動する"
 #: data/org.gnome.Nibbles.gschema.xml:189
 #: data/org.gnome.Nibbles.gschema.xml:216
 msgid "Key to use for motion up."
-msgstr "上へ移動する際に使用するキーです。"
+msgstr "上へ移動するときに使用するキーです。"
 
 #. Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm down
 #: data/org.gnome.Nibbles.gschema.xml:85 data/org.gnome.Nibbles.gschema.xml:112
@@ -209,7 +210,7 @@ msgstr "下へ移動する"
 #: data/org.gnome.Nibbles.gschema.xml:194
 #: data/org.gnome.Nibbles.gschema.xml:221
 msgid "Key to use for motion down."
-msgstr "下へ移動する際に使用するキーです。"
+msgstr "下へ移動するときに使用するキーです。"
 
 #. Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm left
 #: data/org.gnome.Nibbles.gschema.xml:90 data/org.gnome.Nibbles.gschema.xml:117
@@ -226,7 +227,7 @@ msgstr "左へ移動する"
 #: data/org.gnome.Nibbles.gschema.xml:199
 #: data/org.gnome.Nibbles.gschema.xml:226
 msgid "Key to use for motion left."
-msgstr "左へ移動する際に使用するキーです。"
+msgstr "左へ移動するときに使用するキーです。"
 
 #. Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm right
 #: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:122
@@ -243,7 +244,7 @@ msgstr "右へ移動する"
 #: data/org.gnome.Nibbles.gschema.xml:204
 #: data/org.gnome.Nibbles.gschema.xml:231
 msgid "Key to use for motion right."
-msgstr "右へ移動する際に使用するキーです。"
+msgstr "右へ移動するときに使用するキーです。"
 
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
 #. Translators: title of a section in the Preferences dialog (1st worm); allows to configure keyboard controls for the worm
@@ -280,86 +281,78 @@ msgstr "他のいも虫や壁を避けつつ、おやつをたくさん食べま
 #: data/ui/help-overlay.ui:31
 msgctxt "shortcut window"
 msgid "During game setup"
-msgstr ""
+msgstr "ゲームのセットアップ中"
 
 #. Translators: shortcut that during game setup switches to the next screen
 #: data/ui/help-overlay.ui:36
-#, fuzzy
-#| msgid "_Next Level"
 msgctxt "shortcut window"
 msgid "Next screen"
-msgstr "次のレベル(_N)"
+msgstr "次の画面に切り替える"
 
 #. Translators: shortcut that during game setup goes back to the previous screen
 #: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Previous screen"
-msgstr ""
+msgstr "前の画面に切り替える"
 
 #. Translators: header of the "Start a new game" and "Pause or unpause" shortcuts section
 #: data/ui/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "During a game"
-msgstr ""
+msgstr "ゲーム中"
 
 #. Translators: shortcut that during a game opens a popup to discard current game and start a new one
 #: data/ui/help-overlay.ui:59
 msgctxt "shortcut window"
 msgid "Start a new game"
-msgstr ""
+msgstr "新しいゲームを開始する"
 
 #. Translators: shortcut that pauses or unpauses the current game
 #: data/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Pause or unpause"
-msgstr ""
+msgstr "一時停止または一時停止を解除する"
 
 #. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
 #: data/ui/help-overlay.ui:77
-#, fuzzy
-#| msgid "_General"
 msgctxt "shortcut window"
 msgid "Generic"
-msgstr "全般(_G)"
+msgstr "全般"
 
 #. Translators: shortcut that toggles the hamburger menu
 #: data/ui/help-overlay.ui:82
 msgctxt "shortcut window"
 msgid "Toggle main menu"
-msgstr ""
+msgstr "メインメニューの表示を切り替える"
 
 #. Translators: shortcut that opens Keyboard Shortcuts window
 #: data/ui/help-overlay.ui:90
-#, fuzzy
-#| msgid "Keyboard Options"
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
-msgstr "キーボードオプション"
+msgstr "キーボードショートカットを表示する"
 
 #. Translators: shortcut that opens the application help
 #: data/ui/help-overlay.ui:98
-#, fuzzy
-#| msgid "_Help"
 msgctxt "shortcut window"
 msgid "Help"
-msgstr "ヘルプ(_H)"
+msgstr "ヘルプを表示する"
 
 #. Translators: shortcut that opens About dialog
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
 msgid "About"
-msgstr ""
+msgstr "“Nibbles について”を表示する"
 
 #. Translators: shortcut that quits application
 #: data/ui/help-overlay.ui:114
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "終了する"
 
 #. Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); mutes or unmutes game sound
 #: data/ui/nibbles.ui:26
 msgid "_Sound"
-msgstr ""
+msgstr "サウンド(_S)"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the Scores dialog
 #: data/ui/nibbles.ui:33
@@ -368,10 +361,8 @@ msgstr "得点(_S)"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
 #: data/ui/nibbles.ui:40
-#, fuzzy
-#| msgid "Keyboard Options"
 msgid "_Keyboard Shortcuts"
-msgstr "キーボードオプション"
+msgstr "キーボードショートカット(_K)"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
 #: data/ui/nibbles.ui:45
@@ -403,41 +394,41 @@ msgstr "一時停止"
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the number of human and ai worms
 #: data/ui/players.ui:41
 msgid "Number of players"
-msgstr "プレイヤーの数"
+msgstr "プレーヤーの数"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 1/2/3/4 human players
 #: data/ui/players.ui:56
 msgid "Select the number of human players."
-msgstr "人間のプレイヤー数を選択してください。"
+msgstr "人間のプレーヤー数を選択してください。"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play a solo game against AIs (with a mnemonic that appears when pressing Alt)
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set (with a mnemonic that appears when pressing Alt)
 #: data/ui/players.ui:72 src/players.vala:35
 msgid "_1"
-msgstr ""
+msgstr "_1"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 2 human players (with a mnemonic that appears when pressing Alt)
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set (with a mnemonic that appears when pressing Alt)
 #: data/ui/players.ui:86 src/players.vala:38
 msgid "_2"
-msgstr ""
+msgstr "_2"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 3 human players (with a mnemonic that appears when pressing Alt)
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set (with a mnemonic that appears when pressing Alt)
 #: data/ui/players.ui:100 src/players.vala:41
 msgid "_3"
-msgstr ""
+msgstr "_3"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 4 human players (with a mnemonic that appears when pressing Alt)
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set (with a mnemonic that appears when pressing Alt)
 #: data/ui/players.ui:114 src/players.vala:44
 msgid "_4"
-msgstr ""
+msgstr "_4"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms
 #: data/ui/players.ui:136
 msgid "Select the number of computer players."
-msgstr "コンピューターのプレイヤー数を選択してください。"
+msgstr "コンピューターのプレーヤー数を選択してください。"
 
 #. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
@@ -447,31 +438,23 @@ msgstr "次へ(_N)"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 1st worm controls and color
 #: data/ui/preferences-dialog.ui:30
-#, fuzzy
-#| msgid "Worm _1"
 msgid "Worm 1"
-msgstr "いも虫 _1"
+msgstr "いも虫 1"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 2nd worm controls and color
 #: data/ui/preferences-dialog.ui:32
-#, fuzzy
-#| msgid "Worm _2"
 msgid "Worm 2"
-msgstr "いも虫 _2"
+msgstr "いも虫 2"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 3rd worm controls and color
 #: data/ui/preferences-dialog.ui:34
-#, fuzzy
-#| msgid "Worm _3"
 msgid "Worm 3"
-msgstr "いも虫 _3"
+msgstr "いも虫 3"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 4th worm controls and color
 #: data/ui/preferences-dialog.ui:36
-#, fuzzy
-#| msgid "Worm _4"
 msgid "Worm 4"
-msgstr "いも虫 _4"
+msgstr "いも虫 4"
 
 #. Translators: title of the Controls configuration dialog, if there is only one worm; allows to configure the worm controls and color
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably)
@@ -519,21 +502,17 @@ msgstr "偽物のボーナスを有効にする(_E)"
 #: src/controls.vala:130 src/nibbles-view.vala:533 src/scoreboard.vala:32
 #, c-format
 msgid "Player %d"
-msgstr "プレイヤー %d"
+msgstr "プレーヤー %d"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:46
-#, fuzzy
-#| msgid "Enable fake bonuses"
 msgid "Disable fake bonuses"
-msgstr "偽物のボーナスを有効にする"
+msgstr "偽物のボーナスを無効にする"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:52
-#, fuzzy
-#| msgid "_Starting level:"
 msgid "Start at given level (1-26)"
-msgstr "開始時のレベル(_S):"
+msgstr "指定したレベルで開始する (1-26)"
 
 #. Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
@@ -542,105 +521,103 @@ msgstr "開始時のレベル(_S):"
 #: src/gnome-nibbles.vala:55 src/gnome-nibbles.vala:64
 #: src/gnome-nibbles.vala:70 src/gnome-nibbles.vala:76
 msgid "NUMBER"
-msgstr ""
+msgstr "数値"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:58
 msgid "Turn off the sound"
-msgstr ""
+msgstr "サウンドを無効にする"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:61
 msgid "Set number of nibbles (4-6)"
-msgstr ""
+msgstr "いも虫の数を設定する (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:67
-#, fuzzy
-#| msgid "Number of players"
 msgid "Set number of players (1-4)"
-msgstr "プレイヤーの数"
+msgstr "プレーヤーの数を設定する (1-4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:73
 msgid "Set worms speed (4-1, 4 for slow)"
-msgstr ""
+msgstr "いも虫の速度を設定する (4-1 で 4 が低速)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:79
 msgid "Start playing"
-msgstr ""
+msgstr "プレイを開始する"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:82
 msgid "Turn on the sound"
-msgstr ""
+msgstr "サウンドを有効にする"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:85
 msgid "Show release version"
-msgstr "バージョンを表示する"
+msgstr "リリースバージョンを表示する"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
 #: src/gnome-nibbles.vala:118
 msgid "Start level should only be between 1 and 26."
-msgstr ""
+msgstr "レベルは 1 以上 26 以下である必要があります。"
 
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
 #: src/gnome-nibbles.vala:124
 msgid "There could only be between 4 and 6 nibbles."
-msgstr ""
+msgstr "いも虫の数は 4 以上 6 以下である必要があります。"
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
 #: src/gnome-nibbles.vala:130
 msgid "There could only be between 1 and 4 players."
-msgstr ""
+msgstr "プレーヤーの数は 1 以上 4 以下である必要があります。"
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
 #: src/gnome-nibbles.vala:136
 msgid "Speed should be between 4 (slow) and 1 (fast)."
-msgstr ""
+msgstr "速度は 1 (高速) 以上 4 (低速) 以下である必要があります。"
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
 #: src/gnome-nibbles.vala:145
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
-msgstr ""
+msgstr "--disable-fakes (-d) と --enable-fakes (-e) は同時指定できません。"
 
 #. Translators: text crediting an author, in the about dialog
 #: src/gnome-nibbles.vala:286
 msgid "Sean MacIsaac"
-msgstr ""
+msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
 #: src/gnome-nibbles.vala:290
 msgid "Ian Peters"
-msgstr ""
+msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
 #: src/gnome-nibbles.vala:294
 msgid "Andreas Røsdal"
-msgstr ""
+msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
 #: src/gnome-nibbles.vala:298
 msgid "Guillaume Beland"
-msgstr ""
+msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
 #: src/gnome-nibbles.vala:302
 msgid "Iulian-Gabriel Radu"
-msgstr ""
+msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting a documenter, in the about dialog
 #: src/gnome-nibbles.vala:306
 msgid "Kevin Breit"
-msgstr ""
+msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
 #: src/gnome-nibbles.vala:310
 msgid "Allan Day"
-msgstr ""
+msgstr "Allan Day"
 
 #. Translators: small description of the game, seen in the About dialog
 #: src/gnome-nibbles.vala:316
@@ -650,18 +627,18 @@ msgstr "GNOME のいも虫ゲーム"
 #. Translators: text crediting some maintainers, seen in the About dialog
 #: src/gnome-nibbles.vala:320
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
-msgstr ""
+msgstr "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
 #: src/gnome-nibbles.vala:324
 msgid "Copyright © 2009 – Guillaume Beland"
-msgstr ""
+msgstr "Copyright © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
 #: src/gnome-nibbles.vala:328
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
-msgstr ""
+msgstr "Copyright © %u-%u – Iulian-Gabriel Radu"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
 #: src/gnome-nibbles.vala:334
@@ -712,12 +689,12 @@ msgstr "紫"
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
 #: src/nibbles-window.vala:404
 msgid "Are you sure you want to start a new game?"
-msgstr "新しいゲームを始めてもよろしいですか?"
+msgstr "本当にゲームを最初から始めますか?"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
 #: src/nibbles-window.vala:408
 msgid "If you start a new game, the current one will be lost."
-msgstr "新しいゲームを始める場合、今のゲームは中止します。"
+msgstr "ゲームを最初からやり直す場合、今のゲームは中止します。"
 
 #. Translators: label of the Pause button, when the game is paused
 #: src/nibbles-window.vala:456
@@ -816,17 +793,17 @@ msgstr "(あと %ld ポイントで上位に入ります)"
 #. Translators: label of a button displayed at the end of a level; restarts the game
 #: src/nibbles-window.vala:969
 msgid "_Play Again"
-msgstr "再プレイ(_P)"
+msgstr "再挑戦(_P)"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set (with a mnemonic that appears when pressing Alt)
 #: src/players.vala:32
 msgid "_0"
-msgstr ""
+msgstr "_0"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set (with a mnemonic that appears when pressing Alt)
 #: src/players.vala:47
 msgid "_5"
-msgstr ""
+msgstr "_5"
 
 #. Translators: in the Preferences dialog, label of a column in a table for changing the keys to move the given worm (available for each playable worm); are listed there all the actions a player can do with its worm; the other column is "Key"
 #: src/preferences-dialog.vala:114
@@ -846,10 +823,10 @@ msgstr "選択したキーはすでに割り当て済みです!"
 #. Translators: label of one of the buttons of a MessageDialog that appears when one tries to assign an already assigned key (with a mnemonic that appears when pressing Alt)
 #: src/preferences-dialog.vala:195
 msgid "_Set anyway"
-msgstr ""
+msgstr "とにかく設定する(_S)"
 
 #~ msgid "Player"
-#~ msgstr "プレイヤー"
+#~ msgstr "プレーヤー"
 
 #~ msgid "_Preferences"
 #~ msgstr "設定(_P)"
@@ -863,17 +840,11 @@ msgstr ""
 #~ msgid "Worm"
 #~ msgstr "いも虫"
 
-#~ msgid "Speed"
-#~ msgstr "スピード"
-
-#~ msgid "Options"
-#~ msgstr "オプション"
-
 #~ msgid "E_nable sounds"
 #~ msgstr "サウンドを有効にする(_N)"
 
 #~ msgid "Game speed (1=fast, 4=slow)."
-#~ msgstr "ゲームの進行スピードです (1=高速 4=低速)。"
+#~ msgstr "ゲームの進行速度です (1=高速 4=低速)。"
 
 #~ msgid "Play levels in random order"
 #~ msgstr "プレイするレベルをランダムに切り替える"
@@ -941,9 +912,6 @@ msgstr ""
 #~ msgid "_Settings"
 #~ msgstr "設定(_S)"
 
-#~ msgid "_End Game"
-#~ msgstr "ゲームの終了(_E)"
-
 #~ msgid "_Contents"
 #~ msgstr "目次(_C)"
 
@@ -966,10 +934,10 @@ msgstr ""
 #~ msgstr "プレイするレベルをランダムに切り替える(_P)"
 
 #~ msgid "Number of _human players:"
-#~ msgstr "プレイヤーの人数(_H):"
+#~ msgstr "プレーヤーの人数(_H):"
 
 #~ msgid "Number of _AI players:"
-#~ msgstr "AI プレイヤーの数(_A):"
+#~ msgstr "AI プレーヤーの数(_A):"
 
 #~ msgid "_Use relative movement"
 #~ msgstr "相対移動にする(_U)"
