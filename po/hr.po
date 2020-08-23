@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: gnome-games 0\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
 "POT-Creation-Date: 2020-07-09 15:00+0000\n"
-"PO-Revision-Date: 2020-08-23 21:02+0200\n"
+"PO-Revision-Date: 2020-08-23 21:06+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -296,7 +296,7 @@ msgstr "Sljedeći zaslon"
 #: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Previous screen"
-msgstr "Prijašnji zalon"
+msgstr "Prijašnji zaslon"
 
 #. Translators: header of the "Start a new game" and "Pause or unpause" shortcuts section
 #: data/ui/help-overlay.ui:54
@@ -544,7 +544,7 @@ msgstr "Postavi broj igrača (1-4)"
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:73
 msgid "Set worms speed (4-1, 4 for slow)"
-msgstr "Postavi brzina crva (4-1, 4 za sporo)"
+msgstr "Postavi brzinu crva (4-1, 4 za sporo)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:79
