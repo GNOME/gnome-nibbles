@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: gnome-games 0\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
 "POT-Creation-Date: 2020-07-09 15:00+0000\n"
-"PO-Revision-Date: 2020-08-23 21:01+0200\n"
+"PO-Revision-Date: 2020-08-23 21:02+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -534,7 +534,7 @@ msgstr "Isključi zvuk"
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:61
 msgid "Set number of nibbles (4-6)"
-msgstr "Postavi broj zmija (2-10)"
+msgstr "Postavi broj zmija (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:67
