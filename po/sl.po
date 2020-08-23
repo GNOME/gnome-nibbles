@@ -5,14 +5,14 @@
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006–2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007–2019.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007–2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-08-10 08:00+0000\n"
-"PO-Revision-Date: 2020-08-19 22:05+0200\n"
+"POT-Creation-Date: 2020-08-20 16:03+0000\n"
+"PO-Revision-Date: 2020-08-21 21:54+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -136,7 +136,7 @@ msgstr "Hitrost črva"
 
 #: data/org.gnome.Nibbles.gschema.xml:47
 msgid "The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”."
-msgstr ""
+msgstr "Hitrost črvov, pri čemer pomeni » 1 « hitro, »4« pa počasi."
 
 #: data/org.gnome.Nibbles.gschema.xml:51
 msgid "Enable sounds"
@@ -320,11 +320,9 @@ msgstr "Začne novo igro"
 
 #. Translators: shortcut that pauses or unpauses the current game
 #: data/ui/help-overlay.ui:67
-#, fuzzy
-#| msgid "Pause the game"
 msgctxt "shortcut window"
 msgid "Pause or unpause"
-msgstr "Premor igranja"
+msgstr "Preklopi premor igranja"
 
 #. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
 #: data/ui/help-overlay.ui:77
@@ -544,7 +542,7 @@ msgstr "Izklopi zvok"
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:61
 msgid "Set number of nibbles (4-6)"
-msgstr ""
+msgstr "Nastavi število črvov (4–6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:67
@@ -554,7 +552,7 @@ msgstr "Število (1–4)"
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:73
 msgid "Set worms speed (4-1, 4 for slow)"
-msgstr ""
+msgstr "Določi hitrost črvov (4–1, 4 pomeni počasi)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:79
@@ -564,7 +562,7 @@ msgstr "Začni novo igro"
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:82
 msgid "Turn on the sound"
-msgstr ""
+msgstr "Vklopi zvok"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:85
@@ -574,28 +572,29 @@ msgstr "Pokaži podrobnosti različice"
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
 #: src/gnome-nibbles.vala:118
 msgid "Start level should only be between 1 and 26."
-msgstr ""
+msgstr "Začetna vrednost je lahko le med 1 in 26."
 
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
 #: src/gnome-nibbles.vala:124
 msgid "There could only be between 4 and 6 nibbles."
-msgstr ""
+msgstr "Lahko je le od 4 do 6 črvov."
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
 #: src/gnome-nibbles.vala:130
 msgid "There could only be between 1 and 4 players."
-msgstr ""
+msgstr "Lahko je le od 1 do 4 igralcev."
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
 #: src/gnome-nibbles.vala:136
 msgid "Speed should be between 4 (slow) and 1 (fast)."
-msgstr ""
+msgstr "Hitrost črvov je lahko le med 4 (počasi) in 1 (hitro)."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
 #: src/gnome-nibbles.vala:145
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
+"Možnosti --disable-fakes (-d) in --enable-fakes (-e) se vzajemno izločita."
 
 #. Translators: text crediting an author, in the about dialog
 #: src/gnome-nibbles.vala:286
