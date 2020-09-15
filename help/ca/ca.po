@@ -1,5 +1,5 @@
 # Translators:
-# Jaume Jorba. Correu particular <jaume.jorba@gmail.com>, 2019
+# Jaume Jorba <jaume.jorba@gmail.com>, 2019
 #
 msgid ""
 msgstr ""
@@ -67,7 +67,7 @@ msgid ""
 "Press the <gui style=\"button\">Play Again</gui> button when you have "
 "finished a game."
 msgstr ""
-"Premeu el botó <gui style=\"button\">Tornar a jugar</gui> quan hàgiu acabat "
+"Premeu el botó <gui style=\"button\">Torna a jugar</gui> quan hàgiu acabat "
 "una partida."
 
 #. (itstool) path: section/title
@@ -195,7 +195,7 @@ msgid ""
 "<gui>Left</gui> control line and click it, then press <key>A</key> on your "
 "keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
-"Per exemple, per utilitzar <key>A</key> per <gui>Moure a l'esquerra</gui>, "
+"Per exemple, per utilitzar <key>A</key> per <gui>Mou a l'esquerra</gui>, "
 "seleccioneu la línia de control <gui>Esquerra</gui> i feu-li clic, aleshores "
 "premeu <key>A</key> quan veieu <gui>Nou accelerador…</gui> a la línia."
 
@@ -353,7 +353,7 @@ msgstr ""
 #. (itstool) path: section/title
 #: C/multi-player.page:37
 msgid "Choose the number of players"
-msgstr "Seleccioneu el nombre de jugadors"
+msgstr "Seleccionar el nombre de jugadors"
 
 #. (itstool) path: section/p
 #: C/multi-player.page:39
@@ -484,7 +484,7 @@ msgid ""
 "Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
 "you wish to edit."
 msgstr ""
-"Seleccioneu qualsevol de les pestanyes dels <gui style=\"tab\">cucs</gui> "
+"Seleccioneu qualsevol de les pestanyes <gui style=\"tab\">Cuc</gui> "
 "per a triar el cuc que voleu editar."
 
 #. (itstool) path: item/p
