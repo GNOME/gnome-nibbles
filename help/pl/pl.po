@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles-help\n"
-"POT-Creation-Date: 2020-03-12 09:22+0000\n"
-"PO-Revision-Date: 2020-03-14 13:58+0100\n"
+"POT-Creation-Date: 2020-07-09 15:05+0000\n"
+"PO-Revision-Date: 2020-09-19 13:44+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -27,8 +27,8 @@ msgstr ""
 
 #. (itstool) path: credit/name
 #: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
-#: C/fake-bonus.page:15 C/index.page:12 C/multi-player.page:16
-#: C/preferences.page:15 C/scores.page:14
+#: C/fake-bonus.page:15 C/index.page:13 C/multi-player.page:16
+#: C/preferences.page:15 C/scores.page:15
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
@@ -288,17 +288,17 @@ msgstr ""
 "zmieniać w trakcie gry."
 
 #. (itstool) path: info/desc
-#: C/index.page:16
+#: C/index.page:17
 msgid "Index"
 msgstr "Indeks"
 
 #. (itstool) path: page/title
-#: C/index.page:19
+#: C/index.page:20
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Robaki"
 
 #. (itstool) path: page/p
-#: C/index.page:21
+#: C/index.page:22
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -309,12 +309,12 @@ msgstr ""
 "ścian i pozostałych robaków. Gra ma 26 poziomów."
 
 #. (itstool) path: section/title
-#: C/index.page:26
+#: C/index.page:27
 msgid "Game play"
 msgstr "Rozgrywka"
 
 #. (itstool) path: section/title
-#: C/index.page:30
+#: C/index.page:31
 msgid "Preferences"
 msgstr "Preferencje"
 
@@ -501,18 +501,23 @@ msgstr "Aby włączyć lub wyłączyć dźwięki:"
 msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgstr "Zaznacz lub odznacz pole wyboru <gui style=\"checkbox\">Dźwięki</gui>."
 
+#. (itstool) path: credit/name
+#: C/scores.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
 #. (itstool) path: info/desc
-#: C/scores.page:18
+#: C/scores.page:23
 msgid "Swallow different bonuses to score points."
 msgstr "Połykanie premii, aby zgarniać punkty."
 
 #. (itstool) path: page/title
-#: C/scores.page:21
+#: C/scores.page:26
 msgid "Scoring points in <app>Nibbles</app>"
 msgstr "Zdobywanie punktów w <app>Robakach</app>"
 
 #. (itstool) path: page/p
-#: C/scores.page:23
+#: C/scores.page:28
 msgid ""
 "You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
 "different kinds of bonuses in Nibbles:"
@@ -520,41 +525,41 @@ msgstr ""
 "Można zdobywać punkty przez zjadanie premii. Występuje pięć rodzajów premii:"
 
 #. (itstool) path: item/p
-#: C/scores.page:27
+#: C/scores.page:32
 msgid ""
-"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
-"length of the worm. The points you gain on eating the donut vary from level "
-"to level and are multiples of the level number. In level 1, the first donut "
-"will give you 1 point, the second donut will give you 2 points, the third "
-"donut will give you 3 points and so on. In level 2, the first donut will "
-"give you 2 points, the second donut will give you 4 points, the third donut "
-"will give you 6 points and so on. In level 26, therefore, the first donut "
-"will give you 26 points, the second donut will give you 52 points and so on."
+"The apple-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the apple vary from level "
+"to level and are multiples of the level number. In level 1, the first apple "
+"will give you 1 point, the second apple will give you 2 points, the third "
+"apple will give you 3 points and so on. In level 2, the first apple will "
+"give you 2 points, the second apple will give you 4 points, the third apple "
+"will give you 6 points and so on. In level 26, therefore, the first apple "
+"will give you 26 points, the second apple will give you 52 points and so on."
 msgstr ""
-"<_:media-1/> Premia w kształcie pączka: wydłuża robaka. Punkty za tę premię "
+"<_:media-1/> Premia w kształcie jabłka: wydłuża robaka. Punkty za tę premię "
 "zależą od poziomu i wynoszą wielokrotność numeru poziomu. Na 1. poziomie "
-"pierwszy pączek daje 1 punkt, drugi daje 2, trzeci daje 3 i tak dalej. Na 2. "
-"poziomie pierwszy pączek daje 2 punkty, drugi daje 4, trzeci 6 i tak dalej. "
-"Z tego wynika, że na 26. poziomie pierwszy pączek daje 26 punktów, drugi "
-"daje 52 punkty i tak dalej."
+"pierwsze jabłko daje 1 punkt, drugie daje 2, trzecie daje 3 i tak dalej. Na "
+"2. poziomie pierwsze jabłko daje 2 punkty, drugie daje 4, trzecie 6 i tak "
+"dalej. Z tego wynika, że na 26. poziomie pierwsze jabłko daje 26 punktów, "
+"drugie daje 52 punkty i tak dalej."
 
 #. (itstool) path: note/p
-#: C/scores.page:39
+#: C/scores.page:44
 msgid ""
-"The donut order count does not depend on the number of donuts already eaten "
-"by a worm. If the game is in level 1 and if player 1 eats the first donut, "
-"he scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
-"third player may choose to not eat any donuts till the tenth donut and score "
+"The apple order count does not depend on the number of apples already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first apple, "
+"he scores 1 point, if player 2 eats the second apple, he scores 2 points; a "
+"third player may choose to not eat any apples till the tenth apple and score "
 "10 points at once."
 msgstr ""
-"Kolejność pączków nie zależy od liczby pączków już zjedzonych przez robaka. "
-"Jeśli gra jest na 1. poziomie i 1. gracz zjada pierwszego pączka, to dostaje "
-"1 punkt, jeśli 2. gracz zjada drugiego pączka, to dostaje 2 punkty. Trzeci "
-"gracz może zdecydować się nie jeść pączków, dopóki nie pojawi się dziesiąty "
-"pączek i wtedy zgarnąć 10 punktów naraz."
+"Kolejność jabłek nie zależy od liczby jabłek już zjedzonych przez robaka. "
+"Jeśli gra jest na 1. poziomie i 1. gracz zjada pierwsze jabłko, to dostaje 1 "
+"punkt, jeśli 2. gracz zjada drugie jabłko, to dostaje 2 punkty. Trzeci gracz "
+"może zdecydować się nie jeść jabłek, dopóki nie pojawi się dziesiąte jabłko "
+"i wtedy zgarnąć 10 punktów naraz."
 
 #. (itstool) path: item/p
-#: C/scores.page:47
+#: C/scores.page:52
 msgid ""
 "The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
 "does not cause an increase in the length of your worm."
@@ -562,27 +567,8 @@ msgstr ""
 "<_:media-1/> Premia w kształcie serca: daje dodatkowe życie i nie wydłuża "
 "robaka."
 
-#. (itstool) path: note/p
-#: C/scores.page:52
-msgid ""
-"The number of lives remaining for a worm is given by the number on the left "
-"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
-"lives remaining."
-msgstr ""
-"Liczba żyć robaka jest podawana przez liczbę po lewej stronie od przecinka "
-"w wyniku robaka. Jeśli wynik robaka wynosi 10,005, to zostało mu 10 żyć."
-
-#. (itstool) path: note/p
-#: C/scores.page:57
-msgid ""
-"You cannot get extra lives by scoring 10,000 points or more. If you have "
-"scored 12345 points with 10 lives remaining, your score will be 10,12345."
-msgstr ""
-"Zdobycie ponad 10 000 punktów nie daje dodatkowych żyć. Jeśli zdobyto 12345 "
-"punktów z 10 życiami w zapasie, to wynik będzie wynosił 10,12345."
-
 #. (itstool) path: item/p
-#: C/scores.page:63
+#: C/scores.page:58
 msgid ""
 "The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
 "increase in the length of the worm and does not give you any points. It "
@@ -592,26 +578,21 @@ msgstr ""
 "żadnych punktów. Powoduje odwrócenie ruchu wszystkich pozostałych robaków "
 "w grze."
 
-#. (itstool) path: note/p
-#: C/scores.page:69
-msgid "This bonus has no effect in a single-player game."
-msgstr "Ta premia nic nie robi w trybie dla jednego gracza."
-
 #. (itstool) path: item/p
-#: C/scores.page:73
+#: C/scores.page:65
 msgid ""
-"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
-"increase in the length of the worm than the donut-shaped bonus. The points "
-"given by this bonus vary depending on the level number and the length of the "
-"worm. The higher the level number and the longer the worm, the more the "
-"points are scored on eating this bonus."
+"The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase "
+"in the length of the worm than the apple-shaped bonus. The points given by "
+"this bonus vary depending on the level number and the length of the worm. "
+"The higher the level number and the longer the worm, the more the points are "
+"scored on eating this bonus."
 msgstr ""
-"<_:media-1/> Premia w kształcie lodów: bardziej wydłuża robaka niż pączek. "
+"<_:media-1/> Premia w kształcie banana: bardziej wydłuża robaka niż jabłko. "
 "Punkty za tę premię zależą od poziomu i długości robaka. Im wyższy poziom "
 "i dłuższy robak, tym jej zjedzenie daje więcej punktów."
 
 #. (itstool) path: item/p
-#: C/scores.page:82
+#: C/scores.page:74
 msgid ""
 "The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
 "length of the worm. The points given by this bonus depend on the level "
