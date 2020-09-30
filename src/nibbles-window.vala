@@ -125,7 +125,6 @@ private class NibblesWindow : ApplicationWindow
             worm_settings[i].changed.connect (worm_settings_changed_cb);
         }
 
-        size_allocate.connect (size_allocate_cb);
         map.connect (init_state_watcher);
         set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
@@ -277,7 +276,16 @@ private class NibblesWindow : ApplicationWindow
         if (nullable_surface == null || !((!) nullable_surface is Gdk.Toplevel))
             assert_not_reached ();
         surface = (Gdk.Toplevel) (!) nullable_surface;
+        surface.size_changed.connect (on_size_changed);
         surface.notify ["state"].connect (on_state_changed);
+    }
+
+    private inline void on_size_changed (Gdk.Surface _surface, int width, int height)
+    {
+        if (window_is_maximized || window_is_tiled)
+            return;
+        window_width  = width;
+        window_height = height;
     }
 
     private Gdk.Toplevel surface;
@@ -313,13 +321,6 @@ private class NibblesWindow : ApplicationWindow
             return ((Nibbles) application).on_f1_pressed (state);   // TODO fix dance done with the F1 & <Control>F1 shortcuts that show help overlay
         else
             return game.handle_keypress (keyval);
-    }
-
-    private void size_allocate_cb (Allocation allocation)
-    {
-        if (window_is_maximized || window_is_tiled)
-            return;
-        get_size (out window_width, out window_height);
     }
 
     private void start_game ()
