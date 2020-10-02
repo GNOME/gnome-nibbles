@@ -272,7 +272,7 @@ private class NibblesWindow : ApplicationWindow
 
     private inline void init_state_watcher ()
     {
-        Gdk.Surface? nullable_surface = window.get_surface ();  // TODO report bug, get_surface() returns a nullable Surface
+        Gdk.Surface? nullable_surface = get_surface ();  // TODO report bug, get_surface() returns a nullable Surface
         if (nullable_surface == null || !((!) nullable_surface is Gdk.Toplevel))
             assert_not_reached ();
         surface = (Gdk.Toplevel) (!) nullable_surface;
