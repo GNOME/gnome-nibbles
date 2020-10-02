@@ -334,8 +334,8 @@ private class NibblesView : Widget
                     ((!) tmp).pixel_size = tile_size;
                     ((!) tmp).insert_after (this, /* insert first */ null);
                     GridLayoutChild child_layout = (GridLayoutChild) layout.get_layout_child ((!) tmp);
-                    child_layout.set_left_attach (j);
-                    child_layout.set_top_attach (i);
+                    child_layout.set_column (j);
+                    child_layout.set_row (i);
                 }
             }
         }
@@ -555,8 +555,8 @@ private class NibblesView : Widget
         actor.insert_after (this, /* insert first */ null);
 
         GridLayoutChild child_layout = (GridLayoutChild) layout.get_layout_child (actor);
-        child_layout.set_left_attach (worm.list.first ().x);
-        child_layout.set_top_attach (worm.list.first ().y);
+        child_layout.set_column (worm.list.first ().x);
+        child_layout.set_row (worm.list.first ().y);
 
         var actors = worm_actors.@get (worm);
         actors.widgets.append (actor);
