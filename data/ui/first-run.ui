@@ -19,6 +19,7 @@
    with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
+  <requires lib="gtk+" version="3.99"/>
   <template class="FirstRun" parent="GtkBox">
     <property name="orientation">vertical</property>
     <property name="width-request">350</property>
