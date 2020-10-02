@@ -315,9 +315,9 @@ private class NibblesWindow : ApplicationWindow
     private EventControllerKey key_controller;          // for keeping in memory
     private bool key_press_event_cb (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
-        if (hamburger_menu.active)
+        /* if (hamburger_menu.active)
             return false;
-        else if ((!) (Gdk.keyval_name (keyval) ?? "") == "F1")
+        else */ if ((!) (Gdk.keyval_name (keyval) ?? "") == "F1")
             return ((Nibbles) application).on_f1_pressed (state);   // TODO fix dance done with the F1 & <Control>F1 shortcuts that show help overlay
         else
             return game.handle_keypress (keyval);
@@ -483,7 +483,7 @@ private class NibblesWindow : ApplicationWindow
 
     private void hamburger_cb ()
     {
-        hamburger_menu.active = !hamburger_menu.active;
+//        hamburger_menu.active = !hamburger_menu.active;
     }
 
     /*\
