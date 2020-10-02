@@ -55,7 +55,7 @@
   </object>
   <template class="PreferencesDialog" parent="GtkWindow">
     <property name="can-focus">False</property>
-<!--    <property name="border_width">5</property>-->
+<!--    <property name="border-width">5</property>-->
     <property name="modal">True</property>
     <property name="icon-name">gnome-nibbles</property>
     <child type="titlebar">
@@ -72,7 +72,7 @@
             <property name="child">
               <object class="GtkBox">
                 <property name="can-focus">False</property>
-    <!--            <property name="border_width">12</property>-->
+    <!--            <property name="border-width">12</property>-->
                 <property name="spacing">6</property>
                 <property name="orientation">vertical</property>
                 <child>
@@ -109,7 +109,7 @@
                     <property name="can-focus">False</property>
                     <property name="row-spacing">0</property>
                     <property name="column-spacing">12</property>
-    <!--                <property name="border_width">0</property>-->
+    <!--                <property name="border-width">0</property>-->
                     <child>
                       <object class="GtkLabel">
                         <!-- Translators: title of a section in the Preferences dialog (1st worm); allows to configure the worm color -->
