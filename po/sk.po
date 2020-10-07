@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
 "POT-Creation-Date: 2020-09-14 01:47+0000\n"
-"PO-Revision-Date: 2020-10-07 11:07+0200\n"
+"PO-Revision-Date: 2020-10-07 11:10+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -717,7 +717,7 @@ msgstr "_Pokračovať"
 #: src/nibbles-window.vala:664 src/nibbles-window.vala:882
 #, c-format
 msgid "Level %d"
-msgstr "Úroveň %d"
+msgstr "Úroveň č. %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
 #: src/nibbles-window.vala:737
@@ -773,7 +773,7 @@ msgstr "Úroveň obtiažnosti:"
 #: src/nibbles-window.vala:862
 #, c-format
 msgid "Level %d Completed!"
-msgstr "Úroveň %d dokončená!"
+msgstr "Úroveň č. %d dokončená!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
 #: src/nibbles-window.vala:870
