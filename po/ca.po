@@ -697,7 +697,7 @@ msgstr "cian"
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
 #: src/nibbles-view.vala:914
 msgid "purple"
-msgstr "violeta"
+msgstr "porpra"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
 #: src/nibbles-window.vala:404
