@@ -97,8 +97,8 @@ private class PlayerScoreBox : Box
     internal void update_lives (uint8 lives_left)
     {
         /* Remove lost lives - if any */
-        for (uint8 i = (uint8) life_images.size - 1; i >= lives_left; i--)
-            life_images[i].set_opacity (0);
+        for (uint8 i = (uint8) life_images.size; i > lives_left; i--)
+            life_images[i - 1].set_opacity (0);
 
         /* Add new lives - if any */
         for (uint8 i = 0; i < lives_left; i++)
