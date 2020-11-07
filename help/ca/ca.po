@@ -122,7 +122,7 @@ msgid ""
 msgstr ""
 "Els <link xref=\"controls-default\">controls per defecte</link> es poden "
 "canviar a <app>Nibbles</app> per satisfer les vostres preferències o per "
-"jocs <link xref=\"multi-player\">multi-jugador</link>, quan es fa necessari "
+"jocs <link xref=\"multi-player\">multijugador</link>, quan es fa necessari "
 "més d'un conjunt de controls. Per canviar els controls predeterminats:"
 
 #. (itstool) path: item/p
@@ -186,7 +186,7 @@ msgid ""
 msgstr ""
 "Repetiu el pas anterior per canviar les altres tecles predeterminades del "
 "jugador actual i, a continuació, seleccioneu la pestanya del següent jugador "
-"del que vulgueu canviar els controls, i repetiu el procés."
+"del qual vulgueu canviar els controls, i repetiu el procés."
 
 #. (itstool) path: page/p
 #: C/controls-change.page:68
@@ -331,7 +331,7 @@ msgstr "Jugar <app>Nibbles</app> amb més jugadors."
 #. (itstool) path: page/title
 #: C/multi-player.page:27
 msgid "Multi-player games"
-msgstr "Jocs multi-jugador"
+msgstr "Jocs multijugador"
 
 #. (itstool) path: page/p
 #: C/multi-player.page:29
