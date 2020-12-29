@@ -123,7 +123,7 @@ msgstr ""
 "Els <link xref=\"controls-default\">controls per defecte</link> es poden "
 "canviar a <app>Nibbles</app> per satisfer les vostres preferències o per "
 "jocs <link xref=\"multi-player\">multijugador</link>, quan es fa necessari "
-"més d'un conjunt de controls. Per canviar els controls predeterminats:"
+"més d'un conjunt de controls. Per a canviar els controls predeterminats:"
 
 #. (itstool) path: item/p
 #: C/controls-change.page:37 C/fake-bonus.page:36 C/multi-player.page:44
@@ -172,10 +172,10 @@ msgid ""
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
 "inside the <gui>Nibbles Preferences</gui> box."
 msgstr ""
-"Per mantenir la configuració antiga, feu clic de nou a <gui>Nou accelerador…"
-"</gui>,feu clic a  la dreta a <gui>Nou accelerador…</gui>, premeu <key>Esc</"
-"key> o feu clic a qualsevol lloc a dins la caixa de <gui>Preferències de "
-"Nibbles</gui>."
+"Per a mantenir la configuració antiga, feu clic de nou a <gui>Nou "
+"accelerador…</gui>,feu clic a  la dreta a <gui>Nou accelerador…</gui>, "
+"premeu <key>Esc</key> o feu clic a qualsevol lloc a dins la caixa de "
+"<gui>Preferències de Nibbles</gui>."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:62
@@ -184,7 +184,7 @@ msgid ""
 "player, then select the tab for the next player whose controls you want to "
 "change and repeat the process."
 msgstr ""
-"Repetiu el pas anterior per canviar les altres tecles predeterminades del "
+"Repetiu el pas anterior per a canviar les altres tecles predeterminades del "
 "jugador actual i, a continuació, seleccioneu la pestanya del següent jugador "
 "del qual vulgueu canviar els controls, i repetiu el procés."
 
@@ -195,7 +195,7 @@ msgid ""
 "<gui>Left</gui> control line and click it, then press <key>A</key> on your "
 "keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
-"Per exemple, per utilitzar <key>A</key> per <gui>Mou a l'esquerra</gui>, "
+"Per exemple, per a utilitzar <key>A</key> per <gui>Mou a l'esquerra</gui>, "
 "seleccioneu la línia de control <gui>Esquerra</gui> i feu-li clic, aleshores "
 "premeu <key>A</key> quan veieu <gui>Nou accelerador…</gui> a la línia."
 
@@ -215,28 +215,28 @@ msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
 msgstr ""
-"Per controlar els moviments del cuc en mode d'un sol jugador, utilitzeu les "
-"següents tecles predeterminades:"
+"Per a controlar els moviments del cuc en mode d'un sol jugador, utilitzeu "
+"les següents tecles predeterminades:"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:34
 msgid "<key>Up</key> to move the worm up"
-msgstr "<key>Fletxa amunt</key> per moure el cuc amunt"
+msgstr "<key>Fletxa amunt</key> per a moure el cuc amunt"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:37
 msgid "<key>Down</key> to move the worm down"
-msgstr "<key>Fletxa avall</key> per moure el cuc avall"
+msgstr "<key>Fletxa avall</key> per a moure el cuc avall"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:40
 msgid "<key>Left</key> to move the worm left"
-msgstr "<key>Fletxa esquerra</key> per moure el cuc a l'esquerra"
+msgstr "<key>Fletxa esquerra</key> per a moure el cuc a l'esquerra"
 
 #. (itstool) path: item/p
 #: C/controls-default.page:43
 msgid "<key>Right</key> to move the worm right"
-msgstr "<key>Fletxa dreta</key> per moure el cuc a la dreta"
+msgstr "<key>Fletxa dreta</key> per a moure el cuc a la dreta"
 
 #. (itstool) path: note/p
 #: C/controls-default.page:48
@@ -250,7 +250,7 @@ msgstr ""
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
-"Utilitzeu bonificacions falses en un joc de <app>Nibbles</app> per fer-lo "
+"Utilitzeu bonificacions falses en un joc de <app>Nibbles</app> per a fer-lo "
 "més difícil."
 
 #. (itstool) path: page/title
@@ -311,7 +311,7 @@ msgid ""
 msgstr ""
 "<app>Nibbles</app> és un joc per al GNOME. L'objectiu del joc és empassar-se "
 "tants objectes com sigui possible evitant les parets del laberint i altres "
-"cucs. Ha de completar 26 nivells per acabar el joc."
+"cucs. Ha de completar 26 nivells per a acabar el joc."
 
 #. (itstool) path: section/title
 #: C/index.page:27
@@ -361,7 +361,7 @@ msgid ""
 "<app>Nibbles</app> can be played by up to six players. To set the number of "
 "players:"
 msgstr ""
-"<app>Nibbles</app> el poden jugar fins a sis jugadors. Per configurar el "
+"<app>Nibbles</app> el poden jugar fins a sis jugadors. Per a configurar el "
 "nombre de jugadors:"
 
 #. (itstool) path: item/p
@@ -484,8 +484,8 @@ msgid ""
 "Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
 "you wish to edit."
 msgstr ""
-"Seleccioneu qualsevol de les pestanyes <gui style=\"tab\">Cuc</gui> "
-"per a triar el cuc que voleu editar."
+"Seleccioneu qualsevol de les pestanyes <gui style=\"tab\">Cuc</gui> per a "
+"triar el cuc que voleu editar."
 
 #. (itstool) path: item/p
 #: C/preferences.page:95
@@ -631,207 +631,3 @@ msgstr "Reconeixement-CompartirIgual 3.0 No adaptada"
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Aquest treball està llicenciat sota <_:link-1/>."
 
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
-#~ "\">New</gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></"
-#~ "keyseq> to start a new game."
-#~ msgstr ""
-#~ "Seleccionar <guiseq><gui style=\"menu\">Joc</gui> <gui style=\"menuitem"
-#~ "\">Nou</gui></guiseq> o premeu <keyseq><key>Ctrl</key><key>N</key></"
-#~ "keyseq> per iniciar un joc nou."
-
-#~ msgid "Play <app>Nibbles</app> in fullscreen mode"
-#~ msgstr "Jugar <app>Nibbles</app> en mode pantalla completa"
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
-#~ "\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
-#~ "fullscreen mode. You can return to the default screen size by pressing "
-#~ "<key>F11</key> again."
-#~ msgstr ""
-#~ "Seleccioneu <guiseq><gui style=\"menu\">Vista</gui> <gui style=\"menuitem"
-#~ "\">Pantalla completa</gui></guiseq> o premeu <key>F11</key> per jugar en "
-#~ "mode pantalla completa. Podeu tornar a la mida de pantalla per defecte "
-#~ "prement <key>F11</key> de nou."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-#~ "\">Preferences</gui></guiseq>."
-#~ msgstr ""
-#~ "Seleccioneu <guiseq><gui style=\"menu\">Configuració</gui> <gui style="
-#~ "\"menuitem\">Preferències</gui></guiseq>."
-
-#~ msgid ""
-#~ "All worm movements happen with respect to the screen unless <link xref="
-#~ "\"rel-movement\">relative movement</link> is enabled. This means that "
-#~ "when you press <key>Left</key> the worm moves towards the left of the "
-#~ "screen, when you press <key>Right</key> the worm moves towards the right "
-#~ "of the screen and so on."
-#~ msgstr ""
-#~ "Tots els moviments de cuc es produeixen respecte a la pantalla a menys "
-#~ "que estigui activat el  <link xref=\"rel-movement\">moviment relatiu</"
-#~ "link>. Això vol dir que quan premeu <key>Esquerra</key> el cuc es mou cap "
-#~ "a l'esquerra de la pantalla, quan premeu <key>Dreta</key> el cuc es mou "
-#~ "cap a la dreta de la pantalla i així successivament."
-
-#~ msgid "Click <gui>Close</gui>."
-#~ msgstr "Clic <gui>Tanca</gui>."
-
-#~ msgid ""
-#~ "There are four available speeds in <app>Nibbles</app>. These are, in "
-#~ "increasing order:"
-#~ msgstr ""
-#~ "Hi ha quatre velocitats a <app>Nibbles</app>. Aquestes són, en ordre "
-#~ "creixent:"
-
-#~ msgid "Nibbles Newbie"
-#~ msgstr "Nibbles Newbie"
-
-#~ msgid "My second day"
-#~ msgstr "El meu segon dia"
-
-#~ msgid "Not too shabby"
-#~ msgstr "No massa dolent"
-
-#~ msgid "Finger twitching good"
-#~ msgstr "Amb els dits màgics"
-
-#~ msgid ""
-#~ "Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
-#~ "style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the "
-#~ "four speed choices given on the left hand side."
-#~ msgstr ""
-#~ "La velocitat es pot canviar a <guiseq><gui style=\"menu\">Configuració</"
-#~ "gui> <gui style=\"menuitem\">Preferències</gui></guiseq> seleccionant una "
-#~ "de les quatre opcions de velocitat que s'ofereixen a la banda esquerra."
-
-#~ msgid ""
-#~ "These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
-#~ "style=\"menuitem\">Preferences</gui></guiseq>."
-#~ msgstr ""
-#~ "Es poden canviar a <guiseq><gui style=\"menu\">Configuració</gui> <gui "
-#~ "style=\"menuitem\">Preferències</gui></guiseq>."
-
-#~ msgid ""
-#~ "You can enable or disable sounds in <app>Nibbles</app> by checking or "
-#~ "unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
-#~ "<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-#~ "\">Preferences</gui></guiseq>."
-#~ msgstr ""
-#~ "Podeu activar o desactivar els sons a <app>Nibbles</app> marcant o "
-#~ "desmarcant el quadre de text <gui style=\"checkbox\">Habilita el so</gui> "
-#~ "a <guiseq><gui style=\"menu\">Configuració</gui> <gui style=\"menuitem"
-#~ "\">Preferències</gui></guiseq>."
-
-#~ msgid "Play levels in random order"
-#~ msgstr "Jugar els nivells en ordre aleatori"
-
-#~ msgid ""
-#~ "Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
-#~ "gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
-#~ "\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
-#~ "<app>Nibbles</app> in random order."
-#~ msgstr ""
-#~ "Marqueu o desmarqueu el quadre de text <gui style=\"checkbox\">Jugar els "
-#~ "nivells en ordre aleatori</gui> a <guiseq><gui style=\"menu"
-#~ "\">Configuració</gui> <gui style=\"menuitem\">Preferències</gui></guiseq> "
-#~ "per jugar els nivells de <app>Nibbles</app> ordre aleatori."
-
-#~ msgid "Enable relative movement."
-#~ msgstr "Activar el moviment relatiu"
-
-#~ msgid "Relative movement"
-#~ msgstr "Moviment relatiu"
-
-#~ msgid ""
-#~ "When relative movement is enabled, the worm is maneuvered using just the "
-#~ "default <key>Left</key> and <key>Right</key> keys or other <link xref="
-#~ "\"controls-change\">customized keys</link> that control the leftward and "
-#~ "rightward movement of a worm. When the <key>Left</key> key is pressed, "
-#~ "the worm turns left, instead of moving towards the left of the screen. "
-#~ "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
-#~ "instead of moving towards the right of the screen."
-#~ msgstr ""
-#~ "Quan el moviment relatiu està activat, el cuc es desplaça amb només el "
-#~ "valor predeterminat de les tecles<key>Esquerra</key> i <key>Dreta</key> o "
-#~ "altres <link xref=\"controls-change\">tecles personalitzades</link> que "
-#~ "controlen el moviment esquerre i dret d'un cuc. Quan es prem la tecla "
-#~ "<key>Esquerra</key>, el cuc gira a l'esquerra, en comptes de moure's cap "
-#~ "a l'esquerra de la pantalla. De la mateixa manera, quan es prem la tecla "
-#~ "<key>Dreta</key>, el cuc gira a la dreta en comptes de moure cap a la "
-#~ "dreta de la pantalla."
-
-#~ msgid "Starting position:"
-#~ msgstr "Posició inicial"
-
-#~ msgid "The location of the worm before you decide to move it."
-#~ msgstr "Localització del cuc abans de decidir-se a moure'l."
-
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='figures/before-rel.png' "
-#~ "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-#~ msgstr ""
-#~ "external ref='figures/before-rel.png' "
-#~ "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-
-#~ msgid "On pressing the <key>Left</key> key:"
-#~ msgstr "En prémer la tecla <key>Esquerra</key>:"
-
-#~ msgid "The worm turns left and begins to move downwards."
-#~ msgstr "El cuc gira a l'esquerra i comença a moure's avall."
-
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='figures/after-rel.png' "
-#~ "md5='face859122668e3ec20b98cfdcc0bd2d'"
-#~ msgstr ""
-#~ "external ref='figures/after-rel.png' "
-#~ "md5='face859122668e3ec20b98cfdcc0bd2d'"
-
-#~ msgid ""
-#~ "If relative movement was not enabled, you would press the <key>Down</key> "
-#~ "key to achieve the above result."
-#~ msgstr ""
-#~ "Si el moviment relatiu no estava activat, podeu remer la tecla "
-#~ "<key>Avall</key> per aconseguir el mateix resultat."
-
-#~ msgid "To enable relative movement:"
-#~ msgstr "Per activar el moviment relatiu."
-
-#~ msgid ""
-#~ "Select the worm for which relative movement has to be enabled by clicking "
-#~ "the appropriate <gui>Worm</gui> tab."
-#~ msgstr ""
-#~ "Seleccioneu el cuc al que s'ha d'aplicar el moviment relatiu fent clic a "
-#~ "la pestanya del <gui>cuc</gui> apropiada."
-
-#~ msgid ""
-#~ "Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if "
-#~ "it is unchecked."
-#~ msgstr ""
-#~ "Marqueu el quadre de text <gui style=\"checkbox\">Utilitzar el moviment "
-#~ "relatiu</gui> si no està marcat."
-
-#~ msgid "Click <gui style=\"button\">Close</gui>."
-#~ msgstr "Feu clic a <gui style=\"button\">Tanca</gui>."
-
-#~ msgid ""
-#~ "The number of lives remaining for a worm is given by the number on the "
-#~ "left of the comma in a worm's score. If a worm's score is 10,005, the "
-#~ "worm has 10 lives remaining."
-#~ msgstr ""
-#~ "El nombre de vides que resten a un cuc el dóna el número que hi ha a "
-#~ "l'esquerra de la coma a la puntuació del cuc. Si la puntuació d'un cuc és "
-#~ "de 10,005, el cuc té 10 vides restants."
-
-#~ msgid ""
-#~ "You cannot get extra lives by scoring 10,000 points or more. If you have "
-#~ "scored 12345 points with 10 lives remaining, your score will be 10,12345."
-#~ msgstr ""
-#~ "No podeu obtenir vides extres si la puntuació és 10.000 o més. Si heu "
-#~ "puntuat 12345 punts i us queden 10 vides, la puntuació serà 10,12345."
-
-#~ msgid "This bonus has no effect in a single-player game."
-#~ msgstr ""
-#~ "Aquesta bonificació no té efecte en el cas de jugar un únic jugador."
