@@ -121,7 +121,7 @@ msgid ""
 "controls becomes necessary. To change the default controls:"
 msgstr ""
 "Els <link xref=\"controls-default\">controls per defecte</link> es poden "
-"canviar a <app>Nibbles</app> per satisfer les vostres preferències o per "
+"canviar a <app>Nibbles</app> per a satisfer les vostres preferències o per "
 "jocs <link xref=\"multi-player\">multijugador</link>, quan es fa necessari "
 "més d'un conjunt de controls. Per a canviar els controls predeterminats:"
 
@@ -272,7 +272,7 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/fake-bonus.page:33
 msgid "To enable fake bonuses:"
-msgstr "Per activar les bonificacions falses:"
+msgstr "Per a activar les bonificacions falses:"
 
 #. (itstool) path: item/p
 #: C/fake-bonus.page:40
@@ -385,7 +385,7 @@ msgid ""
 "set the <gui style=\"input\">Number of AI players</gui> to any number "
 "between 1 and 6."
 msgstr ""
-"Podeu visualitzar un joc <app>Nibbles</app> sense participar-hi. Per "
+"Podeu visualitzar un joc <app>Nibbles</app> sense participar-hi. Per a "
 "observar un joc, establiu el <gui style=\"input\">Nombre de jugadors humans</"
 "gui> a 0 i establiu el <gui style=\"input\">Nombre de jugadors IA</gui> "
 "entre 1 i 6."
@@ -519,7 +519,7 @@ msgstr "Arnaud Bonatti"
 #. (itstool) path: info/desc
 #: C/scores.page:23
 msgid "Swallow different bonuses to score points."
-msgstr "Empasseu-vos diferents bonificacions per guanyar punts."
+msgstr "Empasseu-vos diferents bonificacions per a guanyar punts."
 
 #. (itstool) path: page/title
 #: C/scores.page:26
@@ -589,7 +589,7 @@ msgid ""
 "causes a reversal in the movement of all the other worms in the game."
 msgstr ""
 "La bonificació en forma de diamant <_:media-1/> : Aquesta bonificació no "
-"causa un augment en la longitud del cuc i no us dóna cap punt. Provoca una "
+"causa un augment en la longitud del cuc i no us dona cap punt. Provoca una "
 "inversió en el moviment de tots els altres cucs del joc."
 
 #. (itstool) path: item/p
