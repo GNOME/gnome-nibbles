@@ -42,7 +42,7 @@ msgid ""
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won’t have much room for movement."
 msgstr ""
-"Controleu un cuc en la seva recerca per menjar bonificacions i ser més "
+"Controleu un cuc en la seva recerca per a menjar bonificacions i ser més "
 "llarg. Supereu els cucs enemics, mentre mengeu dònuts i gelats per a "
 "augmentar de mida. Cada cuc té deu vides i perd una en xocar contra una "
 "paret, un altre cuc o contra si mateix. Els cucs enemics volen les mateixes "
@@ -909,7 +909,7 @@ msgstr[1] "%d punts"
 #: src/nibbles-window.vala:962
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
-msgstr "(%ld més punts per assolir taula dels líders)"
+msgstr "(%ld més punts per a assolir taula dels líders)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the
 #. game
