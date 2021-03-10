@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles_help master\n"
-"POT-Creation-Date: 2020-06-12 10:52+0000\n"
-"PO-Revision-Date: 2021-03-10 01:56+0100\n"
+"POT-Creation-Date: 2021-03-10 00:58+0000\n"
+"PO-Revision-Date: 2021-03-10 02:02+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -27,8 +27,8 @@ msgstr ""
 
 #. (itstool) path: credit/name
 #: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
-#: C/fake-bonus.page:15 C/index.page:12 C/multi-player.page:16
-#: C/preferences.page:15 C/scores.page:14
+#: C/fake-bonus.page:15 C/index.page:13 C/multi-player.page:16
+#: C/preferences.page:15 C/scores.page:15
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
@@ -40,9 +40,6 @@ msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
 #: C/basics.page:23
-#| msgid ""
-#| "Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</"
-#| "app>."
 msgid "Start, pause, and quit a game of <app>Nibbles</app>."
 msgstr "Indítás, szüneteltetés és kilépés a <app>Kukacok</app> játékból."
 
@@ -62,8 +59,8 @@ msgid ""
 "Press the <gui style=\"button\">New Game</gui> button in the header bar to "
 "start a new game when being in a game."
 msgstr ""
-"Nyomja meg a fejlécsávon lévő <gui style=\"button\">Új játék</gui> gombot,"
-" hogy új játékot indítson, miközben játékban van."
+"Nyomja meg a fejlécsávon lévő <gui style=\"button\">Új játék</gui> gombot, "
+"hogy új játékot indítson, miközben játékban van."
 
 #. (itstool) path: section/p
 #: C/basics.page:33
@@ -71,8 +68,8 @@ msgid ""
 "Press the <gui style=\"button\">Play Again</gui> button when you have "
 "finished a game."
 msgstr ""
-"Nyomja meg a <gui style=\"button\">Játék újra</gui> gombot, ha befejezte a"
-" játékot."
+"Nyomja meg a <gui style=\"button\">Játék újra</gui> gombot, ha befejezte a "
+"játékot."
 
 #. (itstool) path: section/title
 #: C/basics.page:38
@@ -81,19 +78,14 @@ msgstr "Játék megállítása/folytatása"
 
 #. (itstool) path: section/p
 #: C/basics.page:40
-#| msgid ""
-#| "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
-#| "\">Pause</gui></guiseq> to pause your game. You can resume your game by "
-#| "selecting <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
-#| "\">Resume</gui></guiseq>."
 msgid ""
 "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
 "pause your game. You can resume your game by pressing the <gui style=\"button"
 "\">Resume</gui> button."
 msgstr ""
-"Nyomja meg a fejlécsávon lévő <gui style=\"button\">Szünet</gui> gombot a"
-" játék szüneteltetéséhez. A játékot a <gui style=\"button\">Folytatás</gui>"
-" gomb megnyomásával folytathatja."
+"Nyomja meg a fejlécsávon lévő <gui style=\"button\">Szünet</gui> gombot a "
+"játék szüneteltetéséhez. A játékot a <gui style=\"button\">Folytatás</gui> "
+"gomb megnyomásával folytathatja."
 
 #. (itstool) path: section/title
 #: C/basics.page:46
@@ -102,19 +94,14 @@ msgstr "Kilépés a <app>Kukacokból</app>"
 
 #. (itstool) path: section/p
 #: C/basics.page:48
-#| msgid ""
-#| "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
-#| "\">Quit</gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></"
-#| "keyseq> to quit <app>Nibbles</app> at any time."
 msgid ""
 "Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
 "any time."
 msgstr ""
-"Nyomja meg a fejlécsávon lévő <gui style=\"button\">⨯</gui> gombot, vagy"
-" nyomja meg a <keyseq><key>Ctrl</"
-"key><key>Q</key></keyseq> billentyűkombinációt a <app>Kukacok</app>"
-" bezárásához."
+"Nyomja meg a fejlécsávon lévő <gui style=\"button\">⨯</gui> gombot, vagy "
+"nyomja meg a <keyseq><key>Ctrl</key><key>Q</key></keyseq> "
+"billentyűkombinációt a <app>Kukacok</app> bezárásához."
 
 #. (itstool) path: info/desc
 #: C/controls-change.page:25
@@ -147,8 +134,8 @@ msgid ""
 "Press the menu button in the top-right corner of the window and select <gui "
 "style=\"menuitem\">Preferences</gui>."
 msgstr ""
-"Nyomja meg az ablak jobb felső sarkában lévő menügombot, és válassza a <gui"
-" style=\"menuitem\">Beállítások</gui> menüpontot."
+"Nyomja meg az ablak jobb felső sarkában lévő menügombot, és válassza a <gui "
+"style=\"menuitem\">Beállítások</gui> menüpontot."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:41
@@ -167,19 +154,15 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/controls-change.page:48
-#| msgid ""
-#| "In the <gui style=\"group\">Keyboard Controls</gui> list, select the "
-#| "line, then click on the control. This highlights the line and the words "
-#| "<gui>New accelerator…</gui> are now present in place of the old control."
 msgid ""
 "In the <gui style=\"group\">Controls</gui> list, select the line, then click "
 "on the control. This highlights the line and the words <gui>New accelerator…"
 "</gui> are now present in place of the old control."
 msgstr ""
-"A <gui style=\"group\">Vezérlés</gui> listában válasszon egy sort, és"
-" kattintson a vezérlőbillentyűre. Ez kiemeli a sort, és a korábbi"
-" vezérlőbillentyű neve helyén az <gui>Új gyorsbillentyű…</gui> felirat"
-" jelenik meg."
+"A <gui style=\"group\">Vezérlés</gui> listában válasszon egy sort, és "
+"kattintson a vezérlőbillentyűre. Ez kiemeli a sort, és a korábbi "
+"vezérlőbillentyű neve helyén az <gui>Új gyorsbillentyű…</gui> felirat "
+"jelenik meg."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:54
@@ -193,10 +176,10 @@ msgid ""
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
 "inside the <gui>Nibbles Preferences</gui> box."
 msgstr ""
-"A régi beállítás megtartásához kattintson újra az <gui>Új gyorsbillentyű…<"
-"/gui> gombra, kattintson a jobb egérgombbal az <gui>Új gyorsbillentyű…</gui>"
-" gombra, nyomja meg az <key>Esc</key> billentyűt, vagy kattintson bárhová a <"
-"gui>Kukacok beállításai</gui> ablakban."
+"A régi beállítás megtartásához kattintson újra az <gui>Új gyorsbillentyű…</"
+"gui> gombra, kattintson a jobb egérgombbal az <gui>Új gyorsbillentyű…</gui> "
+"gombra, nyomja meg az <key>Esc</key> billentyűt, vagy kattintson bárhová a "
+"<gui>Kukacok beállításai</gui> ablakban."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:62
@@ -316,17 +299,17 @@ msgstr ""
 "módosíthatók a játék közben."
 
 #. (itstool) path: info/desc
-#: C/index.page:16
+#: C/index.page:17
 msgid "Index"
 msgstr "Index"
 
 #. (itstool) path: page/title
-#: C/index.page:19
+#: C/index.page:20
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Kukacok"
 
 #. (itstool) path: page/p
-#: C/index.page:21
+#: C/index.page:22
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -337,12 +320,12 @@ msgstr ""
 "többi kukacot. A játék befejezéséhez 26 szintet kell leküzdenie."
 
 #. (itstool) path: section/title
-#: C/index.page:26
+#: C/index.page:27
 msgid "Game play"
 msgstr "Játékmenet"
 
 #. (itstool) path: section/title
-#: C/index.page:30
+#: C/index.page:31
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -366,12 +349,12 @@ msgid ""
 "three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
 "and <gui>Worm 3</gui> and so on."
 msgstr ""
-"A <app>Kukacok</app> játékot akár hatan is játszhatják. Az egy játékos módban"
-" a <gui>Kukac 1</gui> irányítható, többszereplős játékban a <gui>Kukac 2</gui"
-">-től <gui>Kukac 6</gui>-ig is irányíthatók a kukacok. Két játékos esetén a <"
-"gui>Kukac 1</gui> és a <gui>Kukac 2</gui> irányítható, három játékos esetén a"
-" <gui>Kukac 1</gui>, a <gui>Kukac 2</gui> és a <gui>Kukac 3</gui> is"
-" irányíthatóvá válik stb."
+"A <app>Kukacok</app> játékot akár hatan is játszhatják. Az egy játékos "
+"módban a <gui>Kukac 1</gui> irányítható, többszereplős játékban a <gui>Kukac "
+"2</gui>-től <gui>Kukac 6</gui>-ig is irányíthatók a kukacok. Két játékos "
+"esetén a <gui>Kukac 1</gui> és a <gui>Kukac 2</gui> irányítható, három "
+"játékos esetén a <gui>Kukac 1</gui>, a <gui>Kukac 2</gui> és a <gui>Kukac 3</"
+"gui> is irányíthatóvá válik stb."
 
 #. (itstool) path: section/title
 #: C/multi-player.page:37
@@ -425,18 +408,14 @@ msgstr "Általános beállítások szerkesztése"
 
 #. (itstool) path: page/p
 #: C/preferences.page:28
-#| msgid ""
-#| "The general preferences for <app>Nibbles</app> can be changed by "
-#| "selecting <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-#| "\">Preferences</gui></guiseq>."
 msgid ""
 "The general preferences for <app>Nibbles</app> can be changed by pressing "
 "the menu button in the top-right corner of the window and selecting <gui "
 "style=\"menuitem\">Preferences</gui>."
 msgstr ""
-"A <app>Kukacok</app> általános beállításai az ablak jobb felső sarkában lévő"
-" menügomb megnyomásával, majd a <gui style=\"menuitem\">Beállítások</gui>"
-" menüpont kiválasztásával változtathatók meg."
+"A <app>Kukacok</app> általános beállításai az ablak jobb felső sarkában lévő "
+"menügomb megnyomásával, majd a <gui style=\"menuitem\">Beállítások</gui> "
+"menüpont kiválasztásával változtathatók meg."
 
 #. (itstool) path: section/title
 #: C/preferences.page:33
@@ -500,35 +479,26 @@ msgstr "<_:media-1/> Szürke"
 
 #. (itstool) path: section/p
 #: C/preferences.page:84
-#| msgid "Change worm colors"
 msgid "To change worm colors:"
 msgstr "A kukacszínek megváltoztatásához:"
 
 #. (itstool) path: item/p
 #: C/preferences.page:91
-#| msgid ""
-#| "Select any of the <gui>Worm</gui> tabs to choose the worm that you wish "
-#| "to edit."
 msgid ""
 "Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
 "you wish to edit."
 msgstr ""
-"Válassza ki annak a <gui style=\"tab\">Kukacnak</gui> a lapját, amelyet"
-" szerkeszteni "
-"szeretne."
+"Válassza ki annak a <gui style=\"tab\">Kukacnak</gui> a lapját, amelyet "
+"szerkeszteni szeretne."
 
 #. (itstool) path: item/p
 #: C/preferences.page:95
-#| msgid ""
-#| "On your left hand side you will see <gui style=\"group\">Worm color</"
-#| "gui>. Pick a color out of the available colors in the drop-down menu to "
-#| "change the appearance of the worm."
 msgid ""
 "Under <gui>Worm color</gui>, pick a color out of the available colors in the "
 "drop-down menu to change the appearance of the worm."
 msgstr ""
-"A <gui>Kukac színe</gui> alatt válasszon egy színt a legördülő menüből"
-" elérhetők közül a kukac megjelenésének megváltoztatásához."
+"A <gui>Kukac színe</gui> alatt válasszon egy színt a legördülő menüből "
+"elérhetők közül a kukac megjelenésének megváltoztatásához."
 
 #. (itstool) path: section/title
 #: C/preferences.page:103
@@ -537,32 +507,33 @@ msgstr "Hangok"
 
 #. (itstool) path: section/p
 #: C/preferences.page:105
-#| msgid "To enable fake bonuses:"
 msgid "To enable or disable sounds:"
 msgstr "A hangok engedélyezéséhez vagy letiltásához:"
 
 #. (itstool) path: item/p
 #: C/preferences.page:112
-#| msgid ""
-#| "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if "
-#| "it is unchecked."
 msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgstr ""
-"Jelölje be vagy szüntesse meg a <gui style=\"checkbox\">Hangok engedélyezése<"
-"/gui> négyzet kijelölését."
+"Jelölje be vagy szüntesse meg a <gui style=\"checkbox\">Hangok "
+"engedélyezése</gui> négyzet kijelölését."
+
+#. (itstool) path: credit/name
+#: C/scores.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. (itstool) path: info/desc
-#: C/scores.page:18
+#: C/scores.page:23
 msgid "Swallow different bonuses to score points."
 msgstr "Különböző bónuszok lenyeléséért extra pontokat kaphat."
 
 #. (itstool) path: page/title
-#: C/scores.page:21
+#: C/scores.page:26
 msgid "Scoring points in <app>Nibbles</app>"
 msgstr "Pontok a <app>Kukacokban</app>"
 
 #. (itstool) path: page/p
-#: C/scores.page:23
+#: C/scores.page:28
 msgid ""
 "You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
 "different kinds of bonuses in Nibbles:"
@@ -571,42 +542,58 @@ msgstr ""
 "Kukacokban 5 különböző bónusz van:"
 
 #. (itstool) path: item/p
-#: C/scores.page:27
+#: C/scores.page:32
+#| msgid ""
+#| "The donut-shaped bonus <_:media-1/> : This bonus causes an increase in "
+#| "the length of the worm. The points you gain on eating the donut vary from "
+#| "level to level and are multiples of the level number. In level 1, the "
+#| "first donut will give you 1 point, the second donut will give you 2 "
+#| "points, the third donut will give you 3 points and so on. In level 2, the "
+#| "first donut will give you 2 points, the second donut will give you 4 "
+#| "points, the third donut will give you 6 points and so on. In level 26, "
+#| "therefore, the first donut will give you 26 points, the second donut will "
+#| "give you 52 points and so on."
 msgid ""
-"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
-"length of the worm. The points you gain on eating the donut vary from level "
-"to level and are multiples of the level number. In level 1, the first donut "
-"will give you 1 point, the second donut will give you 2 points, the third "
-"donut will give you 3 points and so on. In level 2, the first donut will "
-"give you 2 points, the second donut will give you 4 points, the third donut "
-"will give you 6 points and so on. In level 26, therefore, the first donut "
-"will give you 26 points, the second donut will give you 52 points and so on."
+"The apple-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the apple vary from level "
+"to level and are multiples of the level number. In level 1, the first apple "
+"will give you 1 point, the second apple will give you 2 points, the third "
+"apple will give you 3 points and so on. In level 2, the first apple will "
+"give you 2 points, the second apple will give you 4 points, the third apple "
+"will give you 6 points and so on. In level 26, therefore, the first apple "
+"will give you 26 points, the second apple will give you 52 points and so on."
 msgstr ""
-"A fánk alakú bónusz <_:media-1/>: Ennek hatására a kukac hossza megnő. A "
-"fánk megevésével nyert pontok száma szintről szintre változik, és a szint "
-"számának többszöröse. Az 1. szinten az első fánk 1 pontot ad, a második fánk "
-"2 pontot, a harmadik 3 pontot és így tovább. A 2. szinten az első fánk 2 "
-"pontot ad, a második fánk 4 pontot, a harmadik fánk 6 pontot és így tovább. "
-"A 26. szinten emiatt az első fánk 26 pontot ad, a második 52 pontot és így "
-"tovább."
+"Az alma alakú bónusz <_:media-1/>: Ennek hatására a kukac hossza megnő. Az"
+" alma megevésével nyert pontok száma szintről szintre változik, és a szint"
+" számának többszöröse. Az 1. szinten az első alma 1 pontot ad, a második alma"
+" 2 pontot, a harmadik 3 pontot és így tovább. A 2. szinten az első alma 2"
+" pontot ad, a második alma 4 pontot, a harmadik alma 6 pontot és így tovább."
+" A 26. szinten emiatt az első alma 26 pontot ad, a második 52 pontot és így"
+" tovább."
 
 #. (itstool) path: note/p
-#: C/scores.page:39
+#: C/scores.page:44
+#| msgid ""
+#| "The donut order count does not depend on the number of donuts already "
+#| "eaten by a worm. If the game is in level 1 and if player 1 eats the first "
+#| "donut, he scores 1 point, if player 2 eats the second donut, he scores 2 "
+#| "points; a third player may choose to not eat any donuts till the tenth "
+#| "donut and score 10 points at once."
 msgid ""
-"The donut order count does not depend on the number of donuts already eaten "
-"by a worm. If the game is in level 1 and if player 1 eats the first donut, "
-"he scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
-"third player may choose to not eat any donuts till the tenth donut and score "
+"The apple order count does not depend on the number of apples already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first apple, "
+"he scores 1 point, if player 2 eats the second apple, he scores 2 points; a "
+"third player may choose to not eat any apples till the tenth apple and score "
 "10 points at once."
 msgstr ""
-"A fánkok sorszáma nem függ attól, hogy egy kukac hány fánkot evett már meg. "
-"Ha az 1. szinten az első kukac megeszi az első fánkot, egy pontot kap; ha a "
-"második kukac megeszi a második fánkot, akkor két pontot kap; egy harmadik "
-"játékos dönthet úgy, hogy nem eszik meg egy fánkot sem, és a tizedik fánk "
-"elfogyasztásáért egyszerre kap 10 pontot."
+"Az almák sorszáma nem függ attól, hogy egy kukac hány almát evett már meg. Ha"
+" az 1. szinten az első kukac megeszi az első almát, egy pontot kap; ha a"
+" második kukac megeszi a második almát, akkor két pontot kap; egy harmadik"
+" játékos dönthet úgy, hogy nem eszik meg egy almát sem, és a tizedik alma"
+" elfogyasztásáért egyszerre kap 10 pontot."
 
 #. (itstool) path: item/p
-#: C/scores.page:47
+#: C/scores.page:52
 msgid ""
 "The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
 "does not cause an increase in the length of your worm."
@@ -614,27 +601,8 @@ msgstr ""
 "A szív alakú bónusz <_:media-1/>: ez a bónusz egy extra életet ad, és nem "
 "növeli a kukac hosszát."
 
-#. (itstool) path: note/p
-#: C/scores.page:52
-msgid ""
-"The number of lives remaining for a worm is given by the number on the left "
-"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
-"lives remaining."
-msgstr ""
-"Egy kukac hátralévő életeinek száma a kukac pontszámában a vesszőtől balra "
-"látható. Ha egy kukac pontszáma 10,005, akkor a kukacnak 10 élete van hátra."
-
-#. (itstool) path: note/p
-#: C/scores.page:57
-msgid ""
-"You cannot get extra lives by scoring 10,000 points or more. If you have "
-"scored 12345 points with 10 lives remaining, your score will be 10,12345."
-msgstr ""
-"Nem kaphat extra életeket 10,000 pont vagy több elérésével. Ha 12345 pontot "
-"ért el, és van még 10 élete, akkor a pontszáma 10,12345 lesz."
-
 #. (itstool) path: item/p
-#: C/scores.page:63
+#: C/scores.page:58
 msgid ""
 "The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
 "increase in the length of the worm and does not give you any points. It "
@@ -643,27 +611,28 @@ msgstr ""
 "A gyémánt alakú bónusz <_:media-1/>: ez a bónusz nem növeli a kukac hosszát "
 "vagy pontszámát. Ellenben megfordítja minden más kukac mozgását a játékban."
 
-#. (itstool) path: note/p
-#: C/scores.page:69
-msgid "This bonus has no effect in a single-player game."
-msgstr "Ennek a bónusznak nincs hatása egyszereplős játékban."
-
 #. (itstool) path: item/p
-#: C/scores.page:73
+#: C/scores.page:65
+#| msgid ""
+#| "The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
+#| "increase in the length of the worm than the donut-shaped bonus. The "
+#| "points given by this bonus vary depending on the level number and the "
+#| "length of the worm. The higher the level number and the longer the worm, "
+#| "the more the points are scored on eating this bonus."
 msgid ""
-"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
-"increase in the length of the worm than the donut-shaped bonus. The points "
-"given by this bonus vary depending on the level number and the length of the "
-"worm. The higher the level number and the longer the worm, the more the "
-"points are scored on eating this bonus."
+"The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase "
+"in the length of the worm than the apple-shaped bonus. The points given by "
+"this bonus vary depending on the level number and the length of the worm. "
+"The higher the level number and the longer the worm, the more the points are "
+"scored on eating this bonus."
 msgstr ""
-"A fagyi alakú bónusz <_:media-1/>: ez a bónusz jobban növeli a kukac "
-"hosszát, mint a fánk alakú bónusz. A bónusz által adott pontok száma a szint "
-"számától és a kukac hosszától függ. Minél magasabb a szint száma és minél "
-"hosszabb a kukac, annál több pont jár ezen bónusz elfogyasztásáért."
+"A banán alakú bónusz <_:media-1/>: ez a bónusz jobban növeli a kukac hosszát,"
+" mint az alma alakú bónusz. A bónusz által adott pontok száma a szint"
+" számától és a kukac hosszától függ. Minél magasabb a szint száma és minél"
+" hosszabb a kukac, annál több pont jár ezen bónusz elfogyasztásáért."
 
 #. (itstool) path: item/p
-#: C/scores.page:82
+#: C/scores.page:74
 msgid ""
 "The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
 "length of the worm. The points given by this bonus depend on the level "
