@@ -40,30 +40,30 @@ private class NibblesWindow : ApplicationWindow
     private int window_height;
 
     /* Main widgets */
-    [GtkChild] private Stack main_stack;
-    [GtkChild] private Overlay overlay;
+    [GtkChild] private unowned Stack main_stack;
+    [GtkChild] private unowned Overlay overlay;
 
     /* HeaderBar */
-    [GtkChild] private HeaderBar headerbar;
-    [GtkChild] private MenuButton hamburger_menu;
-    [GtkChild] private Button new_game_button;
-    [GtkChild] private Button pause_button;
+    [GtkChild] private unowned HeaderBar headerbar;
+    [GtkChild] private unowned MenuButton hamburger_menu;
+    [GtkChild] private unowned Button new_game_button;
+    [GtkChild] private unowned Button pause_button;
 
     /* Pre-game screen widgets */
-    [GtkChild] private Players players;
-    [GtkChild] private Speed speed;
-    [GtkChild] private Controls controls;
+    [GtkChild] private unowned Players players;
+    [GtkChild] private unowned Speed speed;
+    [GtkChild] private unowned Controls controls;
 
     /* Statusbar widgets */
-    [GtkChild] private Stack statusbar_stack;
-    [GtkChild] private Label countdown;
-    [GtkChild] private Scoreboard scoreboard;
+    [GtkChild] private unowned Stack statusbar_stack;
+    [GtkChild] private unowned Label countdown;
+    [GtkChild] private unowned Scoreboard scoreboard;
     private Gdk.Pixbuf scoreboard_life;
 
     /* Rendering of the game */
     private NibblesView? view;
 
-    [GtkChild] private Box game_box;
+    [GtkChild] private unowned Box game_box;
     private Games.GridFrame frame;
 
     /* Game being played */

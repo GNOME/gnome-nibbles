@@ -22,7 +22,7 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/controls.ui")]
 private class Controls : Box
 {
-    [GtkChild] private Box grids_box;
+    [GtkChild] private unowned Box grids_box;
     private Gee.LinkedList<ControlsGrid> grids = new Gee.LinkedList<ControlsGrid> ();
 
     private Gdk.Pixbuf arrow_pixbuf;
@@ -100,15 +100,15 @@ private class Controls : Box
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/controls-grid.ui")]
 private class ControlsGrid : Button
 {
-    [GtkChild] private Label name_label;
-    [GtkChild] private Image arrow_up;
-    [GtkChild] private Image arrow_down;
-    [GtkChild] private Image arrow_left;
-    [GtkChild] private Image arrow_right;
-    [GtkChild] private Label move_up_label;
-    [GtkChild] private Label move_down_label;
-    [GtkChild] private Label move_left_label;
-    [GtkChild] private Label move_right_label;
+    [GtkChild] private unowned Label name_label;
+    [GtkChild] private unowned Image arrow_up;
+    [GtkChild] private unowned Image arrow_down;
+    [GtkChild] private unowned Image arrow_left;
+    [GtkChild] private unowned Image arrow_right;
+    [GtkChild] private unowned Label move_up_label;
+    [GtkChild] private unowned Label move_down_label;
+    [GtkChild] private unowned Label move_left_label;
+    [GtkChild] private unowned Label move_right_label;
 
     internal WormProperties worm_props;
     internal ulong external_handler;

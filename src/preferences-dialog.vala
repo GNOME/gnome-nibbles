@@ -24,21 +24,21 @@ private class PreferencesDialog : Window
     private GLib.Settings settings;
     private Gee.ArrayList<GLib.Settings> worm_settings;
 
-    [GtkChild] private Stack            stack;
-    [GtkChild] private Stack            headerbar_stack;
-    [GtkChild] private ComboBoxText     worm_combobox;
-    [GtkChild] private Gtk.ListStore    list_store_1;
-    [GtkChild] private Gtk.ListStore    list_store_2;
-    [GtkChild] private Gtk.ListStore    list_store_3;
-    [GtkChild] private Gtk.ListStore    list_store_4;
-    [GtkChild] private TreeView         tree_view_1;
-    [GtkChild] private TreeView         tree_view_2;
-    [GtkChild] private TreeView         tree_view_3;
-    [GtkChild] private TreeView         tree_view_4;
-    [GtkChild] private ComboBoxText     combo_box_1;
-    [GtkChild] private ComboBoxText     combo_box_2;
-    [GtkChild] private ComboBoxText     combo_box_3;
-    [GtkChild] private ComboBoxText     combo_box_4;
+    [GtkChild] private unowned Stack            stack;
+    [GtkChild] private unowned Stack            headerbar_stack;
+    [GtkChild] private unowned ComboBoxText     worm_combobox;
+    [GtkChild] private unowned Gtk.ListStore    list_store_1;
+    [GtkChild] private unowned Gtk.ListStore    list_store_2;
+    [GtkChild] private unowned Gtk.ListStore    list_store_3;
+    [GtkChild] private unowned Gtk.ListStore    list_store_4;
+    [GtkChild] private unowned TreeView         tree_view_1;
+    [GtkChild] private unowned TreeView         tree_view_2;
+    [GtkChild] private unowned TreeView         tree_view_3;
+    [GtkChild] private unowned TreeView         tree_view_4;
+    [GtkChild] private unowned ComboBoxText     combo_box_1;
+    [GtkChild] private unowned ComboBoxText     combo_box_2;
+    [GtkChild] private unowned ComboBoxText     combo_box_3;
+    [GtkChild] private unowned ComboBoxText     combo_box_4;
 
     private Gee.ArrayList<Gtk.ListStore>    list_stores;
     private Gee.ArrayList<TreeView>         tree_views;

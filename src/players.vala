@@ -21,9 +21,9 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/players.ui")]
 private class Players : Box
 {
-    [GtkChild] private ToggleButton worms4;
-    [GtkChild] private ToggleButton worms5;
-    [GtkChild] private ToggleButton worms6;
+    [GtkChild] private unowned ToggleButton worms4;
+    [GtkChild] private unowned ToggleButton worms5;
+    [GtkChild] private unowned ToggleButton worms6;
 
     private SimpleAction nibbles_number_action;
     private SimpleAction players_number_action;

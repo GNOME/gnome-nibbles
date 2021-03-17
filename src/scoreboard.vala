@@ -59,9 +59,9 @@ private class Scoreboard : Box
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/player-score-box.ui")]
 private class PlayerScoreBox : Box
 {
-    [GtkChild] private Label name_label;
-    [GtkChild] private Label score_label;
-    [GtkChild] private Grid lives_grid;
+    [GtkChild] private unowned Label name_label;
+    [GtkChild] private unowned Label score_label;
+    [GtkChild] private unowned Grid lives_grid;
 
     private Gee.LinkedList<Image> life_images = new Gee.LinkedList<Image> ();
 
