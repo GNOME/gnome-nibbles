@@ -1,0 +1,525 @@
+# Basque translation for gnome-nibbles.
+# Copyright (C) 2021 gnome-nibbles's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-nibbles package.
+# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2021.
+#
+msgid ""
+msgstr "Project-Id-Version: gnome-nibbles master\n"
+"POT-Creation-Date: 2021-03-17 10:39+0000\n"
+"PO-Revision-Date: 2021-04-10 20:06+0000\n"
+"Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
+"Language-Team: Basque <librezale@librezale.eus>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "translator-credits"
+
+#. (itstool) path: credit/name
+#: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
+#: C/fake-bonus.page:15 C/index.page:13 C/multi-player.page:16
+#: C/preferences.page:15 C/scores.page:15
+msgid "Aruna Sankaranarayanan"
+msgstr "Aruna Sankaranarayanan"
+
+#. (itstool) path: credit/name
+#: C/basics.page:19 C/controls-change.page:21 C/controls-default.page:19
+#: C/fake-bonus.page:19 C/multi-player.page:20 C/preferences.page:19
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#. (itstool) path: info/desc
+#: C/basics.page:23
+msgid "Start, pause, and quit a game of <app>Nibbles</app>."
+msgstr "Abiarazi, pausatu eta irten <app>Nibbles</app> jokoan."
+
+#. (itstool) path: page/title
+#: C/basics.page:26
+msgid "Basic instructions"
+msgstr "Oinarrizko argibideak"
+
+#. (itstool) path: section/title
+#: C/basics.page:29
+msgid "Start a new game"
+msgstr "Hasi joko berria"
+
+#. (itstool) path: section/p
+#: C/basics.page:31
+msgid ""
+"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
+"start a new game when being in a game."
+msgstr "Sakatu goiburu-barrako <gui style=\"button\">Joko berria</gui> botoia joko berri bat abiarazteko."
+
+#. (itstool) path: section/p
+#: C/basics.page:33
+msgid ""
+"Press the <gui style=\"button\">Play Again</gui> button when you have "
+"finished a game."
+msgstr "Sakatu <gui style=\"button\">Jokatu berriro</gui> botoia jokaldi bat amaitu ondoren."
+
+#. (itstool) path: section/title
+#: C/basics.page:38
+msgid "Pause and resume your game"
+msgstr "Jokoa pausatzea eta berrabiaraztea"
+
+#. (itstool) path: section/p
+#: C/basics.page:40
+msgid ""
+"Press the <gui style=\"button\">Pause</gui> button in the header bar to "
+"pause your game. You can resume your game by pressing the <gui style=\"button"
+"\">Resume</gui> button."
+msgstr "Sakatu goiburu-barrako <gui style=\"button\">Pausatu</gui> botoia jokaldia pausatzeko. Jokaldia berrabiarazteko, sakatu <gui style=\"button\">Berrekin</gui> botoia."
+
+#. (itstool) path: section/title
+#: C/basics.page:46
+msgid "Quit <app>Nibbles</app>"
+msgstr "<app>Nibbles</app> jokotik irtetea"
+
+#. (itstool) path: section/p
+#: C/basics.page:48
+msgid ""
+"Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+"<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
+"any time."
+msgstr "Sakatu goiburu-barrako <gui style=\"button\">⨯</gui> botoia edo sakatu <keyseq><key>Ctrl</key><key>Q</key></keyseq> <app>Nibbles</app> jokotik edozein momentutan irteteko."
+
+#. (itstool) path: info/desc
+#: C/controls-change.page:25
+msgid "Set custom control keys."
+msgstr "Ezarri kontrol-tekla pertsonalizatuak."
+
+#. (itstool) path: page/title
+#: C/controls-change.page:28
+msgid "Change the default controls"
+msgstr "Aldatu kontrol lehenetsiak"
+
+#. (itstool) path: page/p
+#: C/controls-change.page:30
+msgid ""
+"The <link xref=\"controls-default\">default controls</link> can be changed "
+"in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
+"player\">multi-player</link> games, when having more than one set of "
+"controls becomes necessary. To change the default controls:"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls-change.page:37 C/fake-bonus.page:36 C/multi-player.page:44
+#: C/preferences.page:38 C/preferences.page:87 C/preferences.page:108
+msgid ""
+"Press the menu button in the top-right corner of the window and select <gui "
+"style=\"menuitem\">Preferences</gui>."
+msgstr "Sakatu goiko eskuineko izkinan dagoen menu-botoia eta hautatu <gui style=\"menuitem\">Hobespenak</gui>."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:41
+msgid "Select the tab for the player whose controls you want to change."
+msgstr "Hautatu jokalarietako bat bere kontrolak aldatzeko."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:43
+msgid ""
+"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+"player 3 controls <gui>Worm 3</gui> and so on."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls-change.page:48
+msgid ""
+"In the <gui style=\"group\">Controls</gui> list, select the line, then click "
+"on the control. This highlights the line and the words <gui>New accelerator…"
+"</gui> are now present in place of the old control."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls-change.page:54
+msgid "Press the key you want to use instead of the default key."
+msgstr "Sakatu tekla lehenetsiaren ordez erabili nahi duzun tekla."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:56
+msgid ""
+"To keep the old setting click <gui>New accelerator…</gui> again, right click "
+"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
+"inside the <gui>Nibbles Preferences</gui> box."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls-change.page:62
+msgid ""
+"Repeat the above step to change the other default keys for the current "
+"player, then select the tab for the next player whose controls you want to "
+"change and repeat the process."
+msgstr "Errepikatu goiko urratsa uneko jokalariaren beste tekla lehenetsiak aldatzeko, ondoren hautatu hurrengo jokalariaren fitxa bere kontrolak aldatu nahi badituzu, eta errepikatu prozesua."
+
+#. (itstool) path: page/p
+#: C/controls-change.page:68
+msgid ""
+"For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
+"<gui>Left</gui> control line and click it, then press <key>A</key> on your "
+"keyboard when you see <gui>New accelerator…</gui> on the line."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/controls-default.page:24
+msgid "Default keys for <app>Nibbles.</app>"
+msgstr "<app>Nibbles</app> jokoaren tekla lehenetsiak"
+
+#. (itstool) path: page/title
+#: C/controls-default.page:27
+msgid "Keyboard Controls"
+msgstr "Teklatuko kontrolak"
+
+#. (itstool) path: page/p
+#: C/controls-default.page:29
+msgid ""
+"For controlling the movements of your worm in a single-player mode, use the "
+"following default keys:"
+msgstr "Zure zizarearen mugimenduak kontrolatzeko jokalari bakarreko moduan, erabili honako tekla lehenetsiak:"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:34
+msgid "<key>Up</key> to move the worm up"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls-default.page:37
+msgid "<key>Down</key> to move the worm down"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls-default.page:40
+msgid "<key>Left</key> to move the worm left"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/controls-default.page:43
+msgid "<key>Right</key> to move the worm right"
+msgstr ""
+
+#. (itstool) path: note/p
+#: C/controls-default.page:48
+msgid ""
+"You can <link xref=\"controls-change\">change</link> the default controls."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/fake-bonus.page:23
+msgid ""
+"Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/fake-bonus.page:27
+msgid "What are fake bonuses?"
+msgstr "Zer dira gainordain faltsuak?"
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:29
+msgid ""
+"Fake bonuses look like regular bonus shapes but do not give you any points "
+"when your worm swallows them. They cause a reversal in the movement of your "
+"worm."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:33
+msgid "To enable fake bonuses:"
+msgstr "Gainordain faltsuak gaitzeko:"
+
+#. (itstool) path: item/p
+#: C/fake-bonus.page:40
+msgid ""
+"Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
+"is unchecked."
+msgstr "Markatu <gui style=\"checkbox\">Gaitu gainordain faltsuak</gui> kontrol-laukia, markatu gabe badago."
+
+#. (itstool) path: note/p
+#: C/fake-bonus.page:46
+msgid ""
+"Set all preferences before starting a new game. Preferences cannot be "
+"changed in the middle of a game."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/index.page:17
+msgid "Index"
+msgstr "Indizea"
+
+#. (itstool) path: page/title
+#: C/index.page:20
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Nibbles"
+
+#. (itstool) path: page/p
+#: C/index.page:22
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other "
+"worms. You have to complete 26 levels to finish the game."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/index.page:27
+msgid "Game play"
+msgstr "Jokoa"
+
+#. (itstool) path: section/title
+#: C/index.page:31
+msgid "Preferences"
+msgstr "Hobespenak"
+
+#. (itstool) path: info/desc
+#: C/multi-player.page:24
+msgid "Play <app>Nibbles</app> with additional players."
+msgstr "Jokatu <app>Nibbles</app> beste jokalari batzuekin."
+
+#. (itstool) path: page/title
+#: C/multi-player.page:27
+msgid "Multi-player games"
+msgstr "Jokalari anitzeko jokaldiak"
+
+#. (itstool) path: page/p
+#: C/multi-player.page:29
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. While a player "
+"controls <gui>Worm 1</gui> in a single-player game, players can additionally "
+"control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A two-"
+"player game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>, a "
+"three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
+"and <gui>Worm 3</gui> and so on."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/multi-player.page:37
+msgid "Choose the number of players"
+msgstr "Aukeratu jokalari kopurua"
+
+#. (itstool) path: section/p
+#: C/multi-player.page:39
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. To set the number of "
+"players:"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/multi-player.page:48
+msgid ""
+"Set the <gui style=\"input\">Number of human players</gui> to the required "
+"number, a maximum of 6. You can do this by using the <gui style=\"button\">"
+"+</gui> or <gui style=\"button\">-</gui> buttons or by entering the number "
+"of players from the keyboard in the space provided."
+msgstr ""
+
+#. (itstool) path: note/p
+#: C/multi-player.page:57
+msgid ""
+"You can watch a <app>Nibbles</app> game without participating. To observe a "
+"game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
+"set the <gui style=\"input\">Number of AI players</gui> to any number "
+"between 1 and 6."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/preferences.page:23
+msgid "Change default speed, worm color, level order and sound settings."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/preferences.page:26
+msgid "Edit general preferences"
+msgstr "Editatu hobespen orokorrak"
+
+#. (itstool) path: page/p
+#: C/preferences.page:28
+msgid ""
+"The general preferences for <app>Nibbles</app> can be changed by pressing "
+"the menu button in the top-right corner of the window and selecting <gui "
+"style=\"menuitem\">Preferences</gui>."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/preferences.page:33
+msgid "Speed"
+msgstr "Abiadura"
+
+#. (itstool) path: section/p
+#: C/preferences.page:35
+msgid "To change the speed:"
+msgstr "Abiadura aldatzeko:"
+
+#. (itstool) path: item/p
+#: C/preferences.page:42
+msgid "Select one of the four speed choices given on the left hand side."
+msgstr "Hautatu ezkerreko aldean ematen diren lau abiaduretako bat."
+
+#. (itstool) path: section/title
+#: C/preferences.page:49
+msgid "Change worm colors"
+msgstr "Aldatu zizareen koloreak"
+
+#. (itstool) path: section/p
+#: C/preferences.page:51
+msgid "There are seven available worm colors:"
+msgstr "Zazpi kolore daude erabilgarri zizareentzako:"
+
+#. (itstool) path: item/p
+#: C/preferences.page:55
+msgid "<_:media-1/> Red"
+msgstr "<_:media-1/> Gorria"
+
+#. (itstool) path: item/p
+#: C/preferences.page:59
+msgid "<_:media-1/> Green"
+msgstr "<_:media-1/> Berdea"
+
+#. (itstool) path: item/p
+#: C/preferences.page:63
+msgid "<_:media-1/> Blue"
+msgstr "<_:media-1/> Urdina"
+
+#. (itstool) path: item/p
+#: C/preferences.page:67
+msgid "<_:media-1/> Yellow"
+msgstr "<_:media-1/> Horia"
+
+#. (itstool) path: item/p
+#: C/preferences.page:71
+msgid "<_:media-1/> Cyan"
+msgstr "<_:media-1/> Cyana"
+
+#. (itstool) path: item/p
+#: C/preferences.page:75
+msgid "<_:media-1/> Purple"
+msgstr "<_:media-1/> Purpura"
+
+#. (itstool) path: item/p
+#: C/preferences.page:79
+msgid "<_:media-1/> Gray"
+msgstr "<_:media-1/> Gris"
+
+#. (itstool) path: section/p
+#: C/preferences.page:84
+msgid "To change worm colors:"
+msgstr "Zizareen kolorea aldatzeko:"
+
+#. (itstool) path: item/p
+#: C/preferences.page:91
+msgid ""
+"Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
+"you wish to edit."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/preferences.page:95
+msgid ""
+"Under <gui>Worm color</gui>, pick a color out of the available colors in the "
+"drop-down menu to change the appearance of the worm."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/preferences.page:103
+msgid "Sounds"
+msgstr "Soinuak"
+
+#. (itstool) path: section/p
+#: C/preferences.page:105
+msgid "To enable or disable sounds:"
+msgstr "Soinuak gaitzeko edo desgaitzeko:"
+
+#. (itstool) path: item/p
+#: C/preferences.page:112
+msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
+msgstr "Markatu edo desmarkatu <gui style=\"checkbox\">Gaitu soinuak</gui>."
+
+#. (itstool) path: credit/name
+#: C/scores.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
+#. (itstool) path: info/desc
+#: C/scores.page:23
+msgid "Swallow different bonuses to score points."
+msgstr "Irentsi gainordainak puntuak irabazteko."
+
+#. (itstool) path: page/title
+#: C/scores.page:26
+msgid "Scoring points in <app>Nibbles</app>"
+msgstr "Puntuak irabaztea <app>Nibbles</app> jokoan"
+
+#. (itstool) path: page/p
+#: C/scores.page:28
+msgid ""
+"You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
+"different kinds of bonuses in Nibbles:"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/scores.page:32
+msgid ""
+"The apple-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the apple vary from level "
+"to level and are multiples of the level number. In level 1, the first apple "
+"will give you 1 point, the second apple will give you 2 points, the third "
+"apple will give you 3 points and so on. In level 2, the first apple will "
+"give you 2 points, the second apple will give you 4 points, the third apple "
+"will give you 6 points and so on. In level 26, therefore, the first apple "
+"will give you 26 points, the second apple will give you 52 points and so on."
+msgstr ""
+
+#. (itstool) path: note/p
+#: C/scores.page:44
+msgid ""
+"The apple order count does not depend on the number of apples already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first apple, "
+"he scores 1 point, if player 2 eats the second apple, he scores 2 points; a "
+"third player may choose to not eat any apples till the tenth apple and score "
+"10 points at once."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/scores.page:52
+msgid ""
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
+"does not cause an increase in the length of your worm."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/scores.page:58
+msgid ""
+"The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
+"increase in the length of the worm and does not give you any points. It "
+"causes a reversal in the movement of all the other worms in the game."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/scores.page:65
+msgid ""
+"The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase "
+"in the length of the worm than the apple-shaped bonus. The points given by "
+"this bonus vary depending on the level number and the length of the worm. "
+"The higher the level number and the longer the worm, the more the points are "
+"scored on eating this bonus."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/scores.page:74
+msgid ""
+"The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
+"length of the worm. The points given by this bonus depend on the level "
+"number and the length of the worm. The higher the level number and the "
+"longer the worm, the more the points are scored on eating this bonus."
+msgstr ""
+
+#. (itstool) path: p/link
+#: C/legal.xml:4
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "This work is licensed under a <_:link-1/>."
