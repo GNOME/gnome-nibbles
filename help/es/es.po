@@ -2,20 +2,20 @@
 # translation of gnibbles manual to spanish
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2011.
 # 
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012-2020.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnibbles.HEAD\n"
-"POT-Creation-Date: 2020-01-05 00:17+0000\n"
-"PO-Revision-Date: 2020-01-07 16:47+0100\n"
+"POT-Creation-Date: 2021-03-10 00:58+0000\n"
+"PO-Revision-Date: 2021-05-10 13:12+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 3.34.0\n"
+"X-Generator: Gtranslator 40.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
@@ -27,8 +27,8 @@ msgstr ""
 
 #. (itstool) path: credit/name
 #: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
-#: C/fake-bonus.page:15 C/index.page:12 C/multi-player.page:16
-#: C/preferences.page:15 C/scores.page:14
+#: C/fake-bonus.page:15 C/index.page:13 C/multi-player.page:16
+#: C/preferences.page:15 C/scores.page:15
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
@@ -40,9 +40,6 @@ msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
 #: C/basics.page:23
-#| msgid ""
-#| "Start, pause, play in fullscreen mode and quit a game of <app>Nibbles</"
-#| "app>."
 msgid "Start, pause, and quit a game of <app>Nibbles</app>."
 msgstr "Empezar, pausar y salir de una partida de <app>Nibbles</app>."
 
@@ -82,17 +79,17 @@ msgstr "Pausar y reanudar el juego"
 #. (itstool) path: section/p
 #: C/basics.page:40
 #| msgid ""
-#| "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
-#| "\">Pause</gui></guiseq> to pause your game. You can resume your game by "
-#| "selecting <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
-#| "\">Resume</gui></guiseq>."
+#| "Press the <gui style=\"button\">New Game</gui> button in the header bar "
+#| "to pause your game. You can resume your game by pressing the <gui style="
+#| "\"button\">Resume</gui> button."
 msgid ""
-"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
+"Press the <gui style=\"button\">Pause</gui> button in the header bar to "
 "pause your game. You can resume your game by pressing the <gui style=\"button"
 "\">Resume</gui> button."
 msgstr ""
-"Pulse el botón <gui style=\"button\">Juego nuevo</gui> para pausar el juego. "
-"Puede reanudar el juego seleccionando <gui style=\"button\">Reanudar</gui>."
+"Pulse el botón <gui style=\"button\">Pausa</gui> en la barra de cabecera "
+"para pausar el juego. Puede reanudar el juego pulsando el botón <gui style="
+"\"button\">Reanudar</gui>."
 
 #. (itstool) path: section/title
 #: C/basics.page:46
@@ -101,10 +98,6 @@ msgstr "Salir de <app>Nibbles</app>"
 
 #. (itstool) path: section/p
 #: C/basics.page:48
-#| msgid ""
-#| "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
-#| "\">Quit</gui></guiseq> or press <keyseq><key>Ctrl</key><key>Q</key></"
-#| "keyseq> to quit <app>Nibbles</app> at any time."
 msgid ""
 "Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
@@ -165,10 +158,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/controls-change.page:48
-#| msgid ""
-#| "In the <gui style=\"group\">Keyboard Controls</gui> list, select the "
-#| "line, then click on the control. This highlights the line and the words "
-#| "<gui>New accelerator…</gui> are now present in place of the old control."
 msgid ""
 "In the <gui style=\"group\">Controls</gui> list, select the line, then click "
 "on the control. This highlights the line and the words <gui>New accelerator…"
@@ -313,17 +302,17 @@ msgstr ""
 "preferencias no se pueden cambiar en medio de una partida."
 
 #. (itstool) path: info/desc
-#: C/index.page:16
+#: C/index.page:17
 msgid "Index"
 msgstr "Índice"
 
 #. (itstool) path: page/title
-#: C/index.page:19
+#: C/index.page:20
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Nibbles"
 
 #. (itstool) path: page/p
-#: C/index.page:21
+#: C/index.page:22
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -334,12 +323,12 @@ msgstr ""
 "gusanos. Necesita completar 26 niveles para terminar el juego."
 
 #. (itstool) path: section/title
-#: C/index.page:26
+#: C/index.page:27
 msgid "Game play"
 msgstr "Juego"
 
 #. (itstool) path: section/title
-#: C/index.page:30
+#: C/index.page:31
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -427,10 +416,6 @@ msgstr "Editar las preferencias generales"
 
 #. (itstool) path: page/p
 #: C/preferences.page:28
-#| msgid ""
-#| "The general preferences for <app>Nibbles</app> can be changed by "
-#| "selecting <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-#| "\">Preferences</gui></guiseq>."
 msgid ""
 "The general preferences for <app>Nibbles</app> can be changed by pressing "
 "the menu button in the top-right corner of the window and selecting <gui "
@@ -502,15 +487,11 @@ msgstr "<_:media-1/> Gris"
 
 #. (itstool) path: section/p
 #: C/preferences.page:84
-#| msgid "Change worm colors"
 msgid "To change worm colors:"
 msgstr "Para pambiar el color del gusano:"
 
 #. (itstool) path: item/p
 #: C/preferences.page:91
-#| msgid ""
-#| "Select any of the <gui>Worm</gui> tabs to choose the worm that you wish "
-#| "to edit."
 msgid ""
 "Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
 "you wish to edit."
@@ -520,10 +501,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/preferences.page:95
-#| msgid ""
-#| "On your left hand side you will see <gui style=\"group\">Worm color</"
-#| "gui>. Pick a color out of the available colors in the drop-down menu to "
-#| "change the appearance of the worm."
 msgid ""
 "Under <gui>Worm color</gui>, pick a color out of the available colors in the "
 "drop-down menu to change the appearance of the worm."
@@ -538,31 +515,32 @@ msgstr "Sonidos"
 
 #. (itstool) path: section/p
 #: C/preferences.page:105
-#| msgid "To enable fake bonuses:"
 msgid "To enable or disable sounds:"
 msgstr "Para activar los sonidos:"
 
 #. (itstool) path: item/p
 #: C/preferences.page:112
-#| msgid ""
-#| "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if "
-#| "it is unchecked."
 msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgstr ""
 "Marque o desmarque la casilla <gui style=\"checkbox\">Activar sonidos</gui>."
 
+#. (itstool) path: credit/name
+#: C/scores.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
 #. (itstool) path: info/desc
-#: C/scores.page:18
+#: C/scores.page:23
 msgid "Swallow different bonuses to score points."
 msgstr "Tragarse diferentes bonificaciones para conseguir puntos."
 
 #. (itstool) path: page/title
-#: C/scores.page:21
+#: C/scores.page:26
 msgid "Scoring points in <app>Nibbles</app>"
 msgstr "Puntuación en <app>Nibbles</app>"
 
 #. (itstool) path: page/p
-#: C/scores.page:23
+#: C/scores.page:28
 msgid ""
 "You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
 "different kinds of bonuses in Nibbles:"
@@ -571,42 +549,60 @@ msgstr ""
 "tipos de bonificaciones en Nibbles:"
 
 #. (itstool) path: item/p
-#: C/scores.page:27
+#: C/scores.page:32
+#| msgid ""
+#| "The donut-shaped bonus <_:media-1/> : This bonus causes an increase in "
+#| "the length of the worm. The points you gain on eating the donut vary from "
+#| "level to level and are multiples of the level number. In level 1, the "
+#| "first donut will give you 1 point, the second donut will give you 2 "
+#| "points, the third donut will give you 3 points and so on. In level 2, the "
+#| "first donut will give you 2 points, the second donut will give you 4 "
+#| "points, the third donut will give you 6 points and so on. In level 26, "
+#| "therefore, the first donut will give you 26 points, the second donut will "
+#| "give you 52 points and so on."
 msgid ""
-"The donut-shaped bonus <_:media-1/> : This bonus causes an increase in the "
-"length of the worm. The points you gain on eating the donut vary from level "
-"to level and are multiples of the level number. In level 1, the first donut "
-"will give you 1 point, the second donut will give you 2 points, the third "
-"donut will give you 3 points and so on. In level 2, the first donut will "
-"give you 2 points, the second donut will give you 4 points, the third donut "
-"will give you 6 points and so on. In level 26, therefore, the first donut "
-"will give you 26 points, the second donut will give you 52 points and so on."
+"The apple-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the apple vary from level "
+"to level and are multiples of the level number. In level 1, the first apple "
+"will give you 1 point, the second apple will give you 2 points, the third "
+"apple will give you 3 points and so on. In level 2, the first apple will "
+"give you 2 points, the second apple will give you 4 points, the third apple "
+"will give you 6 points and so on. In level 26, therefore, the first apple "
+"will give you 26 points, the second apple will give you 52 points and so on."
 msgstr ""
-"La bonificación en forma de donut <_:media-1/>: esta bonificación hace "
-"aumente la longitud del gusano. Los puntos que obtiene al comerse un donut "
-"varía en cada nivel y hay varios en cada nivel. En el nivel 1, el primer "
-"donut le dará un punto, el segundo 2 puntos, el tercero tres puntos, y así "
-"sucesivamente. En el nivel 2, el primer donut le dará 2 puntos, el segundo 4 "
-"puntos, el tercero 6 puntos, y así sucesivamente. Por lo tanto, en el nivel "
-"el primer donut le dará 26 puntos, el segundo 52 y así sucesivamente."
+"La bonificación en forma de manzana <_:media-1/>: esta bonificación hace "
+"aumente la longitud del gusano. Los puntos que obtiene al comerse una "
+"manzana varía en cada nivel y hay varias en cada nivel. En el nivel 1, la "
+"primera manzana le dará un punto, la segunda 2 puntos, la tercera tres "
+"puntos, y así sucesivamente. En el nivel 2, la primera manzana le dará 2 "
+"puntos, la segunda 4 puntos, la tercera 6 puntos, y así sucesivamente. Por "
+"lo tanto, en el nivel la primera manzana le dará 26 puntos, la segunda 52 y "
+"así sucesivamente."
 
 #. (itstool) path: note/p
-#: C/scores.page:39
+#: C/scores.page:44
+#| msgid ""
+#| "The donut order count does not depend on the number of donuts already "
+#| "eaten by a worm. If the game is in level 1 and if player 1 eats the first "
+#| "donut, he scores 1 point, if player 2 eats the second donut, he scores 2 "
+#| "points; a third player may choose to not eat any donuts till the tenth "
+#| "donut and score 10 points at once."
 msgid ""
-"The donut order count does not depend on the number of donuts already eaten "
-"by a worm. If the game is in level 1 and if player 1 eats the first donut, "
-"he scores 1 point, if player 2 eats the second donut, he scores 2 points; a "
-"third player may choose to not eat any donuts till the tenth donut and score "
+"The apple order count does not depend on the number of apples already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first apple, "
+"he scores 1 point, if player 2 eats the second apple, he scores 2 points; a "
+"third player may choose to not eat any apples till the tenth apple and score "
 "10 points at once."
 msgstr ""
-"El contador de donuts no depende del número de donuts que ya se haya comido "
-"un gusano. Si la partida está en el nivel 1 y si el jugador 1 se come el "
-"primer donut, consigue un punto; si el jugador 2 se come el segundo donut, "
-"consigue 2 puntos; un tercer jugador puede elegir no comerse ningún donut "
-"hasta que llegue el décimo, para conseguir 10 puntos de una vez."
+"El contador de manzanas no depende del número de manzanas que ya se haya "
+"comido un gusano. Si la partida está en el nivel 1 y si el jugador 1 se come "
+"la primera manzana, consigue un punto; si el jugador 2 se come la segunda "
+"manzanas, consigue 2 puntos; un tercer jugador puede elegir no comerse "
+"ninguna manzana hasta que llegue el décimo, para conseguir 10 puntos de una "
+"vez."
 
 #. (itstool) path: item/p
-#: C/scores.page:47
+#: C/scores.page:52
 msgid ""
 "The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
 "does not cause an increase in the length of your worm."
@@ -614,29 +610,8 @@ msgstr ""
 "La bonificación en forma de corazón <_:media-1/> : esta bonificación le da "
 "vida adicional y no hace que el gusano aumente de longitud."
 
-#. (itstool) path: note/p
-#: C/scores.page:52
-msgid ""
-"The number of lives remaining for a worm is given by the number on the left "
-"of the comma in a worm's score. If a worm's score is 10,005, the worm has 10 "
-"lives remaining."
-msgstr ""
-"El número de vidas de un gusano está dado por el número a la izquierda de la "
-"coma en la puntuación del gusano. Si la puntuación de un gusano es 10,005, "
-"el gusano tiene 10 vidas restantes."
-
-#. (itstool) path: note/p
-#: C/scores.page:57
-msgid ""
-"You cannot get extra lives by scoring 10,000 points or more. If you have "
-"scored 12345 points with 10 lives remaining, your score will be 10,12345."
-msgstr ""
-"No puede conseguir vidas adicionales consiguiendo 10.000 o más puntos. si ha "
-"conseguido 12.345 puntos con 10 vidas restantes, su puntuación será de "
-"1.012.345."
-
 #. (itstool) path: item/p
-#: C/scores.page:63
+#: C/scores.page:58
 msgid ""
 "The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
 "increase in the length of the worm and does not give you any points. It "
@@ -646,28 +621,29 @@ msgstr ""
 "que el gusano aumente de longitud y no le da ningún punto. Hace que se "
 "invierta el movimiento de todos los gusanos de la partida."
 
-#. (itstool) path: note/p
-#: C/scores.page:69
-msgid "This bonus has no effect in a single-player game."
-msgstr "Esta bonificación no tiene efecto en el modo de un solo jugador."
-
 #. (itstool) path: item/p
-#: C/scores.page:73
+#: C/scores.page:65
+#| msgid ""
+#| "The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
+#| "increase in the length of the worm than the donut-shaped bonus. The "
+#| "points given by this bonus vary depending on the level number and the "
+#| "length of the worm. The higher the level number and the longer the worm, "
+#| "the more the points are scored on eating this bonus."
 msgid ""
-"The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
-"increase in the length of the worm than the donut-shaped bonus. The points "
-"given by this bonus vary depending on the level number and the length of the "
-"worm. The higher the level number and the longer the worm, the more the "
-"points are scored on eating this bonus."
+"The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase "
+"in the length of the worm than the apple-shaped bonus. The points given by "
+"this bonus vary depending on the level number and the length of the worm. "
+"The higher the level number and the longer the worm, the more the points are "
+"scored on eating this bonus."
 msgstr ""
-"La bonificación en forma de helado <_:media-1/>: esta bonificación hace que "
+"La bonificación en forma de plátano <_:media-1/>: esta bonificación hace que "
 "se aumente la longitud del gusano más de lo que la aumenta la bonificación "
-"en forma de donut. Los puntos conseguidos por esta bonificación dependen del "
-"nivel y de la longitud del gusano. Cuanto más alto sea el nivel y más largo "
-"sea el gusano, más puntos se conseguirán al comerse esta bonificación."
+"en forma de manzana. Los puntos conseguidos por esta bonificación dependen "
+"del nivel y de la longitud del gusano. Cuanto más alto sea el nivel y más "
+"largo sea el gusano, más puntos se conseguirán al comerse esta bonificación."
 
 #. (itstool) path: item/p
-#: C/scores.page:82
+#: C/scores.page:74
 msgid ""
 "The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
 "length of the worm. The points given by this bonus depend on the level "
@@ -689,6 +665,26 @@ msgstr "Creative Commons de Atribución-Compartir Igual 3.0 sin soporte"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Este trabajo está licenciado bajo la <_:link-1/>."
+
+#~ msgid ""
+#~ "The number of lives remaining for a worm is given by the number on the "
+#~ "left of the comma in a worm's score. If a worm's score is 10,005, the "
+#~ "worm has 10 lives remaining."
+#~ msgstr ""
+#~ "El número de vidas de un gusano está dado por el número a la izquierda de "
+#~ "la coma en la puntuación del gusano. Si la puntuación de un gusano es "
+#~ "10,005, el gusano tiene 10 vidas restantes."
+
+#~ msgid ""
+#~ "You cannot get extra lives by scoring 10,000 points or more. If you have "
+#~ "scored 12345 points with 10 lives remaining, your score will be 10,12345."
+#~ msgstr ""
+#~ "No puede conseguir vidas adicionales consiguiendo 10.000 o más puntos. si "
+#~ "ha conseguido 12.345 puntos con 10 vidas restantes, su puntuación será de "
+#~ "1.012.345."
+
+#~ msgid "This bonus has no effect in a single-player game."
+#~ msgstr "Esta bonificación no tiene efecto en el modo de un solo jugador."
 
 #~ msgid ""
 #~ "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
