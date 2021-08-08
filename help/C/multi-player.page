@@ -7,6 +7,7 @@
     <link type="guide" xref="index#play"/>
 
     <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
+    <revision pkgversion="3.38" version="0.2" date="2021-08-08" status="review"/>
 
     <link type="seealso" xref="controls-change"/>
 
@@ -19,6 +20,10 @@
     <credit type="editor">
       <name>Ekaterina Gerasimova</name>
       <email its:translate="no">kittykat3756@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Andre Klapper</name>
+      <email its:translate="no">ak-47@gmx.net</email>
     </credit>
 
     <desc>Play <app>Nibbles</app> with additional players.</desc>
@@ -36,29 +41,21 @@
 <section id="number-of-players">
   <title>Choose the number of players</title>
 
-  <p><app>Nibbles</app> can be played by up to six players. To set the number
-  of players:</p>
+  <p><app>Nibbles</app> can be played by up to six players. Up to four of them
+  can be humans. To set the number of players:</p>
 
   <steps>
     <item>
-      <p>Press the menu button in the top-right corner of the window and select
-      <gui style="menuitem">Preferences</gui>.</p>
+      <p>Start a new game.</p>
     </item>
     <item>
-      <p>Set the <gui style="input">Number of human players</gui> to the
-      required number, a maximum of 6. You can do this by using the
-      <gui style="button">+</gui> or <gui style="button">-</gui> buttons or by
-      entering the number of players from the keyboard in the space
-      provided.</p>
+      <p>On the <gui>Number of players</gui> screen, set the number of human
+      players to the required number, a maximum of 4.</p>
+    </item>
+    <item>
+      <p>Set the number of computer players.</p>
     </item>
   </steps>
-
-  <note style="info">
-    <p>You can watch a <app>Nibbles</app> game without participating. To
-    observe a game, set the <gui style="input">Number of human players</gui>
-    to 0 and set the <gui style="input">Number of AI players</gui> to any
-    number between 1 and 6.</p>
-  </note>
 
 </section>
 

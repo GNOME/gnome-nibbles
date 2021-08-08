@@ -10,6 +10,7 @@
 
     <revision pkgversion="3.8" version="0.1" date="2012-03-05" status="candidate"/>
     <revision pkgversion="3.34" version="0.2" date="2020-01-05" status="candidate"/>
+    <revision pkgversion="3.38" version="0.3" date="2021-08-08" status="candidate"/>
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
@@ -20,6 +21,10 @@
     <credit type="editor">
       <name>Ekaterina Gerasimova</name>
       <email its:translate="no">kittykat3756@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Andre Klapper</name>
+      <email its:translate="no">ak-47@gmx.net</email>
     </credit>
 
     <desc>Set custom control keys.</desc>
@@ -34,11 +39,12 @@
 
   <steps>
     <item>
-      <p>Press the menu button in the top-right corner of the window and select
-      <gui style="menuitem">Preferences</gui>.</p>
+      <p>Start a new game.</p>
     </item>
     <item>
-      <p>Select the tab for the player whose controls you want to change.</p>
+      <p>On the <gui>Controls</gui> screen, press the
+      <media its:translate="no" type="image" src="figures/emblem-system-symbolic.svg"><span its:translate="yes">settings</span></media>
+      button for the player whose controls you want to change.</p>
       <note style="info">
         <p>Player 1 controls <gui>Worm 1</gui>, player 2 controls
         <gui>Worm 2</gui>, player 3 controls <gui>Worm 3</gui> and so on.</p>
@@ -46,13 +52,17 @@
     </item>
     <item>
       <p>In the <gui style="group">Controls</gui> list, select the
-      line, then click on the control. This highlights the line and the words
+      line of the <gui>Action</gui>. This highlights the line.</p>
+    </item>
+    <item>
+      <p>Select the <gui>Key</gui> on the control. The words
       <gui>New accelerator…</gui> are now present in place of the old
       control.</p>
     </item>
     <item>
       <p>Press the key you want to use instead of the default key.</p>
       <note style="tip">
+        <!-- TODO: Broken in 3.38; see https://gitlab.gnome.org/GNOME/gnome-nibbles/-/issues/54 -->
         <p>To keep the old setting click <gui>New accelerator…</gui> again,
         right click on <gui>New accelerator…</gui>, press <key>Esc</key> or
         click anywhere else inside the <gui>Nibbles Preferences</gui> box.</p>
@@ -65,8 +75,8 @@
     </item>
   </steps>
 
-  <p>For example, to use <key>A</key> to <gui>Move Left</gui>, select the
-  <gui>Left</gui> control line and click it, then press <key>A</key> on your
+  <p>For example, to use <key>A</key> to move left, select the <gui>Action</gui>
+  <gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</key> on your
   keyboard when you see <gui>New accelerator…</gui> on the line.</p>
 
 </page>

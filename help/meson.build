@@ -5,8 +5,9 @@ gnome_nibbles_help_pages = [
     'fake-bonus.page',
     'index.page',
     'multi-player.page',
-    'preferences.page',
     'scores.page',
+    'sound-change.page',
+    'speed-change.page',
     'legal.xml',
 ]
 
@@ -15,15 +16,9 @@ gnome_nibbles_help_media = [
     'figures/banana.svg',
     'figures/cherry.svg',
     'figures/diamond.svg',
+    'figures/emblem-system-symbolic.svg',
     'figures/life.svg',
     'figures/nibbles.svg',
-    'figures/snake-blue.svg',
-    'figures/snake-cyan.svg',
-    'figures/snake-green.svg',
-    'figures/snake-grey.svg',
-    'figures/snake-magenta.svg',
-    'figures/snake-red.svg',
-    'figures/snake-yellow.svg',
 ]
 
 gnome.yelp(meson.project_name(),

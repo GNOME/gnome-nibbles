@@ -1,14 +1,14 @@
 <page xmlns="http://projectmallard.org/1.0/"
       xmlns:its="http://www.w3.org/2005/11/its"
 	type="topic" style="task"
-	id="fake-bonus">
+	id="speed-change">
 
   <info>
     <link type="guide" xref="index#preferences"/>
 
     <revision pkgversion="3.8" version="0.1" date="2013-03-05" status="review"/>
-    <revision pkgversion="3.34" version="0.2" date="2020-01-05" status="candidate"/>
-    <revision pkgversion="3.38" version="0.2" date="2020-08-08" status="candidate"/>
+    <revision pkgversion="3.34" version="0.2" date="2020-01-05" status="review"/>
+    <revision pkgversion="3.38" version="0.3" date="2021-08-08" status="review"/>
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
@@ -25,24 +25,18 @@
       <email its:translate="no">ak-47@gmx.net</email>
     </credit>
 
-    <desc>Use fake bonuses in a <app>Nibbles</app> game to make it more
-    challenging.</desc>
+    <desc>Change how fast the worms move.</desc>
   </info>
 
-  <title>What are fake bonuses?</title>
+  <title>Change the default speed</title>
 
-  <p>Fake bonuses look like regular bonus shapes but do not give you any
-  points when your worm swallows them. They cause a reversal in the movement of
-  your worm.</p>
-
-  <p>To enable fake bonuses:</p>
+  <p>To change the speed:</p>
   <steps>
     <item>
       <p>Start a new game.</p>
     </item>
     <item>
-      <p>On the <gui>Preferences</gui> screen, check the
-      <gui style="checkbox">Enable fake bonuses</gui> checkbox if it is unchecked.</p>
+      <p>On the <gui>Preferences</gui> screen, select one of the four speed choices.</p>
     </item>
   </steps>
 
