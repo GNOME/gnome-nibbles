@@ -1,11 +1,11 @@
 # Erik Sköldås <erik.skoldas@tele2.se>, 2015.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2020.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2020, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nibbles doc\n"
-"POT-Creation-Date: 2020-07-09 15:05+0000\n"
-"PO-Revision-Date: 2020-08-22 14:06+0200\n"
+"POT-Creation-Date: 2021-08-08 07:58+0000\n"
+"PO-Revision-Date: 2021-08-10 00:43+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -21,39 +21,41 @@ msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
 "Erik Sköldås <erik.skoldas@tele2.se>, 2015\n"
+"Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>"
 
 #. (itstool) path: credit/name
-#: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
-#: C/fake-bonus.page:15 C/index.page:13 C/multi-player.page:16
-#: C/preferences.page:15 C/scores.page:15
+#: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
+#: C/fake-bonus.page:16 C/index.page:13 C/multi-player.page:17 C/scores.page:15
+#: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
 #. (itstool) path: credit/name
-#: C/basics.page:19 C/controls-change.page:21 C/controls-default.page:19
-#: C/fake-bonus.page:19 C/multi-player.page:20 C/preferences.page:19
+#: C/basics.page:20 C/controls-change.page:22 C/controls-default.page:20
+#: C/fake-bonus.page:20 C/multi-player.page:21 C/sound-change.page:20
+#: C/speed-change.page:20
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
-#: C/basics.page:23
+#: C/basics.page:24
 msgid "Start, pause, and quit a game of <app>Nibbles</app>."
 msgstr "Starta, pausa och avsluta en omgång <app>Nibbles</app>."
 
 #. (itstool) path: page/title
-#: C/basics.page:26
+#: C/basics.page:27
 msgid "Basic instructions"
 msgstr "Grundläggande instruktioner"
 
 #. (itstool) path: section/title
-#: C/basics.page:29
+#: C/basics.page:30
 msgid "Start a new game"
 msgstr "Starta ett nytt spel"
 
 #. (itstool) path: section/p
-#: C/basics.page:31
+#: C/basics.page:32
 msgid ""
 "Press the <gui style=\"button\">New Game</gui> button in the header bar to "
 "start a new game when being in a game."
@@ -62,7 +64,7 @@ msgstr ""
 "starta ett nytt spel under tiden du spelar."
 
 #. (itstool) path: section/p
-#: C/basics.page:33
+#: C/basics.page:34
 msgid ""
 "Press the <gui style=\"button\">Play Again</gui> button when you have "
 "finished a game."
@@ -71,12 +73,12 @@ msgstr ""
 "ett spel."
 
 #. (itstool) path: section/title
-#: C/basics.page:38
+#: C/basics.page:39
 msgid "Pause and resume your game"
 msgstr "Pausa och återuppta ditt spel"
 
 #. (itstool) path: section/p
-#: C/basics.page:40
+#: C/basics.page:41
 msgid ""
 "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
 "pause your game. You can resume your game by pressing the <gui style=\"button"
@@ -87,12 +89,12 @@ msgstr ""
 "style=\"button\">Fortsätt</gui>."
 
 #. (itstool) path: section/title
-#: C/basics.page:46
+#: C/basics.page:47
 msgid "Quit <app>Nibbles</app>"
 msgstr "Avsluta <app>Nibbles</app>"
 
 #. (itstool) path: section/p
-#: C/basics.page:48
+#: C/basics.page:49
 msgid ""
 "Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
@@ -102,18 +104,24 @@ msgstr ""
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> för att avsluta <app>Nibbles</"
 "app> när som helst."
 
+#. (itstool) path: credit/name
+#: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
+#: C/sound-change.page:24 C/speed-change.page:24
+msgid "Andre Klapper"
+msgstr "Andre Klapper"
+
 #. (itstool) path: info/desc
-#: C/controls-change.page:25
+#: C/controls-change.page:30
 msgid "Set custom control keys."
 msgstr "Välj anpassade kontrolltangenter."
 
 #. (itstool) path: page/title
-#: C/controls-change.page:28
+#: C/controls-change.page:33
 msgid "Change the default controls"
 msgstr "Ändra standardtangenter"
 
 #. (itstool) path: page/p
-#: C/controls-change.page:30
+#: C/controls-change.page:35
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -126,22 +134,27 @@ msgstr ""
 "kontroller behövs. För att ändra standardtangenterna:"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:37 C/fake-bonus.page:36 C/multi-player.page:44
-#: C/preferences.page:38 C/preferences.page:87 C/preferences.page:108
-msgid ""
-"Press the menu button in the top-right corner of the window and select <gui "
-"style=\"menuitem\">Preferences</gui>."
-msgstr ""
-"Tryck på menyknappen i fönstrets övre högra hörn och välj <gui style="
-"\"menuitem\">Inställningar</gui>."
+#: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
+#: C/speed-change.page:36
+msgid "Start a new game."
+msgstr "Starta ett nytt spel."
+
+#. (itstool) path: media/span
+#: C/controls-change.page:46
+msgid "settings"
+msgstr "inställningar"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:41
-msgid "Select the tab for the player whose controls you want to change."
-msgstr "Välj fliken för den spelare vars kontroller du vill ändra."
+#: C/controls-change.page:45
+msgid ""
+"On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
+"player whose controls you want to change."
+msgstr ""
+"På skärmen <gui>Styrning</gui>, tryck på knappen <_:media-1/> för den "
+"spelare vars styrning du vill ändra."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:43
+#: C/controls-change.page:49
 msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
@@ -150,24 +163,31 @@ msgstr ""
 "2</gui>, spelare 3 kontrollerar <gui>Mask 3</gui> och så vidare."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:48
+#: C/controls-change.page:54
 msgid ""
-"In the <gui style=\"group\">Controls</gui> list, select the line, then click "
-"on the control. This highlights the line and the words <gui>New accelerator…"
-"</gui> are now present in place of the old control."
+"In the <gui style=\"group\">Controls</gui> list, select the line of the "
+"<gui>Action</gui>. This highlights the line."
 msgstr ""
-"I listan <gui style=\"group\">Styrning</gui>, välj raden och klicka sedan på "
-"kontrollen. Det kommer att markera raden och texten <gui>Ny snabbtangent…</"
-"gui> visas nu istället för den gamla kontrollen."
+"I listan <gui style=\"group\">Styrning</gui>, välj raden för <gui>Åtgärd</"
+"gui>en. Det kommer att markera raden."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:54
+#: C/controls-change.page:58
+msgid ""
+"Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
+"gui> are now present in place of the old control."
+msgstr ""
+"Välj kontrollens <gui>Tangent</gui>. Texten <gui>Ny snabbtangent…</gui> "
+"visas nu istället för den gamla kontrollen."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:63
 msgid "Press the key you want to use instead of the default key."
 msgstr ""
 "Tryck på tangenten som du vill använda i stället för standardtangenten."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:56
+#: C/controls-change.page:66
 msgid ""
 "To keep the old setting click <gui>New accelerator…</gui> again, right click "
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
@@ -178,7 +198,7 @@ msgstr ""
 "eller klicka inuti rutan <gui>Inställningar för Nibbles</gui>."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:62
+#: C/controls-change.page:72
 msgid ""
 "Repeat the above step to change the other default keys for the current "
 "player, then select the tab for the next player whose controls you want to "
@@ -189,29 +209,29 @@ msgstr ""
 "vill ändra och upprepa processen."
 
 #. (itstool) path: page/p
-#: C/controls-change.page:68
+#: C/controls-change.page:78
 msgid ""
-"For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
-"<gui>Left</gui> control line and click it, then press <key>A</key> on your "
-"keyboard when you see <gui>New accelerator…</gui> on the line."
+"For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
+"<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
+"key> on your keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
-"Till exempel, för att använda <key>A</key> för att <gui>Flytta vänster</"
-"gui>, välj <gui>Vänster</gui> styrkontroll och klicka på den, tryck sedan på "
-"<key>A</key> på ditt tangentbord när du ser <gui>Ny snabbtangent…</gui> på "
-"raden."
+"För att exempelvis använda <key>A</key> för att flytta vänster, välj "
+"<gui>Åtgärd</gui> <gui>Flytta vänster</gui>, välj sedan dess <gui>Tangent</"
+"gui>, tryck sedan på <key>A</key> på ditt tangentbord när du ser <gui>Ny "
+"snabbtangent…</gui> på raden."
 
 #. (itstool) path: info/desc
-#: C/controls-default.page:24
+#: C/controls-default.page:25
 msgid "Default keys for <app>Nibbles.</app>"
 msgstr "Standard styrtangenter i <app>Nibbles.</app>"
 
 #. (itstool) path: page/title
-#: C/controls-default.page:27
+#: C/controls-default.page:28
 msgid "Keyboard Controls"
 msgstr "Tangentbordskontroller"
 
 #. (itstool) path: page/p
-#: C/controls-default.page:29
+#: C/controls-default.page:30
 msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
@@ -220,46 +240,46 @@ msgstr ""
 "standardknappar:"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:34
+#: C/controls-default.page:35
 msgid "<key>Up</key> to move the worm up"
 msgstr "<key>↑</key> för att styra masken upp"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:37
+#: C/controls-default.page:38
 msgid "<key>Down</key> to move the worm down"
 msgstr "<key>↓</key> för att flytta masken nedåt"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:40
+#: C/controls-default.page:41
 msgid "<key>Left</key> to move the worm left"
 msgstr "<key>←</key> för att flytta masken till vänster"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:43
+#: C/controls-default.page:44
 msgid "<key>Right</key> to move the worm right"
 msgstr "<key>→</key> för att flytta masken till höger"
 
 #. (itstool) path: note/p
-#: C/controls-default.page:48
+#: C/controls-default.page:49
 msgid ""
 "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
 "Du kan <link xref=\"controls-change\">ändra</link> standardtangenterna."
 
 #. (itstool) path: info/desc
-#: C/fake-bonus.page:23
+#: C/fake-bonus.page:28
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
 "Använd falska bonusar i <app>Nibbles</app> för att göra det mer utmanande."
 
 #. (itstool) path: page/title
-#: C/fake-bonus.page:27
+#: C/fake-bonus.page:32
 msgid "What are fake bonuses?"
 msgstr "Vad är falska bonusar?"
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:29
+#: C/fake-bonus.page:34
 msgid ""
 "Fake bonuses look like regular bonus shapes but do not give you any points "
 "when your worm swallows them. They cause a reversal in the movement of your "
@@ -270,27 +290,23 @@ msgstr ""
 "rörelseriktningen på din mask."
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:33
+#: C/fake-bonus.page:38
 msgid "To enable fake bonuses:"
 msgstr "För att aktivera falska bonusar:"
 
 #. (itstool) path: item/p
-#: C/fake-bonus.page:40
+#: C/fake-bonus.page:44
 msgid ""
-"Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
-"is unchecked."
+"On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
+"\">Enable fake bonuses</gui> checkbox if it is unchecked."
 msgstr ""
-"Kontrollera <gui style=\"checkbox\">Aktivera falska bonusar</gui> om "
-"kryssrutan är omarkerad."
+"På skärmen <gui>Inställningar</gui>, kryssa i kryssrutan <gui style="
+"\"checkbox\">Aktivera falska bonusar</gui> om den är omarkerad."
 
 #. (itstool) path: note/p
-#: C/fake-bonus.page:46
-msgid ""
-"Set all preferences before starting a new game. Preferences cannot be "
-"changed in the middle of a game."
-msgstr ""
-"Ändra alla inställningar innan du startar ett nytt spel. Inställningar kan "
-"inte ändras under pågående spel."
+#: C/fake-bonus.page:50 C/speed-change.page:44
+msgid "Preferences cannot be changed in the middle of a game."
+msgstr "Inställningar kan inte ändras under pågående spel."
 
 #. (itstool) path: info/desc
 #: C/index.page:17
@@ -324,17 +340,17 @@ msgid "Preferences"
 msgstr "Inställningar"
 
 #. (itstool) path: info/desc
-#: C/multi-player.page:24
+#: C/multi-player.page:29
 msgid "Play <app>Nibbles</app> with additional players."
 msgstr "Spela <app>Nibbles</app> med flera spelare."
 
 #. (itstool) path: page/title
-#: C/multi-player.page:27
+#: C/multi-player.page:32
 msgid "Multi-player games"
 msgstr "Spel för flera spelare"
 
 #. (itstool) path: page/p
-#: C/multi-player.page:29
+#: C/multi-player.page:34
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. While a player "
 "controls <gui>Worm 1</gui> in a single-player game, players can additionally "
@@ -351,163 +367,32 @@ msgstr ""
 "gui> och <gui>Mask 3</gui> och så vidare."
 
 #. (itstool) path: section/title
-#: C/multi-player.page:37
+#: C/multi-player.page:42
 msgid "Choose the number of players"
 msgstr "Välj antal spelare"
 
 #. (itstool) path: section/p
-#: C/multi-player.page:39
+#: C/multi-player.page:44
 msgid ""
-"<app>Nibbles</app> can be played by up to six players. To set the number of "
-"players:"
+"<app>Nibbles</app> can be played by up to six players. Up to four of them "
+"can be humans. To set the number of players:"
 msgstr ""
-"<app>Nibbles</app> kan spelas av upp till sex deltagare. För att ställa in "
-"antalet spelare:"
+"<app>Nibbles</app> kan spelas av upp till sex spelare. Upp till fyra av dem "
+"kan vara mänskliga. För att ställa in antalet spelare:"
 
 #. (itstool) path: item/p
-#: C/multi-player.page:48
+#: C/multi-player.page:52
 msgid ""
-"Set the <gui style=\"input\">Number of human players</gui> to the required "
-"number, a maximum of 6. You can do this by using the <gui style=\"button\">"
-"+</gui> or <gui style=\"button\">-</gui> buttons or by entering the number "
-"of players from the keyboard in the space provided."
+"On the <gui>Number of players</gui> screen, set the number of human players "
+"to the required number, a maximum of 4."
 msgstr ""
-"Välj önskat <gui style=\"input\">Antal mänskliga spelare</gui>, upp till 6. "
-"Du kan göra detta genom att använda <gui style=\"button\">+</gui> eller <gui "
-"style=\"button\">-</gui>-knapparna eller genom att skriva in antalet spelare "
-"i utrymmet."
-
-#. (itstool) path: note/p
-#: C/multi-player.page:57
-msgid ""
-"You can watch a <app>Nibbles</app> game without participating. To observe a "
-"game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
-"set the <gui style=\"input\">Number of AI players</gui> to any number "
-"between 1 and 6."
-msgstr ""
-"Du kan titta på ett <app>Nibbles</app>spel utan att delta. För att observera "
-"ett spel, ange <gui style=\"input\">Antal mänskliga spelare</gui> till 0 och "
-"ange <gui style=\"input\">Antal AI-spelare</gui> till valfritt nummer mellan "
-"1 och 6."
-
-#. (itstool) path: info/desc
-#: C/preferences.page:23
-msgid "Change default speed, worm color, level order and sound settings."
-msgstr "Ändra standardhastighet, maskfärg, nivåordning och ljudinställningar."
-
-#. (itstool) path: page/title
-#: C/preferences.page:26
-msgid "Edit general preferences"
-msgstr "Redigera allmänna inställningar"
-
-#. (itstool) path: page/p
-#: C/preferences.page:28
-msgid ""
-"The general preferences for <app>Nibbles</app> can be changed by pressing "
-"the menu button in the top-right corner of the window and selecting <gui "
-"style=\"menuitem\">Preferences</gui>."
-msgstr ""
-"De allmänna inställningarna för <app>Nibbles</app> kan ändras genom att "
-"trycka på menyknappen i fönstrets övre högra hörn och välja <gui style="
-"\"menuitem\">Inställningar</gui>."
-
-#. (itstool) path: section/title
-#: C/preferences.page:33
-msgid "Speed"
-msgstr "Hastighet"
-
-#. (itstool) path: section/p
-#: C/preferences.page:35
-msgid "To change the speed:"
-msgstr "För att ändra hastigheten:"
+"På skärmen <gui>Antal spelare</gui>, ställ in antalet mänskliga spelare till "
+"antalet som behövs, max 4."
 
 #. (itstool) path: item/p
-#: C/preferences.page:42
-msgid "Select one of the four speed choices given on the left hand side."
-msgstr "Välj ett av de fyra hastighetsalternativen som ges till vänster."
-
-#. (itstool) path: section/title
-#: C/preferences.page:49
-msgid "Change worm colors"
-msgstr "Ändra maskens färg"
-
-#. (itstool) path: section/p
-#: C/preferences.page:51
-msgid "There are seven available worm colors:"
-msgstr "Det finns sju tillgängliga maskfärger:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:55
-msgid "<_:media-1/> Red"
-msgstr "<_:media-1/> Röd"
-
-#. (itstool) path: item/p
-#: C/preferences.page:59
-msgid "<_:media-1/> Green"
-msgstr "<_:media-1/> Grön"
-
-#. (itstool) path: item/p
-#: C/preferences.page:63
-msgid "<_:media-1/> Blue"
-msgstr "<_:media-1/> Blå"
-
-#. (itstool) path: item/p
-#: C/preferences.page:67
-msgid "<_:media-1/> Yellow"
-msgstr "<_:media-1/> Gul"
-
-#. (itstool) path: item/p
-#: C/preferences.page:71
-msgid "<_:media-1/> Cyan"
-msgstr "<_:media-1/> Cyan"
-
-#. (itstool) path: item/p
-#: C/preferences.page:75
-msgid "<_:media-1/> Purple"
-msgstr "<_:media-1/> Lila"
-
-#. (itstool) path: item/p
-#: C/preferences.page:79
-msgid "<_:media-1/> Gray"
-msgstr "<_:media-1/> Grå"
-
-#. (itstool) path: section/p
-#: C/preferences.page:84
-msgid "To change worm colors:"
-msgstr "För att ändra maskarnas färger:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:91
-msgid ""
-"Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
-"you wish to edit."
-msgstr ""
-"Välj någon av <gui style=\"tab\">Mask</gui>-flikarna för att välja den mask "
-"du vill redigera."
-
-#. (itstool) path: item/p
-#: C/preferences.page:95
-msgid ""
-"Under <gui>Worm color</gui>, pick a color out of the available colors in the "
-"drop-down menu to change the appearance of the worm."
-msgstr ""
-"Under <gui>Maskfärg</gui>, välj en av de tillgängliga färgerna i "
-"rullgardinsmenyn för att ändra maskens utseende."
-
-#. (itstool) path: section/title
-#: C/preferences.page:103
-msgid "Sounds"
-msgstr "Ljud"
-
-#. (itstool) path: section/p
-#: C/preferences.page:105
-msgid "To enable or disable sounds:"
-msgstr "För att aktivera eller inaktivera ljud:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:112
-msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
-msgstr "Kryssa i eller avmarkera <gui style=\"checkbox\">Aktivera ljud</gui>."
+#: C/multi-player.page:56
+msgid "Set the number of computer players."
+msgstr "Ställ in antal datorspelare."
 
 #. (itstool) path: credit/name
 #: C/scores.page:19
@@ -616,6 +501,54 @@ msgstr ""
 "på och längden på masken. Ju högre nivånummer och ju längre mask, desto mer "
 "poäng blir det för att äta denna bonus."
 
+#. (itstool) path: info/desc
+#: C/sound-change.page:28
+msgid "Change sound settings."
+msgstr "Ändra ljudinställningar."
+
+#. (itstool) path: page/title
+#: C/sound-change.page:31
+msgid "Enable or disable sound"
+msgstr "Aktivera eller inaktivera ljud"
+
+#. (itstool) path: page/p
+#: C/sound-change.page:33
+msgid "To enable or disable sounds:"
+msgstr "För att aktivera eller inaktivera ljud:"
+
+#. (itstool) path: item/p
+#: C/sound-change.page:36
+msgid "Press the menu button in the top-right corner of the window."
+msgstr "Tryck på menyknappen i fönstrets övre högra hörn."
+
+#. (itstool) path: item/p
+#: C/sound-change.page:39
+msgid "Check or uncheck <gui style=\"checkbox\">Sound</gui>."
+msgstr "Kryssa i eller avmarkera <gui style=\"checkbox\">Ljud</gui>."
+
+#. (itstool) path: info/desc
+#: C/speed-change.page:28
+msgid "Change how fast the worms move."
+msgstr "Ändra hur fort maskarna rör sig."
+
+#. (itstool) path: page/title
+#: C/speed-change.page:31
+msgid "Change the default speed"
+msgstr "Ändra standardhastigheten"
+
+#. (itstool) path: page/p
+#: C/speed-change.page:33
+msgid "To change the speed:"
+msgstr "För att ändra hastigheten:"
+
+#. (itstool) path: item/p
+#: C/speed-change.page:39
+msgid ""
+"On the <gui>Preferences</gui> screen, select one of the four speed choices."
+msgstr ""
+"På skärmen <gui>Inställningar</gui>, välj ett av de fyra "
+"hastighetsalternativen."
+
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
@@ -625,206 +558,3 @@ msgstr "Creative Commons Erkännande-DelaLika 3.0 Unported"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Det här verket är licensierat under licensen <_:link-1/>."
-
-#~ msgid ""
-#~ "The number of lives remaining for a worm is given by the number on the "
-#~ "left of the comma in a worm's score. If a worm's score is 10,005, the "
-#~ "worm has 10 lives remaining."
-#~ msgstr ""
-#~ "Antalet kvarvarande liv för en mask visas av numret till vänster om "
-#~ "kommatecknet i maskens poäng. Om maskens poäng är 10,005, har den 10 liv "
-#~ "kvar."
-
-#~ msgid ""
-#~ "You cannot get extra lives by scoring 10,000 points or more. If you have "
-#~ "scored 12345 points with 10 lives remaining, your score will be 10,12345."
-#~ msgstr ""
-#~ "Du får inga extra liv genom att göra 10.000 poäng eller mer. Om du har "
-#~ "12345 poäng med 10 kvarvarande liv, kommer din poäng att vara 10,12345."
-
-#~ msgid "This bonus has no effect in a single-player game."
-#~ msgstr "Den här bonusen har ingen verkan när man spelar ensam."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Game</gui> <gui style=\"menuitem"
-#~ "\">New</gui></guiseq> or press <keyseq><key>Ctrl</key><key>N</key></"
-#~ "keyseq> to start a new game."
-#~ msgstr ""
-#~ "Välj <guiseq><gui style=\"menu\">Spel</gui> <gui style=\"menuitem\">Nytt</"
-#~ "gui></guiseq> eller tryck <keyseq><key>Ctrl</key><key>N</key></keyseq> "
-#~ "för att starta nytt spel."
-
-#~ msgid "Play <app>Nibbles</app> in fullscreen mode"
-#~ msgstr "Spela <app>Nibbles</app> i helskärmsläge"
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
-#~ "\">Fullscreen</gui></guiseq> or press <key>F11</key> to play your game in "
-#~ "fullscreen mode. You can return to the default screen size by pressing "
-#~ "<key>F11</key> again."
-#~ msgstr ""
-#~ "Välj <guiseq><gui style=\"menu\">Visa</gui> <gui style=\"menuitem"
-#~ "\">Helskärm</gui></guiseq> eller tryck på <key>F11</key> för att spela "
-#~ "ditt spel i helskärmsläge. Du kan återgå till standard bildstorlek genom "
-#~ "att trycka <key>F11</key> igen."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-#~ "\">Preferences</gui></guiseq>."
-#~ msgstr ""
-#~ "Välj <guiseq><gui style=\"menu\">Inställningar</gui> <gui style=\"menuitem"
-#~ "\">Inställningar</gui></guiseq>."
-
-#~ msgid ""
-#~ "All worm movements happen with respect to the screen unless <link xref="
-#~ "\"rel-movement\">relative movement</link> is enabled. This means that "
-#~ "when you press <key>Left</key> the worm moves towards the left of the "
-#~ "screen, when you press <key>Right</key> the worm moves towards the right "
-#~ "of the screen and so on."
-#~ msgstr ""
-#~ "Alla maskrörelser sker med avseende till skärmen såvida inte <link xref="
-#~ "\"rel-movement\">relativ rörelse</link> är aktiverad. Det betyder att när "
-#~ "du trycker <key>←</key> rör sig masken åt vänster på skärmen, när du "
-#~ "trycker <key>→</key> rör sig masken åt höger på skärmen och så vidare."
-
-#~ msgid "Click <gui>Close</gui>."
-#~ msgstr "Klicka <gui>Stäng</gui>."
-
-#~ msgid ""
-#~ "There are four available speeds in <app>Nibbles</app>. These are, in "
-#~ "increasing order:"
-#~ msgstr ""
-#~ "Det finns fyra tillgängliga hastigheter i <app>Nibbles</app>. Dessa är, i "
-#~ "stigande ordning:"
-
-#~ msgid "Nibbles Newbie"
-#~ msgstr "Nibbles-nybörjare"
-
-#~ msgid "My second day"
-#~ msgstr "Andra dagen"
-
-#~ msgid "Not too shabby"
-#~ msgstr "Inte alltför dålig"
-
-#~ msgid "Finger twitching good"
-#~ msgstr "Rejält snabbfingrad"
-
-#~ msgid ""
-#~ "Speed can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
-#~ "style=\"menuitem\">Preferences</gui></guiseq> by selecting one of the "
-#~ "four speed choices given on the left hand side."
-#~ msgstr ""
-#~ "Hastigheten kan ändras i <guiseq><gui style=\"menu\">Inställningar</gui> "
-#~ "<gui style=\"menuitem\">Inställningar</gui></guiseq> genom att välja en "
-#~ "av de fyra hastighetsvalen på vänster sida."
-
-#~ msgid ""
-#~ "These can be changed in <guiseq><gui style=\"menu\">Settings</gui> <gui "
-#~ "style=\"menuitem\">Preferences</gui></guiseq>."
-#~ msgstr ""
-#~ "Dessa kan ändras i <guiseq><gui style=\"menu\">Inställningar</gui> <gui "
-#~ "style=\"menuitem\">Inställningar</gui></guiseq>."
-
-#~ msgid ""
-#~ "You can enable or disable sounds in <app>Nibbles</app> by checking or "
-#~ "unchecking the <gui style=\"checkbox\">Enable sounds</gui> checkbox in "
-#~ "<guiseq><gui style=\"menu\">Settings</gui> <gui style=\"menuitem"
-#~ "\">Preferences</gui></guiseq>."
-#~ msgstr ""
-#~ "Du kan aktivera eller inaktivera ljud i <app>Nibbles</app> genom att "
-#~ "markera eller avmarkera kryssrutan <gui style=\"checkbox\">Aktivera ljud</"
-#~ "gui> i <guiseq><gui style=\"menu\">Inställningar</gui> <gui style="
-#~ "\"menuitem\">Inställningar</gui></guiseq>."
-
-#~ msgid "Play levels in random order"
-#~ msgstr "Spela nivåer i slumpmässig ordning"
-
-#~ msgid ""
-#~ "Check or uncheck the <gui style=\"checkbox\">Play levels in random order</"
-#~ "gui> checkbox in <guiseq><gui style=\"menu\">Settings</gui> <gui style="
-#~ "\"menuitem\">Preferences</gui></guiseq> to play the different levels in "
-#~ "<app>Nibbles</app> in random order."
-#~ msgstr ""
-#~ "Markera eller avmarkera kryssrutan <gui style=\"checkbox\">Spela nivåer i "
-#~ "slumpmässig ordning</gui> <guiseq><gui style=\"menu\">Inställningar</gui> "
-#~ "<gui style=\"menuitem\">Inställningar</gui></guiseq> för att spela "
-#~ "nivåerna i <app>Nibbles</app> i en slumpmässig ordning."
-
-#~ msgid "Enable relative movement."
-#~ msgstr "Aktivera relativ rörelse."
-
-#~ msgid "Relative movement"
-#~ msgstr "Relativ rörelse"
-
-#~ msgid ""
-#~ "When relative movement is enabled, the worm is maneuvered using just the "
-#~ "default <key>Left</key> and <key>Right</key> keys or other <link xref="
-#~ "\"controls-change\">customized keys</link> that control the leftward and "
-#~ "rightward movement of a worm. When the <key>Left</key> key is pressed, "
-#~ "the worm turns left, instead of moving towards the left of the screen. "
-#~ "Similarly, when the <key>Right</key> key is pressed, the worm turns right "
-#~ "instead of moving towards the right of the screen."
-#~ msgstr ""
-#~ "När relativ rörelse är aktiverad, manövreras masken med <key>Vänster</"
-#~ "key> och <key>Höger</key> piltangenter eller andra <link xref=\"controls-"
-#~ "change\">anpassade tangenter</link> som kontrollerar vänster- och "
-#~ "högerrörelser av masken. När du trycker på <key>←</key>-tangenten gör "
-#~ "masken en rät sväng åt vänster om färdriktningen, istället för att röra "
-#~ "sig mot skärmens vänstra kant. När du trycker på <key>→</key>-tangenten "
-#~ "gör masken på motsvarande sätt en rät sväng åt höger om färdriktningen, "
-#~ "istället för att röra sig mot skärmens högra kant."
-
-#~ msgid "Starting position:"
-#~ msgstr "Startposition:"
-
-#~ msgid "The location of the worm before you decide to move it."
-#~ msgstr "Maskens placering innan du bestämmer dig för att flytta den."
-
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='figures/before-rel.png' "
-#~ "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-#~ msgstr ""
-#~ "external ref='figures/before-rel.png' "
-#~ "md5='e7f0204cd50d4e6e46b2a46b2c97502b'"
-
-#~ msgid "On pressing the <key>Left</key> key:"
-#~ msgstr "Att trycka på <key>←</key>-tangenten:"
-
-#~ msgid "The worm turns left and begins to move downwards."
-#~ msgstr "Masken svänger åt vänster och börjar röra sig nedåt."
-
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='figures/after-rel.png' "
-#~ "md5='face859122668e3ec20b98cfdcc0bd2d'"
-#~ msgstr ""
-#~ "external ref='figures/after-rel.png' "
-#~ "md5='face859122668e3ec20b98cfdcc0bd2d'"
-
-#~ msgid ""
-#~ "If relative movement was not enabled, you would press the <key>Down</key> "
-#~ "key to achieve the above result."
-#~ msgstr ""
-#~ "Om relativ rörelse inte var aktiverat, skulle du behöva trycka på <key>↓</"
-#~ "key>-tangenten för att uppnå ovanstående resultat."
-
-#~ msgid "To enable relative movement:"
-#~ msgstr "För att aktivera relativ rörelse:"
-
-#~ msgid ""
-#~ "Select the worm for which relative movement has to be enabled by clicking "
-#~ "the appropriate <gui>Worm</gui> tab."
-#~ msgstr ""
-#~ "Välj den mask som du vill aktivera relativ rörelse för genom att klicka "
-#~ "på den <gui>Maskens</gui> flik."
-
-#~ msgid ""
-#~ "Check the <gui style=\"checkbox\">Use relative movement</gui> checkbox if "
-#~ "it is unchecked."
-#~ msgstr ""
-#~ "Kontrollera om kryssrutan <gui style=\"checkbox\">Använd relativ rörelse</"
-#~ "gui> är markerad."
-
-#~ msgid "Click <gui style=\"button\">Close</gui>."
-#~ msgstr "Klicka <gui style=\"button\">Stäng</gui>."
