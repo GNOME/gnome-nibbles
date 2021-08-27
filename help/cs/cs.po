@@ -169,7 +169,7 @@ msgid ""
 "<gui>Action</gui>. This highlights the line."
 msgstr ""
 "V seznamu <gui style=\"group\">Ovládání</gui> vyberte řádek s požadovanou "
-"<gui>Činností</a>. Řádek se zvýrazní."
+"<gui>Činností</gui>. Řádek se zvýrazní."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:58
