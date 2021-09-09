@@ -1,0 +1,539 @@
+# Korean translation for gnome-nibbles.
+# Copyright (C) 2021 gnome-nibbles's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-nibbles package.
+# Seong-ho Cho <shcho@gnome.org>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-nibbles master\n"
+"POT-Creation-Date: 2021-09-06 20:23+0000\n"
+"PO-Revision-Date: 2021-09-09 16:51+0900\n"
+"Language-Team: Korean <gnome-kr@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
+"X-Generator: Poedit 2.3.1\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "조성호 <shcho@gnome.org>, 2021"
+
+#. (itstool) path: credit/name
+#: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
+#: C/fake-bonus.page:16 C/index.page:13 C/multi-player.page:17 C/scores.page:15
+#: C/sound-change.page:16 C/speed-change.page:16
+msgid "Aruna Sankaranarayanan"
+msgstr "Aruna Sankaranarayanan"
+
+#. (itstool) path: credit/name
+#: C/basics.page:20 C/controls-change.page:22 C/controls-default.page:20
+#: C/fake-bonus.page:20 C/multi-player.page:21 C/sound-change.page:20
+#: C/speed-change.page:20
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#. (itstool) path: info/desc
+#: C/basics.page:24
+msgid "Start, pause, and quit a game of <app>Nibbles</app>."
+msgstr "<app>니블즈</app>게음을 시작하고 멈추고 끝냅니다."
+
+#. (itstool) path: page/title
+#: C/basics.page:27
+msgid "Basic instructions"
+msgstr "기초 안내"
+
+#. (itstool) path: section/title
+#: C/basics.page:30
+msgid "Start a new game"
+msgstr "새 게임 시작"
+
+#. (itstool) path: section/p
+#: C/basics.page:32
+msgid ""
+"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
+"start a new game when being in a game."
+msgstr ""
+"게임을 시작할 때 새 게임을 시작하려면 헤더 표시줄의 <gui style=\"button\">새 "
+"게임</gui> 단추를 누릅니다."
+
+#. (itstool) path: section/p
+#: C/basics.page:34
+msgid ""
+"Press the <gui style=\"button\">Play Again</gui> button when you have "
+"finished a game."
+msgstr "게임이 끝났다면 <gui style=\"button\">다시 플레이</gui>를 누릅니다."
+
+#. (itstool) path: section/title
+#: C/basics.page:39
+msgid "Pause and resume your game"
+msgstr "게임을 멈추거나 재개합니다"
+
+#. (itstool) path: section/p
+#: C/basics.page:41
+msgid ""
+"Press the <gui style=\"button\">Pause</gui> button in the header bar to "
+"pause your game. You can resume your game by pressing the <gui style=\"button"
+"\">Resume</gui> button."
+msgstr ""
+"게임을 멈추려면 헤더 표시줄의 <gui style=\"button\">일시 중지</gui>단추를 누"
+"릅니다. <gui style=\"button\">이어서 하기</gui> 단추를 눌러 게임을 계속할 수 "
+"있습니다."
+
+#. (itstool) path: section/title
+#: C/basics.page:47
+msgid "Quit <app>Nibbles</app>"
+msgstr "<app>니블즈</app> 끝내기"
+
+#. (itstool) path: section/p
+#: C/basics.page:49
+msgid ""
+"Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+"<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
+"any time."
+msgstr ""
+"언제든지 <app>니블즈</app>를 끝내려면 헤더 표시줄의 <gui style=\"button\">⨯</"
+"gui> 단추를 누르거나 <keyseq><key>Ctrl</key><key>Q</key></keyseq> 키를 누릅니"
+"다."
+
+#. (itstool) path: credit/name
+#: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
+#: C/sound-change.page:24 C/speed-change.page:24
+msgid "Andre Klapper"
+msgstr "Andre Klapper"
+
+#. (itstool) path: info/desc
+#: C/controls-change.page:30
+msgid "Set custom control keys."
+msgstr "개별 조종 키를 설정합니다."
+
+#. (itstool) path: page/title
+#: C/controls-change.page:33
+msgid "Change the default controls"
+msgstr "기본 조종 키 바꾸기"
+
+#. (itstool) path: page/p
+#: C/controls-change.page:35
+msgid ""
+"The <link xref=\"controls-default\">default controls</link> can be changed "
+"in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
+"player\">multi-player</link> games, when having more than one set of "
+"controls becomes necessary. To change the default controls:"
+msgstr ""
+"하나 이상의 조종키 세트가 필요할 경우 <app>니블즈</app>에서는 <link xref="
+"\"controls-default\">기본 제어</link>를 <link xref=\"multi-player\">다중 플레"
+"이어</link> 게임에 맞게 여러분의 기본 설정에 맞추어 바꿀 수 있습니다. 기본 조"
+"종키 값을 바꾸려면:"
+
+#. (itstool) path: item/p
+#: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
+#: C/speed-change.page:36
+msgid "Start a new game."
+msgstr "새 게임을 시작합니다."
+
+#. (itstool) path: media/span
+#: C/controls-change.page:46
+msgid "settings"
+msgstr "설정"
+
+#. (itstool) path: item/p
+#: C/controls-change.page:45
+msgid ""
+"On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
+"player whose controls you want to change."
+msgstr ""
+"<gui>제어</gui> 화면에서 조종 키를 바꾸고자 하는 플레이어의 <_:media-1/> 단추"
+"를 누릅니다."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:49
+msgid ""
+"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+"player 3 controls <gui>Worm 3</gui> and so on."
+msgstr ""
+"1번 플레이어는 <gui>1번 벌레</gui>를, 2번 플레이어는 <gui>2번 벌레</gui>를, 3"
+"번 플레이어는 <gui>3번 벌레</gui>를 조종합니다."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:54
+msgid ""
+"In the <gui style=\"group\">Controls</gui> list, select the line of the "
+"<gui>Action</gui>. This highlights the line."
+msgstr ""
+"<gui style=\"group\">제어</gui> 목록에서 <gui>액션</gui>의 행을 선택합니다. "
+"선택하면 해당 줄을 강조합니다."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:58
+msgid ""
+"Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
+"gui> are now present in place of the old control."
+msgstr ""
+"컨트롤의 <gui>키</gui>를 선택합니다. 이전 조종 키 위치에 <gui>새 가속키…</"
+"gui> 단어가 뜹니다."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:63
+msgid "Press the key you want to use instead of the default key."
+msgstr "기본 키 대신 원하는 키를 누릅니다."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:66
+msgid ""
+"To keep the old setting click <gui>New accelerator…</gui> again, right click "
+"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
+"inside the <gui>Nibbles Preferences</gui> box."
+msgstr ""
+"이전 설정을 유지하려면 <gui>새 가속키…</gui>를 누르고 <gui>새 가속키…</gui>"
+"에 포인터를 올려놓은 후 오른쪽 단추를 누른 다음, <key>Esc</key> 키를 누르거"
+"나 <gui>니블즈 기본 설정</gui> 상자 내 다른 곳을 눌러줍니다."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:72
+msgid ""
+"Repeat the above step to change the other default keys for the current "
+"player, then select the tab for the next player whose controls you want to "
+"change and repeat the process."
+msgstr ""
+"위 단계를 현재 플레이어의 다른 기본 키에도 반복하고, 조종 키를 바꾸고자 하는 "
+"다음 플레이어의 탭을 선택한 다음 과정을 반복합니다."
+
+#. (itstool) path: page/p
+#: C/controls-change.page:78
+msgid ""
+"For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
+"<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
+"key> on your keyboard when you see <gui>New accelerator…</gui> on the line."
+msgstr ""
+"예를 들어 왼쪽으로 움직일 때 <key>A</key>키를 사용하려면 <gui>액션</gui> 선택"
+"에서 <gui>왼쪽으로 이동</gui>을 선택하고, <gui>키</gui>를 선택한 다음 <gui>"
+"새 가속키…</gui>가 떴을 때 <key>A</key> 키를 눌러줍니다."
+
+#. (itstool) path: info/desc
+#: C/controls-default.page:25
+msgid "Default keys for <app>Nibbles.</app>"
+msgstr "<app>니블즈</app> 기본키입니다."
+
+#. (itstool) path: page/title
+#: C/controls-default.page:28
+msgid "Keyboard Controls"
+msgstr "키보드 조종"
+
+#. (itstool) path: page/p
+#: C/controls-default.page:30
+msgid ""
+"For controlling the movements of your worm in a single-player mode, use the "
+"following default keys:"
+msgstr ""
+"단일 플레이어 모드에서 벌레 움직임을 조종할 때 다음 기본 키를 활용합니다:"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:35
+msgid "<key>Up</key> to move the worm up"
+msgstr "<key>Up</key>키는 벌레를 위로 움직입니다"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:38
+msgid "<key>Down</key> to move the worm down"
+msgstr "<key>Down</key>키는 벌레를 아래로 움직입니다"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:41
+msgid "<key>Left</key> to move the worm left"
+msgstr "<key>Left</key>는 벌레를 왼쪽으로 움직입니다"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:44
+msgid "<key>Right</key> to move the worm right"
+msgstr "<key>Right</key>키는 벌레를 오른쪽으로 움직입니다"
+
+#. (itstool) path: note/p
+#: C/controls-default.page:49
+msgid ""
+"You can <link xref=\"controls-change\">change</link> the default controls."
+msgstr "기본 조종 키를 <link xref=\"controls-change\">바꿀</link>수 있습니다."
+
+#. (itstool) path: info/desc
+#: C/fake-bonus.page:28
+msgid ""
+"Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
+msgstr ""
+"<app>니블즈</app>의 가짜 보너스를 활용하여 더 많은 장애물에 도전합니다."
+
+#. (itstool) path: page/title
+#: C/fake-bonus.page:32
+msgid "What are fake bonuses?"
+msgstr "가짜 보너스는 무엇일까요?"
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:34
+msgid ""
+"Fake bonuses look like regular bonus shapes but do not give you any points "
+"when your worm swallows them. They cause a reversal in the movement of your "
+"worm."
+msgstr ""
+"가짜 보너스는 보통 보너스 아이템 처럼 보이지만 벌레가 먹었을 때 점수가 없습니"
+"다. 벌레의 움직임을 반대로 만듭니다."
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:38
+msgid "To enable fake bonuses:"
+msgstr "가짜 보너스를 사용하려면:"
+
+#. (itstool) path: item/p
+#: C/fake-bonus.page:44
+msgid ""
+"On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
+"\">Enable fake bonuses</gui> checkbox if it is unchecked."
+msgstr ""
+"<gui>기본 설정</gui> 화면에서 <gui style=\"checkbox\">가짜 보너스 사용</gui>"
+"표시가 꺼져있다면 표시해줍니다."
+
+#. (itstool) path: note/p
+#: C/fake-bonus.page:50 C/speed-change.page:44
+msgid "Preferences cannot be changed in the middle of a game."
+msgstr "게임을 진행하는 중에는 기본 설정을 바꿀 수 없습니다."
+
+#. (itstool) path: info/desc
+#: C/index.page:17
+msgid "Index"
+msgstr "색인"
+
+#. (itstool) path: page/title
+#: C/index.page:20
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> 니블즈"
+
+#. (itstool) path: page/p
+#: C/index.page:22
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
+"swallow as many objects as you can while avoiding maze walls and other "
+"worms. You have to complete 26 levels to finish the game."
+msgstr ""
+"<app>니블즈</app>는 그놈용 뱀 게임입니다. 벽과 다른 벌레를 피해 최대한 많은 "
+"먹이를 먹는게 이 게임의 목표입니다. 이 게임은 총 26단계로 구성했습니다."
+
+#. (itstool) path: section/title
+#: C/index.page:27
+msgid "Game play"
+msgstr "게임 플레이"
+
+#. (itstool) path: section/title
+#: C/index.page:31
+msgid "Preferences"
+msgstr "기본 설정"
+
+#. (itstool) path: info/desc
+#: C/multi-player.page:29
+msgid "Play <app>Nibbles</app> with additional players."
+msgstr "추가 플레이어와 <app>니블즈</app> 게임을 즐깁니다."
+
+#. (itstool) path: page/title
+#: C/multi-player.page:32
+msgid "Multi-player games"
+msgstr "다중 플레이어 게임"
+
+#. (itstool) path: page/p
+#: C/multi-player.page:34
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. While a player "
+"controls <gui>Worm 1</gui> in a single-player game, players can additionally "
+"control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A two-"
+"player game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>, a "
+"three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
+"and <gui>Worm 3</gui> and so on."
+msgstr ""
+"<app>니블즈</app> 게임은 6인용입니다. 1인 플레이시 <gui>1번 벌레</gui>를 조종"
+"하지만, 다중 플레이시에는 나머지 플레이어가 <gui>2번 벌레</gui>부터 <gui>6번 "
+"벌레</gui>까지 조종할 수 있습니다. 2인 플레이시 <gui>1번 벌레</gui>와 <gui>2"
+"번 벌레</gui>를 조종할 수 있으며, 3인 플레이시 <gui>1번 벌레</gui>, <gui>2번 "
+"벌레</gui>, <gui>3번 벌레</gui>를 조종할 수 있습니다."
+
+#. (itstool) path: section/title
+#: C/multi-player.page:42
+msgid "Choose the number of players"
+msgstr "플레이어 수 선택하기"
+
+#. (itstool) path: section/p
+#: C/multi-player.page:44
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. Up to four of them "
+"can be humans. To set the number of players:"
+msgstr ""
+"<app>니블즈</app>는 6인용이지만, 사람은 4명까지 할 수 있습니다. 플레이어 수"
+"를 설정하려면:"
+
+#. (itstool) path: item/p
+#: C/multi-player.page:52
+msgid ""
+"On the <gui>Number of players</gui> screen, set the number of human players "
+"to the required number, a maximum of 4."
+msgstr ""
+"<gui>플레이어 수</gui> 화면에서 필요한 사람 수를 설정합니다. 최대 4명까지 가"
+"능합니다."
+
+#. (itstool) path: item/p
+#: C/multi-player.page:56
+msgid "Set the number of computer players."
+msgstr "컴퓨터 플레이어 수를 설정합니다."
+
+#. (itstool) path: credit/name
+#: C/scores.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
+#. (itstool) path: info/desc
+#: C/scores.page:23
+msgid "Swallow different bonuses to score points."
+msgstr "다양한 보너스를 먹어 점수를 획득합니다."
+
+#. (itstool) path: page/title
+#: C/scores.page:26
+msgid "Scoring points in <app>Nibbles</app>"
+msgstr "<app>니블즈</app>에서 점수 획득하기"
+
+#. (itstool) path: page/p
+#: C/scores.page:28
+msgid ""
+"You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
+"different kinds of bonuses in Nibbles:"
+msgstr ""
+"<app>니블즈</app>에서는 보너스를 먹어 점수를 획득할 수 있습니다. 니블즈에는 "
+"다섯가지 보너스가 있습니다:"
+
+#. (itstool) path: item/p
+#: C/scores.page:32
+msgid ""
+"The apple-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the apple vary from level "
+"to level and are multiples of the level number. In level 1, the first apple "
+"will give you 1 point, the second apple will give you 2 points, the third "
+"apple will give you 3 points and so on. In level 2, the first apple will "
+"give you 2 points, the second apple will give you 4 points, the third apple "
+"will give you 6 points and so on. In level 26, therefore, the first apple "
+"will give you 26 points, the second apple will give you 52 points and so on."
+msgstr ""
+"사과모양 보너스 <_:media-1/> : 벌레의 길이가 늘어납니다. 사과를 먹는 벌레의 "
+"보너스 점수는 레벨마다 다르며 레벨 수만큼 배로 획득할 수 있습니다. 레벨 1에"
+"서 첫번째 사과 점수는 1점, 두번째 사과는 2점, 세번째 사과는 3점입니다. 레벨 2"
+"에서 첫번째 사과는 2점, 두번째 사과는 4점, 세번째 사과는 6점입니다. 레벨 26"
+"이 되면, 첫번째 사과는 26점, 두번째 사과는 52점 이런 식입니다."
+
+#. (itstool) path: note/p
+#: C/scores.page:44
+msgid ""
+"The apple order count does not depend on the number of apples already eaten "
+"by a worm. If the game is in level 1 and if player 1 eats the first apple, "
+"he scores 1 point, if player 2 eats the second apple, he scores 2 points; a "
+"third player may choose to not eat any apples till the tenth apple and score "
+"10 points at once."
+msgstr ""
+"먹은 사과 갯수는 벌레가 이미 먹은 사과 수를 따라가지 않습니다. 레벨 1에서 1"
+"번 플레이어가 첫번째 사과를 먹으면 1점을 획득하지만 2번 플레이어가 뒤이어 사"
+"과를 먹으면 2점을 획득합니다. 세번째 플레이어는 10번째 사과가 나올 때까지 기"
+"다렸다가 10점을 한번에 획득할 수 있습니다."
+
+#. (itstool) path: item/p
+#: C/scores.page:52
+msgid ""
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
+"does not cause an increase in the length of your worm."
+msgstr ""
+"심장 모양 보너스 <_:media-1/> : 이 보너스는 추가 생명을 부여하며, 벌레의 길이"
+"는 늘어나지 않습니다."
+
+#. (itstool) path: item/p
+#: C/scores.page:58
+msgid ""
+"The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
+"increase in the length of the worm and does not give you any points. It "
+"causes a reversal in the movement of all the other worms in the game."
+msgstr ""
+"다이아몬드 모양 보너스 <_:media-1/> : 이 보너스는 벌레의 길이가 늘어나지 않으"
+"며 점수도 없습니다. 대신 게임의 모든 다른 벌레를 반대로 움직이게 합니다."
+
+#. (itstool) path: item/p
+#: C/scores.page:65
+msgid ""
+"The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase "
+"in the length of the worm than the apple-shaped bonus. The points given by "
+"this bonus vary depending on the level number and the length of the worm. "
+"The higher the level number and the longer the worm, the more the points are "
+"scored on eating this bonus."
+msgstr ""
+"바나나 모양 보너스 <_:media-1/> : 이 보너스는 사과 모양 보너스보다 벌레를 더 "
+"길게 만듭니다. 획득 점수 역시 벌레의 길이와 레벨 수에 따라 다릅니다. 레벨 수"
+"와 벌레의 길이가 커지면, 이 보너스를 먹을 떄마다 더 많은 점수를 획득할 수 있"
+"습니다."
+
+#. (itstool) path: item/p
+#: C/scores.page:74
+msgid ""
+"The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
+"length of the worm. The points given by this bonus depend on the level "
+"number and the length of the worm. The higher the level number and the "
+"longer the worm, the more the points are scored on eating this bonus."
+msgstr ""
+"체리 모양 보너스 <_:media-1/> : 이 보너스는 벌레의 길이를 줄입니다. 점수는 레"
+"벨 수와 벌레 길이에 따라 다릅니다. 레벨 수와 벌레 길이가 커지면, 이 보너스를 "
+"먹었을 때 더 많은 점수를 획득할 수 있습니다."
+
+#. (itstool) path: info/desc
+#: C/sound-change.page:28
+msgid "Change sound settings."
+msgstr "소리 설정을 바꿉니다."
+
+#. (itstool) path: page/title
+#: C/sound-change.page:31
+msgid "Enable or disable sound"
+msgstr "소리 켜기 또는 끄기"
+
+#. (itstool) path: page/p
+#: C/sound-change.page:33
+msgid "To enable or disable sounds:"
+msgstr "소리를 켜거나 끄려면:"
+
+#. (itstool) path: item/p
+#: C/sound-change.page:36
+msgid "Press the menu button in the top-right corner of the window."
+msgstr "창의 우측 상단에 있는 메뉴 단추를 누릅니다."
+
+#. (itstool) path: item/p
+#: C/sound-change.page:39
+msgid "Check or uncheck <gui style=\"checkbox\">Sound</gui>."
+msgstr "<gui style=\"checkbox\">소리</gui> 표시를 켜거나 끕니다."
+
+#. (itstool) path: info/desc
+#: C/speed-change.page:28
+msgid "Change how fast the worms move."
+msgstr "벌레 움직임 속도를 바꿉니다."
+
+#. (itstool) path: page/title
+#: C/speed-change.page:31
+msgid "Change the default speed"
+msgstr "기본 속도 바꾸기"
+
+#. (itstool) path: page/p
+#: C/speed-change.page:33
+msgid "To change the speed:"
+msgstr "속도를 바꾸려면:"
+
+#. (itstool) path: item/p
+#: C/speed-change.page:39
+msgid ""
+"On the <gui>Preferences</gui> screen, select one of the four speed choices."
+msgstr "<gui>기본 설정</gui> 화면에서, 속도 네단계 중 하나를 선택합니다."
+
+#. (itstool) path: p/link
+#: C/legal.xml:4
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0 Unported 라이선스"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "이 문서는 <_:link-1/>를 따릅니다."
