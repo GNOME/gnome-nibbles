@@ -9,7 +9,7 @@
 msgid ""
 msgstr "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-09-14 01:47+0000\n"
+"POT-Creation-Date: 2021-04-17 11:20+0000\n"
 "PO-Revision-Date: 2021-04-17 10:00+0100\n"
 "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
@@ -49,7 +49,7 @@ msgid ""
 "play with a friend."
 msgstr "Jokatu zizareak diren bost etsairen kontra, edo partekatu teklatua lagun batekin jokatzeko."
 
-#: data/org.gnome.Nibbles.appdata.xml.in:55
+#: data/org.gnome.Nibbles.appdata.xml.in:57
 msgid "The GNOME Project"
 msgstr "GNOME proiektua"
 
@@ -421,7 +421,7 @@ msgstr "_4"
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms
 #: data/ui/players.ui:136
 msgid "Select the number of computer players."
-msgstr "Hautatu ordenagailu jokalarien kopurua."
+msgstr "Hautatu ordenagailu-jokalarien kopurua."
 
 #. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
