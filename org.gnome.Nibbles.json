@@ -8,16 +8,13 @@
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
         /* X11 + XShm access */
-        "--share=ipc", "--socket=x11",
+        "--share=ipc", "--socket=fallback-x11",
         /* Wayland access */
         "--socket=wayland",
         /* Sound! */
         "--socket=pulseaudio",
         /* OpenGL access */
-        "--device=dri",
-        /* dconf */
-        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        "--device=dri"
     ],
     "cleanup": ["/include", "/lib/*.la", "/lib/pkgconfig",
                 "/share/man", "/share/vala"],
