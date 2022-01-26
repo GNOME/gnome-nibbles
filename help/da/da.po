@@ -6,15 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"POT-Creation-Date: 2020-09-14 01:47+0000\n"
-"PO-Revision-Date: 2020-09-14 00:00+0200\n"
-"Last-Translator: scootergrisen\n"
+"POT-Creation-Date: 2021-08-08 07:58+0000\n"
+"PO-Revision-Date: 2022-01-25 19:34+0100\n"
+"Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.3\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -22,35 +23,36 @@ msgid "translator-credits"
 msgstr "scootergrisen <>, 2020"
 
 #. (itstool) path: credit/name
-#: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
-#: C/fake-bonus.page:15 C/index.page:13 C/multi-player.page:16
-#: C/preferences.page:15 C/scores.page:15
+#: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
+#: C/fake-bonus.page:16 C/index.page:13 C/multi-player.page:17 C/scores.page:15
+#: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
 #. (itstool) path: credit/name
-#: C/basics.page:19 C/controls-change.page:21 C/controls-default.page:19
-#: C/fake-bonus.page:19 C/multi-player.page:20 C/preferences.page:19
+#: C/basics.page:20 C/controls-change.page:22 C/controls-default.page:20
+#: C/fake-bonus.page:20 C/multi-player.page:21 C/sound-change.page:20
+#: C/speed-change.page:20
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
-#: C/basics.page:23
+#: C/basics.page:24
 msgid "Start, pause, and quit a game of <app>Nibbles</app>."
 msgstr "Start, paus og afslut <app>Orme</app>."
 
 #. (itstool) path: page/title
-#: C/basics.page:26
+#: C/basics.page:27
 msgid "Basic instructions"
 msgstr "Grundlæggende instruktioner"
 
 #. (itstool) path: section/title
-#: C/basics.page:29
+#: C/basics.page:30
 msgid "Start a new game"
 msgstr "Start et nyt spil"
 
 #. (itstool) path: section/p
-#: C/basics.page:31
+#: C/basics.page:32
 msgid ""
 "Press the <gui style=\"button\">New Game</gui> button in the header bar to "
 "start a new game when being in a game."
@@ -59,7 +61,7 @@ msgstr ""
 "starte et nyt spil, når du spiller et spil."
 
 #. (itstool) path: section/p
-#: C/basics.page:33
+#: C/basics.page:34
 msgid ""
 "Press the <gui style=\"button\">Play Again</gui> button when you have "
 "finished a game."
@@ -68,12 +70,12 @@ msgstr ""
 "spil."
 
 #. (itstool) path: section/title
-#: C/basics.page:38
+#: C/basics.page:39
 msgid "Pause and resume your game"
 msgstr "Paus og genoptag dit spil"
 
 #. (itstool) path: section/p
-#: C/basics.page:40
+#: C/basics.page:41
 msgid ""
 "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
 "pause your game. You can resume your game by pressing the <gui style=\"button"
@@ -84,12 +86,12 @@ msgstr ""
 "\"button\">Fortsæt</gui>."
 
 #. (itstool) path: section/title
-#: C/basics.page:46
+#: C/basics.page:47
 msgid "Quit <app>Nibbles</app>"
 msgstr "Afslut <app>Orme</app>"
 
 #. (itstool) path: section/p
-#: C/basics.page:48
+#: C/basics.page:49
 msgid ""
 "Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
@@ -99,18 +101,24 @@ msgstr ""
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> for når som helst at afslutte "
 "<app>Orme</app>."
 
+#. (itstool) path: credit/name
+#: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
+#: C/sound-change.page:24 C/speed-change.page:24
+msgid "Andre Klapper"
+msgstr "Andre Klapper"
+
 #. (itstool) path: info/desc
-#: C/controls-change.page:25
+#: C/controls-change.page:30
 msgid "Set custom control keys."
 msgstr "Indstil tilpassede styringstaster."
 
 #. (itstool) path: page/title
-#: C/controls-change.page:28
+#: C/controls-change.page:33
 msgid "Change the default controls"
 msgstr "Ændr standardstyringen"
 
 #. (itstool) path: page/p
-#: C/controls-change.page:30
+#: C/controls-change.page:35
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -123,22 +131,27 @@ msgstr ""
 "have flere end et sæt styringer. Sådan ændres standardstyringen:"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:37 C/fake-bonus.page:36 C/multi-player.page:44
-#: C/preferences.page:38 C/preferences.page:87 C/preferences.page:108
-msgid ""
-"Press the menu button in the top-right corner of the window and select <gui "
-"style=\"menuitem\">Preferences</gui>."
-msgstr ""
-"Tryk på menuknappen i øverste højre hjørne af vinduet og vælg <gui style="
-"\"menuitem\">Indstillinger</gui>."
+#: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
+#: C/speed-change.page:36
+msgid "Start a new game."
+msgstr "Start et nyt spil."
+
+#. (itstool) path: media/span
+#: C/controls-change.page:46
+msgid "settings"
+msgstr "indstillinger"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:41
-msgid "Select the tab for the player whose controls you want to change."
-msgstr "Vælg fanebladet for den spiller, du vil ændre styringer for."
+#: C/controls-change.page:45
+msgid ""
+"On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
+"player whose controls you want to change."
+msgstr ""
+"På <gui>Styrings</gui>skærmen trykkes på <_:media-1/> knappen for den "
+"spiller, du vil ændre styringer for."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:43
+#: C/controls-change.page:49
 msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
@@ -147,23 +160,30 @@ msgstr ""
 "spiller 3 styrer <gui>Orm 3</gui> osv."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:48
+#: C/controls-change.page:54
 msgid ""
-"In the <gui style=\"group\">Controls</gui> list, select the line, then click "
-"on the control. This highlights the line and the words <gui>New accelerator…"
-"</gui> are now present in place of the old control."
+"In the <gui style=\"group\">Controls</gui> list, select the line of the "
+"<gui>Action</gui>. This highlights the line."
 msgstr ""
-"Vælg linjen i listen <gui style=\"group\">Styringer</gui> og klik så på "
-"styringen. Det fremhæver linjen, og ordene <gui>Ny genvejstast …</gui> "
-"findes nu i stedet for den gamle styring."
+"I <gui style=\"group\">Styrings</gui>listen vælges linjen <gui>Handling</"
+"gui>. Det fremhæver linjen."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:54
+#: C/controls-change.page:58
+msgid ""
+"Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
+"gui> are now present in place of the old control."
+msgstr ""
+"Vælg <gui>Tasten</gui> på styringen. Ordene <gui>Ny genvejstast …</gui> "
+"ses nu i stedet for den gamle styring."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:63
 msgid "Press the key you want to use instead of the default key."
 msgstr "Tryk på den tast, du vil bruge i stedet for standardtasten."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:56
+#: C/controls-change.page:66
 msgid ""
 "To keep the old setting click <gui>New accelerator…</gui> again, right click "
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
@@ -174,7 +194,7 @@ msgstr ""
 "eller klikkes hvor som helst i boksen <gui>Indstillinger for Orme</gui>."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:62
+#: C/controls-change.page:72
 msgid ""
 "Repeat the above step to change the other default keys for the current "
 "player, then select the tab for the next player whose controls you want to "
@@ -185,29 +205,29 @@ msgstr ""
 "ændre styringer for, og gentag processen."
 
 #. (itstool) path: page/p
-#: C/controls-change.page:68
+#: C/controls-change.page:78
 msgid ""
-"For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
-"<gui>Left</gui> control line and click it, then press <key>A</key> on your "
-"keyboard when you see <gui>New accelerator…</gui> on the line."
+"For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
+"<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
+"key> on your keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
-"For f.eks. at bruge <key>A</key> til at <gui>Trække til venstre</gui> vælges "
-"den <gui>Venstre</gui> styringslinje og så klikkes der på den, og så trykkes "
-"der på <key>A</key> på dit tastatur når du ser <gui>Ny genvejstast …</gui> "
-"på linjen."
+"For f.eks. at bruge <key>A</key> til at trække til venstre vælges "
+"<gui>Handling</gui> <gui>Træk til venstre</gui>. Vælg derefter dens "
+"<gui>Tast</gui> og tryk så <key>A</key> på dit tastatur, når du ser <gui>Ny "
+"genvejstast …</gui> på linjen."
 
 #. (itstool) path: info/desc
-#: C/controls-default.page:24
+#: C/controls-default.page:25
 msgid "Default keys for <app>Nibbles.</app>"
-msgstr "Standardtaster i <app>Orme</app>."
+msgstr "Standardtaster i <app>Orme.</app>"
 
 #. (itstool) path: page/title
-#: C/controls-default.page:27
+#: C/controls-default.page:28
 msgid "Keyboard Controls"
 msgstr "Tastaturstyringer"
 
 #. (itstool) path: page/p
-#: C/controls-default.page:29
+#: C/controls-default.page:30
 msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
@@ -216,33 +236,33 @@ msgstr ""
 "tilstand:"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:34
+#: C/controls-default.page:35
 msgid "<key>Up</key> to move the worm up"
 msgstr "<key>Op</key> for at flytte ormen op"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:37
+#: C/controls-default.page:38
 msgid "<key>Down</key> to move the worm down"
 msgstr "<key>Ned</key> for at flytte ormen ned"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:40
+#: C/controls-default.page:41
 msgid "<key>Left</key> to move the worm left"
 msgstr "<key>Venstre</key> for at flytte ormen til venstre"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:43
+#: C/controls-default.page:44
 msgid "<key>Right</key> to move the worm right"
 msgstr "<key>Højre</key> for at flytte ormen til højre"
 
 #. (itstool) path: note/p
-#: C/controls-default.page:48
+#: C/controls-default.page:49
 msgid ""
 "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr "Du kan <link xref=\"controls-change\">ændre</link> standardstyringen."
 
 #. (itstool) path: info/desc
-#: C/fake-bonus.page:23
+#: C/fake-bonus.page:28
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
@@ -250,12 +270,12 @@ msgstr ""
 "udfordrende."
 
 #. (itstool) path: page/title
-#: C/fake-bonus.page:27
+#: C/fake-bonus.page:32
 msgid "What are fake bonuses?"
 msgstr "Hvad er falske bonusser?"
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:29
+#: C/fake-bonus.page:34
 msgid ""
 "Fake bonuses look like regular bonus shapes but do not give you any points "
 "when your worm swallows them. They cause a reversal in the movement of your "
@@ -266,27 +286,23 @@ msgstr ""
 "modsatte retning."
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:33
+#: C/fake-bonus.page:38
 msgid "To enable fake bonuses:"
 msgstr "Sådan aktiveres falske bonusser:"
 
 #. (itstool) path: item/p
-#: C/fake-bonus.page:40
+#: C/fake-bonus.page:44
 msgid ""
-"Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
-"is unchecked."
+"On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
+"\">Enable fake bonuses</gui> checkbox if it is unchecked."
 msgstr ""
-"Tilvælg afkrydsningsboksen <gui style=\"checkbox\">Aktivér falske bonusser</"
-"gui> hvis den er fravalgt."
+"I <gui>Indstillinger</gui>-skærmen afkrydses afkrydsningsboksen <gui style="
+"\"checkbox\">Aktivér falske bonusser</gui>, hvis den er fravalgt."
 
 #. (itstool) path: note/p
-#: C/fake-bonus.page:46
-msgid ""
-"Set all preferences before starting a new game. Preferences cannot be "
-"changed in the middle of a game."
-msgstr ""
-"Indstil alle indstillingerne inden et nyt spil startes. Indstillingerne kan "
-"ikke ændres midt i et spil."
+#: C/fake-bonus.page:50 C/speed-change.page:44
+msgid "Preferences cannot be changed in the middle of a game."
+msgstr "Indstillingerne kan ikke ændres midt i et spil."
 
 #. (itstool) path: info/desc
 #: C/index.page:17
@@ -320,17 +336,17 @@ msgid "Preferences"
 msgstr "Indstillinger"
 
 #. (itstool) path: info/desc
-#: C/multi-player.page:24
+#: C/multi-player.page:29
 msgid "Play <app>Nibbles</app> with additional players."
 msgstr "Afspil <app>Orme</app> med yderligere spillere."
 
 #. (itstool) path: page/title
-#: C/multi-player.page:27
+#: C/multi-player.page:32
 msgid "Multi-player games"
 msgstr "Spil med flere spillere"
 
 #. (itstool) path: page/p
-#: C/multi-player.page:29
+#: C/multi-player.page:34
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. While a player "
 "controls <gui>Worm 1</gui> in a single-player game, players can additionally "
@@ -347,165 +363,32 @@ msgstr ""
 "gui>, <gui>Orm 2</gui> og <gui>Orm 3</gui>, osv."
 
 #. (itstool) path: section/title
-#: C/multi-player.page:37
+#: C/multi-player.page:42
 msgid "Choose the number of players"
 msgstr "Vælg antallet af spillere"
 
 #. (itstool) path: section/p
-#: C/multi-player.page:39
+#: C/multi-player.page:44
 msgid ""
-"<app>Nibbles</app> can be played by up to six players. To set the number of "
-"players:"
+"<app>Nibbles</app> can be played by up to six players. Up to four of them "
+"can be humans. To set the number of players:"
 msgstr ""
-"<app>Orme</app> kan spilles af op til 6 spillere. Sådan indstilles antallet "
-"af spillere:"
+"<app>Orme</app> kan spilles af op til seks spillere. Indtil fire af dem kan "
+"være mennesker. Sådan indstilles antallet af spillere:"
 
 #. (itstool) path: item/p
-#: C/multi-player.page:48
+#: C/multi-player.page:52
 msgid ""
-"Set the <gui style=\"input\">Number of human players</gui> to the required "
-"number, a maximum of 6. You can do this by using the <gui style=\"button\">"
-"+</gui> or <gui style=\"button\">-</gui> buttons or by entering the number "
-"of players from the keyboard in the space provided."
+"On the <gui>Number of players</gui> screen, set the number of human players "
+"to the required number, a maximum of 4."
 msgstr ""
-"Indstil <gui style=\"input\">Antal menneskelige spillere</gui> til det "
-"ønskede tal, højst 6. Du kan gøre det ved at bruge knapperne <gui style="
-"\"button\">+</gui> eller <gui style=\"button\">-</gui> eller ved at indtaste "
-"antallet af spillere med tastaturet i den givne plads."
-
-#. (itstool) path: note/p
-#: C/multi-player.page:57
-msgid ""
-"You can watch a <app>Nibbles</app> game without participating. To observe a "
-"game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
-"set the <gui style=\"input\">Number of AI players</gui> to any number "
-"between 1 and 6."
-msgstr ""
-"Du kan følge med i et spil <app>Orme</app> uden at deltage. For at observere "
-"et spil indstilles <gui style=\"input\">Antal menneskelige spillere</gui> "
-"til 0 og <gui style=\"input\">Antal computerstyrede spillere</gui> til et "
-"tal fra 1 til 6."
-
-#. (itstool) path: info/desc
-#: C/preferences.page:23
-msgid "Change default speed, worm color, level order and sound settings."
-msgstr ""
-"Ændr standardhastigheden, ormens farve, banernes rækkefølge og "
-"lydindstillinger."
-
-#. (itstool) path: page/title
-#: C/preferences.page:26
-msgid "Edit general preferences"
-msgstr "Rediger generelle indstillinger"
-
-#. (itstool) path: page/p
-#: C/preferences.page:28
-msgid ""
-"The general preferences for <app>Nibbles</app> can be changed by pressing "
-"the menu button in the top-right corner of the window and selecting <gui "
-"style=\"menuitem\">Preferences</gui>."
-msgstr ""
-"De generelle indstillinger i <app>Orme</app> kan ændres ved at trykke på "
-"menuknappen i øverste højre hjørne af vinduet og vælge <gui style=\"menuitem"
-"\">Indstillinger</gui>."
-
-#. (itstool) path: section/title
-#: C/preferences.page:33
-msgid "Speed"
-msgstr "Hastighed"
-
-#. (itstool) path: section/p
-#: C/preferences.page:35
-msgid "To change the speed:"
-msgstr "Sådan ændres hastigheden:"
+"I <gui>Antal spillere</gui>-skærmen angives antallet af menneskelige "
+"spillere (maks. fire)."
 
 #. (itstool) path: item/p
-#: C/preferences.page:42
-msgid "Select one of the four speed choices given on the left hand side."
-msgstr "Vælg en af de 4 hastigheder i venstre side."
-
-#. (itstool) path: section/title
-#: C/preferences.page:49
-msgid "Change worm colors"
-msgstr "Ændr ormens farver"
-
-#. (itstool) path: section/p
-#: C/preferences.page:51
-msgid "There are seven available worm colors:"
-msgstr "Der er 7 tilgængelige farver til ormen:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:55
-msgid "<_:media-1/> Red"
-msgstr "<_:media-1/> Rød"
-
-#. (itstool) path: item/p
-#: C/preferences.page:59
-msgid "<_:media-1/> Green"
-msgstr "<_:media-1/> Grøn"
-
-#. (itstool) path: item/p
-#: C/preferences.page:63
-msgid "<_:media-1/> Blue"
-msgstr "<_:media-1/> Blå"
-
-#. (itstool) path: item/p
-#: C/preferences.page:67
-msgid "<_:media-1/> Yellow"
-msgstr "<_:media-1/> Gul"
-
-#. (itstool) path: item/p
-#: C/preferences.page:71
-msgid "<_:media-1/> Cyan"
-msgstr "<_:media-1/> Cyan"
-
-#. (itstool) path: item/p
-#: C/preferences.page:75
-msgid "<_:media-1/> Purple"
-msgstr "<_:media-1/> Lilla"
-
-#. (itstool) path: item/p
-#: C/preferences.page:79
-msgid "<_:media-1/> Gray"
-msgstr "<_:media-1/> Grå"
-
-#. (itstool) path: section/p
-#: C/preferences.page:84
-msgid "To change worm colors:"
-msgstr "Sådan ændres ormens farver:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:91
-msgid ""
-"Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
-"you wish to edit."
-msgstr ""
-"Vælg et af fanebladene <gui style=\"tab\">Orm</gui> for at vælge den orm, du "
-"ønsker at redigere."
-
-#. (itstool) path: item/p
-#: C/preferences.page:95
-msgid ""
-"Under <gui>Worm color</gui>, pick a color out of the available colors in the "
-"drop-down menu to change the appearance of the worm."
-msgstr ""
-"Under <gui>Ormens farve</gui> vælges en farve blandt de tilgængelige farver "
-"i rullegardinsmenuen for at ændre ormens udseende."
-
-#. (itstool) path: section/title
-#: C/preferences.page:103
-msgid "Sounds"
-msgstr "Lyde"
-
-#. (itstool) path: section/p
-#: C/preferences.page:105
-msgid "To enable or disable sounds:"
-msgstr "Sådan aktiveres eller deaktiveres lyde:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:112
-msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
-msgstr "Tilvælg eller fravælg <gui style=\"checkbox\">Aktivér lyde</gui>."
+#: C/multi-player.page:56
+msgid "Set the number of computer players."
+msgstr "Angiv antallet af computerspillere."
 
 #. (itstool) path: credit/name
 #: C/scores.page:19
@@ -533,16 +416,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/scores.page:32
-#| msgid ""
-#| "The donut-shaped bonus <_:media-1/> : This bonus causes an increase in "
-#| "the length of the worm. The points you gain on eating the donut vary from "
-#| "level to level and are multiples of the level number. In level 1, the "
-#| "first donut will give you 1 point, the second donut will give you 2 "
-#| "points, the third donut will give you 3 points and so on. In level 2, the "
-#| "first donut will give you 2 points, the second donut will give you 4 "
-#| "points, the third donut will give you 6 points and so on. In level 26, "
-#| "therefore, the first donut will give you 26 points, the second donut will "
-#| "give you 52 points and so on."
 msgid ""
 "The apple-shaped bonus <_:media-1/> : This bonus causes an increase in the "
 "length of the worm. The points you gain on eating the apple vary from level "
@@ -555,25 +428,19 @@ msgid ""
 msgstr ""
 "Æble-bonus <_:media-1/> : Denne bonus gør din orm længere. Pointene som "
 "gives ved at spise æblet er forskellig fra bane til bane og ganges med "
-"banenummeret. På bane 1 giver det første æble dig 1 point, det andet æble "
-"2 point, det tredje æble 3 point osv. På bane 2 giver det første æble dig "
-"2 point, det andet æble 4 point, det tredje æble 6 point osv. På bane 26 "
-"giver det første æble dig 26 point, det andet æble 52 point osv."
+"banenummeret. På bane 1 giver det første æble dig 1 point, det andet æble 2 "
+"point, det tredje æble 3 point osv. På bane 2 giver det første æble dig 2 "
+"point, det andet æble 4 point, det tredje æble 6 point osv. På bane 26 giver "
+"det første æble dig 26 point, det andet æble 52 point osv."
 
 # scootergrisen: tjek oversættelsen af "order count"
 # scootergrisen: fra gennemlæsning: Rækkefølgetælling (og for den sags skyld order count) lyder lidt
 # scootergrisen: fra gennemlæsning: mærkværdigt for mig.
-# scootergrisen: fra gennemlæsning: 
+# scootergrisen: fra gennemlæsning:
 # scootergrisen: fra gennemlæsning: Hvad med "Pointtallet for donuts afhænger ikke af hvor mange donuts en
 # scootergrisen: fra gennemlæsning: bestemt orm selv har spist."
 #. (itstool) path: note/p
 #: C/scores.page:44
-#| msgid ""
-#| "The donut order count does not depend on the number of donuts already "
-#| "eaten by a worm. If the game is in level 1 and if player 1 eats the first "
-#| "donut, he scores 1 point, if player 2 eats the second donut, he scores 2 "
-#| "points; a third player may choose to not eat any donuts till the tenth "
-#| "donut and score 10 points at once."
 msgid ""
 "The apple order count does not depend on the number of apples already eaten "
 "by a worm. If the game is in level 1 and if player 1 eats the first apple, "
@@ -609,12 +476,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/scores.page:65
-#| msgid ""
-#| "The ice-cream-shaped bonus <_:media-1/> : This bonus causes a greater "
-#| "increase in the length of the worm than the donut-shaped bonus. The "
-#| "points given by this bonus vary depending on the level number and the "
-#| "length of the worm. The higher the level number and the longer the worm, "
-#| "the more the points are scored on eating this bonus."
 msgid ""
 "The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase "
 "in the length of the worm than the apple-shaped bonus. The points given by "
@@ -640,6 +501,52 @@ msgstr ""
 "banenummer og jo længere ormen er, jo flere point scores der ved at spise "
 "denne bonus."
 
+#. (itstool) path: info/desc
+#: C/sound-change.page:28
+msgid "Change sound settings."
+msgstr "Ændr lydindstillinger."
+
+#. (itstool) path: page/title
+#: C/sound-change.page:31
+msgid "Enable or disable sound"
+msgstr "Aktivering eller deaktivering af lyde"
+
+#. (itstool) path: page/p
+#: C/sound-change.page:33
+msgid "To enable or disable sounds:"
+msgstr "Sådan aktiveres eller deaktiveres lyde:"
+
+#. (itstool) path: item/p
+#: C/sound-change.page:36
+msgid "Press the menu button in the top-right corner of the window."
+msgstr "Tryk på menuknappen i øverste højre hjørne af vinduet."
+
+#. (itstool) path: item/p
+#: C/sound-change.page:39
+msgid "Check or uncheck <gui style=\"checkbox\">Sound</gui>."
+msgstr "Tilvælg eller fravælg <gui style=\"checkbox\">Lyd</gui>."
+
+#. (itstool) path: info/desc
+#: C/speed-change.page:28
+msgid "Change how fast the worms move."
+msgstr "Ændr hvor hurtigt, ormene bevæger sig."
+
+#. (itstool) path: page/title
+#: C/speed-change.page:31
+msgid "Change the default speed"
+msgstr "Ændr standardhastigheden"
+
+#. (itstool) path: page/p
+#: C/speed-change.page:33
+msgid "To change the speed:"
+msgstr "Sådan ændres hastigheden:"
+
+#. (itstool) path: item/p
+#: C/speed-change.page:39
+msgid ""
+"On the <gui>Preferences</gui> screen, select one of the four speed choices."
+msgstr "I <gui>Indstillinger</gui>-skærmen vælges en af fire hastigheder."
+
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
@@ -650,3 +557,95 @@ msgstr ""
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Værket er licenseret under en <_:link-1/>."
+
+#~ msgid ""
+#~ "Set the <gui style=\"input\">Number of human players</gui> to the "
+#~ "required number, a maximum of 6. You can do this by using the <gui style="
+#~ "\"button\">+</gui> or <gui style=\"button\">-</gui> buttons or by "
+#~ "entering the number of players from the keyboard in the space provided."
+#~ msgstr ""
+#~ "Indstil <gui style=\"input\">Antal menneskelige spillere</gui> til det "
+#~ "ønskede tal, højst 6. Du kan gøre det ved at bruge knapperne <gui style="
+#~ "\"button\">+</gui> eller <gui style=\"button\">-</gui> eller ved at "
+#~ "indtaste antallet af spillere med tastaturet i den givne plads."
+
+#~ msgid ""
+#~ "You can watch a <app>Nibbles</app> game without participating. To observe "
+#~ "a game, set the <gui style=\"input\">Number of human players</gui> to 0 "
+#~ "and set the <gui style=\"input\">Number of AI players</gui> to any number "
+#~ "between 1 and 6."
+#~ msgstr ""
+#~ "Du kan følge med i et spil <app>Orme</app> uden at deltage. For at "
+#~ "observere et spil indstilles <gui style=\"input\">Antal menneskelige "
+#~ "spillere</gui> til 0 og <gui style=\"input\">Antal computerstyrede "
+#~ "spillere</gui> til et tal fra 1 til 6."
+
+#~ msgid "Change default speed, worm color, level order and sound settings."
+#~ msgstr ""
+#~ "Ændr standardhastigheden, ormens farve, banernes rækkefølge og "
+#~ "lydindstillinger."
+
+#~ msgid "Edit general preferences"
+#~ msgstr "Rediger generelle indstillinger"
+
+#~ msgid ""
+#~ "The general preferences for <app>Nibbles</app> can be changed by pressing "
+#~ "the menu button in the top-right corner of the window and selecting <gui "
+#~ "style=\"menuitem\">Preferences</gui>."
+#~ msgstr ""
+#~ "De generelle indstillinger i <app>Orme</app> kan ændres ved at trykke på "
+#~ "menuknappen i øverste højre hjørne af vinduet og vælge <gui style="
+#~ "\"menuitem\">Indstillinger</gui>."
+
+#~ msgid "Speed"
+#~ msgstr "Hastighed"
+
+#~ msgid "Select one of the four speed choices given on the left hand side."
+#~ msgstr "Vælg en af de 4 hastigheder i venstre side."
+
+#~ msgid "Change worm colors"
+#~ msgstr "Ændr ormens farver"
+
+#~ msgid "There are seven available worm colors:"
+#~ msgstr "Der er 7 tilgængelige farver til ormen:"
+
+#~ msgid "<_:media-1/> Red"
+#~ msgstr "<_:media-1/> Rød"
+
+#~ msgid "<_:media-1/> Green"
+#~ msgstr "<_:media-1/> Grøn"
+
+#~ msgid "<_:media-1/> Blue"
+#~ msgstr "<_:media-1/> Blå"
+
+#~ msgid "<_:media-1/> Yellow"
+#~ msgstr "<_:media-1/> Gul"
+
+#~ msgid "<_:media-1/> Cyan"
+#~ msgstr "<_:media-1/> Cyan"
+
+#~ msgid "<_:media-1/> Purple"
+#~ msgstr "<_:media-1/> Lilla"
+
+#~ msgid "<_:media-1/> Gray"
+#~ msgstr "<_:media-1/> Grå"
+
+#~ msgid "To change worm colors:"
+#~ msgstr "Sådan ændres ormens farver:"
+
+#~ msgid ""
+#~ "Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm "
+#~ "that you wish to edit."
+#~ msgstr ""
+#~ "Vælg et af fanebladene <gui style=\"tab\">Orm</gui> for at vælge den orm, "
+#~ "du ønsker at redigere."
+
+#~ msgid ""
+#~ "Under <gui>Worm color</gui>, pick a color out of the available colors in "
+#~ "the drop-down menu to change the appearance of the worm."
+#~ msgstr ""
+#~ "Under <gui>Ormens farve</gui> vælges en farve blandt de tilgængelige "
+#~ "farver i rullegardinsmenuen for at ændre ormens udseende."
+
+#~ msgid "Sounds"
+#~ msgstr "Lyde"
