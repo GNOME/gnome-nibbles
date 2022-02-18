@@ -341,7 +341,7 @@ msgid ""
 "On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
 "\">Enable fake bonuses</gui> checkbox if it is unchecked."
 msgstr ""
-"Sur l’écran des <gui>Préférences<gui/>, cochez la case <gui style=\"checkbox"
+"Sur l’écran des <gui>Préférences</gui>, cochez la case <gui style=\"checkbox"
 "\">Activer les faux bonus</gui> si ce n’est pas déjà fait."
 
 #. (itstool) path: note/p
