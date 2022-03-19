@@ -4,12 +4,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-09-06 12:07+0000\n"
-"PO-Revision-Date: 2020-09-06 21:20+0200\n"
-"Last-Translator: Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail."
-"com>\n"
-"Language-Team: Catalan (https://www.transifex.com/softcatala/teams/62837/"
-"ca/)\n"
+"POT-Creation-Date: 2021-08-08 07:58+0000\n"
+"PO-Revision-Date: 2022-03-13 21:20+0200\n"
+"Last-Translator: Jordi Mas i Hernàndez <jmas@softcatala.org>\n"
+"Language-Team: Catalan (https://www.transifex.com/softcatala/teams/62837/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,39 +19,42 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"Jaume Jorba <jaume.jorba@gmail.com>\n"
+"Jaume Jorba <jaume.jorba@gmail.com>, 2019\n"
 "Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail.com>, 2020"
+"Jordi Mas i Hernàndez <jmas@softcatala.org>, 2022"
 
 #. (itstool) path: credit/name
-#: C/basics.page:15 C/controls-change.page:17 C/controls-default.page:15
-#: C/fake-bonus.page:15 C/index.page:13 C/multi-player.page:16
-#: C/preferences.page:15 C/scores.page:15
+#: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
+#: C/fake-bonus.page:16 C/index.page:13 C/multi-player.page:17
+#: C/scores.page:15 C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
 #. (itstool) path: credit/name
-#: C/basics.page:19 C/controls-change.page:21 C/controls-default.page:19
-#: C/fake-bonus.page:19 C/multi-player.page:20 C/preferences.page:19
+#: C/basics.page:20 C/controls-change.page:22 C/controls-default.page:20
+#: C/fake-bonus.page:20 C/multi-player.page:21 C/sound-change.page:20
+#: C/speed-change.page:20
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
-#: C/basics.page:23
+#: C/basics.page:24
 msgid "Start, pause, and quit a game of <app>Nibbles</app>."
-msgstr "Iniciar, posar en pausa i sortir d'una partida del <app>Nibbles</app>."
+msgstr ""
+"Iniciar, posar en pausa i sortir d'una partida del <app>Nibbles</app>."
 
 #. (itstool) path: page/title
-#: C/basics.page:26
+#: C/basics.page:27
 msgid "Basic instructions"
 msgstr "Instruccions bàsiques"
 
 #. (itstool) path: section/title
-#: C/basics.page:29
+#: C/basics.page:30
 msgid "Start a new game"
 msgstr "Inicia una altra partida"
 
 #. (itstool) path: section/p
-#: C/basics.page:31
+#: C/basics.page:32
 msgid ""
 "Press the <gui style=\"button\">New Game</gui> button in the header bar to "
 "start a new game when being in a game."
@@ -62,7 +63,7 @@ msgstr ""
 "capçalera per a començar una partida nova quan esteu jugant una partida."
 
 #. (itstool) path: section/p
-#: C/basics.page:33
+#: C/basics.page:34
 msgid ""
 "Press the <gui style=\"button\">Play Again</gui> button when you have "
 "finished a game."
@@ -71,28 +72,28 @@ msgstr ""
 "una partida."
 
 #. (itstool) path: section/title
-#: C/basics.page:38
+#: C/basics.page:39
 msgid "Pause and resume your game"
 msgstr "Fer una pausa i reprendre el joc"
 
 #. (itstool) path: section/p
-#: C/basics.page:40
+#: C/basics.page:41
 msgid ""
 "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
-"pause your game. You can resume your game by pressing the <gui style=\"button"
-"\">Resume</gui> button."
+"pause your game. You can resume your game by pressing the <gui "
+"style=\"button\">Resume</gui> button."
 msgstr ""
 "Premeu el botó <gui style=\"button\">Pausa</gui> de la barra de capçalera "
-"per a fer una pausa a la partida. Podeu reprendre la partida prement el botó "
-"<gui style=\"button\">Continua</gui>."
+"per a fer una pausa a la partida. Podeu reprendre la partida prement el botó"
+" <gui style=\"button\">Continua</gui>."
 
 #. (itstool) path: section/title
-#: C/basics.page:46
+#: C/basics.page:47
 msgid "Quit <app>Nibbles</app>"
 msgstr "Sortir del <app>Nibbles</app>"
 
 #. (itstool) path: section/p
-#: C/basics.page:48
+#: C/basics.page:49
 msgid ""
 "Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
@@ -102,18 +103,24 @@ msgstr ""
 "premeu <keyseq><key>Ctrl</key><key>Q</key></keyseq> per a sortir del "
 "<app>Nibbles</app> en qualsevol moment."
 
+#. (itstool) path: credit/name
+#: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
+#: C/sound-change.page:24 C/speed-change.page:24
+msgid "Andre Klapper"
+msgstr "Andre Klapper"
+
 #. (itstool) path: info/desc
-#: C/controls-change.page:25
+#: C/controls-change.page:30
 msgid "Set custom control keys."
 msgstr "Personalitzar el comportament predefinit de les tecles."
 
 #. (itstool) path: page/title
-#: C/controls-change.page:28
+#: C/controls-change.page:33
 msgid "Change the default controls"
 msgstr "Canviar els controls per defecte"
 
 #. (itstool) path: page/p
-#: C/controls-change.page:30
+#: C/controls-change.page:35
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -126,51 +133,64 @@ msgstr ""
 "més d'un conjunt de controls. Per a canviar els controls predeterminats:"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:37 C/fake-bonus.page:36 C/multi-player.page:44
-#: C/preferences.page:38 C/preferences.page:87 C/preferences.page:108
-msgid ""
-"Press the menu button in the top-right corner of the window and select <gui "
-"style=\"menuitem\">Preferences</gui>."
-msgstr ""
-"Premeu el botó de menú de la cantonada superior dreta de la finestra i "
-"seleccioneu <gui style=\"menuitem\">Preferències</gui>."
+#: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
+#: C/speed-change.page:36
+msgid "Start a new game."
+msgstr "Inicia una altra partida"
+
+#. (itstool) path: media/span
+#: C/controls-change.page:46
+msgid "settings"
+msgstr "paràmetres"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:41
-msgid "Select the tab for the player whose controls you want to change."
-msgstr "Seleccioneu la pestanya del jugador de qui voleu canviar els controls."
+#: C/controls-change.page:45
+msgid ""
+"On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
+"player whose controls you want to change."
+msgstr ""
+"A la pantalla <gui>Controls</gui>, premeu el botó <_:media-1/> per al jugador"
+" els controls del qual voleu canviar."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:43
+#: C/controls-change.page:49
 msgid ""
 "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
 "player 3 controls <gui>Worm 3</gui> and so on."
 msgstr ""
-"Controls del jugador 1 <gui>Cuc 1</gui>, controls del jugador 2 <gui>Cuc 2</"
-"gui>, controls del jugador 3 <gui>Cuc 3</gui>, etcètera."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:48
-msgid ""
-"In the <gui style=\"group\">Controls</gui> list, select the line, then click "
-"on the control. This highlights the line and the words <gui>New accelerator…"
-"</gui> are now present in place of the old control."
-msgstr ""
-"A la llista <gui style=\"group\">Controls</gui>, seleccioneu la línia i feu "
-"clic al control. Això destaca la línia i mostra les paraules "
-"<gui>Accelerador nou…</gui> al lloc del control antic."
+"Controls del jugador 1 <gui>Cuc 1</gui>, controls del jugador 2 <gui>Cuc "
+"2</gui>, controls del jugador 3 <gui>Cuc 3</gui>, etcètera."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:54
+msgid ""
+"In the <gui style=\"group\">Controls</gui> list, select the line of the "
+"<gui>Action</gui>. This highlights the line."
+msgstr ""
+"En la llista de <gui style=\"group\">Controls</gui>, seleccioneu la línia de"
+" l'<gui>acció</gui>. Això ressalta la línia."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:58
+msgid ""
+"Select the <gui>Key</gui> on the control. The words <gui>New "
+"accelerator…</gui> are now present in place of the old control."
+msgstr ""
+"Seleccioneu la <gui>tecla</gui> al control. Les paraules <gui>"
+"Accelerador nou…</gui> són presents en lloc de l'antic control."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:63
 msgid "Press the key you want to use instead of the default key."
-msgstr "Premeu la tecla que vulgueu utilitzar en comptes de la predeterminada."
+msgstr ""
+"Premeu la tecla que vulgueu utilitzar en comptes de la predeterminada."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:56
+#: C/controls-change.page:66
 msgid ""
-"To keep the old setting click <gui>New accelerator…</gui> again, right click "
-"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
-"inside the <gui>Nibbles Preferences</gui> box."
+"To keep the old setting click <gui>New accelerator…</gui> again, right click"
+" on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else"
+" inside the <gui>Nibbles Preferences</gui> box."
 msgstr ""
 "Per a mantenir la configuració antiga, feu clic de nou a <gui>Nou "
 "accelerador…</gui>,feu clic a  la dreta a <gui>Nou accelerador…</gui>, "
@@ -178,39 +198,41 @@ msgstr ""
 "<gui>Preferències de Nibbles</gui>."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:62
+#: C/controls-change.page:72
 msgid ""
 "Repeat the above step to change the other default keys for the current "
 "player, then select the tab for the next player whose controls you want to "
 "change and repeat the process."
 msgstr ""
 "Repetiu el pas anterior per a canviar les altres tecles predeterminades del "
-"jugador actual i, a continuació, seleccioneu la pestanya del següent jugador "
-"del qual vulgueu canviar els controls, i repetiu el procés."
+"jugador actual i, a continuació, seleccioneu la pestanya del següent jugador"
+" del qual vulgueu canviar els controls, i repetiu el procés."
 
 #. (itstool) path: page/p
-#: C/controls-change.page:68
+#: C/controls-change.page:78
 msgid ""
-"For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
-"<gui>Left</gui> control line and click it, then press <key>A</key> on your "
-"keyboard when you see <gui>New accelerator…</gui> on the line."
+"For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
+"<gui>Move left</gui>, then select its <gui>Key</gui>, then press "
+"<key>A</key> on your keyboard when you see <gui>New accelerator…</gui> on "
+"the line."
 msgstr ""
-"Per exemple, per a utilitzar <key>A</key> per <gui>Mou a l'esquerra</gui>, "
-"seleccioneu la línia de control <gui>Esquerra</gui> i feu-li clic, aleshores "
-"premeu <key>A</key> quan veieu <gui>Nou accelerador…</gui> a la línia."
+"Per exemple, per a utilitzar <key>A</key> per a moure a l'esquerra, seleccioneu "
+"l'<gui>acció</gui> <gui>Mou a l'esquerra</gui>, després seleccioneu la seva "
+"<gui>tecla</gui>, després premeu <key>A</key> al teclat quan veieu <gui>"
+"Accelerador nou…</gui> a la línia."
 
 #. (itstool) path: info/desc
-#: C/controls-default.page:24
+#: C/controls-default.page:25
 msgid "Default keys for <app>Nibbles.</app>"
 msgstr "Tecles per defecte per <app>Nibbles.</app>"
 
 #. (itstool) path: page/title
-#: C/controls-default.page:27
+#: C/controls-default.page:28
 msgid "Keyboard Controls"
 msgstr "Controls de teclat"
 
 #. (itstool) path: page/p
-#: C/controls-default.page:29
+#: C/controls-default.page:30
 msgid ""
 "For controlling the movements of your worm in a single-player mode, use the "
 "following default keys:"
@@ -219,34 +241,34 @@ msgstr ""
 "les següents tecles predeterminades:"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:34
+#: C/controls-default.page:35
 msgid "<key>Up</key> to move the worm up"
 msgstr "<key>Fletxa amunt</key> per a moure el cuc amunt"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:37
+#: C/controls-default.page:38
 msgid "<key>Down</key> to move the worm down"
 msgstr "<key>Fletxa avall</key> per a moure el cuc avall"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:40
+#: C/controls-default.page:41
 msgid "<key>Left</key> to move the worm left"
 msgstr "<key>Fletxa esquerra</key> per a moure el cuc a l'esquerra"
 
 #. (itstool) path: item/p
-#: C/controls-default.page:43
+#: C/controls-default.page:44
 msgid "<key>Right</key> to move the worm right"
 msgstr "<key>Fletxa dreta</key> per a moure el cuc a la dreta"
 
 #. (itstool) path: note/p
-#: C/controls-default.page:48
-msgid ""
-"You can <link xref=\"controls-change\">change</link> the default controls."
+#: C/controls-default.page:49
+msgid "You can <link xref=\"controls-change\">change</link> the default controls."
 msgstr ""
-"Podeu <link xref=\"controls-change\">canviar</link> els controls per defecte."
+"Podeu <link xref=\"controls-change\">canviar</link> els controls per "
+"defecte."
 
 #. (itstool) path: info/desc
-#: C/fake-bonus.page:23
+#: C/fake-bonus.page:28
 msgid ""
 "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
 msgstr ""
@@ -254,12 +276,12 @@ msgstr ""
 "més difícil."
 
 #. (itstool) path: page/title
-#: C/fake-bonus.page:27
+#: C/fake-bonus.page:32
 msgid "What are fake bonuses?"
 msgstr "Què són les bonificacions falses?"
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:29
+#: C/fake-bonus.page:34
 msgid ""
 "Fake bonuses look like regular bonus shapes but do not give you any points "
 "when your worm swallows them. They cause a reversal in the movement of your "
@@ -270,27 +292,24 @@ msgstr ""
 "s'inverteixi."
 
 #. (itstool) path: page/p
-#: C/fake-bonus.page:33
+#: C/fake-bonus.page:38
 msgid "To enable fake bonuses:"
 msgstr "Per a activar les bonificacions falses:"
 
 #. (itstool) path: item/p
-#: C/fake-bonus.page:40
+#: C/fake-bonus.page:44
 msgid ""
-"Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if it "
-"is unchecked."
+"On the <gui>Preferences</gui> screen, check the <gui "
+"style=\"checkbox\">Enable fake bonuses</gui> checkbox if it is unchecked."
 msgstr ""
-"Comproveu que casella de selecció <gui style=\"checkbox\">Habilita les "
-"bonificacions falses</gui> no estigui marcada."
+"A la pantalla de <gui>Preferències</gui>, marqueu la casella de selecció "
+"<gui style=\"checkbox\">Habilita les bonificacions falses</gui> si no està "
+"marcada."
 
 #. (itstool) path: note/p
-#: C/fake-bonus.page:46
-msgid ""
-"Set all preferences before starting a new game. Preferences cannot be "
-"changed in the middle of a game."
-msgstr ""
-"Establiu totes les preferències abans d'iniciar un nou joc. Les preferències "
-"no es poden canviar durant el joc."
+#: C/fake-bonus.page:50 C/speed-change.page:44
+msgid "Preferences cannot be changed in the middle of a game."
+msgstr "Les preferències no es poden canviar enmig d'una partida."
 
 #. (itstool) path: info/desc
 #: C/index.page:17
@@ -309,8 +328,8 @@ msgid ""
 "swallow as many objects as you can while avoiding maze walls and other "
 "worms. You have to complete 26 levels to finish the game."
 msgstr ""
-"<app>Nibbles</app> és un joc per al GNOME. L'objectiu del joc és empassar-se "
-"tants objectes com sigui possible evitant les parets del laberint i altres "
+"<app>Nibbles</app> és un joc per al GNOME. L'objectiu del joc és empassar-se"
+" tants objectes com sigui possible evitant les parets del laberint i altres "
 "cucs. Ha de completar 26 nivells per a acabar el joc."
 
 #. (itstool) path: section/title
@@ -324,24 +343,24 @@ msgid "Preferences"
 msgstr "Preferències"
 
 #. (itstool) path: info/desc
-#: C/multi-player.page:24
+#: C/multi-player.page:29
 msgid "Play <app>Nibbles</app> with additional players."
 msgstr "Jugar <app>Nibbles</app> amb més jugadors."
 
 #. (itstool) path: page/title
-#: C/multi-player.page:27
+#: C/multi-player.page:32
 msgid "Multi-player games"
 msgstr "Jocs multijugador"
 
 #. (itstool) path: page/p
-#: C/multi-player.page:29
+#: C/multi-player.page:34
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. While a player "
-"controls <gui>Worm 1</gui> in a single-player game, players can additionally "
-"control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A two-"
-"player game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>, a "
-"three player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> "
-"and <gui>Worm 3</gui> and so on."
+"controls <gui>Worm 1</gui> in a single-player game, players can additionally"
+" control <gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A "
+"two-player game allows you to control <gui>Worm 1</gui> and <gui>Worm "
+"2</gui>, a three player game allows you to control <gui>Worm 1</gui>, "
+"<gui>Worm 2</gui> and <gui>Worm 3</gui> and so on."
 msgstr ""
 "<app>Nibbles</app> el poden jugar fins a sis jugadors. Mentre un jugador "
 "controla el <gui>Cuc 1</gui> en un joc amb un sol jugador, els jugadors "
@@ -351,165 +370,32 @@ msgstr ""
 "<gui>Cuc 1</gui>, el <gui>Cuc 2</gui> i el <gui>Cuc 3</gui>, etcètera."
 
 #. (itstool) path: section/title
-#: C/multi-player.page:37
+#: C/multi-player.page:42
 msgid "Choose the number of players"
 msgstr "Seleccionar el nombre de jugadors"
 
 #. (itstool) path: section/p
-#: C/multi-player.page:39
+#: C/multi-player.page:44
 msgid ""
-"<app>Nibbles</app> can be played by up to six players. To set the number of "
-"players:"
+"<app>Nibbles</app> can be played by up to six players. Up to four of them "
+"can be humans. To set the number of players:"
 msgstr ""
-"<app>Nibbles</app> el poden jugar fins a sis jugadors. Per a configurar el "
-"nombre de jugadors:"
+"<app>Nibbles</app> permet jugar fins a sis jugadors. Fins a quatre "
+"d'ells poden ser humans. Per a establir el nombre de jugadors:"
 
 #. (itstool) path: item/p
-#: C/multi-player.page:48
+#: C/multi-player.page:52
 msgid ""
-"Set the <gui style=\"input\">Number of human players</gui> to the required "
-"number, a maximum of 6. You can do this by using the <gui style=\"button\">"
-"+</gui> or <gui style=\"button\">-</gui> buttons or by entering the number "
-"of players from the keyboard in the space provided."
+"On the <gui>Number of players</gui> screen, set the number of human players "
+"to the required number, a maximum of 4."
 msgstr ""
-"Establiu el <gui style=\"input\">Nombre de jugadors humans</gui> al número "
-"desitjat, un màxim de 6. Podeu fer-ho utilitzant els botons <gui style="
-"\"button\">+</gui> o <gui style=\"button\">-</gui> o introduint el nombre de "
-"jugadors des del teclat a l'espai proporcionat."
-
-#. (itstool) path: note/p
-#: C/multi-player.page:57
-msgid ""
-"You can watch a <app>Nibbles</app> game without participating. To observe a "
-"game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
-"set the <gui style=\"input\">Number of AI players</gui> to any number "
-"between 1 and 6."
-msgstr ""
-"Podeu visualitzar un joc <app>Nibbles</app> sense participar-hi. Per a "
-"observar un joc, establiu el <gui style=\"input\">Nombre de jugadors humans</"
-"gui> a 0 i establiu el <gui style=\"input\">Nombre de jugadors IA</gui> "
-"entre 1 i 6."
-
-#. (itstool) path: info/desc
-#: C/preferences.page:23
-msgid "Change default speed, worm color, level order and sound settings."
-msgstr ""
-"Canvieu la velocitat predeterminada, el color del cuc, l'ordre dels nivells "
-"i la configuració de so."
-
-#. (itstool) path: page/title
-#: C/preferences.page:26
-msgid "Edit general preferences"
-msgstr "Editar les Preferències generals"
-
-#. (itstool) path: page/p
-#: C/preferences.page:28
-msgid ""
-"The general preferences for <app>Nibbles</app> can be changed by pressing "
-"the menu button in the top-right corner of the window and selecting <gui "
-"style=\"menuitem\">Preferences</gui>."
-msgstr ""
-"Les preferències generals del <app>Nibbles</app> es poden canviar prement el "
-"botó de menú de la cantonada superior dreta de la finestra i seleccionant "
-"<gui style=\"menuitem\">Preferències</gui>."
-
-#. (itstool) path: section/title
-#: C/preferences.page:33
-msgid "Speed"
-msgstr "Velocitat"
-
-#. (itstool) path: section/p
-#: C/preferences.page:35
-msgid "To change the speed:"
-msgstr "Per a canviar la velocitat:"
+"A la pantalla <gui>Nombre de jugadors</gui>, establiu el nombre de jugadors"
+" humans al nombre requerit, un màxim de 4."
 
 #. (itstool) path: item/p
-#: C/preferences.page:42
-msgid "Select one of the four speed choices given on the left hand side."
-msgstr "Seleccioneu una de les quatre opcions de velocitat de l'esquerra."
-
-#. (itstool) path: section/title
-#: C/preferences.page:49
-msgid "Change worm colors"
-msgstr "Canviar el color del cuc"
-
-#. (itstool) path: section/p
-#: C/preferences.page:51
-msgid "There are seven available worm colors:"
-msgstr "Hi ha set colors disponibles pel cuc:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:55
-msgid "<_:media-1/> Red"
-msgstr "<_:media-1/> Vermell"
-
-#. (itstool) path: item/p
-#: C/preferences.page:59
-msgid "<_:media-1/> Green"
-msgstr "<_:media-1/> Verd"
-
-#. (itstool) path: item/p
-#: C/preferences.page:63
-msgid "<_:media-1/> Blue"
-msgstr "<_:media-1/> Blau"
-
-#. (itstool) path: item/p
-#: C/preferences.page:67
-msgid "<_:media-1/> Yellow"
-msgstr "<_:media-1/> Groc"
-
-#. (itstool) path: item/p
-#: C/preferences.page:71
-msgid "<_:media-1/> Cyan"
-msgstr "<_:media-1/> Cian"
-
-#. (itstool) path: item/p
-#: C/preferences.page:75
-msgid "<_:media-1/> Purple"
-msgstr "<_:media-1/> Porpra"
-
-#. (itstool) path: item/p
-#: C/preferences.page:79
-msgid "<_:media-1/> Gray"
-msgstr "<_:media-1/> Gris"
-
-#. (itstool) path: section/p
-#: C/preferences.page:84
-msgid "To change worm colors:"
-msgstr "Per a canviar els colors dels cucs:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:91
-msgid ""
-"Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that "
-"you wish to edit."
-msgstr ""
-"Seleccioneu qualsevol de les pestanyes <gui style=\"tab\">Cuc</gui> per a "
-"triar el cuc que voleu editar."
-
-#. (itstool) path: item/p
-#: C/preferences.page:95
-msgid ""
-"Under <gui>Worm color</gui>, pick a color out of the available colors in the "
-"drop-down menu to change the appearance of the worm."
-msgstr ""
-"A <gui>Color del cuc</gui>, trieu un dels colors disponibles al menú "
-"desplegable per a canviar l'aspecte del cuc."
-
-#. (itstool) path: section/title
-#: C/preferences.page:103
-msgid "Sounds"
-msgstr "Sons"
-
-#. (itstool) path: section/p
-#: C/preferences.page:105
-msgid "To enable or disable sounds:"
-msgstr "Per a activar o desactivar els sons:"
-
-#. (itstool) path: item/p
-#: C/preferences.page:112
-msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
-msgstr "Marqueu o desmarqueu <gui style=\"checkbox\">Habilita el so</gui>."
+#: C/multi-player.page:56
+msgid "Set the number of computer players."
+msgstr "Establiu el nombre de jugadors d'ordinador."
 
 #. (itstool) path: credit/name
 #: C/scores.page:19
@@ -551,8 +437,8 @@ msgstr ""
 "un augment de la longitud del cuc. Els punts que guanyeu en menjar-vos la "
 "poma varien segons el nivell i són múltiples del nombre del nivell. Al "
 "nivell 1, la primera poma us donarà 1 punt, la segona poma us donarà 2 "
-"punts, la tercera poma us donarà 3 punts i així successivament. Al nivell 2, "
-"la primera poma us donarà 2 punts, la segona poma us donarà 4 punts, la "
+"punts, la tercera poma us donarà 3 punts i així successivament. Al nivell 2,"
+" la primera poma us donarà 2 punts, la segona poma us donarà 4 punts, la "
 "tercera poma us donarà 6 punts i així successivament. Al nivell 26, per "
 "tant, la primera poma us donarà 26 punts, la segona poma us donarà 52 punts "
 "i així successivament."
@@ -563,20 +449,20 @@ msgid ""
 "The apple order count does not depend on the number of apples already eaten "
 "by a worm. If the game is in level 1 and if player 1 eats the first apple, "
 "he scores 1 point, if player 2 eats the second apple, he scores 2 points; a "
-"third player may choose to not eat any apples till the tenth apple and score "
-"10 points at once."
+"third player may choose to not eat any apples till the tenth apple and score"
+" 10 points at once."
 msgstr ""
 "El recompte de punts de les pomes no depèn del nombre de pomes ja menjades "
 "per un cuc. Si la partida és al nivell 1 i el jugador 1 es menja la primera "
-"poma, puntua 1, si el jugador 2 es menja la segona poma, puntua 2; un tercer "
-"jugador pot optar per no menjar-ne cap fins a la desena poma i puntuar 10 de "
-"cop."
+"poma, puntua 1, si el jugador 2 es menja la segona poma, puntua 2; un tercer"
+" jugador pot optar per no menjar-ne cap fins a la desena poma i puntuar 10 "
+"de cop."
 
 #. (itstool) path: item/p
 #: C/scores.page:52
 msgid ""
-"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
-"does not cause an increase in the length of your worm."
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and"
+" does not cause an increase in the length of your worm."
 msgstr ""
 "La bonificació en forma de cor <_:media-1/> : Aquesta bonificació "
 "proporciona una vida extra i no provoca un augment de la longitud del cuc."
@@ -598,13 +484,13 @@ msgid ""
 "The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase "
 "in the length of the worm than the apple-shaped bonus. The points given by "
 "this bonus vary depending on the level number and the length of the worm. "
-"The higher the level number and the longer the worm, the more the points are "
-"scored on eating this bonus."
+"The higher the level number and the longer the worm, the more the points are"
+" scored on eating this bonus."
 msgstr ""
-"La bonificació en forma de plàtan <_:media-1/> : Aquesta bonificació provoca "
-"un augment més gran de la longitud del cuc que la bonificació en forma de "
-"poma. Els punts atorgats per aquesta bonificació varien segons el nombre del "
-"nivell i la longitud del cuc. Com més alt sigui el nombre del nivell i com "
+"La bonificació en forma de plàtan <_:media-1/> : Aquesta bonificació provoca"
+" un augment més gran de la longitud del cuc que la bonificació en forma de "
+"poma. Els punts atorgats per aquesta bonificació varien segons el nombre del"
+" nivell i la longitud del cuc. Com més alt sigui el nombre del nivell i com "
 "més llarg sigui el cuc, més es puntua en menjar-se aquesta bonificació."
 
 #. (itstool) path: item/p
@@ -621,6 +507,54 @@ msgstr ""
 "nombre del nivell i com més llarg sigui el cuc, més puntuació s'obtindrà al "
 "menjar-la."
 
+#. (itstool) path: info/desc
+#: C/sound-change.page:28
+msgid "Change sound settings."
+msgstr "Canvia els paràmetres del so."
+
+#. (itstool) path: page/title
+#: C/sound-change.page:31
+msgid "Enable or disable sound"
+msgstr "Activar o desactivar el so"
+
+#. (itstool) path: page/p
+#: C/sound-change.page:33
+msgid "To enable or disable sounds:"
+msgstr "Per a activar o desactivar els sons:"
+
+#. (itstool) path: item/p
+#: C/sound-change.page:36
+msgid "Press the menu button in the top-right corner of the window."
+msgstr "Premeu el botó de menú a la cantonada superior dreta de la finestra."
+
+#. (itstool) path: item/p
+#: C/sound-change.page:39
+msgid "Check or uncheck <gui style=\"checkbox\">Sound</gui>."
+msgstr "Marqueu o desmarqueu el <gui style=\"checkbox\">So</gui>."
+
+#. (itstool) path: info/desc
+#: C/speed-change.page:28
+msgid "Change how fast the worms move."
+msgstr "Canvieu la velocitat amb què es mouen els cucs."
+
+#. (itstool) path: page/title
+#: C/speed-change.page:31
+msgid "Change the default speed"
+msgstr "Canviar la velocitat per defecte"
+
+#. (itstool) path: page/p
+#: C/speed-change.page:33
+msgid "To change the speed:"
+msgstr "Per a canviar la velocitat:"
+
+#. (itstool) path: item/p
+#: C/speed-change.page:39
+msgid ""
+"On the <gui>Preferences</gui> screen, select one of the four speed choices."
+msgstr ""
+"A la pantalla <gui>Preferències</gui>, seleccioneu una de les quatre opcions"
+" de velocitat."
+
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
@@ -631,3 +565,94 @@ msgstr "Reconeixement-CompartirIgual 3.0 No adaptada"
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Aquest treball està llicenciat sota <_:link-1/>."
 
+#~ msgid ""
+#~ "Set the <gui style=\"input\">Number of human players</gui> to the required "
+#~ "number, a maximum of 6. You can do this by using the <gui "
+#~ "style=\"button\">+</gui> or <gui style=\"button\">-</gui> buttons or by "
+#~ "entering the number of players from the keyboard in the space provided."
+#~ msgstr ""
+#~ "Establiu el <gui style=\"input\">Nombre de jugadors humans</gui> al número "
+#~ "desitjat, un màxim de 6. Podeu fer-ho utilitzant els botons <gui "
+#~ "style=\"button\">+</gui> o <gui style=\"button\">-</gui> o introduint el "
+#~ "nombre de jugadors des del teclat a l'espai proporcionat."
+
+#~ msgid ""
+#~ "You can watch a <app>Nibbles</app> game without participating. To observe a "
+#~ "game, set the <gui style=\"input\">Number of human players</gui> to 0 and "
+#~ "set the <gui style=\"input\">Number of AI players</gui> to any number "
+#~ "between 1 and 6."
+#~ msgstr ""
+#~ "Podeu visualitzar un joc <app>Nibbles</app> sense participar-hi. Per a "
+#~ "observar un joc, establiu el <gui style=\"input\">Nombre de jugadors "
+#~ "humans</gui> a 0 i establiu el <gui style=\"input\">Nombre de jugadors "
+#~ "IA</gui> entre 1 i 6."
+
+#~ msgid "Change default speed, worm color, level order and sound settings."
+#~ msgstr ""
+#~ "Canvieu la velocitat predeterminada, el color del cuc, l'ordre dels nivells "
+#~ "i la configuració de so."
+
+#~ msgid "Edit general preferences"
+#~ msgstr "Editar les Preferències generals"
+
+#~ msgid ""
+#~ "The general preferences for <app>Nibbles</app> can be changed by pressing "
+#~ "the menu button in the top-right corner of the window and selecting <gui "
+#~ "style=\"menuitem\">Preferences</gui>."
+#~ msgstr ""
+#~ "Les preferències generals del <app>Nibbles</app> es poden canviar prement el"
+#~ " botó de menú de la cantonada superior dreta de la finestra i seleccionant "
+#~ "<gui style=\"menuitem\">Preferències</gui>."
+
+#~ msgid "Speed"
+#~ msgstr "Velocitat"
+
+#~ msgid "Select one of the four speed choices given on the left hand side."
+#~ msgstr "Seleccioneu una de les quatre opcions de velocitat de l'esquerra."
+
+#~ msgid "Change worm colors"
+#~ msgstr "Canviar el color del cuc"
+
+#~ msgid "There are seven available worm colors:"
+#~ msgstr "Hi ha set colors disponibles pel cuc:"
+
+#~ msgid "<_:media-1/> Red"
+#~ msgstr "<_:media-1/> Vermell"
+
+#~ msgid "<_:media-1/> Green"
+#~ msgstr "<_:media-1/> Verd"
+
+#~ msgid "<_:media-1/> Blue"
+#~ msgstr "<_:media-1/> Blau"
+
+#~ msgid "<_:media-1/> Yellow"
+#~ msgstr "<_:media-1/> Groc"
+
+#~ msgid "<_:media-1/> Cyan"
+#~ msgstr "<_:media-1/> Cian"
+
+#~ msgid "<_:media-1/> Purple"
+#~ msgstr "<_:media-1/> Porpra"
+
+#~ msgid "<_:media-1/> Gray"
+#~ msgstr "<_:media-1/> Gris"
+
+#~ msgid "To change worm colors:"
+#~ msgstr "Per a canviar els colors dels cucs:"
+
+#~ msgid ""
+#~ "Select any of the <gui style=\"tab\">Worm</gui> tabs to choose the worm that"
+#~ " you wish to edit."
+#~ msgstr ""
+#~ "Seleccioneu qualsevol de les pestanyes <gui style=\"tab\">Cuc</gui> per a "
+#~ "triar el cuc que voleu editar."
+
+#~ msgid ""
+#~ "Under <gui>Worm color</gui>, pick a color out of the available colors in the"
+#~ " drop-down menu to change the appearance of the worm."
+#~ msgstr ""
+#~ "A <gui>Color del cuc</gui>, trieu un dels colors disponibles al menú "
+#~ "desplegable per a canviar l'aspecte del cuc."
+
+#~ msgid "Sounds"
+#~ msgstr "Sons"
