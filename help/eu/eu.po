@@ -1,12 +1,12 @@
 # Basque translation for gnome-nibbles.
 # Copyright (C) 2021 gnome-nibbles's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-nibbles package.
-# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2021.
+# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2021, 2022.
 #
 msgid ""
 msgstr "Project-Id-Version: gnome-nibbles master\n"
-"POT-Creation-Date: 2021-08-08 07:58+0000\n"
-"PO-Revision-Date: 2021-10-10 20:06+0000\n"
+"POT-Creation-Date: 2021-10-10 08:25+0000\n"
+"PO-Revision-Date: 2022-04-30 20:06+0000\n"
 "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
@@ -366,7 +366,7 @@ msgid ""
 "give you 2 points, the second apple will give you 4 points, the third apple "
 "will give you 6 points and so on. In level 26, therefore, the first apple "
 "will give you 26 points, the second apple will give you 52 points and so on."
-msgstr ""
+msgstr "Sagar formako gainordainak <_:media-1/> : Gainordain horiek zizareen luzera handitzen dute. Sagar bat jatean irabazitako puntu kopurua desberdina da mailaz maila, eta maila-zenbakiaren anizkoitzak dira. Lehen mailan, lehen sagarrak puntu 1 ematen du, bigarrenak 2 puntu, hirugarrenak 3, eta abar. Bigarren mailan, lehen sagarrak 2 puntu ematen ditu, bigarren sagarrak 4 puntu, hirugarrenak 6 puntu, eta abar. Hogeita seigarren mailan, hortaz, lehen sagarrak 26 puntu emango ditu, bigarrenak 52 puntu, eta abar."
 
 #. (itstool) path: note/p
 #: C/scores.page:44
@@ -376,7 +376,7 @@ msgid ""
 "he scores 1 point, if player 2 eats the second apple, he scores 2 points; a "
 "third player may choose to not eat any apples till the tenth apple and score "
 "10 points at once."
-msgstr ""
+msgstr "Sagar-ordenaren zenbaketa ez da zizareak ordurako jandako sagar kopuruaren araberakoa, Jokoa lehen mailan badago eta 1 jokalariak lehen sagarran jaten badu, puntu bakarra eskuratuko du, 2 jokalariak bigarren sagarra jaten badu, 2 puntu eskuratuko ditu; hirugarren jokalari batek sagarrik ez jatea erabaki dezake hamargarren sagarrera arte, 10 puntu eskuratzeko."
 
 #. (itstool) path: item/p
 #: C/scores.page:52
@@ -391,7 +391,7 @@ msgid ""
 "The diamond-shaped bonus <_:media-1/> : This bonus does not cause an "
 "increase in the length of the worm and does not give you any points. It "
 "causes a reversal in the movement of all the other worms in the game."
-msgstr ""
+msgstr "Diamante formako gainordaina <_:media-1/> : Gainordain honek ez du zizarearen luzera handitzen eta ez du punturik ematen. Jokoko gainerako zizareen mugimendua norabidez aldatzea eragiten du."
 
 #. (itstool) path: item/p
 #: C/scores.page:65
@@ -401,7 +401,7 @@ msgid ""
 "this bonus vary depending on the level number and the length of the worm. "
 "The higher the level number and the longer the worm, the more the points are "
 "scored on eating this bonus."
-msgstr ""
+msgstr "Banana formako gainordaina <_:media-1/> : Gainordainn honek zizarea sagar formako gainordainak baino gehiago luzatzen du. Gainordain honek ematen dituen puntuak mailaren eta zizare-luzeraren araberakoa da. Maila gero eta altuagoa eta zizarea gero eta luzeagoa izan, puntu gehiago eskuratuko dira gainordain hori janda."
 
 #. (itstool) path: item/p
 #: C/scores.page:74
@@ -410,7 +410,7 @@ msgid ""
 "length of the worm. The points given by this bonus depend on the level "
 "number and the length of the worm. The higher the level number and the "
 "longer the worm, the more the points are scored on eating this bonus."
-msgstr ""
+msgstr "Gerezi formako gainordaina <_:media-1/> : Gainordainn honek zizarea laburtzen du. Gainordain honek ematen dituen puntuak mailaren eta zizare-luzeraren araberakoa da. Maila gero eta altuagoa eta zizarea gero eta luzeagoa izan, puntu gehiago eskuratuko dira gainordain hori janda."
 
 #. (itstool) path: info/desc
 #: C/sound-change.page:28
