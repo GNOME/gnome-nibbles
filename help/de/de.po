@@ -150,7 +150,7 @@ msgid ""
 "On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
 "player whose controls you want to change."
 msgstr ""
-"Klicken Sie im <gui>Steuerung</gui>-Bildschirm den <_:media-1>-Knopf des "
+"Klicken Sie im <gui>Steuerung</gui>-Bildschirm den <_:media-1/>-Knopf des "
 "Spielers, dessen Steuerung Sie ändern wollen."
 
 #. (itstool) path: note/p
