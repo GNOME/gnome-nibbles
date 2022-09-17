@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnibbles doc fr\n"
-"POT-Creation-Date: 2021-08-08 07:58+0000\n"
-"PO-Revision-Date: 2022-01-28 17:24+0100\n"
+"POT-Creation-Date: 2022-02-18 21:52+0000\n"
+"PO-Revision-Date: 2022-04-10 23:07+0200\n"
 "Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -152,7 +152,6 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
 #: C/speed-change.page:36
-#| msgid "Start a new game"
 msgid "Start a new game."
 msgstr "Démarrez une nouvelle partie."
 
@@ -163,7 +162,6 @@ msgstr "paramètres"
 
 #. (itstool) path: item/p
 #: C/controls-change.page:45
-#| msgid "Select the tab for the player whose controls you want to change."
 msgid ""
 "On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
 "player whose controls you want to change."
@@ -182,10 +180,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/controls-change.page:54
-#| msgid ""
-#| "In the <gui style=\"group\">Controls</gui> list, select the line, then "
-#| "click on the control. This highlights the line and the words <gui>New "
-#| "accelerator…</gui> are now present in place of the old control."
 msgid ""
 "In the <gui style=\"group\">Controls</gui> list, select the line of the "
 "<gui>Action</gui>. This highlights the line."
@@ -196,10 +190,6 @@ msgstr ""
 # « New accelerator » traduit par « Nouveau raccourci », afin d’uniformiser avec l’interface utilisateur (Charles).
 #. (itstool) path: item/p
 #: C/controls-change.page:58
-#| msgid ""
-#| "In the <gui style=\"group\">Controls</gui> list, select the line, then "
-#| "click on the control. This highlights the line and the words <gui>New "
-#| "accelerator…</gui> are now present in place of the old control."
 msgid ""
 "Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
 "gui> are now present in place of the old control."
@@ -241,10 +231,6 @@ msgstr ""
 # « New accelerator » traduit par « Nouveau raccourci », afin d’uniformiser avec l’interface utilisateur (Charles).
 #. (itstool) path: page/p
 #: C/controls-change.page:78
-#| msgid ""
-#| "For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
-#| "<gui>Left</gui> control line and click it, then press <key>A</key> on "
-#| "your keyboard when you see <gui>New accelerator…</gui> on the line."
 msgid ""
 "For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
 "<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
@@ -334,9 +320,6 @@ msgstr "Pour activer les faux bonus :"
 
 #. (itstool) path: item/p
 #: C/fake-bonus.page:44
-#| msgid ""
-#| "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if "
-#| "it is unchecked."
 msgid ""
 "On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
 "\">Enable fake bonuses</gui> checkbox if it is unchecked."
@@ -346,9 +329,6 @@ msgstr ""
 
 #. (itstool) path: note/p
 #: C/fake-bonus.page:50 C/speed-change.page:44
-#| msgid ""
-#| "Set all preferences before starting a new game. Preferences cannot be "
-#| "changed in the middle of a game."
 msgid "Preferences cannot be changed in the middle of a game."
 msgstr "Les préférences ne peuvent pas être modifiées en cours de partie."
 
@@ -418,9 +398,6 @@ msgstr "Choix du nombre de joueurs"
 
 #. (itstool) path: section/p
 #: C/multi-player.page:44
-#| msgid ""
-#| "<app>Nibbles</app> can be played by up to six players. To set the number "
-#| "of players:"
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. Up to four of them "
 "can be humans. To set the number of players:"
@@ -450,7 +427,6 @@ msgstr ""
 #
 #. (itstool) path: item/p
 #: C/multi-player.page:56
-#| msgid "Choose the number of players"
 msgid "Set the number of computer players."
 msgstr "Choisissez le nombre de joueurs ordinateurs."
 
@@ -570,7 +546,6 @@ msgstr "Modifier les paramètres sonores."
 
 #. (itstool) path: page/title
 #: C/sound-change.page:31
-#| msgid "To enable or disable sounds:"
 msgid "Enable or disable sound"
 msgstr "Activation ou désactivation du son"
 
@@ -581,9 +556,6 @@ msgstr "Pour activer ou désactiver les sons :"
 
 #. (itstool) path: item/p
 #: C/sound-change.page:36
-#| msgid ""
-#| "Press the menu button in the top-right corner of the window and select "
-#| "<gui style=\"menuitem\">Preferences</gui>."
 msgid "Press the menu button in the top-right corner of the window."
 msgstr ""
 "Cliquez sur le bouton de menu situé dans le coin supérieur droit de la "
@@ -591,7 +563,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/sound-change.page:39
-#| msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgid "Check or uncheck <gui style=\"checkbox\">Sound</gui>."
 msgstr "Cochez ou décochez la case <gui style=\"checkbox\">Son</gui>."
 
@@ -602,7 +573,6 @@ msgstr "Changer la vitesse à laquelle les vers se déplacent."
 
 #. (itstool) path: page/title
 #: C/speed-change.page:31
-#| msgid "Change the default controls"
 msgid "Change the default speed"
 msgstr "Modification de la vitesse par défaut"
 
@@ -623,8 +593,8 @@ msgstr ""
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 msgstr ""
-"Creative Commons Paternité-Partage dans des conditions identiques à "
-"l’initiale 3.0 non transposé"
+"Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 non "
+"transposé"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
