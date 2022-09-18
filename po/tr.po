@@ -1,5 +1,7 @@
 # Turkish translation of gnome-nibbles.
 # Copyright (C) 2000-2002, 2004, 2005, 2008 Free Software Foundation, Inc.
+# Copyright (C) 2009-2021 gnome-nibbles's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-nibbles package.
 #
 # Onur Kucuk, <okucuk@yahoo.com>, 2000.
 # Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
@@ -14,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-07-09 15:00+0000\n"
+"POT-Creation-Date: 2022-07-30 14:04+0000\n"
 "PO-Revision-Date: 2020-08-23 00:49+0200\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
@@ -41,12 +43,12 @@ msgid ""
 "or itself. The enemy worms are after the same bonuses that you are, so be "
 "careful: if they become too large, you won’t have much room for movement."
 msgstr ""
-"Ödülleri yiyerek uzama arayışındaki solucanı denetleyin. Boyunuzu uzatmak için "
-"çörekleri ve dondurmaları yerken düşman solucanlara karşı taktiksel üstünlük "
-"sağlayın. Her solucanın on canı vardır ve duvara, başka bir solucana ya da "
-"kendi kendisine çarptığında bunlardan birini yitirir. Düşman solucanlar sizinle "
-"aynı ödülleri yeme peşindedir, bu yüzden dikkatli olun: eğer çok büyürlerse, "
-"çok hareket alanınız kalmaz."
+"Ödülleri yiyerek uzama arayışındaki solucanı denetleyin. Boyunuzu uzatmak "
+"için çörekleri ve dondurmaları yerken düşman solucanlara karşı taktiksel "
+"üstünlük sağlayın. Her solucanın on canı vardır ve duvara, başka bir "
+"solucana ya da kendi kendisine çarptığında bunlardan birini yitirir. Düşman "
+"solucanlar sizinle aynı ödülleri yeme peşindedir, bu yüzden dikkatli olun: "
+"eğer çok büyürlerse, çok hareket alanınız kalmaz."
 
 #: data/org.gnome.Nibbles.appdata.xml.in:17
 msgid ""
@@ -54,19 +56,19 @@ msgid ""
 "levels are mostly open with a few walls, but later on, cramped spaces and "
 "teleporters make things more interesting."
 msgstr ""
-"Macera, artan zorluktaki 26 harita boyunca sürer. İlk düzeyler birkaç "
-"duvar dışında genel olarak açık alandadır, ancak ilerledikçe sıkışık alanlar "
-"ve ışınlayıcılar işleri daha ilginçleştirir."
+"Macera, artan zorluktaki 26 harita boyunca sürer. İlk düzeyler birkaç duvar "
+"dışında genel olarak açık alandadır, ancak ilerledikçe sıkışık alanlar ve "
+"ışınlayıcılar işleri daha ilginçleştirir."
 
 #: data/org.gnome.Nibbles.appdata.xml.in:22
 msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr ""
-"Beş taneye kadar düşman solucana karşı oynayın ya da arkadaşınızla "
-"birlikte oynamak için klavyenizi paylaşın."
+"Beş taneye kadar düşman solucana karşı oynayın ya da arkadaşınızla birlikte "
+"oynamak için klavyenizi paylaşın."
 
-#: data/org.gnome.Nibbles.appdata.xml.in:53
+#: data/org.gnome.Nibbles.appdata.xml.in:57
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
@@ -388,13 +390,13 @@ msgstr "Atıştırmalıklar _Hakkında"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
 #. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:72 src/nibbles-window.vala:412
+#: data/ui/nibbles.ui:72 src/nibbles-window.vala:413
 msgid "_New Game"
 msgstr "Yeni _Oyun"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:84 src/nibbles-window.vala:461
+#: data/ui/nibbles.ui:84 src/nibbles-window.vala:462
 msgid "_Pause"
 msgstr "_Duraklat"
 
@@ -511,7 +513,7 @@ msgstr "_Sahte ödülleri etkinleştir"
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/controls.vala:130 src/nibbles-view.vala:533 src/scoreboard.vala:32
+#: src/controls.vala:128 src/nibbles-view.vala:534 src/scoreboard.vala:32
 #, c-format
 msgid "Player %d"
 msgstr "%d. Oyuncu"
@@ -595,7 +597,8 @@ msgstr "Hız 4 (yavaş) ile 1 (hızlı) arasında olmalıdır."
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
-"--disable-fakes (-d) ve --enable-fakes (-e) seçenekleri birbirini dışlayandır."
+"--disable-fakes (-d) ve --enable-fakes (-e) seçenekleri birbirini "
+"dışlayandır."
 
 #. Translators: text crediting an author, in the about dialog
 #: src/gnome-nibbles.vala:286
@@ -662,141 +665,141 @@ msgstr ""
 "Emin Tufan Çetin <etcetin@gmail.com>"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:904
+#: src/nibbles-view.vala:898
 msgid "red"
 msgstr "kırmızı"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:906
+#: src/nibbles-view.vala:900
 msgid "green"
 msgstr "yeşil"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:908
+#: src/nibbles-view.vala:902
 msgid "blue"
 msgstr "mavi"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:910
+#: src/nibbles-view.vala:904
 msgid "yellow"
 msgstr "sarı"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:912
+#: src/nibbles-view.vala:906
 msgid "cyan"
 msgstr "camgöbeği"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:914
+#: src/nibbles-view.vala:908
 msgid "purple"
 msgstr "mor"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:404
+#: src/nibbles-window.vala:405
 msgid "Are you sure you want to start a new game?"
 msgstr "Yeni oyun başlatmak istediğinizden emin misiniz?"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:408
+#: src/nibbles-window.vala:409
 msgid "If you start a new game, the current one will be lost."
 msgstr "Eğer yenisini başlatırsanız, geçerli oyun kaybedilecek."
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:456
+#: src/nibbles-window.vala:457
 msgid "_Resume"
 msgstr "_Sürdür"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:663 src/nibbles-window.vala:880
+#: src/nibbles-window.vala:664 src/nibbles-window.vala:882
 #, c-format
 msgid "Level %d"
 msgstr "%d. Düzey"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:736
+#: src/nibbles-window.vala:737
 msgid "Beginner"
 msgstr "Acemi"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:738
+#: src/nibbles-window.vala:739
 msgid "Slow"
 msgstr "Yavaş"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:740
+#: src/nibbles-window.vala:741
 msgid "Medium"
 msgstr "Orta"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:742
+#: src/nibbles-window.vala:743
 msgid "Fast"
 msgstr "Hızlı"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:744
+#: src/nibbles-window.vala:745
 msgid "Beginner with Fakes"
 msgstr "Sahte Ödüllerle Acemi"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:746
+#: src/nibbles-window.vala:747
 msgid "Slow with Fakes"
 msgstr "Sahte Ödüllerle Yavaş"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:748
+#: src/nibbles-window.vala:749
 msgid "Medium with Fakes"
 msgstr "Sahte Ödüllerle Orta"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:750
+#: src/nibbles-window.vala:751
 msgid "Fast with Fakes"
 msgstr "Sahte Ödüllerle Hızlı"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:755
+#: src/nibbles-window.vala:756
 msgid "Difficulty Level:"
 msgstr "Zorluk Düzeyi:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:860
+#: src/nibbles-window.vala:862
 #, c-format
 msgid "Level %d Completed!"
 msgstr "%d. Düzey Tamamlandı!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:868
+#: src/nibbles-window.vala:870
 msgid "_Next Level"
 msgstr "_Sonraki Düzey"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:932
+#: src/nibbles-window.vala:934
 msgid "Congratulations!"
 msgstr "Tebrikler!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:936
+#: src/nibbles-window.vala:938
 msgid "Game Over!"
 msgstr "Oyun Bitti!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:944
+#: src/nibbles-window.vala:946
 msgid "You have completed the game."
 msgstr "Oyunu tamamladınız."
 
-#: src/nibbles-window.vala:951
+#: src/nibbles-window.vala:953
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d Puan"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:962
+#: src/nibbles-window.vala:964
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(liderler sıralamasına ulaşmaya %ld puan daha gerekiyor)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:969
+#: src/nibbles-window.vala:971
 msgid "_Play Again"
 msgstr "Yeniden _Oyna"
 
@@ -829,30 +832,3 @@ msgstr "Seçtiğiniz tuş zaten atanmış!"
 #: src/preferences-dialog.vala:195
 msgid "_Set anyway"
 msgstr "Yine de _ata"
-
-#~ msgid "Player"
-#~ msgstr "Oyuncu"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Tercihler"
-
-#~ msgid "Worms movement speed."
-#~ msgstr "Solucanların hareket hızı."
-
-#~ msgid "Use relative movement"
-#~ msgstr "Bağıl hareketleri kullan"
-
-#~ msgid "Use relative movement (ie. left or right only)."
-#~ msgstr "Bağıl hareketleri kullanır (örn. sadece sol veya sağ gibi)."
-
-#~ msgid "Worm"
-#~ msgstr "Solucan"
-
-#~ msgid "Speed"
-#~ msgstr "Hız"
-
-#~ msgid "Options"
-#~ msgstr "Seçenekler"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "_Sesleri etkinleştir"
