@@ -1,6 +1,6 @@
 project('gnome-nibbles', ['c', 'vala'],
   license: 'GPL3+',
-  meson_version: '>= 0.50.1',
+  meson_version: '>= 0.59',
   version: '3.38.2'
 )
 
@@ -48,8 +48,12 @@ add_project_arguments([
   language: 'c'
 )
 
-# Extra scripts
-meson.add_install_script('meson_post_install.py')
+# Postinstall
+gnome.post_install(
+  glib_compile_schemas: true,
+  gtk_update_icon_cache: true,
+  update_desktop_database: true,
+)
 
 # Subdirs
 subdir('data')
