@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
 "POT-Creation-Date: 2022-10-03 07:58+0000\n"
-"PO-Revision-Date: 2022-10-12 21:49+0200\n"
+"PO-Revision-Date: 2022-10-13 10:17+0200\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -82,7 +82,7 @@ msgstr "червей;червеи;змия;змии;game;snake;board;"
 
 #: data/org.gnome.Nibbles.gschema.xml:13
 msgid "Width of the window in pixels"
-msgstr "Широчина на прозореца в пиксели"
+msgstr "Широчината на прозореца в пиксели"
 
 #: data/org.gnome.Nibbles.gschema.xml:14
 msgid "Width of the window in pixels."
@@ -90,7 +90,7 @@ msgstr "Широчината на прозореца в пиксели."
 
 #: data/org.gnome.Nibbles.gschema.xml:18
 msgid "Height of the window in pixels"
-msgstr "Височина на прозореца в пиксели"
+msgstr "Височината на прозореца в пиксели"
 
 #: data/org.gnome.Nibbles.gschema.xml:19
 msgid "Height of the window in pixels."
