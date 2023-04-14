@@ -4,7 +4,7 @@
   <id>org.gnome.Nibbles.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <name>GNOME Nibbles</name>
+  <name>Nibbles</name>
   <summary>Guide a worm around a maze</summary>
   <description>
     <p>
@@ -54,6 +54,6 @@
     <kudo>UserDocs</kudo>
   </kudos>
   <translation type="gettext">gnome-nibbles</translation>
-  <developer_name>The GNOME Project</developer_name>
+  <developer_name>Michael Catanzaro</developer_name>
   <content_rating type="oars-1.0" />
 </component>
