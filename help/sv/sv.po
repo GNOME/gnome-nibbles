@@ -1,11 +1,11 @@
 # Erik Sköldås <erik.skoldas@tele2.se>, 2015.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2020, 2021.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2020, 2021, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nibbles doc\n"
-"POT-Creation-Date: 2021-08-08 07:58+0000\n"
-"PO-Revision-Date: 2021-08-10 00:43+0200\n"
+"POT-Creation-Date: 2023-04-14 20:07+0000\n"
+"PO-Revision-Date: 2023-04-15 01:21+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -27,7 +27,7 @@ msgstr ""
 
 #. (itstool) path: credit/name
 #: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
-#: C/fake-bonus.page:16 C/index.page:13 C/multi-player.page:17 C/scores.page:15
+#: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
 #: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
@@ -81,8 +81,8 @@ msgstr "Pausa och återuppta ditt spel"
 #: C/basics.page:41
 msgid ""
 "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
-"pause your game. You can resume your game by pressing the <gui style=\"button"
-"\">Resume</gui> button."
+"pause your game. You can resume your game by pressing the <gui "
+"style=\"button\">Resume</gui> button."
 msgstr ""
 "Tryck på knappen <gui style=\"button\">Paus</gui> i rubrikraden för att "
 "pausa spelet. Du kan återuppta ditt spel genom att trycka på knappen <gui "
@@ -100,7 +100,7 @@ msgid ""
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
 "any time."
 msgstr ""
-"Tryck på knappen <gui style=\"button\">x</gui> i rubrikraden eller tryck "
+"Tryck på knappen <gui style=\"button\">⨯</gui> i rubrikraden eller tryck "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> för att avsluta <app>Nibbles</"
 "app> när som helst."
 
@@ -168,7 +168,7 @@ msgid ""
 "In the <gui style=\"group\">Controls</gui> list, select the line of the "
 "<gui>Action</gui>. This highlights the line."
 msgstr ""
-"I listan <gui style=\"group\">Styrning</gui>, välj raden för <gui>Åtgärd</"
+"Välj i listan <gui style=\"group\">Styrning</gui> raden för <gui>Åtgärd</"
 "gui>en. Det kommer att markera raden."
 
 #. (itstool) path: item/p
@@ -193,7 +193,7 @@ msgid ""
 "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
 "inside the <gui>Nibbles Preferences</gui> box."
 msgstr ""
-"För att behålla den gamla inställningen klicka åter på <gui>Ny snabbtangent…"
+"För att behålla den gamla inställningen, klicka åter på <gui>Ny snabbtangent…"
 "</gui>, högerklicka på <gui>Ny snabbtangent…</gui>, tryck <key>Esc</key> "
 "eller klicka inuti rutan <gui>Inställningar för Nibbles</gui>."
 
@@ -223,7 +223,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/controls-default.page:25
 msgid "Default keys for <app>Nibbles.</app>"
-msgstr "Standard styrtangenter i <app>Nibbles.</app>"
+msgstr "Standardstyrtangenter i <app>Nibbles</app>."
 
 #. (itstool) path: page/title
 #: C/controls-default.page:28
@@ -297,29 +297,47 @@ msgstr "För att aktivera falska bonusar:"
 #. (itstool) path: item/p
 #: C/fake-bonus.page:44
 msgid ""
-"On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
-"\">Enable fake bonuses</gui> checkbox if it is unchecked."
+"On the <gui>Preferences</gui> screen, check the <gui "
+"style=\"checkbox\">Enable fake bonuses</gui> checkbox if it is unchecked."
 msgstr ""
-"På skärmen <gui>Inställningar</gui>, kryssa i kryssrutan <gui style="
-"\"checkbox\">Aktivera falska bonusar</gui> om den är omarkerad."
+"På skärmen <gui>Inställningar</gui>, kryssa i kryssrutan <gui "
+"style=\"checkbox\">Aktivera falska bonusar</gui> om den är omarkerad."
 
 #. (itstool) path: note/p
 #: C/fake-bonus.page:50 C/speed-change.page:44
 msgid "Preferences cannot be changed in the middle of a game."
 msgstr "Inställningar kan inte ändras under pågående spel."
 
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link:trail"
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "link"
+msgid "Nibbles"
+msgstr "Nibbles"
+
 #. (itstool) path: info/desc
-#: C/index.page:17
+#: C/index.page:21
 msgid "Index"
 msgstr "Index"
 
 #. (itstool) path: page/title
-#: C/index.page:20
+#: C/index.page:24
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Nibbles"
 
 #. (itstool) path: page/p
-#: C/index.page:22
+#: C/index.page:26
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -330,12 +348,12 @@ msgstr ""
 "och andra maskar. Du måste klara 26 nivåer för att avsluta spelet."
 
 #. (itstool) path: section/title
-#: C/index.page:27
+#: C/index.page:31
 msgid "Game play"
 msgstr "Spelets gång"
 
 #. (itstool) path: section/title
-#: C/index.page:31
+#: C/index.page:35
 msgid "Preferences"
 msgstr "Inställningar"
 
@@ -546,7 +564,7 @@ msgstr "För att ändra hastigheten:"
 msgid ""
 "On the <gui>Preferences</gui> screen, select one of the four speed choices."
 msgstr ""
-"På skärmen <gui>Inställningar</gui>, välj ett av de fyra "
+"Välj på skärmen <gui>Inställningar</gui> ett av de fyra "
 "hastighetsalternativen."
 
 #. (itstool) path: p/link
