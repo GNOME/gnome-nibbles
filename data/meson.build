@@ -16,7 +16,8 @@ if desktop_file_validate.found()
     desktop_file_validate,
     args: [
       desktop_file.full_path()
-    ]
+    ],
+    depends: desktop_file
   )
 endif
 
@@ -69,7 +70,8 @@ if appstream_util.found()
     'validate-appdata', appstream_util,
     args: [
       'validate-relax', '--nonet', appdata_file.full_path()
-    ]
+    ],
+    depends: appdata_file
   )
 endif
 
