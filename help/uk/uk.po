@@ -2,19 +2,20 @@
 # Copyright (C) 2020 gnome-nibbles's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-nibbles package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles gnome-3-36\n"
-"POT-Creation-Date: 2021-08-08 07:58+0000\n"
-"PO-Revision-Date: 2021-08-08 21:09+0300\n"
+"POT-Creation-Date: 2023-04-14 20:07+0000\n"
+"PO-Revision-Date: 2023-04-15 18:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
@@ -24,7 +25,7 @@ msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2020"
 
 #. (itstool) path: credit/name
 #: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
-#: C/fake-bonus.page:16 C/index.page:13 C/multi-player.page:17 C/scores.page:15
+#: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
 #: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
@@ -78,12 +79,12 @@ msgstr "Призупинення та поновлення гри"
 #: C/basics.page:41
 msgid ""
 "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
-"pause your game. You can resume your game by pressing the <gui style=\"button"
-"\">Resume</gui> button."
+"pause your game. You can resume your game by pressing the <gui "
+"style=\"button\">Resume</gui> button."
 msgstr ""
 "Натисніть кнопку <gui style=\"button\">Пауза</gui> на панелі заголовка, щоб "
-"призупинити гру. Відновити гру можна натисканням кнопки <gui style=\"button"
-"\">Відновити</gui>."
+"призупинити гру. Відновити гру можна натисканням кнопки <gui "
+"style=\"button\">Відновити</gui>."
 
 #. (itstool) path: section/title
 #: C/basics.page:47
@@ -105,8 +106,7 @@ msgstr ""
 #: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
 #: C/sound-change.page:24 C/speed-change.page:24
 msgid "Andre Klapper"
-msgstr ""
-"Андре Клаппер (Andre Klapper)"
+msgstr "Андре Клаппер (Andre Klapper)"
 
 #. (itstool) path: info/desc
 #: C/controls-change.page:30
@@ -135,23 +135,22 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
 #: C/speed-change.page:36
-#| msgid "Start a new game"
 msgid "Start a new game."
 msgstr "Почати нову гру."
 
 #. (itstool) path: media/span
 #: C/controls-change.page:46
 msgid "settings"
-msgstr ""
-"параметри"
+msgstr "параметри"
 
 #. (itstool) path: item/p
 #: C/controls-change.page:45
-#| msgid "Select the tab for the player whose controls you want to change."
 msgid ""
 "On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
 "player whose controls you want to change."
-msgstr "На сторінці <gui>Керування</gui> натисніть кнопку <_:media-1/> для гравця, чи засоби керування ви хочете змінити."
+msgstr ""
+"На сторінці <gui>Керування</gui> натисніть кнопку <_:media-1/> для гравця, "
+"чи засоби керування ви хочете змінити."
 
 #. (itstool) path: note/p
 #: C/controls-change.page:49
@@ -164,33 +163,28 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/controls-change.page:54
-#| msgid ""
-#| "In the <gui style=\"group\">Controls</gui> list, select the line, then "
-#| "click on the control. This highlights the line and the words <gui>New "
-#| "accelerator…</gui> are now present in place of the old control."
 msgid ""
 "In the <gui style=\"group\">Controls</gui> list, select the line of the "
 "<gui>Action</gui>. This highlights the line."
 msgstr ""
-"У списку <gui style=\"group\">Керування</gui> виберіть рядок для <gui>Дії</gui>. У відповідь рядок буде підсвічено."
+"У списку <gui style=\"group\">Керування</gui> виберіть рядок для <gui>Дії</"
+"gui>. У відповідь рядок буде підсвічено."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:58
-#| msgid ""
-#| "In the <gui style=\"group\">Controls</gui> list, select the line, then "
-#| "click on the control. This highlights the line and the words <gui>New "
-#| "accelerator…</gui> are now present in place of the old control."
 msgid ""
 "Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
 "gui> are now present in place of the old control."
 msgstr ""
-"Виберіть <gui style=\"group\">Клавішу</gui> для керування. У відповідь рядок замість попередньої комбінації клавіш буде показано слова <gui>Нове "
+"Виберіть <gui style=\"group\">Клавішу</gui> для керування. У відповідь рядок "
+"замість попередньої комбінації клавіш буде показано слова <gui>Нове "
 "скорочення…</gui>."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:63
 msgid "Press the key you want to use instead of the default key."
-msgstr "Натисніть комбінацію клавіш, яку ви хочете призначити замість типової."
+msgstr ""
+"Натисніть комбінацію клавіш, яку ви хочете призначити замість типової."
 
 #. (itstool) path: note/p
 #: C/controls-change.page:66
@@ -217,18 +211,15 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/controls-change.page:78
-#| msgid ""
-#| "For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
-#| "<gui>Left</gui> control line and click it, then press <key>A</key> on "
-#| "your keyboard when you see <gui>New accelerator…</gui> on the line."
 msgid ""
 "For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
 "<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
 "key> on your keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
-"Наприклад, щоб скористатися клавішею <key>A</key> для руху ліворуч, виберіть у списку <gui>Дія</"
-"gui> пункт <gui>Ліворуч</gui> і клацніть на ньому, натисніть клавішу <key>A</key> на клавіатурі, коли побачите у рядку "
-"напис <gui>Нове скорочення…</gui>."
+"Наприклад, щоб скористатися клавішею <key>A</key> для руху ліворуч, виберіть "
+"у списку <gui>Дія</gui> пункт <gui>Ліворуч</gui> і клацніть на ньому, "
+"натисніть клавішу <key>A</key> на клавіатурі, коли побачите у рядку напис "
+"<gui>Нове скорочення…</gui>."
 
 #. (itstool) path: info/desc
 #: C/controls-default.page:25
@@ -307,37 +298,49 @@ msgstr "Щоб увімкнути фальшиві премії, виконай�
 
 #. (itstool) path: item/p
 #: C/fake-bonus.page:44
-#| msgid ""
-#| "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if "
-#| "it is unchecked."
 msgid ""
-"On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
-"\">Enable fake bonuses</gui> checkbox if it is unchecked."
+"On the <gui>Preferences</gui> screen, check the <gui "
+"style=\"checkbox\">Enable fake bonuses</gui> checkbox if it is unchecked."
 msgstr ""
-"На сторінці <gui>Параметри</gui> позначте пункт <gui style=\"checkbox\">Увімкнути фальшиві премії</gui>, якщо "
-"його ще не позначено."
+"На сторінці <gui>Параметри</gui> позначте пункт <gui "
+"style=\"checkbox\">Увімкнути фальшиві премії</gui>, якщо його ще не "
+"позначено."
 
 #. (itstool) path: note/p
 #: C/fake-bonus.page:50 C/speed-change.page:44
-#| msgid ""
-#| "Set all preferences before starting a new game. Preferences cannot be "
-#| "changed in the middle of a game."
 msgid "Preferences cannot be changed in the middle of a game."
-msgstr ""
-"Параметри не можна змінювати посеред гри."
+msgstr "Параметри не можна змінювати посеред гри."
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link:trail"
+msgid "Nibbles"
+msgstr "Хробак"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Nibbles"
+msgstr "Хробак"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "link"
+msgid "Nibbles"
+msgstr "Хробак"
 
 #. (itstool) path: info/desc
-#: C/index.page:17
+#: C/index.page:21
 msgid "Index"
 msgstr "Покажчик"
 
 #. (itstool) path: page/title
-#: C/index.page:20
+#: C/index.page:24
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Хробак"
 
 #. (itstool) path: page/p
-#: C/index.page:22
+#: C/index.page:26
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -349,12 +352,12 @@ msgstr ""
 "пройти 26 рівнів."
 
 #. (itstool) path: section/title
-#: C/index.page:27
+#: C/index.page:31
 msgid "Game play"
 msgstr "Ігровий процес"
 
 #. (itstool) path: section/title
-#: C/index.page:31
+#: C/index.page:35
 msgid "Preferences"
 msgstr "Параметри"
 
@@ -392,15 +395,13 @@ msgstr "Вибір кількості гравців"
 
 #. (itstool) path: section/p
 #: C/multi-player.page:44
-#| msgid ""
-#| "<app>Nibbles</app> can be played by up to six players. To set the number "
-#| "of players:"
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. Up to four of them "
 "can be humans. To set the number of players:"
 msgstr ""
-"У <app>Хробака</app> може одночасно грати до шести гравців. До чотирьох з гравців можуть бути людьми. Щоб встановити "
-"кількість гравців, виконайте такі дії:"
+"У <app>Хробака</app> може одночасно грати до шести гравців. До чотирьох з "
+"гравців можуть бути людьми. Щоб встановити кількість гравців, виконайте такі "
+"дії:"
 
 #. (itstool) path: item/p
 #: C/multi-player.page:52
@@ -408,11 +409,11 @@ msgid ""
 "On the <gui>Number of players</gui> screen, set the number of human players "
 "to the required number, a maximum of 4."
 msgstr ""
-"На сторінці <gui>Кількість гравців</gui> встановіть бажану кількість гравців-людей. Максимальна кількість — 4."
+"На сторінці <gui>Кількість гравців</gui> встановіть бажану кількість гравців-"
+"людей. Максимальна кількість — 4."
 
 #. (itstool) path: item/p
 #: C/multi-player.page:56
-#| msgid "Choose the number of players"
 msgid "Set the number of computer players."
 msgstr "Встановити кількість комп'ютерних гравців."
 
@@ -524,12 +525,10 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/sound-change.page:28
 msgid "Change sound settings."
-msgstr ""
-"Змінити параметри звукового супроводу."
+msgstr "Змінити параметри звукового супроводу."
 
 #. (itstool) path: page/title
 #: C/sound-change.page:31
-#| msgid "To enable or disable sounds:"
 msgid "Enable or disable sound"
 msgstr "Увімкнути або вимкнути звуковий супровід."
 
@@ -540,30 +539,23 @@ msgstr "Щоб увімкнути або вимкнути звуки, викон
 
 #. (itstool) path: item/p
 #: C/sound-change.page:36
-#| msgid ""
-#| "Press the menu button in the top-right corner of the window and select "
-#| "<gui style=\"menuitem\">Preferences</gui>."
 msgid "Press the menu button in the top-right corner of the window."
-msgstr ""
-"Натисніть кнопку меню у верхньому правому куті вікна програми."
+msgstr "Натисніть кнопку меню у верхньому правому куті вікна програми."
 
 #. (itstool) path: item/p
 #: C/sound-change.page:39
-#| msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgid "Check or uncheck <gui style=\"checkbox\">Sound</gui>."
 msgstr ""
-"Позначте пункт <gui style=\"checkbox\">Звук</gui> або зніміть з "
-"нього позначку."
+"Позначте пункт <gui style=\"checkbox\">Звук</gui> або зніміть з нього "
+"позначку."
 
 #. (itstool) path: info/desc
 #: C/speed-change.page:28
 msgid "Change how fast the worms move."
-msgstr ""
-"Змінити швидкість руху хробаків."
+msgstr "Змінити швидкість руху хробаків."
 
 #. (itstool) path: page/title
 #: C/speed-change.page:31
-#| msgid "Change the default controls"
 msgid "Change the default speed"
 msgstr "Зміна типової швидкості"
 
@@ -577,7 +569,8 @@ msgstr "Щоб змінити швидкість гри, виконайте та
 msgid ""
 "On the <gui>Preferences</gui> screen, select one of the four speed choices."
 msgstr ""
-"На сторінці <gui>Параметри</gui> виберіть один з чотирьох варіантів швидкості."
+"На сторінці <gui>Параметри</gui> виберіть один з чотирьох варіантів "
+"швидкості."
 
 #. (itstool) path: p/link
 #: C/legal.xml:4
@@ -591,8 +584,8 @@ msgstr "Ця робота розповсюджується за умов дот�
 
 #~ msgid ""
 #~ "Set the <gui style=\"input\">Number of human players</gui> to the "
-#~ "required number, a maximum of 6. You can do this by using the <gui style="
-#~ "\"button\">+</gui> or <gui style=\"button\">-</gui> buttons or by "
+#~ "required number, a maximum of 6. You can do this by using the <gui "
+#~ "style=\"button\">+</gui> or <gui style=\"button\">-</gui> buttons or by "
 #~ "entering the number of players from the keyboard in the space provided."
 #~ msgstr ""
 #~ "Встановіть бажане значення у полі <gui style=\"input\">Кількість гравців</"
@@ -607,9 +600,10 @@ msgstr "Ця робота розповсюджується за умов дот�
 #~ "between 1 and 6."
 #~ msgstr ""
 #~ "Ви можете стежити за грою у <app>Хробака</app>, не беручи у ній участі. "
-#~ "Щоб поспостерігати за грою, встановіть для параметра <gui style=\"input"
-#~ "\">Кількість гравців</gui> значення 0, а для параметра <gui style=\"input"
-#~ "\">Кількість комп'ютерних гравців</gui> — значення від 1 до 6."
+#~ "Щоб поспостерігати за грою, встановіть для параметра <gui "
+#~ "style=\"input\">Кількість гравців</gui> значення 0, а для параметра <gui "
+#~ "style=\"input\">Кількість комп'ютерних гравців</gui> — значення від 1 до "
+#~ "6."
 
 #~ msgid "Change default speed, worm color, level order and sound settings."
 #~ msgstr ""
