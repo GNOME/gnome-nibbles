@@ -1,18 +1,18 @@
 # Swedish messages for gnome-nibbles.
-# Copyright © 1999-2020 Free Software Foundation, Inc.
+# Copyright © 1999-2023 Free Software Foundation, Inc.
 # Andreas Persenius <ndap@swipnet.se>, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>
 # Martin Norbäck <d95mback@dtek.chalmers.se>, 2000.
 # Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2018, 2020.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2018, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-07-09 15:00+0000\n"
-"PO-Revision-Date: 2020-08-04 00:49+0200\n"
+"POT-Creation-Date: 2023-04-14 19:11+0000\n"
+"PO-Revision-Date: 2023-04-14 21:21+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -20,11 +20,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:7
-msgid "GNOME Nibbles"
-msgstr "GNOME Nibbles"
+#. Translators: title of the window, as displayed by the window manager
+#. Translators: title of the window, as displayed in the headerbar
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/ui/nibbles.ui:57 data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
+msgid "Nibbles"
+msgstr "Nibbles"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
@@ -63,17 +67,9 @@ msgstr ""
 "Spela ensam mot upp till fem motståndarmaskar, eller dela med dig av ditt "
 "tangentbord för att spela med en vän."
 
-#: data/org.gnome.Nibbles.appdata.xml.in:53
-msgid "The GNOME Project"
-msgstr "GNOME-projektet"
-
-#. Translators: title of the window, as displayed by the window manager
-#. Translators: title of the window, as displayed in the headerbar
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:57
-#: data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
-msgid "Nibbles"
-msgstr "Nibbles"
+#: data/org.gnome.Nibbles.appdata.xml.in:57
+msgid "Michael Catanzaro"
+msgstr "Michael Catanzaro"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -386,13 +382,13 @@ msgstr "_Om Nibbles"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
 #. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:72 src/nibbles-window.vala:412
+#: data/ui/nibbles.ui:72 src/nibbles-window.vala:413
 msgid "_New Game"
 msgstr "_Nytt spel"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:84 src/nibbles-window.vala:461
+#: data/ui/nibbles.ui:84 src/nibbles-window.vala:462
 msgid "_Pause"
 msgstr "P_aus"
 
@@ -509,7 +505,7 @@ msgstr "A_ktivera falska bonusar"
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/controls.vala:130 src/nibbles-view.vala:533 src/scoreboard.vala:32
+#: src/controls.vala:128 src/nibbles-view.vala:534 src/scoreboard.vala:32
 #, c-format
 msgid "Player %d"
 msgstr "Spelare %d"
@@ -667,128 +663,128 @@ msgstr ""
 "<tp-sv@listor.tp-sv.se>."
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:904
+#: src/nibbles-view.vala:898
 msgid "red"
 msgstr "röd"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:906
+#: src/nibbles-view.vala:900
 msgid "green"
 msgstr "grön"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:908
+#: src/nibbles-view.vala:902
 msgid "blue"
 msgstr "blå"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:910
+#: src/nibbles-view.vala:904
 msgid "yellow"
 msgstr "gul"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:912
+#: src/nibbles-view.vala:906
 msgid "cyan"
 msgstr "cyan"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:914
+#: src/nibbles-view.vala:908
 msgid "purple"
 msgstr "lila"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:404
+#: src/nibbles-window.vala:405
 msgid "Are you sure you want to start a new game?"
 msgstr "Är du säker på att du vill starta ett nytt spel?"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:408
+#: src/nibbles-window.vala:409
 msgid "If you start a new game, the current one will be lost."
 msgstr "Om du startar ett nytt spel kommer det nuvarande spelet gå förlorat."
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:456
+#: src/nibbles-window.vala:457
 msgid "_Resume"
 msgstr "_Fortsätt"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:663 src/nibbles-window.vala:880
+#: src/nibbles-window.vala:664 src/nibbles-window.vala:882
 #, c-format
 msgid "Level %d"
 msgstr "Nivå %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:736
+#: src/nibbles-window.vala:737
 msgid "Beginner"
 msgstr "Nybörjare"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:738
+#: src/nibbles-window.vala:739
 msgid "Slow"
 msgstr "Långsam"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:740
+#: src/nibbles-window.vala:741
 msgid "Medium"
 msgstr "Mellan"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:742
+#: src/nibbles-window.vala:743
 msgid "Fast"
 msgstr "Snabb"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:744
+#: src/nibbles-window.vala:745
 msgid "Beginner with Fakes"
 msgstr "Nybörjare med attrapper"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:746
+#: src/nibbles-window.vala:747
 msgid "Slow with Fakes"
 msgstr "Långsam med attrapper"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:748
+#: src/nibbles-window.vala:749
 msgid "Medium with Fakes"
 msgstr "Mellan med attrapper"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:750
+#: src/nibbles-window.vala:751
 msgid "Fast with Fakes"
 msgstr "Snabb med attrapper"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:755
+#: src/nibbles-window.vala:756
 msgid "Difficulty Level:"
 msgstr "Svårighetsgrad:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:860
+#: src/nibbles-window.vala:862
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nivå %d färdig!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:868
+#: src/nibbles-window.vala:870
 msgid "_Next Level"
 msgstr "_Nästa nivå"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:932
+#: src/nibbles-window.vala:934
 msgid "Congratulations!"
 msgstr "Gratulerar!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:936
+#: src/nibbles-window.vala:938
 msgid "Game Over!"
 msgstr "Spelet är slut!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:944
+#: src/nibbles-window.vala:946
 msgid "You have completed the game."
 msgstr "Du har klarat spelet."
 
-#: src/nibbles-window.vala:951
+#: src/nibbles-window.vala:953
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -796,13 +792,13 @@ msgstr[0] "%d poäng"
 msgstr[1] "%d poäng"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:962
+#: src/nibbles-window.vala:964
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld poäng till för att nå topplistan)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:969
+#: src/nibbles-window.vala:971
 msgid "_Play Again"
 msgstr "S_pela igen"
 
@@ -835,30 +831,3 @@ msgstr "Tangenten du valde används redan!"
 #: src/preferences-dialog.vala:195
 msgid "_Set anyway"
 msgstr "_Ställ in i alla fall"
-
-#~ msgid "Player"
-#~ msgstr "Spelare"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Inställningar"
-
-#~ msgid "Worms movement speed."
-#~ msgstr "Förflyttningshastighet för maskar."
-
-#~ msgid "Use relative movement"
-#~ msgstr "Använd relativ rörelse"
-
-#~ msgid "Use relative movement (ie. left or right only)."
-#~ msgstr "Använd relativ rörelse (dvs endast vänster eller höger)."
-
-#~ msgid "Worm"
-#~ msgstr "Mask"
-
-#~ msgid "Speed"
-#~ msgstr "Hastighet"
-
-#~ msgid "Options"
-#~ msgstr "Alternativ"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "Ak_tivera ljud"
