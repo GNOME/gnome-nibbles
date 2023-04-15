@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles-help\n"
-"POT-Creation-Date: 2021-08-08 07:58+0000\n"
+"POT-Creation-Date: 2023-04-14 20:07+0000\n"
 "PO-Revision-Date: 2021-09-15 17:42+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #. (itstool) path: credit/name
 #: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
-#: C/fake-bonus.page:16 C/index.page:13 C/multi-player.page:17 C/scores.page:15
+#: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
 #: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
@@ -81,12 +81,12 @@ msgstr "Wstrzymywanie i wznawianie gry"
 #: C/basics.page:41
 msgid ""
 "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
-"pause your game. You can resume your game by pressing the <gui style=\"button"
-"\">Resume</gui> button."
+"pause your game. You can resume your game by pressing the <gui "
+"style=\"button\">Resume</gui> button."
 msgstr ""
 "Kliknij przycisk <gui style=\"button\">Wstrzymaj</gui> na pasku nagłówka, "
-"aby wstrzymać grę. Można ją wznowić klikając przycisk <gui style=\"button"
-"\">Wznów</gui>."
+"aby wstrzymać grę. Można ją wznowić klikając przycisk <gui "
+"style=\"button\">Wznów</gui>."
 
 #. (itstool) path: section/title
 #: C/basics.page:47
@@ -129,9 +129,9 @@ msgid ""
 "controls becomes necessary. To change the default controls:"
 msgstr ""
 "Można zmienić <link xref=\"controls-default\">domyślne sterowanie</link> "
-"w <app>Robakach</app> do własnego upodobania albo dla gier <link xref="
-"\"multi-player\">wieloosobowych</link>, które wymagają więcej niż jednego "
-"zestawu klawiszy. Aby to zrobić:"
+"w <app>Robakach</app> do własnego upodobania albo dla gier <link "
+"xref=\"multi-player\">wieloosobowych</link>, które wymagają więcej niż "
+"jednego zestawu klawiszy. Aby to zrobić:"
 
 #. (itstool) path: item/p
 #: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
@@ -294,29 +294,47 @@ msgstr "Aby włączyć fałszywe premie:"
 #. (itstool) path: item/p
 #: C/fake-bonus.page:44
 msgid ""
-"On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
-"\">Enable fake bonuses</gui> checkbox if it is unchecked."
+"On the <gui>Preferences</gui> screen, check the <gui "
+"style=\"checkbox\">Enable fake bonuses</gui> checkbox if it is unchecked."
 msgstr ""
-"Na ekranie <gui>Preferencje</gui> zaznacz pole wyboru <gui style=\"checkbox"
-"\">Fałszywe premie</gui>."
+"Na ekranie <gui>Preferencje</gui> zaznacz pole wyboru <gui "
+"style=\"checkbox\">Fałszywe premie</gui>."
 
 #. (itstool) path: note/p
 #: C/fake-bonus.page:50 C/speed-change.page:44
 msgid "Preferences cannot be changed in the middle of a game."
 msgstr "Nie można zmieniać preferencji w trakcie gry."
 
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link:trail"
+msgid "Nibbles"
+msgstr "Robaki"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Nibbles"
+msgstr "Robaki"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "link"
+msgid "Nibbles"
+msgstr "Robaki"
+
 #. (itstool) path: info/desc
-#: C/index.page:17
+#: C/index.page:21
 msgid "Index"
 msgstr "Indeks"
 
 #. (itstool) path: page/title
-#: C/index.page:20
+#: C/index.page:24
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Robaki"
 
 #. (itstool) path: page/p
-#: C/index.page:22
+#: C/index.page:26
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -327,12 +345,12 @@ msgstr ""
 "ścian i pozostałych robaków. Gra ma 26 poziomów."
 
 #. (itstool) path: section/title
-#: C/index.page:27
+#: C/index.page:31
 msgid "Game play"
 msgstr "Rozgrywka"
 
 #. (itstool) path: section/title
-#: C/index.page:31
+#: C/index.page:35
 msgid "Preferences"
 msgstr "Preferencje"
 
