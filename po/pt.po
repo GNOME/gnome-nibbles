@@ -8,25 +8,30 @@
 # Bruno Ramalhete <bram.512@gmail.com>, 2016.
 # Sérgio Cardeira <scardeira.sergio@gmail.com>, 2016.
 # Juliano de Souza Camargo <julianosc@protonmail.com>, 2020.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.12\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-09-14 01:47+0000\n"
-"PO-Revision-Date: 2020-09-13 23:34-0300\n"
+"POT-Creation-Date: 2023-04-14 19:11+0000\n"
+"PO-Revision-Date: 2023-04-15 18:24+0100\n"
 "Last-Translator: Juliano de Souza Camargo <julianosc@protonmail.com>\n"
 "Language-Team: Portuguese <>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:7
-msgid "GNOME Nibbles"
-msgstr "GNOME Nibbles"
+#. Translators: title of the window, as displayed by the window manager
+#. Translators: title of the window, as displayed in the headerbar
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/ui/nibbles.ui:57 data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
+msgid "Nibbles"
+msgstr "Nibbles"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
@@ -65,17 +70,9 @@ msgstr ""
 "Jogue sozinho contra até cinco vermes inimigos ou partilhe o seu teclado "
 "para jogar com um amigo."
 
-#: data/org.gnome.Nibbles.appdata.xml.in:55
-msgid "The GNOME Project"
-msgstr "O Projeto GNOME"
-
-#. Translators: title of the window, as displayed by the window manager
-#. Translators: title of the window, as displayed in the headerbar
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:57
-#: data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
-msgid "Nibbles"
-msgstr "Nibbles"
+#: data/org.gnome.Nibbles.appdata.xml.in:57
+msgid "Michael Catanzaro"
+msgstr "Michael Catanzaro"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -84,19 +81,19 @@ msgstr "jogo;cobra;tabuleiro;verme;"
 
 #: data/org.gnome.Nibbles.gschema.xml:13
 msgid "Width of the window in pixels"
-msgstr "Largura da janela em pixeis"
+msgstr "Largura da janela em pixéis"
 
 #: data/org.gnome.Nibbles.gschema.xml:14
 msgid "Width of the window in pixels."
-msgstr "Largura da janela em pixeis."
+msgstr "Largura da janela em pixéis."
 
 #: data/org.gnome.Nibbles.gschema.xml:18
 msgid "Height of the window in pixels"
-msgstr "Altura da janela em pixeis"
+msgstr "Altura da janela em pixéis"
 
 #: data/org.gnome.Nibbles.gschema.xml:19
 msgid "Height of the window in pixels."
-msgstr "Altura da janela em pixeis."
+msgstr "Altura da janela em pixéis."
 
 #: data/org.gnome.Nibbles.gschema.xml:23
 msgid "true if the window is maximized"
@@ -137,7 +134,7 @@ msgstr "Velocidade de movimento dos vermes"
 
 #: data/org.gnome.Nibbles.gschema.xml:47
 msgid "The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”."
-msgstr "A velocidade dos vermes, onde 1 significa “rápidos” e 4 “lentos” "
+msgstr "A velocidade dos vermes, onde ‘1’ significa “rápidos” e ‘4’ “lentos”."
 
 #: data/org.gnome.Nibbles.gschema.xml:51
 msgid "Enable sounds"
@@ -296,7 +293,6 @@ msgstr "Configuração em jogo"
 
 #. Translators: shortcut that during game setup switches to the next screen
 #: data/ui/help-overlay.ui:36
-#| msgid "_Next Level"
 msgctxt "shortcut window"
 msgid "Next screen"
 msgstr "Próximo ecrã"
@@ -327,7 +323,6 @@ msgstr "Pausar ou continuar"
 
 #. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
 #: data/ui/help-overlay.ui:77
-#| msgid "_General"
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Genérico"
@@ -346,21 +341,18 @@ msgstr "Atalhos de teclado"
 
 #. Translators: shortcut that opens the application help
 #: data/ui/help-overlay.ui:98
-#| msgid "_Help"
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Ajuda"
 
 #. Translators: shortcut that opens About dialog
 #: data/ui/help-overlay.ui:106
-#| msgid "_About"
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Sobre"
 
 #. Translators: shortcut that quits application
 #: data/ui/help-overlay.ui:114
-#| msgid "_Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Sair"
@@ -378,7 +370,7 @@ msgstr "_Pontuação"
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
 #: data/ui/nibbles.ui:40
 msgid "_Keyboard Shortcuts"
-msgstr "Atalhos de _Teclado"
+msgstr "_Teclas de atalho"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
 #: data/ui/nibbles.ui:45
@@ -454,27 +446,23 @@ msgstr "Segui_nte"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 1st worm controls and color
 #: data/ui/preferences-dialog.ui:30
-#| msgid "Worm _1"
 msgid "Worm 1"
-msgstr "verme 1"
+msgstr "Verme 1"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 2nd worm controls and color
 #: data/ui/preferences-dialog.ui:32
-#| msgid "Worm _2"
 msgid "Worm 2"
-msgstr "verme 2"
+msgstr "Verme 2"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 3rd worm controls and color
 #: data/ui/preferences-dialog.ui:34
-#| msgid "Worm _3"
 msgid "Worm 3"
-msgstr "verme 3"
+msgstr "Verme 3"
 
 #. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 4th worm controls and color
 #: data/ui/preferences-dialog.ui:36
-#| msgid "Worm _4"
 msgid "Worm 4"
-msgstr "verme 4"
+msgstr "Verme 4"
 
 #. Translators: title of the Controls configuration dialog, if there is only one worm; allows to configure the worm controls and color
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably)
@@ -526,7 +514,6 @@ msgstr "Jogador %d"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:46
-#| msgid "Enable fake bonuses"
 msgid "Disable fake bonuses"
 msgstr "Desativar bónus falsos"
 
@@ -556,7 +543,6 @@ msgstr "Definir o número de vermes (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:67
-#| msgid "Number of players"
 msgid "Set number of players (1-4)"
 msgstr "Definir o número de jogadores (1-4)"
 
@@ -671,7 +657,8 @@ msgstr ""
 "Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Tiago Santos <tiagofsantos81@sapo.pt>\n"
 "Pedro Albuquerque <palbuquerque73@gmail.com>\n"
-"Juliano de Souza Camargo <julianosc@pm.me>"
+"Juliano de Souza Camargo <julianosc@pm.me>\n"
+"Hugo Carvalho <hugokarvalho@hotmail.com>"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
 #: src/nibbles-view.vala:898
@@ -836,12 +823,18 @@ msgstr "Tecla"
 #. Translators: label of a MessageDialog that appears when one tries to assign an already assigned key
 #: src/preferences-dialog.vala:192
 msgid "The key you selected is already assigned!"
-msgstr "O atalho que escolheu já foi atribuído."
+msgstr "O atalho que escolheu já foi atribuído!"
 
 #. Translators: label of one of the buttons of a MessageDialog that appears when one tries to assign an already assigned key (with a mnemonic that appears when pressing Alt)
 #: src/preferences-dialog.vala:195
 msgid "_Set anyway"
 msgstr "_Definir à mesma"
+
+#~ msgid "GNOME Nibbles"
+#~ msgstr "GNOME Nibbles"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "O Projeto GNOME"
 
 #~ msgid "Player"
 #~ msgstr "Jogador"
