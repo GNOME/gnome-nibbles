@@ -8,27 +8,31 @@
 # Vytautas Povilaitis <punktyras@nkm.lt>, 2007.
 # Gintautas Miliauskas <gintas@akl.lt>, 2006, 2007, 2008, 2010.
 # Algimantas Margevičius <gymka@mail.ru>, 2011.
-# Aurimas Černius <aurisc4@gmail.com>, 2010-2020.
+# Aurimas Černius <aurisc4@gmail.com>, 2010-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-07-09 15:00+0000\n"
-"PO-Revision-Date: 2020-07-13 16:17+0300\n"
+"POT-Creation-Date: 2023-04-14 19:11+0000\n"
+"PO-Revision-Date: 2023-04-16 22:27+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 42.0\n"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:7
-msgid "GNOME Nibbles"
-msgstr "GNOME Nibbles"
+#. Translators: title of the window, as displayed by the window manager
+#. Translators: title of the window, as displayed in the headerbar
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/ui/nibbles.ui:57 data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
+msgid "Nibbles"
+msgstr "Nibbles"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
@@ -67,17 +71,9 @@ msgstr ""
 "Žaiskite patys prieš iki penkių priešų arba dalinkitės klaviatūra ir "
 "žaiskite su draugu."
 
-#: data/org.gnome.Nibbles.appdata.xml.in:53
-msgid "The GNOME Project"
-msgstr "GNOME projektas"
-
-#. Translators: title of the window, as displayed by the window manager
-#. Translators: title of the window, as displayed in the headerbar
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:57
-#: data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
-msgid "Nibbles"
-msgstr "Nibbles"
+#: data/org.gnome.Nibbles.appdata.xml.in:57
+msgid "Michael Catanzaro"
+msgstr "Michael Catanzaro"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -299,7 +295,6 @@ msgstr "Žaidimo nustatymo metu"
 
 #. Translators: shortcut that during game setup switches to the next screen
 #: data/ui/help-overlay.ui:36
-#| msgid "_Next Level"
 msgctxt "shortcut window"
 msgid "Next screen"
 msgstr "Kitas ekranas"
@@ -330,7 +325,6 @@ msgstr "Pristabdyti arba tęsti"
 
 #. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
 #: data/ui/help-overlay.ui:77
-#| msgid "_General"
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Bendra"
@@ -349,21 +343,18 @@ msgstr "Klaviatūros trumpiniai"
 
 #. Translators: shortcut that opens the application help
 #: data/ui/help-overlay.ui:98
-#| msgid "_Help"
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Žinynas"
 
 #. Translators: shortcut that opens About dialog
 #: data/ui/help-overlay.ui:106
-#| msgid "_About"
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Apie"
 
 #. Translators: shortcut that quits application
 #: data/ui/help-overlay.ui:114
-#| msgid "_Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Išeiti"
@@ -395,13 +386,13 @@ msgstr "_Apie nibbles"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
 #. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:72 src/nibbles-window.vala:412
+#: data/ui/nibbles.ui:72 src/nibbles-window.vala:413
 msgid "_New Game"
 msgstr "_Naujas žaidimas"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:84 src/nibbles-window.vala:461
+#: data/ui/nibbles.ui:84 src/nibbles-window.vala:462
 msgid "_Pause"
 msgstr "_Pristabdyti"
 
@@ -518,14 +509,13 @@ msgstr "Įj_ungti netikras premijas"
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/controls.vala:130 src/nibbles-view.vala:533 src/scoreboard.vala:32
+#: src/controls.vala:128 src/nibbles-view.vala:534 src/scoreboard.vala:32
 #, c-format
 msgid "Player %d"
 msgstr "Žaidėjas %d"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:46
-#| msgid "Enable fake bonuses"
 msgid "Disable fake bonuses"
 msgstr "Išjungti netikras premijas"
 
@@ -555,7 +545,6 @@ msgstr "Nustatyti kirmėlių skaičių (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:67
-#| msgid "Number of players"
 msgid "Set number of players (1-4)"
 msgstr "Nustatyti žaidėjų skaičių (1-4)"
 
@@ -676,128 +665,128 @@ msgstr ""
 "Gediminas Paulauskas <menesis@chatsubo.lt>"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:904
+#: src/nibbles-view.vala:898
 msgid "red"
 msgstr "raudona"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:906
+#: src/nibbles-view.vala:900
 msgid "green"
 msgstr "žalia"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:908
+#: src/nibbles-view.vala:902
 msgid "blue"
 msgstr "mėlyna"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:910
+#: src/nibbles-view.vala:904
 msgid "yellow"
 msgstr "geltona"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:912
+#: src/nibbles-view.vala:906
 msgid "cyan"
 msgstr "žalsvai mėlyna"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:914
+#: src/nibbles-view.vala:908
 msgid "purple"
 msgstr "violetinė"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:404
+#: src/nibbles-window.vala:405
 msgid "Are you sure you want to start a new game?"
 msgstr "Ar tikrai norite pradėti naują žaidimą?"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:408
+#: src/nibbles-window.vala:409
 msgid "If you start a new game, the current one will be lost."
 msgstr "Jei pradėsite naują žaidimą, esamas žaidimas bus prarastas."
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:456
+#: src/nibbles-window.vala:457
 msgid "_Resume"
 msgstr "_Tęsti"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:663 src/nibbles-window.vala:880
+#: src/nibbles-window.vala:664 src/nibbles-window.vala:882
 #, c-format
 msgid "Level %d"
 msgstr "Lygis %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:736
+#: src/nibbles-window.vala:737
 msgid "Beginner"
 msgstr "Pradedantysis"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:738
+#: src/nibbles-window.vala:739
 msgid "Slow"
 msgstr "Lėtai"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:740
+#: src/nibbles-window.vala:741
 msgid "Medium"
 msgstr "Vidutiniškai"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:742
+#: src/nibbles-window.vala:743
 msgid "Fast"
 msgstr "Greitai"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:744
+#: src/nibbles-window.vala:745
 msgid "Beginner with Fakes"
 msgstr "Pradedančiajam, su apgaule"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:746
+#: src/nibbles-window.vala:747
 msgid "Slow with Fakes"
 msgstr "Lėtai, su apgaule"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:748
+#: src/nibbles-window.vala:749
 msgid "Medium with Fakes"
 msgstr "Vidutiniškai, su apgaule"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:750
+#: src/nibbles-window.vala:751
 msgid "Fast with Fakes"
 msgstr "Greitai, su apgaule"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:755
+#: src/nibbles-window.vala:756
 msgid "Difficulty Level:"
 msgstr "Sudėtingumo lygis:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:860
+#: src/nibbles-window.vala:862
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Lygis %d užbaigtas!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:868
+#: src/nibbles-window.vala:870
 msgid "_Next Level"
 msgstr "_Kitas lygis"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:932
+#: src/nibbles-window.vala:934
 msgid "Congratulations!"
 msgstr "Sveikiname!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:936
+#: src/nibbles-window.vala:938
 msgid "Game Over!"
 msgstr "Žaidimas baigtas!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:944
+#: src/nibbles-window.vala:946
 msgid "You have completed the game."
 msgstr "Jūs užbaigėte žaidimą."
 
-#: src/nibbles-window.vala:951
+#: src/nibbles-window.vala:953
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -806,13 +795,13 @@ msgstr[1] "%d taškai"
 msgstr[2] "%d taškų"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:962
+#: src/nibbles-window.vala:964
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(dar %ld taškų, kad patektumėte į lyderių poziciją)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:969
+#: src/nibbles-window.vala:971
 msgid "_Play Again"
 msgstr "Ža_isti dar kartą"
 
@@ -845,6 +834,12 @@ msgstr "Pasirinktas klavišas jau yra priskirtas!"
 #: src/preferences-dialog.vala:195
 msgid "_Set anyway"
 msgstr "_Vistiek nustatyti"
+
+#~ msgid "GNOME Nibbles"
+#~ msgstr "GNOME Nibbles"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "GNOME projektas"
 
 #~ msgid "Player"
 #~ msgstr "Žaidėjas"
