@@ -1,31 +1,31 @@
 # Russian translation for gnome-nibbles.
 # Copyright (C) 2022 gnome-nibbles's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-nibbles package.
-# Ser82-png <sw@atrus.ru>, 2022.
+# Ser82-png <asvmail.as@gmail.com>, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"POT-Creation-Date: 2021-12-23 03:58+0000\n"
-"PO-Revision-Date: 2022-01-10 14:28+1000\n"
+"POT-Creation-Date: 2023-04-14 20:07+0000\n"
+"PO-Revision-Date: 2023-04-15 21:29+1000\n"
+"Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Last-Translator: Ser82-png\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Ser82-png"
+msgstr "Ser82-png <asvmail.as@gmail.com>, 2022, 2023"
 
 #. (itstool) path: credit/name
 #: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
-#: C/fake-bonus.page:16 C/index.page:13 C/multi-player.page:17 C/scores.page:15
+#: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
 #: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
@@ -79,12 +79,12 @@ msgstr "Приостановка и возобновление игры"
 #: C/basics.page:41
 msgid ""
 "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
-"pause your game. You can resume your game by pressing the <gui style=\"button"
-"\">Resume</gui> button."
+"pause your game. You can resume your game by pressing the <gui "
+"style=\"button\">Resume</gui> button."
 msgstr ""
 "Нажмите кнопку <gui style=\"button\">Пауза</gui> в панели заголовка, чтобы "
-"приостановить игру. Возобновить игру вы можете, нажав кнопку <gui style="
-"\"button\">Возобновить</gui>."
+"приостановить игру. Возобновить игру вы можете, нажав кнопку <gui "
+"style=\"button\">Возобновить</gui>."
 
 #. (itstool) path: section/title
 #: C/basics.page:47
@@ -128,9 +128,10 @@ msgid ""
 msgstr ""
 "<link xref=\"controls-default\">Элементы управления, установленные по "
 "умолчанию</link> можно изменить в <app>Червячках</app> в соответствии с "
-"вашими предпочтениями или для <link xref=\"multi-player"
-"\">многопользовательской</link> игры, когда необходимо иметь более одного "
-"набора элементов управления. Чтобы изменить элементы управления по умолчанию:"
+"вашими предпочтениями или для <link xref=\"multi-"
+"player\">многопользовательской</link> игры, когда необходимо иметь более "
+"одного набора элементов управления. Чтобы изменить элементы управления по "
+"умолчанию:"
 
 #. (itstool) path: item/p
 #: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
@@ -298,29 +299,47 @@ msgstr "Чтобы включить фальшивые бонусы:"
 #. (itstool) path: item/p
 #: C/fake-bonus.page:44
 msgid ""
-"On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
-"\">Enable fake bonuses</gui> checkbox if it is unchecked."
+"On the <gui>Preferences</gui> screen, check the <gui "
+"style=\"checkbox\">Enable fake bonuses</gui> checkbox if it is unchecked."
 msgstr ""
-"На экране <gui>Параметры</gui> установите флажок <gui style=\"checkbox"
-"\">Разрешить фальшивые бонусы</gui>, если он не установлен."
+"На экране <gui>Параметры</gui> установите флажок <gui "
+"style=\"checkbox\">Разрешить фальшивые бонусы</gui>, если он не установлен."
 
 #. (itstool) path: note/p
 #: C/fake-bonus.page:50 C/speed-change.page:44
 msgid "Preferences cannot be changed in the middle of a game."
 msgstr "Настройки нельзя изменить в середине игры."
 
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link:trail"
+msgid "Nibbles"
+msgstr "Червячки"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Nibbles"
+msgstr "Червячки"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "link"
+msgid "Nibbles"
+msgstr "Червячки"
+
 #. (itstool) path: info/desc
-#: C/index.page:17
+#: C/index.page:21
 msgid "Index"
-msgstr "Индекс"
+msgstr "Указатель"
 
 #. (itstool) path: page/title
-#: C/index.page:20
+#: C/index.page:24
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Червячки"
 
 #. (itstool) path: page/p
-#: C/index.page:22
+#: C/index.page:26
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -331,12 +350,12 @@ msgstr ""
 "и других червячков. Чтобы закончить игру, вы должны пройти 26 уровней."
 
 #. (itstool) path: section/title
-#: C/index.page:27
+#: C/index.page:31
 msgid "Game play"
 msgstr "Игровой процесс"
 
 #. (itstool) path: section/title
-#: C/index.page:31
+#: C/index.page:35
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -558,4 +577,4 @@ msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 #. (itstool) path: license/p
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
-msgstr "Это руководство распространяется на условиях <_:link-1/>."
+msgstr "Эта работа распространяется на условиях <_:link-1/>."
