@@ -16,20 +16,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2022-07-30 14:04+0000\n"
-"PO-Revision-Date: 2020-08-23 00:49+0200\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2023-04-14 19:11+0000\n"
+"PO-Revision-Date: 2023-04-16 22:11+0300\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:7
-msgid "GNOME Nibbles"
-msgstr "GNOME Atıştırmalıklar"
+#. Translators: title of the window, as displayed by the window manager
+#. Translators: title of the window, as displayed in the headerbar
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/ui/nibbles.ui:57 data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
+msgid "Nibbles"
+msgstr "Atıştırmalıklar"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
@@ -69,16 +73,8 @@ msgstr ""
 "oynamak için klavyenizi paylaşın."
 
 #: data/org.gnome.Nibbles.appdata.xml.in:57
-msgid "The GNOME Project"
-msgstr "GNOME Projesi"
-
-#. Translators: title of the window, as displayed by the window manager
-#. Translators: title of the window, as displayed in the headerbar
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:57
-#: data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
-msgid "Nibbles"
-msgstr "Atıştırmalıklar"
+msgid "Michael Catanzaro"
+msgstr "Michael Catanzaro"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -832,3 +828,9 @@ msgstr "Seçtiğiniz tuş zaten atanmış!"
 #: src/preferences-dialog.vala:195
 msgid "_Set anyway"
 msgstr "Yine de _ata"
+
+#~ msgid "GNOME Nibbles"
+#~ msgstr "GNOME Atıştırmalıklar"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "GNOME Projesi"
