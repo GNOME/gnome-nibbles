@@ -1,33 +1,33 @@
 # Hungarian translation for gnome-nibbles help.
-# Copyright (C) 2013, 2014, 2015, 2021 Free Software Foundation, Inc.
+# Copyright (C) 2013, 2014, 2015, 2021, 2023 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-nibbles help.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2013, 2014, 2015.
-# Balázs Úr <ur.balazs at fsf dot hu>, 2021.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles_help master\n"
-"POT-Creation-Date: 2021-08-08 07:58+0000\n"
-"PO-Revision-Date: 2021-09-12 20:54+0200\n"
+"POT-Creation-Date: 2023-04-14 20:07+0000\n"
+"PO-Revision-Date: 2023-04-21 03:05+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
-"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
 "Kelemen Gábor <kelemeng at gnome dot hu>, 2013, 2014, 2015.\n"
-"Úr Balázs <ur.balazs at fsf dot hu>, 2021."
+"Úr Balázs <ur.balazs at fsf dot hu>, 2021, 2023."
 
 #. (itstool) path: credit/name
 #: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
-#: C/fake-bonus.page:16 C/index.page:13 C/multi-player.page:17 C/scores.page:15
+#: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
 #: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
@@ -81,8 +81,8 @@ msgstr "Játék megállítása/folytatása"
 #: C/basics.page:41
 msgid ""
 "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
-"pause your game. You can resume your game by pressing the <gui style=\"button"
-"\">Resume</gui> button."
+"pause your game. You can resume your game by pressing the <gui "
+"style=\"button\">Resume</gui> button."
 msgstr ""
 "Nyomja meg a fejlécsávon lévő <gui style=\"button\">Szünet</gui> gombot a "
 "játék szüneteltetéséhez. A játékot a <gui style=\"button\">Folytatás</gui> "
@@ -129,15 +129,14 @@ msgid ""
 "controls becomes necessary. To change the default controls:"
 msgstr ""
 "A <app>Kukacok</app> <link xref=\"controls-default\">alapértelmezett "
-"vezérlése</link> megváltoztatható az ízlésének megfelelőre vagy <link xref="
-"\"multi-player\">több szereplős</link> játékokhoz, ha több vezérlőbillentyű-"
-"csoport használata válik szükségessé. Az alapértelmezett vezérlés "
-"megváltoztatása:"
+"vezérlése</link> megváltoztatható az ízlésének megfelelőre vagy <link "
+"xref=\"multi-player\">több szereplős</link> játékokhoz, ha több "
+"vezérlőbillentyű-csoport használata válik szükségessé. Az alapértelmezett "
+"vezérlés megváltoztatása:"
 
 #. (itstool) path: item/p
 #: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
 #: C/speed-change.page:36
-#| msgid "Start a new game"
 msgid "Start a new game."
 msgstr "Új játék indítása."
 
@@ -148,13 +147,12 @@ msgstr "beállítások"
 
 #. (itstool) path: item/p
 #: C/controls-change.page:45
-#| msgid "Select the tab for the player whose controls you want to change."
 msgid ""
 "On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
 "player whose controls you want to change."
 msgstr ""
-"A <gui>Vezérlés</gui> képernyőn nyomja meg a <_:media-1/> gombot annál a"
-" játékosnál, akinek a vezérlését módosítani szeretné."
+"A <gui>Vezérlés</gui> képernyőn nyomja meg a <_:media-1/> gombot annál a "
+"játékosnál, akinek a vezérlését módosítani szeretné."
 
 #. (itstool) path: note/p
 #: C/controls-change.page:49
@@ -167,29 +165,21 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/controls-change.page:54
-#| msgid ""
-#| "In the <gui style=\"group\">Controls</gui> list, select the line, then "
-#| "click on the control. This highlights the line and the words <gui>New "
-#| "accelerator…</gui> are now present in place of the old control."
 msgid ""
 "In the <gui style=\"group\">Controls</gui> list, select the line of the "
 "<gui>Action</gui>. This highlights the line."
 msgstr ""
-"A <gui style=\"group\">Vezérlés</gui> listában válassza a <gui>Művelet</gui>"
-" sorát. Ez kiemeli a sort."
+"A <gui style=\"group\">Vezérlés</gui> listában válassza a <gui>Művelet</gui> "
+"sorát. Ez kiemeli a sort."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:58
-#| msgid ""
-#| "In the <gui style=\"group\">Controls</gui> list, select the line, then "
-#| "click on the control. This highlights the line and the words <gui>New "
-#| "accelerator…</gui> are now present in place of the old control."
 msgid ""
 "Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
 "gui> are now present in place of the old control."
 msgstr ""
-"Válassza ki a <gui>Billentyűt</gui> a vezérlőn. Az <gui>Új gyorsbillentyű…<"
-"/gui> felirat jelenik meg a korábbi vezérlőbillentyű helyén."
+"Válassza ki a <gui>Billentyűt</gui> a vezérlőn. Az <gui>Új gyorsbillentyű…</"
+"gui> felirat jelenik meg a korábbi vezérlőbillentyű helyén."
 
 #. (itstool) path: item/p
 #: C/controls-change.page:63
@@ -222,20 +212,16 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/controls-change.page:78
-#| msgid ""
-#| "For example, to use <key>A</key> to <gui>Move Left</gui>, select the "
-#| "<gui>Left</gui> control line and click it, then press <key>A</key> on "
-#| "your keyboard when you see <gui>New accelerator…</gui> on the line."
 msgid ""
 "For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
 "<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
 "key> on your keyboard when you see <gui>New accelerator…</gui> on the line."
 msgstr ""
-"Például az <key>A</key> billentyűnek a balra mozgáshoz történő használatához"
-" válassza a <gui>Művelet</gui> <gui>Mozgás balra</gui> lehetőséget, válassza"
-" ki a <gui>Billentyűjét</gui>, és nyomja meg az <key>A</key> billentyűt a"
-" billentyűzeten, amikor megjelenik az <gui>Új gyorsbillentyű</gui> szöveg a"
-" sorban."
+"Például az <key>A</key> billentyűnek a balra mozgáshoz történő használatához "
+"válassza a <gui>Művelet</gui> <gui>Mozgás balra</gui> lehetőséget, válassza "
+"ki a <gui>Billentyűjét</gui>, és nyomja meg az <key>A</key> billentyűt a "
+"billentyűzeten, amikor megjelenik az <gui>Új gyorsbillentyű</gui> szöveg a "
+"sorban."
 
 #. (itstool) path: info/desc
 #: C/controls-default.page:25
@@ -314,37 +300,49 @@ msgstr "Hamis bónuszok bekapcsolása:"
 
 #. (itstool) path: item/p
 #: C/fake-bonus.page:44
-#| msgid ""
-#| "Check the <gui style=\"checkbox\">Enable fake bonuses</gui> checkbox if "
-#| "it is unchecked."
 msgid ""
-"On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox"
-"\">Enable fake bonuses</gui> checkbox if it is unchecked."
+"On the <gui>Preferences</gui> screen, check the <gui "
+"style=\"checkbox\">Enable fake bonuses</gui> checkbox if it is unchecked."
 msgstr ""
-"A <gui>Beállítások</gui> képernyőn jelölje be a <gui style=\"checkbox\">Hamis"
-" bónuszok bekapcsolása</gui> "
-"négyzetet, ha az nincs bejelölve."
+"A <gui>Beállítások</gui> képernyőn jelölje be a <gui "
+"style=\"checkbox\">Hamis bónuszok bekapcsolása</gui> négyzetet, ha az nincs "
+"bejelölve."
 
 #. (itstool) path: note/p
 #: C/fake-bonus.page:50 C/speed-change.page:44
-#| msgid ""
-#| "Set all preferences before starting a new game. Preferences cannot be "
-#| "changed in the middle of a game."
 msgid "Preferences cannot be changed in the middle of a game."
 msgstr "A beállítások nem módosíthatók a játék közben."
 
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link:trail"
+msgid "Nibbles"
+msgstr "Kukacok"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Nibbles"
+msgstr "Kukacok"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "link"
+msgid "Nibbles"
+msgstr "Kukacok"
+
 #. (itstool) path: info/desc
-#: C/index.page:17
+#: C/index.page:21
 msgid "Index"
 msgstr "Index"
 
 #. (itstool) path: page/title
-#: C/index.page:20
+#: C/index.page:24
 msgid "<_:media-1/> Nibbles"
 msgstr "<_:media-1/> Kukacok"
 
 #. (itstool) path: page/p
-#: C/index.page:22
+#: C/index.page:26
 msgid ""
 "<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to "
 "swallow as many objects as you can while avoiding maze walls and other "
@@ -355,12 +353,12 @@ msgstr ""
 "többi kukacot. A játék befejezéséhez 26 szintet kell leküzdenie."
 
 #. (itstool) path: section/title
-#: C/index.page:27
+#: C/index.page:31
 msgid "Game play"
 msgstr "Játékmenet"
 
 #. (itstool) path: section/title
-#: C/index.page:31
+#: C/index.page:35
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -398,15 +396,12 @@ msgstr "Játékosok számának kiválasztása"
 
 #. (itstool) path: section/p
 #: C/multi-player.page:44
-#| msgid ""
-#| "<app>Nibbles</app> can be played by up to six players. To set the number "
-#| "of players:"
 msgid ""
 "<app>Nibbles</app> can be played by up to six players. Up to four of them "
 "can be humans. To set the number of players:"
 msgstr ""
-"A <app>Kukacok</app> játékot akár hatan is játszhatják. Közülük legfeljebb"
-" négy lehet emberi játékos. A játékosok számának megadása:"
+"A <app>Kukacok</app> játékot akár hatan is játszhatják. Közülük legfeljebb "
+"négy lehet emberi játékos. A játékosok számának megadása:"
 
 #. (itstool) path: item/p
 #: C/multi-player.page:52
@@ -414,12 +409,11 @@ msgid ""
 "On the <gui>Number of players</gui> screen, set the number of human players "
 "to the required number, a maximum of 4."
 msgstr ""
-"A <gui>Játékosok száma</gui> képernyőn állítsa be az emberi játékosok számát"
-" a kívánt számra, ami legfeljebb 4 lehet."
+"A <gui>Játékosok száma</gui> képernyőn állítsa be az emberi játékosok számát "
+"a kívánt számra, ami legfeljebb 4 lehet."
 
 #. (itstool) path: item/p
 #: C/multi-player.page:56
-#| msgid "Choose the number of players"
 msgid "Set the number of computer players."
 msgstr "Állítsa be a gépi játékosok számát."
 
@@ -535,7 +529,6 @@ msgstr "Hangbeállítások megváltoztatása."
 
 #. (itstool) path: page/title
 #: C/sound-change.page:31
-#| msgid "To enable or disable sounds:"
 msgid "Enable or disable sound"
 msgstr "Hangok engedélyezése vagy letiltása"
 
@@ -546,19 +539,15 @@ msgstr "A hangok engedélyezéséhez vagy letiltásához:"
 
 #. (itstool) path: item/p
 #: C/sound-change.page:36
-#| msgid ""
-#| "Press the menu button in the top-right corner of the window and select "
-#| "<gui style=\"menuitem\">Preferences</gui>."
 msgid "Press the menu button in the top-right corner of the window."
 msgstr "Nyomja meg az ablak jobb felső sarkában lévő menügombot."
 
 #. (itstool) path: item/p
 #: C/sound-change.page:39
-#| msgid "Check or uncheck <gui style=\"checkbox\">Enable sounds</gui>."
 msgid "Check or uncheck <gui style=\"checkbox\">Sound</gui>."
 msgstr ""
-"Jelölje be vagy szüntesse meg a <gui style=\"checkbox\">Hang</gui> négyzet"
-" kijelölését."
+"Jelölje be vagy szüntesse meg a <gui style=\"checkbox\">Hang</gui> négyzet "
+"kijelölését."
 
 #. (itstool) path: info/desc
 #: C/speed-change.page:28
@@ -567,7 +556,6 @@ msgstr "Annak megváltoztatása, hogy a kukacok milyen gyorsan mozogjanak."
 
 #. (itstool) path: page/title
 #: C/speed-change.page:31
-#| msgid "Change the default controls"
 msgid "Change the default speed"
 msgstr "Az alapértelmezett sebesség módosítása"
 
@@ -581,8 +569,8 @@ msgstr "A sebesség megváltoztatásához:"
 msgid ""
 "On the <gui>Preferences</gui> screen, select one of the four speed choices."
 msgstr ""
-"A <gui>Beállítások</gui> képernyőn válasszon egyet a négy sebességválasztás"
-" közül."
+"A <gui>Beállítások</gui> képernyőn válasszon egyet a négy sebességválasztás "
+"közül."
 
 #. (itstool) path: p/link
 #: C/legal.xml:4
