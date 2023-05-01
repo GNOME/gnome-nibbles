@@ -1,3 +1,11 @@
+3.38.3 - May 1, 2023
+====================
+
+- Fixes to build with newer valac (!27, !29, Rico Tzschichholz)
+- Misc merge requests: !28, !30, !31, !32, !39, !40, !41
+- Updated user help (Andre Klapper)
+- Updated translations
+
 3.38.2 - November 1st, 2020
 ===========================
 
