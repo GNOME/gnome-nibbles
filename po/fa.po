@@ -5,15 +5,15 @@
 # Elnaz Sarbar <elnaz@farsiweb.info>, 2005, 2006.
 # Meelad Zakaria <meelad@farsiweb.info>, 2005.
 # Farzaneh Sarafraz <farzaneh@farsiweb.info>, 2006.
-# Danial Behzadi <dani.behzi@gmail.com>, 2012, 2014-2020.
+# Danial Behzadi <dani.behzi@gmail.com>, 2012, 2014-2023.
 # Arash Mousavi <mousavi.arash@gmail.com>, 2012, 2013, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-07-09 15:00+0000\n"
-"PO-Revision-Date: 2020-08-31 07:26+0000\n"
+"POT-Creation-Date: 2023-04-30 13:58+0000\n"
+"PO-Revision-Date: 2023-05-03 12:31+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -22,11 +22,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:7
-msgid "GNOME Nibbles"
-msgstr "کرم‌های گنوم"
+#. Translators: title of the window, as displayed by the window manager
+#. Translators: title of the window, as displayed in the headerbar
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/ui/nibbles.ui:57 data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
+msgid "Nibbles"
+msgstr "نیبلز"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
@@ -36,15 +40,15 @@ msgstr "کِرم را اطراف هزارتو راهنمایی کنید"
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver enemy "
 "worms while eating doughnuts and ice cream to increase your length. Each worm "
-"has ten lives and loses one by running into a wall, another worm, or itself. "
-"The enemy worms are after the same bonuses that you are, so be careful: if they "
+"has ten lives and loses one by running into a wall, another worm, or itself. The "
+"enemy worms are after the same bonuses that you are, so be careful: if they "
 "become too large, you won’t have much room for movement."
 msgstr ""
 "یک کرم را در چالشش کنترل کنید تا جوایز را بخورد و درازتر بشود. از سایر کرم‌ها "
 "سبقت بگیرید و دونات‌ها و بستنی‌های بیشتری بخورید و اندازه بزرگتری پیدا کنید. هر "
-"کرم ۱۰ جان دارد و هر بار که به یک دیوار، کرمی دیگر یا خودش برخورد کند، یکی را "
-"از دست می‌دهد. کرم‌های حریف هم دنبال جوایز شما هستند، پیش مواظب باشید: اگر آنها "
-"خیلی دراز شوند، شما جای زیادی برای حرکت نخواهید داشت."
+"کرم ۱۰ جان دارد و هر بار که به یک دیوار، کرمی دیگر یا خودش برخورد کند، یکی را از "
+"دست می‌دهد. کرم‌های حریف هم دنبال جوایز شما هستند، پیش مواظب باشید: اگر آنها خیلی "
+"دراز شوند، شما جای زیادی برای حرکت نخواهید داشت."
 
 #: data/org.gnome.Nibbles.appdata.xml.in:17
 msgid ""
@@ -64,17 +68,9 @@ msgstr ""
 "کرم خود را در برابر حداکثر ۵ کرم دیگر کنترل کنید، یک کیبورد را به یکی از "
 "دوستانتان مشترک شوید و بازی کنید."
 
-#: data/org.gnome.Nibbles.appdata.xml.in:53
-msgid "The GNOME Project"
-msgstr "پروژه گنوم"
-
-#. Translators: title of the window, as displayed by the window manager
-#. Translators: title of the window, as displayed in the headerbar
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:57 data/ui/nibbles.ui:65
-#: src/gnome-nibbles.vala:24
-msgid "Nibbles"
-msgstr "نیبلز"
+#: data/org.gnome.Nibbles.appdata.xml.in:57
+msgid "Michael Catanzaro"
+msgstr "میشل کاتان‌زارو"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -369,13 +365,13 @@ msgstr "_دربارهٔ نیبلز"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
 #. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:72 src/nibbles-window.vala:412
+#: data/ui/nibbles.ui:72 src/nibbles-window.vala:413
 msgid "_New Game"
 msgstr "بازی _جدید"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:84 src/nibbles-window.vala:461
+#: data/ui/nibbles.ui:84 src/nibbles-window.vala:462
 msgid "_Pause"
 msgstr "_مکث"
 
@@ -492,7 +488,7 @@ msgstr "به _کار انداختن جایزه‌های تقلبی"
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/controls.vala:130 src/nibbles-view.vala:533 src/scoreboard.vala:32
+#: src/controls.vala:128 src/nibbles-view.vala:534 src/scoreboard.vala:32
 #, c-format
 msgid "Player %d"
 msgstr "بازیکن %Id"
@@ -641,128 +637,128 @@ msgstr ""
 "دانیال بهزادی <dani.behzi@gmail.com>"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:904
+#: src/nibbles-view.vala:898
 msgid "red"
 msgstr "قرمز"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:906
+#: src/nibbles-view.vala:900
 msgid "green"
 msgstr "سبز"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:908
+#: src/nibbles-view.vala:902
 msgid "blue"
 msgstr "آبی"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:910
+#: src/nibbles-view.vala:904
 msgid "yellow"
 msgstr "زرد"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:912
+#: src/nibbles-view.vala:906
 msgid "cyan"
 msgstr "فیروزه‌ای"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:914
+#: src/nibbles-view.vala:908
 msgid "purple"
 msgstr "بنفش"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:404
+#: src/nibbles-window.vala:405
 msgid "Are you sure you want to start a new game?"
 msgstr "آیا مطمئنید که می‌خواهید بازی جدیدی آغاز کنید؟"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:408
+#: src/nibbles-window.vala:409
 msgid "If you start a new game, the current one will be lost."
 msgstr "اگر بازی جدید شروع کنید، بازی فعلی شما از دست خواهد رفت."
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:456
+#: src/nibbles-window.vala:457
 msgid "_Resume"
 msgstr "ا_ز سر گیری"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:663 src/nibbles-window.vala:880
+#: src/nibbles-window.vala:664 src/nibbles-window.vala:882
 #, c-format
 msgid "Level %d"
 msgstr "مرحله %Id"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:736
+#: src/nibbles-window.vala:737
 msgid "Beginner"
 msgstr "تازه‌کار"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:738
+#: src/nibbles-window.vala:739
 msgid "Slow"
 msgstr "آهسته"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:740
+#: src/nibbles-window.vala:741
 msgid "Medium"
 msgstr "متوسط"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:742
+#: src/nibbles-window.vala:743
 msgid "Fast"
 msgstr "سریع"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:744
+#: src/nibbles-window.vala:745
 msgid "Beginner with Fakes"
 msgstr "تازه‌کار با جوایز قلابی"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:746
+#: src/nibbles-window.vala:747
 msgid "Slow with Fakes"
 msgstr "آهسته با جوایز قلابی"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:748
+#: src/nibbles-window.vala:749
 msgid "Medium with Fakes"
 msgstr "متوسط با جوایز قلابی"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:750
+#: src/nibbles-window.vala:751
 msgid "Fast with Fakes"
 msgstr "سریع با جوایز قلابی"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:755
+#: src/nibbles-window.vala:756
 msgid "Difficulty Level:"
 msgstr "سطح سختی:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:860
+#: src/nibbles-window.vala:862
 #, c-format
 msgid "Level %d Completed!"
 msgstr "مرحله %Id تمام شد!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:868
+#: src/nibbles-window.vala:870
 msgid "_Next Level"
 msgstr "_مرحله بعدی"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:932
+#: src/nibbles-window.vala:934
 msgid "Congratulations!"
 msgstr "تبریک!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:936
+#: src/nibbles-window.vala:938
 msgid "Game Over!"
 msgstr "بازی تمام شد!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:944
+#: src/nibbles-window.vala:946
 msgid "You have completed the game."
 msgstr "شما بازی را کامل کردید."
 
-#: src/nibbles-window.vala:951
+#: src/nibbles-window.vala:953
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -770,13 +766,13 @@ msgstr[0] "%Id امتیاز"
 msgstr[1] "%Id امتیاز"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:962
+#: src/nibbles-window.vala:964
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%Ild امتیاز دیگر لازم است تا وارد تابلو بهترین‌ها بشوید)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:969
+#: src/nibbles-window.vala:971
 msgid "_Play Again"
 msgstr "_بازی دوباره"
 
@@ -809,6 +805,12 @@ msgstr "کلیدی که انتخاب کرده‌اید از قبل اختصاص 
 #: src/preferences-dialog.vala:195
 msgid "_Set anyway"
 msgstr "_به هر حال تنظیم شود"
+
+#~ msgid "GNOME Nibbles"
+#~ msgstr "کرم‌های گنوم"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "پروژه گنوم"
 
 #~ msgid "Player"
 #~ msgstr "بازیکن"
