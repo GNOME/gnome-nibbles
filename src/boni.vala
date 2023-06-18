@@ -110,28 +110,21 @@ private class Boni : Object
     {
         missed_bonuses_to_replace = 0;
 
-        // FIXME Use an iterator instead of a second list
-        Gee.LinkedList<Bonus> found = new Gee.LinkedList<Bonus> ();
-        foreach (Bonus bonus in bonuses)
-        {
-            if (bonus.countdown == 0)
-                found.add (bonus);
-            else
-                bonus.countdown--;
-        }
-
-        foreach (Bonus bonus in found)
-        {
-            bool real_bonus = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
-
-            remove_bonus (board, bonus);
-
-            if (real_bonus)
-            {
-                increase_missed ();
-                missed_bonuses_to_replace++;
-            }
-        }
+	for (int i = bonuses.size; i > 0; i--)
+	{
+	    Bonus bonus = bonuses.get (i - 1);
+	    if (bonus.countdown > 0)
+		bonus.countdown--;
+	    else
+	    {
+		remove_bonus (board, bonus);
+		if (bonus.bonus_type == BonusType.REGULAR && !bonus.fake)
+		{
+		    increase_missed ();
+		    missed_bonuses_to_replace++;
+		}
+	    }
+	}
     }
 
     internal inline uint8 new_regular_bonus_eaten ()
