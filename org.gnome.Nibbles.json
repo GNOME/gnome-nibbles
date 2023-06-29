@@ -3,6 +3,7 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [ "org.freedesktop.Sdk.Extension.vala-nightly" ],
     "command": "gnome-nibbles",
     "tags": ["nightly"],
     "desktop-file-name-prefix": "(Nightly) ",
@@ -16,6 +17,10 @@
         /* OpenGL access */
         "--device=dri"
     ],
+    "build-options": {
+        "prepend-path": "/usr/lib/sdk/vala-nightly/bin/",
+        "prepend-ld-library-path": "/usr/lib/sdk/vala-nightly/lib"
+    },
     "cleanup": ["/include", "/lib/*.la", "/lib/pkgconfig",
                 "/share/man", "/share/vala"],
     "modules": [
@@ -41,6 +46,22 @@
                         "url": "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz",
                         "sha256": "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
                     }]
+                }
+            ]
+        },
+        {
+            "name": "libgee",
+            "buildsystem": "autotools",
+            "build-options": {
+                "env": {
+                    "ACLOCAL_PATH" : "/usr/lib/sdk/vala-nightly/share/aclocal"
+                }
+            },
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libgee.git",
+                    "branch": "main"
                 }
             ]
         },
