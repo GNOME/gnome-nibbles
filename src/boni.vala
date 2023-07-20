@@ -87,6 +87,7 @@ private class Boni : Object
         reset_missed ();
         regular_bonus_maxi = regular_bonus;
         regular_bonus_left = regular_bonus;
+
         total_bonus_number = 0;
     }
 
@@ -129,6 +130,9 @@ private class Boni : Object
 
     internal inline uint8 new_regular_bonus_eaten ()
     {
+        reset_missed (); /* Without this reset all scores get set to
+                            zero for the rest of the game
+                            once too_many_missed () is true. */
         if (regular_bonus_left == 0)
             assert_not_reached ();
         regular_bonus_left--;

@@ -605,7 +605,7 @@ private class NibblesGame : Object
             return;
         }
 
-        switch (board[worm.head.x, worm.head.y] - 'A')
+        switch (bonus.bonus_type)
         {
             case BonusType.REGULAR:
                 uint8 nth_bonus = boni.new_regular_bonus_eaten ();
