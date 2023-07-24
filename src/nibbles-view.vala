@@ -242,12 +242,9 @@ private class NibblesView : GtkClutter.Embed
 
         foreach (Worm worm in game.worms)
         {
-            if (!worm.is_stopped)
-            {
-                var actors = new WormActor ();
-                stage.add_child (actors);
-                worm_actors.@set (worm, actors);
-            }
+            var actors = new WormActor ();
+            stage.add_child (actors);
+            worm_actors.@set (worm, actors);
         }
 
         /* Load wall_pixmaps onto the surface */

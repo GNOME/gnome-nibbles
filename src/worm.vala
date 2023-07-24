@@ -118,7 +118,7 @@ private class WormProperties : Object
 
 private class Worm : Object
 {
-    private const int STARTING_LENGTH = 5; /* STARTING_LENGTH must be greater than 0 */
+    private const int STARTING_LENGTH = 5;
     internal const uint8 STARTING_LIVES = 6;
     internal const uint8 MAX_LIVES = 12;
 
@@ -131,8 +131,8 @@ private class Worm : Object
     internal bool is_human;
     internal bool keypress = false;
     internal bool is_stopped = false;
-    internal bool is_materialized { internal get {return rounds_to_stay_dematerialized <= 0;} }
-    private int rounds_to_stay_dematerialized;
+    internal bool is_materialized { internal get; private set; default = true; }
+    private int rounds_dematerialized;
 
     internal uint8 lives    { internal get; internal set; default = STARTING_LIVES; }
     internal int change     { internal get; internal set; default = 0; }
@@ -222,37 +222,33 @@ private class Worm : Object
 
         if (change > 0)
         {
-            /* Add to the worm's size. */
             change--;
-            added (); /* signal function in nibbles-view.vala */
+            added ();
         }
         else
         {
-            /* Remove a body piece from the tail of the list. */
             board[list.last ().x, list.last ().y] = NibblesGame.EMPTYCHAR;
             list.poll_tail ();
-            moved (); /* signal function in nibbles-view.vala */
+            moved ();
         }
 
-        /* Check for bonus, do nothing if there isn't a bonus */
+        /* Check for bonus before changing tile */
         if (board[head.x, head.y] != NibblesGame.EMPTYCHAR)
-            bonus_found (); /* signal function in nibble-game.vala */
+            bonus_found ();
 
         /* Mark the tile as occupied by the worm's body, if it is materialized */
-        if (rounds_to_stay_dematerialized > 1)
+        if (is_materialized)
             board[head.x, head.y] = NibblesGame.WORMCHAR + id;
-        else if (rounds_to_stay_dematerialized > 1)
-            rounds_to_stay_dematerialized -= 1;
+        else
+            rounds_dematerialized -= 1;
 
         if (!key_queue.is_empty)
             dequeue_keypress ();
 
-        /* Try and dematerialize if our rounds are up. */
-        if (rounds_to_stay_dematerialized == 1)
+        if (rounds_dematerialized == 1)
             materialize (board);
     }
 
-    /* This function is only called from nibbles-game.vala */
     internal void reduce_tail (int[,] board, int erase_size)
     {
         if (erase_size <= 0)
@@ -268,21 +264,18 @@ private class Worm : Object
 
     internal void reverse (int[,] board)
     {
-        if (!is_stopped && !list.is_empty)
-        {
-            var reversed_list = new Gee.LinkedList<Position?> ();
-            foreach (var pos in list)
-                reversed_list.offer_head (pos);
+        var reversed_list = new Gee.LinkedList<Position?> ();
+        foreach (var pos in list)
+            reversed_list.offer_head (pos);
 
-            reversed ();
-            list = reversed_list;
+        reversed ();
+        list = reversed_list;
 
-            /* Set new direction as the opposite direction of the last two tail pieces */
-            if (list[0].y == list[1].y)
-                direction = (list[0].x > list[1].x) ? WormDirection.RIGHT : WormDirection.LEFT;
-            else
-                direction = (list[0].y > list[1].y) ? WormDirection.DOWN : WormDirection.UP;
-        }
+        /* Set new direction as the opposite direction of the last two tail pieces */
+        if (list[0].y == list[1].y)
+            direction = (list[0].x > list[1].x) ? WormDirection.RIGHT : WormDirection.LEFT;
+        else
+            direction = (list[0].y > list[1].y) ? WormDirection.DOWN : WormDirection.UP;
     }
 
     internal bool can_move_to (int[,] board, int numworms, Position position)
@@ -302,9 +295,7 @@ private class Worm : Object
 
     internal void spawn (int[,] board)
     {
-        assert (STARTING_LENGTH > 0);
         change = STARTING_LENGTH - 1;
-        rounds_to_stay_dematerialized = STARTING_LENGTH;
         for (int i = 0; i < STARTING_LENGTH; i++)
         {
             move_part_1 ();
@@ -318,18 +309,20 @@ private class Worm : Object
         {
             if (board[pos.x, pos.y] != NibblesGame.EMPTYCHAR)
             {
-                rounds_to_stay_dematerialized += 1;
+                rounds_dematerialized += 1;
                 return;
             }
         }
         foreach (var pos in list)
             board[pos.x, pos.y] = NibblesGame.WORMCHAR + id;
-        rounds_to_stay_dematerialized = 0;
+        is_materialized = true;
+        rounds_dematerialized = 0;
     }
 
     internal void dematerialize (int [,] board, int rounds, int gamedelay)
     {
-        rounds_to_stay_dematerialized = rounds;
+        rounds_dematerialized = rounds;
+        is_materialized = false;
         foreach (var pos in list)
         {
             if (board[pos.x, pos.y] == NibblesGame.WORMCHAR + id)
@@ -361,7 +354,8 @@ private class Worm : Object
     internal void reset (int[,] board)
     {
         is_stopped = true;
-        rounds_to_stay_dematerialized = 0;
+        is_materialized = false;
+        rounds_dematerialized = 0;
 
         key_queue.clear ();
 
@@ -372,16 +366,14 @@ private class Worm : Object
             board[pos.x, pos.y] = NibblesGame.EMPTYCHAR;
 
         list.clear ();
-        if (lives > 0)
-        {
-            list.add (starting_position);
-            added ();
+        list.add (starting_position);
+        added ();
 
-            direction = starting_direction;
-            spawn (board);
+        direction = starting_direction;
+        change = 0;
+        spawn (board);
 
-            finish_added ();
-        }
+        finish_added ();
     }
 
     internal Position position_move ()
@@ -420,7 +412,7 @@ private class Worm : Object
 
     internal bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties> worm_props)
     {
-        if (lives == 0 || is_stopped || list.is_empty)
+        if (lives == 0 || is_stopped)
             return false;
 
         WormProperties properties;
@@ -541,25 +533,22 @@ private class Worm : Object
 
         deadend_runnumber++;
 
-        for (int i = worms.size - 1; i >= 0; i--)
+        for (int i = numworms - 1; i >= 0; i--)
         {
-            if (!worms[i].is_stopped && !worms[i].list.is_empty)
-            {
-                uint8 target_x = worms [i].head.x;
-                uint8 target_y = worms [i].head.y;
-                if (target_x == old_position.x
-                 && target_y == old_position.y)
-                    continue;
+            uint8 target_x = worms [i].head.x;
+            uint8 target_y = worms [i].head.y;
+            if (target_x == old_position.x
+             && target_y == old_position.y)
+                continue;
 
-                if (target_x > 0)           deadend_board [target_x - 1, target_y    ] = deadend_runnumber;
-                else                        deadend_board [width    - 1, target_y    ] = deadend_runnumber;
-                if (target_y > 0)           deadend_board [target_x    , target_y - 1] = deadend_runnumber;
-                else                        deadend_board [target_x    , height   - 1] = deadend_runnumber;
-                if (target_x < width - 1)   deadend_board [target_x + 1, target_y    ] = deadend_runnumber;
-                else                        deadend_board [0           , target_y    ] = deadend_runnumber;
-                if (target_y < height - 1)  deadend_board [target_x    , target_y + 1] = deadend_runnumber;
-                else                        deadend_board [target_x    , 0           ] = deadend_runnumber;
-            }
+            if (target_x > 0)           deadend_board [target_x - 1, target_y    ] = deadend_runnumber;
+            else                        deadend_board [width    - 1, target_y    ] = deadend_runnumber;
+            if (target_y > 0)           deadend_board [target_x    , target_y - 1] = deadend_runnumber;
+            else                        deadend_board [target_x    , height   - 1] = deadend_runnumber;
+            if (target_x < width - 1)   deadend_board [target_x + 1, target_y    ] = deadend_runnumber;
+            else                        deadend_board [0           , target_y    ] = deadend_runnumber;
+            if (target_y < height - 1)  deadend_board [target_x    , target_y + 1] = deadend_runnumber;
+            else                        deadend_board [target_x    , 0           ] = deadend_runnumber;
         }
 
         Position new_position = old_position;
@@ -582,7 +571,7 @@ private class Worm : Object
     {
         foreach (Worm worm in worms)
         {
-            if (worm == this || worm.is_stopped || worm.list.is_empty)
+            if (worm == this)
                 continue;
 
             int16 dx = (int16) this.head.x - (int16) worm.head.x;
