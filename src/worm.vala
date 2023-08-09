@@ -294,12 +294,12 @@ private class Worm : Object
         deadend_board = new uint [width, height];
     }
 
-    internal Worm (int id, uint8 width, uint8 height, GetOtherWormsType cb0, GetBonusAtPositionType cb1)
+    internal Worm (int id, uint8 width, uint8 height, GetOtherWormsType a, GetBonusAtPositionType b)
     {
         int capacity = width * height;
         Object (id: id, width: width, height: height, capacity: capacity);
-        get_other_worms = (worm) => {return cb0 (worm);};
-        get_bonuses = () => {return cb1 ();};
+        get_other_worms = a;
+        get_bonus_at_position = b;
     }
 
     internal void set_start (uint8 x, uint8 y, WormDirection direction)
@@ -408,12 +408,30 @@ private class Worm : Object
         return true;
     }
 
+    static bool is_board_position_occupied (Position p, int[,] board)
+    {
+        /*
+         * The method of testing for an occupied position on
+         * the board has been changed because the assumption
+         * has been made that there is no empty characters greater
+         * than or equal to NibblesGame.WORMCHAR.
+         * If you know this assumption to be wrong please revert the
+         * code.
+        */
+#if no_compile    
+        /* old method */
+        return board[p.x, p.y] > NibblesGame.EMPTYCHAR 
+            && board[p.x, p.y] < NibblesGame.WORMCHAR;
+#endif        
+        /* new method */
+        return board[p.x, p.y] > NibblesGame.EMPTYCHAR;
+    }
+
     internal bool can_move_to (int[,] board, Gee.LinkedList<Worm> worms, Position position)
     {
-        if (board[position.x, position.y] > NibblesGame.EMPTYCHAR /* updated to not query the board for the worm's position */
-            && board[position.x, position.y] < NibblesGame.WORMCHAR)
+        if (is_board_position_occupied (position, board))
             return false;
-        else if (!is_position_clear_of_materialized_worms (worms,position))  /* updated to query the worm's position list */
+        else if (!is_position_clear_of_materialized_worms (worms,position))
             return !is_materialized;
         else
             return true;
@@ -421,8 +439,7 @@ private class Worm : Object
 
     internal bool can_move_to_map (int[,] board, WormMap worm_map, Position position)
     {
-        if (board[position.x, position.y] > NibblesGame.EMPTYCHAR
-            && board[position.x, position.y] < NibblesGame.WORMCHAR)
+        if (is_board_position_occupied (position, board))
             return false;
         else if (worm_map.contain (position))
             return !is_materialized;
@@ -639,8 +656,7 @@ private class Worm : Object
             new_position.move ((WormDirection) dir, width, height);
 
             if (deadend_board [new_position.x, new_position.y] != deadend_runnumber
-                && !(board [new_position.x, new_position.y] > NibblesGame.EMPTYCHAR
-                     && board [new_position.x, new_position.y] < NibblesGame.WORMCHAR)
+                && !is_board_position_occupied (new_position, board)
                 && !worm_map.contain (new_position))
             {
                 deadend_board [new_position.x, new_position.y] = deadend_runnumber;
@@ -768,8 +784,7 @@ private class Worm : Object
             case BonusType.HALF:
                 return false;
             default:
-                if (board [updated_position.x, updated_position.y] > NibblesGame.EMPTYCHAR
-                 && board [updated_position.x, updated_position.y] < NibblesGame.WORMCHAR
+                if (is_board_position_occupied (updated_position ,board)
                  || worm_map.contain (updated_position))
                     return false;
                 if (updated_position.x == initial_position.x
