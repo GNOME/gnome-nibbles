@@ -363,7 +363,7 @@ private class NibblesGame : Object
         numworms = numai + numhumans;
         for (int i = 0; i < numworms; i++)
         {
-            var worm = new Worm (i, width, height);
+            var worm = new Worm (i, width, height, get_other_worms, get_bonus_at_position);
             worm.bonus_found.connect (bonus_found_cb);
             worm.finish_added.connect (worm_dematerialization_request);
             worm.is_human = (i < numhumans);
@@ -380,7 +380,7 @@ private class NibblesGame : Object
              */
             worm.added ();
 
-            worm.spawn (board);
+            worm.spawn ();
         }
     }
 
@@ -396,7 +396,7 @@ private class NibblesGame : Object
         }
 
         uint8 missed_bonuses_to_replace;
-        boni.on_worms_move (board, out missed_bonuses_to_replace);
+        boni.on_worms_move (out missed_bonuses_to_replace);
         for (uint8 i = 0; i < missed_bonuses_to_replace; i++)
             add_bonus (true);
 
@@ -410,7 +410,7 @@ private class NibblesGame : Object
                 continue;
 
             if (!worm.is_human)
-                worm.ai_move (board, numworms, worms);
+                worm.ai_move (board, worms);
         }
 
         /* kill worms which are hitting wall */
@@ -428,7 +428,7 @@ private class NibblesGame : Object
                                               out target_x, out target_y))
                 position = Position () { x = target_x, y = target_y };
 
-            if (!worm.can_move_to (board, numworms, position))
+            if (!worm.can_move_to (board, worms, position))
                 dead_worms.add (worm);
         }
 
@@ -450,10 +450,10 @@ private class NibblesGame : Object
                                                    out target_x, out target_y))
                     assert_not_reached ();
 
-                worm.move_part_2 (board, Position () { x = target_x, y = target_y });
+                worm.move_part_2 (Position () { x = target_x, y = target_y });
             }
             else
-                worm.move_part_2 (board, null);
+                worm.move_part_2 (null);
 
             /* kill worms on heads collision */
             foreach (var other_worm in worms)
@@ -479,7 +479,7 @@ private class NibblesGame : Object
                 worm.score = worm.score * 7 / 10;
 
             if (worm.lives > 0)
-                worm.reset (board);
+                worm.reset ();
         }
     }
 
@@ -487,23 +487,34 @@ private class NibblesGame : Object
     {
         foreach (var other_worm in worms)
             if (worm != other_worm)
-                other_worm.reverse (board);
+                other_worm.reverse ();
     }
 
     private void worm_dematerialization_request (Worm worm)
     {
-        worm.dematerialize (board, /* number of rounds */ 3, gamedelay);
+        worm.dematerialize (/* number of rounds */ 3, gamedelay);
     }
 
     /*\
     * * Handling bonuses
     \*/
 
+    private bool is_space_empty (uint8 x, uint8 y, bool[,] worms_at)
+    {
+        return EMPTYCHAR == board [x, y] && EMPTYCHAR == board [x + 1, y + 1]
+            && EMPTYCHAR == board [x + 1, y] && EMPTYCHAR == board [x, y + 1]
+            && boni.get_bonus (x, y) == null && boni.get_bonus (x + 1, y + 1) == null
+            && boni.get_bonus (x + 1, y) == null && boni.get_bonus (x, y + 1) == null
+            && !worms_at [x, y] && !worms_at [x + 1, y + 1] 
+            && !worms_at [x + 1, y] && !worms_at [x, y + 1];
+    }
+
     private void add_bonus (bool regular)
     {
         bool good = false;
         uint8 x = 0;
         uint8 y = 0;
+        bool[,] worms_at = new bool[width, height];
 
         if (!regular)
         {
@@ -511,37 +522,27 @@ private class NibblesGame : Object
                 return;
         }
 
+        foreach (Worm worm in worms)
+            if (!worm.is_stopped)
+                foreach (Position p in worm.list)
+                    worms_at[p.x, p.y] = true;
+
         do
         {
-            good = true;
-
             x = (uint8) Random.int_range (0, width  - 1);
             y = (uint8) Random.int_range (0, height - 1);
-
-            if (board [x    , y    ] != EMPTYCHAR) { good = false; continue; }
-            if (board [x + 1, y + 1] != EMPTYCHAR) { good = false; continue; }
-            if (board [x + 1, y    ] != EMPTYCHAR) { good = false; continue; }
-            if (board [x    , y + 1] != EMPTYCHAR) { good = false; continue; }
-        } while (!good);
+        } while (!is_space_empty (x, y, worms_at));
 
         if (regular)
         {
             if ((Random.int_range (0, 7) == 0) && fakes)
                 _add_bonus (x, y, BonusType.REGULAR, true, 300);
 
-            good = false;
-            while (!good)
+            do
             {
-                good = true;
-
                 x = (uint8) Random.int_range (0, width  - 1);
                 y = (uint8) Random.int_range (0, height - 1);
-
-                if (board [x    , y    ] != EMPTYCHAR) { good = false; continue; }
-                if (board [x + 1, y + 1] != EMPTYCHAR) { good = false; continue; }
-                if (board [x + 1, y    ] != EMPTYCHAR) { good = false; continue; }
-                if (board [x    , y + 1] != EMPTYCHAR) { good = false; continue; }
-            }
+            } while (!is_space_empty (x, y, worms_at));
             _add_bonus (x, y, BonusType.REGULAR, false, 300);
         }
         else if (!boni.too_many_missed ())
@@ -592,7 +593,7 @@ private class NibblesGame : Object
     private inline void _add_bonus (uint8 x, uint8 y, BonusType bonus_type, bool fake, uint16 countdown)
     {
         Bonus bonus = new Bonus (x, y, bonus_type, fake, countdown);
-        if (boni.add_bonus (board, bonus))
+        if (boni.add_bonus (bonus))
             bonus_added (bonus);
     }
 
@@ -600,12 +601,12 @@ private class NibblesGame : Object
     {
         if (bonus.fake)
         {
-            worm.reverse (board);
+            worm.reverse ();
 
             return;
         }
 
-        switch (board[worm.head.x, worm.head.y] - 'A')
+        switch (bonus.bonus_type)
         {
             case BonusType.REGULAR:
                 uint8 nth_bonus = boni.new_regular_bonus_eaten ();
@@ -620,7 +621,7 @@ private class NibblesGame : Object
                 if (worm.length + worm.change > 2)
                 {
                     worm.score += ((worm.length + worm.change / 2) * current_level);
-                    worm.reduce_tail (board, worm.length / 2);
+                    worm.reduce_tail (worm.length / 2);
                     worm.change -= (worm.length + worm.change) / 2;
                 }
                 break;
@@ -635,16 +636,15 @@ private class NibblesGame : Object
 
     private void bonus_found_cb (Worm worm)
     {
-        var bonus = boni.get_bonus (board, worm.head.x, worm.head.y);
+        var bonus = boni.get_bonus (worm.head.x, worm.head.y);
         if (bonus == null)
             return;
         apply_bonus (bonus, worm);
         bonus_applied (bonus, worm);
 
-        bool real_bonus = board[worm.head.x, worm.head.y] == BonusType.REGULAR + 'A'
-                       && !bonus.fake;
+        bool real_bonus = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
 
-        boni.remove_bonus (board, bonus);
+        boni.remove_bonus (bonus);
 
         if (real_bonus && !boni.last_regular_bonus ())
             add_bonus (true);
@@ -759,4 +759,29 @@ private class NibblesGame : Object
 
         return false;
     }
+    
+    /*\
+    * * Delegates
+    \*/
+
+    private BonusType get_bonus_at_position (Position position)
+    {
+        var bonus = boni.get_bonus (position.x, position.y);
+        if (bonus == null)
+            return (BonusType) (-1);
+        else
+            return bonus.bonus_type;
+    }
+    
+    private Gee.List<Worm> get_other_worms (Worm self)
+    {
+        var result = new Gee.ArrayList<Worm> ();
+        foreach (Worm worm in worms)
+        {
+            if (worm != self)
+                result.add (worm);
+        }
+        return result;
+    }
 }
+

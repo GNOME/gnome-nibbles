@@ -56,27 +56,18 @@ private class Boni : Object
 
     internal signal void bonus_removed (Bonus bonus);
 
-    internal bool add_bonus (int[,] board, owned Bonus bonus)
+    internal bool add_bonus (owned Bonus bonus)
     {
         if (total_bonus_number >= MAX_BONUSES)
             return false;
 
         bonuses.add (bonus);
-        board[bonus.x    , bonus.y    ] = bonus.bonus_type + 'A';
-        board[bonus.x + 1, bonus.y    ] = bonus.bonus_type + 'A';
-        board[bonus.x    , bonus.y + 1] = bonus.bonus_type + 'A';
-        board[bonus.x + 1, bonus.y + 1] = bonus.bonus_type + 'A';
         total_bonus_number++;
         return true;
     }
 
-    internal void remove_bonus (int[,] board, Bonus bonus)
+    internal void remove_bonus (Bonus bonus)
     {
-        board[bonus.x    , bonus.y    ] = NibblesGame.EMPTYCHAR;
-        board[bonus.x + 1, bonus.y    ] = NibblesGame.EMPTYCHAR;
-        board[bonus.x    , bonus.y + 1] = NibblesGame.EMPTYCHAR;
-        board[bonus.x + 1, bonus.y + 1] = NibblesGame.EMPTYCHAR;
-
         bonus_removed (bonus);
         bonuses.remove (bonus);
     }
@@ -90,7 +81,7 @@ private class Boni : Object
         total_bonus_number = 0;
     }
 
-    internal Bonus? get_bonus (int[,] board, uint8 x, uint8 y)
+    internal Bonus? get_bonus (uint8 x, uint8 y)
     {
         foreach (Bonus bonus in bonuses)
         {
@@ -106,7 +97,7 @@ private class Boni : Object
         return null;
     }
 
-    internal void on_worms_move (int[,] board, out uint8 missed_bonuses_to_replace)
+    internal void on_worms_move (out uint8 missed_bonuses_to_replace)
     {
         missed_bonuses_to_replace = 0;
 
@@ -117,7 +108,7 @@ private class Boni : Object
 		bonus.countdown--;
 	    else
 	    {
-		remove_bonus (board, bonus);
+		remove_bonus (bonus);
 		if (bonus.bonus_type == BonusType.REGULAR && !bonus.fake)
 		{
 		    increase_missed ();
@@ -129,6 +120,9 @@ private class Boni : Object
 
     internal inline uint8 new_regular_bonus_eaten ()
     {
+        reset_missed (); /* Without this reset all scores get set to
+                            zero for the rest of the game
+                            once too_many_missed () is true. */
         if (regular_bonus_left == 0)
             assert_not_reached ();
         regular_bonus_left--;

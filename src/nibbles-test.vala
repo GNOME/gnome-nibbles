@@ -101,12 +101,12 @@ namespace NibblesTest
             Worm worm = game.worms.@get (i);
             WormTest worm_test = worms [i];
 
-//            Test.message (@"worm $(worm.id) final lives: $(worm.lives)");
-//            Test.message (@"worm $(worm.id) final score: $(worm.score)");
+            Test.message (@"worm $(worm.id) final lives: $(worm.lives)");
+            Test.message (@"worm $(worm.id) final score: $(worm.score)");
             assert_true (worm.lives == worm_test.final_lives);
             assert_true (worm.score == worm_test.final_score);
         }
-//        Test.message (@"applied bonus: $applied_bonus");
+        Test.message (@"applied bonus: $applied_bonus");
         assert_true (applied_bonus == final_bonuses);
 
         game.disconnect (game_handler_1);
