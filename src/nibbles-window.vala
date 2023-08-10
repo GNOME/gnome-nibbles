@@ -16,6 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+ * Coding style.
+ *
+ * To help you comply with the coding style in this project use the
+ * following greps. Any lines returned should be adjusted so they
+ * don't match. The convoluted regular expressions are so they don't 
+ * match them self.
+ *
+ * grep -ne '[^][)(_!$ "](' *.vala
+ * grep -ne '[(] ' *.vala
+ * grep -ne '[ ])' *.vala
+ *
+ */
+
 using Gtk;
 
 private enum SetupScreen
@@ -120,7 +134,7 @@ private class NibblesWindow : ApplicationWindow
         worm_settings = new Gee.ArrayList<GLib.Settings> ();
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
         {
-            var name = "org.gnome.Nibbles.worm%d".printf(i);
+            var name = "org.gnome.Nibbles.worm%d".printf (i);
             worm_settings.add (new GLib.Settings (name));
             worm_settings[i].changed.connect (worm_settings_changed_cb);
         }
@@ -144,7 +158,7 @@ private class NibblesWindow : ApplicationWindow
         game.log_score.connect (log_score_cb);
         game.level_completed.connect (level_completed_cb);
         game.notify["is-paused"].connect (() => {
-            if (game.is_paused)
+            if (game.paused)
                 statusbar_stack.set_visible_child_name ("paused");
             else
                 statusbar_stack.set_visible_child_name ("scoreboard");
@@ -308,7 +322,7 @@ private class NibblesWindow : ApplicationWindow
     {
         settings.set_boolean ("first-run", false);
 
-        if (game.is_paused)
+        if (game.paused)
             set_pause_button_label (/* paused */ false);
         game.reset (start_level);
 
@@ -415,7 +429,7 @@ private class NibblesWindow : ApplicationWindow
             if (response_id == ResponseType.OK)
                 show_new_game_screen ();
             if ((response_id == ResponseType.CANCEL || response_id == ResponseType.DELETE_EVENT)
-                && !game.is_paused)
+                && !game.paused)
             {
                 if (seconds == 0)
                     game.start (/* add initial bonus */ false);
@@ -435,17 +449,10 @@ private class NibblesWindow : ApplicationWindow
     {
         if (game != null)
         {
-            if (game.is_running)
-            {
-                game.pause ();
-                set_pause_button_label (/* paused */ true);
-            }
-            else
-            {
-                game.unpause ();
-                set_pause_button_label (/* paused */ false);
+            game.paused = game.is_running;
+            set_pause_button_label (game.paused);
+            if (!game.paused)
                 view.grab_focus ();
-            }
         }
     }
 
@@ -606,8 +613,7 @@ private class NibblesWindow : ApplicationWindow
     private void show_controls_screen ()
     {
         controls.clean ();
-        game.create_worms ();
-        game.load_worm_properties (worm_settings);
+        game.create_worms (worm_settings);
         update_start_game_action ();
 
         controls.prepare (game.worms, game.worm_props);

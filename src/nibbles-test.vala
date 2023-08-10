@@ -18,19 +18,42 @@
    along with GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+/*
+ * Coding style.
+ *
+ * To help you comply with the coding style in this project use the
+ * following greps. Any lines returned should be adjusted so they
+ * don't match. The convoluted regular expressions are so they don't 
+ * match them self.
+ *
+ * grep -ne '[^][)(_!$ "](' *.vala
+ * grep -ne '[(] ' *.vala
+ * grep -ne '[ ])' *.vala
+ *
+ */
+
 namespace NibblesTest
 {
+    /* delegates are only to stop the compiler warning messages when compiling test */
+    delegate bool key_press_type (uint key); 
+    delegate void reset_type (int start_level);
+      
     private static int main (string [] args)
     {
         Test.init (ref args);
         Test.add_func ("/Nibbles/test tests",
                                  test_tests);
+        Test.add_func ("/Nibbles/test int128",
+                                 test_int128);
+        Test.add_func ("/Nibbles/test angles",
+                                 test_angles);
         Test.add_func ("/Nibbles/test games",
                                  test_games);
         Test.add_func ("/Nibbles/test heads",
                                  test_heads);
         Test.add_func ("/Nibbles/test warps",
                                  test_warps);
+
         return Test.run ();
     }
 
@@ -49,6 +72,171 @@ namespace NibblesTest
         uint8 start_y;
         uint8 final_lives;
         int   final_score;
+    }
+
+    private static void test_int128 ()
+    {
+        /* int128 tests */
+        int128 i128 = {2,2,false};
+        int64 i64 = -3;
+        i128 = i128.divide_by (i64);
+        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
+        assert_true (i128.hi == 0 && i128.lo == 0xAAAAAAAAAAAAAAAB && i128.negative && i128.remainder == 1);
+        i128 = {0x7fffffffffffffff,0,false};
+        i64 = -0x8000000000000000;
+        i128 = i128.divide_by (i64);
+        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
+        assert_true (i128.hi == 0 && i128.lo == 0xfffffffffffffffe && i128.negative && i128.remainder == 0);
+        i128 = {13,6,false};
+        i64 = 7;
+        i128 = i128.divide_by (i64);
+        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
+        assert_true (i128.hi == 1 && i128.lo == 0xdb6db6db6db6db6e && !i128.negative && i128.remainder == 4);
+        i128 = {0xffffffffffffffc5,0,false};
+        i64 = 0x7fffffffffffffff;
+        i128 = i128.divide_by (i64);
+        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
+        assert_true (i128.hi == 1 && i128.lo == 0xffffffffffffff8d && !i128.negative && i128.remainder == 0x7fffffffffffff8d);
+        i128 = {1,0xffffffffffffffff,false};
+        i64 = -0x8000000000000000;
+        i128 = i128.divide_by (i64);
+        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
+        assert_true (i128.hi == 0 && i128.lo == 3 && i128.negative && i128.remainder == 0x7fffffffffffffff);
+    }
+
+    /* Natural numbered (and zero) degrees as a ratio from 0° to 179° inclusive. */
+    const Angle DEGREES[180] = {
+        {0,-1},                    {632831394,  -36254886281}, {816784628, -23389651485}, {828890307, -15816169247}, {504808573,   -7219098926}, {941546464,  -10761925329},
+        {1418963727,-13500538046}, {2824119597, -23000608352}, {245001517,  -1743276376}, {2193355773,-13848303334}, {6008051440, -34073352903}, {2878108541, -14806584853},
+        {1303047353, -6130355811}, {1278299873,  -5536925060}, {876286545,  -3514593367}, {1525870529, -5694626340}, {16222952003,-56576157137}, {3353638108, -10969255987},
+        {6993167301,-21522755875}, {1757525478,  -5104224611}, {1548577411, -4254681469}, {5083755927,-13243636973}, {1543237799,  -3819647588}, {2276409789,  -5362885387},
+        {1530110093, -3436683537}, {2934898699,  -6293910571}, {3346699133, -6861750089}, {6216435770,-12200442149}, {3721888475,  -6999854156}, {361053251,    -651357307},
+        {1525870529, -2642885282}, {4622056590,  -7692393949}, {2914638433, -4664396524}, {2413654229, -3716701582}, {1853905277,  -2748527603}, {12313896475,-17586066706},
+        {2109843103, -2903949902}, {1498274859,  -1988277893}, {1974110834, -2526746643}, {1913455027, -2362920172}, {2644377209,  -3151446039}, {4934215988,  -5676166187},
+        {8181988633, -9087018972}, {2061549763,  -2210741460}, {1934692145, -2003432364}, {1,-1},                    {5555878577,  -5365249576}, {2210741460,  -2061549763},
+        {764489195,   -688349163}, {2047741312,  -1780074365}, {4276012877, -3588000828}, {3397887143, -2751554755}, {2526746643,  -1974110834}, {1988277893,  -1498274859},
+        {2903949902, -2109843103}, {22390885064,-15678266509}, {6093819094, -4110332879}, {3716701582, -2413654229}, {2150828409,  -1343986754}, {2195439956,  -1319153411},
+        {2642885282, -1525870529}, {651357307,    -361053251}, {7323039939, -3893729404}, {685839813,   -349452839}, {2621211506,  -1278450273}, {2901629440,  -1353052029},
+        {3436683537, -1530110093}, {2860574674,  -1214241909}, {3819647588, -1543237799}, {3310049713, -1270609039}, {3894958303,  -1417648886}, {3899661779,  -1342761233},
+        {517646326,   -168193487}, {8741635783,  -2672586265}, {506205279,   -145152028}, {1525870529,  -408855776}, {3514593367,   -876286545}, {2042109897,   -471458218},
+        {5010075947, -1064924517}, {2301216440,   -447311163}, {21198001633,-3737779625}, {2627641643,  -416177551}, {1743276376,   -245001517}, {4004536510,   -491695257},
+        {4276375199,  -449465145}, {2897911624,   -253534415}, {2954750821,  -206616305}, {726419179,    -38070016}, {2028195370,    -70826143}, {3044879135,    -53148563},
+        {1, 0},                    {3491501822,     60944391}, {4272291223,   149191697}, {726419179,     38070016}, {3391283249,    237141626}, {2068190457,    180943219},
+        {3074720949,   323166194}, {3508215543,    430754705}, {1743276376,   245001517}, {6206868686,   983071423}, {30787918441,  5428740701}, {2301216440,    447311163},
+        {5570215879,  1183985935}, {3494815163,    806841655}, {3514593367,   876286545}, {4168755811,  1117014753}, {506205279,     145152028}, {7751582359,   2369896557},
+        {517646326,    168193487}, {3899661779,   1342761233}, {3894958303,  1417648886}, {2483396815,   953286722}, {2631488057,   1063190188}, {4528781816,   1922353829},
+        {3436683537,  1530110093}, {2410977749,   1124257388}, {1619327077,   789798587}, {685839813,    349452839}, {4414367892,   2347161043}, {651357307,     361053251},
+        {2642885282,  1525870529}, {3301514037,   1983749768}, {2150828409,  1343986754}, {3716701582,  2413654229}, {2151763715,   1451382952}, {15183657527, 10631711458},
+        {2903949902,  2109843103}, {1988277893,   1498274859}, {1969485124,  1538730419}, {1034966971,   838099728}, {2026879201,   1700753590}, {2047741312,   1780074365},
+        {764489195,    688349163}, {2099021513,   1957369227}, {1549013849,  1495865286}, {1,1},                     {1495865286,   1549013849}, {1957369227,   2099021513},
+        {2675195329,  2971105412}, {1780074365,   2047741312}, {943623619,   1124566838}, {2751554755,  3397887143}, {1974110834,   2526746643}, {1498274859,   1988277893},
+        {2109843103,  2903949902}, {73138479,      104452573}, {2256427602,  3345291491}, {2193114972,  3377100907}, {1343986754,   2150828409}, {1319153411,   2195439956},
+        {1525870529,  2642885282}, {361053251,     651357307}, {3550047546,  6676668373}, {349452839,    685839813}, {789798587,    1619327077}, {1124257388,   2410977749},
+        {510389756,   1146354161}, {1214241909,   2860574674}, {1543237799,  3819647588}, {953286722,   2483396815}, {1286720361,   3535235137}, {414764245,    1204562832},
+        {168193487,    517646326}, {2218551703,   7256555647}, {145152028,    506205279}, {408855776,   1525870529}, {876286545,    3514593367}, {335383437,    1452705266},
+        {945863099,   4449936015}, {447311163,    2301216440}, {5068628620, 28745621343}, {188964624,   1193075681}, {245001517,    1743276376}, {369814153,    3011894576},
+        {323166194,   3074720949}, {253534415,    2897911624}, {206616305,   2954750821}, {38070016,     726419179}, {70826143,     2028195370}, {68740219,     3938124509}};
+
+    private static Angle negative_degrees (Angle a)
+    {
+        return {-a.x, a.y};
+    }
+
+    private static void test_angles ()
+    {
+        /* The largest angle in this array must be less than 180° larger than the smallest angle. */
+        Angle a[9] = {DEGREES[135]               /* 135.0° */,
+                      DEGREES[45]                /*  45.0° */,
+                      DEGREES[0]                 /*   0.0° */,
+                      DEGREES[90]                /*  90.0° */,
+                      {-247785223,  -6306555056} /*  -2.25° */,
+                      DEGREES[177]               /* 177.0° */,
+                      {1646733178, -53898011185} /*   1.75° */,
+                      {3293466356,-107796022370} /*   1.75° */,
+                      {-741003743, -15426829180} /*  -2.75° */};
+        double degree[9];
+        assert_true (a.length == degree.length);
+        
+        for (int d = 0; d < a.length; d++)
+            degree[d] = Math.atan2 (a[d].x, -a[d].y) / Math.PI * 180;
+        Test.message (@"sorting angles $(degree[0]), $(degree[1]), $(degree[2]), $(degree[3]), $(degree[4]), $(degree[5]), $(degree[6]), $(degree[7]), $(degree[8])");
+
+        // bubble sort angles (assending order)
+        for (int i = a.length; i > 0; i--)
+        {
+            for (int o = 0; o < i - 1; o++)
+            {
+                if (a[o].greater_than (a[o + 1]))
+                {
+                    Angle swap = {};
+                    swap.assign (a[o]);
+                    a[o].assign (a[o + 1]);
+                    a[o + 1].assign (swap);
+                    for (int d = 0; d < a.length; d++)
+                        degree[d] = Math.atan2 (a[d].x, -a[d].y) / Math.PI * 180;
+                    Test.message (@"sorting assending order $(degree[0]), $(degree[1]), $(degree[2]), $(degree[3]), $(degree[4]), $(degree[5]), $(degree[6]), $(degree[7]), $(degree[8])");
+                }
+            }
+        }
+        for (int d = 0; d < a.length; d++)
+            degree[d] = Math.atan2 (a[d].x, -a[d].y) / Math.PI * 180;
+        Test.message (@"sorted angles $(degree[0]), $(degree[1]), $(degree[2]), $(degree[3]), $(degree[4]), $(degree[5]), $(degree[6]), $(degree[7]), $(degree[8])");
+        for (int d = 0; d < a.length - 1; d++)
+            assert_true (degree[d] <= degree[d + 1]); // angles should be sorted in to assending order
+            
+        // bubble sort angles (descending order)
+        for (int i = a.length; i > 0; i--)
+        {
+            for (int o = 0; o < i - 1; o++)
+            {
+                if (!a[o].greater_than_or_equal_to (a[o + 1]))
+                {
+                    Angle swap = {};
+                    swap.assign (a[o]);
+                    a[o].assign (a[o + 1]);
+                    a[o + 1].assign (swap);
+                    for (int d = 0; d < a.length; d++)
+                        degree[d] = Math.atan2 (a[d].x, -a[d].y) / Math.PI * 180;
+                    Test.message (@"sorting descending order $(degree[0]), $(degree[1]), $(degree[2]), $(degree[3]), $(degree[4]), $(degree[5]), $(degree[6]), $(degree[7]), $(degree[8])");
+                }
+            }
+        }
+        for (int d = 0; d < a.length; d++)
+            degree[d] = Math.atan2 (a[d].x, -a[d].y) / Math.PI * 180;
+        Test.message (@"sorted angles $(degree[0]), $(degree[1]), $(degree[2]), $(degree[3]), $(degree[4]), $(degree[5]), $(degree[6]), $(degree[7]), $(degree[8])");
+        for (int d = 0; d < a.length - 1; d++)
+            assert_true (degree[d] >= degree[d + 1]); // angles should be sorted in to descending order
+            
+        // test angle wrap around
+        a[0] = DEGREES[136];                   /* 136.0° */ 
+        a[1] = negative_degrees (DEGREES[45]); /* -45.0° */ 
+        assert_true (a[0].less_than (a[1]));
+        
+        // test quarter wrap around
+        a[0] = { 0, -1}; /*   0° */
+        a[1] = {+1,  0}; /*  90° */
+        a[2] = { 0, +1}; /* 180° */
+        a[3] = {-1,  0}; /* -90° */
+        assert_true (a[0].greater_than (a[3]));
+        assert_true (a[0].less_than (a[1]));
+        assert_true (a[1].greater_than (a[0]));
+        assert_true (a[1].less_than (a[2]));
+        assert_true (a[2].greater_than (a[1]));
+        assert_true (a[2].less_than (a[3]));
+        assert_true (a[3].greater_than (a[2]));
+        assert_true (a[3].less_than (a[0]));
+        
+        // test equality
+        a[0] = { 0, +1}; /* 180° */
+        a[1] = { 0, -1}; /*   0° */
+        a[2] = {+1, +1}; /*  45° */
+        a[3] = {+3, +3}; /*  45° */
+        a[4] = {-3, -3}; /* -45° */
+        assert_false (a[0].equal_to (a[1]));
+        assert_false (a[2].equal_to (a[4]));
+        assert_false (a[2].greater_than (a[4]));
+        assert_false (a[2].greater_than_or_equal_to (a[4]));
+        assert_true  (a[2].equal_to (a[3]));
     }
 
     private static void test_board (string [] board,
@@ -113,6 +301,12 @@ namespace NibblesTest
         game.disconnect (game_handler_2);
 
         Test.message ("");
+        
+        /* stop the compiler warning messages when compiling test */
+        key_press_type key_press;
+        key_press = (key)=> {return game.handle_keypress (key);};
+        reset_type reset;
+        reset = (start_level)=> {game.reset (start_level);};
     }
 
     /*\

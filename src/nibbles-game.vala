@@ -16,8 +16,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// This is a fairly literal translation of the GPLv2+ original by
-// Sean MacIsaac, Ian Peters, Guillaume Béland.
+/*
+ * Coding style.
+ *
+ * To help you comply with the coding style in this project use the
+ * following greps. Any lines returned should be adjusted so they
+ * don't match. The convoluted regular expressions are so they don't 
+ * match them self.
+ *
+ * grep -ne '[^][)(_!$ "](' *.vala
+ * grep -ne '[(] ' *.vala
+ * grep -ne '[ ])' *.vala
+ *
+ */
 
 private enum GameStatus
 {
@@ -64,7 +75,19 @@ private class NibblesGame : Object
 
     /* Game controls */
     internal bool is_running    { internal get; private set; default = false; }
-    internal bool is_paused     { internal get; private set; default = false; }
+    private bool is_paused      { internal get; private set; default = false; }
+    internal bool paused
+    {
+        get {return is_paused;}
+        set
+        {
+            is_paused = value;
+            if (value)
+                stop ();
+            else
+                start (false /* add initial bonus */);
+        }
+    }
 
     private uint main_id = 0;
 
@@ -224,7 +247,7 @@ private class NibblesGame : Object
                     case 'x':
                     case 'y':
                     case 'z':
-                        // do not use the up() method: it depends on the locale, and that could have some weird results ("i".up() is either I or İ, for example)
+                        // do not use the up () method: it depends on the locale, and that could have some weird results ("i".up () is either I or İ, for example)
                         warp_manager.add_warp_target ((int) char_value - (int) 'a' + (int) 'A', j, i);
                         board[j, i] = (int) NibblesGame.EMPTYCHAR;
                         break;
@@ -282,18 +305,6 @@ private class NibblesGame : Object
             return;
         Source.remove (main_id);
         main_id = 0;
-    }
-
-    internal void pause ()
-    {
-        is_paused = true;
-        stop ();
-    }
-
-    internal void unpause ()
-    {
-        is_paused = false;
-        start (/* add initial bonus */ false);
     }
 
     internal inline void reset (int start_level)
@@ -356,7 +367,7 @@ private class NibblesGame : Object
     * * Handling worms
     \*/
 
-    internal void create_worms ()
+    internal void create_worms (Gee.ArrayList<Settings>? worm_settings = null)
     {
         worms.clear ();
 
@@ -369,6 +380,9 @@ private class NibblesGame : Object
             worm.is_human = (i < numhumans);
             worms.add (worm);
         }
+        if (worm_settings != null)
+            load_worm_properties (worm_settings);
+
     }
 
     internal void add_worms ()
