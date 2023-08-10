@@ -547,7 +547,6 @@ private class NibblesWindow : ApplicationWindow
                 show_controls_screen ();
                 break;
             case "controls":
-                assert_not_reached ();
             default:
                 return;
         }
