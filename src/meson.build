@@ -13,7 +13,8 @@ nibbles_tests = executable(
         gee_dep,
         gio_dep,
         glib_dep,
-    ]
+    ],
+    link_args : '-lm'
 )
 test('nibbles-tests', nibbles_tests)
 
