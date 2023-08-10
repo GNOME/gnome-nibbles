@@ -16,6 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+ * Coding style.
+ *
+ * To help you comply with the coding style in this project use the
+ * following greps. Any lines returned should be adjusted so they
+ * don't match. The convoluted regular expressions are so they don't 
+ * match them self.
+ *
+ * grep -ne '[^][)(_!$ "](' *.vala
+ * grep -ne '[(] ' *.vala
+ * grep -ne '[ ])' *.vala
+ *
+ */
+
 using Gtk;
 
 private class Nibbles : Gtk.Application
@@ -299,7 +313,11 @@ private class Nibbles : Gtk.Application
 
 
         /* Translators: text crediting an author, in the about dialog */
-            _("Iulian-Gabriel Radu")
+            _("Iulian-Gabriel Radu"),
+
+
+        /* Translators: text crediting an author, in the about dialog */
+            _("Ben Corby")
         };
 
         /* Translators: text crediting a documenter, in the about dialog */
@@ -325,14 +343,17 @@ private class Nibbles : Gtk.Application
 
 
                              /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
-                             _("Copyright © %u-%u – Iulian-Gabriel Radu").printf (2015, 2020),
+                             _("Copyright © %u-%u – Iulian-Gabriel Radu").printf (2015, 2020) + "\n" +
+                             
+                             
+                             /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
+                             _("Copyright © %u-%u – Ben Corby").printf (2022, 2023),
                            "license-type", License.GPL_3_0, // means "GNU General Public License, version 3.0 or later"
                            "authors", authors,
                            "documenters", documenters,
                            "artists", artists,
                            /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
                            "translator-credits", _("translator-credits"),
-                           "website", "https://wiki.gnome.org/Apps/Nibbles/"
-                           );
+                           "website", "https://wiki.gnome.org/Apps/Nibbles/");
     }
 }

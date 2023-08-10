@@ -17,6 +17,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+ * Coding style.
+ *
+ * To help you comply with the coding style in this project use the
+ * following greps. Any lines returned should be adjusted so they
+ * don't match. The convoluted regular expressions are so they don't 
+ * match them self.
+ *
+ * grep -ne '[^][)(_!$ "](' *.vala
+ * grep -ne '[(] ' *.vala
+ * grep -ne '[ ])' *.vala
+ *
+ */
+
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/controls.ui")]
@@ -168,9 +182,9 @@ private class ControlsGrid : Button
 
     internal void disconnect_stuff ()
     {
-        worm_props.disconnect (   up_handler);
-        worm_props.disconnect ( down_handler);
-        worm_props.disconnect ( left_handler);
+        worm_props.disconnect (up_handler);
+        worm_props.disconnect (down_handler);
+        worm_props.disconnect (left_handler);
         worm_props.disconnect (right_handler);
         worm_props.disconnect (color_handler);
     }
