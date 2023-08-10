@@ -16,8 +16,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// This is a fairly literal translation of the GPLv2+ original by
-// Sean MacIsaac, Ian Peters, Guillaume Béland.
+/*
+ * Coding style.
+ *
+ * To help you comply with the coding style in this project use the
+ * following greps. Any lines returned should be adjusted so they
+ * don't match. The convoluted regular expressions are so they don't 
+ * match them self.
+ *
+ * grep -ne '[^][)(_!$ "](' *.vala
+ * grep -ne '[(] ' *.vala
+ * grep -ne '[ ])' *.vala
+ *
+ */
 
 private enum BonusType
 {
@@ -76,8 +87,8 @@ private class Boni : Object
     {
         bonuses.clear ();
         reset_missed ();
-        regular_bonus_maxi = regular_bonus;
-        regular_bonus_left = regular_bonus;
+        regular_bonus_maxi = regular_bonus < MAX_BONUSES ? regular_bonus : MAX_BONUSES;
+        regular_bonus_left = regular_bonus_maxi;
         total_bonus_number = 0;
     }
 
@@ -85,9 +96,9 @@ private class Boni : Object
     {
         foreach (Bonus bonus in bonuses)
         {
-            if ((x == bonus.x     && y == bonus.y    )
-             || (x == bonus.x + 1 && y == bonus.y    )
-             || (x == bonus.x     && y == bonus.y + 1)
+            if ((x == bonus.x + 0 && y == bonus.y + 0)
+             || (x == bonus.x + 1 && y == bonus.y + 0)
+             || (x == bonus.x + 0 && y == bonus.y + 1)
              || (x == bonus.x + 1 && y == bonus.y + 1))
             {
                 return bonus;
