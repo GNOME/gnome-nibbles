@@ -97,6 +97,11 @@ private class Boni : Object
         return null;
     }
 
+    internal Gee.List<Bonus> get_bonuses ()
+    {
+        return bonuses;
+    }
+
     internal void on_worms_move (out uint8 missed_bonuses_to_replace)
     {
         missed_bonuses_to_replace = 0;

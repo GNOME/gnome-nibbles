@@ -101,12 +101,12 @@ namespace NibblesTest
             Worm worm = game.worms.@get (i);
             WormTest worm_test = worms [i];
 
-            Test.message (@"worm $(worm.id) final lives: $(worm.lives)");
-            Test.message (@"worm $(worm.id) final score: $(worm.score)");
+//            Test.message (@"worm $(worm.id) final lives: $(worm.lives)");
+//            Test.message (@"worm $(worm.id) final score: $(worm.score)");
             assert_true (worm.lives == worm_test.final_lives);
             assert_true (worm.score == worm_test.final_score);
         }
-        Test.message (@"applied bonus: $applied_bonus");
+//        Test.message (@"applied bonus: $applied_bonus");
         assert_true (applied_bonus == final_bonuses);
 
         game.disconnect (game_handler_1);
@@ -122,25 +122,25 @@ namespace NibblesTest
     private static void test_games ()
     {
         Test.message ("test board 008");
-        test_board (level_008, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 14,
-                    { WormTest () { start_x =  4, start_y = 14, final_lives = 6, final_score =  20 },
-                      WormTest () { start_x = 18, start_y = 31, final_lives = 5, final_score =  15 },
-                      WormTest () { start_x =  9, start_y = 39, final_lives = 5, final_score =  33 },
-                      WormTest () { start_x = 51, start_y = 45, final_lives = 6, final_score =   8 }});
+        test_board (level_008, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 16,
+                    { WormTest () { start_x =  4, start_y = 14, final_lives = 6, final_score = 34 },
+                      WormTest () { start_x = 18, start_y = 31, final_lives = 6, final_score = 18 },
+                      WormTest () { start_x =  9, start_y = 39, final_lives = 5, final_score = 26 },
+                      WormTest () { start_x = 51, start_y = 45, final_lives = 5, final_score =  2 }});
 
         Test.message ("test board 011");
-        test_board (level_011, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 17,
-                    { WormTest () { start_x = 15, start_y =  9, final_lives = 5, final_score =  76 },
-                      WormTest () { start_x = 44, start_y =  9, final_lives = 6, final_score =   5 },
-                      WormTest () { start_x = 76, start_y =  9, final_lives = 6, final_score =  18 },
-                      WormTest () { start_x = 15, start_y = 56, final_lives = 6, final_score = 100 }});
+        test_board (level_011, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 15,
+                    { WormTest () { start_x = 15, start_y =  9, final_lives = 6, final_score =  2 },
+                      WormTest () { start_x = 44, start_y =  9, final_lives = 6, final_score = 32 },
+                      WormTest () { start_x = 76, start_y =  9, final_lives = 6, final_score = 31 },
+                      WormTest () { start_x = 15, start_y = 56, final_lives = 6, final_score = 18 }});
 
         Test.message ("test board 025");
-        test_board (level_025, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 14,
-                    { WormTest () { start_x = 11, start_y =  6, final_lives = 5, final_score =  17 },
-                      WormTest () { start_x = 80, start_y =  6, final_lives = 6, final_score =  14 },
-                      WormTest () { start_x = 14, start_y = 37, final_lives = 6, final_score =  22 },
-                      WormTest () { start_x = 79, start_y = 27, final_lives = 6, final_score =  22 }});
+        test_board (level_025, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 12,
+                    { WormTest () { start_x = 11, start_y =  6, final_lives = 6, final_score = 23 },
+                      WormTest () { start_x = 80, start_y =  6, final_lives = 6, final_score = 15 },
+                      WormTest () { start_x = 14, start_y = 37, final_lives = 6, final_score = 16 },
+                      WormTest () { start_x = 79, start_y = 27, final_lives = 6, final_score = 24 }});
     }
 
     private const string [] level_008 = { // test because it has warps, left-to-right and top-to-bottom; not the exact code of the level (old style warps)

@@ -363,7 +363,7 @@ private class NibblesGame : Object
         numworms = numai + numhumans;
         for (int i = 0; i < numworms; i++)
         {
-            var worm = new Worm (i, width, height, get_other_worms, get_bonus_at_position);
+            var worm = new Worm (i, width, height, get_other_worms, get_bonuses);
             worm.bonus_found.connect (bonus_found_cb);
             worm.finish_added.connect (worm_dematerialization_request);
             worm.is_human = (i < numhumans);
@@ -764,15 +764,6 @@ private class NibblesGame : Object
     * * Delegates
     \*/
 
-    private BonusType get_bonus_at_position (Position position)
-    {
-        var bonus = boni.get_bonus (position.x, position.y);
-        if (bonus == null)
-            return (BonusType) (-1);
-        else
-            return bonus.bonus_type;
-    }
-    
     private Gee.List<Worm> get_other_worms (Worm self)
     {
         var result = new Gee.ArrayList<Worm> ();
@@ -782,6 +773,11 @@ private class NibblesGame : Object
                 result.add (worm);
         }
         return result;
+    }
+    
+    private Gee.List<Bonus> get_bonuses ()
+    {
+        return boni.get_bonuses ();
     }
 }
 
