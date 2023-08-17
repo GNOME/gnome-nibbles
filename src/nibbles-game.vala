@@ -645,6 +645,8 @@ private class NibblesGame : Object
             case BonusType.REVERSE:
                 reverse_worms (worm);
                 break;
+            case BonusType.WARP:
+                break;
         }
     }
 
