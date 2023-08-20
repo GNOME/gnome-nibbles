@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2020-07-09 15:00+0000\n"
-"PO-Revision-Date: 2020-07-10 12:30+0500\n"
+"POT-Creation-Date: 2023-08-19 17:46+0000\n"
+"PO-Revision-Date: 2023-08-20 19:19+0600\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -16,11 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:7
-msgid "GNOME Nibbles"
-msgstr "GNOME құрттар ойыны"
+#. Translators: title of the window, as displayed by the window manager
+#. Translators: title of the window, as displayed in the headerbar
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/ui/nibbles.ui:57 data/ui/nibbles.ui:65 src/gnome-nibbles.vala:38
+msgid "Nibbles"
+msgstr "Құрттар ойыны"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
@@ -59,17 +63,9 @@ msgstr ""
 "Бес қарсылас құртқа қарсы өз бетінше ойнаңыз немесе досыңызбен ойнау үшін "
 "пернетақтаны бөлісіңіз."
 
-#: data/org.gnome.Nibbles.appdata.xml.in:53
-msgid "The GNOME Project"
-msgstr "GNOME жобасы"
-
-#. Translators: title of the window, as displayed by the window manager
-#. Translators: title of the window, as displayed in the headerbar
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:57
-#: data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
-msgid "Nibbles"
-msgstr "Құрттар ойыны"
+#: data/org.gnome.Nibbles.appdata.xml.in:58
+msgid "Michael Catanzaro"
+msgstr "Michael Catanzaro"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -143,7 +139,7 @@ msgid "Enable sounds."
 msgstr "Дыбыстарды іске қосу."
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: data/org.gnome.Nibbles.gschema.xml:56 src/gnome-nibbles.vala:49
+#: data/org.gnome.Nibbles.gschema.xml:56 src/gnome-nibbles.vala:63
 msgid "Enable fake bonuses"
 msgstr "Жалған бонустарды іске қосу"
 
@@ -383,13 +379,13 @@ msgstr "Құрттар ойыны тур_алы"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
 #. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:72 src/nibbles-window.vala:412
+#: data/ui/nibbles.ui:72 src/nibbles-window.vala:427
 msgid "_New Game"
 msgstr "Ж_аңа ойын"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:84 src/nibbles-window.vala:461
+#: data/ui/nibbles.ui:84 src/nibbles-window.vala:469
 msgid "_Pause"
 msgstr "_Аялдату"
 
@@ -506,18 +502,18 @@ msgstr "Жалған бонустарды іск_е қосу"
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
 #. Translators: the player's number, e.g. "Player 1" or "Player 2".
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/controls.vala:130 src/nibbles-view.vala:533 src/scoreboard.vala:32
+#: src/controls.vala:142 src/nibbles-view.vala:537 src/scoreboard.vala:32
 #, c-format
 msgid "Player %d"
 msgstr "Ойыншы %d"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:46
+#: src/gnome-nibbles.vala:60
 msgid "Disable fake bonuses"
 msgstr "Жалған бонустарды сөндіру"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:52
+#: src/gnome-nibbles.vala:66
 msgid "Start at given level (1-26)"
 msgstr "Көрсетілген деңгейде бастау (1-26)"
 
@@ -525,68 +521,68 @@ msgstr "Көрсетілген деңгейде бастау (1-26)"
 #. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:55 src/gnome-nibbles.vala:64
-#: src/gnome-nibbles.vala:70 src/gnome-nibbles.vala:76
+#: src/gnome-nibbles.vala:69 src/gnome-nibbles.vala:78
+#: src/gnome-nibbles.vala:84 src/gnome-nibbles.vala:90
 msgid "NUMBER"
 msgstr "САН"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:58
+#: src/gnome-nibbles.vala:72
 msgid "Turn off the sound"
 msgstr "Дыбысты сөндіру"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:61
+#: src/gnome-nibbles.vala:75
 msgid "Set number of nibbles (4-6)"
 msgstr "Құрттар санын орнату (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:67
+#: src/gnome-nibbles.vala:81
 msgid "Set number of players (1-4)"
 msgstr "Ойыншылар саны"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:73
+#: src/gnome-nibbles.vala:87
 msgid "Set worms speed (4-1, 4 for slow)"
 msgstr "Құрттар жылдамдығын орнату (4-1, 4 баяу)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:79
+#: src/gnome-nibbles.vala:93
 msgid "Start playing"
 msgstr "Ойнауды бастау"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:82
+#: src/gnome-nibbles.vala:96
 msgid "Turn on the sound"
 msgstr "Дыбысты іске қосу"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:85
+#: src/gnome-nibbles.vala:99
 msgid "Show release version"
 msgstr "Нұсқа ақпаратын көрсету"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/gnome-nibbles.vala:118
+#: src/gnome-nibbles.vala:132
 msgid "Start level should only be between 1 and 26."
 msgstr "Бастау деңгейі тек 1 мен 26 аралығында ғана болуы тиіс."
 
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
-#: src/gnome-nibbles.vala:124
+#: src/gnome-nibbles.vala:138
 msgid "There could only be between 4 and 6 nibbles."
 msgstr "Құрттар саны тек 4 пен 6 арасында болуы тиіс."
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/gnome-nibbles.vala:130
+#: src/gnome-nibbles.vala:144
 msgid "There could only be between 1 and 4 players."
 msgstr "Ойыншылар саны тек 1 мен 4 арасында болуы тиіс."
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
-#: src/gnome-nibbles.vala:136
+#: src/gnome-nibbles.vala:150
 msgid "Speed should be between 4 (slow) and 1 (fast)."
 msgstr "Жылдамдық 4 (баяу) және 1 (жылдам) арасында болуы тиіс."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/gnome-nibbles.vala:145
+#: src/gnome-nibbles.vala:159
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
@@ -594,202 +590,214 @@ msgstr ""
 "қолданылуы тиіс."
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:286
+#: src/gnome-nibbles.vala:300
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:290
+#: src/gnome-nibbles.vala:304
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:294
+#: src/gnome-nibbles.vala:308
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:298
+#: src/gnome-nibbles.vala:312
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:302
+#: src/gnome-nibbles.vala:316
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
+#. Translators: text crediting an author, in the about dialog
+#: src/gnome-nibbles.vala:320
+msgid "Ben Corby"
+msgstr "Ben Corby"
+
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:306
+#: src/gnome-nibbles.vala:324
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:310
+#: src/gnome-nibbles.vala:328
 msgid "Allan Day"
 msgstr "Allan Day"
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:316
+#: src/gnome-nibbles.vala:334
 msgid "A worm game for GNOME"
 msgstr "GNOME үшін құрттар ойыны"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:320
+#: src/gnome-nibbles.vala:338
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:324
+#: src/gnome-nibbles.vala:342
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "Copyright © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:328
+#: src/gnome-nibbles.vala:346
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "Copyright © %u-%u – Iulian-Gabriel Radu"
 
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
+#: src/gnome-nibbles.vala:350
+#, c-format
+#| msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
+msgid "Copyright © %u-%u – Ben Corby"
+msgstr "Copyright © %u-%u – Ben Corby"
+
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:334
+#: src/gnome-nibbles.vala:356
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:904
+#: src/nibbles-view.vala:901
 msgid "red"
 msgstr "қызыл"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:906
+#: src/nibbles-view.vala:903
 msgid "green"
 msgstr "жасыл"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:908
+#: src/nibbles-view.vala:905
 msgid "blue"
 msgstr "көк"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:910
+#: src/nibbles-view.vala:907
 msgid "yellow"
 msgstr "сары"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:912
+#: src/nibbles-view.vala:909
 msgid "cyan"
 msgstr "көгілдір"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:914
+#: src/nibbles-view.vala:911
 msgid "purple"
 msgstr "күлгін"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:404
+#: src/nibbles-window.vala:419
 msgid "Are you sure you want to start a new game?"
 msgstr "Жаңа ойынды бастауды шынымен қалайсыз ба?"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:408
+#: src/nibbles-window.vala:423
 msgid "If you start a new game, the current one will be lost."
 msgstr "Егер жаңа ойынды бастасаңыз, ағымдағы ойын жоғалады."
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:456
+#: src/nibbles-window.vala:464
 msgid "_Resume"
 msgstr "Жа_лғастыру"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:663 src/nibbles-window.vala:880
+#: src/nibbles-window.vala:669 src/nibbles-window.vala:887
 #, c-format
 msgid "Level %d"
 msgstr "Деңгей %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:736
+#: src/nibbles-window.vala:742
 msgid "Beginner"
 msgstr "Бастауыш"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:738
+#: src/nibbles-window.vala:744
 msgid "Slow"
 msgstr "Баяу"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:740
+#: src/nibbles-window.vala:746
 msgid "Medium"
 msgstr "Орташа"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:742
+#: src/nibbles-window.vala:748
 msgid "Fast"
 msgstr "Жылдам"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:744
+#: src/nibbles-window.vala:750
 msgid "Beginner with Fakes"
 msgstr "Бастауыш, жалған бонустармен"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:746
+#: src/nibbles-window.vala:752
 msgid "Slow with Fakes"
 msgstr "Баяу, жалған бонустармен"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:748
+#: src/nibbles-window.vala:754
 msgid "Medium with Fakes"
 msgstr "Орташа, жалған бонустармен"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:750
+#: src/nibbles-window.vala:756
 msgid "Fast with Fakes"
 msgstr "Жылдам, жалған бонустармен"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:755
+#: src/nibbles-window.vala:761
 msgid "Difficulty Level:"
 msgstr "Қиындық деңгейі:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:860
+#: src/nibbles-window.vala:867
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Деңгейі %d аяқталды!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:868
+#: src/nibbles-window.vala:875
 msgid "_Next Level"
 msgstr "_Келесі деңгей"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:932
+#: src/nibbles-window.vala:939
 msgid "Congratulations!"
 msgstr "Құттықтаймыз!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:936
+#: src/nibbles-window.vala:943
 msgid "Game Over!"
 msgstr "Ойын аяқталды!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:944
+#: src/nibbles-window.vala:951
 msgid "You have completed the game."
 msgstr "Сіз ойынды аяқтадыңыз."
 
-#: src/nibbles-window.vala:951
+#: src/nibbles-window.vala:958
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d ұпай"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:962
+#: src/nibbles-window.vala:969
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(үздіктер тақтасына жету үшін тағы %ld ұпай керек)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:969
+#: src/nibbles-window.vala:976
 msgid "_Play Again"
 msgstr "Қайта о_йнау"
 
@@ -822,6 +830,12 @@ msgstr "Сіз таңдаған перне қолданылуда болып т�
 #: src/preferences-dialog.vala:195
 msgid "_Set anyway"
 msgstr "Сонда да ор_нату"
+
+#~ msgid "GNOME Nibbles"
+#~ msgstr "GNOME құрттар ойыны"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "GNOME жобасы"
 
 #~ msgid "Player"
 #~ msgstr "Ойыншы"
