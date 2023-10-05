@@ -238,6 +238,7 @@ namespace NibblesTest
                                             /* speed        */ 0,
                                             /* delay        */ 0,
                                             /* fakes        */ false,
+                                            /* 3D           */ false,
                                             /* size x and y */ (uint8) board [0].char_count (), (uint8) board.length,
                                             /* no random    */ true);
 

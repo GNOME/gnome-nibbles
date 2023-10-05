@@ -47,15 +47,16 @@ private class Nibbles : Gtk.Application
         {"quit", quit}
     };
 
-    private static bool disable_fakes   = false;
-    private static bool enable_fakes    = false;
-    private static bool start           = false;
-    private static int level            = int.MIN;
-    private static int nibbles          = int.MIN;
-    private static int players          = int.MIN;
-    private static int speed            = int.MIN;
-    private static bool? sound          = null;
-    private const OptionEntry[] option_entries =
+    private static bool disable_fakes           = false;
+    private static bool enable_fakes            = false;
+    private static bool start                   = false;
+    private static int level                    = int.MIN;
+    private static int nibbles                  = int.MIN;
+    private static int players                  = int.MIN;
+    private static int speed                    = int.MIN;
+    private static bool? three_dimensional_view = null;
+    private static bool? sound                  = null;
+    private const OptionEntry[] option_entries  =
     {
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "disable-fakes",  'd', OptionFlags.NONE, OptionArg.NONE,  null,           N_("Disable fake bonuses"),                 null },
@@ -89,6 +90,12 @@ private class Nibbles : Gtk.Application
 
         /* Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help' */
                                                                                     N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "3D",             '3', OptionFlags.NONE, OptionArg.NONE,  null,           N_("Set three dimensional view"),           null },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "2D",             '2', OptionFlags.NONE, OptionArg.NONE,  null,           N_("Set two dimensional view"),             null },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "start",          0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Start playing"),                        null },
@@ -174,6 +181,17 @@ private class Nibbles : Gtk.Application
         else if (options.contains ("unmute"))
             sound = true;
 
+        if (options.contains ("3D") && options.contains ("2D"))
+        {
+            /* Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2' */
+            stderr.printf (_("Options --3D (-3) and --2D (-2) are mutually exclusive.") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
+        else if (options.contains ("3D"))
+            three_dimensional_view = true;
+        else if (options.contains ("2D"))
+            three_dimensional_view = false;
+
         if (options.contains ("start"))
             start = true;
 
@@ -207,6 +225,7 @@ private class Nibbles : Gtk.Application
          || speed != int.MIN
          || disable_fakes
          || enable_fakes
+         || three_dimensional_view != null
          || sound != null)
         {
             GLib.Settings settings = new GLib.Settings ("org.gnome.Nibbles");
@@ -234,6 +253,9 @@ private class Nibbles : Gtk.Application
                 settings.set_boolean ("fakes", false);
             else if (enable_fakes)
                 settings.set_boolean ("fakes", true);
+
+            if (three_dimensional_view != null)
+                settings.set_boolean ("three-dimensional-view", (!) three_dimensional_view);
 
             if (sound != null)
                 settings.set_boolean ("sound", (!) sound);

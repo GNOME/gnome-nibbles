@@ -70,7 +70,6 @@ private class NibblesWindow : ApplicationWindow
 
     /* Statusbar widgets */
     [GtkChild] private unowned Stack statusbar_stack;
-    [GtkChild] private unowned Label countdown;
     [GtkChild] private unowned Scoreboard scoreboard;
     private Image scoreboard_life;
 
@@ -253,6 +252,7 @@ private class NibblesWindow : ApplicationWindow
         settings = new GLib.Settings ("org.gnome.Nibbles");
         settings.changed.connect (settings_changed_cb);
         add_action (settings.create_action ("sound"));
+        add_action (settings.create_action ("three-dimensional-view"));
 
         worm_settings = new Gee.ArrayList<GLib.Settings> ();
         for (int i = 0; i < NibblesGame.MAX_WORMS; i++)
@@ -316,6 +316,9 @@ private class NibblesWindow : ApplicationWindow
         });
         ((Widget)(this)).add_controller (key_controller);
 
+        /* view type */
+        bool three_dimensional_view = settings.get_boolean ("three-dimensional-view");
+
         /* create sound interface */
         sound = new Sound (!settings.get_boolean ("sound"));
 
@@ -343,14 +346,13 @@ private class NibblesWindow : ApplicationWindow
         /* Create board view */
         view = new NibblesView (game,
                                 countdown_active,
-                                new_game_dialogue_active,
-                                settings.get_int ("tile-size"));
+                                new_game_dialogue_active);
         view.show ();
         view.vexpand = true;
         game_box.prepend (view);
 
         /* Create scoreboard */
-        scoreboard_life = NibblesView.load_image_file ("scoreboard-life.svg", 2 * view.tile_size, 2 * view.tile_size);
+        scoreboard_life = NibblesView.load_image_file ("scoreboard-life.svg", 14, 14);
 
         /* Number of worms */
         game.numhumans = settings.get_int ("players");
@@ -434,7 +436,6 @@ private class NibblesWindow : ApplicationWindow
         settings.set_boolean ("window-is-maximized", window_is_maximized);
 
         // game properties
-        settings.set_int ("tile-size", view.tile_size);     // TODO why?!
         settings.set_int ("speed", game.speed);
         settings.set_boolean ("fakes", game.fakes);
         settings.apply ();
@@ -443,12 +444,11 @@ private class NibblesWindow : ApplicationWindow
     private bool countdown_cb ()
     {
         seconds--;
+        view.redraw ();
 
         if (seconds == 0)
         {
             statusbar_stack.set_visible_child_name ("scoreboard");
-            //view.name_labels.hide ();
-            view.redraw ();
 
             game.start (/* add initial bonus */ true);
 
@@ -458,7 +458,6 @@ private class NibblesWindow : ApplicationWindow
             return Source.REMOVE;
         }
 
-        countdown.set_label (seconds.to_string ());
         return Source.CONTINUE;
     }
 
@@ -493,15 +492,12 @@ private class NibblesWindow : ApplicationWindow
 
     private void start_game_with_countdown ()
     {
-        statusbar_stack.set_visible_child_name ("countdown");
-
         new_game_action.set_enabled (true);
         back_action.set_enabled (true);
 
         seconds = COUNTDOWN_TIME;
         view.redraw ();
 
-        countdown.set_label (COUNTDOWN_TIME.to_string ());
         countdown_id = Timeout.add_seconds (1, countdown_cb);
     }
 
@@ -623,7 +619,7 @@ private class NibblesWindow : ApplicationWindow
                 game.fakes = settings.get_boolean (key);
                 break;
             case "three-dimensional-view":
-                game.three_dimensional_view = !settings.get_boolean (key);
+                game.three_dimensional_view = settings.get_boolean (key);
                 break;
         }
     }
@@ -1128,9 +1124,9 @@ private class NibblesWindow : ApplicationWindow
     * * Delegates
     \*/
 
-    bool countdown_active ()
+    int countdown_active ()
     {
-        return seconds > 0;
+        return seconds;
     }
 }
 

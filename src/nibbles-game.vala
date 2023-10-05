@@ -54,6 +54,7 @@ private class NibblesGame : Object
 
     public bool skip_score      { internal get; protected construct set; }
     public int current_level    { internal get; protected construct set; }
+    public bool three_dimensional_view { internal get; internal construct set; }
     public int speed            { internal get; internal construct set; }
     public int gamedelay        { internal get; protected construct; }
 
@@ -104,10 +105,14 @@ private class NibblesGame : Object
     internal signal void bonus_removed (Bonus bonus);
 
     /* nibbles-window */
+    internal signal string get_pkgdatadir ();
     internal signal bool add_keypress_handler (KeypressHandlerFunction? keypress_handler);
 #if !TEST_COMPILE
     internal bool added_keypress_handler = false;
 #endif
+
+    /* nibbles-view */
+    internal signal void redraw (bool animate = false);
 
     /* connected to sound */
     internal signal void play_sound (string sound);
@@ -118,13 +123,39 @@ private class NibblesGame : Object
         boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
-    internal NibblesGame (int start_level, int speed, int gamedelay, bool fakes, uint8 width, uint8 height, bool no_random = false)
+    internal NibblesGame (int start_level, int speed, int gamedelay, bool fakes, bool three_dimensional_view, uint8 width, uint8 height, bool no_random = false)
     {
-        Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, gamedelay: gamedelay, fakes: fakes, width: width, height: height);
+        Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, gamedelay: gamedelay, fakes: fakes, three_dimensional_view: three_dimensional_view, width: width, height: height);
 
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
 
+    /*\
+    * * Level creation and loading
+    \*/
+
+#if !TEST_COMPILE
+    internal void new_level (int level_id)
+    {
+        /* add the keypress handler if we haven't done so yet */
+        if (!added_keypress_handler)
+            added_keypress_handler = add_keypress_handler (keypress);
+            
+        string level_name = "level%03d.gnl".printf (level_id);
+        string filename = GLib.Path.build_filename (get_pkgdatadir (), "levels", level_name, null);
+
+        FileStream file;
+        if ((file = FileStream.open (filename, "r")) == null)
+            error ("Nibbles couldn't find pixmap file: %s", filename);
+
+        string? line;
+        string [] board = {};
+        while ((line = file.read_line ()) != null)
+            board += (!) line;
+        if (!load_board (board, 8 + numworms))
+            error ("Level file appears to be damaged: %s", filename);
+    }
+#endif
     internal bool load_board (string [] future_board, uint8 regular_bonus)
     {
         if (future_board.length != (int) height)
@@ -317,14 +348,14 @@ private class NibblesGame : Object
         Source.remove (main_id);
         main_id = 0;
     }
-
+#if !TEST_COMPILE
     internal inline void reset (int start_level)
     {
         skip_score = start_level != 1;
         current_level = start_level;
         is_paused = false;
     }
-
+#endif
     private void end ()
     {
         stop ();
@@ -387,7 +418,6 @@ private class NibblesGame : Object
         {
             var worm = new Worm (i, width, height, get_other_worms, get_bonuses);
             worm.bonus_found.connect (bonus_found_cb);
-            worm.finish_added.connect (worm_dematerialization_request);
             worm.is_human = (i < numhumans);
             worms.add (worm);
         }
@@ -399,14 +429,7 @@ private class NibblesGame : Object
     internal void add_worms ()
     {
         foreach (var worm in worms)
-        {
-            /* Required for the first element of the worm added before signals were connected
-             * TODO: Try to connect signals before adding the starting position to the worm
-             */
-            worm.added ();
-
             worm.spawn ();
-        }
     }
 
     private void move_worms ()
@@ -517,6 +540,9 @@ private class NibblesGame : Object
             if (worm.lives > 0)
                 worm.reset ();
         }
+
+        /* refresh the screen */
+        redraw (true);
     }
 
     private void reverse_worms (Worm worm)
@@ -524,11 +550,6 @@ private class NibblesGame : Object
         foreach (var other_worm in worms)
             if (worm != other_worm)
                 other_worm.reverse ();
-    }
-
-    private void worm_dematerialization_request (Worm worm)
-    {
-        worm.dematerialize (/* number of rounds */ 3, gamedelay);
     }
 
     /*\
@@ -560,8 +581,8 @@ private class NibblesGame : Object
 
         foreach (Worm worm in worms)
             if (!worm.is_stopped)
-                foreach (Position p in worm.list)
-                    worms_at[p.x, p.y] = true;
+                foreach (var p in worm.list)
+                    worms_at[p>>8, (uint8)p] = true;
 
         do
         {
@@ -683,6 +704,7 @@ private class NibblesGame : Object
         var bonus = boni.get_bonus (worm.head.x, worm.head.y);
         if (bonus == null)
             return;
+        worm.add_bonus_eaten_position (worm.head.x, worm.head.y);
         apply_bonus (bonus, worm);
         bonus_applied (bonus, worm);
 
@@ -807,7 +829,7 @@ private class NibblesGame : Object
 
         return false;
     }
-#endif        
+#endif    
     /*\
     * * Delegates
     \*/
@@ -823,7 +845,7 @@ private class NibblesGame : Object
         return result;
     }
     
-    private Gee.List<Bonus> get_bonuses ()
+    internal Gee.List<Bonus> get_bonuses ()
     {
         return boni.get_bonuses ();
     }

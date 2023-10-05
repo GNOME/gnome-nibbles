@@ -55,5 +55,6 @@ gnome_nibbles_vala_args = [
 executable(meson.project_name(), gnome_nibbles_sources,
     dependencies: gnome_nibbles_deps,
     vala_args: gnome_nibbles_vala_args + gtk_define + target_glib,
+    link_args: '-lm',
     install: true
 )

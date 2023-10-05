@@ -28,12 +28,6 @@
       <summary>Is this the first run</summary>
       <description>Setting to decide whether to show first-run hint dialog or not.</description>
     </key>
-    <key name="tile-size" type="i">
-      <default>7</default>
-      <range min="7"/>
-      <summary>Size of game tiles</summary>
-      <description>Size of game tiles.</description>
-    </key>
     <key name="start-level" type="i">
       <default>1</default>
       <range min="1" max="26"/>
@@ -45,6 +39,11 @@
       <range min="1" max="4"/>
       <summary>Worms movement speed</summary>
       <description>The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”.</description>
+    </key>
+    <key name="three-dimensional-view" type="b">
+      <default>true</default>
+      <summary>Enable 3D</summary>
+      <description>Enable 3D.</description>
     </key>
     <key name="sound" type="b">
       <default>true</default>
