@@ -10,13 +10,11 @@ data/ui/help-overlay.ui
 data/ui/nibbles.ui
 data/ui/players.ui
 data/ui/player-score-box.ui
-data/ui/preferences-dialog.ui
 data/ui/speed.ui
 src/controls.vala
 src/gnome-nibbles.vala
 src/nibbles-view.vala
 src/nibbles-window.vala
 src/players.vala
-src/preferences-dialog.vala
 src/scoreboard.vala
 src/speed.vala

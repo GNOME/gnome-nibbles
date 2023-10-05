@@ -29,7 +29,6 @@ gnome_nibbles_sources = [
     'nibbles-view.vala',
     'nibbles-window.vala',
     'players.vala',
-    'preferences-dialog.vala',
     'scoreboard.vala',
     'speed.vala',
     'warp.vala',

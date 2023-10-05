@@ -3,6 +3,5 @@ src/gnome-nibbles.c
 src/nibbles-view.c
 src/nibbles-window.c
 src/players.c
-src/preferences-dialog.c
 src/scoreboard.c
 src/speed.c

@@ -7,7 +7,6 @@
     <file preprocess="xml-stripblanks"                   alias="nibbles.ui"             >ui/nibbles.ui</file>
     <file preprocess="xml-stripblanks"                   alias="players.ui"             >ui/players.ui</file>
     <file preprocess="xml-stripblanks"                   alias="player-score-box.ui"    >ui/player-score-box.ui</file>
-    <file preprocess="xml-stripblanks" compressed="true" alias="preferences-dialog.ui"  >ui/preferences-dialog.ui</file>
     <file preprocess="xml-stripblanks"                   alias="scoreboard.ui"          >ui/scoreboard.ui</file>
     <file preprocess="xml-stripblanks"                   alias="speed.ui"               >ui/speed.ui</file>
   </gresource>
