@@ -108,7 +108,15 @@ private class Nibbles : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        return new Nibbles ().run (args);
+        Gtk.init ();
+
+        var application = new Nibbles ();
+        application.activate.connect (()=>
+        {
+            application.setup ();
+        });
+
+        return application.run (args);
     }
 
     private inline Nibbles ()
@@ -173,13 +181,8 @@ private class Nibbles : Gtk.Application
         return -1;
     }
 
-    protected override void startup ()
+    void setup ()
     {
-        base.startup ();
-
-        unowned string[]? argv = null;
-        GtkClutter.init (ref argv);
-
         Environment.set_prgname ("org.gnome.Nibbles");
         Environment.set_application_name (PROGRAM_NAME);
 
@@ -221,7 +224,7 @@ private class Nibbles : Gtk.Application
                 if (old_ai != new_ai)
                     settings.set_int ("ai", new_ai);
             }
-            else // (nibbles_changed)
+            else if (nibbles_changed)
                 settings.set_int ("ai", nibbles - settings.get_int ("players"));
 
             if (speed != int.MIN)
