@@ -1103,9 +1103,10 @@ private class Worm : Object
 
     internal bool is_human;
     internal bool keypress = false;
+    internal int rounds_to_stay_still;
     internal bool is_stopped = false;
-    internal bool is_materialized { internal get {return rounds_to_stay_dematerialized <= 0;}}
     private int rounds_to_stay_dematerialized;
+    internal bool is_materialized { internal get {return rounds_to_stay_dematerialized <= 0;}}
 
     internal uint8 lives    { internal get; internal set; default = STARTING_LIVES; }
     internal int change     { internal get; internal set; default = 0; }
@@ -1362,10 +1363,7 @@ private class Worm : Object
         /* rounds_to_stay_dematerialized must be greater than 0 to dematerialize */
         rounds_to_stay_dematerialized = rounds > 1 ? rounds : 1;
 
-        Timeout.add (gamedelay * 27, () => {
-                is_stopped = false;
-                return Source.REMOVE;
-            });
+        rounds_to_stay_still = 2;
     }
     
     internal void add_life ()

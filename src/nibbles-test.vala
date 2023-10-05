@@ -34,25 +34,15 @@
 
 namespace NibblesTest
 {
-    /* delegates are only to stop the compiler warning messages when compiling test */
-    delegate bool key_press_type (uint key); 
-    delegate void reset_type (int start_level);
-      
     private static int main (string [] args)
     {
         Test.init (ref args);
-        Test.add_func ("/Nibbles/test tests",
-                                 test_tests);
-        Test.add_func ("/Nibbles/test int128",
-                                 test_int128);
-        Test.add_func ("/Nibbles/test angles",
-                                 test_angles);
-        Test.add_func ("/Nibbles/test games",
-                                 test_games);
-        Test.add_func ("/Nibbles/test heads",
-                                 test_heads);
-        Test.add_func ("/Nibbles/test warps",
-                                 test_warps);
+        Test.add_func ("/Nibbles/test tests",  test_tests);
+        Test.add_func ("/Nibbles/test int128", test_int128);
+        Test.add_func ("/Nibbles/test angles", test_angles);
+        Test.add_func ("/Nibbles/test heads",  test_heads);
+        Test.add_func ("/Nibbles/test warps",  test_warps);
+        Test.add_func ("/Nibbles/test games",  test_games);
 
         return Test.run ();
     }
@@ -289,24 +279,19 @@ namespace NibblesTest
             Worm worm = game.worms.@get (i);
             WormTest worm_test = worms [i];
 
-//            Test.message (@"worm $(worm.id) final lives: $(worm.lives)");
-//            Test.message (@"worm $(worm.id) final score: $(worm.score)");
+            Test.message (@"worm $(worm.id) final lives: $(worm.lives)");
+            Test.message (@"worm $(worm.id) final score: $(worm.score)");
+            Test.message (@"worm $(worm.id) length: $(worm.list.size)");
             assert_true (worm.lives == worm_test.final_lives);
             assert_true (worm.score == worm_test.final_score);
         }
-//        Test.message (@"applied bonus: $applied_bonus");
+        Test.message (@"applied bonus: $applied_bonus");
         assert_true (applied_bonus == final_bonuses);
 
         game.disconnect (game_handler_1);
         game.disconnect (game_handler_2);
 
         Test.message ("");
-        
-        /* stop the compiler warning messages when compiling test */
-        key_press_type key_press;
-        key_press = (key)=> {return game.handle_keypress (key);};
-        reset_type reset;
-        reset = (start_level)=> {game.reset (start_level);};
     }
 
     /*\

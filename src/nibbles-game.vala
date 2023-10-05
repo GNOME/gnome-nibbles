@@ -411,6 +411,14 @@ private class NibblesGame : Object
 
     private void move_worms ()
     {
+        foreach (var worm in worms)
+        {
+            if (worm.rounds_to_stay_still == 1)
+                worm.is_stopped = false;
+            if (worm.rounds_to_stay_still > 0)
+                --worm.rounds_to_stay_still;
+        }
+
         if (boni.too_many_missed ())
         {
             foreach (var worm in worms)
