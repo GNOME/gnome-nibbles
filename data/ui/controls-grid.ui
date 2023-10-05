@@ -3,6 +3,7 @@
    This file is part of GNOME Nibbles.
 
    Copyright (C) 2015-2016 Iulian Radu
+   Copyright (C) 2023 Ben Corby
 
    GNOME Nibbles is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,124 +19,121 @@
    with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <template class="ControlsGrid" parent="GtkButton">
-    <property name="visible">True</property>
-    <property name="halign">center</property>
-    <property name="valign">center</property>
-    <property name="action-name">win.preferences</property>
-    <style>
-      <class name="controls-box"/>
-    </style>
+  <requires lib="gtk" version="4.0"/>
+  <template class="ControlsGrid" parent="GtkFrame">
+    <property name="halign">fill</property>
+    <property name="valign">fill</property>
     <child>
-      <object class="GtkGrid">
-        <property name="visible">True</property>
-        <property name="valign">center</property>
-        <property name="halign">center</property>
-        <property name="vexpand">True</property>
-        <property name="row_spacing">5</property>
-        <property name="column_spacing">5</property>
-        <child>
-          <object class="GtkLabel" id="name_label">
-            <property name="visible">True</property>
+      <object class="GtkOverlay" id="overlay">
+        <property name="visible">1</property>
+        <property name="child">
+          <object class="GtkGrid" id="grid">
+            <property name="valign">center</property>
+            <property name="halign">center</property>
+            <property name="vexpand">1</property>
+            <property name="row_spacing">5</property>
+            <property name="column_spacing">5</property>
+            <property name="margin-top">15</property>
+            <property name="margin-bottom">15</property>
+            <property name="margin-start">15</property>
+            <property name="margin-end">15</property>
+            <child>
+              <object class="GtkButton" id="name_label">
+                <property name="label" >X</property>
+                <property name="halign">center</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                  <property name="column-span">5</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDrawingArea" id="arrow_up">
+                <property name="width-request">35</property>
+                <property name="height-request">35</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="move_up_button">
+                <property name="label" >X</property>
+                <property name="width-request">45</property>
+                <property name="height-request">45</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="row">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDrawingArea" id="arrow_left">
+                <property name="width-request">35</property>
+                <property name="height-request">35</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="move_left_button">
+                <property name="label" >X</property>
+                <property name="width-request">45</property>
+                <property name="height-request">45</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDrawingArea" id="arrow_right">
+                <property name="width-request">35</property>
+                <property name="height-request">35</property>
+                <layout>
+                  <property name="column">4</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="move_right_button">
+                <property name="label" >X</property>
+                <property name="width-request">45</property>
+                <property name="height-request">45</property>
+                <layout>
+                  <property name="column">3</property>
+                  <property name="row">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDrawingArea" id="arrow_down">
+                <property name="width-request">35</property>
+                <property name="height-request">35</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="row">5</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="move_down_button">
+                <property name="label" >X</property>
+                <property name="width-request">45</property>
+                <property name="height-request">45</property>
+                <layout>
+                  <property name="column">2</property>
+                  <property name="row">4</property>
+                </layout>
+              </object>
+            </child>
           </object>
-          <packing>
-            <property name="left-attach">0</property>
-            <property name="top-attach">0</property>
-            <property name="width">5</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="arrow_up">
-            <property name="visible">True</property>
-          </object>
-          <packing>
-            <property name="left-attach">2</property>
-            <property name="top-attach">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="move_up_label">
-            <property name="visible">True</property>
-            <property name="height-request">45</property>
-            <property name="width-request">45</property>
-            <style>
-              <class name="controls-button"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left-attach">2</property>
-            <property name="top-attach">2</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="arrow_left">
-            <property name="visible">True</property>
-          </object>
-          <packing>
-            <property name="left-attach">0</property>
-            <property name="top-attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="move_left_label">
-            <property name="visible">True</property>
-            <property name="height-request">45</property>
-            <property name="width-request">45</property>
-            <style>
-              <class name="controls-button"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left-attach">1</property>
-            <property name="top-attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="move_right_label">
-            <property name="visible">True</property>
-            <property name="height-request">45</property>
-            <property name="width-request">45</property>
-            <style>
-              <class name="controls-button"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left-attach">3</property>
-            <property name="top-attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="arrow_right">
-            <property name="visible">True</property>
-          </object>
-          <packing>
-            <property name="left-attach">4</property>
-            <property name="top-attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="move_down_label">
-            <property name="visible">True</property>
-            <property name="height-request">45</property>
-            <property name="width-request">45</property>
-            <style>
-              <class name="controls-button"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left-attach">2</property>
-            <property name="top-attach">4</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="arrow_down">
-            <property name="visible">True</property>
-          </object>
-          <packing>
-            <property name="left-attach">2</property>
-            <property name="top-attach">5</property>
-          </packing>
-        </child>
+        </property>
       </object>
     </child>
   </template>

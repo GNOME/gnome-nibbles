@@ -4,6 +4,7 @@
 
    Copyright (C) 2015-2016 Iulian Radu
    Copyright (C) 2020 Arnaud Bonatti
+   Copyright (C) 2023 Ben Corby
 
    GNOME Nibbles is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,29 +19,29 @@
    You should have received a copy of the GNU General Public License along
    with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
 -->
+
 <interface>
+  <requires lib="gtk" version="4.0"/>
   <template class="Controls" parent="GtkBox">
     <property name="orientation">vertical</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="valign">center</property>
         <property name="spacing">25</property>
         <child>
           <object class="GtkLabel">
-            <property name="visible">True</property>
             <!-- Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player -->
-            <property name="label" translatable="yes">Controls</property>
+            <property name="label" translatable="1">Controls</property>
             <property name="valign">center</property>
-            <style><class name="menu-title"/></style>
+            <style>
+              <class name="menu-title"/>
+            </style>
           </object>
         </child>
         <child>
           <object class="GtkBox" id="grids_box">
-            <property name="visible">True</property>
-            <property name="orientation">horizontal</property>
-            <property name="homogeneous">True</property>
+            <property name="homogeneous">1</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="spacing">20</property>
@@ -50,11 +51,9 @@
     </child>
     <child>
       <object class="GtkButton">
-        <property name="visible">True</property>
-        <property name="can-default">True</property>
-        <property name="use-underline">True</property>
+        <property name="use-underline">1</property>
         <!-- Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game -->
-        <property name="label" translatable="yes">_Start</property>
+        <property name="label" translatable="1">_Start</property>
         <property name="action-name">win.start-game</property>
         <property name="halign">center</property>
         <property name="width-request">116</property>
@@ -64,9 +63,6 @@
           <class name="play"/>
         </style>
       </object>
-      <packing>
-        <property name="pack-type">end</property>
-      </packing>
     </child>
   </template>
 </interface>
