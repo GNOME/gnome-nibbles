@@ -444,31 +444,6 @@ private class NibblesView : GtkClutter.Embed
         }
     }
 
-    internal void connect_worm_signals ()
-    {
-        foreach (var worm in game.worms)
-        {
-            worm.added.connect (worm_added_cb);
-            worm.finish_added.connect (worm_finish_added_cb);
-            worm.moved.connect (worm_moved_cb);
-            worm.rescaled.connect (worm_rescaled_cb);
-            worm.died.connect (worm_died_cb);
-            worm.tail_reduced.connect (worm_tail_reduced_cb);
-            worm.reversed.connect (worm_reversed_cb);
-            worm.notify["is-materialized"].connect (() => {
-                uint8 opacity;
-                opacity = worm.is_materialized ? 0xff : 0x50;
-
-                var actors = worm_actors.@get (worm);
-
-                actors.save_easing_state ();
-                actors.set_easing_duration (GAMEDELAY * 10);
-                actors.set_opacity (opacity);
-                actors.restore_easing_state ();
-            });
-        }
-    }
-
     private void board_rescale (int new_tile_size)
     {
         int board_width, board_height;
@@ -830,64 +805,6 @@ private class NibblesView : GtkClutter.Embed
     {
         foreach (var actor in warp_actors)
             actor.set_size (new_tile_size, new_tile_size);
-    }
-
-    /*\
-    * * Sound
-    \*/
-
-    public bool is_muted { private get; internal construct set; }
-
-    private GSound.Context sound_context;
-    private SoundContextState sound_context_state = SoundContextState.INITIAL;
-
-    private enum SoundContextState
-    {
-        INITIAL,
-        WORKING,
-        ERRORED;
-    }
-
-    private void init_sound ()
-     // requires (sound_context_state == SoundContextState.INITIAL)
-    {
-        try
-        {
-            sound_context = new GSound.Context ();
-            sound_context_state = SoundContextState.WORKING;
-        }
-        catch (Error e)
-        {
-            warning (e.message);
-            sound_context_state = SoundContextState.ERRORED;
-        }
-    }
-
-    private void play_sound (string name)
-    {
-        if (!is_muted)
-        {
-            if (sound_context_state == SoundContextState.INITIAL)
-                init_sound ();
-            if (sound_context_state == SoundContextState.WORKING)
-                _play_sound (name, sound_context);
-        }
-    }
-
-    private static void _play_sound (string _name, GSound.Context sound_context)
-     // requires (sound_context_state == SoundContextState.WORKING)
-    {
-        string name = _name + ".ogg";
-        string path = Path.build_filename (SOUND_DIRECTORY, name);
-        try
-        {
-            sound_context.play_simple (null, GSound.Attribute.MEDIA_NAME, name,
-                                             GSound.Attribute.MEDIA_FILENAME, path);
-        }
-        catch (Error e)
-        {
-            warning (e.message);
-        }
     }
 
     /*\

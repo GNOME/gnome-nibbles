@@ -109,6 +109,9 @@ private class NibblesGame : Object
     internal bool added_keypress_handler = false;
 #endif
 
+    /* connected to sound */
+    internal signal void play_sound (string sound);
+
     construct
     {
         board = new int [width, height];
@@ -451,7 +454,10 @@ private class NibblesGame : Object
                 position = Position () { x = target_x, y = target_y };
 
             if (!worm.can_move_to (board, worms, position))
+            {
                 dead_worms.add (worm);
+                play_sound ("crash");
+            }
         }
 
         /* move worms */
@@ -616,7 +622,8 @@ private class NibblesGame : Object
     {
         Bonus bonus = new Bonus (x, y, bonus_type, fake, countdown);
         if (boni.add_bonus (bonus))
-            bonus_added (bonus);
+            if (bonus.bonus_type != BonusType.REGULAR)
+                play_sound ("appear");
     }
 
     private void apply_bonus (Bonus bonus, Worm worm)
@@ -634,10 +641,12 @@ private class NibblesGame : Object
                 uint8 nth_bonus = boni.new_regular_bonus_eaten ();
                 worm.change += (int) nth_bonus * Worm.GROW_FACTOR;
                 worm.score  += (int) nth_bonus * current_level;
+                play_sound ("gobble");
                 break;
             case BonusType.DOUBLE:
                 worm.score += (worm.length + worm.change) * current_level;
                 worm.change += worm.length + worm.change;
+                play_sound ("bonus");
                 break;
             case BonusType.HALF:
                 if (worm.length + worm.change > 2)
@@ -646,12 +655,15 @@ private class NibblesGame : Object
                     worm.reduce_tail (worm.length / 2);
                     worm.change -= (worm.length + worm.change) / 2;
                 }
+                play_sound ("bonus");
                 break;
             case BonusType.LIFE:
                 worm.add_life ();
+                play_sound ("life");
                 break;
             case BonusType.REVERSE:
                 reverse_worms (worm);
+                play_sound ("reverse");
                 break;
             case BonusType.WARP:
                 break;

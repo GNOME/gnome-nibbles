@@ -80,6 +80,9 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private unowned Box game_box;
     private Games.GridFrame frame;
 
+    /* sound interface */
+    private Sound sound;
+
     /* keyboard interface */
     class DelegateStack 
     {
@@ -294,6 +297,9 @@ private class NibblesWindow : ApplicationWindow
         });
         ((Widget)(this)).add_controller (key_controller);
 
+        /* create sound interface */
+        sound = new Sound (!settings.get_boolean ("sound"));
+
         /* Create game */
         game = new NibblesGame (start_level,
                                 settings.get_int ("speed"),
@@ -303,6 +309,7 @@ private class NibblesWindow : ApplicationWindow
                                 NibblesView.HEIGHT);
         game.log_score.connect (log_score_cb);
         game.level_completed.connect (level_completed_cb);
+        sound.connect_signal (game);
         game.notify["is-paused"].connect (() => {
             if (game.paused)
                 statusbar_stack.set_visible_child_name ("paused");
@@ -350,7 +357,13 @@ private class NibblesWindow : ApplicationWindow
                           settings.get_boolean ("fakes"));
 
         /* Controls screen */
-        controls.load_pixmaps (view.tile_size);
+        controls.add_keypress_handler.connect ((handler)=>
+        {
+            if (handler != null)
+                keypress_handlers.push (handler);
+            else
+                keypress_handlers.pop ();
+        });
 
         /* Check whether to display the first run screen */
         if (start_screen == SetupScreen.GAME)
@@ -481,7 +494,6 @@ private class NibblesWindow : ApplicationWindow
         game.reset (start_level);
 
         view.new_level (game.current_level);
-        view.connect_worm_signals ();
 
         scoreboard.clear ();
         foreach (var worm in game.worms)

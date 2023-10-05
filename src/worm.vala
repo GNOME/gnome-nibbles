@@ -1171,13 +1171,11 @@ private class Worm : Object
         {
             /* Add to the worm's size. */
             change--;
-            added (); /* signal function in nibbles-view.vala */
         }
         else
         {
             /* Remove a body piece from the tail of the list. */
             list.poll_tail ();
-            moved (); /* signal function in nibbles-view.vala */
         }
 
         /* Check for bonus, do nothing if there isn't a bonus */
