@@ -39,7 +39,8 @@
                     "config-opts": [
                         "--disable-alsa",
                         "--disable-null",
-                        "--disable-oss"
+                        "--disable-oss",
+                        "--disable-gtk3"
                     ],
                     "sources": [{
                         "type": "archive",
@@ -72,44 +73,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libgnome-games-support.git",
-                    "branch": "games-1-8"
-                }
-            ]
-        },
-        {
-            "name": "cogl",
-            "config-opts": [
-                "--disable-cogl-gst",
-                "--enable-xlib-egl-platform",
-                "--enable-wayland-egl-platform"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/cogl.git",
-                    "branch": "cogl-1.22"
-                }
-            ]
-        },
-        {
-            "name": "clutter",
-            "config-opts": [
-                "--enable-egl-backend",
-                "--enable-wayland-backend"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/clutter.git"
-                }
-            ]
-        },
-        {
-            "name": "clutter-gtk",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/clutter-gtk.git"
+                    "tag": "2.0.0"
                 }
             ]
         },

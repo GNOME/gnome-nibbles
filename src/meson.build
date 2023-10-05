@@ -14,6 +14,7 @@ nibbles_tests = executable(
         gio_dep,
         glib_dep,
     ],
+    vala_args : gtk_define + '--define=TEST_COMPILE' + target_glib,
     link_args : '-lm'
 )
 test('nibbles-tests', nibbles_tests)
@@ -33,12 +34,11 @@ gnome_nibbles_sources = [
     'speed.vala',
     'warp.vala',
     'worm.vala',
+    'sound.vala',
     resources,
 ]
 
 gnome_nibbles_deps = [
-    clutter_dep,
-    clutter_gtk_dep,
     gee_dep,
     gio_dep,
     glib_dep,
@@ -54,6 +54,6 @@ gnome_nibbles_vala_args = [
 
 executable(meson.project_name(), gnome_nibbles_sources,
     dependencies: gnome_nibbles_deps,
-    vala_args: gnome_nibbles_vala_args,
+    vala_args: gnome_nibbles_vala_args + gtk_define + target_glib,
     install: true
 )
