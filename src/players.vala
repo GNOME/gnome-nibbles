@@ -21,6 +21,10 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/players.ui")]
 private class Players : Box
 {
+    [GtkChild] private unowned ToggleButton players1;
+    [GtkChild] private unowned ToggleButton players2;
+    [GtkChild] private unowned ToggleButton players3;
+    [GtkChild] private unowned ToggleButton players4;
     [GtkChild] private unowned ToggleButton worms4;
     [GtkChild] private unowned ToggleButton worms5;
     [GtkChild] private unowned ToggleButton worms6;
@@ -28,23 +32,23 @@ private class Players : Box
     private SimpleAction nibbles_number_action;
     private SimpleAction players_number_action;
 
-    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set (with a mnemonic that appears when pressing Alt) */
-    private const string ai0_label = N_("_0");
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set */
+    private const string ai0_label = _("0");
 
-    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set (with a mnemonic that appears when pressing Alt) */
-    private const string ai1_label = N_("_1");
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set */
+    private const string ai1_label = _("1");
 
-    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set (with a mnemonic that appears when pressing Alt) */
-    private const string ai2_label = N_("_2");
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set */
+    private const string ai2_label = _("2");
 
-    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set (with a mnemonic that appears when pressing Alt) */
-    private const string ai3_label = N_("_3");
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set */
+    private const string ai3_label = _("3");
 
-    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set (with a mnemonic that appears when pressing Alt) */
-    private const string ai4_label = N_("_4");
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set */
+    private const string ai4_label = _("4");
 
-    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set (with a mnemonic that appears when pressing Alt) */
-    private const string ai5_label = N_("_5");
+    /* Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set  */
+    private const string ai5_label = _("5");
 
     private const GLib.ActionEntry [] players_action_entries =
     {
@@ -54,6 +58,11 @@ private class Players : Box
 
     construct
     {
+        ((Label)players1.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">1</span></b>");
+        ((Label)players2.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">2</span></b>");
+        ((Label)players3.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">3</span></b>");
+        ((Label)players4.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">4</span></b>");
+
         SimpleActionGroup action_group = new SimpleActionGroup ();
         action_group.add_action_entries (players_action_entries, this);
         insert_action_group ("players", action_group);
@@ -90,29 +99,25 @@ private class Players : Box
         switch (players_number_action.get_state ().get_int32 ())
         {
             case 1:
-                worms4.set_label (_(ai3_label));
-                worms5.set_label (_(ai4_label));
-                worms6.set_label (_(ai5_label));
+                ((Label)worms4.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai3_label)+"</span></b>");
+                ((Label)worms5.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai4_label)+"</span></b>");
+                ((Label)worms6.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai5_label)+"</span></b>");
                 break;
-
             case 2:
-                worms4.set_label (_(ai2_label));
-                worms5.set_label (_(ai3_label));
-                worms6.set_label (_(ai4_label));
+                ((Label)worms4.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai2_label)+"</span></b>");
+                ((Label)worms5.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai3_label)+"</span></b>");
+                ((Label)worms6.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai4_label)+"</span></b>");
                 break;
-
             case 3:
-                worms4.set_label (_(ai1_label));
-                worms5.set_label (_(ai2_label));
-                worms6.set_label (_(ai3_label));
+                ((Label)worms4.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai1_label)+"</span></b>");
+                ((Label)worms5.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai2_label)+"</span></b>");
+                ((Label)worms6.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai3_label)+"</span></b>");
                 break;
-
             case 4:
-                worms4.set_label (_(ai0_label));
-                worms5.set_label (_(ai1_label));
-                worms6.set_label (_(ai2_label));
+                ((Label)worms4.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai0_label)+"</span></b>");
+                ((Label)worms5.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai1_label)+"</span></b>");
+                ((Label)worms6.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai2_label)+"</span></b>");
                 break;
-
             default:
                 assert_not_reached ();
         }

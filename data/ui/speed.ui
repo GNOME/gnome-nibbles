@@ -4,6 +4,7 @@
 
    Copyright (C) 2015-2016 Iulian Radu
    Copyright (C) 2020 Arnaud Bonatti
+   Copyright (C) 2023 Ben Corby
 
    GNOME Nibbles is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -19,19 +20,25 @@
    with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
+  <requires lib="gtk" version="4.0"/>
   <template class="Speed" parent="GtkBox">
     <property name="orientation">vertical</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
+        <property name="visible">1</property>
         <property name="orientation">vertical</property>
         <property name="valign">center</property>
+        <property name="halign">fill</property>
         <property name="spacing">25</property>
         <child>
-          <object class="GtkLabel">
-            <property name="visible">True</property>
+          <object class="GtkLabel" id="preferences">
+                <attributes>
+                  <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+                  <attribute name="scale" value="2"/>
+                </attributes>
+            <property name="visible">1</property>
             <!-- Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably) -->
-            <property name="label" translatable="yes">Preferences</property>
+            <property name="label" translatable="1">Preferences</property>
             <property name="valign">center</property>
             <style>
               <class name="menu-title"/>
@@ -40,21 +47,20 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
+            <property name="visible">1</property>
             <property name="orientation">vertical</property>
             <property name="valign">center</property>
             <property name="halign">center</property>
             <property name="spacing">10</property>
-            <property name="vexpand">True</property>
+            <property name="vexpand">1</property>
+				<property name="width-request">400</property>
             <child>
               <object class="GtkToggleButton" id="speed4">
-                <property name="visible">True</property>
-                <property name="hexpand">True</property>
-                <property name="halign">fill</property>
-                <property name="xalign">0.0</property>
-                <property name="use-underline">True</property>
-                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "really slow" -->
-                <property name="label" translatable="yes">_Beginner</property>
+                <property name="visible">1</property>
+                <property name="hexpand">1</property>
+                <property name="use-underline">1</property>
+                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "really slow" -->
+                <property name="label" translatable="1">_Beginner</property>
                 <property name="action-name">speed.change-speed</property>
                 <property name="action-target">@i 4</property>
                 <property name="sensitive" bind-source="speed4" bind-property="active" bind-flags="invert-boolean"/>
@@ -65,13 +71,11 @@
             </child>
             <child>
               <object class="GtkToggleButton" id="speed3">
-                <property name="visible">True</property>
-                <property name="hexpand">True</property>
-                <property name="halign">fill</property>
-                <property name="xalign">0.0</property>
-                <property name="use-underline">True</property>
-                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "quite slow" -->
-                <property name="label" translatable="yes">_Slow</property>
+                <property name="visible">1</property>
+                <property name="hexpand">1</property>
+                <property name="use-underline">1</property>
+                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "quite slow" -->
+                <property name="label" translatable="1">_Slow</property>
                 <property name="action-name">speed.change-speed</property>
                 <property name="action-target">@i 3</property>
                 <property name="sensitive" bind-source="speed3" bind-property="active" bind-flags="invert-boolean"/>
@@ -82,13 +86,11 @@
             </child>
             <child>
               <object class="GtkToggleButton" id="speed2">
-                <property name="visible">True</property>
-                <property name="hexpand">True</property>
-                <property name="halign">fill</property>
-                <property name="xalign">0.0</property>
-                <property name="use-underline">True</property>
-                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "normal" -->
-                <property name="label" translatable="yes">_Medium</property>
+                <property name="visible">1</property>
+                <property name="hexpand">1</property>
+                <property name="use-underline">1</property>
+                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "normal" -->
+                <property name="label" translatable="1">_Medium</property>
                 <property name="action-name">speed.change-speed</property>
                 <property name="action-target">@i 2</property>
                 <property name="sensitive" bind-source="speed2" bind-property="active" bind-flags="invert-boolean"/>
@@ -99,13 +101,11 @@
             </child>
             <child>
               <object class="GtkToggleButton" id="speed1">
-                <property name="visible">True</property>
-                <property name="hexpand">True</property>
-                <property name="halign">fill</property>
-                <property name="xalign">0.0</property>
-                <property name="use-underline">True</property>
-                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "fast" -->
-                <property name="label" translatable="yes">_Fast</property>
+                <property name="visible">1</property>
+                <property name="hexpand">1</property>
+                <property name="use-underline">1</property>
+                <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "fast" -->
+                <property name="label" translatable="1">_Fast</property>
                 <property name="action-name">speed.change-speed</property>
                 <property name="action-target">@i 1</property>
                 <property name="sensitive" bind-source="speed1" bind-property="active" bind-flags="invert-boolean"/>
@@ -116,25 +116,19 @@
             </child>
             <child>
               <object class="GtkSeparator">
-                <property name="visible">True</property>
-                <property name="orientation">horizontal</property>
+                <property name="visible">1</property>
                 <style>
                   <class name="speed-separator"/>
                 </style>
               </object>
             </child>
             <child>
-              <object class="GtkModelButton">
-                <property name="visible">True</property>
-                <property name="hexpand">True</property>
-                <property name="halign">fill</property>
-                <property name="use-underline">True</property>
+              <object class="GtkToggleButton" id="enable_fake_bonuses">
+                <property name="visible">1</property>
+                <property name="hexpand">1</property>
+                <property name="use-underline">1</property>
                 <!-- Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses -->
-                <property name="text" translatable="yes">_Enable fake bonuses</property>
-                <property name="action-name">speed.toggle-fakes</property>
-                <style>
-                  <class name="speed-box"/>
-                </style>
+                <property name="label" translatable="1">_Enable fake bonuses</property>
               </object>
             </child>
           </object>
@@ -142,12 +136,11 @@
       </object>
     </child>
     <child>
-      <object class="GtkButton">
-        <property name="visible">True</property>
-        <property name="can-default">True</property>
-        <property name="use-underline">True</property>
+      <object class="GtkButton" id="next">
+        <property name="visible">1</property>
+        <property name="use-underline">1</property>
         <!-- Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel -->
-        <property name="label" translatable="yes">_Next</property>
+        <property name="label" translatable="1">_Next</property>
         <property name="action-name">win.next-screen</property>
         <property name="halign">center</property>
         <property name="width-request">116</property>
@@ -157,9 +150,6 @@
           <class name="play"/>
         </style>
       </object>
-      <packing>
-        <property name="pack-type">end</property>
-      </packing>
     </child>
   </template>
 </interface>

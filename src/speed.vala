@@ -22,6 +22,13 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/speed.ui")]
 private class Speed : Box
 {
+    [GtkChild] private unowned ToggleButton speed4;
+    [GtkChild] private unowned ToggleButton speed3;
+    [GtkChild] private unowned ToggleButton speed2;
+    [GtkChild] private unowned ToggleButton speed1;
+    [GtkChild] private unowned ToggleButton enable_fake_bonuses;
+    [GtkChild] private unowned Button next;
+
     private SimpleAction speed_action;
     private SimpleAction fakes_action;
 
@@ -33,12 +40,30 @@ private class Speed : Box
 
     construct
     {
+        setup_label (speed4.get_child ());
+        setup_label (speed3.get_child ());
+        setup_label (speed2.get_child ());
+        setup_label (speed1.get_child ());
+        setup_label (enable_fake_bonuses.get_child ());
+
+        next.set_margin_top (14);
+
         SimpleActionGroup action_group = new SimpleActionGroup ();
         action_group.add_action_entries (players_action_entries, this);
         insert_action_group ("speed", action_group);
 
         speed_action = (SimpleAction) action_group.lookup_action ("change-speed");
         fakes_action = (SimpleAction) action_group.lookup_action ("toggle-fakes");
+    }
+
+    void setup_label (Widget w)
+    {
+        var label = (Label)w;
+        label.set_markup (@"<b><span size=\"14.0pt\" font-family=\"Sans\">"+label.get_text ()+"</span></b>");
+        label.set_margin_top (14);
+        label.set_margin_bottom (14);
+        label.set_margin_start (14);
+        label.set_halign (Align.START);
     }
 
     internal inline void set_values (int speed, bool fakes)

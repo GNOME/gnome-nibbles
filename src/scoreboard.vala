@@ -23,15 +23,28 @@ private class Scoreboard : Box
 {
     private Gee.HashMap<PlayerScoreBox, Worm> boxes = new Gee.HashMap<PlayerScoreBox, Worm> ();
 
-    internal void register (Worm worm, string color_name, Gdk.Pixbuf life_pixbuf)
+    internal void register (Worm worm, string color_name, Image life)
     {
         var color = Pango.Color ();
-        color.parse (color_name);
+        if (color_name == "red")
+            get_worm_pango_color (0, true, ref color);
+        else if (color_name == "green")
+            get_worm_pango_color (1, true, ref color);
+        else if (color_name == "blue")
+            get_worm_pango_color (2, true, ref color);
+        else if (color_name == "yellow")
+            get_worm_pango_color (3, true, ref color);
+        else if (color_name == "cyan")
+            get_worm_pango_color (4, true, ref color);
+        else if (color_name == "purple")
+            get_worm_pango_color (5, true, ref color);
+        else
+            get_worm_pango_color (-1, true, ref color);
 
         /* Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player */
-        var box = new PlayerScoreBox (_("Player %d").printf (worm.id + 1), color, worm.score, worm.lives, life_pixbuf); // FIXME: Consider changing this to "Worm %d"; It's set to "Player %d" for now to avoid a string change for 3.20.
+        var box = new PlayerScoreBox (_("Worm %d").printf (worm.id + 1), color, worm.score, worm.lives, life);
         boxes.@set (box, worm);
-        add (box);
+        append (box);
     }
 
     internal void update ()
@@ -48,10 +61,7 @@ private class Scoreboard : Box
     internal void clear ()
     {
         foreach (var entry in boxes.entries)
-        {
-            var box = entry.key;
-            box.destroy ();
-        }
+            remove (entry.key);
         boxes.clear ();
     }
 }
@@ -65,16 +75,14 @@ private class PlayerScoreBox : Box
 
     private Gee.LinkedList<Image> life_images = new Gee.LinkedList<Image> ();
 
-    internal PlayerScoreBox (string name, Pango.Color color, int score, uint8 lives_left, Gdk.Pixbuf life_pixbuf)
+    internal PlayerScoreBox (string name, Pango.Color color, int score, uint8 lives_left, Image _life)
     {
         name_label.set_markup ("<span color=\"" + color.to_string () + "\">" + name + "</span>");
         score_label.set_label (score.to_string ());
 
         for (uint8 i = 0; i < Worm.MAX_LIVES; i++)
         {
-            var life = new Image.from_pixbuf (life_pixbuf);
-            life.show ();
-
+            var life = new Image.from_paintable (_life.get_paintable ());
             if (i >= Worm.STARTING_LIVES)
                 life.set_opacity (0);
 
