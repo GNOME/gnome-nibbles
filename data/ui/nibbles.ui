@@ -78,15 +78,6 @@
           </object>
         </child>
         <child type="end">
-          <object class="GtkButton" id="pause_button">
-            <property name="visible">1</property>
-            <property name="use-underline">1</property>
-            <!-- Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game -->
-            <property name="label" translatable="1">_Pause</property>
-            <property name="action-name">win.pause</property>
-          </object>
-        </child>
-        <child>
           <object class="GtkMenuButton" id="hamburger_menu">
             <property name="visible">1</property>
             <property name="focusable">1</property>
@@ -98,6 +89,15 @@
                 <property name="icon_size">normal</property>
               </object>
             </child>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="pause_button">
+            <property name="visible">1</property>
+            <property name="use-underline">1</property>
+            <!-- Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game -->
+            <property name="label" translatable="1">_Pause</property>
+            <property name="action-name">win.pause</property>
           </object>
         </child>
       </object>

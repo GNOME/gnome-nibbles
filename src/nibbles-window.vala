@@ -49,11 +49,6 @@ private class NibblesWindow : ApplicationWindow
     private GLib.Settings settings;
     private Gee.ArrayList<GLib.Settings> worm_settings;
 
-    /* state */
-    private bool window_is_maximized;
-    private int window_width;
-    private int window_height;
-
     /* Main widgets */
     [GtkChild] private unowned Stack main_stack;
     [GtkChild] private unowned Overlay overlay;
@@ -62,6 +57,7 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private unowned HeaderBar headerbar;
     [GtkChild] private unowned Button new_game_button;
     [GtkChild] private unowned Button pause_button;
+    [GtkChild] private unowned MenuButton hamburger_menu;
 
     /* Pre-game screen widgets */
     [GtkChild] private unowned Players players;
@@ -262,6 +258,12 @@ private class NibblesWindow : ApplicationWindow
             worm_settings[i].changed.connect (worm_settings_changed_cb);
         }
 
+        hamburger_menu.get_popover ().closed.connect (() =>
+        {
+            if (null != view)
+                set_focus (view);
+        });
+
         set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
             maximize ();
@@ -350,8 +352,10 @@ private class NibblesWindow : ApplicationWindow
         view.show ();
         view.vexpand = true;
         game_box.prepend (view);
+        set_focus (view);
 
         /* Create scoreboard */
+        /* to do, bring this image in to the code, its the last image we load with load_image_file */
         scoreboard_life = NibblesView.load_image_file ("scoreboard-life.svg", 14, 14);
 
         /* Number of worms */
@@ -431,9 +435,12 @@ private class NibblesWindow : ApplicationWindow
     {
         settings.delay ();
         // window state
+        int window_width;
+        int window_height;
+        get_default_size (out window_width, out window_height); 
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
-        settings.set_boolean ("window-is-maximized", window_is_maximized);
+        settings.set_boolean ("window-is-maximized", maximized);
 
         // game properties
         settings.set_int ("speed", game.speed);
@@ -546,9 +553,39 @@ private class NibblesWindow : ApplicationWindow
 
         if (game.is_running)
             game.stop ();
+        
+        /* to do */
+        //show_dialogue = true;
+        //view.redraw ();
+        
+        var dialog = new MessageDialog (this, /* to do, create a window to do this */
+                                        DialogFlags.MODAL,
+                                        MessageType.WARNING,
+                                        ButtonsType.OK_CANCEL,
+                                        /* Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running */
+                                        _("Are you sure you want to start a new game?"));
+        /* Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running */
+        dialog.secondary_text = _("If you start a new game, the current one will be lost.");
+        var button = (Button) dialog.get_widget_for_response (ResponseType.OK);
+        /* Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running */
+        button.set_label (_("_New Game"));
+        dialog.response.connect ((response_id) => {
+            if (response_id == ResponseType.OK)
+                show_new_game_screen ();
+            if ((response_id == ResponseType.CANCEL || response_id == ResponseType.DELETE_EVENT)
+                && !game.paused)
+            {
+                if (seconds == 0)
+                    game.start (/* add initial bonus */ false);
+                else
+                    countdown_id = Timeout.add_seconds (1, countdown_cb);
 
-        show_dialogue = true;
-        view.redraw ();
+                view.grab_focus ();
+            }
+
+            dialog.destroy ();
+        });
+        dialog.show ();
     }
 
     bool new_game_dialogue_active (out YesNoResultFunction result_function)
@@ -1069,7 +1106,7 @@ private class NibblesWindow : ApplicationWindow
         var msg_label = new Label (_("You have completed the game."));
         msg_label.halign = Align.CENTER;
         msg_label.valign = Align.START;
-        msg_label.set_margin_top (window_height / 3);
+        msg_label.set_margin_top (get_height () / 3);
         if (msg_label.attributes == null)
             msg_label.attributes = new Pango.AttrList ();
         msg_label.attributes.insert (Pango.attr_scale_new (Pango.Scale.X_LARGE));
@@ -1082,7 +1119,7 @@ private class NibblesWindow : ApplicationWindow
         score_label.set_use_markup (true);
         score_label.halign = Align.CENTER;
         score_label.valign = Align.START;
-        score_label.set_margin_top (window_height / 3 + 80);
+        score_label.set_margin_top (get_height () / 3 + 80);
         score_label.show ();
 
         var points_left = lowest_high_score - score;
@@ -1090,7 +1127,7 @@ private class NibblesWindow : ApplicationWindow
         var points_left_label = new Label (_("(%ld more points to reach the leaderboard)").printf (points_left));
         points_left_label.halign = Align.CENTER;
         points_left_label.valign = Align.START;
-        points_left_label.set_margin_top (window_height / 3 + 100);
+        points_left_label.set_margin_top (get_height () / 3 + 100);
         points_left_label.show ();
 
         /* Translators: label of a button displayed at the end of a level; restarts the game */

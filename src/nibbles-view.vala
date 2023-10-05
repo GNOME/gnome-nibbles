@@ -35,8 +35,8 @@
 using Gtk;
 using Cairo;
 
-internal delegate void YesNoResultFunction (uint yes_no);
 internal delegate bool NewGameDialogueActiveFunction (out YesNoResultFunction function);
+internal delegate void YesNoResultFunction (uint yes_no);
 
 /* worm colors */
 static void get_worm_rgb (int color, bool bright, out double r, out double g, out double b)
@@ -255,6 +255,8 @@ internal class NibblesView : DrawingArea
         {
         });
 
+        focusable = true;
+
         // set drawing fuction
         set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ c, width, height)=>
         {
@@ -447,10 +449,10 @@ internal class NibblesView : DrawingArea
                             {
                                 /* vertical worm */
                                 int middle = worm.length / 2;
-                                v.to_view_plain ({(worm.list[middle] >> 8) + 1.5, (uint8)(worm.list[middle]), 0}, out x2d, out y2d);
+                                v.to_view_plain ({ (worm.list[middle] >> 8) + 1.5, (uint8)(worm.list[middle]), 0}, out x2d, out y2d);
                                 draw_text (c, (int)x2d, (int)y2d, worm_name (worm.id + 1),
-                                 (int)v.2D_diff ({(worm.list[0] >> 8), (uint8)(worm.list[0]), 0},
-                                             {(worm.list[worm.length - 1] >> 8), (uint8)(worm.list[worm.length - 1]) + 1, 0}),
+                                 (int)v.2D_diff ({ (worm.list[0] >> 8), (uint8)(worm.list[0]), 0},
+                                             { (worm.list[worm.length - 1] >> 8), (uint8)(worm.list[worm.length - 1]) + 1, 0}),
                                  color);
                             }
                             else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
@@ -664,7 +666,7 @@ internal class NibblesView : DrawingArea
 
     void new_game_dialogue_draw (Context c, double width, double height, YesNoResultFunction result_function)
     {
-        /* Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character */
+        // Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
         string text = _("Are you sure you want to start a new game?\nIf you start a new game, the current one will be lost.");
         draw_dialogue (c, width, height, text,
          out b0_x, out b0_y, out b0_width, out b0_height,
@@ -702,9 +704,9 @@ internal class NibblesView : DrawingArea
     {
         uint new_button;
         if (x >= b0_x && x <= b0_x + b0_width && y >= b0_y && y <= b0_y + b0_height)
-            new_button = 0; /* yes */
+            new_button = 0; // yes 
         else if (x >= b1_x && x <= b1_x + b1_width && y >= b1_y && y <= b1_y + b1_height)
-            new_button = 1; /* no */
+            new_button = 1; // no
         else
             new_button = uint.MAX;
 
@@ -1620,7 +1622,8 @@ internal class NibblesView : DrawingArea
 
     void draw_dialogue (Context C, double width, double height, string text,
                  out double b0_x, out double b0_y, out double b0_width, out double b0_height,
-                 out double b1_x, out double b1_y, out double b1_width, out double b1_height)
+                 out double b1_x, out double b1_y, out double b1_width, out double b1_height,
+                 bool draw_buttons = true)
     {
             const double PI2 = 1.570796326794896619231321691639751442;
             const double border_width = 3;
@@ -1728,50 +1731,56 @@ internal class NibblesView : DrawingArea
             b0_x = x + (background_width - button_width * 2) / 3;
             b0_y = y + background_height - minimum_dimension - button_height;
             double b0_radius = button_width < button_height ? button_width / 3 : button_height / 3;
-            C.move_to (b0_x + button_width, b0_y);
-            C.arc (b0_x + button_width - b0_radius, b0_y + b0_radius, b0_radius, -PI2, 0);
-            C.arc (b0_x + button_width - b0_radius, b0_y + button_height - b0_radius, b0_radius, 0, PI2);
-            C.arc (b0_x + b0_radius, b0_y + button_height - b0_radius, b0_radius, PI2, PI2 * 2);
-            C.arc (b0_x + b0_radius, b0_y + b0_radius, b0_radius, PI2 * 2, -PI2);
-            C.set_source_rgba (0.5, 0.5, 0.5, 1);
-            C.fill ();                
-            C.arc (b0_x + button_width - b0_radius, b0_y + b0_radius, b0_radius- border_width, -PI2, 0);
-            C.arc (b0_x + button_width - b0_radius, b0_y + button_height - b0_radius, b0_radius- border_width, 0, PI2);
-            C.arc (b0_x + b0_radius, b0_y + button_height - b0_radius, b0_radius - border_width, PI2, PI2 * 2);
-            C.arc (b0_x + b0_radius, b0_y + b0_radius, b0_radius - border_width, PI2 * 2, -PI2);
-            if (mouse_pressed && mouse_button == 0)
-                C.set_source_rgba (0.063, 0.243, 0.459, 1);
-            else
-                C.set_source_rgba (0.082, 0.322, 0.612, 1);
-            C.fill ();             
-            /* Translators: message displayed in a Button of a Message Dialog to confirm a positive response */
-            string Yes = _("Yes");
-            font_size = calculate_font_size_from_max (C, Yes, (int)(button_width - border_width * 2), (int)(button_height / 3) , out b0_width, out b0_height);
-            draw_dialogue_text (C, b0_x + (button_width - b0_width) / 2 , b0_y + b0_height + button_height / 3, Yes, font_size);
+            if (draw_buttons)
+            {
+                C.move_to (b0_x + button_width, b0_y);
+                C.arc (b0_x + button_width - b0_radius, b0_y + b0_radius, b0_radius, -PI2, 0);
+                C.arc (b0_x + button_width - b0_radius, b0_y + button_height - b0_radius, b0_radius, 0, PI2);
+                C.arc (b0_x + b0_radius, b0_y + button_height - b0_radius, b0_radius, PI2, PI2 * 2);
+                C.arc (b0_x + b0_radius, b0_y + b0_radius, b0_radius, PI2 * 2, -PI2);
+                C.set_source_rgba (0.5, 0.5, 0.5, 1);
+                C.fill ();                
+                C.arc (b0_x + button_width - b0_radius, b0_y + b0_radius, b0_radius- border_width, -PI2, 0);
+                C.arc (b0_x + button_width - b0_radius, b0_y + button_height - b0_radius, b0_radius- border_width, 0, PI2);
+                C.arc (b0_x + b0_radius, b0_y + button_height - b0_radius, b0_radius - border_width, PI2, PI2 * 2);
+                C.arc (b0_x + b0_radius, b0_y + b0_radius, b0_radius - border_width, PI2 * 2, -PI2);
+                if (mouse_pressed && mouse_button == 0)
+                    C.set_source_rgba (0.063, 0.243, 0.459, 1);
+                else
+                    C.set_source_rgba (0.082, 0.322, 0.612, 1);
+                C.fill ();             
+                /* Translators: message displayed in a Button of a Message Dialog to confirm a nagative response */
+                string No = _("No");
+                font_size = calculate_font_size_from_max (C, No, (int)(button_width - border_width * 2), (int)(button_height / 3) , out b0_width, out b0_height);
+                draw_dialogue_text (C, b0_x + (button_width - b0_width) / 2 , b0_y + b0_height + button_height / 3, No, font_size);
+            }
 
             b1_x = x + (background_width - button_width * 2) / 3 * 2 + button_width;
             b1_y = b0_y;
             double b1_radius = b0_radius;
-            C.move_to (b1_x + button_width, b1_y);
-            C.arc (b1_x + button_width - b1_radius, b1_y + b1_radius, b1_radius, -PI2, 0);
-            C.arc (b1_x + button_width - b1_radius, b1_y + button_height - b1_radius, b1_radius, 0, PI2);
-            C.arc (b1_x + b1_radius, b1_y + button_height - b1_radius, b1_radius, PI2, PI2 * 2);
-            C.arc (b1_x + b1_radius, b1_y + b1_radius, b1_radius, PI2 * 2, -PI2);
-            C.set_source_rgba (0.5, 0.5, 0.5, 1);
-            C.fill ();                
-            C.arc (b1_x + button_width - b1_radius, b1_y + b1_radius, b1_radius- border_width, -PI2, 0);
-            C.arc (b1_x + button_width - b1_radius, b1_y + button_height - b1_radius, b1_radius- border_width, 0, PI2);
-            C.arc (b1_x + b1_radius, b1_y + button_height - b1_radius, b1_radius- border_width, PI2, PI2 * 2);
-            C.arc (b1_x + b1_radius, b1_y + b1_radius, b1_radius- border_width, PI2 * 2, -PI2);
-            if (mouse_pressed && mouse_button == 1)
-                C.set_source_rgba (0.063, 0.243, 0.459, 1);
-            else
-                C.set_source_rgba (0.082, 0.322, 0.612, 1);
-            C.fill ();                
-            /* Translators: message displayed in a Button of a Message Dialog to confirm a nagative response */
-            string No = _("No");
-            font_size = calculate_font_size_from_max (C, No, (int)(button_width - border_width * 2), (int)(button_height / 3) , out b1_width, out b1_height);
-            draw_dialogue_text (C, b1_x + (button_width - b1_width) / 2 , b1_y + b1_height + button_height / 3, No, font_size);
+            if (draw_buttons)
+            {
+                C.move_to (b1_x + button_width, b1_y);
+                C.arc (b1_x + button_width - b1_radius, b1_y + b1_radius, b1_radius, -PI2, 0);
+                C.arc (b1_x + button_width - b1_radius, b1_y + button_height - b1_radius, b1_radius, 0, PI2);
+                C.arc (b1_x + b1_radius, b1_y + button_height - b1_radius, b1_radius, PI2, PI2 * 2);
+                C.arc (b1_x + b1_radius, b1_y + b1_radius, b1_radius, PI2 * 2, -PI2);
+                C.set_source_rgba (0.5, 0.5, 0.5, 1);
+                C.fill ();                
+                C.arc (b1_x + button_width - b1_radius, b1_y + b1_radius, b1_radius- border_width, -PI2, 0);
+                C.arc (b1_x + button_width - b1_radius, b1_y + button_height - b1_radius, b1_radius- border_width, 0, PI2);
+                C.arc (b1_x + b1_radius, b1_y + button_height - b1_radius, b1_radius- border_width, PI2, PI2 * 2);
+                C.arc (b1_x + b1_radius, b1_y + b1_radius, b1_radius- border_width, PI2 * 2, -PI2);
+                if (mouse_pressed && mouse_button == 1)
+                    C.set_source_rgba (0.063, 0.243, 0.459, 1);
+                else
+                    C.set_source_rgba (0.082, 0.322, 0.612, 1);
+                C.fill ();                
+                /* Translators: message displayed in a Button of a Message Dialog to confirm a positive response */
+                string Yes = _("Yes");
+                font_size = calculate_font_size_from_max (C, Yes, (int)(button_width - border_width * 2), (int)(button_height / 3) , out b1_width, out b1_height);
+                draw_dialogue_text (C, b1_x + (button_width - b1_width) / 2 , b1_y + b1_height + button_height / 3, Yes, font_size);
+            }
 
             /* set width and height to button's width and height not the text within the button */
             b0_width = button_width;
