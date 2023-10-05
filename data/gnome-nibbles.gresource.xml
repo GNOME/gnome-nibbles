@@ -4,7 +4,6 @@
     <file preprocess="xml-stripblanks"                   alias="controls.ui"            >ui/controls.ui</file>
     <file preprocess="xml-stripblanks"                   alias="controls-grid.ui"       >ui/controls-grid.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="first-run.ui"           >ui/first-run.ui</file>
-    <file>nibbles.css</file>
     <file preprocess="xml-stripblanks"                   alias="nibbles.ui"             >ui/nibbles.ui</file>
     <file preprocess="xml-stripblanks"                   alias="players.ui"             >ui/players.ui</file>
     <file preprocess="xml-stripblanks"                   alias="player-score-box.ui"    >ui/player-score-box.ui</file>
