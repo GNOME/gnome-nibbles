@@ -30,6 +30,8 @@
  *
  */
 
+delegate bool KeypressHandlerFunction (uint a, uint b, out bool remove_handler);
+
 private enum GameStatus
 {
     GAMEOVER,
@@ -100,6 +102,12 @@ private class NibblesGame : Object
     internal signal void warp_added (uint8 x, uint8 y);
     internal signal void bonus_added (Bonus bonus);
     internal signal void bonus_removed (Bonus bonus);
+
+    /* nibbles-window */
+    internal signal bool add_keypress_handler (KeypressHandlerFunction? keypress_handler);
+#if !TEST_COMPILE
+    internal bool added_keypress_handler = false;
+#endif
 
     construct
     {
@@ -758,6 +766,12 @@ private class NibblesGame : Object
             default: assert_not_reached ();
         }
     }
+#if !TEST_COMPILE
+    internal bool keypress (uint keyval, uint keycode, out bool remove_handler)
+    {
+        remove_handler = false;
+        return handle_keypress (keyval);
+    }
 
     internal bool handle_keypress (uint keyval)
     {
@@ -767,15 +781,13 @@ private class NibblesGame : Object
         foreach (var worm in worms)
         {
             if (worm.is_human)
-            {
-                if (worm.handle_keypress (keyval, worm_props))
+                if (worm.handle_keypress (keyval, worm_props, board, worms))
                     return true;
-            }
         }
 
         return false;
     }
-    
+#endif        
     /*\
     * * Delegates
     \*/

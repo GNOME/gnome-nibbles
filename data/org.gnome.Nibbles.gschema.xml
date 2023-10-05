@@ -95,6 +95,26 @@
       <summary>Move right</summary>
       <description>Key to use for motion right.</description>
     </key>
+    <key name="key-up-raw" type="i">
+      <default>-1</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down-raw" type="i">
+      <default>-1</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left-raw" type="i">
+      <default>-1</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right-raw" type="i">
+      <default>-1</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
   </schema>
   <schema id="org.gnome.Nibbles.worm1" path="/org/gnome/nibbles/worm1/">
     <key name="color" enum="org.gnome.Nibbles.Color">
@@ -119,6 +139,26 @@
     </key>
     <key name="key-right" type="i">
       <default>100</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
+    <key name="key-up-raw" type="i">
+      <default>-1</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down-raw" type="i">
+      <default>-1</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left-raw" type="i">
+      <default>-1</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right-raw" type="i">
+      <default>-1</default>
       <summary>Move right</summary>
       <description>Key to use for motion right.</description>
     </key>
@@ -149,6 +189,26 @@
       <summary>Move right</summary>
       <description>Key to use for motion right.</description>
     </key>
+    <key name="key-up-raw" type="i">
+      <default>-1</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down-raw" type="i">
+      <default>-1</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left-raw" type="i">
+      <default>-1</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right-raw" type="i">
+      <default>-1</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
   </schema>
   <schema id="org.gnome.Nibbles.worm3" path="/org/gnome/nibbles/worm3/">
     <key name="color" enum="org.gnome.Nibbles.Color">
@@ -173,6 +233,26 @@
     </key>
     <key name="key-right" type="i">
       <default>54</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
+    <key name="key-up-raw" type="i">
+      <default>-1</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down-raw" type="i">
+      <default>-1</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left-raw" type="i">
+      <default>-1</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right-raw" type="i">
+      <default>-1</default>
       <summary>Move right</summary>
       <description>Key to use for motion right.</description>
     </key>
@@ -203,6 +283,26 @@
       <summary>Move right</summary>
       <description>Key to use for motion right.</description>
     </key>
+    <key name="key-up-raw" type="i">
+      <default>-1</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down-raw" type="i">
+      <default>-1</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left-raw" type="i">
+      <default>-1</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right-raw" type="i">
+      <default>-1</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
   </schema>
   <schema id="org.gnome.Nibbles.worm5" path="/org/gnome/nibbles/worm5/">
     <key name="color" enum="org.gnome.Nibbles.Color">
@@ -227,6 +327,26 @@
     </key>
     <key name="key-right" type="i">
       <default>65363</default>
+      <summary>Move right</summary>
+      <description>Key to use for motion right.</description>
+    </key>
+    <key name="key-up-raw" type="i">
+      <default>-1</default>
+      <summary>Move up</summary>
+      <description>Key to use for motion up.</description>
+    </key>
+    <key name="key-down-raw" type="i">
+      <default>-1</default>
+      <summary>Move down</summary>
+      <description>Key to use for motion down.</description>
+    </key>
+    <key name="key-left-raw" type="i">
+      <default>-1</default>
+      <summary>Move left</summary>
+      <description>Key to use for motion left.</description>
+    </key>
+    <key name="key-right-raw" type="i">
+      <default>-1</default>
       <summary>Move right</summary>
       <description>Key to use for motion right.</description>
     </key>

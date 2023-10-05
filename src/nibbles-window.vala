@@ -80,11 +80,110 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private unowned Box game_box;
     private Games.GridFrame frame;
 
+    /* keyboard interface */
+    class DelegateStack 
+    {
+        internal class DelegateStackIterator
+        {
+            /* variables */
+            private Node? pIterator; /* pointer to next node */
+            bool first_next;
+
+            /* public functions */
+            public DelegateStackIterator (DelegateStack p)
+            {
+                pIterator = p.pHead;
+                first_next = true;
+            }
+            
+            public bool next ()
+            {
+                if (pIterator == null)
+                    return false;
+                else if (first_next)
+                {
+                    first_next = !first_next;
+                    return true;
+                }
+                else
+                {
+                    pIterator = pIterator.pNext;
+                    return pIterator != null; 
+                }
+            }
+            
+            public KeypressHandlerFunction @get ()
+            {
+                return (KeypressHandlerFunction)(pIterator.keypress_handler);
+            }
+        }
+
+        struct Node
+        {
+            KeypressHandlerFunction keypress_handler; /* to do, circumnavigate compiler warning message */
+            Node? pNext;
+        }
+        Node? pHead = null;
+
+        internal void push (KeypressHandlerFunction handler)
+        {
+            if (pHead == null)
+                pHead = { (KeypressHandlerFunction)handler, null};
+            else
+                pHead = { (KeypressHandlerFunction)handler, pHead};
+        }
+        
+        internal bool pop ()
+        {
+            if (pHead == null)
+                return false;
+            else
+            {
+                pHead = pHead.pNext;
+                return true;
+            }
+        }
+        
+        internal void remove (KeypressHandlerFunction handler)
+        {
+            if (pHead != null && pHead.keypress_handler == handler)
+                pHead = pHead.pNext;
+            else if (pHead != null && pHead.pNext != null)
+            {
+                var pTrail = pHead;
+                for (var p = pTrail.pNext; p != null;)
+                {
+                    if (p.keypress_handler == handler)
+                    {
+                        pTrail.pNext = p.pNext;
+                        break;
+                    }
+                    else
+                    {
+                         pTrail = p;
+                         p = p.pNext;
+                    }
+                }
+            }
+        }
+
+        public DelegateStackIterator iterator ()
+        {
+            return new DelegateStackIterator (this);
+        }
+    }
+    DelegateStack keypress_handlers = new DelegateStack ();
+
     /* Game being played */
     private NibblesGame? game = null;
     public  int cli_start_level { private get; internal construct; }
     private int start_level { private get { return cli_start_level == 0 ? settings.get_int ("start-level") : cli_start_level; }}
     public  SetupScreen start_screen { private get; internal construct; }
+    public bool game_paused 
+    {
+        get {return game != null && game.paused;}
+        private set {}
+    }
 
     /* Used for handling the game's scores */
     private Games.Scores.Context scores_context;
@@ -145,8 +244,55 @@ private class NibblesWindow : ApplicationWindow
         if (settings.get_boolean ("window-is-maximized"))
             maximize ();
 
-        key_controller = new EventControllerKey (this);
-        key_controller.key_pressed.connect (key_press_event_cb);
+        /* create keyboard interface */
+        EventControllerKey key_controller = new EventControllerKey ();
+        key_controller.key_pressed.connect ((/*EventControllerKey*/controller,/*uint*/keyval,/*uint*/keycode,/*Gdk.ModifierType*/state)=>
+        {
+            /* The reason this event handler is found here (and not in nibbles-view.vala
+             * which would be a more suitable place) is to avoid a weird behavior of having
+             * your first key press ignored everytime by the start of a new level, thus
+             * making your worm unresponsive to your command.
+             */
+            if ((!) (Gdk.keyval_name (keyval) ?? "") == "F1")
+            {
+                if ((state & Gdk.ModifierType.CONTROL_MASK) > 0)
+                    activate_action ("show-help-overlay", null);
+                else if ((state & Gdk.ModifierType.SHIFT_MASK) > 0)
+                    application.activate_action ("about", null); //about_cb ();
+                else if ((state & Gdk.ModifierType.SHIFT_MASK) == 0)
+                    application.activate_action ("help", null); //help_cb ();
+                else
+                    return false;
+                return true;
+            }
+            else 
+            {
+                DelegateStack handlers_to_remove = new DelegateStack ();
+                foreach (var handler in keypress_handlers)
+                {
+                    bool remove_handler;
+                    bool r = handler (keyval, keycode, out remove_handler);
+                    if (remove_handler)
+                        handlers_to_remove.push (handler);
+                    if (r)
+                    {
+                        /* remove any handlers that need to be removed before we return */
+                        foreach (var h in handlers_to_remove)
+                            keypress_handlers.remove (h);
+                        return r;
+                    }
+                }
+                /* remove any handlers that need to be removed before we return */
+                foreach (var handler in handlers_to_remove)
+                    keypress_handlers.remove (handler);
+                return false;
+            }
+        });
+        key_controller.im_update.connect (()=>
+        {
+            assert (false);
+        });
+        ((Widget)(this)).add_controller (key_controller);
 
         /* Create game */
         game = new NibblesGame (start_level,
@@ -162,6 +308,14 @@ private class NibblesWindow : ApplicationWindow
                 statusbar_stack.set_visible_child_name ("paused");
             else
                 statusbar_stack.set_visible_child_name ("scoreboard");
+        });
+        game.add_keypress_handler.connect ((handler)=>
+        {
+            if (handler != null)
+                keypress_handlers.push (handler);
+            else
+                keypress_handlers.pop ();
+            return true;
         });
 
         /* Create view */

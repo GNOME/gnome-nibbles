@@ -30,6 +30,7 @@
  *
  */
 
+/* designed for Gtk 4, link with libgtk-4-dev or gtk4-devel */
 using Gtk;
 
 private class Nibbles : Gtk.Application
@@ -251,19 +252,6 @@ private class Nibbles : Gtk.Application
         window = new NibblesWindow (level == int.MIN ? 0 : level, setup);
         add_window (window);
     }
-    internal bool on_f1_pressed (Gdk.ModifierType state)
-    {
-        // TODO close popovers
-        if ((state & Gdk.ModifierType.CONTROL_MASK) != 0)
-            return false;                           // help overlay
-        if ((state & Gdk.ModifierType.SHIFT_MASK) == 0)
-        {
-            help_cb ();
-            return true;
-        }
-        about_cb ();
-        return true;
-    }
 
     protected override void activate ()
     {
@@ -279,18 +267,38 @@ private class Nibbles : Gtk.Application
 
     private inline void help_cb ()
     {
+        if (window != null && !window.game_paused)
+            window.activate_action ("pause", null);
+#if GTK_4_10_or_above
+        launch_help.begin ((obj,res)=>
+        {
+            launch_help.end (res);
+        });
+#else /* GTK 4.9 or below */
+        show_uri (window, "help:gnome-nibbles", Gdk.CURRENT_TIME);
+#endif
+    }
+
+#if GTK_4_10_or_above
+    async void launch_help ()
+    {
+        var help = new UriLauncher ("help:gnome-nibbles"); // requires GTK 4.10
         try
         {
-            show_uri_on_window (window, "help:gnome-nibbles", get_current_event_time ());
+            yield help.launch (window, null);
         }
         catch (Error e)
         {
             warning ("Unable to open help: %s", e.message);
         }
     }
+#endif
 
     private inline void about_cb ()
     {
+        if (window != null && !window.game_paused)
+            window.activate_action ("pause", null);
+
         string [] authors = {
         /* Translators: text crediting an author, in the about dialog */
             _("Sean MacIsaac"),
