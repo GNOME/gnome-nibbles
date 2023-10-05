@@ -30,7 +30,6 @@
  * grep -ne '[ ])' *.vala
  *
  */
-
 private enum WormDirection
 {
     NONE,   // unused, but allows to cast an integer from 1 to 4 into the four directions
@@ -223,7 +222,7 @@ private class WormMap : Object
         add (worms);
     }
 
-    public bool contain (Position p)
+    public bool contain (uint16 p)
     {
         /*
          * To test if the position p is occupied we need to locate
@@ -242,15 +241,20 @@ private class WormMap : Object
          * compiler to not complain about the return type.
          *
          */
-        uint8 quotient = p.x / bits;
-        uint8 remainder = p.x % bits;
+        uint8 quotient = (p>>8) / bits;
+        uint8 remainder = (p>>8) % bits;
         
-        return (map [quotient, p.y] >> remainder & 1) > 0;
+        return (map [quotient, (uint8)p] >> remainder & 1) > 0;
+    }
+    
+    public bool contain_position (Position p)
+    {
+        return contain (((uint16)p.x) << 8 | p.y);
     }
 
-    public bool contains (Gee.List<Position?> position_list)
+    public bool contains (WormPositions position_list)
     {
-        foreach (Position p in position_list)
+        foreach (var p in position_list)
             if (contain (p))
                 return true;
         return false;
@@ -264,7 +268,7 @@ private class WormMap : Object
         {
             if (worm.is_materialized && !worm.is_stopped)
             {
-                foreach (Position p in worm.list)
+                foreach (var p in worm.list)
                 {
                     /*
                      * We use the same logic here as in the contain
@@ -272,7 +276,9 @@ private class WormMap : Object
                      * using the |= operator.
                      *
                      */
-                    map [p.x / bits, p.y] |= (uint64)1 << (p.x % bits);
+                    uint8 x = p>>8;
+                    uint8 y = (uint8)p;
+                    map [x / bits, y] |= (uint64)1 << (x % bits);
                 }
             }
         }
@@ -999,7 +1005,7 @@ internal class Slice : Object
     
     bool is_position_occupied (Position p, int[,] board, WormMap worm_map)
     {
-        return board[p.x, p.y] > NibblesGame.EMPTYCHAR || worm_map.contain (p);
+        return board[p.x, p.y] > NibblesGame.EMPTYCHAR || worm_map.contain_position (p);
     }
     
     public int64 is_visible (Position origin, int[,] board, WormMap worm_map, Bonus bonus)
@@ -1054,6 +1060,35 @@ private class WormProperties : Object
     internal uint right { internal get; internal set; }
 }
 
+internal class WormPositions : Gee.LinkedList<uint16>
+{
+    public bool append_position (Position p)
+    {
+        return add (((uint16)p.x) << 8 | p.y);
+    }
+    public Position get_head ()
+    {
+        var head = first ();
+        return { (uint8)(head >> 8), (uint8)head};
+    }
+    public void set_head (Position p)
+    {
+        @set (0, (((uint16)p.x) << 8 | p.y));
+    }
+    public bool prepend_position (Position p)
+    {
+        if (size > 0)
+            return offer_head (((uint16)p.x) << 8 | p.y);
+        else
+            return append_position (p);
+    }
+    public Position remove_tail ()
+    {
+        var tail = poll_tail ();
+        return { (uint8)(tail >> 8), (uint8)tail};
+    }
+}
+
 private class Worm : Object
 {
     private const int STARTING_LENGTH = 5; /* STARTING_LENGTH must be greater than 0 */
@@ -1085,12 +1120,12 @@ private class Worm : Object
     {
         get
         {
-            Position head = list.first ();
+            Position head = list.get_head ();
             return head;
         }
         private set
         {
-            list.@set (0, value);
+            list.set_head (value);
         }
     }
 
@@ -1100,19 +1135,12 @@ private class Worm : Object
 
     private Gee.ArrayQueue<WormDirection> key_queue = new Gee.ArrayQueue<WormDirection> ();
 
-    internal Gee.LinkedList<Position?> list { internal get; private set; default = new Gee.LinkedList<Position?> (); }
-
-    internal signal void added ();
-    internal signal void moved ();
-    internal signal void rescaled (int tile_size);
-    internal signal void died ();
-    internal signal void tail_reduced (int erase_size);
-    internal signal void reversed ();
+    internal WormPositions list = new WormPositions ();
+    private Gee.ArrayList<uint16> bonus_eaten = new Gee.ArrayList<uint16> ();
 
     /* connected to nibbles-game */
     internal signal void bonus_found ();
-    internal signal void finish_added ();
-    
+
     /* delegates to nibbles-game */
     internal delegate Gee.List<Worm> GetOtherWormsType (Worm self);
     GetOtherWormsType get_other_worms;
@@ -1139,10 +1167,11 @@ private class Worm : Object
     internal void set_start (uint8 x, uint8 y, WormDirection direction)
     {
         list.clear ();
+        
+        bonus_eaten.clear (); /* forget all the bonuses we have eaten */
 
-        starting_position = Position () { x = x, y = y };
-
-        list.add (starting_position);
+        starting_position = {x, y};
+        list.append_position (starting_position);
 
         starting_direction = direction;
         this.direction     = direction;
@@ -1159,7 +1188,7 @@ private class Worm : Object
         position.move (direction, width, height);
 
         /* Add a new body piece to the head of the list. */
-        list.offer_head (position);
+        list.prepend_position (position);
     }
 
     internal void move_part_2 (Position? head_position)
@@ -1175,9 +1204,10 @@ private class Worm : Object
         else
         {
             /* Remove a body piece from the tail of the list. */
-            list.poll_tail ();
+            assert (list.size > 0);
+            remove_bonus_eaten_position (list.remove_tail ());
         }
-
+        
         /* Check for bonus, do nothing if there isn't a bonus */
         bonus_found (); /* signal function in nibble-game.vala */
 
@@ -1193,14 +1223,39 @@ private class Worm : Object
             materialize ();
     }
 
+    internal void remove_bonus_eaten_position (Position p)
+    {
+        if (bonus_eaten.size > 0)
+        {
+            uint16 a = ((uint16)p.x) << 8 | p.y;
+            if (bonus_eaten.contains (a))
+                bonus_eaten.remove (a);
+        }
+    }
+
+    /* This function is only called from nibbles-game.vala */
+    internal void add_bonus_eaten_position (uint8 x, uint8 y)
+    {
+        /* add new position */
+        bonus_eaten.add (((uint16)x) << 8 | y);
+    }
+#if !TEST_COMPILE
+    internal bool was_bonus_eaten_at_this_position (uint16 position)
+    {
+        return bonus_eaten.contains (position);
+    }
+#endif
     /* This function is only called from nibbles-game.vala */
     internal void reduce_tail (int erase_size)
     {
         if (erase_size > 0)
         {
             for (int i = 0; i < erase_size; i++)
-                list.poll_tail (); /* Remove a body piece from the tail of the list. */
-            tail_reduced (erase_size); /* signal function is nibbles-view.vala */
+            {
+                /* Remove a body piece from the tail of the list. */
+                assert (list.size > 0);
+                remove_bonus_eaten_position (list.remove_tail ());
+            }
         }
     }
 
@@ -1208,26 +1263,29 @@ private class Worm : Object
     {
         if (!is_stopped && !list.is_empty)
         {
-            var reversed_list = new Gee.LinkedList<Position?> ();
+            var reversed_list = new WormPositions ();
             foreach (var pos in list)
-                reversed_list.offer_head (pos);
-
-            reversed (); /* signal function in nibble-view.vala */
+            {
+                if (reversed_list.size > 0)
+                    reversed_list.offer_head (pos);
+                else
+                    reversed_list.add (pos);
+            }
             list = reversed_list;
 
             /* Set new direction as the opposite direction of the last two tail pieces */
-            if (list[0].y == list[1].y)
-                direction = (list[0].x > list[1].x) ? WormDirection.RIGHT : WormDirection.LEFT;
+            if (((uint8)list[0]) == ((uint8)list[1]))
+                direction = ((list[0]>>8) > (list[1]>>8)) ? WormDirection.RIGHT : WormDirection.LEFT;
             else
-                direction = (list[0].y > list[1].y) ? WormDirection.DOWN : WormDirection.UP;
+                direction = (((uint8)list[0]) > ((uint8)list[1])) ? WormDirection.DOWN : WormDirection.UP;
         }
     }
 
-    private static bool does_list_contain_position (Gee.LinkedList<Position?> position_list, Position position)
+    private static bool does_list_contain_position (WormPositions position_list, uint16 position)
     {
         if (position_list != null)
-            foreach (Position p in position_list)
-                if (p.x == position.x && p.y == position.y)
+            foreach (var p in position_list)
+                if (p == position)
                     return true;
         return false;
     }
@@ -1235,7 +1293,7 @@ private class Worm : Object
     internal bool is_position_clear_of_materialized_worms (Gee.LinkedList<Worm> worms, Position position)
     {
         foreach (Worm worm in worms)
-            if (worm.is_materialized && does_list_contain_position (worm.list,position))
+            if (worm.is_materialized && does_list_contain_position (worm.list, ((uint16)position.x)<<8 | position.y))
                 return false;
         return true;
     }
@@ -1259,7 +1317,7 @@ private class Worm : Object
     {
         if (is_board_position_occupied (position, board))
             return false;
-        else if (worm_map.contain (position))
+        else if (worm_map.contain_position (position))
             return !is_materialized;
         else
             return true;
@@ -1267,7 +1325,7 @@ private class Worm : Object
     
     internal bool can_move_direction (int[,] board, Gee.LinkedList<Worm> worms, WormDirection direction)
     {
-        Position position = list[0]; /* head position */
+        Position position = list.get_head (); /* head position */
         position.move (direction,width,height);
         return can_move_to (board,worms,position);
     }
@@ -1309,7 +1367,7 @@ private class Worm : Object
                 return Source.REMOVE;
             });
     }
-
+    
     internal void add_life ()
     {
         if (lives > MAX_LIVES)
@@ -1335,18 +1393,18 @@ private class Worm : Object
 
         lose_life ();
 
-        died ();
-
         list.clear ();
+
+        bonus_eaten.clear (); /* forget all the bonuses we have eaten */
+
         if (lives > 0)
         {
-            list.add (starting_position);
-            added ();
+            list.append_position (starting_position);
 
             direction = starting_direction;
             spawn ();
 
-            finish_added ();
+            dematerialize (/* number of rounds */ 3, 35);
         }
     }
 
@@ -1383,7 +1441,7 @@ private class Worm : Object
     /*\
     * * Keys and key presses
     \*/
-
+#if !TEST_COMPILE
     private uint upper_key (uint keyval)
     {
         if (keyval > 255)
@@ -1391,7 +1449,63 @@ private class Worm : Object
         return ((char) keyval).toupper ();
     }
 
-    internal bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties> worm_props)
+    private bool LastUturnA = false;
+
+    private WormDirection uturn (int [,] board, Gee.LinkedList<Worm> worms, WormDirection direction)
+    {
+        /* player has reversed direction */
+        Position tmp;
+        WormDirection dirA,dirB;
+        int length_posA,length_posB;
+        length_posA=0; length_posB=0;
+        if (direction==WormDirection.DOWN || direction==WormDirection.UP)
+        {
+            /* calculate space when we step to the left */
+            tmp = {list[0] >> 8, (uint8)list[0]};
+            dirA = WormDirection.LEFT;
+            tmp.move (dirA,width,height);
+            for (length_posA=0; length_posA<height && can_move_to (board,worms,tmp); length_posA++,tmp.move (direction, width, height));
+            /* calculate space when we step to the right */
+            tmp = {list[0] >> 8, (uint8)list[0]};
+            dirB = WormDirection.RIGHT;
+            tmp.move (dirB,width,height);
+            for (length_posB=0; length_posB<height && can_move_to (board,worms,tmp); length_posB++,tmp.move (direction, width, height));
+        }
+        else /* direction==WormDirection.LEFT || direction==WormDirection.RIGHT */
+        {
+            /* calculate space when we step up */
+            tmp = {list[0] >> 8, (uint8)list[0]};
+            dirA = WormDirection.UP;
+            tmp.move (dirA,width,height);
+            for (length_posA=0; length_posA<width && can_move_to (board,worms,tmp); length_posA++,tmp.move (direction, width, height));
+            /* calculate space when we step down */
+            tmp = {list[0] >> 8, (uint8)list[0]};
+            dirB = WormDirection.DOWN;
+            tmp.move (dirB,width,height);
+            for (length_posB=0; length_posB<width && can_move_to (board,worms,tmp); length_posB++,tmp.move (direction, width, height));
+        }
+        if (length_posA > length_posB)
+        {
+            LastUturnA=true;
+            return dirA;
+        }
+        else if (length_posA < length_posB)
+        {
+            LastUturnA=false;
+            return dirB;
+        }
+        else if (length_posA > 0 /*|| length_posB > 0*/)
+        {
+            if (LastUturnA)
+                return dirA;
+            else
+                return dirB;
+        }
+        else /* length_posA==0 && length_posB==0 */
+            return direction;
+    }
+
+    internal bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties> worm_props,int [,] board, Gee.LinkedList<Worm> worms)
     {
         if (lives == 0 || is_stopped || list.is_empty)
             return false;
@@ -1406,30 +1520,70 @@ private class Worm : Object
         propsRight = upper_key (properties.right);
         keyvalUpper = upper_key (keyval);
 
-        if ((keyvalUpper == propsUp) && (direction != WormDirection.DOWN))
+        if ((keyvalUpper == propsUp))
         {
-            direction_set (WormDirection.UP);
-            return true;
+            if (direction==WormDirection.DOWN)
+            {
+                direction_set (uturn (board,worms,WormDirection.UP));
+                if (direction!=WormDirection.UP)
+                    queue_keypress (WormDirection.UP);
+                return true;
+            }
+            else if (can_move_direction (board,worms,WormDirection.UP))
+            {
+                direction_set (WormDirection.UP);
+                return true;
+            }
         }
-        if ((keyvalUpper == propsDown) && (direction != WormDirection.UP))
+        if ((keyvalUpper == propsDown))
         {
-            direction_set (WormDirection.DOWN);
-            return true;
+            if (direction == WormDirection.UP)
+            {
+                direction_set (uturn (board,worms,WormDirection.DOWN));
+                if (direction!=WormDirection.DOWN)
+                    queue_keypress (WormDirection.DOWN);
+                return true;
+            }
+            else if (can_move_direction (board,worms,WormDirection.DOWN))
+            {
+                direction_set (WormDirection.DOWN);
+                return true;
+            }
         }
-        if ((keyvalUpper == propsRight) && (direction != WormDirection.LEFT))
+        if ((keyvalUpper == propsRight))
         {
-            direction_set (WormDirection.RIGHT);
-            return true;
+            if (direction == WormDirection.LEFT)
+            {
+                direction_set (uturn (board,worms,WormDirection.RIGHT));
+                if (direction != WormDirection.RIGHT)
+                    queue_keypress (WormDirection.RIGHT);
+                return true;
+            }
+            else if (can_move_direction (board,worms,WormDirection.RIGHT))
+            {
+                direction_set (WormDirection.RIGHT);
+                return true;
+            }
         }
-        if ((keyvalUpper == propsLeft) && (direction != WormDirection.RIGHT))
+        if ((keyvalUpper == propsLeft))
         {
-            direction_set (WormDirection.LEFT);
-            return true;
+            if (direction == WormDirection.RIGHT)
+            {
+                direction_set (uturn (board,worms,WormDirection.LEFT));
+                if (direction != WormDirection.LEFT)
+                    queue_keypress (WormDirection.LEFT);
+                return true;
+            }
+            else if (can_move_direction (board,worms,WormDirection.LEFT))
+            {
+                direction_set (WormDirection.LEFT);
+                return true;
+            }
         }
 
         return false;
     }
-
+#endif    
     private void queue_keypress (WormDirection dir)
     {
         /* Ignore duplicates in normal movement mode. This resolves the key
@@ -1476,7 +1630,7 @@ private class Worm : Object
                 new_position.move ((WormDirection) dir, (uint8) board.length [0], (uint8) board.length [1]);
                 if (deadend_board [new_position.x, new_position.y] != deadend_runnumber
                     && !is_board_position_occupied (new_position, board)
-                    && !worm_map.contain (new_position))
+                    && !worm_map.contain_position (new_position))
                 {
                     deadend_board [new_position.x, new_position.y] = deadend_runnumber;
                     p+=new_position;
@@ -1715,7 +1869,7 @@ private class Worm : Object
 
         /* Avoid walls, dead-ends and other worm's heads. This is done using
          * an evaluation function which is CAPACITY for a wall, 4 if another
-         * worm's head is in the tooclose area, 4 if another worm's head
+         * worm's head is in the too close area, 4 if another worm's head
          * could move to the same location as ours, plus 0 if there's no
          * dead-end, or the amount that doesn't fit for a deadend. olddir's
          * score is reduced by 100, to favour it, but only if its score is 0
@@ -1733,6 +1887,8 @@ private class Worm : Object
             /* if we are heading for a LIFE bonus don't worry about being trapped */
             if (!(direction == bonus_dir && BonusType.LIFE == bonus_type))
             {
+                /*assert (can_move_to (board, worms, get_position_after_direction_move (head, direction)) ==
+                    can_move_to_map (board, worm_map, get_position_after_direction_move (head, direction)));*/
                 if (!can_move_to_map (board, worm_map, get_position_after_direction_move (head, direction)))
                     this_len += capacity;
 
@@ -1762,3 +1918,4 @@ private class Worm : Object
         direction = best_dir;
     }
 }
+
