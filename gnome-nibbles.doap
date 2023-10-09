@@ -29,4 +29,11 @@
       <gnome:userid>iulianradu</gnome:userid>
     </foaf:Person>
   </author>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Ben Corby</foaf:name>
+      <foaf:mbox rdf:resource="mailto:bcorby@gnome.org" />
+      <gnome:userid>bcorby</gnome:userid>
+    </foaf:Person>
+  </maintainer>
 </Project>
