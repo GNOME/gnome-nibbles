@@ -774,11 +774,14 @@ private class NibblesGame : Object
                                                       (prop_value, variant_type) => { return new Variant.@string (get_color_string (prop_value.get_int ())); },
                                                       null, null);
 
-            worm_settings[worm.id].bind ("key-up",      properties, "up",       SettingsBindFlags.DEFAULT);
-            worm_settings[worm.id].bind ("key-down",    properties, "down",     SettingsBindFlags.DEFAULT);
-            worm_settings[worm.id].bind ("key-left",    properties, "left",     SettingsBindFlags.DEFAULT);
-            worm_settings[worm.id].bind ("key-right",   properties, "right",    SettingsBindFlags.DEFAULT);
-
+            worm_settings[worm.id].bind ("key-up",        properties, "up",        SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-down",      properties, "down",      SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-left",      properties, "left",      SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-right",     properties, "right",     SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-up-raw",    properties, "raw-up",    SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-down-raw",  properties, "raw-down",  SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-left-raw",  properties, "raw-left",  SettingsBindFlags.DEFAULT);
+            worm_settings[worm.id].bind ("key-right-raw", properties, "raw-right", SettingsBindFlags.DEFAULT);
             worm_props.@set (worm, properties);
         }
     }

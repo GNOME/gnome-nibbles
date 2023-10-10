@@ -693,12 +693,43 @@ private class NibblesWindow : ApplicationWindow
             case "key-right":
                 properties.right = changed_worm_settings.get_int ("key-right");
                 break;
+            case "key-up-raw":
+                properties.raw_up = changed_worm_settings.get_int ("key-up-raw");
+                if (properties.raw_up < 0)
+                    properties.raw_up = get_raw_key (properties.up);
+                break;
+            case "key-down-raw":
+                properties.raw_down = changed_worm_settings.get_int ("key-down-raw");
+                if (properties.raw_down < 0)
+                    properties.raw_down= get_raw_key (properties.down);
+                break;
+            case "key-left-raw":
+                properties.raw_left = changed_worm_settings.get_int ("key-left-raw");
+                if (properties.raw_left < 0)
+                    properties.raw_left = get_raw_key (properties.left);
+                break;
+            case "key-right-raw":
+                properties.raw_right = changed_worm_settings.get_int ("key-right-raw");
+                if (properties.raw_right < 0)
+                    properties.raw_right = get_raw_key (properties.right);
+                break;
         }
 
         game.worm_props.@set (worm, properties);
 
         if (id < game.numhumans)
             update_start_game_action ();
+    }
+
+    private int get_raw_key (uint keyval)
+    {
+        Gdk.KeymapKey[] keys;
+        if (Gdk.Display.get_default().map_keyval (keyval, out keys))
+        {
+            if (keys.length > 0)
+                return (int)keys[0].keycode;
+        }
+        return -1;
     }
 
     /*\
