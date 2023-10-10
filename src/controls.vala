@@ -231,6 +231,8 @@ private class ControlsGrid : Frame
                     remove_handler = true;
                     if (keyval != this.worm_props.up)
                         this.worm_props.up = keyval;
+                    if (keycode != this.worm_props.raw_up)
+                        this.worm_props.raw_up = (int)keycode;
                     overlay.remove_overlay (key_press_message);
                     key_press_message = null;
                     return true;
@@ -249,6 +251,8 @@ private class ControlsGrid : Frame
                     remove_handler = true;
                     if (keyval != this.worm_props.down)
                         this.worm_props.down = keyval;
+                    if (keycode != this.worm_props.raw_down)
+                        this.worm_props.raw_down = (int)keycode;
                     overlay.remove_overlay (key_press_message);
                     key_press_message = null;
                     return true;
@@ -267,6 +271,8 @@ private class ControlsGrid : Frame
                     remove_handler = true;
                     if (keyval != this.worm_props.left)
                         this.worm_props.left = keyval;
+                    if (keycode != this.worm_props.raw_left)
+                        this.worm_props.raw_left = (int)keycode;
                     overlay.remove_overlay (key_press_message);
                     key_press_message = null;
                     return true;
@@ -285,6 +291,8 @@ private class ControlsGrid : Frame
                     remove_handler = true;
                     if (keyval != this.worm_props.right)
                         this.worm_props.right = keyval;
+                    if (keycode != this.worm_props.raw_right)
+                        this.worm_props.raw_right = (int)keycode;
                     overlay.remove_overlay (key_press_message);
                     key_press_message = null;
                     return true;
