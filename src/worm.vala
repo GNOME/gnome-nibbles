@@ -1444,13 +1444,6 @@ private class Worm : Object
     * * Keys and key presses
     \*/
 #if !TEST_COMPILE
-    private uint upper_key (uint keyval)
-    {
-        if (keyval > 255)
-            return keyval;
-        return ((char) keyval).toupper ();
-    }
-
     private bool LastUturnA = false;
 
     private WormDirection uturn (int [,] board, Gee.LinkedList<Worm> worms, WormDirection direction)
@@ -1507,22 +1500,14 @@ private class Worm : Object
             return direction;
     }
 
-    internal bool handle_keypress (uint keyval, uint keycode, Gee.HashMap<Worm, WormProperties> worm_props,int [,] board, Gee.LinkedList<Worm> worms)
+    internal bool handle_keypress (uint keycode, Gee.HashMap<Worm, WormProperties> worm_props,int [,] board, Gee.LinkedList<Worm> worms)
     {
         if (lives == 0 || is_stopped || list.is_empty)
             return false;
 
-        WormProperties properties;
-        uint propsUp, propsDown, propsLeft, propsRight, keyvalUpper;
+        WormProperties properties = worm_props.@get (this);
 
-        properties = worm_props.@get (this);
-        propsUp = upper_key (properties.up);
-        propsLeft = upper_key (properties.left);
-        propsDown = upper_key (properties.down);
-        propsRight = upper_key (properties.right);
-        keyvalUpper = upper_key (keyval);
-
-        if ((keyvalUpper == propsUp))
+        if (keycode == properties.raw_up)
         {
             if (direction==WormDirection.DOWN)
             {
@@ -1537,7 +1522,7 @@ private class Worm : Object
                 return true;
             }
         }
-        if ((keyvalUpper == propsDown))
+        if (keycode == properties.raw_down)
         {
             if (direction == WormDirection.UP)
             {
@@ -1552,7 +1537,7 @@ private class Worm : Object
                 return true;
             }
         }
-        if ((keyvalUpper == propsRight))
+        if (keycode == properties.raw_right)
         {
             if (direction == WormDirection.LEFT)
             {
@@ -1567,7 +1552,7 @@ private class Worm : Object
                 return true;
             }
         }
-        if ((keyvalUpper == propsLeft))
+        if (keycode == properties.raw_left)
         {
             if (direction == WormDirection.RIGHT)
             {
