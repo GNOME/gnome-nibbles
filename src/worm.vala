@@ -1053,15 +1053,15 @@ internal class Slice : Object
 
 private class WormProperties : Object
 {
-    internal int color      { internal get; internal set; }
-    internal uint up        { internal get; internal set; }
-    internal uint down      { internal get; internal set; }
-    internal uint left      { internal get; internal set; }
-    internal uint right     { internal get; internal set; }
-    internal uint raw_up    { internal get; internal set; }
-    internal uint raw_down  { internal get; internal set; }
-    internal uint raw_left  { internal get; internal set; }
-    internal uint raw_right { internal get; internal set; }
+    internal int color     { internal get; internal set; }
+    internal uint up       { internal get; internal set; }
+    internal uint down     { internal get; internal set; }
+    internal uint left     { internal get; internal set; }
+    internal uint right    { internal get; internal set; }
+    internal int raw_up    { internal get; internal set; }
+    internal int raw_down  { internal get; internal set; }
+    internal int raw_left  { internal get; internal set; }
+    internal int raw_right { internal get; internal set; }
 }
 
 internal class WormPositions : Gee.LinkedList<uint16>
@@ -1507,7 +1507,7 @@ private class Worm : Object
             return direction;
     }
 
-    internal bool handle_keypress (uint keyval, Gee.HashMap<Worm, WormProperties> worm_props,int [,] board, Gee.LinkedList<Worm> worms)
+    internal bool handle_keypress (uint keyval, uint keycode, Gee.HashMap<Worm, WormProperties> worm_props,int [,] board, Gee.LinkedList<Worm> worms)
     {
         if (lives == 0 || is_stopped || list.is_empty)
             return false;

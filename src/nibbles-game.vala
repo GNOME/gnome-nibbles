@@ -815,10 +815,10 @@ private class NibblesGame : Object
     internal bool keypress (uint keyval, uint keycode, out bool remove_handler)
     {
         remove_handler = false;
-        return handle_keypress (keyval);
+        return handle_keypress (keyval, keycode);
     }
 
-    internal bool handle_keypress (uint keyval)
+    internal bool handle_keypress (uint keyval, uint keycode)
     {
         if (!is_running)
             return false;
@@ -826,7 +826,7 @@ private class NibblesGame : Object
         foreach (var worm in worms)
         {
             if (worm.is_human)
-                if (worm.handle_keypress (keyval, worm_props, board, worms))
+                if (worm.handle_keypress (keycode, worm_props, board, worms))
                     return true;
         }
 
