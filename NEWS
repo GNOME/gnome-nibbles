@@ -4,7 +4,7 @@
 - Dependency changes; Updated to use GTK4(>=4.6) & libgnome-games-support-2(>=2.0.0). Dropped cogl, clutter, clutter-gtk. Added a glib target version of 2.78.
 - Feature; added a 3D view.
 - Fix Issues; #58(Computer Worms get stuck), #56, #33, #15, #54, #62(Keys do not work in a non-Latin keyboard layout).
-- Updated translations (Persian, French, Czech, Belarusian, Turkish, Finnish, Ukrainian, Indonesian, Icelandic, Polish, Georgian, Portuguese, Kazakh, Russian, Swedish, Galician, German, Hebrew, Czech, Hungarian, Chinese (China))
+- Updated translations (Persian, French, Czech, Belarusian, Turkish, Finnish, Ukrainian, Indonesian, Icelandic, Polish, Georgian, Portuguese, Kazakh, Russian, Swedish, Galician, German, Hebrew, Czech, Hungarian, Chinese (China), German)
 
 3.38.3 - May 1, 2023
 ====================
