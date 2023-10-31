@@ -41,7 +41,7 @@
       <description>The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”.</description>
     </key>
     <key name="three-dimensional-view" type="b">
-      <default>true</default>
+      <default>false</default>
       <summary>Enable 3D</summary>
       <description>Enable 3D.</description>
     </key>
