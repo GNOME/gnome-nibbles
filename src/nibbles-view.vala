@@ -434,11 +434,8 @@ internal class NibblesView : DrawingArea
                     int font_size = calculate_font_size (c, text, text_width, out w, out h);
                     double center_x, center_y;
                     v.to_view_plain ({WIDTH / 2, HEIGHT / 2, 0}, out center_x, out center_y);
-                    c.move_to (center_x - w / 2, center_y + h);
-                    set_color (c, -1, true);
-                    c.set_font_size (font_size);
-                    c.show_text (text);
-                    
+                    draw_text_font_size (c, (int)(center_x - w / 2), (int)(center_y - h / 2), text, font_size);
+
                     /* draw name labels */
                     foreach (var worm in game.worms)
                     {
@@ -450,7 +447,7 @@ internal class NibblesView : DrawingArea
                                 /* vertical worm */
                                 int middle = worm.length / 2;
                                 v.to_view_plain ({ (worm.list[middle] >> 8) + 1.5, (uint8)(worm.list[middle]), 0}, out x2d, out y2d);
-                                draw_text (c, (int)x2d, (int)y2d, worm_name (worm.id + 1),
+                                draw_text_target_width (c, (int)x2d, (int)y2d, worm_name (worm.id + 1),
                                  (int)v.2D_diff ({ (worm.list[0] >> 8), (uint8)(worm.list[0]), 0},
                                              { (worm.list[worm.length - 1] >> 8), (uint8)(worm.list[worm.length - 1]) + 1, 0}),
                                  color);
@@ -467,9 +464,9 @@ internal class NibblesView : DrawingArea
                                     x = x_max;
                                     x_max = swap;
                                 }
-                                v.to_view_plain ({x, (uint8)(worm.list[0]), 2}, out x_2d[0], out y_2d[0]);
-                                v.to_view_plain ({x_max + 1, (uint8)(worm.list[0]), 2}, out x_2d[1], out y_2d[1]);
-                                draw_text (c, (int)x_2d[0], (int)y_2d[0], worm_name (worm.id + 1), (int)(x_2d[1] - x_2d[0]), color);
+                                v.to_view_plain ({x, (uint8)(worm.list[0]), 3}, out x_2d[0], out y_2d[0]);
+                                v.to_view_plain ({x_max + 1, (uint8)(worm.list[0]), 3}, out x_2d[1], out y_2d[1]);
+                                draw_text_target_width (c, (int)x_2d[0], (int)y_2d[0], worm_name (worm.id + 1), (int)(x_2d[1] - x_2d[0]), color);
                             }
                         }
                     }
@@ -560,10 +557,8 @@ internal class NibblesView : DrawingArea
                     int text_width = x_delta * 10;
                     double w, h;
                     int font_size = calculate_font_size (c, text, text_width, out w, out h);
-                    c.move_to (x_offset + x_delta * (WIDTH / 2) - w / 2, y_offset + y_delta * (HEIGHT / 2) + h / 2);
-                    set_color (c, -1, true);
-                    c.set_font_size (font_size);
-                    c.show_text (text);
+                    draw_text_font_size (c, (int)(x_offset + x_delta * (WIDTH / 2) - w / 2), (int)(y_offset + y_delta * (HEIGHT / 2) - h / 2), text, font_size);
+
                     
                     /* draw name labels */
                     foreach (var worm in game.worms)
@@ -575,8 +570,8 @@ internal class NibblesView : DrawingArea
                             {
                                 /* vertical worm */
                                 int middle = worm.length / 2;
-                                draw_text (c, x_offset + x_delta * ((worm.list[middle] >> 8) + 1) + x_delta / 2,
-                                              y_offset + y_delta * ((uint8)worm.list[middle] + 1),
+                                draw_text_target_width (c, x_offset + x_delta * ((worm.list[middle] >> 8) + 1) + x_delta / 2,
+                                              y_offset + y_delta * ((uint8)worm.list[middle]),
                                               worm_name (worm.id + 1), x_delta * worm.length, color);
                             }
                             else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
@@ -585,8 +580,8 @@ internal class NibblesView : DrawingArea
                                 int x = worm.list[0] >> 8;
                                 if (x > worm.list[worm.length-1] >> 8)
                                     x = worm.list[worm.length-1] >> 8;
-                                draw_text (c, x_offset + x_delta * x,
-                                              y_offset + y_delta * ((uint8)worm.list[0]) - y_delta / 2,
+                                draw_text_target_width (c, x_offset + x_delta * x,
+                                              y_offset + y_delta * ((uint8)worm.list[0]) - y_delta,
                                               worm_name (worm.id + 1), x_delta * worm.length, color);
                             }
                         }
@@ -1583,20 +1578,28 @@ internal class NibblesView : DrawingArea
         }
     }
 
-    void draw_text (Context C, int x, int y, string text, int target_width, int color)
+    void draw_text_target_width (Context C, int x, int y, string text, int target_width, int color)
     {
-        /* draw using x,y as the bottom left corner of the text */
+        /* draw using x,y as the top left corner of the text */
         int target_font_size = 1;
         uint target_width_diff = uint.MAX;
+        Pango.Rectangle a = {0,0,0,0};
         
         for (int font_size = 1;font_size < 200;font_size++)
         {
-            Context c = new Context (C.get_target ());
-            c.move_to (0, 0);
-            c.set_font_size (font_size);
-            Cairo.TextExtents extents;
-            c.text_extents (text, out extents);
-            uint width_diff = (target_width - (int)extents.width).abs ();
+            var layout =  Pango.cairo_create_layout (C);
+            Pango.FontDescription font;
+            if (null == layout.get_font_description ())
+                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+            else
+                font = layout.get_font_description ().copy ();
+            font.set_size (Pango.SCALE * font_size);
+            layout.set_font_description (font);
+            layout.set_text (text, -1);
+            Pango.cairo_update_layout (C, layout);
+            Pango.Rectangle b;
+            layout.get_extents (out a, out b);
+            uint width_diff = (target_width - (int)a.width / Pango.SCALE).abs ();
             if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
                 break;
             else if (width_diff < target_width_diff)
@@ -1604,13 +1607,58 @@ internal class NibblesView : DrawingArea
                 target_width_diff = width_diff;
                 target_font_size = font_size;
             }
-        }
-        C.move_to (x, y);
-        set_color (C, color, true);
-        C.set_font_size (target_font_size);
-        C.show_text (text);
+        }    
+        C.move_to (x - a.x / Pango.SCALE, y - a.y / Pango.SCALE); 
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * target_font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.cairo_show_layout (C, layout);
     }
 
+    void draw_text_font_size (Context C, int x, int y, string text, int font_size)
+    {
+        int x_offset, y_offset;
+        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
+        C.move_to (x - x_offset, y - y_offset); 
+        C.set_source_rgb (1, 1, 1);
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.cairo_show_layout (C, layout);
+    }
+
+    void get_text_offsets (Context C, string text, int font_size, out int x_offset, out int y_offset)
+    {
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.Rectangle a,b;
+        layout.get_extents (out a, out b);
+        x_offset = a.x / Pango.SCALE;
+        y_offset = a.y / Pango.SCALE;
+    }
+    
     void set_color (Context C, int color, bool bright)
     {
         double r;
@@ -1796,16 +1844,23 @@ internal class NibblesView : DrawingArea
         width = 0;
         height = 0;
         
-        for (int font_size = 1;font_size < 200;font_size++)
+        for (int font_size = 1;font_size < 200;)
         {
-            Cairo.Context c = new Cairo.Context (C.get_target ());
-            c.move_to (0, 0);
-            c.set_font_size (font_size);
-            Cairo.TextExtents extents;
-            c.text_extents (text, out extents);
-            width = extents.width;
-            height = extents.height;
-            uint width_diff = (target_width - (int)width).abs ();
+            var layout =  Pango.cairo_create_layout (C);
+            Pango.FontDescription font;
+            if (null == layout.get_font_description ())
+                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+            else
+                font = layout.get_font_description ().copy ();
+            font.set_size (Pango.SCALE * font_size);
+            layout.set_font_description (font);
+            layout.set_text (text, -1);
+            Pango.cairo_update_layout (C, layout);
+            Pango.Rectangle a,b;
+            layout.get_extents (out a, out b);
+            width = a.width / Pango.SCALE;
+            height = a.height / Pango.SCALE;
+            uint width_diff = (target_width - (int)a.width / Pango.SCALE).abs ();
             if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
                 break;
             else if (width_diff < target_width_diff)
@@ -1813,42 +1868,71 @@ internal class NibblesView : DrawingArea
                 target_width_diff = width_diff;
                 target_font_size = font_size;
             }
-        }
+            if (font_size < 20)
+                font_size++;
+            else if (font_size < 50)
+                font_size+=5;
+            else
+                font_size+=10;
+        }    
         return target_font_size;
     }
 
     int calculate_font_size_from_max (Cairo.Context C, string text, int max_width, int max_height, out double width, out double height)
     {
-        int font_size_result = 1;
+        int target_font_size = 1;
         width = 0;
         height = 0;
-        
-        for (int font_size = 1;font_size < 200;font_size++)
+        for (int font_size = 1;font_size < 200;)
         {
-            Cairo.Context c = new Cairo.Context (C.get_target ());
-            c.move_to (0, 0);
-            c.set_font_size (font_size);
-            Cairo.TextExtents extents;
-            c.text_extents (text, out extents);
-            if (extents.width < max_width && extents.height < max_height)
+            var layout =  Pango.cairo_create_layout (C);
+            Pango.FontDescription font;
+            if (null == layout.get_font_description ())
+                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+            else
+                font = layout.get_font_description ().copy ();
+            font.set_size (Pango.SCALE * font_size);
+            layout.set_font_description (font);
+            layout.set_text (text, -1);
+            Pango.cairo_update_layout (C, layout);
+            Pango.Rectangle a,b;
+            layout.get_extents (out a, out b);
+            if (a.width / Pango.SCALE < max_width && a.height / Pango.SCALE < max_height)
             {
-                width = extents.width;
-                height = extents.height;
-                font_size_result = font_size;
+                width = a.width / Pango.SCALE;
+                height = a.height / Pango.SCALE;
+                target_font_size = font_size;
             }
             else
                 break;
+            if (font_size < 20)
+                font_size++;
+            else if (font_size < 50)
+                font_size+=5;
+            else
+                font_size+=10;
         }
-        return font_size_result;
+        return target_font_size;
     }
 
     void draw_dialogue_text (Cairo.Context C, double x, double y, string text, int font_size)
     {
-        /* draw using x,y as the bottom left corner of the text */
-        C.move_to (x, y);
-        C.set_font_size (font_size);
-        C.set_source_rgba (0.75, 0.75, 0.75, 1);
-        C.show_text (text);
+        /* draw using x,y as the top left corner of the text */
+        int x_offset, y_offset;
+        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
+        C.move_to (x - x_offset, y - y_offset); 
+        C.set_source_rgb (0.75, 0.75, 0.75);
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.cairo_show_layout (C, layout);
     }
 
     /*\
