@@ -31,6 +31,10 @@
         <property name="spacing">25</property>
         <child>
           <object class="GtkLabel">
+            <attributes>
+              <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+              <attribute name="scale" value="2"/>
+            </attributes>
             <!-- Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player -->
             <property name="label" translatable="1">Controls</property>
             <property name="valign">center</property>
