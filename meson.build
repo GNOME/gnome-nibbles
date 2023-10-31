@@ -2,7 +2,7 @@
 project('gnome-nibbles', ['c', 'vala'],
   license: 'GPL3+',
   meson_version: '>= 0.60',
-  version: '4.0.alpha'
+  version: '4.0.beta'
 )
 # note, the version numbering now follows the following sequence:
 #  4.0.alpha
@@ -38,6 +38,7 @@ glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_minimum_version)
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
 libgnome_games_support_dep = dependency('libgnome-games-support-2', version: '>= 2.0.0') # requires GTK 4.2
 gtk_dep = dependency('gtk4', version: '>= 4.6') # this code works on 4.6.9 (ubuntu 22.04 with updates), it hasn't been tried on anything earlier
+pangocairo_dep = dependency('pangocairo')
 
 # version defines of GTK4 for #if e.g. #if GTK_4_6_or_above
 gtk_version = gtk_dep.version()
