@@ -724,7 +724,7 @@ private class NibblesWindow : ApplicationWindow
     private int get_raw_key (uint keyval)
     {
         Gdk.KeymapKey[] keys;
-        if (Gdk.Display.get_default().map_keyval (keyval, out keys))
+        if (Gdk.Display.get_default ().map_keyval (keyval, out keys))
         {
             if (keys.length > 0)
                 return (int)keys[0].keycode;
