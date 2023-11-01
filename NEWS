@@ -1,7 +1,7 @@
-4.0.beta - October 31, 2023
+4.0.rc - November 21, 2023
 ===========================
 
-- Dependency changes; Updated to use gtk4(>=4.6) & libgnome-games-support(>=2.0.0). Dropped gtk3, cogl, clutter, clutter-gtk. Added pangocairo and a glib target version of 2.78. Note the only dependency change since the alpha release is the addition of pangocairo.
+- Dependency changes; Updated to use gtk4(>=4.6) & libgnome-games-support(>=2.0.0). Dropped gtk3, cogl, clutter, clutter-gtk. Added pangocairo and a glib target version of 2.78.
 - Feature; added a 3D view.
 - Fix Issues; #58(Computer Worms get stuck), #56, #33, #15, #54, #62(Keys do not work in a non-Latin keyboard layout), #53.
 - Updated translations (Persian, French, Czech, Belarusian, Turkish, Finnish, Ukrainian, Indonesian, Icelandic, Polish, Georgian, Portuguese, Kazakh, Russian, Swedish, Galician, German, Hebrew, Czech, Hungarian, Chinese (China), Basque).
