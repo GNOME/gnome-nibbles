@@ -474,8 +474,8 @@ internal class OverlayMessage : DrawingArea
             C.set_source_rgba (0.125, 0.125, 0.125, 1);
             C.fill ();                
 
-            draw_text (C, x + (background_width - text_width) / 2,
-                y + background_height / 2 + text_height / 3, text, font_size);
+            draw_text_font_size (C, (int)(x + (background_width - text_width) / 2),
+                (int)(y + background_height / 2 - text_height / 2), text, font_size);
         });
     }
 
@@ -485,35 +485,76 @@ internal class OverlayMessage : DrawingArea
         uint target_width_diff = uint.MAX;
         width = 0;
         height = 0;
-
-        for (int font_size = 1;font_size < 200;font_size++)
+        
+        for (int font_size = 1;font_size < 200;)
         {
-            Cairo.Context c = new Cairo.Context (C.get_target ());
-            c.move_to (0, 0);
-            c.set_font_size (font_size);
-            Cairo.TextExtents extents;
-            c.text_extents (text, out extents);
-            width = extents.width;
-            height = extents.height;
-            uint width_diff = (target_width - (int)width).abs ();
-            if (width_diff > target_width_diff)
+            var layout =  Pango.cairo_create_layout (C);
+            Pango.FontDescription font;
+            if (null == layout.get_font_description ())
+                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+            else
+                font = layout.get_font_description ().copy ();
+            font.set_size (Pango.SCALE * font_size);
+            layout.set_font_description (font);
+            layout.set_text (text, -1);
+            Pango.cairo_update_layout (C, layout);
+            Pango.Rectangle a,b;
+            layout.get_extents (out a, out b);
+            width = a.width / Pango.SCALE;
+            height = a.height / Pango.SCALE;
+            uint width_diff = (target_width - (int)a.width / Pango.SCALE).abs ();
+            if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
                 break;
             else if (width_diff < target_width_diff)
             {
                 target_width_diff = width_diff;
                 target_font_size = font_size;
             }
-        }
+            if (font_size < 20)
+                font_size++;
+            else if (font_size < 50)
+                font_size+=5;
+            else
+                font_size+=10;
+        }    
         return target_font_size;
     }
 
-    void draw_text (Cairo.Context C, double x, double y, string text, int font_size)
+    void draw_text_font_size (Cairo.Context C, int x, int y, string text, int font_size)
     {
-        /* draw using x,y as the bottom left corner of the text */
-        C.move_to (x, y);
-        C.set_font_size (font_size);
-        C.set_source_rgba (0.75, 0.75, 0.75, 1);
-        C.show_text (text);
+        int x_offset, y_offset;
+        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
+        C.move_to (x - x_offset, y - y_offset); 
+        C.set_source_rgb (1, 1, 1);
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.cairo_show_layout (C, layout);
+    }
+
+    void get_text_offsets (Cairo.Context C, string text, int font_size, out int x_offset, out int y_offset)
+    {
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.Rectangle a,b;
+        layout.get_extents (out a, out b);
+        x_offset = a.x / Pango.SCALE;
+        y_offset = a.y / Pango.SCALE;
     }
 }
 
@@ -660,34 +701,75 @@ internal class ColourWheel : DrawingArea
         width = 0;
         height = 0;
         
-        for (int font_size = 1;font_size < 200;font_size++)
+        for (int font_size = 1;font_size < 200;)
         {
-            Cairo.Context c = new Cairo.Context (C.get_target ());
-            c.move_to (0, 0);
-            c.set_font_size (font_size);
-            Cairo.TextExtents extents;
-            c.text_extents (text, out extents);
-            width = extents.width;
-            height = extents.height;
-            uint width_diff = (target_width - (int)width).abs ();
-            if (width_diff > target_width_diff)
+            var layout =  Pango.cairo_create_layout (C);
+            Pango.FontDescription font;
+            if (null == layout.get_font_description ())
+                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+            else
+                font = layout.get_font_description ().copy ();
+            font.set_size (Pango.SCALE * font_size);
+            layout.set_font_description (font);
+            layout.set_text (text, -1);
+            Pango.cairo_update_layout (C, layout);
+            Pango.Rectangle a,b;
+            layout.get_extents (out a, out b);
+            width = a.width / Pango.SCALE;
+            height = a.height / Pango.SCALE;
+            uint width_diff = (target_width - (int)a.width / Pango.SCALE).abs ();
+            if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
                 break;
             else if (width_diff < target_width_diff)
             {
                 target_width_diff = width_diff;
                 target_font_size = font_size;
             }
-        }
+            if (font_size < 20)
+                font_size++;
+            else if (font_size < 50)
+                font_size+=5;
+            else
+                font_size+=10;
+        }    
         return target_font_size;
     }
 
-    void draw_text (Cairo.Context C, double x, double y, string text, int font_size)
+    void draw_text_font_size (Cairo.Context C, int x, int y, string text, int font_size)
     {
-        /* draw using x,y as the bottom left corner of the text */
-        C.move_to (x, y);
-        C.set_font_size (font_size);
-        C.set_source_rgba (0.75, 0.75, 0.75, 1);
-        C.show_text (text);
+        int x_offset, y_offset;
+        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
+        C.move_to (x - x_offset, y - y_offset); 
+        C.set_source_rgb (1, 1, 1);
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.cairo_show_layout (C, layout);
+    }
+
+    void get_text_offsets (Cairo.Context C, string text, int font_size, out int x_offset, out int y_offset)
+    {
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.Rectangle a,b;
+        layout.get_extents (out a, out b);
+        x_offset = a.x / Pango.SCALE;
+        y_offset = a.y / Pango.SCALE;
     }
 
     void draw_label (Cairo.Context C, double width, double height, string text)
@@ -725,8 +807,8 @@ internal class ColourWheel : DrawingArea
             C.set_source_rgba (0.125, 0.125, 0.125, 1);
             C.fill ();                
 
-            draw_text (C, x + (background_width - text_width) / 2,
-                y + background_height / 2 + text_height / 3, text, font_size);
+            draw_text_font_size (C, (int)(x + (background_width - text_width) / 2),
+                (int)(y + background_height / 2 - text_height / 2), text, font_size);
     }
 }
 
