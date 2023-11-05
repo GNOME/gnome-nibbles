@@ -42,6 +42,29 @@ private enum SetupScreen
     GAME
 }
 
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/are-you-sure.ui")]
+private class AreYouSureWindow : Window
+{
+    [GtkChild] private unowned Label line_one;
+    [GtkChild] private unowned Label line_two;
+    [GtkChild] private unowned Button button_no;
+    [GtkChild] private unowned Button button_yes;
+
+    internal delegate void AreYouSureResultFunction (bool yes);
+    AreYouSureResultFunction result_function;
+    
+    public AreYouSureWindow (Window w, string line1, string line2, AreYouSureResultFunction result_function)
+    {
+        set_transient_for (w);
+        line_one.label = line1;
+        line_two.label = line2;
+        this.result_function = (AreYouSureResultFunction)result_function;
+        close_request.connect (()=>{result_function (false); return false;});
+        button_no.clicked.connect (()=>{result_function (false); destroy ();});
+        button_yes.clicked.connect (()=>{result_function (true); destroy ();});
+    }
+}
+
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/nibbles.ui")]
 private class NibblesWindow : ApplicationWindow
 {
@@ -543,6 +566,7 @@ private class NibblesWindow : ApplicationWindow
                 break;
         }
     }
+    
     private void show_new_game_dialog ()
     {
         if (countdown_id != 0)
@@ -554,37 +578,25 @@ private class NibblesWindow : ApplicationWindow
         if (game.is_running)
             game.stop ();
         
-        /* to do */
-        //show_dialogue = true;
-        //view.redraw ();
-        
-        var dialog = new MessageDialog (this, /* to do, create a window to do this */
-                                        DialogFlags.MODAL,
-                                        MessageType.WARNING,
-                                        ButtonsType.OK_CANCEL,
-                                        /* Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running */
-                                        _("Are you sure you want to start a new game?"));
-        /* Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running */
-        dialog.secondary_text = _("If you start a new game, the current one will be lost.");
-        var button = (Button) dialog.get_widget_for_response (ResponseType.OK);
-        /* Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running */
-        button.set_label (_("_New Game"));
-        dialog.response.connect ((response_id) => {
-            if (response_id == ResponseType.OK)
-                show_new_game_screen ();
-            if ((response_id == ResponseType.CANCEL || response_id == ResponseType.DELETE_EVENT)
-                && !game.paused)
+        var dialog = new AreYouSureWindow (this,
+            /* Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running */
+            _("Are you sure you want to start a new game?"),
+            /* Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running */
+            _("If you start a new game, the current one will be lost."),
+            (/* bool */yes)=>
             {
-                if (seconds == 0)
-                    game.start (/* add initial bonus */ false);
-                else
-                    countdown_id = Timeout.add_seconds (1, countdown_cb);
+                if (yes)
+                  show_new_game_screen ();
+                if (!yes && !game.paused)
+                {
+                    if (seconds == 0)
+                        game.start (/* add initial bonus */ false);
+                    else
+                        countdown_id = Timeout.add_seconds (1, countdown_cb);
 
-                view.grab_focus ();
-            }
-
-            dialog.destroy ();
-        });
+                    view.grab_focus ();
+                }
+            });
         dialog.show ();
     }
 

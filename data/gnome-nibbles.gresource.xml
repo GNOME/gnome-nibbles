@@ -9,6 +9,7 @@
     <file preprocess="xml-stripblanks"                   alias="player-score-box.ui"    >ui/player-score-box.ui</file>
     <file preprocess="xml-stripblanks"                   alias="scoreboard.ui"          >ui/scoreboard.ui</file>
     <file preprocess="xml-stripblanks"                   alias="speed.ui"               >ui/speed.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="are-you-sure.ui"        >ui/are-you-sure.ui</file>
   </gresource>
   <gresource prefix="/org/gnome/Nibbles/gtk">
     <file preprocess="xml-stripblanks"                   alias="help-overlay.ui"        >ui/help-overlay.ui</file>
