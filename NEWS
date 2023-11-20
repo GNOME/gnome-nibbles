@@ -1,5 +1,5 @@
 4.0.rc - November 21, 2023
-===========================
+==========================
 
 - Dependency changes; Updated to use gtk4(>=4.6) & libgnome-games-support(>=2.0.0). Dropped gtk3, cogl, clutter, clutter-gtk. Added pangocairo and a glib target version of 2.78.
 - Feature; added a 3D view.
@@ -14,7 +14,7 @@ For the libgnome-games-support package;
 The release version numbering has changed:
 4.0.alpha - for package maintainers to raise issues: https://gitlab.gnome.org/GNOME/gnome-nibbles/-/issues
 4.0.beta  - for general testing, do your worst, raise issues found at: https://gitlab.gnome.org/GNOME/gnome-nibbles/-/issues
-4.0.rc    - the release unless somthing big is found
+4.0.rc    - the release unless something big is found
 4.0.0     - full release
 4.0.1     - minor release, translations or critical fixes
 
