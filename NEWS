@@ -1,11 +1,12 @@
-4.0.0 - November 30, 2023
-=========================
+4.0.rc2 - November 22, 2023
+===========================
 
 - Dependency changes; Updated to use gtk4(>=4.6) & libgnome-games-support(>=2.0.0). Dropped gtk3, cogl, clutter, clutter-gtk. Added pangocairo and a glib target version of 2.78.
 - Feature; added a 3D view.
 - Fix Issues; #58(Computer Worms get stuck), #56, #33, #15, #54, #62(Keys do not work in a non-Latin keyboard layout), #53.
 - Updated translations (Persian, French, Czech, Belarusian, Turkish, Finnish, Ukrainian, Indonesian, Icelandic, Polish, Georgian, Portuguese, Kazakh, Russian, Swedish, Galician, German, Hebrew, Czech, Hungarian, Chinese (China), Basque).
 - This Nibbles release is for GNOME release 46.
+- Fixes for appstreamcli version 1.0 (changed since previous release candidate)
 
 For the libgnome-games-support package;
   source is here: https://gitlab.gnome.org/GNOME/libgnome-games-support/-/tree/2.0.0?ref_type=tags
