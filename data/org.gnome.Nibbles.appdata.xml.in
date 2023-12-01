@@ -54,11 +54,8 @@
   <update_contact>mcatanzaro_at_gnome.org</update_contact>
   <project_group>GNOME</project_group>
   <translation type="gettext">gnome-nibbles</translation>
-  <developer id="mcatanzaro@gnome.org">
-    <name>Michael Catanzaro</name>
-  </developer>
-  <developer id="bcorby@gnome.org">
-    <name>Ben Corby</name>
+  <developer id="gnome.org">
+    <name>The GNOME Project</name>
   </developer>
   <content_rating type="oars-1.0" />
 </component>
