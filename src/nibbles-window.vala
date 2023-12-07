@@ -384,13 +384,12 @@ private class NibblesWindow : ApplicationWindow
         /* Number of worms */
         game.numhumans = settings.get_int ("players");
         int numai = settings.get_int ("ai");
-        if (numai + game.numhumans > NibblesGame.MAX_WORMS
-         || numai + game.numhumans < 4)
+        if (numai + game.numhumans > NibblesGame.MAX_WORMS)
         {
-            numai = 4 - game.numhumans;
-            settings.set_int ("ai", numai);
+            assert_not_reached ();
         }
         game.numai = numai;
+        // NOTE: set numai value to 0 here
         players.set_values (game.numhumans, numai);
 
         /* Speed screen */

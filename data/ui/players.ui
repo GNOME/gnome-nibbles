@@ -157,6 +157,34 @@
                 <property name="spacing">10</property>
                 <property name="vexpand">1</property>
                 <child>
+                  <object class="GtkToggleButton" id="worms2">
+                    <property name="visible">1</property>
+                    <property name="use-underline">1</property>
+                    <property name="label" translatable="1">x</property>
+                    <property name="action-name">players.change-nibbles-number</property>
+        <property name="width-request">100</property>
+                    <property name="action-target">@i 2</property>
+                    <property name="sensitive" bind-source="worms2" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="worms3">
+                    <property name="visible">1</property>
+                    <property name="use-underline">1</property>
+                    <property name="label" translatable="1">x</property>
+                    <property name="action-name">players.change-nibbles-number</property>
+        <property name="width-request">100</property>
+                    <property name="action-target">@i 3</property>
+                    <property name="sensitive" bind-source="worms3" bind-property="active" bind-flags="invert-boolean"/>
+                    <style>
+                      <class name="number-box"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
                   <object class="GtkToggleButton" id="worms4">
                     <property name="visible">1</property>
                     <property name="use-underline">1</property>

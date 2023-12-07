@@ -25,6 +25,8 @@ private class Players : Box
     [GtkChild] private unowned ToggleButton players2;
     [GtkChild] private unowned ToggleButton players3;
     [GtkChild] private unowned ToggleButton players4;
+    [GtkChild] private unowned ToggleButton worms2;
+    [GtkChild] private unowned ToggleButton worms3;
     [GtkChild] private unowned ToggleButton worms4;
     [GtkChild] private unowned ToggleButton worms5;
     [GtkChild] private unowned ToggleButton worms6;
@@ -99,21 +101,34 @@ private class Players : Box
         switch (players_number_action.get_state ().get_int32 ())
         {
             case 1:
+                ((Widget)worms2).set_visible (true);
+                ((Widget)worms3).set_visible (true);
+                ((Label)worms2.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai1_label)+"</span></b>");
+                ((Label)worms3.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai2_label)+"</span></b>");
                 ((Label)worms4.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai3_label)+"</span></b>");
                 ((Label)worms5.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai4_label)+"</span></b>");
                 ((Label)worms6.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai5_label)+"</span></b>");
                 break;
             case 2:
+                ((Widget)worms2).set_visible (true);
+                ((Widget)worms3).set_visible (true);
+                ((Label)worms2.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai0_label)+"</span></b>");
+                ((Label)worms3.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai1_label)+"</span></b>");
                 ((Label)worms4.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai2_label)+"</span></b>");
                 ((Label)worms5.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai3_label)+"</span></b>");
                 ((Label)worms6.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai4_label)+"</span></b>");
                 break;
             case 3:
+                ((Widget)worms2).set_visible (false);
+                ((Widget)worms3).set_visible (true);
+                ((Label)worms3.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai0_label)+"</span></b>");
                 ((Label)worms4.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai1_label)+"</span></b>");
                 ((Label)worms5.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai2_label)+"</span></b>");
                 ((Label)worms6.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai3_label)+"</span></b>");
                 break;
             case 4:
+                ((Widget)worms2).set_visible (false);
+                ((Widget)worms3).set_visible (false);
                 ((Label)worms4.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai0_label)+"</span></b>");
                 ((Label)worms5.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai1_label)+"</span></b>");
                 ((Label)worms6.get_child ()).set_markup (@"<b><span size=\"30.0pt\" font-family=\"Sans\">"+_(ai2_label)+"</span></b>");
@@ -126,7 +141,7 @@ private class Players : Box
     private inline void change_nibbles_number (SimpleAction _nibbles_number_action, Variant variant)
     {
         int nibbles_number = variant.get_int32 ();
-        if (nibbles_number < 4 || nibbles_number > 6)
+        if (nibbles_number < 2 || nibbles_number > 6)
             assert_not_reached ();
         _nibbles_number_action.set_state (nibbles_number);
     }
