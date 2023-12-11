@@ -294,20 +294,20 @@ private class Nibbles : Gtk.Application
     {
         if (window != null && !window.game_paused)
             window.activate_action ("pause", null);
-#if GTK_4_10_or_above
+#if GTK_5_0_or_above
         launch_help.begin ((obj,res)=>
         {
             launch_help.end (res);
         });
-#else /* GTK 4.9 or below */
+#else
         show_uri (window, "help:gnome-nibbles", Gdk.CURRENT_TIME);
 #endif
     }
 
-#if GTK_4_10_or_above
+#if GTK_5_0_or_above
     async void launch_help ()
     {
-        var help = new UriLauncher ("help:gnome-nibbles"); // requires GTK 4.10
+        var help = new UriLauncher ("help:gnome-nibbles"); /* bug see https://gitlab.gnome.org/GNOME/gtk/-/issues/6135 */
         try
         {
             yield help.launch (window, null);
