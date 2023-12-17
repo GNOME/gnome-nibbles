@@ -1500,6 +1500,17 @@ private class Worm : Object
             return direction;
     }
 
+    private int get_raw_key (uint keyval)
+    {
+        Gdk.KeymapKey[] keys;
+        if (Gdk.Display.get_default ().map_keyval (keyval, out keys))
+        {
+            if (keys.length > 0)
+                return (int)keys[0].keycode;
+        }
+        return -1;
+    }
+
     internal bool handle_keypress (uint keycode, Gee.HashMap<Worm, WormProperties> worm_props,int [,] board, Gee.LinkedList<Worm> worms)
     {
         if (lives == 0 || is_stopped || list.is_empty)
@@ -1507,6 +1518,8 @@ private class Worm : Object
 
         WormProperties properties = worm_props.@get (this);
 
+        if (properties.raw_up < 0)
+            properties.raw_up = get_raw_key (properties.up);
         if (keycode == properties.raw_up)
         {
             if (direction==WormDirection.DOWN)
@@ -1522,6 +1535,8 @@ private class Worm : Object
                 return true;
             }
         }
+        if (properties.raw_down < 0)
+            properties.raw_down = get_raw_key (properties.down);
         if (keycode == properties.raw_down)
         {
             if (direction == WormDirection.UP)
@@ -1537,6 +1552,8 @@ private class Worm : Object
                 return true;
             }
         }
+        if (properties.raw_right < 0)
+            properties.raw_right = get_raw_key (properties.right);
         if (keycode == properties.raw_right)
         {
             if (direction == WormDirection.LEFT)
@@ -1552,6 +1569,8 @@ private class Worm : Object
                 return true;
             }
         }
+        if (properties.raw_left < 0)
+            properties.raw_left = get_raw_key (properties.left);
         if (keycode == properties.raw_left)
         {
             if (direction == WormDirection.RIGHT)
