@@ -20,13 +20,13 @@
 # Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>, 2012.
 # Bernd Homuth <dev@hmt.im>, 2015, 2016.
 # Philipp Kiemle <philipp.kiemle@gmail.com>, 2023.
-# Jürgen Benvenuti <gastornis@posteo.org>, 2023.
+# Jürgen Benvenuti <gastornis@posteo.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2023-10-10 22:10+0000\n"
-"PO-Revision-Date: 2023-10-16 21:24+0200\n"
+"POT-Creation-Date: 2023-12-23 13:28+0000\n"
+"PO-Revision-Date: 2024-01-02 20:08+0100\n"
 "Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -50,17 +50,17 @@ msgstr "Einen Wurm in einem Labyrinth herumführen"
 #: data/org.gnome.Nibbles.appdata.xml.in:10
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won’t have much room for movement."
+"enemy worms while eating apples and bananas to increase your length. Each "
+"worm has six lives and loses one by running into a wall, another worm, or "
+"itself. The enemy worms are after the same bonuses that you are, so be "
+"careful. If the worms become too large, you won’t have much room to move."
 msgstr ""
 "Steuern Sie einen Wurm in seiner Jagd auf Boni und werden Sie länger. "
 "Überlisten Sie durch geschicktes Manövrieren gegnerische Würmer und fressen "
-"Sie dabei Donuts und Eis, um sich zu stärken. Jeder Wurm hat zehn Leben. Man "
-"verliert diese, wenn man gegen eine Wand, einen anderen Wurm oder sich "
-"selbst läuft. Gegnerische Würmer suchen die selben Boni, also seien Sie auf "
-"der Hut: Wenn sie zu groß werden, dann bleibt Ihnen nicht mehr viel "
+"Sie dabei Äpfel und Bananen, um sich zu stärken. Jeder Wurm hat sechs Leben. "
+"Man verliert diese, wenn man gegen eine Wand, einen anderen Wurm oder sich "
+"selbst läuft. Gegnerische Würmer suchen dieselben Boni, also seien Sie auf "
+"der Hut. Wenn die Würmer zu groß werden, dann bleibt Ihnen nicht mehr viel "
 "Bewegungsfreiheit."
 
 #: data/org.gnome.Nibbles.appdata.xml.in:17
@@ -80,10 +80,6 @@ msgid ""
 msgstr ""
 "Spielen Sie allein gegen bis zu fünf gegnerische Würmer, oder teilen Sie "
 "Ihre Tastatur zum Spielen mit einem Freund."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:58
-msgid "Michael Catanzaro"
-msgstr "Michael Catanzaro"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -312,12 +308,12 @@ msgid "Key to use for motion right."
 msgstr "Zum Bewegen nach rechts zu verwendende Taste."
 
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
-#: data/ui/controls.ui:35
+#: data/ui/controls.ui:39
 msgid "Controls"
 msgstr "Steuerung"
 
 #. Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game
-#: data/ui/controls.ui:56
+#: data/ui/controls.ui:60
 msgid "_Start"
 msgstr "_Starten"
 
@@ -560,7 +556,7 @@ msgstr "Eine Taste drücken für rechts."
 
 #. instruction label
 #. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:581
+#: src/controls.vala:622
 msgid "Select your color"
 msgstr "Wählen Sie Ihre Farbe aus"
 
@@ -753,54 +749,54 @@ msgstr ""
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:611 src/players.vala:39
+#: src/nibbles-view.vala:606 src/players.vala:39
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:614 src/players.vala:42
+#: src/nibbles-view.vala:609 src/players.vala:42
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:617 src/players.vala:45
+#: src/nibbles-view.vala:612 src/players.vala:45
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:630
+#: src/nibbles-view.vala:625
 msgid "Worm 1"
 msgstr "Wurm 1"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:633
+#: src/nibbles-view.vala:628
 msgid "Worm 2"
 msgstr "Wurm 2"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:636
+#: src/nibbles-view.vala:631
 msgid "Worm 3"
 msgstr "Wurm 3"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:639
+#: src/nibbles-view.vala:634
 msgid "Worm 4"
 msgstr "Wurm 4"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:642
+#: src/nibbles-view.vala:637
 msgid "Worm 5"
 msgstr "Wurm 5"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:645
+#: src/nibbles-view.vala:640
 msgid "Worm 6"
 msgstr "Wurm 6"
 
 #. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:670
+#: src/nibbles-view.vala:665
 msgid ""
 "Are you sure you want to start a new game?\n"
 "If you start a new game, the current one will be lost."
@@ -809,42 +805,42 @@ msgstr ""
 "Wenn Sie ein neues Spiel starten, wird das laufende Spiel beendet."
 
 #. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: src/nibbles-view.vala:1753
+#: src/nibbles-view.vala:1801
 msgid "No"
 msgstr "Nein"
 
 #. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: src/nibbles-view.vala:1780
+#: src/nibbles-view.vala:1828
 msgid "Yes"
 msgstr "Ja"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1862
+#: src/nibbles-view.vala:1946
 msgid "red"
 msgstr "rot"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1864
+#: src/nibbles-view.vala:1948
 msgid "green"
 msgstr "grün"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1866
+#: src/nibbles-view.vala:1950
 msgid "blue"
 msgstr "blau"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1868
+#: src/nibbles-view.vala:1952
 msgid "yellow"
 msgstr "gelb"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1870
+#: src/nibbles-view.vala:1954
 msgid "cyan"
 msgstr "türkis"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1872
+#: src/nibbles-view.vala:1956
 msgid "purple"
 msgstr "lila"
 
@@ -978,6 +974,9 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "Wurm %d"
+
+#~ msgid "Michael Catanzaro"
+#~ msgstr "Michael Catanzaro"
 
 #~ msgid "Size of game tiles"
 #~ msgstr "Größe der Spielkacheln"
