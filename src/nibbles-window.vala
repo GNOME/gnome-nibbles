@@ -1139,7 +1139,7 @@ private class NibblesWindow : ApplicationWindow
         game_over_label.set_margin_top (150);
         if (game_over_label.attributes == null)
             game_over_label.attributes = new Pango.AttrList ();
-        game_over_label.attributes.insert (Pango.attr_scale_new (Pango.Scale.X_LARGE));
+        game_over_label.attributes.insert (Pango.attr_scale_new (Pango.Scale.XX_LARGE * 2));
         game_over_label.attributes.insert (Pango.attr_weight_new (Pango.Weight.BOLD));
 
         game_over_label.show ();
