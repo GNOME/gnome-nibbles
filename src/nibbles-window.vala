@@ -132,15 +132,15 @@ private class NibblesWindow : ApplicationWindow
                 }
             }
             
-            public KeypressHandlerFunction @get ()
+            public unowned KeypressHandlerFunction @get ()
             {
-                return (KeypressHandlerFunction)(pIterator.keypress_handler);
+                return pIterator.keypress_handler;
             }
         }
 
         struct Node
         {
-            KeypressHandlerFunction keypress_handler; /* to do, circumnavigate compiler warning message */
+            unowned KeypressHandlerFunction keypress_handler;
             Node? pNext;
         }
         Node? pHead = null;
@@ -148,9 +148,9 @@ private class NibblesWindow : ApplicationWindow
         internal void push (KeypressHandlerFunction handler)
         {
             if (pHead == null)
-                pHead = { (KeypressHandlerFunction)handler, null};
+                pHead = { handler, null};
             else
-                pHead = { (KeypressHandlerFunction)handler, pHead};
+                pHead = { handler, pHead};
         }
         
         internal bool pop ()
