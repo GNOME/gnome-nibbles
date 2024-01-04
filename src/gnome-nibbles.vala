@@ -33,6 +33,23 @@
 /* designed for Gtk 4, link with libgtk-4-dev or gtk4-devel */
 using Gtk;
 
+/*
+ * Remove deprecate warning.
+ *
+ * The use of show_uri is deprecated since GTK 4.10. The suggested alternative
+ * is to use UriLauncher, however for help UriLauncher has a bug that results
+ * in a "Document Not Found" message when used in flatpack.
+ * There is no intention to fix this bug so we will continue to use show_uri.
+ * This stops the deprecate warning and hopefully stops anyone mistakenly
+ * coding a switch to UriLauncher.
+ *
+ */
+namespace no_deprecate_warning
+{
+    [CCode (cheader_filename = "gtk/gtk.h", cname = "gtk_show_uri")]
+    extern static void show_uri (Gtk.Window? parent, string uri, uint32 timestamp);
+}
+
 private class Nibbles : Gtk.Application
 {
     /* Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
@@ -299,15 +316,17 @@ private class Nibbles : Gtk.Application
         {
             launch_help.end (res);
         });
-#else
-        show_uri (window, "help:gnome-nibbles", Gdk.CURRENT_TIME);
+#else /* must be GTK 4 */
+        /* See "Remove deprecate warning." comment at the top of this file. */
+        no_deprecate_warning.show_uri (window, "help:gnome-nibbles", Gdk.CURRENT_TIME);
 #endif
     }
 
 #if GTK_5_0_or_above
     async void launch_help ()
     {
-        var help = new UriLauncher ("help:gnome-nibbles"); /* bug see https://gitlab.gnome.org/GNOME/gtk/-/issues/6135 */
+        /* UriLuncher has a bug see https://gitlab.gnome.org/GNOME/gtk/-/issues/6135 */
+        var help = new UriLauncher ("help:gnome-nibbles");
         try
         {
             yield help.launch (window, null);
@@ -376,7 +395,7 @@ private class Nibbles : Gtk.Application
                              
                              
                              /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
-                             _("Copyright © %u-%u – Ben Corby").printf (2022, 2023),
+                             _("Copyright © %u-%u – Ben Corby").printf (2022, 2024),
                            "license-type", License.GPL_3_0, // means "GNU General Public License, version 3.0 or later"
                            "authors", authors,
                            "documenters", documenters,
