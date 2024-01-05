@@ -1024,7 +1024,7 @@ private class NibblesWindow : ApplicationWindow
         var scores = scores_context.get_high_scores (get_scores_category (game.speed, game.fakes));
         var lowest_high_score = (scores.size == 10 ? scores.last ().score : -1);
 
-        if (game.numhumans != 1)
+        if (game.numhumans < 1)
         {
             game_over (score, lowest_high_score, level_reached);
             return;

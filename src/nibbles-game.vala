@@ -365,7 +365,6 @@ private class NibblesGame : Object
     private bool main_loop_cb ()
     {
         var status = get_game_status ();
-
         if (status == GameStatus.GAMEOVER)
         {
             end ();
@@ -379,10 +378,8 @@ private class NibblesGame : Object
             end ();
 
             var winner = get_winner ();
-            if (winner == null)
-                return Source.REMOVE;
-
-            log_score (winner.score, current_level);
+            if (winner != null)
+                log_score (winner.score, current_level);
 
             return Source.REMOVE;
         }
@@ -400,9 +397,11 @@ private class NibblesGame : Object
 
             return Source.REMOVE;
         }
-        move_worms ();
-
-        return Source.CONTINUE;
+        else /* status == null */
+        {
+            move_worms ();
+            return Source.CONTINUE;
+        } 
     }
 
     /*\
@@ -723,18 +722,16 @@ private class NibblesGame : Object
         {
             if (worm.lives > 0)
                 worms_left += 1;
-            else if (worm.is_human && worm.lives == 0)
-                return GameStatus.GAMEOVER;
             else if (numhumans == 0 && worm.lives == 0)
                 return GameStatus.GAMEOVER;
         }
 
-        if (worms_left == 1 && numworms > 1)
+        if (worms_left == 1 && numworms > 1 || humans_left () == 1 && numhumans > 1)
         {
             /* There were multiple worms but only one is still alive */
             return GameStatus.VICTORY;
         }
-        else if (worms_left == 0)
+        else if (worms_left == 0 || humans_left () == 0 && numhumans == 1)
         {
             /* There was only one worm and it died */
             return GameStatus.GAMEOVER;
@@ -745,15 +742,23 @@ private class NibblesGame : Object
 
         return null;
     }
+    
+    internal uint humans_left ()
+    {
+        uint count = 0;
+        foreach (var worm in worms)
+            if (worm.is_human && worm.lives > 0)
+                ++count;
+        return count;
+    }
 
     internal Worm? get_winner ()
     {
+        bool one_human_left = humans_left () == 1;
         foreach (var worm in worms)
-        {
-            if (worm.lives > 0)
+            if ((one_human_left && worm.is_human ||
+                !one_human_left && !worm.is_human) && worm.lives > 0)
                 return worm;
-        }
-
         return null;
     }
 
