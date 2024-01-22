@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2023-10-05 16:03+0000\n"
-"PO-Revision-Date: 2023-10-07 13:32+0200\n"
+"POT-Creation-Date: 2023-12-23 13:27+0000\n"
+"PO-Revision-Date: 2024-01-22 19:56+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Project-Style: gnome\n"
 
 #. Translators: title of the window, as displayed by the window manager
@@ -48,17 +48,17 @@ msgstr "Proveďte červíka bludištěm"
 #: data/org.gnome.Nibbles.appdata.xml.in:10
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won’t have much room for movement."
+"enemy worms while eating apples and bananas to increase your length. Each "
+"worm has six lives and loses one by running into a wall, another worm, or "
+"itself. The enemy worms are after the same bonuses that you are, so be "
+"careful. If the worms become too large, you won’t have much room to move."
 msgstr ""
 "Ovládejte červíka na jeho cestě za bonusovým jídlem a růstem. Vyhněte se "
-"ostatním nepřátelským červíkům a přitom jezte koblížky a zmrzlinky, abyste "
-"rostli. Každý červík má deset životů, které ztrácí při naražení do zdi, "
+"ostatním nepřátelským červíkům a přitom jezte jablka a banány, abyste "
+"rostli. Každý červík má šest životů a jeden ztrácí při naražení do zdi, "
 "jiného červíka nebo do sebe sama. Nepřátelští červíci jdou po stejných "
-"bonusech, jako vy, takže buďte opatrní: když příliš narostou, budete mít "
-"málo místa pro manévrování."
+"bonusech, jako vy, takže buďte opatrní. Pokud červíci příliš narostou, "
+"budete mít málo místa pro manévrování."
 
 #: data/org.gnome.Nibbles.appdata.xml.in:17
 msgid ""
@@ -78,10 +78,6 @@ msgid ""
 msgstr ""
 "Zahrajte si na vlastní pěst až proti pěti nepřátelským červíkům nebo se "
 "podělte o klávesnici při hraní s přáteli."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:58
-msgid "Michael Catanzaro"
-msgstr "Michael Catanzaro"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -307,13 +303,30 @@ msgstr "Pohyb doprava"
 msgid "Key to use for motion right."
 msgstr "Klávesa, která se má používat pro pohyb doprava."
 
+#. Translators: title of the Are You Sure? window
+#: data/ui/are-you-sure.ui:27
+msgid "Are You Sure?"
+msgstr "Jste si jisti?"
+
+#. Translators: negative response button to Are You Sure? window
+#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
+#: data/ui/are-you-sure.ui:84 src/nibbles-view.vala:1801
+msgid "No"
+msgstr "Ne"
+
+#. Translators: positive response button to Are You Sure? window
+#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
+#: data/ui/are-you-sure.ui:97 src/nibbles-view.vala:1828
+msgid "Yes"
+msgstr "Ano"
+
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
-#: data/ui/controls.ui:35
+#: data/ui/controls.ui:39
 msgid "Controls"
 msgstr "Ovládání"
 
 #. Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game
-#: data/ui/controls.ui:56
+#: data/ui/controls.ui:60
 msgid "_Start"
 msgstr "_Začít"
 
@@ -436,14 +449,13 @@ msgid "_About Nibbles"
 msgstr "O _aplikaci Červíci"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:76 src/nibbles-window.vala:571
+#: data/ui/nibbles.ui:76
 msgid "_New Game"
 msgstr "_Nová hra"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:99 src/nibbles-window.vala:637
+#: data/ui/nibbles.ui:99 src/nibbles-window.vala:648
 msgid "_Pause"
 msgstr "_Pozastavit"
 
@@ -488,12 +500,13 @@ msgid "Select the number of computer players."
 msgstr "Vyberte počet počítačových hráčů."
 
 #: data/ui/players.ui:163 data/ui/players.ui:177 data/ui/players.ui:191
+#: data/ui/players.ui:205 data/ui/players.ui:219
 msgid "x"
 msgstr "x"
 
 #. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/players.ui:212 data/ui/speed.ui:143
+#: data/ui/players.ui:240 data/ui/speed.ui:143
 msgid "_Next"
 msgstr "_Další"
 
@@ -539,23 +552,23 @@ msgid "Press a key for up."
 msgstr "Stiskněte klávesu pro pohyb nahoru."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
-#: src/controls.vala:245
+#: src/controls.vala:247
 msgid "Press a key for down."
 msgstr "Stiskněte klávesu pro pohyb dolů."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
-#: src/controls.vala:263
+#: src/controls.vala:267
 msgid "Press a key for left."
 msgstr "Stiskněte klávesu pro pohyb doleva."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
-#: src/controls.vala:281
+#: src/controls.vala:287
 msgid "Press a key for right."
 msgstr "Stiskněte klávesu pro pohyb doprava."
 
 #. instruction label
 #. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:573
+#: src/controls.vala:622
 msgid "Select your color"
 msgstr "Vyberte si svou barvu"
 
@@ -741,57 +754,54 @@ msgstr ""
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:611 src/players.vala:39
-#| msgid "_1"
+#: src/nibbles-view.vala:606 src/players.vala:41
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:614 src/players.vala:42
-#| msgid "_2"
+#: src/nibbles-view.vala:609 src/players.vala:44
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:617 src/players.vala:45
-#| msgid "_3"
+#: src/nibbles-view.vala:612 src/players.vala:47
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:630
+#: src/nibbles-view.vala:625
 msgid "Worm 1"
 msgstr "Červík 1"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:633
+#: src/nibbles-view.vala:628
 msgid "Worm 2"
 msgstr "Červík 2"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:636
+#: src/nibbles-view.vala:631
 msgid "Worm 3"
 msgstr "Červík 3"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:639
+#: src/nibbles-view.vala:634
 msgid "Worm 4"
 msgstr "Červík 4"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:642
+#: src/nibbles-view.vala:637
 msgid "Worm 5"
 msgstr "Červík 5"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:645
+#: src/nibbles-view.vala:640
 msgid "Worm 6"
 msgstr "Červík 6"
 
 #. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:670
+#: src/nibbles-view.vala:665
 msgid ""
 "Are you sure you want to start a new game?\n"
 "If you start a new game, the current one will be lost."
@@ -799,139 +809,129 @@ msgstr ""
 "Jste si jisti, že chcete začít novou hru?\n"
 "Pokud začnete novou hru, ta současná bude zahozena."
 
-#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: src/nibbles-view.vala:1753
-msgid "No"
-msgstr "Ne"
-
-#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: src/nibbles-view.vala:1780
-msgid "Yes"
-msgstr "Ano"
-
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1862
+#: src/nibbles-view.vala:1946
 msgid "red"
 msgstr "červená"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1864
+#: src/nibbles-view.vala:1948
 msgid "green"
 msgstr "zelená"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1866
+#: src/nibbles-view.vala:1950
 msgid "blue"
 msgstr "modrá"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1868
+#: src/nibbles-view.vala:1952
 msgid "yellow"
 msgstr "žlutá"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1870
+#: src/nibbles-view.vala:1954
 msgid "cyan"
 msgstr "azurová"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1872
+#: src/nibbles-view.vala:1956
 msgid "purple"
 msgstr "purpurová"
 
-#. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:566
+#. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:582
 msgid "Are you sure you want to start a new game?"
 msgstr "Opravdu chcete začít novou hru?"
 
-#. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:568
+#. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:584
 msgid "If you start a new game, the current one will be lost."
 msgstr "Pokud začnete novou hru, ta současná bude zahozena."
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:632
+#: src/nibbles-window.vala:643
 msgid "_Resume"
 msgstr "Pok_račovat"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:844 src/nibbles-window.vala:1063
+#: src/nibbles-window.vala:886 src/nibbles-window.vala:1105
 #, c-format
 msgid "Level %d"
 msgstr "Úroveň %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:917
+#: src/nibbles-window.vala:959
 msgid "Beginner"
 msgstr "Začátečník"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:919
+#: src/nibbles-window.vala:961
 msgid "Slow"
 msgstr "Pomalé"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:921
+#: src/nibbles-window.vala:963
 msgid "Medium"
 msgstr "Střední"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:923
+#: src/nibbles-window.vala:965
 msgid "Fast"
 msgstr "Rychlé"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:925
+#: src/nibbles-window.vala:967
 msgid "Beginner with Fakes"
 msgstr "Začátečník s falšemi"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:927
+#: src/nibbles-window.vala:969
 msgid "Slow with Fakes"
 msgstr "Pomalé s falšemi"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:929
+#: src/nibbles-window.vala:971
 msgid "Medium with Fakes"
 msgstr "Střední s falšemi"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:931
+#: src/nibbles-window.vala:973
 msgid "Fast with Fakes"
 msgstr "Rychlé s falšemi"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:936
+#: src/nibbles-window.vala:978
 msgid "Difficulty Level:"
 msgstr "Úroveň obtížnosti:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1042
+#: src/nibbles-window.vala:1084
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Úroveň %d dokončena!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1053
+#: src/nibbles-window.vala:1095
 msgid "_Next Level"
 msgstr "_Následující úroveň"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1090
+#: src/nibbles-window.vala:1132
 msgid "Congratulations!"
 msgstr "Gratulujeme!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1094
+#: src/nibbles-window.vala:1136
 msgid "Game Over!"
 msgstr "Konec hry!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1106
+#: src/nibbles-window.vala:1148
 msgid "You have completed the game."
 msgstr "Dokončili jste hru."
 
-#: src/nibbles-window.vala:1116
+#: src/nibbles-window.vala:1158
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -940,31 +940,28 @@ msgstr[1] "%d body"
 msgstr[2] "%d bodů"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1127
+#: src/nibbles-window.vala:1169
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(o %ld bodů více a byli byste ve vedoucí tabulce)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1134
+#: src/nibbles-window.vala:1176
 msgid "_Play Again"
 msgstr "_Hrát znovu"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set
-#: src/players.vala:36
-#| msgid "_0"
+#: src/players.vala:38
 msgid "0"
 msgstr "0"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set
-#: src/players.vala:48
-#| msgid "_4"
+#: src/players.vala:50
 msgid "4"
 msgstr "4"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set
-#: src/players.vala:51
-#| msgid "_5"
+#: src/players.vala:53
 msgid "5"
 msgstr "5"
 
@@ -973,6 +970,9 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "Červík %d"
+
+#~ msgid "Michael Catanzaro"
+#~ msgstr "Michael Catanzaro"
 
 #~ msgid "Size of game tiles"
 #~ msgstr "Velikost dlaždic hry"
