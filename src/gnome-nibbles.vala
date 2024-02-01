@@ -211,13 +211,16 @@ private class Nibbles : Gtk.Application
         add_action_entries (action_entries, this);
 
         // F1 and friends are managed manually
-        set_accels_for_action ("win.new-game",  { "<Primary>n"      });
-        set_accels_for_action ("win.pause",     { "<Primary>p",
-                                                           "Pause"  });
-        set_accels_for_action ("app.quit",      { "<Primary>q"      });
-        set_accels_for_action ("win.back",      {          "Escape" });
-        set_accels_for_action ("win.hamburger", {          "F10",
-                                                           "Menu"   });
+        const string [] newgame = {"<Primary>n"};
+        const string [] pause = {"<Primary>p","Pause"};
+        const string [] appquit = {"<Primary>q"};
+        const string [] back = {"Escape"};
+        const string [] hamburger = {"F10","Menu"};
+        set_accels_for_action ("win.new-game",  newgame);
+        set_accels_for_action ("win.pause",     pause);
+        set_accels_for_action ("app.quit",      appquit);
+        set_accels_for_action ("win.back",      back);
+        set_accels_for_action ("win.hamburger", hamburger);
         bool nibbles_changed = nibbles != int.MIN;
         bool players_changed = players != int.MIN;
         if (nibbles_changed
