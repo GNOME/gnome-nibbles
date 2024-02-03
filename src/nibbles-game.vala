@@ -766,19 +766,19 @@ private class NibblesGame : Object
     * * Saving / Loading properties
     \*/
 
+    delegate Variant SetMappingFunction (Value value, VariantType type, void* data);
     internal void load_worm_properties (Gee.ArrayList<Settings> worm_settings)
     {
         worm_props.clear ();
         foreach (var worm in worms)
         {
             var properties = new WormProperties ();
-
+            SetMappingFunction set_mapping = (value, type, data) => {return new Variant.@string (get_color_string (value.get_int ()));};
             worm_settings[worm.id].bind_with_mapping ("color", properties, "color", SettingsBindFlags.DEFAULT,
-                                                      (prop_value, variant) => { prop_value.set_int (get_color_num (variant.get_string ()));
-                                                                                 return /* success */ true; },
-                                                      (prop_value, variant_type) => { return new Variant.@string (get_color_string (prop_value.get_int ())); },
-                                                      null, null);
-
+                (prop_value, variant) => { prop_value.set_int (get_color_num (variant.get_string ()));
+                                           return /* success */ true; },
+                (SettingsBindSetMappingShared)set_mapping,
+                null, null);
             worm_settings[worm.id].bind ("key-up",        properties, "up",        SettingsBindFlags.DEFAULT);
             worm_settings[worm.id].bind ("key-down",      properties, "down",      SettingsBindFlags.DEFAULT);
             worm_settings[worm.id].bind ("key-left",      properties, "left",      SettingsBindFlags.DEFAULT);

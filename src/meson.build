@@ -14,7 +14,7 @@ nibbles_tests = executable(
         gio_dep,
         glib_dep,
     ],
-    vala_args : gtk_define + '--define=TEST_COMPILE' + target_glib,
+    vala_args : if_defines + '--define=TEST_COMPILE' + target_glib,
     link_args : '-lm'
 )
 test('nibbles-tests', nibbles_tests)
@@ -55,7 +55,7 @@ gnome_nibbles_vala_args = [
 
 executable(meson.project_name(), gnome_nibbles_sources,
     dependencies: gnome_nibbles_deps,
-    vala_args: gnome_nibbles_vala_args + gtk_define + target_glib,
+    vala_args: gnome_nibbles_vala_args + if_defines + target_glib,
     link_args: '-lm',
     install: true
 )

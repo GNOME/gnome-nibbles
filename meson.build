@@ -35,15 +35,21 @@ libgnome_games_support_dep = dependency('libgnome-games-support-2', version: '>=
 gtk_dep = dependency('gtk4', version: '>= 4.6') # this code works on 4.6.9 (ubuntu 22.04 with updates), it hasn't been tried on anything earlier
 pangocairo_dep = dependency('pangocairo')
 
+if_defines = []
 # version defines of GTK4 for #if e.g. #if GTK_4_6_or_above
 gtk_version = gtk_dep.version()
-gtk_define = []
 foreach i : range(0, gtk_version.split('.')[1].to_int() + 1, 1)
-  gtk_define += '--define=GTK_4_' + i.to_string() + '_or_above'
+  if_defines += '--define=GTK_4_' + i.to_string() + '_or_above'
 endforeach
 
 valac = meson.get_compiler('vala')
 posix_dep = valac.find_library('posix')
+
+# version defines of vala for #if e.g. #if VALA_0_56_or_above
+vala_version = valac.version()
+foreach i : range(56, vala_version.split('.')[1].to_int() + 1, 1)
+  if_defines += '--define=VALA_0_' + i.to_string() + '_or_above'
+endforeach
 
 # Configuration
 conf = configuration_data()
