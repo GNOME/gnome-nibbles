@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2022-23 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2022-24 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -134,7 +134,7 @@ private struct Position
 }
 
 /*
- * This structor is similar to struct Position except x & y
+ * This structure is similar to struct Position except x & y
  * are signed to allow wrapping around the board. 
  */
 public struct SignedPosition
@@ -233,7 +233,7 @@ private class WormMap : Object
          * determine the position within the array.
          * The remainder from the above division is the bit position
          * we want within the unsigned integer.
-         * Unfortunatly in vala there is no mathmatical operator that 
+         * Unfortunately in vala there is no mathematical operator that 
          * gives both the quotient and the remainder from a division
          * so we have two use two operators / and %.
          * Once we have the bit we and the result with 1 (to mask out
@@ -535,7 +535,7 @@ private class AngleIterator
 enum Quarter {Q0,Q1,Q2,Q3}
 
 /*
- * Structor to store any angle. e.g 45° (PI / 4) or 2½° (PI / 72).
+ * Structure to store any angle. e.g 45° (PI / 4) or 2½° (PI / 72).
  * The angle is stored as a ratio of x (opposite) over y (adjacent)
  * so that we only need to use integers in all our operations.
  * To convert to degrees use (Math.atan2 (x,-y) / Math.PI * 180).
