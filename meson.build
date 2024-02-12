@@ -23,10 +23,15 @@ podir       = join_paths(meson.project_source_root(), 'po')
 bindir      = join_paths(prefix, get_option ('bindir'))
 
 # Dependencies
+vala_minimum_version = '0.55.1' # for sub-functions; https://gitlab.gnome.org/GNOME/vala/-/commit/048aaba0cd88b784fe9fa421dbad494019abd42e
 glib_minimum_version = '2.66.0' # minimum version for GTK 4
 glib_target_version = '2.78.0' # most recent tested version
 target_glib = '--target-glib=' + '@0@'.format(glib_target_version)
 
+valac = meson.get_compiler('vala')
+if valac.version().version_compare('< ' + vala_minimum_version)
+  error('Vala does not meet minimum required version of ' + vala_minimum_version)
+endif
 gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0', version: '>= @0@'.format(glib_minimum_version))
 glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_minimum_version))
@@ -42,7 +47,6 @@ foreach i : range(0, gtk_version.split('.')[1].to_int() + 1, 1)
   if_defines += '--define=GTK_4_' + i.to_string() + '_or_above'
 endforeach
 
-valac = meson.get_compiler('vala')
 posix_dep = valac.find_library('posix')
 
 # version defines of vala for #if e.g. #if VALA_0_56_or_above
