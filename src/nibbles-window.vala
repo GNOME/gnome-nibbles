@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2023 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2023-24 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -474,6 +474,7 @@ private class NibblesWindow : ApplicationWindow
     {
         seconds--;
         view.redraw ();
+        game.play_sound ("gobble");
 
         if (seconds == 0)
         {
@@ -526,6 +527,7 @@ private class NibblesWindow : ApplicationWindow
 
         seconds = COUNTDOWN_TIME;
         view.redraw ();
+        game.play_sound ("gobble");
 
         countdown_id = Timeout.add_seconds (1, countdown_cb);
     }
