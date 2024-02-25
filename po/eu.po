@@ -4,13 +4,13 @@
 #
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013.
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2014, 2015, 2016, 2017.
-# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2019, 2020, 2023.
+# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2019, 2020, 2023, 2024.
 #
 msgid ""
 msgstr "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2023-10-05 16:03+0000\n"
-"PO-Revision-Date: 2023-10-21 10:00+0100\n"
+"POT-Creation-Date: 2023-12-23 13:28+0000\n"
+"PO-Revision-Date: 2024-02-25 10:00+0100\n"
 "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
@@ -33,11 +33,11 @@ msgstr "Gidatu zizarea labirintoan zehar"
 #: data/org.gnome.Nibbles.appdata.xml.in:10
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won’t have much room for movement."
-msgstr "Kontrolatu zizare bat opariak jan eta handiago bihurtzeko. Gainditu zizare etsaiak izozkiak eta donutak jaten dituzun bitartean zure luzera handiagotzeko. Zizare bakoitzak hamar bizi ditu eta bat galtzen du paretaren, beste zizare baten edo bere buruaren aurka talka egitean. Zizare etsaiak zu bezalaxe gainordainen atzetik dabiltza, kontu ibili beraz: luzeegiak badira ez duzu leku handirik izango mugitzeko."
+"enemy worms while eating apples and bananas to increase your length. Each "
+"worm has six lives and loses one by running into a wall, another worm, or "
+"itself. The enemy worms are after the same bonuses that you are, so be "
+"careful. If the worms become too large, you won’t have much room to move."
+msgstr "Kontrolatu zizare bat opariak jan eta handiago bihurtzeko. Gainditu zizare etsaiak sagarrak eta bananak jaten dituzun bitartean zure luzera handiagotzeko. Zizare bakoitzak sei bizitza ditu eta bat galtzen du paretaren, beste zizare baten edo bere buruaren aurka talka egitean. Zizare etsaiak zu bezalaxe gainordainen atzetik dabiltza, kontu ibili beraz. Zizareak luzeegiak badira ez duzu leku handirik izango mugitzeko."
 
 #: data/org.gnome.Nibbles.appdata.xml.in:17
 msgid ""
@@ -51,10 +51,6 @@ msgid ""
 "Play on your own against up to five enemy worms, or share your keyboard to "
 "play with a friend."
 msgstr "Jokatu zizareak diren bost etsairen kontra, edo partekatu teklatua lagun batekin jokatzeko."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:58
-msgid "Michael Catanzaro"
-msgstr "Michael Catanzaro"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -279,12 +275,12 @@ msgid "Key to use for motion right."
 msgstr "Eskuinera joateko tekla."
 
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
-#: data/ui/controls.ui:35
+#: data/ui/controls.ui:39
 msgid "Controls"
 msgstr "Kontrolak"
 
 #. Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game
-#: data/ui/controls.ui:56
+#: data/ui/controls.ui:60
 msgid "_Start"
 msgstr "_Hasi"
 
@@ -509,23 +505,23 @@ msgid "Press a key for up."
 msgstr "Sakatu tekla bat gorantz joateko."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
-#: src/controls.vala:245
+#: src/controls.vala:247
 msgid "Press a key for down."
 msgstr "Sakatu tekla bat beherantz joateko."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
-#: src/controls.vala:263
+#: src/controls.vala:267
 msgid "Press a key for left."
 msgstr "Sakatu tekla bat ezkerrerantz joateko."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
-#: src/controls.vala:281
+#: src/controls.vala:287
 msgid "Press a key for right."
 msgstr "Sakatu tekla bat eskuinerantz joateko."
 
 #. instruction label
 #. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:573
+#: src/controls.vala:622
 msgid "Select your color"
 msgstr "Hautatu zure kolorea"
 
@@ -698,54 +694,54 @@ msgstr "translator-credits"
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:611 src/players.vala:39
+#: src/nibbles-view.vala:606 src/players.vala:39
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:614 src/players.vala:42
+#: src/nibbles-view.vala:609 src/players.vala:42
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:617 src/players.vala:45
+#: src/nibbles-view.vala:612 src/players.vala:45
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:630
+#: src/nibbles-view.vala:625
 msgid "Worm 1"
 msgstr "1. zizarea"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:633
+#: src/nibbles-view.vala:628
 msgid "Worm 2"
 msgstr "2. zizarea"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:636
+#: src/nibbles-view.vala:631
 msgid "Worm 3"
 msgstr "3. zizarea"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:639
+#: src/nibbles-view.vala:634
 msgid "Worm 4"
 msgstr "4. zizarea"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:642
+#: src/nibbles-view.vala:637
 msgid "Worm 5"
 msgstr "5. zizarea"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:645
+#: src/nibbles-view.vala:640
 msgid "Worm 6"
 msgstr "6. zizarea"
 
 #. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:670
+#: src/nibbles-view.vala:665
 msgid ""
 "Are you sure you want to start a new game?\n"
 "If you start a new game, the current one will be lost."
@@ -753,42 +749,42 @@ msgstr "Ziur zaude joko berria hasi nahi duzula?\n"
 "Joko berri bat hasten baduzu, unekoa galduko duzu."
 
 #. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: src/nibbles-view.vala:1753
+#: src/nibbles-view.vala:1801
 msgid "No"
 msgstr "Ez"
 
 #. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: src/nibbles-view.vala:1780
+#: src/nibbles-view.vala:1828
 msgid "Yes"
 msgstr "Bai"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1862
+#: src/nibbles-view.vala:1946
 msgid "red"
 msgstr "gorria"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1864
+#: src/nibbles-view.vala:1948
 msgid "green"
 msgstr "berdea"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1866
+#: src/nibbles-view.vala:1950
 msgid "blue"
 msgstr "urdina"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1868
+#: src/nibbles-view.vala:1952
 msgid "yellow"
 msgstr "horia"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1870
+#: src/nibbles-view.vala:1954
 msgid "cyan"
 msgstr "cyana"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1872
+#: src/nibbles-view.vala:1956
 msgid "purple"
 msgstr "purpura"
 
@@ -808,83 +804,83 @@ msgid "_Resume"
 msgstr "_Jarraitu"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:844 src/nibbles-window.vala:1063
+#: src/nibbles-window.vala:875 src/nibbles-window.vala:1094
 #, c-format
 msgid "Level %d"
 msgstr "%d. maila"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:917
+#: src/nibbles-window.vala:948
 msgid "Beginner"
 msgstr "Hasiberria"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:919
+#: src/nibbles-window.vala:950
 msgid "Slow"
 msgstr "Motela"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:921
+#: src/nibbles-window.vala:952
 msgid "Medium"
 msgstr "Tartekoa"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:923
+#: src/nibbles-window.vala:954
 msgid "Fast"
 msgstr "Bizkorra"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:925
+#: src/nibbles-window.vala:956
 msgid "Beginner with Fakes"
 msgstr "Gezurrezko hasiberria"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:927
+#: src/nibbles-window.vala:958
 msgid "Slow with Fakes"
 msgstr "Gezurrezko motela"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:929
+#: src/nibbles-window.vala:960
 msgid "Medium with Fakes"
 msgstr "Gezurrezko tartekoa"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:931
+#: src/nibbles-window.vala:962
 msgid "Fast with Fakes"
 msgstr "Gezurrezko bizkorra"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:936
+#: src/nibbles-window.vala:967
 msgid "Difficulty Level:"
 msgstr "Zailtasun maila:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1042
+#: src/nibbles-window.vala:1073
 #, c-format
 msgid "Level %d Completed!"
 msgstr "%d. maila osatu da."
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1053
+#: src/nibbles-window.vala:1084
 msgid "_Next Level"
 msgstr "_Hurrengo maila"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1090
+#: src/nibbles-window.vala:1121
 msgid "Congratulations!"
 msgstr "Zorionak!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1094
+#: src/nibbles-window.vala:1125
 msgid "Game Over!"
 msgstr "Amaitu da!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1106
+#: src/nibbles-window.vala:1137
 msgid "You have completed the game."
 msgstr "Jokoa osatu duzu."
 
-#: src/nibbles-window.vala:1116
+#: src/nibbles-window.vala:1147
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -892,13 +888,13 @@ msgstr[0] "Puntu %d"
 msgstr[1] "%d puntu"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1127
+#: src/nibbles-window.vala:1158
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld puntu gehiago aurrendari izateko)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1134
+#: src/nibbles-window.vala:1165
 msgid "_Play Again"
 msgstr "Jokatu _berriro"
 
@@ -922,6 +918,9 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "%d. zizarea"
+
+#~ msgid "Michael Catanzaro"
+#~ msgstr "Michael Catanzaro"
 
 #~ msgid "Size of game tiles"
 #~ msgstr "Fitxen tamaina"
