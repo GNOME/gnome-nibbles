@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2023-10-05 16:03+0000\n"
-"PO-Revision-Date: 2023-10-08 19:32+0300\n"
+"POT-Creation-Date: 2023-12-23 13:27+0000\n"
+"PO-Revision-Date: 2024-03-03 21:53+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Launchpad-Export-Date: 2010-09-13 15:09+0000\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
 #. Translators: title of the window, as displayed by the window manager
@@ -41,16 +41,16 @@ msgstr "Ohjaa matoa sokkelossa ympäriinsä"
 #: data/org.gnome.Nibbles.appdata.xml.in:10
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won’t have much room for movement."
+"enemy worms while eating apples and bananas to increase your length. Each "
+"worm has six lives and loses one by running into a wall, another worm, or "
+"itself. The enemy worms are after the same bonuses that you are, so be "
+"careful. If the worms become too large, you won’t have much room to move."
 msgstr ""
 "Ohjaa matoa, kun se seikkailee bonuksia syöden ja suuremmaksi kasvaen. "
-"Taktikoi vastustajamadot pois pelistä samalla syöden donitseja ja jäätelöä. "
-"Jokaisella madolla on kymmenen elämää. Jos mato törmää seinään, toiseen "
-"matoon tai itseensä, menettää yhden elämän. Muista, että vastustajamadot "
-"ovat samaisten bonusten perässä kuin sinä; jos vastustajat kasvavat liian "
+"Taktikoi vastustajamadot pois pelistä samalla syöden omenoita ja banaaneja. "
+"Jokaisella madolla on kuusi elämää. Jos mato törmää seinään, toiseen matoon "
+"tai itseensä, menettää yhden elämän. Muista, että vastustajamadot ovat "
+"samaisten bonusten perässä kuin sinä; jos vastustajat kasvavat liian "
 "suuriksi, sinulle ei jää juurikaan liikkumatilaa."
 
 #: data/org.gnome.Nibbles.appdata.xml.in:17
@@ -71,10 +71,6 @@ msgid ""
 msgstr ""
 "Pelaa itse viittä vastustajamatoa vastaan, tai haasta kaveri ja jaa "
 "näppäimistö hänen kanssaan."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:58
-msgid "Michael Catanzaro"
-msgstr "Michael Catanzaro"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -300,13 +296,30 @@ msgstr "Siirry oikealle"
 msgid "Key to use for motion right."
 msgstr "Näppäin oikealle siirtämiseen."
 
+#. Translators: title of the Are You Sure? window
+#: data/ui/are-you-sure.ui:27
+msgid "Are You Sure?"
+msgstr "Oletko varma?"
+
+#. Translators: negative response button to Are You Sure? window
+#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
+#: data/ui/are-you-sure.ui:84 src/nibbles-view.vala:1801
+msgid "No"
+msgstr "Ei"
+
+#. Translators: positive response button to Are You Sure? window
+#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
+#: data/ui/are-you-sure.ui:97 src/nibbles-view.vala:1828
+msgid "Yes"
+msgstr "Kyllä"
+
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
-#: data/ui/controls.ui:35
+#: data/ui/controls.ui:39
 msgid "Controls"
 msgstr "Ohjaimet"
 
 #. Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game
-#: data/ui/controls.ui:56
+#: data/ui/controls.ui:60
 msgid "_Start"
 msgstr "_Käynnistä"
 
@@ -428,14 +441,13 @@ msgid "_About Nibbles"
 msgstr "_Tietoja - Nibbles"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:76 src/nibbles-window.vala:571
+#: data/ui/nibbles.ui:76
 msgid "_New Game"
 msgstr "_Uusi peli"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:99 src/nibbles-window.vala:637
+#: data/ui/nibbles.ui:99 src/nibbles-window.vala:648
 msgid "_Pause"
 msgstr "_Keskeytä"
 
@@ -480,12 +492,13 @@ msgid "Select the number of computer players."
 msgstr "Valitse tietokonepelaajien määrä."
 
 #: data/ui/players.ui:163 data/ui/players.ui:177 data/ui/players.ui:191
+#: data/ui/players.ui:205 data/ui/players.ui:219
 msgid "x"
 msgstr "x"
 
 #. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/players.ui:212 data/ui/speed.ui:143
+#: data/ui/players.ui:240 data/ui/speed.ui:143
 msgid "_Next"
 msgstr "_Seuraava"
 
@@ -531,23 +544,23 @@ msgid "Press a key for up."
 msgstr "Paina näppäintä ylös."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
-#: src/controls.vala:245
+#: src/controls.vala:247
 msgid "Press a key for down."
 msgstr "Paina näppäintä alas."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
-#: src/controls.vala:263
+#: src/controls.vala:267
 msgid "Press a key for left."
 msgstr "Paina näppäintä vasemmalle."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
-#: src/controls.vala:281
+#: src/controls.vala:287
 msgid "Press a key for right."
 msgstr "Paina näppäintä oikealle."
 
 #. instruction label
 #. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:573
+#: src/controls.vala:622
 msgid "Select your color"
 msgstr "Valitse väri"
 
@@ -719,7 +732,7 @@ msgstr "Tekijänoikeus © %u-%u – Ben Corby"
 #: src/gnome-nibbles.vala:385
 msgid "translator-credits"
 msgstr ""
-"Jiri Grönroos, 2012-2023\n"
+"Jiri Grönroos, 2012-2024\n"
 "Timo Jyrinki, 2008\n"
 "Ilkka Tuohela, 2006-2009\n"
 "Sami Pesonen, 2002-2005\n"
@@ -739,57 +752,54 @@ msgstr ""
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:611 src/players.vala:39
-#| msgid "_1"
+#: src/nibbles-view.vala:606 src/players.vala:41
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:614 src/players.vala:42
-#| msgid "_2"
+#: src/nibbles-view.vala:609 src/players.vala:44
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:617 src/players.vala:45
-#| msgid "_3"
+#: src/nibbles-view.vala:612 src/players.vala:47
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:630
+#: src/nibbles-view.vala:625
 msgid "Worm 1"
 msgstr "Mato 1"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:633
+#: src/nibbles-view.vala:628
 msgid "Worm 2"
 msgstr "Mato 2"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:636
+#: src/nibbles-view.vala:631
 msgid "Worm 3"
 msgstr "Mato 3"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:639
+#: src/nibbles-view.vala:634
 msgid "Worm 4"
 msgstr "Mato 4"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:642
+#: src/nibbles-view.vala:637
 msgid "Worm 5"
 msgstr "Mato 5"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:645
+#: src/nibbles-view.vala:640
 msgid "Worm 6"
 msgstr "Mato 6"
 
 #. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:670
+#: src/nibbles-view.vala:665
 msgid ""
 "Are you sure you want to start a new game?\n"
 "If you start a new game, the current one will be lost."
@@ -797,139 +807,129 @@ msgstr ""
 "Haluatko varmasti aloittaa uuden pelin?\n"
 "Jos aloitat uuden pelin, nykyinen peli lopetetaan."
 
-#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: src/nibbles-view.vala:1753
-msgid "No"
-msgstr "Ei"
-
-#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: src/nibbles-view.vala:1780
-msgid "Yes"
-msgstr "Kyllä"
-
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1862
+#: src/nibbles-view.vala:1946
 msgid "red"
 msgstr "punainen"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1864
+#: src/nibbles-view.vala:1948
 msgid "green"
 msgstr "vihreä"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1866
+#: src/nibbles-view.vala:1950
 msgid "blue"
 msgstr "sininen"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1868
+#: src/nibbles-view.vala:1952
 msgid "yellow"
 msgstr "keltainen"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1870
+#: src/nibbles-view.vala:1954
 msgid "cyan"
 msgstr "syaani"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1872
+#: src/nibbles-view.vala:1956
 msgid "purple"
 msgstr "violetti"
 
-#. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:566
+#. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:582
 msgid "Are you sure you want to start a new game?"
 msgstr "Haluatko varmasti aloittaa uuden pelin?"
 
-#. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:568
+#. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:584
 msgid "If you start a new game, the current one will be lost."
 msgstr "Jos aloitat uuden pelin, nykyisen peli lopetetaan."
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:632
+#: src/nibbles-window.vala:643
 msgid "_Resume"
 msgstr "_Jatka"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:844 src/nibbles-window.vala:1063
+#: src/nibbles-window.vala:886 src/nibbles-window.vala:1105
 #, c-format
 msgid "Level %d"
 msgstr "Taso %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:917
+#: src/nibbles-window.vala:959
 msgid "Beginner"
 msgstr "Aloittelija"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:919
+#: src/nibbles-window.vala:961
 msgid "Slow"
 msgstr "Hidas"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:921
+#: src/nibbles-window.vala:963
 msgid "Medium"
 msgstr "Melko vaikea"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:923
+#: src/nibbles-window.vala:965
 msgid "Fast"
 msgstr "Nopea"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:925
+#: src/nibbles-window.vala:967
 msgid "Beginner with Fakes"
 msgstr "Aloittelija huijausten kera"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:927
+#: src/nibbles-window.vala:969
 msgid "Slow with Fakes"
 msgstr "Hidas huijausten kera"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:929
+#: src/nibbles-window.vala:971
 msgid "Medium with Fakes"
 msgstr "Melko vaikea huijausten kera"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:931
+#: src/nibbles-window.vala:973
 msgid "Fast with Fakes"
 msgstr "Nopea huijausten kera"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:936
+#: src/nibbles-window.vala:978
 msgid "Difficulty Level:"
 msgstr "Vaikeusaste:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1042
+#: src/nibbles-window.vala:1084
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Taso %d läpäisty!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1053
+#: src/nibbles-window.vala:1095
 msgid "_Next Level"
 msgstr "S_euraava taso"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1090
+#: src/nibbles-window.vala:1132
 msgid "Congratulations!"
 msgstr "Onnittelut!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1094
+#: src/nibbles-window.vala:1136
 msgid "Game Over!"
 msgstr "Peli päättyi!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1106
+#: src/nibbles-window.vala:1148
 msgid "You have completed the game."
 msgstr "Läpäisit pelin."
 
-#: src/nibbles-window.vala:1116
+#: src/nibbles-window.vala:1158
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -937,31 +937,28 @@ msgstr[0] "%d piste"
 msgstr[1] "%d pistettä"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1127
+#: src/nibbles-window.vala:1169
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld pistettä enemmän pistetaulukkoa varten)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1134
+#: src/nibbles-window.vala:1176
 msgid "_Play Again"
 msgstr "_Pelaa uudelleen"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set
-#: src/players.vala:36
-#| msgid "_0"
+#: src/players.vala:38
 msgid "0"
 msgstr "0"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set
-#: src/players.vala:48
-#| msgid "_4"
+#: src/players.vala:50
 msgid "4"
 msgstr "4"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set
-#: src/players.vala:51
-#| msgid "_5"
+#: src/players.vala:53
 msgid "5"
 msgstr "5"
 
@@ -970,6 +967,9 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "Mato %d"
+
+#~ msgid "Michael Catanzaro"
+#~ msgstr "Michael Catanzaro"
 
 #~ msgid "Size of game tiles"
 #~ msgstr "Pelissä käytettävien esineiden koko"
