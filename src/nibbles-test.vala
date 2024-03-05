@@ -302,7 +302,7 @@ namespace NibblesTest
     private static void test_games ()
     {
         Test.message ("test board 008");
-        #if VALA_0_56_15_or_above
+        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
         test_board (level_008, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 16,
                     { WormTest () { start_x =  4, start_y = 14, final_lives = 6, final_score = 34 },
                       WormTest () { start_x = 18, start_y = 31, final_lives = 6, final_score = 18 },
@@ -317,7 +317,7 @@ namespace NibblesTest
         #endif
 
         Test.message ("test board 011");
-        #if VALA_0_56_15_or_above
+        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
         test_board (level_011, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 15,
                     { WormTest () { start_x = 15, start_y =  9, final_lives = 6, final_score =  2 },
                       WormTest () { start_x = 44, start_y =  9, final_lives = 6, final_score = 32 },
@@ -332,7 +332,7 @@ namespace NibblesTest
         #endif
         
         Test.message ("test board 025");
-        #if VALA_0_56_15_or_above
+        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
         test_board (level_025, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 12,
                     { WormTest () { start_x = 11, start_y =  6, final_lives = 6, final_score = 23 },
                       WormTest () { start_x = 80, start_y =  6, final_lives = 6, final_score = 15 },
@@ -560,7 +560,7 @@ namespace NibblesTest
 
     private static void test_heads ()
     {
-        #if VALA_0_56_15_or_above
+        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
         Test.message ("test heads 1");
         test_board (test_heads_1, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
                                           WormTest () { start_x = 11, start_y = 4, final_lives = 6, final_score = 0 }});
@@ -732,7 +732,7 @@ namespace NibblesTest
 
     private static void test_warps ()
     {
-        #if VALA_0_56_15_or_above
+        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
         Test.message ("test warps 1");
         test_board (test_warps_1, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 }});
 

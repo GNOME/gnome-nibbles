@@ -43,21 +43,21 @@ pangocairo_dep = dependency('pangocairo')
 if_defines = []
 # version defines of GTK4 for #if e.g. #if GTK_4_6_or_above
 gtk_version = gtk_dep.version()
-foreach i : range(4, gtk_version.split('.')[0].to_int() + 1, 1)
-  foreach o : range(0, gtk_version.split('.')[1].to_int() + 1, 1)
-    if_defines += '--define=GTK_' + i.to_string() + '_' + o.to_string() + '_or_above'
-  endforeach
+gtk_big = gtk_version.split('.')[0].to_int()
+foreach i : range(0, gtk_version.split('.')[1].to_int() + 1, 1)
+  if_defines += '--define=GTK_' + gtk_big.to_string() + '_' + i.to_string() + '_or_above'
 endforeach
 
 posix_dep = valac.find_library('posix')
 
 # version defines of vala for #if e.g. #if VALA_0_56_15_or_above
 vala_version = valac.version()
-foreach i : range(56, vala_version.split('.')[1].to_int() + 1, 1)
-  foreach o : range(0, vala_version.split('.')[2].to_int() + 1, 1)
-    if_defines += '--define=VALA_0_' + i.to_string() + '_' + o.to_string() + '_or_above'
-  endforeach
+vala_mid = vala_version.split('.')[1].to_int()
+foreach i : range(0, vala_version.split('.')[2].to_int() + 1, 1)
+  if_defines += '--define=VALA_0_' + vala_mid.to_string() + '_' + i.to_string() + '_or_above'
 endforeach
+
+message('#defines',if_defines)
 
 # Configuration
 conf = configuration_data()
