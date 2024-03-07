@@ -362,8 +362,14 @@ private class NibblesGame : Object
         animate_end_game ();
     }
 
+    DateTime last_starttime;
     private bool main_loop_cb ()
     {
+        var starttime = new DateTime.now_utc ();
+        if(last_starttime != null)
+            stdout.printf ("main_loop_cb microseconds since last start %llu\n",starttime.difference (last_starttime));
+        last_starttime = starttime;
+
         var status = get_game_status ();
         if (status == GameStatus.GAMEOVER)
         {
@@ -371,6 +377,8 @@ private class NibblesGame : Object
 
             log_score (worms.first ().score, current_level);
 
+            var endtime = new DateTime.now_utc ();
+            stdout.printf ("main_loop_cb microseconds duration %llu\n",endtime.difference (starttime));
             return Source.REMOVE;
         }
         else if (status == GameStatus.VICTORY)
@@ -381,6 +389,8 @@ private class NibblesGame : Object
             if (winner != null)
                 log_score (winner.score, current_level);
 
+            var endtime = new DateTime.now_utc ();
+            stdout.printf ("main_loop_cb microseconds duration %llu\n",endtime.difference (starttime));
             return Source.REMOVE;
         }
         else if (status == GameStatus.NEWROUND)
@@ -395,11 +405,15 @@ private class NibblesGame : Object
             if (current_level == MAX_LEVEL + 1)
                 log_score (worms.first ().score, current_level);
 
+            var endtime = new DateTime.now_utc ();
+            stdout.printf ("main_loop_cb microseconds duration %llu\n",endtime.difference (starttime));
             return Source.REMOVE;
         }
         else /* status == null */
         {
             move_worms ();
+            var endtime = new DateTime.now_utc ();
+            stdout.printf ("main_loop_cb microseconds duration %llu\n",endtime.difference (starttime));
             return Source.CONTINUE;
         } 
     }

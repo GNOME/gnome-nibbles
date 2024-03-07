@@ -260,6 +260,7 @@ internal class NibblesView : DrawingArea
         // set drawing fuction
         set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ c, width, height)=>
         {
+            var starttime = new DateTime.now_utc ();
             if (game.three_dimensional_view)
             {
                 double x2d, y2d;
@@ -593,6 +594,8 @@ internal class NibblesView : DrawingArea
                     new_game_dialogue_draw (c, width, height, result_function);
                 }
             }
+            var endtime = new DateTime.now_utc ();
+            stdout.printf ("set_draw_func microseconds duration %llu\n",endtime.difference (starttime));
         });
         connect_game_signals (game);
     }
