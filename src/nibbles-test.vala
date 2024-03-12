@@ -302,14 +302,14 @@ namespace NibblesTest
     private static void test_games ()
     {
         Test.message ("test board 008");
-        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
-        test_board (level_008, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 16,
+        #if VALA_NEEDS_ARRAY_STRING_CASTING
+        test_board ((string [])level_008, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 16,
                     { WormTest () { start_x =  4, start_y = 14, final_lives = 6, final_score = 34 },
                       WormTest () { start_x = 18, start_y = 31, final_lives = 6, final_score = 18 },
                       WormTest () { start_x =  9, start_y = 39, final_lives = 5, final_score = 26 },
                       WormTest () { start_x = 51, start_y = 45, final_lives = 5, final_score =  2 }});
         #else
-        test_board ((string [])level_008, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 16,
+        test_board (level_008, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 16,
                     { WormTest () { start_x =  4, start_y = 14, final_lives = 6, final_score = 34 },
                       WormTest () { start_x = 18, start_y = 31, final_lives = 6, final_score = 18 },
                       WormTest () { start_x =  9, start_y = 39, final_lives = 5, final_score = 26 },
@@ -317,14 +317,14 @@ namespace NibblesTest
         #endif
 
         Test.message ("test board 011");
-        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
-        test_board (level_011, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 15,
+        #if VALA_NEEDS_ARRAY_STRING_CASTING
+        test_board ((string [])level_011, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 15,
                     { WormTest () { start_x = 15, start_y =  9, final_lives = 6, final_score =  2 },
                       WormTest () { start_x = 44, start_y =  9, final_lives = 6, final_score = 32 },
                       WormTest () { start_x = 76, start_y =  9, final_lives = 6, final_score = 31 },
                       WormTest () { start_x = 15, start_y = 56, final_lives = 6, final_score = 18 }});
         #else
-        test_board ((string [])level_011, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 15,
+        test_board (level_011, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 15,
                     { WormTest () { start_x = 15, start_y =  9, final_lives = 6, final_score =  2 },
                       WormTest () { start_x = 44, start_y =  9, final_lives = 6, final_score = 32 },
                       WormTest () { start_x = 76, start_y =  9, final_lives = 6, final_score = 31 },
@@ -332,14 +332,14 @@ namespace NibblesTest
         #endif
         
         Test.message ("test board 025");
-        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
-        test_board (level_025, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 12,
+        #if VALA_NEEDS_ARRAY_STRING_CASTING
+        test_board ((string [])level_025, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 12,
                     { WormTest () { start_x = 11, start_y =  6, final_lives = 6, final_score = 23 },
                       WormTest () { start_x = 80, start_y =  6, final_lives = 6, final_score = 15 },
                       WormTest () { start_x = 14, start_y = 37, final_lives = 6, final_score = 16 },
                       WormTest () { start_x = 79, start_y = 27, final_lives = 6, final_score = 24 }});
         #else
-        test_board ((string [])level_025, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 12,
+        test_board (level_025, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 12,
                     { WormTest () { start_x = 11, start_y =  6, final_lives = 6, final_score = 23 },
                       WormTest () { start_x = 80, start_y =  6, final_lives = 6, final_score = 15 },
                       WormTest () { start_x = 14, start_y = 37, final_lives = 6, final_score = 16 },
@@ -560,47 +560,7 @@ namespace NibblesTest
 
     private static void test_heads ()
     {
-        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
-        Test.message ("test heads 1");
-        test_board (test_heads_1, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
-                                          WormTest () { start_x = 11, start_y = 4, final_lives = 6, final_score = 0 }});
-
-        Test.message ("test heads 2");
-        test_board (test_heads_2, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
-                                          WormTest () { start_x = 11, start_y = 4, final_lives = 4, final_score = 0 }});
-
-        Test.message ("test heads 3");
-        test_board (test_heads_3, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
-                                          WormTest () { start_x = 10, start_y = 4, final_lives = 6, final_score = 0 }});
-
-        Test.message ("test heads 4");
-        test_board (test_heads_4, 1, 0, { WormTest () { start_x =  6, start_y = 4, final_lives = 0, final_score = 0 },
-                                          WormTest () { start_x = 10, start_y = 4, final_lives = 0, final_score = 0 }});
-
-        Test.message ("test heads 5");
-        test_board (test_heads_5, 1, 1, { WormTest () { start_x =  6, start_y = 1, final_lives = 6, final_score = 1 },
-                                          WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 0 }});
-
-        Test.message ("test heads 6");
-        test_board (test_heads_6, 1, 1, { WormTest () { start_x =  6, start_y = 1, final_lives = 4, final_score = 0 },
-                                          WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 }});
-
-        Test.message ("test heads 9");
-        test_board (test_heads_9, 1, 1, { WormTest () { start_x =  6, start_y = 1, final_lives = 6, final_score = 1 },
-                                          WormTest () { start_x =  6, start_y = 4, final_lives = 4, final_score = 0 }});
-
-        Test.message ("test heads 7");
-        test_board (test_heads_7, 1, 1, { WormTest () { start_x =  6, start_y = 2, final_lives = 6, final_score = 1 },
-                                          WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 0 }});
-
-        Test.message ("test heads 8");
-        test_board (test_heads_8, 1, 0, { WormTest () { start_x =  6, start_y = 2, final_lives = 0, final_score = 0 },
-                                          WormTest () { start_x =  6, start_y = 4, final_lives = 0, final_score = 0 }});
-
-        Test.message ("test heads 0");
-        test_board (test_heads_0, 1, 1, { WormTest () { start_x =  6, start_y = 2, final_lives = 6, final_score = 1 },
-                                          WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 0 }});
-        #else
+        #if VALA_NEEDS_ARRAY_STRING_CASTING
         Test.message ("test heads 1");
         test_board ((string [])test_heads_1, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
                                           WormTest () { start_x = 11, start_y = 4, final_lives = 6, final_score = 0 }});
@@ -639,6 +599,46 @@ namespace NibblesTest
 
         Test.message ("test heads 0");
         test_board ((string [])test_heads_0, 1, 1, { WormTest () { start_x =  6, start_y = 2, final_lives = 6, final_score = 1 },
+                                          WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 0 }});
+        #else
+        Test.message ("test heads 1");
+        test_board (test_heads_1, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
+                                          WormTest () { start_x = 11, start_y = 4, final_lives = 6, final_score = 0 }});
+
+        Test.message ("test heads 2");
+        test_board (test_heads_2, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
+                                          WormTest () { start_x = 11, start_y = 4, final_lives = 4, final_score = 0 }});
+
+        Test.message ("test heads 3");
+        test_board (test_heads_3, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
+                                          WormTest () { start_x = 10, start_y = 4, final_lives = 6, final_score = 0 }});
+
+        Test.message ("test heads 4");
+        test_board (test_heads_4, 1, 0, { WormTest () { start_x =  6, start_y = 4, final_lives = 0, final_score = 0 },
+                                          WormTest () { start_x = 10, start_y = 4, final_lives = 0, final_score = 0 }});
+
+        Test.message ("test heads 5");
+        test_board (test_heads_5, 1, 1, { WormTest () { start_x =  6, start_y = 1, final_lives = 6, final_score = 1 },
+                                          WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 0 }});
+
+        Test.message ("test heads 6");
+        test_board (test_heads_6, 1, 1, { WormTest () { start_x =  6, start_y = 1, final_lives = 4, final_score = 0 },
+                                          WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 }});
+
+        Test.message ("test heads 9");
+        test_board (test_heads_9, 1, 1, { WormTest () { start_x =  6, start_y = 1, final_lives = 6, final_score = 1 },
+                                          WormTest () { start_x =  6, start_y = 4, final_lives = 4, final_score = 0 }});
+
+        Test.message ("test heads 7");
+        test_board (test_heads_7, 1, 1, { WormTest () { start_x =  6, start_y = 2, final_lives = 6, final_score = 1 },
+                                          WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 0 }});
+
+        Test.message ("test heads 8");
+        test_board (test_heads_8, 1, 0, { WormTest () { start_x =  6, start_y = 2, final_lives = 0, final_score = 0 },
+                                          WormTest () { start_x =  6, start_y = 4, final_lives = 0, final_score = 0 }});
+
+        Test.message ("test heads 0");
+        test_board (test_heads_0, 1, 1, { WormTest () { start_x =  6, start_y = 2, final_lives = 6, final_score = 1 },
                                           WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 0 }});
         #endif
     }
@@ -732,19 +732,7 @@ namespace NibblesTest
 
     private static void test_warps ()
     {
-        #if VALA_0_56_15_or_above || VALA_0_57_0_or_above || VALA_0_58_0_or_above || VALA_0_59_0_or_above
-        Test.message ("test warps 1");
-        test_board (test_warps_1, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 }});
-
-        Test.message ("test warps 2");
-        test_board (test_warps_2, 1, 0, { WormTest () { start_x =  6, start_y = 4, final_lives = 0, final_score = 0 }});
-
-        Test.message ("test warps 3");
-        test_board (test_warps_3, 1, 0, { WormTest () { start_x =  9, start_y = 4, final_lives = 0, final_score = 0 }});
-
-        Test.message ("test warps 4");
-        test_board (test_warps_4, 1, 1, { WormTest () { start_x =  9, start_y = 4, final_lives = 6, final_score = 1 }});
-        #else
+        #if VALA_NEEDS_ARRAY_STRING_CASTING
         Test.message ("test warps 1");
         test_board ((string [])test_warps_1, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 }});
 
@@ -756,6 +744,18 @@ namespace NibblesTest
 
         Test.message ("test warps 4");
         test_board ((string [])test_warps_4, 1, 1, { WormTest () { start_x =  9, start_y = 4, final_lives = 6, final_score = 1 }});
+        #else
+        Test.message ("test warps 1");
+        test_board (test_warps_1, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 }});
+
+        Test.message ("test warps 2");
+        test_board (test_warps_2, 1, 0, { WormTest () { start_x =  6, start_y = 4, final_lives = 0, final_score = 0 }});
+
+        Test.message ("test warps 3");
+        test_board (test_warps_3, 1, 0, { WormTest () { start_x =  9, start_y = 4, final_lives = 0, final_score = 0 }});
+
+        Test.message ("test warps 4");
+        test_board (test_warps_4, 1, 1, { WormTest () { start_x =  9, start_y = 4, final_lives = 6, final_score = 1 }});
         #endif
     }
 
