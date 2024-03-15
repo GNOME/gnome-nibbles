@@ -1,3 +1,23 @@
+4.0.3 - March 15, 2024
+========================
+
+- Updated translations (Hungarian & Basque).
+
+4.0.2 - February 9, 2024
+========================
+
+- Updated translations (German, Indonesian & Lithuanian).
+- Fixes for compatibility with gcc >= 14.0 & clang >= 16 when compiling with a version of vala < 0.56.15
+- Note:
+  If you have still have issues compiling this or other vala source code try the following compiler options:
+  For gcc >= 14
+    "-Wno-incompatible-pointer-types"
+  For clang >= 16
+    "-Wno-incompatible-function-pointer-types" & "-Wno-incompatible-pointer-types"
+- Thanks:
+  Gnome Nibbles has recently been packaged for pkgsrc.org, many thanks to Thomas Klausner.
+  For those of you who don't know pkgsrc it is an impressive package system that works on multiple platforms.
+
 4.0.1 - December 17, 2023
 =========================
 
