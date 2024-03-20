@@ -143,7 +143,7 @@ private class Nibbles : Gtk.Application
         return application.run (args);
     }
 
-    private inline Nibbles ()
+    private Nibbles ()
     {
         Object (application_id: "org.gnome.Nibbles", flags: ApplicationFlags.FLAGS_NONE);
 
