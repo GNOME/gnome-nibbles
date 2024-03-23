@@ -1088,6 +1088,8 @@ private class NibblesWindow : Adw.ApplicationWindow
         button.halign = Align.CENTER;
         button.valign = Align.END;
         button.set_margin_bottom (100);
+        button.add_css_class ("pill");
+        button.add_css_class ("suggested-action");
         button.clicked.connect (()=>
         {
             overlay_remove_all ();
