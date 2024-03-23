@@ -25,7 +25,7 @@ bindir      = join_paths(prefix, get_option ('bindir'))
 # Dependencies
 vala_minimum_version = '0.55.1' # for sub-functions; https://gitlab.gnome.org/GNOME/vala/-/commit/048aaba0cd88b784fe9fa421dbad494019abd42e
 glib_minimum_version = '2.66.0' # minimum version for GTK 4
-glib_target_version = '2.78.0' # tested with 2.72, 2.74 & 2.78 
+glib_target_version = '2.78.0' # tested with 2.72, 2.74 & 2.78
 target_glib = '--target-glib=' + '@0@'.format(glib_target_version)
 
 valac = meson.get_compiler('vala')
@@ -39,6 +39,7 @@ glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_minimum_version)
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
 libgnome_games_support_dep = dependency('libgnome-games-support-2', version: '>= 2.0.0') # requires GTK 4.2
 gtk_dep = dependency('gtk4', version: '>= 4.6') # this code works on 4.6.9 (ubuntu 22.04 with updates), it hasn't been tried on anything earlier
+libadwaita_dep = dependency('libadwaita-1', version: '>= 1.5')
 pangocairo_dep = dependency('pangocairo')
 gtk5_dep = dependency('gtk5', required : false)
 if gtk5_dep.found()

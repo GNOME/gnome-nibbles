@@ -21,7 +21,7 @@
  *
  * To help you comply with the coding style in this project use the
  * following greps. Any lines returned should be adjusted so they
- * don't match. The convoluted regular expressions are so they don't 
+ * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
  * grep -ne '[^][)(_!$ "](' *.vala
@@ -132,7 +132,7 @@ private class Nibbles : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        Gtk.init ();
+        Adw.init ();
 
         var application = new Nibbles ();
         application.activate.connect (()=>
@@ -223,7 +223,7 @@ private class Nibbles : Gtk.Application
 
         Window.set_default_icon_name ("org.gnome.Nibbles");
 
-        Gtk.Settings.get_default ().@set ("gtk-application-prefer-dark-theme", true);
+        Adw.StyleManager.get_default ().set_color_scheme (Adw.ColorScheme.FORCE_DARK);
 
         add_action_entries (action_entries, this);
 
@@ -378,33 +378,36 @@ private class Nibbles : Gtk.Application
         /* Translators: text crediting a designer, in the about dialog */
         string [] artists = { _("Allan Day") };
 
-        show_about_dialog (window,
-                           "program-name", PROGRAM_NAME,
-                           "version", VERSION,
-                           /* Translators: small description of the game, seen in the About dialog */
-                           "comments", _("A worm game for GNOME"),
-                           "logo-icon-name", "org.gnome.Nibbles",
-                           "copyright",
-                             /* Translators: text crediting some maintainers, seen in the About dialog */
-                             _("Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal") + "\n" +
+        var about_dialog = new Adw.AboutDialog ();
+
+        about_dialog.set_application_icon ("org.gnome.Nibbles");
+        about_dialog.set_application_name (PROGRAM_NAME);
+        /* Translators: the name of the app's developers, seen in the About dialog */
+        about_dialog.set_developer_name (_("The GNOME Project"));
+        about_dialog.set_version (VERSION);
+        about_dialog.set_developers (authors);
+        about_dialog.set_documenters (documenters);
+        about_dialog.set_artists (artists);
+        about_dialog.set_copyright (
+            /* Translators: text crediting some maintainers, seen in the About dialog */
+             _("Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal") + "\n" +
 
 
-                             /* Translators: text crediting a maintainer, seen in the About dialog */
-                             _("Copyright © 2009 – Guillaume Beland") + "\n" +
+             /* Translators: text crediting a maintainer, seen in the About dialog */
+             _("Copyright © 2009 – Guillaume Beland") + "\n" +
 
 
-                             /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
-                             _("Copyright © %u-%u – Iulian-Gabriel Radu").printf (2015, 2020) + "\n" +
-                             
-                             
-                             /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
-                             _("Copyright © %u-%u – Ben Corby").printf (2022, 2024),
-                           "license-type", License.GPL_3_0, // means "GNU General Public License, version 3.0 or later"
-                           "authors", authors,
-                           "documenters", documenters,
-                           "artists", artists,
-                           /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
-                           "translator-credits", _("translator-credits"),
-                           "website", "https://wiki.gnome.org/Apps/Nibbles/");
+             /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
+             _("Copyright © %u-%u – Iulian-Gabriel Radu").printf (2015, 2020) + "\n" +
+
+
+             /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
+             _("Copyright © %u-%u – Ben Corby").printf (2022, 2024)
+        );
+        about_dialog.set_license_type (License.GPL_3_0);
+        about_dialog.set_translator_credits (_("translator-credits"));
+        about_dialog.set_website ("https://gitlab.gnome.org/GNOME/gnome-nibbles");
+
+        about_dialog.present (this.get_active_window ());
     }
 }

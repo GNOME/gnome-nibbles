@@ -22,7 +22,7 @@
  *
  * To help you comply with the coding style in this project use the
  * following greps. Any lines returned should be adjusted so they
- * don't match. The convoluted regular expressions are so they don't 
+ * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
  * grep -ne '[^][)(_!$ "](' *.vala
@@ -59,7 +59,7 @@ static void get_worm_rgb (int color, bool bright, out double r, out double g, ou
             b = bright ? 1 : 0.75;
             break;
         case 3: /* yellow */
-            r = bright ? 0.9 : 0.75;  
+            r = bright ? 0.9 : 0.75;
             g = bright ? 0.9 : 0.75;
             b = 0;
             break;
@@ -77,7 +77,7 @@ static void get_worm_rgb (int color, bool bright, out double r, out double g, ou
             r = bright ? 1 : 0.75;
             g = bright ? 1 : 0.75;
             b = bright ? 1 : 0.75;
-            break;            
+            break;
     }
 }
 
@@ -105,15 +105,15 @@ internal class NibblesView : DrawingArea
          *                          ' +       view plain y = 3
          *                          ' |               |              * view point (1.5, 4.5, 4)
          *                          ' |              /|           +
-         *                          ' z             / |        + 
+         *                          ' z             / |        +
          *                          '              /  |     +             (3, 0) *  y
          *                (3, 0, 0) *-------------/----  +                      /|  |
          *                         /     /     / /   /+                        / |  |
          *                        /     /     / /  +/                         /  |  +
-         *           3D space    /     /     / /+  /                         / ---  
+         *           3D space    /     /     / /+  /                         / ---
          *                      -------------+/----                         /   /
-         *                     /     /    +/ /   /                         /   / 
-         *               +    /     /  O  / /   /                         /   /   2D view plain 
+         *                     /     /    +/ /   /                         /   /
+         *               +    /     /  O  / /   /                         /   /   2D view plain
          *              /    /     /     / /   /                         /  --
          *             /    --------------|----                         /   /
          *            x    /     /     /  |  /                         /   /    +
@@ -124,12 +124,12 @@ internal class NibblesView : DrawingArea
          *                    y --- +                                |/
          *                                                         ---
          *
-         *  The object O at (1.5, 1.5, 0) when viewed from the view point (1.5, 4.5, 4) 
+         *  The object O at (1.5, 1.5, 0) when viewed from the view point (1.5, 4.5, 4)
          *  crosses the view plain (y = 3) at the 2 dimensional point (1.5, 1.5).
          *
          *  Example code:
          *    View3D test = new View3D ();
-         *    test.set_view_plain (3);    
+         *    test.set_view_plain (3);
          *    test.set_view_point ({1.5, 4.5, 4});
          *    double test_x,test_y;
          *    test.to_view_plain ({1.5, 1.5, 0}, out test_x, out test_y);
@@ -181,7 +181,7 @@ internal class NibblesView : DrawingArea
         {
             x_scale = scale;
         }
- 
+
         internal void set_scale_y (double scale)
         {
             y_scale = scale;
@@ -196,7 +196,7 @@ internal class NibblesView : DrawingArea
             double x_length = view_point.x - point.x;
             x_at_plain = (point.x + base_length_to_view_plain / base_length * x_length) * x_scale;
         }
-        
+
         internal double view_point_x ()
         {
             return view_point.x;
@@ -283,7 +283,7 @@ internal class NibblesView : DrawingArea
                 c.set_source_rgb (0,0,0);
                 c.fill ();
 
-                /* map worms */      
+                /* map worms */
                 Worm[] dematerialized_worms = {};
                 Worm?[,] worm_at = new Worm?[WIDTH, HEIGHT];
                 foreach (Worm worm in game.worms)
@@ -303,7 +303,7 @@ internal class NibblesView : DrawingArea
                 foreach (var bonus in game.get_bonuses ())
                         bonus_at[bonus.x, bonus.y] = bonus;
 
-                /* draw */      
+                /* draw */
                 for (int y = 0; y < HEIGHT; y++)
                 {
                     for (int x = 0; ; x = x < WIDTH / 2 ? WIDTH - 1 - x : WIDTH - x)
@@ -331,8 +331,8 @@ internal class NibblesView : DrawingArea
                                         break;
                                 }
                             }
-                        } 
-                        if (game.board[x, y] >= 'b' && game.board[x, y] <= 'l') 
+                        }
+                        if (game.board[x, y] >= 'b' && game.board[x, y] <= 'l')
                         {
                             /* draw top of wall */
                             v.to_view_plain ({x, y ,1},out x2d, out y2d);
@@ -494,13 +494,13 @@ internal class NibblesView : DrawingArea
                 c.set_source_rgb (0,0,0);
                 c.fill ();
 
-                /* draw walls & warps */                        
+                /* draw walls & warps */
                 for (int x = 0; x < WIDTH; x++)
                 {
                     for (int y = 0; y < HEIGHT; y++)
                     {
                         /* walls */
-                        if (game.board[x, y] >= 'b' && game.board[x, y] <= 'l') 
+                        if (game.board[x, y] >= 'b' && game.board[x, y] <= 'l')
                             draw_wall_segment (game.board[x, y],
                                 c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta);
                         /* warps */
@@ -543,13 +543,13 @@ internal class NibblesView : DrawingArea
                         }
                     }
                 }
-                
+
                 /* draw bonuses */
                 foreach (var bonus in game.get_bonuses ())
                 {
                     draw_bonus (c, x_delta * bonus.x + x_offset, y_delta * bonus.y + y_offset, x_delta + x_delta, y_delta + y_delta, bonus.bonus_type);
                 }
-                
+
                 if (countdown_active () > 0)
                 {
                     /* count down */
@@ -559,7 +559,7 @@ internal class NibblesView : DrawingArea
                     int font_size = calculate_font_size (c, text, text_width, out w, out h);
                     draw_text_font_size (c, (int)(x_offset + x_delta * (WIDTH / 2) - w / 2), (int)(y_offset + y_delta * (HEIGHT / 2) - h / 2), text, font_size);
 
-                    
+
                     /* draw name labels */
                     foreach (var worm in game.worms)
                     {
@@ -650,7 +650,7 @@ internal class NibblesView : DrawingArea
             ++animate;
         queue_draw ();
     }
-    
+
     /* signals */
     internal void connect_game_signals (NibblesGame game)
     {
@@ -699,7 +699,7 @@ internal class NibblesView : DrawingArea
     {
         uint new_button;
         if (x >= b0_x && x <= b0_x + b0_width && y >= b0_y && y <= b0_y + b0_height)
-            new_button = 0; // yes 
+            new_button = 0; // yes
         else if (x >= b1_x && x <= b1_x + b1_width && y >= b1_y && y <= b1_y + b1_height)
             new_button = 1; // no
         else
@@ -987,7 +987,7 @@ internal class NibblesView : DrawingArea
         c.line_to (X, Y);
         c.set_source_rgb (0.8, 0.9, 1); /* almost white */
         c.fill ();
-        
+
         v.to_view_plain (middle[1], out X, out Y);
         c.move_to (X, Y);
         v.to_view_plain (middle[2], out X, out Y);
@@ -1163,7 +1163,7 @@ internal class NibblesView : DrawingArea
         v.to_view_plain ({x + 0.55, y + 1.0, 1.0}, out cx[2], out cy[2]);
         c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
         c.set_source_rgb (0.5, 0.5, 0);
-        c.fill ();        
+        c.fill ();
         // draw right cherry */
         draw_oval (c, v, {1.0 + x, 1.5 + y, 0},
                          {1.0 + x, 0.5 + y, 1},
@@ -1199,7 +1199,7 @@ internal class NibblesView : DrawingArea
         v.to_view_plain ({x + 1.55, y + 1.0, 1.0}, out cx[2], out cy[2]);
         c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
         c.set_source_rgb (0.5, 0.5, 0);
-        c.fill ();        
+        c.fill ();
         /* draw leaf */
         v.to_view_plain ({x + 1.20, y + 1.0, 2.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.20 - 0.5, y + 1.0, 2.0}, out cx[1], out cy[1]);
@@ -1211,7 +1211,7 @@ internal class NibblesView : DrawingArea
         v.to_view_plain ({x + 1.20, y + 1.0, 2.0}, out cx[2], out cy[2]);
         c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
         c.set_source_rgb (0, 0.75, 0);
-        c.fill ();   
+        c.fill ();
     }
 
     void draw_apple (Context c, View3D v, double x, double y)
@@ -1247,7 +1247,7 @@ internal class NibblesView : DrawingArea
         c.set_source (pat2);
         c.fill ();
 
-        
+
         for (double 3D_radius = 0.2;3D_radius > 0.01;3D_radius-=0.01)
         {
             v.to_view_plain ({x + (1 - 3D_radius), y + 1.0, 1.75}, out cx[0], out cy[0]);
@@ -1269,7 +1269,7 @@ internal class NibblesView : DrawingArea
             c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
             c.set_source_rgb (0.4, 0.8 - (0.2 - 3D_radius) * 3, 0.4 - (0.2 - 3D_radius) * 2);
             c.fill ();
-        }        
+        }
 
         /* draw left leaf */
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[0], out cy[0]);
@@ -1282,7 +1282,7 @@ internal class NibblesView : DrawingArea
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[2], out cy[2]);
         c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
         c.set_source_rgb (0.25, 0.5, 0);
-        c.fill ();        
+        c.fill ();
         /* draw right leaf */
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.0 + 0.5, y + 1.0, 1.75}, out cx[1], out cy[1]);
@@ -1294,7 +1294,7 @@ internal class NibblesView : DrawingArea
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[2], out cy[2]);
         c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
         c.set_source_rgb (0, 0.5, 0.25);
-        c.fill ();        
+        c.fill ();
     }
 
     void draw_wall_segment (int i,
@@ -1385,20 +1385,20 @@ internal class NibblesView : DrawingArea
             x_size -= 1;
             y_size -= 1;
         }
-        
+
         const double PI2 = 1.570796326794896619231321691639751442;
         double x_s13 = x_size / 3.0;
         double x_s23 = x_s13 + x_s13;
         double y_s13 = y_size / 3.0;
         double y_s23 = y_s13 + y_s13;
-        
+
         C.arc (x + x_s23, y + y_s13, x_s13 < y_s13 ? x_s13 : y_s13, -PI2, 0);
         C.arc (x + x_s23, y + y_s23, x_s13 < y_s13 ? x_s13 : y_s13, 0, PI2);
         C.arc (x + x_s13, y + y_s23, x_s13 < y_s13 ? x_s13 : y_s13, PI2, PI2 * 2);
         C.arc (x + x_s13, y + y_s13, x_s13 < y_s13 ? x_s13 : y_s13, PI2 * 2, -PI2);
-        
+
         set_color (C, color, is_materialized);
-        C.fill ();                
+        C.fill ();
     }
 
     void draw_bonus (Context C, int x, int y, int x_size, int y_size, BonusType type)
@@ -1417,7 +1417,7 @@ internal class NibblesView : DrawingArea
                 C.curve_to (x + x_m * 12.933594, y + y_m * 1.394531, x + x_m * 15.0625, y + y_m * 5, x + x_m * 15, y + y_m * 8);
                 C.close_path ();
                 C.set_source_rgba (0,1,0,1);
-                C.fill ();                
+                C.fill ();
                 C.move_to (x + x_m * 9.65625, y + y_m * 1.34375);
                 C.curve_to (x + x_m * 8, y + y_m * 2, x + x_m * 8, y + y_m * 3.667969, x + x_m * 8, y + y_m * 5);
                 C.close_path ();
@@ -1461,7 +1461,7 @@ internal class NibblesView : DrawingArea
                 C.curve_to (x + x_m * 15.675781, y + y_m * 11.316406, x + x_m * 7.71875, y + y_m * 17.683594, x + x_m * 0, y + y_m * 9.972656);
                 C.curve_to (x + x_m * 0.03125, y + y_m * 9.433594, x + x_m * 0.210938, y + y_m * 8.84375, x + x_m * 0.695313, y + y_m * 8.425781);
                 C.set_source_rgba (0.988235,0.913725,0.309804,1);
-                C.fill ();                
+                C.fill ();
                 break;
             case LIFE:
                 x_m /= 16;
@@ -1473,7 +1473,7 @@ internal class NibblesView : DrawingArea
                 C.curve_to (x + x_m * 15.027344, y + y_m * 2.886719, x + x_m * 10.90625, y + y_m * 0.128906, x + x_m * 7.910156, y + y_m * 3.121094);
                 C.curve_to (x + x_m * 6.835938, y + y_m * 2.199219, x + x_m * 5.742188, y + y_m * 1.816406, x + x_m * 4.753906, y + y_m * 1.828125);
                 C.set_source_rgba (1,0,0,1);
-                C.fill ();                
+                C.fill ();
                 break;
             case REVERSE:
                 x_m /= 16;
@@ -1484,24 +1484,24 @@ internal class NibblesView : DrawingArea
                 C.line_to (x + x_m * 8, y + y_m * 15);
                 C.line_to (x + x_m * 1, y + y_m * 6);
                 C.set_source_rgba (0.717647,0.807843,0.901961,1);
-                C.fill ();   
+                C.fill ();
                 C.move_to (x + x_m * 11, y + y_m * 6);
                 C.line_to (x + x_m * 8, y + y_m * 15);
                 C.line_to (x + x_m * 5, y + y_m * 6);
                 C.set_source_rgba (0.447059,0.623529,0.811765,1);
-                C.fill ();   
+                C.fill ();
                 C.move_to (x + x_m * 4, y + y_m * 2);
                 C.line_to (x + x_m * 8, y + y_m * 2);
                 C.line_to (x + x_m * 5, y + y_m * 6);
                 C.line_to (x + x_m * 1, y + y_m * 6);
                 C.set_source_rgba (0.447059,0.623529,0.811765,1);
-                C.fill ();   
+                C.fill ();
                 C.move_to (x + x_m * 12, y + y_m * 2);
                 C.line_to (x + x_m * 8, y + y_m * 2);
                 C.line_to (x + x_m * 11, y + y_m * 6);
                 C.line_to (x + x_m * 15, y + y_m * 6);
                 C.set_source_rgba (0.447059,0.623529,0.811765,1);
-                C.fill ();   
+                C.fill ();
                 break;
             case WARP:
                 x_m /= 16;
@@ -1527,13 +1527,13 @@ internal class NibblesView : DrawingArea
                                    (animate+10)%30 < 10 ? ((animate+10)%30 / 10.0) : ((animate+10)%30 >= 20 ? 0 : ((20 - (animate+10)%30) / 10.0)),
                                    (animate+20)%30 < 10 ? ((animate+20)%30 / 10.0) : ((animate+20)%30 >= 20 ? 0 : ((20 - (animate+20)%30) / 10.0)),
                                    1);
-                C.fill ();   
+                C.fill ();
                 C.move_to (x + x_m * 8.949219, y + y_m * 12.738281);
                 C.curve_to (x + x_m * 8.113281, y + y_m * 12.738281, x + x_m * 7.433594, y + y_m * 13.417969, x + x_m * 7.433594, y + y_m * 14.253906);
                 C.curve_to (x + x_m * 7.433594, y + y_m * 15.089844, x + x_m * 8.113281, y + y_m * 15.769531, x + x_m * 8.949219, y + y_m * 15.769531);
                 C.curve_to (x + x_m * 9.785156, y + y_m * 15.769531, x + x_m * 10.464844, y + y_m * 15.089844, x + x_m * 10.464844, y + y_m * 14.253906);
                 C.curve_to (x + x_m * 10.464844, y + y_m * 13.417969, x + x_m * 9.785156, y + y_m * 12.738281, x + x_m * 8.949219, y + y_m * 12.738281);
-                C.fill ();   
+                C.fill ();
                 break;
             case 6:
                 x_m /= 16;
@@ -1544,7 +1544,7 @@ internal class NibblesView : DrawingArea
                 C.curve_to (x + x_m * 8.144531, y + y_m * 3.507813, x + x_m * 9.359375, y + y_m * 1.511719, x + x_m * 10.742188, y + y_m * 1.675781);
 
                 C.set_source_rgba (0.305882,0.603922,0.0235294,1);
-                C.fill ();   
+                C.fill ();
                 C.move_to (x + x_m * 14, y + y_m * 9);
                 C.curve_to (x + x_m * 14, y + y_m * 5.6875, x + x_m * 11.3125, y + y_m * 3, x + x_m * 8, y + y_m * 3);
                 C.curve_to (x + x_m * 4.6875, y + y_m * 3, x + x_m * 2, y + y_m * 5.6875, x + x_m * 2, y + y_m * 9);
@@ -1552,7 +1552,7 @@ internal class NibblesView : DrawingArea
                 C.curve_to (x + x_m * 11.3125, y + y_m * 15, x + x_m * 14, y + y_m * 12.3125, x + x_m * 14, y + y_m * 9);
 
                 C.set_source_rgba (0.960784,0.47451,0,1);
-                C.fill ();   
+                C.fill ();
                 break;
             case 7:
                 x_m /= 16;
@@ -1562,7 +1562,7 @@ internal class NibblesView : DrawingArea
                 C.line_to (x + x_m * 7.421875, y + y_m * 4.710938);
                 C.curve_to (x + x_m * 6.417969, y + y_m * 3.871094, x + x_m * 5.867188, y + y_m * 1.597656, x + x_m * 6.960938, y + y_m * 0.738281);
                 C.set_source_rgba (0.305882,0.603922,0.0235294,1);
-                C.fill ();   
+                C.fill ();
                 C.move_to (x + x_m * 12.933594, y + y_m * 5.347656);
                 C.curve_to (x + x_m * 13.652344, y + y_m * 7.882813, x + x_m * 12.867188, y + y_m * 8.753906, x + x_m * 12.871094, y + y_m * 10.476563);
                 C.curve_to (x + x_m * 12.875, y + y_m * 12.890625, x + x_m * 13.015625, y + y_m * 14.386719, x + x_m * 11.148438, y + y_m * 15.089844);
@@ -1571,7 +1571,7 @@ internal class NibblesView : DrawingArea
                 C.curve_to (x + x_m * 2.117188, y + y_m * 8.375, x + x_m * 2.902344, y + y_m * 5.152344, x + x_m * 6.707031, y + y_m * 4.464844);
                 C.curve_to (x + x_m * 8.609375, y + y_m * 2.308594, x + x_m * 11.933594, y + y_m * 3.136719, x + x_m * 12.933594, y + y_m * 5.347656);
                 C.set_source_rgba (0.937255,0.160784,0.160784,1);
-                C.fill ();   
+                C.fill ();
                 break;
             default:
                 break;
@@ -1584,7 +1584,7 @@ internal class NibblesView : DrawingArea
         int target_font_size = 1;
         uint target_width_diff = uint.MAX;
         Pango.Rectangle a = {0,0,0,0};
-        
+
         for (int font_size = 1;font_size < 200;font_size++)
         {
             var layout =  Pango.cairo_create_layout (C);
@@ -1607,8 +1607,8 @@ internal class NibblesView : DrawingArea
                 target_width_diff = width_diff;
                 target_font_size = font_size;
             }
-        }    
-        C.move_to (x - a.x / Pango.SCALE, y - a.y / Pango.SCALE); 
+        }
+        C.move_to (x - a.x / Pango.SCALE, y - a.y / Pango.SCALE);
         var layout =  Pango.cairo_create_layout (C);
         Pango.FontDescription font;
         if (null == layout.get_font_description ())
@@ -1626,7 +1626,7 @@ internal class NibblesView : DrawingArea
     {
         int x_offset, y_offset;
         get_text_offsets (C, text, font_size, out x_offset, out y_offset);
-        C.move_to (x - x_offset, y - y_offset); 
+        C.move_to (x - x_offset, y - y_offset);
         C.set_source_rgb (1, 1, 1);
         var layout =  Pango.cairo_create_layout (C);
         Pango.FontDescription font;
@@ -1658,7 +1658,7 @@ internal class NibblesView : DrawingArea
         x_offset = a.x / Pango.SCALE;
         y_offset = a.y / Pango.SCALE;
     }
-    
+
     void set_color (Context C, int color, bool bright)
     {
         double r;
@@ -1675,7 +1675,7 @@ internal class NibblesView : DrawingArea
     {
             const double PI2 = 1.570796326794896619231321691639751442;
             const double border_width = 3;
-            
+
             var lines = 0;
             int font_size = int.MAX;
             for (var s=text; s.length > 0;)
@@ -1730,30 +1730,30 @@ internal class NibblesView : DrawingArea
             double minimum_dimension = 10;
             double background_width = text_width + minimum_dimension * 2;
             double background_height = text_height + minimum_dimension * 5 + button_height;
-            
+
             double x = (width - background_width) / 2;
             double y = 0;
 
             double arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
-            
+
             /* draw border */
             C.move_to (x + background_width, y);
             C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
             C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
             C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
             C.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
-            
+
             C.set_source_rgba (0.5, 0.5, 0.5, 1);
-            C.fill ();                
+            C.fill ();
 
             /* draw background */
             C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius - border_width, -PI2, 0);
             C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius - border_width, 0, PI2);
             C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius - border_width, PI2, PI2 * 2);
             C.arc (x + arc_radius, y + arc_radius, arc_radius - border_width, PI2 * 2, -PI2);
-            
+
             C.set_source_rgba (0.125, 0.125, 0.125, 1);
-            C.fill ();                
+            C.fill ();
 
             var line = 0;
             double y_line = 0;
@@ -1787,7 +1787,7 @@ internal class NibblesView : DrawingArea
                 C.arc (b0_x + b0_radius, b0_y + button_height - b0_radius, b0_radius, PI2, PI2 * 2);
                 C.arc (b0_x + b0_radius, b0_y + b0_radius, b0_radius, PI2 * 2, -PI2);
                 C.set_source_rgba (0.5, 0.5, 0.5, 1);
-                C.fill ();                
+                C.fill ();
                 C.arc (b0_x + button_width - b0_radius, b0_y + b0_radius, b0_radius- border_width, -PI2, 0);
                 C.arc (b0_x + button_width - b0_radius, b0_y + button_height - b0_radius, b0_radius- border_width, 0, PI2);
                 C.arc (b0_x + b0_radius, b0_y + button_height - b0_radius, b0_radius - border_width, PI2, PI2 * 2);
@@ -1796,7 +1796,7 @@ internal class NibblesView : DrawingArea
                     C.set_source_rgba (0.063, 0.243, 0.459, 1);
                 else
                     C.set_source_rgba (0.082, 0.322, 0.612, 1);
-                C.fill ();             
+                C.fill ();
                 /* Translators: message displayed in a Button of a Message Dialog to confirm a nagative response */
                 string No = _("No");
                 font_size = calculate_font_size_from_max (C, No, (int)(button_width - border_width * 2), (int)(button_height / 3) , out b0_width, out b0_height);
@@ -1814,7 +1814,7 @@ internal class NibblesView : DrawingArea
                 C.arc (b1_x + b1_radius, b1_y + button_height - b1_radius, b1_radius, PI2, PI2 * 2);
                 C.arc (b1_x + b1_radius, b1_y + b1_radius, b1_radius, PI2 * 2, -PI2);
                 C.set_source_rgba (0.5, 0.5, 0.5, 1);
-                C.fill ();                
+                C.fill ();
                 C.arc (b1_x + button_width - b1_radius, b1_y + b1_radius, b1_radius- border_width, -PI2, 0);
                 C.arc (b1_x + button_width - b1_radius, b1_y + button_height - b1_radius, b1_radius- border_width, 0, PI2);
                 C.arc (b1_x + b1_radius, b1_y + button_height - b1_radius, b1_radius- border_width, PI2, PI2 * 2);
@@ -1823,7 +1823,7 @@ internal class NibblesView : DrawingArea
                     C.set_source_rgba (0.063, 0.243, 0.459, 1);
                 else
                     C.set_source_rgba (0.082, 0.322, 0.612, 1);
-                C.fill ();                
+                C.fill ();
                 /* Translators: message displayed in a Button of a Message Dialog to confirm a positive response */
                 string Yes = _("Yes");
                 font_size = calculate_font_size_from_max (C, Yes, (int)(button_width - border_width * 2), (int)(button_height / 3) , out b1_width, out b1_height);
@@ -1833,8 +1833,8 @@ internal class NibblesView : DrawingArea
             /* set width and height to button's width and height not the text within the button */
             b0_width = button_width;
             b1_width = button_width;
-            b0_height = button_height;            
-            b1_height = button_height;            
+            b0_height = button_height;
+            b1_height = button_height;
     }
 
     int calculate_font_size (Cairo.Context C, string text, int target_width, out double width, out double height)
@@ -1843,7 +1843,7 @@ internal class NibblesView : DrawingArea
         uint target_width_diff = uint.MAX;
         width = 0;
         height = 0;
-        
+
         for (int font_size = 1;font_size < 200;)
         {
             var layout =  Pango.cairo_create_layout (C);
@@ -1874,7 +1874,7 @@ internal class NibblesView : DrawingArea
                 font_size+=5;
             else
                 font_size+=10;
-        }    
+        }
         return target_font_size;
     }
 
@@ -1920,7 +1920,7 @@ internal class NibblesView : DrawingArea
         /* draw using x,y as the top left corner of the text */
         int x_offset, y_offset;
         get_text_offsets (C, text, font_size, out x_offset, out y_offset);
-        C.move_to (x - x_offset, y - y_offset); 
+        C.move_to (x - x_offset, y - y_offset);
         C.set_source_rgb (0.75, 0.75, 0.75);
         var layout =  Pango.cairo_create_layout (C);
         Pango.FontDescription font;

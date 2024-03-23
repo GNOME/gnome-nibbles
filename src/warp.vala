@@ -24,7 +24,7 @@
  *
  * To help you comply with the coding style in this project use the
  * following greps. Any lines returned should be adjusted so they
- * don't match. The convoluted regular expressions are so they don't 
+ * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
  * grep -ne '[^][)(_!$ "](' *.vala

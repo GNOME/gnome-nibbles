@@ -21,7 +21,7 @@
  *
  * To help you comply with the coding style in this project use the
  * following greps. Any lines returned should be adjusted so they
- * don't match. The convoluted regular expressions are so they don't 
+ * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
  * grep -ne '[^][)(_!$ "](' *.vala
@@ -29,7 +29,7 @@
  * grep -ne '[ ])' *.vala
  *
  */
- 
+
 using GSound;
 
 /*\
@@ -50,7 +50,7 @@ internal class Sound : Object
         game.play_sound.connect (play_sound);
     }
 
-    /* variables */    
+    /* variables */
     bool is_muted;
     bool is_initilised = false;
     bool errored = false;
@@ -62,7 +62,7 @@ internal class Sound : Object
         is_muted = muted;
     }
 
-    /* private functions */    
+    /* private functions */
     private bool initilise_context ()
     {
         try

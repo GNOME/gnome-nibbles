@@ -23,7 +23,7 @@
  *
  * To help you comply with the coding style in this project use the
  * following greps. Any lines returned should be adjusted so they
- * don't match. The convoluted regular expressions are so they don't 
+ * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
  * grep -ne '[^][)(_!$ "](' *.vala
@@ -146,7 +146,7 @@ namespace NibblesTest
                       {-741003743, -15426829180} /*  -2.75° */};
         double degree[9];
         assert_true (a.length == degree.length);
-        
+
         for (int d = 0; d < a.length; d++)
             degree[d] = Math.atan2 (a[d].x, -a[d].y) / Math.PI * 180;
         Test.message (@"sorting angles $(degree[0]), $(degree[1]), $(degree[2]), $(degree[3]), $(degree[4]), $(degree[5]), $(degree[6]), $(degree[7]), $(degree[8])");
@@ -173,7 +173,7 @@ namespace NibblesTest
         Test.message (@"sorted angles $(degree[0]), $(degree[1]), $(degree[2]), $(degree[3]), $(degree[4]), $(degree[5]), $(degree[6]), $(degree[7]), $(degree[8])");
         for (int d = 0; d < a.length - 1; d++)
             assert_true (degree[d] <= degree[d + 1]); // angles should be sorted in to assending order
-            
+
         // bubble sort angles (descending order)
         for (int i = a.length; i > 0; i--)
         {
@@ -196,12 +196,12 @@ namespace NibblesTest
         Test.message (@"sorted angles $(degree[0]), $(degree[1]), $(degree[2]), $(degree[3]), $(degree[4]), $(degree[5]), $(degree[6]), $(degree[7]), $(degree[8])");
         for (int d = 0; d < a.length - 1; d++)
             assert_true (degree[d] >= degree[d + 1]); // angles should be sorted in to descending order
-            
+
         // test angle wrap around
-        a[0] = DEGREES[136];                   /* 136.0° */ 
-        a[1] = negative_degrees (DEGREES[45]); /* -45.0° */ 
+        a[0] = DEGREES[136];                   /* 136.0° */
+        a[1] = negative_degrees (DEGREES[45]); /* -45.0° */
         assert_true (a[0].less_than (a[1]));
-        
+
         // test quarter wrap around
         a[0] = { 0, -1}; /*   0° */
         a[1] = {+1,  0}; /*  90° */
@@ -215,7 +215,7 @@ namespace NibblesTest
         assert_true (a[2].less_than (a[3]));
         assert_true (a[3].greater_than (a[2]));
         assert_true (a[3].less_than (a[0]));
-        
+
         // test equality
         a[0] = { 0, +1}; /* 180° */
         a[1] = { 0, -1}; /*   0° */
@@ -330,7 +330,7 @@ namespace NibblesTest
                       WormTest () { start_x = 76, start_y =  9, final_lives = 6, final_score = 31 },
                       WormTest () { start_x = 15, start_y = 56, final_lives = 6, final_score = 18 }});
         #endif
-        
+
         Test.message ("test board 025");
         #if VALA_NEEDS_ARRAY_STRING_CASTING
         test_board ((string [])level_025, /* regular bonus = 8 + numworms */ 12, /* final bonuses */ 12,

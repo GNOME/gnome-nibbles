@@ -32,16 +32,12 @@
         <property name="spacing">25</property>
         <child>
           <object class="GtkLabel" id="preferences">
-                <attributes>
-                  <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
-                  <attribute name="scale" value="2"/>
-                </attributes>
             <property name="visible">1</property>
             <!-- Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably) -->
             <property name="label" translatable="1">Preferences</property>
             <property name="valign">center</property>
             <style>
-              <class name="menu-title"/>
+              <class name="title-1"/>
             </style>
           </object>
         </child>
@@ -128,7 +124,7 @@
                 <property name="hexpand">1</property>
                 <property name="use-underline">1</property>
                 <!-- Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses -->
-                <property name="label" translatable="1">_Enable fake bonuses</property>
+                <property name="label" translatable="1">_Enable Fake Bonuses</property>
               </object>
             </child>
           </object>
@@ -143,11 +139,9 @@
         <property name="label" translatable="1">_Next</property>
         <property name="action-name">win.next-screen</property>
         <property name="halign">center</property>
-        <property name="width-request">116</property>
-        <property name="height-request">34</property>
         <style>
           <class name="suggested-action"/>
-          <class name="play"/>
+          <class name="pill"/>
         </style>
       </object>
     </child>

@@ -23,7 +23,7 @@
  *
  * To help you comply with the coding style in this project use the
  * following greps. Any lines returned should be adjusted so they
- * don't match. The convoluted regular expressions are so they don't 
+ * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
  * grep -ne '[^][)(_!$ "](' *.vala
@@ -176,7 +176,7 @@ private class ControlsGrid : Frame
         configure_label (worm_props.left,  (Label)(move_left_button.get_child ()));
         configure_label (worm_props.right, (Label)(move_right_button.get_child ()));
 
-        name_label.clicked.connect (()=> 
+        name_label.clicked.connect (()=>
         {
             if (null == colour_wheel && null == key_press_message)
             {
@@ -207,9 +207,9 @@ private class ControlsGrid : Frame
                     //remove_handler = true;
                     switch (keyval)
                     {
-                        case 0xff09: // tab 
+                        case 0xff09: // tab
                             break;
-                        case 0xfe20: // back tab 
+                        case 0xfe20: // back tab
                             break;
                         default:
                             break;
@@ -219,12 +219,12 @@ private class ControlsGrid : Frame
             }
         });
 
-        move_up_button.clicked.connect (()=> 
+        move_up_button.clicked.connect (()=>
         {
             if (null == colour_wheel && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen */
-                key_press_message = new OverlayMessage (_("Press a key for up."));
+                key_press_message = new OverlayMessage (_("Press a Key for Up"));
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -239,12 +239,12 @@ private class ControlsGrid : Frame
                 });
             }
         });
-        move_down_button.clicked.connect (()=> 
+        move_down_button.clicked.connect (()=>
         {
             if (null == colour_wheel && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen */
-                key_press_message = new OverlayMessage (_("Press a key for down."));
+                key_press_message = new OverlayMessage (_("Press a Key for Down"));
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -259,12 +259,12 @@ private class ControlsGrid : Frame
                 });
             }
         });
-        move_left_button.clicked.connect (()=> 
+        move_left_button.clicked.connect (()=>
         {
             if (null == colour_wheel && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left */
-                key_press_message = new OverlayMessage (_("Press a key for left."));
+                key_press_message = new OverlayMessage (_("Press a Key for Left"));
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -279,12 +279,12 @@ private class ControlsGrid : Frame
                 });
             }
         });
-        move_right_button.clicked.connect (()=> 
+        move_right_button.clicked.connect (()=>
         {
             if (null == colour_wheel && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right */
-                key_press_message = new OverlayMessage (_("Press a key for right."));
+                key_press_message = new OverlayMessage (_("Press a Key for Right"));
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -309,7 +309,7 @@ private class ControlsGrid : Frame
     private void draw_arrow (uint d /* 0 up, 1 down, 2 left, 3 right */, Cairo.Context C, double width, double height)
     {
         xy a[7];
-        
+
         if (d == 0)
             a = {{0, height / 2},{width / 2, 0},{width, height /2},{width * 2 / 3, height / 2},{width * 2 / 3, height},{width / 3, height},{width / 3, height / 2}};
         else if (d == 1)
@@ -331,7 +331,7 @@ private class ControlsGrid : Frame
             C.set_source_rgba (0.75, 0, 0, 1);
         else
             C.set_source_rgba (0.2890625, 0.5625, 0.84765625, 1); //4a90d9
-        C.fill ();       
+        C.fill ();
     }
 
     internal void mark_duplicated_keys (GenericSet<uint> duplicate_keys)
@@ -442,7 +442,6 @@ internal class OverlayMessage : DrawingArea
         set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ C, width, height)=>
         {
             const double PI2 = 1.570796326794896619231321691639751442;
-            const double border_width = 3;
 
             double text_width;
             double text_height;
@@ -454,25 +453,16 @@ internal class OverlayMessage : DrawingArea
             double x = (width - background_width) / 2;
             double y = (height - background_height) / 2;
 
-            double arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
+            double arc_radius = background_width < background_height ? background_width / 6 : background_height / 6;
 
-            /* draw border */
+            /* draw background */
             C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
             C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
             C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
             C.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
 
-            C.set_source_rgba (0.5, 0.5, 0.5, 1);
-            C.fill ();                
-
-            /* draw background */
-            C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius - border_width, -PI2, 0);
-            C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius - border_width, 0, PI2);
-            C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius - border_width, PI2, PI2 * 2);
-            C.arc (x + arc_radius, y + arc_radius, arc_radius - border_width, PI2 * 2, -PI2);
-
-            C.set_source_rgba (0.125, 0.125, 0.125, 1);
-            C.fill ();                
+            C.set_source_rgba (0, 0, 0, 0.9);
+            C.fill ();
 
             draw_text_font_size (C, (int)(x + (background_width - text_width) / 2),
                 (int)(y + background_height / 2 - text_height / 2), text, font_size);
@@ -485,7 +475,7 @@ internal class OverlayMessage : DrawingArea
         uint target_width_diff = uint.MAX;
         width = 0;
         height = 0;
-        
+
         for (int font_size = 1;font_size < 200;)
         {
             var layout =  Pango.cairo_create_layout (C);
@@ -516,7 +506,7 @@ internal class OverlayMessage : DrawingArea
                 font_size+=5;
             else
                 font_size+=10;
-        }    
+        }
         return target_font_size;
     }
 
@@ -524,7 +514,7 @@ internal class OverlayMessage : DrawingArea
     {
         int x_offset, y_offset;
         get_text_offsets (C, text, font_size, out x_offset, out y_offset);
-        C.move_to (x - x_offset, y - y_offset); 
+        C.move_to (x - x_offset, y - y_offset);
         C.set_source_rgb (1, 1, 1);
         var layout =  Pango.cairo_create_layout (C);
         Pango.FontDescription font;
@@ -568,7 +558,7 @@ internal class ColourWheel : DrawingArea
     double radius;
     uint mouse_segment = uint.MAX;
     bool mouse_pressed = false;
-    
+
     public ColourWheel (ResultFunction result)
     {
         this.result = (ResultFunction)result;
@@ -577,7 +567,7 @@ internal class ColourWheel : DrawingArea
         sensitive = true;
         focus_on_click = true;
         grab_focus ();
-        
+
         // set drawing fuction
         set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ C, width, height)=>
         {
@@ -594,32 +584,32 @@ internal class ColourWheel : DrawingArea
             // draw coloured pie
             C.move_to (centre_x + (mouse_pressed && mouse_segment == 0 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 0 ? border_width*sixty_degrees/2.0 : 0));
             C.arc (centre_x + (mouse_pressed && mouse_segment == 0 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 0 ? border_width*sixty_degrees/2.0 : 0), radius, -PI2, -PI2 + PI3);
-            C.set_source_rgba (1 , 0, 0, 1);
-            C.fill ();                
+            C.set_source_rgba (1, 0, 0, 1);
+            C.fill ();
             C.move_to (centre_x + (mouse_pressed && mouse_segment == 1 ? border_width : 0), centre_y);
             C.arc (centre_x + (mouse_pressed && mouse_segment == 1 ? border_width : 0), centre_y, radius, -PI2 + PI3, -PI2 + PI3 + PI3);
-            C.set_source_rgba (0, 0.75 , 0, 1);
-            C.fill ();                
+            C.set_source_rgba (0, 0.75, 0, 1);
+            C.fill ();
             C.move_to (centre_x + (mouse_pressed && mouse_segment == 2 ? border_width/sixty_degrees/2.0 : 0), centre_y + (mouse_pressed && mouse_segment == 2 ? border_width*sixty_degrees/2.0 : 0));
             C.arc (centre_x + (mouse_pressed && mouse_segment == 2 ? border_width/sixty_degrees/2.0 : 0), centre_y + (mouse_pressed && mouse_segment == 2 ? border_width*sixty_degrees/2.0 : 0), radius, PI2 - PI3, PI2);
-            C.set_source_rgba (0, 0.5 , 1, 1);
-            C.fill ();                
+            C.set_source_rgba (0, 0.5, 1, 1);
+            C.fill ();
             C.move_to (centre_x - (mouse_pressed && mouse_segment == 3 ? border_width/sixty_degrees/2.0 : 0), centre_y+ (mouse_pressed && mouse_segment == 3 ? border_width*sixty_degrees/2.0 : 0));
             C.arc (centre_x - (mouse_pressed && mouse_segment == 3 ? border_width/sixty_degrees/2.0 : 0), centre_y+ (mouse_pressed && mouse_segment == 3 ? border_width*sixty_degrees/2.0 : 0), radius, PI2, PI2 + PI3);
             C.set_source_rgba (1, 1, 0, 1);
-            C.fill ();                
+            C.fill ();
             C.move_to (centre_x - (mouse_pressed && mouse_segment == 4 ? border_width : 0), centre_y);
             C.arc (centre_x- (mouse_pressed && mouse_segment == 4 ? border_width : 0), centre_y, radius, PI2 + PI3 , PI2 + PI3 + PI3);
-            C.set_source_rgba (0, 1 , 1 , 1);
-            C.fill ();                
+            C.set_source_rgba (0, 1, 1 , 1);
+            C.fill ();
             C.move_to (centre_x - (mouse_pressed && mouse_segment == 5 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 5 ? border_width*sixty_degrees/2.0 : 0));
             C.arc (centre_x - (mouse_pressed && mouse_segment == 5 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 5 ? border_width*sixty_degrees/2.0 : 0), radius, PI2 + PI3 + PI3, -PI2);
-            C.set_source_rgba (0.75 , 0 , 0.75 , 1);
-            C.fill ();           
+            C.set_source_rgba (0.75, 0, 0.75, 1);
+            C.fill ();
 
             // instruction label
             /* Translators: text displayed in a message box directing the player to select the color they want for the worm */
-            draw_label (C,width,height, _("Select your color"));
+            draw_label (C,width,height, _("Select Your Color"));
         });
         var mouse_position = new EventControllerMotion ();
         mouse_position.motion.connect ((x,y)=> {new_position (x, y);});
@@ -700,7 +690,7 @@ internal class ColourWheel : DrawingArea
         uint target_width_diff = uint.MAX;
         width = 0;
         height = 0;
-        
+
         for (int font_size = 1;font_size < 200;)
         {
             var layout =  Pango.cairo_create_layout (C);
@@ -731,7 +721,7 @@ internal class ColourWheel : DrawingArea
                 font_size+=5;
             else
                 font_size+=10;
-        }    
+        }
         return target_font_size;
     }
 
@@ -739,7 +729,7 @@ internal class ColourWheel : DrawingArea
     {
         int x_offset, y_offset;
         get_text_offsets (C, text, font_size, out x_offset, out y_offset);
-        C.move_to (x - x_offset, y - y_offset); 
+        C.move_to (x - x_offset, y - y_offset);
         C.set_source_rgb (1, 1, 1);
         var layout =  Pango.cairo_create_layout (C);
         Pango.FontDescription font;
@@ -775,37 +765,27 @@ internal class ColourWheel : DrawingArea
     void draw_label (Cairo.Context C, double width, double height, string text)
     {
             const double PI2 = 1.570796326794896619231321691639751442;
-            const double border_width = 3;
-        
+
             double text_width;
             double text_height;
             int font_size = calculate_font_size (C, text, (int)(width / 2), out text_width, out text_height);
             double minimum_dimension = text_width < text_height ? text_width : text_height;
             double background_width = text_width + minimum_dimension * 2;
             double background_height = text_height + minimum_dimension * 2;
-            
+
             double x = (width - background_width) / 2;
             double y = 0;
 
-            double arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
-            
-            /* draw border */
+            double arc_radius = background_width < background_height ? background_width / 6 : background_height / 6;
+
+            /* draw background */
             C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
             C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
             C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
             C.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
-            
-            C.set_source_rgba (0.5, 0.5, 0.5, 1);
-            C.fill ();                
 
-            /* draw background */
-            C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius - border_width, -PI2, 0);
-            C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius - border_width, 0, PI2);
-            C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius - border_width, PI2, PI2 * 2);
-            C.arc (x + arc_radius, y + arc_radius, arc_radius - border_width, PI2 * 2, -PI2);
-            
-            C.set_source_rgba (0.125, 0.125, 0.125, 1);
-            C.fill ();                
+            C.set_source_rgba (0, 0, 0, 0.9);
+            C.fill ();
 
             draw_text_font_size (C, (int)(x + (background_width - text_width) / 2),
                 (int)(y + background_height / 2 - text_height / 2), text, font_size);

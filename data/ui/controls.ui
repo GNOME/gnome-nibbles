@@ -31,15 +31,11 @@
         <property name="spacing">25</property>
         <child>
           <object class="GtkLabel">
-            <attributes>
-              <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
-              <attribute name="scale" value="2"/>
-            </attributes>
             <!-- Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player -->
             <property name="label" translatable="1">Controls</property>
             <property name="valign">center</property>
             <style>
-              <class name="menu-title"/>
+              <class name="title-1"/>
             </style>
           </object>
         </child>
@@ -60,11 +56,9 @@
         <property name="label" translatable="1">_Start</property>
         <property name="action-name">win.start-game</property>
         <property name="halign">center</property>
-        <property name="width-request">116</property>
-        <property name="height-request">34</property>
         <style>
           <class name="suggested-action"/>
-          <class name="play"/>
+          <class name="pill"/>
         </style>
       </object>
     </child>

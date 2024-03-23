@@ -21,7 +21,7 @@
  *
  * To help you comply with the coding style in this project use the
  * following greps. Any lines returned should be adjusted so they
- * don't match. The convoluted regular expressions are so they don't 
+ * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
  * grep -ne '[^][)(_!$ "](' *.vala
@@ -140,7 +140,7 @@ private class NibblesGame : Object
         /* add the keypress handler if we haven't done so yet */
         if (!added_keypress_handler)
             added_keypress_handler = add_keypress_handler (keypress);
-            
+
         string level_name = "level%03d.gnl".printf (level_id);
         string filename = GLib.Path.build_filename (get_pkgdatadir (), "levels", level_name, null);
 
@@ -401,7 +401,7 @@ private class NibblesGame : Object
         {
             move_worms ();
             return Source.CONTINUE;
-        } 
+        }
     }
 
     /*\
@@ -561,7 +561,7 @@ private class NibblesGame : Object
             && EMPTYCHAR == board [x + 1, y] && EMPTYCHAR == board [x, y + 1]
             && boni.get_bonus (x, y) == null && boni.get_bonus (x + 1, y + 1) == null
             && boni.get_bonus (x + 1, y) == null && boni.get_bonus (x, y + 1) == null
-            && !worms_at [x, y] && !worms_at [x + 1, y + 1] 
+            && !worms_at [x, y] && !worms_at [x + 1, y + 1]
             && !worms_at [x + 1, y] && !worms_at [x, y + 1];
     }
 
@@ -742,7 +742,7 @@ private class NibblesGame : Object
 
         return null;
     }
-    
+
     internal uint humans_left ()
     {
         uint count = 0;
@@ -841,7 +841,7 @@ private class NibblesGame : Object
 
         return false;
     }
-#endif    
+#endif
     /*\
     * * Delegates
     \*/
@@ -856,7 +856,7 @@ private class NibblesGame : Object
         }
         return result;
     }
-    
+
     internal Gee.List<Bonus> get_bonuses ()
     {
         return boni.get_bonuses ();

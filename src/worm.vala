@@ -22,7 +22,7 @@
  *
  * To help you comply with the coding style in this project use the
  * following greps. Any lines returned should be adjusted so they
- * don't match. The convoluted regular expressions are so they don't 
+ * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
  * grep -ne '[^][)(_!$ "](' *.vala
@@ -75,7 +75,7 @@ private enum WormDirection
                 assert_not_reached ();
         }
     }
-    
+
     internal WormDirection[] get_space_fill_array ()
     {
         switch (this)
@@ -135,17 +135,17 @@ private struct Position
 
 /*
  * This structure is similar to struct Position except x & y
- * are signed to allow wrapping around the board. 
+ * are signed to allow wrapping around the board.
  */
 public struct SignedPosition
 {
     public int64 x; /* x increases going right (or east) */
     public int64 y; /* y increases going down (or south) */
-    
+
     /* used by wrap functions */
     public int64 x_max;
     public int64 y_max;
-    
+
     public uint8 wrap_x ()
     {
         assert (x_max > 0); /* call set_wrapping (x, y) first */
@@ -156,7 +156,7 @@ public struct SignedPosition
         else
             return (uint8)x;
     }
-    
+
     public uint8 wrap_y ()
     {
         assert (y_max > 0); /* call set_wrapping (x, y) first */
@@ -167,23 +167,23 @@ public struct SignedPosition
         else
             return (uint8)y;
     }
-    
+
     public uint16 wrap_xy ()
     {
         return ((uint16)wrap_x () << 8) | wrap_y ();
     }
 }
 
-/* 
+/*
  * An array to store the positions of worms.
- * The contains function is the equivalent of the function 
+ * The contains function is the equivalent of the function
  * is_position_clear_of_materialized_worms but much faster.
  */
 private class WormMap : Object
 {
     /* variables */
     private uint64[,] map;
-    
+
     /* constants */
     const uint8 bits = (uint8) (sizeof (uint64) * 8);
 
@@ -233,7 +233,7 @@ private class WormMap : Object
          * determine the position within the array.
          * The remainder from the above division is the bit position
          * we want within the unsigned integer.
-         * Unfortunately in vala there is no mathematical operator that 
+         * Unfortunately in vala there is no mathematical operator that
          * gives both the quotient and the remainder from a division
          * so we have two use two operators / and %.
          * Once we have the bit we and the result with 1 (to mask out
@@ -243,10 +243,10 @@ private class WormMap : Object
          */
         uint8 quotient = (p>>8) / bits;
         uint8 remainder = (p>>8) % bits;
-        
+
         return (map [quotient, (uint8)p] >> remainder & 1) > 0;
     }
-    
+
     public bool contain_position (Position p)
     {
         return contain (((uint16)p.x) << 8 | p.y);
@@ -296,7 +296,7 @@ struct int128
 
     /* public functions */
 
-    /* *this <<= shift */        
+    /* *this <<= shift */
     internal void left_shift_assign (int shift)
     {
         if (shift >= 64)
@@ -313,15 +313,15 @@ struct int128
         }
     }
 
-    /* *this << shift */        
+    /* *this << shift */
     internal int128 left_shift (int shift)
     {
         int128 r = {hi,lo,negative};
         r.left_shift_assign (shift);
-        return r;   
+        return r;
     }
-    
-    /* *this >>= shift */        
+
+    /* *this >>= shift */
     internal void right_shift_assign (int shift)
     {
         if (shift >= 64)
@@ -337,8 +337,8 @@ struct int128
             hi >>= shift;
         }
     }
-    
-    /* *this += a */        
+
+    /* *this += a */
     internal void add_assign (int128 a)
     {
         hi += a.hi;
@@ -347,8 +347,8 @@ struct int128
         if (lo < o)
             hi += 1;
     }
-    
-    /* *this > a */        
+
+    /* *this > a */
     internal bool greater_than (int128 a)
     {
         if (!negative && !a.negative)
@@ -360,14 +360,14 @@ struct int128
         else
             return hi < a.hi || hi == a.hi && lo < a.lo;
     }
-    
-    /* *this <= a */        
+
+    /* *this <= a */
     internal bool less_than_or_equal_to (int128 a)
     {
         return !greater_than (a);
     }
-    
-    /* *this < a */        
+
+    /* *this < a */
     internal bool less_than (int128 a)
     {
         if (!negative && !a.negative)
@@ -379,23 +379,23 @@ struct int128
         else
             return hi > a.hi || hi == a.hi && lo > a.lo;
     }
-    
-    /* *this == a */        
+
+    /* *this == a */
     internal bool equal_to (int128 a)
     {
         return negative == a.negative && hi == a.hi && lo == a.lo;
     }
-    
+
     /* *this / x */
     internal int128 divide_by (int64 x)
     {
         /* This algorithm requires the absolute value of x to be
          * less than or equal to 2^63 (0x8000000000000000).
-         */ 
+         */
         uint64 div = x.abs ();
         int128 s = {hi, lo};
         int128 d = {0, 0, negative && x >= 0 || !negative && x < 0};
-        
+
         /* deal with special cases */
         if (s.hi == 0 && s.lo == 0)
         {
@@ -408,16 +408,16 @@ struct int128
             d.lo = 0xffffffffffffffff;
             return d;
         }
-        
+
         /* for performance, repeatedly divide the numerator and denominator by 2 while there is no remainder */
         for (; (s.lo & 1) == 0 && (div & 1) == 0; s.right_shift_assign (1), div >>= 1);
-        
+
         if (div == 1)
         {
             s.negative = d.negative;
             return s;
         }
-        
+
         for (;s.hi > 0;)
         {
             int shift = 0;
@@ -443,22 +443,22 @@ struct int128
             d.remainder = s.lo;
         return d;
     }
-    
+
     /* Is *this small enough to fit in an int64? */
     bool is_valid_int64 ()
     {
-        return hi == 0 
-            && (!negative && (lo & 0x8000000000000000) == 0 
+        return hi == 0
+            && (!negative && (lo & 0x8000000000000000) == 0
             || (negative && lo <= 0x8000000000000000));
     }
-    
+
     /* get the int64 component from this int128 */
     internal int64 get_int64 ()
     {
         assert (is_valid_int64 ());
-        return negative ? (int64) (-lo) : (int64) (lo); 
+        return negative ? (int64) (-lo) : (int64) (lo);
     }
-    
+
     /* return *this multiplied by a as an int128 */
     int128 multiply (uint64 _a)
     {
@@ -471,7 +471,7 @@ struct int128
         }
         return r;
     }
-    
+
     /* *this - a */
     void minus (int128 a)
     {
@@ -518,13 +518,13 @@ private class AngleIterator
         pAngle = p;
         index = 0; /* skip the origin */
     }
-    
+
     public bool next ()
     {
         ++index;
         return true;
     }
-    
+
     public SignedPosition @get ()
     {
         return pAngle.@get (index);
@@ -541,25 +541,25 @@ enum Quarter {Q0,Q1,Q2,Q3}
  * To convert to degrees use (Math.atan2 (x,-y) / Math.PI * 180).
  *
  */
-private struct Angle 
+private struct Angle
 {
     /* variables */
     public int64 x; /* x increases going right (or east) */
     public int64 y; /* y increases going down (or south) */
-    
+
     /* variables used by @get */
     public const int step_multiplier_2n = 38;
     public const int64 step_multiplier = 274877906944; /* 2 to the power of 38 */
     public int64 origin_x;
     public int64 origin_y;
-    
+
     /* variables used by wrap functions in struct SignedPosition */
     public int64 x_max; /* one more that the max */
     public int64 y_max; /* one more that the max */
 
 
     /* public functions */
-    
+
     /* this = o */
     public void assign (Angle o)
     {
@@ -576,7 +576,7 @@ private struct Angle
     {
         return !greater_than (o);
     }
-    
+
     /* this > o */
     public bool greater_than (Angle o)
     {
@@ -588,41 +588,41 @@ private struct Angle
                     return true;
                 else if (q == Q1)
                     return false;
-                else 
+                else
                     return multiply (x, o.y).less_than (multiply (o.x, y));
             case Q1:
                 if (q == Q0)
                     return true;
                 else if (q == Q2)
                     return false;
-                else 
+                else
                     return multiply (x, o.y).less_than (multiply (o.x, y));
             case Q2:
                 if (q == Q1)
                     return true;
                 else if (q == Q3)
                     return false;
-                else 
+                else
                     return multiply (x, o.y).less_than (multiply (o.x, y));
             case Q3:
                 if (q == Q2)
                     return true;
                 else if (q == Q0)
                     return false;
-                else 
+                else
                     return multiply (x, o.y).less_than (multiply (o.x, y));
             default:
                 return false;
         }
     }
 
-    /* this < o */        
+    /* this < o */
     public bool less_than (Angle o)
     {
         return !equal_to (o) && less_than_or_equal_to (o);
     }
-    
-    /* this >= o */        
+
+    /* this >= o */
     public bool greater_than_or_equal_to (Angle o)
     {
         Quarter q=o.get_quarter ();
@@ -635,7 +635,7 @@ private struct Angle
                     return false;
                 else if (q == Q2)
                     return multiply (x, o.y).less_than (multiply (o.x, y));
-                else 
+                else
                     return multiply (x, o.y).less_than_or_equal_to (multiply (o.x, y));
             case Q1:
                 if (q == Q0)
@@ -644,7 +644,7 @@ private struct Angle
                     return false;
                 else if (q == Q3)
                     return multiply (x, o.y).less_than (multiply (o.x, y));
-                else 
+                else
                     return multiply (x, o.y).less_than_or_equal_to (multiply (o.x, y));
             case Q2:
                 if (q == Q1)
@@ -653,7 +653,7 @@ private struct Angle
                     return false;
                 else if (q == Q0)
                     return multiply (x, o.y).less_than (multiply (o.x, y));
-                else 
+                else
                     return multiply (x, o.y).less_than_or_equal_to (multiply (o.x, y));
             case Q3:
                 if (q == Q2)
@@ -662,7 +662,7 @@ private struct Angle
                     return false;
                 else if (q == Q1)
                     return multiply (x, o.y).less_than (multiply (o.x, y));
-                else 
+                else
                     return multiply (x, o.y).less_than_or_equal_to (multiply (o.x, y));
             default:
                 return false;
@@ -693,23 +693,23 @@ private struct Angle
         return x.abs () > y.abs ();
     }
 
-    /* get the i position along the angle */        
+    /* get the i position along the angle */
     public SignedPosition @get (uint64 i)
     {
         /* step along x or y axis depending on which is the larger */
-        int64 delta_x = step_along_x () ? set_delta_x_sign (step_multiplier) 
+        int64 delta_x = step_along_x () ? set_delta_x_sign (step_multiplier)
             : set_delta_x_sign (multiply_by_2n (x, step_multiplier_2n).divide_by (y).get_int64 ());
         int64 delta_y = step_along_x () ? set_delta_y_sign (multiply_by_2n (y, step_multiplier_2n).divide_by (x).get_int64 ())
             : set_delta_y_sign (step_multiplier);
 
         /* calculate new x,y position */
         int64 x_i = origin_x + delta_x * (int64)i;
-        int64 y_i = origin_y + delta_y * (int64)i; 
+        int64 y_i = origin_y + delta_y * (int64)i;
 
         return { (x_i >> step_multiplier_2n) + (x_i < 0 ? -1 : 0),
             (y_i >> step_multiplier_2n) + (y_i < 0 ? -1 : 0), x_max, y_max};
     }
-    
+
     public AngleIterator iterator ()
     {
         return new AngleIterator (this);
@@ -788,7 +788,7 @@ internal class Slice : Object
     public Angle max;
     bool min_set;
     bool max_set;
-    
+
     /* constructor */
     public Slice (Slice? copy = null)
     {
@@ -809,12 +809,12 @@ internal class Slice : Object
         min_set = o.min_set;
         max_set = o.max_set;
     }
-    
+
     public void set_direction_view (WormDirection d, int[,] board)
     {
         /*
          * For the code to work the ratio x / y should be > 0° and <= 45°
-         * 369665159/-14116942878 is approximately 1½° (Math.atan2 (x,-y) / Math.PI * 180)) 
+         * 369665159/-14116942878 is approximately 1½° (Math.atan2 (x,-y) / Math.PI * 180))
          */
         const int64 x = 369665159;
         const int64 y = -14116942878;
@@ -822,7 +822,7 @@ internal class Slice : Object
         {
             case EAST:
                 /*
-                 *      . 
+                 *      .
                  *     ..
                  *    ...
                  *   ....
@@ -837,7 +837,7 @@ internal class Slice : Object
                 break;
             case SOUTH:
                 /*
-                 *      o 
+                 *      o
                  *     ...
                  *    .....
                  *   .......
@@ -848,15 +848,15 @@ internal class Slice : Object
                 break;
             case WEST:
                 /*
-                 *  .    
-                 *  ..   
+                 *  .
+                 *  ..
                  *  ...
                  *  ....
                  *  ....o
                  *  ....
                  *  ...
-                 *  ..   
-                 *  .   
+                 *  ..
+                 *  .
                  */
                 min = {+y, +x}; // mirror on 0° line (x axis) and rotate -90°
                 max = {+y, -x}; // rotate -90°
@@ -867,10 +867,10 @@ internal class Slice : Object
                  *   .......
                  *    .....
                  *     ...
-                 *      o 
+                 *      o
                  */
                 min = {-x, +y}; // mirror on 0° line (x axis)
-                max = {+x, +y}; 
+                max = {+x, +y};
                 break;
             default:
                 break;
@@ -926,10 +926,10 @@ internal class Slice : Object
          * viewed from the origin.
          * For normal objects the size is 1 for bonuses it is 2.
          */
-        
+
         min_set = false;
         max_set = false;
-        
+
         /*
          * Example for a bonus.
          *
@@ -941,8 +941,8 @@ internal class Slice : Object
          *   O
          *
          */
-        
-        // our origin is in the centre of position e.g. x + 0.5, y + 0.5 
+
+        // our origin is in the centre of position e.g. x + 0.5, y + 0.5
         add_angle ({x * 2 - (origin.x * 2 + 1),  y * 2 - (origin.y * 2 + 1)});
         add_angle ({ (x + 1 * size)* 2  - (origin.x * 2 + 1), y * 2 - (origin.y * 2 + 1)});
         add_angle ({x * 2 - (origin.x * 2 + 1), (y + 1 * size)* 2 - (origin.y * 2 + 1)});
@@ -955,7 +955,7 @@ internal class Slice : Object
          * from the origin and set this to be the overlap with between
          * the created slice and this slice.
          */
-         
+
         int64 x = _x;
         int64 y = _y;
         if (min.x >= 0 && max.x >= 0)
@@ -988,33 +988,33 @@ internal class Slice : Object
         if (old_max.less_than (max))
             max.assign (old_max);
     }
-    
+
     public bool is_empty ()
     {
         /* Return true if the slice is empty (covers 0°). */
         return !min_set || !max_set || min.greater_than_or_equal_to (max);
     }
-    
+
     bool is_bonus_at (uint8 x, uint8 y, Bonus b)
     {
-        return b.x == x && b.y == y 
-            || b.x + 1 == x && b.y == y 
-            || b.x == x && b.y + 1 == y 
+        return b.x == x && b.y == y
+            || b.x + 1 == x && b.y == y
+            || b.x == x && b.y + 1 == y
             || b.x + 1 == x && b.y + 1 == y;
     }
-    
+
     bool is_position_occupied (Position p, int[,] board, WormMap worm_map)
     {
         return board[p.x, p.y] > NibblesGame.EMPTYCHAR || worm_map.contain_position (p);
     }
-    
+
     public int64 is_visible (Position origin, int[,] board, WormMap worm_map, Bonus bonus)
     {
-        /* 
+        /*
          * Return the distance to a bonus if it is possible to see
          * the bonus. Otherwise return int64.MAX.
          */
-         
+
         /* remember the positions we have already checked in this array */
         var checked_positions = new Gee.ArrayList<uint16> ();
 
@@ -1172,7 +1172,7 @@ private class Worm : Object
     internal void set_start (uint8 x, uint8 y, WormDirection direction)
     {
         list.clear ();
-        
+
         bonus_eaten.clear (); /* forget all the bonuses we have eaten */
 
         starting_position = {x, y};
@@ -1212,7 +1212,7 @@ private class Worm : Object
             assert (list.size > 0);
             remove_bonus_eaten_position (list.remove_tail ());
         }
-        
+
         /* Check for bonus, do nothing if there isn't a bonus */
         bonus_found (); /* signal function in nibble-game.vala */
 
@@ -1327,7 +1327,7 @@ private class Worm : Object
         else
             return true;
     }
-    
+
     internal bool can_move_direction (int[,] board, Gee.LinkedList<Worm> worms, WormDirection direction)
     {
         Position position = list.get_head (); /* head position */
@@ -1351,8 +1351,8 @@ private class Worm : Object
     {
         /*
          * A worm can only materialize if it is not overlapping
-         * another worm. If this is the case we set 
-         * rounds_to_stay_dematerialized to zero. Otherwise we wait 
+         * another worm. If this is the case we set
+         * rounds_to_stay_dematerialized to zero. Otherwise we wait
          * to the next round and try again to materialize.
          */
         WormMap worm_map = new WormMap (get_other_worms (this), width, height);
@@ -1369,7 +1369,7 @@ private class Worm : Object
 
         rounds_to_stay_still = 2;
     }
-    
+
     internal void add_life ()
     {
         if (lives > MAX_LIVES)
@@ -1423,7 +1423,7 @@ private class Worm : Object
         position.move (direction, width, height);
         return position;
     }
-    
+
     private void direction_set (WormDirection dir)
         requires (dir != WormDirection.NONE)
     {
@@ -1589,7 +1589,7 @@ private class Worm : Object
 
         return false;
     }
-#endif    
+#endif
     private void queue_keypress (WormDirection dir)
     {
         /* Ignore duplicates in normal movement mode. This resolves the key
@@ -1698,7 +1698,7 @@ private class Worm : Object
         int cl = (length * length) / 16;
         if (cl < (int) width)
             cl = width;
-            
+
         return ai_deadend (board, worm_map, new_position, cl);
     }
 
@@ -1747,8 +1747,8 @@ private class Worm : Object
     internal bool ai_is_bonus_more_attractive (BonusType b0, int64 d0, BonusType b1, int64 d1)
     {
         /* A LIFE bonus is a more attractive bonus than any other bonus. */
-        return (BonusType.LIFE == b0 && BonusType.LIFE == b1 
-            || BonusType.LIFE != b0 && BonusType.LIFE != b1) && d0 < d1 
+        return (BonusType.LIFE == b0 && BonusType.LIFE == b1
+            || BonusType.LIFE != b0 && BonusType.LIFE != b1) && d0 < d1
             || BonusType.LIFE == b0 && BonusType.LIFE != b1;
     }
 
@@ -1770,12 +1770,12 @@ private class Worm : Object
     internal int64 ai_count_distance_to_a_bonus_in_direction (int[,] board, WormMap worm_map,
          Position origin, WormDirection direction, out BonusType bonus_type)
     {
-        /* 
+        /*
          * Return the distance to a bonus if it is possible to head in
          * this direction to find a bonus. Otherwise return int64.MAX.
          */
-        
-        /*            
+
+        /*
          * Look for a bonus in direction.
          *
          *       .
@@ -1784,10 +1784,10 @@ private class Worm : Object
          * o . . .
          *   . b b
          *     b b
-         *       .     
+         *       .
          *
          */
-        
+
         int64 bonus_distance = int64.MAX;
         bonus_type = (BonusType)(-1);
 
@@ -1809,7 +1809,7 @@ private class Worm : Object
                     int64 distance = slice.is_visible (origin, board, worm_map, b);
                     /* If the bonus is visible, its nearer than previous bonuses and it can still be see
                        if we move in this direction choose it. */
-                    if (distance < bonus_distance && 
+                    if (distance < bonus_distance &&
                         ai_can_see_bonus (board, get_position_after_direction_move (origin, direction), b, direction))
                     {
                         bonus_distance = distance;
@@ -1826,26 +1826,26 @@ private class Worm : Object
     internal void ai_move (int[,] board, Gee.LinkedList<Worm> worms)
     {
         WormMap worm_map = new WormMap (worms, width, height);
-    
+
         /* We have a look in all directions except behind us for a bonus. */
         BonusType bonus_type;
         int64 shortest_distance = int64.MAX;
         WormDirection shortest_dir = direction;
         BonusType shortest_bonus_type = (BonusType)(-1);
-   
+
         WormDirection dir[] = {direction, direction.turn_left (), direction.turn_right ()};
         foreach (WormDirection direction in dir)
         {
             int64 d = ai_count_distance_to_a_bonus_in_direction (board, worm_map, head, direction, out bonus_type);
             if (ai_is_bonus_more_attractive (bonus_type, d, shortest_bonus_type, shortest_distance)
                 && can_move_direction (board, worms, direction))
-            {   
+            {
                 shortest_distance = d;
                 shortest_dir = direction;
                 shortest_bonus_type = bonus_type;
             }
         }
-        
+
         if (shortest_distance >= int64.MAX)
         {
             // check next step positions
@@ -1857,14 +1857,14 @@ private class Worm : Object
                 d = ai_count_distance_to_a_bonus_in_direction (board, worm_map,
                     get_position_after_direction_move (head, start_direction[i]),  look_direction[i], out bonus_type);
                 if (ai_is_bonus_more_attractive (bonus_type, d, shortest_bonus_type, shortest_distance))
-                {   
+                {
                     shortest_distance = d + 1; /* +1 for the step we have already taken in our logic */
                     shortest_dir = start_direction[i];
                     shortest_bonus_type = bonus_type;
                 }
             }
         }
-        
+
         bonus_type = shortest_bonus_type;
         if (shortest_distance >= int64.MAX)
         {

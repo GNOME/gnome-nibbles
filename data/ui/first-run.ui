@@ -23,53 +23,24 @@
   <requires lib="gtk" version="4.0"/>
   <template class="FirstRun" parent="GtkBox">
     <property name="orientation">vertical</property>
-    <property name="width-request">350</property>
-    <property name="height-request">350</property>
     <child>
-      <object class="GtkButton">
-        <property name="use-underline">1</property>
-        <!-- Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
-        <property name="label" translatable="1">Let’s _Play</property>
-        <property name="action-name">win.next-screen</property>
-        <property name="halign">center</property>
-        <property name="valign">end</property>
-        <property name="width-request">140</property>
-        <property name="height-request">40</property>
-        <style>
-          <class name="suggested-action"/>
-          <class name="play"/>
-        </style>
-      </object>
-    </child>
-    <child>
-      <object class="GtkBox">
-        <property name="orientation">vertical</property>
-        <property name="homogeneous">1</property>
-        <property name="valign">center</property>
-        <property name="vexpand">1</property>
+      <object class="AdwStatusPage">
+        <property name="vexpand">true</property>
+        <property name="icon-name">org.gnome.Nibbles</property>
+        <!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
+        <property name="title" translatable="1">Welcome Worms</property>
+        <!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
+        <property name="description" translatable="1">Eat the treats before the other worms, but don’t hit anything!</property>
         <child>
-          <object class="GtkImage">
-            <property name="icon-name">org.gnome.Nibbles</property>
-            <property name="icon-size">large</property>
-            <property name="pixel-size">96</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel">
-            <!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
-            <property name="label" translatable="1">Welcome, worms.</property>
+          <object class="GtkButton">
+            <property name="use-underline">1</property>
+            <!-- Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
+            <property name="label" translatable="1">Let’s _Play</property>
+            <property name="action-name">win.next-screen</property>
+            <property name="halign">center</property>
             <style>
-              <class name="menu-title"/>
-            </style>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel">
-            <!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
-            <property name="label" translatable="1">Eat the treats before the other worms, but don’t hit anything!</property>
-            <property name="valign">start</property>
-            <style>
-              <class name="tip"/>
+              <class name="suggested-action"/>
+              <class name="pill"/>
             </style>
           </object>
         </child>

@@ -21,6 +21,7 @@
 -->
 <interface>
   <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
   <menu id="app-menu">
     <section>
       <item>
@@ -59,129 +60,140 @@
       </item>
     </section>
   </menu>
-  <template class="NibblesWindow" parent="GtkApplicationWindow">
+  <template class="NibblesWindow" parent="AdwApplicationWindow">
     <!-- Translators: title of the window, as displayed by the window manager -->
     <property name="title" translatable="yes">Nibbles</property>
     <style>
       <class name="nibbles-window"/>
     </style>
-    <child type="titlebar">
-      <object class="GtkHeaderBar" id="headerbar">
-        <property name="visible">1</property>
-        <child type="start">
-          <object class="GtkButton" id="new_game_button">
+    <property name="content">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar" id="headerbar">
             <property name="visible">1</property>
-            <property name="use-underline">1</property>
-            <!-- Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game -->
-            <property name="label" translatable="1">_New Game</property>
-            <property name="action-name">win.new-game</property>
-          </object>
-        </child>
-        <child type="end">
-          <object class="GtkMenuButton" id="hamburger_menu">
-            <property name="visible">1</property>
-            <property name="focusable">1</property>
-            <property name="menu-model">app-menu</property>
-            <child>
-              <object class="GtkImage">
+            <child type="start">
+              <object class="GtkButton" id="new_game_button">
                 <property name="visible">1</property>
-                <property name="icon_name">open-menu-symbolic</property>
-                <property name="icon_size">normal</property>
+                <property name="icon-name">list-add-symbolic</property>
+                <!-- Translators: tooltip of a button of the headerbar, visible during a game; starts a new game -->
+                <property name="tooltip-text" translatable="1">New Game</property>
+                <property name="action-name">win.new-game</property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkMenuButton" id="hamburger_menu">
+                <property name="visible">1</property>
+                <property name="focusable">1</property>
+                <property name="menu-model">app-menu</property>
+                <property name="has-frame">false</property>
+                <!-- Translators: tooltip of the hamburger menu -->
+                <property name="tooltip-text" translatable="1">Main Menu</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">1</property>
+                    <property name="icon_name">open-menu-symbolic</property>
+                    <property name="icon_size">normal</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="pause_button">
+                <property name="visible">1</property>
+                <property name="icon-name">media-playback-pause-symbolic</property>
+                <!-- Translators: tooltip of a button of the headerbar, visible during a game; pauses the game -->
+                <property name="tooltip-text" translatable="1">Pause</property>
+                <property name="action-name">win.pause</property>
               </object>
             </child>
           </object>
         </child>
-        <child type="end">
-          <object class="GtkButton" id="pause_button">
+        <property name="content">
+          <object class="GtkStack" id="main_stack">
             <property name="visible">1</property>
-            <property name="use-underline">1</property>
-            <!-- Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game -->
-            <property name="label" translatable="1">_Pause</property>
-            <property name="action-name">win.pause</property>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="GtkStack" id="main_stack">
-        <property name="visible">1</property>
-        <property name="margin-start">25</property>
-        <property name="margin-end">25</property>
-        <property name="margin-top">25</property>
-        <property name="margin-bottom">25</property>
-        <property name="hexpand">1</property>
-        <property name="vexpand">1</property>
-        <property name="transition-type">slide-up</property>
-        <property name="transition-duration">500</property>
-        <child>
-          <object class="GtkStackPage">
-            <property name="name">number_of_players</property>
-            <property name="child">
-              <object class="Players" id="players"/>
-            </property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkStackPage">
-            <property name="name">speed</property>
-            <property name="child">
-              <object class="Speed" id="speed"/>
-            </property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkStackPage">
-            <property name="name">controls</property>
-            <property name="child">
-              <object class="Controls" id="controls"/>
-            </property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkStackPage">
-            <property name="name">game_box</property>
-            <property name="child">
-              <object class="GtkOverlay" id="overlay">
-                <property name="visible">1</property>
+            <property name="margin-start">25</property>
+            <property name="margin-end">25</property>
+            <property name="margin-top">25</property>
+            <property name="margin-bottom">25</property>
+            <property name="hexpand">1</property>
+            <property name="vexpand">1</property>
+            <property name="transition-type">slide-up</property>
+            <property name="transition-duration">500</property>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">number_of_players</property>
                 <property name="child">
-                  <object class="GtkBox" id="game_box">
+                  <object class="Players" id="players"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">speed</property>
+                <property name="child">
+                  <object class="Speed" id="speed"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">controls</property>
+                <property name="child">
+                  <object class="Controls" id="controls"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">game_box</property>
+                <property name="child">
+                  <object class="GtkOverlay" id="overlay">
                     <property name="visible">1</property>
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <object class="GtkStack" id="statusbar_stack">
+                    <property name="child">
+                      <object class="GtkBox" id="game_box">
                         <property name="visible">1</property>
+                        <property name="orientation">vertical</property>
                         <child>
-                          <object class="GtkStackPage">
-                            <property name="name">scoreboard</property>
-                            <property name="child">
-                              <object class="Scoreboard" id="scoreboard">
-                                <property name="halign">center</property>
+                          <object class="GtkStack" id="statusbar_stack">
+                            <property name="visible">1</property>
+                            <child>
+                              <object class="GtkStackPage">
+                                <property name="name">scoreboard</property>
+                                <property name="child">
+                                  <object class="Scoreboard" id="scoreboard">
+                                    <property name="halign">center</property>
+                                  </object>
+                                </property>
                               </object>
-                            </property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkStackPage">
-                            <property name="name">paused</property>
-                            <property name="child">
-                              <object class="GtkLabel">
-                                <property name="visible">1</property>
-                                <!-- Translators: text displayed at the bottom of the window, when the game is paused -->
-                                <property name="label" translatable="1">Paused</property>
-                                <property name="halign">center</property>
+                            </child>
+                            <child>
+                              <object class="GtkStackPage">
+                                <property name="name">paused</property>
+                                <property name="child">
+                                  <object class="GtkLabel">
+                                    <property name="visible">1</property>
+                                    <!-- Translators: text displayed at the bottom of the window, when the game is paused -->
+                                    <property name="label" translatable="1">Paused</property>
+                                    <property name="halign">center</property>
+                                    <style>
+                                      <class name="title-1"/>
+                                      <class name="dim-label"/>
+                                    </style>
+                                  </object>
+                                </property>
                               </object>
-                            </property>
+                            </child>
                           </object>
                         </child>
                       </object>
-                    </child>
+                    </property>
                   </object>
                 </property>
               </object>
-            </property>
+            </child>
           </object>
-        </child>
+        </property>
       </object>
-    </child>
+    </property>
   </template>
 </interface>

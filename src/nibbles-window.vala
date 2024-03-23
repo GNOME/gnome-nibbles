@@ -22,7 +22,7 @@
  *
  * To help you comply with the coding style in this project use the
  * following greps. Any lines returned should be adjusted so they
- * don't match. The convoluted regular expressions are so they don't 
+ * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
  * grep -ne '[^][)(_!$ "](' *.vala
@@ -42,31 +42,8 @@ private enum SetupScreen
     GAME
 }
 
-[GtkTemplate (ui = "/org/gnome/Nibbles/ui/are-you-sure.ui")]
-private class AreYouSureWindow : Window
-{
-    [GtkChild] private unowned Label line_one;
-    [GtkChild] private unowned Label line_two;
-    [GtkChild] private unowned Button button_no;
-    [GtkChild] private unowned Button button_yes;
-
-    internal delegate void AreYouSureResultFunction (bool yes);
-    AreYouSureResultFunction result_function;
-    
-    public AreYouSureWindow (Window w, string line1, string line2, AreYouSureResultFunction result_function)
-    {
-        set_transient_for (w);
-        line_one.label = line1;
-        line_two.label = line2;
-        this.result_function = (AreYouSureResultFunction)result_function;
-        close_request.connect (()=>{result_function (false); return false;});
-        button_no.clicked.connect (()=>{result_function (false); destroy ();});
-        button_yes.clicked.connect (()=>{result_function (true); destroy ();});
-    }
-}
-
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/nibbles.ui")]
-private class NibblesWindow : ApplicationWindow
+private class NibblesWindow : Adw.ApplicationWindow
 {
     /* Application and worm settings */
     private GLib.Settings settings;
@@ -77,7 +54,7 @@ private class NibblesWindow : ApplicationWindow
     [GtkChild] private unowned Overlay overlay;
 
     /* HeaderBar */
-    [GtkChild] private unowned HeaderBar headerbar;
+    [GtkChild] private unowned Adw.HeaderBar headerbar;
     [GtkChild] private unowned Button new_game_button;
     [GtkChild] private unowned Button pause_button;
     [GtkChild] private unowned MenuButton hamburger_menu;
@@ -101,7 +78,7 @@ private class NibblesWindow : ApplicationWindow
     private Sound sound;
 
     /* keyboard interface */
-    class DelegateStack 
+    class DelegateStack
     {
         internal class DelegateStackIterator
         {
@@ -115,7 +92,7 @@ private class NibblesWindow : ApplicationWindow
                 pIterator = p.pHead;
                 first_next = true;
             }
-            
+
             public bool next ()
             {
                 if (pIterator == null)
@@ -128,10 +105,10 @@ private class NibblesWindow : ApplicationWindow
                 else
                 {
                     pIterator = pIterator.pNext;
-                    return pIterator != null; 
+                    return pIterator != null;
                 }
             }
-            
+
             public unowned KeypressHandlerFunction @get ()
             {
                 return pIterator.keypress_handler;
@@ -152,7 +129,7 @@ private class NibblesWindow : ApplicationWindow
             else
                 pHead = { handler, pHead};
         }
-        
+
         internal bool pop ()
         {
             if (pHead == null)
@@ -163,7 +140,7 @@ private class NibblesWindow : ApplicationWindow
                 return true;
             }
         }
-        
+
         internal void remove (KeypressHandlerFunction handler)
         {
             if (pHead != null && pHead.keypress_handler == handler)
@@ -199,7 +176,7 @@ private class NibblesWindow : ApplicationWindow
     public  int cli_start_level { private get; internal construct; }
     private int start_level { private get { return cli_start_level == 0 ? settings.get_int ("start-level") : cli_start_level; }}
     public  SetupScreen start_screen { private get; internal construct; }
-    public bool game_paused 
+    public bool game_paused
     {
         get {return game != null && game.paused;}
         private set {}
@@ -220,7 +197,8 @@ private class NibblesWindow : ApplicationWindow
     private const int COUNTDOWN_TIME = 3;
     private int seconds = 0;
 
-    bool show_dialogue = false;
+    bool show_dialog = false;
+    bool dialog_visible = false;
 
     private const GLib.ActionEntry menu_entries[] =
     {
@@ -254,7 +232,7 @@ private class NibblesWindow : ApplicationWindow
             return true;
         }
     }
-    
+
     internal NibblesWindow (int cli_start_level, SetupScreen start_screen)
     {
         Object (cli_start_level: cli_start_level, start_screen: start_screen);
@@ -312,7 +290,7 @@ private class NibblesWindow : ApplicationWindow
                     return false;
                 return true;
             }
-            else 
+            else
             {
                 DelegateStack handlers_to_remove = new DelegateStack ();
                 foreach (var handler in keypress_handlers)
@@ -367,7 +345,7 @@ private class NibblesWindow : ApplicationWindow
                 keypress_handlers.pop ();
             return true;
         });
-        
+
         /* Create board view */
         view = new NibblesView (game,
                                 countdown_active,
@@ -459,7 +437,7 @@ private class NibblesWindow : ApplicationWindow
         // window state
         int window_width;
         int window_height;
-        get_default_size (out window_width, out window_height); 
+        get_default_size (out window_width, out window_height);
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", maximized);
@@ -562,12 +540,12 @@ private class NibblesWindow : ApplicationWindow
 
                     show_new_game_screen ();
                 }
-                else
+                else if (!this.dialog_visible)
                     show_new_game_dialog ();
                 break;
         }
     }
-    
+
     private void show_new_game_dialog ()
     {
         if (countdown_id != 0)
@@ -578,34 +556,43 @@ private class NibblesWindow : ApplicationWindow
 
         if (game.is_running)
             game.stop ();
-        
-        var dialog = new AreYouSureWindow (this,
-            /* Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running */
-            _("Are you sure you want to start a new game?"),
-            /* Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running */
-            _("If you start a new game, the current one will be lost."),
-            (/* bool */yes)=>
-            {
-                if (yes)
-                  show_new_game_screen ();
-                if (!yes && !game.paused)
-                {
-                    if (seconds == 0)
-                        game.start (/* add initial bonus */ false);
-                    else
-                        countdown_id = Timeout.add_seconds (1, countdown_cb);
 
-                    view.grab_focus ();
-                }
-            });
-        dialog.show ();
+        var dialog = new Adw.AlertDialog (
+            /* Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running */
+            _("New Game?"),
+            /* Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running */
+            _("If you start a new game, the current one will be lost")
+        );
+
+        dialog.add_response ("cancel", _("_Cancel"));
+        dialog.add_response ("new-game", _("_New Game"));
+        dialog.set_response_appearance ("new-game", Adw.ResponseAppearance.DESTRUCTIVE);
+
+        dialog.response.connect ((response) => {
+            this.dialog_visible = false;
+
+            if (response == "new-game")
+              show_new_game_screen ();
+            if (response != "new-game" && !game.paused)
+            {
+                if (seconds == 0)
+                    game.start (/* add initial bonus */ false);
+                else
+                    countdown_id = Timeout.add_seconds (1, countdown_cb);
+
+                view.grab_focus ();
+            }
+        });
+
+        dialog.choose (this, null);
+        this.dialog_visible = true;
     }
 
     bool new_game_dialogue_active (out YesNoResultFunction result_function)
     {
         result_function = (yes_no)=>
         {
-            show_dialogue = false;
+            show_dialog = false;
             view.redraw ();
 
             if (yes_no == 0) /* yes */
@@ -618,7 +605,7 @@ private class NibblesWindow : ApplicationWindow
                     countdown_id = Timeout.add_seconds (1, countdown_cb);
             }
         };
-        return show_dialogue;
+        return show_dialog;
     }
 
     private void pause_cb ()
@@ -641,13 +628,15 @@ private class NibblesWindow : ApplicationWindow
     {
         if (paused)
         {
-            /* Translators: label of the Pause button, when the game is paused */
-            pause_button.set_label (_("_Resume"));
+            /* Translators: tooltip of the pause button, when the game is paused */
+            pause_button.set_tooltip_text (_("Resume"));
+            pause_button.set_icon_name ("media-playback-start-symbolic");
         }
         else
         {
-            /* Translators: label of the Pause button, when the game is running */
-            pause_button.set_label (_("_Pause"));   // duplicated in nibbles.ui
+            /* Translators: tooltip of the pause button, when the game is running */
+            pause_button.set_tooltip_text (_("Pause"));   // duplicated in nibbles.ui
+            pause_button.set_icon_name ("media-playback-pause-symbolic");   // duplicated in nibbles.ui
         }
     }
 
@@ -773,9 +762,9 @@ private class NibblesWindow : ApplicationWindow
     void set_headerbar_title (string title)
     {
         if (headerbar.get_title_widget () == null)
-            headerbar.set_title_widget (new Label (title));
+            headerbar.set_title_widget (new Adw.WindowTitle (title, null));
         else
-            ((Label)headerbar.get_title_widget ()).set_label (title);
+            ((Adw.WindowTitle)headerbar.get_title_widget ()).set_title (title);
     }
 
     private void    show_new_game_screen (bool after_first_run = false)
@@ -1139,10 +1128,7 @@ private class NibblesWindow : ApplicationWindow
         game_over_label.halign = Align.CENTER;
         game_over_label.valign = Align.START;
         game_over_label.set_margin_top (150);
-        if (game_over_label.attributes == null)
-            game_over_label.attributes = new Pango.AttrList ();
-        game_over_label.attributes.insert (Pango.attr_scale_new (Pango.Scale.XX_LARGE * 2));
-        game_over_label.attributes.insert (Pango.attr_weight_new (Pango.Weight.BOLD));
+        game_over_label.add_css_class ("title-1");
 
         game_over_label.show ();
 
@@ -1181,6 +1167,7 @@ private class NibblesWindow : ApplicationWindow
         play_again_button.valign = Align.END;
         play_again_button.set_margin_bottom (100);
         play_again_button.set_action_name ("win.new-game");
+        play_again_button.add_css_class ("pill");
         play_again_button.show ();
 
         overlay_add (game_over_label);
@@ -1200,7 +1187,7 @@ private class NibblesWindow : ApplicationWindow
         pause_action.set_enabled (false);
         back_action.set_enabled (false);
     }
-    
+
     /*\
     * * Delegates
     \*/
