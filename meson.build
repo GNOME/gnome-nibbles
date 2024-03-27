@@ -1,8 +1,8 @@
 # Project & version number
 project('gnome-nibbles', ['c', 'vala'],
-  license: 'GPL3+',
-  meson_version: '>= 0.62.0',
-  version: '4.1.dev'
+    license: 'GPL3+',
+    meson_version: '>= 0.62.0',
+    version: '4.1.dev'
 )
 # note, the version numbering now follows the following sequence:
 #  4.1.alpha
@@ -25,7 +25,7 @@ bindir      = join_paths(prefix, get_option ('bindir'))
 # Dependencies
 vala_minimum_version = '0.55.1' # for sub-functions; https://gitlab.gnome.org/GNOME/vala/-/commit/048aaba0cd88b784fe9fa421dbad494019abd42e
 glib_minimum_version = '2.66.0' # minimum version for GTK 4
-glib_target_version = '2.78.0' # tested with 2.72, 2.74 & 2.78 
+glib_target_version = '2.78.0' # tested with 2.72, 2.74 & 2.78
 target_glib = '--target-glib=' + '@0@'.format(glib_target_version)
 
 valac = meson.get_compiler('vala')
@@ -53,7 +53,7 @@ if_defines = ['--define=VALA_STRICT_C']
 gtk_version = gtk_dep.version()
 gtk_big = gtk_version.split('.')[0].to_int()
 foreach i : range(0, gtk_version.split('.')[1].to_int() + 1, 1)
-  if_defines += '--define=GTK_' + gtk_big.to_string() + '_' + i.to_string() + '_or_above'
+    if_defines += '--define=GTK_' + gtk_big.to_string() + '_' + i.to_string() + '_or_above'
 endforeach
 
 posix_dep = valac.find_library('posix')
@@ -62,7 +62,7 @@ posix_dep = valac.find_library('posix')
 vala_version = valac.version()
 vala_mid = vala_version.split('.')[1].to_int()
 foreach i : range(0, vala_version.split('.')[2].to_int() + 1, 1)
-  if_defines += '--define=VALA_0_' + vala_mid.to_string() + '_' + i.to_string() + '_or_above'
+    if_defines += '--define=VALA_0_' + vala_mid.to_string() + '_' + i.to_string() + '_or_above'
 endforeach
 
 # Compile tests
@@ -114,16 +114,16 @@ configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
 
 add_project_arguments([
-    '-include', 'config.h'
-  ],
-  language: 'c'
+        '-include', 'config.h'
+    ],
+    language: 'c'
 )
 
 # Postinstall
 gnome.post_install(
-  glib_compile_schemas: true,
-  gtk_update_icon_cache: true,
-  update_desktop_database: true,
+    glib_compile_schemas: true,
+    gtk_update_icon_cache: true,
+    update_desktop_database: true,
 )
 
 # Subdirs
