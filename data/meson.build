@@ -66,9 +66,7 @@ appdata_file = i18n.merge_file(
 # Validate AppData file
 appstreamcli = find_program('appstreamcli', required: false)
 if appstreamcli.found()
-    if meson.version().version_compare('>= 0.62.0')
-        message(appstreamcli.full_path(),'version',appstreamcli.version())
-    endif
+    message(appstreamcli.full_path(),'version',appstreamcli.version())
     test(
         'validate-appdata', appstreamcli,
         args: [
