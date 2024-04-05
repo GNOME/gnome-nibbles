@@ -768,11 +768,17 @@ private class NibblesGame : Object
 
     internal void load_worm_properties (Gee.ArrayList<Settings> worm_settings)
     {
+        #if !VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING
+        static
+        #endif    
         bool GetMappingFunction (Value value, Variant variant, void *data)
-	{
+        {
             value.set_int (get_color_num (variant.get_string ()));
             return true;
-	}
+        }
+        #if !VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING
+        static
+        #endif
         Variant SetMappingFunction (Value value, VariantType type, void *data)
         {
             return new Variant.@string (get_color_string (value.get_int ()));
@@ -782,7 +788,12 @@ private class NibblesGame : Object
         {
             var properties = new WormProperties ();
             worm_settings[worm.id].bind_with_mapping ("color", properties, "color", SettingsBindFlags.DEFAULT,
-                (SettingsBindGetMappingShared)GetMappingFunction, (SettingsBindSetMappingShared)SetMappingFunction, null, null);
+            #if VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING
+                (SettingsBindGetMappingShared)GetMappingFunction, (SettingsBindSetMappingShared)SetMappingFunction,
+            #else
+                GetMappingFunction, SetMappingFunction,
+            #endif
+                null, null);
             worm_settings[worm.id].bind ("key-up",        properties, "up",        SettingsBindFlags.DEFAULT);
             worm_settings[worm.id].bind ("key-down",      properties, "down",      SettingsBindFlags.DEFAULT);
             worm_settings[worm.id].bind ("key-left",      properties, "left",      SettingsBindFlags.DEFAULT);

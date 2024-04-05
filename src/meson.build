@@ -15,6 +15,7 @@ nibbles_tests = executable(
         glib_dep,
     ],
     vala_args : if_defines + '--define=TEST_COMPILE' + target_glib,
+    c_args: c_defines,
     link_args : '-lm'
 )
 test('nibbles-tests', nibbles_tests)
@@ -45,10 +46,12 @@ gnome_nibbles_deps = [
     gsound_dep,
     libgnome_games_support_dep,
     gtk_dep,
-    libadwaita_dep,
     pangocairo_dep,
     posix_dep
 ]
+if use_libadwaita
+    gnome_nibbles_deps += libadwaita_dep
+endif
 
 gnome_nibbles_vala_args = [
     '--vapidir', join_paths(meson.current_source_dir(), 'vapi')
@@ -57,6 +60,7 @@ gnome_nibbles_vala_args = [
 executable(meson.project_name(), gnome_nibbles_sources,
     dependencies: gnome_nibbles_deps,
     vala_args: gnome_nibbles_vala_args + if_defines + target_glib,
+    c_args: c_defines,
     link_args: '-lm',
     install: true
 )
