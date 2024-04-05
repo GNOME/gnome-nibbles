@@ -11,14 +11,14 @@ desktop_file = i18n.merge_file(
 # Validate desktop file
 desktop_file_validate = find_program('desktop-file-validate', required: false)
 if desktop_file_validate.found()
-  test(
-    'validate-desktop',
-    desktop_file_validate,
-    args: [
-      desktop_file.full_path()
-    ],
-    depends: desktop_file
-  )
+    test(
+        'validate-desktop',
+        desktop_file_validate,
+        args: [
+            desktop_file.full_path()
+        ],
+        depends: desktop_file
+    )
 endif
 
 # Sound
@@ -46,11 +46,11 @@ service_conf.set('bindir', bindir)
 service = 'org.gnome.Nibbles.service'
 
 configure_file (
-  input: service + '.in',
-  output: service,
-  install: true,
-  install_dir: join_paths (datadir, 'dbus-1', 'services'),
-  configuration: service_conf
+    input: service + '.in',
+    output: service,
+    install: true,
+    install_dir: join_paths (datadir, 'dbus-1', 'services'),
+    configuration: service_conf
 )
 
 # Appdata
@@ -66,14 +66,14 @@ appdata_file = i18n.merge_file(
 # Validate AppData file
 appstreamcli = find_program('appstreamcli', required: false)
 if appstreamcli.found()
-  message(appstreamcli.full_path(),'version',appstreamcli.version())
-  test(
-    'validate-appdata', appstreamcli,
-    args: [
-      'validate', '--no-net', appdata_file.full_path()
-    ],
-    depends: appdata_file
-  )
+    message(appstreamcli.full_path(),'version',appstreamcli.version())
+    test(
+        'validate-appdata', appstreamcli,
+        args: [
+            'validate', '--no-net', appdata_file.full_path()
+        ],
+        depends: appdata_file
+    )
 endif
 
 # Gschema
