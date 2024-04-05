@@ -45,7 +45,7 @@ if gtk5_dep.found()
     message('GTK5 version', gtk5_dep.version() ,'is available on this system.')
 endif
 
-# Define VALA_STRICT_C so we can compile with the proper C code fixes not the workaround.
+# define VALA_STRICT_C so we can compile with the proper C code fixes not the workarounds
 # see https://gitlab.gnome.org/GNOME/vala/-/commit/ae2cbcd0011081581bef406fcbfcd1e86b7dacd3
 if_defines = ['--define=VALA_STRICT_C']
 
@@ -66,40 +66,15 @@ foreach i : range(0, vala_version.split('.')[2].to_int() + 1, 1)
 endforeach
 
 # Compile tests
-# This test is to support versions of vala that have compile issues
-# with modern versions of gcc(>=14) & clang(>=16).
-code0 =  '''private const string [] strings = {"a","b"};
-            private static string test_string (string [] s) {return s[0];}
-            void main() {stdout.printf ("%s\n",test_string (strings));}'''
-if meson.version().version_compare('>= 1.5.0')
-    # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
-    code0_links = valac.links(code0, 
-        args : if_defines,
-        name : 'an array of strings does not needs casting?')
-    if not code0_links
-        message('Vala has a bug when passing a constant array of strings to a function, workaround applied.')
-        if_defines += '--define=VALA_NEEDS_ARRAY_STRING_CASTING'
-    endif
-else
+code0 = '''private const string [] strings = {"a","b"};
+private static string test_string (string [] s) {return s[0];}
+void main() {stdout.printf ("%s\n",test_string (strings));}'''
+code0_compiles = valac.compiles(code0, args : if_defines + target_glib + '-Wformat' + 'Werror=format-security', name : 'if an array of strings needs casting?')
+if not code0_compiles
     if_defines += '--define=VALA_NEEDS_ARRAY_STRING_CASTING'
 endif
 
-# Test if this commit is in vala. 
-# https://gitlab.gnome.org/GNOME/vala/-/commit/f3288279b6f74cd4255b52ab78dddb5ee7bcb89c
-# This test is to maintain support for vala 0.56 (Stable Long-term Support release).
-code1 =  '''[CCode (has_target = false)] /*static*/ delegate int TestDelegateFunction ();
-            int TestDelegate (TestDelegateFunction f) {return f ()*2;}
-            void main() {static int LocalFunction () {return 1;}
-                stdout.printf ("%i\n",TestDelegate (LocalFunction));}'''
-code1_compiles = valac.compiles(code1, 
-    args : if_defines,
-    name : 'local functions do not need casting to static delegates?')
-if not code1_compiles
-    message('Vala local functions need casting to static delegates.')
-    if_defines += '--define=VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING'
-endif
-
-message('valac #defines:',if_defines)
+message('compiler #defines:',if_defines)
 
 # Configuration
 conf = configuration_data()
