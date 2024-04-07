@@ -1,0 +1,109 @@
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright (C) 2023 Ben Corby
+
+   GNOME Nibbles is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   GNOME Nibbles is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
+   
+   
+   This is a very simple "Are you sure?" dialog. The only possible responses
+   are Yes or No.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="AreYouSureWindow" parent="GtkWindow">
+    <!-- Translators: title of the Are You Sure? window -->
+    <property name="title" translatable="yes">Are You Sure?</property>
+    <property name="modal">1</property>
+    <property name="destroy_with_parent">1</property>
+    
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="headerbar">
+        <property name="visible">1</property>
+        <child type="start">
+        </child>
+        <child type="end">
+        </child>
+      </object>
+    </child>
+    
+    <child>
+      <object class="GtkBox" id="box">
+        <property name="visible">1</property>
+        <property name="orientation">vertical</property>
+        <property name="vexpand">1</property>
+      
+          <child>
+            <object class="GtkLabel" id="line_one">
+              <attributes>
+                <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+              </attributes>
+              <property name="visible">1</property>
+              <property name="halign">center</property>
+              <property name="vexpand">1</property>
+              <property name="margin_top">10</property>
+              <property name="margin_start">10</property>
+              <property name="margin_end">10</property>
+            </object>
+          </child>
+
+          <child>
+            <object class="GtkLabel" id="line_two">
+              <attributes>
+                <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+              </attributes>
+              <property name="visible">1</property>
+              <property name="halign">center</property>
+              <property name="vexpand">1</property>
+              <property name="margin_top">10</property>
+              <property name="margin_start">10</property>
+              <property name="margin_end">10</property>
+            </object>
+          </child>
+
+          <child>
+            <object class="GtkBox" id="button_box">
+              <property name="visible">1</property>
+              <property name="orientation">horizontal</property>
+              <property name="vexpand">1</property>
+              
+                <child>
+                  <object class="GtkButton" id="button_no">
+                    <property name="has-frame" >false</property>
+                    <!-- Translators: negative response button to Are You Sure? window -->
+                    <property name="label" translatable="1">No</property>
+                    <property name="hexpand">1</property>
+                    <property name="vexpand">1</property>
+                    <property name="margin_top">10</property>
+                  </object>
+                </child>
+                
+                <child>
+                  <object class="GtkButton" id="button_yes">
+                    <property name="has-frame" >false</property>
+                    <!-- Translators: positive response button to Are You Sure? window -->
+                    <property name="label" translatable="1">Yes</property>
+                    <property name="hexpand">1</property>
+                    <property name="vexpand">1</property>
+                    <property name="margin_top">10</property>
+                  </object>
+                </child>
+                
+            </object>
+          </child>
+            
+      </object>
+    </child>
+  </template>
+</interface>

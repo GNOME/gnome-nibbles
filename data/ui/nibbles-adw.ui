@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright (C) 2015-2016 Iulian Radu
+   Copyright (C) 2020 Arnaud Bonatti
+   Copyright (C) 2023 Ben Corby
+
+   GNOME Nibbles is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   GNOME Nibbles is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <menu id="app-menu">
+    <section>
+      <item>
+        <!-- Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); mutes or unmutes game sound -->
+        <attribute name="label" translatable="yes">_Sound</attribute>
+        <attribute name="action">win.sound</attribute>
+      </item>
+      <item>
+        <!-- Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); switched between 2D & 3D views -->
+        <attribute name="label" translatable="yes">_3D View</attribute>
+        <attribute name="action">win.three-dimensional-view</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the Scores dialog -->
+        <attribute name="label" translatable="yes">_Scores</attribute>
+        <attribute name="action">win.scores</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog -->
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application -->
+        <attribute name="label" translatable="yes">_Help</attribute>
+        <attribute name="action">app.help</attribute>
+      </item>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the About dialog -->
+        <attribute name="label" translatable="yes">_About Nibbles</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+  <template class="NibblesWindow" parent="AdwApplicationWindow">
+    <!-- Translators: title of the window, as displayed by the window manager -->
+    <property name="title" translatable="yes">Nibbles</property>
+    <style>
+      <class name="nibbles-window"/>
+    </style>
+    <property name="content">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar" id="headerbar">
+            <property name="visible">1</property>
+            <child type="start">
+              <object class="GtkButton" id="new_game_button">
+                <property name="visible">1</property>
+                <property name="icon-name">list-add-symbolic</property>
+                <!-- Translators: tooltip of a button of the headerbar, visible during a game; starts a new game -->
+                <property name="tooltip-text" translatable="1">New Game</property>
+                <property name="action-name">win.new-game</property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkMenuButton" id="hamburger_menu">
+                <property name="visible">1</property>
+                <property name="focusable">1</property>
+                <property name="menu-model">app-menu</property>
+                <property name="has-frame">false</property>
+                <!-- Translators: tooltip of the hamburger menu -->
+                <property name="tooltip-text" translatable="1">Main Menu</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">1</property>
+                    <property name="icon_name">open-menu-symbolic</property>
+                    <property name="icon_size">normal</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="pause_button">
+                <property name="visible">1</property>
+                <property name="icon-name">media-playback-pause-symbolic</property>
+                <!-- Translators: tooltip of a button of the headerbar, visible during a game; pauses the game -->
+                <property name="tooltip-text" translatable="1">Pause</property>
+                <property name="action-name">win.pause</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <property name="content">
+          <object class="GtkStack" id="main_stack">
+            <property name="visible">1</property>
+            <property name="margin-start">25</property>
+            <property name="margin-end">25</property>
+            <property name="margin-top">25</property>
+            <property name="margin-bottom">25</property>
+            <property name="hexpand">1</property>
+            <property name="vexpand">1</property>
+            <property name="transition-type">slide-up</property>
+            <property name="transition-duration">500</property>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">number_of_players</property>
+                <property name="child">
+                  <object class="Players" id="players"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">speed</property>
+                <property name="child">
+                  <object class="Speed" id="speed"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">controls</property>
+                <property name="child">
+                  <object class="Controls" id="controls"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">game_box</property>
+                <property name="child">
+                  <object class="GtkOverlay" id="overlay">
+                    <property name="visible">1</property>
+                    <property name="child">
+                      <object class="GtkBox" id="game_box">
+                        <property name="visible">1</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkStack" id="statusbar_stack">
+                            <property name="visible">1</property>
+                            <child>
+                              <object class="GtkStackPage">
+                                <property name="name">scoreboard</property>
+                                <property name="child">
+                                  <object class="Scoreboard" id="scoreboard">
+                                    <property name="halign">center</property>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkStackPage">
+                                <property name="name">paused</property>
+                                <property name="child">
+                                  <object class="GtkLabel">
+                                    <attributes>
+                                      <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+                                      <attribute name="scale" value="2"/>
+                                    </attributes>
+                                    <property name="visible">1</property>
+                                    <!-- Translators: text displayed at the bottom of the window, when the game is paused -->
+                                    <property name="label" translatable="1">Paused</property>
+                                    <property name="halign">center</property>
+                                    <style>
+                                      <class name="dim-label"/>
+                                    </style>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>

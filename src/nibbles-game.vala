@@ -770,7 +770,7 @@ private class NibblesGame : Object
     {
         #if !VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING
         static
-        #endif    
+        #endif
         bool GetMappingFunction (Value value, Variant variant, void *data)
         {
             value.set_int (get_color_num (variant.get_string ()));

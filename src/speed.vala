@@ -47,6 +47,13 @@ private class Speed : Box
         setup_label (enable_fake_bonuses.get_child ());
 
         next.set_margin_top (14);
+        #if USE_PILL_BUTTON
+        if (next.has_css_class ("play"))
+        {
+            next.remove_css_class ("play");
+            next.add_css_class ("pill");
+        }
+        #endif
 
         SimpleActionGroup action_group = new SimpleActionGroup ();
         action_group.add_action_entries (players_action_entries, this);
@@ -70,6 +77,7 @@ private class Speed : Box
     {
         speed_action.set_state (speed);
         fakes_action.set_state (fakes);
+        set_frames (speed);
     }
 
     internal inline void get_values (out int speed, out bool fakes)
@@ -84,6 +92,15 @@ private class Speed : Box
         if (speed < 1 || speed > 4)
             assert_not_reached ();
         _speed_action.set_state (speed);
+        set_frames (speed);
+    }
+
+    private void set_frames (int speed)
+    {
+        speed4.set_has_frame (speed == 4);
+        speed3.set_has_frame (speed == 3);
+        speed2.set_has_frame (speed == 2);
+        speed1.set_has_frame (speed == 1);
     }
 
     private void toggle_fakes (SimpleAction _fakes_action, Variant? variant)

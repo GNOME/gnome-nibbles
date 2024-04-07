@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2023-24 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2023-2024 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@
  * grep -ne '[^][)(_!$ "](' *.vala
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
+ * grep -ne ' $' *.vala
  *
  */
 
@@ -42,8 +43,36 @@ private enum SetupScreen
     GAME
 }
 
-[GtkTemplate (ui = "/org/gnome/Nibbles/ui/nibbles.ui")]
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/are-you-sure.ui")]
+private class AreYouSureWindow : Window
+{
+    [GtkChild] private unowned Label line_one;
+    [GtkChild] private unowned Label line_two;
+    [GtkChild] private unowned Button button_no;
+    [GtkChild] private unowned Button button_yes;
+
+    internal delegate void AreYouSureResultFunction (bool yes);
+    AreYouSureResultFunction result_function;
+
+    public AreYouSureWindow (Window w, string line1, string line2, AreYouSureResultFunction result_function)
+    {
+        set_transient_for (w);
+        line_one.label = line1;
+        line_two.label = line2;
+        this.result_function = (AreYouSureResultFunction)result_function;
+        close_request.connect (()=>{result_function (false); return false;});
+        button_no.clicked.connect (()=>{result_function (false); destroy ();});
+        button_yes.clicked.connect (()=>{result_function (true); destroy ();});
+    }
+}
+
+#if USE_LIBADWAITA
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/nibbles-adw.ui")]
 private class NibblesWindow : Adw.ApplicationWindow
+#else
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/nibbles.ui")]
+private class NibblesWindow : ApplicationWindow
+#endif
 {
     /* Application and worm settings */
     private GLib.Settings settings;
@@ -54,7 +83,11 @@ private class NibblesWindow : Adw.ApplicationWindow
     [GtkChild] private unowned Overlay overlay;
 
     /* HeaderBar */
+#if USE_LIBADWAITA
     [GtkChild] private unowned Adw.HeaderBar headerbar;
+#else
+    [GtkChild] private unowned HeaderBar headerbar;
+#endif
     [GtkChild] private unowned Button new_game_button;
     [GtkChild] private unowned Button pause_button;
     [GtkChild] private unowned MenuButton hamburger_menu;
@@ -197,8 +230,10 @@ private class NibblesWindow : Adw.ApplicationWindow
     private const int COUNTDOWN_TIME = 3;
     private int seconds = 0;
 
-    bool show_dialog = false;
+    #if USE_LIBADWAITA
     bool dialog_visible = false;
+    #endif
+    bool show_dialogue = false;
 
     private const GLib.ActionEntry menu_entries[] =
     {
@@ -364,7 +399,10 @@ private class NibblesWindow : Adw.ApplicationWindow
         int numai = settings.get_int ("ai");
         if (numai + game.numhumans > NibblesGame.MAX_WORMS)
         {
-            assert_not_reached ();
+            game.numhumans = 1;
+            numai = 5;
+            settings.set_int ("players", game.numhumans);
+            settings.set_int ("ai", numai);
         }
         game.numai = numai;
         // NOTE: set numai value to 0 here
@@ -540,7 +578,10 @@ private class NibblesWindow : Adw.ApplicationWindow
 
                     show_new_game_screen ();
                 }
-                else if (!this.dialog_visible)
+                else
+                #if USE_LIBADWAITA
+                      if (!this.dialog_visible)
+                #endif
                     show_new_game_dialog ();
                 break;
         }
@@ -557,12 +598,12 @@ private class NibblesWindow : Adw.ApplicationWindow
         if (game.is_running)
             game.stop ();
 
+        #if USE_LIBADWAITA
         var dialog = new Adw.AlertDialog (
             /* Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running */
             _("New Game?"),
             /* Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running */
-            _("If you start a new game, the current one will be lost")
-        );
+            _("If you start a new game, the current one will be lost"));
 
         dialog.add_response ("cancel", _("_Cancel"));
         dialog.add_response ("new-game", _("_New Game"));
@@ -584,15 +625,37 @@ private class NibblesWindow : Adw.ApplicationWindow
             }
         });
 
-        dialog.choose (this, null);
+        dialog.choose.begin (this, null, (obj,res)=>{dialog.choose.end (res);});
         this.dialog_visible = true;
+        #else
+        var dialog = new AreYouSureWindow (this,
+            /* Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running */
+            _("Are you sure you want to start a new game?"),
+            /* Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running */
+            _("If you start a new game, the current one will be lost."),
+            (/* bool */yes)=>
+            {
+                if (yes)
+                  show_new_game_screen ();
+                if (!yes && !game.paused)
+                {
+                    if (seconds == 0)
+                        game.start (/* add initial bonus */ false);
+                    else
+                        countdown_id = Timeout.add_seconds (1, countdown_cb);
+
+                    view.grab_focus ();
+                }
+            });
+        dialog.show ();
+        #endif
     }
 
     bool new_game_dialogue_active (out YesNoResultFunction result_function)
     {
         result_function = (yes_no)=>
         {
-            show_dialog = false;
+            show_dialogue = false;
             view.redraw ();
 
             if (yes_no == 0) /* yes */
@@ -605,7 +668,7 @@ private class NibblesWindow : Adw.ApplicationWindow
                     countdown_id = Timeout.add_seconds (1, countdown_cb);
             }
         };
-        return show_dialog;
+        return show_dialogue;
     }
 
     private void pause_cb ()
@@ -628,15 +691,25 @@ private class NibblesWindow : Adw.ApplicationWindow
     {
         if (paused)
         {
+            #if USE_LIBADWAITA
             /* Translators: tooltip of the pause button, when the game is paused */
             pause_button.set_tooltip_text (_("Resume"));
             pause_button.set_icon_name ("media-playback-start-symbolic");
+            #else
+            /* Translators: label of the Pause button, when the game is paused */
+            pause_button.set_label (_("_Resume"));
+            #endif
         }
         else
         {
+            #if USE_LIBADWAITA
             /* Translators: tooltip of the pause button, when the game is running */
             pause_button.set_tooltip_text (_("Pause"));   // duplicated in nibbles.ui
             pause_button.set_icon_name ("media-playback-pause-symbolic");   // duplicated in nibbles.ui
+            #else
+            /* Translators: label of the Pause button, when the game is running */
+            pause_button.set_label (_("_Pause"));   // duplicated in nibbles.ui
+            #endif
         }
     }
 
@@ -762,9 +835,25 @@ private class NibblesWindow : Adw.ApplicationWindow
     void set_headerbar_title (string title)
     {
         if (headerbar.get_title_widget () == null)
-            headerbar.set_title_widget (new Adw.WindowTitle (title, null));
+            headerbar.set_title_widget (
+        #if USE_LIBADWAITA
+                new Adw.WindowTitle (title, ""));
+        #else
+                new Label (title));
+        #endif
         else
-            ((Adw.WindowTitle)headerbar.get_title_widget ()).set_title (title);
+            (
+        #if USE_LIBADWAITA
+                (Adw.WindowTitle)
+        #else
+                (Label)
+        #endif
+                headerbar.get_title_widget ()).
+        #if USE_LIBADWAITA
+                set_title (title);
+        #else
+                set_label (title);
+        #endif
     }
 
     private void    show_new_game_screen (bool after_first_run = false)
@@ -1085,11 +1174,17 @@ private class NibblesWindow : Adw.ApplicationWindow
         /* Translators: label of a button that appears at the end of a level; starts next level */
         var button = new Button.with_label (_("_Next Level"));
         button.set_use_underline (true);
+        button.width_request = 116;
+        button.height_request = 34;
         button.halign = Align.CENTER;
         button.valign = Align.END;
         button.set_margin_bottom (100);
-        button.add_css_class ("pill");
         button.add_css_class ("suggested-action");
+        #if USE_PILL_BUTTON
+        button.add_css_class ("pill");
+        #else
+        button.add_css_class ("play");
+        #endif
         button.clicked.connect (()=>
         {
             overlay_remove_all ();
@@ -1130,7 +1225,10 @@ private class NibblesWindow : Adw.ApplicationWindow
         game_over_label.halign = Align.CENTER;
         game_over_label.valign = Align.START;
         game_over_label.set_margin_top (150);
-        game_over_label.add_css_class ("title-1");
+        if (game_over_label.attributes == null)
+            game_over_label.attributes = new Pango.AttrList ();
+        game_over_label.attributes.insert (Pango.attr_scale_new (Pango.Scale.XX_LARGE * 2));
+        game_over_label.attributes.insert (Pango.attr_weight_new (Pango.Weight.BOLD));
 
         game_over_label.show ();
 
@@ -1169,7 +1267,10 @@ private class NibblesWindow : Adw.ApplicationWindow
         play_again_button.valign = Align.END;
         play_again_button.set_margin_bottom (100);
         play_again_button.set_action_name ("win.new-game");
+        play_again_button.add_css_class ("suggested-action");
+        #if USE_PILL_BUTTON
         play_again_button.add_css_class ("pill");
+        #endif
         play_again_button.show ();
 
         overlay_add (game_over_label);
@@ -1200,8 +1301,25 @@ private class NibblesWindow : Adw.ApplicationWindow
     }
 }
 
+#if USE_LIBADWAITA
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/first-run-adw.ui")]
+#else
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/first-run.ui")]
+#endif
 private class FirstRun : Box
 {
+    [GtkChild] private unowned Button button;
+    construct
+    {
+        #if USE_PILL_BUTTON
+        if (button.has_css_class ("play"))
+        {
+            button.remove_css_class ("play");
+            button.add_css_class ("pill");
+        }
+        #else
+        button.has_css_class ("play");
+        #endif
+    }
 }
 

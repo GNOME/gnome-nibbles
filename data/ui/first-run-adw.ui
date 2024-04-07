@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright (C) 2015-2016 Iulian Radu
+   Copyright (C) 2020 Arnaud Bonatti
+   Copyright (C) 2023-2024 Ben Corby
+
+   GNOME Nibbles is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   GNOME Nibbles is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="FirstRun" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="AdwStatusPage">
+        <property name="vexpand">true</property>
+        <property name="icon-name">org.gnome.Nibbles</property>
+        <!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
+        <property name="title" translatable="1">Welcome, worms.</property>
+        <!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
+        <property name="description" translatable="1">Eat the treats before the other worms, but don’t hit anything!</property>
+        <child>
+          <object class="GtkButton" id="button">
+            <property name="use-underline">1</property>
+            <!-- Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
+            <property name="label" translatable="1">Let’s _Play</property>
+            <property name="action-name">win.next-screen</property>
+            <property name="halign">center</property>
+            <style>
+              <class name="suggested-action"/>
+              <class name="play"/>
+            </style>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

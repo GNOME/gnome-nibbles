@@ -20,7 +20,7 @@
 -->
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <template class="ControlsGrid" parent="GtkFrame">
+  <template class="ControlsGrid" parent="GtkBox">
     <property name="halign">fill</property>
     <property name="valign">fill</property>
     <child>
@@ -39,6 +39,7 @@
             <property name="margin-end">15</property>
             <child>
               <object class="GtkButton" id="name_label">
+                <property name="has-frame" >false</property>
                 <property name="label" >X</property>
                 <property name="halign">center</property>
                 <layout>
@@ -60,6 +61,7 @@
             </child>
             <child>
               <object class="GtkButton" id="move_up_button">
+                <property name="has-frame" >false</property>
                 <property name="label" >X</property>
                 <property name="width-request">45</property>
                 <property name="height-request">45</property>
@@ -81,6 +83,7 @@
             </child>
             <child>
               <object class="GtkButton" id="move_left_button">
+                <property name="has-frame" >false</property>
                 <property name="label" >X</property>
                 <property name="width-request">45</property>
                 <property name="height-request">45</property>
@@ -102,6 +105,7 @@
             </child>
             <child>
               <object class="GtkButton" id="move_right_button">
+                <property name="has-frame" >false</property>
                 <property name="label" >X</property>
                 <property name="width-request">45</property>
                 <property name="height-request">45</property>
@@ -123,6 +127,7 @@
             </child>
             <child>
               <object class="GtkButton" id="move_down_button">
+                <property name="has-frame" >false</property>
                 <property name="label" >X</property>
                 <property name="width-request">45</property>
                 <property name="height-request">45</property>
@@ -136,8 +141,5 @@
         </property>
       </object>
     </child>
-    <style>
-      <class name="card"/>
-    </style>
   </template>
 </interface>

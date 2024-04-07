@@ -38,6 +38,7 @@ using Gtk;
 private class Controls : Box
 {
     [GtkChild] private unowned Box grids_box;
+    [GtkChild] private unowned Button button;
     private Gee.LinkedList<ControlsGrid> grids = new Gee.LinkedList<ControlsGrid> ();
 
     /* nibbles-window */
@@ -53,6 +54,16 @@ private class Controls : Box
             grids_box.remove (child);
             child.destroy ();
         }
+
+        #if USE_PILL_BUTTON
+        if (button.has_css_class ("play"))
+        {
+            button.remove_css_class ("play");
+            button.add_css_class ("pill");
+        }
+        #else
+        button.has_css_class ("play");
+        #endif
 
         GenericSet<uint> duplicate_keys     = new GenericSet<uint> (direct_hash, direct_equal);
         GenericSet<uint> encountered_keys   = new GenericSet<uint> (direct_hash, direct_equal);
@@ -116,7 +127,7 @@ private class Controls : Box
 }
 
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/controls-grid.ui")]
-private class ControlsGrid : Frame
+private class ControlsGrid : Box
 {
     [GtkChild] private unowned Overlay overlay;
     //[GtkChild] private unowned Grid grid;
@@ -224,7 +235,7 @@ private class ControlsGrid : Frame
             if (null == colour_wheel && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen */
-                key_press_message = new OverlayMessage (_("Press a Key for Up"));
+                key_press_message = new OverlayMessage (_("Press a key for up."));
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -244,7 +255,7 @@ private class ControlsGrid : Frame
             if (null == colour_wheel && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen */
-                key_press_message = new OverlayMessage (_("Press a Key for Down"));
+                key_press_message = new OverlayMessage (_("Press a key for down."));
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -264,7 +275,7 @@ private class ControlsGrid : Frame
             if (null == colour_wheel && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left */
-                key_press_message = new OverlayMessage (_("Press a Key for Left"));
+                key_press_message = new OverlayMessage (_("Press a key for left."));
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -284,7 +295,7 @@ private class ControlsGrid : Frame
             if (null == colour_wheel && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right */
-                key_press_message = new OverlayMessage (_("Press a Key for Right"));
+                key_press_message = new OverlayMessage (_("Press a key for right."));
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -453,7 +464,11 @@ internal class OverlayMessage : DrawingArea
             double x = (width - background_width) / 2;
             double y = (height - background_height) / 2;
 
-            double arc_radius = background_width < background_height ? background_width / 6 : background_height / 6;
+            #if USE_PILL_BUTTON
+            double arc_radius = background_width < background_height ? background_width / 2 : background_height / 2;
+            #else
+            double arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
+            #endif
 
             /* draw background */
             C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
@@ -600,7 +615,7 @@ internal class ColourWheel : DrawingArea
             C.fill ();
             C.move_to (centre_x - (mouse_pressed && mouse_segment == 4 ? border_width : 0), centre_y);
             C.arc (centre_x- (mouse_pressed && mouse_segment == 4 ? border_width : 0), centre_y, radius, PI2 + PI3 , PI2 + PI3 + PI3);
-            C.set_source_rgba (0, 1, 1 , 1);
+            C.set_source_rgba (0, 1, 1, 1);
             C.fill ();
             C.move_to (centre_x - (mouse_pressed && mouse_segment == 5 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 5 ? border_width*sixty_degrees/2.0 : 0));
             C.arc (centre_x - (mouse_pressed && mouse_segment == 5 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 5 ? border_width*sixty_degrees/2.0 : 0), radius, PI2 + PI3 + PI3, -PI2);
@@ -764,31 +779,35 @@ internal class ColourWheel : DrawingArea
 
     void draw_label (Cairo.Context C, double width, double height, string text)
     {
-            const double PI2 = 1.570796326794896619231321691639751442;
+        const double PI2 = 1.570796326794896619231321691639751442;
 
-            double text_width;
-            double text_height;
-            int font_size = calculate_font_size (C, text, (int)(width / 2), out text_width, out text_height);
-            double minimum_dimension = text_width < text_height ? text_width : text_height;
-            double background_width = text_width + minimum_dimension * 2;
-            double background_height = text_height + minimum_dimension * 2;
+        double text_width;
+        double text_height;
+        int font_size = calculate_font_size (C, text, (int)(width / 2), out text_width, out text_height);
+        double minimum_dimension = text_width < text_height ? text_width : text_height;
+        double background_width = text_width + minimum_dimension * 2;
+        double background_height = text_height + minimum_dimension * 2;
 
-            double x = (width - background_width) / 2;
-            double y = 0;
+        double x = (width - background_width) / 2;
+        double y = 0;
 
-            double arc_radius = background_width < background_height ? background_width / 6 : background_height / 6;
+        #if USE_PILL_BUTTON
+        double arc_radius = background_width < background_height ? background_width / 2 : background_height / 2;
+        #else
+        double arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
+        #endif
 
-            /* draw background */
-            C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
-            C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
-            C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
-            C.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
+        /* draw background */
+        C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
+        C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
+        C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
+        C.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
 
-            C.set_source_rgba (0, 0, 0, 0.9);
-            C.fill ();
+        C.set_source_rgba (0, 0, 0, 0.9);
+        C.fill ();
 
-            draw_text_font_size (C, (int)(x + (background_width - text_width) / 2),
-                (int)(y + background_height / 2 - text_height / 2), text, font_size);
+        draw_text_font_size (C, (int)(x + (background_width - text_width) / 2),
+            (int)(y + background_height / 2 - text_height / 2), text, font_size);
     }
 }
 

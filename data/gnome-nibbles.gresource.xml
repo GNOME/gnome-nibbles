@@ -4,11 +4,14 @@
     <file preprocess="xml-stripblanks"                   alias="controls.ui"            >ui/controls.ui</file>
     <file preprocess="xml-stripblanks"                   alias="controls-grid.ui"       >ui/controls-grid.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="first-run.ui"           >ui/first-run.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="first-run-adw.ui"       >ui/first-run-adw.ui</file>
     <file preprocess="xml-stripblanks"                   alias="nibbles.ui"             >ui/nibbles.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="nibbles-adw.ui"         >ui/nibbles-adw.ui</file>
     <file preprocess="xml-stripblanks"                   alias="players.ui"             >ui/players.ui</file>
     <file preprocess="xml-stripblanks"                   alias="player-score-box.ui"    >ui/player-score-box.ui</file>
     <file preprocess="xml-stripblanks"                   alias="scoreboard.ui"          >ui/scoreboard.ui</file>
     <file preprocess="xml-stripblanks"                   alias="speed.ui"               >ui/speed.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="are-you-sure.ui"        >ui/are-you-sure.ui</file>
   </gresource>
   <gresource prefix="/org/gnome/Nibbles/gtk">
     <file preprocess="xml-stripblanks"                   alias="help-overlay.ui"        >ui/help-overlay.ui</file>
