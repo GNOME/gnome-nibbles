@@ -20,13 +20,13 @@
 # Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>, 2012.
 # Bernd Homuth <dev@hmt.im>, 2015, 2016.
 # Philipp Kiemle <philipp.kiemle@gmail.com>, 2023.
-# Jürgen Benvenuti <gastornis@posteo.org>, 2023.
+# Jürgen Benvenuti <gastornis@posteo.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2023-12-29 12:01+0000\n"
-"PO-Revision-Date: 2023-12-30 20:29+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
+"POT-Creation-Date: 2024-04-07 17:54+0000\n"
+"PO-Revision-Date: 2024-04-08 20:35+0200\n"
 "Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -34,12 +34,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
 #: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
-#: data/ui/nibbles.ui:64 src/gnome-nibbles.vala:39
+#: data/ui/nibbles.ui:64 src/gnome-nibbles.vala:57
 msgid "Nibbles"
 msgstr "Nibbles"
 
@@ -155,7 +155,7 @@ msgid "Enable sounds."
 msgstr "Klang aktivieren."
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: data/org.gnome.Nibbles.gschema.xml:55 src/gnome-nibbles.vala:65
+#: data/org.gnome.Nibbles.gschema.xml:55 src/gnome-nibbles.vala:83
 msgid "Enable fake bonuses"
 msgstr "Unechte Boni aktivieren"
 
@@ -307,23 +307,6 @@ msgstr "Nach rechts bewegen"
 msgid "Key to use for motion right."
 msgstr "Zum Bewegen nach rechts zu verwendende Taste."
 
-#. Translators: title of the Are You Sure? window
-#: data/ui/are-you-sure.ui:27
-msgid "Are You Sure?"
-msgstr "Sind Sie sicher?"
-
-#. Translators: negative response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: data/ui/are-you-sure.ui:84 src/nibbles-view.vala:1801
-msgid "No"
-msgstr "Nein"
-
-#. Translators: positive response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: data/ui/are-you-sure.ui:97 src/nibbles-view.vala:1828
-msgid "Yes"
-msgstr "Ja"
-
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
 #: data/ui/controls.ui:39
 msgid "Controls"
@@ -334,22 +317,22 @@ msgstr "Steuerung"
 msgid "_Start"
 msgstr "_Starten"
 
-#. Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:32
-msgid "Let’s _Play"
-msgstr "S_piel beginnen"
-
 #. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:60
+#: data/ui/first-run.ui:48
 msgid "Welcome, worms."
 msgstr "Willkommen, Würmer."
 
 #. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:69
+#: data/ui/first-run.ui:57
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
 "Verschlingen Sie die Boni, bevor es andere Würmer tun, aber stoßen Sie "
 "nirgends an!"
+
+#. Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
+#: data/ui/first-run.ui:68
+msgid "Let’s _Play"
+msgstr "S_piel beginnen"
 
 #. Translators: header of the "Next screen" and "Previous screen" shortcuts section
 #: data/ui/help-overlay.ui:30
@@ -454,64 +437,66 @@ msgid "_About Nibbles"
 msgstr "_Info zu Nibbles"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#: data/ui/nibbles.ui:76
+#: data/ui/nibbles.ui:77 src/nibbles-window.vala:609
 msgid "_New Game"
 msgstr "_Neues Spiel"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
+#. duplicated in nibbles.ui
+#. duplicated in nibbles.ui
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:99 src/nibbles-window.vala:648
+#: data/ui/nibbles.ui:102 src/nibbles-window.vala:711
 msgid "_Pause"
 msgstr "_Pause"
 
 #. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles.ui:170
+#: data/ui/nibbles.ui:177
 msgid "Paused"
 msgstr "Pausiert"
 
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the number of human and ai worms
 #: data/ui/players.ui:47
-msgid "Number of players"
+msgid "Number of Players"
 msgstr "Anzahl der Spieler"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 1/2/3/4 human players
-#: data/ui/players.ui:64
+#: data/ui/players.ui:67
 msgid "Select the number of human players."
 msgstr "Wählen Sie die Anzahl der menschlichen Spieler."
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play a solo game against AIs (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:80
+#: data/ui/players.ui:84
 msgid "_1"
 msgstr "_1"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 2 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:93
+#: data/ui/players.ui:98
 msgid "_2"
 msgstr "_2"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 3 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:108
+#: data/ui/players.ui:114
 msgid "_3"
 msgstr "_3"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 4 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:123
+#: data/ui/players.ui:130
 msgid "_4"
 msgstr "_4"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms
-#: data/ui/players.ui:149
+#: data/ui/players.ui:156
 msgid "Select the number of computer players."
 msgstr "Wählen Sie die Anzahl der Computerspieler."
 
-#: data/ui/players.ui:163 data/ui/players.ui:177 data/ui/players.ui:191
-#: data/ui/players.ui:205 data/ui/players.ui:219
+#: data/ui/players.ui:172 data/ui/players.ui:187 data/ui/players.ui:202
+#: data/ui/players.ui:217 data/ui/players.ui:232
 msgid "x"
 msgstr "x"
 
 #. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/players.ui:240 data/ui/speed.ui:143
+#: data/ui/players.ui:253 data/ui/speed.ui:148
 msgid "_Next"
 msgstr "_Weiter"
 
@@ -521,69 +506,69 @@ msgid "Preferences"
 msgstr "Einstellungen"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "really slow"
-#: data/ui/speed.ui:63
+#: data/ui/speed.ui:64
 msgid "_Beginner"
 msgstr "_Anfänger"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "quite slow"
-#: data/ui/speed.ui:78
+#: data/ui/speed.ui:80
 msgid "_Slow"
 msgstr "_Langsam"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "normal"
-#: data/ui/speed.ui:93
+#: data/ui/speed.ui:96
 msgid "_Medium"
 msgstr "_Mittel"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "fast"
-#: data/ui/speed.ui:108
+#: data/ui/speed.ui:112
 msgid "_Fast"
 msgstr "_Schnell"
 
 #. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses
-#: data/ui/speed.ui:131
-msgid "_Enable fake bonuses"
-msgstr "Unechte _Boni aktivieren"
+#: data/ui/speed.ui:136
+msgid "_Enable fake bonuses."
+msgstr "Unechte Boni _aktivieren."
 
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
-#: src/controls.vala:154
+#: src/controls.vala:165
 #, c-format
 msgid "Player %d"
 msgstr "Spieler %d"
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen
-#: src/controls.vala:227
+#: src/controls.vala:238
 msgid "Press a key for up."
 msgstr "Eine Taste drücken für hoch."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
-#: src/controls.vala:247
+#: src/controls.vala:258
 msgid "Press a key for down."
 msgstr "Eine Taste drücken für runter."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
-#: src/controls.vala:267
+#: src/controls.vala:278
 msgid "Press a key for left."
 msgstr "Eine Taste drücken für links."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
-#: src/controls.vala:287
+#: src/controls.vala:298
 msgid "Press a key for right."
 msgstr "Eine Taste drücken für rechts."
 
 #. instruction label
 #. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:622
-msgid "Select your color"
+#: src/controls.vala:627
+msgid "Select Your Color"
 msgstr "Wählen Sie Ihre Farbe aus"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:62
+#: src/gnome-nibbles.vala:80
 msgid "Disable fake bonuses"
 msgstr "Unechte Boni deaktivieren"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:68
+#: src/gnome-nibbles.vala:86
 msgid "Start at given level (1-26)"
 msgstr "Mit der angegebenen Spielstufe beginnen (1-26)"
 
@@ -591,78 +576,78 @@ msgstr "Mit der angegebenen Spielstufe beginnen (1-26)"
 #. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:71 src/gnome-nibbles.vala:80
-#: src/gnome-nibbles.vala:86 src/gnome-nibbles.vala:92
+#: src/gnome-nibbles.vala:89 src/gnome-nibbles.vala:98
+#: src/gnome-nibbles.vala:104 src/gnome-nibbles.vala:110
 msgid "NUMBER"
 msgstr "STUFE"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:74
+#: src/gnome-nibbles.vala:92
 msgid "Turn off the sound"
 msgstr "Klang abschalten"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:77
+#: src/gnome-nibbles.vala:95
 msgid "Set number of nibbles (4-6)"
 msgstr "Anzahl der Würmer festlegen (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:83
+#: src/gnome-nibbles.vala:101
 msgid "Set number of players (1-4)"
 msgstr "Anzahl der Spieler festlegen (1-4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:89
+#: src/gnome-nibbles.vala:107
 msgid "Set worms speed (4-1, 4 for slow)"
 msgstr "Wurmgeschwindigkeit festlegen (4-1, 4 bedeutet langsam)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:95
+#: src/gnome-nibbles.vala:113
 msgid "Set three dimensional view"
 msgstr "Dreidimensionale Ansicht festlegen"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:98
+#: src/gnome-nibbles.vala:116
 msgid "Set two dimensional view"
 msgstr "Zweidimensionale Ansicht festlegen"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:101
+#: src/gnome-nibbles.vala:119
 msgid "Start playing"
 msgstr "Spiel beginnen"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:104
+#: src/gnome-nibbles.vala:122
 msgid "Turn on the sound"
 msgstr "Klang einschalten"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:107
+#: src/gnome-nibbles.vala:125
 msgid "Show release version"
 msgstr "Programmversion anzeigen"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/gnome-nibbles.vala:148
+#: src/gnome-nibbles.vala:170
 msgid "Start level should only be between 1 and 26."
 msgstr "Die Start-Spielstufe sollte nur 1 bis 26 sein."
 
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
-#: src/gnome-nibbles.vala:154
+#: src/gnome-nibbles.vala:176
 msgid "There could only be between 4 and 6 nibbles."
 msgstr "Die Anzahl der Würmer kann nur 4 bis 6 sein."
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/gnome-nibbles.vala:160
+#: src/gnome-nibbles.vala:182
 msgid "There could only be between 1 and 4 players."
 msgstr "Die Anzahl der Spieler kann nur 1 bis 4 sein."
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
-#: src/gnome-nibbles.vala:166
+#: src/gnome-nibbles.vala:188
 msgid "Speed should be between 4 (slow) and 1 (fast)."
 msgstr "Die Geschwindigkeit sollte nur 4 (langsam) bis 1 (schnell) sein."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/gnome-nibbles.vala:175
+#: src/gnome-nibbles.vala:197
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
@@ -670,79 +655,84 @@ msgstr ""
 "gegenseitig aus."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
-#: src/gnome-nibbles.vala:187
+#: src/gnome-nibbles.vala:209
 msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "Die Optionen --3D (-3) und --2D (-2) schließen sich gegenseitig aus."
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:329
+#: src/gnome-nibbles.vala:360
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:333
+#: src/gnome-nibbles.vala:364
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:337
+#: src/gnome-nibbles.vala:368
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:341
+#: src/gnome-nibbles.vala:372
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:345
+#: src/gnome-nibbles.vala:376
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:349
+#: src/gnome-nibbles.vala:380
 msgid "Ben Corby"
 msgstr "Ben Corby"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:353
+#: src/gnome-nibbles.vala:384
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:357
+#: src/gnome-nibbles.vala:388
 msgid "Allan Day"
 msgstr "Allan Day"
 
+#. Translators: the name of the app's developers, seen in the About dialog
+#: src/gnome-nibbles.vala:396
+msgid "The GNOME Project"
+msgstr "Das GNOME-Projekt"
+
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:363
+#: src/gnome-nibbles.vala:407
 msgid "A worm game for GNOME"
 msgstr "Ein Wurmspiel für GNOME"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:367
+#: src/gnome-nibbles.vala:412
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:371
+#: src/gnome-nibbles.vala:416
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "Copyright © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:375
+#: src/gnome-nibbles.vala:420
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "Copyright © %u-%u – Iulian-Gabriel Radu"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:379
+#: src/gnome-nibbles.vala:424
 #, c-format
 msgid "Copyright © %u-%u – Ben Corby"
 msgstr "Copyright © %u-%u – Ben Corby"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:385
+#: src/gnome-nibbles.vala:428 src/gnome-nibbles.vala:438
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -766,19 +756,19 @@ msgstr ""
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:606 src/players.vala:41
+#: src/nibbles-view.vala:606 src/players.vala:43
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:609 src/players.vala:44
+#: src/nibbles-view.vala:609 src/players.vala:46
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:612 src/players.vala:47
+#: src/nibbles-view.vala:612 src/players.vala:49
 msgid "3"
 msgstr "3"
 
@@ -821,6 +811,16 @@ msgstr ""
 "Sind Sie sicher, dass Sie ein neues Spiel starten wollen?\n"
 "Wenn Sie ein neues Spiel starten, wird das laufende Spiel beendet."
 
+#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
+#: src/nibbles-view.vala:1801
+msgid "No"
+msgstr "Nein"
+
+#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
+#: src/nibbles-view.vala:1828
+msgid "Yes"
+msgstr "Ja"
+
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
 #: src/nibbles-view.vala:1946
 msgid "red"
@@ -851,99 +851,123 @@ msgstr "türkis"
 msgid "purple"
 msgstr "lila"
 
+#. Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:604
+msgid "New Game?"
+msgstr "Neues Spiel?"
+
+#. Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:606
+msgid "If you start a new game, the current one will be lost"
+msgstr "Wenn Sie ein neues Spiel starten, wird das laufende Spiel beendet"
+
+#: src/nibbles-window.vala:608
+msgid "_Cancel"
+msgstr "Abbre_chen"
+
 #. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:582
+#: src/nibbles-window.vala:633
 msgid "Are you sure you want to start a new game?"
 msgstr "Sind Sie sicher, dass Sie ein neues Spiel starten wollen?"
 
 #. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:584
+#: src/nibbles-window.vala:635
 msgid "If you start a new game, the current one will be lost."
 msgstr "Wenn Sie ein neues Spiel starten, wird das laufende Spiel beendet."
 
+#. Translators: tooltip of the pause button, when the game is paused
+#: src/nibbles-window.vala:696
+msgid "Resume"
+msgstr "Fortsetzen"
+
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:643
+#: src/nibbles-window.vala:700
 msgid "_Resume"
 msgstr "Fo_rtsetzen"
 
+#. Translators: tooltip of the pause button, when the game is running
+#: src/nibbles-window.vala:707
+msgid "Pause"
+msgstr "Pause"
+
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:886 src/nibbles-window.vala:1105
+#: src/nibbles-window.vala:966 src/nibbles-window.vala:1193
 #, c-format
 msgid "Level %d"
 msgstr "Spielstufe %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:959
+#: src/nibbles-window.vala:1039
 msgid "Beginner"
 msgstr "Anfänger"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:961
+#: src/nibbles-window.vala:1041
 msgid "Slow"
 msgstr "Langsam"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:963
+#: src/nibbles-window.vala:1043
 msgid "Medium"
 msgstr "Mittel"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:965
+#: src/nibbles-window.vala:1045
 msgid "Fast"
 msgstr "Schnell"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:967
+#: src/nibbles-window.vala:1047
 msgid "Beginner with Fakes"
 msgstr "Anfänger, mit Attrappen"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:969
+#: src/nibbles-window.vala:1049
 msgid "Slow with Fakes"
 msgstr "Langsam, mit Attrappen"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:971
+#: src/nibbles-window.vala:1051
 msgid "Medium with Fakes"
 msgstr "Mittel, mit Attrappen"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:973
+#: src/nibbles-window.vala:1053
 msgid "Fast with Fakes"
 msgstr "Schnell, mit Attrappen"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:978
+#: src/nibbles-window.vala:1058
 msgid "Difficulty Level:"
 msgstr "Schwierigkeitsgrad:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1084
+#: src/nibbles-window.vala:1164
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Spielstufe %d erfolgreich beendet!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1095
+#: src/nibbles-window.vala:1175
 msgid "_Next Level"
 msgstr "_Nächste Spielstufe"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1132
+#: src/nibbles-window.vala:1220
 msgid "Congratulations!"
 msgstr "Glückwunsch!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1136
+#: src/nibbles-window.vala:1224
 msgid "Game Over!"
 msgstr "Spiel vorbei!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1148
+#: src/nibbles-window.vala:1236
 msgid "You have completed the game."
 msgstr "Sie haben das Spiel beendet."
 
-#: src/nibbles-window.vala:1158
+#: src/nibbles-window.vala:1246
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -951,28 +975,28 @@ msgstr[0] "%d Punkt"
 msgstr[1] "%d Punkte"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1169
+#: src/nibbles-window.vala:1257
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(noch %ld Punkte bis zum Erreichen der Bestenliste)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1176
+#: src/nibbles-window.vala:1264
 msgid "_Play Again"
 msgstr "Erneut s_pielen"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set
-#: src/players.vala:38
+#: src/players.vala:40
 msgid "0"
 msgstr "0"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set
-#: src/players.vala:50
+#: src/players.vala:52
 msgid "4"
 msgstr "4"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set
-#: src/players.vala:53
+#: src/players.vala:55
 msgid "5"
 msgstr "5"
 
@@ -981,6 +1005,12 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "Wurm %d"
+
+#~ msgid "Are You Sure?"
+#~ msgstr "Sind Sie sicher?"
+
+#~ msgid "_Enable fake bonuses"
+#~ msgstr "Unechte _Boni aktivieren"
 
 #~ msgid "Michael Catanzaro"
 #~ msgstr "Michael Catanzaro"
@@ -1008,9 +1038,6 @@ msgstr "Wurm %d"
 
 #~ msgid "GNOME Nibbles"
 #~ msgstr "GNOME Nibbles"
-
-#~ msgid "The GNOME Project"
-#~ msgstr "Das GNOME-Projekt"
 
 #~ msgid "Player"
 #~ msgstr "Spieler"
