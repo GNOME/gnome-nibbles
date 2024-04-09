@@ -3,10 +3,13 @@
 data/org.gnome.Nibbles.appdata.xml.in
 data/org.gnome.Nibbles.desktop.in
 data/org.gnome.Nibbles.gschema.xml
+data/ui/are-you-sure.ui
 data/ui/controls-grid.ui
 data/ui/controls.ui
+data/ui/first-run-adw.ui
 data/ui/first-run.ui
 data/ui/help-overlay.ui
+data/ui/nibbles-adw.ui
 data/ui/nibbles.ui
 data/ui/player-score-box.ui
 data/ui/players.ui
