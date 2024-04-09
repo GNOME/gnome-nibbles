@@ -330,7 +330,7 @@ private class NibblesGame : Object
 
         is_running = true;
 
-        main_id = Timeout.add (gamedelay * speed, () => {
+        main_id = Timeout.add (speed == 1 ? gamedelay * 3 / 2 : gamedelay * speed, () => {
                 bonus_cycle = (bonus_cycle + 1) % 3;
                 if (bonus_cycle == 0)
                     add_bonus (false);
