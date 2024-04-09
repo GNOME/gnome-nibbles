@@ -27,6 +27,7 @@
  * grep -ne '[^][)(_!$ "](' *.vala
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
+ * grep -ne ' $' *.vala
  *
  */
 
@@ -47,8 +48,7 @@ private class NibblesGame : Object
     internal const int MAX_SPEED = 4;
 
     internal const char EMPTYCHAR = 'a';
-    internal const char WORMCHAR = 'w';     // only used in worm.vala
-    internal const char WARPCHAR = 'W';     // only used in warp.vala
+    internal const char WARPCHAR = 'W';
 
     internal const int MAX_LEVEL = 26;
 
@@ -428,7 +428,7 @@ private class NibblesGame : Object
     internal void add_worms ()
     {
         foreach (var worm in worms)
-            worm.spawn ();
+            worm.spawn (board);
     }
 
     private void move_worms ()
@@ -508,10 +508,10 @@ private class NibblesGame : Object
                                                    out target_x, out target_y))
                     assert_not_reached ();
 
-                worm.move_part_2 (Position () { x = target_x, y = target_y });
+                worm.move_part_2 (board, Position () { x = target_x, y = target_y });
             }
             else
-                worm.move_part_2 (null);
+                worm.move_part_2 (board, null);
 
             /* kill worms on heads collision */
             foreach (var other_worm in worms)
@@ -537,7 +537,7 @@ private class NibblesGame : Object
                 worm.score = worm.score * 7 / 10;
 
             if (worm.lives > 0)
-                worm.reset ();
+                worm.reset (board);
         }
 
         /* refresh the screen */

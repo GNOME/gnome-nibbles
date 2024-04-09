@@ -28,6 +28,7 @@
  * grep -ne '[^][)(_!$ "](' *.vala
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
+ * grep -ne ' $' *.vala
  *
  */
 private enum WormDirection
@@ -1196,7 +1197,7 @@ private class Worm : Object
         list.prepend_position (position);
     }
 
-    internal void move_part_2 (Position? head_position)
+    internal void move_part_2 (int[,] board, Position? head_position)
     {
         if (head_position != null)
             head = Position () { x = head_position.x, y = head_position.y };
@@ -1225,7 +1226,7 @@ private class Worm : Object
 
         /* Try and dematerialize if our rounds are up. */
         if (rounds_to_stay_dematerialized == 1)
-            materialize ();
+            materialize (board);
     }
 
     internal void remove_bonus_eaten_position (Position p)
@@ -1335,7 +1336,7 @@ private class Worm : Object
         return can_move_to (board,worms,position);
     }
 
-    internal void spawn ()
+    internal void spawn (int[,] board)
     {
         assert (STARTING_LENGTH > 0);
         change = STARTING_LENGTH - 1;
@@ -1343,23 +1344,39 @@ private class Worm : Object
         for (int i = 0; i < STARTING_LENGTH; i++)
         {
             move_part_1 ();
-            move_part_2 (/* no warp */ null);
+            move_part_2 (board, /* no warp */ null);
         }
     }
 
-    private void materialize ()
+    private void materialize (int[,] board)
     {
         /*
-         * A worm can only materialize if it is not overlapping
-         * another worm. If this is the case we set
-         * rounds_to_stay_dematerialized to zero. Otherwise we wait
-         * to the next round and try again to materialize.
+         * A worm can only materialise if it is not crossing another worm and
+         * the next 12 locations in front of it don’t contain a materialised
+         * worm. Stop checking the locations for materialised worms if we find
+         * an obstacle on the board.
          */
         WormMap worm_map = new WormMap (get_other_worms (this), width, height);
         if (worm_map.contains (list))
-            rounds_to_stay_dematerialized += 1;
-        else
-            rounds_to_stay_dematerialized = 0;
+        {
+            rounds_to_stay_dematerialized += 1; /* wait until to next round to try to materialise */
+            return;
+        }
+        Position position = head;
+        for (int i = 12; i > 0 ; i--)
+        {
+            position = get_position_after_direction_move (position, direction);
+            if (!can_move_to_map (board, worm_map, position))
+            {
+                /* check if we have run in to an obstacle on the board */
+                if (is_board_position_occupied (position, board))
+                    rounds_to_stay_dematerialized = 0; /* materialise now */
+                else
+                    rounds_to_stay_dematerialized += 1; /* wait until to next round to try to materialise */
+                return;
+            }
+        }
+        rounds_to_stay_dematerialized = 0; /* materialise now */
     }
 
     internal void dematerialize (int rounds, int gamedelay)
@@ -1386,7 +1403,7 @@ private class Worm : Object
         lives--;
     }
 
-    internal void reset ()
+    internal void reset (int[,] board)
     {
         is_stopped = true;
         rounds_to_stay_dematerialized = 0;
@@ -1404,7 +1421,7 @@ private class Worm : Object
             list.append_position (starting_position);
 
             direction = starting_direction;
-            spawn ();
+            spawn (board);
 
             dematerialize (/* number of rounds */ 3, 35);
         }
