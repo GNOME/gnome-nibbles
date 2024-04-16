@@ -62,6 +62,7 @@ private class Boni : Object
     private uint8 regular_bonus_left = 0;
     private uint8 regular_bonus_maxi = 0;
     private uint8 total_bonus_number = 0;
+    public int progress;
 
     private const uint8 MAX_BONUSES = 100;
 
@@ -69,7 +70,7 @@ private class Boni : Object
 
     internal bool add_bonus (owned Bonus bonus)
     {
-        if (total_bonus_number >= MAX_BONUSES)
+        if (progress != 2 && total_bonus_number >= MAX_BONUSES)
             return false;
 
         bonuses.add (bonus);
@@ -139,15 +140,14 @@ private class Boni : Object
         reset_missed (); /* Without this reset all scores get set to
                             zero for the rest of the game
                             once too_many_missed () is true. */
-        if (regular_bonus_left == 0)
-            assert_not_reached ();
-        regular_bonus_left--;
+        if (regular_bonus_left > 0)
+            regular_bonus_left--;
         return regular_bonus_maxi - regular_bonus_left;
     }
 
     internal inline bool last_regular_bonus ()
     {
-        return regular_bonus_left == 0;
+        return progress != 2 && regular_bonus_left == 0;
     }
 
     /*\

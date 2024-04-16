@@ -24,6 +24,7 @@ test('nibbles-tests', nibbles_tests)
 
 gnome_nibbles_sources = [
     'vapi/config.vapi',
+    'board-progress.vala',
     'boni.vala',
     'controls.vala',
     'gnome-nibbles.vala',

@@ -4,6 +4,7 @@ data/org.gnome.Nibbles.appdata.xml.in
 data/org.gnome.Nibbles.desktop.in
 data/org.gnome.Nibbles.gschema.xml
 data/ui/are-you-sure.ui
+data/ui/board-progress.ui
 data/ui/controls-grid.ui
 data/ui/controls.ui
 data/ui/first-run-adw.ui

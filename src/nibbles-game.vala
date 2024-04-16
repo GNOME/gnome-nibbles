@@ -57,6 +57,10 @@ private class NibblesGame : Object
     public bool three_dimensional_view { internal get; internal construct set; }
     public int speed            { internal get; internal construct set; }
     public int gamedelay        { internal get; protected construct; }
+    public int _progress;
+    public int progress         { internal get {return _progress;} internal set {_progress = value; if (boni != null) boni.progress = _progress;} }
+    public int start_level      { internal get; internal construct set; }
+    private int[] levels_uncompleated = {};
 
     /* Board data */
     internal int[,] board;
@@ -126,7 +130,6 @@ private class NibblesGame : Object
     internal NibblesGame (int start_level, int speed, int gamedelay, bool fakes, bool three_dimensional_view, uint8 width, uint8 height, bool no_random = false)
     {
         Object (skip_score: (start_level != 1), current_level: start_level, speed: speed, gamedelay: gamedelay, fakes: fakes, three_dimensional_view: three_dimensional_view, width: width, height: height);
-
         Random.set_seed (no_random ? 42 : (uint32) time_t ());
     }
 
@@ -352,10 +355,35 @@ private class NibblesGame : Object
     internal inline void reset (int start_level)
     {
         skip_score = start_level != 1;
-        current_level = start_level;
+        if (progress != 1)
+            current_level = start_level;
+        else
+        {
+            /* initilise array */
+            for (int i = MAX_LEVEL; i > 0 ; levels_uncompleated += (i--));
+            current_level = remove_one_uncompleated_level ();
+        }
         is_paused = false;
     }
 #endif
+    private int remove_one_uncompleated_level ()
+    {
+        var index = Random.int_range (0, levels_uncompleated.length);
+        var level = levels_uncompleated[index];
+        if (index == 0)
+            levels_uncompleated = levels_uncompleated[1:];
+        else if (index == levels_uncompleated.length - 1)
+            levels_uncompleated = levels_uncompleated[0:index];
+        else
+        {
+            int[] a = levels_uncompleated[0:index];
+            int[] b = levels_uncompleated[index+1:];
+            levels_uncompleated = a;
+            for (int i = 0; i < b.length; levels_uncompleated += b[i++]);
+        }
+        return level;
+    }
+
     private void end ()
     {
         stop ();
@@ -390,10 +418,20 @@ private class NibblesGame : Object
             animate_end_game ();
             level_completed ();
 
-            current_level++;
+            if (progress == 0)
+            {
+                current_level++;
+                if (current_level == MAX_LEVEL + 1)
+                    log_score (worms.first ().score, current_level);
+            }
+            else if (progress == 1)
+            {
+                if (levels_uncompleated.length > 0)
+                    current_level = remove_one_uncompleated_level ();
+                else
+                    log_score (worms.first ().score, current_level);
+            }
 
-            if (current_level == MAX_LEVEL + 1)
-                log_score (worms.first ().score, current_level);
 
             return Source.REMOVE;
         }

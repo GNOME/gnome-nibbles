@@ -69,6 +69,7 @@ private class Nibbles : Gtk.Application
     private static bool enable_fakes            = false;
     private static bool start                   = false;
     private static int level                    = int.MIN;
+    private static int progress                 = int.MIN;
     private static int nibbles                  = int.MIN;
     private static int players                  = int.MIN;
     private static int speed                    = int.MIN;
@@ -86,6 +87,12 @@ private class Nibbles : Gtk.Application
         { "level",          'l', OptionFlags.NONE, OptionArg.INT,   ref level,      N_("Start at given level (1-26)"),
 
         /* Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help' */
+                                                                                    N_("NUMBER") },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "progress",       0, OptionFlags.NONE, OptionArg.INT,   ref progress,      N_("Progress through the boards; 0 - sequentially, 1 - randomly, 2 - fixed board"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify the progres method, see 'gnome-nibbles --help' */
                                                                                     N_("NUMBER") },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
@@ -170,6 +177,12 @@ private class Nibbles : Gtk.Application
             stderr.printf (_("Start level should only be between 1 and 26.") + "\n");
             return Posix.EXIT_FAILURE;
         }
+        if (progress != int.MIN && (progress < 0 || progress > 2))
+        {
+            /* Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress' */
+            stderr.printf (_("Progress method should be; 0 - sequentially, 1 - randomly, 2 - fixed board.") + "\n");
+            return Posix.EXIT_FAILURE;
+        }
         if (nibbles != int.MIN && (nibbles < 4 || nibbles > 6))
         {
             /* Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1' */
@@ -251,6 +264,7 @@ private class Nibbles : Gtk.Application
         bool players_changed = players != int.MIN;
         if (nibbles_changed
          || players_changed
+         || progress != int.MIN
          || speed != int.MIN
          || disable_fakes
          || enable_fakes
@@ -274,6 +288,9 @@ private class Nibbles : Gtk.Application
             }
             else if (nibbles_changed)
                 settings.set_int ("ai", nibbles - settings.get_int ("players"));
+
+            if (progress != int.MIN && progress >= 0 && progress <= 2)
+                settings.set_int ("progress", progress);
 
             if (speed != int.MIN)
                 settings.set_int ("speed", speed);

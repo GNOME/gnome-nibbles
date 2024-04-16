@@ -28,6 +28,12 @@
       <summary>Is this the first run</summary>
       <description>Setting to decide whether to show first-run hint dialog or not.</description>
     </key>
+    <key name="progress" type="i">
+      <default>0</default>
+      <range min="0" max="2"/>
+      <summary>How the game progresses through the boards</summary>
+      <description>How the game progresses through the boards; 0 - sequentially, 1 - randomly, 2 - fixed board.</description>
+    </key>
     <key name="start-level" type="i">
       <default>1</default>
       <range min="1" max="26"/>

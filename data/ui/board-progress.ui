@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright (C) 2024 Ben Corby
+
+   GNOME Nibbles is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   GNOME Nibbles is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Nibbles.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="BoardProgress" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">true</property>
+        <property name="orientation">vertical</property>
+        <property name="valign">center</property>
+        <property name="halign">fill</property>
+        <property name="spacing">25</property>
+        <child>
+          <object class="GtkLabel" id="preferences">
+            <attributes>
+              <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+              <attribute name="scale" value="2"/>
+            </attributes>
+            <property name="visible">true</property>
+            <!-- Translators: title of one of the panels displayed during game configuration; the panel allows the method of progress through game's boards to be chosen -->
+            <property name="label" translatable="1">Board Progress</property>
+            <property name="valign">center</property>
+            <style>
+              <class name="menu-title"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">true</property>
+            <property name="orientation">vertical</property>
+            <property name="valign">center</property>
+            <property name="halign">center</property>
+            <property name="spacing">10</property>
+            <property name="vexpand">1</property>
+				<property name="width-request">400</property>
+            <child>
+              <object class="GtkToggleButton" id="linier">
+                <property name="has-frame" >false</property>
+                <property name="visible">true</property>
+                <property name="hexpand">1</property>
+                <property name="use-underline">1</property>
+                <!-- Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to the previous board + 1 -->
+                <property name="label" translatable="1">_Levels 1 through 26 in sequential order</property>
+                <property name="action-name">progress.change-progress</property>
+                <property name="action-target">@i 0</property>
+                <property name="sensitive" bind-source="linier" bind-property="active" bind-flags="invert-boolean"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="random">
+                <property name="has-frame" >false</property>
+                <property name="visible">true</property>
+                <property name="hexpand">1</property>
+                <property name="use-underline">1</property>
+                <!-- Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to a random board -->
+                <property name="label" translatable="1">_Random Levels</property>
+                <property name="action-name">progress.change-progress</property>
+                <property name="action-target">@i 1</property>
+                <property name="sensitive" bind-source="random" bind-property="active" bind-flags="invert-boolean"/>
+              </object>
+            </child>
+            <child>
+            
+              <object class="GtkOverlay" id="overlay">
+            
+                    <child>
+                      <object class="GtkToggleButton" id="fixed">
+                        <property name="has-frame" >false</property>
+                        <property name="visible">true</property>
+                        <property name="hexpand">1</property>
+                        <property name="use-underline">1</property>
+                        <!-- Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; the game stays on a single board -->
+                        <property name="label" translatable="1">_Fixed Level</property>
+                        <property name="action-name">progress.change-progress</property>
+                        <property name="action-target">@i 2</property>
+                        <property name="sensitive" bind-source="fixed" bind-property="active" bind-flags="invert-boolean"/>
+                      </object>
+                    </child>
+                    
+              </object>
+              
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">1</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="next">
+        <property name="visible">true</property>
+        <property name="use-underline">1</property>
+        <!-- Translators: label of a button in the "Board Progress" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel -->
+        <property name="label" translatable="1">_Next</property>
+        <property name="action-name">win.next-screen</property>
+        <property name="halign">center</property>
+        <property name="width-request">116</property>
+        <property name="height-request">34</property>
+        <style>
+          <class name="suggested-action"/>
+          <class name="play"/>
+        </style>
+      </object>
+    </child>
+  </template>
+</interface>

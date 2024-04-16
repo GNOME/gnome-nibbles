@@ -95,6 +95,7 @@ private class NibblesWindow : ApplicationWindow
     /* Pre-game screen widgets */
     [GtkChild] private unowned Players players;
     [GtkChild] private unowned Speed speed;
+    [GtkChild] private unowned BoardProgress board_progress;
     [GtkChild] private unowned Controls controls;
 
     /* Statusbar widgets */
@@ -208,6 +209,7 @@ private class NibblesWindow : ApplicationWindow
     private NibblesGame? game = null;
     public  int cli_start_level { private get; internal construct; }
     private int start_level { private get { return cli_start_level == 0 ? settings.get_int ("start-level") : cli_start_level; }}
+    public int progress { internal get; internal construct set; }
     public  SetupScreen start_screen { private get; internal construct; }
     public bool game_paused
     {
@@ -241,7 +243,7 @@ private class NibblesWindow : ApplicationWindow
         { "pause",          pause_cb        },
         { "scores",         scores_cb       },
 
-        { "next-screen",    next_screen_cb  },  // called from first-run, players and speed
+        { "next-screen",    next_screen_cb  },  // called from first-run, players, board-progress and speed
         { "start-game",     start_game      },  // called from controls
         { "back",           back_cb         }   // called on Escape pressed; disabled only during countdown (TODO pause?)
     };
@@ -408,6 +410,9 @@ private class NibblesWindow : ApplicationWindow
         // NOTE: set numai value to 0 here
         players.set_values (game.numhumans, numai);
 
+        /* Board Progress screen */
+        board_progress.set_values (settings.get_int ("progress"), settings.get_int ("start-level"));
+
         /* Speed screen */
         speed.set_values (settings.get_int ("speed"),
                           settings.get_boolean ("fakes"));
@@ -563,6 +568,7 @@ private class NibblesWindow : ApplicationWindow
         {
             case "first-run":
             case "number_of_players":
+            case "board-progress":
             case "speed":
                 next_screen_cb ();
                 break;
@@ -820,6 +826,9 @@ private class NibblesWindow : ApplicationWindow
                 show_new_game_screen (/* after first run */ true);
                 break;
             case "number_of_players":
+                show_board_progress_screen ();
+                break;
+            case "board_progress":
                 show_speed_screen ();
                 break;
             case "speed":
@@ -886,6 +895,18 @@ private class NibblesWindow : ApplicationWindow
 
     private void show_speed_screen ()
     {
+        int progress, level;
+        board_progress.get_values (out progress, out level);
+        game.progress = progress;
+        game.start_level = level;
+        settings.set_int ("progress", progress);
+        settings.set_int ("start-level", level);
+
+        main_stack.set_visible_child_name ("speed");
+    }
+
+    private void show_board_progress_screen ()
+    {
         int numhumans, numai;
         players.get_values (out numhumans, out numai);
         game.numhumans = numhumans;
@@ -893,7 +914,7 @@ private class NibblesWindow : ApplicationWindow
         settings.set_int ("players", numhumans);
         settings.set_int ("ai",      numai);
 
-        main_stack.set_visible_child_name ("speed");
+        main_stack.set_visible_child_name ("board_progress");
     }
 
     private void leave_speed_screen ()
@@ -980,8 +1001,11 @@ private class NibblesWindow : ApplicationWindow
                 assert_not_reached ();
             case "number_of_players":
                 break;
-            case "speed":
+            case "board_progress":
                 main_stack.set_visible_child_name ("number_of_players");
+                break;
+            case "speed":
+                main_stack.set_visible_child_name ("board_progress");
                 break;
             case "controls":
                 main_stack.set_visible_child_name ("speed");
