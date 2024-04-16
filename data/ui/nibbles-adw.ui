@@ -129,6 +129,14 @@
             </child>
             <child>
               <object class="GtkStackPage">
+                <property name="name">board_progress</property>
+                <property name="child">
+                  <object class="BoardProgress" id="board_progress"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
                 <property name="name">speed</property>
                 <property name="child">
                   <object class="Speed" id="speed"/>
