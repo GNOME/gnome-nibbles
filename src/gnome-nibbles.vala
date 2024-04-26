@@ -249,12 +249,19 @@ private class Nibbles : Gtk.Application
 
         add_action_entries (action_entries, this);
 
+        /*
+         * When a const string [] is passed to a C function it is passed as a
+         * pointer to a list of pointers without a null terminator at the end
+         * of the list. Therefore we must manually put a null at the end of the
+         * list if the C function is expecting it (which is usually the case
+         * for a list of pointers of unknown length).
+         */
+        const string [] newgame = {"<Primary>n", null};
+        const string [] pause = {"<Primary>p", "Pause", null};
+        const string [] appquit = {"<Primary>q", null};
+        const string [] back = {"Escape", null};
+        const string [] hamburger = {"F10", "Menu", null};
         // F1 and friends are managed manually
-        const string [] newgame = {"<Primary>n"};
-        const string [] pause = {"<Primary>p","Pause"};
-        const string [] appquit = {"<Primary>q"};
-        const string [] back = {"Escape"};
-        const string [] hamburger = {"F10","Menu"};
         set_accels_for_action ("win.new-game",  newgame);
         set_accels_for_action ("win.pause",     pause);
         set_accels_for_action ("app.quit",      appquit);
