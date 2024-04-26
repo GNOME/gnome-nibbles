@@ -1366,13 +1366,14 @@ private class Worm : Object
         for (int i = 12; i > 0 ; i--)
         {
             position = get_position_after_direction_move (position, direction);
-            if (!can_move_to_map (board, worm_map, position))
+            if (is_board_position_occupied (position, board))
             {
-                /* check if we have run in to an obstacle on the board */
-                if (is_board_position_occupied (position, board))
-                    rounds_to_stay_dematerialized = 0; /* materialise now */
-                else
-                    rounds_to_stay_dematerialized += 1; /* wait until to next round to try to materialise */
+                rounds_to_stay_dematerialized = 0; /* materialise now */
+                return;
+            }
+            if (worm_map.contain_position (position))
+            {
+                rounds_to_stay_dematerialized += 1; /* wait until to next round to try to materialise */
                 return;
             }
         }
