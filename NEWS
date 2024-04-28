@@ -1,5 +1,12 @@
+4.0.4 - April 16, 2024
+======================
+
+- Updated translations (British English).
+- Fix compile issue with vala >= 0.57
+- Fix / work around for issue #69 (segfault at game start). Thanks to david_david for finding this.
+
 4.0.3 - March 15, 2024
-========================
+======================
 
 - Updated translations (Hungarian & Basque).
 
