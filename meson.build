@@ -59,20 +59,13 @@ endforeach
 
 posix_dep = valac.find_library('posix')
 
-# version defines of vala for #if e.g. #if VALA_0_56_15_or_above
-vala_version = valac.version()
-vala_mid = vala_version.split('.')[1].to_int()
-foreach i : range(0, vala_version.split('.')[2].to_int() + 1, 1)
-    if_defines += '--define=VALA_0_' + vala_mid.to_string() + '_' + i.to_string() + '_or_above'
-endforeach
-
-# Compile tests
-# This test is to support versions of vala that have compile issues
-# with modern versions of gcc(>=14) & clang(>=16).
+# Link tests
+# This test is to support versions of vala(<0.56.15) that have compile issues
+# with versions of gcc(>=14) or clang(>=16).
 code0 =  '''private const string [] strings = {"a","b"};
             private static string test_string (string [] s) {return s[0];}
             void main() {stdout.printf ("%s\n",test_string (strings));}'''
-if meson.version().version_compare('>= 1.5.0')
+if meson.version().version_compare('>= 1.4.1')
     # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
     code0_links = valac.links(code0, 
         args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
@@ -86,14 +79,14 @@ else
     if_defines += '--define=VALA_NEEDS_ARRAY_STRING_CASTING'
 endif
 
-# Test if this commit is in vala. 
+# Test if this commit is in vala. It is in 0.56.17 and above.
 # https://gitlab.gnome.org/GNOME/vala/-/commit/f3288279b6f74cd4255b52ab78dddb5ee7bcb89c
 # This test is to maintain support for vala 0.56 (Stable Long-term Support release).
 code1 =  '''[CCode (has_target = false)] /*static*/ delegate int TestDelegateFunction ();
             int TestDelegate (TestDelegateFunction f) {return f ()*2;}
             void main() {static int LocalFunction () {return 1;}
                 stdout.printf ("%i\n",TestDelegate (LocalFunction));}'''
-if meson.version().version_compare('>= 1.5.0')
+if meson.version().version_compare('>= 1.4.1')
     # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
     code1_links = valac.links(code1, 
         args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
