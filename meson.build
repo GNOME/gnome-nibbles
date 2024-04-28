@@ -100,6 +100,28 @@ else
     if_defines += '--define=VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING'
 endif
 
+# Test compiling & linking with Adw.AboutDialog.
+if use_libadwaita
+    code2 =  '''void main () {string[] s = {"a", "b"};
+                var ad = new Adw.AboutDialog ();
+                ad.set_developers (s);
+                ad.set_documenters (s);
+                ad.set_artists (s);}'''
+    if meson.version().version_compare('>= 1.4.1')
+        # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
+        code2_links = valac.links(code2, 
+            args : ['--pkg=libadwaita-1', '--Xcc=-DVALA_STRICT_C'] + if_defines,
+            name : 'we can compile & link with libadwaita?')
+        if not code2_links
+            message('Can not compile & link with libadwaita.')
+            use_libadwaita = false
+        endif
+    else
+        # we can't do the test because of the meson bug so be on the safe side
+        use_libadwaita = false
+    endif
+endif
+
 # set if_defines for LIBADWAITA
 if use_libadwaita
     if_defines += ['--define=USE_LIBADWAITA','--define=USE_PILL_BUTTON']
