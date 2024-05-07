@@ -25,11 +25,12 @@
     </p>
   </description>
   <screenshots>
-    <screenshot height="608" width="972" type="default">
+    <screenshot height="629" width="1119" type="default">
       <image>https://gitlab.gnome.org/GNOME/gnome-nibbles/-/raw/master/data/screenshot.png</image>
     </screenshot>
   </screenshots>
   <releases>
+    <release version="4.0.4" date="2024-04-16" />
     <release version="4.0.3" date="2024-03-15" />
     <release version="4.0.2" date="2024-02-09" />
     <release version="4.0.1" date="2023-12-17" />
