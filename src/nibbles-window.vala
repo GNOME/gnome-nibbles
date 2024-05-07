@@ -29,7 +29,6 @@
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
  * grep -ne ' $' *.vala
- *
  */
 
 /* designed for Gtk 4, link with libgtk-4-dev or gtk4-devel */
@@ -101,7 +100,6 @@ private class NibblesWindow : ApplicationWindow
     /* Statusbar widgets */
     [GtkChild] private unowned Stack statusbar_stack;
     [GtkChild] private unowned Scoreboard scoreboard;
-    private Image scoreboard_life;
 
     /* Rendering of the game */
     private NibblesView? view;
@@ -392,10 +390,6 @@ private class NibblesWindow : ApplicationWindow
         game_box.prepend (view);
         set_focus (view);
 
-        /* Create scoreboard */
-        /* to do, bring this image in to the code, its the last image we load with load_image_file */
-        scoreboard_life = NibblesView.load_image_file ("scoreboard-life.svg", 14, 14);
-
         /* Number of worms */
         game.numhumans = settings.get_int ("players");
         int numai = settings.get_int ("ai");
@@ -530,7 +524,7 @@ private class NibblesWindow : ApplicationWindow
         foreach (var worm in game.worms)
         {
             var color = game.worm_props.@get (worm).color;
-            scoreboard.register (worm, NibblesView.colorval_name_untranslated (color), scoreboard_life);
+            scoreboard.register (worm, NibblesView.colorval_name_untranslated (color));
             worm.notify["lives"].connect (scoreboard.update);
             worm.notify["score"].connect (scoreboard.update);
         }

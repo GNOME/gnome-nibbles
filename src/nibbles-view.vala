@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2023 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2023-2024 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@
  * grep -ne '[^][)(_!$ "](' *.vala
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
+ * grep -ne ' $' *.vala
  *
  */
 
@@ -1960,20 +1961,4 @@ internal class NibblesView : DrawingArea
     {
         return color_lookup[colorval, 0];
     }
-
-    /*\
-    * * Image loading
-    \*/
-
-    internal static Image load_image_file (string pixmap, int xsize, int ysize)
-    {
-        var filename = GLib.Path.build_filename (PKGDATADIR, "pixmaps", pixmap, null);
-        if (filename == null)
-            error ("Nibbles couldn't find image file: %s", filename);
-
-        Image image = new Image.from_file (filename);
-
-        return image;
-    }
 }
-
