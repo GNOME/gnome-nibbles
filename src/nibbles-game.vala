@@ -60,7 +60,7 @@ private class NibblesGame : Object
     public int _progress;
     public int progress         { internal get {return _progress;} internal set {_progress = value; if (boni != null) boni.progress = _progress;} }
     public int start_level      { internal get; internal construct set; }
-    private int[] levels_uncompleated = {};
+    public int[] levels_uncompleated = {};
 
     /* Board data */
     internal int[,] board;

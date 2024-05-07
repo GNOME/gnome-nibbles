@@ -1232,11 +1232,16 @@ private class NibblesWindow : ApplicationWindow
     private void game_over (int score, long lowest_high_score, int level_reached)
     {
         var is_high_score = (score > lowest_high_score);
-        var is_game_won = (level_reached == NibblesGame.MAX_LEVEL + 1);
+        bool is_game_won;
+        if (game.progress == 0)
+            is_game_won = level_reached > NibblesGame.MAX_LEVEL;
+        else if (game.progress == 1)
+            is_game_won = game.levels_uncompleated.length == 0;
+        else /* game.progress == 2 */
+            is_game_won = game.get_game_status () == VICTORY;
 
         /* Translators: label displayed at the end of a level, if the player finished all the levels */
         var game_over_label = new Label (is_game_won ? _("Congratulations!")
-
 
         /* Translators: label displayed at the end of a level, if the player did not finished all the levels */
                                                      : _("Game Over!"));
@@ -1247,7 +1252,6 @@ private class NibblesWindow : ApplicationWindow
             game_over_label.attributes = new Pango.AttrList ();
         game_over_label.attributes.insert (Pango.attr_scale_new (Pango.Scale.XX_LARGE * 2));
         game_over_label.attributes.insert (Pango.attr_weight_new (Pango.Weight.BOLD));
-
         game_over_label.show ();
 
         /* Translators: label displayed at the end of a level, if the player finished all the levels */
