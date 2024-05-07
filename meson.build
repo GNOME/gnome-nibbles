@@ -65,7 +65,7 @@ posix_dep = valac.find_library('posix')
 code0 =  '''private const string [] strings = {"a","b"};
             private static string test_string (string [] s) {return s[0];}
             void main() {stdout.printf ("%s\n",test_string (strings));}'''
-if meson.version().version_compare('>= 1.4.1')
+if meson.version().version_compare('> 1.4.0')
     # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
     code0_links = valac.links(code0, 
         args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
@@ -82,13 +82,16 @@ endif
 # Test if this commit is in vala. It is in 0.56.17 and above.
 # https://gitlab.gnome.org/GNOME/vala/-/commit/f3288279b6f74cd4255b52ab78dddb5ee7bcb89c
 # This test is to maintain support for vala 0.56 (Stable Long-term Support release).
-code1 =  '''[CCode (has_target = false)] /*static*/ delegate int TestDelegateFunction ();
-            int TestDelegate (TestDelegateFunction f) {return f ()*2;}
-            void main() {static int LocalFunction () {return 1;}
-                stdout.printf ("%i\n",TestDelegate (LocalFunction));}'''
-if meson.version().version_compare('>= 1.4.1')
+code1 =  '''class Property : Object {public int c;}
+            void main () {
+            static bool GetMappingFunction (Value value, Variant variant, void *data) {value.set_int (0); return true;}
+            static Variant SetMappingFunction (Value value, VariantType type, void *data) {return 0;}
+            var s = new GLib.Settings ("org.gnome.Nibbles"); var p = new Property ();
+            s.bind_with_mapping ("c", p, "c", SettingsBindFlags.DEFAULT,GetMappingFunction, SetMappingFunction, null, null); }'''
+if meson.version().version_compare('> 1.4.0')
     # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
     code1_links = valac.links(code1, 
+        dependencies : [gio_dep],
         args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
         name : 'local functions do not need casting to static delegates?')
     if not code1_links
@@ -107,10 +110,11 @@ if use_libadwaita
                 ad.set_developers (s);
                 ad.set_documenters (s);
                 ad.set_artists (s);}'''
-    if meson.version().version_compare('>= 1.4.1')
+    if meson.version().version_compare('> 1.4.0')
         # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
         code2_links = valac.links(code2, 
-            args : ['--pkg=libadwaita-1', '--Xcc=-DVALA_STRICT_C'] + if_defines,
+            dependencies : [libadwaita_dep],
+            args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
             name : 'we can compile & link with libadwaita?')
         if not code2_links
             message('Can not compile & link with libadwaita.')
