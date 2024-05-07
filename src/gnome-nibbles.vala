@@ -90,13 +90,10 @@ private class Nibbles : Gtk.Application
                                                                                     N_("NUMBER") },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
-        { "progress",       0, OptionFlags.NONE, OptionArg.INT,   ref progress,      N_("Progress through the boards; 0 - sequentially, 1 - randomly, 2 - fixed board"),
+        { "progress",       0, OptionFlags.NONE, OptionArg.INT,     ref progress,   N_("Method of progress through the boards (0 - sequentially, 1 - randomly, 2 - fixed board)"),
 
         /* Translators: in the command-line options description, text to indicate the user should specify the progres method, see 'gnome-nibbles --help' */
                                                                                     N_("NUMBER") },
-
-        /* Translators: command-line option description, see 'gnome-nibbles --help' */
-        { "mute",           0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Turn off the sound"),                   null },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "nibbles",        'n', OptionFlags.NONE, OptionArg.INT,   ref nibbles,    N_("Set number of nibbles (4-6)"),
@@ -124,6 +121,9 @@ private class Nibbles : Gtk.Application
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "start",          0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Start playing"),                        null },
+
+        /* Translators: command-line option description, see 'gnome-nibbles --help' */
+        { "mute",           0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Turn off the sound"),                   null },
 
         /* Translators: command-line option description, see 'gnome-nibbles --help' */
         { "unmute",         0,   OptionFlags.NONE, OptionArg.NONE,  null,           N_("Turn on the sound"),                    null },

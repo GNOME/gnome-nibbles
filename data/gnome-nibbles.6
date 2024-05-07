@@ -13,18 +13,25 @@
 .\"You should have received a copy of the GNU General Public License along
 .\"with this program; if not, write to the Free Software Foundation, Inc.,
 .\"51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-.TH gnome-nibbles 6 "2007\-06\-06" "GNOME"
+.TH gnome-nibbles 6 "2024\-05\-31" "GNOME"
 .SH NAME
 Nibbles \- A worm game for GNOME
 .SH SYNOPSIS
 .B gnome-nibbles
 .RI [ OPTION... ]
 .SH DESCRIPTION
-.B gnome-nibbles
-is a game where the user controls a snake.  The snake moves around the
-board, eating diamonds while avoiding the walls placed around it. 
+Control a worm in its quest to eat bonuses and become longer. Outmaneuver
+enemy worms while eating apples and bananas to increase your length. Each
+worm has six lives and loses one by running into a wall, another worm, or
+itself. The enemy worms are after the same bonuses that you are, so be
+careful. If the worms become too large, you won’t have much room to move.
 .P
-The game can be played against the computer or against other players.
+The adventure progresses through 26 maps of increasing difficulty. The early
+levels are mostly open with a few walls, but later on, cramped spaces and
+teleporters make things more interesting.
+.P
+Play on your own against up to five enemy worms, or share your keyboard to
+play with a friend.
 .SH OPTIONS
 .TP
 .B \-d, \-\-disable-fakes
@@ -36,6 +43,9 @@ Enable fake bonuses; cannot be set with \-\-disable-fakes
 .B \-l, \-\-level=NUMBER
 Start at given level (1-26)
 .TP
+.B \-\-progress=NUMBER
+Method of progress through the boards (0-sequentially, 1-randomly, 2-fixed board)
+.TP
 .B \-n, \-\-nibbles=NUMBER
 Set number of nibbles (4-6)
 .TP
@@ -44,6 +54,12 @@ Set number of players (1-4)
 .TP
 .B \-p, \-\-speed=NUMBER
 Set worms speed (4-1: 4 for slowest and 1 for fastest)
+.TP
+.B \-3, \-\-3D
+Set three dimensional view
+.TP
+.B \-2, \-\-2D
+Set two dimensional view
 .TP
 .B \-\-start
 Start playing immediately
@@ -68,8 +84,7 @@ was written by Sean MacIsaac, Ian Peters and Andreas R\[/o]sdal.
 This manual page was written by Sven Arvidsson <sa@whiz.se>,
 for the Debian project (but may be used by others).
 .SH SEE ALSO
-.BR "gtk-options" (7),
-.BR "gnome-options" (7)
+.BR "gtk-options" (7)
 .P
 The online documentation available through the program's
 .I Help
