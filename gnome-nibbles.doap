@@ -15,13 +15,6 @@
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/" />
   <programming-language>Vala</programming-language>
 
-  <maintainer>
-    <foaf:Person>
-      <foaf:name>Michael Catanzaro</foaf:name>
-      <foaf:mbox rdf:resource="mailto:mcatanzaro@gnome.org" />
-      <gnome:userid>mcatanzaro</gnome:userid>
-    </foaf:Person>
-  </maintainer>
   <author>
     <foaf:Person>
       <foaf:name>Iulian-Gabriel Radu</foaf:name>
