@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master.hi\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2024-04-12 08:10+0000\n"
-"PO-Revision-Date: 2024-04-12 20:56+0530\n"
+"POT-Creation-Date: 2024-04-22 17:46+0000\n"
+"PO-Revision-Date: 2024-04-22 23:39+0530\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi\n"
 "Language: hi\n"
@@ -105,126 +105,96 @@ msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr "यह तय करने के लिए सेटिंग कि प्रथम-बारी संकेत संवाद दिखाया जाए या नहीं।"
 
 #: data/org.gnome.Nibbles.gschema.xml:34
+msgid "How the game progresses through the boards"
+msgstr "बोर्ड के माध्यम से खेल कैसे आगे बढ़ता है"
+
+#: data/org.gnome.Nibbles.gschema.xml:35
+msgid ""
+"How the game progresses through the boards; 0 - sequentially, 1 - randomly, "
+"2 - fixed board."
+msgstr ""
+"बोर्डों के माध्यम से खेल कैसे आगे बढ़ता है; 0 - क्रमिक रूप से, 1 - यादृच्छिक रूप से, 2 - "
+"निश्चित बोर्ड।"
+
+#: data/org.gnome.Nibbles.gschema.xml:40
 msgid "Game level to start on"
 msgstr "प्रारंभ करने हेतु खेल स्तर"
 
-#: data/org.gnome.Nibbles.gschema.xml:35
+#: data/org.gnome.Nibbles.gschema.xml:41
 msgid "Game level to start on."
 msgstr "प्रारंभ करने हेतु खेल स्तर।"
 
-#: data/org.gnome.Nibbles.gschema.xml:40
+#: data/org.gnome.Nibbles.gschema.xml:46
 msgid "Worms movement speed"
 msgstr "कृमियों की संचलन गति"
 
-#: data/org.gnome.Nibbles.gschema.xml:41
+#: data/org.gnome.Nibbles.gschema.xml:47
 msgid "The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”."
 msgstr "कृमियों की गति, जहां '1' का अर्थ है \"तेज\" और '4' का अर्थ है \"धीमा\"।"
 
 # libgnome/gnome-program.c:578
-#: data/org.gnome.Nibbles.gschema.xml:45
+#: data/org.gnome.Nibbles.gschema.xml:51
 msgid "Enable 3D"
 msgstr "3D सक्षम करें"
 
 # libgnome/gnome-program.c:578
-#: data/org.gnome.Nibbles.gschema.xml:46
+#: data/org.gnome.Nibbles.gschema.xml:52
 msgid "Enable 3D."
 msgstr "3D सक्षम करें।"
 
 # libgnome/gnome-program.c:578
-#: data/org.gnome.Nibbles.gschema.xml:50
+#: data/org.gnome.Nibbles.gschema.xml:56
 msgid "Enable sounds"
 msgstr "ध्वनियाँ सक्षम करें"
 
 # libgnome/gnome-program.c:578
-#: data/org.gnome.Nibbles.gschema.xml:51
+#: data/org.gnome.Nibbles.gschema.xml:57
 msgid "Enable sounds."
 msgstr "ध्वनियाँ सक्षम करें।"
 
 # libgnome/gnome-program.c:578
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: data/org.gnome.Nibbles.gschema.xml:55 src/gnome-nibbles.vala:83
+#: data/org.gnome.Nibbles.gschema.xml:61 src/gnome-nibbles.vala:84
 msgid "Enable fake bonuses"
 msgstr "फर्जी बोनस सक्षम करें"
 
 # libgnome/gnome-program.c:578
-#: data/org.gnome.Nibbles.gschema.xml:56
+#: data/org.gnome.Nibbles.gschema.xml:62
 msgid "Enable fake bonuses."
 msgstr "फर्जी बोनस सक्षम करें।"
 
-#: data/org.gnome.Nibbles.gschema.xml:61
+#: data/org.gnome.Nibbles.gschema.xml:67
 msgid "Number of human players"
 msgstr "मानव खिलाड़ियों की संख्या"
 
-#: data/org.gnome.Nibbles.gschema.xml:62
+#: data/org.gnome.Nibbles.gschema.xml:68
 msgid "Number of human players."
 msgstr "मानव खिलाड़ियों की संख्या।"
 
-#: data/org.gnome.Nibbles.gschema.xml:67
+#: data/org.gnome.Nibbles.gschema.xml:73
 msgid "Number of AI players"
 msgstr "AI खिलाड़ियों की संख्या"
 
-#: data/org.gnome.Nibbles.gschema.xml:68
+#: data/org.gnome.Nibbles.gschema.xml:74
 msgid "Number of AI players."
 msgstr "AI खिलाड़ियों की संख्या।"
 
 # libgnome/gnome-program.c:435
-#: data/org.gnome.Nibbles.gschema.xml:74 data/org.gnome.Nibbles.gschema.xml:121
-#: data/org.gnome.Nibbles.gschema.xml:168
-#: data/org.gnome.Nibbles.gschema.xml:215
-#: data/org.gnome.Nibbles.gschema.xml:262
-#: data/org.gnome.Nibbles.gschema.xml:309
+#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:127
+#: data/org.gnome.Nibbles.gschema.xml:174
+#: data/org.gnome.Nibbles.gschema.xml:221
+#: data/org.gnome.Nibbles.gschema.xml:268
+#: data/org.gnome.Nibbles.gschema.xml:315
 msgid "Color to use for worm"
 msgstr "कृमि के उपयोग हेतु रंग"
 
-#: data/org.gnome.Nibbles.gschema.xml:75 data/org.gnome.Nibbles.gschema.xml:122
-#: data/org.gnome.Nibbles.gschema.xml:169
-#: data/org.gnome.Nibbles.gschema.xml:216
-#: data/org.gnome.Nibbles.gschema.xml:263
-#: data/org.gnome.Nibbles.gschema.xml:310
+#: data/org.gnome.Nibbles.gschema.xml:81 data/org.gnome.Nibbles.gschema.xml:128
+#: data/org.gnome.Nibbles.gschema.xml:175
+#: data/org.gnome.Nibbles.gschema.xml:222
+#: data/org.gnome.Nibbles.gschema.xml:269
+#: data/org.gnome.Nibbles.gschema.xml:316
 msgid "Color to use for worm."
 msgstr "कृमि के उपयोग हेतु रंग।"
-
-#: data/org.gnome.Nibbles.gschema.xml:79 data/org.gnome.Nibbles.gschema.xml:99
-#: data/org.gnome.Nibbles.gschema.xml:126
-#: data/org.gnome.Nibbles.gschema.xml:146
-#: data/org.gnome.Nibbles.gschema.xml:173
-#: data/org.gnome.Nibbles.gschema.xml:193
-#: data/org.gnome.Nibbles.gschema.xml:220
-#: data/org.gnome.Nibbles.gschema.xml:240
-#: data/org.gnome.Nibbles.gschema.xml:267
-#: data/org.gnome.Nibbles.gschema.xml:287
-#: data/org.gnome.Nibbles.gschema.xml:314
-#: data/org.gnome.Nibbles.gschema.xml:334
-msgid "Move up"
-msgstr "ऊपर जाएँ"
-
-#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:100
-#: data/org.gnome.Nibbles.gschema.xml:127
-#: data/org.gnome.Nibbles.gschema.xml:147
-#: data/org.gnome.Nibbles.gschema.xml:174
-#: data/org.gnome.Nibbles.gschema.xml:194
-#: data/org.gnome.Nibbles.gschema.xml:221
-#: data/org.gnome.Nibbles.gschema.xml:241
-#: data/org.gnome.Nibbles.gschema.xml:268
-#: data/org.gnome.Nibbles.gschema.xml:288
-#: data/org.gnome.Nibbles.gschema.xml:315
-#: data/org.gnome.Nibbles.gschema.xml:335
-msgid "Key to use for motion up."
-msgstr "ऊपर जाने के उपयोग हेतु कुंजी।"
-
-#: data/org.gnome.Nibbles.gschema.xml:84 data/org.gnome.Nibbles.gschema.xml:104
-#: data/org.gnome.Nibbles.gschema.xml:131
-#: data/org.gnome.Nibbles.gschema.xml:151
-#: data/org.gnome.Nibbles.gschema.xml:178
-#: data/org.gnome.Nibbles.gschema.xml:198
-#: data/org.gnome.Nibbles.gschema.xml:225
-#: data/org.gnome.Nibbles.gschema.xml:245
-#: data/org.gnome.Nibbles.gschema.xml:272
-#: data/org.gnome.Nibbles.gschema.xml:292
-#: data/org.gnome.Nibbles.gschema.xml:319
-#: data/org.gnome.Nibbles.gschema.xml:339
-msgid "Move down"
-msgstr "नीचे जाएँ"
 
 #: data/org.gnome.Nibbles.gschema.xml:85 data/org.gnome.Nibbles.gschema.xml:105
 #: data/org.gnome.Nibbles.gschema.xml:132
@@ -237,22 +207,22 @@ msgstr "नीचे जाएँ"
 #: data/org.gnome.Nibbles.gschema.xml:293
 #: data/org.gnome.Nibbles.gschema.xml:320
 #: data/org.gnome.Nibbles.gschema.xml:340
-msgid "Key to use for motion down."
-msgstr "नीचे जाने के उपयोग हेतु कुंजी।"
+msgid "Move up"
+msgstr "ऊपर जाएँ"
 
-#: data/org.gnome.Nibbles.gschema.xml:89 data/org.gnome.Nibbles.gschema.xml:109
-#: data/org.gnome.Nibbles.gschema.xml:136
-#: data/org.gnome.Nibbles.gschema.xml:156
-#: data/org.gnome.Nibbles.gschema.xml:183
-#: data/org.gnome.Nibbles.gschema.xml:203
-#: data/org.gnome.Nibbles.gschema.xml:230
-#: data/org.gnome.Nibbles.gschema.xml:250
-#: data/org.gnome.Nibbles.gschema.xml:277
-#: data/org.gnome.Nibbles.gschema.xml:297
-#: data/org.gnome.Nibbles.gschema.xml:324
-#: data/org.gnome.Nibbles.gschema.xml:344
-msgid "Move left"
-msgstr "बायाँ जाएँ"
+#: data/org.gnome.Nibbles.gschema.xml:86 data/org.gnome.Nibbles.gschema.xml:106
+#: data/org.gnome.Nibbles.gschema.xml:133
+#: data/org.gnome.Nibbles.gschema.xml:153
+#: data/org.gnome.Nibbles.gschema.xml:180
+#: data/org.gnome.Nibbles.gschema.xml:200
+#: data/org.gnome.Nibbles.gschema.xml:227
+#: data/org.gnome.Nibbles.gschema.xml:247
+#: data/org.gnome.Nibbles.gschema.xml:274
+#: data/org.gnome.Nibbles.gschema.xml:294
+#: data/org.gnome.Nibbles.gschema.xml:321
+#: data/org.gnome.Nibbles.gschema.xml:341
+msgid "Key to use for motion up."
+msgstr "ऊपर जाने के उपयोग हेतु कुंजी।"
 
 #: data/org.gnome.Nibbles.gschema.xml:90 data/org.gnome.Nibbles.gschema.xml:110
 #: data/org.gnome.Nibbles.gschema.xml:137
@@ -265,22 +235,22 @@ msgstr "बायाँ जाएँ"
 #: data/org.gnome.Nibbles.gschema.xml:298
 #: data/org.gnome.Nibbles.gschema.xml:325
 #: data/org.gnome.Nibbles.gschema.xml:345
-msgid "Key to use for motion left."
-msgstr "बाएँ जाने के उपयोग हेतु कुंजी।"
+msgid "Move down"
+msgstr "नीचे जाएँ"
 
-#: data/org.gnome.Nibbles.gschema.xml:94 data/org.gnome.Nibbles.gschema.xml:114
-#: data/org.gnome.Nibbles.gschema.xml:141
-#: data/org.gnome.Nibbles.gschema.xml:161
-#: data/org.gnome.Nibbles.gschema.xml:188
-#: data/org.gnome.Nibbles.gschema.xml:208
-#: data/org.gnome.Nibbles.gschema.xml:235
-#: data/org.gnome.Nibbles.gschema.xml:255
-#: data/org.gnome.Nibbles.gschema.xml:282
-#: data/org.gnome.Nibbles.gschema.xml:302
-#: data/org.gnome.Nibbles.gschema.xml:329
-#: data/org.gnome.Nibbles.gschema.xml:349
-msgid "Move right"
-msgstr "दाँया जाएँ"
+#: data/org.gnome.Nibbles.gschema.xml:91 data/org.gnome.Nibbles.gschema.xml:111
+#: data/org.gnome.Nibbles.gschema.xml:138
+#: data/org.gnome.Nibbles.gschema.xml:158
+#: data/org.gnome.Nibbles.gschema.xml:185
+#: data/org.gnome.Nibbles.gschema.xml:205
+#: data/org.gnome.Nibbles.gschema.xml:232
+#: data/org.gnome.Nibbles.gschema.xml:252
+#: data/org.gnome.Nibbles.gschema.xml:279
+#: data/org.gnome.Nibbles.gschema.xml:299
+#: data/org.gnome.Nibbles.gschema.xml:326
+#: data/org.gnome.Nibbles.gschema.xml:346
+msgid "Key to use for motion down."
+msgstr "नीचे जाने के उपयोग हेतु कुंजी।"
 
 #: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:115
 #: data/org.gnome.Nibbles.gschema.xml:142
@@ -293,6 +263,50 @@ msgstr "दाँया जाएँ"
 #: data/org.gnome.Nibbles.gschema.xml:303
 #: data/org.gnome.Nibbles.gschema.xml:330
 #: data/org.gnome.Nibbles.gschema.xml:350
+msgid "Move left"
+msgstr "बायाँ जाएँ"
+
+#: data/org.gnome.Nibbles.gschema.xml:96 data/org.gnome.Nibbles.gschema.xml:116
+#: data/org.gnome.Nibbles.gschema.xml:143
+#: data/org.gnome.Nibbles.gschema.xml:163
+#: data/org.gnome.Nibbles.gschema.xml:190
+#: data/org.gnome.Nibbles.gschema.xml:210
+#: data/org.gnome.Nibbles.gschema.xml:237
+#: data/org.gnome.Nibbles.gschema.xml:257
+#: data/org.gnome.Nibbles.gschema.xml:284
+#: data/org.gnome.Nibbles.gschema.xml:304
+#: data/org.gnome.Nibbles.gschema.xml:331
+#: data/org.gnome.Nibbles.gschema.xml:351
+msgid "Key to use for motion left."
+msgstr "बाएँ जाने के उपयोग हेतु कुंजी।"
+
+#: data/org.gnome.Nibbles.gschema.xml:100
+#: data/org.gnome.Nibbles.gschema.xml:120
+#: data/org.gnome.Nibbles.gschema.xml:147
+#: data/org.gnome.Nibbles.gschema.xml:167
+#: data/org.gnome.Nibbles.gschema.xml:194
+#: data/org.gnome.Nibbles.gschema.xml:214
+#: data/org.gnome.Nibbles.gschema.xml:241
+#: data/org.gnome.Nibbles.gschema.xml:261
+#: data/org.gnome.Nibbles.gschema.xml:288
+#: data/org.gnome.Nibbles.gschema.xml:308
+#: data/org.gnome.Nibbles.gschema.xml:335
+#: data/org.gnome.Nibbles.gschema.xml:355
+msgid "Move right"
+msgstr "दाँया जाएँ"
+
+#: data/org.gnome.Nibbles.gschema.xml:101
+#: data/org.gnome.Nibbles.gschema.xml:121
+#: data/org.gnome.Nibbles.gschema.xml:148
+#: data/org.gnome.Nibbles.gschema.xml:168
+#: data/org.gnome.Nibbles.gschema.xml:195
+#: data/org.gnome.Nibbles.gschema.xml:215
+#: data/org.gnome.Nibbles.gschema.xml:242
+#: data/org.gnome.Nibbles.gschema.xml:262
+#: data/org.gnome.Nibbles.gschema.xml:289
+#: data/org.gnome.Nibbles.gschema.xml:309
+#: data/org.gnome.Nibbles.gschema.xml:336
+#: data/org.gnome.Nibbles.gschema.xml:356
 msgid "Key to use for motion right."
 msgstr "दाएँ जाने के उपयोग हेतु कुंजी।"
 
@@ -312,6 +326,33 @@ msgstr "नहीं"
 #: data/ui/are-you-sure.ui:96 src/nibbles-view.vala:1828
 msgid "Yes"
 msgstr "हाँ"
+
+#. Translators: title of one of the panels displayed during game configuration; the panel allows the method of progress through game's boards to be chosen
+#: data/ui/board-progress.ui:39
+msgid "Board Progress"
+msgstr "बोर्ड प्रगति"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to the previous board + 1
+#: data/ui/board-progress.ui:62
+msgid "_Levels 1 through 26 in sequential order"
+msgstr "क्रमिक क्रम में स्तर 1 से 26 तक (_L)"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to a random board
+#: data/ui/board-progress.ui:75
+msgid "_Random Levels"
+msgstr "यादृच्छिक स्तर (_R)"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; the game stays on a single board
+#: data/ui/board-progress.ui:92
+msgid "_Fixed Level"
+msgstr "निश्चित स्तर (_F)"
+
+#. Translators: label of a button in the "Board Progress" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
+#. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
+#. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
+#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:148
+msgid "_Next"
+msgstr "अगला (_N)"
 
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
 #: data/ui/controls.ui:39
@@ -454,17 +495,17 @@ msgstr "मुख्य मेनू"
 
 #. Translators: tooltip of a button of the headerbar, visible during a game; pauses the game
 #. Translators: tooltip of the pause button, when the game is running
-#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:707
+#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:713
 msgid "Pause"
 msgstr "विराम"
 
 #. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles-adw.ui:180 data/ui/nibbles.ui:177
+#: data/ui/nibbles-adw.ui:188 data/ui/nibbles.ui:185
 msgid "Paused"
 msgstr "विरामित"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#: data/ui/nibbles.ui:77 src/nibbles-window.vala:609
+#: data/ui/nibbles.ui:77 src/nibbles-window.vala:615
 msgid "_New Game"
 msgstr "नया खेल (_N)"
 
@@ -472,7 +513,7 @@ msgstr "नया खेल (_N)"
 #. duplicated in nibbles.ui
 #. duplicated in nibbles.ui
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:102 src/nibbles-window.vala:711
+#: data/ui/nibbles.ui:102 src/nibbles-window.vala:717
 msgid "_Pause"
 msgstr "विराम (_P)"
 
@@ -515,12 +556,6 @@ msgstr "कंप्यूटर खिलाड़ियों की संख
 #: data/ui/players.ui:217 data/ui/players.ui:232
 msgid "x"
 msgstr "x"
-
-#. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/players.ui:253 data/ui/speed.ui:148
-msgid "_Next"
-msgstr "अगला (_N)"
 
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably)
 #: data/ui/speed.ui:41
@@ -589,176 +624,191 @@ msgstr "अपना रंग चुनें"
 
 # libgnome/gnome-program.c:578
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:80
+#: src/gnome-nibbles.vala:81
 msgid "Disable fake bonuses"
 msgstr "फर्जी बोनस अक्षम करें"
 
 # gnome-session/gsm-client-row.c:34
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:86
+#: src/gnome-nibbles.vala:87
 msgid "Start at given level (1-26)"
 msgstr "दिए गए स्तर पर प्रारंभ करें (1-26)"
 
 #. Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the user should specify the progres method, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:89 src/gnome-nibbles.vala:98
-#: src/gnome-nibbles.vala:104 src/gnome-nibbles.vala:110
+#: src/gnome-nibbles.vala:90 src/gnome-nibbles.vala:96
+#: src/gnome-nibbles.vala:105 src/gnome-nibbles.vala:111
+#: src/gnome-nibbles.vala:117
 msgid "NUMBER"
 msgstr "संख्या"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:92
+#: src/gnome-nibbles.vala:93
+msgid ""
+"Progress through the boards; 0 - sequentially, 1 - randomly, 2 - fixed board"
+msgstr "बोर्डों के जरिए प्रगति; 0 - क्रमिक रूप से, 1 - यादृच्छिक रूप से, 2 - निश्चित बोर्ड"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:99
 msgid "Turn off the sound"
 msgstr "ध्वनि बंद करें"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:95
+#: src/gnome-nibbles.vala:102
 msgid "Set number of nibbles (4-6)"
 msgstr "निबल्स की संख्या निर्धारित करें (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:101
+#: src/gnome-nibbles.vala:108
 msgid "Set number of players (1-4)"
 msgstr "खिलाड़ियों की संख्या निर्धारित करें (1-4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:107
+#: src/gnome-nibbles.vala:114
 msgid "Set worms speed (4-1, 4 for slow)"
 msgstr "कृमि गति निर्धारित करें (धीमी गति के लिए 4-1, 4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:113
+#: src/gnome-nibbles.vala:120
 msgid "Set three dimensional view"
 msgstr "त्रि-आयामी दृश्य निर्धारित करें"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:116
+#: src/gnome-nibbles.vala:123
 msgid "Set two dimensional view"
 msgstr "द्वि-आयामी दृश्य निर्धारित करें"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:119
+#: src/gnome-nibbles.vala:126
 msgid "Start playing"
 msgstr "खेलना शुरू करें"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:122
+#: src/gnome-nibbles.vala:129
 msgid "Turn on the sound"
 msgstr "ध्वनि चालू करें"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:125
+#: src/gnome-nibbles.vala:132
 msgid "Show release version"
 msgstr "रिलीज़ संस्करण दिखाएँ"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/gnome-nibbles.vala:170
+#: src/gnome-nibbles.vala:177
 msgid "Start level should only be between 1 and 26."
 msgstr "प्रारंभ स्तर केवल 1 और 26 के बीच होना चाहिए।"
 
+#. Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress'
+#: src/gnome-nibbles.vala:183
+msgid ""
+"Progress method should be; 0 - sequentially, 1 - randomly, 2 - fixed board."
+msgstr ""
+"प्रगति विधि होनी चाहिए; 0 - क्रमिक रूप से, 1 - यादृच्छिक रूप से, 2 - निश्चित बोर्ड।"
+
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
-#: src/gnome-nibbles.vala:176
+#: src/gnome-nibbles.vala:189
 msgid "There could only be between 4 and 6 nibbles."
 msgstr "इसमें केवल 4 से 6 निबल्स के बीच ही हो सकता है।"
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/gnome-nibbles.vala:182
+#: src/gnome-nibbles.vala:195
 msgid "There could only be between 1 and 4 players."
 msgstr "इसमें केवल 1 से 4 खिलाड़ी ही हो सकते हैं।"
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
-#: src/gnome-nibbles.vala:188
+#: src/gnome-nibbles.vala:201
 msgid "Speed should be between 4 (slow) and 1 (fast)."
 msgstr "गति 4 (धीमी) और 1 (तेज) के बीच होनी चाहिए।"
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/gnome-nibbles.vala:197
+#: src/gnome-nibbles.vala:210
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr "विकल्प --disable-fakes (-d) और --enable-fakes (-e) परस्पर अनन्य हैं।"
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
-#: src/gnome-nibbles.vala:209
+#: src/gnome-nibbles.vala:222
 msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "विकल्प --3D (-3) और --2D (-2) परस्पर अनन्य हैं।"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:360
+#: src/gnome-nibbles.vala:377
 msgid "Sean MacIsaac"
 msgstr "शॉन मैकइसाक"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:364
+#: src/gnome-nibbles.vala:381
 msgid "Ian Peters"
 msgstr "इयान पीटर्स"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:368
+#: src/gnome-nibbles.vala:385
 msgid "Andreas Røsdal"
 msgstr "एंड्रियास रोस्डल"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:372
+#: src/gnome-nibbles.vala:389
 msgid "Guillaume Beland"
 msgstr "गिलाउम बेलैंड"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:376
+#: src/gnome-nibbles.vala:393
 msgid "Iulian-Gabriel Radu"
 msgstr "यूलियन-गेब्रियल राडु"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:380
+#: src/gnome-nibbles.vala:397
 msgid "Ben Corby"
 msgstr "बेन कॉर्बी"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:384
+#: src/gnome-nibbles.vala:401
 msgid "Kevin Breit"
 msgstr "केविन ब्रेइट"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:388
+#: src/gnome-nibbles.vala:405
 msgid "Allan Day"
 msgstr "एलन डे"
 
 #. Translators: the name of the app's developers, seen in the About dialog
-#: src/gnome-nibbles.vala:396
+#: src/gnome-nibbles.vala:413
 msgid "The GNOME Project"
 msgstr "GNOME परियोजना"
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:407
+#: src/gnome-nibbles.vala:424
 msgid "A worm game for GNOME"
 msgstr "GNOME के लिए एक कृमि खेल"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:412
+#: src/gnome-nibbles.vala:429
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "कॉपीराइट © 1999-2008 - शॉन मैकइसाक, इयान पीटर्स, एंड्रियास रोस्डल"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:416
+#: src/gnome-nibbles.vala:433
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "कॉपीराइट © 2009 - गिलाउम बेलैंड"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:420
+#: src/gnome-nibbles.vala:437
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "कॉपीराइट © %u-%u - इयूलियन-गेब्रियल राडू"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:424
+#: src/gnome-nibbles.vala:441
 #, c-format
 msgid "Copyright © %u-%u – Ben Corby"
 msgstr "कॉपीराइट © %u-%u - बेन कॉर्बी"
 
 #  Translator credits
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:428 src/gnome-nibbles.vala:438
+#: src/gnome-nibbles.vala:445 src/gnome-nibbles.vala:455
 msgid "translator-credits"
 msgstr ""
 "रविशंकर श्रीवास्तव (raviratlami@yahoo.com)\n"
@@ -853,117 +903,117 @@ msgid "purple"
 msgstr "बैंगनी"
 
 #. Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:604
+#: src/nibbles-window.vala:610
 msgid "New Game?"
 msgstr "नया खेल?"
 
 #. Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:606
+#: src/nibbles-window.vala:612
 msgid "If you start a new game, the current one will be lost"
 msgstr "यदि आप कोई नया खेल शुरू करते हैं, तो वर्तमान खेल खो जाएगा"
 
-#: src/nibbles-window.vala:608
+#: src/nibbles-window.vala:614
 msgid "_Cancel"
 msgstr "रद्द (_C)"
 
 #. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:633
+#: src/nibbles-window.vala:639
 msgid "Are you sure you want to start a new game?"
 msgstr "क्या आप वाकई एक नया खेल प्रारंभ करना चाहते हैं?"
 
 #. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:635
+#: src/nibbles-window.vala:641
 msgid "If you start a new game, the current one will be lost."
 msgstr "यदि आप कोई नया खेल शुरू करते हैं, तो वर्तमान खेल खो जाएगा।"
 
 #. Translators: tooltip of the pause button, when the game is paused
-#: src/nibbles-window.vala:696
+#: src/nibbles-window.vala:702
 msgid "Resume"
 msgstr "पुनः आरम्भ"
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:700
+#: src/nibbles-window.vala:706
 msgid "_Resume"
 msgstr "पुनः आरम्भ (_R)"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:966 src/nibbles-window.vala:1193
+#: src/nibbles-window.vala:987 src/nibbles-window.vala:1217
 #, c-format
 msgid "Level %d"
 msgstr "स्तर %d"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1039
+#: src/nibbles-window.vala:1063
 msgid "Beginner"
 msgstr "आरंभिक"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1041
+#: src/nibbles-window.vala:1065
 msgid "Slow"
 msgstr "धीमा"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1043
+#: src/nibbles-window.vala:1067
 msgid "Medium"
 msgstr "मध्यम"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1045
+#: src/nibbles-window.vala:1069
 msgid "Fast"
 msgstr "तेज"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1047
+#: src/nibbles-window.vala:1071
 msgid "Beginner with Fakes"
 msgstr "फर्जी के साथ आरंभिक"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1049
+#: src/nibbles-window.vala:1073
 msgid "Slow with Fakes"
 msgstr "फर्जी के साथ धीमा"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1051
+#: src/nibbles-window.vala:1075
 msgid "Medium with Fakes"
 msgstr "फर्जी के साथ मध्यम"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1053
+#: src/nibbles-window.vala:1077
 msgid "Fast with Fakes"
 msgstr "फर्जी के साथ तेज"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1058
+#: src/nibbles-window.vala:1082
 msgid "Difficulty Level:"
 msgstr "कठिनाई स्तर:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1164
+#: src/nibbles-window.vala:1188
 #, c-format
 msgid "Level %d Completed!"
 msgstr "स्तर %d पूरा हो गया!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1175
+#: src/nibbles-window.vala:1199
 msgid "_Next Level"
 msgstr "अगला स्तर (_N)"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1220
+#: src/nibbles-window.vala:1244
 msgid "Congratulations!"
 msgstr "बधाइयाँ!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1224
+#: src/nibbles-window.vala:1248
 msgid "Game Over!"
 msgstr "खेल खत्म!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1236
+#: src/nibbles-window.vala:1260
 msgid "You have completed the game."
 msgstr "आपने खेल पूरा कर लिया है।"
 
-#: src/nibbles-window.vala:1246
+#: src/nibbles-window.vala:1270
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -971,13 +1021,13 @@ msgstr[0] "%d अंक"
 msgstr[1] "%d अंक"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1257
+#: src/nibbles-window.vala:1281
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(लीडरबोर्ड तक पहुंचने के लिए %ld अधिक अंक)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1264
+#: src/nibbles-window.vala:1288
 msgid "_Play Again"
 msgstr "फिर से खेलें (_P)"
 
