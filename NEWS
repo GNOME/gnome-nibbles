@@ -1,3 +1,17 @@
+4.1.alpha - May 31, 2024
+========================
+
+- Oldest tested dependencies (you may be able to go older):
+  gio & glib - 2.74.0
+  gtk4       - 4.8.3 
+  vala       - 0.56.3
+- May be linked with libadwaita for a different look. Thanks to kramo for this.
+- Fixes Issues:
+  #16 (implement more amounts of worms) thanks to Zeno Mat for this,
+  #14, #68, #11, #7, #19 & #32.
+- Updated translations (Hebrew, German, Hindi, Turkish, Ukrainian, Czech,
+  Slovenian, Russian, Swedish, Hebrew).
+
 4.0.4 - April 16, 2024
 ======================
 
