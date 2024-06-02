@@ -608,7 +608,7 @@ namespace NibblesTest
 
         Test.message ("test heads 2");
         test_board (test_heads_2, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
-                                          WormTest () { start_x = 11, start_y = 4, final_lives = 4, final_score = 0 }});
+                                          WormTest () { start_x = 11, start_y = 4, final_lives = 5, final_score = 0 }});
 
         Test.message ("test heads 3");
         test_board (test_heads_3, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 },
@@ -623,12 +623,12 @@ namespace NibblesTest
                                           WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 0 }});
 
         Test.message ("test heads 6");
-        test_board (test_heads_6, 1, 1, { WormTest () { start_x =  6, start_y = 1, final_lives = 4, final_score = 0 },
+        test_board (test_heads_6, 1, 1, { WormTest () { start_x =  6, start_y = 1, final_lives = 5, final_score = 0 },
                                           WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 }});
 
         Test.message ("test heads 9");
         test_board (test_heads_9, 1, 1, { WormTest () { start_x =  6, start_y = 1, final_lives = 6, final_score = 1 },
-                                          WormTest () { start_x =  6, start_y = 4, final_lives = 4, final_score = 0 }});
+                                          WormTest () { start_x =  6, start_y = 4, final_lives = 5, final_score = 0 }});
 
         Test.message ("test heads 7");
         test_board (test_heads_7, 1, 1, { WormTest () { start_x =  6, start_y = 2, final_lives = 6, final_score = 1 },
