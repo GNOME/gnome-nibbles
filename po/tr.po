@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2024-04-16 22:57+0000\n"
-"PO-Revision-Date: 2024-04-18 00:09+0300\n"
+"POT-Creation-Date: 2024-05-10 14:25+0000\n"
+"PO-Revision-Date: 2024-05-24 11:22+0300\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.3\n"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
@@ -74,7 +74,7 @@ msgstr ""
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
 msgid "game;snake;board;"
-msgstr "oyun;yılan;tahta;solucan;"
+msgstr "Nibbles;game;snake;board;oyun;yılan;tahta;solucan;"
 
 #: data/org.gnome.Nibbles.gschema.xml:13
 msgid "Width of the window in pixels"
@@ -315,13 +315,13 @@ msgstr "Emin Misiniz?"
 
 #. Translators: negative response button to Are You Sure? window
 #. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: data/ui/are-you-sure.ui:85 src/nibbles-view.vala:1801
+#: data/ui/are-you-sure.ui:85 src/nibbles-view.vala:1802
 msgid "No"
 msgstr "Hayır"
 
 #. Translators: positive response button to Are You Sure? window
 #. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: data/ui/are-you-sure.ui:96 src/nibbles-view.vala:1828
+#: data/ui/are-you-sure.ui:96 src/nibbles-view.vala:1829
 msgid "Yes"
 msgstr "Evet"
 
@@ -491,7 +491,7 @@ msgstr "Ana Menü"
 
 #. Translators: tooltip of a button of the headerbar, visible during a game; pauses the game
 #. Translators: tooltip of the pause button, when the game is running
-#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:713
+#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:707
 msgid "Pause"
 msgstr "Duraklat"
 
@@ -501,7 +501,7 @@ msgid "Paused"
 msgstr "Dondur"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#: data/ui/nibbles.ui:77 src/nibbles-window.vala:615
+#: data/ui/nibbles.ui:77 src/nibbles-window.vala:609
 msgid "_New Game"
 msgstr "Yeni _Oyun"
 
@@ -509,7 +509,7 @@ msgstr "Yeni _Oyun"
 #. duplicated in nibbles.ui
 #. duplicated in nibbles.ui
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:102 src/nibbles-window.vala:717
+#: data/ui/nibbles.ui:102 src/nibbles-window.vala:711
 msgid "_Pause"
 msgstr "_Duraklat"
 
@@ -631,51 +631,52 @@ msgstr "Verilen düzeyde başlat (1-26)"
 #. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:90 src/gnome-nibbles.vala:96
-#: src/gnome-nibbles.vala:105 src/gnome-nibbles.vala:111
-#: src/gnome-nibbles.vala:117
+#: src/gnome-nibbles.vala:102 src/gnome-nibbles.vala:108
+#: src/gnome-nibbles.vala:114
 msgid "NUMBER"
 msgstr "SAYI"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:93
 msgid ""
-"Progress through the boards; 0 - sequentially, 1 - randomly, 2 - fixed board"
-msgstr "Panolar arasında ilerleme; 0 - sıralı, 1 - rastgele, 2 - sabit pano"
+"Method of progress through the boards (0 - sequentially, 1 - randomly, 2 - "
+"fixed board)"
+msgstr "Panolar arasında ilerleme (0 - sıralı, 1 - rastgele, 2 - sabit pano)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:99
-msgid "Turn off the sound"
-msgstr "Sesi kıs"
-
-#. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:102
 msgid "Set number of nibbles (4-6)"
 msgstr "Atıştırmalıkların sayısını belirle (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:108
+#: src/gnome-nibbles.vala:105
 msgid "Set number of players (1-4)"
 msgstr "Oyuncuların sayısını belirle (1-4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:114
+#: src/gnome-nibbles.vala:111
 msgid "Set worms speed (4-1, 4 for slow)"
 msgstr "Solucanların hızını belirle (4-1, yavaş için 4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:120
+#: src/gnome-nibbles.vala:117
 msgid "Set three dimensional view"
 msgstr "Üç boyutlu görünümü ayarla"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:123
+#: src/gnome-nibbles.vala:120
 msgid "Set two dimensional view"
 msgstr "İki boyutlu görünümü ayarla"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:126
+#: src/gnome-nibbles.vala:123
 msgid "Start playing"
 msgstr "Oyunu başlat"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:126
+msgid "Turn off the sound"
+msgstr "Sesi kıs"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:129
@@ -727,79 +728,79 @@ msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "--3D (-3) ve --2D (-2) seçenekleri birbirini dışlayandır."
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:377
+#: src/gnome-nibbles.vala:384
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:381
+#: src/gnome-nibbles.vala:388
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:385
+#: src/gnome-nibbles.vala:392
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:389
+#: src/gnome-nibbles.vala:396
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:393
+#: src/gnome-nibbles.vala:400
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:397
+#: src/gnome-nibbles.vala:404
 msgid "Ben Corby"
 msgstr "Ben Corby"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:401
+#: src/gnome-nibbles.vala:408
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:405
+#: src/gnome-nibbles.vala:412
 msgid "Allan Day"
 msgstr "Allan Day"
 
 #. Translators: the name of the app's developers, seen in the About dialog
-#: src/gnome-nibbles.vala:413
+#: src/gnome-nibbles.vala:420
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:424
+#: src/gnome-nibbles.vala:431
 msgid "A worm game for GNOME"
 msgstr "GNOME için solucan oyunu"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:429
+#: src/gnome-nibbles.vala:436
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "Telif Hakkı © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:433
+#: src/gnome-nibbles.vala:440
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "Telif Hakkı © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:437
+#: src/gnome-nibbles.vala:444
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "Telif Hakkı © %u-%u – Iulian-Gabriel Radu"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:441
+#: src/gnome-nibbles.vala:448
 #, c-format
 msgid "Copyright © %u-%u – Ben Corby"
 msgstr "Telif Hakkı © %u-%u – Ben Corby"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:445 src/gnome-nibbles.vala:455
+#: src/gnome-nibbles.vala:452 src/gnome-nibbles.vala:462
 msgid "translator-credits"
 msgstr ""
 "Barış Çiçek <baris@teamforce.name.tr> \n"
@@ -808,54 +809,54 @@ msgstr ""
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:606 src/players.vala:43
+#: src/nibbles-view.vala:607 src/players.vala:43
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:609 src/players.vala:46
+#: src/nibbles-view.vala:610 src/players.vala:46
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:612 src/players.vala:49
+#: src/nibbles-view.vala:613 src/players.vala:49
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:625
+#: src/nibbles-view.vala:626
 msgid "Worm 1"
 msgstr "1. Solucan"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:628
+#: src/nibbles-view.vala:629
 msgid "Worm 2"
 msgstr "2. Solucan"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:631
+#: src/nibbles-view.vala:632
 msgid "Worm 3"
 msgstr "3. Solucan"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:634
+#: src/nibbles-view.vala:635
 msgid "Worm 4"
 msgstr "4. Solucan"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:637
+#: src/nibbles-view.vala:638
 msgid "Worm 5"
 msgstr "5. Solucan"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:640
+#: src/nibbles-view.vala:641
 msgid "Worm 6"
 msgstr "6. Solucan"
 
 #. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:665
+#: src/nibbles-view.vala:666
 msgid ""
 "Are you sure you want to start a new game?\n"
 "If you start a new game, the current one will be lost."
@@ -864,128 +865,128 @@ msgstr ""
 "Eğer yenisini başlatırsanız, geçerli oyun kaybedilecek."
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1946
+#: src/nibbles-view.vala:1947
 msgid "red"
 msgstr "kırmızı"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1948
+#: src/nibbles-view.vala:1949
 msgid "green"
 msgstr "yeşil"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1950
+#: src/nibbles-view.vala:1951
 msgid "blue"
 msgstr "mavi"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1952
+#: src/nibbles-view.vala:1953
 msgid "yellow"
 msgstr "sarı"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1954
+#: src/nibbles-view.vala:1955
 msgid "cyan"
 msgstr "camgöbeği"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1956
+#: src/nibbles-view.vala:1957
 msgid "purple"
 msgstr "mor"
 
 #. Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:610
+#: src/nibbles-window.vala:604
 msgid "New Game?"
 msgstr "Yeni Oyun Başlatılsın Mı?"
 
 #. Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:612
+#: src/nibbles-window.vala:606
 msgid "If you start a new game, the current one will be lost"
 msgstr "Eğer yenisini başlatırsanız, geçerli oyun kaybedilecek."
 
-#: src/nibbles-window.vala:614
+#: src/nibbles-window.vala:608
 msgid "_Cancel"
 msgstr "İ_ptal"
 
 #. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:639
+#: src/nibbles-window.vala:633
 msgid "Are you sure you want to start a new game?"
 msgstr "Yeni oyun başlatmak istediğinizden emin misiniz?"
 
 #. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:641
+#: src/nibbles-window.vala:635
 msgid "If you start a new game, the current one will be lost."
 msgstr "Eğer yenisini başlatırsanız, geçerli oyun kaybedilecek."
 
 #. Translators: tooltip of the pause button, when the game is paused
-#: src/nibbles-window.vala:702
+#: src/nibbles-window.vala:696
 msgid "Resume"
 msgstr "Sürdür"
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:706
+#: src/nibbles-window.vala:700
 msgid "_Resume"
 msgstr "_Sürdür"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:987 src/nibbles-window.vala:1217
+#: src/nibbles-window.vala:981 src/nibbles-window.vala:1211
 #, c-format
 msgid "Level %d"
 msgstr "%d. Düzey"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1063
+#: src/nibbles-window.vala:1057
 msgid "Beginner"
 msgstr "Acemi"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1065
+#: src/nibbles-window.vala:1059
 msgid "Slow"
 msgstr "Yavaş"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1067
+#: src/nibbles-window.vala:1061
 msgid "Medium"
 msgstr "Orta"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1069
+#: src/nibbles-window.vala:1063
 msgid "Fast"
 msgstr "Hızlı"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1071
+#: src/nibbles-window.vala:1065
 msgid "Beginner with Fakes"
 msgstr "Sahte Ödüllerle Acemi"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1073
+#: src/nibbles-window.vala:1067
 msgid "Slow with Fakes"
 msgstr "Sahte Ödüllerle Yavaş"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1075
+#: src/nibbles-window.vala:1069
 msgid "Medium with Fakes"
 msgstr "Sahte Ödüllerle Orta"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1077
+#: src/nibbles-window.vala:1071
 msgid "Fast with Fakes"
 msgstr "Sahte Ödüllerle Hızlı"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1082
+#: src/nibbles-window.vala:1076
 msgid "Difficulty Level:"
 msgstr "Zorluk Düzeyi:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1188
+#: src/nibbles-window.vala:1182
 #, c-format
 msgid "Level %d Completed!"
 msgstr "%d. Düzey Tamamlandı!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1199
+#: src/nibbles-window.vala:1193
 msgid "_Next Level"
 msgstr "_Sonraki Düzey"
 
@@ -995,29 +996,29 @@ msgid "Congratulations!"
 msgstr "Tebrikler!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1248
+#: src/nibbles-window.vala:1247
 msgid "Game Over!"
 msgstr "Oyun Bitti!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1260
+#: src/nibbles-window.vala:1258
 msgid "You have completed the game."
 msgstr "Oyunu tamamladınız."
 
-#: src/nibbles-window.vala:1270
+#: src/nibbles-window.vala:1268
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d Puan"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1281
+#: src/nibbles-window.vala:1279
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(liderler sıralamasına ulaşmaya %ld puan daha gerekiyor)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1288
+#: src/nibbles-window.vala:1286
 msgid "_Play Again"
 msgstr "Yeniden _Oyna"
 
@@ -1037,7 +1038,7 @@ msgid "5"
 msgstr "5"
 
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/scoreboard.vala:45
+#: src/scoreboard.vala:62
 #, c-format
 msgid "Worm %d"
 msgstr "%d. Solucan"
