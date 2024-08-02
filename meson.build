@@ -41,10 +41,6 @@ libgnome_games_support_dep = dependency('libgnome-games-support-2', version: '>=
 gtk_dep = dependency('gtk4') # this code works on 4.8.3 (debian 12 with updates), it hasn't been tried on anything earlier
 libadwaita_dep = dependency('libadwaita-1', version: '>= 1.5.0', required : false) # requires GTK 4.13.4
 pangocairo_dep = dependency('pangocairo')
-gtk5_dep = dependency('gtk5', required : false)
-if gtk5_dep.found()
-    message('GTK5 version', gtk5_dep.version() ,'is available on this system.')
-endif
 
 # Set use_libadwaita to false to stop libadwaita from being used.
 use_libadwaita = libadwaita_dep.found() # = false
