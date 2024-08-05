@@ -15,13 +15,6 @@
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/" />
   <programming-language>Vala</programming-language>
 
-  <author>
-    <foaf:Person>
-      <foaf:name>Iulian-Gabriel Radu</foaf:name>
-      <foaf:mbox rdf:resource="mailto:iulianradu@gnome.org" />
-      <gnome:userid>iulianradu</gnome:userid>
-    </foaf:Person>
-  </author>
   <maintainer>
     <foaf:Person>
       <foaf:name>Ben Corby</foaf:name>
@@ -29,4 +22,11 @@
       <gnome:userid>bcorby</gnome:userid>
     </foaf:Person>
   </maintainer>
+  <author>
+    <foaf:Person>
+      <foaf:name>Iulian-Gabriel Radu</foaf:name>
+      <foaf:mbox rdf:resource="mailto:iulianradu@gnome.org" />
+      <gnome:userid>iulianradu</gnome:userid>
+    </foaf:Person>
+  </author>
 </Project>
