@@ -1,8 +1,9 @@
 # Project & version number
-project('gnome-nibbles', ['c', 'vala'],
+project('gnome-nibbles',
+    ['c', 'vala'],
     license: 'GPL3+',
     meson_version: '>= 0.60.0',
-    version: '4.1.beta'
+    version: '4.2.dev'
 )
 # note, the version numbering now follows the following sequence:
 #  4.1.alpha
@@ -11,16 +12,15 @@ project('gnome-nibbles', ['c', 'vala'],
 #  4.1.0 (next full release)
 #  4.1.1 (bugfix release)
 
-gnome = import('gnome')
-i18n = import('i18n')
-
-prefix      = get_option('prefix')
-datadir     = join_paths(prefix, get_option('datadir'))
-pkgdatadir  = join_paths(datadir, meson.project_name())
-sounddir    = join_paths(pkgdatadir, 'sounds')
-localedir   = join_paths(prefix, get_option('localedir'))
-podir       = join_paths(meson.project_source_root(), 'po')
-bindir      = join_paths(prefix, get_option ('bindir'))
+gnome      = import('gnome')      # used to install help
+i18n       = import('i18n')       # used for internationalization
+prefix     = get_option('prefix') # base install directory
+datadir    = join_paths(prefix, get_option('datadir'))
+pkgdatadir = join_paths(datadir, meson.project_name())
+sounddir   = join_paths(pkgdatadir, 'sounds')
+localedir  = join_paths(prefix, get_option('localedir'))
+podir      = join_paths(meson.project_source_root(), 'po')
+bindir     = join_paths(prefix, get_option ('bindir'))
 
 # Dependencies
 vala_minimum_version = '0.55.1' # for sub-functions; https://gitlab.gnome.org/GNOME/vala/-/commit/048aaba0cd88b784fe9fa421dbad494019abd42e
@@ -123,6 +123,22 @@ if use_libadwaita
     else
         # we can't do the test because of the meson bug so be on the safe side
         use_libadwaita = false
+    endif
+endif
+
+# Test for ApplicationFlags.DEFAULT_FLAGS
+code3 =  '''using Gtk;
+            void main () {var t=ApplicationFlags.DEFAULT_FLAGS;}'''
+if meson.version().version_compare('> 1.4.0')
+    # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
+    code3_links = valac.links(code3, 
+        dependencies : [gtk_dep],
+        args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
+        name : 'Is ApplicationFlags.DEFAULT_FLAGS defined?')
+    if not code3_links
+        message('We will use ApplicationFlags.FLAGS_NONE.')
+    else
+        if_defines += '--define=CAN_USE_DEFAULT_FLAGS'
     endif
 endif
 

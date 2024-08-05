@@ -385,7 +385,7 @@ private class NibblesWindow : ApplicationWindow
         view = new NibblesView (game,
                                 countdown_active,
                                 new_game_dialogue_active);
-        view.show ();
+        view.set_visible (true);
         view.vexpand = true;
         game_box.prepend (view);
         set_focus (view);
@@ -450,7 +450,7 @@ private class NibblesWindow : ApplicationWindow
         else if (settings.get_boolean ("first-run"))
         {
             FirstRun first_run_panel = new FirstRun ();
-            first_run_panel.show ();
+            first_run_panel.set_visible (true);
             main_stack.add_named (first_run_panel, "first-run");
 
             new_game_action.set_enabled (true);
@@ -573,7 +573,7 @@ private class NibblesWindow : ApplicationWindow
                 overlay_remove_all ();
                 if (end_of_game)    // TODO better
                 {
-                    view.show ();
+                    view.set_visible (true);
                     end_of_game = false;
 
                     show_new_game_screen ();
@@ -647,7 +647,7 @@ private class NibblesWindow : ApplicationWindow
                     view.grab_focus ();
                 }
             });
-        dialog.show ();
+        dialog.set_visible (true);
         #endif
     }
 
@@ -876,8 +876,8 @@ private class NibblesWindow : ApplicationWindow
         pause_action.set_enabled (false);
         back_action.set_enabled (true);
 
-        new_game_button.hide ();
-        pause_button.hide ();
+        new_game_button.set_visible (false);
+        pause_button.set_visible (false);
 
         if (after_first_run)
             main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
@@ -974,8 +974,8 @@ private class NibblesWindow : ApplicationWindow
          * type when that's no longer a problem.
          */
         //main_stack.set_transition_type (StackTransitionType.NONE);
-        new_game_button.show ();
-        pause_button.show ();
+        new_game_button.set_visible (true);
+        pause_button.set_visible (true);
 
         /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
         set_headerbar_title (_("Level %d").printf (game.current_level));
@@ -1172,7 +1172,7 @@ private class NibblesWindow : ApplicationWindow
         if (game.current_level == NibblesGame.MAX_LEVEL)
             return;
 
-        view.hide ();
+        view.set_visible (false);
 
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -1187,7 +1187,7 @@ private class NibblesWindow : ApplicationWindow
             label.attributes = new Pango.AttrList ();
         label.attributes.insert (Pango.attr_scale_new (Pango.Scale.X_LARGE));
         label.attributes.insert (Pango.attr_weight_new (Pango.Weight.BOLD));
-        label.show ();
+        label.set_visible (true);
 
         /* Translators: label of a button that appears at the end of a level; starts next level */
         var button = new Button.with_label (_("_Next Level"));
@@ -1210,7 +1210,7 @@ private class NibblesWindow : ApplicationWindow
             /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
             set_headerbar_title (_("Level %d").printf (game.current_level));
 
-            view.show ();
+            view.set_visible (true);
 
             restart_game ();
         });
@@ -1221,7 +1221,7 @@ private class NibblesWindow : ApplicationWindow
         button.grab_focus ();
 
         Timeout.add (500, () => {
-            button.show ();
+            button.set_visible (true);
             //button.grab_default ();
 
             return Source.REMOVE;
@@ -1252,7 +1252,7 @@ private class NibblesWindow : ApplicationWindow
             game_over_label.attributes = new Pango.AttrList ();
         game_over_label.attributes.insert (Pango.attr_scale_new (Pango.Scale.XX_LARGE * 2));
         game_over_label.attributes.insert (Pango.attr_weight_new (Pango.Weight.BOLD));
-        game_over_label.show ();
+        game_over_label.set_visible (true);
 
         /* Translators: label displayed at the end of a level, if the player finished all the levels */
         var msg_label = new Label (_("You have completed the game."));
@@ -1263,7 +1263,7 @@ private class NibblesWindow : ApplicationWindow
             msg_label.attributes = new Pango.AttrList ();
         msg_label.attributes.insert (Pango.attr_scale_new (Pango.Scale.X_LARGE));
         msg_label.attributes.insert (Pango.attr_weight_new (Pango.Weight.BOLD));
-        msg_label.show ();
+        msg_label.set_visible (true);
 
         var score_string = ngettext ("%d Point", "%d Points", score);
         score_string = score_string.printf (score);
@@ -1272,7 +1272,7 @@ private class NibblesWindow : ApplicationWindow
         score_label.halign = Align.CENTER;
         score_label.valign = Align.START;
         score_label.set_margin_top (get_height () / 3 + 80);
-        score_label.show ();
+        score_label.set_visible (true);
 
         var points_left = lowest_high_score - score;
         /* Translators: label displayed at the end of a level, if the player did not score enough to have its score saved */
@@ -1280,7 +1280,7 @@ private class NibblesWindow : ApplicationWindow
         points_left_label.halign = Align.CENTER;
         points_left_label.valign = Align.START;
         points_left_label.set_margin_top (get_height () / 3 + 100);
-        points_left_label.show ();
+        points_left_label.set_visible (true);
 
         /* Translators: label of a button displayed at the end of a level; restarts the game */
         var play_again_button = new Button.with_label (_("_Play Again"));
@@ -1293,7 +1293,7 @@ private class NibblesWindow : ApplicationWindow
         #if USE_PILL_BUTTON
         play_again_button.add_css_class ("pill");
         #endif
-        play_again_button.show ();
+        play_again_button.set_visible (true);
 
         overlay_add (game_over_label);
         if (is_game_won)
@@ -1306,7 +1306,7 @@ private class NibblesWindow : ApplicationWindow
 
         play_again_button.grab_focus ();
 
-        view.hide ();
+        view.set_visible (false);
         end_of_game = true;
         new_game_action.set_enabled (true);
         pause_action.set_enabled (false);
