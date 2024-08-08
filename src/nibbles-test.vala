@@ -35,6 +35,10 @@
 
 namespace NibblesTest
 {
+#if CAN_USE__INT128
+    [CCode (cheader_filename = "divide_by.h", cname = "divide_by")]
+    extern static int128 divide_by (int128 n, int64 d);
+#endif
     private static int main (string [] args)
     {
         Test.init (ref args);
@@ -70,29 +74,51 @@ namespace NibblesTest
         /* int128 tests */
         int128 i128 = {2,2,false};
         int64 i64 = -3;
-        i128 = i128.divide_by (i64);
-        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
-        assert_true (i128.hi == 0 && i128.lo == 0xAAAAAAAAAAAAAAAB && i128.negative && i128.remainder == 1);
+        int128 r128 = i128.divide_by (i64);
+#if CAN_USE__INT128
+        int128 a128 = divide_by (i128, i64);
+        assert_true (r128 == a128);
+#endif
+        assert_true (r128.hi == 0 && r128.lo == 0xAAAAAAAAAAAAAAAB && r128.negative && r128.remainder == 1);
         i128 = {0x7fffffffffffffff,0,false};
         i64 = -0x8000000000000000;
-        i128 = i128.divide_by (i64);
-        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
-        assert_true (i128.hi == 0 && i128.lo == 0xfffffffffffffffe && i128.negative && i128.remainder == 0);
+        r128 = i128.divide_by (i64);
+#if CAN_USE__INT128
+        a128 = divide_by (i128, i64);
+        assert_true (r128 == a128);
+#endif
+        assert_true (r128.hi == 0 && r128.lo == 0xfffffffffffffffe && r128.negative && r128.remainder == 0);
         i128 = {13,6,false};
         i64 = 7;
-        i128 = i128.divide_by (i64);
+        r128 = i128.divide_by (i64);
+#if CAN_USE__INT128
+        a128 = divide_by (i128, i64);
         //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
-        assert_true (i128.hi == 1 && i128.lo == 0xdb6db6db6db6db6e && !i128.negative && i128.remainder == 4);
+        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",r128.negative?'-':'+', (ulong)r128.hi, (ulong)r128.lo, (ulong)r128.remainder);
+        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",a128.negative?'-':'+', (ulong)a128.hi, (ulong)a128.lo, (ulong)a128.remainder);
+        assert_true (r128 == a128);
+#endif
+        assert_true (r128.hi == 1 && r128.lo == 0xdb6db6db6db6db6e && !r128.negative && r128.remainder == 4);
         i128 = {0xffffffffffffffc5,0,false};
-        i64 = 0x7fffffffffffffff;
-        i128 = i128.divide_by (i64);
+        i64 =   0x7fffffffffffffff;
+        r128 = i128.divide_by (i64);
+#if CAN_USE__INT128
+        a128 = divide_by (i128, i64);
+        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",r128.negative?'-':'+', (ulong)r128.hi, (ulong)r128.lo, (ulong)r128.remainder);
+        //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",a128.negative?'-':'+', (ulong)a128.hi, (ulong)a128.lo, (ulong)a128.remainder);
         //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
-        assert_true (i128.hi == 1 && i128.lo == 0xffffffffffffff8d && !i128.negative && i128.remainder == 0x7fffffffffffff8d);
+        assert_true (r128 == a128);
+#endif
+        assert_true (r128.hi == 1 && r128.lo == 0xffffffffffffff8d && !r128.negative && r128.remainder == 0x7fffffffffffff8d);
         i128 = {1,0xffffffffffffffff,false};
         i64 = -0x8000000000000000;
-        i128 = i128.divide_by (i64);
+        r128 = i128.divide_by (i64);
+#if CAN_USE__INT128
+        a128 = divide_by (i128, i64);
         //stdout.printf ("result hex %c%016lx,%016lx remainder %lx\n",i128.negative?'-':'+', (ulong)i128.hi, (ulong)i128.lo, (ulong)i128.remainder);
-        assert_true (i128.hi == 0 && i128.lo == 3 && i128.negative && i128.remainder == 0x7fffffffffffffff);
+        assert_true (r128 == a128);
+#endif
+        assert_true (r128.hi == 0 && r128.lo == 3 && r128.negative && r128.remainder == 0x7fffffffffffffff);
     }
 
     /* Natural numbered (and zero) degrees as a ratio from 0° to 179° inclusive. */
@@ -293,7 +319,7 @@ namespace NibblesTest
         game.disconnect (game_handler_1);
         game.disconnect (game_handler_2);
 
-        Test.message ("");
+        Test.message ("-");
     }
 
     /*\

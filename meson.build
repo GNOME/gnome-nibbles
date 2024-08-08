@@ -25,13 +25,14 @@ bindir     = join_paths(prefix, get_option ('bindir'))
 # Dependencies
 vala_minimum_version = '0.55.1' # for sub-functions; https://gitlab.gnome.org/GNOME/vala/-/commit/048aaba0cd88b784fe9fa421dbad494019abd42e
 glib_minimum_version = '2.66.0' # minimum version for GTK 4
-glib_target_version = '2.78.0' # tested with versions 2.74 & 2.78
+glib_target_version = '2.80.0' # tested with versions 2.74 & 2.80
 target_glib = '--target-glib=' + '@0@'.format(glib_target_version)
 
 valac = meson.get_compiler('vala')
 if valac.version().version_compare('< ' + vala_minimum_version)
     error('Vala does not meet minimum required version of ' + vala_minimum_version)
 endif
+c = meson.get_compiler('c')
 
 gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0', version: '>= @0@'.format(glib_minimum_version))
@@ -45,113 +46,174 @@ gtk5_dep = dependency('gtk5', required : false)
 if gtk5_dep.found()
     message('GTK5 version', gtk5_dep.version() ,'is available on this system.')
 endif
-
 # Set use_libadwaita to false to stop libadwaita from being used.
 use_libadwaita = libadwaita_dep.found() # = false
 
-# version defines of GTK4 for #if e.g. #if GTK_4_6_or_above
-if_defines = []
-gtk_version = gtk_dep.version()
-gtk_big = gtk_version.split('.')[0].to_int()
-foreach i : range(0, gtk_version.split('.')[1].to_int() + 1, 1)
-    if_defines += '--define=GTK_' + gtk_big.to_string() + '_' + i.to_string() + '_or_above'
-endforeach
-
 posix_dep = valac.find_library('posix')
 
-# Link tests
+# C compiler options
+c_compiler_options = [   
+    # Suppress all the C compiler warnings.
+    '-w',
+    # Define VALA_STRICT_C so we can compile with the proper C code fixes not the workaround.
+    # see https://gitlab.gnome.org/GNOME/vala/-/commit/ae2cbcd0011081581bef406fcbfcd1e86b7dacd3
+    '-DVALA_STRICT_C' 
+] 
+
+# convert C compiler options to vala compiler options
+vala_compiler_options = []
+foreach i : range(0, c_compiler_options.length(), 1)
+    vala_compiler_options += '--Xcc=' + c_compiler_options[i]
+endforeach
+
+vala_if_defines = []
+
+# *** Tests ***
+# For each test we add a --define= entry to vala_if_defines so the vala code
+# can handle any issue or feature.
+
 # This test is to support versions of vala(<0.56.15) that have compile issues
 # with versions of gcc(>=14) or clang(>=16).
-code0 =  '''private const string [] strings = {"a","b"};
-            private static string test_string (string [] s) {return s[0];}
-            void main() {stdout.printf ("%s\n",test_string (strings));}'''
-if meson.version().version_compare('> 1.4.0')
+code0 = '''private const string [] strings = {"a","b"};
+           private static string test_string (string [] s) {return s[0];}
+           void main() {stdout.printf ("%s\n",test_string (strings));}'''
+if meson.version().version_compare('>= 1.4.1')
     # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
     code0_links = valac.links(code0, 
-        args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
-        name : 'an array of strings does not needs casting?')
+        args : vala_compiler_options,
+        name : 'an array of strings links without casting?')
     if not code0_links
         message('Vala has a bug when passing a constant array of strings to a function, workaround applied.')
-        if_defines += '--define=VALA_NEEDS_ARRAY_STRING_CASTING'
+        vala_if_defines += '--define=VALA_NEEDS_ARRAY_STRING_CASTING'
     endif
 else
     # we can't do the test because of the meson bug so be on the safe side
-    if_defines += '--define=VALA_NEEDS_ARRAY_STRING_CASTING'
+    vala_if_defines += '--define=VALA_NEEDS_ARRAY_STRING_CASTING'
 endif
 
 # Test if this commit is in vala. It is in 0.56.17 and above.
 # https://gitlab.gnome.org/GNOME/vala/-/commit/f3288279b6f74cd4255b52ab78dddb5ee7bcb89c
 # This test is to maintain support for vala 0.56 (Stable Long-term Support release).
-code1 =  '''class Property : Object {public int c;}
-            void main () {
-            static bool GetMappingFunction (Value value, Variant variant, void *data) {value.set_int (0); return true;}
-            static Variant SetMappingFunction (Value value, VariantType type, void *data) {return 0;}
-            var s = new GLib.Settings ("org.gnome.Nibbles"); var p = new Property ();
-            s.bind_with_mapping ("c", p, "c", SettingsBindFlags.DEFAULT,GetMappingFunction, SetMappingFunction, null, null); }'''
-if meson.version().version_compare('> 1.4.0')
-    # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
+code1 = '''class Property : Object {public int c;}
+           void main () {
+           static bool GetMappingFunction (Value value, Variant variant, void *data) {value.set_int (0); return true;}
+           static Variant SetMappingFunction (Value value, VariantType type, void *data) {return 0;}
+           var s = new GLib.Settings ("org.gnome.Nibbles"); var p = new Property ();
+           s.bind_with_mapping ("c", p, "c", SettingsBindFlags.DEFAULT,GetMappingFunction, SetMappingFunction, null, null); }'''
+if meson.version().version_compare('>= 1.5.0')
     code1_links = valac.links(code1, 
-        dependencies : [gio_dep],
-        args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
-        name : 'local functions do not need casting to static delegates?')
+        dependencies : [gio_dep], # needs meson version >= 1.5.0
+        args : vala_compiler_options,
+        name : 'static local functions can be used without casting?')
     if not code1_links
-        message('Vala local functions need casting to static delegates.')
-        if_defines += '--define=VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING'
+        message('Vala static local functions need casting to static delegates.')
+        vala_if_defines += '--define=VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING'
     endif
 else
     # we can't do the test because of the meson bug so be on the safe side
-    if_defines += '--define=VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING'
+    vala_if_defines += '--define=VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING'
 endif
 
 # Test compiling & linking with Adw.AboutDialog.
+# This test makes sure libadwaita is installed and working.
 if use_libadwaita
-    code2 =  '''void main () {string[] s = {"a", "b"};
-                var ad = new Adw.AboutDialog ();
-                ad.set_developers (s);
-                ad.set_documenters (s);
-                ad.set_artists (s);}'''
-    if meson.version().version_compare('> 1.4.0')
-        # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
+    code2 = '''void main () {string[] s = {"a", "b"};
+               var ad = new Adw.AboutDialog ();
+               ad.set_developers (s);
+               ad.set_documenters (s);
+               ad.set_artists (s);}'''
+    if meson.version().version_compare('>= 1.5.0')
         code2_links = valac.links(code2, 
-            dependencies : [libadwaita_dep],
-            args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
-            name : 'we can compile & link with libadwaita?')
-        if not code2_links
-            message('Can not compile & link with libadwaita.')
-            use_libadwaita = false
+            dependencies : [libadwaita_dep], # needs meson version >= 1.5.0
+            args : vala_compiler_options,
+            name : 'we can link with libadwaita?')
+        if code2_links
+            vala_if_defines += ['--define=USE_LIBADWAITA','--define=USE_PILL_BUTTON']
+        else
+            message('Can not link with libadwaita.')
         endif
-    else
-        # we can't do the test because of the meson bug so be on the safe side
-        use_libadwaita = false
     endif
 endif
 
 # Test for ApplicationFlags.DEFAULT_FLAGS
-code3 =  '''using Gtk;
-            void main () {var t=ApplicationFlags.DEFAULT_FLAGS;}'''
-if meson.version().version_compare('> 1.4.0')
-    # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
+code3 = '''using Gtk;
+           void main () {var t=ApplicationFlags.DEFAULT_FLAGS;}'''
+if meson.version().version_compare('>= 1.5.0')
     code3_links = valac.links(code3, 
-        dependencies : [gtk_dep],
-        args : ['--Xcc=-DVALA_STRICT_C'] + if_defines,
+        dependencies : [gtk_dep], # needs meson version >= 1.5.0
+        args : vala_compiler_options,
         name : 'Is ApplicationFlags.DEFAULT_FLAGS defined?')
-    if not code3_links
-        message('We will use ApplicationFlags.FLAGS_NONE.')
+    if code3_links
+        vala_if_defines += '--define=CAN_USE_DEFAULT_FLAGS'
     else
-        if_defines += '--define=CAN_USE_DEFAULT_FLAGS'
+        message('We will use ApplicationFlags.FLAGS_NONE.')
     endif
+else
+    # we can't do the test because of the meson bug so be on the safe side
+    message('We will use ApplicationFlags.FLAGS_NONE.')
 endif
 
-# set if_defines for LIBADWAITA
-if use_libadwaita
-    if_defines += ['--define=USE_LIBADWAITA','--define=USE_PILL_BUTTON']
+# Test for show_uri function
+# We use show_uri in preference to UriLauncher because of
+# https://gitlab.gnome.org/GNOME/gtk/-/issues/6135
+code4 = '''using Gtk;
+           void main () {show_uri (null, "help:gnome-nibbles", Gdk.CURRENT_TIME);}'''
+if meson.version().version_compare('>= 1.5.0')
+    code4_links = valac.links(code4,
+        dependencies : [gtk_dep], # needs meson version >= 1.5.0
+        args : vala_compiler_options,
+        name : 'we can call show_uri?')
+    if code4_links
+        vala_if_defines += '--define=CAN_USE_SHOW_URI'
+    else
+        message('We will use UriLauncher instead of show_uri.')
+    endif
+else
+    # we can't do the test because of the meson bug so be on the safe side
+    vala_if_defines += '--define=CAN_USE_SHOW_URI'
 endif
 
-message('valac #defines:',if_defines)
+# Test for 128 bit integer (__int128)
+# If available __int128 allows us to do better nibbles tests.
+code5 = '''
+    typedef unsigned long long  uint64;
+    struct _int128
+    {
+        uint64  hi;
+        uint64  lo;
+        int negative;
+        uint64  remainder;
+    };
+    void divide_by(struct _int128 *i128, long long i64, struct _int128 *r)
+    {
+        unsigned __int128 n,a;
+        n = ((__int128)i128->hi) << 64 | i128->lo;
+        if(i64 < 0)
+        {
+            a = n / -(__int128)i64;
+            r->remainder = n % -(__int128)i64;
+        }
+        else
+        {
+            a = n / i64;
+            r->remainder = n % i64;
+        }
+        r->hi = a >> 64;
+        r->lo = (uint64)a;
+        r->negative = (i128->negative && i64 > 0) || (!i128->negative && i64 < 0);
+        //return r;
+    }'''
+code5_compiles = c.compiles(code5,
+    args : c_compiler_options,
+    name : 'we can use 128 bit integers?')
+if code5_compiles
+    vala_if_defines += '--define=CAN_USE__INT128'
+    conditional_sources = ['divide_by.c']
+else
+    conditional_sources = []
+endif
 
-# Define VALA_STRICT_C so we can compile with the proper C code fixes not the workaround.
-# see https://gitlab.gnome.org/GNOME/vala/-/commit/ae2cbcd0011081581bef406fcbfcd1e86b7dacd3
-c_defines = ['-DVALA_STRICT_C']
+message('valac #defines:',vala_if_defines)
 
 # Configuration
 conf = configuration_data()

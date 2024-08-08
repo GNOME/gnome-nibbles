@@ -350,18 +350,18 @@ private class Nibbles : Gtk.Application
     {
         if (window != null && !window.game_paused)
             window.activate_action ("pause", null);
-#if GTK_5_0_or_above
+#if CAN_USE_SHOW_URI
+        /* See "Remove deprecate warning." comment at the top of this file. */
+        no_deprecate_warning.show_uri (window, "help:gnome-nibbles", Gdk.CURRENT_TIME);
+#else /* !CAN_USE_SHOW_URI */
         launch_help.begin ((obj,res)=>
         {
             launch_help.end (res);
         });
-#else /* must be GTK 4 */
-        /* See "Remove deprecate warning." comment at the top of this file. */
-        no_deprecate_warning.show_uri (window, "help:gnome-nibbles", Gdk.CURRENT_TIME);
 #endif
     }
 
-#if GTK_5_0_or_above
+#if !CAN_USE_SHOW_URI
     async void launch_help ()
     {
         /* UriLuncher has a bug see https://gitlab.gnome.org/GNOME/gtk/-/issues/6135 */

@@ -7,15 +7,15 @@ nibbles_tests = executable(
         'nibbles-game.vala',
         'nibbles-test.vala',
         'worm.vala',
-        'warp.vala',
-    ],
+        'warp.vala'
+    ] + conditional_sources,
     dependencies : [
         gee_dep,
         gio_dep,
         glib_dep,
     ],
-    vala_args : if_defines + '--define=TEST_COMPILE' + target_glib,
-    c_args: [c_defines, '-w'],
+    vala_args : vala_if_defines + '--define=TEST_COMPILE' + target_glib,
+    c_args: c_compiler_options,
     link_args : '-lm'
 )
 test('nibbles-tests', nibbles_tests)
@@ -37,8 +37,8 @@ gnome_nibbles_sources = [
     'warp.vala',
     'worm.vala',
     'sound.vala',
-    resources,
-]
+    resources
+] + conditional_sources
 
 gnome_nibbles_deps = [
     gee_dep,
@@ -60,8 +60,8 @@ gnome_nibbles_vala_args = [
 
 executable(meson.project_name(), gnome_nibbles_sources,
     dependencies: gnome_nibbles_deps,
-    vala_args: gnome_nibbles_vala_args + if_defines + target_glib,
-    c_args: [c_defines, '-w'],
+    vala_args: gnome_nibbles_vala_args + vala_if_defines + target_glib,
+    c_args: c_compiler_options,
     link_args: '-lm',
     install: true
 )
