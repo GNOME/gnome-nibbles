@@ -1,5 +1,5 @@
-4.1.rc1 - August 5, 2024
-========================
+4.1.0 - September 12, 2024
+==========================
 
 - Oldest tested dependencies (you may be able to go older):
   gio & glib - 2.74.0
@@ -10,7 +10,7 @@
   #16 (implement more amounts of worms) thanks to Zeno Mat for this,
   #14, #68, #11, #7, #19 & #32.
 - Updated translations (Hebrew, German, Hindi, Turkish, Ukrainian, Czech,
-  Slovenian, Russian, Swedish, Georgian).
+  Slovenian, Russian, Swedish, Georgian, Finnish, Belarusian, Persian)
 - Fix worm head tests.
 
 4.0.4 - April 16, 2024
