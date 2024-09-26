@@ -1,30 +1,35 @@
 # Chinese simplified translation for Gnome-games.
 # Copyright 2011 Free Software Foundation, Inc.
+# Yang Zhang <zyangmath@gmail.com>, 2007.
+# Ping Z <zpsigma@gmail.com>, 2007.
+# Xhacker Liu <liu.dongyuan@gmail.com>, 2010.
 # Aron Xu <aronxu@gnome.org>, 2011.
 # YunQiang Su <wzssyqa@gmail.com>, 2011, 2012.
 # Arthur Wang <arthur2e5@aosc.xyz>, 2015.
 # Jeff Bai <jeffbai@aosc.xyz>, 2016.
-# lumingzh <lumingzh@qq.com>, 2023.
+# Mandy Wang <wangmychn@gmail.com>, 2016.
+# Weiyi Xu <xuweiyi0923@gmail.com>, 2020.
+# lumingzh <lumingzh@qq.com>, 2023-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2023-10-05 19:33+0000\n"
-"PO-Revision-Date: 2023-10-06 10:17+0800\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
+"POT-Creation-Date: 2024-09-15 15:03+0000\n"
+"PO-Revision-Date: 2024-09-26 17:04+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
-"Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: Gtranslator 45.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 46.1\n"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
 #: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
-#: data/ui/nibbles.ui:64 src/gnome-nibbles.vala:39
+#: data/ui/nibbles-adw.ui:65 data/ui/nibbles.ui:64 src/gnome-nibbles.vala:57
 msgid "Nibbles"
 msgstr "贪食蛇"
 
@@ -35,15 +40,15 @@ msgstr "小蛇游走于迷宫"
 #: data/org.gnome.Nibbles.appdata.xml.in:10
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won’t have much room for movement."
+"enemy worms while eating apples and bananas to increase your length. Each "
+"worm has six lives and loses one by running into a wall, another worm, or "
+"itself. The enemy worms are after the same bonuses that you are, so be "
+"careful. If the worms become too large, you won’t have much room to move."
 msgstr ""
-"控制一条蛇，让它在任务中去吃食物，并变得更长。吃甜甜圈和冰淇淋可以增加蛇的长"
-"度并同时超越敌方的蛇。每条蛇有十次生命，当撞到另一堵墙、另一只蛇或其本身时会"
-"失掉一条生命。敌方的蛇和你一样也会去吃食物，所以要小心：如果他们变得太大，你"
-"将会没有足够的运动空间。"
+"控制一条蠕虫，让它在任务中去吃奖励并变得更长。吃苹果和香蕉来增加长度并超越敌"
+"对蠕虫。每条蠕虫有六条生命并在每次撞到墙壁、其它蠕虫或它自己时损失一条生命。"
+"敌对蠕虫和你一样会去吃这些奖励，所以请注意，如果敌对蠕虫变得太大，你将没有多"
+"少空间可以移动。"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:17
 msgid ""
@@ -60,30 +65,26 @@ msgid ""
 "play with a friend."
 msgstr "自己对战多达 5 条蠕虫，或者和朋友对战。"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:58
-msgid "Michael Catanzaro"
-msgstr "Michael Catanzaro"
-
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
 msgid "game;snake;board;"
-msgstr "游戏;贪吃蛇;蛇;棋;牌;"
+msgstr "game;snake;board;游戏;蛇;棋盘;"
 
 #: data/org.gnome.Nibbles.gschema.xml:13
 msgid "Width of the window in pixels"
-msgstr "窗口宽度的像素数"
+msgstr "窗口的宽度（像素）"
 
 #: data/org.gnome.Nibbles.gschema.xml:14
 msgid "Width of the window in pixels."
-msgstr "窗口宽度的像素数。"
+msgstr "以像素为单位的窗口宽度。"
 
 #: data/org.gnome.Nibbles.gschema.xml:18
 msgid "Height of the window in pixels"
-msgstr "窗口高度的像素数"
+msgstr "窗口的高度（像素）"
 
 #: data/org.gnome.Nibbles.gschema.xml:19
 msgid "Height of the window in pixels."
-msgstr "窗口高度的像素数。"
+msgstr "以像素为单位的窗口高度。"
 
 #: data/org.gnome.Nibbles.gschema.xml:23
 msgid "true if the window is maximized"
@@ -102,119 +103,87 @@ msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr "决定是否显示初次运行提示框的设置。"
 
 #: data/org.gnome.Nibbles.gschema.xml:34
+msgid "How the game progresses through the boards"
+msgstr "游戏在棋盘上进行的方式"
+
+#: data/org.gnome.Nibbles.gschema.xml:35
+msgid ""
+"How the game progresses through the boards; 0 - sequentially, 1 - randomly, "
+"2 - fixed board."
+msgstr "游戏在棋盘上进行的方式；0 - 连续，1 - 随机，2 - 固定棋盘。"
+
+#: data/org.gnome.Nibbles.gschema.xml:40
 msgid "Game level to start on"
 msgstr "开始的游戏级别"
 
-#: data/org.gnome.Nibbles.gschema.xml:35
+#: data/org.gnome.Nibbles.gschema.xml:41
 msgid "Game level to start on."
 msgstr "开始的游戏级别。"
 
-#: data/org.gnome.Nibbles.gschema.xml:40
+#: data/org.gnome.Nibbles.gschema.xml:46
 msgid "Worms movement speed"
 msgstr "蛇的移动速度"
 
-#: data/org.gnome.Nibbles.gschema.xml:41
+#: data/org.gnome.Nibbles.gschema.xml:47
 msgid "The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”."
 msgstr "小蛇的速度，其中“1”表示“快”，“4”表示“慢”。"
 
-#: data/org.gnome.Nibbles.gschema.xml:45
+#: data/org.gnome.Nibbles.gschema.xml:51
 msgid "Enable 3D"
 msgstr "启用 3D"
 
-#: data/org.gnome.Nibbles.gschema.xml:46
+#: data/org.gnome.Nibbles.gschema.xml:52
 msgid "Enable 3D."
 msgstr "启用 3D。"
 
-#: data/org.gnome.Nibbles.gschema.xml:50
+#: data/org.gnome.Nibbles.gschema.xml:56
 msgid "Enable sounds"
 msgstr "启用声音"
 
-#: data/org.gnome.Nibbles.gschema.xml:51
+#: data/org.gnome.Nibbles.gschema.xml:57
 msgid "Enable sounds."
 msgstr "启用声音。"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: data/org.gnome.Nibbles.gschema.xml:55 src/gnome-nibbles.vala:65
+#: data/org.gnome.Nibbles.gschema.xml:61 src/gnome-nibbles.vala:84
 msgid "Enable fake bonuses"
 msgstr "启用虚假奖品"
 
-#: data/org.gnome.Nibbles.gschema.xml:56
+#: data/org.gnome.Nibbles.gschema.xml:62
 msgid "Enable fake bonuses."
 msgstr "启用虚假食物。"
 
-#: data/org.gnome.Nibbles.gschema.xml:61
+#: data/org.gnome.Nibbles.gschema.xml:67
 msgid "Number of human players"
 msgstr "人类玩家数量"
 
-#: data/org.gnome.Nibbles.gschema.xml:62
+#: data/org.gnome.Nibbles.gschema.xml:68
 msgid "Number of human players."
 msgstr "人类玩家数量。"
 
-#: data/org.gnome.Nibbles.gschema.xml:67
+#: data/org.gnome.Nibbles.gschema.xml:73
 msgid "Number of AI players"
 msgstr "AI 玩家数量"
 
-#: data/org.gnome.Nibbles.gschema.xml:68
+#: data/org.gnome.Nibbles.gschema.xml:74
 msgid "Number of AI players."
 msgstr "AI 玩家数量。"
 
-#: data/org.gnome.Nibbles.gschema.xml:74 data/org.gnome.Nibbles.gschema.xml:121
-#: data/org.gnome.Nibbles.gschema.xml:168
-#: data/org.gnome.Nibbles.gschema.xml:215
-#: data/org.gnome.Nibbles.gschema.xml:262
-#: data/org.gnome.Nibbles.gschema.xml:309
+#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:127
+#: data/org.gnome.Nibbles.gschema.xml:174
+#: data/org.gnome.Nibbles.gschema.xml:221
+#: data/org.gnome.Nibbles.gschema.xml:268
+#: data/org.gnome.Nibbles.gschema.xml:315
 msgid "Color to use for worm"
 msgstr "小蛇要使用的颜色"
 
-#: data/org.gnome.Nibbles.gschema.xml:75 data/org.gnome.Nibbles.gschema.xml:122
-#: data/org.gnome.Nibbles.gschema.xml:169
-#: data/org.gnome.Nibbles.gschema.xml:216
-#: data/org.gnome.Nibbles.gschema.xml:263
-#: data/org.gnome.Nibbles.gschema.xml:310
+#: data/org.gnome.Nibbles.gschema.xml:81 data/org.gnome.Nibbles.gschema.xml:128
+#: data/org.gnome.Nibbles.gschema.xml:175
+#: data/org.gnome.Nibbles.gschema.xml:222
+#: data/org.gnome.Nibbles.gschema.xml:269
+#: data/org.gnome.Nibbles.gschema.xml:316
 msgid "Color to use for worm."
 msgstr "小蛇要使用的颜色。"
-
-#: data/org.gnome.Nibbles.gschema.xml:79 data/org.gnome.Nibbles.gschema.xml:99
-#: data/org.gnome.Nibbles.gschema.xml:126
-#: data/org.gnome.Nibbles.gschema.xml:146
-#: data/org.gnome.Nibbles.gschema.xml:173
-#: data/org.gnome.Nibbles.gschema.xml:193
-#: data/org.gnome.Nibbles.gschema.xml:220
-#: data/org.gnome.Nibbles.gschema.xml:240
-#: data/org.gnome.Nibbles.gschema.xml:267
-#: data/org.gnome.Nibbles.gschema.xml:287
-#: data/org.gnome.Nibbles.gschema.xml:314
-#: data/org.gnome.Nibbles.gschema.xml:334
-msgid "Move up"
-msgstr "上移"
-
-#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:100
-#: data/org.gnome.Nibbles.gschema.xml:127
-#: data/org.gnome.Nibbles.gschema.xml:147
-#: data/org.gnome.Nibbles.gschema.xml:174
-#: data/org.gnome.Nibbles.gschema.xml:194
-#: data/org.gnome.Nibbles.gschema.xml:221
-#: data/org.gnome.Nibbles.gschema.xml:241
-#: data/org.gnome.Nibbles.gschema.xml:268
-#: data/org.gnome.Nibbles.gschema.xml:288
-#: data/org.gnome.Nibbles.gschema.xml:315
-#: data/org.gnome.Nibbles.gschema.xml:335
-msgid "Key to use for motion up."
-msgstr "向上移动所用的键。"
-
-#: data/org.gnome.Nibbles.gschema.xml:84 data/org.gnome.Nibbles.gschema.xml:104
-#: data/org.gnome.Nibbles.gschema.xml:131
-#: data/org.gnome.Nibbles.gschema.xml:151
-#: data/org.gnome.Nibbles.gschema.xml:178
-#: data/org.gnome.Nibbles.gschema.xml:198
-#: data/org.gnome.Nibbles.gschema.xml:225
-#: data/org.gnome.Nibbles.gschema.xml:245
-#: data/org.gnome.Nibbles.gschema.xml:272
-#: data/org.gnome.Nibbles.gschema.xml:292
-#: data/org.gnome.Nibbles.gschema.xml:319
-#: data/org.gnome.Nibbles.gschema.xml:339
-msgid "Move down"
-msgstr "下移"
 
 #: data/org.gnome.Nibbles.gschema.xml:85 data/org.gnome.Nibbles.gschema.xml:105
 #: data/org.gnome.Nibbles.gschema.xml:132
@@ -227,22 +196,22 @@ msgstr "下移"
 #: data/org.gnome.Nibbles.gschema.xml:293
 #: data/org.gnome.Nibbles.gschema.xml:320
 #: data/org.gnome.Nibbles.gschema.xml:340
-msgid "Key to use for motion down."
-msgstr "向下移动所用的键。"
+msgid "Move up"
+msgstr "上移"
 
-#: data/org.gnome.Nibbles.gschema.xml:89 data/org.gnome.Nibbles.gschema.xml:109
-#: data/org.gnome.Nibbles.gschema.xml:136
-#: data/org.gnome.Nibbles.gschema.xml:156
-#: data/org.gnome.Nibbles.gschema.xml:183
-#: data/org.gnome.Nibbles.gschema.xml:203
-#: data/org.gnome.Nibbles.gschema.xml:230
-#: data/org.gnome.Nibbles.gschema.xml:250
-#: data/org.gnome.Nibbles.gschema.xml:277
-#: data/org.gnome.Nibbles.gschema.xml:297
-#: data/org.gnome.Nibbles.gschema.xml:324
-#: data/org.gnome.Nibbles.gschema.xml:344
-msgid "Move left"
-msgstr "向左移动"
+#: data/org.gnome.Nibbles.gschema.xml:86 data/org.gnome.Nibbles.gschema.xml:106
+#: data/org.gnome.Nibbles.gschema.xml:133
+#: data/org.gnome.Nibbles.gschema.xml:153
+#: data/org.gnome.Nibbles.gschema.xml:180
+#: data/org.gnome.Nibbles.gschema.xml:200
+#: data/org.gnome.Nibbles.gschema.xml:227
+#: data/org.gnome.Nibbles.gschema.xml:247
+#: data/org.gnome.Nibbles.gschema.xml:274
+#: data/org.gnome.Nibbles.gschema.xml:294
+#: data/org.gnome.Nibbles.gschema.xml:321
+#: data/org.gnome.Nibbles.gschema.xml:341
+msgid "Key to use for motion up."
+msgstr "向上移动所用的键。"
 
 #: data/org.gnome.Nibbles.gschema.xml:90 data/org.gnome.Nibbles.gschema.xml:110
 #: data/org.gnome.Nibbles.gschema.xml:137
@@ -255,22 +224,22 @@ msgstr "向左移动"
 #: data/org.gnome.Nibbles.gschema.xml:298
 #: data/org.gnome.Nibbles.gschema.xml:325
 #: data/org.gnome.Nibbles.gschema.xml:345
-msgid "Key to use for motion left."
-msgstr "向左移动所用的键。"
+msgid "Move down"
+msgstr "下移"
 
-#: data/org.gnome.Nibbles.gschema.xml:94 data/org.gnome.Nibbles.gschema.xml:114
-#: data/org.gnome.Nibbles.gschema.xml:141
-#: data/org.gnome.Nibbles.gschema.xml:161
-#: data/org.gnome.Nibbles.gschema.xml:188
-#: data/org.gnome.Nibbles.gschema.xml:208
-#: data/org.gnome.Nibbles.gschema.xml:235
-#: data/org.gnome.Nibbles.gschema.xml:255
-#: data/org.gnome.Nibbles.gschema.xml:282
-#: data/org.gnome.Nibbles.gschema.xml:302
-#: data/org.gnome.Nibbles.gschema.xml:329
-#: data/org.gnome.Nibbles.gschema.xml:349
-msgid "Move right"
-msgstr "向右移动"
+#: data/org.gnome.Nibbles.gschema.xml:91 data/org.gnome.Nibbles.gschema.xml:111
+#: data/org.gnome.Nibbles.gschema.xml:138
+#: data/org.gnome.Nibbles.gschema.xml:158
+#: data/org.gnome.Nibbles.gschema.xml:185
+#: data/org.gnome.Nibbles.gschema.xml:205
+#: data/org.gnome.Nibbles.gschema.xml:232
+#: data/org.gnome.Nibbles.gschema.xml:252
+#: data/org.gnome.Nibbles.gschema.xml:279
+#: data/org.gnome.Nibbles.gschema.xml:299
+#: data/org.gnome.Nibbles.gschema.xml:326
+#: data/org.gnome.Nibbles.gschema.xml:346
+msgid "Key to use for motion down."
+msgstr "向下移动所用的键。"
 
 #: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:115
 #: data/org.gnome.Nibbles.gschema.xml:142
@@ -283,33 +252,121 @@ msgstr "向右移动"
 #: data/org.gnome.Nibbles.gschema.xml:303
 #: data/org.gnome.Nibbles.gschema.xml:330
 #: data/org.gnome.Nibbles.gschema.xml:350
+msgid "Move left"
+msgstr "向左移动"
+
+#: data/org.gnome.Nibbles.gschema.xml:96 data/org.gnome.Nibbles.gschema.xml:116
+#: data/org.gnome.Nibbles.gschema.xml:143
+#: data/org.gnome.Nibbles.gschema.xml:163
+#: data/org.gnome.Nibbles.gschema.xml:190
+#: data/org.gnome.Nibbles.gschema.xml:210
+#: data/org.gnome.Nibbles.gschema.xml:237
+#: data/org.gnome.Nibbles.gschema.xml:257
+#: data/org.gnome.Nibbles.gschema.xml:284
+#: data/org.gnome.Nibbles.gschema.xml:304
+#: data/org.gnome.Nibbles.gschema.xml:331
+#: data/org.gnome.Nibbles.gschema.xml:351
+msgid "Key to use for motion left."
+msgstr "向左移动所用的键。"
+
+#: data/org.gnome.Nibbles.gschema.xml:100
+#: data/org.gnome.Nibbles.gschema.xml:120
+#: data/org.gnome.Nibbles.gschema.xml:147
+#: data/org.gnome.Nibbles.gschema.xml:167
+#: data/org.gnome.Nibbles.gschema.xml:194
+#: data/org.gnome.Nibbles.gschema.xml:214
+#: data/org.gnome.Nibbles.gschema.xml:241
+#: data/org.gnome.Nibbles.gschema.xml:261
+#: data/org.gnome.Nibbles.gschema.xml:288
+#: data/org.gnome.Nibbles.gschema.xml:308
+#: data/org.gnome.Nibbles.gschema.xml:335
+#: data/org.gnome.Nibbles.gschema.xml:355
+msgid "Move right"
+msgstr "向右移动"
+
+#: data/org.gnome.Nibbles.gschema.xml:101
+#: data/org.gnome.Nibbles.gschema.xml:121
+#: data/org.gnome.Nibbles.gschema.xml:148
+#: data/org.gnome.Nibbles.gschema.xml:168
+#: data/org.gnome.Nibbles.gschema.xml:195
+#: data/org.gnome.Nibbles.gschema.xml:215
+#: data/org.gnome.Nibbles.gschema.xml:242
+#: data/org.gnome.Nibbles.gschema.xml:262
+#: data/org.gnome.Nibbles.gschema.xml:289
+#: data/org.gnome.Nibbles.gschema.xml:309
+#: data/org.gnome.Nibbles.gschema.xml:336
+#: data/org.gnome.Nibbles.gschema.xml:356
 msgid "Key to use for motion right."
 msgstr "向右移动所用的键。"
 
+#. Translators: title of the Are You Sure? window
+#: data/ui/are-you-sure.ui:27
+msgid "Are You Sure?"
+msgstr "您确定吗？"
+
+#. Translators: negative response button to Are You Sure? window
+#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
+#: data/ui/are-you-sure.ui:85 src/nibbles-view.vala:1802
+msgid "No"
+msgstr "否"
+
+#. Translators: positive response button to Are You Sure? window
+#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
+#: data/ui/are-you-sure.ui:96 src/nibbles-view.vala:1829
+msgid "Yes"
+msgstr "是"
+
+#. Translators: title of one of the panels displayed during game configuration; the panel allows the method of progress through game's boards to be chosen
+#: data/ui/board-progress.ui:39
+msgid "Board Progress"
+msgstr "游戏进度"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to the previous board + 1
+#: data/ui/board-progress.ui:62
+msgid "_Levels 1 through 26 in sequential order"
+msgstr "1 到 26 级连续(_L)"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to a random board
+#: data/ui/board-progress.ui:75
+msgid "_Random Levels"
+msgstr "随机级别(_R)"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; the game stays on a single board
+#: data/ui/board-progress.ui:92
+msgid "_Fixed Level"
+msgstr "固定级别(_F)"
+
+#. Translators: label of a button in the "Board Progress" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
+#. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
+#. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
+#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:148
+msgid "_Next"
+msgstr "前进(_N)"
+
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
-#: data/ui/controls.ui:35
+#: data/ui/controls.ui:39
 msgid "Controls"
 msgstr "控制"
 
 #. Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game
-#: data/ui/controls.ui:56
+#: data/ui/controls.ui:60
 msgid "_Start"
 msgstr "开始(_S)"
 
+#. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
+#: data/ui/first-run-adw.ui:31 data/ui/first-run.ui:48
+msgid "Welcome, worms."
+msgstr "欢迎你，蠕虫。"
+
+#. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
+#: data/ui/first-run-adw.ui:33 data/ui/first-run.ui:57
+msgid "Eat the treats before the other worms, but don’t hit anything!"
+msgstr "抢在其它蠕虫之前吃掉小食，但是小心不要撞到任何东西！"
+
 #. Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:32
+#: data/ui/first-run-adw.ui:38 data/ui/first-run.ui:68
 msgid "Let’s _Play"
 msgstr "开始游戏(_P)"
-
-#. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:60
-msgid "Welcome, worms."
-msgstr "欢迎你，贪吃的蛇。"
-
-#. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:69
-msgid "Eat the treats before the other worms, but don’t hit anything!"
-msgstr "抢在其它蛇之前吃掉小食，但是小心不要撞到任何东西！"
 
 #. Translators: header of the "Next screen" and "Previous screen" shortcuts section
 #: data/ui/help-overlay.ui:30
@@ -351,7 +408,7 @@ msgstr "暂停或取消暂停"
 #: data/ui/help-overlay.ui:70
 msgctxt "shortcut window"
 msgid "Generic"
-msgstr "通用"
+msgstr "常规"
 
 #. Translators: shortcut that toggles the hamburger menu
 #: data/ui/help-overlay.ui:74
@@ -384,96 +441,108 @@ msgid "Quit"
 msgstr "退出"
 
 #. Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); mutes or unmutes game sound
-#: data/ui/nibbles.ui:28
+#: data/ui/nibbles-adw.ui:29 data/ui/nibbles.ui:28
 msgid "_Sound"
 msgstr "声音(_S)"
 
 #. Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); switched between 2D & 3D views
-#: data/ui/nibbles.ui:33
+#: data/ui/nibbles-adw.ui:34 data/ui/nibbles.ui:33
 msgid "_3D View"
 msgstr "_3D 视图"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the Scores dialog
-#: data/ui/nibbles.ui:40
+#: data/ui/nibbles-adw.ui:41 data/ui/nibbles.ui:40
 msgid "_Scores"
 msgstr "得分(_S)"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: data/ui/nibbles.ui:47
+#: data/ui/nibbles-adw.ui:48 data/ui/nibbles.ui:47
 msgid "_Keyboard Shortcuts"
 msgstr "键盘快捷键(_K)"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
-#: data/ui/nibbles.ui:52
+#: data/ui/nibbles-adw.ui:53 data/ui/nibbles.ui:52
 msgid "_Help"
 msgstr "帮助(_H)"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the About dialog
-#: data/ui/nibbles.ui:57
+#: data/ui/nibbles-adw.ui:58 data/ui/nibbles.ui:57
 msgid "_About Nibbles"
 msgstr "关于贪食蛇(_A)"
 
+#. Translators: tooltip of a button of the headerbar, visible during a game; starts a new game
+#: data/ui/nibbles-adw.ui:79
+msgid "New Game"
+msgstr "新建游戏"
+
+#. Translators: tooltip of the hamburger menu
+#: data/ui/nibbles-adw.ui:90
+msgid "Main Menu"
+msgstr "主菜单"
+
+#. Translators: tooltip of a button of the headerbar, visible during a game; pauses the game
+#. Translators: tooltip of the pause button, when the game is running
+#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:707
+msgid "Pause"
+msgstr "暂停"
+
+#. Translators: text displayed at the bottom of the window, when the game is paused
+#: data/ui/nibbles-adw.ui:188 data/ui/nibbles.ui:185
+msgid "Paused"
+msgstr "已暂停"
+
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:76 src/nibbles-window.vala:571
+#: data/ui/nibbles.ui:77 src/nibbles-window.vala:609
 msgid "_New Game"
 msgstr "新建游戏(_N)"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
+#. duplicated in nibbles.ui
+#. duplicated in nibbles.ui
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:99 src/nibbles-window.vala:637
+#: data/ui/nibbles.ui:102 src/nibbles-window.vala:711
 msgid "_Pause"
 msgstr "暂停(_P)"
 
-#. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles.ui:170
-msgid "Paused"
-msgstr "暂停"
-
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the number of human and ai worms
 #: data/ui/players.ui:47
-msgid "Number of players"
+msgid "Number of Players"
 msgstr "玩家数量"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 1/2/3/4 human players
-#: data/ui/players.ui:64
+#: data/ui/players.ui:67
 msgid "Select the number of human players."
 msgstr "选择人类玩家数量。"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play a solo game against AIs (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:80
+#: data/ui/players.ui:84
 msgid "_1"
 msgstr "_1"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 2 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:93
+#: data/ui/players.ui:98
 msgid "_2"
 msgstr "_2"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 3 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:108
+#: data/ui/players.ui:114
 msgid "_3"
 msgstr "_3"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 4 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:123
+#: data/ui/players.ui:130
 msgid "_4"
 msgstr "_4"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms
-#: data/ui/players.ui:149
+#: data/ui/players.ui:156
 msgid "Select the number of computer players."
 msgstr "选择计算机玩家数量。"
 
-#: data/ui/players.ui:163 data/ui/players.ui:177 data/ui/players.ui:191
+#: data/ui/players.ui:172 data/ui/players.ui:187 data/ui/players.ui:202
+#: data/ui/players.ui:217 data/ui/players.ui:232
 msgid "x"
 msgstr "x"
-
-#. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/players.ui:212 data/ui/speed.ui:143
-msgid "_Next"
-msgstr "前进(_N)"
 
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably)
 #: data/ui/speed.ui:41
@@ -481,287 +550,309 @@ msgid "Preferences"
 msgstr "首选项"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "really slow"
-#: data/ui/speed.ui:63
+#: data/ui/speed.ui:64
 msgid "_Beginner"
-msgstr "初学(_B)"
+msgstr "新手(_B)"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "quite slow"
-#: data/ui/speed.ui:78
+#: data/ui/speed.ui:80
 msgid "_Slow"
 msgstr "慢速(_S)"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "normal"
-#: data/ui/speed.ui:93
+#: data/ui/speed.ui:96
 msgid "_Medium"
 msgstr "中等(_M)"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "fast"
-#: data/ui/speed.ui:108
+#: data/ui/speed.ui:112
 msgid "_Fast"
 msgstr "快速(_F)"
 
 #. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses
-#: data/ui/speed.ui:131
-msgid "_Enable fake bonuses"
-msgstr "启用虚假食物(_E)"
+#: data/ui/speed.ui:136
+msgid "_Enable fake bonuses."
+msgstr "启用虚假奖励(_E)"
 
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
-#: src/controls.vala:154
+#: src/controls.vala:165
 #, c-format
 msgid "Player %d"
 msgstr "玩家 %d"
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen
-#: src/controls.vala:227
+#: src/controls.vala:238
 msgid "Press a key for up."
 msgstr "按一个键用于向上。"
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
-#: src/controls.vala:245
+#: src/controls.vala:258
 msgid "Press a key for down."
 msgstr "按一个键用于向下。"
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
-#: src/controls.vala:263
+#: src/controls.vala:278
 msgid "Press a key for left."
 msgstr "按一个键用于向左。"
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
-#: src/controls.vala:281
+#: src/controls.vala:298
 msgid "Press a key for right."
 msgstr "按一个键用于向右。"
 
 #. instruction label
 #. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:573
-msgid "Select your color"
+#: src/controls.vala:627
+msgid "Select Your Color"
 msgstr "选择您的颜色"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:62
+#: src/gnome-nibbles.vala:81
 msgid "Disable fake bonuses"
-msgstr "禁用虚假奖品"
+msgstr "禁用虚假奖励"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:68
+#: src/gnome-nibbles.vala:87
 msgid "Start at given level (1-26)"
-msgstr "从给定等级开始(1-26)"
+msgstr "从给定等级开始（1-26）"
 
 #. Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the user should specify the progres method, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:71 src/gnome-nibbles.vala:80
-#: src/gnome-nibbles.vala:86 src/gnome-nibbles.vala:92
+#: src/gnome-nibbles.vala:90 src/gnome-nibbles.vala:96
+#: src/gnome-nibbles.vala:102 src/gnome-nibbles.vala:108
+#: src/gnome-nibbles.vala:114
 msgid "NUMBER"
 msgstr "数量"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:74
-msgid "Turn off the sound"
-msgstr "关闭声音"
+#: src/gnome-nibbles.vala:93
+msgid ""
+"Method of progress through the boards (0 - sequentially, 1 - randomly, 2 - "
+"fixed board)"
+msgstr "游戏在棋盘上进行的方式（0 - 连续，1 - 随机，2 - 固定棋盘）"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:77
+#: src/gnome-nibbles.vala:99
 msgid "Set number of nibbles (4-6)"
-msgstr "设定小块数量(4-6)"
+msgstr "设定小块数量（4-6）"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:83
+#: src/gnome-nibbles.vala:105
 msgid "Set number of players (1-4)"
-msgstr "设定玩家数量(1-4)"
+msgstr "设定玩家数量（1-4）"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:89
+#: src/gnome-nibbles.vala:111
 msgid "Set worms speed (4-1, 4 for slow)"
-msgstr "设定小蛇速度（4-1，4 代表慢）"
+msgstr "设定蠕虫速度（4-1，4 代表慢）"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:95
+#: src/gnome-nibbles.vala:117
 msgid "Set three dimensional view"
 msgstr "设置三维视图"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:98
+#: src/gnome-nibbles.vala:120
 msgid "Set two dimensional view"
 msgstr "设置二维视图"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:101
+#: src/gnome-nibbles.vala:123
 msgid "Start playing"
-msgstr "开始玩"
+msgstr "开始游玩"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:104
+#: src/gnome-nibbles.vala:126
+msgid "Turn off the sound"
+msgstr "关闭声音"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:129
 msgid "Turn on the sound"
 msgstr "打开声音"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:107
+#: src/gnome-nibbles.vala:132
 msgid "Show release version"
 msgstr "显示发行版本"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/gnome-nibbles.vala:148
+#: src/gnome-nibbles.vala:180
 msgid "Start level should only be between 1 and 26."
 msgstr "开始等级应仅介于 1 和 26 之间。"
 
+#. Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress'
+#: src/gnome-nibbles.vala:186
+msgid ""
+"Progress method should be; 0 - sequentially, 1 - randomly, 2 - fixed board."
+msgstr "游戏进行方式；0 - 连续，1 - 随机，2 - 固定棋盘。"
+
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
-#: src/gnome-nibbles.vala:154
+#: src/gnome-nibbles.vala:192
 msgid "There could only be between 4 and 6 nibbles."
 msgstr "只应有 4 到 6 个小块。"
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/gnome-nibbles.vala:160
+#: src/gnome-nibbles.vala:198
 msgid "There could only be between 1 and 4 players."
 msgstr "只应有 1 到 4 个玩家。"
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
-#: src/gnome-nibbles.vala:166
+#: src/gnome-nibbles.vala:204
 msgid "Speed should be between 4 (slow) and 1 (fast)."
 msgstr "速度应介于 4（慢）和 1（快）之间。"
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/gnome-nibbles.vala:175
+#: src/gnome-nibbles.vala:213
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr "选项 --disable fakes（-d）和 --enable fakes（-e）是互斥的。"
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
-#: src/gnome-nibbles.vala:187
+#: src/gnome-nibbles.vala:225
 msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "选项 --3D（-3）和 --2D（-2）是互斥的。"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:329
+#: src/gnome-nibbles.vala:387
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:333
+#: src/gnome-nibbles.vala:391
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:337
+#: src/gnome-nibbles.vala:395
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:341
+#: src/gnome-nibbles.vala:399
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:345
+#: src/gnome-nibbles.vala:403
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:349
+#: src/gnome-nibbles.vala:407
 msgid "Ben Corby"
 msgstr "Ben Corby"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:353
+#: src/gnome-nibbles.vala:411
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:357
+#: src/gnome-nibbles.vala:415
 msgid "Allan Day"
 msgstr "Allan Day"
 
+#. Translators: the name of the app's developers, seen in the About dialog
+#: src/gnome-nibbles.vala:423
+msgid "The GNOME Project"
+msgstr "GNOME 项目"
+
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:363
+#: src/gnome-nibbles.vala:434
 msgid "A worm game for GNOME"
-msgstr "GNOME 下的贪食蛇游戏。"
+msgstr "GNOME 贪食蛇游戏"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:367
+#: src/gnome-nibbles.vala:439
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "版权所有 © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:371
+#: src/gnome-nibbles.vala:443
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "版权所有 © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:375
+#: src/gnome-nibbles.vala:447
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "版权所有 © %u-%u – Iulian-Gabriel Radu"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:379
+#: src/gnome-nibbles.vala:451
 #, c-format
 msgid "Copyright © %u-%u – Ben Corby"
 msgstr "版权所有 © %u-%u – Ben Corby"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:385
+#: src/gnome-nibbles.vala:455 src/gnome-nibbles.vala:465
 msgid "translator-credits"
 msgstr ""
 "Yang Zhang <zyangmath@gmail.com>, 2007\n"
 "Ping Z <zpsigma@gmail.com>, 2007\n"
 "Xhacker Liu <liu.dongyuan@gmail.com>, 2010\n"
+"Aron Xu <aronxu@gnome.org>, 2011\n"
+"YunQiang Su <wzssyqa@gmail.com>, 2011, 2012\n"
 "Arthur Wang <arthur2e5@aosc.xyz>, 2015\n"
 "Jeff Bai <jeffbai@aosc.xyz>, 2016\n"
 "Mandy Wang <wangmychn@gmail.com>, 2016\n"
 "Weiyi Xu <xuweiyi0923@gmail.com>, 2020\n"
-"lumingzh <lumingzh@qq.com>, 2023"
+"lumingzh <lumingzh@qq.com>, 2023-2024"
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:611 src/players.vala:39
+#: src/nibbles-view.vala:607 src/players.vala:43
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:614 src/players.vala:42
+#: src/nibbles-view.vala:610 src/players.vala:46
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:617 src/players.vala:45
+#: src/nibbles-view.vala:613 src/players.vala:49
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:630
+#: src/nibbles-view.vala:626
 msgid "Worm 1"
-msgstr "小蛇 1"
+msgstr "蠕虫 1"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:633
+#: src/nibbles-view.vala:629
 msgid "Worm 2"
-msgstr "小蛇 2"
+msgstr "蠕虫 2"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:636
+#: src/nibbles-view.vala:632
 msgid "Worm 3"
-msgstr "小蛇 3"
+msgstr "蠕虫 3"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:639
+#: src/nibbles-view.vala:635
 msgid "Worm 4"
-msgstr "小蛇 4"
+msgstr "蠕虫 4"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:642
+#: src/nibbles-view.vala:638
 msgid "Worm 5"
-msgstr "小蛇 5"
+msgstr "蠕虫 5"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:645
+#: src/nibbles-view.vala:641
 msgid "Worm 6"
-msgstr "小蛇 6"
+msgstr "蠕虫 6"
 
 #. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:670
+#: src/nibbles-view.vala:666
 msgid ""
 "Are you sure you want to start a new game?\n"
 "If you start a new game, the current one will be lost."
@@ -769,175 +860,190 @@ msgstr ""
 "您确定想要开始新游戏吗？\n"
 "如果你开始新游戏，当前游戏将会丢失。"
 
-#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: src/nibbles-view.vala:1753
-msgid "No"
-msgstr "否"
-
-#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: src/nibbles-view.vala:1780
-msgid "Yes"
-msgstr "是"
-
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1862
+#: src/nibbles-view.vala:1947
 msgid "red"
-msgstr "红"
+msgstr "红色"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1864
+#: src/nibbles-view.vala:1949
 msgid "green"
-msgstr "绿"
+msgstr "绿色"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1866
+#: src/nibbles-view.vala:1951
 msgid "blue"
-msgstr "蓝"
+msgstr "蓝色"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1868
+#: src/nibbles-view.vala:1953
 msgid "yellow"
-msgstr "黄"
+msgstr "黄色"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1870
+#: src/nibbles-view.vala:1955
 msgid "cyan"
-msgstr "青"
+msgstr "青色"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1872
+#: src/nibbles-view.vala:1957
 msgid "purple"
-msgstr "紫"
+msgstr "紫色"
 
-#. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:566
+#. Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:604
+msgid "New Game?"
+msgstr "开始新游戏吗？"
+
+#. Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:606
+msgid "If you start a new game, the current one will be lost"
+msgstr "如果您开始新游戏，当前游戏将会丢失。"
+
+#: src/nibbles-window.vala:608
+msgid "_Cancel"
+msgstr "取消(_C)"
+
+#. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:633
 msgid "Are you sure you want to start a new game?"
 msgstr "您确定想要开始新游戏吗？"
 
-#. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:568
+#. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:635
 msgid "If you start a new game, the current one will be lost."
-msgstr "如果你开始新游戏，当前游戏将会丢失。"
+msgstr "如果您开始新游戏，当前游戏将会丢失。"
+
+#. Translators: tooltip of the pause button, when the game is paused
+#: src/nibbles-window.vala:696
+msgid "Resume"
+msgstr "恢复游戏"
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:632
+#: src/nibbles-window.vala:700
 msgid "_Resume"
 msgstr "继续(_R)"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:844 src/nibbles-window.vala:1063
+#: src/nibbles-window.vala:981 src/nibbles-window.vala:1211
 #, c-format
 msgid "Level %d"
 msgstr "第 %d 关"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:917
+#: src/nibbles-window.vala:1057
 msgid "Beginner"
-msgstr "初学"
+msgstr "新手"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:919
+#: src/nibbles-window.vala:1059
 msgid "Slow"
 msgstr "慢速"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:921
+#: src/nibbles-window.vala:1061
 msgid "Medium"
 msgstr "中等"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:923
+#: src/nibbles-window.vala:1063
 msgid "Fast"
 msgstr "快速"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:925
+#: src/nibbles-window.vala:1065
 msgid "Beginner with Fakes"
-msgstr "初学 (含虚假食物)"
+msgstr "新手（含虚假食物）"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:927
+#: src/nibbles-window.vala:1067
 msgid "Slow with Fakes"
-msgstr "慢速 (含虚假食物)"
+msgstr "慢速（含虚假食物）"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:929
+#: src/nibbles-window.vala:1069
 msgid "Medium with Fakes"
-msgstr "中等 (含虚假食物)"
+msgstr "中等（含虚假食物）"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:931
+#: src/nibbles-window.vala:1071
 msgid "Fast with Fakes"
-msgstr "快速 (含虚假食物)"
+msgstr "快速（含虚假食物）"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:936
+#: src/nibbles-window.vala:1076
 msgid "Difficulty Level:"
 msgstr "难度级别："
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1042
+#: src/nibbles-window.vala:1182
 #, c-format
 msgid "Level %d Completed!"
-msgstr "关卡 %d 完成"
+msgstr "关卡 %d 已完成！"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1053
+#: src/nibbles-window.vala:1193
 msgid "_Next Level"
 msgstr "下一关(_N)"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1090
+#: src/nibbles-window.vala:1244
 msgid "Congratulations!"
 msgstr "恭喜！"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1094
+#: src/nibbles-window.vala:1247
 msgid "Game Over!"
 msgstr "游戏结束！"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1106
+#: src/nibbles-window.vala:1258
 msgid "You have completed the game."
 msgstr "您已经完成游戏。"
 
-#: src/nibbles-window.vala:1116
+#: src/nibbles-window.vala:1268
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d 分"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1127
+#: src/nibbles-window.vala:1279
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "（离进入排行榜还差 %ld 分）"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1134
+#: src/nibbles-window.vala:1286
 msgid "_Play Again"
 msgstr "再玩一次(_P)"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set
-#: src/players.vala:36
+#: src/players.vala:40
 msgid "0"
 msgstr "0"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set
-#: src/players.vala:48
+#: src/players.vala:52
 msgid "4"
 msgstr "4"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set
-#: src/players.vala:51
+#: src/players.vala:55
 msgid "5"
 msgstr "5"
 
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/scoreboard.vala:45
+#: src/scoreboard.vala:62
 #, c-format
 msgid "Worm %d"
-msgstr "小蛇 %d"
+msgstr "蠕虫 %d"
+
+#~ msgid "Michael Catanzaro"
+#~ msgstr "Michael Catanzaro"
+
+#~ msgid "_Enable fake bonuses"
+#~ msgstr "启用虚假食物(_E)"
 
 #~ msgid "Size of game tiles"
 #~ msgstr "游戏界面大小"
@@ -962,9 +1068,6 @@ msgstr "小蛇 %d"
 
 #~ msgid "GNOME Nibbles"
 #~ msgstr "GNOME 贪食蛇"
-
-#~ msgid "The GNOME Project"
-#~ msgstr "GNOME 项目"
 
 #~ msgid "Player"
 #~ msgstr "玩家"
