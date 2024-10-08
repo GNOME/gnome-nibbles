@@ -5,13 +5,11 @@ project('gnome-nibbles',
     meson_version: '>= 0.60.0',
     version: '4.2.dev'
 )
-# note, the version numbering now follows the following sequence:
-#  4.1.alpha
-#  4.1.beta
-#  4.1.rc1
-#  4.1.0 (next full release)
-#  4.1.1 (bugfix release)
-
+# note, the version numbering now follows this sequence:
+#  4.2.rc1
+#  4.2.rc2 (if needed)
+#  4.2.0 (next full release)
+#  4.2.1 (bugfix release)
 gnome      = import('gnome')      # used to install help
 i18n       = import('i18n')       # used for internationalization
 prefix     = get_option('prefix') # base install directory
