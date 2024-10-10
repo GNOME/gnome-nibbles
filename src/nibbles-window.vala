@@ -969,11 +969,6 @@ private class NibblesWindow : ApplicationWindow
 
     private void show_game_view ()
     {
-        /* FIXME: If there's a transition set, on Wayland, the ClutterEmbed
-         * will show outside the game's window. Don't change the transition
-         * type when that's no longer a problem.
-         */
-        //main_stack.set_transition_type (StackTransitionType.NONE);
         new_game_button.set_visible (true);
         pause_button.set_visible (true);
 
