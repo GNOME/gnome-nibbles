@@ -859,7 +859,7 @@ private class NibblesWindow : ApplicationWindow
         #endif
     }
 
-    private void    show_new_game_screen (bool after_first_run = false)
+    private void show_new_game_screen (bool after_first_run = false)
     {
         if (countdown_id != 0)
         {
@@ -977,6 +977,7 @@ private class NibblesWindow : ApplicationWindow
         main_stack.set_visible_child_name ("game_box");
 
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
+        view.set_visible (true);
     }
 
     private void back_cb ()
@@ -1169,7 +1170,6 @@ private class NibblesWindow : ApplicationWindow
 
         view.set_visible (false);
 
-        new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
         back_action.set_enabled (false);
 
