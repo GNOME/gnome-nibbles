@@ -453,7 +453,7 @@ private class Nibbles : Gtk.Application
         /**/);
         about_dialog.set_license_type (License.GPL_3_0);
         about_dialog.set_translator_credits (_("translator-credits"));
-        about_dialog.set_website ("https://gitlab.gnome.org/GNOME/gnome-nibbles");
+        about_dialog.set_website (WEBSITE);
         about_dialog.present (this.get_active_window ());
         #else
             ,
@@ -463,7 +463,7 @@ private class Nibbles : Gtk.Application
             "artists", artists,
             /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
             "translator-credits", _("translator-credits"),
-            "website", "https://wiki.gnome.org/Apps/Nibbles/");
+            "website", WEBSITE);
         #endif
     }
 }

@@ -1,0 +1,2 @@
+option('version', type : 'string', value : '4.2.dev', description : 'release version')
+option('website', type : 'string', value : 'https://gitlab.gnome.org/GNOME/gnome-nibbles/-/wikis/home/', description : 'home website')

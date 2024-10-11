@@ -1,11 +1,9 @@
-# Project & version number
+# Project
 project('gnome-nibbles',
     ['c', 'vala'],
     license: 'GPL3+',
-    meson_version: '>= 0.60.0',
-    version: '4.2.dev'
-)
-# note, the version numbering now follows this sequence:
+    meson_version: '>=1.1')
+# note, the version number is in meson.options and follows this sequence:
 #  4.2.rc1
 #  4.2.rc2 (if needed)
 #  4.2.0 (next full release)
@@ -55,7 +53,7 @@ c_compiler_options = [
     '-w',
     # Define VALA_STRICT_C so we can compile with the proper C code fixes not the workaround.
     # see https://gitlab.gnome.org/GNOME/vala/-/commit/ae2cbcd0011081581bef406fcbfcd1e86b7dacd3
-    '-DVALA_STRICT_C' 
+    '-DVALA_STRICT_C'
 ] 
 
 # convert C compiler options to vala compiler options
@@ -220,7 +218,8 @@ conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf.set_quoted('PKGDATADIR', pkgdatadir)
 conf.set_quoted('SOUND_DIRECTORY', sounddir)
 conf.set_quoted('LOCALEDIR', join_paths(prefix, localedir))
-conf.set_quoted('VERSION', meson.project_version())
+conf.set_quoted('VERSION', get_option('version'))
+conf.set_quoted('WEBSITE', get_option('website'))
 
 configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')

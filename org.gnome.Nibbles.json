@@ -90,6 +90,10 @@
         {
             "name": "gnome-nibbles",
             "buildsystem": "meson",
+            "config-opts": [
+                "-Dversion=\"4.2.dev (GNOME flatpak)\"",
+                "-Dwebsite=\"https://gitlab.gnome.org/GNOME/gnome-nibbles\""
+            ],
             "sources": [
                 {
                     "type": "git",
