@@ -218,7 +218,7 @@ conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf.set_quoted('PKGDATADIR', pkgdatadir)
 conf.set_quoted('SOUND_DIRECTORY', sounddir)
 conf.set_quoted('LOCALEDIR', join_paths(prefix, localedir))
-conf.set_quoted('VERSION', get_option('version'))
+conf.set_quoted('VERSION', get_option('version') + get_option('append_to_version'))
 conf.set_quoted('WEBSITE', get_option('website'))
 
 configure_file(output: 'config.h', configuration: conf)
