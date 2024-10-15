@@ -9,7 +9,7 @@
   <name xml:lang="en">gnome-nibbles</name>
   <shortdesc xml:lang="en">Guide a worm around a maze</shortdesc>
   <description xml:lang="en">Guide a worm around a maze</description>
-  <homepage rdf:resource="https://wiki.gnome.org/Apps/Nibbles" />
+  <homepage rdf:resource="https://gitlab.gnome.org/GNOME/gnome-nibbles/-/wikis/home/" />
   <support-forum rdf:resource="https://discourse.gnome.org/tag/games" />
   <download-page rdf:resource="http://download.gnome.org/sources/gnome-nibbles/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/" />
