@@ -8,24 +8,29 @@
 # Alexander Shopov <ash@kambanaria.org>, 2007, 2008, 2009, 2010, 2012, 2016, 2017, 2022.
 # Yavor Doganov <yavor@gnu.org>, 2008.
 # Krasimir Chonov <mk2616@abv.bg>, 2010, 2012.
+# twlvnn kraftwerk <kraft_werk@tutanota.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2022-10-03 07:58+0000\n"
-"PO-Revision-Date: 2022-10-13 10:17+0200\n"
-"Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
-"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
+"POT-Creation-Date: 2024-10-15 03:23+0000\n"
+"PO-Revision-Date: 2024-09-23 22:34+0200\n"
+"Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
+"Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 46.1\n"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:7
-msgid "GNOME Nibbles"
-msgstr "Змии на GNOME"
+#. Translators: title of the window, as displayed by the window manager
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/ui/nibbles-adw.ui:65 data/ui/nibbles.ui:64 src/gnome-nibbles.vala:57
+msgid "Nibbles"
+msgstr "Змии"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
 msgid "Guide a worm around a maze"
@@ -34,13 +39,13 @@ msgstr "Управляване на змии през лабиринт"
 #: data/org.gnome.Nibbles.appdata.xml.in:10
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating doughnuts and ice cream to increase your length. "
-"Each worm has ten lives and loses one by running into a wall, another worm, "
-"or itself. The enemy worms are after the same bonuses that you are, so be "
-"careful: if they become too large, you won’t have much room for movement."
+"enemy worms while eating apples and bananas to increase your length. Each "
+"worm has six lives and loses one by running into a wall, another worm, or "
+"itself. The enemy worms are after the same bonuses that you are, so be "
+"careful. If the worms become too large, you won’t have much room to move."
 msgstr ""
 "Управлявайте змия — тя расте като яде. Трябва да надхитрите змиите-"
-"конкуренти за понички и сладолед. Всяка змия има по 10 живота, които губи "
+"конкуренти за понички и сладолед. Всяка змия има по 6 живота, които губи "
 "като се удари в стена, друга змия или себе си. Другите змии също растат, "
 "когато ядат, така че внимавайте да не пораснат и да няма място за вашата "
 "змия де се развихри."
@@ -62,18 +67,6 @@ msgid ""
 msgstr ""
 "Можете да играете самостоятелно срещу до пет компютърни противника, а може "
 "да играете срещу друг човек като ползвате една обща клавиатура."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:57
-msgid "The GNOME Project"
-msgstr "Проектът GNOME"
-
-#. Translators: title of the window, as displayed by the window manager
-#. Translators: title of the window, as displayed in the headerbar
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.desktop.in:3 data/ui/nibbles.ui:57
-#: data/ui/nibbles.ui:65 src/gnome-nibbles.vala:24
-msgid "Nibbles"
-msgstr "Змии"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Nibbles.desktop.in:6
@@ -113,12 +106,16 @@ msgid "Setting to decide whether to show first-run hint dialog or not."
 msgstr "Дали да се покаже прозорецът с обяснение как да се играе."
 
 #: data/org.gnome.Nibbles.gschema.xml:34
-msgid "Size of game tiles"
-msgstr "Размер на плочките"
+msgid "How the game progresses through the boards"
+msgstr "Начините на преминаване през нивата на играта"
 
 #: data/org.gnome.Nibbles.gschema.xml:35
-msgid "Size of game tiles."
-msgstr "Размер на плочките."
+msgid ""
+"How the game progresses through the boards; 0 - sequentially, 1 - randomly, "
+"2 - fixed board."
+msgstr ""
+"Начините на преминаване през нивата на играта: 0 — последователно, 1 — "
+"произволно, 2 — фиксирано."
 
 #: data/org.gnome.Nibbles.gschema.xml:40
 msgid "Game level to start on"
@@ -137,520 +134,673 @@ msgid "The speed of the worms, where ‘1’ means “fast” and ‘4’ “slo
 msgstr "Скорост на змиите, „1“ е най-бързо, а „4“ е най-бавно."
 
 #: data/org.gnome.Nibbles.gschema.xml:51
+msgid "Enable 3D"
+msgstr "Включване на 3D"
+
+#: data/org.gnome.Nibbles.gschema.xml:52
+msgid "Enable 3D."
+msgstr "Включване на 3D."
+
+#: data/org.gnome.Nibbles.gschema.xml:56
 msgid "Enable sounds"
 msgstr "Включване на звук"
 
-#: data/org.gnome.Nibbles.gschema.xml:52
+#: data/org.gnome.Nibbles.gschema.xml:57
 msgid "Enable sounds."
 msgstr "Включване на звук."
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: data/org.gnome.Nibbles.gschema.xml:56 src/gnome-nibbles.vala:49
+#: data/org.gnome.Nibbles.gschema.xml:61 src/gnome-nibbles.vala:84
 msgid "Enable fake bonuses"
 msgstr "Разрешаване на фалшиви ябълки"
 
-#: data/org.gnome.Nibbles.gschema.xml:57
+#: data/org.gnome.Nibbles.gschema.xml:62
 msgid "Enable fake bonuses."
 msgstr "Разрешаване на фалшиви ябълки."
 
-#: data/org.gnome.Nibbles.gschema.xml:62
+#: data/org.gnome.Nibbles.gschema.xml:67
 msgid "Number of human players"
 msgstr "Брой играчи — хора"
 
-#: data/org.gnome.Nibbles.gschema.xml:63
+#: data/org.gnome.Nibbles.gschema.xml:68
 msgid "Number of human players."
 msgstr "Брой играчи — хора."
 
-#: data/org.gnome.Nibbles.gschema.xml:68
+#: data/org.gnome.Nibbles.gschema.xml:73
 msgid "Number of AI players"
 msgstr "Брой играчи — компютър"
 
-#: data/org.gnome.Nibbles.gschema.xml:69
+#: data/org.gnome.Nibbles.gschema.xml:74
 msgid "Number of AI players."
 msgstr "Брой играчи — компютър."
 
-#: data/org.gnome.Nibbles.gschema.xml:75 data/org.gnome.Nibbles.gschema.xml:102
-#: data/org.gnome.Nibbles.gschema.xml:129
-#: data/org.gnome.Nibbles.gschema.xml:156
-#: data/org.gnome.Nibbles.gschema.xml:183
-#: data/org.gnome.Nibbles.gschema.xml:210
+#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:127
+#: data/org.gnome.Nibbles.gschema.xml:174
+#: data/org.gnome.Nibbles.gschema.xml:221
+#: data/org.gnome.Nibbles.gschema.xml:268
+#: data/org.gnome.Nibbles.gschema.xml:315
 msgid "Color to use for worm"
 msgstr "Цвят на змията"
 
-#: data/org.gnome.Nibbles.gschema.xml:76 data/org.gnome.Nibbles.gschema.xml:103
-#: data/org.gnome.Nibbles.gschema.xml:130
-#: data/org.gnome.Nibbles.gschema.xml:157
-#: data/org.gnome.Nibbles.gschema.xml:184
-#: data/org.gnome.Nibbles.gschema.xml:211
+#: data/org.gnome.Nibbles.gschema.xml:81 data/org.gnome.Nibbles.gschema.xml:128
+#: data/org.gnome.Nibbles.gschema.xml:175
+#: data/org.gnome.Nibbles.gschema.xml:222
+#: data/org.gnome.Nibbles.gschema.xml:269
+#: data/org.gnome.Nibbles.gschema.xml:316
 msgid "Color to use for worm."
 msgstr "Цвят на змията."
 
-#. Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm up
-#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:107
-#: data/org.gnome.Nibbles.gschema.xml:134
-#: data/org.gnome.Nibbles.gschema.xml:161
-#: data/org.gnome.Nibbles.gschema.xml:188
-#: data/org.gnome.Nibbles.gschema.xml:215 src/preferences-dialog.vala:98
+#: data/org.gnome.Nibbles.gschema.xml:85 data/org.gnome.Nibbles.gschema.xml:105
+#: data/org.gnome.Nibbles.gschema.xml:132
+#: data/org.gnome.Nibbles.gschema.xml:152
+#: data/org.gnome.Nibbles.gschema.xml:179
+#: data/org.gnome.Nibbles.gschema.xml:199
+#: data/org.gnome.Nibbles.gschema.xml:226
+#: data/org.gnome.Nibbles.gschema.xml:246
+#: data/org.gnome.Nibbles.gschema.xml:273
+#: data/org.gnome.Nibbles.gschema.xml:293
+#: data/org.gnome.Nibbles.gschema.xml:320
+#: data/org.gnome.Nibbles.gschema.xml:340
 msgid "Move up"
 msgstr "Движение нагоре"
 
-#: data/org.gnome.Nibbles.gschema.xml:81 data/org.gnome.Nibbles.gschema.xml:108
-#: data/org.gnome.Nibbles.gschema.xml:135
-#: data/org.gnome.Nibbles.gschema.xml:162
-#: data/org.gnome.Nibbles.gschema.xml:189
-#: data/org.gnome.Nibbles.gschema.xml:216
+#: data/org.gnome.Nibbles.gschema.xml:86 data/org.gnome.Nibbles.gschema.xml:106
+#: data/org.gnome.Nibbles.gschema.xml:133
+#: data/org.gnome.Nibbles.gschema.xml:153
+#: data/org.gnome.Nibbles.gschema.xml:180
+#: data/org.gnome.Nibbles.gschema.xml:200
+#: data/org.gnome.Nibbles.gschema.xml:227
+#: data/org.gnome.Nibbles.gschema.xml:247
+#: data/org.gnome.Nibbles.gschema.xml:274
+#: data/org.gnome.Nibbles.gschema.xml:294
+#: data/org.gnome.Nibbles.gschema.xml:321
+#: data/org.gnome.Nibbles.gschema.xml:341
 msgid "Key to use for motion up."
 msgstr "Клавиш за движение нагоре."
 
-#. Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm down
-#: data/org.gnome.Nibbles.gschema.xml:85 data/org.gnome.Nibbles.gschema.xml:112
-#: data/org.gnome.Nibbles.gschema.xml:139
-#: data/org.gnome.Nibbles.gschema.xml:166
-#: data/org.gnome.Nibbles.gschema.xml:193
-#: data/org.gnome.Nibbles.gschema.xml:220 src/preferences-dialog.vala:102
+#: data/org.gnome.Nibbles.gschema.xml:90 data/org.gnome.Nibbles.gschema.xml:110
+#: data/org.gnome.Nibbles.gschema.xml:137
+#: data/org.gnome.Nibbles.gschema.xml:157
+#: data/org.gnome.Nibbles.gschema.xml:184
+#: data/org.gnome.Nibbles.gschema.xml:204
+#: data/org.gnome.Nibbles.gschema.xml:231
+#: data/org.gnome.Nibbles.gschema.xml:251
+#: data/org.gnome.Nibbles.gschema.xml:278
+#: data/org.gnome.Nibbles.gschema.xml:298
+#: data/org.gnome.Nibbles.gschema.xml:325
+#: data/org.gnome.Nibbles.gschema.xml:345
 msgid "Move down"
 msgstr "Движение надолу"
 
-#: data/org.gnome.Nibbles.gschema.xml:86 data/org.gnome.Nibbles.gschema.xml:113
-#: data/org.gnome.Nibbles.gschema.xml:140
-#: data/org.gnome.Nibbles.gschema.xml:167
-#: data/org.gnome.Nibbles.gschema.xml:194
-#: data/org.gnome.Nibbles.gschema.xml:221
+#: data/org.gnome.Nibbles.gschema.xml:91 data/org.gnome.Nibbles.gschema.xml:111
+#: data/org.gnome.Nibbles.gschema.xml:138
+#: data/org.gnome.Nibbles.gschema.xml:158
+#: data/org.gnome.Nibbles.gschema.xml:185
+#: data/org.gnome.Nibbles.gschema.xml:205
+#: data/org.gnome.Nibbles.gschema.xml:232
+#: data/org.gnome.Nibbles.gschema.xml:252
+#: data/org.gnome.Nibbles.gschema.xml:279
+#: data/org.gnome.Nibbles.gschema.xml:299
+#: data/org.gnome.Nibbles.gschema.xml:326
+#: data/org.gnome.Nibbles.gschema.xml:346
 msgid "Key to use for motion down."
 msgstr "Клавиш за движение надолу."
 
-#. Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm left
-#: data/org.gnome.Nibbles.gschema.xml:90 data/org.gnome.Nibbles.gschema.xml:117
-#: data/org.gnome.Nibbles.gschema.xml:144
-#: data/org.gnome.Nibbles.gschema.xml:171
-#: data/org.gnome.Nibbles.gschema.xml:198
-#: data/org.gnome.Nibbles.gschema.xml:225 src/preferences-dialog.vala:106
+#: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:115
+#: data/org.gnome.Nibbles.gschema.xml:142
+#: data/org.gnome.Nibbles.gschema.xml:162
+#: data/org.gnome.Nibbles.gschema.xml:189
+#: data/org.gnome.Nibbles.gschema.xml:209
+#: data/org.gnome.Nibbles.gschema.xml:236
+#: data/org.gnome.Nibbles.gschema.xml:256
+#: data/org.gnome.Nibbles.gschema.xml:283
+#: data/org.gnome.Nibbles.gschema.xml:303
+#: data/org.gnome.Nibbles.gschema.xml:330
+#: data/org.gnome.Nibbles.gschema.xml:350
 msgid "Move left"
 msgstr "Движение наляво"
 
-#: data/org.gnome.Nibbles.gschema.xml:91 data/org.gnome.Nibbles.gschema.xml:118
-#: data/org.gnome.Nibbles.gschema.xml:145
-#: data/org.gnome.Nibbles.gschema.xml:172
-#: data/org.gnome.Nibbles.gschema.xml:199
-#: data/org.gnome.Nibbles.gschema.xml:226
+#: data/org.gnome.Nibbles.gschema.xml:96 data/org.gnome.Nibbles.gschema.xml:116
+#: data/org.gnome.Nibbles.gschema.xml:143
+#: data/org.gnome.Nibbles.gschema.xml:163
+#: data/org.gnome.Nibbles.gschema.xml:190
+#: data/org.gnome.Nibbles.gschema.xml:210
+#: data/org.gnome.Nibbles.gschema.xml:237
+#: data/org.gnome.Nibbles.gschema.xml:257
+#: data/org.gnome.Nibbles.gschema.xml:284
+#: data/org.gnome.Nibbles.gschema.xml:304
+#: data/org.gnome.Nibbles.gschema.xml:331
+#: data/org.gnome.Nibbles.gschema.xml:351
 msgid "Key to use for motion left."
 msgstr "Клавиш за движение наляво."
 
-#. Translators: in the Preferences dialog, label of an option (available for each playable worm) for changing the key to move the given worm right
-#: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:122
-#: data/org.gnome.Nibbles.gschema.xml:149
-#: data/org.gnome.Nibbles.gschema.xml:176
-#: data/org.gnome.Nibbles.gschema.xml:203
-#: data/org.gnome.Nibbles.gschema.xml:230 src/preferences-dialog.vala:110
+#: data/org.gnome.Nibbles.gschema.xml:100
+#: data/org.gnome.Nibbles.gschema.xml:120
+#: data/org.gnome.Nibbles.gschema.xml:147
+#: data/org.gnome.Nibbles.gschema.xml:167
+#: data/org.gnome.Nibbles.gschema.xml:194
+#: data/org.gnome.Nibbles.gschema.xml:214
+#: data/org.gnome.Nibbles.gschema.xml:241
+#: data/org.gnome.Nibbles.gschema.xml:261
+#: data/org.gnome.Nibbles.gschema.xml:288
+#: data/org.gnome.Nibbles.gschema.xml:308
+#: data/org.gnome.Nibbles.gschema.xml:335
+#: data/org.gnome.Nibbles.gschema.xml:355
 msgid "Move right"
 msgstr "Движение надясно"
 
-#: data/org.gnome.Nibbles.gschema.xml:96 data/org.gnome.Nibbles.gschema.xml:123
-#: data/org.gnome.Nibbles.gschema.xml:150
-#: data/org.gnome.Nibbles.gschema.xml:177
-#: data/org.gnome.Nibbles.gschema.xml:204
-#: data/org.gnome.Nibbles.gschema.xml:231
+#: data/org.gnome.Nibbles.gschema.xml:101
+#: data/org.gnome.Nibbles.gschema.xml:121
+#: data/org.gnome.Nibbles.gschema.xml:148
+#: data/org.gnome.Nibbles.gschema.xml:168
+#: data/org.gnome.Nibbles.gschema.xml:195
+#: data/org.gnome.Nibbles.gschema.xml:215
+#: data/org.gnome.Nibbles.gschema.xml:242
+#: data/org.gnome.Nibbles.gschema.xml:262
+#: data/org.gnome.Nibbles.gschema.xml:289
+#: data/org.gnome.Nibbles.gschema.xml:309
+#: data/org.gnome.Nibbles.gschema.xml:336
+#: data/org.gnome.Nibbles.gschema.xml:356
 msgid "Key to use for motion right."
 msgstr "Клавиш за движение надясно."
 
+#. Translators: title of the Are You Sure? window
+#: data/ui/are-you-sure.ui:27
+msgid "Are You Sure?"
+msgstr "Сигурни ли сте?"
+
+#. Translators: negative response button to Are You Sure? window
+#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
+#: data/ui/are-you-sure.ui:85 src/nibbles-view.vala:1802
+msgid "No"
+msgstr "Не"
+
+#. Translators: positive response button to Are You Sure? window
+#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
+#: data/ui/are-you-sure.ui:96 src/nibbles-view.vala:1829
+msgid "Yes"
+msgstr "Да"
+
+#. Translators: title of one of the panels displayed during game configuration; the panel allows the method of progress through game's boards to be chosen
+#: data/ui/board-progress.ui:39
+msgid "Board Progress"
+msgstr "Преминаване през нивата"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to the previous board + 1
+#: data/ui/board-progress.ui:62
+msgid "_Levels 1 through 26 in sequential order"
+msgstr "Нива от 1 до 26 в последователен ред"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to a random board
+#: data/ui/board-progress.ui:75
+msgid "_Random Levels"
+msgstr "_Произволни нива"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; the game stays on a single board
+#: data/ui/board-progress.ui:92
+msgid "_Fixed Level"
+msgstr "_Фиксирано ниво"
+
+#. Translators: label of a button in the "Board Progress" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
+#. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
+#. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
+#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:148
+msgid "_Next"
+msgstr "_Следващ"
+
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
-#. Translators: title of a section in the Preferences dialog (1st worm); allows to configure keyboard controls for the worm
-#. Translators: title of a section in the Preferences dialog (2nd worm); allows to configure keyboard controls for the worm
-#. Translators: title of a section in the Preferences dialog (3rd worm); allows to configure keyboard controls for the worm
-#. Translators: title of a section in the Preferences dialog (4th worm); allows to configure keyboard controls for the worm
-#: data/ui/controls.ui:34 data/ui/preferences-dialog.ui:80
-#: data/ui/preferences-dialog.ui:156 data/ui/preferences-dialog.ui:232
-#: data/ui/preferences-dialog.ui:308
+#: data/ui/controls.ui:39
 msgid "Controls"
 msgstr "Клавиши"
 
 #. Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game
-#: data/ui/controls.ui:57
+#: data/ui/controls.ui:60
 msgid "_Start"
 msgstr "_Начало"
 
-#. Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:31
-msgid "Let’s _Play"
-msgstr "_Начало"
-
 #. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:65
+#: data/ui/first-run-adw.ui:31 data/ui/first-run.ui:48
 msgid "Welcome, worms."
 msgstr "Здравейте, змии!"
 
 #. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:75
+#: data/ui/first-run-adw.ui:33 data/ui/first-run.ui:57
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
 "Изяжте лакомствата преди да ги стигнат другите, без да се сблъскате някъде!"
 
+#. Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
+#: data/ui/first-run-adw.ui:38 data/ui/first-run.ui:68
+msgid "Let’s _Play"
+msgstr "_Начало"
+
 #. Translators: header of the "Next screen" and "Previous screen" shortcuts section
-#: data/ui/help-overlay.ui:31
+#: data/ui/help-overlay.ui:30
 msgctxt "shortcut window"
 msgid "During game setup"
 msgstr "Настройки на играта"
 
 #. Translators: shortcut that during game setup switches to the next screen
-#: data/ui/help-overlay.ui:36
+#: data/ui/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "Next screen"
 msgstr "Следващ екран"
 
 #. Translators: shortcut that during game setup goes back to the previous screen
-#: data/ui/help-overlay.ui:44
+#: data/ui/help-overlay.ui:41
 msgctxt "shortcut window"
 msgid "Previous screen"
 msgstr "Предишен екран"
 
 #. Translators: header of the "Start a new game" and "Pause or unpause" shortcuts section
-#: data/ui/help-overlay.ui:54
+#: data/ui/help-overlay.ui:50
 msgctxt "shortcut window"
 msgid "During a game"
 msgstr "По време на игра"
 
 #. Translators: shortcut that during a game opens a popup to discard current game and start a new one
-#: data/ui/help-overlay.ui:59
+#: data/ui/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "Start a new game"
 msgstr "Започване на нова игра"
 
 #. Translators: shortcut that pauses or unpauses the current game
-#: data/ui/help-overlay.ui:67
+#: data/ui/help-overlay.ui:61
 msgctxt "shortcut window"
 msgid "Pause or unpause"
 msgstr "На пауза/пускане"
 
 #. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
-#: data/ui/help-overlay.ui:77
+#: data/ui/help-overlay.ui:70
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Общи"
 
 #. Translators: shortcut that toggles the hamburger menu
-#: data/ui/help-overlay.ui:82
+#: data/ui/help-overlay.ui:74
 msgctxt "shortcut window"
 msgid "Toggle main menu"
 msgstr "Превключване на основното меню"
 
 #. Translators: shortcut that opens Keyboard Shortcuts window
-#: data/ui/help-overlay.ui:90
+#: data/ui/help-overlay.ui:81
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Клавишни комбинации"
 
 #. Translators: shortcut that opens the application help
-#: data/ui/help-overlay.ui:98
+#: data/ui/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Помощ"
 
 #. Translators: shortcut that opens About dialog
-#: data/ui/help-overlay.ui:106
+#: data/ui/help-overlay.ui:95
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Относно"
 
 #. Translators: shortcut that quits application
-#: data/ui/help-overlay.ui:114
+#: data/ui/help-overlay.ui:102
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Спиране на програмата"
 
 #. Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); mutes or unmutes game sound
-#: data/ui/nibbles.ui:26
+#: data/ui/nibbles-adw.ui:29 data/ui/nibbles.ui:28
 msgid "_Sound"
 msgstr "_Звук"
 
+#. Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); switched between 2D & 3D views
+#: data/ui/nibbles-adw.ui:34 data/ui/nibbles.ui:33
+msgid "_3D View"
+msgstr "_3D изглед"
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the Scores dialog
-#: data/ui/nibbles.ui:33
+#: data/ui/nibbles-adw.ui:41 data/ui/nibbles.ui:40
 msgid "_Scores"
 msgstr "_Резултати"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: data/ui/nibbles.ui:40
+#: data/ui/nibbles-adw.ui:48 data/ui/nibbles.ui:47
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавишни комбинации"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
-#: data/ui/nibbles.ui:45
+#: data/ui/nibbles-adw.ui:53 data/ui/nibbles.ui:52
 msgid "_Help"
 msgstr "Помо_щ"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the About dialog
-#: data/ui/nibbles.ui:50
+#: data/ui/nibbles-adw.ui:58 data/ui/nibbles.ui:57
 msgid "_About Nibbles"
 msgstr "_Относно"
 
+#. Translators: tooltip of a button of the headerbar, visible during a game; starts a new game
+#: data/ui/nibbles-adw.ui:79
+msgid "New Game"
+msgstr "Нова игра"
+
+#. Translators: tooltip of the hamburger menu
+#: data/ui/nibbles-adw.ui:90
+msgid "Main Menu"
+msgstr "Основно меню"
+
+#. Translators: tooltip of a button of the headerbar, visible during a game; pauses the game
+#. Translators: tooltip of the pause button, when the game is running
+#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:707
+msgid "Pause"
+msgstr "Пауза"
+
+#. Translators: text displayed at the bottom of the window, when the game is paused
+#: data/ui/nibbles-adw.ui:188 data/ui/nibbles.ui:185
+msgid "Paused"
+msgstr "На пауза"
+
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#. Translators: label of a button displayed in a MessageDialog, when the player tries to start a game while one is running
-#: data/ui/nibbles.ui:72 src/nibbles-window.vala:413
+#: data/ui/nibbles.ui:77 src/nibbles-window.vala:609
 msgid "_New Game"
 msgstr "_Нова игра"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
+#. duplicated in nibbles.ui
+#. duplicated in nibbles.ui
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:84 src/nibbles-window.vala:462
+#: data/ui/nibbles.ui:102 src/nibbles-window.vala:711
 msgid "_Pause"
 msgstr "_Пауза"
 
-#. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles.ui:178
-msgid "Paused"
-msgstr "На пауза"
-
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the number of human and ai worms
-#: data/ui/players.ui:41
-msgid "Number of players"
+#: data/ui/players.ui:47
+msgid "Number of Players"
 msgstr "Брой играчи"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 1/2/3/4 human players
-#: data/ui/players.ui:56
+#: data/ui/players.ui:67
 msgid "Select the number of human players."
 msgstr "Брой играчи — хора."
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play a solo game against AIs (with a mnemonic that appears when pressing Alt)
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:72 src/players.vala:35
+#: data/ui/players.ui:84
 msgid "_1"
 msgstr "_1"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 2 human players (with a mnemonic that appears when pressing Alt)
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:86 src/players.vala:38
+#: data/ui/players.ui:98
 msgid "_2"
 msgstr "_2"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 3 human players (with a mnemonic that appears when pressing Alt)
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:100 src/players.vala:41
+#: data/ui/players.ui:114
 msgid "_3"
 msgstr "_3"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 4 human players (with a mnemonic that appears when pressing Alt)
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:114 src/players.vala:44
+#: data/ui/players.ui:130
 msgid "_4"
 msgstr "_4"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms
-#: data/ui/players.ui:136
+#: data/ui/players.ui:156
 msgid "Select the number of computer players."
 msgstr "Брой играчи — компютър."
 
-#. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/players.ui:198 data/ui/speed.ui:150
-msgid "_Next"
-msgstr "_Следващ"
+#: data/ui/players.ui:172 data/ui/players.ui:187 data/ui/players.ui:202
+#: data/ui/players.ui:217 data/ui/players.ui:232
+msgid "x"
+msgstr "x"
 
-#. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 1st worm controls and color
-#: data/ui/preferences-dialog.ui:30
-msgid "Worm 1"
-msgstr "1-ва змия"
-
-#. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 2nd worm controls and color
-#: data/ui/preferences-dialog.ui:32
-msgid "Worm 2"
-msgstr "2-ра змия"
-
-#. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 3rd worm controls and color
-#: data/ui/preferences-dialog.ui:34
-msgid "Worm 3"
-msgstr "3-та змия"
-
-#. Translators: item in the title-combobox of the Controls configuration dialog; allows to configure 4th worm controls and color
-#: data/ui/preferences-dialog.ui:36
-msgid "Worm 4"
-msgstr "4-та змия"
-
-#. Translators: title of the Controls configuration dialog, if there is only one worm; allows to configure the worm controls and color
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably)
-#: data/ui/preferences-dialog.ui:48 data/ui/speed.ui:34
+#: data/ui/speed.ui:41
 msgid "Preferences"
 msgstr "Настройки"
 
-#. Translators: title of a section in the Preferences dialog (1st worm); allows to configure the worm color
-#. Translators: title of a section in the Preferences dialog (2nd worm); allows to configure the worm color
-#. Translators: title of a section in the Preferences dialog (3rd worm); allows to configure the worm color
-#. Translators: title of a section in the Preferences dialog (4th worm); allows to configure the worm color
-#: data/ui/preferences-dialog.ui:121 data/ui/preferences-dialog.ui:197
-#: data/ui/preferences-dialog.ui:273 data/ui/preferences-dialog.ui:349
-msgid "Worm color"
-msgstr "Цвят на змията"
-
-#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "really slow"
-#: data/ui/speed.ui:57
+#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "really slow"
+#: data/ui/speed.ui:64
 msgid "_Beginner"
 msgstr "_Много бавно"
 
-#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "quite slow"
-#: data/ui/speed.ui:74
+#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "quite slow"
+#: data/ui/speed.ui:80
 msgid "_Slow"
 msgstr "Б_авно"
 
-#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "normal"
-#: data/ui/speed.ui:91
+#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "normal"
+#: data/ui/speed.ui:96
 msgid "_Medium"
 msgstr "_Средно"
 
-#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); sets worms speed to "fast"
-#: data/ui/speed.ui:108
+#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "fast"
+#: data/ui/speed.ui:112
 msgid "_Fast"
 msgstr "_Бързо"
 
 #. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses
-#: data/ui/speed.ui:133
-msgid "_Enable fake bonuses"
-msgstr "_Разрешаване на фалшиви ябълки"
+#: data/ui/speed.ui:136
+msgid "_Enable fake bonuses."
+msgstr "_Разрешаване на фалшиви ябълки."
 
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
-#. Translators: the player's number, e.g. "Player 1" or "Player 2".
-#. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/controls.vala:128 src/nibbles-view.vala:534 src/scoreboard.vala:32
+#: src/controls.vala:165
 #, c-format
 msgid "Player %d"
 msgstr "%d-и играч"
 
+#. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen
+#: src/controls.vala:238
+msgid "Press a key for up."
+msgstr "Натиснете клавиш за движение нагоре."
+
+#. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
+#: src/controls.vala:258
+msgid "Press a key for down."
+msgstr "Натиснете клавиш за движение надолу."
+
+#. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
+#: src/controls.vala:278
+msgid "Press a key for left."
+msgstr "Натиснете клавиш за движение наляво."
+
+#. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
+#: src/controls.vala:298
+msgid "Press a key for right."
+msgstr "Натиснете клавиш за движение надясно."
+
+#. instruction label
+#. Translators: text displayed in a message box directing the player to select the color they want for the worm
+#: src/controls.vala:627
+msgid "Select Your Color"
+msgstr "Изберете цвят"
+
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:46
+#: src/gnome-nibbles.vala:81
 msgid "Disable fake bonuses"
 msgstr "Без фалшиви ябълки"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:52
+#: src/gnome-nibbles.vala:87
 msgid "Start at given level (1-26)"
 msgstr "Начало на това ниво (1-26)"
 
 #. Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the user should specify the progres method, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:55 src/gnome-nibbles.vala:64
-#: src/gnome-nibbles.vala:70 src/gnome-nibbles.vala:76
+#: src/gnome-nibbles.vala:90 src/gnome-nibbles.vala:96
+#: src/gnome-nibbles.vala:102 src/gnome-nibbles.vala:108
+#: src/gnome-nibbles.vala:114
 msgid "NUMBER"
 msgstr "БРОЙ"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:58
-msgid "Turn off the sound"
-msgstr "Без звук"
+#: src/gnome-nibbles.vala:93
+msgid ""
+"Method of progress through the boards (0 - sequentially, 1 - randomly, 2 - "
+"fixed board)"
+msgstr ""
+"Метод на преминаване през нивата на играта: 0 — последователно, 1 — "
+"произволно, 2 — фиксирано."
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:61
+#: src/gnome-nibbles.vala:99
 msgid "Set number of nibbles (4-6)"
 msgstr "Брой змии (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:67
+#: src/gnome-nibbles.vala:105
 msgid "Set number of players (1-4)"
 msgstr "Брой играчи (1-4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:73
+#: src/gnome-nibbles.vala:111
 msgid "Set worms speed (4-1, 4 for slow)"
 msgstr "Скорост на змиите (1-4, 1 е най-бързо)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:79
+#: src/gnome-nibbles.vala:117
+msgid "Set three dimensional view"
+msgstr "Задаване на тримерен изглед"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:120
+msgid "Set two dimensional view"
+msgstr "Задаване на двумерен изглед"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:123
 msgid "Start playing"
 msgstr "Начало на играта"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:82
+#: src/gnome-nibbles.vala:126
+msgid "Turn off the sound"
+msgstr "Без звук"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:129
 msgid "Turn on the sound"
 msgstr "Със звук"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:85
+#: src/gnome-nibbles.vala:132
 msgid "Show release version"
 msgstr "Показване на версията"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/gnome-nibbles.vala:118
+#: src/gnome-nibbles.vala:180
 msgid "Start level should only be between 1 and 26."
 msgstr "Началното ниво трябва да е между 1 и 26, включително."
 
+#. Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress'
+#: src/gnome-nibbles.vala:186
+msgid ""
+"Progress method should be; 0 - sequentially, 1 - randomly, 2 - fixed board."
+msgstr ""
+"Методът на преминаване трябва да бъде: 0 — последователно, 1 — произволно, 2 "
+"— фиксирано."
+
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
-#: src/gnome-nibbles.vala:124
+#: src/gnome-nibbles.vala:192
 msgid "There could only be between 4 and 6 nibbles."
 msgstr "Змиите трябва да са между 4 и 6."
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/gnome-nibbles.vala:130
+#: src/gnome-nibbles.vala:198
 msgid "There could only be between 1 and 4 players."
 msgstr "Играчите трябва да са между 1 и 4, включително."
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
-#: src/gnome-nibbles.vala:136
+#: src/gnome-nibbles.vala:204
 msgid "Speed should be between 4 (slow) and 1 (fast)."
 msgstr "Скоростта трябва да е между 1 (най-бързо) и 4 (най-бавно)."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/gnome-nibbles.vala:145
+#: src/gnome-nibbles.vala:213
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
 "Опциите „--disable-fakes“/„-d“ и „--enable-fakes“/„-e“ са несъвместими."
 
+#. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
+#: src/gnome-nibbles.vala:225
+msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
+msgstr "Опциите „--3D“/„-3“ и „--2D“/„-2“ са несъвместими."
+
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:286
+#: src/gnome-nibbles.vala:387
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:290
+#: src/gnome-nibbles.vala:391
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:294
+#: src/gnome-nibbles.vala:395
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:298
+#: src/gnome-nibbles.vala:399
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:302
+#: src/gnome-nibbles.vala:403
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
+#. Translators: text crediting an author, in the about dialog
+#: src/gnome-nibbles.vala:407
+msgid "Ben Corby"
+msgstr "Ben Corby"
+
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:306
+#: src/gnome-nibbles.vala:411
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:310
+#: src/gnome-nibbles.vala:415
 msgid "Allan Day"
 msgstr "Allan Day"
 
+#. Translators: the name of the app's developers, seen in the About dialog
+#: src/gnome-nibbles.vala:423
+msgid "The GNOME Project"
+msgstr "Проектът GNOME"
+
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:316
+#: src/gnome-nibbles.vala:434
 msgid "A worm game for GNOME"
 msgstr "Игра със змии за GNOME."
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:320
+#: src/gnome-nibbles.vala:439
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
-msgstr "Авторски права © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
+msgstr "Авторски права © 1999-2008 - Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:324
+#: src/gnome-nibbles.vala:443
 msgid "Copyright © 2009 – Guillaume Beland"
-msgstr "Авторски права © 2009 – Guillaume Beland"
+msgstr "Авторски права © 2009 - Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:328
+#: src/gnome-nibbles.vala:447
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
-msgstr "Авторски права © %u-%u – Iulian-Gabriel Radu"
+msgstr "Авторски права © %u-%u - Iulian-Gabriel Radu"
+
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
+#: src/gnome-nibbles.vala:451
+#, c-format
+msgid "Copyright © %u-%u – Ben Corby"
+msgstr "Авторски права © %u-%u - Ben Corby"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:334
+#: src/gnome-nibbles.vala:455 src/gnome-nibbles.vala:465
 msgid "translator-credits"
 msgstr ""
 "Ростислав „zbrox“ Райков &lt;<a href='mailto:zbrox@i-space.org'>zbrox@i-"
@@ -661,6 +811,8 @@ msgstr ""
 "a>&gt;\n"
 "Красимир „bfaf“ Чонов &lt;<a href='mailto:mk2616@abv.bg'>mk2616@abv.bg</"
 "a>&gt;\n"
+"Twlvnn Kraftwerk &lt;<a href='mailto:kraft_werk@tutanota."
+"com'>kraft_werk@tutanota.com</a>&gt;\n"
 "\n"
 "\n"
 "Проектът за превод на GNOME има нужда от подкрепа.\n"
@@ -669,129 +821,205 @@ msgstr ""
 "Докладвайте за грешки в превода в <a href='https://fsa-bg.org/project/gtp/"
 "newticket'>съответния раздел</a>."
 
+#. Translators: One second to go until the game starts.
+#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
+#: src/nibbles-view.vala:607 src/players.vala:43
+msgid "1"
+msgstr "1"
+
+#. Translators: Two seconds to go until the game starts.
+#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
+#: src/nibbles-view.vala:610 src/players.vala:46
+msgid "2"
+msgstr "2"
+
+#. Translators: Three seconds to go until the game starts.
+#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
+#: src/nibbles-view.vala:613 src/players.vala:49
+msgid "3"
+msgstr "3"
+
+#. Translators: the first worm's name.
+#: src/nibbles-view.vala:626
+msgid "Worm 1"
+msgstr "1-ва змия"
+
+#. Translators: the seconds worm's name.
+#: src/nibbles-view.vala:629
+msgid "Worm 2"
+msgstr "2-ра змия"
+
+#. Translators: the third worm's name.
+#: src/nibbles-view.vala:632
+msgid "Worm 3"
+msgstr "3-та змия"
+
+#. Translators: the fourth worm's name.
+#: src/nibbles-view.vala:635
+msgid "Worm 4"
+msgstr "4-та змия"
+
+#. Translators: the fifth worm's name.
+#: src/nibbles-view.vala:638
+msgid "Worm 5"
+msgstr "5-та змия"
+
+#. Translators: the sixth worm's name.
+#: src/nibbles-view.vala:641
+msgid "Worm 6"
+msgstr "6-та змия"
+
+#. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
+#: src/nibbles-view.vala:666
+msgid ""
+"Are you sure you want to start a new game?\n"
+"If you start a new game, the current one will be lost."
+msgstr ""
+"Сигурни ли сте, че искате да започнете нова игра?\n"
+"Ако започнете нова игра, ще загубите текущото постижение."
+
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:898
+#: src/nibbles-view.vala:1947
 msgid "red"
 msgstr "червено"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:900
+#: src/nibbles-view.vala:1949
 msgid "green"
 msgstr "зелено"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:902
+#: src/nibbles-view.vala:1951
 msgid "blue"
 msgstr "синьо"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:904
+#: src/nibbles-view.vala:1953
 msgid "yellow"
 msgstr "жълто"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:906
+#: src/nibbles-view.vala:1955
 msgid "cyan"
 msgstr "циан"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:908
+#: src/nibbles-view.vala:1957
 msgid "purple"
 msgstr "виолетово"
 
-#. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:405
+#. Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:604
+msgid "New Game?"
+msgstr "Нова игра?"
+
+#. Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:606
+msgid "If you start a new game, the current one will be lost"
+msgstr "Ако започнете нова игра, ще загубите текущото постижение."
+
+#: src/nibbles-window.vala:608
+msgid "_Cancel"
+msgstr "_Отказване"
+
+#. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:633
 msgid "Are you sure you want to start a new game?"
 msgstr "Искате ли да започнете нова игра?"
 
-#. Translators: message displayed in a MessageDialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:409
+#. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
+#: src/nibbles-window.vala:635
 msgid "If you start a new game, the current one will be lost."
 msgstr "Ако започнете нова игра, ще загубите текущото постижение."
 
+#. Translators: tooltip of the pause button, when the game is paused
+#: src/nibbles-window.vala:696
+msgid "Resume"
+msgstr "Продължаване"
+
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:457
+#: src/nibbles-window.vala:700
 msgid "_Resume"
 msgstr "_Продължаване"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:664 src/nibbles-window.vala:882
+#: src/nibbles-window.vala:976 src/nibbles-window.vala:1206
 #, c-format
 msgid "Level %d"
 msgstr "%d-о ниво"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:737
+#: src/nibbles-window.vala:1053
 msgid "Beginner"
 msgstr "Много бавно"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:739
+#: src/nibbles-window.vala:1055
 msgid "Slow"
 msgstr "Бавно"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:741
+#: src/nibbles-window.vala:1057
 msgid "Medium"
 msgstr "Средно"
 
 #. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:743
+#: src/nibbles-window.vala:1059
 msgid "Fast"
 msgstr "Бързо"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:745
+#: src/nibbles-window.vala:1061
 msgid "Beginner with Fakes"
 msgstr "Много бавно с фалшиви ябълки"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:747
+#: src/nibbles-window.vala:1063
 msgid "Slow with Fakes"
 msgstr "Бавно с фалшиви ябълки"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:749
+#: src/nibbles-window.vala:1065
 msgid "Medium with Fakes"
 msgstr "Средно с фалшиви ябълки"
 
 #. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:751
+#: src/nibbles-window.vala:1067
 msgid "Fast with Fakes"
 msgstr "Бързо с фалшиви ябълки"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:756
+#: src/nibbles-window.vala:1072
 msgid "Difficulty Level:"
 msgstr "Трудност:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:862
+#: src/nibbles-window.vala:1177
 #, c-format
 msgid "Level %d Completed!"
 msgstr "%d-о ниво е завършено."
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:870
+#: src/nibbles-window.vala:1188
 msgid "_Next Level"
 msgstr "_Следващо ниво"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:934
+#: src/nibbles-window.vala:1239
 msgid "Congratulations!"
 msgstr "Поздравления!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:938
+#: src/nibbles-window.vala:1242
 msgid "Game Over!"
 msgstr "Край на играта!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:946
+#: src/nibbles-window.vala:1253
 msgid "You have completed the game."
 msgstr "Завършихте играта."
 
-#: src/nibbles-window.vala:953
+#: src/nibbles-window.vala:1263
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -799,42 +1027,60 @@ msgstr[0] "%d точка"
 msgstr[1] "%d точки"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:964
+#: src/nibbles-window.vala:1274
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(трябват ви още %ld точки, за да влезете в челното класиране)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:971
+#: src/nibbles-window.vala:1281
 msgid "_Play Again"
 msgstr "_Нова игра"
 
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set (with a mnemonic that appears when pressing Alt)
-#: src/players.vala:32
-msgid "_0"
-msgstr "_0"
+#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set
+#: src/players.vala:40
+msgid "0"
+msgstr "0"
 
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set (with a mnemonic that appears when pressing Alt)
-#: src/players.vala:47
-msgid "_5"
-msgstr "_5"
+#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set
+#: src/players.vala:52
+msgid "4"
+msgstr "4"
 
-#. Translators: in the Preferences dialog, label of a column in a table for changing the keys to move the given worm (available for each playable worm); are listed there all the actions a player can do with its worm; the other column is "Key"
-#: src/preferences-dialog.vala:114
-msgid "Action"
-msgstr "Действие"
+#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set
+#: src/players.vala:55
+msgid "5"
+msgstr "5"
 
-#. Translators: in the Preferences dialog, label of a column in a table for changing the keys to move the given worm (available for each playable worm); are listed there all the keys a player can use with its worm; the other column is "Action"
-#: src/preferences-dialog.vala:122
-msgid "Key"
-msgstr "Клавиш"
+#. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
+#: src/scoreboard.vala:62
+#, c-format
+msgid "Worm %d"
+msgstr "Змия %d"
 
-#. Translators: label of a MessageDialog that appears when one tries to assign an already assigned key
-#: src/preferences-dialog.vala:192
-msgid "The key you selected is already assigned!"
-msgstr "Избраният клавиш вече се ползва."
+#~ msgid "GNOME Nibbles"
+#~ msgstr "Змии на GNOME"
 
-#. Translators: label of one of the buttons of a MessageDialog that appears when one tries to assign an already assigned key (with a mnemonic that appears when pressing Alt)
-#: src/preferences-dialog.vala:195
-msgid "_Set anyway"
-msgstr "_Принудително задаване"
+#~ msgid "Size of game tiles"
+#~ msgstr "Размер на плочките"
+
+#~ msgid "Size of game tiles."
+#~ msgstr "Размер на плочките."
+
+#~ msgid "Worm color"
+#~ msgstr "Цвят на змията"
+
+#~ msgid "_Enable fake bonuses"
+#~ msgstr "_Разрешаване на фалшиви ябълки"
+
+#~ msgid "Action"
+#~ msgstr "Действие"
+
+#~ msgid "Key"
+#~ msgstr "Клавиш"
+
+#~ msgid "The key you selected is already assigned!"
+#~ msgstr "Избраният клавиш вече се ползва."
+
+#~ msgid "_Set anyway"
+#~ msgstr "_Принудително задаване"
