@@ -291,7 +291,7 @@ namespace NibblesTest
 
             assert_true (worm.lives == 6);
             assert_true (worm.score == 0);
-//            Test.message (@"worm $(worm.id) start: ($(worm.head.x), $(worm.head.y))");
+            Test.message (@"worm $(worm.id) start: ($(worm.head.x), $(worm.head.y))");
             assert_true (worm.head.x == worm_test.start_x && worm.head.y == worm_test.start_y);
         }
 
@@ -771,6 +771,9 @@ namespace NibblesTest
 
         Test.message ("test warps 4");
         test_board ((string [])test_warps_4, 1, 1, { WormTest () { start_x =  9, start_y = 4, final_lives = 6, final_score = 1 }});
+
+        Test.message ("test warps 5");
+        test_board ((string [])test_warps_5, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 3 }});
         #else
         Test.message ("test warps 1");
         test_board (test_warps_1, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 1 }});
@@ -783,11 +786,12 @@ namespace NibblesTest
 
         Test.message ("test warps 4");
         test_board (test_warps_4, 1, 1, { WormTest () { start_x =  9, start_y = 4, final_lives = 6, final_score = 1 }});
+
+        Test.message ("test warps 5");
+        test_board (test_warps_5, 1, 1, { WormTest () { start_x =  6, start_y = 4, final_lives = 6, final_score = 3 }});
         #endif
     }
 
-    private const int test_warps_width = 11;
-    private const int test_warps_height = 6;
     private const string [] test_warps_1 = {
             "┏━━┓┏━━┓┏━┓",
             "┃++┗┛..┗┛.┃",
@@ -820,4 +824,12 @@ namespace NibblesTest
             "┃+S┃▶.....┃",
             "┗━━┻━━━━━━┛"
         }; /* expected: 6 */
+    private const string [] test_warps_5 = {
+            "┏━━━━━━━━━━━━┓",
+            "┃............┃",
+            "┃.........┏━━┫",
+            "┣━━━━━━━━━┛++┃",
+            "┃▶.........+Q┃",
+            "┗━━━━━━━━━━━━┛"
+        };
 }

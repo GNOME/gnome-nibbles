@@ -1136,6 +1136,8 @@ private class Worm : Object
     }
 
     internal WormDirection direction { internal get; private set; }
+    internal Position warp_position;
+    internal bool warp_bonus;
 
     private WormDirection starting_direction;
 
@@ -1673,7 +1675,7 @@ private class Worm : Object
      * least BOARDWIDTH, so that on the levels with long thin paths a worm
      * won't start down the path if it'll crash at the other end.
      */
-    private static int ai_deadend_after (int[,] board, Gee.LinkedList<Worm> worms, WormMap worm_map, Position old_position, WormDirection direction, int length)
+    internal static int ai_deadend_after (int[,] board, Gee.LinkedList<Worm> worms, WormMap worm_map, Position old_position, WormDirection direction, int length)
     {
         uint8 width  = (uint8) /* int */ board.length [0];
         uint8 height = (uint8) /* int */ board.length [1];
@@ -1911,8 +1913,10 @@ private class Worm : Object
             /* if we are heading for a LIFE bonus don't worry about being trapped */
             if (!(direction == bonus_dir && BonusType.LIFE == bonus_type))
             {
-                /*assert (can_move_to (board, worms, get_position_after_direction_move (head, direction)) ==
-                    can_move_to_map (board, worm_map, get_position_after_direction_move (head, direction)));*/
+#if TEST_COMPILE
+                assert (can_move_to (board, worms, get_position_after_direction_move (head, direction)) ==
+                    can_move_to_map (board, worm_map, get_position_after_direction_move (head, direction)));
+#endif
                 if (!can_move_to_map (board, worm_map, get_position_after_direction_move (head, direction)))
                     this_len += capacity;
 

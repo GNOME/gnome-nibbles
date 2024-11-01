@@ -1,6 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
+ * Copyright (C) 2022-24 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -273,7 +274,7 @@ private class NibblesGame : Object
                             return false;
 
                         board[j, i] = (int) char_value;
-                        warp_manager.add_warp_source (board[j, i], j - 1, i - 1);
+                        warp_manager.add_warp_source (board[j, i], j - 1, i - 1, char_value == 'Q');
 
                         board[j - 1, i - 1] = NibblesGame.WARPCHAR;
                         board[j    , i - 1] = NibblesGame.WARPCHAR;
@@ -318,6 +319,8 @@ private class NibblesGame : Object
                 }
             }
         }
+        warp_manager.initilise (board);
+
         return true;
     }
 
@@ -517,8 +520,10 @@ private class NibblesGame : Object
             uint8 target_x;
             uint8 target_y;
             if (warp_manager.get_warp_target (position.x, position.y,
-                             /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
-                                              out target_x, out target_y))
+                                              worm.direction, worm.length,
+                                              !worm.is_human, worms,
+                                              out target_x, out target_y,
+                                              out worm.warp_bonus))
                 position = Position () { x = target_x, y = target_y };
 
             if (!worm.can_move_to (board, worms, position))
@@ -526,6 +531,8 @@ private class NibblesGame : Object
                 dead_worms.add (worm);
                 play_sound ("crash");
             }
+            else
+                worm.warp_position = position;
         }
 
         /* move worms */
@@ -539,14 +546,12 @@ private class NibblesGame : Object
             worm.move_part_1 ();
             if (board[worm.head.x, worm.head.y] == NibblesGame.WARPCHAR)
             {
-                uint8 target_x;
-                uint8 target_y;
-                if (!warp_manager.get_warp_target (worm.head.x, worm.head.y,
-                                  /* horizontal */ worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT,
-                                                   out target_x, out target_y))
-                    assert_not_reached ();
-
-                worm.move_part_2 (board, Position () { x = target_x, y = target_y });
+                worm.move_part_2 (board, worm.warp_position);
+                if (worm.warp_bonus)
+                {
+                    worm.score += (worm.length * current_level) / 2;
+                    play_sound ("bonus");
+                }
             }
             else
                 worm.move_part_2 (board, null);
