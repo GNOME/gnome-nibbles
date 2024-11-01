@@ -707,8 +707,8 @@ private struct Angle
         int64 x_i = origin_x + delta_x * (int64)i;
         int64 y_i = origin_y + delta_y * (int64)i;
 
-        return { (x_i >> step_multiplier_2n) + (x_i < 0 ? -1 : 0),
-            (y_i >> step_multiplier_2n) + (y_i < 0 ? -1 : 0), x_max, y_max};
+        return { (x_i >> step_multiplier_2n),
+            (y_i >> step_multiplier_2n), x_max, y_max};
     }
 
     public AngleIterator iterator ()
