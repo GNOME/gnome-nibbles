@@ -93,6 +93,23 @@ private enum WormDirection
                 assert_not_reached ();
         }
     }
+    
+    internal WormDirection reverse ()
+    {
+        switch (this)
+        {
+            case EAST:
+                return WEST;
+            case SOUTH:
+                return NORTH;
+            case WEST:
+                return EAST;
+            case NORTH:
+                return SOUTH;
+            default:
+                assert_not_reached ();
+        }
+    }
 }
 
 private struct Position
@@ -1517,7 +1534,7 @@ private class Worm : Object
                 return dirB;
         }
         else /* length_posA==0 && length_posB==0 */
-            return direction;
+            return direction.reverse ();
     }
 
     private int get_raw_key (uint keyval)
@@ -1545,7 +1562,7 @@ private class Worm : Object
             if (direction==WormDirection.DOWN)
             {
                 direction_set (uturn (board,worms,WormDirection.UP));
-                if (direction!=WormDirection.UP)
+                if (direction!=WormDirection.UP && direction!=WormDirection.DOWN)
                     queue_keypress (WormDirection.UP);
                 return true;
             }
@@ -1562,7 +1579,7 @@ private class Worm : Object
             if (direction == WormDirection.UP)
             {
                 direction_set (uturn (board,worms,WormDirection.DOWN));
-                if (direction!=WormDirection.DOWN)
+                if (direction!=WormDirection.DOWN && direction!=WormDirection.UP)
                     queue_keypress (WormDirection.DOWN);
                 return true;
             }
@@ -1579,7 +1596,7 @@ private class Worm : Object
             if (direction == WormDirection.LEFT)
             {
                 direction_set (uturn (board,worms,WormDirection.RIGHT));
-                if (direction != WormDirection.RIGHT)
+                if (direction != WormDirection.RIGHT && direction != WormDirection.LEFT)
                     queue_keypress (WormDirection.RIGHT);
                 return true;
             }
@@ -1596,7 +1613,7 @@ private class Worm : Object
             if (direction == WormDirection.RIGHT)
             {
                 direction_set (uturn (board,worms,WormDirection.LEFT));
-                if (direction != WormDirection.LEFT)
+                if (direction != WormDirection.LEFT && direction != WormDirection.RIGHT)
                     queue_keypress (WormDirection.LEFT);
                 return true;
             }
