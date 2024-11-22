@@ -63,11 +63,6 @@
         {
             "name": "libgee",
             "buildsystem": "autotools",
-            "build-options": {
-                "env": {
-                    "ACLOCAL_PATH" : "/usr/lib/sdk/vala-nightly/share/aclocal"
-                }
-            },
             "sources": [
                 {
                     "type": "git",
