@@ -93,7 +93,8 @@ private enum WormDirection
                 assert_not_reached ();
         }
     }
-    
+
+ #if !TEST_COMPILE   
     internal WormDirection reverse ()
     {
         switch (this)
@@ -110,6 +111,7 @@ private enum WormDirection
                 assert_not_reached ();
         }
     }
+#endif
 }
 
 private struct Position
