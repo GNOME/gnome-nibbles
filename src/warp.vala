@@ -31,6 +31,7 @@
  * grep -ne '[^][)(_!$ "](' *.vala
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
+ * grep -ne ' $' *.vala
  *
  */
 

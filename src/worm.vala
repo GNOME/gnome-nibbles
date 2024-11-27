@@ -94,7 +94,7 @@ private enum WormDirection
         }
     }
 
- #if !TEST_COMPILE   
+ #if !TEST_COMPILE
     internal WormDirection reverse ()
     {
         switch (this)
