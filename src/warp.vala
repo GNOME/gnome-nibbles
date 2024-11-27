@@ -140,25 +140,39 @@ private class WarpManager : Object
                     for (count = 0, p = P[i];
                         count < clear_count && manager.board[p.x, p.y] == NibblesGame.EMPTYCHAR && !worm_map.contain_position (p);
                         count++, p.move (direction, manager.board_max_x, manager.board_max_y));
-                    var deadend = Worm.ai_deadend_after (manager.board, worms, worm_map, P[i], direction, length);
                     if (count >= clear_count)
                     {
-                        if (deadend <= 0)
+                        if (ai_worm)
                         {
                             target_x = P[i].x;
                             target_y = P[i].y;
                             break; /* exit for loop */
                         }
-                        if (deadend < lowest_deadend)
+                        else /* human worm */
                         {
-                            lowest_deadend = deadend;
-                            lowest_deadend_position = P[i];
+                            var deadend = Worm.ai_deadend_after (manager.board, worms, worm_map, P[i], direction, length);
+                            if (deadend <= 0)
+                            {
+                                target_x = P[i].x;
+                                target_y = P[i].y;
+                                break; /* exit for loop */
+                            }
+                            if (deadend < lowest_deadend)
+                            {
+                                lowest_deadend = deadend;
+                                lowest_deadend_position = P[i];
+                            }
                         }
                     }
-                    Position[] remove_one = {};
+                    /* remove P[i] from the array */
+                    Position[] remove_one;
                     if (i > 0)
+                    {
                         remove_one = P[:i];
-                    for (i++; i < P.length; remove_one += P[i++]);
+                        for (i++; i < P.length; remove_one += P[i++]);
+                    }
+                    else
+                        remove_one = P[1:];
                     P = remove_one;
                 }
                 if (P.length <= 0)
