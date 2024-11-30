@@ -122,10 +122,10 @@ private class WarpManager : Object
             if (random)
             {
                 WormMap worm_map = new WormMap (worms, manager.board_max_x, manager.board_max_y);
-                Position[] P = manager.all_empty_board_positions;
-                Position p;
+                uint16[] P = manager.all_empty_board_positions;
+                Position p = {0 ,0};
                 int lowest_deadend = int.MAX;
-                Position lowest_deadend_position = {0,0};
+                uint16 lowest_deadend_position = 0;
                 int i, count, clear_count;
 #if TEST_COMPILE
                 /* the test are done assuming the worm is a player */
@@ -134,27 +134,28 @@ private class WarpManager : Object
                 /* ai worm's don't need a long clear streatch to help them stay alive */
                 clear_count = ai_worm?2:12;
 #endif
-                for (;P.length > 0;)
+                var array_length = P.length;
+                for (;array_length > 0;)
                 {
-                    i = Random.int_range (0, P.length);
-                    for (count = 0, p = P[i];
+                    i = Random.int_range (0, array_length);
+                    for (count = 0, p.x = P[i] >> 8, p.y = (uint8)P[i];
                         count < clear_count && manager.board[p.x, p.y] == NibblesGame.EMPTYCHAR && !worm_map.contain_position (p);
                         count++, p.move (direction, manager.board_max_x, manager.board_max_y));
                     if (count >= clear_count)
                     {
                         if (ai_worm)
                         {
-                            target_x = P[i].x;
-                            target_y = P[i].y;
+                            target_x = P[i] >> 8;
+                            target_y = (uint8)P[i];
                             break; /* exit for loop */
                         }
                         else /* human worm */
                         {
-                            var deadend = Worm.ai_deadend_after (manager.board, worms, worm_map, P[i], direction, length);
+                            var deadend = Worm.ai_deadend_after (manager.board, worms, worm_map, {P[i] >> 8, (uint8)P[i]}, direction, length);
                             if (deadend <= 0)
                             {
-                                target_x = P[i].x;
-                                target_y = P[i].y;
+                                target_x = P[i] >> 8;
+                                target_y = (uint8)P[i];
                                 break; /* exit for loop */
                             }
                             if (deadend < lowest_deadend)
@@ -165,25 +166,19 @@ private class WarpManager : Object
                         }
                     }
                     /* remove P[i] from the array */
-                    Position[] remove_one;
-                    if (i > 0)
-                    {
-                        remove_one = P[:i];
-                        for (i++; i < P.length; remove_one += P[i++]);
-                    }
-                    else
-                        remove_one = P[1:];
-                    P = remove_one;
+                    if (i < array_length - 1)
+                        P.move (i + 1, i, array_length - (i + 1));
+                    array_length--;
                 }
-                if (P.length <= 0)
+                if (array_length <= 0)
                 {
                     /* If we have searched the whole map and did not find a deadend
                      * of zero use the best position we found (lowest deadend).
                      */
                     if (lowest_deadend < int.MAX)
                     {
-                        target_x = lowest_deadend_position.x;
-                        target_y = lowest_deadend_position.y;
+                        target_x = lowest_deadend_position >> 8;
+                        target_y = (uint8)lowest_deadend_position;
                     }
                     else
                     {
@@ -227,7 +222,7 @@ private class WarpManager : Object
         }
     }
 
-    internal Position[] all_empty_board_positions;
+    internal uint16[] all_empty_board_positions;
     internal unowned int[,] board;
     internal uint8 board_max_x;
     internal uint8 board_max_y;
@@ -304,7 +299,7 @@ private class WarpManager : Object
             for (p.x = 0; p.x < board_max_x; p.x++)
             {
                 if (board[p.x, p.y] == NibblesGame.EMPTYCHAR)
-                    all_empty_board_positions += p;
+                    all_empty_board_positions += ((uint16)p.x) << 8 | p.y;
             }
         }
     }

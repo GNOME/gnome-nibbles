@@ -373,17 +373,10 @@ private class NibblesGame : Object
     {
         var index = Random.int_range (0, levels_uncompleated.length);
         var level = levels_uncompleated[index];
-        if (index == 0)
-            levels_uncompleated = levels_uncompleated[1:];
-        else if (index == levels_uncompleated.length - 1)
-            levels_uncompleated = levels_uncompleated[0:index];
-        else
-        {
-            int[] a = levels_uncompleated[0:index];
-            int[] b = levels_uncompleated[index+1:];
-            levels_uncompleated = a;
-            for (int i = 0; i < b.length; levels_uncompleated += b[i++]);
-        }
+        /* remove levels_uncompleated[index] from the array */
+        if (index < levels_uncompleated.length - 1)
+            levels_uncompleated.move (index + 1, index, levels_uncompleated.length - (index + 1));
+        levels_uncompleated.resize (levels_uncompleated.length - 1);
         return level;
     }
 
