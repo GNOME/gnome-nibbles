@@ -3,6 +3,7 @@
    This file is part of GNOME Nibbles.
 
    Copyright (C) 2020 – Arnaud Bonatti <arnaud.bonatti@gmail.com>
+   Copyright (C) 2022-24 Ben Corby <bcorby@new-ms.com>
 
    GNOME Nibbles is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -279,7 +280,11 @@ namespace NibblesTest
         assert_true (game.worms.size == worms.length);
 
         uint8 applied_bonus = 0;
-        ulong game_handler_1 = game.bonus_applied.connect ((bonus, worm) => { applied_bonus++; Test.message (@"worm $(worm.id) took bonus at ($(bonus.x), $(bonus.y))"); });
+        ulong game_handler_1 = game.bonus_applied.connect ((bonus, worm, score) =>
+        {
+            applied_bonus++;
+            Test.message (@"worm $(worm.id) took bonus at ($(bonus.x), $(bonus.y)) worth $(score) points");
+        });
 
         game.add_worms ();
         game.start (/* add initial bonus */ true);
@@ -300,7 +305,7 @@ namespace NibblesTest
         ulong game_handler_2 = game.level_completed.connect (() => { completed = true; });
         MainContext context = MainContext.@default ();
         do context.iteration (/* may block */ false);
-        while (!completed && (game.get_game_status () != GameStatus.GAMEOVER));
+        while (!completed && (game.get_game_status () != GAMEOVER));
 
         for (uint8 i = 0; i < worms.length; i++)
         {

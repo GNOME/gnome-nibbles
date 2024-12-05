@@ -548,7 +548,7 @@ internal class NibblesView : DrawingArea
                 /* draw bonuses */
                 foreach (var bonus in game.get_bonuses ())
                 {
-                    draw_bonus (c, x_delta * bonus.x + x_offset, y_delta * bonus.y + y_offset, x_delta + x_delta, y_delta + y_delta, bonus.bonus_type);
+                    draw_bonus (c, x_delta * bonus.x + x_offset, y_delta * bonus.y + y_offset, x_delta + x_delta, y_delta + y_delta, bonus.etype);
                 }
 
                 if (countdown_active () > 0)
@@ -858,7 +858,7 @@ internal class NibblesView : DrawingArea
 
     void draw_3D_bonus (Context c, View3D v, int x, int y, Bonus bonus)
     {
-        switch (bonus.bonus_type)
+        switch (bonus.etype)
         {
             case REGULAR: // apple
                 draw_apple (c, v, x, y);
@@ -1402,7 +1402,7 @@ internal class NibblesView : DrawingArea
         C.fill ();
     }
 
-    void draw_bonus (Context C, int x, int y, int x_size, int y_size, BonusType type)
+    void draw_bonus (Context C, int x, int y, int x_size, int y_size, Bonus.eType type)
     {
         double x_m = x_size;
         double y_m = y_size;

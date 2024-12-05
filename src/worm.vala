@@ -1783,12 +1783,12 @@ private class Worm : Object
         return false;
     }
 
-    internal bool ai_is_bonus_more_attractive (BonusType b0, int64 d0, BonusType b1, int64 d1)
+    internal bool ai_is_bonus_more_attractive (Bonus.eType b0, int64 d0, Bonus.eType b1, int64 d1)
     {
         /* A LIFE bonus is a more attractive bonus than any other bonus. */
-        return (BonusType.LIFE == b0 && BonusType.LIFE == b1
-            || BonusType.LIFE != b0 && BonusType.LIFE != b1) && d0 < d1
-            || BonusType.LIFE == b0 && BonusType.LIFE != b1;
+        return (b0 == LIFE && b1 == LIFE
+            || b0 != LIFE && b1 != LIFE) && d0 < d1
+            || b0 == LIFE && b1 != LIFE;
     }
 
     internal bool ai_can_see_bonus (int[,] board, Position origin, Bonus bonus, WormDirection direction)
@@ -1807,7 +1807,7 @@ private class Worm : Object
     }
 
     internal int64 ai_count_distance_to_a_bonus_in_direction (int[,] board, WormMap worm_map,
-         Position origin, WormDirection direction, out BonusType bonus_type)
+         Position origin, WormDirection direction, out Bonus.eType bonus_type)
     {
         /*
          * Return the distance to a bonus if it is possible to head in
@@ -1828,15 +1828,15 @@ private class Worm : Object
          */
 
         int64 bonus_distance = int64.MAX;
-        bonus_type = (BonusType)(-1);
+        bonus_type = (Bonus.eType)(-1);
 
         Slice slice = new Slice ();
         foreach (Bonus b in get_bonuses ())
         {
-            if (BonusType.LIFE == bonus_type && BonusType.LIFE == b.bonus_type ||
-                 BonusType.LIFE != bonus_type && (
-                    BonusType.REGULAR == b.bonus_type || BonusType.DOUBLE == b.bonus_type
-                    || BonusType.LIFE == b.bonus_type || BonusType.REVERSE == b.bonus_type))
+            if (bonus_type == LIFE && b.etype == LIFE ||
+                bonus_type != LIFE && (
+                    b.etype == REGULAR || b.etype == DOUBLE
+                    || b.etype == LIFE || b.etype == REVERSE))
             {
                 /* our initial view is set by our direction */
                 slice.set_direction_view (direction, board);
@@ -1852,7 +1852,7 @@ private class Worm : Object
                         ai_can_see_bonus (board, get_position_after_direction_move (origin, direction), b, direction))
                     {
                         bonus_distance = distance;
-                        bonus_type = b.bonus_type;
+                        bonus_type = b.etype;
                     }
                 }
             }
@@ -1867,10 +1867,10 @@ private class Worm : Object
         WormMap worm_map = new WormMap (worms, width, height);
 
         /* We have a look in all directions except behind us for a bonus. */
-        BonusType bonus_type;
+        Bonus.eType bonus_type;
         int64 shortest_distance = int64.MAX;
         WormDirection shortest_dir = direction;
-        BonusType shortest_bonus_type = (BonusType)(-1);
+        Bonus.eType shortest_bonus_type = (Bonus.eType)(-1);
 
         WormDirection dir[] = {direction, direction.turn_left (), direction.turn_right ()};
         foreach (WormDirection direction in dir)
@@ -1930,7 +1930,7 @@ private class Worm : Object
         {
             int this_len = 0;
             /* if we are heading for a LIFE bonus don't worry about being trapped */
-            if (!(direction == bonus_dir && BonusType.LIFE == bonus_type))
+            if (!(direction == bonus_dir && bonus_type == LIFE))
             {
 #if TEST_COMPILE
                 assert (can_move_to (board, worms, get_position_after_direction_move (head, direction)) ==

@@ -31,41 +31,153 @@
  * grep -ne ' $' *.vala
  *
  */
-
 delegate bool KeypressHandlerFunction (uint a, uint b, out bool remove_handler);
-
-private enum GameStatus
-{
-    GAMEOVER,
-    VICTORY,
-    NEWROUND;
-}
 
 private class NibblesGame : Object
 {
+    /* Bonuses sub-class */
+    private class Bonuses : Object
+    {
+        private Gee.LinkedList<Bonus> bonuses = new Gee.LinkedList<Bonus> ();
 
+        private uint8 regular_bonus_left = 0;
+        private uint8 regular_bonus_maxi = 0;
+        private uint8 total_bonus_number = 0;
+        public int progress;
+
+        private const uint8 MAX_BONUSES = 100;
+
+        internal signal void bonus_removed (Bonus bonus);
+
+        internal bool add_bonus (owned Bonus bonus)
+        {
+            if (progress != 2 && total_bonus_number >= MAX_BONUSES)
+                return false;
+            else
+            {
+                bonuses.add (bonus);
+                total_bonus_number++;
+                return true;
+            }
+        }
+
+        internal void remove_bonus (Bonus bonus)
+        {
+            bonus_removed (bonus); /* signal */
+            bonuses.remove (bonus);
+        }
+
+        internal void reset (uint8 regular_bonus)
+        {
+            bonuses.clear ();
+            reset_missed ();
+            regular_bonus_maxi = regular_bonus < MAX_BONUSES ? regular_bonus : MAX_BONUSES;
+            regular_bonus_left = regular_bonus_maxi;
+            total_bonus_number = 0;
+        }
+
+        internal Bonus? get_bonus (uint8 x, uint8 y)
+        {
+            foreach (Bonus bonus in bonuses)
+            {
+                if ((x == bonus.x + 0 && y == bonus.y + 0)
+                 || (x == bonus.x + 1 && y == bonus.y + 0)
+                 || (x == bonus.x + 0 && y == bonus.y + 1)
+                 || (x == bonus.x + 1 && y == bonus.y + 1))
+                    return bonus;
+            }
+            return null;
+        }
+
+        internal Gee.List<Bonus> get_bonuses ()
+        {
+            return bonuses;
+        }
+
+        internal void on_worms_move (out uint8 missed_bonuses_to_replace)
+        {
+            missed_bonuses_to_replace = 0;
+	        for (int i = bonuses.size; i > 0; i--)
+	        {
+	            Bonus bonus = bonuses.get (i - 1);
+	            if (bonus.countdown > 0)
+        		    bonus.countdown--;
+	            else
+	            {
+		            remove_bonus (bonus);
+		            if (bonus.etype == REGULAR && !bonus.fake)
+		            {
+		                increase_missed ();
+		                missed_bonuses_to_replace++;
+		            }
+	            }
+	        }
+        }
+
+        internal uint8 new_regular_bonus_eaten ()
+        {
+            reset_missed ();
+            if (regular_bonus_left > 0)
+                return regular_bonus_maxi - (regular_bonus_left - 1);
+            else
+                return regular_bonus_maxi - regular_bonus_left;
+        }
+
+        internal void decrement_regular_bonus (int d)
+        {
+            if (regular_bonus_left > d)
+                regular_bonus_left -= (uint8)d;
+            else
+                regular_bonus_left = 0;
+        }
+
+        internal inline bool last_regular_bonus ()
+        {
+            return progress != 2 && regular_bonus_left == 0;
+        }
+
+        /*\
+        * * missed
+        \*/
+        private uint8 missed = 0;
+        private const uint8 MAX_MISSED = 2;
+
+        internal inline bool too_many_missed ()
+        {
+            return missed > MAX_MISSED;
+        }
+
+        private inline void increase_missed ()
+        {
+            missed++;
+        }
+
+        private inline void reset_missed ()
+        {
+            missed = 0;
+        }
+    }
+
+    /* constants */
     internal const int MAX_WORMS = 6;
-
     internal const int MAX_SPEED = 4;
-
     internal const char EMPTYCHAR = 'a';
     internal const char WARPCHAR = 'W';
-
     internal const int MAX_LEVEL = 26;
 
+    /* member variables */
     public bool skip_score      { internal get; protected construct set; }
     public int current_level    { internal get; protected construct set; }
     public bool three_dimensional_view { internal get; internal construct set; }
     public int speed            { internal get; internal construct set; }
     public int gamedelay        { internal get; protected construct; }
     public int _progress;
-    public int progress         { internal get {return _progress;} internal set {_progress = value; if (boni != null) boni.progress = _progress;} }
+    public int progress         { internal get {return _progress;} internal set {_progress = value; if (bonuses != null) bonuses.progress = _progress;} }
     public int start_level      { internal get; internal construct set; }
     public int[] levels_uncompleated = {};
 
     /* Board data */
     internal int[,] board;
-
     public uint8 width          { internal get; protected construct; }
     public uint8 height         { internal get; protected construct; }
 
@@ -77,9 +189,19 @@ private class NibblesGame : Object
     /* Game models */
     public Gee.LinkedList<Worm> worms                   { internal get; default = new Gee.LinkedList<Worm> (); }
     public Gee.HashMap<Worm, WormProperties> worm_props { internal get; default = new Gee.HashMap<Worm, WormProperties> (); }
-
-    private Boni boni = new Boni ();
+    private Bonuses bonuses = new Bonuses ();
     private WarpManager warp_manager = new WarpManager ();
+    private class ScoreDelta : Object
+    {
+        public Worm worm { internal get; protected construct set; }
+        public int score_delta { internal get; protected construct set; }
+        public ScoreDelta (Worm worm, int score_delta)
+        {
+            Object (worm: worm, score_delta: score_delta);
+        }
+    }
+    private Gee.HashMap<Bonus, Gee.LinkedList<ScoreDelta>> score_deltas { internal get; default = new Gee.HashMap<Bonus,Gee.LinkedList<ScoreDelta>> (); }
+    private Gee.Set<Bonus> bouns_eaten = new Gee.ConcurrentSet<Bonus> ();
 
     /* Game controls */
     internal bool is_running    { internal get; private set; default = false; }
@@ -101,7 +223,7 @@ private class NibblesGame : Object
 
     public bool fakes           { internal get; internal construct set; }
 
-    internal signal void bonus_applied (Bonus bonus, Worm worm);
+    internal signal void bonus_applied (Bonus bonus, Worm worm, int score);
     internal signal void log_score (int score, int level_reached);
     internal signal void animate_end_game ();
     internal signal void level_completed ();
@@ -125,7 +247,7 @@ private class NibblesGame : Object
     construct
     {
         board = new int [width, height];
-        boni.bonus_removed.connect ((bonus) => bonus_removed (bonus));
+        bonuses.bonus_removed.connect ((bonus) => bonus_removed (bonus));
     }
 
     internal NibblesGame (int start_level, int speed, int gamedelay, bool fakes, bool three_dimensional_view, uint8 width, uint8 height, bool no_random = false)
@@ -165,7 +287,7 @@ private class NibblesGame : Object
         if (future_board.length != (int) height)
             return false;
 
-        boni.reset (regular_bonus);
+        bonuses.reset (regular_bonus);
         warp_manager.clear_warps ();
 
         string tmpboard;
@@ -389,7 +511,7 @@ private class NibblesGame : Object
     private bool main_loop_cb ()
     {
         var status = get_game_status ();
-        if (status == GameStatus.GAMEOVER)
+        if (status == GAMEOVER)
         {
             end ();
 
@@ -397,7 +519,7 @@ private class NibblesGame : Object
 
             return Source.REMOVE;
         }
-        else if (status == GameStatus.VICTORY)
+        else if (status == VICTORY)
         {
             end ();
 
@@ -407,7 +529,7 @@ private class NibblesGame : Object
 
             return Source.REMOVE;
         }
-        else if (status == GameStatus.NEWROUND)
+        else if (status == NEWROUND)
         {
             stop ();
 
@@ -456,7 +578,6 @@ private class NibblesGame : Object
         }
         if (worm_settings != null)
             load_worm_properties (worm_settings);
-
     }
 
     internal void add_worms ()
@@ -475,7 +596,7 @@ private class NibblesGame : Object
                 --worm.rounds_to_stay_still;
         }
 
-        if (boni.too_many_missed ())
+        if (bonuses.too_many_missed ())
         {
             foreach (var worm in worms)
             {
@@ -485,7 +606,7 @@ private class NibblesGame : Object
         }
 
         uint8 missed_bonuses_to_replace;
-        boni.on_worms_move (out missed_bonuses_to_replace);
+        bonuses.on_worms_move (out missed_bonuses_to_replace);
         for (uint8 i = 0; i < missed_bonuses_to_replace; i++)
             add_bonus (true);
 
@@ -566,6 +687,27 @@ private class NibblesGame : Object
             }
         }
 
+        /* reduce bonus left count */
+        bonuses.decrement_regular_bonus (bouns_eaten.size);
+        bouns_eaten.clear ();
+
+        /* apply bonuses */
+        foreach (var bonus in score_deltas)
+        {
+            var how_many_worms_ate_the_bonus = bonus.value.size;
+            foreach (var score_delta in bonus.value)
+            {
+                var delta = score_delta.score_delta / how_many_worms_ate_the_bonus;
+                score_delta.worm.score += delta;
+                bonus_applied (bonus.key, score_delta.worm, delta);
+            }
+            bool real_bonus = bonus.key.etype == REGULAR && !bonus.key.fake;
+            bonuses.remove_bonus (bonus.key);
+            if (real_bonus && !bonuses.last_regular_bonus ())
+                add_bonus (true);
+        }
+        score_deltas.clear ();
+
         /* remove dead worms */
         foreach (var worm in dead_worms)
         {
@@ -590,13 +732,12 @@ private class NibblesGame : Object
     /*\
     * * Handling bonuses
     \*/
-
     private bool is_space_empty (uint8 x, uint8 y, bool[,] worms_at)
     {
         return EMPTYCHAR == board [x, y] && EMPTYCHAR == board [x + 1, y + 1]
             && EMPTYCHAR == board [x + 1, y] && EMPTYCHAR == board [x, y + 1]
-            && boni.get_bonus (x, y) == null && boni.get_bonus (x + 1, y + 1) == null
-            && boni.get_bonus (x + 1, y) == null && boni.get_bonus (x, y + 1) == null
+            && bonuses.get_bonus (x, y) == null && bonuses.get_bonus (x + 1, y + 1) == null
+            && bonuses.get_bonus (x + 1, y) == null && bonuses.get_bonus (x, y + 1) == null
             && !worms_at [x, y] && !worms_at [x + 1, y + 1]
             && !worms_at [x + 1, y] && !worms_at [x, y + 1];
     }
@@ -628,16 +769,16 @@ private class NibblesGame : Object
         if (regular)
         {
             if ((Random.int_range (0, 7) == 0) && fakes)
-                _add_bonus (x, y, BonusType.REGULAR, true, 300);
+                _add_bonus (x, y, REGULAR, true, 300);
 
             do
             {
                 x = (uint8) Random.int_range (0, width  - 1);
                 y = (uint8) Random.int_range (0, height - 1);
             } while (!is_space_empty (x, y, worms_at));
-            _add_bonus (x, y, BonusType.REGULAR, false, 300);
+            _add_bonus (x, y, REGULAR, false, 300);
         }
-        else if (!boni.too_many_missed ())
+        else if (!bonuses.too_many_missed ())
         {
             if (Random.int_range (0, 7) != 0)
                 good = false;
@@ -659,17 +800,17 @@ private class NibblesGame : Object
                 case 7:
                 case 8:
                 case 9:
-                    _add_bonus (x, y, BonusType.HALF, good, 200);
+                    _add_bonus (x, y, HALF, good, 200);
                     break;
                 case 10:
                 case 11:
                 case 12:
                 case 13:
                 case 14:
-                    _add_bonus (x, y, BonusType.DOUBLE, good, 150);
+                    _add_bonus (x, y, DOUBLE, good, 150);
                     break;
                 case 15:
-                    _add_bonus (x, y, BonusType.LIFE, good, 100);
+                    _add_bonus (x, y, LIFE, good, 100);
                     break;
                 case 16:
                 case 17:
@@ -677,81 +818,88 @@ private class NibblesGame : Object
                 case 19:
                 case 20:
                     if (numworms > 1)
-                        _add_bonus (x, y, BonusType.REVERSE, good, 150);
+                        _add_bonus (x, y, REVERSE, good, 150);
                     break;
             }
         }
     }
-    private inline void _add_bonus (uint8 x, uint8 y, BonusType bonus_type, bool fake, uint16 countdown)
+    private inline void _add_bonus (uint8 x, uint8 y, Bonus.eType bonus_type, bool fake, uint16 countdown)
     {
         Bonus bonus = new Bonus (x, y, bonus_type, fake, countdown);
-        if (boni.add_bonus (bonus))
-            if (bonus.bonus_type != BonusType.REGULAR)
+        if (bonuses.add_bonus (bonus))
+            if (bonus.etype != REGULAR)
                 play_sound ("appear");
     }
 
-    private void apply_bonus (Bonus bonus, Worm worm)
+    private int calculate_bonus (Bonus bonus, Worm worm)
     {
         if (bonus.fake)
         {
             worm.reverse ();
-
-            return;
+            return 0;
         }
-
-        switch (bonus.bonus_type)
+        else
         {
-            case BonusType.REGULAR:
-                uint8 nth_bonus = boni.new_regular_bonus_eaten ();
-                worm.change += (int) nth_bonus * Worm.GROW_FACTOR;
-                worm.score  += (int) nth_bonus * current_level;
-                play_sound ("gobble");
-                break;
-            case BonusType.DOUBLE:
-                worm.score += (worm.length + worm.change) * current_level;
-                worm.change += worm.length + worm.change;
-                play_sound ("bonus");
-                break;
-            case BonusType.HALF:
-                if (worm.length + worm.change > 2)
-                {
-                    worm.score += ((worm.length + worm.change / 2) * current_level);
-                    worm.reduce_tail (worm.length / 2);
-                    worm.change -= (worm.length + worm.change) / 2;
-                }
-                play_sound ("bonus");
-                break;
-            case BonusType.LIFE:
-                worm.add_life ();
-                play_sound ("life");
-                break;
-            case BonusType.REVERSE:
-                reverse_worms (worm);
-                play_sound ("reverse");
-                break;
-            case BonusType.WARP:
-                break;
+            int score_delta = 0;
+            switch (bonus.etype)
+            {
+                case REGULAR:
+                    uint8 nth_bonus = bonuses.new_regular_bonus_eaten ();
+                    worm.change += (int) nth_bonus * Worm.GROW_FACTOR;
+                    score_delta = (int) nth_bonus * current_level;
+                    bouns_eaten.add (bonus);
+                    play_sound ("gobble");
+                    break;
+                case DOUBLE:
+                    score_delta = (worm.length + worm.change) * current_level;
+                    worm.change += worm.length + worm.change;
+                    play_sound ("bonus");
+                    break;
+                case HALF:
+                    if (worm.length + worm.change > 2)
+                    {
+                        score_delta = ((worm.length + worm.change / 2) * current_level);
+                        worm.reduce_tail (worm.length / 2);
+                        worm.change -= (worm.length + worm.change) / 2;
+                    }
+                    play_sound ("bonus");
+                    break;
+                case LIFE:
+                    worm.add_life ();
+                    play_sound ("life");
+                    break;
+                case REVERSE:
+                    reverse_worms (worm);
+                    play_sound ("reverse");
+                    break;
+                case WARP:
+                    break;
+            }
+            return score_delta;
         }
     }
 
     private void bonus_found_cb (Worm worm)
     {
-        var bonus = boni.get_bonus (worm.head.x, worm.head.y);
-        if (bonus == null)
-            return;
-        worm.add_bonus_eaten_position (worm.head.x, worm.head.y);
-        apply_bonus (bonus, worm);
-        bonus_applied (bonus, worm);
-
-        bool real_bonus = bonus.bonus_type == BonusType.REGULAR && !bonus.fake;
-
-        boni.remove_bonus (bonus);
-
-        if (real_bonus && !boni.last_regular_bonus ())
-            add_bonus (true);
+        var bonus = bonuses.get_bonus (worm.head.x, worm.head.y);
+        if (bonus != null)
+        {
+            worm.add_bonus_eaten_position (worm.head.x, worm.head.y);
+            ScoreDelta score_delta = new ScoreDelta (worm, calculate_bonus (bonus, worm));
+            var delta = score_deltas.@get (bonus);
+            if (delta == null)
+            {
+                delta = new Gee.LinkedList<ScoreDelta> ();
+                score_deltas.@set (bonus, delta);
+            }
+            delta.add (score_delta);
+        }
     }
 
-    internal GameStatus? get_game_status ()
+    /* The Game Status enumerated type, returned by get_game_status ()*/
+    internal enum eStatus {GAMEOVER, VICTORY, NEWROUND;}
+
+    internal eStatus? get_game_status ()
     {
         var worms_left = 0;
         foreach (var worm in worms)
@@ -759,24 +907,23 @@ private class NibblesGame : Object
             if (worm.lives > 0)
                 worms_left += 1;
             else if (numhumans == 0 && worm.lives == 0)
-                return GameStatus.GAMEOVER;
+                return GAMEOVER;
         }
 
         if (worms_left == 1 && numworms > 1 || humans_left () == 1 && numhumans > 1)
         {
             /* There were multiple worms but only one is still alive */
-            return GameStatus.VICTORY;
+            return VICTORY;
         }
         else if (worms_left == 0 || humans_left () == 0 && numhumans == 1)
         {
             /* There was only one worm and it died */
-            return GameStatus.GAMEOVER;
+            return GAMEOVER;
         }
-
-        if (boni.last_regular_bonus ())
-            return GameStatus.NEWROUND;
-
-        return null;
+        else if (bonuses.last_regular_bonus ())
+            return NEWROUND;
+        else
+            return null;
     }
 
     internal uint humans_left ()
@@ -906,7 +1053,7 @@ private class NibblesGame : Object
 
     internal Gee.List<Bonus> get_bonuses ()
     {
-        return boni.get_bonuses ();
+        return bonuses.get_bonuses ();
     }
 }
 
