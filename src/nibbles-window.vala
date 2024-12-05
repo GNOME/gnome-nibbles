@@ -891,6 +891,8 @@ private class NibblesWindow : ApplicationWindow
     {
         int progress, level;
         board_progress.get_values (out progress, out level);
+        if (progress == 0)
+            level = 1;
         game.progress = progress;
         game.start_level = level;
         settings.set_int ("progress", progress);
