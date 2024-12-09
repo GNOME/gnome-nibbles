@@ -211,15 +211,36 @@ endif
 
 message('valac #defines:',vala_if_defines)
 
+# get build date/time
+time_code = '''
+    #include <stdio.h>
+    #include <time.h>
+    int main() 
+    {
+        char buffer[64];
+        time_t seconds_since_epoch = time(NULL);
+        strftime (buffer, 64, "%Y-%m-%d %H:%M GMT", gmtime(&seconds_since_epoch));
+        fputs (buffer, stdout);
+        return 0;
+    }'''
+time = c.run(time_code)
+if time.compiled()
+    message('build date',time.stdout())
+endif
+
 # Configuration
 conf = configuration_data()
-
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf.set_quoted('PKGDATADIR', pkgdatadir)
 conf.set_quoted('SOUND_DIRECTORY', sounddir)
 conf.set_quoted('LOCALEDIR', join_paths(prefix, localedir))
 conf.set_quoted('VERSION', get_option('version') + get_option('append_to_version'))
 conf.set_quoted('WEBSITE', get_option('website'))
+if time.compiled()
+    conf.set_quoted('BUILD_DATETIME', time.stdout())
+else
+    conf.set_quoted('BUILD_DATETIME', 'build date unknown')
+endif
 
 configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
