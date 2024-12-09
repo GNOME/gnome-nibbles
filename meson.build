@@ -8,6 +8,7 @@ project('gnome-nibbles',
 #  4.2.rc2 (if needed)
 #  4.2.0 (next full release)
 #  4.2.1 (bugfix release)
+message(meson.project_name(), 'version', get_option('version') + get_option('append_to_version'))
 gnome      = import('gnome')      # used to install help
 i18n       = import('i18n')       # used for internationalization
 prefix     = get_option('prefix') # base install directory
