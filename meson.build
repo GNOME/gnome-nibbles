@@ -49,13 +49,16 @@ use_libadwaita = libadwaita_dep.found() # = false
 posix_dep = valac.find_library('posix')
 
 # C compiler options
-c_compiler_options = [   
-    # Suppress all the C compiler warnings.
-    '-w',
-    # Define VALA_STRICT_C so we can compile with the proper C code fixes not the workaround.
-    # see https://gitlab.gnome.org/GNOME/vala/-/commit/ae2cbcd0011081581bef406fcbfcd1e86b7dacd3
-    '-DVALA_STRICT_C'
-] 
+c_compiler_options = []
+# Suppress all the C compiler warnings.
+if c.has_argument('-w')
+    c_compiler_options += '-w'
+endif
+# Define VALA_STRICT_C so we can compile with the proper C code fixes not the workaround.
+# see https://gitlab.gnome.org/GNOME/vala/-/commit/ae2cbcd0011081581bef406fcbfcd1e86b7dacd3
+if c.has_argument('-DVALA_STRICT_C')
+    c_compiler_options += '-DVALA_STRICT_C'
+endif
 
 # convert C compiler options to vala compiler options
 vala_compiler_options = []
@@ -63,11 +66,10 @@ foreach i : range(0, c_compiler_options.length(), 1)
     vala_compiler_options += '--Xcc=' + c_compiler_options[i]
 endforeach
 
-vala_if_defines = []
-
 # *** Tests ***
 # For each test we add a --define= entry to vala_if_defines so the vala code
 # can handle any issue or feature.
+vala_if_defines = []
 
 # This test is to support versions of vala(<0.56.15) that have compile issues
 # with versions of gcc(>=14) or clang(>=16).
