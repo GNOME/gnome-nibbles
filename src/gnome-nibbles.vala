@@ -147,10 +147,6 @@ private class Nibbles : Gtk.Application
         #endif
 
         var application = new Nibbles ();
-        application.activate.connect (()=>
-        {
-            application.setup ();
-        });
 
         return application.run (args);
     }
@@ -237,8 +233,10 @@ private class Nibbles : Gtk.Application
         return -1;
     }
 
-    void setup ()
+    protected override void startup ()
     {
+        base.startup ();
+
         Environment.set_prgname ("org.gnome.Nibbles");
         Environment.set_application_name (PROGRAM_NAME);
 
