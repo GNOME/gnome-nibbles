@@ -1,7 +1,9 @@
-4.2.rc2 - December 13, 2024
+4.2.rc3 - January 1, 2025
 ===========================
 
 - Build dependency changes; meson >= 1.1
+- The tar bundle for this release can be downloaded from gitlab:
+  https://gitlab.gnome.org/GNOME/gnome-nibbles/-/releases
 - Build options added.
   You can now pass several configuration options as parameters to meson setup.
   "-Dversion=<override version number>"
@@ -16,6 +18,8 @@
   https://gitlab.gnome.org/GNOME/gnome-nibbles/-/wikis/home
   If anyone has anything they would like added to the wiki let me know.
 - Fixed Issues; #4, #6 & #47.
+- Switch to existing window instead of creating new one on second activation.
+  Thanks to Balló György for this.
 - Updated translations (Chinese (China) & Bulgarian).
 
 4.1.0 - September 12, 2024
