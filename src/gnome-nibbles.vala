@@ -147,7 +147,6 @@ private class Nibbles : Gtk.Application
         #endif
 
         var application = new Nibbles ();
-
         return application.run (args);
     }
 
@@ -236,10 +235,8 @@ private class Nibbles : Gtk.Application
     protected override void startup ()
     {
         base.startup ();
-
         Environment.set_prgname ("org.gnome.Nibbles");
         Environment.set_application_name (PROGRAM_NAME);
-
         Window.set_default_icon_name ("org.gnome.Nibbles");
 
         #if USE_LIBADWAITA
@@ -446,7 +443,7 @@ private class Nibbles : Gtk.Application
 
 
              /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
-             _("Copyright © %u-%u – Ben Corby").printf (2022, 2024)
+             _("Copyright © %u-%u – Ben Corby").printf (2022, 2025)
         #if USE_LIBADWAITA
         /**/);
         about_dialog.set_license_type (License.GPL_3_0);
