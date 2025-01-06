@@ -199,7 +199,6 @@ code5 = '''
         r->hi = a >> 64;
         r->lo = (uint64)a;
         r->negative = (i128->negative && i64 > 0) || (!i128->negative && i64 < 0);
-        //return r;
     }'''
 code5_compiles = c.compiles(code5,
     args : c_compiler_options,
