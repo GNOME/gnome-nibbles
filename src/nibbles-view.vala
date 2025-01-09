@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2023-2024 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2023-2025 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@
 
 /* designed for Gtk 4, link with libgtk-4-dev or gtk4-devel */
 using Gtk;
-using Cairo;
+using Cairo; /* via Gtk.Snapshot.append_cairo */
 
 internal delegate bool NewGameDialogueActiveFunction (out YesNoResultFunction function);
 internal delegate void YesNoResultFunction (uint yes_no);
@@ -91,7 +91,7 @@ static void get_worm_pango_color (int color, bool bright, ref Pango.Color c)
     c.blue =  (uint16)(b * 0xffff);
 }
 
-internal class NibblesView : DrawingArea
+internal class NibblesView : Widget
 {
     /* classes */
     struct Point3D
@@ -248,354 +248,364 @@ internal class NibblesView : DrawingArea
         this.countdown_active = (CountdownActiveFunction)countdown_active;
         this.new_game_dialogue_active = (NewGameDialogueActiveFunction)new_game_dialogue_active;
 
+        focusable = true;
+
+        /*
         // connect to signals
         this.realize.connect (()=>
         {
         });
-        this.resize.connect ((/*int*/width, /*int*/height)=>
+
+        add_tick_callback ((widget, frame_clock)=>
         {
+            //var frame_clock = get_frame_clock ();
+            var times = frame_clock.get_timings (frame_clock.get_frame_counter ());
+            var display_time = times.get_predicted_presentation_time () != 0 ?
+                times.get_predicted_presentation_time () : times.get_frame_time ();
+
+            return true;
         });
+        */
 
-        focusable = true;
+        connect_game_signals (game);
+    }
 
-        // set drawing fuction
-        set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ c, width, height)=>
+    public override void snapshot (Snapshot S)
+    {
+        var c = S.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
+        if (game.three_dimensional_view)
         {
-            if (game.three_dimensional_view)
-            {
-                double x2d, y2d;
-                double r, g, b;
+            double x2d, y2d;
+            double r, g, b;
 
-                View3D v = new View3D ();
-                v.set_view_plain (HEIGHT);
-                v.set_view_point ({ (double)WIDTH / 2.0, 2.0 * (double)HEIGHT, 2.0 * (double)HEIGHT});
-                v.set_scale_x (width / WIDTH);
-                v.set_scale_y (height / HEIGHT);
+            View3D v = new View3D ();
+            v.set_view_plain (HEIGHT);
+            v.set_view_point ({ (double)WIDTH / 2.0, 2.0 * (double)HEIGHT, 2.0 * (double)HEIGHT});
+            v.set_scale_x (get_width () / WIDTH);
+            v.set_scale_y (get_height () / HEIGHT);
 
-                /* black background */
-                v.to_view_plain ({0, 0, 0},out x2d, out y2d);
-                c.move_to (x2d,y2d);
-                v.to_view_plain ({WIDTH, 0, 0},out x2d, out y2d);
-                c.line_to (x2d,y2d);
-                v.to_view_plain ({WIDTH, HEIGHT, 0},out x2d, out y2d);
-                c.line_to (x2d,y2d);
-                v.to_view_plain ({0, HEIGHT, 0},out x2d, out y2d);
-                c.line_to (x2d,y2d);
-                c.set_source_rgb (0,0,0);
-                c.fill ();
+            /* black background */
+            v.to_view_plain ({0, 0, 0},out x2d, out y2d);
+            c.move_to (x2d,y2d);
+            v.to_view_plain ({WIDTH, 0, 0},out x2d, out y2d);
+            c.line_to (x2d,y2d);
+            v.to_view_plain ({WIDTH, HEIGHT, 0},out x2d, out y2d);
+            c.line_to (x2d,y2d);
+            v.to_view_plain ({0, HEIGHT, 0},out x2d, out y2d);
+            c.line_to (x2d,y2d);
+            c.set_source_rgb (0,0,0);
+            c.fill ();
 
-                /* map worms */
-                Worm[] dematerialized_worms = {};
-                Worm?[,] worm_at = new Worm?[WIDTH, HEIGHT];
-                foreach (Worm worm in game.worms)
-                    if (!worm.is_stopped)
-                        if (worm.is_materialized)
-                            foreach (var p in worm.list)
-                                worm_at[p>>8, (uint8)p] = worm;
-                        else
-                            dematerialized_worms += worm;
-                foreach (Worm worm in dematerialized_worms)
-                    foreach (var p in worm.list)
-                        if (worm_at[p>>8, (uint8)p] == null)
+            /* map worms */
+            Worm[] dematerialized_worms = {};
+            Worm?[,] worm_at = new Worm?[WIDTH, HEIGHT];
+            foreach (Worm worm in game.worms)
+                if (!worm.is_stopped)
+                    if (worm.is_materialized)
+                        foreach (var p in worm.list)
                             worm_at[p>>8, (uint8)p] = worm;
+                    else
+                        dematerialized_worms += worm;
+            foreach (Worm worm in dematerialized_worms)
+                foreach (var p in worm.list)
+                    if (worm_at[p>>8, (uint8)p] == null)
+                        worm_at[p>>8, (uint8)p] = worm;
 
-                /* map bonuses */
-                Bonus?[,] bonus_at = new Bonus?[WIDTH, HEIGHT];
-                foreach (var bonus in game.get_bonuses ())
-                        bonus_at[bonus.x, bonus.y] = bonus;
+            /* map bonuses */
+            Bonus?[,] bonus_at = new Bonus?[WIDTH, HEIGHT];
+            foreach (var bonus in game.get_bonuses ())
+                    bonus_at[bonus.x, bonus.y] = bonus;
 
-                /* draw */
-                for (int y = 0; y < HEIGHT; y++)
+            /* draw */
+            for (int y = 0; y < HEIGHT; y++)
+            {
+                for (int x = 0; ; x = x < WIDTH / 2 ? WIDTH - 1 - x : WIDTH - x)
                 {
-                    for (int x = 0; ; x = x < WIDTH / 2 ? WIDTH - 1 - x : WIDTH - x)
+                    if (worm_at[x, y] != null)
                     {
-                        if (worm_at[x, y] != null)
+                        get_worm_rgb (game.worm_props.@get (worm_at[x, y]).color, true, out r, out g, out b);
+                        worm_at[x, y].was_bonus_eaten_at_this_position ((uint16)(x<<8 | y));
+                        draw_sphere (c, v, x, y, r, g, b, worm_at[x, y].was_bonus_eaten_at_this_position ((uint16)(x<<8 | y)) ? 1.25 : 1);
+                        Position head = worm_at[x, y].head;
+                        if (head.x == x && head.y == y)
                         {
-                            get_worm_rgb (game.worm_props.@get (worm_at[x, y]).color, true, out r, out g, out b);
-                            worm_at[x, y].was_bonus_eaten_at_this_position ((uint16)(x<<8 | y));
-                            draw_sphere (c, v, x, y, r, g, b, worm_at[x, y].was_bonus_eaten_at_this_position ((uint16)(x<<8 | y)) ? 1.25 : 1);
-                            Position head = worm_at[x, y].head;
-                            if (head.x == x && head.y == y)
+                            switch (worm_at[x, y].direction)
                             {
-                                switch (worm_at[x, y].direction)
-                                {
-                                    case WormDirection.SOUTH:
-                                        draw_eyes_front (c, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
-                                        break;
-                                    case WormDirection.EAST:
-                                        draw_eyes_right (c, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
-                                        break;
-                                    case WormDirection.WEST:
-                                        draw_eyes_left (c, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
-                                        break;
-                                    default:
-                                        break;
-                                }
+                                case WormDirection.SOUTH:
+                                    draw_eyes_front (c, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
+                                    break;
+                                case WormDirection.EAST:
+                                    draw_eyes_right (c, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
+                                    break;
+                                case WormDirection.WEST:
+                                    draw_eyes_left (c, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
+                                    break;
+                                default:
+                                    break;
                             }
                         }
-                        if (game.board[x, y] >= 'b' && game.board[x, y] <= 'l')
-                        {
-                            /* draw top of wall */
-                            v.to_view_plain ({x, y ,1},out x2d, out y2d);
-                            c.move_to (x2d,y2d);
-                            v.to_view_plain ({x+1,y,1},out x2d, out y2d);
-                            c.line_to (x2d,y2d);
-                            v.to_view_plain ({x+1,y+1,1},out x2d, out y2d);
-                            c.line_to (x2d,y2d);
-                            v.to_view_plain ({x,y+1,1},out x2d, out y2d);
-                            c.line_to (x2d,y2d);
-                            c.set_source_rgb (0.95,0.95,0.95);
-                            c.fill ();
+                    }
+                    if (game.board[x, y] >= 'b' && game.board[x, y] <= 'l')
+                    {
+                        /* draw top of wall */
+                        v.to_view_plain ({x, y ,1},out x2d, out y2d);
+                        c.move_to (x2d,y2d);
+                        v.to_view_plain ({x+1,y,1},out x2d, out y2d);
+                        c.line_to (x2d,y2d);
+                        v.to_view_plain ({x+1,y+1,1},out x2d, out y2d);
+                        c.line_to (x2d,y2d);
+                        v.to_view_plain ({x,y+1,1},out x2d, out y2d);
+                        c.line_to (x2d,y2d);
+                        c.set_source_rgb (0.95,0.95,0.95);
+                        c.fill ();
 
-                            /* draw wall inside */
-                            if (x < v.view_point_x () && !(game.board[x + 1, y] >= 'b' && game.board[x + 1, y] <= 'l'))
-                            {
-                                v.to_view_plain ({x+1,y,0},out x2d, out y2d);
-                                c.move_to (x2d,y2d);
-                                v.to_view_plain ({x+1,y+1,0},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
-                                v.to_view_plain ({x+1,y+1,1},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
-                                v.to_view_plain ({x+1,y,1},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
-                                c.set_source_rgb (0.5,0.5,0.5);
-                                c.fill ();
-                            }
-                            else if (x > v.view_point_x () && !(game.board[x - 1, y] >= 'b' && game.board[x - 1, y] <= 'l'))
-                            {
-                                v.to_view_plain ({x,y,0},out x2d, out y2d);
-                                c.move_to (x2d,y2d);
-                                v.to_view_plain ({x,y+1,0},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
-                                v.to_view_plain ({x,y+1,1},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
-                                v.to_view_plain ({x,y,1},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
-                                c.set_source_rgb (0.5,0.5,0.5);
-                                c.fill ();
-                            }
-                            else
-                            {
-                                /* if we are at the view point we don't need to draw either the left side or the right side of the wall */
-                            }
-                            /* draw wall front */
-                            v.to_view_plain ({x,y+1,0},out x2d, out y2d);
+                        /* draw wall inside */
+                        if (x < v.view_point_x () && !(game.board[x + 1, y] >= 'b' && game.board[x + 1, y] <= 'l'))
+                        {
+                            v.to_view_plain ({x+1,y,0},out x2d, out y2d);
                             c.move_to (x2d,y2d);
                             v.to_view_plain ({x+1,y+1,0},out x2d, out y2d);
                             c.line_to (x2d,y2d);
                             v.to_view_plain ({x+1,y+1,1},out x2d, out y2d);
                             c.line_to (x2d,y2d);
-                            v.to_view_plain ({x,y+1,1},out x2d, out y2d);
+                            v.to_view_plain ({x+1,y,1},out x2d, out y2d);
                             c.line_to (x2d,y2d);
-                            c.set_source_rgb (0.75,0.75,0.75);
+                            c.set_source_rgb (0.5,0.5,0.5);
                             c.fill ();
                         }
-                        /* warps */
-                        if (game.board[x + 0, y + 0] == NibblesGame.WARPCHAR &&
-                            game.board[x + 1, y + 0] == NibblesGame.WARPCHAR &&
-                            game.board[x + 0, y + 1] == NibblesGame.WARPCHAR &&
-                            game.board[x + 1, y + 1] == NibblesGame.WARPCHAR)
+                        else if (x > v.view_point_x () && !(game.board[x - 1, y] >= 'b' && game.board[x - 1, y] <= 'l'))
                         {
-                            for (int z = 0; z < 6; z++)
-                            {
-                                uint64 a40 = animate % 40;
-                                uint64 a20 = animate % 20;
-                                uint64 a20o = (animate + 10) % 20;
-                                double a10 = animate % 10;
-                                double angle[4] = {
-                                    a40 < 20 ?              (a20 < 10 ? a10 : 10.0 - a10) / 5.0 : 0,
-                                    a40 >= 10 && a40 < 30 ? (a20o < 10 ? a10 : 10.0 - a10) / 5.0 : 0,
-                                    a40 >= 20 && a40 < 40 ? (a20 < 10 ? a10 : 10.0 - a10) / 5.0 : 0,
-                                    a40 >= 30 || a40 < 10 ? (a20o < 10 ? a10 : 10.0 - a10) / 5.0 : 0};
-                                draw_oval (c, v,
-                                     { (double)x + 0.1 * z, (double)y + 0.1 * z, angle[0]},
-                                     { (double)x + 2 - 0.1 * z, (double)y + 0.1 * z, angle[1]},
-                                     { (double)x + 2 - 0.1 * z, (double)y + 2 - 0.1 * z, angle[2]},
-                                     { (double)x + 0.1 * z, (double)y + 2 - 0.1 * z, angle[3]});
-                                c.set_source_rgb (0.0,0.0,0.6 - 0.1 * (double)z);
-                                c.fill ();
-                            }
+                            v.to_view_plain ({x,y,0},out x2d, out y2d);
+                            c.move_to (x2d,y2d);
+                            v.to_view_plain ({x,y+1,0},out x2d, out y2d);
+                            c.line_to (x2d,y2d);
+                            v.to_view_plain ({x,y+1,1},out x2d, out y2d);
+                            c.line_to (x2d,y2d);
+                            v.to_view_plain ({x,y,1},out x2d, out y2d);
+                            c.line_to (x2d,y2d);
+                            c.set_source_rgb (0.5,0.5,0.5);
+                            c.fill ();
                         }
-                        /* bonus */
-                        if (bonus_at [x, y] != null)
-                            draw_3D_bonus (c, v, x, y, bonus_at [x, y]);
-
-                        /* have we done all the x positions for this line y */
-                        if (x == WIDTH / 2)
-                            break;
+                        else
+                        {
+                            /* if we are at the view point we don't need to draw either the left side or the right side of the wall */
+                        }
+                        /* draw wall front */
+                        v.to_view_plain ({x,y+1,0},out x2d, out y2d);
+                        c.move_to (x2d,y2d);
+                        v.to_view_plain ({x+1,y+1,0},out x2d, out y2d);
+                        c.line_to (x2d,y2d);
+                        v.to_view_plain ({x+1,y+1,1},out x2d, out y2d);
+                        c.line_to (x2d,y2d);
+                        v.to_view_plain ({x,y+1,1},out x2d, out y2d);
+                        c.line_to (x2d,y2d);
+                        c.set_source_rgb (0.75,0.75,0.75);
+                        c.fill ();
                     }
-                }
-
-                if (countdown_active () > 0)
-                {
-                    /* count down */
-                    string text = seconds_string (countdown_active ());
-                    int text_width = (int)v.2D_diff ({WIDTH / 2 - 5, HEIGHT / 2, 0}, {WIDTH / 2 + 5, HEIGHT / 2, 0});
-                    double w, h;
-                    int font_size = calculate_font_size (c, text, text_width, out w, out h);
-                    double center_x, center_y;
-                    v.to_view_plain ({WIDTH / 2, HEIGHT / 2, 0}, out center_x, out center_y);
-                    draw_text_font_size (c, (int)(center_x - w / 2), (int)(center_y - h / 2), text, font_size);
-
-                    /* draw name labels */
-                    foreach (var worm in game.worms)
+                    /* warps */
+                    if (game.board[x + 0, y + 0] == NibblesGame.WARPCHAR &&
+                        game.board[x + 1, y + 0] == NibblesGame.WARPCHAR &&
+                        game.board[x + 0, y + 1] == NibblesGame.WARPCHAR &&
+                        game.board[x + 1, y + 1] == NibblesGame.WARPCHAR)
                     {
-                        if (!worm.list.is_empty)
+                        for (int z = 0; z < 6; z++)
                         {
-                            var color = game.worm_props.@get (worm).color;
-                            if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
-                            {
-                                /* vertical worm */
-                                int middle = worm.length / 2;
-                                v.to_view_plain ({ (worm.list[middle] >> 8) + 1.5, (uint8)(worm.list[middle]), 0}, out x2d, out y2d);
-                                draw_text_target_width (c, (int)x2d, (int)y2d, worm_name (worm.id + 1),
-                                 (int)v.2D_diff ({ (worm.list[0] >> 8), (uint8)(worm.list[0]), 0},
-                                             { (worm.list[worm.length - 1] >> 8), (uint8)(worm.list[worm.length - 1]) + 1, 0}),
-                                 color);
-                            }
-                            else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
-                            {
-                                /* horizontal worm */
-                                double x_2d[2], y_2d[2];
-                                int x = worm.list[0] >> 8;
-                                int x_max = worm.list[worm.length - 1] >> 8;
-                                if (x > x_max)
-                                {
-                                    var swap = x;
-                                    x = x_max;
-                                    x_max = swap;
-                                }
-                                v.to_view_plain ({x, (uint8)(worm.list[0]), 3}, out x_2d[0], out y_2d[0]);
-                                v.to_view_plain ({x_max + 1, (uint8)(worm.list[0]), 3}, out x_2d[1], out y_2d[1]);
-                                draw_text_target_width (c, (int)x_2d[0], (int)y_2d[0], worm_name (worm.id + 1), (int)(x_2d[1] - x_2d[0]), color);
-                            }
+                            uint64 a40 = animate % 40;
+                            uint64 a20 = animate % 20;
+                            uint64 a20o = (animate + 10) % 20;
+                            double a10 = animate % 10;
+                            double angle[4] = {
+                                a40 < 20 ?              (a20 < 10 ? a10 : 10.0 - a10) / 5.0 : 0,
+                                a40 >= 10 && a40 < 30 ? (a20o < 10 ? a10 : 10.0 - a10) / 5.0 : 0,
+                                a40 >= 20 && a40 < 40 ? (a20 < 10 ? a10 : 10.0 - a10) / 5.0 : 0,
+                                a40 >= 30 || a40 < 10 ? (a20o < 10 ? a10 : 10.0 - a10) / 5.0 : 0};
+                            draw_oval (c, v,
+                                 { (double)x + 0.1 * z, (double)y + 0.1 * z, angle[0]},
+                                 { (double)x + 2 - 0.1 * z, (double)y + 0.1 * z, angle[1]},
+                                 { (double)x + 2 - 0.1 * z, (double)y + 2 - 0.1 * z, angle[2]},
+                                 { (double)x + 0.1 * z, (double)y + 2 - 0.1 * z, angle[3]});
+                            c.set_source_rgb (0.0,0.0,0.6 - 0.1 * (double)z);
+                            c.fill ();
                         }
                     }
-                }
+                    /* bonus */
+                    if (bonus_at [x, y] != null)
+                        draw_3D_bonus (c, v, x, y, bonus_at [x, y]);
 
-                if (new_game_dialogue_active (out result_function))
-                {
-                    new_game_dialogue_draw (c, width, height, result_function);
+                    /* have we done all the x positions for this line y */
+                    if (x == WIDTH / 2)
+                        break;
                 }
             }
-            else
+
+            if (countdown_active () > 0)
             {
-                const double max_delta_deviation = 1.15;
-                int x_delta = width / WIDTH;
-                int y_delta = height / HEIGHT;
-                if (x_delta > max_delta_deviation * y_delta)
-                    x_delta = (int)(y_delta * max_delta_deviation);
-                else if (y_delta > max_delta_deviation * x_delta)
-                    y_delta = (int)(x_delta * max_delta_deviation);
-                int x_offset = (width - x_delta * WIDTH) / 2;
-                int y_offset = (height - y_delta * HEIGHT) / 2;
+                /* count down */
+                string text = seconds_string (countdown_active ());
+                int text_width = (int)v.2D_diff ({WIDTH / 2 - 5, HEIGHT / 2, 0}, {WIDTH / 2 + 5, HEIGHT / 2, 0});
+                double w, h;
+                int font_size = calculate_font_size (c, text, text_width, out w, out h);
+                double center_x, center_y;
+                v.to_view_plain ({WIDTH / 2, HEIGHT / 2, 0}, out center_x, out center_y);
+                draw_text_font_size (c, (int)(center_x - w / 2), (int)(center_y - h / 2), text, font_size);
 
-                /* black background */
-                c.rectangle (x_offset, y_offset, x_delta * WIDTH, y_delta * HEIGHT);
-                c.set_source_rgb (0,0,0);
-                c.fill ();
-
-                /* draw walls & warps */
-                for (int x = 0; x < WIDTH; x++)
+                /* draw name labels */
+                foreach (var worm in game.worms)
                 {
-                    for (int y = 0; y < HEIGHT; y++)
+                    if (!worm.list.is_empty)
                     {
-                        /* walls */
-                        if (game.board[x, y] >= 'b' && game.board[x, y] <= 'l')
-                            draw_wall_segment (game.board[x, y],
-                                c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta);
-                        /* warps */
-                        if (game.board[x + 0, y + 0] == NibblesGame.WARPCHAR &&
-                            game.board[x + 1, y + 0] == NibblesGame.WARPCHAR &&
-                            game.board[x + 0, y + 1] == NibblesGame.WARPCHAR &&
-                            game.board[x + 1, y + 1] == NibblesGame.WARPCHAR)
+                        var color = game.worm_props.@get (worm).color;
+                        if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
                         {
-                            draw_bonus (c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta + x_delta, y_delta + y_delta, WARP);
+                            /* vertical worm */
+                            int middle = worm.length / 2;
+                            v.to_view_plain ({ (worm.list[middle] >> 8) + 1.5, (uint8)(worm.list[middle]), 0}, out x2d, out y2d);
+                            draw_text_target_width (c, (int)x2d, (int)y2d, worm_name (worm.id + 1),
+                             (int)v.2D_diff ({ (worm.list[0] >> 8), (uint8)(worm.list[0]), 0},
+                                         { (worm.list[worm.length - 1] >> 8), (uint8)(worm.list[worm.length - 1]) + 1, 0}),
+                             color);
+                        }
+                        else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
+                        {
+                            /* horizontal worm */
+                            double x_2d[2], y_2d[2];
+                            int x = worm.list[0] >> 8;
+                            int x_max = worm.list[worm.length - 1] >> 8;
+                            if (x > x_max)
+                            {
+                                var swap = x;
+                                x = x_max;
+                                x_max = swap;
+                            }
+                            v.to_view_plain ({x, (uint8)(worm.list[0]), 3}, out x_2d[0], out y_2d[0]);
+                            v.to_view_plain ({x_max + 1, (uint8)(worm.list[0]), 3}, out x_2d[1], out y_2d[1]);
+                            draw_text_target_width (c, (int)x_2d[0], (int)y_2d[0], worm_name (worm.id + 1), (int)(x_2d[1] - x_2d[0]), color);
                         }
                     }
                 }
+            }
 
-                /* draw materialized worms */
-                var materialized_worm_positions = new Gee.ArrayList<uint16> ();
-                int[] dematerialized_worms = {};
-                for (int i = 0; i < game.worms.size; i++)
+            if (new_game_dialogue_active (out result_function))
+            {
+                new_game_dialogue_draw (c, get_width (), get_height (), result_function);
+            }
+        }
+        else /* 2D view */
+        {
+            const double max_delta_deviation = 1.15;
+            int x_delta = get_width () / WIDTH;
+            int y_delta = get_height () / HEIGHT;
+            if (x_delta > max_delta_deviation * y_delta)
+                x_delta = (int)(y_delta * max_delta_deviation);
+            else if (y_delta > max_delta_deviation * x_delta)
+                y_delta = (int)(x_delta * max_delta_deviation);
+            int x_offset = (get_width () - x_delta * WIDTH) / 2;
+            int y_offset = (get_height () - y_delta * HEIGHT) / 2;
+
+            /* black background */
+            c.rectangle (x_offset, y_offset, x_delta * WIDTH, y_delta * HEIGHT);
+            c.set_source_rgb (0,0,0);
+            c.fill ();
+
+            /* draw walls & warps */
+            for (int x = 0; x < WIDTH; x++)
+            {
+                for (int y = 0; y < HEIGHT; y++)
                 {
-                    if (game.worms[i].is_materialized)
-                        foreach (var position in game.worms[i].list)
-                        {
-                            uint8 x = position >> 8;
-                            uint8 y = (uint8)position;
-                            draw_worm_segment (c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta, game.worm_props.@get (game.worms[i]).color, true, game.worms[i].was_bonus_eaten_at_this_position (position));
-                            materialized_worm_positions.add (position);
-                        }
-                    else
-                        dematerialized_worms += i;
+                    /* walls */
+                    if (game.board[x, y] >= 'b' && game.board[x, y] <= 'l')
+                        draw_wall_segment (game.board[x, y],
+                            c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta);
+                    /* warps */
+                    if (game.board[x + 0, y + 0] == NibblesGame.WARPCHAR &&
+                        game.board[x + 1, y + 0] == NibblesGame.WARPCHAR &&
+                        game.board[x + 0, y + 1] == NibblesGame.WARPCHAR &&
+                        game.board[x + 1, y + 1] == NibblesGame.WARPCHAR)
+                    {
+                        draw_bonus (c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta + x_delta, y_delta + y_delta, WARP);
+                    }
                 }
-                /* draw dematerialized worms */
-                for (int i = 0; i < dematerialized_worms.length; i++)
-                {
+            }
+
+            /* draw materialized worms */
+            var materialized_worm_positions = new Gee.ArrayList<uint16> ();
+            int[] dematerialized_worms = {};
+            for (int i = 0; i < game.worms.size; i++)
+            {
+                if (game.worms[i].is_materialized)
                     foreach (var position in game.worms[i].list)
                     {
-                        if (!materialized_worm_positions.contains (position))
-                        {
-                            uint8 x = position >> 8;
-                            uint8 y = (uint8)position;
-                            draw_worm_segment (c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta, game.worm_props.@get (game.worms[i]).color, false, false);
-                        }
+                        uint8 x = position >> 8;
+                        uint8 y = (uint8)position;
+                        draw_worm_segment (c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta, game.worm_props.@get (game.worms[i]).color, true, game.worms[i].was_bonus_eaten_at_this_position (position));
+                        materialized_worm_positions.add (position);
                     }
-                }
-
-                /* draw bonuses */
-                foreach (var bonus in game.get_bonuses ())
+                else
+                    dematerialized_worms += i;
+            }
+            /* draw dematerialized worms */
+            for (int i = 0; i < dematerialized_worms.length; i++)
+            {
+                foreach (var position in game.worms[i].list)
                 {
-                    draw_bonus (c, x_delta * bonus.x + x_offset, y_delta * bonus.y + y_offset, x_delta + x_delta, y_delta + y_delta, bonus.etype);
-                }
-
-                if (countdown_active () > 0)
-                {
-                    /* count down */
-                    string text = seconds_string (countdown_active ());
-                    int text_width = x_delta * 10;
-                    double w, h;
-                    int font_size = calculate_font_size (c, text, text_width, out w, out h);
-                    draw_text_font_size (c, (int)(x_offset + x_delta * (WIDTH / 2) - w / 2), (int)(y_offset + y_delta * (HEIGHT / 2) - h / 2), text, font_size);
-
-
-                    /* draw name labels */
-                    foreach (var worm in game.worms)
+                    if (!materialized_worm_positions.contains (position))
                     {
-                        if (!worm.list.is_empty)
-                        {
-                            var color = game.worm_props.@get (worm).color;
-                            if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
-                            {
-                                /* vertical worm */
-                                int middle = worm.length / 2;
-                                draw_text_target_width (c, x_offset + x_delta * ((worm.list[middle] >> 8) + 1) + x_delta / 2,
-                                              y_offset + y_delta * ((uint8)worm.list[middle]),
-                                              worm_name (worm.id + 1), x_delta * worm.length, color);
-                            }
-                            else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
-                            {
-                                /* horizontal worm */
-                                int x = worm.list[0] >> 8;
-                                if (x > worm.list[worm.length-1] >> 8)
-                                    x = worm.list[worm.length-1] >> 8;
-                                draw_text_target_width (c, x_offset + x_delta * x,
-                                              y_offset + y_delta * ((uint8)worm.list[0]) - y_delta,
-                                              worm_name (worm.id + 1), x_delta * worm.length, color);
-                            }
-                        }
+                        uint8 x = position >> 8;
+                        uint8 y = (uint8)position;
+                        draw_worm_segment (c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta, game.worm_props.@get (game.worms[i]).color, false, false);
                     }
-                }
-
-                if (new_game_dialogue_active (out result_function))
-                {
-                    new_game_dialogue_draw (c, width, height, result_function);
                 }
             }
-        });
-        connect_game_signals (game);
+
+            /* draw bonuses */
+            foreach (var bonus in game.get_bonuses ())
+            {
+                draw_bonus (c, x_delta * bonus.x + x_offset, y_delta * bonus.y + y_offset, x_delta + x_delta, y_delta + y_delta, bonus.etype);
+            }
+
+            if (countdown_active () > 0)
+            {
+                /* count down */
+                string text = seconds_string (countdown_active ());
+                int text_width = x_delta * 10;
+                double w, h;
+                int font_size = calculate_font_size (c, text, text_width, out w, out h);
+                draw_text_font_size (c, (int)(x_offset + x_delta * (WIDTH / 2) - w / 2), (int)(y_offset + y_delta * (HEIGHT / 2) - h / 2), text, font_size);
+
+
+                /* draw name labels */
+                foreach (var worm in game.worms)
+                {
+                    if (!worm.list.is_empty)
+                    {
+                        var color = game.worm_props.@get (worm).color;
+                        if (worm.direction == WormDirection.UP || worm.direction == WormDirection.DOWN)
+                        {
+                            /* vertical worm */
+                            int middle = worm.length / 2;
+                            draw_text_target_width (c, x_offset + x_delta * ((worm.list[middle] >> 8) + 1) + x_delta / 2,
+                                          y_offset + y_delta * ((uint8)worm.list[middle]),
+                                          worm_name (worm.id + 1), x_delta * worm.length, color);
+                        }
+                        else if (worm.direction == WormDirection.LEFT || worm.direction == WormDirection.RIGHT)
+                        {
+                            /* horizontal worm */
+                            int x = worm.list[0] >> 8;
+                            if (x > worm.list[worm.length-1] >> 8)
+                                x = worm.list[worm.length-1] >> 8;
+                            draw_text_target_width (c, x_offset + x_delta * x,
+                                          y_offset + y_delta * ((uint8)worm.list[0]) - y_delta,
+                                          worm_name (worm.id + 1), x_delta * worm.length, color);
+                        }
+                    }
+                }
+            }
+
+            if (new_game_dialogue_active (out result_function))
+            {
+                new_game_dialogue_draw (c, get_width (), get_height (), result_function);
+            }
+        }
     }
 
     string seconds_string (int s)
