@@ -3,7 +3,7 @@
    This file is part of GNOME Nibbles.
 
    Copyright (C) 2015-2016 Iulian Radu
-   Copyright (C) 2023 Ben Corby
+   Copyright (C) 2023-2025 Ben Corby
 
    GNOME Nibbles is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -23,9 +23,23 @@
   <template class="ControlsGrid" parent="GtkBox">
     <property name="halign">fill</property>
     <property name="valign">fill</property>
+    <property name="orientation">vertical</property>
+    <property name="homogeneous">false</property>
+
+<!-- first child of the vertical box is the name of the player -->
+    <child>
+      <object class="GtkButton" id="name_label">
+        <property name="visible">true</property>
+        <property name="has-frame" >false</property>
+        <property name="label" >X</property>
+        <property name="halign">center</property>
+      </object>
+    </child>
+
+<!-- second child of the vertical box is the key grid -->
     <child>
       <object class="GtkOverlay" id="overlay">
-        <property name="visible">1</property>
+        <property name="visible">true</property>
         <property name="child">
           <object class="GtkGrid" id="grid">
             <property name="valign">center</property>
@@ -38,24 +52,13 @@
             <property name="margin-start">15</property>
             <property name="margin-end">15</property>
             <child>
-              <object class="GtkButton" id="name_label">
-                <property name="has-frame" >false</property>
-                <property name="label" >X</property>
-                <property name="halign">center</property>
-                <layout>
-                  <property name="column">0</property>
-                  <property name="row">0</property>
-                  <property name="column-span">5</property>
-                </layout>
-              </object>
-            </child>
-            <child>
-              <object class="GtkDrawingArea" id="arrow_up">
+              <object class="Arrow" id="arrow_up">
+                <property name="direction">up</property>
                 <property name="width-request">35</property>
                 <property name="height-request">35</property>
                 <layout>
                   <property name="column">2</property>
-                  <property name="row">1</property>
+                  <property name="row">0</property>
                 </layout>
               </object>
             </child>
@@ -67,17 +70,18 @@
                 <property name="height-request">45</property>
                 <layout>
                   <property name="column">2</property>
-                  <property name="row">2</property>
+                  <property name="row">1</property>
                 </layout>
               </object>
             </child>
             <child>
-              <object class="GtkDrawingArea" id="arrow_left">
+              <object class="Arrow" id="arrow_left">
+                <property name="direction">left</property>
                 <property name="width-request">35</property>
                 <property name="height-request">35</property>
                 <layout>
                   <property name="column">0</property>
-                  <property name="row">3</property>
+                  <property name="row">2</property>
                 </layout>
               </object>
             </child>
@@ -89,17 +93,18 @@
                 <property name="height-request">45</property>
                 <layout>
                   <property name="column">1</property>
-                  <property name="row">3</property>
+                  <property name="row">2</property>
                 </layout>
               </object>
             </child>
             <child>
-              <object class="GtkDrawingArea" id="arrow_right">
+              <object class="Arrow" id="arrow_right">
+                <property name="direction">right</property>
                 <property name="width-request">35</property>
                 <property name="height-request">35</property>
                 <layout>
                   <property name="column">4</property>
-                  <property name="row">3</property>
+                  <property name="row">2</property>
                 </layout>
               </object>
             </child>
@@ -111,17 +116,18 @@
                 <property name="height-request">45</property>
                 <layout>
                   <property name="column">3</property>
-                  <property name="row">3</property>
+                  <property name="row">2</property>
                 </layout>
               </object>
             </child>
             <child>
-              <object class="GtkDrawingArea" id="arrow_down">
+              <object class="Arrow" id="arrow_down">
+                <property name="direction">down</property>
                 <property name="width-request">35</property>
                 <property name="height-request">35</property>
                 <layout>
                   <property name="column">2</property>
-                  <property name="row">5</property>
+                  <property name="row">4</property>
                 </layout>
               </object>
             </child>
@@ -133,7 +139,7 @@
                 <property name="height-request">45</property>
                 <layout>
                   <property name="column">2</property>
-                  <property name="row">4</property>
+                  <property name="row">3</property>
                 </layout>
               </object>
             </child>
@@ -141,5 +147,53 @@
         </property>
       </object>
     </child>
+
+<!-- third child of the vertical box is the color selection wheel -->
+    <child>
+      <object class="ColourWheel" id="wheel">
+        <property name="visible">false</property>
+        <property name="height-request">225</property>
+        <property name="width-request">225</property>
+        <property name="valign">center</property>
+        <property name="halign">center</property>
+        <property name="vexpand">1</property>
+        <property name="hexpand">1</property>
+        <property name="margin-top">15</property>
+        <property name="margin-bottom">15</property>
+        <property name="margin-start">15</property>
+        <property name="margin-end">15</property>
+        <child>
+          <object class="ColourWheelSegment">
+            <property name="colour">0xff0000</property>
+          </object>
+        </child>
+        <child>
+          <object class="ColourWheelSegment">
+            <property name="colour">0x00c000</property>
+          </object>
+        </child>
+        <child>
+          <object class="ColourWheelSegment">
+            <property name="colour">0x0080ff</property>
+          </object>
+        </child>
+        <child>
+          <object class="ColourWheelSegment">
+            <property name="colour">0xffff00</property>
+          </object>
+        </child>
+        <child>
+          <object class="ColourWheelSegment">
+            <property name="colour">0x00ffff</property>
+          </object>
+        </child>
+        <child>
+          <object class="ColourWheelSegment">
+            <property name="colour">0xc000c0</property>
+          </object>
+        </child>
+      </object>
+    </child>
+
   </template>
 </interface>

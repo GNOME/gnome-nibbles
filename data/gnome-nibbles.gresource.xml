@@ -2,7 +2,10 @@
 <gresources>
   <gresource prefix="/org/gnome/Nibbles/ui">
     <file preprocess="xml-stripblanks"                   alias="are-you-sure.ui"        >ui/are-you-sure.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="arrow.ui"               >ui/arrow.ui</file>
     <file preprocess="xml-stripblanks"                   alias="board-progress.ui"      >ui/board-progress.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="colourwheel.ui"         >ui/colourwheel.ui</file>
+    <file preprocess="xml-stripblanks"                   alias="colourwheelsegment.ui"  >ui/colourwheelsegment.ui</file>
     <file preprocess="xml-stripblanks"                   alias="controls.ui"            >ui/controls.ui</file>
     <file preprocess="xml-stripblanks"                   alias="controls-grid.ui"       >ui/controls-grid.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="first-run.ui"           >ui/first-run.ui</file>

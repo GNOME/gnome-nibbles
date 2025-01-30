@@ -26,6 +26,7 @@ gnome_nibbles_sources = [
     'vapi/config.vapi',
     'board-progress.vala',
     'boni.vala',
+    'colourwheel.vala',
     'controls.vala',
     'gnome-nibbles.vala',
     'nibbles-game.vala',

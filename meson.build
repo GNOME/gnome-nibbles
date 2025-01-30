@@ -22,8 +22,8 @@ bindir     = join_paths(prefix, get_option ('bindir'))
 
 # Dependencies
 vala_minimum_version = '0.55.1' # for sub-functions; https://gitlab.gnome.org/GNOME/vala/-/commit/048aaba0cd88b784fe9fa421dbad494019abd42e
-glib_minimum_version = '2.66.0' # minimum version for GTK 4
-glib_target_version = '2.80.0' # tested with versions 2.74 & 2.80
+glib_minimum_version = '2.76.0' # minimum version for GTK 4.14
+glib_target_version = '2.80.0' # tested with version 2.80
 target_glib = '--target-glib=' + '@0@'.format(glib_target_version)
 
 valac = meson.get_compiler('vala')
@@ -36,8 +36,8 @@ gee_dep = dependency('gee-0.8')
 gio_dep = dependency('gio-2.0', version: '>= @0@'.format(glib_minimum_version))
 glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_minimum_version))
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
+gtk_dep = dependency('gtk4', version: '>= 4.14') # needed for Gsk.PathBuilder()
 libgnome_games_support_dep = dependency('libgnome-games-support-2', version: '>= 2.0.0') # requires GTK 4.2
-gtk_dep = dependency('gtk4') # this code works on 4.8.3 (debian 12 with updates), it hasn't been tried on anything earlier
 if get_option('use_libadwaita')
     libadwaita_dep = dependency('libadwaita-1', version: '>= 1.5.0', required : false) # requires GTK 4.13.4
 endif

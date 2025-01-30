@@ -2,7 +2,7 @@
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
  * Copyright (C) 2020 Arnaud Bonatti <arnaud.bonatti@gmail.com>
- * Copyright (C) 2023 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2023-2025 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,10 +29,14 @@
  * grep -ne '[^][)(_!$ "](' *.vala
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
+ * grep -ne ' $' *.vala
  *
  */
 
 using Gtk;
+using Gsk;
+
+internal delegate bool CheckDuplicate (uint i);
 
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/controls.ui")]
 private class Controls : Box
@@ -126,20 +130,73 @@ private class Controls : Box
     }
 }
 
+
+[GtkTemplate (ui = "/org/gnome/Nibbles/ui/arrow.ui")]
+internal class Arrow : Widget
+{
+    /* direction property */
+    internal enum eDirection {up, down, left, right}
+    internal eDirection direction {set; get;}
+    /* structor used by render function */
+    struct xy {double x; double y;}
+    /* render function */
+    public override void snapshot (Snapshot s)
+    {
+        var path = new PathBuilder ();
+        double width = get_width ();
+        double height = get_height ();
+        xy a[7];
+        switch (direction)
+        {
+            case up:
+            default:
+                a = {{0, height / 2},{width / 2, 0},{width, height /2},{width * 2 / 3, height / 2},{width * 2 / 3, height},{width / 3, height},{width / 3, height / 2}};
+                break;
+            case down:
+                a = {{0, height / 2},{width / 2, height},{width, height /2},{width * 2 / 3, height / 2},{width * 2 / 3, 0},{width / 3, 0},{width / 3, height / 2}};
+                break;
+            case left:
+                a = {{width / 2, 0},{0, height / 2},{width/2, height},{width / 2, height * 2 / 3},{width, height * 2 / 3},{width, height / 3},{width / 2, height / 3}};
+                break;
+            case right:
+                a = {{width / 2, 0},{width, height / 2},{width / 2, height},{width / 2, height * 2 / 3},{0, height  * 2 / 3},{0, height / 3},{width / 2, height / 3}};
+                break;
+        }
+        /* draw */
+        for (int i = 0; i < a.length; i++)
+        {
+            if (i == 0)
+                path.move_to ((float)a[0].x, (float)a[0].y);
+            else
+                path.line_to ((float)a[i].x, (float)a[i].y);
+        }
+        Gdk.RGBA c;
+        if (check_duplicate != null && check_duplicate (direction))
+            c = {0.75f, 0f, 0f, 1f};
+        else
+            c = {0.2890625f, 0.5625f, 0.84765625f, 1f};
+        s.append_fill (path.to_path (), EVEN_ODD, c);
+    }
+    /* check for duplicate call back function */
+    unowned CheckDuplicate check_duplicate = null;
+    internal void SetCheckDuplicate (CheckDuplicate f) {check_duplicate = f;}
+}
+
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/controls-grid.ui")]
 private class ControlsGrid : Box
 {
     [GtkChild] private unowned Overlay overlay;
-    //[GtkChild] private unowned Grid grid;
+    [GtkChild] private unowned Grid grid;
     [GtkChild] private unowned Button name_label;
-    [GtkChild] private unowned DrawingArea arrow_up;
-    [GtkChild] private unowned DrawingArea arrow_down;
-    [GtkChild] private unowned DrawingArea arrow_left;
-    [GtkChild] private unowned DrawingArea arrow_right;
+    [GtkChild] private unowned Arrow  arrow_up;
+    [GtkChild] private unowned Arrow  arrow_down;
+    [GtkChild] private unowned Arrow  arrow_left;
+    [GtkChild] private unowned Arrow  arrow_right;
     [GtkChild] private unowned Button move_up_button;
     [GtkChild] private unowned Button move_down_button;
     [GtkChild] private unowned Button move_left_button;
     [GtkChild] private unowned Button move_right_button;
+    [GtkChild] private unowned ColourWheel wheel;
 
     internal Controls controls;
     internal WormProperties worm_props;
@@ -150,7 +207,6 @@ private class ControlsGrid : Box
     private ulong right_handler;
     private ulong color_handler;
 
-    ColourWheel? colour_wheel = null;
     OverlayMessage key_press_message;
 
     bool duplicate[4];
@@ -163,19 +219,20 @@ private class ControlsGrid : Box
 
         /* Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player */
         var player_id = _("Player %d").printf (worm_id + 1);
-        color_handler = worm_props.notify ["color"].connect (() => {
-                var color = Pango.Color ();
-                color.parse (NibblesView.colorval_name_untranslated (worm_props.color));
-                ((Label)name_label.get_child ()).set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\">$(player_id)</span></b>");
-            });
+        color_handler = worm_props.notify ["color"].connect (() =>
+        {
+            var color = Pango.Color ();
+            get_worm_pango_color (worm_props.color, true, ref color);
+            ((Label)name_label.get_child ()).set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\" size=\"x-large\">$(player_id)</span></b>");
+        });
         var color = Pango.Color ();
-        color.parse (NibblesView.colorval_name_untranslated (worm_props.color));
-        ((Label)name_label.get_child ()).set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\">$(player_id)</span></b>");
+        get_worm_pango_color (worm_props.color, true, ref color);
+        ((Label)name_label.get_child ()).set_markup (@"<b><span font-family=\"Sans\" color=\"$(color.to_string ())\" size=\"x-large\">$(player_id)</span></b>");
 
-        arrow_up.set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ C, width, height)=>{draw_arrow (0, C, width, height);});
-        arrow_down.set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ C, width, height)=>{draw_arrow (1, C, width, height);});
-        arrow_left.set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ C, width, height)=>{draw_arrow (2, C, width, height);});
-        arrow_right.set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ C, width, height)=>{draw_arrow (3, C, width, height);});
+        arrow_up.SetCheckDuplicate ((/*uint*/ i)=>{return duplicate[i];});
+        arrow_down.SetCheckDuplicate ((/*uint*/ i)=>{return duplicate[i];});
+        arrow_left.SetCheckDuplicate ((/*uint*/ i)=>{return duplicate[i];});
+        arrow_right.SetCheckDuplicate ((/*uint*/ i)=>{return duplicate[i];});
 
            up_handler = worm_props.notify ["up"].connect    (() => configure_label (worm_props.up, (Label)(move_up_button.get_child ())));
          down_handler = worm_props.notify ["down"].connect  (() => configure_label (worm_props.down, (Label)(move_down_button.get_child ())));
@@ -189,53 +246,34 @@ private class ControlsGrid : Box
 
         name_label.clicked.connect (()=>
         {
-            if (null == colour_wheel && null == key_press_message)
+            if (null == key_press_message)
             {
-                colour_wheel = new ColourWheel ((c)=>
+                if (overlay.visible)
                 {
-                    overlay.remove_overlay (colour_wheel);
-                    colour_wheel = null;
-                    controls.add_keypress_handler (null);
-                    if (this.worm_props.color != (int)c)
+                    overlay.visible = false;
+                    wheel.visible = true;
+                    wheel.do_select_segment (this.worm_props.color, (/*int*/c)=>
                     {
-                        for (var i = worms_props.map_iterator ();i.next ();)
-                        {
-                            if (i.get_value ().color == (int)c)
-                            {
-                                // swap colors
-                                i.get_value ().color = this.worm_props.color;
-                                this.worm_props.color = (int)c;
-                                return;
-                            }
-                        }
-                        this.worm_props.color = (int)c;
-                    }
-                });
-                overlay.add_overlay (colour_wheel);
-                /* to do, catch key presses to allow color selection via the keyboard */
-                /*controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
+                        if (c != -1)
+                            swap_color (worms_props, c);
+                        overlay.visible = true;
+                        wheel.visible = false;
+                    });
+                }
+                else
                 {
-                    //remove_handler = true;
-                    switch (keyval)
-                    {
-                        case 0xff09: // tab
-                            break;
-                        case 0xfe20: // back tab
-                            break;
-                        default:
-                            break;
-                    }
-                    return true;
-                });*/
+                    overlay.visible = true;
+                    wheel.visible = false;
+                }
             }
         });
 
         move_up_button.clicked.connect (()=>
         {
-            if (null == colour_wheel && null == key_press_message)
+            if (!wheel.visible && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen */
-                key_press_message = new OverlayMessage (_("Press a key for up."));
+                key_press_message = new OverlayMessage (_("Press a key for up."), grid.get_width ());
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -252,10 +290,10 @@ private class ControlsGrid : Box
         });
         move_down_button.clicked.connect (()=>
         {
-            if (null == colour_wheel && null == key_press_message)
+            if (!wheel.visible && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen */
-                key_press_message = new OverlayMessage (_("Press a key for down."));
+                key_press_message = new OverlayMessage (_("Press a key for down."), grid.get_width ());
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -272,10 +310,10 @@ private class ControlsGrid : Box
         });
         move_left_button.clicked.connect (()=>
         {
-            if (null == colour_wheel && null == key_press_message)
+            if (!wheel.visible && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left */
-                key_press_message = new OverlayMessage (_("Press a key for left."));
+                key_press_message = new OverlayMessage (_("Press a key for left."), grid.get_width ());
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -292,10 +330,10 @@ private class ControlsGrid : Box
         });
         move_right_button.clicked.connect (()=>
         {
-            if (null == colour_wheel && null == key_press_message)
+            if (!wheel.visible && null == key_press_message)
             {
                 /* Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right */
-                key_press_message = new OverlayMessage (_("Press a key for right."));
+                key_press_message = new OverlayMessage (_("Press a key for right."), grid.get_width ());
                 overlay.add_overlay (key_press_message);
                 controls.add_keypress_handler ((keyval, keycode, out remove_handler)=>
                 {
@@ -312,37 +350,22 @@ private class ControlsGrid : Box
         });
     }
 
-    struct xy
+    void swap_color (Gee.HashMap<Worm, WormProperties> worms_props, int c)
     {
-        double x;
-        double y;
-    }
-    private void draw_arrow (uint d /* 0 up, 1 down, 2 left, 3 right */, Cairo.Context C, double width, double height)
-    {
-        xy a[7];
-
-        if (d == 0)
-            a = {{0, height / 2},{width / 2, 0},{width, height /2},{width * 2 / 3, height / 2},{width * 2 / 3, height},{width / 3, height},{width / 3, height / 2}};
-        else if (d == 1)
-            a = {{0, height / 2},{width / 2, height},{width, height /2},{width * 2 / 3, height / 2},{width * 2 / 3, 0},{width / 3, 0},{width / 3, height / 2}};
-        else if (d == 2)
-            a = {{width / 2, 0},{0, height / 2},{width/2, height},{width / 2, height * 2 / 3},{width, height * 2 / 3},{width, height / 3},{width / 2, height / 3}};
-        else
-            a = {{width / 2, 0},{width, height / 2},{width / 2, height},{width / 2, height * 2 / 3},{0, height  * 2 / 3},{0, height / 3},{width / 2, height / 3}};
-
-        /* draw */
-        for (int i = 0; i < a.length; i++)
+        if (c != worm_props.color)
         {
-            if (i == 0)
-                C.move_to (a[0].x, a[0].y);
-            else
-                C.line_to (a[i].x, a[i].y);
+            for (var i = worms_props.map_iterator ();i.next ();)
+            {
+                if (i.get_value ().color == c)
+                {
+                    // swap colors
+                    i.get_value ().color = worm_props.color;
+                    worm_props.color = c;
+                    return;
+                }
+            }
+            worm_props.color = (int)c;
         }
-        if (duplicate[d])
-            C.set_source_rgba (0.75, 0, 0, 1);
-        else
-            C.set_source_rgba (0.2890625, 0.5625, 0.84765625, 1); //4a90d9
-        C.fill ();
     }
 
     internal void mark_duplicated_keys (GenericSet<uint> duplicate_keys)
@@ -445,351 +468,30 @@ private class ControlsGrid : Box
     }
 }
 
-internal class OverlayMessage : DrawingArea
+internal class OverlayMessage : Widget
 {
-    public OverlayMessage (string text)
+    public string text { internal get; protected construct set; }
+    internal int width {get;set;}
+
+    public OverlayMessage (string text, int width)
     {
-        // set drawing fuction
-        set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ C, width, height)=>
-        {
-            const double PI2 = 1.570796326794896619231321691639751442;
-
-            double text_width;
-            double text_height;
-            int font_size = calculate_font_size (C, text, width / 3 * 2, out text_width, out text_height);
-            double minimum_dimension = text_width < text_height ? text_width : text_height;
-            double background_width = text_width + minimum_dimension * 2;
-            double background_height = text_height + minimum_dimension * 2;
-
-            double x = (width - background_width) / 2;
-            double y = (height - background_height) / 2;
-
-            #if USE_PILL_BUTTON
-            double arc_radius = background_width < background_height ? background_width / 2 : background_height / 2;
-            #else
-            double arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
-            #endif
-
-            /* draw background */
-            C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
-            C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
-            C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
-            C.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
-
-            C.set_source_rgba (0, 0, 0, 0.9);
-            C.fill ();
-
-            draw_text_font_size (C, (int)(x + (background_width - text_width) / 2),
-                (int)(y + background_height / 2 - text_height / 2), text, font_size);
-        });
+        Object (text: text, width: width);
     }
 
-    int calculate_font_size (Cairo.Context C, string text, int target_width, out double width, out double height)
+    public override void snapshot (Snapshot snapshot)
     {
-        int target_font_size = 1;
-        uint target_width_diff = uint.MAX;
-        width = 0;
-        height = 0;
+        const double PI2 = 1.570796326794896619231321691639751442; /* Pi divided by 2 */
+        var c = snapshot.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
 
-        for (int font_size = 1;font_size < 200;)
-        {
-            var layout =  Pango.cairo_create_layout (C);
-            Pango.FontDescription font;
-            if (null == layout.get_font_description ())
-                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-            else
-                font = layout.get_font_description ().copy ();
-            font.set_size (Pango.SCALE * font_size);
-            layout.set_font_description (font);
-            layout.set_text (text, -1);
-            Pango.cairo_update_layout (C, layout);
-            Pango.Rectangle a,b;
-            layout.get_extents (out a, out b);
-            width = a.width / Pango.SCALE;
-            height = a.height / Pango.SCALE;
-            uint width_diff = (target_width - (int)a.width / Pango.SCALE).abs ();
-            if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
-                break;
-            else if (width_diff < target_width_diff)
-            {
-                target_width_diff = width_diff;
-                target_font_size = font_size;
-            }
-            if (font_size < 20)
-                font_size++;
-            else if (font_size < 50)
-                font_size+=5;
-            else
-                font_size+=10;
-        }
-        return target_font_size;
-    }
-
-    void draw_text_font_size (Cairo.Context C, int x, int y, string text, int font_size)
-    {
-        int x_offset, y_offset;
-        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
-        C.move_to (x - x_offset, y - y_offset);
-        C.set_source_rgb (1, 1, 1);
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
-        font.set_size (Pango.SCALE * font_size);
-        layout.set_font_description (font);
-        layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
-        Pango.cairo_show_layout (C, layout);
-    }
-
-    void get_text_offsets (Cairo.Context C, string text, int font_size, out int x_offset, out int y_offset)
-    {
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
-        font.set_size (Pango.SCALE * font_size);
-        layout.set_font_description (font);
-        layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
-        Pango.Rectangle a,b;
-        layout.get_extents (out a, out b);
-        x_offset = a.x / Pango.SCALE;
-        y_offset = a.y / Pango.SCALE;
-    }
-}
-
-internal class ColourWheel : DrawingArea
-{
-    internal delegate void ResultFunction (uint c);
-    internal ResultFunction result;
-
-    double centre_x;
-    double centre_y;
-    double radius;
-    uint mouse_segment = uint.MAX;
-    bool mouse_pressed = false;
-
-    public ColourWheel (ResultFunction result)
-    {
-        this.result = (ResultFunction)result;
-        focusable = true;
-        can_focus = true;
-        sensitive = true;
-        focus_on_click = true;
-        grab_focus ();
-
-        // set drawing fuction
-        set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ C, width, height)=>
-        {
-            const double PI2 = 1.570796326794896619231321691639751442;
-            const double PI3 = 1.047197551196597746154214461093167628;
-            const double border_width = 10;
-            const double sixty_degrees = 2642885282.0/1525870529.0;
-            radius = width < height ? width / 2 : height / 2;
-            if (radius > border_width)
-                radius -= border_width;
-            centre_x = width / 2;
-            centre_y = height / 2;
-
-            // draw coloured pie
-            C.move_to (centre_x + (mouse_pressed && mouse_segment == 0 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 0 ? border_width*sixty_degrees/2.0 : 0));
-            C.arc (centre_x + (mouse_pressed && mouse_segment == 0 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 0 ? border_width*sixty_degrees/2.0 : 0), radius, -PI2, -PI2 + PI3);
-            C.set_source_rgba (1, 0, 0, 1);
-            C.fill ();
-            C.move_to (centre_x + (mouse_pressed && mouse_segment == 1 ? border_width : 0), centre_y);
-            C.arc (centre_x + (mouse_pressed && mouse_segment == 1 ? border_width : 0), centre_y, radius, -PI2 + PI3, -PI2 + PI3 + PI3);
-            C.set_source_rgba (0, 0.75, 0, 1);
-            C.fill ();
-            C.move_to (centre_x + (mouse_pressed && mouse_segment == 2 ? border_width/sixty_degrees/2.0 : 0), centre_y + (mouse_pressed && mouse_segment == 2 ? border_width*sixty_degrees/2.0 : 0));
-            C.arc (centre_x + (mouse_pressed && mouse_segment == 2 ? border_width/sixty_degrees/2.0 : 0), centre_y + (mouse_pressed && mouse_segment == 2 ? border_width*sixty_degrees/2.0 : 0), radius, PI2 - PI3, PI2);
-            C.set_source_rgba (0, 0.5, 1, 1);
-            C.fill ();
-            C.move_to (centre_x - (mouse_pressed && mouse_segment == 3 ? border_width/sixty_degrees/2.0 : 0), centre_y+ (mouse_pressed && mouse_segment == 3 ? border_width*sixty_degrees/2.0 : 0));
-            C.arc (centre_x - (mouse_pressed && mouse_segment == 3 ? border_width/sixty_degrees/2.0 : 0), centre_y+ (mouse_pressed && mouse_segment == 3 ? border_width*sixty_degrees/2.0 : 0), radius, PI2, PI2 + PI3);
-            C.set_source_rgba (1, 1, 0, 1);
-            C.fill ();
-            C.move_to (centre_x - (mouse_pressed && mouse_segment == 4 ? border_width : 0), centre_y);
-            C.arc (centre_x- (mouse_pressed && mouse_segment == 4 ? border_width : 0), centre_y, radius, PI2 + PI3 , PI2 + PI3 + PI3);
-            C.set_source_rgba (0, 1, 1, 1);
-            C.fill ();
-            C.move_to (centre_x - (mouse_pressed && mouse_segment == 5 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 5 ? border_width*sixty_degrees/2.0 : 0));
-            C.arc (centre_x - (mouse_pressed && mouse_segment == 5 ? border_width/sixty_degrees/2.0 : 0), centre_y - (mouse_pressed && mouse_segment == 5 ? border_width*sixty_degrees/2.0 : 0), radius, PI2 + PI3 + PI3, -PI2);
-            C.set_source_rgba (0.75, 0, 0.75, 1);
-            C.fill ();
-
-            // instruction label
-            /* Translators: text displayed in a message box directing the player to select the color they want for the worm */
-            draw_label (C,width,height, _("Select Your Color"));
-        });
-        var mouse_position = new EventControllerMotion ();
-        mouse_position.motion.connect ((x,y)=> {new_position (x, y);});
-        mouse_position.enter.connect ((x,y)=>  {new_position (x, y);});
-
-        var mouse_click = new EventControllerLegacy ();
-        mouse_click.event.connect ((event)=>
-        {
-            switch (event.get_event_type ())
-            {
-                case Gdk.EventType.BUTTON_PRESS:
-                    mouse_pressed = true;
-                    redraw ();
-                    return true;
-                case Gdk.EventType.BUTTON_RELEASE:
-                    mouse_pressed = false;
-                    if (mouse_segment > 5)
-                        redraw ();
-                    else
-                        result (mouse_segment);
-                    return true;
-                default:
-                    return false;
-            }
-        });
-        add_controller (mouse_click);
-        add_controller (mouse_position);
-    }
-
-    void new_position (double x, double y)
-    {
-        var new_segment = segment (x, y);
-        if (new_segment != mouse_segment)
-        {
-            mouse_segment = new_segment;
-            redraw ();
-        }
-    }
-
-    uint segment (double x, double y)
-    {
-        const double sixty_degrees = 2642885282.0/1525870529.0;
-        x -= centre_x;
-        y -= centre_y;
-        y = - y;
-        if (x * x + y * y > radius * radius)
-            return uint.MAX;
-        else if (x >= 0)
-        {
-            /* right half */
-            if (y > 0  && x/y < sixty_degrees)
-                return 0;
-            else if (y < 0 && x/y > -sixty_degrees)
-                return 2;
-            else
-                return 1;
-        }
-        else
-        {
-            /* left half */
-            if (y > 0  && -x/y < sixty_degrees)
-                return 5;
-            else if (y < 0 && -x/y > -sixty_degrees)
-                return 3;
-            else
-                return 4;
-        }
-    }
-
-    void redraw ()
-    {
-        queue_draw ();
-    }
-
-    int calculate_font_size (Cairo.Context C, string text, int target_width, out double width, out double height)
-    {
-        int target_font_size = 1;
-        uint target_width_diff = uint.MAX;
-        width = 0;
-        height = 0;
-
-        for (int font_size = 1;font_size < 200;)
-        {
-            var layout =  Pango.cairo_create_layout (C);
-            Pango.FontDescription font;
-            if (null == layout.get_font_description ())
-                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-            else
-                font = layout.get_font_description ().copy ();
-            font.set_size (Pango.SCALE * font_size);
-            layout.set_font_description (font);
-            layout.set_text (text, -1);
-            Pango.cairo_update_layout (C, layout);
-            Pango.Rectangle a,b;
-            layout.get_extents (out a, out b);
-            width = a.width / Pango.SCALE;
-            height = a.height / Pango.SCALE;
-            uint width_diff = (target_width - (int)a.width / Pango.SCALE).abs ();
-            if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
-                break;
-            else if (width_diff < target_width_diff)
-            {
-                target_width_diff = width_diff;
-                target_font_size = font_size;
-            }
-            if (font_size < 20)
-                font_size++;
-            else if (font_size < 50)
-                font_size+=5;
-            else
-                font_size+=10;
-        }
-        return target_font_size;
-    }
-
-    void draw_text_font_size (Cairo.Context C, int x, int y, string text, int font_size)
-    {
-        int x_offset, y_offset;
-        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
-        C.move_to (x - x_offset, y - y_offset);
-        C.set_source_rgb (1, 1, 1);
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
-        font.set_size (Pango.SCALE * font_size);
-        layout.set_font_description (font);
-        layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
-        Pango.cairo_show_layout (C, layout);
-    }
-
-    void get_text_offsets (Cairo.Context C, string text, int font_size, out int x_offset, out int y_offset)
-    {
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
-        font.set_size (Pango.SCALE * font_size);
-        layout.set_font_description (font);
-        layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
-        Pango.Rectangle a,b;
-        layout.get_extents (out a, out b);
-        x_offset = a.x / Pango.SCALE;
-        y_offset = a.y / Pango.SCALE;
-    }
-
-    void draw_label (Cairo.Context C, double width, double height, string text)
-    {
-        const double PI2 = 1.570796326794896619231321691639751442;
-
+        const int border = 20;
         double text_width;
         double text_height;
-        int font_size = calculate_font_size (C, text, (int)(width / 2), out text_width, out text_height);
-        double minimum_dimension = text_width < text_height ? text_width : text_height;
-        double background_width = text_width + minimum_dimension * 2;
-        double background_height = text_height + minimum_dimension * 2;
+        int font_size = calculate_font_size (c, text, width - border, out text_width, out text_height);
+        double background_width = text_width + border;
+        double background_height = text_height + border;
 
-        double x = (width - background_width) / 2;
-        double y = 0;
+        double x = (get_width () - background_width) / 2;
+        double y = (get_height () - background_height) / 2;
 
         #if USE_PILL_BUTTON
         double arc_radius = background_width < background_height ? background_width / 2 : background_height / 2;
@@ -798,16 +500,110 @@ internal class ColourWheel : DrawingArea
         #endif
 
         /* draw background */
-        C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
-        C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
-        C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
-        C.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
+        c.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
+        c.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
+        c.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
+        c.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
 
-        C.set_source_rgba (0, 0, 0, 0.9);
-        C.fill ();
+        c.set_source_rgba (0, 0, 0, 0.9);
+        c.fill ();
 
-        draw_text_font_size (C, (int)(x + (background_width - text_width) / 2),
-            (int)(y + background_height / 2 - text_height / 2), text, font_size);
+        draw_text_font_size (c, (int)(x + (background_width - text_width) / 2),
+            (int)(y + (background_height - text_height) / 2), text, font_size);
+    }
+
+    int calculate_font_size (Cairo.Context C, string text, int target_width, out double width, out double height)
+    {
+        bool rush_size_steps = true;
+        int fail_count = 0;
+        int last_font_size = 1;
+        int target_font_size = 1;
+        width = 0;
+        height = 0;
+        uint target_width_diff = uint.MAX;
+
+        for (int font_size = 1;font_size < 128;)
+        {
+            var layout =  Pango.cairo_create_layout (C);
+            Pango.FontDescription font;
+            if (null == layout.get_font_description ())
+                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+            else
+                font = layout.get_font_description ().copy ();
+            font.set_size (Pango.SCALE * font_size);
+            layout.set_font_description (font);
+            layout.set_text (text, -1);
+            Pango.cairo_update_layout (C, layout);
+            Pango.Rectangle a,b;
+            layout.get_extents (out a, out b);
+            uint width_diff = target_width - (int)(a.width / Pango.SCALE);
+            if (width_diff > 0 && width_diff < target_width_diff)
+            {
+                target_width_diff = width_diff;
+                target_font_size = font_size;
+                width = a.width / Pango.SCALE;
+                height = a.height / Pango.SCALE;
+                if (!rush_size_steps)
+                    fail_count = 0;
+            }
+            else
+            {
+                if (rush_size_steps)
+                {
+                    rush_size_steps = false;
+                    font_size = last_font_size + 1;
+                    fail_count = 0;
+                }
+                else if (fail_count > 2)
+                    break;
+                else
+                    fail_count++;
+            }
+            if (rush_size_steps)
+            {
+                last_font_size = font_size;
+                font_size *= 2;
+            }
+            else
+                font_size++;
+        }
+        return target_font_size;
+    }
+
+    void draw_text_font_size (Cairo.Context C, int x, int y, string text, int font_size)
+    {
+        int x_offset, y_offset;
+        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
+        C.move_to (x - x_offset, y - y_offset);
+        C.set_source_rgb (1, 1, 1);
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.cairo_show_layout (C, layout);
+    }
+
+    void get_text_offsets (Cairo.Context C, string text, int font_size, out int x_offset, out int y_offset)
+    {
+        var layout =  Pango.cairo_create_layout (C);
+        Pango.FontDescription font;
+        if (null == layout.get_font_description ())
+            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
+        else
+            font = layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.cairo_update_layout (C, layout);
+        Pango.Rectangle a,b;
+        layout.get_extents (out a, out b);
+        x_offset = a.x / Pango.SCALE;
+        y_offset = a.y / Pango.SCALE;
     }
 }
-
