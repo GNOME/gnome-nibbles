@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2024 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2024-2025 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@
  */
 
 using Gtk;
-using Cairo;
+using Gsk;
 
 [GtkTemplate (ui = "/org/gnome/Nibbles/ui/scoreboard.ui")]
 private class Scoreboard : Box
@@ -130,30 +130,29 @@ private class PlayerScoreBox : Box
     }
 }
 
-internal class Life : DrawingArea
+internal class Life : Widget
 {
-    public Life ()
+    /* initilise the widget */
+    construct
     {
-        set_draw_func ((/*DrawingArea*/ area, /*Cairo.Context*/ C, width, height)=>
-        {
-            draw_heart (C, 0, 0, width, height);
-        });
-        set_content_height (16);
-        set_content_width (16);
+        width_request = 16;
+        height_request = 16;
     }
-    void draw_heart (Context C, int x, int y, int x_size, int y_size)
+    /* draw the heart */
+    public override void snapshot (Snapshot snapshot)
     {
-        double x_m = x_size;
-        double y_m = y_size;
-        x_m /= 16;
-        y_m /= 16;
-        C.move_to (x + x_m * 4.753906, y + y_m * 1.828125);
-        C.curve_to (x + x_m * 2.652344, y + y_m * 1.851563, x + x_m * 1.019531, y + y_m * 3.648438, x + x_m * 1, y + y_m * 5.8125);
-        C.curve_to (x + x_m * 0.972656, y + y_m * 8.890625, x + x_m * 2.808594, y + y_m * 9.882813, x + x_m * 8.015625, y + y_m * 14.171875);
-        C.curve_to (x + x_m * 12.992188, y + y_m * 9.558594, x + x_m * 14.976563, y + y_m * 8.316406, x + x_m * 15, y + y_m * 5.722656);
-        C.curve_to (x + x_m * 15.027344, y + y_m * 2.886719, x + x_m * 10.90625, y + y_m * 0.128906, x + x_m * 7.910156, y + y_m * 3.121094);
-        C.curve_to (x + x_m * 6.835938, y + y_m * 2.199219, x + x_m * 5.742188, y + y_m * 1.816406, x + x_m * 4.753906, y + y_m * 1.828125);
-        C.set_source_rgba (1,0,0,1);
-        C.fill ();
+        base.snapshot (snapshot);
+        var path = new PathBuilder ();
+        float x_m = get_width () / 16;
+        float y_m = get_height () / 16;
+        const float x = 0;
+        const float y = 0;
+        path.move_to (x + x_m * 4.753906f, y + y_m * 1.828125f);
+        path.cubic_to (x + x_m * 2.652344f, y + y_m * 1.851563f, x + x_m * 1.019531f, y + y_m * 3.648438f, x + x_m * 1.0f, y + y_m * 5.8125f);
+        path.cubic_to (x + x_m * 0.972656f, y + y_m * 8.890625f, x + x_m * 2.808594f, y + y_m * 9.882813f, x + x_m * 8.015625f, y + y_m * 14.171875f);
+        path.cubic_to (x + x_m * 12.992188f, y + y_m * 9.558594f, x + x_m * 14.976563f, y + y_m * 8.316406f, x + x_m * 15.0f, y + y_m * 5.722656f);
+        path.cubic_to (x + x_m * 15.027344f, y + y_m * 2.886719f, x + x_m * 10.90625f, y + y_m * 0.128906f, x + x_m * 7.910156f, y + y_m * 3.121094f);
+        path.cubic_to (x + x_m * 6.835938f, y + y_m * 2.199219f, x + x_m * 5.742188f, y + y_m * 1.816406f, x + x_m * 4.753906f, y + y_m * 1.828125f);
+        snapshot.append_fill (path.to_path (), EVEN_ODD, {1.0f, 0.0f, 0.0f, 1.0f});
     }
 }
