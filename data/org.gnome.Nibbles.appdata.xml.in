@@ -64,7 +64,7 @@
   <update_contact>mcatanzaro_at_gnome.org</update_contact>
   <project_group>GNOME</project_group>
   <translation type="gettext">gnome-nibbles</translation>
-  <developer id="gnome.org">
+  <developer id="org.gnome">
     <name>The GNOME Project</name>
   </developer>
   <content_rating type="oars-1.0" />
