@@ -915,7 +915,7 @@ private class NibblesGame : Object
             /* There were multiple worms but only one is still alive */
             return VICTORY;
         }
-        else if (worms_left == 0 || humans_left () == 0 && numhumans == 1)
+        else if (worms_left == 0 || humans_left () == 0 && numhumans >= 1)
         {
             /* There was only one worm and it died */
             return GAMEOVER;
