@@ -44,7 +44,6 @@ gnome_nibbles_deps = [
     gee_dep,
     gio_dep,
     glib_dep,
-    gsound_dep,
     libgnome_games_support_dep,
     gtk_dep,
     pangocairo_dep,
