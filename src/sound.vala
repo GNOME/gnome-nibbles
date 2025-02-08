@@ -1,6 +1,6 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
- * Copyright (C) 2023 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2023, 2025 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 /*
  * Coding style.
  *
@@ -27,86 +26,38 @@
  * grep -ne '[^][)(_!$ "](' *.vala
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
+ * grep -ne ' $' *.vala
  *
  */
-
-using GSound;
-
-/*\
-* * Sound
-\*/
-
+using Gtk; /* designed for Gtk 4, link with libgtk-4-dev or gtk4-devel */
 internal class Sound : Object
 {
-    /* constructor */
-    internal Sound (bool is_muted)
+    internal bool mute {get; set;}
+    internal Sound (bool mute)
     {
-        set_muted (is_muted);
+        Object (mute: mute);
     }
-
-    /* signal */
+    internal void set_muted (bool mute)
+    {
+        this.mute = mute;
+    }
     internal void connect_signal (NibblesGame game)
     {
         game.play_sound.connect (play_sound);
     }
-
-    /* variables */
-    bool is_muted;
-    bool is_initilised = false;
-    bool errored = false;
-    Context sound_context;
-
-    /* functions */
-    internal void set_muted (bool muted)
-    {
-        is_muted = muted;
-    }
-
-    /* private functions */
-    private bool initilise_context ()
-    {
-        try
-        {
-            sound_context = new Context ();
-            is_initilised = true;
-        }
-        catch (GSound.Error e)
-        {
-            warning (e.message);
-            errored = true;
-        }
-        catch (GLib.Error e)
-        {
-            warning (e.message);
-            errored = true;
-        }
-        return is_initilised;
-    }
-
+    Gee.TreeMap<string, MediaFile> sound_map = new Gee.TreeMap<string, MediaFile> ();
     private void play_sound (string name)
     {
-        if (!is_muted && !errored)
+        if (!mute)
         {
-            if (is_initilised || initilise_context ())
+            if (!sound_map.has_key (name))
             {
-                string filename = name + ".ogg";
-                try
-                {
-                    sound_context.play_simple (null,
-                        Attribute.MEDIA_NAME, filename,
-                        Attribute.MEDIA_FILENAME,
-                        Path.build_filename (SOUND_DIRECTORY, filename));
-                }
-                catch (GSound.Error e)
-                {
-                    warning (e.message);
-                }
-                catch (GLib.Error e)
-                {
-                    warning (e.message);
-                }
+                sound_map[name] = MediaFile.for_filename (Path.build_filename (SOUND_DIRECTORY, name + ".ogg"));
+                if (null != sound_map.@get (name))
+                    sound_map.@get (name).set_volume (1);
             }
+            if (null != sound_map.@get (name))
+                sound_map.@get (name).play ();
         }
     }
 }
-
