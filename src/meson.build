@@ -38,6 +38,7 @@ gnome_nibbles_sources = [
     'warp.vala',
     'worm.vala',
     'sound.vala',
+    'transparentcontainer.vala',
     resources
 ] + conditional_sources
 

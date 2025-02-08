@@ -709,6 +709,8 @@ private class NibblesWindow : ApplicationWindow
                 break;
             case "three-dimensional-view":
                 game.three_dimensional_view = settings.get_boolean (key);
+                if (null != view)
+                    view.redraw_all ();
                 break;
         }
     }
