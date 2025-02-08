@@ -233,7 +233,6 @@ private class NibblesWindow : ApplicationWindow
     #if USE_LIBADWAITA
     bool dialog_visible = false;
     #endif
-    bool show_dialogue = false;
 
     private const GLib.ActionEntry menu_entries[] =
     {
@@ -382,9 +381,7 @@ private class NibblesWindow : ApplicationWindow
         });
 
         /* Create board view */
-        view = new NibblesView (game,
-                                countdown_active,
-                                new_game_dialogue_active);
+        view = new NibblesView (game, countdown_active);
         view.set_visible (true);
         view.vexpand = true;
         game_box.prepend (view);
@@ -649,26 +646,6 @@ private class NibblesWindow : ApplicationWindow
             });
         dialog.set_visible (true);
         #endif
-    }
-
-    bool new_game_dialogue_active (out YesNoResultFunction result_function)
-    {
-        result_function = (yes_no)=>
-        {
-            show_dialogue = false;
-            view.redraw ();
-
-            if (yes_no == 0) /* yes */
-                show_new_game_screen ();
-            else /* no */
-            {
-                if (seconds == 0)
-                    game.start (/* add initial bonus */ false);
-                else
-                    countdown_id = Timeout.add_seconds (1, countdown_cb);
-            }
-        };
-        return show_dialogue;
     }
 
     private void pause_cb ()

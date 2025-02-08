@@ -36,9 +36,6 @@
 using Gtk;
 using Cairo; /* via Gtk.Snapshot.append_cairo */
 
-internal delegate bool NewGameDialogueActiveFunction (out YesNoResultFunction function);
-internal delegate void YesNoResultFunction (uint yes_no);
-
 /* worm colors */
 static void get_worm_rgb (int color, bool bright, out double r, out double g, out double b)
 {
@@ -222,31 +219,15 @@ internal class NibblesView : Widget
     /* delegate to nibbles-window */
     internal delegate int CountdownActiveFunction ();
     CountdownActiveFunction countdown_active;
-    NewGameDialogueActiveFunction new_game_dialogue_active;
-    YesNoResultFunction result_function;
-
-    /* yes no buttons */
-    double b0_x;
-    double b0_y;
-    double b0_width;
-    double b0_height;
-    double b1_x;
-    double b1_y;
-    double b1_width;
-    double b1_height;
-    bool mouse_pressed;
-    uint mouse_button;
 
     /* animation */
     uint64 animate = 0;
 
     /* constructor */
-    public NibblesView (NibblesGame game, CountdownActiveFunction countdown_active,
-         NewGameDialogueActiveFunction new_game_dialogue_active)
+    public NibblesView (NibblesGame game, CountdownActiveFunction countdown_active)
     {
         this.game = game;
         this.countdown_active = (CountdownActiveFunction)countdown_active;
-        this.new_game_dialogue_active = (NewGameDialogueActiveFunction)new_game_dialogue_active;
 
         focusable = true;
 
@@ -484,11 +465,6 @@ internal class NibblesView : Widget
                     }
                 }
             }
-
-            if (new_game_dialogue_active (out result_function))
-            {
-                new_game_dialogue_draw (c, get_width (), get_height (), result_function);
-            }
         }
         else /* 2D view */
         {
@@ -600,11 +576,6 @@ internal class NibblesView : Widget
                     }
                 }
             }
-
-            if (new_game_dialogue_active (out result_function))
-            {
-                new_game_dialogue_draw (c, get_width (), get_height (), result_function);
-            }
         }
     }
 
@@ -669,59 +640,6 @@ internal class NibblesView : Widget
     }
 
     /* private functions */
-
-    void new_game_dialogue_draw (Context c, double width, double height, YesNoResultFunction result_function)
-    {
-        // Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-        string text = _("Are you sure you want to start a new game?\nIf you start a new game, the current one will be lost.");
-        draw_dialogue (c, width, height, text,
-         out b0_x, out b0_y, out b0_width, out b0_height,
-         out b1_x, out b1_y, out b1_width, out b1_height);
-
-        var mouse_position = new EventControllerMotion ();
-        mouse_position.motion.connect ((x,y)=> {yesno_position (x, y);});
-        mouse_position.enter.connect ((x,y)=>  {yesno_position (x, y);});
-
-        var mouse_click = new EventControllerLegacy ();
-        mouse_click.event.connect ((event)=>
-        {
-            switch (event.get_event_type ())
-            {
-                case Gdk.EventType.BUTTON_PRESS:
-                    mouse_pressed = true;
-                    redraw ();
-                    return true;
-                case Gdk.EventType.BUTTON_RELEASE:
-                    mouse_pressed = false;
-                    if (mouse_button > 1)
-                        redraw ();
-                    else
-                        result_function (mouse_button);
-                    return true;
-                default:
-                    return false;
-            }
-        });
-        add_controller (mouse_click);
-        add_controller (mouse_position);
-    }
-
-    void yesno_position (double x, double y)
-    {
-        uint new_button;
-        if (x >= b0_x && x <= b0_x + b0_width && y >= b0_y && y <= b0_y + b0_height)
-            new_button = 0; // yes
-        else if (x >= b1_x && x <= b1_x + b1_width && y >= b1_y && y <= b1_y + b1_height)
-            new_button = 1; // no
-        else
-            new_button = uint.MAX;
-
-        if (new_button != mouse_button)
-        {
-            mouse_button = new_button;
-            redraw ();
-        }
-    }
 
     void draw_oval (Context C, View3D v, Point3D a, Point3D b, Point3D c, Point3D d)
     {
@@ -1679,175 +1597,6 @@ internal class NibblesView : Widget
         C.set_source_rgba (r, g, b, 1);
     }
 
-    void draw_dialogue (Context C, double width, double height, string text,
-                 out double b0_x, out double b0_y, out double b0_width, out double b0_height,
-                 out double b1_x, out double b1_y, out double b1_width, out double b1_height,
-                 bool draw_buttons = true)
-    {
-            const double PI2 = 1.570796326794896619231321691639751442;
-            const double border_width = 3;
-
-            var lines = 0;
-            int font_size = int.MAX;
-            for (var s=text; s.length > 0;)
-            {
-                uint new_line;
-                for (new_line = 0; new_line < s.length && s[new_line] != '\n'; ++new_line);
-                ++lines;
-                if (new_line > 0)
-                {
-                    var _text = s[0:new_line];
-                    double _text_width;
-                    double _text_height;
-                    int size = calculate_font_size (C, _text, (int)(width *0.8), out _text_width, out _text_height);
-                    if (size < font_size)
-                        font_size = size;
-                }
-                if (s.length > new_line+1)
-                    s = s[new_line+1:s.length];
-                else
-                    break;
-            }
-
-            double [] line_width = {};
-            double [] line_height = {};
-            double text_width=0;
-            double text_height=0;
-            for (var s=text; s.length > 0;)
-            {
-                uint new_line;
-                for (new_line = 0; new_line < s.length && s[new_line] != '\n'; ++new_line);
-                if (new_line > 0)
-                {
-                    var _text = s[0:new_line];
-                    Cairo.Context c = new Cairo.Context (C.get_target ());
-                    c.move_to (0, 0);
-                    c.set_font_size (font_size);
-                    Cairo.TextExtents extents;
-                    c.text_extents (_text, out extents);
-                    line_width += extents.width;
-                    line_height += extents.height + 5;
-                    if (extents.width > text_width)
-                        text_width = extents.width;
-                    text_height += extents.height + 5;
-                }
-                if (s.length > new_line+1)
-                    s = s[new_line+1:s.length];
-                else
-                    break;
-            }
-
-            double button_height = text_height / lines * 1.5;
-            double minimum_dimension = 10;
-            double background_width = text_width + minimum_dimension * 2;
-            double background_height = text_height + minimum_dimension * 5 + button_height;
-
-            double x = (width - background_width) / 2;
-            double y = 0;
-
-            double arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
-
-            /* draw border */
-            C.move_to (x + background_width, y);
-            C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
-            C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
-            C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
-            C.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
-
-            C.set_source_rgba (0.5, 0.5, 0.5, 1);
-            C.fill ();
-
-            /* draw background */
-            C.arc (x + background_width - arc_radius, y + arc_radius, arc_radius - border_width, -PI2, 0);
-            C.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius - border_width, 0, PI2);
-            C.arc (x + arc_radius, y + background_height - arc_radius, arc_radius - border_width, PI2, PI2 * 2);
-            C.arc (x + arc_radius, y + arc_radius, arc_radius - border_width, PI2 * 2, -PI2);
-
-            C.set_source_rgba (0.125, 0.125, 0.125, 1);
-            C.fill ();
-
-            var line = 0;
-            double y_line = 0;
-            for (var s=text; s.length > 0; ++line)
-            {
-                uint new_line;
-                for (new_line = 0; new_line < s.length && s[new_line] != '\n'; ++new_line);
-                if (new_line > 0)
-                {
-                    y_line += line_height[line];
-                    var _text = s[0:new_line];
-                    draw_dialogue_text (C, x + (background_width - line_width[line]) / 2,
-                        y + minimum_dimension + y_line, _text, font_size);
-                }
-                if (s.length > new_line+1)
-                    s = s[new_line+1:s.length];
-                else
-                    break;
-            }
-
-            /* draw buttons */
-            double button_width = background_width / 5 > 100 ? background_width / 5 : 100;
-            b0_x = x + (background_width - button_width * 2) / 3;
-            b0_y = y + background_height - minimum_dimension - button_height;
-            double b0_radius = button_width < button_height ? button_width / 3 : button_height / 3;
-            if (draw_buttons)
-            {
-                C.move_to (b0_x + button_width, b0_y);
-                C.arc (b0_x + button_width - b0_radius, b0_y + b0_radius, b0_radius, -PI2, 0);
-                C.arc (b0_x + button_width - b0_radius, b0_y + button_height - b0_radius, b0_radius, 0, PI2);
-                C.arc (b0_x + b0_radius, b0_y + button_height - b0_radius, b0_radius, PI2, PI2 * 2);
-                C.arc (b0_x + b0_radius, b0_y + b0_radius, b0_radius, PI2 * 2, -PI2);
-                C.set_source_rgba (0.5, 0.5, 0.5, 1);
-                C.fill ();
-                C.arc (b0_x + button_width - b0_radius, b0_y + b0_radius, b0_radius- border_width, -PI2, 0);
-                C.arc (b0_x + button_width - b0_radius, b0_y + button_height - b0_radius, b0_radius- border_width, 0, PI2);
-                C.arc (b0_x + b0_radius, b0_y + button_height - b0_radius, b0_radius - border_width, PI2, PI2 * 2);
-                C.arc (b0_x + b0_radius, b0_y + b0_radius, b0_radius - border_width, PI2 * 2, -PI2);
-                if (mouse_pressed && mouse_button == 0)
-                    C.set_source_rgba (0.063, 0.243, 0.459, 1);
-                else
-                    C.set_source_rgba (0.082, 0.322, 0.612, 1);
-                C.fill ();
-                /* Translators: message displayed in a Button of a Message Dialog to confirm a nagative response */
-                string No = _("No");
-                font_size = calculate_font_size_from_max (C, No, (int)(button_width - border_width * 2), (int)(button_height / 3) , out b0_width, out b0_height);
-                draw_dialogue_text (C, b0_x + (button_width - b0_width) / 2 , b0_y + b0_height + button_height / 3, No, font_size);
-            }
-
-            b1_x = x + (background_width - button_width * 2) / 3 * 2 + button_width;
-            b1_y = b0_y;
-            double b1_radius = b0_radius;
-            if (draw_buttons)
-            {
-                C.move_to (b1_x + button_width, b1_y);
-                C.arc (b1_x + button_width - b1_radius, b1_y + b1_radius, b1_radius, -PI2, 0);
-                C.arc (b1_x + button_width - b1_radius, b1_y + button_height - b1_radius, b1_radius, 0, PI2);
-                C.arc (b1_x + b1_radius, b1_y + button_height - b1_radius, b1_radius, PI2, PI2 * 2);
-                C.arc (b1_x + b1_radius, b1_y + b1_radius, b1_radius, PI2 * 2, -PI2);
-                C.set_source_rgba (0.5, 0.5, 0.5, 1);
-                C.fill ();
-                C.arc (b1_x + button_width - b1_radius, b1_y + b1_radius, b1_radius- border_width, -PI2, 0);
-                C.arc (b1_x + button_width - b1_radius, b1_y + button_height - b1_radius, b1_radius- border_width, 0, PI2);
-                C.arc (b1_x + b1_radius, b1_y + button_height - b1_radius, b1_radius- border_width, PI2, PI2 * 2);
-                C.arc (b1_x + b1_radius, b1_y + b1_radius, b1_radius- border_width, PI2 * 2, -PI2);
-                if (mouse_pressed && mouse_button == 1)
-                    C.set_source_rgba (0.063, 0.243, 0.459, 1);
-                else
-                    C.set_source_rgba (0.082, 0.322, 0.612, 1);
-                C.fill ();
-                /* Translators: message displayed in a Button of a Message Dialog to confirm a positive response */
-                string Yes = _("Yes");
-                font_size = calculate_font_size_from_max (C, Yes, (int)(button_width - border_width * 2), (int)(button_height / 3) , out b1_width, out b1_height);
-                draw_dialogue_text (C, b1_x + (button_width - b1_width) / 2 , b1_y + b1_height + button_height / 3, Yes, font_size);
-            }
-
-            /* set width and height to button's width and height not the text within the button */
-            b0_width = button_width;
-            b1_width = button_width;
-            b0_height = button_height;
-            b1_height = button_height;
-    }
-
     int calculate_font_size (Cairo.Context C, string text, int target_width, out double width, out double height)
     {
         int target_font_size = 1;
@@ -1887,63 +1636,6 @@ internal class NibblesView : Widget
                 font_size+=10;
         }
         return target_font_size;
-    }
-
-    int calculate_font_size_from_max (Cairo.Context C, string text, int max_width, int max_height, out double width, out double height)
-    {
-        int target_font_size = 1;
-        width = 0;
-        height = 0;
-        for (int font_size = 1;font_size < 200;)
-        {
-            var layout =  Pango.cairo_create_layout (C);
-            Pango.FontDescription font;
-            if (null == layout.get_font_description ())
-                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-            else
-                font = layout.get_font_description ().copy ();
-            font.set_size (Pango.SCALE * font_size);
-            layout.set_font_description (font);
-            layout.set_text (text, -1);
-            Pango.cairo_update_layout (C, layout);
-            Pango.Rectangle a,b;
-            layout.get_extents (out a, out b);
-            if (a.width / Pango.SCALE < max_width && a.height / Pango.SCALE < max_height)
-            {
-                width = a.width / Pango.SCALE;
-                height = a.height / Pango.SCALE;
-                target_font_size = font_size;
-            }
-            else
-                break;
-            if (font_size < 20)
-                font_size++;
-            else if (font_size < 50)
-                font_size+=5;
-            else
-                font_size+=10;
-        }
-        return target_font_size;
-    }
-
-    void draw_dialogue_text (Cairo.Context C, double x, double y, string text, int font_size)
-    {
-        /* draw using x,y as the top left corner of the text */
-        int x_offset, y_offset;
-        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
-        C.move_to (x - x_offset, y - y_offset);
-        C.set_source_rgb (0.75, 0.75, 0.75);
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
-        font.set_size (Pango.SCALE * font_size);
-        layout.set_font_description (font);
-        layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
-        Pango.cairo_show_layout (C, layout);
     }
 
     /*\
