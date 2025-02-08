@@ -336,17 +336,16 @@ internal class NibblesView : TransparentContainer
                 ++animate;
             queue_draw ();
         }
-
         NibblesView view;
         public ActiveView (NibblesView view)
         {
             this.view = view;
         }
-        public override void snapshot (Snapshot S)
+        public override void snapshot (Snapshot s)
         {
-            var c = S.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
             if (view.game.three_dimensional_view)
             {
+                var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
                 double x2d, y2d;
                 double r, g, b;
 
@@ -568,7 +567,7 @@ internal class NibblesView : TransparentContainer
                             view.game.board[x + 0, y + 1] == NibblesGame.WARPCHAR &&
                             view.game.board[x + 1, y + 1] == NibblesGame.WARPCHAR)
                         {
-                            view.draw_bonus (c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta + x_delta, y_delta + y_delta, WARP, animate);
+                            view.draw_bonus (s, x_delta * x + x_offset, y_delta * y + y_offset, x_delta + x_delta, y_delta + y_delta, WARP, animate);
                         }
                     }
                 }
@@ -583,7 +582,7 @@ internal class NibblesView : TransparentContainer
                         {
                             uint8 x = position >> 8;
                             uint8 y = (uint8)position;
-                            view.draw_worm_segment (c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta, view.game.worm_props.@get (view.game.worms[i]).color, true, view.game.worms[i].was_bonus_eaten_at_this_position (position));
+                            view.draw_worm_segment (s, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta, view.game.worm_props.@get (view.game.worms[i]).color, true, view.game.worms[i].was_bonus_eaten_at_this_position (position));
                             materialized_worm_positions.add (position);
                         }
                     else
@@ -598,7 +597,7 @@ internal class NibblesView : TransparentContainer
                         {
                             uint8 x = position >> 8;
                             uint8 y = (uint8)position;
-                            view.draw_worm_segment (c, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta, view.game.worm_props.@get (view.game.worms[i]).color, false, false);
+                            view.draw_worm_segment (s, x_delta * x + x_offset, y_delta * y + y_offset, x_delta, y_delta, view.game.worm_props.@get (view.game.worms[i]).color, false, false);
                         }
                     }
                 }
@@ -606,12 +605,13 @@ internal class NibblesView : TransparentContainer
                 /* draw bonuses */
                 foreach (var bonus in view.game.get_bonuses ())
                 {
-                    view.draw_bonus (c, x_delta * bonus.x + x_offset, y_delta * bonus.y + y_offset, x_delta + x_delta, y_delta + y_delta, bonus.etype, animate);
+                    view.draw_bonus (s, x_delta * bonus.x + x_offset, y_delta * bonus.y + y_offset, x_delta + x_delta, y_delta + y_delta, bonus.etype, animate);
                 }
 
                 if (view.countdown_active () > 0)
                 {
                     /* count down */
+                    var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
                     string text = view.seconds_string (view.countdown_active ());
                     int text_width = x_delta * 10;
                     double w, h;
@@ -1361,7 +1361,7 @@ internal class NibblesView : TransparentContainer
         }
     }
 
-    void draw_worm_segment (Context C, int x, int y, int x_size, int y_size, int color, bool is_materialized, bool eaten_bonus)
+    void draw_worm_segment (Snapshot s, int x, int y, int x_size, int y_size, int color, bool is_materialized, bool eaten_bonus)
     {
         if (eaten_bonus)
         {
@@ -1391,192 +1391,198 @@ internal class NibblesView : TransparentContainer
             y_size -= 1;
         }
 
-        const double PI2 = 1.570796326794896619231321691639751442;
-        double x_s13 = x_size / 3.0;
-        double x_s23 = x_s13 + x_s13;
-        double y_s13 = y_size / 3.0;
-        double y_s23 = y_s13 + y_s13;
-
-        C.arc (x + x_s23, y + y_s13, x_s13 < y_s13 ? x_s13 : y_s13, -PI2, 0);
-        C.arc (x + x_s23, y + y_s23, x_s13 < y_s13 ? x_s13 : y_s13, 0, PI2);
-        C.arc (x + x_s13, y + y_s23, x_s13 < y_s13 ? x_s13 : y_s13, PI2, PI2 * 2);
-        C.arc (x + x_s13, y + y_s13, x_s13 < y_s13 ? x_s13 : y_s13, PI2 * 2, -PI2);
-
-        set_color (C, color, is_materialized);
-        C.fill ();
+        const float PI2 = 1.570796326794896619231321691639751442f;
+        float x_s13 = x_size / 3.0f;
+        float x_s23 = x_s13 + x_s13;
+        float y_s13 = y_size / 3.0f;
+        float y_s23 = y_s13 + y_s13;
+        var path = new PathBuilder ();
+        /* top right corner */
+        path.move_to (x + x_s23, y + 0);
+        path.svg_arc_to (x_s13, y_s13, PI2, false, true, x + x_size, y + y_s13);
+        /* bottom right corner */
+        path.line_to (x + x_size, y + y_s23);
+        path.svg_arc_to (x_s13, y_s13, PI2, false, true, x + x_s23, y + y_size);
+        /* bottom left corner */
+        path.line_to (x + x_s13, y + y_size);
+        path.svg_arc_to (x_s13, y_s13, PI2, false, true, x + 0, y + y_s23);
+        /* top left corner */
+        path.line_to (x + 0, y + y_s13);
+        path.svg_arc_to (x_s13, y_s13, PI2, false, true, x + x_s13, y + 0);
+        /* fill */
+        double r,g,b;
+        get_worm_rgb (color, is_materialized, out r, out g, out b);
+        s.append_fill (path.to_path (), EVEN_ODD, {(float)r, (float)g, (float)b, 1.0f});
     }
 
-    void draw_bonus (Context C, int x, int y, int x_size, int y_size, Bonus.eType type, uint64 animate)
+    void draw_bonus (Snapshot s, int x, int y, int x_size, int y_size, Bonus.eType type, uint64 animate)
     {
-        double x_m = x_size;
-        double y_m = y_size;
+        float x_m = x_size;
+        float y_m = y_size;
         switch (type)
         {
             case REGULAR:
                 x_m /= 18;
                 y_m /= 18;
-                C.move_to (x + x_m * 15, y + y_m * 8);
-                C.curve_to (x + x_m * 15.023438, y + y_m * 10.035156, x + x_m * 13.953125, y + y_m * 17.1875, x + x_m * 8, y + y_m * 14.429688);
-                C.curve_to (x + x_m * 1.90625, y + y_m * 17.109375, x + x_m * 1.03125, y + y_m * 9.921875, x + x_m * 1, y + y_m * 8);
-                C.curve_to (x + x_m * 1.007813, y + y_m * 5.109375, x + x_m * 3.300781, y + y_m * 1.355469, x + x_m * 8, y + y_m * 4.3125);
-                C.curve_to (x + x_m * 12.933594, y + y_m * 1.394531, x + x_m * 15.0625, y + y_m * 5, x + x_m * 15, y + y_m * 8);
-                C.close_path ();
-                C.set_source_rgba (0,1,0,1);
-                C.fill ();
-                C.move_to (x + x_m * 9.65625, y + y_m * 1.34375);
-                C.curve_to (x + x_m * 8, y + y_m * 2, x + x_m * 8, y + y_m * 3.667969, x + x_m * 8, y + y_m * 5);
-                C.close_path ();
-                C.set_source_rgba (0,1,0,1);
-                C.fill ();
+                var p0 = new PathBuilder ();
+                p0.move_to (x + x_m * 15, y + y_m * 8);
+                p0.cubic_to (x + x_m * 15.023438f, y + y_m * 10.035156f, x + x_m * 13.953125f, y + y_m * 17.1875f, x + x_m * 8, y + y_m * 14.429688f);
+                p0.cubic_to (x + x_m * 1.90625f, y + y_m * 17.109375f, x + x_m * 1.03125f, y + y_m * 9.921875f, x + x_m * 1, y + y_m * 8);
+                p0.cubic_to (x + x_m * 1.007813f, y + y_m * 5.109375f, x + x_m * 3.300781f, y + y_m * 1.355469f, x + x_m * 8, y + y_m * 4.3125f);
+                p0.cubic_to (x + x_m * 12.933594f, y + y_m * 1.394531f, x + x_m * 15.0625f, y + y_m * 5, x + x_m * 15, y + y_m * 8);
+                s.append_fill (p0.to_path (), EVEN_ODD, {0.0f, 1.0f, 0.0f, 1.0f});
+                var p1 = new PathBuilder ();
+                p1.move_to (x + x_m * 9.65625f, y + y_m * 1.34375f);
+                p1.cubic_to (x + x_m * 8, y + y_m * 2, x + x_m * 8, y + y_m * 3.667969f, x + x_m * 8, y + y_m * 5);
+                s.append_fill (p1.to_path (), EVEN_ODD, {0.0f, 1.0f, 0.0f, 1.0f});
                 break;
             case HALF:
                 x_m /= 16;
                 y_m /= 16;
-                C.move_to (x + x_m * 10.253906, y + y_m * 1.3125);
-                C.curve_to (x + x_m * 9.472656, y + y_m * 4.730469, x + x_m * 9.445313, y + y_m * 8.015625, x + x_m * 11.625, y + y_m * 10.683594);
-                C.set_source_rgba (0.305882,0.603922,0.0235294,1);
-                C.fill ();
-                C.move_to (x + x_m * 10.296875, y + y_m * 1.152344);
-                C.curve_to (x + x_m * 9.046875, y + y_m * 7.132813, x + x_m * 6.023438, y + y_m * 7.765625, x + x_m * 3.84375, y + y_m * 10.429688);
-                C.set_source_rgba (0.305882,0.603922,0.0235294,1);
-                C.fill ();
-                C.move_to (x + x_m * 7, y + y_m * 10);
-                C.curve_to (x + x_m * 7, y + y_m * 11.65625, x + x_m * 5.65625, y + y_m * 13, x + x_m * 4, y + y_m * 13);
-                C.curve_to (x + x_m * 2.34375, y + y_m * 13, x + x_m * 1, y + y_m * 11.65625, x + x_m * 1, y + y_m * 10);
-                C.curve_to (x + x_m * 1, y + y_m * 8.34375, x + x_m * 2.34375, y + y_m * 7, x + x_m * 4, y + y_m * 7);
-                C.curve_to (x + x_m * 5.65625, y + y_m * 7, x + x_m * 7, y + y_m * 8.34375, x + x_m * 7, y + y_m * 10);
-                C.set_source_rgba (0.8,0,0,1);
-                C.fill ();
-                C.move_to (x + x_m * 15, y + y_m * 12);
-                C.curve_to (x + x_m * 15, y + y_m * 13.65625, x + x_m * 13.65625, y + y_m * 15, x + x_m * 12, y + y_m * 15);
-                C.curve_to (x + x_m * 10.34375, y + y_m * 15, x + x_m * 9, y + y_m * 13.65625, x + x_m * 9, y + y_m * 12);
-                C.curve_to (x + x_m * 9, y + y_m * 10.34375, x + x_m * 10.34375, y + y_m * 9, x + x_m * 12, y + y_m * 9);
-                C.curve_to (x + x_m * 13.65625, y + y_m * 9, x + x_m * 15, y + y_m * 10.34375, x + x_m * 15, y + y_m * 12);
-                C.set_source_rgba (0.8,0,0,1);
-                C.fill ();
+                var p0 = new PathBuilder ();
+                p0.move_to (x + x_m * 10.253906f, y + y_m * 1.3125f);
+                p0.cubic_to (x + x_m * 9.472656f, y + y_m * 4.730469f, x + x_m * 9.445313f, y + y_m * 8.015625f, x + x_m * 11.625f, y + y_m * 10.683594f);
+                s.append_fill (p0.to_path (), EVEN_ODD, {0.305882f, 0.603922f, 0.0235294f, 1.0f});
+                var p1 = new PathBuilder ();
+                p1.move_to (x + x_m * 10.296875f, y + y_m * 1.152344f);
+                p1.cubic_to (x + x_m * 9.046875f, y + y_m * 7.132813f, x + x_m * 6.023438f, y + y_m * 7.765625f, x + x_m * 3.84375f, y + y_m * 10.429688f);
+                s.append_fill (p1.to_path (), EVEN_ODD, {0.305882f, 0.603922f, 0.0235294f, 1.0f});
+                var p2 = new PathBuilder ();
+                p2.move_to (x + x_m * 7, y + y_m * 10);
+                p2.cubic_to (x + x_m * 7, y + y_m * 11.65625f, x + x_m * 5.65625f, y + y_m * 13, x + x_m * 4, y + y_m * 13);
+                p2.cubic_to (x + x_m * 2.34375f, y + y_m * 13, x + x_m * 1, y + y_m * 11.65625f, x + x_m * 1, y + y_m * 10);
+                p2.cubic_to (x + x_m * 1, y + y_m * 8.34375f, x + x_m * 2.34375f, y + y_m * 7, x + x_m * 4, y + y_m * 7);
+                p2.cubic_to (x + x_m * 5.65625f, y + y_m * 7, x + x_m * 7, y + y_m * 8.34375f, x + x_m * 7, y + y_m * 10);
+                s.append_fill (p2.to_path (), EVEN_ODD, {0.8f, 0.0f, 0.0f, 1.0f});
+                var p3 = new PathBuilder ();
+                p3.move_to (x + x_m * 15, y + y_m * 12);
+                p3.cubic_to (x + x_m * 15, y + y_m * 13.65625f, x + x_m * 13.65625f, y + y_m * 15, x + x_m * 12, y + y_m * 15);
+                p3.cubic_to (x + x_m * 10.34375f, y + y_m * 15, x + x_m * 9, y + y_m * 13.65625f, x + x_m * 9, y + y_m * 12);
+                p3.cubic_to (x + x_m * 9, y + y_m * 10.34375f, x + x_m * 10.34375f, y + y_m * 9, x + x_m * 12, y + y_m * 9);
+                p3.cubic_to (x + x_m * 13.65625f, y + y_m * 9, x + x_m * 15, y + y_m * 10.34375f, x + x_m * 15, y + y_m * 12);
+                s.append_fill (p3.to_path (), EVEN_ODD, {0.8f, 0.0f, 0.0f, 1.0f});
                 break;
             case DOUBLE:
                 x_m /= 18;
                 y_m /= 18;
-                C.move_to (x + x_m * 0.695313, y + y_m * 8.425781);
-                C.curve_to (x + x_m * 8.914063, y + y_m * 11.246094, x + x_m * 13.257813, y + y_m * 5.894531, x + x_m * 13.847656, y + y_m * 4.394531);
-                C.curve_to (x + x_m * 14.285156, y + y_m * 3.351563, x + x_m * 14.308594, y + y_m * 3.082031, x + x_m * 14.402344, y + y_m * 2.535156);
-                C.curve_to (x + x_m * 14.941406, y + y_m * 2.433594, x + x_m * 15.613281, y + y_m * 2.71875, x + x_m * 16, y + y_m * 3.0625);
-                C.curve_to (x + x_m * 15.566406, y + y_m * 3.535156, x + x_m * 15.261719, y + y_m * 4.246094, x + x_m * 15.167969, y + y_m * 4.984375);
-                C.curve_to (x + x_m * 15.675781, y + y_m * 11.316406, x + x_m * 7.71875, y + y_m * 17.683594, x + x_m * 0, y + y_m * 9.972656);
-                C.curve_to (x + x_m * 0.03125, y + y_m * 9.433594, x + x_m * 0.210938, y + y_m * 8.84375, x + x_m * 0.695313, y + y_m * 8.425781);
-                C.set_source_rgba (0.988235,0.913725,0.309804,1);
-                C.fill ();
+                var p0 = new PathBuilder ();
+                p0.move_to (x + x_m * 0.695313f, y + y_m * 8.425781f);
+                p0.cubic_to (x + x_m * 8.914063f, y + y_m * 11.246094f, x + x_m * 13.257813f, y + y_m * 5.894531f, x + x_m * 13.847656f, y + y_m * 4.394531f);
+                p0.cubic_to (x + x_m * 14.285156f, y + y_m * 3.351563f, x + x_m * 14.308594f, y + y_m * 3.082031f, x + x_m * 14.402344f, y + y_m * 2.535156f);
+                p0.cubic_to (x + x_m * 14.941406f, y + y_m * 2.433594f, x + x_m * 15.613281f, y + y_m * 2.71875f, x + x_m * 16, y + y_m * 3.0625f);
+                p0.cubic_to (x + x_m * 15.566406f, y + y_m * 3.535156f, x + x_m * 15.261719f, y + y_m * 4.246094f, x + x_m * 15.167969f, y + y_m * 4.984375f);
+                p0.cubic_to (x + x_m * 15.675781f, y + y_m * 11.316406f, x + x_m * 7.71875f, y + y_m * 17.683594f, x + x_m * 0, y + y_m * 9.972656f);
+                p0.cubic_to (x + x_m * 0.03125f, y + y_m * 9.433594f, x + x_m * 0.210938f, y + y_m * 8.84375f, x + x_m * 0.695313f, y + y_m * 8.425781f);
+                s.append_fill (p0.to_path (), EVEN_ODD, {0.988235f, 0.913725f, 0.309804f, 1.0f});
                 break;
             case LIFE:
                 x_m /= 16;
                 y_m /= 16;
-                C.move_to (x + x_m * 4.753906, y + y_m * 1.828125);
-                C.curve_to (x + x_m * 2.652344, y + y_m * 1.851563, x + x_m * 1.019531, y + y_m * 3.648438, x + x_m * 1, y + y_m * 5.8125);
-                C.curve_to (x + x_m * 0.972656, y + y_m * 8.890625, x + x_m * 2.808594, y + y_m * 9.882813, x + x_m * 8.015625, y + y_m * 14.171875);
-                C.curve_to (x + x_m * 12.992188, y + y_m * 9.558594, x + x_m * 14.976563, y + y_m * 8.316406, x + x_m * 15, y + y_m * 5.722656);
-                C.curve_to (x + x_m * 15.027344, y + y_m * 2.886719, x + x_m * 10.90625, y + y_m * 0.128906, x + x_m * 7.910156, y + y_m * 3.121094);
-                C.curve_to (x + x_m * 6.835938, y + y_m * 2.199219, x + x_m * 5.742188, y + y_m * 1.816406, x + x_m * 4.753906, y + y_m * 1.828125);
-                C.set_source_rgba (1,0,0,1);
-                C.fill ();
+                var p0 = new PathBuilder ();
+                p0.move_to (x + x_m * 4.753906f, y + y_m * 1.828125f);
+                p0.cubic_to (x + x_m * 2.652344f, y + y_m * 1.851563f, x + x_m * 1.019531f, y + y_m * 3.648438f, x + x_m * 1, y + y_m * 5.8125f);
+                p0.cubic_to (x + x_m * 0.972656f, y + y_m * 8.890625f, x + x_m * 2.808594f, y + y_m * 9.882813f, x + x_m * 8.015625f, y + y_m * 14.171875f);
+                p0.cubic_to (x + x_m * 12.992188f, y + y_m * 9.558594f, x + x_m * 14.976563f, y + y_m * 8.316406f, x + x_m * 15, y + y_m * 5.722656f);
+                p0.cubic_to (x + x_m * 15.027344f, y + y_m * 2.886719f, x + x_m * 10.90625f, y + y_m * 0.128906f, x + x_m * 7.910156f, y + y_m * 3.121094f);
+                p0.cubic_to (x + x_m * 6.835938f, y + y_m * 2.199219f, x + x_m * 5.742188f, y + y_m * 1.816406f, x + x_m * 4.753906f, y + y_m * 1.828125f);
+                s.append_fill (p0.to_path (), EVEN_ODD, {1.0f, 0.0f, 0.0f, 1.0f});
                 break;
             case REVERSE:
                 x_m /= 16;
                 y_m /= 16;
-                C.move_to (x + x_m * 4, y + y_m * 2);
-                C.line_to (x + x_m * 12, y + y_m * 2);
-                C.line_to (x + x_m * 15, y + y_m * 6);
-                C.line_to (x + x_m * 8, y + y_m * 15);
-                C.line_to (x + x_m * 1, y + y_m * 6);
-                C.set_source_rgba (0.717647,0.807843,0.901961,1);
-                C.fill ();
-                C.move_to (x + x_m * 11, y + y_m * 6);
-                C.line_to (x + x_m * 8, y + y_m * 15);
-                C.line_to (x + x_m * 5, y + y_m * 6);
-                C.set_source_rgba (0.447059,0.623529,0.811765,1);
-                C.fill ();
-                C.move_to (x + x_m * 4, y + y_m * 2);
-                C.line_to (x + x_m * 8, y + y_m * 2);
-                C.line_to (x + x_m * 5, y + y_m * 6);
-                C.line_to (x + x_m * 1, y + y_m * 6);
-                C.set_source_rgba (0.447059,0.623529,0.811765,1);
-                C.fill ();
-                C.move_to (x + x_m * 12, y + y_m * 2);
-                C.line_to (x + x_m * 8, y + y_m * 2);
-                C.line_to (x + x_m * 11, y + y_m * 6);
-                C.line_to (x + x_m * 15, y + y_m * 6);
-                C.set_source_rgba (0.447059,0.623529,0.811765,1);
-                C.fill ();
+                var p0 = new PathBuilder ();
+                p0.move_to (x + x_m * 4, y + y_m * 2);
+                p0.line_to (x + x_m * 12, y + y_m * 2);
+                p0.line_to (x + x_m * 15, y + y_m * 6);
+                p0.line_to (x + x_m * 8, y + y_m * 15);
+                p0.line_to (x + x_m * 1, y + y_m * 6);
+                s.append_fill (p0.to_path (), EVEN_ODD, {0.717647f, 0.807843f, 0.901961f, 1.0f});
+                var p1 = new PathBuilder ();
+                p1.move_to (x + x_m * 11, y + y_m * 6);
+                p1.line_to (x + x_m * 8, y + y_m * 15);
+                p1.line_to (x + x_m * 5, y + y_m * 6);
+                s.append_fill (p1.to_path (), EVEN_ODD, {0.447059f, 0.623529f, 0.811765f, 1.0f});
+                var p2 = new PathBuilder ();
+                p2.move_to (x + x_m * 4, y + y_m * 2);
+                p2.line_to (x + x_m * 8, y + y_m * 2);
+                p2.line_to (x + x_m * 5, y + y_m * 6);
+                p2.line_to (x + x_m * 1, y + y_m * 6);
+                s.append_fill (p2.to_path (), EVEN_ODD, {0.447059f ,0.623529f ,0.811765f, 1.0f});
+                var p3 = new PathBuilder ();
+                p3.move_to (x + x_m * 12, y + y_m * 2);
+                p3.line_to (x + x_m * 8, y + y_m * 2);
+                p3.line_to (x + x_m * 11, y + y_m * 6);
+                p3.line_to (x + x_m * 15, y + y_m * 6);
+                s.append_fill (p3.to_path (), EVEN_ODD, {0.447059f, 0.623529f, 0.811765f, 1.0f});
                 break;
             case WARP:
                 x_m /= 16;
                 y_m /= 16;
-                C.move_to (x + x_m * 8.664063, y + y_m * 0.621094);
-                C.curve_to (x + x_m * 6.179688, y + y_m * 0.761719, x + x_m * 4.265625, y + y_m * 2.679688, x + x_m * 4.40625, y + y_m * 5.164063);
-                C.line_to (x + x_m * 7.433594, y + y_m * 5.164063);
-                C.curve_to (x + x_m * 7.386719, y + y_m * 4.3125, x + x_m * 8.003906, y + y_m * 3.699219, x + x_m * 8.855469, y + y_m * 3.652344);
-                C.curve_to (x + x_m * 9.707031, y + y_m * 3.601563, x + x_m * 10.417969, y + y_m * 4.21875, x + x_m * 10.464844, y + y_m * 5.070313);
-                C.line_to (x + x_m * 10.464844, y + y_m * 5.117188);
-                C.curve_to (x + x_m * 10.46875, y + y_m * 5.316406, x + x_m * 10.417969, y + y_m * 5.609375, x + x_m * 10.273438, y + y_m * 5.78125);
-                C.curve_to (x + x_m * 9.929688, y + y_m * 6.191406, x + x_m * 9.542969, y + y_m * 6.53125, x + x_m * 9.234375, y + y_m * 6.773438);
-                C.curve_to (x + x_m * 8.890625, y + y_m * 7.035156, x + x_m * 8.515625, y + y_m * 7.351563, x + x_m * 8.144531, y + y_m * 7.816406);
-                C.curve_to (x + x_m * 7.773438, y + y_m * 8.28125, x + x_m * 7.433594, y + y_m * 8.949219, x + x_m * 7.433594, y + y_m * 9.710938);
-                C.curve_to (x + x_m * 7.425781, y + y_m * 10.507813, x + x_m * 8.148438, y + y_m * 11.222656, x + x_m * 8.949219, y + y_m * 11.222656);
-                C.curve_to (x + x_m * 9.75, y + y_m * 11.222656, x + x_m * 10.476563, y + y_m * 10.507813, x + x_m * 10.464844, y + y_m * 9.710938);
-                C.curve_to (x + x_m * 10.464844, y + y_m * 9.710938, x + x_m * 10.4375, y + y_m * 9.753906, x + x_m * 10.511719, y + y_m * 9.664063);
-                C.curve_to (x + x_m * 10.585938, y + y_m * 9.566406, x + x_m * 10.789063, y + y_m * 9.40625, x + x_m * 11.078125, y + y_m * 9.1875);
-                C.curve_to (x + x_m * 12.921875, y + y_m * 7.792969, x + x_m * 13.492188, y + y_m * 7.003906, x + x_m * 13.492188, y + y_m * 4.882813);
-                C.curve_to (x + x_m * 13.355469, y + y_m * 2.394531, x + x_m * 11.152344, y + y_m * 0.484375, x + x_m * 8.664063, y + y_m * 0.621094);
-                //animate color C.set_source_rgba (0.678431,0.498039,0.658824,1);
-                C.set_source_rgba (animate%30 < 10 ? (animate%30 / 10.0) : (animate%30 >= 20 ? 0 : ((20 - animate%30) / 10.0)),
-                                   (animate+10)%30 < 10 ? ((animate+10)%30 / 10.0) : ((animate+10)%30 >= 20 ? 0 : ((20 - (animate+10)%30) / 10.0)),
-                                   (animate+20)%30 < 10 ? ((animate+20)%30 / 10.0) : ((animate+20)%30 >= 20 ? 0 : ((20 - (animate+20)%30) / 10.0)),
-                                   1);
-                C.fill ();
-                C.move_to (x + x_m * 8.949219, y + y_m * 12.738281);
-                C.curve_to (x + x_m * 8.113281, y + y_m * 12.738281, x + x_m * 7.433594, y + y_m * 13.417969, x + x_m * 7.433594, y + y_m * 14.253906);
-                C.curve_to (x + x_m * 7.433594, y + y_m * 15.089844, x + x_m * 8.113281, y + y_m * 15.769531, x + x_m * 8.949219, y + y_m * 15.769531);
-                C.curve_to (x + x_m * 9.785156, y + y_m * 15.769531, x + x_m * 10.464844, y + y_m * 15.089844, x + x_m * 10.464844, y + y_m * 14.253906);
-                C.curve_to (x + x_m * 10.464844, y + y_m * 13.417969, x + x_m * 9.785156, y + y_m * 12.738281, x + x_m * 8.949219, y + y_m * 12.738281);
-                C.fill ();
+                var p0 = new PathBuilder ();
+                p0.move_to (x + x_m * 8.664063f, y + y_m * 0.621094f);
+                p0.cubic_to (x + x_m * 6.179688f, y + y_m * 0.761719f, x + x_m * 4.265625f, y + y_m * 2.679688f, x + x_m * 4.40625f, y + y_m * 5.164063f);
+                p0.line_to (x + x_m * 7.433594f, y + y_m * 5.164063f);
+                p0.cubic_to (x + x_m * 7.386719f, y + y_m * 4.3125f, x + x_m * 8.003906f, y + y_m * 3.699219f, x + x_m * 8.855469f, y + y_m * 3.652344f);
+                p0.cubic_to (x + x_m * 9.707031f, y + y_m * 3.601563f, x + x_m * 10.417969f, y + y_m * 4.21875f, x + x_m * 10.464844f, y + y_m * 5.070313f);
+                p0.line_to (x + x_m * 10.464844f, y + y_m * 5.117188f);
+                p0.cubic_to (x + x_m * 10.46875f, y + y_m * 5.316406f, x + x_m * 10.417969f, y + y_m * 5.609375f, x + x_m * 10.273438f, y + y_m * 5.78125f);
+                p0.cubic_to (x + x_m * 9.929688f, y + y_m * 6.191406f, x + x_m * 9.542969f, y + y_m * 6.53125f, x + x_m * 9.234375f, y + y_m * 6.773438f);
+                p0.cubic_to (x + x_m * 8.890625f, y + y_m * 7.035156f, x + x_m * 8.515625f, y + y_m * 7.351563f, x + x_m * 8.144531f, y + y_m * 7.816406f);
+                p0.cubic_to (x + x_m * 7.773438f, y + y_m * 8.28125f, x + x_m * 7.433594f, y + y_m * 8.949219f, x + x_m * 7.433594f, y + y_m * 9.710938f);
+                p0.cubic_to (x + x_m * 7.425781f, y + y_m * 10.507813f, x + x_m * 8.148438f, y + y_m * 11.222656f, x + x_m * 8.949219f, y + y_m * 11.222656f);
+                p0.cubic_to (x + x_m * 9.75f, y + y_m * 11.222656f, x + x_m * 10.476563f, y + y_m * 10.507813f, x + x_m * 10.464844f, y + y_m * 9.710938f);
+                p0.cubic_to (x + x_m * 10.464844f, y + y_m * 9.710938f, x + x_m * 10.4375f, y + y_m * 9.753906f, x + x_m * 10.511719f, y + y_m * 9.664063f);
+                p0.cubic_to (x + x_m * 10.585938f, y + y_m * 9.566406f, x + x_m * 10.789063f, y + y_m * 9.40625f, x + x_m * 11.078125f, y + y_m * 9.1875f);
+                p0.cubic_to (x + x_m * 12.921875f, y + y_m * 7.792969f, x + x_m * 13.492188f, y + y_m * 7.003906f, x + x_m * 13.492188f, y + y_m * 4.882813f);
+                p0.cubic_to (x + x_m * 13.355469f, y + y_m * 2.394531f, x + x_m * 11.152344f, y + y_m * 0.484375f, x + x_m * 8.664063f, y + y_m * 0.621094f);
+                float r,g,b;
+                r = animate%30 < 10 ? (animate%30 / 10.0f) : (animate%30 >= 20 ? 0 : ((20 - animate%30) / 10.0f));
+                g = (animate+10)%30 < 10 ? ((animate+10)%30 / 10.0f) : ((animate+10)%30 >= 20 ? 0 : ((20 - (animate+10)%30) / 10.0f));
+                b = (animate+20)%30 < 10 ? ((animate+20)%30 / 10.0f) : ((animate+20)%30 >= 20 ? 0 : ((20 - (animate+20)%30) / 10.0f));
+                s.append_fill (p0.to_path (), EVEN_ODD, {r, g, b, 1.0f});
+                var p1 = new PathBuilder ();
+                p1.move_to (x + x_m * 8.949219f, y + y_m * 12.738281f);
+                p1.cubic_to (x + x_m * 8.113281f, y + y_m * 12.738281f, x + x_m * 7.433594f, y + y_m * 13.417969f, x + x_m * 7.433594f, y + y_m * 14.253906f);
+                p1.cubic_to (x + x_m * 7.433594f, y + y_m * 15.089844f, x + x_m * 8.113281f, y + y_m * 15.769531f, x + x_m * 8.949219f, y + y_m * 15.769531f);
+                p1.cubic_to (x + x_m * 9.785156f, y + y_m * 15.769531f, x + x_m * 10.464844f, y + y_m * 15.089844f, x + x_m * 10.464844f, y + y_m * 14.253906f);
+                p1.cubic_to (x + x_m * 10.464844f, y + y_m * 13.417969f, x + x_m * 9.785156f, y + y_m * 12.738281f, x + x_m * 8.949219f, y + y_m * 12.738281f);
+                s.append_fill (p1.to_path (), EVEN_ODD, {r, g, b, 1.0f});
                 break;
             case 6:
                 x_m /= 16;
                 y_m /= 16;
-                C.move_to (x + x_m * 8.902344, y + y_m * 0.160156);
-                C.curve_to (x + x_m * 6.953125, y + y_m * 1.15625, x + x_m * 7.480469, y + y_m * 3.089844, x + x_m * 7.453125, y + y_m * 5.019531);
-                C.line_to (x + x_m * 8.257813, y + y_m * 4.8125);
-                C.curve_to (x + x_m * 8.144531, y + y_m * 3.507813, x + x_m * 9.359375, y + y_m * 1.511719, x + x_m * 10.742188, y + y_m * 1.675781);
-
-                C.set_source_rgba (0.305882,0.603922,0.0235294,1);
-                C.fill ();
-                C.move_to (x + x_m * 14, y + y_m * 9);
-                C.curve_to (x + x_m * 14, y + y_m * 5.6875, x + x_m * 11.3125, y + y_m * 3, x + x_m * 8, y + y_m * 3);
-                C.curve_to (x + x_m * 4.6875, y + y_m * 3, x + x_m * 2, y + y_m * 5.6875, x + x_m * 2, y + y_m * 9);
-                C.curve_to (x + x_m * 2, y + y_m * 12.3125, x + x_m * 4.6875, y + y_m * 15, x + x_m * 8, y + y_m * 15);
-                C.curve_to (x + x_m * 11.3125, y + y_m * 15, x + x_m * 14, y + y_m * 12.3125, x + x_m * 14, y + y_m * 9);
-
-                C.set_source_rgba (0.960784,0.47451,0,1);
-                C.fill ();
+                var p0 = new PathBuilder ();
+                p0.move_to (x + x_m * 8.902344f, y + y_m * 0.160156f);
+                p0.cubic_to (x + x_m * 6.953125f, y + y_m * 1.15625f, x + x_m * 7.480469f, y + y_m * 3.089844f, x + x_m * 7.453125f, y + y_m * 5.019531f);
+                p0.line_to (x + x_m * 8.257813f, y + y_m * 4.8125f);
+                p0.cubic_to (x + x_m * 8.144531f, y + y_m * 3.507813f, x + x_m * 9.359375f, y + y_m * 1.511719f, x + x_m * 10.742188f, y + y_m * 1.675781f);
+                s.append_fill (p0.to_path (), EVEN_ODD, {0.305882f, 0.603922f, 0.0235294f, 1.0f});
+                var p1 = new PathBuilder ();
+                p1.move_to (x + x_m * 14, y + y_m * 9);
+                p1.cubic_to (x + x_m * 14, y + y_m * 5.6875f, x + x_m * 11.3125f, y + y_m * 3, x + x_m * 8, y + y_m * 3);
+                p1.cubic_to (x + x_m * 4.6875f, y + y_m * 3, x + x_m * 2, y + y_m * 5.6875f, x + x_m * 2, y + y_m * 9);
+                p1.cubic_to (x + x_m * 2, y + y_m * 12.3125f, x + x_m * 4.6875f, y + y_m * 15, x + x_m * 8, y + y_m * 15);
+                p1.cubic_to (x + x_m * 11.3125f, y + y_m * 15, x + x_m * 14, y + y_m * 12.3125f, x + x_m * 14, y + y_m * 9);
+                s.append_fill (p1.to_path (), EVEN_ODD, {0.960784f, 0.47451f, 0.0f, 1.0f});
                 break;
             case 7:
                 x_m /= 16;
                 y_m /= 16;
-                C.move_to (x + x_m * 4.585938, y + y_m * 0.96875);
-                C.curve_to (x + x_m * 3.914063, y + y_m * 3.050781, x + x_m * 5.65625, y + y_m * 4.042969, x + x_m * 7, y + y_m * 5.429688);
-                C.line_to (x + x_m * 7.421875, y + y_m * 4.710938);
-                C.curve_to (x + x_m * 6.417969, y + y_m * 3.871094, x + x_m * 5.867188, y + y_m * 1.597656, x + x_m * 6.960938, y + y_m * 0.738281);
-                C.set_source_rgba (0.305882,0.603922,0.0235294,1);
-                C.fill ();
-                C.move_to (x + x_m * 12.933594, y + y_m * 5.347656);
-                C.curve_to (x + x_m * 13.652344, y + y_m * 7.882813, x + x_m * 12.867188, y + y_m * 8.753906, x + x_m * 12.871094, y + y_m * 10.476563);
-                C.curve_to (x + x_m * 12.875, y + y_m * 12.890625, x + x_m * 13.015625, y + y_m * 14.386719, x + x_m * 11.148438, y + y_m * 15.089844);
-                C.curve_to (x + x_m * 9.941406, y + y_m * 15.492188, x + x_m * 8.785156, y + y_m * 15.382813, x + x_m * 6.539063, y + y_m * 12.617188);
-                C.curve_to (x + x_m * 5.886719, y + y_m * 11.765625, x + x_m * 4.117188, y + y_m * 11.683594, x + x_m * 3.226563, y + y_m * 10.214844);
-                C.curve_to (x + x_m * 2.117188, y + y_m * 8.375, x + x_m * 2.902344, y + y_m * 5.152344, x + x_m * 6.707031, y + y_m * 4.464844);
-                C.curve_to (x + x_m * 8.609375, y + y_m * 2.308594, x + x_m * 11.933594, y + y_m * 3.136719, x + x_m * 12.933594, y + y_m * 5.347656);
-                C.set_source_rgba (0.937255,0.160784,0.160784,1);
-                C.fill ();
+                var p0 = new PathBuilder ();
+                p0.move_to (x + x_m * 4.585938f, y + y_m * 0.96875f);
+                p0.cubic_to (x + x_m * 3.914063f, y + y_m * 3.050781f, x + x_m * 5.65625f, y + y_m * 4.042969f, x + x_m * 7, y + y_m * 5.429688f);
+                p0.line_to (x + x_m * 7.421875f, y + y_m * 4.710938f);
+                p0.cubic_to (x + x_m * 6.417969f, y + y_m * 3.871094f, x + x_m * 5.867188f, y + y_m * 1.597656f, x + x_m * 6.960938f, y + y_m * 0.738281f);
+                s.append_fill (p0.to_path (), EVEN_ODD, {0.305882f, 0.603922f, 0.0235294f, 1.0f});
+                var p1 = new PathBuilder ();
+                p1.move_to (x + x_m * 12.933594f, y + y_m * 5.347656f);
+                p1.cubic_to (x + x_m * 13.652344f, y + y_m * 7.882813f, x + x_m * 12.867188f, y + y_m * 8.753906f, x + x_m * 12.871094f, y + y_m * 10.476563f);
+                p1.cubic_to (x + x_m * 12.875f, y + y_m * 12.890625f, x + x_m * 13.015625f, y + y_m * 14.386719f, x + x_m * 11.148438f, y + y_m * 15.089844f);
+                p1.cubic_to (x + x_m * 9.941406f, y + y_m * 15.492188f, x + x_m * 8.785156f, y + y_m * 15.382813f, x + x_m * 6.539063f, y + y_m * 12.617188f);
+                p1.cubic_to (x + x_m * 5.886719f, y + y_m * 11.765625f, x + x_m * 4.117188f, y + y_m * 11.683594f, x + x_m * 3.226563f, y + y_m * 10.214844f);
+                p1.cubic_to (x + x_m * 2.117188f, y + y_m * 8.375f, x + x_m * 2.902344f, y + y_m * 5.152344f, x + x_m * 6.707031f, y + y_m * 4.464844f);
+                p1.cubic_to (x + x_m * 8.609375f, y + y_m * 2.308594f, x + x_m * 11.933594f, y + y_m * 3.136719f, x + x_m * 12.933594f, y + y_m * 5.347656f);
+                s.append_fill (p1.to_path (), EVEN_ODD, {0.937255f, 0.160784f, 0.160784f, 1.0f});
                 break;
             default:
                 break;
