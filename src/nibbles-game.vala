@@ -1029,7 +1029,7 @@ private class NibblesGame : Object
         foreach (var worm in worms)
         {
             if (worm.is_human)
-                if (worm.handle_keypress (keycode, worm_props, board, worms))
+                if (worm.handle_keypress (keycode, worm_props))
                     return true;
         }
 
@@ -1040,7 +1040,7 @@ private class NibblesGame : Object
     * * Delegates
     \*/
 
-    private Gee.List<Worm> get_other_worms (Worm self)
+    private Gee.List<Worm> get_other_worms (Worm? self)
     {
         var result = new Gee.ArrayList<Worm> ();
         foreach (Worm worm in worms)
