@@ -131,7 +131,11 @@ if use_libadwaita
             vala_if_defines += ['--define=USE_LIBADWAITA','--define=USE_PILL_BUTTON']
         else
             message('Can not link with libadwaita.')
+            use_libadwaita = false
         endif
+    else
+        # we can't do the test because of the meson bug so be on the safe side
+        use_libadwaita = false
     endif
 endif
 
