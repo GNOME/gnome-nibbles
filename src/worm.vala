@@ -1126,7 +1126,6 @@ private class Worm : Object
     public int id { internal get; protected construct; }
 
     internal bool is_human;
-    internal bool keypress = false;
     internal int rounds_to_stay_still;
     internal bool is_stopped = false;
     private int rounds_to_stay_dematerialized;
@@ -1159,9 +1158,37 @@ private class Worm : Object
     internal bool warp_bonus;
 
     private WormDirection starting_direction;
-
-    private Gee.ArrayQueue<WormDirection> key_queue = new Gee.ArrayQueue<WormDirection> ();
-
+#if !TEST_COMPILE
+    class KeyQueue
+    {
+        Gee.LinkedList<WormDirection> q = new Gee.LinkedList<WormDirection> ();
+        public void append (WormDirection direction)
+        {
+            if (q.size == 0 || q.@get (q.size - 1) != direction)
+                q.add (direction); /* join to the end of the queue */
+        }
+        public void prepend (WormDirection direction)
+        {
+            if (q.size == 0)
+                q.add (direction);
+            else if (q.@get (0) != direction)
+                q.insert (0, direction); /* push in at the front of the queue */
+        }
+        public void clear ()
+        {
+            q.clear ();
+        }
+        public bool is_empty ()
+        {
+            return q.size == 0;
+        }
+        public WormDirection remove ()
+        {
+            return q.remove_at (0); /* leave the front of the queue */
+        }
+    }
+    private KeyQueue key_queue = new KeyQueue ();
+#endif
     internal WormPositions list = new WormPositions ();
     private Gee.ArrayList<uint16> bonus_eaten = new Gee.ArrayList<uint16> ();
 
@@ -1169,7 +1196,7 @@ private class Worm : Object
     internal signal void bonus_found ();
 
     /* delegates to nibbles-game */
-    internal delegate Gee.List<Worm> GetOtherWormsType (Worm self);
+    internal delegate Gee.List<Worm> GetOtherWormsType (Worm? self);
     GetOtherWormsType get_other_worms;
     internal delegate Gee.List<Bonus> GetBonusesType ();
     GetBonusesType get_bonuses;
@@ -1203,14 +1230,13 @@ private class Worm : Object
         starting_direction = direction;
         this.direction     = direction;
         change = 0;
+#if !TEST_COMPILE
         key_queue.clear ();
+#endif
     }
 
     internal void move_part_1 ()
     {
-        if (is_human)
-            keypress = false;
-
         Position position = head;
         position.move (direction, width, height);
 
@@ -1241,10 +1267,10 @@ private class Worm : Object
         /* If we are dematerialized reduce the rounds dematerialized by one. */
         if (rounds_to_stay_dematerialized > 1)
             rounds_to_stay_dematerialized -= 1;
-
-        if (!key_queue.is_empty)
-            dequeue_keypress ();
-
+#if !TEST_COMPILE
+        if (is_human && !key_queue.is_empty ())
+            dequeue_keypress (board, get_other_worms (null));
+#endif
         /* Try and dematerialize if our rounds are up. */
         if (rounds_to_stay_dematerialized == 1)
             materialize (board);
@@ -1317,7 +1343,7 @@ private class Worm : Object
         return false;
     }
 
-    internal bool is_position_clear_of_materialized_worms (Gee.LinkedList<Worm> worms, Position position)
+    internal bool is_position_clear_of_materialized_worms (Gee.List<Worm> worms, Position position)
     {
         foreach (Worm worm in worms)
             if (worm.is_materialized && does_list_contain_position (worm.list, ((uint16)position.x)<<8 | position.y))
@@ -1330,7 +1356,7 @@ private class Worm : Object
         return board[p.x, p.y] > NibblesGame.EMPTYCHAR;
     }
 
-    internal bool can_move_to (int[,] board, Gee.LinkedList<Worm> worms, Position position)
+    internal bool can_move_to (int[,] board, Gee.List<Worm> worms, Position position)
     {
         if (is_board_position_occupied (position, board))
             return false;
@@ -1350,7 +1376,7 @@ private class Worm : Object
             return true;
     }
 
-    internal bool can_move_direction (int[,] board, Gee.LinkedList<Worm> worms, WormDirection direction)
+    internal bool can_move_direction (int[,] board, Gee.List<Worm> worms, WormDirection direction)
     {
         Position position = list.get_head (); /* head position */
         position.move (direction,width,height);
@@ -1429,9 +1455,9 @@ private class Worm : Object
     {
         is_stopped = true;
         rounds_to_stay_dematerialized = 0;
-
+#if !TEST_COMPILE
         key_queue.clear ();
-
+#endif
         lose_life ();
 
         list.clear ();
@@ -1462,30 +1488,13 @@ private class Worm : Object
         position.move (direction, width, height);
         return position;
     }
-
-    private void direction_set (WormDirection dir)
-        requires (dir != WormDirection.NONE)
-    {
-        if (!is_human)
-            return;
-
-        if (keypress)
-        {
-            queue_keypress (dir);
-            return;
-        }
-
-        direction = dir;
-        keypress = true;
-    }
-
     /*\
     * * Keys and key presses
     \*/
 #if !TEST_COMPILE
     private bool LastUturnA = false;
 
-    private WormDirection uturn (int [,] board, Gee.LinkedList<Worm> worms, WormDirection direction)
+    private WormDirection uturn (int [,] board, Gee.List<Worm> worms, WormDirection direction)
     {
         /* player has reversed direction */
         Position tmp;
@@ -1550,102 +1559,100 @@ private class Worm : Object
         return -1;
     }
 
-    internal bool handle_keypress (uint keycode, Gee.HashMap<Worm, WormProperties> worm_props,int [,] board, Gee.LinkedList<Worm> worms)
+    internal bool handle_keypress (uint keycode, Gee.HashMap<Worm, WormProperties> worm_props)
     {
         if (lives == 0 || is_stopped || list.is_empty)
             return false;
-
-        WormProperties properties = worm_props.@get (this);
-
-        if (properties.raw_up < 0)
-            properties.raw_up = get_raw_key (properties.up);
-        if (keycode == properties.raw_up)
+        else
         {
-            if (direction==WormDirection.DOWN)
+            WormProperties properties = worm_props.@get (this);
+            if (properties.raw_up < 0)
+                properties.raw_up = get_raw_key (properties.up);
+            if (keycode == properties.raw_up)
             {
-                direction_set (uturn (board,worms,WormDirection.UP));
-                if (direction!=WormDirection.UP && direction!=WormDirection.DOWN)
-                    queue_keypress (WormDirection.UP);
+                queue_keypress (UP);
                 return true;
             }
-            else if (can_move_direction (board,worms,WormDirection.UP))
+            if (properties.raw_down < 0)
+                properties.raw_down = get_raw_key (properties.down);
+            if (keycode == properties.raw_down)
             {
-                direction_set (WormDirection.UP);
+                queue_keypress (DOWN);
                 return true;
             }
+            if (properties.raw_left < 0)
+                properties.raw_left = get_raw_key (properties.left);
+            if (keycode == properties.raw_left)
+            {
+                queue_keypress (LEFT);
+                return true;
+            }
+            if (properties.raw_right < 0)
+                properties.raw_right = get_raw_key (properties.right);
+            if (keycode == properties.raw_right)
+            {
+                queue_keypress (RIGHT);
+                return true;
+            }
+            return false;
         }
-        if (properties.raw_down < 0)
-            properties.raw_down = get_raw_key (properties.down);
-        if (keycode == properties.raw_down)
-        {
-            if (direction == WormDirection.UP)
-            {
-                direction_set (uturn (board,worms,WormDirection.DOWN));
-                if (direction!=WormDirection.DOWN && direction!=WormDirection.UP)
-                    queue_keypress (WormDirection.DOWN);
-                return true;
-            }
-            else if (can_move_direction (board,worms,WormDirection.DOWN))
-            {
-                direction_set (WormDirection.DOWN);
-                return true;
-            }
-        }
-        if (properties.raw_right < 0)
-            properties.raw_right = get_raw_key (properties.right);
-        if (keycode == properties.raw_right)
-        {
-            if (direction == WormDirection.LEFT)
-            {
-                direction_set (uturn (board,worms,WormDirection.RIGHT));
-                if (direction != WormDirection.RIGHT && direction != WormDirection.LEFT)
-                    queue_keypress (WormDirection.RIGHT);
-                return true;
-            }
-            else if (can_move_direction (board,worms,WormDirection.RIGHT))
-            {
-                direction_set (WormDirection.RIGHT);
-                return true;
-            }
-        }
-        if (properties.raw_left < 0)
-            properties.raw_left = get_raw_key (properties.left);
-        if (keycode == properties.raw_left)
-        {
-            if (direction == WormDirection.RIGHT)
-            {
-                direction_set (uturn (board,worms,WormDirection.LEFT));
-                if (direction != WormDirection.LEFT && direction != WormDirection.RIGHT)
-                    queue_keypress (WormDirection.LEFT);
-                return true;
-            }
-            else if (can_move_direction (board,worms,WormDirection.LEFT))
-            {
-                direction_set (WormDirection.LEFT);
-                return true;
-            }
-        }
-
-        return false;
     }
-#endif
+
     private void queue_keypress (WormDirection dir)
     {
-        /* Ignore duplicates in normal movement mode. This resolves the key
-         * repeat issue
-         */
-        if (!key_queue.is_empty && dir == key_queue.peek ())
-            return;
-
-        key_queue.add (dir);
+        key_queue.append (dir);
     }
 
-    private void dequeue_keypress ()
-        requires (!key_queue.is_empty)
+    private void dequeue_keypress (int [,] board, Gee.List<Worm> worms)
+        requires (!key_queue.is_empty ())
     {
-        direction_set (key_queue.poll ());
+        switch (key_queue.remove ())
+        {
+            case UP:
+                if (direction == DOWN)
+                {
+                    direction = uturn (board,worms,UP);
+                    if (direction != UP && direction != DOWN)
+                        key_queue.prepend (UP);
+                }
+                else if (can_move_direction (board,worms,UP))
+                    direction = UP;
+                break;
+            case DOWN:
+                if (direction == UP)
+                {
+                    direction = uturn (board,worms,DOWN);
+                    if (direction != DOWN && direction != UP)
+                        key_queue.prepend (DOWN);
+                }
+                else if (can_move_direction (board,worms,DOWN))
+                    direction = DOWN;
+                break;
+            case LEFT:
+                if (direction == RIGHT)
+                {
+                    direction = uturn (board,worms,LEFT);
+                    if (direction != LEFT && direction != RIGHT)
+                        key_queue.prepend (LEFT);
+                }
+                else if (can_move_direction (board,worms,LEFT))
+                    direction = LEFT;
+                break;
+            case RIGHT:
+                if (direction == LEFT)
+                {
+                    direction = uturn (board,worms,RIGHT);
+                    if (direction != RIGHT && direction != LEFT)
+                        key_queue.prepend (RIGHT);
+                }
+                else if (can_move_direction (board,worms,RIGHT))
+                    direction = RIGHT;
+                break;
+            default: /* NONE */
+                break;
+        }
     }
-
+#endif
     /*\
     * * AI
     \*/
