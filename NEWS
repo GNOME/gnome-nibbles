@@ -1,4 +1,4 @@
-4.2.rc5 - February 10, 2024
+4.2.rc6 - February 14, 2024
 ===========================
 
 - Build dependency changes; meson >= 1.1, gsound removed.
@@ -21,7 +21,7 @@
 - Implemented a new wiki:
   https://gitlab.gnome.org/GNOME/gnome-nibbles/-/wikis/home
   If anyone has anything they would like added to the wiki let me know.
-- Fixed Issues; #4, #6, #47 & #71.
+- Fixed Issues; #4, #6, #47 & #71 (improved fix).
 - Updated translations (Chinese (China) & Bulgarian).
 - Switch to existing window instead of creating new one on second activation.
   Thanks to Balló György for this.
