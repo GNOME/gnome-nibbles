@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2022-24 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2022-25 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -610,43 +610,39 @@ private class NibblesGame : Object
         for (uint8 i = 0; i < missed_bonuses_to_replace; i++)
             add_bonus (true);
 
-        var dead_worms = new Gee.LinkedList<Worm> ();
-
-        /* make AIs decide what they will do */
+        /* change direction? */
         foreach (var worm in worms)
         {
-            if (worm.is_stopped
-             || worm.list.is_empty)
-                continue;
-
-            if (!worm.is_human)
-                worm.ai_move (board, worms);
+            if (!worm.is_stopped && !worm.list.is_empty)
+                if (worm.is_human)
+                    worm.human_move (board, worms);
+                else
+                    worm.ai_move (board, worms); /* make AIs decide what they will do */
         }
 
-        /* kill worms which are hitting wall */
+        /* kill worms which are hitting the wall, teleport worms hitting a warp */
+        var dead_worms = new Gee.LinkedList<Worm> ();
         foreach (var worm in worms)
         {
-            if (worm.is_stopped
-             || worm.list.is_empty)
-                continue;
-
-            Position position = worm.position_move ();
-            uint8 target_x;
-            uint8 target_y;
-            if (warp_manager.get_warp_target (position.x, position.y,
-                                              worm.direction, worm.length,
-                                              !worm.is_human, worms,
-                                              out target_x, out target_y,
-                                              out worm.warp_bonus))
-                position = Position () { x = target_x, y = target_y };
-
-            if (!worm.can_move_to (board, worms, position))
+            if (!worm.is_stopped && !worm.list.is_empty)
             {
-                dead_worms.add (worm);
-                play_sound ("crash");
+                Position position = worm.position_move ();
+                uint8 target_x;
+                uint8 target_y;
+                if (warp_manager.get_warp_target (position.x, position.y,
+                                                  worm.direction, worm.length,
+                                                  !worm.is_human, worms,
+                                                  out target_x, out target_y,
+                                                  out worm.warp_bonus))
+                    position = Position () { x = target_x, y = target_y };
+                if (!worm.can_move_to (board, worms, position))
+                {
+                    dead_worms.add (worm);
+                    play_sound ("crash");
+                }
+                else
+                    worm.warp_position = position;
             }
-            else
-                worm.warp_position = position;
         }
 
         /* move worms */
@@ -657,7 +653,7 @@ private class NibblesGame : Object
              || worm in dead_worms)
                 continue;
 
-            worm.move_part_1 ();
+            worm.move_part_1 (board);
             if (board[worm.head.x, worm.head.y] == NibblesGame.WARPCHAR)
             {
                 worm.move_part_2 (board, worm.warp_position);
@@ -1040,7 +1036,7 @@ private class NibblesGame : Object
     * * Delegates
     \*/
 
-    private Gee.List<Worm> get_other_worms (Worm? self)
+    private Gee.List<Worm> get_other_worms (Worm self)
     {
         var result = new Gee.ArrayList<Worm> ();
         foreach (Worm worm in worms)
