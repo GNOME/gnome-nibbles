@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2022-24 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2022-25 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1161,30 +1161,88 @@ private class Worm : Object
 #if !TEST_COMPILE
     class KeyQueue
     {
-        Gee.LinkedList<WormDirection> q = new Gee.LinkedList<WormDirection> ();
-        public void append (WormDirection direction)
+        class DoubleBitArray
         {
-            if (q.size == 0 || q.@get (q.size - 1) != direction)
-                q.add (direction); /* join to the end of the queue */
+            const ulong BITS_MASK = 0x3; /* 2 bits set */
+            const ulong ARRAY_MASK = ulong.MAX; /* all bits set */
+            ulong array;
+            public ulong size () {return sizeof (ulong) * 4;}
+            public ulong get_at (ulong index)
+                requires (index < sizeof (ulong) * 4)
+            {
+                return ((array >> (2 * index)) & BITS_MASK);
+            }
+            public void set_at (ulong index, ulong l)
+                requires (index < sizeof (ulong) * 4)
+            {
+                array &= ARRAY_MASK - (BITS_MASK << (2 * index));
+                array |= (l & BITS_MASK) << (2 * index);
+            }
         }
-        public void prepend (WormDirection direction)
+        DoubleBitArray a = new DoubleBitArray ();
+        ulong head = 0;
+        ulong tail = 0;
+        WormDirection convert_to_direction (ulong l) {return l + 1;}
+        ulong convert_from_direction (WormDirection dir) {return dir - 1;}
+        ulong peek_tail ()
+            requires (!is_empty ())
         {
-            if (q.size == 0)
-                q.add (direction);
-            else if (q.@get (0) != direction)
-                q.insert (0, direction); /* push in at the front of the queue */
+            return tail > 0 ? a.get_at (tail - 1) : a.get_at (a.size () - 1);
+        }
+        ulong peek_head ()
+            requires (!is_empty ())
+        {
+            return a.get_at (head);
+        }
+        bool is_full ()
+        {
+            return head == 0 && tail == a.size () - 1 || tail == head - 1;
+        }
+        void join_queue (ulong d) /* join to the end of the queue */
+        {
+            a.set_at (tail++, d);
+            if (tail >= a.size ())
+                tail = 0;
+        }
+        public void append (WormDirection _direction)
+            requires (_direction != NONE)
+        {
+            var d = convert_from_direction (_direction);
+            if (is_empty () || peek_tail () != d && !is_full ())
+                join_queue (d);
+        }
+        public void prepend (WormDirection _direction)
+            requires (_direction != NONE)
+        {
+            var d = convert_from_direction (_direction);
+            if (is_empty ())
+                join_queue (d);
+            else if (peek_head () != d && !is_full ())
+            {
+                if (head > 0)
+                    head--;
+                else
+                    head = a.size () - 1;
+                a.set_at (head, d); /* push in at the front of the queue */
+            }
         }
         public void clear ()
         {
-            q.clear ();
+            head = tail;
         }
         public bool is_empty ()
         {
-            return q.size == 0;
+            return head == tail;
         }
         public WormDirection remove ()
         {
-            return q.remove_at (0); /* leave the front of the queue */
+            /* leave the front of the queue */
+            var r = convert_to_direction (peek_head ());
+            if (head < a.size () - 1)
+                head++;
+            else
+                head = 0;
+            return r;
         }
     }
     private KeyQueue key_queue = new KeyQueue ();
@@ -1196,7 +1254,7 @@ private class Worm : Object
     internal signal void bonus_found ();
 
     /* delegates to nibbles-game */
-    internal delegate Gee.List<Worm> GetOtherWormsType (Worm? self);
+    internal delegate Gee.List<Worm> GetOtherWormsType (Worm self);
     GetOtherWormsType get_other_worms;
     internal delegate Gee.List<Bonus> GetBonusesType ();
     GetBonusesType get_bonuses;
@@ -1235,7 +1293,15 @@ private class Worm : Object
 #endif
     }
 
-    internal void move_part_1 ()
+    internal void human_move (int[,] board, Gee.LinkedList<Worm> worms)
+    {
+#if !TEST_COMPILE
+        if (!key_queue.is_empty ())
+            dequeue_keypress (board, worms); /* change the worm's direction */
+#endif
+    }
+
+    internal void move_part_1 (int[,] board)
     {
         Position position = head;
         position.move (direction, width, height);
@@ -1248,7 +1314,6 @@ private class Worm : Object
     {
         if (head_position != null)
             head = Position () { x = head_position.x, y = head_position.y };
-
         if (change > 0)
         {
             /* Add to the worm's size. */
@@ -1260,17 +1325,11 @@ private class Worm : Object
             assert (list.size > 0);
             remove_bonus_eaten_position (list.remove_tail ());
         }
-
         /* Check for bonus, do nothing if there isn't a bonus */
         bonus_found (); /* signal function in nibble-game.vala */
-
         /* If we are dematerialized reduce the rounds dematerialized by one. */
         if (rounds_to_stay_dematerialized > 1)
             rounds_to_stay_dematerialized -= 1;
-#if !TEST_COMPILE
-        if (is_human && !key_queue.is_empty ())
-            dequeue_keypress (board, get_other_worms (null));
-#endif
         /* Try and dematerialize if our rounds are up. */
         if (rounds_to_stay_dematerialized == 1)
             materialize (board);
@@ -1390,7 +1449,7 @@ private class Worm : Object
         rounds_to_stay_dematerialized = STARTING_LENGTH;
         for (int i = 0; i < STARTING_LENGTH; i++)
         {
-            move_part_1 ();
+            move_part_1 (board);
             move_part_2 (board, /* no warp */ null);
         }
     }
