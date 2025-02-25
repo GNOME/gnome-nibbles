@@ -1113,6 +1113,29 @@ internal class WormPositions : Gee.LinkedList<uint16>
     }
 }
 
+/*
+ * A simple quick array that stores double bits.
+ */
+#if !TEST_COMPILE
+class DoubleBitArray
+{
+    const ulong BITS_MASK = 0x3; /* 2 bits set */
+    ulong array;
+    internal const ulong size = sizeof (ulong) * 4;
+    internal ulong get_at (ulong index)
+        requires (index < size)
+    {
+        return (array >> (2 * index)) & BITS_MASK;
+    }
+    internal void set_at (ulong index, ulong l)
+        requires (index < size)
+    {
+        array &= ~(BITS_MASK << (2 * index));
+        array |= (l & BITS_MASK) << (2 * index);
+    }
+}
+#endif
+
 private class Worm : Object
 {
     private const int STARTING_LENGTH = 5; /* STARTING_LENGTH must be greater than 0 */
@@ -1159,54 +1182,41 @@ private class Worm : Object
 
     private WormDirection starting_direction;
 #if !TEST_COMPILE
-    class KeyQueue
+/*
+ * A queue that allows no adjacent duplicates.
+ */
+    class KeyQueue : DoubleBitArray
     {
-        class DoubleBitArray
-        {
-            const ulong BITS_MASK = 0x3; /* 2 bits set */
-            const ulong ARRAY_MASK = ulong.MAX; /* all bits set */
-            ulong array;
-            public ulong size () {return sizeof (ulong) * 4;}
-            public ulong get_at (ulong index)
-                requires (index < sizeof (ulong) * 4)
-            {
-                return ((array >> (2 * index)) & BITS_MASK);
-            }
-            public void set_at (ulong index, ulong l)
-                requires (index < sizeof (ulong) * 4)
-            {
-                array &= ARRAY_MASK - (BITS_MASK << (2 * index));
-                array |= (l & BITS_MASK) << (2 * index);
-            }
-        }
-        DoubleBitArray a = new DoubleBitArray ();
-        ulong head = 0;
-        ulong tail = 0;
+        ulong head = 0; /* head points to the next to leave the queue */
+        ulong tail = 0; /* tail points to the next slot to join the queue and is always an empty slot */
         WormDirection convert_to_direction (ulong l) {return l + 1;}
         ulong convert_from_direction (WormDirection dir) {return dir - 1;}
         ulong peek_tail ()
             requires (!is_empty ())
         {
-            return a.get_at ((tail > 0 ? tail : a.size ()) - 1);
+            return get_at ((tail > 0 ? tail : size) - 1);
         }
         ulong peek_head ()
             requires (!is_empty ())
         {
-            return a.get_at (head);
+            return get_at (head);
         }
         bool is_full ()
         {
-            return tail == (head > 0 ? head : a.size ()) - 1;
+            /* the queue is full when there is one slot left, that last slot is never used */
+            return tail == (head > 0 ? head : size) - 1;
         }
-        void join_queue (ulong d) /* join to the end of the queue */
+        void join_queue (ulong d)
         {
-            a.set_at (tail++, d);
-            if (tail >= a.size ())
+            /* join to the end of the queue */
+            set_at (tail++, d);
+            if (tail >= size)
                 tail = 0;
         }
         public void append (WormDirection _direction)
             requires (_direction != NONE)
         {
+            /* if _direction is a duplicate or the queue is full don't append */
             var d = convert_from_direction (_direction);
             if (is_empty () || peek_tail () != d && !is_full ())
                 join_queue (d);
@@ -1214,6 +1224,7 @@ private class Worm : Object
         public void prepend (WormDirection _direction)
             requires (_direction != NONE)
         {
+            /* if _direction is a duplicate or the queue is full don't prepend */
             var d = convert_from_direction (_direction);
             if (is_empty ())
                 join_queue (d);
@@ -1222,8 +1233,8 @@ private class Worm : Object
                 if (head > 0)
                     head--;
                 else
-                    head = a.size () - 1;
-                a.set_at (head, d); /* push in at the front of the queue */
+                    head = size - 1;
+                set_at (head, d); /* push in at the front of the queue */
             }
         }
         public void clear ()
@@ -1238,7 +1249,7 @@ private class Worm : Object
         {
             /* leave the front of the queue */
             var r = convert_to_direction (peek_head ());
-            if (head < a.size () - 1)
+            if (head < size - 1)
                 head++;
             else
                 head = 0;
