@@ -1187,7 +1187,7 @@ private class Worm : Object
         ulong peek_tail ()
             requires (!is_empty ())
         {
-            return tail > 0 ? a.get_at (tail - 1) : a.get_at (a.size () - 1);
+            return a.get_at ((tail > 0 ? tail : a.size ()) - 1);
         }
         ulong peek_head ()
             requires (!is_empty ())
@@ -1196,7 +1196,7 @@ private class Worm : Object
         }
         bool is_full ()
         {
-            return head == 0 && tail == a.size () - 1 || tail == head - 1;
+            return tail == (head > 0 ? head : a.size ()) - 1;
         }
         void join_queue (ulong d) /* join to the end of the queue */
         {
