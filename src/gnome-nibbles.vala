@@ -416,7 +416,7 @@ private class Nibbles : Gtk.Application
         about_dialog.set_application_name (PROGRAM_NAME);
         /* Translators: the name of the app's developers, seen in the About dialog */
         about_dialog.set_developer_name (_("The GNOME Project"));
-        about_dialog.set_version (VERSION + " (adwaita)\n " + BUILD_DATETIME);
+        about_dialog.set_version (VERSION + " (adwaita)");
         about_dialog.set_developers (authors); /* compile without LIBADWAITA if this line causes a problem */
         about_dialog.set_documenters (documenters); /* compile without LIBADWAITA if this line causes a problem */
         about_dialog.set_artists (artists); /* compile without LIBADWAITA if this line causes a problem */
@@ -424,7 +424,7 @@ private class Nibbles : Gtk.Application
         #else
         show_about_dialog (window,
                            "program-name", PROGRAM_NAME,
-                           "version", VERSION + "\n " + BUILD_DATETIME,
+                           "version", VERSION,
                            /* Translators: small description of the game, seen in the About dialog */
                            "comments", _("A worm game for GNOME"),
                            "logo-icon-name", "org.gnome.Nibbles",

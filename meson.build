@@ -2,12 +2,13 @@
 project('gnome-nibbles',
     ['c', 'vala'],
     license: 'GPL3+',
-    meson_version: '>=1.1')
+    meson_version: '>=1.1',
+    version: '4.3.dev')
 # note, the version number is in meson.options and follows this sequence:
-#  4.2.rc1
-#  4.2.rc2 (if needed)
-#  4.2.0 (next full release)
-#  4.2.1 (bugfix release)
+#  4.3.rc1
+#  4.3.rc2 (if needed)
+#  4.3.0 (next full release)
+#  4.3.1 (bugfix release)
 message(meson.project_name(), 'version', get_option('version') + get_option('append_to_version'))
 gnome      = import('gnome')      # used to install help
 i18n       = import('i18n')       # used for internationalization
@@ -243,11 +244,6 @@ conf.set_quoted('SOUND_DIRECTORY', sounddir)
 conf.set_quoted('LOCALEDIR', join_paths(prefix, localedir))
 conf.set_quoted('VERSION', get_option('version') + get_option('append_to_version'))
 conf.set_quoted('WEBSITE', get_option('website'))
-if time.compiled()
-    conf.set_quoted('BUILD_DATETIME', time.stdout())
-else
-    conf.set_quoted('BUILD_DATETIME', 'build date unknown')
-endif
 
 configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
