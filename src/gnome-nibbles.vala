@@ -265,6 +265,9 @@ private class Nibbles : Gtk.Application
         set_accels_for_action ("app.quit",      appquit);
         set_accels_for_action ("win.back",      back);
         set_accels_for_action ("win.hamburger", hamburger);
+    }
+
+    private void create_window () {
         bool nibbles_changed = nibbles != int.MIN;
         bool players_changed = players != int.MIN;
         if (nibbles_changed
@@ -331,13 +334,18 @@ private class Nibbles : Gtk.Application
 
     protected override void activate ()
     {
+        if (window == null)
+            create_window ();
+
         window.present ();
         base.activate ();
     }
 
     protected override void shutdown ()
     {
-        window.on_shutdown ();
+        if (window != null)
+            window.on_shutdown ();
+
         base.shutdown ();
     }
 
