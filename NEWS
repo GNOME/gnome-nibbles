@@ -1,3 +1,13 @@
+4.2.1 - April 13, 2025
+======================
+
+- Fix the problem that the process does not exit cleanly (after a timeout)
+  when running as GApplication service.
+  Thanks to Balló György for this.
+- Revert commit https://gitlab.gnome.org/GNOME/gnome-nibbles/-/commit/fd432d46e4f8139a2489d4b66ad89f85be7a22e3
+  as it causes the volume to vary during the playing of a sound file.
+  This revert brings back the gsound build dependency.
+
 4.2.0 - March 13, 2025
 ======================
 

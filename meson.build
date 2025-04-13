@@ -3,7 +3,7 @@ project('gnome-nibbles',
     ['c', 'vala'],
     license: 'GPL3+',
     meson_version: '>=1.1',
-    version: '4.2.0')
+    version: '4.2.1')
 # note, the version number is in meson.options and follows this sequence:
 #  4.2.rc1
 #  4.2.rc2 (if needed)
