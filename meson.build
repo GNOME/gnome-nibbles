@@ -56,11 +56,6 @@ c_compiler_options = []
 if c.has_argument('-w')
     c_compiler_options += '-w'
 endif
-# Define VALA_STRICT_C so we can compile with the proper C code fixes not the workaround.
-# see https://gitlab.gnome.org/GNOME/vala/-/commit/ae2cbcd0011081581bef406fcbfcd1e86b7dacd3
-if c.has_argument('-DVALA_STRICT_C')
-    c_compiler_options += '-DVALA_STRICT_C'
-endif
 
 # convert C compiler options to vala compiler options
 vala_compiler_options = []
@@ -218,23 +213,6 @@ else
 endif
 
 message('valac #defines:',vala_if_defines)
-
-# get build date/time
-time_code = '''
-    #include <stdio.h>
-    #include <time.h>
-    int main() 
-    {
-        char buffer[64];
-        time_t seconds_since_epoch = time(NULL);
-        strftime (buffer, 64, "%Y-%m-%d %H:%M GMT", gmtime(&seconds_since_epoch));
-        fputs (buffer, stdout);
-        return 0;
-    }'''
-time = c.run(time_code)
-if time.compiled()
-    message('build date',time.stdout())
-endif
 
 # Configuration
 conf = configuration_data()
