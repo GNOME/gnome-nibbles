@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
 "POT-Creation-Date: 2025-05-10 16:57+0000\n"
-"PO-Revision-Date: 2025-05-11 23:57+0200\n"
+"PO-Revision-Date: 2025-05-12 08:48+0200\n"
 "Last-Translator: Peter Mráz <etkinator@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -215,7 +215,7 @@ msgstr "Posun hore"
 #: data/org.gnome.Nibbles.gschema.xml:321
 #: data/org.gnome.Nibbles.gschema.xml:341
 msgid "Key to use for motion up."
-msgstr "Klávesa na posun hore."
+msgstr "Kláves na posun hore."
 
 # PK: preco nie posunut?
 # PM: Klávesa na posun dole
@@ -245,7 +245,7 @@ msgstr "Posun dole"
 #: data/org.gnome.Nibbles.gschema.xml:326
 #: data/org.gnome.Nibbles.gschema.xml:346
 msgid "Key to use for motion down."
-msgstr "Klávesa na posun dole."
+msgstr "Kláves na posun dole."
 
 #: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:115
 #: data/org.gnome.Nibbles.gschema.xml:142
@@ -273,7 +273,7 @@ msgstr "Posun doľava"
 #: data/org.gnome.Nibbles.gschema.xml:331
 #: data/org.gnome.Nibbles.gschema.xml:351
 msgid "Key to use for motion left."
-msgstr "Klávesa na posun doľava."
+msgstr "Kláves na posun doľava."
 
 #: data/org.gnome.Nibbles.gschema.xml:100
 #: data/org.gnome.Nibbles.gschema.xml:120
@@ -303,7 +303,7 @@ msgstr "Posun doprava"
 #: data/org.gnome.Nibbles.gschema.xml:336
 #: data/org.gnome.Nibbles.gschema.xml:356
 msgid "Key to use for motion right."
-msgstr "Klávesa na posun doprava."
+msgstr "Kláves na posun doprava."
 
 #. Translators: title of the Are You Sure? window
 #: data/ui/are-you-sure.ui:27
