@@ -220,23 +220,6 @@ endif
 
 message('valac #defines:',vala_if_defines)
 
-# get build date/time
-time_code = '''
-    #include <stdio.h>
-    #include <time.h>
-    int main() 
-    {
-        char buffer[64];
-        time_t seconds_since_epoch = time(NULL);
-        strftime (buffer, 64, "%Y-%m-%d %H:%M GMT", gmtime(&seconds_since_epoch));
-        fputs (buffer, stdout);
-        return 0;
-    }'''
-time = c.run(time_code)
-if time.compiled()
-    message('build date',time.stdout())
-endif
-
 # Configuration
 conf = configuration_data()
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
