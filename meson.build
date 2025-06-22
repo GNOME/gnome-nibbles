@@ -3,12 +3,12 @@ project('gnome-nibbles',
     ['c', 'vala'],
     license: 'GPL3+',
     meson_version: '>=1.1',
-    version: '4.3.dev')
+    version: '4.4.dev')
 # note, the version number is in meson.options and follows this sequence:
-#  4.3.rc1
-#  4.3.rc2 (if needed)
-#  4.3.0 (next full release)
-#  4.3.1 (bugfix release)
+#  4.4.rc1
+#  4.4.rc2 (if needed)
+#  4.4.0 (next full release)
+#  4.4.1 (bugfix release)
 message(meson.project_name(), 'version', get_option('version') + get_option('append_to_version'))
 gnome      = import('gnome')      # used to install help
 i18n       = import('i18n')       # used for internationalization
