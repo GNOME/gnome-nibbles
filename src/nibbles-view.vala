@@ -31,9 +31,7 @@
  * grep -ne ' $' *.vala
  *
  */
-
-/* designed for Gtk 4, link with libgtk-4-dev or gtk4-devel */
-using Gtk;
+using Gtk; /* designed for Gtk 4, link with libgtk-4-dev or gtk4-devel */
 using Gsk;
 using Cairo; /* via Gtk.Snapshot.append_cairo */
 
@@ -345,7 +343,6 @@ internal class NibblesView : TransparentContainer
         {
             if (view.game.three_dimensional_view)
             {
-                var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
                 double x2d, y2d;
                 double r, g, b;
 
@@ -384,20 +381,20 @@ internal class NibblesView : TransparentContainer
                         {
                             get_worm_rgb (view.game.worm_props.@get (worm_at[x, y]).color, true, out r, out g, out b);
                             worm_at[x, y].was_bonus_eaten_at_this_position ((uint16)(x<<8 | y));
-                            view.draw_sphere (c, v, x, y, r, g, b, worm_at[x, y].was_bonus_eaten_at_this_position ((uint16)(x<<8 | y)) ? 1.25 : 1);
+                            view.draw_sphere (s, v, x, y, r, g, b, worm_at[x, y].was_bonus_eaten_at_this_position ((uint16)(x<<8 | y)) ? 1.25 : 1);
                             Position head = worm_at[x, y].head;
                             if (head.x == x && head.y == y)
                             {
                                 switch (worm_at[x, y].direction)
                                 {
                                     case WormDirection.SOUTH:
-                                        view.draw_eyes_front (c, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
+                                        view.draw_eyes_front (s, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
                                         break;
                                     case WormDirection.EAST:
-                                        view.draw_eyes_right (c, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
+                                        view.draw_eyes_right (s, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
                                         break;
                                     case WormDirection.WEST:
-                                        view.draw_eyes_left (c, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
+                                        view.draw_eyes_left (s, v, x, y, animate % 30 / 5 == worm_at[x, y].id);
                                         break;
                                     default:
                                         break;
@@ -407,59 +404,58 @@ internal class NibblesView : TransparentContainer
                         if (view.game.board[x, y] >= 'b' && view.game.board[x, y] <= 'l')
                         {
                             /* draw top of wall */
+                            var wall_top_path = new PathBuilder ();
                             v.to_view_plain ({x, y ,1},out x2d, out y2d);
-                            c.move_to (x2d,y2d);
+                            wall_top_path.move_to ( (float)x2d, (float)y2d);
                             v.to_view_plain ({x+1,y,1},out x2d, out y2d);
-                            c.line_to (x2d,y2d);
+                            wall_top_path.line_to ( (float)x2d, (float)y2d);
                             v.to_view_plain ({x+1,y+1,1},out x2d, out y2d);
-                            c.line_to (x2d,y2d);
+                            wall_top_path.line_to ( (float)x2d, (float)y2d);
                             v.to_view_plain ({x,y+1,1},out x2d, out y2d);
-                            c.line_to (x2d,y2d);
-                            c.set_source_rgb (0.95,0.95,0.95);
-                            c.fill ();
+                            wall_top_path.line_to ( (float)x2d, (float)y2d);
+                            s.append_fill (wall_top_path.to_path (), EVEN_ODD, {0.95f, 0.95f, 0.95f, 1.0f});
 
                             /* draw wall inside */
+                            var wall_inside_path = new PathBuilder ();
                             if (x < v.view_point_x () && !(view.game.board[x + 1, y] >= 'b' && view.game.board[x + 1, y] <= 'l'))
                             {
                                 v.to_view_plain ({x+1,y,0},out x2d, out y2d);
-                                c.move_to (x2d,y2d);
+                                wall_inside_path.move_to ( (float)x2d, (float)y2d);
                                 v.to_view_plain ({x+1,y+1,0},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
+                                wall_inside_path.line_to ( (float)x2d, (float)y2d);
                                 v.to_view_plain ({x+1,y+1,1},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
+                                wall_inside_path.line_to ( (float)x2d, (float)y2d);
                                 v.to_view_plain ({x+1,y,1},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
-                                c.set_source_rgb (0.5,0.5,0.5);
-                                c.fill ();
+                                wall_inside_path.line_to ( (float)x2d, (float)y2d);
+                                s.append_fill (wall_inside_path.to_path (), EVEN_ODD, {0.5f, 0.5f, 0.5f, 1.0f});
                             }
                             else if (x > v.view_point_x () && !(view.game.board[x - 1, y] >= 'b' && view.game.board[x - 1, y] <= 'l'))
                             {
                                 v.to_view_plain ({x,y,0},out x2d, out y2d);
-                                c.move_to (x2d,y2d);
+                                wall_inside_path.move_to ( (float)x2d, (float)y2d);
                                 v.to_view_plain ({x,y+1,0},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
+                                wall_inside_path.line_to ( (float)x2d, (float)y2d);
                                 v.to_view_plain ({x,y+1,1},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
+                                wall_inside_path.line_to ( (float)x2d, (float)y2d);
                                 v.to_view_plain ({x,y,1},out x2d, out y2d);
-                                c.line_to (x2d,y2d);
-                                c.set_source_rgb (0.5,0.5,0.5);
-                                c.fill ();
+                                wall_inside_path.line_to ( (float)x2d, (float)y2d);
+                                s.append_fill (wall_inside_path.to_path (), EVEN_ODD, {0.5f, 0.5f, 0.5f, 1.0f});
                             }
                             else
                             {
                                 /* if we are at the view point we don't need to draw either the left side or the right side of the wall */
                             }
                             /* draw wall front */
+                            var wall_front_path = new PathBuilder ();
                             v.to_view_plain ({x,y+1,0},out x2d, out y2d);
-                            c.move_to (x2d,y2d);
+                            wall_front_path.move_to ( (float)x2d, (float)y2d);
                             v.to_view_plain ({x+1,y+1,0},out x2d, out y2d);
-                            c.line_to (x2d,y2d);
+                            wall_front_path.line_to ( (float)x2d, (float)y2d);
                             v.to_view_plain ({x+1,y+1,1},out x2d, out y2d);
-                            c.line_to (x2d,y2d);
+                            wall_front_path.line_to ( (float)x2d, (float)y2d);
                             v.to_view_plain ({x,y+1,1},out x2d, out y2d);
-                            c.line_to (x2d,y2d);
-                            c.set_source_rgb (0.75,0.75,0.75);
-                            c.fill ();
+                            wall_front_path.line_to ( (float)x2d, (float)y2d);
+                            s.append_fill (wall_front_path.to_path (), EVEN_ODD, {0.95f, 0.95f, 0.95f, 1.0f});
                         }
                         /* warps */
                         if (view.game.board[x + 0, y + 0] == NibblesGame.WARPCHAR &&
@@ -478,18 +474,18 @@ internal class NibblesView : TransparentContainer
                                     a40 >= 10 && a40 < 30 ? (a20o < 10 ? a10 : 10.0 - a10) / 5.0 : 0,
                                     a40 >= 20 && a40 < 40 ? (a20 < 10 ? a10 : 10.0 - a10) / 5.0 : 0,
                                     a40 >= 30 || a40 < 10 ? (a20o < 10 ? a10 : 10.0 - a10) / 5.0 : 0};
-                                view.draw_oval (c, v,
-                                     { (double)x + 0.1 * z, (double)y + 0.1 * z, angle[0]},
-                                     { (double)x + 2 - 0.1 * z, (double)y + 0.1 * z, angle[1]},
-                                     { (double)x + 2 - 0.1 * z, (double)y + 2 - 0.1 * z, angle[2]},
-                                     { (double)x + 0.1 * z, (double)y + 2 - 0.1 * z, angle[3]});
-                                c.set_source_rgb (0.0,0.0,0.6 - 0.1 * (double)z);
-                                c.fill ();
+                                s.append_fill (
+                                    view.draw_oval (v,
+                                         { (double)x + 0.1 * z, (double)y + 0.1 * z, angle[0]},
+                                         { (double)x + 2 - 0.1 * z, (double)y + 0.1 * z, angle[1]},
+                                         { (double)x + 2 - 0.1 * z, (double)y + 2 - 0.1 * z, angle[2]},
+                                         { (double)x + 0.1 * z, (double)y + 2 - 0.1 * z, angle[3]}),
+                                     EVEN_ODD, {0.0f, 0.0f, 0.6f - 0.1f * z, 1});
                             }
                         }
                         /* bonus */
                         if (bonus_at [x, y] != null)
-                            view.draw_3D_bonus (c, v, x, y, bonus_at [x, y]);
+                            view.draw_3D_bonus (s, v, x, y, bonus_at [x, y]);
 
                         /* have we done all the x positions for this line y */
                         if (x == WIDTH / 2)
@@ -500,6 +496,7 @@ internal class NibblesView : TransparentContainer
                 if (view.countdown_active () > 0)
                 {
                     /* count down */
+                    var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
                     string text = view.seconds_string (view.countdown_active ());
                     int text_width = (int)v.2D_diff ({WIDTH / 2 - 5, HEIGHT / 2, 0}, {WIDTH / 2 + 5, HEIGHT / 2, 0});
                     double w, h;
@@ -718,7 +715,7 @@ internal class NibblesView : TransparentContainer
 
     /* private functions */
 
-    void draw_oval (Context C, View3D v, Point3D a, Point3D b, Point3D c, Point3D d)
+    Gsk.Path draw_oval (View3D v, Point3D a, Point3D b, Point3D c, Point3D d)
     {
         double x[3];
         double y[3];
@@ -736,7 +733,7 @@ internal class NibblesView : TransparentContainer
             if (i != lowest_y_midpoint_index && (second_lowest_y_midpoint_index == uint.MAX || p[second_lowest_y_midpoint_index].y > p[i].y))
                 second_lowest_y_midpoint_index = i;
         }
-
+        var path = new PathBuilder ();
         int direction = second_lowest_y_midpoint_index > lowest_y_midpoint_index ? -1 : +1;
         for (uint i = second_lowest_y_midpoint_index;;)
         {
@@ -754,12 +751,13 @@ internal class NibblesView : TransparentContainer
             v.to_view_plain (p[between_point],out x[1], out y[1]);
             v.to_view_plain (p[next_index],out x[2], out y[2]);
             if (i == second_lowest_y_midpoint_index)
-                C.move_to (x[0],y[0]);
-            C.curve_to (x[0],y[0],x[1],y[1],x[2],y[2]);
+                path.move_to ( (float)x[0], (float)y[0]);
+            path.cubic_to ( (float)x[0], (float)y[0], (float)x[1], (float)y[1], (float)x[2], (float)y[2]);
             i = (uint)next_index;
             if (i == second_lowest_y_midpoint_index)
                 break;
         }
+        return path.to_path ();
     }
 
     Point3D mid_point (Point3D a, Point3D b)
@@ -769,116 +767,111 @@ internal class NibblesView : TransparentContainer
                 a.z > b.z ? (a.z - b.z) / 2 + b.z : (b.z - a.z) / 2 + a.z};
     }
 
-    void draw_sphere (Context c, View3D v, int x, int y, double r, double g, double b, double size)
+    void draw_sphere (Snapshot s, View3D v, int x, int y, double r, double g, double b, double size)
     {
         double increase = (size - 1) / 2;
-        draw_oval (c, v, {x + 0 - increase, y + 1.0 + increase, 0 - increase},
-                         {x + 0 - increase, y + 0.0 - increase, 1 + increase},
-                         {x + 1 + increase, y + 0.0 - increase, 1 + increase},
-                         {x + 1 + increase, y + 1.0 + increase, 0 - increase});
-        double X, Y, radius, d, top_x, top_y;
-        v.to_view_plain ({x + 0.5, y + 0.5, 0.5}, out X, out Y);
-        radius = v.2D_diff ({x + 0.5, y + 0.5, 0.5}, {x + 0.5, y + 0.0 - increase, 1 + increase});
-        d = v.2D_diff ({x + 0.5, y + 0.5, 0.5}, {x + 0.0 - increase, y + 0.5, 0.5});
-        if (d > radius)
-            radius = d;
-        d = v.2D_diff ({x + 0.5, y + 0.5, 0.5}, {x + 1.0 + increase, y + 0.5, 0.5});
-        if (d > radius)
-            radius = d;
+        var path = draw_oval (v, {x + 0 - increase, y + 1.0 + increase, 0 - increase},
+                      {x + 0 - increase, y + 0.0 - increase, 1 + increase},
+                      {x + 1 + increase, y + 0.0 - increase, 1 + increase},
+                      {x + 1 + increase, y + 1.0 + increase, 0 - increase});
+        double radius_x, radius_y, d, top_x, top_y;;
+        radius_y = v.2D_diff ({x + 0.5, y + 0.5, 0.5}, {x + 0.5, y + 0.0 - increase, 1 + increase});
         d = v.2D_diff ({x + 0.5, y + 0.5, 0.5}, {x + 0.5, y + 1.0 + increase, 0.0 - increase});
-        if (d > radius)
-            radius = d;
-
+        if (d > radius_y)
+            radius_y = d;
+        radius_x = v.2D_diff ({x + 0.5, y + 0.5, 0.5}, {x + 0.0 - increase, y + 0.5, 0.5});
+        d = v.2D_diff ({x + 0.5, y + 0.5, 0.5}, {x + 1.0 + increase, y + 0.5, 0.5});
+        if (d > radius_x)
+            radius_x = d;
         v.to_view_plain ({x + 0.5, y + 0.5, 1}, out top_x, out top_y);
-        Cairo.Pattern pat2 = new Cairo.Pattern.radial (X, Y, radius, top_x, top_y, radius / 20.0);
-        pat2.add_color_stop_rgb (0, r / 10, g / 10, b / 10);
-        pat2.add_color_stop_rgb (1, r, g, b);
-        pat2.add_color_stop_rgb (2, (1 - r) /2 + r, (1 - g) /2 + g, (1 - b) /2 + b);
-        c.set_source (pat2);
-        c.fill ();
+        s.push_fill (path, EVEN_ODD);
+        s.append_radial_gradient (get_bounds (path),
+            {(float)top_x, (float)top_y},
+            (float)radius_x / 80.0f, (float)radius_y / 80.0f,
+            0, 100,
+            {
+                {0, {(1 - (float)r) / 2 + (float)r, (1 - (float)g) / 2 + (float)g, (1 - (float)b) / 2 + (float)b, 1}},
+                {0.1f, {(float)r, (float)g, (float)b, 1}},
+                {1, {(float)r / 10.0f, (float)g / 10.0f, (float)b / 10.0f, 1}},
+            });
+        s.pop ();
     }
 
-    void draw_eyes_front (Context c, View3D v, int x, int y, bool blink)
+    void draw_eyes_front (Snapshot s, View3D v, int x, int y, bool blink)
     {
         /* eyes look ahead */
         double e = Math.sqrt (0.125);
         double b = blink ? 0.025 : 0.1;
         Point3D centre = {x + 0.5 - e / 2, y + 0.5 + e, 0.5 + e / 2};
-        draw_oval (c, v, {centre.x - 0.1, centre.y + b, centre.z - b},
+        s.append_fill (draw_oval (v, {centre.x - 0.1, centre.y + b, centre.z - b},
                          {centre.x - 0.1, centre.y - b, centre.z + b},
                          {centre.x + 0.1, centre.y - b, centre.z + b},
-                         {centre.x + 0.1, centre.y + b, centre.z - b});
-        c.set_source_rgb (0, 0, 0);
-        c.fill ();
+                         {centre.x + 0.1, centre.y + b, centre.z - b}),
+                       EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});                         
         centre = {x + 0.5 + e / 2, y + 0.5 + e, 0.5 + e / 2};
-        draw_oval (c, v, {centre.x - 0.1, centre.y + b, centre.z - b},
+        s.append_fill (draw_oval (v, {centre.x - 0.1, centre.y + b, centre.z - b},
                          {centre.x - 0.1, centre.y - b, centre.z + b},
                          {centre.x + 0.1, centre.y - b, centre.z + b},
-                         {centre.x + 0.1, centre.y + b, centre.z - b});
-        c.set_source_rgb (0, 0, 0);
-        c.fill ();
+                         {centre.x + 0.1, centre.y + b, centre.z - b}),
+                       EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});                         
     }
 
-    void draw_eyes_left (Context c, View3D v, int x, int y, bool blink)
+    void draw_eyes_left (Snapshot s, View3D v, int x, int y, bool blink)
     {
         /* eyes look left */
         double e = Math.sqrt (0.125);
         double b = blink ? 0.025 : 0.1;
         Point3D centre = {x + 0.5 - e, y + 0.5 - e / 2, 0.5 + e / 2};
-        draw_oval (c, v, {centre.x - b, centre.y - 0.1, centre.z - b},
+        s.append_fill (draw_oval (v, {centre.x - b, centre.y - 0.1, centre.z - b},
                          {centre.x + b, centre.y - 0.1, centre.z + b},
                          {centre.x + b, centre.y + 0.1, centre.z + b},
-                         {centre.x - b, centre.y + 0.1, centre.z - b});
-        c.set_source_rgb (0, 0, 0);
-        c.fill ();
+                         {centre.x - b, centre.y + 0.1, centre.z - b}),
+                       EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});                         
         centre = {x + 0.5 - e, y + 0.5 + e / 2, 0.5 + e / 2};
-        draw_oval (c, v, {centre.x - b, centre.y - 0.1, centre.z - b},
+        s.append_fill (draw_oval (v, {centre.x - b, centre.y - 0.1, centre.z - b},
                          {centre.x + b, centre.y - 0.1, centre.z + b},
                          {centre.x + b, centre.y + 0.1, centre.z + b},
-                         {centre.x - b, centre.y + 0.1, centre.z - b});
-        c.set_source_rgb (0, 0, 0);
-        c.fill ();
+                         {centre.x - b, centre.y + 0.1, centre.z - b}),
+                       EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});                         
     }
 
-    void draw_eyes_right (Context c, View3D v, int x, int y, bool blink)
+    void draw_eyes_right (Snapshot s, View3D v, int x, int y, bool blink)
     {
         /* eyes look right */
         double e = Math.sqrt (0.125);
         double b = blink ? 0.025 : 0.1;
         Point3D centre = {x + 0.5 + e, y + 0.5 - e / 2, 0.5 + e / 2};
-        draw_oval (c, v, {centre.x + b, centre.y - 0.1, centre.z - b},
+        s.append_fill (draw_oval (v, {centre.x + b, centre.y - 0.1, centre.z - b},
                          {centre.x - b, centre.y - 0.1, centre.z + b},
                          {centre.x - b, centre.y + 0.1, centre.z + b},
-                         {centre.x + b, centre.y + 0.1, centre.z - b});
-        c.set_source_rgb (0, 0, 0);
-        c.fill ();
+                         {centre.x + b, centre.y + 0.1, centre.z - b}),
+                       EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});                         
         centre = {x + 0.5 + e, y + 0.5 + e / 2, 0.5 + e / 2};
-        draw_oval (c, v, {centre.x + b, centre.y - 0.1, centre.z - b},
+        s.append_fill (draw_oval (v, {centre.x + b, centre.y - 0.1, centre.z - b},
                          {centre.x - b, centre.y - 0.1, centre.z + b},
                          {centre.x - b, centre.y + 0.1, centre.z + b},
-                         {centre.x + b, centre.y + 0.1, centre.z - b});
-        c.set_source_rgb (0, 0, 0);
-        c.fill ();
+                         {centre.x + b, centre.y + 0.1, centre.z - b}),
+                       EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});                         
     }
 
-    void draw_3D_bonus (Context c, View3D v, int x, int y, Bonus bonus)
+    void draw_3D_bonus (Snapshot s, View3D v, int x, int y, Bonus bonus)
     {
         switch (bonus.etype)
         {
             case REGULAR: // apple
-                draw_apple (c, v, x, y);
+                draw_apple (s, v, x, y);
                 break;
             case HALF: // cherry
-                draw_cherry (c, v, x, y);
+                draw_cherry (s, v, x, y);
                 break;
             case DOUBLE: // banana
-                draw_banana (c, v, x, y);
+                draw_banana (s, v, x, y);
                 break;
             case LIFE: // heart
-                draw_heart (c, v, x, y);
+                draw_heart (s, v, x, y);
                 break;
             case REVERSE: // diamond
-                draw_diamond (c, v, x, y);
+                draw_diamond (s, v, x, y);
                 break;
             case WARP: // floating hole
                 break;
@@ -891,86 +884,84 @@ internal class NibblesView : TransparentContainer
         }
     }
 
-    void draw_banana (Context c, View3D v, double x, double y)
+    void draw_banana (Snapshot s, View3D v, double x, double y)
     {
         double cx[3], cy[3];
-
+        var dark_side = new PathBuilder ();
         v.to_view_plain ({x + 0, y + 1 + 0.25, 1}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0, y + 1 + 0.25, 0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1, y + 1 + 0.25, 0}, out cx[2], out cy[2]);
-        c.move_to (cx[0], cy[0]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
+        dark_side.move_to ( (float)cx[0], (float)cy[0]);
+        dark_side.cubic_to ( (float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1, y + 1 + 0.25, 0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 2, y + 1 + 0.25, 0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 2, y + 1 + 0.25, 1}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
+        dark_side.cubic_to ( (float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 2 - 0.1, y + 1 + 0.25, 1 + 0.5}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
+        dark_side.line_to ( (float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + 2 - 0.2, y + 1 + 0.25, 1 + 0.5}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
+        dark_side.line_to ( (float)cx[0], (float)cy[0]);
 
         v.to_view_plain ({x + 2 - 0.2, y + 1 + 0.25, 1 + 0.5}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 2 - 0.2, y + 1 + 0.25, 0.5 }, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1, y + 1 + 0.25, 0.5}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
+        dark_side.cubic_to ( (float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
 
         v.to_view_plain ({x + 1, y + 1 + 0.25, 0.5}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.2, y + 1 + 0.25, 0.5}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 0.1, y + 1 + 0.25, 1 + 0.1}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
-        c.set_source_rgb (0.6, 0.6, 0); /* yellow */
-        c.fill ();
+        dark_side.cubic_to ( (float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
+        s.append_fill (dark_side.to_path (), EVEN_ODD, {0.6f, 0.6f, 0.0f, 1.0f}/* yellow */);
 
+        var light_side = new PathBuilder ();
         v.to_view_plain ({x + 0.1, y + 1 + 0.25, 1 + 0.1}, out cx[0], out cy[0]);
-        c.move_to (cx[0], cy[0]);
+        light_side.move_to ( (float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + 0.1, y + 1 + 0.15, 1 + 0.1}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
+        light_side.line_to ( (float)cx[0], (float)cy[0]);
 
         v.to_view_plain ({x + 0.1, y + 1 + 0.15, 1 + 0.1}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.2, y + 1 + 0.15, 0.5}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1, y + 1 + 0.15, 0.5}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
+        light_side.cubic_to ( (float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
 
         v.to_view_plain ({x + 1, y + 1 + 0.15, 0.5}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 2 - 0.2, y + 1 + 0.15, 0.5 }, out cx[1], out cy[1]);
         v.to_view_plain ({x + 2 - 0.2, y + 1 + 0.15, 1 + 0.5}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
+        light_side.cubic_to ( (float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
 
         v.to_view_plain ({x + 2 - 0.2, y + 1 + 0.15, 1 + 0.5}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
+        light_side.line_to ( (float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + 2 - 0.1, y + 1 + 0.15, 1 + 0.5}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
+        light_side.line_to ( (float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + 2 - 0.1, y + 1 + 0.25, 1 + 0.5}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
+        light_side.line_to ( (float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + 2 - 0.2, y + 1 + 0.25, 1 + 0.5}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
+        light_side.line_to ( (float)cx[0], (float)cy[0]);
 
         v.to_view_plain ({x + 2 - 0.2, y + 1 + 0.25, 1 + 0.5}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 2 - 0.2, y + 1 + 0.25, 0.5 }, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1, y + 1 + 0.25, 0.5}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
+        light_side.cubic_to ( (float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
 
         v.to_view_plain ({x + 1, y + 1 + 0.25, 0.5}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.2, y + 1 + 0.25, 0.5}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 0.1, y + 1 + 0.25, 1 + 0.1}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
+        light_side.cubic_to ( (float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
+        s.append_fill (light_side.to_path (), EVEN_ODD, {0.8f, 0.8f, 0.0f, 1.0f}/* yellow */);
 
-        c.set_source_rgb (0.8, 0.8, 0); /* yellow */
-        c.fill ();
-
+        var path = new PathBuilder ();
         v.to_view_plain ({x + 0, y + 1 + 0.25, 1}, out cx[0], out cy[0]);
-        c.move_to (cx[0], cy[0]);
+        path.move_to ( (float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + 0.1, y + 1 + 0.25, 1 + 0.1}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
+        path.line_to ( (float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + 0.1, y + 1 + 0.15, 1 + 0.1}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
+        path.line_to ( (float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + 0, y + 1 + 0.15, 1}, out cx[0], out cy[0]);
-        c.line_to (cx[0], cy[0]);
-        c.set_source_rgb (0.3, 0.3, 0.4);
-        c.fill ();
+        path.line_to ( (float)cx[0], (float)cy[0]);
+        s.append_fill (path.to_path (), EVEN_ODD, {0.3f, 0.3f, 0.4f, 1.0f});
     }
 
-    void draw_diamond (Context c, View3D v, double x, double y)
+    void draw_diamond (Snapshot s, View3D v, double x, double y)
     {
         const double cos60 = 0.5;
         const double sin60 = 0.866025403784;
@@ -979,160 +970,145 @@ internal class NibblesView : TransparentContainer
         Point3D middle[6] = {{x + 0.5, y + 1, 2}, {x + (1.0 - 0.5 * cos60), y + 1.0 - 0.5 * sin60, 2}, {x + 0.5 * cos60 + 1, y + 1.0 - 0.5 * sin60, 2},
             {x + 1.5, y + 1, 2}, {x + 0.5 * cos60 + 1, y + 1.0 + 0.5 * sin60, 2}, {x + (1.0 - 0.5 * cos60), y + 1.0 + 0.5 * sin60, 2}};
         double X, Y;
-        v.to_view_plain (top[0], out X, out Y);
-        c.move_to (X, Y);
-        v.to_view_plain (top[1], out X, out Y);
-        c.line_to (X, Y);
-        v.to_view_plain (top[2], out X, out Y);
-        c.line_to (X, Y);
-        v.to_view_plain (top[3], out X, out Y);
-        c.line_to (X, Y);
-        v.to_view_plain (top[4], out X, out Y);
-        c.line_to (X, Y);
-        v.to_view_plain (top[5], out X, out Y);
-        c.line_to (X, Y);
-        c.set_source_rgb (0.8, 0.9, 1); /* almost white */
-        c.fill ();
 
+        var p0 = new PathBuilder ();
+        v.to_view_plain (top[0], out X, out Y);
+        p0.move_to ( (float)X, (float)Y);
+        v.to_view_plain (top[1], out X, out Y);
+        p0.line_to ( (float)X, (float)Y);
+        v.to_view_plain (top[2], out X, out Y);
+        p0.line_to ( (float)X, (float)Y);
+        v.to_view_plain (top[3], out X, out Y);
+        p0.line_to ( (float)X, (float)Y);
+        v.to_view_plain (top[4], out X, out Y);
+        p0.line_to ( (float)X, (float)Y);
+        v.to_view_plain (top[5], out X, out Y);
+        p0.line_to ( (float)X, (float)Y);
+        s.append_fill (p0.to_path (), EVEN_ODD, {0.8f, 0.9f, 1.0f, 1.0f}/* almost white */);
+
+        var p1 = new PathBuilder ();
         v.to_view_plain (middle[1], out X, out Y);
-        c.move_to (X, Y);
+        p1.move_to ( (float)X, (float)Y);
         v.to_view_plain (middle[2], out X, out Y);
-        c.line_to (X, Y);
+        p1.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[2], out X, out Y);
-        c.line_to (X, Y);
+        p1.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[1], out X, out Y);
-        c.line_to (X, Y);
-        c.set_source_rgb (0.618, 0.708, 0.802); /* light blue back */
-        c.fill ();
+        p1.line_to ( (float)X, (float)Y);
+        s.append_fill (p1.to_path (), EVEN_ODD, {0.618f, 0.708f, 0.802f, 1.0f}/* light blue back */);
 
+        var p2 = new PathBuilder ();
         v.to_view_plain (middle[1], out X, out Y);
-        c.move_to (X, Y);
+        p2.move_to ( (float)X, (float)Y);
         v.to_view_plain (middle[0], out X, out Y);
-        c.line_to (X, Y);
+        p2.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[0], out X, out Y);
-        c.line_to (X, Y);
+        p2.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[1], out X, out Y);
-        c.line_to (X, Y);
-        c.set_source_rgb (0.347, 0.524, 0.712); /* darker blue back */
-        c.fill ();
+        p2.line_to ( (float)X, (float)Y);
+        s.append_fill (p2.to_path (), EVEN_ODD, {0.347f, 0.524f, 0.712f, 1.0f}/* darker blue back */);
 
+        var p3 = new PathBuilder ();
         v.to_view_plain (middle[2], out X, out Y);
-        c.move_to (X, Y);
+        p3.move_to ( (float)X, (float)Y);
         v.to_view_plain (middle[3], out X, out Y);
-        c.line_to (X, Y);
+        p3.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[3], out X, out Y);
-        c.line_to (X, Y);
+        p3.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[2], out X, out Y);
-        c.line_to (X, Y);
-        c.set_source_rgb (0.347, 0.524, 0.712); /* darker blue back */
-        c.fill ();
+        p3.line_to ( (float)X, (float)Y);
+        s.append_fill (p3.to_path (), EVEN_ODD, {0.347f, 0.524f, 0.712f, 1.0f}/* darker blue back */);
 
+        var p4 = new PathBuilder ();
         v.to_view_plain (middle[3], out X, out Y);
-        c.move_to (X, Y);
+        p4.move_to ( (float)X, (float)Y);
         v.to_view_plain (middle[4], out X, out Y);
-        c.line_to (X, Y);
+        p4.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[4], out X, out Y);
-        c.line_to (X, Y);
+        p4.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[3], out X, out Y);
-        c.line_to (X, Y);
-        c.set_source_rgb (0.447, 0.624, 0.812); /* darker blue front */
-        c.fill ();
+        p4.line_to ( (float)X, (float)Y);
+        s.append_fill (p4.to_path (), EVEN_ODD, {0.447f, 0.624f, 0.812f, 1.0f}/* darker blue front */);
 
+        var p5 = new PathBuilder ();
         v.to_view_plain (middle[5], out X, out Y);
-        c.move_to (X, Y);
+        p5.move_to ( (float)X, (float)Y);
         v.to_view_plain (middle[0], out X, out Y);
-        c.line_to (X, Y);
+        p5.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[0], out X, out Y);
-        c.line_to (X, Y);
+        p5.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[5], out X, out Y);
-        c.line_to (X, Y);
-        c.set_source_rgb (0.447, 0.624, 0.812); /* darker blue front */
-        c.fill ();
+        p5.line_to ( (float)X, (float)Y);
+        s.append_fill (p5.to_path (), EVEN_ODD, {0.447f, 0.624f, 0.812f, 1.0f}/* darker blue front */);
 
+        var p6 = new PathBuilder ();
         v.to_view_plain (middle[4], out X, out Y);
-        c.move_to (X, Y);
+        p6.move_to ( (float)X, (float)Y);
         v.to_view_plain (middle[5], out X, out Y);
-        c.line_to (X, Y);
+        p6.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[5], out X, out Y);
-        c.line_to (X, Y);
+        p6.line_to ( (float)X, (float)Y);
         v.to_view_plain (top[4], out X, out Y);
-        c.line_to (X, Y);
-        c.set_source_rgb (0.718, 0.808, 0.902); /* light blue front */
-        c.fill ();
+        p6.line_to ( (float)X, (float)Y);
+        s.append_fill (p6.to_path (), EVEN_ODD, {0.718f, 0.808f, 0.902f, 1.0f}/* light blue front */);
     }
 
-    void draw_heart (Context c, View3D v, double x, double y)
+    void draw_heart (Snapshot s, View3D v, double x, double y)
     {
         double H = Math.sqrt (0.125);
         double h = 0.5 - H;
         double cx[3], cy[3];
-        //v.to_view_plain ({x + h, y + 1 - h, 1 + h}, out cx[0], out cy[0]);
-        //v.to_view_plain ({x - 0.207106781187, y + 0.5, 1.5}, out cx[1], out cy[1]);
-        //v.to_view_plain ({x + h, y + h, 2.0 - h}, out cx[2], out cy[2]);
+        var path = new PathBuilder ();
         v.to_view_plain ({x + h, y + 1, 1 + h}, out cx[0], out cy[0]);
         v.to_view_plain ({x - 0.207106781187, y + 1, 1.5}, out cx[1], out cy[1]);
         v.to_view_plain ({x + h, y + 1, 2.0 - h}, out cx[2], out cy[2]);
-        c.move_to (cx[0], cy[0]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
-        //v.to_view_plain ({x + h, y + h, 2.0 - h}, out cx[0], out cy[0]);
-        //v.to_view_plain ({x + 0.5, y - 0.207106781187, 2.0 + 0.207106781187}, out cx[1], out cy[1]);
-        //v.to_view_plain ({x + 1 - h, y + h, 2.0 - h}, out cx[2], out cy[2]);
+        path.move_to ((float)cx[0], (float)cy[0]);
+        path.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + h, y + 1, 2.0 - h}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.5, y + 1, 2.0 + 0.207106781187}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1 - h, y + 1, 2.0 - h}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
-        //v.to_view_plain ({x + 1 - h, y + h, 2.0 - h}, out cx[0], out cy[0]);
-        //v.to_view_plain ({x + 1, y + h, ((2.0 - h) - 1.5) / 2 + 1.5}, out cx[1], out cy[1]);
-        //v.to_view_plain ({x + 1, y + 0.5, 1.5}, out cx[2], out cy[2]);
+        path.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1 - h, y + 1, 2.0 - h}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1, y + 1, ((2.0 - h) - 1.5) / 2 + 1.5}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1, y + 1, 1.5}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
-        //v.to_view_plain ({x + 1, y + 0.5, 1.5}, out cx[0], out cy[0]);
-        //v.to_view_plain ({x + 1, y + h, ((2.0 - h) - 1.5) / 2 + 1.5}, out cx[1], out cy[1]);
-        //v.to_view_plain ({x + 1 + h, y + h, 2.0 - h}, out cx[2], out cy[2]);
+        path.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1, y + 1, 1.5}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1, y + 1, ((2.0 - h) - 1.5) / 2 + 1.5}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1 + h, y + 1, 2.0 - h}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
-        //v.to_view_plain ({x + 1 + h, y + h, 2.0 - h}, out cx[0], out cy[0]);
-        //v.to_view_plain ({x + 1.5, y - 0.207106781187, 2.0 + 0.207106781187}, out cx[1], out cy[1]);
-        //v.to_view_plain ({x + 2 - h, y + h, 2.0 - h}, out cx[2], out cy[2]);
+        path.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1 + h, y + 1, 2.0 - h}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.5, y + 1, 2.0 + 0.207106781187}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 2 - h, y + 1, 2.0 - h}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
-        //v.to_view_plain ({x + 2 - h, y + h, 2.0 - h}, out cx[0], out cy[0]);
-        //v.to_view_plain ({x + 2 + 0.207106781187, y + 0.5, 1.5}, out cx[1], out cy[1]);
-        //v.to_view_plain ({x + 2 - h, y + 1 - h, 1 + h}, out cx[2], out cy[2]);
+        path.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 2 - h, y + 1, 2.0 - h}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 2 + 0.207106781187, y + 1, 1.5}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 2 - h, y + 1, 1 + h}, out cx[2], out cy[2]);
-        c.curve_to (cx[0], cy[0], cx[1], cy[1], cx[2], cy[2]);
-        //v.to_view_plain ({x + 1, y + 2, 0}, out cx[0], out cy[0]);
+        path.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1, y + 1, 0}, out cx[0], out cy[0]);
-        c.line_to (cx[0],cy[0]);
-        //v.to_view_plain ({x + h, y + 1 - h, 1 + h}, out cx[0], out cy[0]);
+        path.line_to ((float)cx[0],(float)cy[0]);
         v.to_view_plain ({x + h, y + 1, 1 + h}, out cx[0], out cy[0]);
-        c.line_to (cx[0],cy[0]);
-        //v.to_view_plain ({x + 1, y + 1, 1 + h}, out cx[0], out cy[0]);
-        //v.to_view_plain ({x + 1, y + 0.5, 1.5}, out cx[1], out cy[1]);
+        path.line_to ((float)cx[0],(float)cy[0]);
         v.to_view_plain ({x + 1, y + 1, 1 + h}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.875, y + 1, 1.5}, out cx[1], out cy[1]);
-        //double radius = v.2D_diff ({x + 1, y + 1, 1 + h}, {x + 1, y + 2, 0.0});
         double radius = v.2D_diff ({x + 1, y + 1, 1 + h}, {x + 1, y + 1, 0.0});
-        Cairo.Pattern pat2 = new Cairo.Pattern.radial (cx[0], cy[0], radius, cx[1], cy[1], radius / 40.0);
-        pat2.add_color_stop_rgb (0, 1 / 10, 0, 0);
-        pat2.add_color_stop_rgb (1, 1, 0, 0);
-        pat2.add_color_stop_rgb (2, 1, 0.5, 0.5);
-        c.set_source (pat2);
-        c.fill ();
+        
+        s.push_fill (path.to_path (), EVEN_ODD);
+        s.append_radial_gradient (get_bounds (path.to_path ()),
+            {(float)cx[0], (float)cy[0]},
+            (float)radius / 40.0f, (float)radius / 40.0f,
+            0, 100,
+            {
+                {0, {1, 0.5f, 0.5f, 1}},
+                {0.1f, {1, 0, 0, 1}},
+                {1, {1 / 10, 0, 0, 1}}
+            });
+        s.pop ();
     }
 
-    void draw_cherry (Context c, View3D v, double x, double y)
+    void draw_cherry (Snapshot s, View3D v, double x, double y)
     {
         // draw left cherry */
-        draw_oval (c, v, {x, 1.5 + y, 0},
+        var left_cherry = draw_oval (v, {x, 1.5 + y, 0},
                          {x, 0.5 + y, 1},
                          {1.0 + x, 0.5 + y, 1},
                          {1.0 + x, 1.5 + y, 0});
@@ -1148,30 +1124,34 @@ internal class NibblesView : TransparentContainer
         d = v.2D_diff ({x + 0.5, y + 1.0, 0.5}, {x + 0.5, y + 1.5, 0.0});
         if (d > radius)
             radius = d;
-
         v.to_view_plain ({x + 0.5, y + 1.0, 1.0}, out top_x, out top_y);
-        Cairo.Pattern pat2 = new Cairo.Pattern.radial (X, Y, radius, top_x, top_y, radius / 20.0);
-        pat2.add_color_stop_rgb (0, 1 / 10, 0, 0);
-        pat2.add_color_stop_rgb (1, 1, 0, 0);
-        pat2.add_color_stop_rgb (2, 1, 0.5, 0.5);
-        c.set_source (pat2);
-        c.fill ();
+        s.push_fill (left_cherry, EVEN_ODD);
+        s.append_radial_gradient (get_bounds (left_cherry),
+            {(float)top_x, (float)top_y},
+            (float)radius / 80.0f, (float)radius / 80.0f,
+            0, 100,
+            {
+                {0,    {1,    0.5f, 0.5f, 1}},
+                {0.1f, {1,    0,    0,    1}},
+                {1,    {0.1f, 0,    0,    1}}
+            });
+        s.pop ();
         // draw left stalk */
+        var left_stalk = new PathBuilder ();
         double cx[3];
         double cy[3];
         v.to_view_plain ({x + 0.45, y + 1.0, 1.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.45, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.15, y + 1.0, 2.0}, out cx[2], out cy[2]);
-        c.move_to (cx[0],cy[0]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+        left_stalk.move_to ((float)cx[0],(float)cy[0]);
+        left_stalk.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
         v.to_view_plain ({x + 1.25, y + 1.0, 2.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.55, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 0.55, y + 1.0, 1.0}, out cx[2], out cy[2]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
-        c.set_source_rgb (0.5, 0.5, 0);
-        c.fill ();
+        left_stalk.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        s.append_fill (left_stalk.to_path (), EVEN_ODD, {0.5f, 0.5f, 0.0f, 1.0f});
         // draw right cherry */
-        draw_oval (c, v, {1.0 + x, 1.5 + y, 0},
+        var right_cherry = draw_oval (v, {1.0 + x, 1.5 + y, 0},
                          {1.0 + x, 0.5 + y, 1},
                          {2.0 + x, 0.5 + y, 1},
                          {2.0 + x, 1.5 + y, 0});
@@ -1186,121 +1166,130 @@ internal class NibblesView : TransparentContainer
         d = v.2D_diff ({x + 1.5, y + 1.0, 0.5}, {x + 1.5, y + 1.5, 0.0});
         if (d > radius)
             radius = d;
-
         v.to_view_plain ({x + 1.5, y + 1.0, 1.0}, out top_x, out top_y);
-        pat2 = new Cairo.Pattern.radial (X, Y, radius, top_x, top_y, radius / 20.0);
-        pat2.add_color_stop_rgb (0, 1 / 10, 0, 0);
-        pat2.add_color_stop_rgb (1, 1, 0, 0);
-        pat2.add_color_stop_rgb (2, 1, 0.5, 0.5);
-        c.set_source (pat2);
-        c.fill ();
+        s.push_fill (right_cherry, EVEN_ODD);
+        s.append_radial_gradient (get_bounds (right_cherry),
+            {(float)top_x, (float)top_y},
+            (float)radius / 80.0f, (float)radius / 80.0f,
+            0, 100,
+            {
+                {0,    {1,    0.5f, 0.5f, 1}},
+                {0.1f, {1,    0,    0,    1}},
+                {1,    {0.1f, 0,    0,    1}}
+            });
+        s.pop ();
         // draw right stalk */
+        var right_stalk = new PathBuilder ();
         v.to_view_plain ({x + 1.45, y + 1.0, 1.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.45, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.15, y + 1.0, 2.0}, out cx[2], out cy[2]);
-        c.move_to (cx[0],cy[0]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+        right_stalk.move_to ((float)cx[0],(float)cy[0]);
+        right_stalk.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
         v.to_view_plain ({x + 1.25, y + 1.0, 2.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.55, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.55, y + 1.0, 1.0}, out cx[2], out cy[2]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
-        c.set_source_rgb (0.5, 0.5, 0);
-        c.fill ();
+        right_stalk.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        s.append_fill (right_stalk.to_path (), EVEN_ODD, {0.5f, 0.5f, 0.0f, 1.0f});
         /* draw leaf */
+        var leaf = new PathBuilder ();
         v.to_view_plain ({x + 1.20, y + 1.0, 2.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.20 - 0.5, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.20 - 0.5, y + 1.0 - 0.5, 2.0}, out cx[2], out cy[2]);
-        c.move_to (cx[0],cy[0]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+        leaf.move_to ((float)cx[0],(float)cy[0]);
+        leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
         v.to_view_plain ({x + 1.20 - 0.5, y + 1.0 - 0.5, 2.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.20, y + 1.0 - 0.5, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.20, y + 1.0, 2.0}, out cx[2], out cy[2]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
-        c.set_source_rgb (0, 0.75, 0);
-        c.fill ();
+        leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        s.append_fill (leaf.to_path (), EVEN_ODD, {0.0f, 0.75f, 0.0f, 1.0f});
     }
 
-    void draw_apple (Context c, View3D v, double x, double y)
+    void draw_apple (Snapshot s, View3D v, double x, double y)
     {
         double cx[3];
         double cy[3];
         double top_x, top_y;
-
+        var apple = new PathBuilder ();
         v.to_view_plain ({x + 0, y + 1, 1}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0, y + 1, 0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1, y + 1, 0}, out cx[2], out cy[2]);
-        c.move_to (cx[0],cy[0]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+        apple.move_to ((float)cx[0], (float)cy[0]);
+        apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
         v.to_view_plain ({x + 1, y + 1, 0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 2, y + 1, 0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 2, y + 1, 1}, out cx[2], out cy[2]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+        apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
         v.to_view_plain ({x + 2, y + 1, 1}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 2, y + 1.0, 2}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0, y + 1, 2}, out cx[2], out cy[2]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+        apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
         v.to_view_plain ({x + 1.0, y + 1, 2}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0, y + 1, 2}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 0, y + 1, 1}, out cx[2], out cy[2]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+        apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
 
         v.to_view_plain ({x + 1, y + 1.0, 1.5}, out top_x, out top_y);
         double radius = v.2D_diff ({x + 1, y + 1.0, 1.5}, {x + 1, y + 1.0, 0});
-        Cairo.Pattern pat2 = new Cairo.Pattern.radial (top_x, top_y, radius, top_x, top_y, radius / 20.0);
-        pat2.add_color_stop_rgb (0, 0, 1 / 10, 0);
-        pat2.add_color_stop_rgb (1, 0, 1, 0);
-        pat2.add_color_stop_rgb (2, 0.5, 1, 0.5);
-        c.set_source (pat2);
-        c.fill ();
-
+        var path = apple.to_path();
+        s.push_fill (path, EVEN_ODD);
+        s.append_radial_gradient (get_bounds (path),
+            {(float)top_x, (float)top_y},
+            (float)radius / 80.0f, (float)radius / 80.0f,
+            0, 100,
+            {
+                {0,    {0.5f, 1,    0.5f, 1}},
+                {0.1f, {0,    1,    0,    1}},
+                {1,    {0,    0.1f, 0,    1}}
+            });
+        s.pop ();
 
         for (double 3D_radius = 0.2;3D_radius > 0.01;3D_radius-=0.01)
         {
+            apple = new PathBuilder ();
             v.to_view_plain ({x + (1 - 3D_radius), y + 1.0, 1.75}, out cx[0], out cy[0]);
             v.to_view_plain ({x + (1 - 3D_radius), y + (1 - 3D_radius), 1.75}, out cx[1], out cy[1]);
             v.to_view_plain ({x + 1.00, y + (1 - 3D_radius), 1.75}, out cx[2], out cy[2]);
-            c.move_to (cx[0],cy[0]);
-            c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+            apple.move_to ((float)cx[0],(float)cy[0]);
+            apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
             v.to_view_plain ({x + 1.00, y + (1 - 3D_radius), 1.75}, out cx[0], out cy[0]);
             v.to_view_plain ({x + (1 + 3D_radius), y + (1 - 3D_radius), 1.75}, out cx[1], out cy[1]);
             v.to_view_plain ({x + (1 + 3D_radius), y + 1.0, 1.75}, out cx[2], out cy[2]);
-            c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+            apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
             v.to_view_plain ({x + (1 + 3D_radius), y + 1.0, 1.75}, out cx[0], out cy[0]);
             v.to_view_plain ({x + (1 + 3D_radius), y + (1 + 3D_radius), 1.75}, out cx[1], out cy[1]);
             v.to_view_plain ({x + 1, y + (1 + 3D_radius), 1.75}, out cx[2], out cy[2]);
-            c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+            apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
             v.to_view_plain ({x + 1, y + (1 + 3D_radius), 1.75}, out cx[0], out cy[0]);
             v.to_view_plain ({x + (1 - 3D_radius), y + (1 + 3D_radius), 1.75}, out cx[1], out cy[1]);
             v.to_view_plain ({x + (1 - 3D_radius), y + 1.0, 1.75}, out cx[2], out cy[2]);
-            c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
-            c.set_source_rgb (0.4, 0.8 - (0.2 - 3D_radius) * 3, 0.4 - (0.2 - 3D_radius) * 2);
-            c.fill ();
+            apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+            s.append_fill (apple.to_path (), EVEN_ODD, {0.4f, 0.8f - (0.2f - (float)3D_radius) * 3, 0.4f - (0.2f - (float)3D_radius) * 2, 1.0f});
         }
 
         /* draw left leaf */
+        var left_leaf = new PathBuilder ();
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.0 - 0.5, y + 1.0, 1.75}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0 - 0.5, y + 1.0 - 0.5, 1.75}, out cx[2], out cy[2]);
-        c.move_to (cx[0],cy[0]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+        left_leaf.move_to ((float)cx[0],(float)cy[0]);
+        left_leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
         v.to_view_plain ({x + 1.0 - 0.5, y + 1.0 - 0.5, 1.75}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.0, y + 1.0 - 0.5, 1.75}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[2], out cy[2]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
-        c.set_source_rgb (0.25, 0.5, 0);
-        c.fill ();
+        left_leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        s.append_fill (left_leaf.to_path (), EVEN_ODD, {0.25f, 0.5f, 0.0f, 1});
         /* draw right leaf */
+        var right_leaf = new PathBuilder ();
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.0 + 0.5, y + 1.0, 1.75}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0 + 0.5, y + 1.0 - 0.5, 1.75}, out cx[2], out cy[2]);
-        c.move_to (cx[0],cy[0]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
+        right_leaf.move_to ((float)cx[0],(float)cy[0]);
+        right_leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
         v.to_view_plain ({x + 1.0 + 0.5, y + 1.0 - 0.5, 1.75}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.0, y + 1.0 - 0.5, 1.75}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[2], out cy[2]);
-        c.curve_to (cx[0],cy[0],cx[1],cy[1],cx[2],cy[2]);
-        c.set_source_rgb (0, 0.5, 0.25);
-        c.fill ();
+        right_leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        s.append_fill (right_leaf.to_path (), EVEN_ODD, {0.0f, 0.5f, 0.25f, 1});
     }
 
     void draw_wall_segment (int i, Snapshot s, int x, int y, int x_size, int y_size)
@@ -1670,15 +1659,6 @@ internal class NibblesView : TransparentContainer
         y_offset = a.y / Pango.SCALE;
     }
 
-    void set_color (Context C, int color, bool bright)
-    {
-        double r;
-        double g;
-        double b;
-        get_worm_rgb (color, bright, out r, out g, out b);
-        C.set_source_rgba (r, g, b, 1);
-    }
-
     int calculate_font_size (Cairo.Context C, string text, int target_width, out double width, out double height)
     {
         int target_font_size = 1;
@@ -1744,5 +1724,16 @@ internal class NibblesView : TransparentContainer
     internal static string colorval_name_untranslated (int colorval)
     {
         return color_lookup[colorval, 0];
+    }
+    
+    /*\
+    * * utility functions
+    \*/
+    
+    Graphene.Rect get_bounds (Gsk.Path path)
+    {
+        Graphene.Rect bounds;
+        path.get_bounds (out bounds);
+        return bounds;
     }
 }
