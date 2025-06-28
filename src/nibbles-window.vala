@@ -1003,30 +1003,6 @@ private class NibblesWindow : ApplicationWindow
         return null;
     }
 
-    private string? get_new_scores_key (string old_key)
-    {
-        switch (old_key)
-        {
-            case "1.0":
-                return "fast";
-            case "2.0":
-                return "medium";
-            case "3.0":
-                return "slow";
-            case "4.0":
-                return "beginner";
-            case "1.1":
-                return "fast-fakes";
-            case "2.1":
-                return "medium-fakes";
-            case "3.1":
-                return "slow-fakes";
-            case "4.1":
-                return "beginner-fakes";
-        }
-        return null;
-    }
-
     private void create_scores ()
     {
         scorecats = new Gee.LinkedList<Games.Scores.Category> ();
@@ -1047,14 +1023,13 @@ private class NibblesWindow : ApplicationWindow
         /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
         scorecats.add (new Games.Scores.Category ("fast-fakes", _("Fast with Fakes")));
 
-        scores_context = new Games.Scores.Context.with_importer_and_icon_name (
+        scores_context = new Games.Scores.Context.with_icon_name (
             "gnome-nibbles",
             /* Translators: label displayed on the scores dialog, preceding a difficulty. */
             _("Difficulty Level:"),
             this,
             category_request,
             Games.Scores.Style.POINTS_GREATER_IS_BETTER,
-            new Games.Scores.DirectoryImporter.with_convert_func (get_new_scores_key),
             "org.gnome.Nibbles");
     }
 
