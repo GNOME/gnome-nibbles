@@ -1112,11 +1112,16 @@ private class NibblesWindow : ApplicationWindow
             should_unpause = true;
         }
 
-        scores_context.run_dialog ();
+        scores_context.present_dialog ();
 
-        // Be quite careful about whether to unpause. Don't unpause if the game has not started.
-        if (should_unpause)
-            pause_action.activate (null);
+        ulong id = 0;
+        id = scores_context.dialog_closed.connect (() => {
+            // Be quite careful about whether to unpause. Don't unpause if the game has not started.
+            if (should_unpause)
+                pause_action.activate (null);
+
+            scores_context.disconnect (id);
+        });
     }
 
     private void level_completed_cb ()

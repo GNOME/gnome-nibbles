@@ -39,7 +39,7 @@ gio_dep = dependency('gio-2.0', version: '>= @0@'.format(glib_minimum_version))
 glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_minimum_version))
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
 gtk_dep = dependency('gtk4', version: '>= 4.14') # needed for Gsk.PathBuilder()
-libgnome_games_support_dep = dependency('libgnome-games-support-2', version: '>= 2.0.0') # requires GTK 4.2
+libgnome_games_support_dep = dependency('libgnome-games-support-2', version: '>= 2.2.0')
 if get_option('use_libadwaita')
     libadwaita_dep = dependency('libadwaita-1', version: '>= 1.5.0', required : false) # requires GTK 4.13.4
 endif
