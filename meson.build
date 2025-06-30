@@ -141,24 +141,6 @@ if use_libadwaita
     endif
 endif
 
-# Test for ApplicationFlags.DEFAULT_FLAGS
-code3 = '''using Gtk;
-           void main () {var t=ApplicationFlags.DEFAULT_FLAGS;}'''
-if meson.version().version_compare('>= 1.5.0')
-    code3_links = valac.links(code3, 
-        dependencies : [gtk_dep], # needs meson version >= 1.5.0
-        args : vala_compiler_options,
-        name : 'Is ApplicationFlags.DEFAULT_FLAGS defined?')
-    if code3_links
-        vala_if_defines += '--define=CAN_USE_DEFAULT_FLAGS'
-    else
-        message('We will use ApplicationFlags.FLAGS_NONE.')
-    endif
-else
-    # we can't do the test because of the meson bug so be on the safe side
-    message('We will use ApplicationFlags.FLAGS_NONE.')
-endif
-
 # Test for show_uri function
 # We use show_uri in preference to UriLauncher because of
 # https://gitlab.gnome.org/GNOME/gtk/-/issues/6135

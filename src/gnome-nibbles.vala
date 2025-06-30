@@ -152,11 +152,7 @@ private class Nibbles : Gtk.Application
 
     private Nibbles ()
     {
-        #if CAN_USE_DEFAULT_FLAGS
         Object (application_id: "org.gnome.Nibbles", flags: ApplicationFlags.DEFAULT_FLAGS);
-        #else
-        Object (application_id: "org.gnome.Nibbles", flags: ApplicationFlags.FLAGS_NONE);
-        #endif
         add_main_option_entries (option_entries);
     }
 
