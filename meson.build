@@ -2,9 +2,10 @@
 project('gnome-nibbles',
     ['c', 'vala'],
     license: 'GPL3+',
-    meson_version: '>=1.1',
+    meson_version: '>=1.5',
     version: '4.4.dev',
     default_options: ['c_std=c99']) # Vala generated C code should be compatible with c99 (ISO/IEC 9899:1999)
+
 # note, the version number is in meson.options and follows this sequence:
 #  4.4.rc1
 #  4.4.rc2 (if needed)
@@ -80,17 +81,11 @@ vala_if_defines = []
 code0 = '''private const string [] strings = {"a","b"};
            private static string test_string (string [] s) {return s[0];}
            void main() {stdout.printf ("%s\n",test_string (strings));}'''
-if meson.version().version_compare('>= 1.4.1')
-    # The next line exposes a bug in meson: https://github.com/mesonbuild/meson/issues/12959
-    code0_links = valac.links(code0, 
-        args : vala_compiler_options,
-        name : 'an array of strings links without casting?')
-    if not code0_links
-        message('Vala has a bug when passing a constant array of strings to a function, workaround applied.')
-        vala_if_defines += '--define=VALA_NEEDS_ARRAY_STRING_CASTING'
-    endif
-else
-    # we can't do the test because of the meson bug so be on the safe side
+code0_links = valac.links(code0, 
+    args : vala_compiler_options,
+    name : 'an array of strings links without casting?')
+if not code0_links
+    message('Vala has a bug when passing a constant array of strings to a function, workaround applied.')
     vala_if_defines += '--define=VALA_NEEDS_ARRAY_STRING_CASTING'
 endif
 
@@ -103,17 +98,12 @@ code1 = '''class Property : Object {public int c;}
            static Variant SetMappingFunction (Value value, VariantType type, void *data) {return 0;}
            var s = new GLib.Settings ("org.gnome.Nibbles"); var p = new Property ();
            s.bind_with_mapping ("c", p, "c", SettingsBindFlags.DEFAULT,GetMappingFunction, SetMappingFunction, null, null); }'''
-if meson.version().version_compare('>= 1.5.0')
-    code1_links = valac.links(code1, 
-        dependencies : [gio_dep], # needs meson version >= 1.5.0
-        args : vala_compiler_options,
-        name : 'static local functions can be used without casting?')
-    if not code1_links
-        message('Vala static local functions need casting to static delegates.')
-        vala_if_defines += '--define=VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING'
-    endif
-else
-    # we can't do the test because of the meson bug so be on the safe side
+code1_links = valac.links(code1, 
+    dependencies : [gio_dep], # needs meson version >= 1.5.0
+    args : vala_compiler_options,
+    name : 'static local functions can be used without casting?')
+if not code1_links
+    message('Vala static local functions need casting to static delegates.')
     vala_if_defines += '--define=VALA_NEEDS_LOCAL_FUCTION_TO_STATIC_DELEGATE_CASTING'
 endif
 
@@ -125,19 +115,14 @@ if use_libadwaita
                ad.set_developers (s);
                ad.set_documenters (s);
                ad.set_artists (s);}'''
-    if meson.version().version_compare('>= 1.5.0')
-        code2_links = valac.links(code2, 
-            dependencies : [libadwaita_dep], # needs meson version >= 1.5.0
-            args : vala_compiler_options,
-            name : 'we can link with libadwaita?')
-        if code2_links
-            vala_if_defines += ['--define=USE_LIBADWAITA','--define=USE_PILL_BUTTON']
-        else
-            message('Can not link with libadwaita.')
-            use_libadwaita = false
-        endif
+    code2_links = valac.links(code2, 
+        dependencies : [libadwaita_dep], # needs meson version >= 1.5.0
+        args : vala_compiler_options,
+        name : 'we can link with libadwaita?')
+    if code2_links
+        vala_if_defines += ['--define=USE_LIBADWAITA','--define=USE_PILL_BUTTON']
     else
-        # we can't do the test because of the meson bug so be on the safe side
+        message('Can not link with libadwaita.')
         use_libadwaita = false
     endif
 endif
@@ -175,19 +160,14 @@ endif
 # https://gitlab.gnome.org/GNOME/gtk/-/issues/6135
 code4 = '''using Gtk;
            void main () {show_uri (null, "help:gnome-nibbles", Gdk.CURRENT_TIME);}'''
-if meson.version().version_compare('>= 1.5.0')
-    code4_links = valac.links(code4,
-        dependencies : [gtk_dep], # needs meson version >= 1.5.0
-        args : vala_compiler_options,
-        name : 'we can call show_uri?')
-    if code4_links
-        vala_if_defines += '--define=CAN_USE_SHOW_URI'
-    else
-        message('We will use UriLauncher instead of show_uri.')
-    endif
-else
-    # we can't do the test because of the meson bug so be on the safe side
+code4_links = valac.links(code4,
+    dependencies : [gtk_dep], # needs meson version >= 1.5.0
+    args : vala_compiler_options,
+    name : 'we can call show_uri?')
+if code4_links
     vala_if_defines += '--define=CAN_USE_SHOW_URI'
+else
+    message('We will use UriLauncher instead of show_uri.')
 endif
 
 # Test for 128 bit integer (__int128)
