@@ -1117,23 +1117,43 @@ internal class WormPositions : Gee.LinkedList<uint16>
  * A simple quick array that stores double bits.
  */
 #if !TEST_COMPILE
-class DoubleBitArray
-{
-    const ulong BITS_MASK = 0x3; /* 2 bits set */
-    ulong array;
-    internal const ulong size = sizeof (ulong) * 4;
-    internal ulong get_at (ulong index)
-        requires (index < size)
+    #if GENERIC_TYPE_BUG
+    class DoubleBitArray
+    #else
+    class DoubleBitArray <T>
+    #endif
     {
-        return (array >> (2 * index)) & BITS_MASK;
+        const ulong BITS_MASK = 0x3; /* 2 bits set */
+    #if GENERIC_TYPE_BUG
+        ulong array;
+        internal const ulong size = sizeof (ulong) * 4;
+        internal ulong get_at (ulong index)
+            requires (index < size)
+        {
+            return (array >> (2 * index)) & BITS_MASK;
+        }
+        internal void set_at (ulong index, ulong l)
+            requires (index < size)
+        {
+            array &= ~(BITS_MASK << (2 * index));
+            array |= (l & BITS_MASK) << (2 * index);
+        }
+    #else
+        T array;
+        internal ulong size = sizeof (T) * 4;
+        internal T get_at (ulong index)
+            requires (index < size)
+        {
+            return (array >> (2 * index)) & BITS_MASK;
+        }
+        internal void set_at (ulong index, T l)
+            requires (index < size)
+        {
+            array &= ~(BITS_MASK << (2 * index));
+            array |= (l & BITS_MASK) << (2 * index);
+        }
+    #endif
     }
-    internal void set_at (ulong index, ulong l)
-        requires (index < size)
-    {
-        array &= ~(BITS_MASK << (2 * index));
-        array |= (l & BITS_MASK) << (2 * index);
-    }
-}
 #endif
 
 private class Worm : Object
@@ -1185,7 +1205,11 @@ private class Worm : Object
 /*
  * A queue that allows no adjacent duplicates.
  */
+#if GENERIC_TYPE_BUG
     class KeyQueue : DoubleBitArray
+#else
+    class KeyQueue : DoubleBitArray <ulong>
+#endif
     {
         ulong head = 0; /* head points to the next to leave the queue */
         ulong tail = 0; /* tail points to the next slot to join the queue and is always an empty slot */

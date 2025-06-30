@@ -142,6 +142,34 @@ if use_libadwaita
     endif
 endif
 
+# Test if this fix is in vala.
+# https://gitlab.gnome.org/GNOME/vala/-/merge_requests/456
+code3 = '''internal class CCC<T1,T2> {
+               T1 a0;
+               T2 a1;
+               ulong sizeof_T1 = sizeof (T1);
+               ulong sizeof_T2 = sizeof (T2);
+               internal void f() {
+                   a0 = 0xfe;
+                   assert (a0 == 0xfe);
+                   a1 = 0x7f; // segfault
+                   assert (a1 == 0x7f);
+                   var v = a0 & a1; // compile error
+                   assert (v == 0x7e);
+                   assert (sizeof_T1 == 1); // assert fail
+               }
+           }
+           void main () {
+               var test = new CCC<uint8, uint64?>();
+               test.f ();
+           }'''
+code3_links = valac.links(code3, 
+    args : vala_compiler_options,
+    name : 'generic type fix is in vala?')
+if not code3_links
+    vala_if_defines += '--define=GENERIC_TYPE_BUG'
+endif
+
 # Test for show_uri function
 # We use show_uri in preference to UriLauncher because of
 # https://gitlab.gnome.org/GNOME/gtk/-/issues/6135
