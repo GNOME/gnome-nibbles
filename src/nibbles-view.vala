@@ -31,9 +31,8 @@
  * grep -ne ' $' *.vala
  *
  */
-using Gtk; /* designed for Gtk 4, link with libgtk-4-dev or gtk4-devel */
+using Gtk; /* designed for Gtk 4 (version 4.14), link with libgtk-4-dev or gtk4-devel */
 using Gsk;
-using Cairo; /* via Gtk.Snapshot.append_cairo */
 
 /* worm colors */
 static void get_worm_rgb (int color, bool bright, out double r, out double g, out double b)
@@ -496,7 +495,7 @@ internal class NibblesView : TransparentContainer
                 if (view.countdown_active () > 0)
                 {
                     /* count down */
-                    var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
+                    var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}}); /* to do; replace cairo code */ 
                     string text = view.seconds_string (view.countdown_active ());
                     int text_width = (int)v.2D_diff ({WIDTH / 2 - 5, HEIGHT / 2, 0}, {WIDTH / 2 + 5, HEIGHT / 2, 0});
                     double w, h;
@@ -608,13 +607,12 @@ internal class NibblesView : TransparentContainer
                 if (view.countdown_active () > 0)
                 {
                     /* count down */
-                    var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
+                    var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}}); /* to do; replace cairo code */ 
                     string text = view.seconds_string (view.countdown_active ());
                     int text_width = x_delta * 10;
                     double w, h;
                     int font_size = view.calculate_font_size (c, text, text_width, out w, out h);
                     view.draw_text_font_size (c, (int)(x_offset + x_delta * (WIDTH / 2) - w / 2), (int)(y_offset + y_delta * (HEIGHT / 2) - h / 2), text, font_size);
-
 
                     /* draw name labels */
                     foreach (var worm in view.game.worms)
@@ -1578,7 +1576,11 @@ internal class NibblesView : TransparentContainer
         }
     }
 
-    void draw_text_target_width (Context C, int x, int y, string text, int target_width, int color)
+    /*\
+    * * Text
+    \*/
+
+    void draw_text_target_width (Cairo.Context C, int x, int y, string text, int target_width, int color)
     {
         /* draw using x,y as the top left corner of the text */
         int target_font_size = 1;
@@ -1622,7 +1624,7 @@ internal class NibblesView : TransparentContainer
         Pango.cairo_show_layout (C, layout);
     }
 
-    void draw_text_font_size (Context C, int x, int y, string text, int font_size)
+    void draw_text_font_size (Cairo.Context C, int x, int y, string text, int font_size)
     {
         int x_offset, y_offset;
         get_text_offsets (C, text, font_size, out x_offset, out y_offset);
@@ -1641,7 +1643,7 @@ internal class NibblesView : TransparentContainer
         Pango.cairo_show_layout (C, layout);
     }
 
-    void get_text_offsets (Context C, string text, int font_size, out int x_offset, out int y_offset)
+    void get_text_offsets (Cairo.Context C, string text, int font_size, out int x_offset, out int y_offset)
     {
         var layout =  Pango.cairo_create_layout (C);
         Pango.FontDescription font;
