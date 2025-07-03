@@ -1271,7 +1271,7 @@ private class NibblesWindow : ApplicationWindow
         score_label.set_margin_top (get_height () / 3 + 80);
         score_label.set_visible (true);
 
-        var points_left = lowest_high_score - score;
+        var points_left = lowest_high_score + 1 - score;
         /* Translators: label displayed at the end of a level, if the player did not score enough to have its score saved */
         var points_left_label = new Label (_("(%ld more points to reach the leaderboard)").printf (points_left));
         points_left_label.halign = Align.CENTER;
