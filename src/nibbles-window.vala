@@ -1086,21 +1086,18 @@ private class NibblesWindow : ApplicationWindow
             return;
         }
 
-        scores_context.add_score.begin (score,
-                                        get_scores_category (game.speed, game.fakes),
-                                        null,
-                                        (object, result) => {
-            try
-            {
-                scores_context.add_score.end (result);
-            }
-            catch (GLib.Error e)
-            {
-                warning ("Failed to add score: %s", e.message);
-            }
+        try
+        {
+            scores_context.add_score (score,
+                                      get_scores_category (game.speed, game.fakes),
+                                      null);
+        }
+        catch (GLib.Error e)
+        {
+            warning ("Failed to add score: %s", e.message);
+        }
 
-            game_over (score, lowest_high_score, level_reached);
-        });
+        game_over (score, lowest_high_score, level_reached);
     }
 
     private void scores_cb ()

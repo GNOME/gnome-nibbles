@@ -78,7 +78,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libgnome-games-support.git",
-                    "tag": "2.0.0"
+                    "commit": "e5ea2460f18b9a9638ba694a12e659d3077443a7" /* pre-release of version 2.2 */
                 }
             ]
         },
