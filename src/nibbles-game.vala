@@ -511,21 +511,11 @@ private class NibblesGame : Object
     private bool main_loop_cb ()
     {
         var status = get_game_status ();
-        if (status == GAMEOVER)
+        if (status == GAMEOVER || status == VICTORY)
         {
             end ();
 
             log_score (worms.first ().score, current_level);
-
-            return Source.REMOVE;
-        }
-        else if (status == VICTORY)
-        {
-            end ();
-
-            var winner = get_winner ();
-            if (winner != null)
-                log_score (winner.score, current_level);
 
             return Source.REMOVE;
         }
@@ -929,16 +919,6 @@ private class NibblesGame : Object
             if (worm.is_human && worm.lives > 0)
                 ++count;
         return count;
-    }
-
-    internal Worm? get_winner ()
-    {
-        bool one_human_left = humans_left () == 1;
-        foreach (var worm in worms)
-            if ((one_human_left && worm.is_human ||
-                !one_human_left && !worm.is_human) && worm.lives > 0)
-                return worm;
-        return null;
     }
 
     /*\
