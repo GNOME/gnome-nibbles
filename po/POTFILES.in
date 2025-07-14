@@ -1,8 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
-data/org.gnome.Nibbles.appdata.xml.in
 data/org.gnome.Nibbles.desktop.in
 data/org.gnome.Nibbles.gschema.xml
+data/org.gnome.Nibbles.metainfo.xml.in
 data/ui/are-you-sure.ui
 data/ui/board-progress.ui
 data/ui/controls-grid.ui

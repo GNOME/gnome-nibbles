@@ -53,10 +53,10 @@ configure_file (
     configuration: service_conf
 )
 
-# Appdata
-appdata_file = i18n.merge_file(
-    input: 'org.gnome.Nibbles.appdata.xml.in',
-    output: 'org.gnome.Nibbles.appdata.xml',
+# Metainfo
+metainfo_file = i18n.merge_file(
+    input: 'org.gnome.Nibbles.metainfo.xml.in',
+    output: 'org.gnome.Nibbles.metainfo.xml',
     type: 'xml',
     po_dir: podir,
     install: true,
@@ -70,11 +70,11 @@ if appstreamcli.found()
         message(appstreamcli.full_path(),'version',appstreamcli.version())
     endif
     test(
-        'validate-appdata', appstreamcli,
+        'validate-metainfo', appstreamcli,
         args: [
-            'validate', '--no-net', appdata_file.full_path()
+            'validate', '--no-net', metainfo_file.full_path()
         ],
-        depends: appdata_file
+        depends: metainfo_file
     )
 endif
 
