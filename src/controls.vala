@@ -26,7 +26,7 @@
  * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
- * grep -ne '[^][)(_!$ "](' *.vala
+ * grep -ne '[^][~)(}{_!$ "-](' *.vala
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
  * grep -ne ' $' *.vala
@@ -480,39 +480,42 @@ internal class OverlayMessage : Widget
 
     public override void snapshot (Snapshot snapshot)
     {
-        const double PI2 = 1.570796326794896619231321691639751442; /* Pi divided by 2 */
-        var c = snapshot.append_cairo ({{0 , 0}, {get_width (), get_height ()}});
-
+        const float PIby2 = 1.570796326794896619231321691639751442f; /* Pi / 2 */
         const int border = 20;
         double text_width;
         double text_height;
-        int font_size = calculate_font_size (c, text, width - border, out text_width, out text_height);
-        double background_width = text_width + border;
-        double background_height = text_height + border;
-
-        double x = (get_width () - background_width) / 2;
-        double y = (get_height () - background_height) / 2;
-
+        int font_size = calculate_font_size (text, width - border, out text_width, out text_height);
+        float background_width = (float)text_width + border;
+        float background_height = (float)text_height + border;
+        float x = (get_width () - background_width) / 2;
+        float y = (get_height () - background_height) / 2;
         #if USE_PILL_BUTTON
-        double arc_radius = background_width < background_height ? background_width / 2 : background_height / 2;
+        float arc_radius = background_width < background_height ? background_width / 2 : background_height / 2;
         #else
-        double arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
+        float arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
         #endif
-
         /* draw background */
-        c.arc (x + background_width - arc_radius, y + arc_radius, arc_radius, -PI2, 0);
-        c.arc (x + background_width - arc_radius, y + background_height - arc_radius, arc_radius, 0, PI2);
-        c.arc (x + arc_radius, y + background_height - arc_radius, arc_radius, PI2, PI2 * 2);
-        c.arc (x + arc_radius, y + arc_radius, arc_radius, PI2 * 2, -PI2);
-
-        c.set_source_rgba (0, 0, 0, 0.9);
-        c.fill ();
-
-        draw_text_font_size (c, (int)(x + (background_width - text_width) / 2),
+        var background = new PathBuilder ();
+        /* top right corner */
+        background.move_to (x + background_width - arc_radius, y + 0);
+        background.svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + background_width, y + arc_radius);
+        /* bottom right corner */
+        background.line_to (x + background_width, y + background_height - arc_radius);
+        background.svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + background_width - arc_radius, y + background_height);
+        /* bottom left corner */
+        background.line_to (x + arc_radius, y + background_height);
+        background.svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + 0, y + background_height - arc_radius);
+        /* top left corner */
+        background.line_to (x + 0, y + arc_radius);
+        background.svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + arc_radius, y + 0);
+        /* fill with colour */
+        snapshot.append_fill (background.to_path (), EVEN_ODD, {0.0f, 0.0f, 0.0f, 0.9f});
+        /* draw the text */
+        draw_text_font_size (snapshot, (int)(x + (background_width - text_width) / 2),
             (int)(y + (background_height - text_height) / 2), text, font_size);
     }
-
-    int calculate_font_size (Cairo.Context C, string text, int target_width, out double width, out double height)
+    /* calculate the font size that fits in the space */
+    int calculate_font_size (string text, int target_width, out double width, out double height)
     {
         bool rush_size_steps = true;
         int fail_count = 0;
@@ -524,19 +527,16 @@ internal class OverlayMessage : Widget
 
         for (int font_size = 1;font_size < 128;)
         {
-            var layout =  Pango.cairo_create_layout (C);
-            Pango.FontDescription font;
-            if (null == layout.get_font_description ())
-                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-            else
-                font = layout.get_font_description ().copy ();
+            var layout = create_pango_layout (text)  	;
+            var font = null == layout.get_font_description () ?
+                Pango.FontDescription.from_string ("Sans Bold 1pt") :
+                layout.get_font_description ().copy ();
             font.set_size (Pango.SCALE * font_size);
             layout.set_font_description (font);
             layout.set_text (text, -1);
-            Pango.cairo_update_layout (C, layout);
             Pango.Rectangle a,b;
             layout.get_extents (out a, out b);
-            uint width_diff = target_width - (int)(a.width / Pango.SCALE);
+            int width_diff = target_width - (int)(a.width / Pango.SCALE);
             if (width_diff > 0 && width_diff < target_width_diff)
             {
                 target_width_diff = width_diff;
@@ -569,38 +569,31 @@ internal class OverlayMessage : Widget
         }
         return target_font_size;
     }
-
-    void draw_text_font_size (Cairo.Context C, int x, int y, string text, int font_size)
+    /* draw the text */
+    void draw_text_font_size (Snapshot snapshot, int x, int y, string text, int font_size)
     {
         int x_offset, y_offset;
-        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
-        C.move_to (x - x_offset, y - y_offset);
-        C.set_source_rgb (1, 1, 1);
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
+        get_text_offsets (text, font_size, out x_offset, out y_offset);
+        snapshot.translate ({x - x_offset, y - y_offset});
+        var layout = create_pango_layout (text);
+        layout.set_alignment (1);
+        var font = null == layout.get_font_description () ?
+            Pango.FontDescription.from_string ("Sans Bold 1pt") :
+            layout.get_font_description ().copy ();
         font.set_size (Pango.SCALE * font_size);
         layout.set_font_description (font);
         layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
-        Pango.cairo_show_layout (C, layout);
+        snapshot.append_layout (layout, {1, 1, 1, 1});
     }
-
-    void get_text_offsets (Cairo.Context C, string text, int font_size, out int x_offset, out int y_offset)
+    void get_text_offsets (string text, int font_size, out int x_offset, out int y_offset)
     {
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
+        var layout = create_pango_layout (text);
+        var font = null == layout.get_font_description () ?
+            Pango.FontDescription.from_string ("Sans Bold 1pt") :
+            layout.get_font_description ().copy ();
         font.set_size (Pango.SCALE * font_size);
         layout.set_font_description (font);
         layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
         Pango.Rectangle a,b;
         layout.get_extents (out a, out b);
         x_offset = a.x / Pango.SCALE;

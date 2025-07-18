@@ -25,7 +25,7 @@
  * don't match. The convoluted regular expressions are so they don't
  * match them self.
  *
- * grep -ne '[^][)(_!$ "](' *.vala
+ * grep -ne '[^][~)(}{_!$ "-](' *.vala
  * grep -ne '[(] ' *.vala
  * grep -ne '[ ])' *.vala
  * grep -ne ' $' *.vala
@@ -495,14 +495,13 @@ internal class NibblesView : TransparentContainer
                 if (view.countdown_active () > 0)
                 {
                     /* count down */
-                    var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}}); /* to do; replace cairo code */ 
                     string text = view.seconds_string (view.countdown_active ());
-                    int text_width = (int)v.2D_diff ({WIDTH / 2 - 5, HEIGHT / 2, 0}, {WIDTH / 2 + 5, HEIGHT / 2, 0});
                     double w, h;
-                    int font_size = view.calculate_font_size (c, text, text_width, out w, out h);
+                    int font_size = 252;
+                    view.calculate_text_size (text, font_size, out w, out h);
                     double center_x, center_y;
                     v.to_view_plain ({WIDTH / 2, HEIGHT / 2, 0}, out center_x, out center_y);
-                    view.draw_text_font_size (c, (int)(center_x - w / 2), (int)(center_y - h / 2), text, font_size);
+                    view.draw_text_font_size (s, (int)(center_x - w / 2), (int)(center_y - h / 2), text, font_size);
 
                     /* draw name labels */
                     foreach (var worm in view.game.worms)
@@ -515,7 +514,7 @@ internal class NibblesView : TransparentContainer
                                 /* vertical worm */
                                 int middle = worm.length / 2;
                                 v.to_view_plain ({ (worm.list[middle] >> 8) + 1.5, (uint8)(worm.list[middle]), 0}, out x2d, out y2d);
-                                view.draw_text_target_width (c, (int)x2d, (int)y2d, view.worm_name (worm.id + 1),
+                                view.draw_text_target_width (s, (int)x2d, (int)y2d, view.worm_name (worm.id + 1),
                                  (int)v.2D_diff ({ (worm.list[0] >> 8), (uint8)(worm.list[0]), 0},
                                              { (worm.list[worm.length - 1] >> 8), (uint8)(worm.list[worm.length - 1]) + 1, 0}),
                                  color);
@@ -534,7 +533,7 @@ internal class NibblesView : TransparentContainer
                                 }
                                 v.to_view_plain ({x, (uint8)(worm.list[0]), 3}, out x_2d[0], out y_2d[0]);
                                 v.to_view_plain ({x_max + 1, (uint8)(worm.list[0]), 3}, out x_2d[1], out y_2d[1]);
-                                view.draw_text_target_width (c, (int)x_2d[0], (int)y_2d[0], view.worm_name (worm.id + 1), (int)(x_2d[1] - x_2d[0]), color);
+                                view.draw_text_target_width (s, (int)x_2d[0], (int)y_2d[0], view.worm_name (worm.id + 1), (int)(x_2d[1] - x_2d[0]), color);
                             }
                         }
                     }
@@ -607,12 +606,11 @@ internal class NibblesView : TransparentContainer
                 if (view.countdown_active () > 0)
                 {
                     /* count down */
-                    var c = s.append_cairo ({{0 , 0}, {get_width (), get_height ()}}); /* to do; replace cairo code */ 
                     string text = view.seconds_string (view.countdown_active ());
-                    int text_width = x_delta * 10;
                     double w, h;
-                    int font_size = view.calculate_font_size (c, text, text_width, out w, out h);
-                    view.draw_text_font_size (c, (int)(x_offset + x_delta * (WIDTH / 2) - w / 2), (int)(y_offset + y_delta * (HEIGHT / 2) - h / 2), text, font_size);
+                    int font_size = 252;
+                    view.calculate_text_size (text, font_size, out w, out h);
+                    view.draw_text_font_size (s, (int)(x_offset + x_delta * (WIDTH / 2) - w / 2), (int)(y_offset + y_delta * (HEIGHT / 2) - h / 2), text, font_size);
 
                     /* draw name labels */
                     foreach (var worm in view.game.worms)
@@ -624,7 +622,7 @@ internal class NibblesView : TransparentContainer
                             {
                                 /* vertical worm */
                                 int middle = worm.length / 2;
-                                view.draw_text_target_width (c, x_offset + x_delta * ((worm.list[middle] >> 8) + 1) + x_delta / 2,
+                                view.draw_text_target_width (s, x_offset + x_delta * ((worm.list[middle] >> 8) + 1) + x_delta / 2,
                                               y_offset + y_delta * ((uint8)worm.list[middle]),
                                               view.worm_name (worm.id + 1), x_delta * worm.length, color);
                             }
@@ -634,7 +632,7 @@ internal class NibblesView : TransparentContainer
                                 int x = worm.list[0] >> 8;
                                 if (x > worm.list[worm.length-1] >> 8)
                                     x = worm.list[worm.length-1] >> 8;
-                                view.draw_text_target_width (c, x_offset + x_delta * x,
+                                view.draw_text_target_width (s, x_offset + x_delta * x,
                                               y_offset + y_delta * ((uint8)worm.list[0]) - y_delta,
                                               view.worm_name (worm.id + 1), x_delta * worm.length, color);
                             }
@@ -1083,9 +1081,9 @@ internal class NibblesView : TransparentContainer
         v.to_view_plain ({x + 2 - h, y + 1, 1 + h}, out cx[2], out cy[2]);
         path.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1, y + 1, 0}, out cx[0], out cy[0]);
-        path.line_to ((float)cx[0],(float)cy[0]);
+        path.line_to ((float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + h, y + 1, 1 + h}, out cx[0], out cy[0]);
-        path.line_to ((float)cx[0],(float)cy[0]);
+        path.line_to ((float)cx[0], (float)cy[0]);
         v.to_view_plain ({x + 1, y + 1, 1 + h}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.875, y + 1, 1.5}, out cx[1], out cy[1]);
         double radius = v.2D_diff ({x + 1, y + 1, 1 + h}, {x + 1, y + 1, 0.0});
@@ -1141,12 +1139,12 @@ internal class NibblesView : TransparentContainer
         v.to_view_plain ({x + 0.45, y + 1.0, 1.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.45, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.15, y + 1.0, 2.0}, out cx[2], out cy[2]);
-        left_stalk.move_to ((float)cx[0],(float)cy[0]);
-        left_stalk.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        left_stalk.move_to ((float)cx[0], (float)cy[0]);
+        left_stalk.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1.25, y + 1.0, 2.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0.55, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 0.55, y + 1.0, 1.0}, out cx[2], out cy[2]);
-        left_stalk.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        left_stalk.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         s.append_fill (left_stalk.to_path (), EVEN_ODD, {0.5f, 0.5f, 0.0f, 1.0f});
         // draw right cherry */
         var right_cherry = draw_oval (v, {1.0 + x, 1.5 + y, 0},
@@ -1181,24 +1179,24 @@ internal class NibblesView : TransparentContainer
         v.to_view_plain ({x + 1.45, y + 1.0, 1.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.45, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.15, y + 1.0, 2.0}, out cx[2], out cy[2]);
-        right_stalk.move_to ((float)cx[0],(float)cy[0]);
-        right_stalk.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        right_stalk.move_to ((float)cx[0], (float)cy[0]);
+        right_stalk.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1.25, y + 1.0, 2.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.55, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.55, y + 1.0, 1.0}, out cx[2], out cy[2]);
-        right_stalk.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        right_stalk.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         s.append_fill (right_stalk.to_path (), EVEN_ODD, {0.5f, 0.5f, 0.0f, 1.0f});
         /* draw leaf */
         var leaf = new PathBuilder ();
         v.to_view_plain ({x + 1.20, y + 1.0, 2.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.20 - 0.5, y + 1.0, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.20 - 0.5, y + 1.0 - 0.5, 2.0}, out cx[2], out cy[2]);
-        leaf.move_to ((float)cx[0],(float)cy[0]);
-        leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        leaf.move_to ((float)cx[0], (float)cy[0]);
+        leaf.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1.20 - 0.5, y + 1.0 - 0.5, 2.0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.20, y + 1.0 - 0.5, 2.0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.20, y + 1.0, 2.0}, out cx[2], out cy[2]);
-        leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        leaf.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         s.append_fill (leaf.to_path (), EVEN_ODD, {0.0f, 0.75f, 0.0f, 1.0f});
     }
 
@@ -1212,23 +1210,23 @@ internal class NibblesView : TransparentContainer
         v.to_view_plain ({x + 0, y + 1, 0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1, y + 1, 0}, out cx[2], out cy[2]);
         apple.move_to ((float)cx[0], (float)cy[0]);
-        apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        apple.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1, y + 1, 0}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 2, y + 1, 0}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 2, y + 1, 1}, out cx[2], out cy[2]);
-        apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        apple.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 2, y + 1, 1}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 2, y + 1.0, 2}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0, y + 1, 2}, out cx[2], out cy[2]);
-        apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        apple.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1.0, y + 1, 2}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 0, y + 1, 2}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 0, y + 1, 1}, out cx[2], out cy[2]);
-        apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        apple.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
 
         v.to_view_plain ({x + 1, y + 1.0, 1.5}, out top_x, out top_y);
         double radius = v.2D_diff ({x + 1, y + 1.0, 1.5}, {x + 1, y + 1.0, 0});
-        var path = apple.to_path();
+        var path = apple.to_path ();
         s.push_fill (path, EVEN_ODD);
         s.append_radial_gradient (get_bounds (path),
             {(float)top_x, (float)top_y},
@@ -1247,20 +1245,20 @@ internal class NibblesView : TransparentContainer
             v.to_view_plain ({x + (1 - 3D_radius), y + 1.0, 1.75}, out cx[0], out cy[0]);
             v.to_view_plain ({x + (1 - 3D_radius), y + (1 - 3D_radius), 1.75}, out cx[1], out cy[1]);
             v.to_view_plain ({x + 1.00, y + (1 - 3D_radius), 1.75}, out cx[2], out cy[2]);
-            apple.move_to ((float)cx[0],(float)cy[0]);
-            apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+            apple.move_to ((float)cx[0], (float)cy[0]);
+            apple.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
             v.to_view_plain ({x + 1.00, y + (1 - 3D_radius), 1.75}, out cx[0], out cy[0]);
             v.to_view_plain ({x + (1 + 3D_radius), y + (1 - 3D_radius), 1.75}, out cx[1], out cy[1]);
             v.to_view_plain ({x + (1 + 3D_radius), y + 1.0, 1.75}, out cx[2], out cy[2]);
-            apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+            apple.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
             v.to_view_plain ({x + (1 + 3D_radius), y + 1.0, 1.75}, out cx[0], out cy[0]);
             v.to_view_plain ({x + (1 + 3D_radius), y + (1 + 3D_radius), 1.75}, out cx[1], out cy[1]);
             v.to_view_plain ({x + 1, y + (1 + 3D_radius), 1.75}, out cx[2], out cy[2]);
-            apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+            apple.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
             v.to_view_plain ({x + 1, y + (1 + 3D_radius), 1.75}, out cx[0], out cy[0]);
             v.to_view_plain ({x + (1 - 3D_radius), y + (1 + 3D_radius), 1.75}, out cx[1], out cy[1]);
             v.to_view_plain ({x + (1 - 3D_radius), y + 1.0, 1.75}, out cx[2], out cy[2]);
-            apple.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+            apple.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
             s.append_fill (apple.to_path (), EVEN_ODD, {0.4f, 0.8f - (0.2f - (float)3D_radius) * 3, 0.4f - (0.2f - (float)3D_radius) * 2, 1.0f});
         }
 
@@ -1269,24 +1267,24 @@ internal class NibblesView : TransparentContainer
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.0 - 0.5, y + 1.0, 1.75}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0 - 0.5, y + 1.0 - 0.5, 1.75}, out cx[2], out cy[2]);
-        left_leaf.move_to ((float)cx[0],(float)cy[0]);
-        left_leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        left_leaf.move_to ((float)cx[0], (float)cy[0]);
+        left_leaf.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1.0 - 0.5, y + 1.0 - 0.5, 1.75}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.0, y + 1.0 - 0.5, 1.75}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[2], out cy[2]);
-        left_leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        left_leaf.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         s.append_fill (left_leaf.to_path (), EVEN_ODD, {0.25f, 0.5f, 0.0f, 1});
         /* draw right leaf */
         var right_leaf = new PathBuilder ();
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.0 + 0.5, y + 1.0, 1.75}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0 + 0.5, y + 1.0 - 0.5, 1.75}, out cx[2], out cy[2]);
-        right_leaf.move_to ((float)cx[0],(float)cy[0]);
-        right_leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        right_leaf.move_to ((float)cx[0], (float)cy[0]);
+        right_leaf.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         v.to_view_plain ({x + 1.0 + 0.5, y + 1.0 - 0.5, 1.75}, out cx[0], out cy[0]);
         v.to_view_plain ({x + 1.0, y + 1.0 - 0.5, 1.75}, out cx[1], out cy[1]);
         v.to_view_plain ({x + 1.0, y + 1.0, 1.75}, out cx[2], out cy[2]);
-        right_leaf.cubic_to ((float)cx[0],(float)cy[0],(float)cx[1],(float)cy[1],(float)cx[2],(float)cy[2]);
+        right_leaf.cubic_to ((float)cx[0], (float)cy[0], (float)cx[1], (float)cy[1], (float)cx[2], (float)cy[2]);
         s.append_fill (right_leaf.to_path (), EVEN_ODD, {0.0f, 0.5f, 0.25f, 1});
     }
 
@@ -1580,7 +1578,7 @@ internal class NibblesView : TransparentContainer
     * * Text
     \*/
 
-    void draw_text_target_width (Cairo.Context C, int x, int y, string text, int target_width, int color)
+    void draw_text_target_width (Snapshot snapshot, int x, int y, string text, int target_width, int color)
     {
         /* draw using x,y as the top left corner of the text */
         int target_font_size = 1;
@@ -1589,16 +1587,13 @@ internal class NibblesView : TransparentContainer
 
         for (int font_size = 1;font_size < 200;font_size++)
         {
-            var layout =  Pango.cairo_create_layout (C);
-            Pango.FontDescription font;
-            if (null == layout.get_font_description ())
-                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-            else
-                font = layout.get_font_description ().copy ();
+            var layout = create_pango_layout (text);
+            var font = null == layout.get_font_description () ?
+                Pango.FontDescription.from_string ("Sans Bold 1pt") :
+                layout.get_font_description ().copy ();
             font.set_size (Pango.SCALE * font_size);
             layout.set_font_description (font);
             layout.set_text (text, -1);
-            Pango.cairo_update_layout (C, layout);
             Pango.Rectangle b;
             layout.get_extents (out a, out b);
             uint width_diff = (target_width - (int)a.width / Pango.SCALE).abs ();
@@ -1610,96 +1605,62 @@ internal class NibblesView : TransparentContainer
                 target_font_size = font_size;
             }
         }
-        C.move_to (x - a.x / Pango.SCALE, y - a.y / Pango.SCALE);
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
+        snapshot.translate ({x - a.x / Pango.SCALE, y - a.y / Pango.SCALE});
+        var layout = create_pango_layout (text);
+        var font = null == layout.get_font_description () ?
+            Pango.FontDescription.from_string ("Sans Bold 1pt") :
+            layout.get_font_description ().copy ();
         font.set_size (Pango.SCALE * target_font_size);
         layout.set_font_description (font);
         layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
-        Pango.cairo_show_layout (C, layout);
+        snapshot.append_layout (layout, {1, 1, 1, 1});
+        snapshot.translate ({ -(x - a.x / Pango.SCALE), -(y - a.y / Pango.SCALE)});
     }
-
-    void draw_text_font_size (Cairo.Context C, int x, int y, string text, int font_size)
+    /* calculate the width & height of the text */
+    void calculate_text_size (string text, int font_size, out double width, out double height)
+    {
+        var layout = create_pango_layout (text);
+        var font = null == layout.get_font_description () ?
+            Pango.FontDescription.from_string ("Sans Bold 1pt") :
+            layout.get_font_description ().copy ();
+        font.set_size (Pango.SCALE * font_size);
+        layout.set_font_description (font);
+        layout.set_text (text, -1);
+        Pango.Rectangle a,b;
+        layout.get_extents (out a, out b);
+        width = a.width / Pango.SCALE;
+        height = a.height / Pango.SCALE;
+    }
+    /* draw the text */
+    void draw_text_font_size (Snapshot snapshot, int x, int y, string text, int font_size)
     {
         int x_offset, y_offset;
-        get_text_offsets (C, text, font_size, out x_offset, out y_offset);
-        C.move_to (x - x_offset, y - y_offset);
-        C.set_source_rgb (1, 1, 1);
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
+        get_text_offsets (text, font_size, out x_offset, out y_offset);
+        snapshot.translate ({x - x_offset, y - y_offset});
+        var layout = create_pango_layout (text);
+        layout.set_alignment (1);
+        var font = null == layout.get_font_description () ?
+            Pango.FontDescription.from_string ("Sans Bold 1pt") :
+            layout.get_font_description ().copy ();
         font.set_size (Pango.SCALE * font_size);
         layout.set_font_description (font);
         layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
-        Pango.cairo_show_layout (C, layout);
+        snapshot.append_layout (layout, {1, 1, 1, 1});
+        snapshot.translate ({ -(x - x_offset), -(y - y_offset)});
     }
-
-    void get_text_offsets (Cairo.Context C, string text, int font_size, out int x_offset, out int y_offset)
+    void get_text_offsets (string text, int font_size, out int x_offset, out int y_offset)
     {
-        var layout =  Pango.cairo_create_layout (C);
-        Pango.FontDescription font;
-        if (null == layout.get_font_description ())
-            font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-        else
-            font = layout.get_font_description ().copy ();
+        var layout = create_pango_layout (text);
+        var font = null == layout.get_font_description () ?
+            Pango.FontDescription.from_string ("Sans Bold 1pt") :
+            layout.get_font_description ().copy ();
         font.set_size (Pango.SCALE * font_size);
         layout.set_font_description (font);
         layout.set_text (text, -1);
-        Pango.cairo_update_layout (C, layout);
         Pango.Rectangle a,b;
         layout.get_extents (out a, out b);
         x_offset = a.x / Pango.SCALE;
         y_offset = a.y / Pango.SCALE;
-    }
-
-    int calculate_font_size (Cairo.Context C, string text, int target_width, out double width, out double height)
-    {
-        int target_font_size = 1;
-        uint target_width_diff = uint.MAX;
-        width = 0;
-        height = 0;
-
-        for (int font_size = 1;font_size < 200;)
-        {
-            var layout =  Pango.cairo_create_layout (C);
-            Pango.FontDescription font;
-            if (null == layout.get_font_description ())
-                font = Pango.FontDescription.from_string ("Sans Bold 1pt");
-            else
-                font = layout.get_font_description ().copy ();
-            font.set_size (Pango.SCALE * font_size);
-            layout.set_font_description (font);
-            layout.set_text (text, -1);
-            Pango.cairo_update_layout (C, layout);
-            Pango.Rectangle a,b;
-            layout.get_extents (out a, out b);
-            width = a.width / Pango.SCALE;
-            height = a.height / Pango.SCALE;
-            uint width_diff = (target_width - (int)a.width / Pango.SCALE).abs ();
-            if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
-                break;
-            else if (width_diff < target_width_diff)
-            {
-                target_width_diff = width_diff;
-                target_font_size = font_size;
-            }
-            if (font_size < 20)
-                font_size++;
-            else if (font_size < 50)
-                font_size+=5;
-            else
-                font_size+=10;
-        }
-        return target_font_size;
     }
 
     /*\

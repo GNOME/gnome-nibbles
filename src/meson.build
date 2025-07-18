@@ -49,7 +49,7 @@ gnome_nibbles_deps = [
     gsound_dep,
     libgnome_games_support_dep,
     gtk_dep,
-    pangocairo_dep,
+    pango_dep,
     posix_dep
 ]
 if use_libadwaita

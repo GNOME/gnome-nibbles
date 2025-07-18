@@ -43,7 +43,7 @@ libgnome_games_support_dep = dependency('libgnome-games-support-2', version: '>=
 if get_option('use_libadwaita')
     libadwaita_dep = dependency('libadwaita-1', version: '>= 1.5.0', required : false) # requires GTK 4.13.4
 endif
-pangocairo_dep = dependency('pangocairo')
+pango_dep = dependency('pango', version: '>= 1.8') # needed for Layout.get_font_description()
 gtk5_dep = dependency('gtk5', required : false)
 if gtk5_dep.found()
     message('GTK5 version', gtk5_dep.version() ,'is available on this system.')
