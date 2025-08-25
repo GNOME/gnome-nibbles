@@ -50,11 +50,9 @@ gnome_nibbles_deps = [
     libgnome_games_support_dep,
     gtk_dep,
     pango_dep,
-    posix_dep
+    posix_dep,
+    libadwaita_dep
 ]
-if use_libadwaita
-    gnome_nibbles_deps += libadwaita_dep
-endif
 
 gnome_nibbles_vala_args = [
     '--vapidir', join_paths(meson.current_source_dir(), 'vapi')

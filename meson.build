@@ -27,6 +27,7 @@ vala_minimum_version = '0.55.1' # for sub-functions; https://gitlab.gnome.org/GN
 glib_minimum_version = '2.76.0' # minimum version for GTK 4.14
 glib_target_version = '2.80.0' # tested with version 2.80
 target_glib = '--target-glib=' + '@0@'.format(glib_target_version)
+gettext_package = 'gnome-nibbles'
 
 valac = meson.get_compiler('vala')
 if valac.version().version_compare('< ' + vala_minimum_version)
@@ -39,17 +40,15 @@ gio_dep = dependency('gio-2.0', version: '>= @0@'.format(glib_minimum_version))
 glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_minimum_version))
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
 gtk_dep = dependency('gtk4', version: '>= 4.14') # needed for Gsk.PathBuilder()
-libgnome_games_support_dep = dependency('libgnome-games-support-2', version: '>= 2.2.0')
-if get_option('use_libadwaita')
-    libadwaita_dep = dependency('libadwaita-1', version: '>= 1.5.0', required : false) # requires GTK 4.13.4
-endif
+libgnome_games_support = subproject ('libgnome-games-support',
+	    		             default_options: 'superproject_name='+gettext_package)
+libgnome_games_support_dep = libgnome_games_support.get_variable ('lggs_dependency')
+libadwaita_dep = dependency('libadwaita-1', version: '>= 1.5.0') # requires GTK 4.13.4
 pango_dep = dependency('pango', version: '>= 1.8') # needed for Layout.get_font_description()
 gtk5_dep = dependency('gtk5', required : false)
 if gtk5_dep.found()
     message('GTK5 version', gtk5_dep.version() ,'is available on this system.')
 endif
-# Set use_libadwaita to false to stop libadwaita from being used.
-use_libadwaita = get_option('use_libadwaita') and libadwaita_dep.found()
 
 posix_dep = valac.find_library('posix')
 
@@ -58,11 +57,6 @@ c_compiler_options = []
 # Suppress all the C compiler warnings.
 if c.has_argument('-w')
     c_compiler_options += '-w'
-endif
-# Define VALA_STRICT_C so we can compile with the proper C code fixes not the workaround.
-# see https://gitlab.gnome.org/GNOME/vala/-/commit/ae2cbcd0011081581bef406fcbfcd1e86b7dacd3
-if c.has_argument('-DVALA_STRICT_C')
-    c_compiler_options += '-DVALA_STRICT_C'
 endif
 
 # convert C compiler options to vala compiler options
@@ -109,22 +103,19 @@ endif
 
 # Test compiling & linking with Adw.AboutDialog.
 # This test makes sure libadwaita is installed and working.
-if use_libadwaita
-    code2 = '''void main () {string[] s = {"a", "b"};
-               var ad = new Adw.AboutDialog ();
-               ad.set_developers (s);
-               ad.set_documenters (s);
-               ad.set_artists (s);}'''
-    code2_links = valac.links(code2, 
-        dependencies : [libadwaita_dep], # needs meson version >= 1.5.0
-        args : vala_compiler_options,
-        name : 'we can link with libadwaita?')
-    if code2_links
-        vala_if_defines += ['--define=USE_LIBADWAITA','--define=USE_PILL_BUTTON']
-    else
-        message('Can not link with libadwaita.')
-        use_libadwaita = false
-    endif
+code2 = '''void main () {string[] s = {"a", "b"};
+           var ad = new Adw.AboutDialog ();
+           ad.set_developers (s);
+           ad.set_documenters (s);
+           ad.set_artists (s);}'''
+code2_links = valac.links(code2, 
+    dependencies : [libadwaita_dep], # needs meson version >= 1.5.0
+    args : vala_compiler_options,
+    name : 'we can link with libadwaita?')
+if code2_links
+    vala_if_defines += ['--define=USE_LIBADWAITA','--define=USE_PILL_BUTTON']
+else
+    error('Can not link with libadwaita.')
 endif
 
 # Test if this fix is in vala.

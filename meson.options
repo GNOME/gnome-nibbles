@@ -1,4 +1,3 @@
 option('version', type : 'string', value : '4.4.dev', description : 'release version')
 option('append_to_version', type : 'string', value : '', description : 'append to version')
 option('website', type : 'string', value : 'https://gitlab.gnome.org/GNOME/gnome-nibbles/-/wikis/home/', description : 'home website')
-option('use_libadwaita', type : 'boolean', value : true, description : 'link with libadwaita')
