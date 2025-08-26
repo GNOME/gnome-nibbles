@@ -41,7 +41,7 @@ glib_dep = dependency('glib-2.0', version: '>= @0@'.format(glib_minimum_version)
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
 gtk_dep = dependency('gtk4', version: '>= 4.14') # needed for Gsk.PathBuilder()
 libgnome_games_support = subproject ('libgnome-games-support',
-	    		             default_options: 'superproject_name='+gettext_package)
+    default_options: ['superproject_name='+gettext_package])
 libgnome_games_support_dep = libgnome_games_support.get_variable ('lggs_dependency')
 libadwaita_dep = dependency('libadwaita-1', version: '>= 1.5.0') # requires GTK 4.13.4
 pango_dep = dependency('pango', version: '>= 1.8') # needed for Layout.get_font_description()

@@ -3,10 +3,8 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
-    "sdk-extensions": [ "org.freedesktop.Sdk.Extension.vala-nightly" ],
+    "sdk-extensions": [ "org.freedesktop.Sdk.Extension.vala" ],
     "command": "gnome-nibbles",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=fallback-x11",
@@ -17,10 +15,6 @@
         /* OpenGL access */
         "--device=dri"
     ],
-    "build-options": {
-        "prepend-path": "/usr/lib/sdk/vala-nightly/bin/",
-        "prepend-ld-library-path": "/usr/lib/sdk/vala-nightly/lib"
-    },
     "cleanup": [
         "/include",
         "/lib/pkgconfig",
@@ -75,6 +69,7 @@
             "name": "gnome-nibbles",
             "buildsystem": "meson",
             "config-opts": [
+            	"--wrap-mode=nodownload",
                 "-Dappend_to_version= (GNOME flatpak)",
                 "-Dwebsite=https://gitlab.gnome.org/GNOME/gnome-nibbles"
             ],
@@ -82,7 +77,14 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gnome-nibbles.git"
-                }
+                },
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libgnome-games-support.git",
+                    /* If you change this commit update the revision in libgnome-games-support.wrap to be the same. */
+                    "commit": "7b223e332a0c21f67269237923d265713028dccc",
+                    "dest": "subprojects/libgnome-games-support"
+                }                
             ]
         }
     ]

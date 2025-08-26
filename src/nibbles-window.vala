@@ -1023,7 +1023,7 @@ private class NibblesWindow : ApplicationWindow
         /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
         scorecats.add (new Games.Scores.Category ("fast-fakes", _("Fast with Fakes")));
 
-        scores_context = new Games.Scores.Context.with_icon_name (
+        scores_context = new Games.Scores.Context (
             "gnome-nibbles",
             /* Translators: label displayed on the scores dialog, preceding a difficulty. */
             _("Difficulty Level:"),
