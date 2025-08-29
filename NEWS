@@ -1,7 +1,40 @@
-4.2.rc1 - December 12, 2024
-===========================
+4.3 - not released
+==================
 
-- Build dependency changes; meson >= 1.1
+- Build dependency changes; libgnome-games-support >= 2.0.2 and < 3.0
+- use_libadwaita must be true (the default) as libgnome-games-support now 
+  depends on libadwaita.
+- Fix issue #73.
+- Fix the reported points needed to get on to the leaderboard.
+- As this branch was never released get it via git:
+  git clone git@ssh.gitlab.gnome.org:GNOME/gnome-nibbles.git -b release-4-3
+
+4.2.2 - April 17, 2025
+======================
+
+- Fix issues #74 & #75
+  Thanks to Jeremy Bicha for picking these up.
+
+4.2.1 - April 13, 2025
+======================
+
+- Fix the problem that the process does not exit cleanly (after a timeout)
+  when running as GApplication service.
+  Thanks to Balló György for this.
+- Revert commit https://gitlab.gnome.org/GNOME/gnome-nibbles/-/commit/fd432d46e4f8139a2489d4b66ad89f85be7a22e3
+  as it causes the volume to vary during the playing of a sound file.
+  This revert brings back the gsound build dependency.
+
+4.2.0 - March 13, 2025
+======================
+
+- Build dependency changes; meson >= 1.1, gsound removed.
+- Oldest tested dependencies (you may be able to go older):
+  gio & glib - 2.72.4
+  gtk4       - 4.6.9 
+  vala       - 0.56.0
+- The tar bundle for this release can be downloaded from gitlab:
+  https://gitlab.gnome.org/GNOME/gnome-nibbles/-/releases
 - Build options added.
   You can now pass several configuration options as parameters to meson setup.
   "-Dversion=<override version number>"
@@ -15,8 +48,15 @@
 - Implemented a new wiki:
   https://gitlab.gnome.org/GNOME/gnome-nibbles/-/wikis/home
   If anyone has anything they would like added to the wiki let me know.
-- Fixed Issues; #4, #6 & #47.
+- Fixed Issues; #4, #6, #47 & #71.
 - Updated translations (Chinese (China) & Bulgarian).
+- Switch to existing window instead of creating new one on second activation.
+  Thanks to Balló György for this.
+- Removed C++ style comments to improve C compatibility.
+- Ensure the game is over when all the human worms are dead.
+- Changed the developer id to rDNS format.
+  Thanks to Daniel Rusek for this.
+- Do not link with libadwaita if the meson link test fails.
 
 4.1.0 - September 12, 2024
 ==========================
