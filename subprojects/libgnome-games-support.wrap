@@ -1,6 +1,5 @@
 [wrap-git]
 directory = libgnome-games-support
 url = https://gitlab.gnome.org/GNOME/libgnome-games-support.git
-# If you change this revision update the commit in org.gnome.Nibbles.json to be the same.
-revision = 7b223e332a0c21f67269237923d265713028dccc
+revision = head
 

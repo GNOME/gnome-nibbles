@@ -81,8 +81,6 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libgnome-games-support.git",
-                    /* If you change this commit update the revision in libgnome-games-support.wrap to be the same. */
-                    "commit": "7b223e332a0c21f67269237923d265713028dccc",
                     "dest": "subprojects/libgnome-games-support"
                 }                
             ]
