@@ -1030,7 +1030,8 @@ private class NibblesWindow : ApplicationWindow
             this,
             category_request,
             Games.Scores.Style.POINTS_GREATER_IS_BETTER,
-            "org.gnome.Nibbles");
+            "org.gnome.Nibbles",
+            (a, b)=>{return scorecats.index_of (a) < scorecats.index_of (b);});
     }
 
     private Games.Scores.Category get_scores_category (int speed, bool fakes)
