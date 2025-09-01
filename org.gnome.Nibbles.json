@@ -77,11 +77,6 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gnome-nibbles.git"
-                },
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libgnome-games-support.git",
-                    "dest": "subprojects/libgnome-games-support"
                 }                
             ]
         }
