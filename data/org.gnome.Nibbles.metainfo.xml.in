@@ -30,6 +30,7 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="4.4~rc1" date="2025-09-01" />
     <release version="4.2.2" date="2025-04-17" />
     <release version="4.2.1" date="2025-04-13" />
     <release version="4.2.0" date="2025-03-13" />

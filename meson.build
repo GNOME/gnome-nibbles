@@ -3,7 +3,7 @@ project('gnome-nibbles',
     ['c', 'vala'],
     license: 'GPL3+',
     meson_version: '>=1.5',
-    version: '4.4.dev',
+    version: '4.4.rc1',
     default_options: ['c_std=c99']) # Vala generated C code should be compatible with c99 (ISO/IEC 9899:1999)
 
 # note, the version number is in meson.options and follows this sequence:

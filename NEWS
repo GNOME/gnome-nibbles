@@ -1,3 +1,16 @@
+4.4.rc1 - September 1, 2025
+===========================
+
+- Build dependency changes;
+  libgnome-games-support >= 3.0 (now a copylib
+    see https://gitlab.gnome.org/GNOME/libgnome-games-support),
+  gtk4 >= 4.14,
+  pango >= 1.8,
+  meson >= 1.5,
+  libadwaita (>= 1.5.0) has changed from optional to mandatory, consequently
+    the configuration option use_libadwaita has been removed.
+- Fix issue #76.
+
 4.3 - not released
 ==================
 
