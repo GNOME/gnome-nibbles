@@ -1003,6 +1003,20 @@ private class NibblesWindow : ApplicationWindow
         return null;
     }
 
+    uint category_speed (Games.Scores.Category c)
+    {
+        if (c.key.length >= 8 && c.key [0:8] == "beginner")
+            return 4;
+        else if (c.key.length >= 4 && c.key [0:4] == "slow")
+            return 3;
+        else if (c.key.length >= 6 && c.key [0:6] == "medium")
+            return 2;
+        else if (c.key.length >= 4 && c.key [0:4] == "fast")
+            return 1;
+        else
+            return 0;
+    }
+
     private void create_scores ()
     {
         scorecats = new Gee.LinkedList<Games.Scores.Category> ();
@@ -1031,7 +1045,17 @@ private class NibblesWindow : ApplicationWindow
             category_request,
             Games.Scores.Style.POINTS_GREATER_IS_BETTER,
             "org.gnome.Nibbles",
-            (a, b)=>{return scorecats.index_of (a) < scorecats.index_of (b);});
+            (a, b)=>
+            {
+                var a_speed = category_speed (a);
+                var b_speed = category_speed (b);
+                if (-a_speed < -b_speed)
+                    return true;
+                else if (-a_speed > -b_speed)
+                    return false;
+                else
+                    return scorecats.index_of (a) < scorecats.index_of (b);
+            });
     }
 
     private Games.Scores.Category get_scores_category (int speed, bool fakes)
