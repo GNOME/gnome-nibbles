@@ -187,11 +187,11 @@ public class Context : Object
     {
         var categories = new List<Category?> ();
         var iterator = scores_per_category.map_iterator ();
-        unowned List<Category?> p;
+        unowned List<Category?> *pNode;
         while (iterator.next ())
         {
-            for (p = categories.first (); null != p && !is_lower_order (iterator.get_key (), p.data); p = p.next);
-            categories.insert_before (p, iterator.get_key ()); /* insert the new category before the higher order category */
+            for (pNode = categories; null != pNode && !is_lower_order (iterator.get_key (), pNode->data); pNode = pNode->next);
+            categories.insert_before (pNode, iterator.get_key ()); /* insert the new category before the higher order category */
         }
 
         return categories;

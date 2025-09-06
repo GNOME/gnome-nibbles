@@ -100,7 +100,7 @@ private class Dialog : Adw.Dialog
         }
         else if (categories.length () == 1)
         {
-            active_category = categories.first ().data;
+            /* active category has been set to the only category in the list */
             set_title (active_category.name);
         }
         else
