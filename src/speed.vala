@@ -103,8 +103,8 @@ private class Speed : Box
         speed1.set_has_frame (speed == 1);
     }
 
-    private void toggle_fakes (SimpleAction _fakes_action, Variant? variant)
+    private void toggle_fakes (SimpleAction _fakes_action, Variant variant)
     {
-        _fakes_action.set_state (((!) variant).get_boolean ());
+        _fakes_action.set_state (!_fakes_action.get_state ().get_boolean ());
     }
 }
