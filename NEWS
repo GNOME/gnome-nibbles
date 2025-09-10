@@ -7,7 +7,7 @@
 - Fix issue #73.
 - Fix the reported points needed to get on to the leaderboard.
 - As this branch was never released get it via git:
-  git clone git@ssh.gitlab.gnome.org:GNOME/gnome-nibbles.git -b release-4-3
+  git clone https://gitlab.gnome.org/GNOME/gnome-nibbles.git -b release-4-3
 
 4.2.2 - April 17, 2025
 ======================
