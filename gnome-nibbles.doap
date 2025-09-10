@@ -11,7 +11,7 @@
   <description xml:lang="en">Guide a worm around a maze</description>
   <homepage rdf:resource="https://gitlab.gnome.org/GNOME/gnome-nibbles/-/wikis/home/" />
   <support-forum rdf:resource="https://discourse.gnome.org/tag/games" />
-  <download-page rdf:resource="https://gitlab.gnome.org/GNOME/gnome-nibbles/-/releases/" />
+  <download-page rdf:resource="http://download.gnome.org/sources/gnome-nibbles/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/" />
   <programming-language>Vala</programming-language>
 

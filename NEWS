@@ -1,5 +1,5 @@
-4.4.rc2 - September 6, 2025
-===========================
+4.4.0 - September 11, 2025
+==========================
 
 - Build dependency changes;
   libgnome-games-support >= 3.0 (now a copylib
@@ -12,6 +12,9 @@
 - Fix issue #76.
 - Fix problem with enable fake bonuses toggle button.
 - Fix libgnome-games-support; merge request !32
+- Fix download location in release notification email.
+- To download this release directly from gitlab use:
+  https://gitlab.gnome.org/GNOME/gnome-nibbles/-/archive/4.4.0/gnome-nibbles-4.4.0.tar.bz2
 
 4.3 - not released
 ==================
@@ -22,7 +25,7 @@
 - Fix issue #73.
 - Fix the reported points needed to get on to the leaderboard.
 - As this branch was never released get it via git:
-  git clone git@ssh.gitlab.gnome.org:GNOME/gnome-nibbles.git -b release-4-3
+  git clone https://gitlab.gnome.org/GNOME/gnome-nibbles.git -b release-4-3
 
 4.2.2 - April 17, 2025
 ======================
