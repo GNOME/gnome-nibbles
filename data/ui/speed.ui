@@ -132,8 +132,8 @@
                 <property name="visible">1</property>
                 <property name="hexpand">1</property>
                 <property name="use-underline">1</property>
-                <!-- Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses -->
-                <property name="label" translatable="1">_Enable fake bonuses.</property>
+                <!-- Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates fake bonuses -->
+                <property name="label" translatable="1">_Enable fake bonuses</property>
                 <property name="action-name">speed.toggle-fakes</property>
               </object>
             </child>
