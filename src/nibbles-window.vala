@@ -870,12 +870,13 @@ private class NibblesWindow : ApplicationWindow
     {
         int progress, level;
         board_progress.get_values (out progress, out level);
-        if (progress == 0)
-            level = 1;
         game.progress = progress;
-        game.start_level = level;
+        if (progress == 2)
+        {
+            settings.set_int ("start-level", level);
+            game.start_level = level;
+        }
         settings.set_int ("progress", progress);
-        settings.set_int ("start-level", level);
 
         main_stack.set_visible_child_name ("speed");
     }
@@ -1151,7 +1152,8 @@ private class NibblesWindow : ApplicationWindow
 
     private void level_completed_cb ()
     {
-        if (game.current_level == NibblesGame.MAX_LEVEL)
+        if (game.progress == 0 && game.current_level == (game.start_level > 1 ? game.start_level - 1 : NibblesGame.MAX_LEVEL) ||
+            game.progress == 1 && game.levels_uncompleated.length == 0)
             return;
 
         view.set_visible (false);

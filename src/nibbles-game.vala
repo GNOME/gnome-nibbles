@@ -480,8 +480,15 @@ private class NibblesGame : Object
     internal inline void reset (int start_level)
     {
         skip_score = start_level != 1;
-        if (progress != 1)
+        if (progress == 0)
+        {
             current_level = start_level;
+            this.start_level = start_level;
+        }
+        else if (progress == 2)
+        {
+            current_level = this.start_level;
+        }            
         else
         {
             /* initilise array */
@@ -528,9 +535,14 @@ private class NibblesGame : Object
 
             if (progress == 0)
             {
-                current_level++;
-                if (current_level == MAX_LEVEL + 1)
+                if (current_level == (start_level > 1 ? start_level - 1 : NibblesGame.MAX_LEVEL))
                     log_score (worms.first ().score, current_level);
+                else
+                {
+                    current_level++;
+                    if (current_level > NibblesGame.MAX_LEVEL)
+                        current_level = 1;
+                }
             }
             else if (progress == 1)
             {
