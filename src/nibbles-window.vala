@@ -994,74 +994,263 @@ private class NibblesWindow : ApplicationWindow
     * * Scoring
     \*/
 
-    private Games.Scores.Category? category_request (string key)
+    string[,] category_descriptions = {
+    /* Translators: The game type displayed on the scores dialog */
+        {"beginner",               _("Beginner")},
+        {"beginner-random",        _("Beginner with random levels")},
+        {"beginner-fixed1",        _("Beginner, fixed on level 1")},
+        {"beginner-fixed2",        _("Beginner, fixed on level 2")},
+        {"beginner-fixed3",        _("Beginner, fixed on level 3")},
+        {"beginner-fixed4",        _("Beginner, fixed on level 4")},
+        {"beginner-fixed5",        _("Beginner, fixed on level 5")},
+        {"beginner-fixed6",        _("Beginner, fixed on level 6")},
+        {"beginner-fixed7",        _("Beginner, fixed on level 7")},
+        {"beginner-fixed8",        _("Beginner, fixed on level 8")},
+        {"beginner-fixed9",        _("Beginner, fixed on level 9")},
+        {"beginner-fixed10",       _("Beginner, fixed on level 10")},
+        {"beginner-fixed11",       _("Beginner, fixed on level 11")},
+        {"beginner-fixed12",       _("Beginner, fixed on level 12")},
+        {"beginner-fixed13",       _("Beginner, fixed on level 13")},
+        {"beginner-fixed14",       _("Beginner, fixed on level 14")},
+        {"beginner-fixed15",       _("Beginner, fixed on level 15")},
+        {"beginner-fixed16",       _("Beginner, fixed on level 16")},
+        {"beginner-fixed17",       _("Beginner, fixed on level 17")},
+        {"beginner-fixed18",       _("Beginner, fixed on level 18")},
+        {"beginner-fixed19",       _("Beginner, fixed on level 19")},
+        {"beginner-fixed20",       _("Beginner, fixed on level 20")},
+        {"beginner-fixed21",       _("Beginner, fixed on level 21")},
+        {"beginner-fixed22",       _("Beginner, fixed on level 22")},
+        {"beginner-fixed23",       _("Beginner, fixed on level 23")},
+        {"beginner-fixed24",       _("Beginner, fixed on level 24")},
+        {"beginner-fixed25",       _("Beginner, fixed on level 25")},
+        {"beginner-fixed26",       _("Beginner, fixed on level 26")},
+        {"beginner-fakes-random",  _("Beginner with fakes and random levels")},
+        {"beginner-fakes-fixed1",  _("Beginner with fakes, fixed on level 1")},
+        {"beginner-fakes-fixed2",  _("Beginner with fakes, fixed on level 2")},
+        {"beginner-fakes-fixed3",  _("Beginner with fakes, fixed on level 3")},
+        {"beginner-fakes-fixed4",  _("Beginner with fakes, fixed on level 4")},
+        {"beginner-fakes-fixed5",  _("Beginner with fakes, fixed on level 5")},
+        {"beginner-fakes-fixed6",  _("Beginner with fakes, fixed on level 6")},
+        {"beginner-fakes-fixed7",  _("Beginner with fakes, fixed on level 7")},
+        {"beginner-fakes-fixed8",  _("Beginner with fakes, fixed on level 8")},
+        {"beginner-fakes-fixed9",  _("Beginner with fakes, fixed on level 9")},
+        {"beginner-fakes-fixed10", _("Beginner with fakes, fixed on level 10")},
+        {"beginner-fakes-fixed11", _("Beginner with fakes, fixed on level 11")},
+        {"beginner-fakes-fixed12", _("Beginner with fakes, fixed on level 12")},
+        {"beginner-fakes-fixed13", _("Beginner with fakes, fixed on level 13")},
+        {"beginner-fakes-fixed14", _("Beginner with fakes, fixed on level 14")},
+        {"beginner-fakes-fixed15", _("Beginner with fakes, fixed on level 15")},
+        {"beginner-fakes-fixed16", _("Beginner with fakes, fixed on level 16")},
+        {"beginner-fakes-fixed17", _("Beginner with fakes, fixed on level 17")},
+        {"beginner-fakes-fixed18", _("Beginner with fakes, fixed on level 18")},
+        {"beginner-fakes-fixed19", _("Beginner with fakes, fixed on level 19")},
+        {"beginner-fakes-fixed20", _("Beginner with fakes, fixed on level 20")},
+        {"beginner-fakes-fixed21", _("Beginner with fakes, fixed on level 21")},
+        {"beginner-fakes-fixed22", _("Beginner with fakes, fixed on level 22")},
+        {"beginner-fakes-fixed23", _("Beginner with fakes, fixed on level 23")},
+        {"beginner-fakes-fixed24", _("Beginner with fakes, fixed on level 24")},
+        {"beginner-fakes-fixed25", _("Beginner with fakes, fixed on level 25")},
+        {"beginner-fakes-fixed26", _("Beginner with fakes, fixed on level 26")},
+        {"slow",               _("Slow")},
+        {"slow-random",        _("Slow with random levels")},
+        {"slow-fixed1",        _("Slow, fixed on level 1")},
+        {"slow-fixed2",        _("Slow, fixed on level 2")},
+        {"slow-fixed3",        _("Slow, fixed on level 3")},
+        {"slow-fixed4",        _("Slow, fixed on level 4")},
+        {"slow-fixed5",        _("Slow, fixed on level 5")},
+        {"slow-fixed6",        _("Slow, fixed on level 6")},
+        {"slow-fixed7",        _("Slow, fixed on level 7")},
+        {"slow-fixed8",        _("Slow, fixed on level 8")},
+        {"slow-fixed9",        _("Slow, fixed on level 9")},
+        {"slow-fixed10",       _("Slow, fixed on level 10")},
+        {"slow-fixed11",       _("Slow, fixed on level 11")},
+        {"slow-fixed12",       _("Slow, fixed on level 12")},
+        {"slow-fixed13",       _("Slow, fixed on level 13")},
+        {"slow-fixed14",       _("Slow, fixed on level 14")},
+        {"slow-fixed15",       _("Slow, fixed on level 15")},
+        {"slow-fixed16",       _("Slow, fixed on level 16")},
+        {"slow-fixed17",       _("Slow, fixed on level 17")},
+        {"slow-fixed18",       _("Slow, fixed on level 18")},
+        {"slow-fixed19",       _("Slow, fixed on level 19")},
+        {"slow-fixed20",       _("Slow, fixed on level 20")},
+        {"slow-fixed21",       _("Slow, fixed on level 21")},
+        {"slow-fixed22",       _("Slow, fixed on level 22")},
+        {"slow-fixed23",       _("Slow, fixed on level 23")},
+        {"slow-fixed24",       _("Slow, fixed on level 24")},
+        {"slow-fixed25",       _("Slow, fixed on level 25")},
+        {"slow-fixed26",       _("Slow, fixed on level 26")},
+        {"slow-fakes-random",  _("Slow with fakes and random levels")},
+        {"slow-fakes-fixed1",  _("Slow with fakes, fixed on level 1")},
+        {"slow-fakes-fixed2",  _("Slow with fakes, fixed on level 2")},
+        {"slow-fakes-fixed3",  _("Slow with fakes, fixed on level 3")},
+        {"slow-fakes-fixed4",  _("Slow with fakes, fixed on level 4")},
+        {"slow-fakes-fixed5",  _("Slow with fakes, fixed on level 5")},
+        {"slow-fakes-fixed6",  _("Slow with fakes, fixed on level 6")},
+        {"slow-fakes-fixed7",  _("Slow with fakes, fixed on level 7")},
+        {"slow-fakes-fixed8",  _("Slow with fakes, fixed on level 8")},
+        {"slow-fakes-fixed9",  _("Slow with fakes, fixed on level 9")},
+        {"slow-fakes-fixed10", _("Slow with fakes, fixed on level 10")},
+        {"slow-fakes-fixed11", _("Slow with fakes, fixed on level 11")},
+        {"slow-fakes-fixed12", _("Slow with fakes, fixed on level 12")},
+        {"slow-fakes-fixed13", _("Slow with fakes, fixed on level 13")},
+        {"slow-fakes-fixed14", _("Slow with fakes, fixed on level 14")},
+        {"slow-fakes-fixed15", _("Slow with fakes, fixed on level 15")},
+        {"slow-fakes-fixed16", _("Slow with fakes, fixed on level 16")},
+        {"slow-fakes-fixed17", _("Slow with fakes, fixed on level 17")},
+        {"slow-fakes-fixed18", _("Slow with fakes, fixed on level 18")},
+        {"slow-fakes-fixed19", _("Slow with fakes, fixed on level 19")},
+        {"slow-fakes-fixed20", _("Slow with fakes, fixed on level 20")},
+        {"slow-fakes-fixed21", _("Slow with fakes, fixed on level 21")},
+        {"slow-fakes-fixed22", _("Slow with fakes, fixed on level 22")},
+        {"slow-fakes-fixed23", _("Slow with fakes, fixed on level 23")},
+        {"slow-fakes-fixed24", _("Slow with fakes, fixed on level 24")},
+        {"slow-fakes-fixed25", _("Slow with fakes, fixed on level 25")},
+        {"slow-fakes-fixed26", _("Slow with fakes, fixed on level 26")},
+        {"medium",               _("Medium")},
+        {"medium-random",        _("Medium with random levels")},
+        {"medium-fixed1",        _("Medium, fixed on level 1")},
+        {"medium-fixed2",        _("Medium, fixed on level 2")},
+        {"medium-fixed3",        _("Medium, fixed on level 3")},
+        {"medium-fixed4",        _("Medium, fixed on level 4")},
+        {"medium-fixed5",        _("Medium, fixed on level 5")},
+        {"medium-fixed6",        _("Medium, fixed on level 6")},
+        {"medium-fixed7",        _("Medium, fixed on level 7")},
+        {"medium-fixed8",        _("Medium, fixed on level 8")},
+        {"medium-fixed9",        _("Medium, fixed on level 9")},
+        {"medium-fixed10",       _("Medium, fixed on level 10")},
+        {"medium-fixed11",       _("Medium, fixed on level 11")},
+        {"medium-fixed12",       _("Medium, fixed on level 12")},
+        {"medium-fixed13",       _("Medium, fixed on level 13")},
+        {"medium-fixed14",       _("Medium, fixed on level 14")},
+        {"medium-fixed15",       _("Medium, fixed on level 15")},
+        {"medium-fixed16",       _("Medium, fixed on level 16")},
+        {"medium-fixed17",       _("Medium, fixed on level 17")},
+        {"medium-fixed18",       _("Medium, fixed on level 18")},
+        {"medium-fixed19",       _("Medium, fixed on level 19")},
+        {"medium-fixed20",       _("Medium, fixed on level 20")},
+        {"medium-fixed21",       _("Medium, fixed on level 21")},
+        {"medium-fixed22",       _("Medium, fixed on level 22")},
+        {"medium-fixed23",       _("Medium, fixed on level 23")},
+        {"medium-fixed24",       _("Medium, fixed on level 24")},
+        {"medium-fixed25",       _("Medium, fixed on level 25")},
+        {"medium-fixed26",       _("Medium, fixed on level 26")},
+        {"medium-fakes-random",  _("Medium with fakes and random levels")},
+        {"medium-fakes-fixed1",  _("Medium with fakes, fixed on level 1")},
+        {"medium-fakes-fixed2",  _("Medium with fakes, fixed on level 2")},
+        {"medium-fakes-fixed3",  _("Medium with fakes, fixed on level 3")},
+        {"medium-fakes-fixed4",  _("Medium with fakes, fixed on level 4")},
+        {"medium-fakes-fixed5",  _("Medium with fakes, fixed on level 5")},
+        {"medium-fakes-fixed6",  _("Medium with fakes, fixed on level 6")},
+        {"medium-fakes-fixed7",  _("Medium with fakes, fixed on level 7")},
+        {"medium-fakes-fixed8",  _("Medium with fakes, fixed on level 8")},
+        {"medium-fakes-fixed9",  _("Medium with fakes, fixed on level 9")},
+        {"medium-fakes-fixed10", _("Medium with fakes, fixed on level 10")},
+        {"medium-fakes-fixed11", _("Medium with fakes, fixed on level 11")},
+        {"medium-fakes-fixed12", _("Medium with fakes, fixed on level 12")},
+        {"medium-fakes-fixed13", _("Medium with fakes, fixed on level 13")},
+        {"medium-fakes-fixed14", _("Medium with fakes, fixed on level 14")},
+        {"medium-fakes-fixed15", _("Medium with fakes, fixed on level 15")},
+        {"medium-fakes-fixed16", _("Medium with fakes, fixed on level 16")},
+        {"medium-fakes-fixed17", _("Medium with fakes, fixed on level 17")},
+        {"medium-fakes-fixed18", _("Medium with fakes, fixed on level 18")},
+        {"medium-fakes-fixed19", _("Medium with fakes, fixed on level 19")},
+        {"medium-fakes-fixed20", _("Medium with fakes, fixed on level 20")},
+        {"medium-fakes-fixed21", _("Medium with fakes, fixed on level 21")},
+        {"medium-fakes-fixed22", _("Medium with fakes, fixed on level 22")},
+        {"medium-fakes-fixed23", _("Medium with fakes, fixed on level 23")},
+        {"medium-fakes-fixed24", _("Medium with fakes, fixed on level 24")},
+        {"medium-fakes-fixed25", _("Medium with fakes, fixed on level 25")},
+        {"medium-fakes-fixed26", _("Medium with fakes, fixed on level 26")},
+        {"fast",               _("Fast")},
+        {"fast-random",        _("Fast with random levels")},
+        {"fast-fixed1",        _("Fast, fixed on level 1")},
+        {"fast-fixed2",        _("Fast, fixed on level 2")},
+        {"fast-fixed3",        _("Fast, fixed on level 3")},
+        {"fast-fixed4",        _("Fast, fixed on level 4")},
+        {"fast-fixed5",        _("Fast, fixed on level 5")},
+        {"fast-fixed6",        _("Fast, fixed on level 6")},
+        {"fast-fixed7",        _("Fast, fixed on level 7")},
+        {"fast-fixed8",        _("Fast, fixed on level 8")},
+        {"fast-fixed9",        _("Fast, fixed on level 9")},
+        {"fast-fixed10",       _("Fast, fixed on level 10")},
+        {"fast-fixed11",       _("Fast, fixed on level 11")},
+        {"fast-fixed12",       _("Fast, fixed on level 12")},
+        {"fast-fixed13",       _("Fast, fixed on level 13")},
+        {"fast-fixed14",       _("Fast, fixed on level 14")},
+        {"fast-fixed15",       _("Fast, fixed on level 15")},
+        {"fast-fixed16",       _("Fast, fixed on level 16")},
+        {"fast-fixed17",       _("Fast, fixed on level 17")},
+        {"fast-fixed18",       _("Fast, fixed on level 18")},
+        {"fast-fixed19",       _("Fast, fixed on level 19")},
+        {"fast-fixed20",       _("Fast, fixed on level 20")},
+        {"fast-fixed21",       _("Fast, fixed on level 21")},
+        {"fast-fixed22",       _("Fast, fixed on level 22")},
+        {"fast-fixed23",       _("Fast, fixed on level 23")},
+        {"fast-fixed24",       _("Fast, fixed on level 24")},
+        {"fast-fixed25",       _("Fast, fixed on level 25")},
+        {"fast-fixed26",       _("Fast, fixed on level 26")},
+        {"fast-fakes-random",  _("Fast with fakes and random levels")},
+        {"fast-fakes-fixed1",  _("Fast with fakes, fixed on level 1")},
+        {"fast-fakes-fixed2",  _("Fast with fakes, fixed on level 2")},
+        {"fast-fakes-fixed3",  _("Fast with fakes, fixed on level 3")},
+        {"fast-fakes-fixed4",  _("Fast with fakes, fixed on level 4")},
+        {"fast-fakes-fixed5",  _("Fast with fakes, fixed on level 5")},
+        {"fast-fakes-fixed6",  _("Fast with fakes, fixed on level 6")},
+        {"fast-fakes-fixed7",  _("Fast with fakes, fixed on level 7")},
+        {"fast-fakes-fixed8",  _("Fast with fakes, fixed on level 8")},
+        {"fast-fakes-fixed9",  _("Fast with fakes, fixed on level 9")},
+        {"fast-fakes-fixed10", _("Fast with fakes, fixed on level 10")},
+        {"fast-fakes-fixed11", _("Fast with fakes, fixed on level 11")},
+        {"fast-fakes-fixed12", _("Fast with fakes, fixed on level 12")},
+        {"fast-fakes-fixed13", _("Fast with fakes, fixed on level 13")},
+        {"fast-fakes-fixed14", _("Fast with fakes, fixed on level 14")},
+        {"fast-fakes-fixed15", _("Fast with fakes, fixed on level 15")},
+        {"fast-fakes-fixed16", _("Fast with fakes, fixed on level 16")},
+        {"fast-fakes-fixed17", _("Fast with fakes, fixed on level 17")},
+        {"fast-fakes-fixed18", _("Fast with fakes, fixed on level 18")},
+        {"fast-fakes-fixed19", _("Fast with fakes, fixed on level 19")},
+        {"fast-fakes-fixed20", _("Fast with fakes, fixed on level 20")},
+        {"fast-fakes-fixed21", _("Fast with fakes, fixed on level 21")},
+        {"fast-fakes-fixed22", _("Fast with fakes, fixed on level 22")},
+        {"fast-fakes-fixed23", _("Fast with fakes, fixed on level 23")},
+        {"fast-fakes-fixed24", _("Fast with fakes, fixed on level 24")},
+        {"fast-fakes-fixed25", _("Fast with fakes, fixed on level 25")},
+        {"fast-fakes-fixed26", _("Fast with fakes, fixed on level 26")},
+    };
+
+    uint get_category_index (string key)
     {
-        foreach (var cat in scorecats)
-        {
-            if (key == cat.key)
-                return cat;
-        }
-        return null;
+        uint i;
+        for (i = 0; i < category_descriptions.length [0] && category_descriptions [i, 0] != key; i++);
+        return i;
     }
 
-    uint category_speed (Games.Scores.Category c)
+    private Games.Scores.Category? create_category (string key)
     {
-        if (c.key.length >= 8 && c.key [0:8] == "beginner")
-            return 4;
-        else if (c.key.length >= 4 && c.key [0:4] == "slow")
-            return 3;
-        else if (c.key.length >= 6 && c.key [0:6] == "medium")
-            return 2;
-        else if (c.key.length >= 4 && c.key [0:4] == "fast")
-            return 1;
+        /* create the category requested */
+        var i = get_category_index (key);
+        if (i < category_descriptions.length [0])
+            return new Games.Scores.Category (category_descriptions [i, 0], category_descriptions [i, 1]);
         else
-            return 0;
+            return null;
     }
 
     private void create_scores ()
     {
-        scorecats = new Gee.LinkedList<Games.Scores.Category> ();
-        /* Translators: Difficulty level displayed on the scores dialog */
-        scorecats.add (new Games.Scores.Category ("beginner", _("Beginner")));
-        /* Translators: Difficulty level displayed on the scores dialog */
-        scorecats.add (new Games.Scores.Category ("slow", _("Slow")));
-        /* Translators: Difficulty level displayed on the scores dialog */
-        scorecats.add (new Games.Scores.Category ("medium", _("Medium")));
-        /* Translators: Difficulty level displayed on the scores dialog */
-        scorecats.add (new Games.Scores.Category ("fast", _("Fast")));
-        /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
-        scorecats.add (new Games.Scores.Category ("beginner-fakes", _("Beginner with Fakes")));
-        /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
-        scorecats.add (new Games.Scores.Category ("slow-fakes", _("Slow with Fakes")));
-        /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
-        scorecats.add (new Games.Scores.Category ("medium-fakes", _("Medium with Fakes")));
-        /* Translators: Difficulty level with fake bonuses, displayed on the scores dialog */
-        scorecats.add (new Games.Scores.Category ("fast-fakes", _("Fast with Fakes")));
-
         scores_context = new Games.Scores.Context (
             "gnome-nibbles",
             /* Translators: label displayed on the scores dialog, preceding a difficulty. */
             _("Difficulty Level:"),
             this,
-            category_request,
+            create_category,
             Games.Scores.Style.POINTS_GREATER_IS_BETTER,
             "org.gnome.Nibbles",
-            (a, b)=>
-            {
-                var a_speed = category_speed (a);
-                var b_speed = category_speed (b);
-                if (-a_speed < -b_speed)
-                    return true;
-                else if (-a_speed > -b_speed)
-                    return false;
-                else
-                    return scorecats.index_of (a) < scorecats.index_of (b);
-            });
+            (a, b)=>{return get_category_index (a.key) < get_category_index (b.key);});
     }
 
-    private Games.Scores.Category get_scores_category (int speed, bool fakes)
+    private string get_scores_category_key (int speed, bool fakes, int board_progress, int start_level)
     {
-        string key = null;
+        string key;
         switch (speed)
         {
             case 1:
@@ -1074,20 +1263,25 @@ private class NibblesWindow : ApplicationWindow
                 key = "slow";
                 break;
             case 4:
+            default:
                 key = "beginner";
                 break;
         }
-
         if (fakes)
-            key = key + "-fakes";
+            key += "-fakes";
+        if (board_progress == 1)
+            key += "-random";
+        else if (board_progress == 2)
+            key += "-fixed" + start_level.to_string ();
+        return key;
+    }
 
-        foreach (var cat in scorecats)
-        {
-            if (key == cat.key)
-                return cat;
-        }
-
-        return scorecats.first ();
+    Games.Scores.Category? find_scores_category (string key)
+    {
+        foreach (var c in scores_context.get_category_set())
+            if (key == c.key)
+                return c;
+        return null;
     }
 
     private void log_score_cb (int score, int level_reached)
@@ -1097,7 +1291,12 @@ private class NibblesWindow : ApplicationWindow
         pause_action.set_enabled (false);
         back_action.set_enabled (false);
 
-        var scores = scores_context.get_high_scores (get_scores_category (game.speed, game.fakes));
+        string key = get_scores_category_key (game.speed, game.fakes, game.progress, game.start_level);
+        var category = find_scores_category (key);
+        if (null == category)
+            category = create_category (key);
+        assert (null != category);
+        var scores = scores_context.get_high_scores (category);
         var lowest_high_score = (scores.size == 10 ? scores.last ().score : -1);
 
         if (game.numhumans < 1)
@@ -1106,16 +1305,8 @@ private class NibblesWindow : ApplicationWindow
             return;
         }
 
-        if (game.skip_score)
+        scores_context.add_score.begin (score, category, null, (object, result) =>
         {
-            game_over (score, lowest_high_score, level_reached);
-            return;
-        }
-
-        scores_context.add_score.begin (score,
-                                        get_scores_category (game.speed, game.fakes),
-                                        null,
-                                        (object, result) => {
             try
             {
                 scores_context.add_score.end (result);

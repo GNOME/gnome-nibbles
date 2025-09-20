@@ -85,6 +85,8 @@ public class Context : Object
     };
     private Gee.HashMap<Category?, Gee.List<Score>> scores_per_category =
         new Gee.HashMap<Category?, Gee.List<Score>> ((owned) category_hash, (owned) category_equal);
+    public Gee.Set<Category?> get_category_set () /* the categories are unordered */
+        requires (scores_loaded) {return scores_per_category.keys.read_only_view;}
 
     private string user_score_dir;
     private bool scores_loaded = false;
@@ -183,15 +185,14 @@ public class Context : Object
         user_score_dir = Path.build_filename (Environment.get_user_data_dir (), app_name, "scores", null);
     }
 
-    internal List<Category?> get_categories ()
+    internal ListStore get_categories ()
     {
-        var categories = new List<Category?> ();
+        var categories = new ListStore (typeof(Category));
         var iterator = scores_per_category.map_iterator ();
-        unowned List<Category?> *pNode;
+
         while (iterator.next ())
         {
-            for (pNode = categories; null != pNode && !is_lower_order (iterator.get_key (), pNode->data); pNode = pNode->next);
-            categories.insert_before (pNode, iterator.get_key ()); /* insert the new category before the higher order category */
+            categories.insert_sorted (iterator.get_key (), (a, b)=>{return is_lower_order((Category)a, (Category)b) ? -1 : +1;});
         }
 
         return categories;

@@ -24,8 +24,6 @@ namespace Scores {
 private class Dialog : Adw.Dialog
 {
     private Context context;
-    unowned Category active_category; /* The active category must be a member of categories. */
-    private List<Category?> categories = null;
     private ListStore? score_model = null;
 
     private Adw.ToolbarView toolbar;
@@ -68,9 +66,11 @@ private class Dialog : Adw.Dialog
         }
 
         scores_style = style;
-        categories = context.get_categories ();
+        uint active_category_index = 0; /* default to the first category */
+        var categories = context.get_categories ();
         /* Use current_cat as our active_category if it is valid. */
-        active_category = categories.index (current_cat) >= 0 ? current_cat : categories.first ().data; 
+        unowned Category active_category = categories.find (current_cat, out active_category_index) ?
+            current_cat : (Category)categories.get_item (active_category_index); 
         
         score_or_time = "";
         string new_score_or_time = "";
@@ -98,21 +98,21 @@ private class Dialog : Adw.Dialog
             done_button.clicked.connect (() => this.close ());
             headerbar.pack_end (done_button);
         }
-        else if (categories.length () == 1)
+        else if (categories.get_n_items () == 1)
         {
             /* active category has been set to the only category in the list */
             set_title (active_category.name);
         }
         else
         {
-            var drop_down = new Gtk.DropDown.from_strings (load_categories ());
+            var drop_down = new Gtk.DropDown (categories, new Gtk.PropertyExpression (typeof(Category), null, "name"));
             /* set_selected must be called before the selected callback is setup because
                load_scores_for_category uses score_model which hasn't been initilized yet. */
-            drop_down.set_selected (categories.index (active_category));
+            drop_down.set_selected (active_category_index);
             drop_down.notify["selected"].connect(() => {
-                var selected_index = drop_down.get_selected();
-                if (selected_index != -1)
-                    load_scores_for_category (categories.nth_data (selected_index));
+                Category? selected = (Category?)drop_down.get_selected_item();
+                if (null != selected)
+                    load_scores_for_category (selected);
             });
             headerbar.set_title_widget (drop_down);
         }
@@ -122,20 +122,10 @@ private class Dialog : Adw.Dialog
         score_view = new Gtk.ColumnView (null);
         score_view.set_reorderable (false);
         score_view.set_tab_behavior (ITEM);
-        setup_columns ();
+        setup_columns (active_category);
         load_scores_for_category (active_category);
         scroll.set_child (score_view);
         toolbar.add_child (builder, scroll, null);
-    }
-
-    /* load names of all categories into a string array */
-    private string[] load_categories ()
-    {
-        string[] categories_array = {};
-
-        categories.foreach ((x) => categories_array += x.name);
-
-        return categories_array;
     }
 
     /*
@@ -153,14 +143,13 @@ private class Dialog : Adw.Dialog
             score_model.append (score);
         }
         score_view.scroll_to (0, null, Gtk.ListScrollFlags.NONE, null);
-        active_category = category;
     }
 
-    private void setup_columns ()
+    private void setup_columns (Category category)
     {
         set_up_rank_column ();
         set_up_score_column ();
-        set_up_player_column ();
+        set_up_player_column (category);
         score_view.append_column (rank_column);
         score_view.append_column (score_column);
         score_view.append_column (player_column);
@@ -264,7 +253,7 @@ private class Dialog : Adw.Dialog
         score_column.sorter = rank_column.sorter;
     }
 
-    private void set_up_player_column () {
+    private void set_up_player_column (Category active_category) {
         var factory = new Gtk.SignalListItemFactory ();
 
         factory.bind.connect ((factory, object) => {
