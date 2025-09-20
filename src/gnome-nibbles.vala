@@ -251,12 +251,14 @@ private class Nibbles : Gtk.Application
          * for a list of pointers of unknown length).
          */
         const string [] newgame = {"<Primary>n", null};
+        const string [] fullscreen = {"<Primary>f", null};
         const string [] pause = {"<Primary>p", "Pause", null};
         const string [] appquit = {"<Primary>q", null};
         const string [] back = {"Escape", null};
         const string [] hamburger = {"F10", "Menu", null};
         // F1 and friends are managed manually
         set_accels_for_action ("win.new-game",  newgame);
+        set_accels_for_action ("win.fullscreen",fullscreen);
         set_accels_for_action ("win.pause",     pause);
         set_accels_for_action ("app.quit",      appquit);
         set_accels_for_action ("win.back",      back);

@@ -216,13 +216,18 @@ internal class NibblesView : TransparentContainer
 
     /* delegate to nibbles-window */
     internal delegate int CountdownActiveFunction ();
-    CountdownActiveFunction countdown_active;
+    unowned CountdownActiveFunction countdown_active;
+    internal delegate bool FullscreenActiveFunction ();
+    unowned FullscreenActiveFunction fullscreen_active;
 
     /* constructor */
-    public NibblesView (NibblesGame game, CountdownActiveFunction countdown_active)
+    public NibblesView (NibblesGame game,
+        CountdownActiveFunction countdown_active,
+        FullscreenActiveFunction fullscreen_active)
     {
         this.game = game;
-        this.countdown_active = (CountdownActiveFunction)countdown_active;
+        this.countdown_active = countdown_active;
+        this.fullscreen_active = fullscreen_active;
         /* views */
         static_view = new StaticView (this);
         active_view = new ActiveView (this);
@@ -262,10 +267,16 @@ internal class NibblesView : TransparentContainer
         {
             queue_draw ();
         }
-        NibblesView view;
+        unowned NibblesView view;
         public StaticView (NibblesView view)
         {
             this.view = view;
+        }
+        Gsk.Path rectangle (uint x, uint y, uint width, uint height)
+        {
+            var r = new PathBuilder ();
+            r.add_rect ({{x, y}, {width, height}});
+            return r.to_path ();
         }
         public override void snapshot (Snapshot s)
         {
@@ -279,16 +290,22 @@ internal class NibblesView : TransparentContainer
                 v.set_scale_y (get_height () / HEIGHT);
 
                 /* black background */
-                var background = new PathBuilder ();
-                v.to_view_plain ({0, 0, 0},out x2d, out y2d);
-                background.move_to ((float)x2d, (float)y2d);
-                v.to_view_plain ({WIDTH, 0, 0},out x2d, out y2d);
-                background.line_to ((float)x2d, (float)y2d);
-                v.to_view_plain ({WIDTH, HEIGHT, 0},out x2d, out y2d);
-                background.line_to ((float)x2d, (float)y2d);
-                v.to_view_plain ({0, HEIGHT, 0},out x2d, out y2d);
-                background.line_to ((float)x2d, (float)y2d);
-                s.append_fill (background.to_path (), EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});
+                if (view.fullscreen_active ())
+                    s.append_fill (rectangle (0, 0, get_width (), get_height ()),
+                        EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});
+                else
+                {
+                    var background = new PathBuilder ();
+                    v.to_view_plain ({0, 0, 0},out x2d, out y2d);
+                    background.move_to ((float)x2d, (float)y2d);
+                    v.to_view_plain ({WIDTH, 0, 0},out x2d, out y2d);
+                    background.line_to ((float)x2d, (float)y2d);
+                    v.to_view_plain ({WIDTH, HEIGHT, 0},out x2d, out y2d);
+                    background.line_to ((float)x2d, (float)y2d);
+                    v.to_view_plain ({0, HEIGHT, 0},out x2d, out y2d);
+                    background.line_to ((float)x2d, (float)y2d);
+                    s.append_fill (background.to_path (), EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});
+                }
             }
             else
             {
@@ -303,9 +320,12 @@ internal class NibblesView : TransparentContainer
                 int y_offset = (get_height () - y_delta * HEIGHT) / 2;
 
                 /* black background */
-                var background = new PathBuilder ();
-                background.add_rect ({{x_offset, y_offset}, {x_delta * WIDTH, y_delta * HEIGHT}});
-                s.append_fill (background.to_path (), EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});
+                if (view.fullscreen_active ())
+                    s.append_fill (rectangle (0, 0, get_width (), get_height ()),
+                        EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});
+                else
+                    s.append_fill (rectangle (x_offset, y_offset, x_delta * WIDTH, y_delta * HEIGHT),
+                        EVEN_ODD, {0.0f, 0.0f, 0.0f, 1.0f});
 
                 /* draw walls */
                 for (int x = 0; x < WIDTH; x++)
@@ -333,7 +353,7 @@ internal class NibblesView : TransparentContainer
                 ++animate;
             queue_draw ();
         }
-        NibblesView view;
+        unowned NibblesView view;
         public ActiveView (NibblesView view)
         {
             this.view = view;

@@ -23,7 +23,7 @@
   <object class="GtkShortcutsWindow" id="help_overlay">
     <child>
       <object class="GtkShortcutsSection">
-        <property name="max-height">6</property>
+        <property name="max-height">7</property>
         <child>
           <object class="GtkShortcutsGroup">
             <!-- Translators: header of the "Next screen" and "Previous screen" shortcuts section -->
@@ -60,6 +60,13 @@
                 <!-- Translators: shortcut that pauses or unpauses the current game -->
                 <property name="title" translatable="1" context="shortcut window">Pause or unpause</property>
                 <property name="accelerator">&lt;Primary&gt;p Pause</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <!-- Translators: shortcut that toggles full screen -->
+                <property name="title" translatable="1" context="shortcut window">Full screen toggle</property>
+                <property name="accelerator">&lt;Primary&gt;f</property>
               </object>
             </child>
           </object>
