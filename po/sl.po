@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2024-05-10 01:03+0000\n"
-"PO-Revision-Date: 2024-05-11 09:47+0200\n"
+"POT-Creation-Date: 2025-09-20 17:36+0000\n"
+"PO-Revision-Date: 2025-09-21 22:47+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -27,50 +27,17 @@ msgstr ""
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/org.gnome.Nibbles.desktop.in:2 data/org.gnome.Nibbles.metainfo.xml.in:7
 #: data/ui/nibbles-adw.ui:65 data/ui/nibbles.ui:64 src/gnome-nibbles.vala:57
 msgid "Nibbles"
 msgstr "Črvi"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
+#: data/org.gnome.Nibbles.desktop.in:3 data/org.gnome.Nibbles.metainfo.xml.in:8
 msgid "Guide a worm around a maze"
-msgstr "Vodenje črva po labirintu"
-
-#: data/org.gnome.Nibbles.appdata.xml.in:10
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating apples and bananas to increase your length. Each "
-"worm has six lives and loses one by running into a wall, another worm, or "
-"itself. The enemy worms are after the same bonuses that you are, so be "
-"careful. If the worms become too large, you won’t have much room to move."
-msgstr ""
-"Nadzorujte črva v njegovem prizadevanju, da bi jedel bonuse in postal "
-"daljši. Premagajte sovražne črve, medtem ko jeste jabolka in banane, da "
-"povečate svojo dolžino. Vsak črv ima šest življenj in izgubi eno, ko se "
-"zabije v steno, drugega črva ali samega sebe. Sovražni črvi sledijo istim "
-"bonusom kot vi, zato bodite previdni. Če črvi postanejo preveliki, ne boste "
-"imeli veliko prostora za premikanje."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:17
-msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
-msgstr ""
-"Dogodivščina napreduje prek 26 polji različne težavnosti. Začetne ravni so "
-"večinoma odprte, z nekaj zidovi, kasnejše pa vključujejo ovire in "
-"teleporterje, ki popestrijo dogajanje."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:22
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Igro je mogoče igrati proti računalniku ali pa s prijateljem. Ena tipkovnica "
-"omogoča igro v dvoje."
+msgstr "Vodite črva po labirintu"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Nibbles.desktop.in:6
+#: data/org.gnome.Nibbles.desktop.in:5
 msgid "game;snake;board;"
 msgstr "igra;kača;kače;črvi;krvtabla;plošča;"
 
@@ -305,20 +272,51 @@ msgstr "Premaknite se v desno"
 msgid "Key to use for motion right."
 msgstr "Tipka za premikanje desno."
 
+#: data/org.gnome.Nibbles.metainfo.xml.in:10
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating apples and bananas to increase your length. Each "
+"worm has six lives and loses one by running into a wall, another worm, or "
+"itself. The enemy worms are after the same bonuses that you are, so be "
+"careful. If the worms become too large, you won’t have much room to move."
+msgstr ""
+"Nadzorujte črva v njegovem prizadevanju, da bi jedel bonuse in postal "
+"daljši. Premagajte sovražne črve, medtem ko jeste jabolka in banane, da "
+"povečate svojo dolžino. Vsak črv ima šest življenj in izgubi eno, ko se "
+"zabije v steno, drugega črva ali samega sebe. Sovražni črvi sledijo istim "
+"bonusom kot vi, zato bodite previdni. Če črvi postanejo preveliki, ne boste "
+"imeli veliko prostora za premikanje."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:17
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"Dogodivščina napreduje prek 26 polji različne težavnosti. Začetne ravni so "
+"večinoma odprte, z nekaj zidovi, kasnejše pa vključujejo ovire in "
+"teleporterje, ki popestrijo dogajanje."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:22
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Igro je mogoče igrati proti računalniku ali pa s prijateljem. Ena tipkovnica "
+"omogoča igro v dvoje."
+
 #. Translators: title of the Are You Sure? window
 #: data/ui/are-you-sure.ui:27
 msgid "Are You Sure?"
 msgstr "Ali ste prepričani?"
 
 #. Translators: negative response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: data/ui/are-you-sure.ui:85 src/nibbles-view.vala:1802
+#: data/ui/are-you-sure.ui:85
 msgid "No"
 msgstr "Ne"
 
 #. Translators: positive response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: data/ui/are-you-sure.ui:96 src/nibbles-view.vala:1829
+#: data/ui/are-you-sure.ui:96
 msgid "Yes"
 msgstr "Da"
 
@@ -345,7 +343,7 @@ msgstr "_Fiksna raven"
 #. Translators: label of a button in the "Board Progress" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:148
+#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:149
 msgid "_Next"
 msgstr "_Naslednji"
 
@@ -412,38 +410,44 @@ msgctxt "shortcut window"
 msgid "Pause or unpause"
 msgstr "Preklopi premor igranja"
 
+#. Translators: shortcut that toggles full screen
+#: data/ui/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Full screen toggle"
+msgstr "Preklop na celozaslonski način"
+
 #. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
-#: data/ui/help-overlay.ui:70
+#: data/ui/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Splošno"
 
 #. Translators: shortcut that toggles the hamburger menu
-#: data/ui/help-overlay.ui:74
+#: data/ui/help-overlay.ui:81
 msgctxt "shortcut window"
 msgid "Toggle main menu"
 msgstr "Preklopi glavni meni"
 
 #. Translators: shortcut that opens Keyboard Shortcuts window
-#: data/ui/help-overlay.ui:81
+#: data/ui/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Tipkovne bližnjice"
 
 #. Translators: shortcut that opens the application help
-#: data/ui/help-overlay.ui:88
+#: data/ui/help-overlay.ui:95
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Pomoč"
 
 #. Translators: shortcut that opens About dialog
-#: data/ui/help-overlay.ui:95
+#: data/ui/help-overlay.ui:102
 msgctxt "shortcut window"
 msgid "About"
 msgstr "O programu"
 
 #. Translators: shortcut that quits application
-#: data/ui/help-overlay.ui:102
+#: data/ui/help-overlay.ui:109
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Konča program"
@@ -490,17 +494,17 @@ msgstr "Glavni meni"
 
 #. Translators: tooltip of a button of the headerbar, visible during a game; pauses the game
 #. Translators: tooltip of the pause button, when the game is running
-#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:707
+#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:726
 msgid "Pause"
 msgstr "Premor"
 
 #. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles-adw.ui:188 data/ui/nibbles.ui:185
+#: data/ui/nibbles-adw.ui:186 data/ui/nibbles.ui:185
 msgid "Paused"
 msgstr "Premor"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#: data/ui/nibbles.ui:77 src/nibbles-window.vala:609
+#: data/ui/nibbles.ui:77 src/nibbles-window.vala:619
 msgid "_New Game"
 msgstr "_Nova Igra"
 
@@ -508,7 +512,7 @@ msgstr "_Nova Igra"
 #. duplicated in nibbles.ui
 #. duplicated in nibbles.ui
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:102 src/nibbles-window.vala:711
+#: data/ui/nibbles.ui:102 src/nibbles-window.vala:730
 msgid "_Pause"
 msgstr "_Premor"
 
@@ -577,42 +581,36 @@ msgstr "_Srednje hitro"
 msgid "_Fast"
 msgstr "_Zelo hitro"
 
-#. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses
+#. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates fake bonuses
 #: data/ui/speed.ui:136
-msgid "_Enable fake bonuses."
+msgid "_Enable fake bonuses"
 msgstr "O_mogoči lažne bonuse"
 
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
-#: src/controls.vala:165
+#: src/controls.vala:221
 #, c-format
 msgid "Player %d"
 msgstr "Igralec %d"
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen
-#: src/controls.vala:238
+#: src/controls.vala:276
 msgid "Press a key for up."
 msgstr "Pritisnite tipko za navzgor."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
-#: src/controls.vala:258
+#: src/controls.vala:296
 msgid "Press a key for down."
 msgstr "Pritisnite tipko za navzdol."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
-#: src/controls.vala:278
+#: src/controls.vala:316
 msgid "Press a key for left."
 msgstr "Pritisnite tipko za levo."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
-#: src/controls.vala:298
+#: src/controls.vala:336
 msgid "Press a key for right."
 msgstr "Pritisnite tipko za desno."
-
-#. instruction label
-#. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:627
-msgid "Select Your Color"
-msgstr "Izberite barvo"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:81
@@ -688,119 +686,119 @@ msgid "Show release version"
 msgstr "Pokaži podrobnosti različice"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/gnome-nibbles.vala:177
+#: src/gnome-nibbles.vala:171
 msgid "Start level should only be between 1 and 26."
 msgstr "Začetna vrednost je lahko le med 1 in 26."
 
 #. Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress'
-#: src/gnome-nibbles.vala:183
+#: src/gnome-nibbles.vala:177
 msgid ""
 "Progress method should be; 0 - sequentially, 1 - randomly, 2 - fixed board."
 msgstr ""
 "Metoda napredka mora biti; 0 - zaporedno, 1 - naključno, 2 - fiksna plošča."
 
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
-#: src/gnome-nibbles.vala:189
+#: src/gnome-nibbles.vala:183
 msgid "There could only be between 4 and 6 nibbles."
 msgstr "Lahko je le od 4 do 6 črvov."
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/gnome-nibbles.vala:195
+#: src/gnome-nibbles.vala:189
 msgid "There could only be between 1 and 4 players."
 msgstr "Lahko je le od 1 do 4 igralcev."
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
-#: src/gnome-nibbles.vala:201
+#: src/gnome-nibbles.vala:195
 msgid "Speed should be between 4 (slow) and 1 (fast)."
 msgstr "Hitrost črvov je lahko le med 4 (počasi) in 1 (hitro)."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/gnome-nibbles.vala:210
+#: src/gnome-nibbles.vala:204
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
 "Možnosti --disable-fakes (-d) in --enable-fakes (-e) se vzajemno izločita."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
-#: src/gnome-nibbles.vala:222
+#: src/gnome-nibbles.vala:216
 msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "Možnosti --3D (-3) in --2D (-2) se med seboj izključujeta.."
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:384
+#: src/gnome-nibbles.vala:388
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:388
+#: src/gnome-nibbles.vala:392
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:392
+#: src/gnome-nibbles.vala:396
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:396
+#: src/gnome-nibbles.vala:400
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:400
+#: src/gnome-nibbles.vala:404
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:404
+#: src/gnome-nibbles.vala:408
 msgid "Ben Corby"
 msgstr "Ben Corby"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:408
+#: src/gnome-nibbles.vala:412
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:412
+#: src/gnome-nibbles.vala:416
 msgid "Allan Day"
 msgstr "Allan Day"
 
 #. Translators: the name of the app's developers, seen in the About dialog
-#: src/gnome-nibbles.vala:420
+#: src/gnome-nibbles.vala:424
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:431
+#: src/gnome-nibbles.vala:435
 msgid "A worm game for GNOME"
 msgstr "Igra s črvom za GNOME"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:436
+#: src/gnome-nibbles.vala:440
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr ""
 "Avtorske pravice © 1999–2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:440
+#: src/gnome-nibbles.vala:444
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "Avtorske pravice © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:444
+#: src/gnome-nibbles.vala:448
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "Avtorske pravice © %u–%u – Iulian-Gabriel Radu"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:448
+#: src/gnome-nibbles.vala:452
 #, c-format
 msgid "Copyright © %u-%u – Ben Corby"
 msgstr "Avtorska in sorodne pravice © %u–%u – Ben Corby"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:452 src/gnome-nibbles.vala:462
+#: src/gnome-nibbles.vala:456 src/gnome-nibbles.vala:466
 msgid "translator-credits"
 msgstr ""
 "Matej Urbančič <mateju@svn.gnome.org>\n"
@@ -810,203 +808,1036 @@ msgstr ""
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:607 src/players.vala:43
+#: src/nibbles-view.vala:672 src/players.vala:43
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:610 src/players.vala:46
+#: src/nibbles-view.vala:675 src/players.vala:46
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:613 src/players.vala:49
+#: src/nibbles-view.vala:678 src/players.vala:49
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:626
+#: src/nibbles-view.vala:691
 msgid "Worm 1"
 msgstr "Črv 1"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:629
+#: src/nibbles-view.vala:694
 msgid "Worm 2"
 msgstr "Črv 2"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:632
+#: src/nibbles-view.vala:697
 msgid "Worm 3"
 msgstr "Črv 3"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:635
+#: src/nibbles-view.vala:700
 msgid "Worm 4"
 msgstr "Črv 4"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:638
+#: src/nibbles-view.vala:703
 msgid "Worm 5"
 msgstr "Črv 5"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:641
+#: src/nibbles-view.vala:706
 msgid "Worm 6"
 msgstr "Črv 6"
 
-#. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:666
-msgid ""
-"Are you sure you want to start a new game?\n"
-"If you start a new game, the current one will be lost."
-msgstr ""
-"Ali ste prepričani, da želite začeti novo igro?\n"
-"Če začnete novo igro, bo trenutna izgubljena."
-
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1947
+#: src/nibbles-view.vala:1694
 msgid "red"
 msgstr "rdeča"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1949
+#: src/nibbles-view.vala:1696
 msgid "green"
 msgstr "zelena"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1951
+#: src/nibbles-view.vala:1698
 msgid "blue"
 msgstr "modra"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1953
+#: src/nibbles-view.vala:1700
 msgid "yellow"
 msgstr "rumena"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1955
+#: src/nibbles-view.vala:1702
 msgid "cyan"
 msgstr "sinja"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1957
+#: src/nibbles-view.vala:1704
 msgid "purple"
 msgstr "škrlatna"
 
 #. Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:604
+#: src/nibbles-window.vala:614
 msgid "New Game?"
 msgstr "Ali želite igrati novo igro?"
 
 #. Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:606
+#: src/nibbles-window.vala:616
 msgid "If you start a new game, the current one will be lost"
 msgstr "Če začnete novo igro, bo trenutna izgubljena"
 
-#: src/nibbles-window.vala:608
+#: src/nibbles-window.vala:618
 msgid "_Cancel"
 msgstr "Pre_kliči"
 
 #. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:633
+#: src/nibbles-window.vala:643
 msgid "Are you sure you want to start a new game?"
 msgstr "Ali ste prepričani, da želite začeti novo igro?"
 
 #. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:635
+#: src/nibbles-window.vala:645
 msgid "If you start a new game, the current one will be lost."
 msgstr "Z novo igro, se trenutna igra prekine."
 
 #. Translators: tooltip of the pause button, when the game is paused
-#: src/nibbles-window.vala:696
+#: src/nibbles-window.vala:715
 msgid "Resume"
 msgstr "Nadaljuj"
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:700
+#: src/nibbles-window.vala:719
 msgid "_Resume"
 msgstr "Na_daljuj"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:981 src/nibbles-window.vala:1211
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1436
 #, c-format
 msgid "Level %d"
 msgstr "Raven %d"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1057
+#. Translators: The game type displayed on the scores dialog
+#: src/nibbles-window.vala:1041
 msgid "Beginner"
 msgstr "Začetnik"
 
-#. Translators: Difficulty level displayed on the scores dialog
+#: src/nibbles-window.vala:1042
+msgid "Beginner with random levels"
+msgstr "Začetnik z naključnimi stopnjami"
+
+#: src/nibbles-window.vala:1043
+msgid "Beginner, fixed on level 1"
+msgstr "Začetnik, ves čas na stopnji 1"
+
+#: src/nibbles-window.vala:1044
+msgid "Beginner, fixed on level 2"
+msgstr "Začetnik, ves čas na stopnji 2"
+
+#: src/nibbles-window.vala:1045
+msgid "Beginner, fixed on level 3"
+msgstr "Začetnik, ves čas na stopnji 3"
+
+#: src/nibbles-window.vala:1046
+msgid "Beginner, fixed on level 4"
+msgstr "Začetnik, ves čas na stopnji 4"
+
+#: src/nibbles-window.vala:1047
+msgid "Beginner, fixed on level 5"
+msgstr "Začetnik, ves čas na stopnji 5"
+
+#: src/nibbles-window.vala:1048
+msgid "Beginner, fixed on level 6"
+msgstr "Začetnik, ves čas na stopnji 6"
+
+#: src/nibbles-window.vala:1049
+msgid "Beginner, fixed on level 7"
+msgstr "Začetnik, ves čas na stopnji 7"
+
+#: src/nibbles-window.vala:1050
+msgid "Beginner, fixed on level 8"
+msgstr "Začetnik, ves čas na stopnji 8"
+
+#: src/nibbles-window.vala:1051
+msgid "Beginner, fixed on level 9"
+msgstr "Začetnik, ves čas na stopnji 9"
+
+#: src/nibbles-window.vala:1052
+msgid "Beginner, fixed on level 10"
+msgstr "Začetnik, ves čas na stopnji 10"
+
+#: src/nibbles-window.vala:1053
+msgid "Beginner, fixed on level 11"
+msgstr "Začetnik, ves čas na stopnji 11"
+
+#: src/nibbles-window.vala:1054
+msgid "Beginner, fixed on level 12"
+msgstr "Začetnik, ves čas na stopnji 12"
+
+#: src/nibbles-window.vala:1055
+msgid "Beginner, fixed on level 13"
+msgstr "Začetnik, ves čas na stopnji 13"
+
+#: src/nibbles-window.vala:1056
+msgid "Beginner, fixed on level 14"
+msgstr "Začetnik, ves čas na stopnji 14"
+
+#: src/nibbles-window.vala:1057
+msgid "Beginner, fixed on level 15"
+msgstr "Začetnik, ves čas na stopnji 15"
+
+#: src/nibbles-window.vala:1058
+msgid "Beginner, fixed on level 16"
+msgstr "Začetnik, ves čas na stopnji 16"
+
 #: src/nibbles-window.vala:1059
+msgid "Beginner, fixed on level 17"
+msgstr "Začetnik, ves čas na stopnji 17"
+
+#: src/nibbles-window.vala:1060
+msgid "Beginner, fixed on level 18"
+msgstr "Začetnik, ves čas na stopnji 18"
+
+#: src/nibbles-window.vala:1061
+msgid "Beginner, fixed on level 19"
+msgstr "Začetnik, ves čas na stopnji 19"
+
+#: src/nibbles-window.vala:1062
+msgid "Beginner, fixed on level 20"
+msgstr "Začetnik, ves čas na stopnji 20"
+
+#: src/nibbles-window.vala:1063
+msgid "Beginner, fixed on level 21"
+msgstr "Začetnik, ves čas na stopnji 21"
+
+#: src/nibbles-window.vala:1064
+msgid "Beginner, fixed on level 22"
+msgstr "Začetnik, ves čas na stopnji 22"
+
+#: src/nibbles-window.vala:1065
+msgid "Beginner, fixed on level 23"
+msgstr "Začetnik, ves čas na stopnji 23"
+
+#: src/nibbles-window.vala:1066
+msgid "Beginner, fixed on level 24"
+msgstr "Začetnik, ves čas na stopnji 24"
+
+#: src/nibbles-window.vala:1067
+msgid "Beginner, fixed on level 25"
+msgstr "Začetnik, ves čas na stopnji 25"
+
+#: src/nibbles-window.vala:1068
+msgid "Beginner, fixed on level 26"
+msgstr "Začetnik, ves čas na stopnji 26"
+
+#: src/nibbles-window.vala:1069
+msgid "Beginner with fakes and random levels"
+msgstr "Začetnik z lažnimi bonusi in naključnimi stopnjami"
+
+#: src/nibbles-window.vala:1070
+msgid "Beginner with fakes, fixed on level 1"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 1"
+
+#: src/nibbles-window.vala:1071
+msgid "Beginner with fakes, fixed on level 2"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 2"
+
+#: src/nibbles-window.vala:1072
+msgid "Beginner with fakes, fixed on level 3"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 3"
+
+#: src/nibbles-window.vala:1073
+msgid "Beginner with fakes, fixed on level 4"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 4"
+
+#: src/nibbles-window.vala:1074
+msgid "Beginner with fakes, fixed on level 5"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 5"
+
+#: src/nibbles-window.vala:1075
+#| msgid "Beginner with Fakes"
+msgid "Beginner with fakes, fixed on level 6"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 6"
+
+#: src/nibbles-window.vala:1076
+msgid "Beginner with fakes, fixed on level 7"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 7"
+
+#: src/nibbles-window.vala:1077
+msgid "Beginner with fakes, fixed on level 8"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 8"
+
+#: src/nibbles-window.vala:1078
+msgid "Beginner with fakes, fixed on level 9"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 9"
+
+#: src/nibbles-window.vala:1079
+msgid "Beginner with fakes, fixed on level 10"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 10"
+
+#: src/nibbles-window.vala:1080
+msgid "Beginner with fakes, fixed on level 11"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 11"
+
+#: src/nibbles-window.vala:1081
+msgid "Beginner with fakes, fixed on level 12"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 12"
+
+#: src/nibbles-window.vala:1082
+msgid "Beginner with fakes, fixed on level 13"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 13"
+
+#: src/nibbles-window.vala:1083
+msgid "Beginner with fakes, fixed on level 14"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 14"
+
+#: src/nibbles-window.vala:1084
+msgid "Beginner with fakes, fixed on level 15"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 15"
+
+#: src/nibbles-window.vala:1085
+msgid "Beginner with fakes, fixed on level 16"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 16"
+
+#: src/nibbles-window.vala:1086
+msgid "Beginner with fakes, fixed on level 17"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 17"
+
+#: src/nibbles-window.vala:1087
+msgid "Beginner with fakes, fixed on level 18"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 18"
+
+#: src/nibbles-window.vala:1088
+msgid "Beginner with fakes, fixed on level 19"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 19"
+
+#: src/nibbles-window.vala:1089
+msgid "Beginner with fakes, fixed on level 20"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 20"
+
+#: src/nibbles-window.vala:1090
+msgid "Beginner with fakes, fixed on level 21"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 21"
+
+#: src/nibbles-window.vala:1091
+msgid "Beginner with fakes, fixed on level 22"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 22"
+
+#: src/nibbles-window.vala:1092
+msgid "Beginner with fakes, fixed on level 23"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 23"
+
+#: src/nibbles-window.vala:1093
+msgid "Beginner with fakes, fixed on level 24"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 24"
+
+#: src/nibbles-window.vala:1094
+msgid "Beginner with fakes, fixed on level 25"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 25"
+
+#: src/nibbles-window.vala:1095
+msgid "Beginner with fakes, fixed on level 26"
+msgstr "Začetnik z lažnimi bonusi, ves čas na stopnji 26"
+
+#: src/nibbles-window.vala:1096
 msgid "Slow"
 msgstr "Počasnež"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1061
+#: src/nibbles-window.vala:1097
+msgid "Slow with random levels"
+msgstr "Počasnež z lažnimi bonusi"
+
+#: src/nibbles-window.vala:1098
+msgid "Slow, fixed on level 1"
+msgstr "Počasnež, ves čas na stopnji 1"
+
+#: src/nibbles-window.vala:1099
+msgid "Slow, fixed on level 2"
+msgstr "Počasnež, ves čas na stopnji 2"
+
+#: src/nibbles-window.vala:1100
+msgid "Slow, fixed on level 3"
+msgstr "Počasnež, ves čas na stopnji 3"
+
+#: src/nibbles-window.vala:1101
+msgid "Slow, fixed on level 4"
+msgstr "Počasnež, ves čas na stopnji 4"
+
+#: src/nibbles-window.vala:1102
+msgid "Slow, fixed on level 5"
+msgstr "Počasnež, ves čas na stopnji 5"
+
+#: src/nibbles-window.vala:1103
+msgid "Slow, fixed on level 6"
+msgstr "Počasnež, ves čas na stopnji 6"
+
+#: src/nibbles-window.vala:1104
+msgid "Slow, fixed on level 7"
+msgstr "Počasnež, ves čas na stopnji 7"
+
+#: src/nibbles-window.vala:1105
+msgid "Slow, fixed on level 8"
+msgstr "Počasnež, ves čas na stopnji 8"
+
+#: src/nibbles-window.vala:1106
+msgid "Slow, fixed on level 9"
+msgstr "Počasnež, ves čas na stopnji 9"
+
+#: src/nibbles-window.vala:1107
+msgid "Slow, fixed on level 10"
+msgstr "Počasnež, ves čas na stopnji 10"
+
+#: src/nibbles-window.vala:1108
+msgid "Slow, fixed on level 11"
+msgstr "Počasnež, ves čas na stopnji 11"
+
+#: src/nibbles-window.vala:1109
+msgid "Slow, fixed on level 12"
+msgstr "Počasnež, ves čas na stopnji 12"
+
+#: src/nibbles-window.vala:1110
+msgid "Slow, fixed on level 13"
+msgstr "Počasnež, ves čas na stopnji 13"
+
+#: src/nibbles-window.vala:1111
+msgid "Slow, fixed on level 14"
+msgstr "Počasnež, ves čas na stopnji 14"
+
+#: src/nibbles-window.vala:1112
+msgid "Slow, fixed on level 15"
+msgstr "Počasnež, ves čas na stopnji 15"
+
+#: src/nibbles-window.vala:1113
+msgid "Slow, fixed on level 16"
+msgstr "Počasnež, ves čas na stopnji 16"
+
+#: src/nibbles-window.vala:1114
+msgid "Slow, fixed on level 17"
+msgstr "Počasnež, ves čas na stopnji 17"
+
+#: src/nibbles-window.vala:1115
+msgid "Slow, fixed on level 18"
+msgstr "Počasnež, ves čas na stopnji 18"
+
+#: src/nibbles-window.vala:1116
+msgid "Slow, fixed on level 19"
+msgstr "Počasnež, ves čas na stopnji 19"
+
+#: src/nibbles-window.vala:1117
+msgid "Slow, fixed on level 20"
+msgstr "Počasnež, ves čas na stopnji 20"
+
+#: src/nibbles-window.vala:1118
+msgid "Slow, fixed on level 21"
+msgstr "Počasnež, ves čas na stopnji 21"
+
+#: src/nibbles-window.vala:1119
+msgid "Slow, fixed on level 22"
+msgstr "Počasnež, ves čas na stopnji 22"
+
+#: src/nibbles-window.vala:1120
+msgid "Slow, fixed on level 23"
+msgstr "Počasnež, ves čas na stopnji 23"
+
+#: src/nibbles-window.vala:1121
+msgid "Slow, fixed on level 24"
+msgstr "Počasnež, ves čas na stopnji 24"
+
+#: src/nibbles-window.vala:1122
+msgid "Slow, fixed on level 25"
+msgstr "Počasnež, ves čas na stopnji 25"
+
+#: src/nibbles-window.vala:1123
+msgid "Slow, fixed on level 26"
+msgstr "Počasnež, ves čas na stopnji 26"
+
+#: src/nibbles-window.vala:1124
+msgid "Slow with fakes and random levels"
+msgstr "Počasnež z lažnimi bonusi in naključnimi stopnjami"
+
+#: src/nibbles-window.vala:1125
+msgid "Slow with fakes, fixed on level 1"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 1"
+
+#: src/nibbles-window.vala:1126
+msgid "Slow with fakes, fixed on level 2"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 2"
+
+#: src/nibbles-window.vala:1127
+msgid "Slow with fakes, fixed on level 3"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 3"
+
+#: src/nibbles-window.vala:1128
+msgid "Slow with fakes, fixed on level 4"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 4"
+
+#: src/nibbles-window.vala:1129
+msgid "Slow with fakes, fixed on level 5"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 5"
+
+#: src/nibbles-window.vala:1130
+msgid "Slow with fakes, fixed on level 6"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 6"
+
+#: src/nibbles-window.vala:1131
+msgid "Slow with fakes, fixed on level 7"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 7"
+
+#: src/nibbles-window.vala:1132
+msgid "Slow with fakes, fixed on level 8"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 8"
+
+#: src/nibbles-window.vala:1133
+msgid "Slow with fakes, fixed on level 9"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 9"
+
+#: src/nibbles-window.vala:1134
+msgid "Slow with fakes, fixed on level 10"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 10"
+
+#: src/nibbles-window.vala:1135
+msgid "Slow with fakes, fixed on level 11"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 11"
+
+#: src/nibbles-window.vala:1136
+msgid "Slow with fakes, fixed on level 12"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 12"
+
+#: src/nibbles-window.vala:1137
+msgid "Slow with fakes, fixed on level 13"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 13"
+
+#: src/nibbles-window.vala:1138
+msgid "Slow with fakes, fixed on level 14"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 14"
+
+#: src/nibbles-window.vala:1139
+msgid "Slow with fakes, fixed on level 15"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 15"
+
+#: src/nibbles-window.vala:1140
+msgid "Slow with fakes, fixed on level 16"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 16"
+
+#: src/nibbles-window.vala:1141
+msgid "Slow with fakes, fixed on level 17"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 17"
+
+#: src/nibbles-window.vala:1142
+msgid "Slow with fakes, fixed on level 18"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 18"
+
+#: src/nibbles-window.vala:1143
+msgid "Slow with fakes, fixed on level 19"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 19"
+
+#: src/nibbles-window.vala:1144
+msgid "Slow with fakes, fixed on level 20"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 20"
+
+#: src/nibbles-window.vala:1145
+msgid "Slow with fakes, fixed on level 21"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 21"
+
+#: src/nibbles-window.vala:1146
+msgid "Slow with fakes, fixed on level 22"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 22"
+
+#: src/nibbles-window.vala:1147
+msgid "Slow with fakes, fixed on level 23"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 23"
+
+#: src/nibbles-window.vala:1148
+msgid "Slow with fakes, fixed on level 24"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 24"
+
+#: src/nibbles-window.vala:1149
+msgid "Slow with fakes, fixed on level 25"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 25"
+
+#: src/nibbles-window.vala:1150
+msgid "Slow with fakes, fixed on level 26"
+msgstr "Počasnež z lažnimi bonusi, ves čas na stopnji 26"
+
+#: src/nibbles-window.vala:1151
 msgid "Medium"
 msgstr "Povprečnež"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1063
+#: src/nibbles-window.vala:1152
+msgid "Medium with random levels"
+msgstr "Povprečnež z lažnimi bonusi"
+
+#: src/nibbles-window.vala:1153
+msgid "Medium, fixed on level 1"
+msgstr "Povprečnež, ves čas na stopnji 1"
+
+#: src/nibbles-window.vala:1154
+msgid "Medium, fixed on level 2"
+msgstr "Povprečnež, ves čas na stopnji 2"
+
+#: src/nibbles-window.vala:1155
+msgid "Medium, fixed on level 3"
+msgstr "Povprečnež, ves čas na stopnji 3"
+
+#: src/nibbles-window.vala:1156
+msgid "Medium, fixed on level 4"
+msgstr "Povprečnež, ves čas na stopnji 4"
+
+#: src/nibbles-window.vala:1157
+msgid "Medium, fixed on level 5"
+msgstr "Povprečnež, ves čas na stopnji 5"
+
+#: src/nibbles-window.vala:1158
+msgid "Medium, fixed on level 6"
+msgstr "Povprečnež, ves čas na stopnji 6"
+
+#: src/nibbles-window.vala:1159
+msgid "Medium, fixed on level 7"
+msgstr "Povprečnež, ves čas na stopnji 7"
+
+#: src/nibbles-window.vala:1160
+msgid "Medium, fixed on level 8"
+msgstr "Povprečnež, ves čas na stopnji 8"
+
+#: src/nibbles-window.vala:1161
+msgid "Medium, fixed on level 9"
+msgstr "Povprečnež, ves čas na stopnji 9"
+
+#: src/nibbles-window.vala:1162
+msgid "Medium, fixed on level 10"
+msgstr "Povprečnež, ves čas na stopnji 10"
+
+#: src/nibbles-window.vala:1163
+msgid "Medium, fixed on level 11"
+msgstr "Povprečnež, ves čas na stopnji 11"
+
+#: src/nibbles-window.vala:1164
+msgid "Medium, fixed on level 12"
+msgstr "Povprečnež, ves čas na stopnji 12"
+
+#: src/nibbles-window.vala:1165
+msgid "Medium, fixed on level 13"
+msgstr "Povprečnež, ves čas na stopnji 13"
+
+#: src/nibbles-window.vala:1166
+msgid "Medium, fixed on level 14"
+msgstr "Povprečnež, ves čas na stopnji 14"
+
+#: src/nibbles-window.vala:1167
+msgid "Medium, fixed on level 15"
+msgstr "Povprečnež, ves čas na stopnji 15"
+
+#: src/nibbles-window.vala:1168
+msgid "Medium, fixed on level 16"
+msgstr "Povprečnež, ves čas na stopnji 16"
+
+#: src/nibbles-window.vala:1169
+msgid "Medium, fixed on level 17"
+msgstr "Povprečnež, ves čas na stopnji 17"
+
+#: src/nibbles-window.vala:1170
+msgid "Medium, fixed on level 18"
+msgstr "Povprečnež, ves čas na stopnji 18"
+
+#: src/nibbles-window.vala:1171
+msgid "Medium, fixed on level 19"
+msgstr "Povprečnež, ves čas na stopnji 19"
+
+#: src/nibbles-window.vala:1172
+msgid "Medium, fixed on level 20"
+msgstr "Povprečnež, ves čas na stopnji 20"
+
+#: src/nibbles-window.vala:1173
+msgid "Medium, fixed on level 21"
+msgstr "Povprečnež, ves čas na stopnji 21"
+
+#: src/nibbles-window.vala:1174
+msgid "Medium, fixed on level 22"
+msgstr "Povprečnež, ves čas na stopnji 22"
+
+#: src/nibbles-window.vala:1175
+msgid "Medium, fixed on level 23"
+msgstr "Povprečnež, ves čas na stopnji 23"
+
+#: src/nibbles-window.vala:1176
+msgid "Medium, fixed on level 24"
+msgstr "Povprečnež, ves čas na stopnji 24"
+
+#: src/nibbles-window.vala:1177
+msgid "Medium, fixed on level 25"
+msgstr "Povprečnež, ves čas na stopnji 25"
+
+#: src/nibbles-window.vala:1178
+msgid "Medium, fixed on level 26"
+msgstr "Povprečnež, ves čas na stopnji 26"
+
+#: src/nibbles-window.vala:1179
+msgid "Medium with fakes and random levels"
+msgstr "Povprečnež z lažnimi bonusi in naključnimi stopnjami"
+
+#: src/nibbles-window.vala:1180
+msgid "Medium with fakes, fixed on level 1"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 1"
+
+#: src/nibbles-window.vala:1181
+msgid "Medium with fakes, fixed on level 2"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 2"
+
+#: src/nibbles-window.vala:1182
+msgid "Medium with fakes, fixed on level 3"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 3"
+
+#: src/nibbles-window.vala:1183
+msgid "Medium with fakes, fixed on level 4"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 4"
+
+#: src/nibbles-window.vala:1184
+msgid "Medium with fakes, fixed on level 5"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 5"
+
+#: src/nibbles-window.vala:1185
+msgid "Medium with fakes, fixed on level 6"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 6"
+
+#: src/nibbles-window.vala:1186
+msgid "Medium with fakes, fixed on level 7"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 7"
+
+#: src/nibbles-window.vala:1187
+msgid "Medium with fakes, fixed on level 8"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 8"
+
+#: src/nibbles-window.vala:1188
+msgid "Medium with fakes, fixed on level 9"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 9"
+
+#: src/nibbles-window.vala:1189
+msgid "Medium with fakes, fixed on level 10"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 10"
+
+#: src/nibbles-window.vala:1190
+msgid "Medium with fakes, fixed on level 11"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 11"
+
+#: src/nibbles-window.vala:1191
+msgid "Medium with fakes, fixed on level 12"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 12"
+
+#: src/nibbles-window.vala:1192
+msgid "Medium with fakes, fixed on level 13"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 13"
+
+#: src/nibbles-window.vala:1193
+msgid "Medium with fakes, fixed on level 14"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 14"
+
+#: src/nibbles-window.vala:1194
+msgid "Medium with fakes, fixed on level 15"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 15"
+
+#: src/nibbles-window.vala:1195
+msgid "Medium with fakes, fixed on level 16"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 16"
+
+#: src/nibbles-window.vala:1196
+msgid "Medium with fakes, fixed on level 17"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 17"
+
+#: src/nibbles-window.vala:1197
+msgid "Medium with fakes, fixed on level 18"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 18"
+
+#: src/nibbles-window.vala:1198
+msgid "Medium with fakes, fixed on level 19"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 19"
+
+#: src/nibbles-window.vala:1199
+msgid "Medium with fakes, fixed on level 20"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 20"
+
+#: src/nibbles-window.vala:1200
+msgid "Medium with fakes, fixed on level 21"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 21"
+
+#: src/nibbles-window.vala:1201
+msgid "Medium with fakes, fixed on level 22"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 22"
+
+#: src/nibbles-window.vala:1202
+msgid "Medium with fakes, fixed on level 23"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 23"
+
+#: src/nibbles-window.vala:1203
+msgid "Medium with fakes, fixed on level 24"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 24"
+
+#: src/nibbles-window.vala:1204
+msgid "Medium with fakes, fixed on level 25"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 25"
+
+#: src/nibbles-window.vala:1205
+msgid "Medium with fakes, fixed on level 26"
+msgstr "Povprečnež z lažnimi bonusi, ves čas na stopnji 26"
+
+#: src/nibbles-window.vala:1206
 msgid "Fast"
-msgstr "Zahtevno"
+msgstr "Rokohitrec"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1065
-msgid "Beginner with Fakes"
-msgstr "Začetnik z lažnimi bonusi"
+#: src/nibbles-window.vala:1207
+msgid "Fast with random levels"
+msgstr "Rokohitrec z lažnimi bonusi"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1067
-msgid "Slow with Fakes"
-msgstr "Počasi z lažnimi bonusi"
+#: src/nibbles-window.vala:1208
+msgid "Fast, fixed on level 1"
+msgstr "Rokohitrec, ves čas na stopnji 1"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1069
-msgid "Medium with Fakes"
-msgstr "Srednje hitro z lažnimi bonusi"
+#: src/nibbles-window.vala:1209
+msgid "Fast, fixed on level 2"
+msgstr "Rokohitrec, ves čas na stopnji 2"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1071
-msgid "Fast with Fakes"
-msgstr "Hitro z lažnimi bonusi"
+#: src/nibbles-window.vala:1210
+msgid "Fast, fixed on level 3"
+msgstr "Rokohitrec, ves čas na stopnji 3"
+
+#: src/nibbles-window.vala:1211
+msgid "Fast, fixed on level 4"
+msgstr "Rokohitrec, ves čas na stopnji 4"
+
+#: src/nibbles-window.vala:1212
+msgid "Fast, fixed on level 5"
+msgstr "Rokohitrec, ves čas na stopnji 5"
+
+#: src/nibbles-window.vala:1213
+msgid "Fast, fixed on level 6"
+msgstr "Rokohitrec, ves čas na stopnji 6"
+
+#: src/nibbles-window.vala:1214
+msgid "Fast, fixed on level 7"
+msgstr "Rokohitrec, ves čas na stopnji 7"
+
+#: src/nibbles-window.vala:1215
+msgid "Fast, fixed on level 8"
+msgstr "Rokohitrec, ves čas na stopnji 8"
+
+#: src/nibbles-window.vala:1216
+msgid "Fast, fixed on level 9"
+msgstr "Rokohitrec, ves čas na stopnji 9"
+
+#: src/nibbles-window.vala:1217
+msgid "Fast, fixed on level 10"
+msgstr "Rokohitrec, ves čas na stopnji 10"
+
+#: src/nibbles-window.vala:1218
+msgid "Fast, fixed on level 11"
+msgstr "Rokohitrec, ves čas na stopnji 11"
+
+#: src/nibbles-window.vala:1219
+msgid "Fast, fixed on level 12"
+msgstr "Rokohitrec, ves čas na stopnji 12"
+
+#: src/nibbles-window.vala:1220
+msgid "Fast, fixed on level 13"
+msgstr "Rokohitrec, ves čas na stopnji 13"
+
+#: src/nibbles-window.vala:1221
+msgid "Fast, fixed on level 14"
+msgstr "Rokohitrec, ves čas na stopnji 14"
+
+#: src/nibbles-window.vala:1222
+msgid "Fast, fixed on level 15"
+msgstr "Rokohitrec, ves čas na stopnji 15"
+
+#: src/nibbles-window.vala:1223
+msgid "Fast, fixed on level 16"
+msgstr "Rokohitrec, ves čas na stopnji 16"
+
+#: src/nibbles-window.vala:1224
+msgid "Fast, fixed on level 17"
+msgstr "Rokohitrec, ves čas na stopnji 17"
+
+#: src/nibbles-window.vala:1225
+msgid "Fast, fixed on level 18"
+msgstr "Rokohitrec, ves čas na stopnji 18"
+
+#: src/nibbles-window.vala:1226
+msgid "Fast, fixed on level 19"
+msgstr "Rokohitrec, ves čas na stopnji 19"
+
+#: src/nibbles-window.vala:1227
+msgid "Fast, fixed on level 20"
+msgstr "Rokohitrec, ves čas na stopnji 20"
+
+#: src/nibbles-window.vala:1228
+msgid "Fast, fixed on level 21"
+msgstr "Rokohitrec, ves čas na stopnji 21"
+
+#: src/nibbles-window.vala:1229
+msgid "Fast, fixed on level 22"
+msgstr "Rokohitrec, ves čas na stopnji 22"
+
+#: src/nibbles-window.vala:1230
+msgid "Fast, fixed on level 23"
+msgstr "Rokohitrec, ves čas na stopnji 23"
+
+#: src/nibbles-window.vala:1231
+msgid "Fast, fixed on level 24"
+msgstr "Rokohitrec, ves čas na stopnji 24"
+
+#: src/nibbles-window.vala:1232
+msgid "Fast, fixed on level 25"
+msgstr "Rokohitrec, ves čas na stopnji 25"
+
+#: src/nibbles-window.vala:1233
+msgid "Fast, fixed on level 26"
+msgstr "Rokohitrec, ves čas na stopnji 26"
+
+#: src/nibbles-window.vala:1234
+msgid "Fast with fakes and random levels"
+msgstr "Rokohitrec z lažnimi bonusi in naključnimi stopnjami"
+
+#: src/nibbles-window.vala:1235
+msgid "Fast with fakes, fixed on level 1"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 1"
+
+#: src/nibbles-window.vala:1236
+msgid "Fast with fakes, fixed on level 2"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 2"
+
+#: src/nibbles-window.vala:1237
+msgid "Fast with fakes, fixed on level 3"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 3"
+
+#: src/nibbles-window.vala:1238
+msgid "Fast with fakes, fixed on level 4"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 4"
+
+#: src/nibbles-window.vala:1239
+msgid "Fast with fakes, fixed on level 5"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 5"
+
+#: src/nibbles-window.vala:1240
+msgid "Fast with fakes, fixed on level 6"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 6"
+
+#: src/nibbles-window.vala:1241
+msgid "Fast with fakes, fixed on level 7"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 7"
+
+#: src/nibbles-window.vala:1242
+msgid "Fast with fakes, fixed on level 8"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 8"
+
+#: src/nibbles-window.vala:1243
+msgid "Fast with fakes, fixed on level 9"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 9"
+
+#: src/nibbles-window.vala:1244
+msgid "Fast with fakes, fixed on level 10"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 10"
+
+#: src/nibbles-window.vala:1245
+msgid "Fast with fakes, fixed on level 11"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 11"
+
+#: src/nibbles-window.vala:1246
+msgid "Fast with fakes, fixed on level 12"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 12"
+
+#: src/nibbles-window.vala:1247
+msgid "Fast with fakes, fixed on level 13"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 13"
+
+#: src/nibbles-window.vala:1248
+msgid "Fast with fakes, fixed on level 14"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 14"
+
+#: src/nibbles-window.vala:1249
+msgid "Fast with fakes, fixed on level 15"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 15"
+
+#: src/nibbles-window.vala:1250
+msgid "Fast with fakes, fixed on level 16"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 16"
+
+#: src/nibbles-window.vala:1251
+msgid "Fast with fakes, fixed on level 17"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 17"
+
+#: src/nibbles-window.vala:1252
+msgid "Fast with fakes, fixed on level 18"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 18"
+
+#: src/nibbles-window.vala:1253
+msgid "Fast with fakes, fixed on level 19"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 19"
+
+#: src/nibbles-window.vala:1254
+msgid "Fast with fakes, fixed on level 20"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 20"
+
+#: src/nibbles-window.vala:1255
+msgid "Fast with fakes, fixed on level 21"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 21"
+
+#: src/nibbles-window.vala:1256
+msgid "Fast with fakes, fixed on level 22"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 22"
+
+#: src/nibbles-window.vala:1257
+msgid "Fast with fakes, fixed on level 23"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 23"
+
+#: src/nibbles-window.vala:1258
+msgid "Fast with fakes, fixed on level 24"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 24"
+
+#: src/nibbles-window.vala:1259
+msgid "Fast with fakes, fixed on level 25"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 25"
+
+#: src/nibbles-window.vala:1260
+msgid "Fast with fakes, fixed on level 26"
+msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 26"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1076
+#: src/nibbles-window.vala:1285
 msgid "Difficulty Level:"
 msgstr "Raven zahtevnosti:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1182
+#: src/nibbles-window.vala:1407
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Raven %d je končana!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1193
+#: src/nibbles-window.vala:1418
 msgid "_Next Level"
 msgstr "_Naslednja raven"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1244
+#: src/nibbles-window.vala:1475
 msgid "Congratulations!"
 msgstr "Čestitke!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1247
+#: src/nibbles-window.vala:1478
 msgid "Game Over!"
 msgstr "Konec igre!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1258
+#: src/nibbles-window.vala:1489
 msgid "You have completed the game."
 msgstr "Končali ste igro."
 
-#: src/nibbles-window.vala:1268
+#: src/nibbles-window.vala:1499
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -1016,13 +1847,13 @@ msgstr[2] "%d točki"
 msgstr[3] "%d točke"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1279
+#: src/nibbles-window.vala:1510
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(še %ld točk do vpisa na seznam najboljših)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1286
+#: src/nibbles-window.vala:1517
 msgid "_Play Again"
 msgstr "_Nova igra"
 
