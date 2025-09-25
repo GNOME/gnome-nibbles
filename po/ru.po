@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2024-05-10 01:03+0000\n"
-"PO-Revision-Date: 2024-05-13 07:23+1000\n"
+"POT-Creation-Date: 2025-09-21 06:01+0000\n"
+"PO-Revision-Date: 2025-09-21 23:10+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -33,51 +33,17 @@ msgstr ""
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/org.gnome.Nibbles.desktop.in:2 data/org.gnome.Nibbles.metainfo.xml.in:7
 #: data/ui/nibbles-adw.ui:65 data/ui/nibbles.ui:64 src/gnome-nibbles.vala:57
 msgid "Nibbles"
 msgstr "Червячки"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
+#: data/org.gnome.Nibbles.desktop.in:3 data/org.gnome.Nibbles.metainfo.xml.in:8
 msgid "Guide a worm around a maze"
 msgstr "Управляйте растущим прожорливым червячком в лабиринте"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:10
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating apples and bananas to increase your length. Each "
-"worm has six lives and loses one by running into a wall, another worm, or "
-"itself. The enemy worms are after the same bonuses that you are, so be "
-"careful. If the worms become too large, you won’t have much room to move."
-msgstr ""
-"Управляйте червячком: ешьте бонусы — червячок станет длиннее. Попробуйте "
-"перехитрить вражеских червячков, поедая яблоки и бананы, чтобы увеличить "
-"свою длину. У каждого червячка есть шесть жизней. Червячок теряет жизнь, "
-"если сталкивается со стеной, другим червячком или с самим собой. Вражеские "
-"червячки охотятся за теми же бонусами, что и вы, поэтому будьте осторожны: "
-"если другие червячки станут слишком большими, у вас не будет достаточно "
-"пространства для передвижения."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:17
-msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
-msgstr ""
-"Приключения охватывают 26 карт с возрастающем уровнем сложности. Первые "
-"уровни почти не имеют преград, но затем на уровнях начинают появляться "
-"стены. Узенькие лазейки и телепорты делают игру более интересной."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:22
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Сыграйте против других червячков (до 5 соперников) или поделитесь "
-"клавиатурой с другой."
-
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Nibbles.desktop.in:6
+#: data/org.gnome.Nibbles.desktop.in:5
 msgid "game;snake;board;"
 msgstr "game;snake;board;игра;змейка;настольная;"
 
@@ -314,20 +280,52 @@ msgstr "Вправо"
 msgid "Key to use for motion right."
 msgstr "Кнопка для движения вправо."
 
+#: data/org.gnome.Nibbles.metainfo.xml.in:10
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating apples and bananas to increase your length. Each "
+"worm has six lives and loses one by running into a wall, another worm, or "
+"itself. The enemy worms are after the same bonuses that you are, so be "
+"careful. If the worms become too large, you won’t have much room to move."
+msgstr ""
+"Управляйте червячком: ешьте бонусы — червячок станет длиннее. Попробуйте "
+"перехитрить вражеских червячков, поедая яблоки и бананы, чтобы увеличить "
+"свою длину. У каждого червячка есть шесть жизней. Червячок теряет жизнь, "
+"если сталкивается со стеной, другим червячком или с самим собой. Вражеские "
+"червячки охотятся за теми же бонусами, что и вы, поэтому будьте осторожны: "
+"если другие червячки станут слишком большими, у вас не будет достаточно "
+"пространства для передвижения."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:17
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"Приключения охватывают 26 карт с возрастающем уровнем сложности. Первые "
+"уровни почти не имеют преград, но затем на уровнях начинают появляться "
+"стены. Узенькие лазейки и телепорты делают игру более интересной."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:22
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Сыграйте против других червячков (до 5 соперников) или поделитесь "
+"клавиатурой с другой."
+
 #. Translators: title of the Are You Sure? window
 #: data/ui/are-you-sure.ui:27
 msgid "Are You Sure?"
 msgstr "Вы уверены?"
 
 #. Translators: negative response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: data/ui/are-you-sure.ui:85 src/nibbles-view.vala:1802
+#: data/ui/are-you-sure.ui:85
 msgid "No"
 msgstr "Нет"
 
 #. Translators: positive response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: data/ui/are-you-sure.ui:96 src/nibbles-view.vala:1829
+#: data/ui/are-you-sure.ui:96
 msgid "Yes"
 msgstr "Да"
 
@@ -354,7 +352,7 @@ msgstr "_Фиксированный уровень"
 #. Translators: label of a button in the "Board Progress" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:148
+#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:149
 msgid "_Next"
 msgstr "_Далее"
 
@@ -420,38 +418,44 @@ msgctxt "shortcut window"
 msgid "Pause or unpause"
 msgstr "Приостановить или возобновить"
 
+#. Translators: shortcut that toggles full screen
+#: data/ui/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Full screen toggle"
+msgstr "Во весь экран"
+
 #. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
-#: data/ui/help-overlay.ui:70
+#: data/ui/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Общие"
 
 #. Translators: shortcut that toggles the hamburger menu
-#: data/ui/help-overlay.ui:74
+#: data/ui/help-overlay.ui:81
 msgctxt "shortcut window"
 msgid "Toggle main menu"
 msgstr "Переключить главное меню"
 
 #. Translators: shortcut that opens Keyboard Shortcuts window
-#: data/ui/help-overlay.ui:81
+#: data/ui/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Комбинации клавиш"
 
 #. Translators: shortcut that opens the application help
-#: data/ui/help-overlay.ui:88
+#: data/ui/help-overlay.ui:95
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Справка"
 
 #. Translators: shortcut that opens About dialog
-#: data/ui/help-overlay.ui:95
+#: data/ui/help-overlay.ui:102
 msgctxt "shortcut window"
 msgid "About"
 msgstr "О приложении"
 
 #. Translators: shortcut that quits application
-#: data/ui/help-overlay.ui:102
+#: data/ui/help-overlay.ui:109
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Закрыть"
@@ -498,17 +502,17 @@ msgstr "Главное меню"
 
 #. Translators: tooltip of a button of the headerbar, visible during a game; pauses the game
 #. Translators: tooltip of the pause button, when the game is running
-#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:707
+#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:726
 msgid "Pause"
 msgstr "Пауза"
 
 #. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles-adw.ui:188 data/ui/nibbles.ui:185
+#: data/ui/nibbles-adw.ui:186 data/ui/nibbles.ui:185
 msgid "Paused"
 msgstr "Приостановлено"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#: data/ui/nibbles.ui:77 src/nibbles-window.vala:609
+#: data/ui/nibbles.ui:77 src/nibbles-window.vala:619
 msgid "_New Game"
 msgstr "_Новая игра"
 
@@ -516,7 +520,7 @@ msgstr "_Новая игра"
 #. duplicated in nibbles.ui
 #. duplicated in nibbles.ui
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:102 src/nibbles-window.vala:711
+#: data/ui/nibbles.ui:102 src/nibbles-window.vala:730
 msgid "_Pause"
 msgstr "_Пауза"
 
@@ -585,42 +589,36 @@ msgstr "_Обычно"
 msgid "_Fast"
 msgstr "_Быстро"
 
-#. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses
+#. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates fake bonuses
 #: data/ui/speed.ui:136
-msgid "_Enable fake bonuses."
-msgstr "_Разрешить фальшивые бонусы."
+msgid "_Enable fake bonuses"
+msgstr "Разрешить _фальшивые бонусы"
 
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
-#: src/controls.vala:165
+#: src/controls.vala:221
 #, c-format
 msgid "Player %d"
 msgstr "Игрок %d"
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen
-#: src/controls.vala:238
+#: src/controls.vala:276
 msgid "Press a key for up."
 msgstr "Нажмите клавишу для перемещения вверх."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
-#: src/controls.vala:258
+#: src/controls.vala:296
 msgid "Press a key for down."
 msgstr "Нажмите клавишу для перемещения вниз."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
-#: src/controls.vala:278
+#: src/controls.vala:316
 msgid "Press a key for left."
 msgstr "Нажмите клавишу для перемещения влево."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
-#: src/controls.vala:298
+#: src/controls.vala:336
 msgid "Press a key for right."
 msgstr "Нажмите клавишу для перемещения вправо."
-
-#. instruction label
-#. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:627
-msgid "Select Your Color"
-msgstr "Выберите свой цвет"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
 #: src/gnome-nibbles.vala:81
@@ -698,12 +696,12 @@ msgid "Show release version"
 msgstr "Показать номер версии"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/gnome-nibbles.vala:177
+#: src/gnome-nibbles.vala:171
 msgid "Start level should only be between 1 and 26."
 msgstr "Значение начального уровня должно быть между 1 и 26."
 
 #. Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress'
-#: src/gnome-nibbles.vala:183
+#: src/gnome-nibbles.vala:177
 msgid ""
 "Progress method should be; 0 - sequentially, 1 - randomly, 2 - fixed board."
 msgstr ""
@@ -711,22 +709,22 @@ msgstr ""
 "случайным образом, 2 - с фиксированным уровнем."
 
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
-#: src/gnome-nibbles.vala:189
+#: src/gnome-nibbles.vala:183
 msgid "There could only be between 4 and 6 nibbles."
 msgstr "Всего может быть от 4 до 6 червячков."
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/gnome-nibbles.vala:195
+#: src/gnome-nibbles.vala:189
 msgid "There could only be between 1 and 4 players."
 msgstr "Всего может быть от 1 до 4 игроков."
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
-#: src/gnome-nibbles.vala:201
+#: src/gnome-nibbles.vala:195
 msgid "Speed should be between 4 (slow) and 1 (fast)."
 msgstr "Значение скорости должно быть числом между 4 (медленно) и 1 (быстро)."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/gnome-nibbles.vala:210
+#: src/gnome-nibbles.vala:204
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
@@ -734,290 +732,1122 @@ msgstr ""
 "взаимоисключающими."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
-#: src/gnome-nibbles.vala:222
+#: src/gnome-nibbles.vala:216
 msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "Параметры --3D (-3) и --2D (-2) являются взаимоисключающими."
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:384
+#: src/gnome-nibbles.vala:388
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:388
+#: src/gnome-nibbles.vala:392
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:392
+#: src/gnome-nibbles.vala:396
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:396
+#: src/gnome-nibbles.vala:400
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:400
+#: src/gnome-nibbles.vala:404
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:404
+#: src/gnome-nibbles.vala:408
 msgid "Ben Corby"
 msgstr "Ben Corby"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:408
+#: src/gnome-nibbles.vala:412
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:412
+#: src/gnome-nibbles.vala:416
 msgid "Allan Day"
 msgstr "Allan Day"
 
 #. Translators: the name of the app's developers, seen in the About dialog
-#: src/gnome-nibbles.vala:420
+#: src/gnome-nibbles.vala:424
 msgid "The GNOME Project"
 msgstr "Проект GNOME"
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:431
+#: src/gnome-nibbles.vala:435
 msgid "A worm game for GNOME"
 msgstr "Игра в червячка для среды GNOME"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:436
+#: src/gnome-nibbles.vala:440
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:440
+#: src/gnome-nibbles.vala:444
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "Copyright © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:444
+#: src/gnome-nibbles.vala:448
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "Copyright © %u-%u – Iulian-Gabriel Radu"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:448
+#: src/gnome-nibbles.vala:452
 #, c-format
 msgid "Copyright © %u-%u – Ben Corby"
 msgstr "Copyright © %u-%u – Ben Corby"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:452 src/gnome-nibbles.vala:462
+#: src/gnome-nibbles.vala:456 src/gnome-nibbles.vala:466
 msgid "translator-credits"
 msgstr ""
 "Stas Solovey <whats_up@tut.by>, 2016.\n"
 "Ivan Komaritsyn <vantu5z@mail.ru>, 2015.\n"
 "Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2015.\n"
-"Ser82-png <asvmail.as@gmail.com>, 2022-2024."
+"Ser82-png <asvmail.as@gmail.com>, 2022-2025."
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:607 src/players.vala:43
+#: src/nibbles-view.vala:672 src/players.vala:43
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:610 src/players.vala:46
+#: src/nibbles-view.vala:675 src/players.vala:46
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:613 src/players.vala:49
+#: src/nibbles-view.vala:678 src/players.vala:49
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:626
+#: src/nibbles-view.vala:691
 msgid "Worm 1"
 msgstr "Червячок 1"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:629
+#: src/nibbles-view.vala:694
 msgid "Worm 2"
 msgstr "Червячок 2"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:632
+#: src/nibbles-view.vala:697
 msgid "Worm 3"
 msgstr "Червячок 3"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:635
+#: src/nibbles-view.vala:700
 msgid "Worm 4"
 msgstr "Червячок 4"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:638
+#: src/nibbles-view.vala:703
 msgid "Worm 5"
 msgstr "Червячок 5"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:641
+#: src/nibbles-view.vala:706
 msgid "Worm 6"
 msgstr "Червячок 6"
 
-#. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:666
-msgid ""
-"Are you sure you want to start a new game?\n"
-"If you start a new game, the current one will be lost."
-msgstr ""
-"Вы уверены, что хотите начать новую игру?\n"
-"Если вы начнёте новую игру, текущая будет потеряна."
-
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1947
+#: src/nibbles-view.vala:1694
 msgid "red"
 msgstr "красный"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1949
+#: src/nibbles-view.vala:1696
 msgid "green"
 msgstr "зелёный"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1951
+#: src/nibbles-view.vala:1698
 msgid "blue"
 msgstr "синий"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1953
+#: src/nibbles-view.vala:1700
 msgid "yellow"
 msgstr "жёлтый"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1955
+#: src/nibbles-view.vala:1702
 msgid "cyan"
 msgstr "бирюзовый"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1957
+#: src/nibbles-view.vala:1704
 msgid "purple"
 msgstr "фиолетовый"
 
 #. Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:604
+#: src/nibbles-window.vala:614
 msgid "New Game?"
 msgstr "Новая игра?"
 
 #. Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:606
+#: src/nibbles-window.vala:616
 msgid "If you start a new game, the current one will be lost"
 msgstr "Если вы начнёте новую игру, текущая игра будет потеряна"
 
-#: src/nibbles-window.vala:608
+#: src/nibbles-window.vala:618
 msgid "_Cancel"
 msgstr "_Отменить"
 
 #. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:633
+#: src/nibbles-window.vala:643
 msgid "Are you sure you want to start a new game?"
 msgstr "Уверены, что хотите начать новую игру?"
 
 #. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:635
+#: src/nibbles-window.vala:645
 msgid "If you start a new game, the current one will be lost."
 msgstr "Если вы начнёте новую игру, текущая игра будет потеряна."
 
 #. Translators: tooltip of the pause button, when the game is paused
-#: src/nibbles-window.vala:696
+#: src/nibbles-window.vala:715
 msgid "Resume"
 msgstr "Возобновить"
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:700
+#: src/nibbles-window.vala:719
 msgid "_Resume"
 msgstr "_Возобновить"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:981 src/nibbles-window.vala:1211
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1436
 #, c-format
 msgid "Level %d"
 msgstr "Уровень %d"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1057
+#. Translators: The game type displayed on the scores dialog
+#: src/nibbles-window.vala:1041
 msgid "Beginner"
 msgstr "Для начинающих"
 
-#. Translators: Difficulty level displayed on the scores dialog
+#: src/nibbles-window.vala:1042
+msgid "Beginner with random levels"
+msgstr "Для начинающих, но на случайном уровне"
+
+#: src/nibbles-window.vala:1043
+msgid "Beginner, fixed on level 1"
+msgstr "Для начинающих, но закреплённый на уровне 1"
+
+#: src/nibbles-window.vala:1044
+msgid "Beginner, fixed on level 2"
+msgstr "Для начинающих, но закреплённый на уровне 2"
+
+#: src/nibbles-window.vala:1045
+msgid "Beginner, fixed on level 3"
+msgstr "Для начинающих, но закреплённый на уровне 3"
+
+#: src/nibbles-window.vala:1046
+msgid "Beginner, fixed on level 4"
+msgstr "Для начинающих, но закреплённый на уровне 4"
+
+#: src/nibbles-window.vala:1047
+msgid "Beginner, fixed on level 5"
+msgstr "Для начинающих, но закреплённый на уровне 5"
+
+#: src/nibbles-window.vala:1048
+msgid "Beginner, fixed on level 6"
+msgstr "Для начинающих, но закреплённый на уровне 6"
+
+#: src/nibbles-window.vala:1049
+msgid "Beginner, fixed on level 7"
+msgstr "Для начинающих, но закреплённый на уровне 7"
+
+#: src/nibbles-window.vala:1050
+msgid "Beginner, fixed on level 8"
+msgstr "Для начинающих, но закреплённый на уровне 8"
+
+#: src/nibbles-window.vala:1051
+msgid "Beginner, fixed on level 9"
+msgstr "Для начинающих, но закреплённый на уровне 9"
+
+#: src/nibbles-window.vala:1052
+msgid "Beginner, fixed on level 10"
+msgstr "Для начинающих, но закреплённый на уровне 10"
+
+#: src/nibbles-window.vala:1053
+msgid "Beginner, fixed on level 11"
+msgstr "Для начинающих, но закреплённый на уровне 11"
+
+#: src/nibbles-window.vala:1054
+msgid "Beginner, fixed on level 12"
+msgstr "Для начинающих, но закреплённый на уровне 12"
+
+#: src/nibbles-window.vala:1055
+msgid "Beginner, fixed on level 13"
+msgstr "Для начинающих, но закреплённый на уровне 13"
+
+#: src/nibbles-window.vala:1056
+msgid "Beginner, fixed on level 14"
+msgstr "Для начинающих, но закреплённый на уровне 14"
+
+#: src/nibbles-window.vala:1057
+msgid "Beginner, fixed on level 15"
+msgstr "Для начинающих, но закреплённый на уровне 15"
+
+#: src/nibbles-window.vala:1058
+msgid "Beginner, fixed on level 16"
+msgstr "Для начинающих, но закреплённый на уровне 16"
+
 #: src/nibbles-window.vala:1059
+msgid "Beginner, fixed on level 17"
+msgstr "Для начинающих, но закреплённый на уровне 17"
+
+#: src/nibbles-window.vala:1060
+msgid "Beginner, fixed on level 18"
+msgstr "Для начинающих, но закреплённый на уровне 18"
+
+#: src/nibbles-window.vala:1061
+msgid "Beginner, fixed on level 19"
+msgstr "Для начинающих, но закреплённый на уровне 19"
+
+#: src/nibbles-window.vala:1062
+msgid "Beginner, fixed on level 20"
+msgstr "Для начинающих, но закреплённый на уровне 20"
+
+#: src/nibbles-window.vala:1063
+msgid "Beginner, fixed on level 21"
+msgstr "Для начинающих, но закреплённый на уровне 21"
+
+#: src/nibbles-window.vala:1064
+msgid "Beginner, fixed on level 22"
+msgstr "Для начинающих, но закреплённый на уровне 22"
+
+#: src/nibbles-window.vala:1065
+msgid "Beginner, fixed on level 23"
+msgstr "Для начинающих, но закреплённый на уровне 23"
+
+#: src/nibbles-window.vala:1066
+msgid "Beginner, fixed on level 24"
+msgstr "Для начинающих, но закреплённый на уровне 24"
+
+#: src/nibbles-window.vala:1067
+msgid "Beginner, fixed on level 25"
+msgstr "Для начинающих, но закреплённый на уровне 25"
+
+#: src/nibbles-window.vala:1068
+msgid "Beginner, fixed on level 26"
+msgstr "Для начинающих, но закреплённый на уровне 26"
+
+#: src/nibbles-window.vala:1069
+msgid "Beginner with fakes and random levels"
+msgstr "Для начинающих, но c фальшивками и на случайном уровне"
+
+#: src/nibbles-window.vala:1070
+msgid "Beginner with fakes, fixed on level 1"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 1"
+
+#: src/nibbles-window.vala:1071
+msgid "Beginner with fakes, fixed on level 2"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 2"
+
+#: src/nibbles-window.vala:1072
+msgid "Beginner with fakes, fixed on level 3"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 3"
+
+#: src/nibbles-window.vala:1073
+msgid "Beginner with fakes, fixed on level 4"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 4"
+
+#: src/nibbles-window.vala:1074
+msgid "Beginner with fakes, fixed on level 5"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 5"
+
+#: src/nibbles-window.vala:1075
+msgid "Beginner with fakes, fixed on level 6"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 6"
+
+#: src/nibbles-window.vala:1076
+msgid "Beginner with fakes, fixed on level 7"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 7"
+
+#: src/nibbles-window.vala:1077
+msgid "Beginner with fakes, fixed on level 8"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 8"
+
+#: src/nibbles-window.vala:1078
+msgid "Beginner with fakes, fixed on level 9"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 9"
+
+#: src/nibbles-window.vala:1079
+msgid "Beginner with fakes, fixed on level 10"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 10"
+
+#: src/nibbles-window.vala:1080
+msgid "Beginner with fakes, fixed on level 11"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 11"
+
+#: src/nibbles-window.vala:1081
+msgid "Beginner with fakes, fixed on level 12"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 12"
+
+#: src/nibbles-window.vala:1082
+msgid "Beginner with fakes, fixed on level 13"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 13"
+
+#: src/nibbles-window.vala:1083
+msgid "Beginner with fakes, fixed on level 14"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 14"
+
+#: src/nibbles-window.vala:1084
+msgid "Beginner with fakes, fixed on level 15"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 15"
+
+#: src/nibbles-window.vala:1085
+msgid "Beginner with fakes, fixed on level 16"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 16"
+
+#: src/nibbles-window.vala:1086
+msgid "Beginner with fakes, fixed on level 17"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 17"
+
+#: src/nibbles-window.vala:1087
+msgid "Beginner with fakes, fixed on level 18"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 18"
+
+#: src/nibbles-window.vala:1088
+msgid "Beginner with fakes, fixed on level 19"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 19"
+
+#: src/nibbles-window.vala:1089
+msgid "Beginner with fakes, fixed on level 20"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 20"
+
+#: src/nibbles-window.vala:1090
+msgid "Beginner with fakes, fixed on level 21"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 21"
+
+#: src/nibbles-window.vala:1091
+msgid "Beginner with fakes, fixed on level 22"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 22"
+
+#: src/nibbles-window.vala:1092
+msgid "Beginner with fakes, fixed on level 23"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 23"
+
+#: src/nibbles-window.vala:1093
+msgid "Beginner with fakes, fixed on level 24"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 24"
+
+#: src/nibbles-window.vala:1094
+msgid "Beginner with fakes, fixed on level 25"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 25"
+
+#: src/nibbles-window.vala:1095
+msgid "Beginner with fakes, fixed on level 26"
+msgstr "Для начинающих, но с фальшивками и закреплённый на уровне 26"
+
+#: src/nibbles-window.vala:1096
 msgid "Slow"
 msgstr "Медленно"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1061
+#: src/nibbles-window.vala:1097
+msgid "Slow with random levels"
+msgstr "Медленно, но на случайном уровне"
+
+#: src/nibbles-window.vala:1098
+msgid "Slow, fixed on level 1"
+msgstr "Медленно, но закреплённый на уровне 1"
+
+#: src/nibbles-window.vala:1099
+msgid "Slow, fixed on level 2"
+msgstr "Медленно, но закреплённый на уровне 2"
+
+#: src/nibbles-window.vala:1100
+msgid "Slow, fixed on level 3"
+msgstr "Медленно, но закреплённый на уровне 3"
+
+#: src/nibbles-window.vala:1101
+msgid "Slow, fixed on level 4"
+msgstr "Медленно, но закреплённый на уровне 4"
+
+#: src/nibbles-window.vala:1102
+msgid "Slow, fixed on level 5"
+msgstr "Медленно, но закреплённый на уровне 5"
+
+#: src/nibbles-window.vala:1103
+msgid "Slow, fixed on level 6"
+msgstr "Медленно, но закреплённый на уровне 6"
+
+#: src/nibbles-window.vala:1104
+msgid "Slow, fixed on level 7"
+msgstr "Медленно, но закреплённый на уровне 7"
+
+#: src/nibbles-window.vala:1105
+msgid "Slow, fixed on level 8"
+msgstr "Медленно, но закреплённый на уровне 8"
+
+#: src/nibbles-window.vala:1106
+msgid "Slow, fixed on level 9"
+msgstr "Медленно, но закреплённый на уровне 9"
+
+#: src/nibbles-window.vala:1107
+msgid "Slow, fixed on level 10"
+msgstr "Медленно, но закреплённый на уровне 10"
+
+#: src/nibbles-window.vala:1108
+msgid "Slow, fixed on level 11"
+msgstr "Медленно, но закреплённый на уровне 11"
+
+#: src/nibbles-window.vala:1109
+msgid "Slow, fixed on level 12"
+msgstr "Медленно, но закреплённый на уровне 12"
+
+#: src/nibbles-window.vala:1110
+msgid "Slow, fixed on level 13"
+msgstr "Медленно, но закреплённый на уровне 13"
+
+#: src/nibbles-window.vala:1111
+msgid "Slow, fixed on level 14"
+msgstr "Медленно, но закреплённый на уровне 14"
+
+#: src/nibbles-window.vala:1112
+msgid "Slow, fixed on level 15"
+msgstr "Медленно, но закреплённый на уровне 15"
+
+#: src/nibbles-window.vala:1113
+msgid "Slow, fixed on level 16"
+msgstr "Медленно, но закреплённый на уровне 16"
+
+#: src/nibbles-window.vala:1114
+msgid "Slow, fixed on level 17"
+msgstr "Медленно, но закреплённый на уровне 17"
+
+#: src/nibbles-window.vala:1115
+msgid "Slow, fixed on level 18"
+msgstr "Медленно, но закреплённый на уровне 18"
+
+#: src/nibbles-window.vala:1116
+msgid "Slow, fixed on level 19"
+msgstr "Медленно, но закреплённый на уровне 19"
+
+#: src/nibbles-window.vala:1117
+msgid "Slow, fixed on level 20"
+msgstr "Медленно, но закреплённый на уровне 20"
+
+#: src/nibbles-window.vala:1118
+msgid "Slow, fixed on level 21"
+msgstr "Медленно, но закреплённый на уровне 21"
+
+#: src/nibbles-window.vala:1119
+msgid "Slow, fixed on level 22"
+msgstr "Медленно, но закреплённый на уровне 22"
+
+#: src/nibbles-window.vala:1120
+msgid "Slow, fixed on level 23"
+msgstr "Медленно, но закреплённый на уровне 23"
+
+#: src/nibbles-window.vala:1121
+msgid "Slow, fixed on level 24"
+msgstr "Медленно, но закреплённый на уровне 24"
+
+#: src/nibbles-window.vala:1122
+msgid "Slow, fixed on level 25"
+msgstr "Медленно, но закреплённый на уровне 26"
+
+#: src/nibbles-window.vala:1123
+msgid "Slow, fixed on level 26"
+msgstr "Медленно, но закреплённый на уровне 26"
+
+#: src/nibbles-window.vala:1124
+msgid "Slow with fakes and random levels"
+msgstr "Медленно, но c фальшивками и на случайном уровне"
+
+#: src/nibbles-window.vala:1125
+msgid "Slow with fakes, fixed on level 1"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 1"
+
+#: src/nibbles-window.vala:1126
+msgid "Slow with fakes, fixed on level 2"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 2"
+
+#: src/nibbles-window.vala:1127
+msgid "Slow with fakes, fixed on level 3"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 3"
+
+#: src/nibbles-window.vala:1128
+msgid "Slow with fakes, fixed on level 4"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 4"
+
+#: src/nibbles-window.vala:1129
+msgid "Slow with fakes, fixed on level 5"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 5"
+
+#: src/nibbles-window.vala:1130
+msgid "Slow with fakes, fixed on level 6"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 6"
+
+#: src/nibbles-window.vala:1131
+msgid "Slow with fakes, fixed on level 7"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 7"
+
+#: src/nibbles-window.vala:1132
+msgid "Slow with fakes, fixed on level 8"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 8"
+
+#: src/nibbles-window.vala:1133
+msgid "Slow with fakes, fixed on level 9"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 9"
+
+#: src/nibbles-window.vala:1134
+msgid "Slow with fakes, fixed on level 10"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 10"
+
+#: src/nibbles-window.vala:1135
+msgid "Slow with fakes, fixed on level 11"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 11"
+
+#: src/nibbles-window.vala:1136
+msgid "Slow with fakes, fixed on level 12"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 12"
+
+#: src/nibbles-window.vala:1137
+msgid "Slow with fakes, fixed on level 13"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 13"
+
+#: src/nibbles-window.vala:1138
+msgid "Slow with fakes, fixed on level 14"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 14"
+
+#: src/nibbles-window.vala:1139
+msgid "Slow with fakes, fixed on level 15"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 15"
+
+#: src/nibbles-window.vala:1140
+msgid "Slow with fakes, fixed on level 16"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 16"
+
+#: src/nibbles-window.vala:1141
+msgid "Slow with fakes, fixed on level 17"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 17"
+
+#: src/nibbles-window.vala:1142
+msgid "Slow with fakes, fixed on level 18"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 18"
+
+#: src/nibbles-window.vala:1143
+msgid "Slow with fakes, fixed on level 19"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 19"
+
+#: src/nibbles-window.vala:1144
+msgid "Slow with fakes, fixed on level 20"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 20"
+
+#: src/nibbles-window.vala:1145
+msgid "Slow with fakes, fixed on level 21"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 21"
+
+#: src/nibbles-window.vala:1146
+msgid "Slow with fakes, fixed on level 22"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 22"
+
+#: src/nibbles-window.vala:1147
+msgid "Slow with fakes, fixed on level 23"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 23"
+
+#: src/nibbles-window.vala:1148
+msgid "Slow with fakes, fixed on level 24"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 24"
+
+#: src/nibbles-window.vala:1149
+msgid "Slow with fakes, fixed on level 25"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 25"
+
+#: src/nibbles-window.vala:1150
+msgid "Slow with fakes, fixed on level 26"
+msgstr "Медленно, но с фальшивками и закреплённый на уровне 26"
+
+#: src/nibbles-window.vala:1151
 msgid "Medium"
 msgstr "Обычно"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1063
+#: src/nibbles-window.vala:1152
+msgid "Medium with random levels"
+msgstr "Обычно, но на случайном уровне"
+
+#: src/nibbles-window.vala:1153
+msgid "Medium, fixed on level 1"
+msgstr "Обычно, но закреплённый на уровне 1"
+
+#: src/nibbles-window.vala:1154
+msgid "Medium, fixed on level 2"
+msgstr "Обычно, но закреплённый на уровне 2"
+
+#: src/nibbles-window.vala:1155
+msgid "Medium, fixed on level 3"
+msgstr "Обычно, но закреплённый на уровне 3"
+
+#: src/nibbles-window.vala:1156
+msgid "Medium, fixed on level 4"
+msgstr "Обычно, но закреплённый на уровне 4"
+
+#: src/nibbles-window.vala:1157
+msgid "Medium, fixed on level 5"
+msgstr "Обычно, но закреплённый на уровне 5"
+
+#: src/nibbles-window.vala:1158
+msgid "Medium, fixed on level 6"
+msgstr "Обычно, но закреплённый на уровне 6"
+
+#: src/nibbles-window.vala:1159
+msgid "Medium, fixed on level 7"
+msgstr "Обычно, но закреплённый на уровне 7"
+
+#: src/nibbles-window.vala:1160
+msgid "Medium, fixed on level 8"
+msgstr "Обычно, но закреплённый на уровне 8"
+
+#: src/nibbles-window.vala:1161
+msgid "Medium, fixed on level 9"
+msgstr "Обычно, но закреплённый на уровне 9"
+
+#: src/nibbles-window.vala:1162
+msgid "Medium, fixed on level 10"
+msgstr "Обычно, но закреплённый на уровне 10"
+
+#: src/nibbles-window.vala:1163
+msgid "Medium, fixed on level 11"
+msgstr "Обычно, но закреплённый на уровне 11"
+
+#: src/nibbles-window.vala:1164
+msgid "Medium, fixed on level 12"
+msgstr "Обычно, но закреплённый на уровне 12"
+
+#: src/nibbles-window.vala:1165
+msgid "Medium, fixed on level 13"
+msgstr "Обычно, но закреплённый на уровне 13"
+
+#: src/nibbles-window.vala:1166
+msgid "Medium, fixed on level 14"
+msgstr "Обычно, но закреплённый на уровне 14"
+
+#: src/nibbles-window.vala:1167
+msgid "Medium, fixed on level 15"
+msgstr "Обычно, но закреплённый на уровне 15"
+
+#: src/nibbles-window.vala:1168
+msgid "Medium, fixed on level 16"
+msgstr "Обычно, но закреплённый на уровне 16"
+
+#: src/nibbles-window.vala:1169
+msgid "Medium, fixed on level 17"
+msgstr "Обычно, но закреплённый на уровне 17"
+
+#: src/nibbles-window.vala:1170
+msgid "Medium, fixed on level 18"
+msgstr "Обычно, но закреплённый на уровне 18"
+
+#: src/nibbles-window.vala:1171
+msgid "Medium, fixed on level 19"
+msgstr "Обычно, но закреплённый на уровне 19"
+
+#: src/nibbles-window.vala:1172
+msgid "Medium, fixed on level 20"
+msgstr "Обычно, но закреплённый на уровне 20"
+
+#: src/nibbles-window.vala:1173
+msgid "Medium, fixed on level 21"
+msgstr "Обычно, но закреплённый на уровне 21"
+
+#: src/nibbles-window.vala:1174
+msgid "Medium, fixed on level 22"
+msgstr "Обычно, но закреплённый на уровне 22"
+
+#: src/nibbles-window.vala:1175
+msgid "Medium, fixed on level 23"
+msgstr "Обычно, но закреплённый на уровне 23"
+
+#: src/nibbles-window.vala:1176
+msgid "Medium, fixed on level 24"
+msgstr "Обычно, но закреплённый на уровне 24"
+
+#: src/nibbles-window.vala:1177
+msgid "Medium, fixed on level 25"
+msgstr "Обычно, но закреплённый на уровне 25"
+
+#: src/nibbles-window.vala:1178
+msgid "Medium, fixed on level 26"
+msgstr "Обычно, но закреплённый на уровне 26"
+
+#: src/nibbles-window.vala:1179
+msgid "Medium with fakes and random levels"
+msgstr "Обычно, но c фальшивками и на случайном уровне"
+
+#: src/nibbles-window.vala:1180
+msgid "Medium with fakes, fixed on level 1"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 1"
+
+#: src/nibbles-window.vala:1181
+msgid "Medium with fakes, fixed on level 2"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 2"
+
+#: src/nibbles-window.vala:1182
+msgid "Medium with fakes, fixed on level 3"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 3"
+
+#: src/nibbles-window.vala:1183
+msgid "Medium with fakes, fixed on level 4"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 4"
+
+#: src/nibbles-window.vala:1184
+msgid "Medium with fakes, fixed on level 5"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 5"
+
+#: src/nibbles-window.vala:1185
+msgid "Medium with fakes, fixed on level 6"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 6"
+
+#: src/nibbles-window.vala:1186
+msgid "Medium with fakes, fixed on level 7"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 7"
+
+#: src/nibbles-window.vala:1187
+msgid "Medium with fakes, fixed on level 8"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 8"
+
+#: src/nibbles-window.vala:1188
+msgid "Medium with fakes, fixed on level 9"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 9"
+
+#: src/nibbles-window.vala:1189
+msgid "Medium with fakes, fixed on level 10"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 10"
+
+#: src/nibbles-window.vala:1190
+msgid "Medium with fakes, fixed on level 11"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 11"
+
+#: src/nibbles-window.vala:1191
+msgid "Medium with fakes, fixed on level 12"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 12"
+
+#: src/nibbles-window.vala:1192
+msgid "Medium with fakes, fixed on level 13"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 13"
+
+#: src/nibbles-window.vala:1193
+msgid "Medium with fakes, fixed on level 14"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 14"
+
+#: src/nibbles-window.vala:1194
+msgid "Medium with fakes, fixed on level 15"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 15"
+
+#: src/nibbles-window.vala:1195
+msgid "Medium with fakes, fixed on level 16"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 16"
+
+#: src/nibbles-window.vala:1196
+msgid "Medium with fakes, fixed on level 17"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 17"
+
+#: src/nibbles-window.vala:1197
+msgid "Medium with fakes, fixed on level 18"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 18"
+
+#: src/nibbles-window.vala:1198
+msgid "Medium with fakes, fixed on level 19"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 19"
+
+#: src/nibbles-window.vala:1199
+msgid "Medium with fakes, fixed on level 20"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 20"
+
+#: src/nibbles-window.vala:1200
+msgid "Medium with fakes, fixed on level 21"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 21"
+
+#: src/nibbles-window.vala:1201
+msgid "Medium with fakes, fixed on level 22"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 22"
+
+#: src/nibbles-window.vala:1202
+msgid "Medium with fakes, fixed on level 23"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 23"
+
+#: src/nibbles-window.vala:1203
+msgid "Medium with fakes, fixed on level 24"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 24"
+
+#: src/nibbles-window.vala:1204
+msgid "Medium with fakes, fixed on level 25"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 25"
+
+#: src/nibbles-window.vala:1205
+msgid "Medium with fakes, fixed on level 26"
+msgstr "Обычно, но с фальшивками и закреплённый на уровне 26"
+
+#: src/nibbles-window.vala:1206
 msgid "Fast"
 msgstr "Быстро"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1065
-msgid "Beginner with Fakes"
-msgstr "Для начинающих, но с фальшивками"
+#: src/nibbles-window.vala:1207
+msgid "Fast with random levels"
+msgstr "Быстро, но на случайном уровне"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1067
-msgid "Slow with Fakes"
-msgstr "Медленно и с фальшивками"
+#: src/nibbles-window.vala:1208
+msgid "Fast, fixed on level 1"
+msgstr "Быстро, но закреплённый на уровне 1"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1069
-msgid "Medium with Fakes"
-msgstr "Обычно и с фальшивками"
+#: src/nibbles-window.vala:1209
+msgid "Fast, fixed on level 2"
+msgstr "Быстро, но закреплённый на уровне 2"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1071
-msgid "Fast with Fakes"
-msgstr "Быстро и с фальшивками"
+#: src/nibbles-window.vala:1210
+msgid "Fast, fixed on level 3"
+msgstr "Быстро, но закреплённый на уровне 3"
+
+#: src/nibbles-window.vala:1211
+msgid "Fast, fixed on level 4"
+msgstr "Быстро, но закреплённый на уровне 4"
+
+#: src/nibbles-window.vala:1212
+msgid "Fast, fixed on level 5"
+msgstr "Быстро, но закреплённый на уровне 5"
+
+#: src/nibbles-window.vala:1213
+msgid "Fast, fixed on level 6"
+msgstr "Быстро, но закреплённый на уровне 6"
+
+#: src/nibbles-window.vala:1214
+msgid "Fast, fixed on level 7"
+msgstr "Быстро, но закреплённый на уровне 7"
+
+#: src/nibbles-window.vala:1215
+msgid "Fast, fixed on level 8"
+msgstr "Быстро, но закреплённый на уровне 8"
+
+#: src/nibbles-window.vala:1216
+msgid "Fast, fixed on level 9"
+msgstr "Быстро, но закреплённый на уровне 9"
+
+#: src/nibbles-window.vala:1217
+msgid "Fast, fixed on level 10"
+msgstr "Быстро, но закреплённый на уровне 10"
+
+#: src/nibbles-window.vala:1218
+msgid "Fast, fixed on level 11"
+msgstr "Быстро, но закреплённый на уровне 11"
+
+#: src/nibbles-window.vala:1219
+msgid "Fast, fixed on level 12"
+msgstr "Быстро, но закреплённый на уровне 12"
+
+#: src/nibbles-window.vala:1220
+msgid "Fast, fixed on level 13"
+msgstr "Быстро, но закреплённый на уровне 13"
+
+#: src/nibbles-window.vala:1221
+msgid "Fast, fixed on level 14"
+msgstr "Быстро, но закреплённый на уровне 14"
+
+#: src/nibbles-window.vala:1222
+msgid "Fast, fixed on level 15"
+msgstr "Быстро, но закреплённый на уровне 15"
+
+#: src/nibbles-window.vala:1223
+msgid "Fast, fixed on level 16"
+msgstr "Быстро, но закреплённый на уровне 16"
+
+#: src/nibbles-window.vala:1224
+msgid "Fast, fixed on level 17"
+msgstr "Быстро, но закреплённый на уровне 17"
+
+#: src/nibbles-window.vala:1225
+msgid "Fast, fixed on level 18"
+msgstr "Быстро, но закреплённый на уровне 18"
+
+#: src/nibbles-window.vala:1226
+msgid "Fast, fixed on level 19"
+msgstr "Быстро, но закреплённый на уровне 19"
+
+#: src/nibbles-window.vala:1227
+msgid "Fast, fixed on level 20"
+msgstr "Быстро, но закреплённый на уровне 20"
+
+#: src/nibbles-window.vala:1228
+msgid "Fast, fixed on level 21"
+msgstr "Быстро, но закреплённый на уровне 21"
+
+#: src/nibbles-window.vala:1229
+msgid "Fast, fixed on level 22"
+msgstr "Быстро, но закреплённый на уровне 22"
+
+#: src/nibbles-window.vala:1230
+msgid "Fast, fixed on level 23"
+msgstr "Быстро, но закреплённый на уровне 23"
+
+#: src/nibbles-window.vala:1231
+msgid "Fast, fixed on level 24"
+msgstr "Быстро, но закреплённый на уровне 24"
+
+#: src/nibbles-window.vala:1232
+msgid "Fast, fixed on level 25"
+msgstr "Быстро, но закреплённый на уровне 25"
+
+#: src/nibbles-window.vala:1233
+msgid "Fast, fixed on level 26"
+msgstr "Быстро, но закреплённый на уровне 26"
+
+#: src/nibbles-window.vala:1234
+msgid "Fast with fakes and random levels"
+msgstr "Быстро, но c фальшивками и на случайном уровне"
+
+#: src/nibbles-window.vala:1235
+msgid "Fast with fakes, fixed on level 1"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 1"
+
+#: src/nibbles-window.vala:1236
+msgid "Fast with fakes, fixed on level 2"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 2"
+
+#: src/nibbles-window.vala:1237
+msgid "Fast with fakes, fixed on level 3"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 3"
+
+#: src/nibbles-window.vala:1238
+msgid "Fast with fakes, fixed on level 4"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 4"
+
+#: src/nibbles-window.vala:1239
+msgid "Fast with fakes, fixed on level 5"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 5"
+
+#: src/nibbles-window.vala:1240
+msgid "Fast with fakes, fixed on level 6"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 6"
+
+#: src/nibbles-window.vala:1241
+msgid "Fast with fakes, fixed on level 7"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 7"
+
+#: src/nibbles-window.vala:1242
+msgid "Fast with fakes, fixed on level 8"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 8"
+
+#: src/nibbles-window.vala:1243
+msgid "Fast with fakes, fixed on level 9"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 9"
+
+#: src/nibbles-window.vala:1244
+msgid "Fast with fakes, fixed on level 10"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 10"
+
+#: src/nibbles-window.vala:1245
+msgid "Fast with fakes, fixed on level 11"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 11"
+
+#: src/nibbles-window.vala:1246
+msgid "Fast with fakes, fixed on level 12"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 12"
+
+#: src/nibbles-window.vala:1247
+msgid "Fast with fakes, fixed on level 13"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 13"
+
+#: src/nibbles-window.vala:1248
+msgid "Fast with fakes, fixed on level 14"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 14"
+
+#: src/nibbles-window.vala:1249
+msgid "Fast with fakes, fixed on level 15"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 15"
+
+#: src/nibbles-window.vala:1250
+msgid "Fast with fakes, fixed on level 16"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 16"
+
+#: src/nibbles-window.vala:1251
+msgid "Fast with fakes, fixed on level 17"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 17"
+
+#: src/nibbles-window.vala:1252
+msgid "Fast with fakes, fixed on level 18"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 18"
+
+#: src/nibbles-window.vala:1253
+msgid "Fast with fakes, fixed on level 19"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 19"
+
+#: src/nibbles-window.vala:1254
+msgid "Fast with fakes, fixed on level 20"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 20"
+
+#: src/nibbles-window.vala:1255
+msgid "Fast with fakes, fixed on level 21"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 21"
+
+#: src/nibbles-window.vala:1256
+msgid "Fast with fakes, fixed on level 22"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 22"
+
+#: src/nibbles-window.vala:1257
+msgid "Fast with fakes, fixed on level 23"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 23"
+
+#: src/nibbles-window.vala:1258
+msgid "Fast with fakes, fixed on level 24"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 24"
+
+#: src/nibbles-window.vala:1259
+msgid "Fast with fakes, fixed on level 25"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 25"
+
+#: src/nibbles-window.vala:1260
+msgid "Fast with fakes, fixed on level 26"
+msgstr "Быстро, но с фальшивками и закреплённый на уровне 26"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1076
+#: src/nibbles-window.vala:1285
 msgid "Difficulty Level:"
 msgstr "Уровень сложности:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1182
+#: src/nibbles-window.vala:1407
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Уровень %d завершён!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1193
+#: src/nibbles-window.vala:1418
 msgid "_Next Level"
 msgstr "_Следующий уровень"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1244
+#: src/nibbles-window.vala:1475
 msgid "Congratulations!"
 msgstr "Поздравляем!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1247
+#: src/nibbles-window.vala:1478
 msgid "Game Over!"
 msgstr "Игра окончена!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1258
+#: src/nibbles-window.vala:1489
 msgid "You have completed the game."
 msgstr "Вы прошли игру."
 
-#: src/nibbles-window.vala:1268
+#: src/nibbles-window.vala:1499
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -1026,13 +1856,13 @@ msgstr[1] "%d очка"
 msgstr[2] "%d очков"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1279
+#: src/nibbles-window.vala:1510
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(до попадания на доску почёта осталось набрать очков: %ld)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1286
+#: src/nibbles-window.vala:1517
 msgid "_Play Again"
 msgstr "_Сыграть ещё раз"
 
@@ -1057,8 +1887,18 @@ msgstr "5"
 msgid "Worm %d"
 msgstr "Червячок %d"
 
-#~ msgid "_Enable fake bonuses"
-#~ msgstr "Разрешить _фальшивые бонусы"
+#~ msgid "_Enable fake bonuses."
+#~ msgstr "_Разрешить фальшивые бонусы."
+
+#~ msgid "Select Your Color"
+#~ msgstr "Выберите свой цвет"
+
+#~ msgid ""
+#~ "Are you sure you want to start a new game?\n"
+#~ "If you start a new game, the current one will be lost."
+#~ msgstr ""
+#~ "Вы уверены, что хотите начать новую игру?\n"
+#~ "Если вы начнёте новую игру, текущая будет потеряна."
 
 #~ msgid "Michael Catanzaro"
 #~ msgstr "Michael Catanzaro"
