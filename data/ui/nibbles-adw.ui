@@ -34,6 +34,11 @@
         <attribute name="label" translatable="yes">_3D View</attribute>
         <attribute name="action">win.three-dimensional-view</attribute>
       </item>
+      <item>
+        <!-- Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); switch to full screen mode -->
+        <attribute name="label" translatable="yes">_Full screen</attribute>
+        <attribute name="action">win.fullscreen</attribute>
+      </item>
     </section>
     <section>
       <item>
@@ -111,8 +116,8 @@
         <property name="content">
           <object class="GtkStack" id="main_stack">
             <property name="visible">1</property>
-            <property name="margin-top">25</property>
-            <property name="margin-bottom">25</property>
+            <property name="margin-top">0</property>
+            <property name="margin-bottom">0</property>
             <property name="hexpand">1</property>
             <property name="vexpand">1</property>
             <property name="transition-type">slide-up</property>

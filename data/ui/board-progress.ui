@@ -2,7 +2,7 @@
 <!--
    This file is part of GNOME Nibbles.
 
-   Copyright (C) 2024 Ben Corby
+   Copyright (C) 2024-2025 Ben Corby
 
    GNOME Nibbles is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -118,6 +118,7 @@
         <property name="halign">center</property>
         <property name="width-request">116</property>
         <property name="height-request">34</property>
+        <property name="margin-bottom">25</property>
         <style>
           <class name="suggested-action"/>
           <class name="play"/>

@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2023-2024 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2023-2025 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -77,9 +77,7 @@ private class NibblesWindow : ApplicationWindow
     private GLib.Settings settings;
     private Gee.ArrayList<GLib.Settings> worm_settings;
 
-    private bool fullscreen = false;
-    private bool fullscreen_was_maximized = false;
-    private bool fullscreen_show_scores = false;
+    private bool fullscreen_mode = false;
 
     /* Main widgets */
     [GtkChild] private unowned Stack main_stack;
@@ -224,6 +222,7 @@ private class NibblesWindow : ApplicationWindow
     private Games.Scores.Context scores_context;
 
     /* HeaderBar actions */
+    private SimpleAction hamburger_action;
     private SimpleAction new_game_action;
     private SimpleAction fullscreen_action;
     private SimpleAction pause_action;
@@ -241,6 +240,7 @@ private class NibblesWindow : ApplicationWindow
 
     private const GLib.ActionEntry menu_entries[] =
     {
+        { "hamburger",      hamburger_cb    },
         { "new-game",       new_game_cb     },  // the "New Game" button (during game), or the ctrl-N shortcut (mostly all the time)
         { "fullscreen",     fullscreen_cb   },
         { "pause",          pause_cb        },
@@ -281,6 +281,7 @@ private class NibblesWindow : ApplicationWindow
     construct
     {
         add_action_entries (menu_entries, this);
+        hamburger_action    = (SimpleAction) lookup_action ("hamburger");
         new_game_action     = (SimpleAction) lookup_action ("new-game");
         fullscreen_action   = (SimpleAction) lookup_action ("fullscreen");
         pause_action        = (SimpleAction) lookup_action ("pause");
@@ -497,9 +498,6 @@ private class NibblesWindow : ApplicationWindow
 
         if (seconds == 0)
         {
-            if (!fullscreen)
-                statusbar_stack.set_visible_child_name ("scoreboard");
-
             game.start (/* add initial bonus */ true);
 
             pause_action.set_enabled (true);
@@ -560,6 +558,12 @@ private class NibblesWindow : ApplicationWindow
         start_game_with_countdown ();
     }
 
+    private void hamburger_cb ()
+    {
+        if (!fullscreen_active () && !hamburger_menu.get_active())
+            hamburger_menu.popup ();
+    }
+    
     private void new_game_cb ()
     {
         var child_name = main_stack.get_visible_child_name ();
@@ -575,8 +579,8 @@ private class NibblesWindow : ApplicationWindow
                 start_game ();
                 break;
             case "game_box":
-                if (fullscreen)
-                    fullscreen_cb ();
+                if ((game.is_running || countdown_active () > 0) && fullscreen_active ())
+                    fullscreen_cb (); /* escape key switches off full screen mode */
                 else
                 {
                     overlay_remove_all ();
@@ -663,34 +667,30 @@ private class NibblesWindow : ApplicationWindow
 
     private void fullscreen_cb ()
     {
-        #if USE_LIBADWAITA
         if (game != null)
         {
-            if (fullscreen)
+            if (fullscreen_mode)
             {
                 /* restore original window */
-                main_stack.margin_top = 25;
-                main_stack.margin_bottom = 25;
+                #if USE_LIBADWAITA
                 toolbar.reveal_top_bars = true;
                 toolbar.reveal_bottom_bars = true;
+                #endif
                 statusbar_stack.visible = true;
-                if (!fullscreen_was_maximized)
-                    unmaximize ();
+                unfullscreen ();
             }
             else
             {
-                /* set to full screen */
-                fullscreen_was_maximized = is_maximized ();
-                main_stack.margin_top = fullscreen_show_scores ? 25 : 0;
-                main_stack.margin_bottom = 0;
+                /* set to full screen mode */
+                fullscreen ();
+                #if USE_LIBADWAITA
                 toolbar.reveal_top_bars = false;
                 toolbar.reveal_bottom_bars = false;
-                statusbar_stack.visible = fullscreen_show_scores;
-                maximize();
+                #endif
+                statusbar_stack.visible = !(game.is_running || countdown_active () > 0);
             }
-            fullscreen = !fullscreen;
+            fullscreen_mode = !fullscreen_mode;
         }
-        #endif
     }
 
     private void pause_cb ()
@@ -699,7 +699,7 @@ private class NibblesWindow : ApplicationWindow
         {
             game.paused = game.is_running;
             set_pause_button_label (game.paused);
-            if (!fullscreen)
+            if (!fullscreen_active ())
                 statusbar_stack.set_visible_child_name (game.paused ? "paused" : "scoreboard");
             if (!game.paused)
                 view.grab_focus ();
@@ -1001,6 +1001,7 @@ private class NibblesWindow : ApplicationWindow
         main_stack.set_visible_child_name ("game_box");
 
         main_stack.set_transition_type (StackTransitionType.SLIDE_UP);
+        statusbar_stack.visible = !fullscreen_active ();
         view.set_visible (true);
     }
 
@@ -1328,9 +1329,6 @@ private class NibblesWindow : ApplicationWindow
 
     private void log_score_cb (int score, int level_reached)
     {
-        if (fullscreen)
-            fullscreen_cb (); /* drop out of full screen */
-
         /* Disable these here to prevent the user clicking the buttons before the score is saved */
         new_game_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -1392,13 +1390,7 @@ private class NibblesWindow : ApplicationWindow
             game.progress == 1 && game.levels_uncompleated.length == 0)
             return;
 
-        if (fullscreen)
-        {
-            main_stack.margin_top = 25;
-            statusbar_stack.visible = true;
-            fullscreen_show_scores = true;
-        }
-
+        statusbar_stack.visible = true;
         view.set_visible (false);
         pause_action.set_enabled (false);
         back_action.set_enabled (false);
@@ -1435,12 +1427,6 @@ private class NibblesWindow : ApplicationWindow
             /* Translators: title of the headerbar, while a game is running; the %d is replaced by the level number */
             set_headerbar_title (_("Level %d").printf (game.current_level));
 
-            if (fullscreen)
-            {
-                main_stack.margin_top = 0;
-                statusbar_stack.visible = false;
-                fullscreen_show_scores = false;
-            }
             view.set_visible (true);
 
             restart_game ();
@@ -1462,6 +1448,8 @@ private class NibblesWindow : ApplicationWindow
     private bool end_of_game = false;
     private void game_over (int score, long lowest_high_score, int level_reached)
     {
+        statusbar_stack.visible = true;
+
         var is_high_score = (score > lowest_high_score);
         bool is_game_won;
         if (game.progress == 0)
@@ -1555,7 +1543,7 @@ private class NibblesWindow : ApplicationWindow
     
     bool fullscreen_active ()
     {
-        return fullscreen;
+        return fullscreen_mode;
     }
 }
 
