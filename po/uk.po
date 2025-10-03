@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2025-09-20 01:18+0000\n"
-"PO-Revision-Date: 2025-09-20 20:35+0300\n"
+"POT-Creation-Date: 2025-10-03 00:05+0000\n"
+"PO-Revision-Date: 2025-10-03 08:58+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -301,6 +301,18 @@ msgstr ""
 "Пограти самому проти до п'яти ворожих хробаків або поділитись клавіатурою, "
 "щоб пограти з другом."
 
+#: data/org.gnome.Nibbles.metainfo.xml.in:30
+msgid "Nibbles' welcome screen"
+msgstr "Вікно вітання «Хробаків»"
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:34
+msgid "Level 1 with 5 players"
+msgstr "Рівень 1 з 5 гравцями"
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:38
+msgid "Level 18 with 6 players"
+msgstr "Рівень 18 з 6 гравцями"
+
 #. Translators: title of the Are You Sure? window
 #: data/ui/are-you-sure.ui:27
 msgid "Are You Sure?"
@@ -577,7 +589,6 @@ msgstr "_Швидко"
 
 #. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates fake bonuses
 #: data/ui/speed.ui:136
-#| msgid "_Enable fake bonuses."
 msgid "_Enable fake bonuses"
 msgstr "_Увімкнути фальшиві премії"
 
@@ -928,7 +939,6 @@ msgid "Beginner"
 msgstr "Початківець"
 
 #: src/nibbles-window.vala:1042
-#| msgid "Beginner with Fakes"
 msgid "Beginner with random levels"
 msgstr "Початківець з випадковими рівнями"
 
@@ -1037,137 +1047,110 @@ msgid "Beginner, fixed on level 26"
 msgstr "Початківець, зафіксовано на рівні 26"
 
 #: src/nibbles-window.vala:1069
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes and random levels"
 msgstr "Початківець з шахрайством і випадковими рівнями"
 
 #: src/nibbles-window.vala:1070
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 1"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 1"
 
 #: src/nibbles-window.vala:1071
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 2"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 2"
 
 #: src/nibbles-window.vala:1072
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 3"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 3"
 
 #: src/nibbles-window.vala:1073
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 4"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 4"
 
 #: src/nibbles-window.vala:1074
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 5"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 5"
 
 #: src/nibbles-window.vala:1075
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 6"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 6"
 
 #: src/nibbles-window.vala:1076
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 7"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 7"
 
 #: src/nibbles-window.vala:1077
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 8"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 8"
 
 #: src/nibbles-window.vala:1078
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 9"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 9"
 
 #: src/nibbles-window.vala:1079
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 10"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 10"
 
 #: src/nibbles-window.vala:1080
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 11"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 11"
 
 #: src/nibbles-window.vala:1081
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 12"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 12"
 
 #: src/nibbles-window.vala:1082
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 13"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 13"
 
 #: src/nibbles-window.vala:1083
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 14"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 14"
 
 #: src/nibbles-window.vala:1084
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 15"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 15"
 
 #: src/nibbles-window.vala:1085
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 16"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 16"
 
 #: src/nibbles-window.vala:1086
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 17"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 17"
 
 #: src/nibbles-window.vala:1087
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 18"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 18"
 
 #: src/nibbles-window.vala:1088
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 19"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 19"
 
 #: src/nibbles-window.vala:1089
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 20"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 20"
 
 #: src/nibbles-window.vala:1090
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 21"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 21"
 
 #: src/nibbles-window.vala:1091
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 22"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 22"
 
 #: src/nibbles-window.vala:1092
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 23"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 23"
 
 #: src/nibbles-window.vala:1093
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 24"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 24"
 
 #: src/nibbles-window.vala:1094
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 25"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 25"
 
 #: src/nibbles-window.vala:1095
-#| msgid "Beginner with Fakes"
 msgid "Beginner with fakes, fixed on level 26"
 msgstr "Початківець з шахрайством, зафіксовано на рівні 26"
 
@@ -1176,7 +1159,6 @@ msgid "Slow"
 msgstr "Повільно"
 
 #: src/nibbles-window.vala:1097
-#| msgid "Slow with Fakes"
 msgid "Slow with random levels"
 msgstr "Повільно з випадковими рівнями"
 
@@ -1397,7 +1379,6 @@ msgid "Medium"
 msgstr "Помірно"
 
 #: src/nibbles-window.vala:1152
-#| msgid "Medium with Fakes"
 msgid "Medium with random levels"
 msgstr "Помірно з випадковими рівнями"
 
@@ -1506,137 +1487,110 @@ msgid "Medium, fixed on level 26"
 msgstr "Помірно, зафіксовано на рівні 26"
 
 #: src/nibbles-window.vala:1179
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes and random levels"
 msgstr "Помірно з шахрайством і випадковими рівнями"
 
 #: src/nibbles-window.vala:1180
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 1"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 1"
 
 #: src/nibbles-window.vala:1181
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 2"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 2"
 
 #: src/nibbles-window.vala:1182
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 3"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 3"
 
 #: src/nibbles-window.vala:1183
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 4"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 4"
 
 #: src/nibbles-window.vala:1184
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 5"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 5"
 
 #: src/nibbles-window.vala:1185
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 6"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 6"
 
 #: src/nibbles-window.vala:1186
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 7"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 7"
 
 #: src/nibbles-window.vala:1187
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 8"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 8"
 
 #: src/nibbles-window.vala:1188
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 9"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 9"
 
 #: src/nibbles-window.vala:1189
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 10"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 10"
 
 #: src/nibbles-window.vala:1190
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 11"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 11"
 
 #: src/nibbles-window.vala:1191
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 12"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 12"
 
 #: src/nibbles-window.vala:1192
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 13"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 13"
 
 #: src/nibbles-window.vala:1193
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 14"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 14"
 
 #: src/nibbles-window.vala:1194
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 15"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 15"
 
 #: src/nibbles-window.vala:1195
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 16"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 16"
 
 #: src/nibbles-window.vala:1196
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 17"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 17"
 
 #: src/nibbles-window.vala:1197
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 18"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 18"
 
 #: src/nibbles-window.vala:1198
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 19"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 19"
 
 #: src/nibbles-window.vala:1199
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 20"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 20"
 
 #: src/nibbles-window.vala:1200
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 21"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 21"
 
 #: src/nibbles-window.vala:1201
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 22"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 22"
 
 #: src/nibbles-window.vala:1202
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 23"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 23"
 
 #: src/nibbles-window.vala:1203
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 24"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 24"
 
 #: src/nibbles-window.vala:1204
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 25"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 25"
 
 #: src/nibbles-window.vala:1205
-#| msgid "Medium with Fakes"
 msgid "Medium with fakes, fixed on level 26"
 msgstr "Помірно з шахрайством, зафіксовано на рівні 26"
 
@@ -1645,7 +1599,6 @@ msgid "Fast"
 msgstr "Швидко"
 
 #: src/nibbles-window.vala:1207
-#| msgid "Fast with Fakes"
 msgid "Fast with random levels"
 msgstr "Швидко з випадковими рівнями"
 
@@ -1694,7 +1647,6 @@ msgid "Fast, fixed on level 11"
 msgstr "Швидко, зафіксовано на рівні 11"
 
 #: src/nibbles-window.vala:1219
-#| msgid "Start at given level (1-26)"
 msgid "Fast, fixed on level 12"
 msgstr "Швидко, зафіксовано на рівні 12"
 
@@ -1711,7 +1663,6 @@ msgid "Fast, fixed on level 15"
 msgstr "Швидко, зафіксовано на рівні 15"
 
 #: src/nibbles-window.vala:1223
-#| msgid "Start at given level (1-26)"
 msgid "Fast, fixed on level 16"
 msgstr "Швидко, зафіксовано на рівні 16"
 
@@ -1752,7 +1703,6 @@ msgid "Fast, fixed on level 25"
 msgstr "Швидко, зафіксовано на рівні 25"
 
 #: src/nibbles-window.vala:1233
-#| msgid "Start at given level (1-26)"
 msgid "Fast, fixed on level 26"
 msgstr "Швидко, зафіксовано на рівні 26"
 
