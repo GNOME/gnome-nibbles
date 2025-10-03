@@ -62,13 +62,6 @@
                 <property name="accelerator">&lt;Primary&gt;p Pause</property>
               </object>
             </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <!-- Translators: shortcut that toggles full screen -->
-                <property name="title" translatable="1" context="shortcut window">Full screen toggle</property>
-                <property name="accelerator">&lt;Primary&gt;f</property>
-              </object>
-            </child>
           </object>
         </child>
         <child>
@@ -80,6 +73,13 @@
                 <!-- Translators: shortcut that toggles the hamburger menu -->
                 <property name="title" translatable="1" context="shortcut window">Toggle main menu</property>
                 <property name="accelerator">F10 Menu</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <!-- Translators: shortcut that toggles full screen -->
+                <property name="title" translatable="1" context="shortcut window">Full screen toggle</property>
+                <property name="accelerator">F11</property>
               </object>
             </child>
             <child>

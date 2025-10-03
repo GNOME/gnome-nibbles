@@ -1,6 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
+ * Copyright (C) 2023-2025 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -251,7 +252,7 @@ private class Nibbles : Gtk.Application
          * for a list of pointers of unknown length).
          */
         const string [] newgame = {"<Primary>n", null};
-        const string [] fullscreen = {"<Primary>f", null};
+        const string [] fullscreen = {"F11", null};
         const string [] pause = {"<Primary>p", "Pause", null};
         const string [] appquit = {"<Primary>q", null};
         const string [] back = {"Escape", null};

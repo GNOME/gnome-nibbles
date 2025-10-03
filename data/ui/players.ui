@@ -4,7 +4,7 @@
 
    Copyright (C) 2015-2016 Iulian Radu
    Copyright (C) 2020 Arnaud Bonatti
-   Copyright (C) 2023 Ben Corby
+   Copyright (C) 2023, 2025 Ben Corby
 
    GNOME Nibbles is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -256,7 +256,7 @@
         <property name="height-request">34</property>
         <property name="halign">center</property>
         <property name="margin-top">15</property>
-
+        <property name="margin-bottom">25</property>
         <style>
           <class name="suggested-action"/>
           <class name="play"/>
