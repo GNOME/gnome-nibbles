@@ -25,7 +25,7 @@
     </p>
   </description>
   <screenshots>
-    <screenshot height="680" width="780" type="default">
+    <screenshot height="680" width="780">
       <image>https://gitlab.gnome.org/GNOME/gnome-nibbles/-/raw/master/data/welcome-screen.png</image>
       <caption>Nibbles' welcome screen</caption>
     </screenshot>
@@ -33,7 +33,7 @@
       <image>https://gitlab.gnome.org/GNOME/gnome-nibbles/-/raw/master/data/level-1.png</image>
       <caption>Level 1 with 5 players</caption>
     </screenshot>
-    <screenshot height="736" width="1366">
+    <screenshot height="736" width="1366" type="default">
       <image>https://gitlab.gnome.org/GNOME/gnome-nibbles/-/raw/master/data/level-18.png</image>
       <caption>Level 18 with 6 players</caption>
     </screenshot>
