@@ -85,8 +85,6 @@ public class Context : Object
     };
     private Gee.HashMap<Category?, Gee.List<Score>> scores_per_category =
         new Gee.HashMap<Category?, Gee.List<Score>> ((owned) category_hash, (owned) category_equal);
-    public Gee.Set<Category?> get_category_set () /* the categories are unordered */
-        requires (scores_loaded) {return scores_per_category.keys.read_only_view;}
 
     private string user_score_dir;
     private bool scores_loaded = false;
