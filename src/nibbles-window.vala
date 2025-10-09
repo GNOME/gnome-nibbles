@@ -1261,19 +1261,26 @@ private class NibblesWindow : ApplicationWindow
         {"fast-fakes-fixed26", _("Fast with fakes, fixed on level 26")},
     };
 
-    uint get_category_index (string key)
+    ulong get_category_index (string key)
     {
-        uint i;
+        ulong i;
         for (i = 0; i < category_descriptions.length [0] && category_descriptions [i, 0] != key; i++);
         return i;
     }
 
-    private Games.Scores.Category? create_category (string key)
+    Games.Scores.Category[] created_categories = {}; /* only accessed by the following function */
+    private Games.Scores.Category? get_category (string key)
     {
-        /* create the category requested */
+        foreach (var c in created_categories)
+            if (c.key == key)
+                return c; /* return an already created category */
         var i = get_category_index (key);
         if (i < category_descriptions.length [0])
-            return new Games.Scores.Category (category_descriptions [i, 0], category_descriptions [i, 1]);
+        {
+            /* create the category requested */
+            created_categories += new Games.Scores.Category (category_descriptions [i, 0], category_descriptions [i, 1]);
+            return created_categories [created_categories.length - 1];
+        }
         else
             return null;
     }
@@ -1285,7 +1292,7 @@ private class NibblesWindow : ApplicationWindow
             /* Translators: label displayed on the scores dialog, preceding a difficulty. */
             _("Difficulty Level:"),
             this,
-            create_category,
+            get_category,
             Games.Scores.Style.POINTS_GREATER_IS_BETTER,
             "org.gnome.Nibbles",
             (a, b)=>{return get_category_index (a.key) < get_category_index (b.key);});
@@ -1319,14 +1326,6 @@ private class NibblesWindow : ApplicationWindow
         return key;
     }
 
-    Games.Scores.Category? find_scores_category (string key)
-    {
-        foreach (var c in scores_context.get_category_set())
-            if (key == c.key)
-                return c;
-        return null;
-    }
-
     private void log_score_cb (int score, int level_reached)
     {
         /* Disable these here to prevent the user clicking the buttons before the score is saved */
@@ -1334,13 +1333,11 @@ private class NibblesWindow : ApplicationWindow
         pause_action.set_enabled (false);
         back_action.set_enabled (false);
 
-        string key = get_scores_category_key (game.speed, game.fakes, game.progress, game.start_level);
-        var category = find_scores_category (key);
-        if (null == category)
-            category = create_category (key);
+        var category = get_category (get_scores_category_key (game.speed, game.fakes, game.progress, game.start_level));
         assert (null != category);
-        var scores = scores_context.get_high_scores (category);
-        var lowest_high_score = (scores.size == 10 ? scores.last ().score : -1);
+        const int max_high_score_count = 10;
+        var scores = scores_context.get_high_scores (category, max_high_score_count);
+        var lowest_high_score = (scores.size < max_high_score_count ? -1 : scores.last ().score);
 
         if (game.numhumans < 1)
         {
