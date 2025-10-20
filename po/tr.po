@@ -1,6 +1,6 @@
 # Turkish translation of gnome-nibbles.
 # Copyright (C) 2000-2002, 2004, 2005, 2008 Free Software Foundation, Inc.
-# Copyright (C) 2009-2023 gnome-nibbles's COPYRIGHT HOLDER
+# Copyright (C) 2009-2025 gnome-nibbles's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-nibbles package.
 #
 # Onur Kucuk, <okucuk@yahoo.com>, 2000.
@@ -9,15 +9,15 @@
 # Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2008, 2009.
 # Muhammet Kara <muhammetk@gmail.com>, 2011, 2014, 2015, 2016.
 # Çağatay Yiğit Şahin <cyigitsahin@outlook.com>, 2017.
-# Sabri Ünal <libreajans@gmail.com>, 2018, 2023.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2020, 2023.
+# Sabri Ünal <libreajans@gmail.com>, 2018, 2023, 2025.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2020, 2023, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2024-05-10 14:25+0000\n"
-"PO-Revision-Date: 2024-05-24 11:22+0300\n"
+"POT-Creation-Date: 2025-10-12 01:08+0000\n"
+"PO-Revision-Date: 2025-10-08 20:40+0300\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
@@ -25,54 +25,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.3\n"
+"X-Generator: Poedit 3.7\n"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
-#: data/ui/nibbles-adw.ui:65 data/ui/nibbles.ui:64 src/gnome-nibbles.vala:57
+#: data/org.gnome.Nibbles.desktop.in:2 data/org.gnome.Nibbles.metainfo.xml.in:7
+#: data/ui/nibbles-adw.ui:70 data/ui/nibbles.ui:69 src/gnome-nibbles.vala:58
 msgid "Nibbles"
 msgstr "Atıştırmalıklar"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
+#: data/org.gnome.Nibbles.desktop.in:3 data/org.gnome.Nibbles.metainfo.xml.in:8
 msgid "Guide a worm around a maze"
 msgstr "Solucanı engellerin çevresinden geçirin"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:10
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating apples and bananas to increase your length. Each "
-"worm has six lives and loses one by running into a wall, another worm, or "
-"itself. The enemy worms are after the same bonuses that you are, so be "
-"careful. If the worms become too large, you won’t have much room to move."
-msgstr ""
-"Ödülleri yiyerek uzama arayışındaki solucanı denetleyin. Boyunuzu uzatmak "
-"için elmaları ve muzları yerken düşman solucanlara karşı taktiksel üstünlük "
-"sağlayın. Her solucanın altı canı vardır ve duvara, başka bir solucana ya da "
-"kendi kendisine çarptığında bunlardan birini yitirir. Düşman solucanlar "
-"sizinle aynı ödülleri yeme peşindedir, bu yüzden dikkatli olun. Eğer "
-"solucanlar çok büyürlerse, hareket edecek alanın kalmaz."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:17
-msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
-msgstr ""
-"Macera, artan zorluktaki 26 harita boyunca sürer. İlk düzeyler birkaç duvar "
-"dışında genel olarak açık alandadır, ancak ilerledikçe sıkışık alanlar ve "
-"ışınlayıcılar işleri daha ilginçleştirir."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:22
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Beş taneye kadar düşman solucana karşı oynayın ya da arkadaşınızla birlikte "
-"oynamak için klavyenizi paylaşın."
-
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Nibbles.desktop.in:6
+#: data/org.gnome.Nibbles.desktop.in:5
 msgid "game;snake;board;"
 msgstr "Nibbles;game;snake;board;oyun;yılan;tahta;solucan;"
 
@@ -154,7 +121,7 @@ msgid "Enable sounds."
 msgstr "Sesleri etkinleştirir."
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: data/org.gnome.Nibbles.gschema.xml:61 src/gnome-nibbles.vala:84
+#: data/org.gnome.Nibbles.gschema.xml:61 src/gnome-nibbles.vala:85
 msgid "Enable fake bonuses"
 msgstr "Sahte ödülleri etkinleştir"
 
@@ -308,20 +275,63 @@ msgstr "Sağa taşı"
 msgid "Key to use for motion right."
 msgstr "Aşağı hareket için kullanılacak tuş."
 
+#: data/org.gnome.Nibbles.metainfo.xml.in:10
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
+"enemy worms while eating apples and bananas to increase your length. Each "
+"worm has six lives and loses one by running into a wall, another worm, or "
+"itself. The enemy worms are after the same bonuses that you are, so be "
+"careful. If the worms become too large, you won’t have much room to move."
+msgstr ""
+"Ödülleri yiyerek uzama arayışındaki solucanı denetleyin. Boyunuzu uzatmak "
+"için elmaları ve muzları yerken düşman solucanlara karşı taktiksel üstünlük "
+"sağlayın. Her solucanın altı canı vardır ve duvara, başka bir solucana ya da "
+"kendi kendisine çarptığında bunlardan birini yitirir. Düşman solucanlar "
+"sizinle aynı ödülleri yeme peşindedir, bu yüzden dikkatli olun. Eğer "
+"solucanlar çok büyürlerse, hareket edecek alanın kalmaz."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:17
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early "
+"levels are mostly open with a few walls, but later on, cramped spaces and "
+"teleporters make things more interesting."
+msgstr ""
+"Macera, artan zorluktaki 26 harita boyunca sürer. İlk düzeyler birkaç duvar "
+"dışında genel olarak açık alandadır, ancak ilerledikçe sıkışık alanlar ve "
+"ışınlayıcılar işleri daha ilginçleştirir."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:22
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to "
+"play with a friend."
+msgstr ""
+"Beş taneye kadar düşman solucana karşı oynayın ya da arkadaşınızla birlikte "
+"oynamak için klavyenizi paylaşın."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:30
+msgid "Nibbles' welcome screen"
+msgstr "Nibbles hoş geldiniz ekranı"
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:34
+msgid "Level 1 with 5 players"
+msgstr "1. düzey 5 oyuncu ile"
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:38
+msgid "Level 18 with 6 players"
+msgstr "18. düzey 6 oyuncu ile"
+
 #. Translators: title of the Are You Sure? window
 #: data/ui/are-you-sure.ui:27
 msgid "Are You Sure?"
 msgstr "Emin Misiniz?"
 
 #. Translators: negative response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: data/ui/are-you-sure.ui:85 src/nibbles-view.vala:1802
+#: data/ui/are-you-sure.ui:85
 msgid "No"
 msgstr "Hayır"
 
 #. Translators: positive response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: data/ui/are-you-sure.ui:96 src/nibbles-view.vala:1829
+#: data/ui/are-you-sure.ui:96
 msgid "Yes"
 msgstr "Evet"
 
@@ -348,7 +358,7 @@ msgstr "_Sabit Düzey"
 #. Translators: label of a button in the "Board Progress" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:148
+#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:149
 msgid "_Next"
 msgstr "_İleri"
 
@@ -425,26 +435,32 @@ msgctxt "shortcut window"
 msgid "Toggle main menu"
 msgstr "Ana menüyü aç veya kapat"
 
-#. Translators: shortcut that opens Keyboard Shortcuts window
+#. Translators: shortcut that toggles full screen
 #: data/ui/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Full screen toggle"
+msgstr "Tam ekranı aç/kapat"
+
+#. Translators: shortcut that opens Keyboard Shortcuts window
+#: data/ui/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Klavye Kısayolları"
 
 #. Translators: shortcut that opens the application help
-#: data/ui/help-overlay.ui:88
+#: data/ui/help-overlay.ui:95
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Yardım"
 
 #. Translators: shortcut that opens About dialog
-#: data/ui/help-overlay.ui:95
+#: data/ui/help-overlay.ui:102
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Hakkında"
 
 #. Translators: shortcut that quits application
-#: data/ui/help-overlay.ui:102
+#: data/ui/help-overlay.ui:109
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Çık"
@@ -459,49 +475,54 @@ msgstr "_Ses"
 msgid "_3D View"
 msgstr "_3B Görünüm"
 
+#. Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); switch to full screen mode
+#: data/ui/nibbles-adw.ui:39 data/ui/nibbles.ui:38
+msgid "_Full screen"
+msgstr "_Tam ekran"
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the Scores dialog
-#: data/ui/nibbles-adw.ui:41 data/ui/nibbles.ui:40
+#: data/ui/nibbles-adw.ui:46 data/ui/nibbles.ui:45
 msgid "_Scores"
 msgstr "_Puanlar"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: data/ui/nibbles-adw.ui:48 data/ui/nibbles.ui:47
+#: data/ui/nibbles-adw.ui:53 data/ui/nibbles.ui:52
 msgid "_Keyboard Shortcuts"
 msgstr "_Klavye Kısayolları"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
-#: data/ui/nibbles-adw.ui:53 data/ui/nibbles.ui:52
+#: data/ui/nibbles-adw.ui:58 data/ui/nibbles.ui:57
 msgid "_Help"
 msgstr "_Yardım"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the About dialog
-#: data/ui/nibbles-adw.ui:58 data/ui/nibbles.ui:57
+#: data/ui/nibbles-adw.ui:63 data/ui/nibbles.ui:62
 msgid "_About Nibbles"
 msgstr "Atıştırmalıklar _Hakkında"
 
 #. Translators: tooltip of a button of the headerbar, visible during a game; starts a new game
-#: data/ui/nibbles-adw.ui:79
+#: data/ui/nibbles-adw.ui:84
 msgid "New Game"
 msgstr "Yeni Oyun"
 
 #. Translators: tooltip of the hamburger menu
-#: data/ui/nibbles-adw.ui:90
+#: data/ui/nibbles-adw.ui:95
 msgid "Main Menu"
 msgstr "Ana Menü"
 
 #. Translators: tooltip of a button of the headerbar, visible during a game; pauses the game
 #. Translators: tooltip of the pause button, when the game is running
-#: data/ui/nibbles-adw.ui:105 src/nibbles-window.vala:707
+#: data/ui/nibbles-adw.ui:110 src/nibbles-window.vala:726
 msgid "Pause"
 msgstr "Duraklat"
 
 #. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles-adw.ui:188 data/ui/nibbles.ui:185
+#: data/ui/nibbles-adw.ui:191 data/ui/nibbles.ui:190
 msgid "Paused"
 msgstr "Dondur"
 
 #. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#: data/ui/nibbles.ui:77 src/nibbles-window.vala:609
+#: data/ui/nibbles.ui:82 src/nibbles-window.vala:623
 msgid "_New Game"
 msgstr "Yeni _Oyun"
 
@@ -509,7 +530,7 @@ msgstr "Yeni _Oyun"
 #. duplicated in nibbles.ui
 #. duplicated in nibbles.ui
 #. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:102 src/nibbles-window.vala:711
+#: data/ui/nibbles.ui:107 src/nibbles-window.vala:730
 msgid "_Pause"
 msgstr "_Duraklat"
 
@@ -578,50 +599,44 @@ msgstr "_Orta"
 msgid "_Fast"
 msgstr "_Hızlı"
 
-#. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses
+#. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates fake bonuses
 #: data/ui/speed.ui:136
-msgid "_Enable fake bonuses."
-msgstr "Sahte ödülleri _etkinleştir."
+msgid "_Enable fake bonuses"
+msgstr "_Sahte ödülleri etkinleştir"
 
 #. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
-#: src/controls.vala:165
+#: src/controls.vala:221
 #, c-format
 msgid "Player %d"
 msgstr "%d. Oyuncu"
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen
-#: src/controls.vala:238
+#: src/controls.vala:276
 msgid "Press a key for up."
 msgstr "Yukarı için bir tuşa basın."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
-#: src/controls.vala:258
+#: src/controls.vala:296
 msgid "Press a key for down."
 msgstr "Aşağı için bir tuşa basın."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
-#: src/controls.vala:278
+#: src/controls.vala:316
 msgid "Press a key for left."
 msgstr "Sol için bir tuşa basın."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
-#: src/controls.vala:298
+#: src/controls.vala:336
 msgid "Press a key for right."
 msgstr "Sağ için bir tuşa basın."
 
-#. instruction label
-#. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:627
-msgid "Select Your Color"
-msgstr "Renginizi Seçin"
-
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:81
+#: src/gnome-nibbles.vala:82
 msgid "Disable fake bonuses"
 msgstr "Sahte ödülleri devre dışı bırak"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:87
+#: src/gnome-nibbles.vala:88
 msgid "Start at given level (1-26)"
 msgstr "Verilen düzeyde başlat (1-26)"
 
@@ -630,92 +645,92 @@ msgstr "Verilen düzeyde başlat (1-26)"
 #. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:90 src/gnome-nibbles.vala:96
-#: src/gnome-nibbles.vala:102 src/gnome-nibbles.vala:108
-#: src/gnome-nibbles.vala:114
+#: src/gnome-nibbles.vala:91 src/gnome-nibbles.vala:97
+#: src/gnome-nibbles.vala:103 src/gnome-nibbles.vala:109
+#: src/gnome-nibbles.vala:115
 msgid "NUMBER"
 msgstr "SAYI"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:93
+#: src/gnome-nibbles.vala:94
 msgid ""
 "Method of progress through the boards (0 - sequentially, 1 - randomly, 2 - "
 "fixed board)"
 msgstr "Panolar arasında ilerleme (0 - sıralı, 1 - rastgele, 2 - sabit pano)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:99
+#: src/gnome-nibbles.vala:100
 msgid "Set number of nibbles (4-6)"
 msgstr "Atıştırmalıkların sayısını belirle (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:105
+#: src/gnome-nibbles.vala:106
 msgid "Set number of players (1-4)"
 msgstr "Oyuncuların sayısını belirle (1-4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:111
+#: src/gnome-nibbles.vala:112
 msgid "Set worms speed (4-1, 4 for slow)"
 msgstr "Solucanların hızını belirle (4-1, yavaş için 4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:117
+#: src/gnome-nibbles.vala:118
 msgid "Set three dimensional view"
 msgstr "Üç boyutlu görünümü ayarla"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:120
+#: src/gnome-nibbles.vala:121
 msgid "Set two dimensional view"
 msgstr "İki boyutlu görünümü ayarla"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:123
+#: src/gnome-nibbles.vala:124
 msgid "Start playing"
 msgstr "Oyunu başlat"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:126
+#: src/gnome-nibbles.vala:127
 msgid "Turn off the sound"
 msgstr "Sesi kıs"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:129
+#: src/gnome-nibbles.vala:130
 msgid "Turn on the sound"
 msgstr "Sesi aç"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:132
+#: src/gnome-nibbles.vala:133
 msgid "Show release version"
 msgstr "Yayım sürümünü göster"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/gnome-nibbles.vala:177
+#: src/gnome-nibbles.vala:172
 msgid "Start level should only be between 1 and 26."
 msgstr "Başlangıç düzeyi yalnızca 1 ile 26 arasında olmalıdır."
 
 #. Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress'
-#: src/gnome-nibbles.vala:183
+#: src/gnome-nibbles.vala:178
 msgid ""
 "Progress method should be; 0 - sequentially, 1 - randomly, 2 - fixed board."
 msgstr "İlerleme yöntemi; 0 - sıralı, 1 - rastgele, 2 - sabit pano olmalıdır."
 
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
-#: src/gnome-nibbles.vala:189
+#: src/gnome-nibbles.vala:184
 msgid "There could only be between 4 and 6 nibbles."
 msgstr "Yalnızca 4 ile 6 arasında atıştırmalık olabilir."
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/gnome-nibbles.vala:195
+#: src/gnome-nibbles.vala:190
 msgid "There could only be between 1 and 4 players."
 msgstr "Yalnızca 1 ile 6 arasında oyuncu olabilir."
 
 #. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
-#: src/gnome-nibbles.vala:201
+#: src/gnome-nibbles.vala:196
 msgid "Speed should be between 4 (slow) and 1 (fast)."
 msgstr "Hız 4 (yavaş) ile 1 (hızlı) arasında olmalıdır."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/gnome-nibbles.vala:210
+#: src/gnome-nibbles.vala:205
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
@@ -723,84 +738,84 @@ msgstr ""
 "dışlayandır."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
-#: src/gnome-nibbles.vala:222
+#: src/gnome-nibbles.vala:217
 msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "--3D (-3) ve --2D (-2) seçenekleri birbirini dışlayandır."
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:384
+#: src/gnome-nibbles.vala:389
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:388
+#: src/gnome-nibbles.vala:393
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:392
+#: src/gnome-nibbles.vala:397
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:396
+#: src/gnome-nibbles.vala:401
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:400
+#: src/gnome-nibbles.vala:405
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:404
+#: src/gnome-nibbles.vala:409
 msgid "Ben Corby"
 msgstr "Ben Corby"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:408
+#: src/gnome-nibbles.vala:413
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:412
+#: src/gnome-nibbles.vala:417
 msgid "Allan Day"
 msgstr "Allan Day"
 
 #. Translators: the name of the app's developers, seen in the About dialog
-#: src/gnome-nibbles.vala:420
+#: src/gnome-nibbles.vala:425
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:431
+#: src/gnome-nibbles.vala:436
 msgid "A worm game for GNOME"
 msgstr "GNOME için solucan oyunu"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:436
+#: src/gnome-nibbles.vala:441
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "Telif Hakkı © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:440
+#: src/gnome-nibbles.vala:445
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "Telif Hakkı © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:444
+#: src/gnome-nibbles.vala:449
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "Telif Hakkı © %u-%u – Iulian-Gabriel Radu"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:448
+#: src/gnome-nibbles.vala:453
 #, c-format
 msgid "Copyright © %u-%u – Ben Corby"
 msgstr "Telif Hakkı © %u-%u – Ben Corby"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:452 src/gnome-nibbles.vala:462
+#: src/gnome-nibbles.vala:457 src/gnome-nibbles.vala:467
 msgid "translator-credits"
 msgstr ""
 "Barış Çiçek <baris@teamforce.name.tr> \n"
@@ -809,216 +824,1048 @@ msgstr ""
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:607 src/players.vala:43
+#: src/nibbles-view.vala:672 src/players.vala:43
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:610 src/players.vala:46
+#: src/nibbles-view.vala:675 src/players.vala:46
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:613 src/players.vala:49
+#: src/nibbles-view.vala:678 src/players.vala:49
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:626
+#: src/nibbles-view.vala:691
 msgid "Worm 1"
 msgstr "1. Solucan"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:629
+#: src/nibbles-view.vala:694
 msgid "Worm 2"
 msgstr "2. Solucan"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:632
+#: src/nibbles-view.vala:697
 msgid "Worm 3"
 msgstr "3. Solucan"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:635
+#: src/nibbles-view.vala:700
 msgid "Worm 4"
 msgstr "4. Solucan"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:638
+#: src/nibbles-view.vala:703
 msgid "Worm 5"
 msgstr "5. Solucan"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:641
+#: src/nibbles-view.vala:706
 msgid "Worm 6"
 msgstr "6. Solucan"
 
-#. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:666
-msgid ""
-"Are you sure you want to start a new game?\n"
-"If you start a new game, the current one will be lost."
-msgstr ""
-"Yeni oyun başlatmak istediğinizden emin misiniz?\n"
-"Eğer yenisini başlatırsanız, geçerli oyun kaybedilecek."
-
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1947
+#: src/nibbles-view.vala:1694
 msgid "red"
 msgstr "kırmızı"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1949
+#: src/nibbles-view.vala:1696
 msgid "green"
 msgstr "yeşil"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1951
+#: src/nibbles-view.vala:1698
 msgid "blue"
 msgstr "mavi"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1953
+#: src/nibbles-view.vala:1700
 msgid "yellow"
 msgstr "sarı"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1955
+#: src/nibbles-view.vala:1702
 msgid "cyan"
 msgstr "camgöbeği"
 
 #. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1957
+#: src/nibbles-view.vala:1704
 msgid "purple"
 msgstr "mor"
 
 #. Translators: first line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:604
+#: src/nibbles-window.vala:618
 msgid "New Game?"
 msgstr "Yeni Oyun Başlatılsın Mı?"
 
 #. Translators: second line of message displayed in an alert dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:606
+#: src/nibbles-window.vala:620
 msgid "If you start a new game, the current one will be lost"
 msgstr "Eğer yenisini başlatırsanız, geçerli oyun kaybedilecek."
 
-#: src/nibbles-window.vala:608
+#: src/nibbles-window.vala:622
 msgid "_Cancel"
 msgstr "İ_ptal"
 
 #. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:633
+#: src/nibbles-window.vala:647
 msgid "Are you sure you want to start a new game?"
 msgstr "Yeni oyun başlatmak istediğinizden emin misiniz?"
 
 #. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:635
+#: src/nibbles-window.vala:649
 msgid "If you start a new game, the current one will be lost."
 msgstr "Eğer yenisini başlatırsanız, geçerli oyun kaybedilecek."
 
 #. Translators: tooltip of the pause button, when the game is paused
-#: src/nibbles-window.vala:696
+#: src/nibbles-window.vala:715
 msgid "Resume"
 msgstr "Sürdür"
 
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:700
+#: src/nibbles-window.vala:719
 msgid "_Resume"
 msgstr "_Sürdür"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:981 src/nibbles-window.vala:1211
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1425
 #, c-format
 msgid "Level %d"
 msgstr "%d. Düzey"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1057
+#. Translators: The game type displayed on the scores dialog
+#: src/nibbles-window.vala:1042
 msgid "Beginner"
 msgstr "Acemi"
 
-#. Translators: Difficulty level displayed on the scores dialog
+#: src/nibbles-window.vala:1043
+msgid "Beginner with random levels"
+msgstr "Acemi rastgele düzeyde"
+
+#: src/nibbles-window.vala:1044
+msgid "Beginner, fixed on level 1"
+msgstr "Acemi, 1. düzeyde sabit"
+
+#: src/nibbles-window.vala:1045
+msgid "Beginner, fixed on level 2"
+msgstr "Acemi, 2. düzeyde sabit"
+
+#: src/nibbles-window.vala:1046
+msgid "Beginner, fixed on level 3"
+msgstr "Acemi, 3. düzeyde sabit"
+
+#: src/nibbles-window.vala:1047
+msgid "Beginner, fixed on level 4"
+msgstr "Acemi, 4. düzeyde sabit"
+
+#: src/nibbles-window.vala:1048
+msgid "Beginner, fixed on level 5"
+msgstr "Acemi, 5. düzeyde sabit"
+
+#: src/nibbles-window.vala:1049
+msgid "Beginner, fixed on level 6"
+msgstr "Acemi, 6. düzeyde sabit"
+
+#: src/nibbles-window.vala:1050
+msgid "Beginner, fixed on level 7"
+msgstr "Acemi, 7. düzeyde sabit"
+
+#: src/nibbles-window.vala:1051
+msgid "Beginner, fixed on level 8"
+msgstr "Acemi, 8. düzeyde sabit"
+
+#: src/nibbles-window.vala:1052
+msgid "Beginner, fixed on level 9"
+msgstr "Acemi, 9. düzeyde sabit"
+
+#: src/nibbles-window.vala:1053
+msgid "Beginner, fixed on level 10"
+msgstr "Acemi, 10. düzeyde sabit"
+
+#: src/nibbles-window.vala:1054
+msgid "Beginner, fixed on level 11"
+msgstr "Acemi, 11. düzeyde sabit"
+
+#: src/nibbles-window.vala:1055
+msgid "Beginner, fixed on level 12"
+msgstr "Acemi, 12. düzeyde sabit"
+
+#: src/nibbles-window.vala:1056
+msgid "Beginner, fixed on level 13"
+msgstr "Acemi, 13. düzeyde sabit"
+
+#: src/nibbles-window.vala:1057
+msgid "Beginner, fixed on level 14"
+msgstr "Acemi, 14. düzeyde sabit"
+
+#: src/nibbles-window.vala:1058
+msgid "Beginner, fixed on level 15"
+msgstr "Acemi, 15. düzeyde sabit"
+
 #: src/nibbles-window.vala:1059
+msgid "Beginner, fixed on level 16"
+msgstr "Acemi, 16. düzeyde sabit"
+
+#: src/nibbles-window.vala:1060
+msgid "Beginner, fixed on level 17"
+msgstr "Acemi, 17. düzeyde sabit"
+
+#: src/nibbles-window.vala:1061
+msgid "Beginner, fixed on level 18"
+msgstr "Acemi, 18. düzeyde sabit"
+
+#: src/nibbles-window.vala:1062
+msgid "Beginner, fixed on level 19"
+msgstr "Acemi, 19. düzeyde sabit"
+
+#: src/nibbles-window.vala:1063
+msgid "Beginner, fixed on level 20"
+msgstr "Acemi, 20. düzeyde sabit"
+
+#: src/nibbles-window.vala:1064
+msgid "Beginner, fixed on level 21"
+msgstr "Acemi, 21. düzeyde sabit"
+
+#: src/nibbles-window.vala:1065
+msgid "Beginner, fixed on level 22"
+msgstr "Acemi, 22. düzeyde sabit"
+
+#: src/nibbles-window.vala:1066
+msgid "Beginner, fixed on level 23"
+msgstr "Acemi, 23. düzeyde sabit"
+
+#: src/nibbles-window.vala:1067
+msgid "Beginner, fixed on level 24"
+msgstr "Acemi, 24. düzeyde sabit"
+
+#: src/nibbles-window.vala:1068
+msgid "Beginner, fixed on level 25"
+msgstr "Acemi, 25. düzeyde sabit"
+
+#: src/nibbles-window.vala:1069
+msgid "Beginner, fixed on level 26"
+msgstr "Acemi, 26. düzeyde sabit"
+
+#: src/nibbles-window.vala:1070
+msgid "Beginner with fakes and random levels"
+msgstr "Acemi, sahte ödüllerle ve rastgele düzeylerle"
+
+#: src/nibbles-window.vala:1071
+msgid "Beginner with fakes, fixed on level 1"
+msgstr "Acemi, sahte ödüllerle, 1. düzeyde sabit"
+
+#: src/nibbles-window.vala:1072
+msgid "Beginner with fakes, fixed on level 2"
+msgstr "Acemi, sahte ödüllerle, 2. düzeyde sabit"
+
+#: src/nibbles-window.vala:1073
+msgid "Beginner with fakes, fixed on level 3"
+msgstr "Acemi, sahte ödüllerle, 3. düzeyde sabit"
+
+#: src/nibbles-window.vala:1074
+msgid "Beginner with fakes, fixed on level 4"
+msgstr "Acemi, sahte ödüllerle, 4. düzeyde sabit"
+
+#: src/nibbles-window.vala:1075
+msgid "Beginner with fakes, fixed on level 5"
+msgstr "Acemi, sahte ödüllerle, 5. düzeyde sabit"
+
+#: src/nibbles-window.vala:1076
+msgid "Beginner with fakes, fixed on level 6"
+msgstr "Acemi, sahte ödüllerle, 6. düzeyde sabit"
+
+#: src/nibbles-window.vala:1077
+msgid "Beginner with fakes, fixed on level 7"
+msgstr "Acemi, sahte ödüllerle, 7. düzeyde sabit"
+
+#: src/nibbles-window.vala:1078
+msgid "Beginner with fakes, fixed on level 8"
+msgstr "Acemi, sahte ödüllerle, 8. düzeyde sabit"
+
+#: src/nibbles-window.vala:1079
+msgid "Beginner with fakes, fixed on level 9"
+msgstr "Acemi, sahte ödüllerle, 9. düzeyde sabit"
+
+#: src/nibbles-window.vala:1080
+msgid "Beginner with fakes, fixed on level 10"
+msgstr "Acemi, sahte ödüllerle, 10. düzeyde sabit"
+
+#: src/nibbles-window.vala:1081
+msgid "Beginner with fakes, fixed on level 11"
+msgstr "Acemi, sahte ödüllerle, 11. düzeyde sabit"
+
+#: src/nibbles-window.vala:1082
+msgid "Beginner with fakes, fixed on level 12"
+msgstr "Acemi, sahte ödüllerle, 12. düzeyde sabit"
+
+#: src/nibbles-window.vala:1083
+msgid "Beginner with fakes, fixed on level 13"
+msgstr "Acemi, sahte ödüllerle, 13. düzeyde sabit"
+
+#: src/nibbles-window.vala:1084
+msgid "Beginner with fakes, fixed on level 14"
+msgstr "Acemi, sahte ödüllerle, 14. düzeyde sabit"
+
+#: src/nibbles-window.vala:1085
+msgid "Beginner with fakes, fixed on level 15"
+msgstr "Acemi, sahte ödüllerle, 15. düzeyde sabit"
+
+#: src/nibbles-window.vala:1086
+msgid "Beginner with fakes, fixed on level 16"
+msgstr "Acemi, sahte ödüllerle, 16. düzeyde sabit"
+
+#: src/nibbles-window.vala:1087
+msgid "Beginner with fakes, fixed on level 17"
+msgstr "Acemi, sahte ödüllerle, 17. düzeyde sabit"
+
+#: src/nibbles-window.vala:1088
+msgid "Beginner with fakes, fixed on level 18"
+msgstr "Acemi, sahte ödüllerle, 18. düzeyde sabit"
+
+#: src/nibbles-window.vala:1089
+msgid "Beginner with fakes, fixed on level 19"
+msgstr "Acemi, sahte ödüllerle, 19. düzeyde sabit"
+
+#: src/nibbles-window.vala:1090
+msgid "Beginner with fakes, fixed on level 20"
+msgstr "Acemi, sahte ödüllerle, 20. düzeyde sabit"
+
+#: src/nibbles-window.vala:1091
+msgid "Beginner with fakes, fixed on level 21"
+msgstr "Acemi, sahte ödüllerle, 21. düzeyde sabit"
+
+#: src/nibbles-window.vala:1092
+msgid "Beginner with fakes, fixed on level 22"
+msgstr "Acemi, sahte ödüllerle, 22. düzeyde sabit"
+
+#: src/nibbles-window.vala:1093
+msgid "Beginner with fakes, fixed on level 23"
+msgstr "Acemi, sahte ödüllerle, 23. düzeyde sabit"
+
+#: src/nibbles-window.vala:1094
+msgid "Beginner with fakes, fixed on level 24"
+msgstr "Acemi, sahte ödüllerle, 24. düzeyde sabit"
+
+#: src/nibbles-window.vala:1095
+msgid "Beginner with fakes, fixed on level 25"
+msgstr "Acemi, sahte ödüllerle, 25. düzeyde sabit"
+
+#: src/nibbles-window.vala:1096
+msgid "Beginner with fakes, fixed on level 26"
+msgstr "Acemi, sahte ödüllerle, 26. düzeyde sabit"
+
+#: src/nibbles-window.vala:1097
 msgid "Slow"
 msgstr "Yavaş"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1061
+#: src/nibbles-window.vala:1098
+msgid "Slow with random levels"
+msgstr "Yavaş, rastgele düzeylerle"
+
+#: src/nibbles-window.vala:1099
+msgid "Slow, fixed on level 1"
+msgstr "Yavaş, 1. düzeyde sabit"
+
+#: src/nibbles-window.vala:1100
+msgid "Slow, fixed on level 2"
+msgstr "Yavaş, 2. düzeyde sabit"
+
+#: src/nibbles-window.vala:1101
+msgid "Slow, fixed on level 3"
+msgstr "Yavaş, 3. düzeyde sabit"
+
+#: src/nibbles-window.vala:1102
+msgid "Slow, fixed on level 4"
+msgstr "Yavaş, 4. düzeyde sabit"
+
+#: src/nibbles-window.vala:1103
+msgid "Slow, fixed on level 5"
+msgstr "Yavaş, 5. düzeyde sabit"
+
+#: src/nibbles-window.vala:1104
+msgid "Slow, fixed on level 6"
+msgstr "Yavaş, 6. düzeyde sabit"
+
+#: src/nibbles-window.vala:1105
+msgid "Slow, fixed on level 7"
+msgstr "Yavaş, 7. düzeyde sabit"
+
+#: src/nibbles-window.vala:1106
+msgid "Slow, fixed on level 8"
+msgstr "Yavaş, 8. düzeyde sabit"
+
+#: src/nibbles-window.vala:1107
+msgid "Slow, fixed on level 9"
+msgstr "Yavaş, 9. düzeyde sabit"
+
+#: src/nibbles-window.vala:1108
+msgid "Slow, fixed on level 10"
+msgstr "Yavaş, 10. düzeyde sabit"
+
+#: src/nibbles-window.vala:1109
+msgid "Slow, fixed on level 11"
+msgstr "Yavaş, 11. düzeyde sabit"
+
+#: src/nibbles-window.vala:1110
+msgid "Slow, fixed on level 12"
+msgstr "Yavaş, 12. düzeyde sabit"
+
+#: src/nibbles-window.vala:1111
+msgid "Slow, fixed on level 13"
+msgstr "Yavaş, 13. düzeyde sabit"
+
+#: src/nibbles-window.vala:1112
+msgid "Slow, fixed on level 14"
+msgstr "Yavaş, 14. düzeyde sabit"
+
+#: src/nibbles-window.vala:1113
+msgid "Slow, fixed on level 15"
+msgstr "Yavaş, 15. düzeyde sabit"
+
+#: src/nibbles-window.vala:1114
+msgid "Slow, fixed on level 16"
+msgstr "Yavaş, 16. düzeyde sabit"
+
+#: src/nibbles-window.vala:1115
+msgid "Slow, fixed on level 17"
+msgstr "Yavaş, 17. düzeyde sabit"
+
+#: src/nibbles-window.vala:1116
+msgid "Slow, fixed on level 18"
+msgstr "Yavaş, 18. düzeyde sabit"
+
+#: src/nibbles-window.vala:1117
+msgid "Slow, fixed on level 19"
+msgstr "Yavaş, 19. düzeyde sabit"
+
+#: src/nibbles-window.vala:1118
+msgid "Slow, fixed on level 20"
+msgstr "Yavaş, 20. düzeyde sabit"
+
+#: src/nibbles-window.vala:1119
+msgid "Slow, fixed on level 21"
+msgstr "Yavaş, 21. düzeyde sabit"
+
+#: src/nibbles-window.vala:1120
+msgid "Slow, fixed on level 22"
+msgstr "Yavaş, 22. düzeyde sabit"
+
+#: src/nibbles-window.vala:1121
+msgid "Slow, fixed on level 23"
+msgstr "Yavaş, 23. düzeyde sabit"
+
+#: src/nibbles-window.vala:1122
+msgid "Slow, fixed on level 24"
+msgstr "Yavaş, 24. düzeyde sabit"
+
+#: src/nibbles-window.vala:1123
+msgid "Slow, fixed on level 25"
+msgstr "Yavaş, 25. düzeyde sabit"
+
+#: src/nibbles-window.vala:1124
+msgid "Slow, fixed on level 26"
+msgstr "Yavaş, 26. düzeyde sabit"
+
+#: src/nibbles-window.vala:1125
+msgid "Slow with fakes and random levels"
+msgstr "Yavaş, sahtelerle ve rastgele düzeylerle"
+
+#: src/nibbles-window.vala:1126
+msgid "Slow with fakes, fixed on level 1"
+msgstr "Yavaş, sahtelerle, 1. düzeyde sabit"
+
+#: src/nibbles-window.vala:1127
+msgid "Slow with fakes, fixed on level 2"
+msgstr "Yavaş, sahtelerle, 2. düzeyde sabit"
+
+#: src/nibbles-window.vala:1128
+msgid "Slow with fakes, fixed on level 3"
+msgstr "Yavaş, sahtelerle, 3. düzeyde sabit"
+
+#: src/nibbles-window.vala:1129
+msgid "Slow with fakes, fixed on level 4"
+msgstr "Yavaş, sahtelerle, 4. düzeyde sabit"
+
+#: src/nibbles-window.vala:1130
+msgid "Slow with fakes, fixed on level 5"
+msgstr "Yavaş, sahtelerle, 5. düzeyde sabit"
+
+#: src/nibbles-window.vala:1131
+msgid "Slow with fakes, fixed on level 6"
+msgstr "Yavaş, sahtelerle, 6. düzeyde sabit"
+
+#: src/nibbles-window.vala:1132
+msgid "Slow with fakes, fixed on level 7"
+msgstr "Yavaş, sahtelerle, 7. düzeyde sabit"
+
+#: src/nibbles-window.vala:1133
+msgid "Slow with fakes, fixed on level 8"
+msgstr "Yavaş, sahtelerle, 8. düzeyde sabit"
+
+#: src/nibbles-window.vala:1134
+msgid "Slow with fakes, fixed on level 9"
+msgstr "Yavaş, sahtelerle, 9. düzeyde sabit"
+
+#: src/nibbles-window.vala:1135
+msgid "Slow with fakes, fixed on level 10"
+msgstr "Yavaş, sahtelerle, 10. düzeyde sabit"
+
+#: src/nibbles-window.vala:1136
+msgid "Slow with fakes, fixed on level 11"
+msgstr "Yavaş, sahtelerle, 11. düzeyde sabit"
+
+#: src/nibbles-window.vala:1137
+msgid "Slow with fakes, fixed on level 12"
+msgstr "Yavaş, sahtelerle, 12. düzeyde sabit"
+
+#: src/nibbles-window.vala:1138
+msgid "Slow with fakes, fixed on level 13"
+msgstr "Yavaş, sahtelerle, 13. düzeyde sabit"
+
+#: src/nibbles-window.vala:1139
+msgid "Slow with fakes, fixed on level 14"
+msgstr "Yavaş, sahtelerle, 14. düzeyde sabit"
+
+#: src/nibbles-window.vala:1140
+msgid "Slow with fakes, fixed on level 15"
+msgstr "Yavaş, sahtelerle, 15. düzeyde sabit"
+
+#: src/nibbles-window.vala:1141
+msgid "Slow with fakes, fixed on level 16"
+msgstr "Yavaş, sahtelerle, 16. düzeyde sabit"
+
+#: src/nibbles-window.vala:1142
+msgid "Slow with fakes, fixed on level 17"
+msgstr "Yavaş, sahtelerle, 17. düzeyde sabit"
+
+#: src/nibbles-window.vala:1143
+msgid "Slow with fakes, fixed on level 18"
+msgstr "Yavaş, sahtelerle, 18. düzeyde sabit"
+
+#: src/nibbles-window.vala:1144
+msgid "Slow with fakes, fixed on level 19"
+msgstr "Yavaş, sahtelerle, 19. düzeyde sabit"
+
+#: src/nibbles-window.vala:1145
+msgid "Slow with fakes, fixed on level 20"
+msgstr "Yavaş, sahtelerle, 20. düzeyde sabit"
+
+#: src/nibbles-window.vala:1146
+msgid "Slow with fakes, fixed on level 21"
+msgstr "Yavaş, sahtelerle, 21. düzeyde sabit"
+
+#: src/nibbles-window.vala:1147
+msgid "Slow with fakes, fixed on level 22"
+msgstr "Yavaş, sahtelerle, 22. düzeyde sabit"
+
+#: src/nibbles-window.vala:1148
+msgid "Slow with fakes, fixed on level 23"
+msgstr "Yavaş, sahtelerle, 23. düzeyde sabit"
+
+#: src/nibbles-window.vala:1149
+msgid "Slow with fakes, fixed on level 24"
+msgstr "Yavaş, sahtelerle, 24. düzeyde sabit"
+
+#: src/nibbles-window.vala:1150
+msgid "Slow with fakes, fixed on level 25"
+msgstr "Yavaş, sahtelerle, 25. düzeyde sabit"
+
+#: src/nibbles-window.vala:1151
+msgid "Slow with fakes, fixed on level 26"
+msgstr "Yavaş, sahtelerle, 26. düzeyde sabit"
+
+#: src/nibbles-window.vala:1152
 msgid "Medium"
 msgstr "Orta"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:1063
+#: src/nibbles-window.vala:1153
+msgid "Medium with random levels"
+msgstr "Orta, rastgele düzeylerle"
+
+#: src/nibbles-window.vala:1154
+msgid "Medium, fixed on level 1"
+msgstr "Orta, 1. düzeyde sabit"
+
+#: src/nibbles-window.vala:1155
+msgid "Medium, fixed on level 2"
+msgstr "Orta, 2. düzeyde sabit"
+
+#: src/nibbles-window.vala:1156
+msgid "Medium, fixed on level 3"
+msgstr "Orta, 3. düzeyde sabit"
+
+#: src/nibbles-window.vala:1157
+msgid "Medium, fixed on level 4"
+msgstr "Orta, 4. düzeyde sabit"
+
+#: src/nibbles-window.vala:1158
+msgid "Medium, fixed on level 5"
+msgstr "Orta, 5. düzeyde sabit"
+
+#: src/nibbles-window.vala:1159
+msgid "Medium, fixed on level 6"
+msgstr "Orta, 6. düzeyde sabit"
+
+#: src/nibbles-window.vala:1160
+msgid "Medium, fixed on level 7"
+msgstr "Orta, 7. düzeyde sabit"
+
+#: src/nibbles-window.vala:1161
+msgid "Medium, fixed on level 8"
+msgstr "Orta, 8. düzeyde sabit"
+
+#: src/nibbles-window.vala:1162
+msgid "Medium, fixed on level 9"
+msgstr "Orta, 9. düzeyde sabit"
+
+#: src/nibbles-window.vala:1163
+msgid "Medium, fixed on level 10"
+msgstr "Orta, 10. düzeyde sabit"
+
+#: src/nibbles-window.vala:1164
+msgid "Medium, fixed on level 11"
+msgstr "Orta, 11. düzeyde sabit"
+
+#: src/nibbles-window.vala:1165
+msgid "Medium, fixed on level 12"
+msgstr "Orta, 12. düzeyde sabit"
+
+#: src/nibbles-window.vala:1166
+msgid "Medium, fixed on level 13"
+msgstr "Orta, 13. düzeyde sabit"
+
+#: src/nibbles-window.vala:1167
+msgid "Medium, fixed on level 14"
+msgstr "Orta, 14. düzeyde sabit"
+
+#: src/nibbles-window.vala:1168
+msgid "Medium, fixed on level 15"
+msgstr "Orta, 15. düzeyde sabit"
+
+#: src/nibbles-window.vala:1169
+msgid "Medium, fixed on level 16"
+msgstr "Orta, 16. düzeyde sabit"
+
+#: src/nibbles-window.vala:1170
+msgid "Medium, fixed on level 17"
+msgstr "Orta, 17. düzeyde sabit"
+
+#: src/nibbles-window.vala:1171
+msgid "Medium, fixed on level 18"
+msgstr "Orta, 18. düzeyde sabit"
+
+#: src/nibbles-window.vala:1172
+msgid "Medium, fixed on level 19"
+msgstr "Orta, 19. düzeyde sabit"
+
+#: src/nibbles-window.vala:1173
+msgid "Medium, fixed on level 20"
+msgstr "Orta, 20. düzeyde sabit"
+
+#: src/nibbles-window.vala:1174
+msgid "Medium, fixed on level 21"
+msgstr "Orta, 21. düzeyde sabit"
+
+#: src/nibbles-window.vala:1175
+msgid "Medium, fixed on level 22"
+msgstr "Orta, 22. düzeyde sabit"
+
+#: src/nibbles-window.vala:1176
+msgid "Medium, fixed on level 23"
+msgstr "Orta, 23. düzeyde sabit"
+
+#: src/nibbles-window.vala:1177
+msgid "Medium, fixed on level 24"
+msgstr "Orta, 24. düzeyde sabit"
+
+#: src/nibbles-window.vala:1178
+msgid "Medium, fixed on level 25"
+msgstr "Orta, 25. düzeyde sabit"
+
+#: src/nibbles-window.vala:1179
+msgid "Medium, fixed on level 26"
+msgstr "Orta, 26. düzeyde sabit"
+
+#: src/nibbles-window.vala:1180
+msgid "Medium with fakes and random levels"
+msgstr "Orta, sahtelerle ve rastgele düzeylerle"
+
+#: src/nibbles-window.vala:1181
+msgid "Medium with fakes, fixed on level 1"
+msgstr "Orta, sahtelerle, 1. düzeyde sabit"
+
+#: src/nibbles-window.vala:1182
+msgid "Medium with fakes, fixed on level 2"
+msgstr "Orta, sahtelerle, 2. düzeyde sabit"
+
+#: src/nibbles-window.vala:1183
+msgid "Medium with fakes, fixed on level 3"
+msgstr "Orta, sahtelerle, 3. düzeyde sabit"
+
+#: src/nibbles-window.vala:1184
+msgid "Medium with fakes, fixed on level 4"
+msgstr "Orta, sahtelerle, 4. düzeyde sabit"
+
+#: src/nibbles-window.vala:1185
+msgid "Medium with fakes, fixed on level 5"
+msgstr "Orta, sahtelerle, 5. düzeyde sabit"
+
+#: src/nibbles-window.vala:1186
+msgid "Medium with fakes, fixed on level 6"
+msgstr "Orta, sahtelerle, 6. düzeyde sabit"
+
+#: src/nibbles-window.vala:1187
+msgid "Medium with fakes, fixed on level 7"
+msgstr "Orta, sahtelerle, 7. düzeyde sabit"
+
+#: src/nibbles-window.vala:1188
+msgid "Medium with fakes, fixed on level 8"
+msgstr "Orta, sahtelerle, 8. düzeyde sabit"
+
+#: src/nibbles-window.vala:1189
+msgid "Medium with fakes, fixed on level 9"
+msgstr "Orta, sahtelerle, 9. düzeyde sabit"
+
+#: src/nibbles-window.vala:1190
+msgid "Medium with fakes, fixed on level 10"
+msgstr "Orta, sahtelerle, 11. düzeyde sabit"
+
+#: src/nibbles-window.vala:1191
+msgid "Medium with fakes, fixed on level 11"
+msgstr "Orta, sahtelerle, 11. düzeyde sabit"
+
+#: src/nibbles-window.vala:1192
+msgid "Medium with fakes, fixed on level 12"
+msgstr "Orta, sahtelerle, 12. düzeyde sabit"
+
+#: src/nibbles-window.vala:1193
+msgid "Medium with fakes, fixed on level 13"
+msgstr "Orta, sahtelerle, 13. düzeyde sabit"
+
+#: src/nibbles-window.vala:1194
+msgid "Medium with fakes, fixed on level 14"
+msgstr "Orta, sahtelerle, 14. düzeyde sabit"
+
+#: src/nibbles-window.vala:1195
+msgid "Medium with fakes, fixed on level 15"
+msgstr "Orta, sahtelerle, 15. düzeyde sabit"
+
+#: src/nibbles-window.vala:1196
+msgid "Medium with fakes, fixed on level 16"
+msgstr "Orta, sahtelerle, 16. düzeyde sabit"
+
+#: src/nibbles-window.vala:1197
+msgid "Medium with fakes, fixed on level 17"
+msgstr "Orta, sahtelerle, 17. düzeyde sabit"
+
+#: src/nibbles-window.vala:1198
+msgid "Medium with fakes, fixed on level 18"
+msgstr "Orta, sahtelerle, 18. düzeyde sabit"
+
+#: src/nibbles-window.vala:1199
+msgid "Medium with fakes, fixed on level 19"
+msgstr "Orta, sahtelerle, 19. düzeyde sabit"
+
+#: src/nibbles-window.vala:1200
+msgid "Medium with fakes, fixed on level 20"
+msgstr "Orta, sahtelerle, 20. düzeyde sabit"
+
+#: src/nibbles-window.vala:1201
+msgid "Medium with fakes, fixed on level 21"
+msgstr "Orta, sahtelerle, 21. düzeyde sabit"
+
+#: src/nibbles-window.vala:1202
+msgid "Medium with fakes, fixed on level 22"
+msgstr "Orta, sahtelerle, 22. düzeyde sabit"
+
+#: src/nibbles-window.vala:1203
+msgid "Medium with fakes, fixed on level 23"
+msgstr "Orta, sahtelerle, 23. düzeyde sabit"
+
+#: src/nibbles-window.vala:1204
+msgid "Medium with fakes, fixed on level 24"
+msgstr "Orta, sahtelerle, 24. düzeyde sabit"
+
+#: src/nibbles-window.vala:1205
+msgid "Medium with fakes, fixed on level 25"
+msgstr "Orta, sahtelerle, 25. düzeyde sabit"
+
+#: src/nibbles-window.vala:1206
+msgid "Medium with fakes, fixed on level 26"
+msgstr "Orta, sahtelerle, 26. düzeyde sabit"
+
+#: src/nibbles-window.vala:1207
 msgid "Fast"
 msgstr "Hızlı"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1065
-msgid "Beginner with Fakes"
-msgstr "Sahte Ödüllerle Acemi"
+#: src/nibbles-window.vala:1208
+msgid "Fast with random levels"
+msgstr "Hızlı, rastgele düzeylerle"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1067
-msgid "Slow with Fakes"
-msgstr "Sahte Ödüllerle Yavaş"
+#: src/nibbles-window.vala:1209
+msgid "Fast, fixed on level 1"
+msgstr "Hızlı, 1. düzeyde sabit"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1069
-msgid "Medium with Fakes"
-msgstr "Sahte Ödüllerle Orta"
+#: src/nibbles-window.vala:1210
+msgid "Fast, fixed on level 2"
+msgstr "Hızlı, 2. düzeyde sabit"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:1071
-msgid "Fast with Fakes"
-msgstr "Sahte Ödüllerle Hızlı"
+#: src/nibbles-window.vala:1211
+msgid "Fast, fixed on level 3"
+msgstr "Hızlı, 3. düzeyde sabit"
+
+#: src/nibbles-window.vala:1212
+msgid "Fast, fixed on level 4"
+msgstr "Hızlı, 4. düzeyde sabit"
+
+#: src/nibbles-window.vala:1213
+msgid "Fast, fixed on level 5"
+msgstr "Hızlı, 5. düzeyde sabit"
+
+#: src/nibbles-window.vala:1214
+msgid "Fast, fixed on level 6"
+msgstr "Hızlı, 6. düzeyde sabit"
+
+#: src/nibbles-window.vala:1215
+msgid "Fast, fixed on level 7"
+msgstr "Hızlı, 7. düzeyde sabit"
+
+#: src/nibbles-window.vala:1216
+msgid "Fast, fixed on level 8"
+msgstr "Hızlı, 8. düzeyde sabit"
+
+#: src/nibbles-window.vala:1217
+msgid "Fast, fixed on level 9"
+msgstr "Hızlı, 9. düzeyde sabit"
+
+#: src/nibbles-window.vala:1218
+msgid "Fast, fixed on level 10"
+msgstr "Hızlı, 10. düzeyde sabit"
+
+#: src/nibbles-window.vala:1219
+msgid "Fast, fixed on level 11"
+msgstr "Hızlı, 11. düzeyde sabit"
+
+#: src/nibbles-window.vala:1220
+msgid "Fast, fixed on level 12"
+msgstr "Hızlı, 12. düzeyde sabit"
+
+#: src/nibbles-window.vala:1221
+msgid "Fast, fixed on level 13"
+msgstr "Hızlı, 13. düzeyde sabit"
+
+#: src/nibbles-window.vala:1222
+msgid "Fast, fixed on level 14"
+msgstr "Hızlı, 14. düzeyde sabit"
+
+#: src/nibbles-window.vala:1223
+msgid "Fast, fixed on level 15"
+msgstr "Hızlı, 15. düzeyde sabit"
+
+#: src/nibbles-window.vala:1224
+msgid "Fast, fixed on level 16"
+msgstr "Hızlı, 16. düzeyde sabit"
+
+#: src/nibbles-window.vala:1225
+msgid "Fast, fixed on level 17"
+msgstr "Hızlı, 17. düzeyde sabit"
+
+#: src/nibbles-window.vala:1226
+msgid "Fast, fixed on level 18"
+msgstr "Hızlı, 18. düzeyde sabit"
+
+#: src/nibbles-window.vala:1227
+msgid "Fast, fixed on level 19"
+msgstr "Hızlı, 19. düzeyde sabit"
+
+#: src/nibbles-window.vala:1228
+msgid "Fast, fixed on level 20"
+msgstr "Hızlı, 20. düzeyde sabit"
+
+#: src/nibbles-window.vala:1229
+msgid "Fast, fixed on level 21"
+msgstr "Hızlı, 21. düzeyde sabit"
+
+#: src/nibbles-window.vala:1230
+msgid "Fast, fixed on level 22"
+msgstr "Hızlı, 22. düzeyde sabit"
+
+#: src/nibbles-window.vala:1231
+msgid "Fast, fixed on level 23"
+msgstr "Hızlı, 23. düzeyde sabit"
+
+#: src/nibbles-window.vala:1232
+msgid "Fast, fixed on level 24"
+msgstr "Hızlı, 24. düzeyde sabit"
+
+#: src/nibbles-window.vala:1233
+msgid "Fast, fixed on level 25"
+msgstr "Hızlı, 25. düzeyde sabit"
+
+#: src/nibbles-window.vala:1234
+msgid "Fast, fixed on level 26"
+msgstr "Hızlı, 2. düzeyde sabit"
+
+#: src/nibbles-window.vala:1235
+msgid "Fast with fakes and random levels"
+msgstr "Hızlı, sahtelerle ve rastgele düzeylerle"
+
+#: src/nibbles-window.vala:1236
+msgid "Fast with fakes, fixed on level 1"
+msgstr "Hızlı, sahtelerle, 1. düzeyde sabit"
+
+#: src/nibbles-window.vala:1237
+msgid "Fast with fakes, fixed on level 2"
+msgstr "Hızlı, sahtelerle, 2. düzeyde sabit"
+
+#: src/nibbles-window.vala:1238
+msgid "Fast with fakes, fixed on level 3"
+msgstr "Hızlı, sahtelerle, 3. düzeyde sabit"
+
+#: src/nibbles-window.vala:1239
+msgid "Fast with fakes, fixed on level 4"
+msgstr "Hızlı, sahtelerle, 4. düzeyde sabit"
+
+#: src/nibbles-window.vala:1240
+msgid "Fast with fakes, fixed on level 5"
+msgstr "Hızlı, sahtelerle, 5. düzeyde sabit"
+
+#: src/nibbles-window.vala:1241
+msgid "Fast with fakes, fixed on level 6"
+msgstr "Hızlı, sahtelerle, 6. düzeyde sabit"
+
+#: src/nibbles-window.vala:1242
+msgid "Fast with fakes, fixed on level 7"
+msgstr "Hızlı, sahtelerle, 7. düzeyde sabit"
+
+#: src/nibbles-window.vala:1243
+msgid "Fast with fakes, fixed on level 8"
+msgstr "Hızlı, sahtelerle, 8. düzeyde sabit"
+
+#: src/nibbles-window.vala:1244
+msgid "Fast with fakes, fixed on level 9"
+msgstr "Hızlı, sahtelerle, 9. düzeyde sabit"
+
+#: src/nibbles-window.vala:1245
+msgid "Fast with fakes, fixed on level 10"
+msgstr "Hızlı, sahtelerle, 10. düzeyde sabit"
+
+#: src/nibbles-window.vala:1246
+msgid "Fast with fakes, fixed on level 11"
+msgstr "Hızlı, sahtelerle, 11. düzeyde sabit"
+
+#: src/nibbles-window.vala:1247
+msgid "Fast with fakes, fixed on level 12"
+msgstr "Hızlı, sahtelerle, 12. düzeyde sabit"
+
+#: src/nibbles-window.vala:1248
+msgid "Fast with fakes, fixed on level 13"
+msgstr "Hızlı, sahtelerle, 13. düzeyde sabit"
+
+#: src/nibbles-window.vala:1249
+msgid "Fast with fakes, fixed on level 14"
+msgstr "Hızlı, sahtelerle, 14. düzeyde sabit"
+
+#: src/nibbles-window.vala:1250
+msgid "Fast with fakes, fixed on level 15"
+msgstr "Hızlı, sahtelerle, 15. düzeyde sabit"
+
+#: src/nibbles-window.vala:1251
+msgid "Fast with fakes, fixed on level 16"
+msgstr "Hızlı, sahtelerle, 16. düzeyde sabit"
+
+#: src/nibbles-window.vala:1252
+msgid "Fast with fakes, fixed on level 17"
+msgstr "Hızlı, sahtelerle, 17. düzeyde sabit"
+
+#: src/nibbles-window.vala:1253
+msgid "Fast with fakes, fixed on level 18"
+msgstr "Hızlı, sahtelerle, 18. düzeyde sabit"
+
+#: src/nibbles-window.vala:1254
+msgid "Fast with fakes, fixed on level 19"
+msgstr "Hızlı, sahtelerle, 19. düzeyde sabit"
+
+#: src/nibbles-window.vala:1255
+msgid "Fast with fakes, fixed on level 20"
+msgstr "Hızlı, sahtelerle, 20. düzeyde sabit"
+
+#: src/nibbles-window.vala:1256
+msgid "Fast with fakes, fixed on level 21"
+msgstr "Hızlı, sahtelerle, 21. düzeyde sabit"
+
+#: src/nibbles-window.vala:1257
+msgid "Fast with fakes, fixed on level 22"
+msgstr "Hızlı, sahtelerle, 22. düzeyde sabit"
+
+#: src/nibbles-window.vala:1258
+msgid "Fast with fakes, fixed on level 23"
+msgstr "Hızlı, sahtelerle, 23. düzeyde sabit"
+
+#: src/nibbles-window.vala:1259
+msgid "Fast with fakes, fixed on level 24"
+msgstr "Hızlı, sahtelerle, 24. düzeyde sabit"
+
+#: src/nibbles-window.vala:1260
+msgid "Fast with fakes, fixed on level 25"
+msgstr "Hızlı, sahtelerle, 25. düzeyde sabit"
+
+#: src/nibbles-window.vala:1261
+msgid "Fast with fakes, fixed on level 26"
+msgstr "Hızlı, sahtelerle, 26. düzeyde sabit"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1076
+#: src/nibbles-window.vala:1293
 msgid "Difficulty Level:"
 msgstr "Zorluk Düzeyi:"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1182
+#: src/nibbles-window.vala:1396
 #, c-format
 msgid "Level %d Completed!"
 msgstr "%d. Düzey Tamamlandı!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1193
+#: src/nibbles-window.vala:1407
 msgid "_Next Level"
 msgstr "_Sonraki Düzey"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1244
+#: src/nibbles-window.vala:1460
 msgid "Congratulations!"
 msgstr "Tebrikler!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1247
+#: src/nibbles-window.vala:1463
 msgid "Game Over!"
 msgstr "Oyun Bitti!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1258
+#: src/nibbles-window.vala:1474
 msgid "You have completed the game."
 msgstr "Oyunu tamamladınız."
 
-#: src/nibbles-window.vala:1268
+#: src/nibbles-window.vala:1484
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d Puan"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1279
+#: src/nibbles-window.vala:1495
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(liderler sıralamasına ulaşmaya %ld puan daha gerekiyor)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1286
+#: src/nibbles-window.vala:1502
 msgid "_Play Again"
 msgstr "Yeniden _Oyna"
 
@@ -1042,6 +1889,3 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "%d. Solucan"
-
-#~ msgid "_Enable fake bonuses"
-#~ msgstr "_Sahte ödülleri etkinleştir"
