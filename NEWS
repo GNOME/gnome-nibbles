@@ -1,3 +1,14 @@
+4.4.2 - Halloween (October 31) 2025
+===================================
+
+- Fix issues #44, #78 & #79.
+- Updated screen shots, thanks to reno-coty for these.
+- Updated translations; Ukrainian, Chinese (China), Georgian, Slovenian, 
+  Swedish, Russian, Brazilian Portuguese & Turkish.
+- libgnome-games-support updated translations; Korean, Turkish & Lithuanian.
+- To download use:
+  https://gitlab.gnome.org/GNOME/gnome-nibbles/-/archive/4.4.2/gnome-nibbles-4.4.2.tar.bz2
+
 4.4.1 - September 17, 2025
 ==========================
 
