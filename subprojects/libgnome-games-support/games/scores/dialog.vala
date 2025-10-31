@@ -89,7 +89,7 @@ private class Dialog : Adw.Dialog
         /* Decide what the title should be */
         if (new_high_score != null)
         {
-            var title_widget = new Adw.WindowTitle (_("Congratulations!"), @"$new_score_or_time $category_type $(active_category.name)");
+            var title_widget = new Adw.WindowTitle (_("Congratulations!"), @"$new_score_or_time $(active_category.name)");
             headerbar.set_title_widget (title_widget);
 
             /* Button in the top right corner, finishes the dialog */
