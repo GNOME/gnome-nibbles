@@ -1,6 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright © 2014 Nikhar Agrawal
+ * Copyright © 2025-2026 Ben Corby
  *
  * This file is part of libgnome-games-support.
  *
@@ -24,6 +25,7 @@ namespace Scores {
 private class Dialog : Adw.Dialog
 {
     private Context context;
+    private unowned Category active_category;
     private ListStore? score_model = null;
 
     private Adw.ToolbarView toolbar;
@@ -36,6 +38,7 @@ private class Dialog : Adw.Dialog
     private Style scores_style;
     private Score? new_high_score;
     private string? score_or_time;
+    private bool single_category;
 
     public Dialog (Context context, string category_type, Style style, Score? new_high_score, Category? current_cat, string icon_name)
     {
@@ -69,9 +72,10 @@ private class Dialog : Adw.Dialog
         uint active_category_index = 0; /* default to the first category */
         var categories = context.get_categories ();
         /* Use current_cat as our active_category if it is valid. */
-        unowned Category active_category = categories.find (current_cat, out active_category_index) ?
-            current_cat : (Category)categories.get_item (active_category_index); 
+        active_category = categories.find (current_cat, out active_category_index) ?
+            current_cat : (Category)categories.get_item (active_category_index);
         
+        single_category = categories.get_n_items () == 1;
         score_or_time = "";
         string new_score_or_time = "";
 
@@ -98,23 +102,33 @@ private class Dialog : Adw.Dialog
             done_button.clicked.connect (() => this.close ());
             headerbar.pack_end (done_button);
         }
-        else if (categories.get_n_items () == 1)
-        {
-            /* active category has been set to the only category in the list */
-            set_title (active_category.name);
-        }
         else
         {
-            var drop_down = new Gtk.DropDown (categories, new Gtk.PropertyExpression (typeof(Category), null, "name"));
-            /* set_selected must be called before the selected callback is setup because
-               load_scores_for_category uses score_model which hasn't been initilized yet. */
-            drop_down.set_selected (active_category_index);
-            drop_down.notify["selected"].connect(() => {
-                Category? selected = (Category?)drop_down.get_selected_item();
-                if (null != selected)
-                    load_scores_for_category (selected);
-            });
-            headerbar.set_title_widget (drop_down);
+            if (single_category)
+            {
+                /* active category has been set to the only category in the list */
+                set_title (active_category.name);
+            }
+            else
+            {
+                var drop_down = new Gtk.DropDown (categories, new Gtk.PropertyExpression (typeof(Category), null, "name"));
+                /* set_selected must be called before the selected callback is setup because
+                   load_scores_for_category uses score_model which hasn't been initilized yet. */
+                drop_down.set_selected (active_category_index);
+                drop_down.notify["selected"].connect(() => {
+                    Category? selected = (Category?)drop_down.get_selected_item();
+                    if (null != selected)
+                    {
+                        active_category = selected;
+                        load_scores_for_category (selected);
+                    }
+                });
+                headerbar.set_title_widget (drop_down);
+            }
+            var trash_button = new Gtk.Button.from_icon_name ("user-trash-symbolic");
+            trash_button.tooltip_text = _("Clear Scores");
+            trash_button.clicked.connect (clear_scores_dialog);
+            headerbar.pack_start (trash_button);
         }
 
         /* Add the data to the dialog */
@@ -126,6 +140,36 @@ private class Dialog : Adw.Dialog
         load_scores_for_category (active_category);
         scroll.set_child (score_view);
         toolbar.add_child (builder, scroll, null);
+    }
+
+    async void clear_scores_dialog ()
+    {
+        var dialog = new Adw.AlertDialog
+        (
+            _("Clear Scores?"),
+            single_category ? _("Clear this category?") : _("Clear this category or all categories?")
+        ) {default_response = "cancel"};
+        dialog.add_response ("cancel", _("_Cancel"));
+        dialog.add_response ("clear", _("Clear category"));
+        dialog.set_response_appearance ("clear", Adw.ResponseAppearance.DESTRUCTIVE);
+        if (!single_category)
+        {
+            dialog.add_response ("clearall", _("Clear all"));
+            dialog.set_response_appearance ("clearall", Adw.ResponseAppearance.DESTRUCTIVE);
+        }
+        switch (yield dialog.choose (this, null))
+        {
+        case "clear":
+            context.clear_score_file (active_category);
+            close ();
+            break;
+        case "clearall":
+            context.clear_score_files ();
+            close ();
+            break;
+        default:
+            break;
+        }
     }
 
     /*

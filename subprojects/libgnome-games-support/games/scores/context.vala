@@ -2,6 +2,7 @@
  *
  * Copyright © 2014 Nikhar Agrawal
  * Copyright © 2015 Michael Catanzaro <mcatanzaro@gnome.org>
+ * Copyright © 2025-2026 Ben Corby
  *
  * This file is part of libgnome-games-support.
  *
@@ -269,6 +270,29 @@ public class Context : Object
         var line = @"$(score.score) $(score.time) $(score.user)\n";
 
         yield stream.write_all_async (line.data, Priority.DEFAULT, cancellable, null);
+    }
+
+    public void clear_score_file (Category category)
+    {
+        var file = File.new_for_path (Path.build_filename (user_score_dir, category.key));
+        file.delete_async.begin (Priority.DEFAULT, null, (object, result) =>
+        {
+            try
+            {
+                if (file.delete_async.end (result))
+                    scores_per_category.unset (category);
+            }
+            catch (GLib.Error e)
+            {
+                warning ("Failed to delete file %s: %s", file.get_path (), e.message);
+            }
+        });
+    }
+
+    public void clear_score_files ()
+    {
+        foreach (var category in scores_per_category.keys)
+            clear_score_file (category);
     }
 
     /**
