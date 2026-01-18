@@ -1,7 +1,7 @@
 /* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  * Gnome Nibbles: Gnome Worm Game
  * Copyright (C) 2015 Iulian-Gabriel Radu <iulian.radu67@gmail.com>
- * Copyright (C) 2023-2025 Ben Corby <bcorby@new-ms.com>
+ * Copyright (C) 2023-2026 Ben Corby <bcorby@new-ms.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -450,7 +450,7 @@ private class Nibbles : Gtk.Application
 
 
              /* Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end */
-             _("Copyright © %u-%u – Ben Corby").printf (2022, 2025)
+             _("Copyright © %u-%u – Ben Corby").printf (2022, 2026)
         #if USE_LIBADWAITA
         /**/);
         about_dialog.set_license_type (License.GPL_3_0);
