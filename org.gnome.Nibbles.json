@@ -55,17 +55,6 @@
             ]
         },
         {
-            "name": "libgee",
-            "buildsystem": "autotools",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libgee.git",
-                    "branch": "main"
-                }
-            ]
-        },
-        {
             "name": "gnome-nibbles",
             "buildsystem": "meson",
             "config-opts": [
