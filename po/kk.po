@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2023-12-23 13:27+0000\n"
-"PO-Revision-Date: 2024-03-08 09:53+0500\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
+"POT-Creation-Date: 2026-01-18 09:01+0000\n"
+"PO-Revision-Date: 2026-01-26 20:24+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -16,54 +16,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #. Translators: title of the window, as displayed by the window manager
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
-#: data/ui/nibbles.ui:64 src/gnome-nibbles.vala:39
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell,
+#. or in the about dialog
+#: data/org.gnome.Nibbles.desktop.in:2 data/org.gnome.Nibbles.metainfo.xml.in:7
+#: data/ui/nibbles-adw.ui:70 data/ui/nibbles.ui:69 src/gnome-nibbles.vala:58
 msgid "Nibbles"
 msgstr "Құрттар ойыны"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
+#: data/org.gnome.Nibbles.desktop.in:3 data/org.gnome.Nibbles.metainfo.xml.in:8
 msgid "Guide a worm around a maze"
 msgstr "Құртты лабиринт ішінде бағыттаңыз"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:10
-msgid ""
-"Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-"enemy worms while eating apples and bananas to increase your length. Each "
-"worm has six lives and loses one by running into a wall, another worm, or "
-"itself. The enemy worms are after the same bonuses that you are, so be "
-"careful. If the worms become too large, you won’t have much room to move."
-msgstr ""
-"Бонустарды жеу және ұзағырақ болу квестінде құртты басқарыңыз. Ұзындықты "
-"арттыру үшін алма мен банандарды жеу үшін қарсыластардан озыңыз. Әр құрттың "
-"алты өмірі бар және қабырға, басқа құртқа немесе өз-өзіне соғылу нәтижесінде "
-"бір өмірді жоғалтады. Жау құрттары сізбен бонустар үшін бәсекелеседі, "
-"сондықтан мұқият болыңыз. Егер олар тым үлкен болып кетсе, сізде қозғалыс "
-"үшін көп орын болмайды."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:17
-msgid ""
-"The adventure progresses through 26 maps of increasing difficulty. The early "
-"levels are mostly open with a few walls, but later on, cramped spaces and "
-"teleporters make things more interesting."
-msgstr ""
-"Шытырман оқиға қиындықтары артатын 26 картадан өтеді. Бастауыш деңгейлер тек "
-"бірнеше қабырғалары бар, ашық болса, кейінгі деңгейлерде тар кеңістіктер мен "
-"телепортерлер ойынды қызықтау қылады."
-
-#: data/org.gnome.Nibbles.appdata.xml.in:22
-msgid ""
-"Play on your own against up to five enemy worms, or share your keyboard to "
-"play with a friend."
-msgstr ""
-"Бес қарсылас құртқа қарсы өз бетінше ойнаңыз немесе досыңызбен ойнау үшін "
-"пернетақтаны бөлісіңіз."
-
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Nibbles.desktop.in:6
+#. Translators: Search terms to find this application. Do NOT translate or
+#. localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Nibbles.desktop.in:5
 msgid "game;snake;board;"
 msgstr "game;snake;board;ойын;құрт;тақта;"
 
@@ -97,194 +66,204 @@ msgstr "Бұл бірінші іске қосылу ма"
 
 #: data/org.gnome.Nibbles.gschema.xml:29
 msgid "Setting to decide whether to show first-run hint dialog or not."
-msgstr ""
-"Бірінші рет іске қосылудың көмек сұхбатын көрсету керектігін шешетін баптау."
+msgstr "Бірінші рет іске қосылудың көмек сұхбатын көрсету керектігін шешетін баптау."
 
 #: data/org.gnome.Nibbles.gschema.xml:34
+msgid "How the game progresses through the boards"
+msgstr "Ойынның тақталар арқылы өту тәртібі"
+
+#: data/org.gnome.Nibbles.gschema.xml:35
+msgid ""
+"How the game progresses through the boards; 0 - sequentially, 1 - randomly, 2 - "
+"fixed board."
+msgstr ""
+"Ойынның тақталар арқылы өту тәртібі; 0 - ретімен, 1 - кездейсоқ, 2 - бекітілген "
+"тақта."
+
+#: data/org.gnome.Nibbles.gschema.xml:40
 msgid "Game level to start on"
 msgstr "Бастау үшін ойын деңгейі"
 
-#: data/org.gnome.Nibbles.gschema.xml:35
+#: data/org.gnome.Nibbles.gschema.xml:41
 msgid "Game level to start on."
 msgstr "Бастау үшін ойын деңгейі."
 
-#: data/org.gnome.Nibbles.gschema.xml:40
+#: data/org.gnome.Nibbles.gschema.xml:46
 msgid "Worms movement speed"
 msgstr "Құрттардың қозғалыс жылдамдығы"
 
-#: data/org.gnome.Nibbles.gschema.xml:41
+#: data/org.gnome.Nibbles.gschema.xml:47
 msgid "The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”."
-msgstr ""
-"Құрттар жылдамдығы, \"1\" деген \"жылдам\" ал \"4\" деген \"баяу\" білдіреді."
+msgstr "Құрттар жылдамдығы, \"1\" деген \"жылдам\" ал \"4\" деген \"баяу\" білдіреді."
 
-#: data/org.gnome.Nibbles.gschema.xml:45
+#: data/org.gnome.Nibbles.gschema.xml:51
 msgid "Enable 3D"
 msgstr "3D іске қосу"
 
-#: data/org.gnome.Nibbles.gschema.xml:46
+#: data/org.gnome.Nibbles.gschema.xml:52
 msgid "Enable 3D."
 msgstr "3D іске қосу."
 
-#: data/org.gnome.Nibbles.gschema.xml:50
+#: data/org.gnome.Nibbles.gschema.xml:56
 msgid "Enable sounds"
 msgstr "Дыбыстарды іске қосу"
 
-#: data/org.gnome.Nibbles.gschema.xml:51
+#: data/org.gnome.Nibbles.gschema.xml:57
 msgid "Enable sounds."
 msgstr "Дыбыстарды іске қосу."
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: data/org.gnome.Nibbles.gschema.xml:55 src/gnome-nibbles.vala:65
+#: data/org.gnome.Nibbles.gschema.xml:61 src/gnome-nibbles.vala:85
 msgid "Enable fake bonuses"
 msgstr "Жалған бонустарды іске қосу"
 
-#: data/org.gnome.Nibbles.gschema.xml:56
+#: data/org.gnome.Nibbles.gschema.xml:62
 msgid "Enable fake bonuses."
 msgstr "Жалған бонустарды іске қосу."
 
-#: data/org.gnome.Nibbles.gschema.xml:61
+#: data/org.gnome.Nibbles.gschema.xml:67
 msgid "Number of human players"
 msgstr "Адам ойыншыларының саны"
 
-#: data/org.gnome.Nibbles.gschema.xml:62
+#: data/org.gnome.Nibbles.gschema.xml:68
 msgid "Number of human players."
 msgstr "Адам ойыншыларының саны."
 
-#: data/org.gnome.Nibbles.gschema.xml:67
+#: data/org.gnome.Nibbles.gschema.xml:73
 msgid "Number of AI players"
 msgstr "AI ойыншыларының саны"
 
-#: data/org.gnome.Nibbles.gschema.xml:68
+#: data/org.gnome.Nibbles.gschema.xml:74
 msgid "Number of AI players."
 msgstr "AI ойыншыларының саны."
 
-#: data/org.gnome.Nibbles.gschema.xml:74 data/org.gnome.Nibbles.gschema.xml:121
-#: data/org.gnome.Nibbles.gschema.xml:168
-#: data/org.gnome.Nibbles.gschema.xml:215
-#: data/org.gnome.Nibbles.gschema.xml:262
-#: data/org.gnome.Nibbles.gschema.xml:309
+#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:127
+#: data/org.gnome.Nibbles.gschema.xml:174 data/org.gnome.Nibbles.gschema.xml:221
+#: data/org.gnome.Nibbles.gschema.xml:268 data/org.gnome.Nibbles.gschema.xml:315
 msgid "Color to use for worm"
 msgstr "Құрт үшін пайдаланылатын түс"
 
-#: data/org.gnome.Nibbles.gschema.xml:75 data/org.gnome.Nibbles.gschema.xml:122
-#: data/org.gnome.Nibbles.gschema.xml:169
-#: data/org.gnome.Nibbles.gschema.xml:216
-#: data/org.gnome.Nibbles.gschema.xml:263
-#: data/org.gnome.Nibbles.gschema.xml:310
+#: data/org.gnome.Nibbles.gschema.xml:81 data/org.gnome.Nibbles.gschema.xml:128
+#: data/org.gnome.Nibbles.gschema.xml:175 data/org.gnome.Nibbles.gschema.xml:222
+#: data/org.gnome.Nibbles.gschema.xml:269 data/org.gnome.Nibbles.gschema.xml:316
 msgid "Color to use for worm."
 msgstr "Құрт үшін пайдаланылатын түс."
 
-#: data/org.gnome.Nibbles.gschema.xml:79 data/org.gnome.Nibbles.gschema.xml:99
-#: data/org.gnome.Nibbles.gschema.xml:126
-#: data/org.gnome.Nibbles.gschema.xml:146
-#: data/org.gnome.Nibbles.gschema.xml:173
-#: data/org.gnome.Nibbles.gschema.xml:193
-#: data/org.gnome.Nibbles.gschema.xml:220
-#: data/org.gnome.Nibbles.gschema.xml:240
-#: data/org.gnome.Nibbles.gschema.xml:267
-#: data/org.gnome.Nibbles.gschema.xml:287
-#: data/org.gnome.Nibbles.gschema.xml:314
-#: data/org.gnome.Nibbles.gschema.xml:334
+#: data/org.gnome.Nibbles.gschema.xml:85 data/org.gnome.Nibbles.gschema.xml:105
+#: data/org.gnome.Nibbles.gschema.xml:132 data/org.gnome.Nibbles.gschema.xml:152
+#: data/org.gnome.Nibbles.gschema.xml:179 data/org.gnome.Nibbles.gschema.xml:199
+#: data/org.gnome.Nibbles.gschema.xml:226 data/org.gnome.Nibbles.gschema.xml:246
+#: data/org.gnome.Nibbles.gschema.xml:273 data/org.gnome.Nibbles.gschema.xml:293
+#: data/org.gnome.Nibbles.gschema.xml:320 data/org.gnome.Nibbles.gschema.xml:340
 msgid "Move up"
 msgstr "Жоғары жылжыту"
 
-#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:100
-#: data/org.gnome.Nibbles.gschema.xml:127
-#: data/org.gnome.Nibbles.gschema.xml:147
-#: data/org.gnome.Nibbles.gschema.xml:174
-#: data/org.gnome.Nibbles.gschema.xml:194
-#: data/org.gnome.Nibbles.gschema.xml:221
-#: data/org.gnome.Nibbles.gschema.xml:241
-#: data/org.gnome.Nibbles.gschema.xml:268
-#: data/org.gnome.Nibbles.gschema.xml:288
-#: data/org.gnome.Nibbles.gschema.xml:315
-#: data/org.gnome.Nibbles.gschema.xml:335
+#: data/org.gnome.Nibbles.gschema.xml:86 data/org.gnome.Nibbles.gschema.xml:106
+#: data/org.gnome.Nibbles.gschema.xml:133 data/org.gnome.Nibbles.gschema.xml:153
+#: data/org.gnome.Nibbles.gschema.xml:180 data/org.gnome.Nibbles.gschema.xml:200
+#: data/org.gnome.Nibbles.gschema.xml:227 data/org.gnome.Nibbles.gschema.xml:247
+#: data/org.gnome.Nibbles.gschema.xml:274 data/org.gnome.Nibbles.gschema.xml:294
+#: data/org.gnome.Nibbles.gschema.xml:321 data/org.gnome.Nibbles.gschema.xml:341
 msgid "Key to use for motion up."
 msgstr "Жоғары қозғалу үшін перне."
 
-#: data/org.gnome.Nibbles.gschema.xml:84 data/org.gnome.Nibbles.gschema.xml:104
-#: data/org.gnome.Nibbles.gschema.xml:131
-#: data/org.gnome.Nibbles.gschema.xml:151
-#: data/org.gnome.Nibbles.gschema.xml:178
-#: data/org.gnome.Nibbles.gschema.xml:198
-#: data/org.gnome.Nibbles.gschema.xml:225
-#: data/org.gnome.Nibbles.gschema.xml:245
-#: data/org.gnome.Nibbles.gschema.xml:272
-#: data/org.gnome.Nibbles.gschema.xml:292
-#: data/org.gnome.Nibbles.gschema.xml:319
-#: data/org.gnome.Nibbles.gschema.xml:339
+#: data/org.gnome.Nibbles.gschema.xml:90 data/org.gnome.Nibbles.gschema.xml:110
+#: data/org.gnome.Nibbles.gschema.xml:137 data/org.gnome.Nibbles.gschema.xml:157
+#: data/org.gnome.Nibbles.gschema.xml:184 data/org.gnome.Nibbles.gschema.xml:204
+#: data/org.gnome.Nibbles.gschema.xml:231 data/org.gnome.Nibbles.gschema.xml:251
+#: data/org.gnome.Nibbles.gschema.xml:278 data/org.gnome.Nibbles.gschema.xml:298
+#: data/org.gnome.Nibbles.gschema.xml:325 data/org.gnome.Nibbles.gschema.xml:345
 msgid "Move down"
 msgstr "Төмен жылжыту"
 
-#: data/org.gnome.Nibbles.gschema.xml:85 data/org.gnome.Nibbles.gschema.xml:105
-#: data/org.gnome.Nibbles.gschema.xml:132
-#: data/org.gnome.Nibbles.gschema.xml:152
-#: data/org.gnome.Nibbles.gschema.xml:179
-#: data/org.gnome.Nibbles.gschema.xml:199
-#: data/org.gnome.Nibbles.gschema.xml:226
-#: data/org.gnome.Nibbles.gschema.xml:246
-#: data/org.gnome.Nibbles.gschema.xml:273
-#: data/org.gnome.Nibbles.gschema.xml:293
-#: data/org.gnome.Nibbles.gschema.xml:320
-#: data/org.gnome.Nibbles.gschema.xml:340
+#: data/org.gnome.Nibbles.gschema.xml:91 data/org.gnome.Nibbles.gschema.xml:111
+#: data/org.gnome.Nibbles.gschema.xml:138 data/org.gnome.Nibbles.gschema.xml:158
+#: data/org.gnome.Nibbles.gschema.xml:185 data/org.gnome.Nibbles.gschema.xml:205
+#: data/org.gnome.Nibbles.gschema.xml:232 data/org.gnome.Nibbles.gschema.xml:252
+#: data/org.gnome.Nibbles.gschema.xml:279 data/org.gnome.Nibbles.gschema.xml:299
+#: data/org.gnome.Nibbles.gschema.xml:326 data/org.gnome.Nibbles.gschema.xml:346
 msgid "Key to use for motion down."
 msgstr "Төмен қозғалу үшін перне."
 
-#: data/org.gnome.Nibbles.gschema.xml:89 data/org.gnome.Nibbles.gschema.xml:109
-#: data/org.gnome.Nibbles.gschema.xml:136
-#: data/org.gnome.Nibbles.gschema.xml:156
-#: data/org.gnome.Nibbles.gschema.xml:183
-#: data/org.gnome.Nibbles.gschema.xml:203
-#: data/org.gnome.Nibbles.gschema.xml:230
-#: data/org.gnome.Nibbles.gschema.xml:250
-#: data/org.gnome.Nibbles.gschema.xml:277
-#: data/org.gnome.Nibbles.gschema.xml:297
-#: data/org.gnome.Nibbles.gschema.xml:324
-#: data/org.gnome.Nibbles.gschema.xml:344
+#: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:115
+#: data/org.gnome.Nibbles.gschema.xml:142 data/org.gnome.Nibbles.gschema.xml:162
+#: data/org.gnome.Nibbles.gschema.xml:189 data/org.gnome.Nibbles.gschema.xml:209
+#: data/org.gnome.Nibbles.gschema.xml:236 data/org.gnome.Nibbles.gschema.xml:256
+#: data/org.gnome.Nibbles.gschema.xml:283 data/org.gnome.Nibbles.gschema.xml:303
+#: data/org.gnome.Nibbles.gschema.xml:330 data/org.gnome.Nibbles.gschema.xml:350
 msgid "Move left"
 msgstr "Солға жылжыту"
 
-#: data/org.gnome.Nibbles.gschema.xml:90 data/org.gnome.Nibbles.gschema.xml:110
-#: data/org.gnome.Nibbles.gschema.xml:137
-#: data/org.gnome.Nibbles.gschema.xml:157
-#: data/org.gnome.Nibbles.gschema.xml:184
-#: data/org.gnome.Nibbles.gschema.xml:204
-#: data/org.gnome.Nibbles.gschema.xml:231
-#: data/org.gnome.Nibbles.gschema.xml:251
-#: data/org.gnome.Nibbles.gschema.xml:278
-#: data/org.gnome.Nibbles.gschema.xml:298
-#: data/org.gnome.Nibbles.gschema.xml:325
-#: data/org.gnome.Nibbles.gschema.xml:345
+#: data/org.gnome.Nibbles.gschema.xml:96 data/org.gnome.Nibbles.gschema.xml:116
+#: data/org.gnome.Nibbles.gschema.xml:143 data/org.gnome.Nibbles.gschema.xml:163
+#: data/org.gnome.Nibbles.gschema.xml:190 data/org.gnome.Nibbles.gschema.xml:210
+#: data/org.gnome.Nibbles.gschema.xml:237 data/org.gnome.Nibbles.gschema.xml:257
+#: data/org.gnome.Nibbles.gschema.xml:284 data/org.gnome.Nibbles.gschema.xml:304
+#: data/org.gnome.Nibbles.gschema.xml:331 data/org.gnome.Nibbles.gschema.xml:351
 msgid "Key to use for motion left."
 msgstr "Солға қозғалу үшін перне."
 
-#: data/org.gnome.Nibbles.gschema.xml:94 data/org.gnome.Nibbles.gschema.xml:114
-#: data/org.gnome.Nibbles.gschema.xml:141
-#: data/org.gnome.Nibbles.gschema.xml:161
-#: data/org.gnome.Nibbles.gschema.xml:188
-#: data/org.gnome.Nibbles.gschema.xml:208
-#: data/org.gnome.Nibbles.gschema.xml:235
-#: data/org.gnome.Nibbles.gschema.xml:255
-#: data/org.gnome.Nibbles.gschema.xml:282
-#: data/org.gnome.Nibbles.gschema.xml:302
-#: data/org.gnome.Nibbles.gschema.xml:329
-#: data/org.gnome.Nibbles.gschema.xml:349
+#: data/org.gnome.Nibbles.gschema.xml:100 data/org.gnome.Nibbles.gschema.xml:120
+#: data/org.gnome.Nibbles.gschema.xml:147 data/org.gnome.Nibbles.gschema.xml:167
+#: data/org.gnome.Nibbles.gschema.xml:194 data/org.gnome.Nibbles.gschema.xml:214
+#: data/org.gnome.Nibbles.gschema.xml:241 data/org.gnome.Nibbles.gschema.xml:261
+#: data/org.gnome.Nibbles.gschema.xml:288 data/org.gnome.Nibbles.gschema.xml:308
+#: data/org.gnome.Nibbles.gschema.xml:335 data/org.gnome.Nibbles.gschema.xml:355
 msgid "Move right"
 msgstr "Оңға жылжыту"
 
-#: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:115
-#: data/org.gnome.Nibbles.gschema.xml:142
-#: data/org.gnome.Nibbles.gschema.xml:162
-#: data/org.gnome.Nibbles.gschema.xml:189
-#: data/org.gnome.Nibbles.gschema.xml:209
-#: data/org.gnome.Nibbles.gschema.xml:236
-#: data/org.gnome.Nibbles.gschema.xml:256
-#: data/org.gnome.Nibbles.gschema.xml:283
-#: data/org.gnome.Nibbles.gschema.xml:303
-#: data/org.gnome.Nibbles.gschema.xml:330
-#: data/org.gnome.Nibbles.gschema.xml:350
+#: data/org.gnome.Nibbles.gschema.xml:101 data/org.gnome.Nibbles.gschema.xml:121
+#: data/org.gnome.Nibbles.gschema.xml:148 data/org.gnome.Nibbles.gschema.xml:168
+#: data/org.gnome.Nibbles.gschema.xml:195 data/org.gnome.Nibbles.gschema.xml:215
+#: data/org.gnome.Nibbles.gschema.xml:242 data/org.gnome.Nibbles.gschema.xml:262
+#: data/org.gnome.Nibbles.gschema.xml:289 data/org.gnome.Nibbles.gschema.xml:309
+#: data/org.gnome.Nibbles.gschema.xml:336 data/org.gnome.Nibbles.gschema.xml:356
 msgid "Key to use for motion right."
 msgstr "Оңға қозғалу үшін перне."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:10
+msgid ""
+"Control a worm in its quest to eat bonuses and become longer. Outmaneuver enemy "
+"worms while eating apples and bananas to increase your length. Each worm has six "
+"lives and loses one by running into a wall, another worm, or itself. The enemy "
+"worms are after the same bonuses that you are, so be careful. If the worms become "
+"too large, you won’t have much room to move."
+msgstr ""
+"Бонустарды жеу және ұзағырақ болу квестінде құртты басқарыңыз. Ұзындықты арттыру "
+"үшін алма мен банандарды жеу үшін қарсыластардан озыңыз. Әр құрттың алты өмірі бар "
+"және қабырға, басқа құртқа немесе өз-өзіне соғылу нәтижесінде бір өмірді жоғалтады. "
+"Жау құрттары сізбен бонустар үшін бәсекелеседі, сондықтан мұқият болыңыз. Егер олар "
+"тым үлкен болып кетсе, сізде қозғалыс үшін көп орын болмайды."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:17
+msgid ""
+"The adventure progresses through 26 maps of increasing difficulty. The early levels "
+"are mostly open with a few walls, but later on, cramped spaces and teleporters make "
+"things more interesting."
+msgstr ""
+"Шытырман оқиға қиындықтары артатын 26 картадан өтеді. Бастауыш деңгейлер тек "
+"бірнеше қабырғалары бар, ашық болса, кейінгі деңгейлерде тар кеңістіктер мен "
+"телепортерлер ойынды қызықтау қылады."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:22
+msgid ""
+"Play on your own against up to five enemy worms, or share your keyboard to play "
+"with a friend."
+msgstr ""
+"Бес қарсылас құртқа қарсы өз бетінше ойнаңыз немесе досыңызбен ойнау үшін "
+"пернетақтаны бөлісіңіз."
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:30
+msgid "Nibbles' welcome screen"
+msgstr "Nibbles қарсы алу экраны"
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:34
+msgid "Level 1 with 5 players"
+msgstr "1-деңгей, 5 ойыншы"
+
+#: data/org.gnome.Nibbles.metainfo.xml.in:38
+msgid "Level 18 with 6 players"
+msgstr "18-деңгей, 6 ойыншы"
 
 #. Translators: title of the Are You Sure? window
 #: data/ui/are-you-sure.ui:27
@@ -292,45 +271,89 @@ msgid "Are You Sure?"
 msgstr "Сенімдісіз бе?"
 
 #. Translators: negative response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a nagative response
-#: data/ui/are-you-sure.ui:84 src/nibbles-view.vala:1801
+#: data/ui/are-you-sure.ui:85
 msgid "No"
 msgstr "Жоқ"
 
 #. Translators: positive response button to Are You Sure? window
-#. Translators: message displayed in a Button of a Message Dialog to confirm a positive response
-#: data/ui/are-you-sure.ui:97 src/nibbles-view.vala:1828
+#: data/ui/are-you-sure.ui:96
 msgid "Yes"
 msgstr "Иә"
 
-#. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
+#. Translators: title of one of the panels displayed during game
+#. configuration; the panel allows the method of progress through game's
+#. boards to be chosen
+#: data/ui/board-progress.ui:39
+msgid "Board Progress"
+msgstr "Тақта бойынша ілгерілеу"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed
+#. during game configuration; sets the next board to the previous board + 1
+#: data/ui/board-progress.ui:62
+msgid "_Levels 1 through 26 in sequential order"
+msgstr "1-ден 26-ға дейінгі деңгей_лер ретімен"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed
+#. during game configuration; sets the next board to a random board
+#: data/ui/board-progress.ui:75
+msgid "_Random Levels"
+msgstr "_Кездейсоқ деңгейлер"
+
+#. Translators: title of a radiobutton in the "Board Progress" panel displayed
+#. during game configuration; the game stays on a single board
+#: data/ui/board-progress.ui:92
+msgid "_Fixed Level"
+msgstr "_Бекітілген деңгей"
+
+#. Translators: label of a button in the "Board Progress" panel displayed
+#. during game configuration (with a mnemonic that appears when pressing Alt);
+#. switch to next panel
+#. Translators: label of a button in the "Number of players" panel displayed
+#. during game configuration (with a mnemonic that appears when pressing Alt);
+#. switch to next panel
+#. Translators: label of a button in the "Preferences" panel displayed during
+#. game configuration (with a mnemonic that appears when pressing Alt); switch
+#. to next panel
+#: data/ui/board-progress.ui:116 data/ui/players.ui:253 data/ui/speed.ui:149
+msgid "_Next"
+msgstr "_Келесі"
+
+#. Translators: title of one of the panels displayed during game
+#. configuration; the panel shows the keyboard controls of each player
 #: data/ui/controls.ui:39
 msgid "Controls"
 msgstr "Басқару пернелері"
 
-#. Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game
+#. Translators: label of a button in the last panel displayed during game
+#. configuration (the "Controls" one); starts the game
 #: data/ui/controls.ui:60
 msgid "_Start"
 msgstr "Ба_стау"
 
-#. Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:32
-msgid "Let’s _Play"
-msgstr "Ал, о_йнайық"
-
-#. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:60
+#. Translators: label displayed on a panel shown only the first time the game
+#. is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run
+#. 'true'` before launching the game
+#: data/ui/first-run-adw.ui:31 data/ui/first-run.ui:48
 msgid "Welcome, worms."
 msgstr "Қош келдіңіздер, құрттар."
 
-#. Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game
-#: data/ui/first-run.ui:69
+#. Translators: label displayed on a panel shown only the first time the game
+#. is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run
+#. 'true'` before launching the game
+#: data/ui/first-run-adw.ui:33 data/ui/first-run.ui:57
 msgid "Eat the treats before the other worms, but don’t hit anything!"
 msgstr ""
-"Басқа құрттардан бұрын тәттілерді жеп қойыңыз, бірақ ештеңеге соғылып "
-"қалмаңыз!"
+"Басқа құрттардан бұрын тәттілерді жеп қойыңыз, бірақ ештеңеге соғылып қалмаңыз!"
 
-#. Translators: header of the "Next screen" and "Previous screen" shortcuts section
+#. Translators: label of a button in a panel shown only the first time the
+#. game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-
+#. run 'true'` before launching the game
+#: data/ui/first-run-adw.ui:38 data/ui/first-run.ui:68
+msgid "Let’s _Play"
+msgstr "Ал, о_йнайық"
+
+#. Translators: header of the "Next screen" and "Previous screen" shortcuts
+#. section
 #: data/ui/help-overlay.ui:30
 msgctxt "shortcut window"
 msgid "During game setup"
@@ -342,19 +365,22 @@ msgctxt "shortcut window"
 msgid "Next screen"
 msgstr "Келесі экран"
 
-#. Translators: shortcut that during game setup goes back to the previous screen
+#. Translators: shortcut that during game setup goes back to the previous
+#. screen
 #: data/ui/help-overlay.ui:41
 msgctxt "shortcut window"
 msgid "Previous screen"
 msgstr "Алдыңғы экран"
 
-#. Translators: header of the "Start a new game" and "Pause or unpause" shortcuts section
+#. Translators: header of the "Start a new game" and "Pause or unpause"
+#. shortcuts section
 #: data/ui/help-overlay.ui:50
 msgctxt "shortcut window"
 msgid "During a game"
 msgstr "Ойын барысында"
 
-#. Translators: shortcut that during a game opens a popup to discard current game and start a new one
+#. Translators: shortcut that during a game opens a popup to discard current
+#. game and start a new one
 #: data/ui/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "Start a new game"
@@ -366,7 +392,8 @@ msgctxt "shortcut window"
 msgid "Pause or unpause"
 msgstr "Аялдату немесе жалғастыру"
 
-#. Translators: header of the "Toggle main menu," "Keyboard shortcuts," "About," and "Quit," shortcuts section
+#. Translators: header of the "Toggle main menu," "Keyboard shortcuts,"
+#. "About," and "Quit," shortcuts section
 #: data/ui/help-overlay.ui:70
 msgctxt "shortcut window"
 msgid "Generic"
@@ -378,575 +405,1548 @@ msgctxt "shortcut window"
 msgid "Toggle main menu"
 msgstr "Басты мәзірді көрсету/жасыру"
 
-#. Translators: shortcut that opens Keyboard Shortcuts window
+#. Translators: shortcut that toggles full screen
 #: data/ui/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Full screen toggle"
+msgstr "Толық экранға ауысу"
+
+#. Translators: shortcut that opens Keyboard Shortcuts window
+#: data/ui/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Пернетақта жарлықтары"
 
 #. Translators: shortcut that opens the application help
-#: data/ui/help-overlay.ui:88
+#: data/ui/help-overlay.ui:95
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Көмек"
 
 #. Translators: shortcut that opens About dialog
-#: data/ui/help-overlay.ui:95
+#: data/ui/help-overlay.ui:102
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Осы туралы"
 
 #. Translators: shortcut that quits application
-#: data/ui/help-overlay.ui:102
+#: data/ui/help-overlay.ui:109
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Шығу"
 
-#. Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); mutes or unmutes game sound
-#: data/ui/nibbles.ui:28
+#. Translators: toggleable entry of the hamburger menu (with a mnemonic that
+#. appears when pressing Alt); mutes or unmutes game sound
+#: data/ui/nibbles-adw.ui:29 data/ui/nibbles.ui:28
 msgid "_Sound"
 msgstr "Д_ыбыс"
 
-#. Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); switched between 2D & 3D views
-#: data/ui/nibbles.ui:33
+#. Translators: toggleable entry of the hamburger menu (with a mnemonic that
+#. appears when pressing Alt); switched between 2D & 3D views
+#: data/ui/nibbles-adw.ui:34 data/ui/nibbles.ui:33
 msgid "_3D View"
 msgstr "_3D көрінісі"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the Scores dialog
-#: data/ui/nibbles.ui:40
+#. Translators: toggleable entry of the hamburger menu (with a mnemonic that
+#. appears when pressing Alt); switch to full screen mode
+#: data/ui/nibbles-adw.ui:39 data/ui/nibbles.ui:38
+msgid "_Full screen"
+msgstr "_Толық экран"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when
+#. pressing Alt); opens the Scores dialog
+#: data/ui/nibbles-adw.ui:46 data/ui/nibbles.ui:45
 msgid "_Scores"
 msgstr "_Есептер"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: data/ui/nibbles.ui:47
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when
+#. pressing Alt); displays Keyboard Shortcuts dialog
+#: data/ui/nibbles-adw.ui:53 data/ui/nibbles.ui:52
 msgid "_Keyboard Shortcuts"
 msgstr "П_ернетақта жарлықтары"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application
-#: data/ui/nibbles.ui:52
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when
+#. pressing Alt); opens the help of the application
+#: data/ui/nibbles-adw.ui:58 data/ui/nibbles.ui:57
 msgid "_Help"
 msgstr "_Көмек"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the About dialog
-#: data/ui/nibbles.ui:57
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when
+#. pressing Alt); opens the About dialog
+#: data/ui/nibbles-adw.ui:63 data/ui/nibbles.ui:62
 msgid "_About Nibbles"
 msgstr "Құрттар ойыны тур_алы"
 
-#. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); starts a new game
-#: data/ui/nibbles.ui:76
-msgid "_New Game"
-msgstr "Ж_аңа ойын"
+#. Translators: tooltip of a button of the headerbar, visible during a game;
+#. starts a new game
+#: data/ui/nibbles-adw.ui:84
+msgid "New Game"
+msgstr "Жаңа ойын"
 
-#. Translators: label of a button of the headerbar, visible during a game (with a mnemonic that appears when pressing Alt); pauses the game
-#. Translators: label of the Pause button, when the game is running
-#: data/ui/nibbles.ui:99 src/nibbles-window.vala:648
-msgid "_Pause"
-msgstr "_Аялдату"
+#. Translators: tooltip of the hamburger menu
+#: data/ui/nibbles-adw.ui:95
+msgid "Main Menu"
+msgstr "Бас мәзір"
 
-#. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles.ui:170
+#. Translators: tooltip of a button of the headerbar, visible during a game;
+#. pauses the game
+#. Translators: tooltip of the pause button, when the game is running
+#: data/ui/nibbles-adw.ui:110 src/nibbles-window.vala:726
+msgid "Pause"
+msgstr "Аялдату"
+
+#. Translators: text displayed at the bottom of the window, when the game is
+#. paused
+#: data/ui/nibbles-adw.ui:191 data/ui/nibbles.ui:190
 msgid "Paused"
 msgstr "Аялдатылған"
 
-#. Translators: title of one of the panels displayed during game configuration; the panel allows to change the number of human and ai worms
+#. Translators: label of a button of the headerbar, visible during a game
+#. (with a mnemonic that appears when pressing Alt); starts a new game
+#: data/ui/nibbles.ui:82 src/nibbles-window.vala:623
+msgid "_New Game"
+msgstr "Ж_аңа ойын"
+
+#. Translators: label of a button of the headerbar, visible during a game
+#. (with a mnemonic that appears when pressing Alt); pauses the game
+#. duplicated in nibbles.ui
+#. duplicated in nibbles.ui
+#. Translators: label of the Pause button, when the game is running
+#: data/ui/nibbles.ui:107 src/nibbles-window.vala:730
+msgid "_Pause"
+msgstr "_Аялдату"
+
+#. Translators: title of one of the panels displayed during game
+#. configuration; the panel allows to change the number of human and ai worms
 #: data/ui/players.ui:47
-msgid "Number of players"
+msgid "Number of Players"
 msgstr "Ойыншылар саны"
 
-#. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 1/2/3/4 human players
-#: data/ui/players.ui:64
+#. Translators: label in one of the panels displayed during game
+#. configuration; allows to choose if the game has 1/2/3/4 human players
+#: data/ui/players.ui:67
 msgid "Select the number of human players."
 msgstr "Адам ойыншыларының санын таңдаңыз."
 
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play a solo game against AIs (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:80
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play a solo game against AIs (with a mnemonic that
+#. appears when pressing Alt)
+#: data/ui/players.ui:84
 msgid "_1"
 msgstr "_1"
 
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 2 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:93
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play game with 2 human players (with a mnemonic that
+#. appears when pressing Alt)
+#: data/ui/players.ui:98
 msgid "_2"
 msgstr "_2"
 
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 3 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:108
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play game with 3 human players (with a mnemonic that
+#. appears when pressing Alt)
+#: data/ui/players.ui:114
 msgid "_3"
 msgstr "_3"
 
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 4 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/players.ui:123
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play game with 4 human players (with a mnemonic that
+#. appears when pressing Alt)
+#: data/ui/players.ui:130
 msgid "_4"
 msgstr "_4"
 
-#. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms
-#: data/ui/players.ui:149
+#. Translators: label in one of the panels displayed during game
+#. configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled
+#. worms
+#: data/ui/players.ui:156
 msgid "Select the number of computer players."
 msgstr "Компьютер ойыншыларының санын таңдаңыз."
 
-#: data/ui/players.ui:163 data/ui/players.ui:177 data/ui/players.ui:191
-#: data/ui/players.ui:205 data/ui/players.ui:219
+#: data/ui/players.ui:172 data/ui/players.ui:187 data/ui/players.ui:202
+#: data/ui/players.ui:217 data/ui/players.ui:232
 msgid "x"
 msgstr "x"
 
-#. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/players.ui:240 data/ui/speed.ui:143
-msgid "_Next"
-msgstr "_Келесі"
-
-#. Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably)
+#. Translators: title of one of the panels displayed during game
+#. configuration; the panel allows to change the worms speed (notably)
 #: data/ui/speed.ui:41
 msgid "Preferences"
 msgstr "Қалаулар"
 
-#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "really slow"
-#: data/ui/speed.ui:63
+#. Translators: title of a radiobutton in the "Preferences" panel displayed
+#. during game configuration; sets worms speed to "really slow"
+#: data/ui/speed.ui:64
 msgid "_Beginner"
 msgstr "_Бастауыш"
 
-#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "quite slow"
-#: data/ui/speed.ui:78
+#. Translators: title of a radiobutton in the "Preferences" panel displayed
+#. during game configuration; sets worms speed to "quite slow"
+#: data/ui/speed.ui:80
 msgid "_Slow"
 msgstr "Ба_яу"
 
-#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "normal"
-#: data/ui/speed.ui:93
+#. Translators: title of a radiobutton in the "Preferences" panel displayed
+#. during game configuration; sets worms speed to "normal"
+#: data/ui/speed.ui:96
 msgid "_Medium"
 msgstr "О_рташа"
 
-#. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "fast"
-#: data/ui/speed.ui:108
+#. Translators: title of a radiobutton in the "Preferences" panel displayed
+#. during game configuration; sets worms speed to "fast"
+#: data/ui/speed.ui:112
 msgid "_Fast"
 msgstr "Ж_ылдам"
 
-#. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates special bonuses
-#: data/ui/speed.ui:131
+#. Translators: label of a togglebutton in the "Preferences" panel displayed
+#. during game configuration (with a mnemonic that appears when pressing Alt);
+#. activates fake bonuses
+#: data/ui/speed.ui:136
 msgid "_Enable fake bonuses"
 msgstr "Жалған бонустарды іск_е қосу"
 
-#. Translators: text displayed in a screen showing the keys used by the players; the %d is replaced by the number that identifies the player
-#: src/controls.vala:154
+#. Translators: text displayed in a screen showing the keys used by the
+#. players; the %d is replaced by the number that identifies the player
+#: src/controls.vala:221
 #, c-format
 msgid "Player %d"
 msgstr "Ойыншы %d"
 
-#. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm up the screen
-#: src/controls.vala:227
+#. Translators: text displayed in a message box directing the player to press
+#. the key they want to use to direct the worm up the screen
+#: src/controls.vala:276
 msgid "Press a key for up."
 msgstr "Жоғарыға арналған пернені басыңыз."
 
-#. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm down the screen
-#: src/controls.vala:247
+#. Translators: text displayed in a message box directing the player to press
+#. the key they want to use to direct the worm down the screen
+#: src/controls.vala:296
 msgid "Press a key for down."
 msgstr "Төменге арналған пернені басыңыз."
 
-#. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm left
-#: src/controls.vala:267
+#. Translators: text displayed in a message box directing the player to press
+#. the key they want to use to direct the worm left
+#: src/controls.vala:316
 msgid "Press a key for left."
 msgstr "Сол жаққа арналған пернені басыңыз."
 
-#. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
-#: src/controls.vala:287
+#. Translators: text displayed in a message box directing the player to press
+#. the key they want to use to direct the worm right
+#: src/controls.vala:336
 msgid "Press a key for right."
 msgstr "Оң жаққа арналған пернені басыңыз."
 
-#. instruction label
-#. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/controls.vala:622
-msgid "Select your color"
-msgstr "Түсіңізді таңдаңыз"
-
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:62
+#: src/gnome-nibbles.vala:82
 msgid "Disable fake bonuses"
 msgstr "Жалған бонустарды сөндіру"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:68
+#: src/gnome-nibbles.vala:88
 msgid "Start at given level (1-26)"
 msgstr "Көрсетілген деңгейде бастау (1-26)"
 
-#. Translators: in the command-line options description, text to indicate the user should specify the start level, see 'gnome-nibbles --help'
-#. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
-#. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
-#. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:71 src/gnome-nibbles.vala:80
-#: src/gnome-nibbles.vala:86 src/gnome-nibbles.vala:92
+#. Translators: in the command-line options description, text to indicate the
+#. user should specify the start level, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the
+#. user should specify the progres method, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the
+#. user should specify number of nibbles, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the
+#. user should specify number of players, see 'gnome-nibbles --help'
+#. Translators: in the command-line options description, text to indicate the
+#. user should specify the worms speed, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:91 src/gnome-nibbles.vala:97 src/gnome-nibbles.vala:103
+#: src/gnome-nibbles.vala:109 src/gnome-nibbles.vala:115
 msgid "NUMBER"
 msgstr "САН"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:74
-msgid "Turn off the sound"
-msgstr "Дыбысты сөндіру"
+#: src/gnome-nibbles.vala:94
+msgid ""
+"Method of progress through the boards (0 - sequentially, 1 - randomly, 2 - fixed "
+"board)"
+msgstr "Тақталар арқылы өту әдісі (0 - ретімен, 1 - кездейсоқ, 2 - бекітілген тақта)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:77
+#: src/gnome-nibbles.vala:100
 msgid "Set number of nibbles (4-6)"
 msgstr "Құрттар санын орнату (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:83
+#: src/gnome-nibbles.vala:106
 msgid "Set number of players (1-4)"
 msgstr "Ойыншылар саны"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:89
+#: src/gnome-nibbles.vala:112
 msgid "Set worms speed (4-1, 4 for slow)"
 msgstr "Құрттар жылдамдығын орнату (4-1, 4 баяу)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:95
+#: src/gnome-nibbles.vala:118
 msgid "Set three dimensional view"
 msgstr "Үш өлшемді көріністі орнату"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:98
+#: src/gnome-nibbles.vala:121
 msgid "Set two dimensional view"
 msgstr "Екі өлшемді көріністі орнату"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:101
+#: src/gnome-nibbles.vala:124
 msgid "Start playing"
 msgstr "Ойнауды бастау"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:104
+#: src/gnome-nibbles.vala:127
+msgid "Turn off the sound"
+msgstr "Дыбысты сөндіру"
+
+#. Translators: command-line option description, see 'gnome-nibbles --help'
+#: src/gnome-nibbles.vala:130
 msgid "Turn on the sound"
 msgstr "Дыбысты іске қосу"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/gnome-nibbles.vala:107
+#: src/gnome-nibbles.vala:133
 msgid "Show release version"
 msgstr "Нұсқа ақпаратын көрсету"
 
-#. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/gnome-nibbles.vala:148
+#. Translators: command-line error message, displayed for an invalid start
+#. level request; see 'gnome-nibbles -l 0'
+#: src/gnome-nibbles.vala:172
 msgid "Start level should only be between 1 and 26."
 msgstr "Бастау деңгейі тек 1 мен 26 аралығында ғана болуы тиіс."
 
-#. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 1'
-#: src/gnome-nibbles.vala:154
+#. Translators: command-line error message, displayed for an invalid progress
+#. method request; see 'gnome-nibbles --progress'
+#: src/gnome-nibbles.vala:178
+msgid "Progress method should be; 0 - sequentially, 1 - randomly, 2 - fixed board."
+msgstr ""
+"Өту әдісі келесідей болуы тиіс; 0 - ретімен, 1 - кездейсоқ, 2 - бекітілген тақта."
+
+#. Translators: command-line error message, displayed for an invalid number of
+#. nibbles; see 'gnome-nibbles -n 1'
+#: src/gnome-nibbles.vala:184
 msgid "There could only be between 4 and 6 nibbles."
 msgstr "Құрттар саны тек 4 пен 6 арасында болуы тиіс."
 
-#. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/gnome-nibbles.vala:160
+#. Translators: command-line error message, displayed for an invalid number of
+#. players; see 'gnome-nibbles -p 5'
+#: src/gnome-nibbles.vala:190
 msgid "There could only be between 1 and 4 players."
 msgstr "Ойыншылар саны тек 1 мен 4 арасында болуы тиіс."
 
-#. Translators: command-line error message, displayed for an invalid given worms speed; see 'gnome-nibbles -s 5'
-#: src/gnome-nibbles.vala:166
+#. Translators: command-line error message, displayed for an invalid given
+#. worms speed; see 'gnome-nibbles -s 5'
+#: src/gnome-nibbles.vala:196
 msgid "Speed should be between 4 (slow) and 1 (fast)."
 msgstr "Жылдамдық 4 (баяу) және 1 (жылдам) арасында болуы тиіс."
 
-#. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/gnome-nibbles.vala:175
-msgid ""
-"Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
+#. Translators: command-line error message, displayed for an invalid
+#. combination of options; see 'gnome-nibbles -d -e'
+#: src/gnome-nibbles.vala:205
+msgid "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
-"\"--disable-fakes\" (-d) және \"--enable-fakes\" (-e) опциялы бөлек "
-"қолданылуы тиіс."
+"\"--disable-fakes\" (-d) және \"--enable-fakes\" (-e) опциялы бөлек қолданылуы тиіс."
 
-#. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
-#: src/gnome-nibbles.vala:187
+#. Translators: command-line error message, displayed for an invalid
+#. combination of options; see 'gnome-nibbles -3 -2'
+#: src/gnome-nibbles.vala:217
 msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "\"--3D (-3)\" және \"--2D (-2)\" опциялары бөлек қолданылуы тиіс."
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:329
+#: src/gnome-nibbles.vala:389
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:333
+#: src/gnome-nibbles.vala:393
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:337
+#: src/gnome-nibbles.vala:397
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:341
+#: src/gnome-nibbles.vala:401
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:345
+#: src/gnome-nibbles.vala:405
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:349
+#: src/gnome-nibbles.vala:409
 msgid "Ben Corby"
 msgstr "Ben Corby"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:353
+#: src/gnome-nibbles.vala:413
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:357
+#: src/gnome-nibbles.vala:417
 msgid "Allan Day"
 msgstr "Allan Day"
 
+#. Translators: the name of the app's developers, seen in the About dialog
+#: src/gnome-nibbles.vala:425
+msgid "The GNOME Project"
+msgstr "GNOME жобасы"
+
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:363
+#: src/gnome-nibbles.vala:436
 msgid "A worm game for GNOME"
 msgstr "GNOME үшін құрттар ойыны"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:367
+#: src/gnome-nibbles.vala:441
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:371
+#: src/gnome-nibbles.vala:445
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "Copyright © 2009 – Guillaume Beland"
 
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:375
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u
+#. is replaced with the years of start and end
+#: src/gnome-nibbles.vala:449
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "Copyright © %u-%u – Iulian-Gabriel Radu"
 
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:379
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u
+#. is replaced with the years of start and end
+#: src/gnome-nibbles.vala:453
 #, c-format
 msgid "Copyright © %u-%u – Ben Corby"
 msgstr "Copyright © %u-%u – Ben Corby"
 
-#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:385
+#. Translators: about dialog text; this string should be replaced by a text
+#. crediting yourselves and your translation team, or should be left empty. Do
+#. not translate literally!
+#: src/gnome-nibbles.vala:457 src/gnome-nibbles.vala:467
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
 #. Translators: One second to go until the game starts.
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
-#: src/nibbles-view.vala:606 src/players.vala:41
-#| msgid "_1"
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play game with one AI, appearing when there are 3 or 4
+#. humans set
+#: src/nibbles-view.vala:672 src/players.vala:43
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
-#: src/nibbles-view.vala:609 src/players.vala:44
-#| msgid "_2"
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play game with two AIs, appearing when there are 2, 3 or
+#. 4 humans set
+#: src/nibbles-view.vala:675 src/players.vala:46
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
-#: src/nibbles-view.vala:612 src/players.vala:47
-#| msgid "_3"
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play game with three AIs, appearing when there are 1, 2
+#. or 3 humans set
+#: src/nibbles-view.vala:678 src/players.vala:49
 msgid "3"
 msgstr "3"
 
 #. Translators: the first worm's name.
-#: src/nibbles-view.vala:625
+#: src/nibbles-view.vala:691
 msgid "Worm 1"
 msgstr "Құрт 1"
 
 #. Translators: the seconds worm's name.
-#: src/nibbles-view.vala:628
+#: src/nibbles-view.vala:694
 msgid "Worm 2"
 msgstr "Құрт 2"
 
 #. Translators: the third worm's name.
-#: src/nibbles-view.vala:631
+#: src/nibbles-view.vala:697
 msgid "Worm 3"
 msgstr "Құрт 3"
 
 #. Translators: the fourth worm's name.
-#: src/nibbles-view.vala:634
+#: src/nibbles-view.vala:700
 msgid "Worm 4"
 msgstr "Құрт 4"
 
 #. Translators: the fifth worm's name.
-#: src/nibbles-view.vala:637
+#: src/nibbles-view.vala:703
 msgid "Worm 5"
 msgstr "Құрт 5"
 
 #. Translators: the sixth worm's name.
-#: src/nibbles-view.vala:640
+#: src/nibbles-view.vala:706
 msgid "Worm 6"
 msgstr "Құрт 6"
 
-#. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
-#: src/nibbles-view.vala:665
-msgid ""
-"Are you sure you want to start a new game?\n"
-"If you start a new game, the current one will be lost."
-msgstr ""
-"Жаңа ойынды бастауға сенімдісіз бе?\n"
-"Егер жаңа ойынды бастасаңыз, ағымдағы ойын жоғалады."
-
-#. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1946
+#. Translators: possible color of a worm, as displayed in the Preferences
+#. dialog combobox
+#: src/nibbles-view.vala:1694
 msgid "red"
 msgstr "қызыл"
 
-#. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1948
+#. Translators: possible color of a worm, as displayed in the Preferences
+#. dialog combobox
+#: src/nibbles-view.vala:1696
 msgid "green"
 msgstr "жасыл"
 
-#. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1950
+#. Translators: possible color of a worm, as displayed in the Preferences
+#. dialog combobox
+#: src/nibbles-view.vala:1698
 msgid "blue"
 msgstr "көк"
 
-#. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1952
+#. Translators: possible color of a worm, as displayed in the Preferences
+#. dialog combobox
+#: src/nibbles-view.vala:1700
 msgid "yellow"
 msgstr "сары"
 
-#. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1954
+#. Translators: possible color of a worm, as displayed in the Preferences
+#. dialog combobox
+#: src/nibbles-view.vala:1702
 msgid "cyan"
 msgstr "көгілдір"
 
-#. Translators: possible color of a worm, as displayed in the Preferences dialog combobox
-#: src/nibbles-view.vala:1956
+#. Translators: possible color of a worm, as displayed in the Preferences
+#. dialog combobox
+#: src/nibbles-view.vala:1704
 msgid "purple"
 msgstr "күлгін"
 
-#. Translators: first line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:582
+#. Translators: first line of message displayed in an alert dialog, when the
+#. player tries to start a game while one is running
+#: src/nibbles-window.vala:618
+msgid "New Game?"
+msgstr "Жаңа ойын ба?"
+
+#. Translators: second line of message displayed in an alert dialog, when the
+#. player tries to start a game while one is running
+#: src/nibbles-window.vala:620
+msgid "If you start a new game, the current one will be lost"
+msgstr "Егер жаңа ойынды бастасаңыз, ағымдағы ойын жоғалады"
+
+#: src/nibbles-window.vala:622
+msgid "_Cancel"
+msgstr "_Бас тарту"
+
+#. Translators: first line of message displayed in a modal dialog, when the
+#. player tries to start a game while one is running
+#: src/nibbles-window.vala:647
 msgid "Are you sure you want to start a new game?"
 msgstr "Жаңа ойынды бастауды шынымен қалайсыз ба?"
 
-#. Translators: second line of message displayed in a modal dialog, when the player tries to start a game while one is running
-#: src/nibbles-window.vala:584
+#. Translators: second line of message displayed in a modal dialog, when the
+#. player tries to start a game while one is running
+#: src/nibbles-window.vala:649
 msgid "If you start a new game, the current one will be lost."
 msgstr "Егер жаңа ойынды бастасаңыз, ағымдағы ойын жоғалады."
 
+#. Translators: tooltip of the pause button, when the game is paused
+#: src/nibbles-window.vala:715
+msgid "Resume"
+msgstr "Жалғастыру"
+
 #. Translators: label of the Pause button, when the game is paused
-#: src/nibbles-window.vala:643
+#: src/nibbles-window.vala:719
 msgid "_Resume"
 msgstr "Жа_лғастыру"
 
-#. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:886 src/nibbles-window.vala:1105
+#. Translators: title of the headerbar, while a game is running; the %d is
+#. replaced by the level number
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1425
 #, c-format
 msgid "Level %d"
 msgstr "Деңгей %d"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:959
+#. Translators: The game type displayed on the scores dialog
+#: src/nibbles-window.vala:1042
 msgid "Beginner"
 msgstr "Бастауыш"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:961
+#: src/nibbles-window.vala:1043
+msgid "Beginner with random levels"
+msgstr "Кездейсоқ деңгейлері бар жаңа бастаушы"
+
+#: src/nibbles-window.vala:1044
+msgid "Beginner, fixed on level 1"
+msgstr "Жаңа бастаушы, 1-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1045
+msgid "Beginner, fixed on level 2"
+msgstr "Жаңа бастаушы, 2-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1046
+msgid "Beginner, fixed on level 3"
+msgstr "Жаңа бастаушы, 3-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1047
+msgid "Beginner, fixed on level 4"
+msgstr "Жаңа бастаушы, 4-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1048
+msgid "Beginner, fixed on level 5"
+msgstr "Жаңа бастаушы, 5-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1049
+msgid "Beginner, fixed on level 6"
+msgstr "Жаңа бастаушы, 6-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1050
+msgid "Beginner, fixed on level 7"
+msgstr "Жаңа бастаушы, 7-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1051
+msgid "Beginner, fixed on level 8"
+msgstr "Жаңа бастаушы, 8-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1052
+msgid "Beginner, fixed on level 9"
+msgstr "Жаңа бастаушы, 9-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1053
+msgid "Beginner, fixed on level 10"
+msgstr "Жаңа бастаушы, 10-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1054
+msgid "Beginner, fixed on level 11"
+msgstr "Жаңа бастаушы, 11-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1055
+msgid "Beginner, fixed on level 12"
+msgstr "Жаңа бастаушы, 12-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1056
+msgid "Beginner, fixed on level 13"
+msgstr "Жаңа бастаушы, 13-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1057
+msgid "Beginner, fixed on level 14"
+msgstr "Жаңа бастаушы, 14-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1058
+msgid "Beginner, fixed on level 15"
+msgstr "Жаңа бастаушы, 15-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1059
+msgid "Beginner, fixed on level 16"
+msgstr "Жаңа бастаушы, 16-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1060
+msgid "Beginner, fixed on level 17"
+msgstr "Жаңа бастаушы, 17-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1061
+msgid "Beginner, fixed on level 18"
+msgstr "Жаңа бастаушы, 18-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1062
+msgid "Beginner, fixed on level 19"
+msgstr "Жаңа бастаушы, 19-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1063
+msgid "Beginner, fixed on level 20"
+msgstr "Жаңа бастаушы, 20-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1064
+msgid "Beginner, fixed on level 21"
+msgstr "Жаңа бастаушы, 21-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1065
+msgid "Beginner, fixed on level 22"
+msgstr "Жаңа бастаушы, 22-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1066
+msgid "Beginner, fixed on level 23"
+msgstr "Жаңа бастаушы, 23-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1067
+msgid "Beginner, fixed on level 24"
+msgstr "Жаңа бастаушы, 24-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1068
+msgid "Beginner, fixed on level 25"
+msgstr "Жаңа бастаушы, 25-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1069
+msgid "Beginner, fixed on level 26"
+msgstr "Жаңа бастаушы, 26-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1070
+msgid "Beginner with fakes and random levels"
+msgstr "Жалған нысандары мен кездейсоқ деңгейлері бар жаңа бастаушы"
+
+#: src/nibbles-window.vala:1071
+msgid "Beginner with fakes, fixed on level 1"
+msgstr "Жалған нысандары бар жаңа бастаушы, 1-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1072
+msgid "Beginner with fakes, fixed on level 2"
+msgstr "Жалған нысандары бар жаңа бастаушы, 2-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1073
+msgid "Beginner with fakes, fixed on level 3"
+msgstr "Жалған нысандары бар жаңа бастаушы, 3-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1074
+msgid "Beginner with fakes, fixed on level 4"
+msgstr "Жалған нысандары бар жаңа бастаушы, 4-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1075
+msgid "Beginner with fakes, fixed on level 5"
+msgstr "Жалған нысандары бар жаңа бастаушы, 5-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1076
+msgid "Beginner with fakes, fixed on level 6"
+msgstr "Жалған нысандары бар жаңа бастаушы, 6-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1077
+msgid "Beginner with fakes, fixed on level 7"
+msgstr "Жалған нысандары бар жаңа бастаушы, 7-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1078
+msgid "Beginner with fakes, fixed on level 8"
+msgstr "Жалған нысандары бар жаңа бастаушы, 8-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1079
+msgid "Beginner with fakes, fixed on level 9"
+msgstr "Жалған нысандары бар жаңа бастаушы, 9-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1080
+msgid "Beginner with fakes, fixed on level 10"
+msgstr "Жалған нысандары бар жаңа бастаушы, 10-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1081
+msgid "Beginner with fakes, fixed on level 11"
+msgstr "Жалған нысандары бар жаңа бастаушы, 11-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1082
+msgid "Beginner with fakes, fixed on level 12"
+msgstr "Жалған нысандары бар жаңа бастаушы, 12-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1083
+msgid "Beginner with fakes, fixed on level 13"
+msgstr "Жалған нысандары бар жаңа бастаушы, 13-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1084
+msgid "Beginner with fakes, fixed on level 14"
+msgstr "Жалған нысандары бар жаңа бастаушы, 14-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1085
+msgid "Beginner with fakes, fixed on level 15"
+msgstr "Жалған нысандары бар жаңа бастаушы, 15-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1086
+msgid "Beginner with fakes, fixed on level 16"
+msgstr "Жалған нысандары бар жаңа бастаушы, 16-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1087
+msgid "Beginner with fakes, fixed on level 17"
+msgstr "Жалған нысандары бар жаңа бастаушы, 17-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1088
+msgid "Beginner with fakes, fixed on level 18"
+msgstr "Жалған нысандары бар жаңа бастаушы, 18-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1089
+msgid "Beginner with fakes, fixed on level 19"
+msgstr "Жалған нысандары бар жаңа бастаушы, 19-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1090
+msgid "Beginner with fakes, fixed on level 20"
+msgstr "Жалған нысандары бар жаңа бастаушы, 20-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1091
+msgid "Beginner with fakes, fixed on level 21"
+msgstr "Жалған нысандары бар жаңа бастаушы, 21-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1092
+msgid "Beginner with fakes, fixed on level 22"
+msgstr "Жалған нысандары бар жаңа бастаушы, 22-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1093
+msgid "Beginner with fakes, fixed on level 23"
+msgstr "Жалған нысандары бар жаңа бастаушы, 23-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1094
+msgid "Beginner with fakes, fixed on level 24"
+msgstr "Жалған нысандары бар жаңа бастаушы, 24-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1095
+msgid "Beginner with fakes, fixed on level 25"
+msgstr "Жалған нысандары бар жаңа бастаушы, 25-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1096
+msgid "Beginner with fakes, fixed on level 26"
+msgstr "Жалған нысандары бар жаңа бастаушы, 26-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1097
 msgid "Slow"
 msgstr "Баяу"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:963
+#: src/nibbles-window.vala:1098
+msgid "Slow with random levels"
+msgstr "Кездейсоқ деңгейлері бар баяу"
+
+#: src/nibbles-window.vala:1099
+msgid "Slow, fixed on level 1"
+msgstr "Баяу, 1-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1100
+msgid "Slow, fixed on level 2"
+msgstr "Баяу, 2-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1101
+msgid "Slow, fixed on level 3"
+msgstr "Баяу, 3-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1102
+msgid "Slow, fixed on level 4"
+msgstr "Баяу, 4-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1103
+msgid "Slow, fixed on level 5"
+msgstr "Баяу, 5-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1104
+msgid "Slow, fixed on level 6"
+msgstr "Баяу, 6-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1105
+msgid "Slow, fixed on level 7"
+msgstr "Баяу, 7-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1106
+msgid "Slow, fixed on level 8"
+msgstr "Баяу, 8-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1107
+msgid "Slow, fixed on level 9"
+msgstr "Баяу, 9-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1108
+msgid "Slow, fixed on level 10"
+msgstr "Баяу, 10-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1109
+msgid "Slow, fixed on level 11"
+msgstr "Баяу, 11-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1110
+msgid "Slow, fixed on level 12"
+msgstr "Баяу, 12-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1111
+msgid "Slow, fixed on level 13"
+msgstr "Баяу, 13-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1112
+msgid "Slow, fixed on level 14"
+msgstr "Баяу, 14-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1113
+msgid "Slow, fixed on level 15"
+msgstr "Баяу, 15-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1114
+msgid "Slow, fixed on level 16"
+msgstr "Баяу, 16-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1115
+msgid "Slow, fixed on level 17"
+msgstr "Баяу, 17-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1116
+msgid "Slow, fixed on level 18"
+msgstr "Баяу, 18-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1117
+msgid "Slow, fixed on level 19"
+msgstr "Баяу, 19-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1118
+msgid "Slow, fixed on level 20"
+msgstr "Баяу, 20-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1119
+msgid "Slow, fixed on level 21"
+msgstr "Баяу, 21-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1120
+msgid "Slow, fixed on level 22"
+msgstr "Баяу, 22-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1121
+msgid "Slow, fixed on level 23"
+msgstr "Баяу, 23-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1122
+msgid "Slow, fixed on level 24"
+msgstr "Баяу, 24-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1123
+msgid "Slow, fixed on level 25"
+msgstr "Баяу, 25-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1124
+msgid "Slow, fixed on level 26"
+msgstr "Баяу, 26-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1125
+msgid "Slow with fakes and random levels"
+msgstr "Баяу, жалған элементтермен және кездейсоқ деңгейлермен"
+
+#: src/nibbles-window.vala:1126
+msgid "Slow with fakes, fixed on level 1"
+msgstr "Баяу, жалған элементтермен, 1-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1127
+msgid "Slow with fakes, fixed on level 2"
+msgstr "Баяу, жалған элементтермен, 2-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1128
+msgid "Slow with fakes, fixed on level 3"
+msgstr "Баяу, жалған элементтермен, 3-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1129
+msgid "Slow with fakes, fixed on level 4"
+msgstr "Баяу, жалған элементтермен, 4-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1130
+msgid "Slow with fakes, fixed on level 5"
+msgstr "Баяу, жалған элементтермен, 5-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1131
+msgid "Slow with fakes, fixed on level 6"
+msgstr "Баяу, жалған элементтермен, 6-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1132
+msgid "Slow with fakes, fixed on level 7"
+msgstr "Баяу, жалған элементтермен, 7-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1133
+msgid "Slow with fakes, fixed on level 8"
+msgstr "Баяу, жалған элементтермен, 8-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1134
+msgid "Slow with fakes, fixed on level 9"
+msgstr "Баяу, жалған элементтермен, 9-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1135
+msgid "Slow with fakes, fixed on level 10"
+msgstr "Баяу, жалған элементтермен, 10-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1136
+msgid "Slow with fakes, fixed on level 11"
+msgstr "Баяу, жалған элементтермен, 11-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1137
+msgid "Slow with fakes, fixed on level 12"
+msgstr "Баяу, жалған элементтермен, 12-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1138
+msgid "Slow with fakes, fixed on level 13"
+msgstr "Баяу, жалған элементтермен, 13-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1139
+msgid "Slow with fakes, fixed on level 14"
+msgstr "Баяу, жалған элементтермен, 14-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1140
+msgid "Slow with fakes, fixed on level 15"
+msgstr "Баяу, жалған элементтермен, 15-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1141
+msgid "Slow with fakes, fixed on level 16"
+msgstr "Баяу, жалған элементтермен, 16-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1142
+msgid "Slow with fakes, fixed on level 17"
+msgstr "Баяу, жалған элементтермен, 17-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1143
+msgid "Slow with fakes, fixed on level 18"
+msgstr "Баяу, жалған элементтермен, 18-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1144
+msgid "Slow with fakes, fixed on level 19"
+msgstr "Баяу, жалған элементтермен, 19-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1145
+msgid "Slow with fakes, fixed on level 20"
+msgstr "Баяу, жалған элементтермен, 20-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1146
+msgid "Slow with fakes, fixed on level 21"
+msgstr "Баяу, жалған элементтермен, 21-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1147
+msgid "Slow with fakes, fixed on level 22"
+msgstr "Баяу, жалған элементтермен, 22-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1148
+msgid "Slow with fakes, fixed on level 23"
+msgstr "Баяу, жалған элементтермен, 23-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1149
+msgid "Slow with fakes, fixed on level 24"
+msgstr "Баяу, жалған элементтермен, 24-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1150
+msgid "Slow with fakes, fixed on level 25"
+msgstr "Баяу, жалған элементтермен, 25-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1151
+msgid "Slow with fakes, fixed on level 26"
+msgstr "Баяу, жалған элементтермен, 26-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1152
 msgid "Medium"
 msgstr "Орташа"
 
-#. Translators: Difficulty level displayed on the scores dialog
-#: src/nibbles-window.vala:965
+#: src/nibbles-window.vala:1153
+msgid "Medium with random levels"
+msgstr "Орташа, кездейсоқ деңгейлермен"
+
+#: src/nibbles-window.vala:1154
+msgid "Medium, fixed on level 1"
+msgstr "Орташа, 1-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1155
+msgid "Medium, fixed on level 2"
+msgstr "Орташа, 2-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1156
+msgid "Medium, fixed on level 3"
+msgstr "Орташа, 3-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1157
+msgid "Medium, fixed on level 4"
+msgstr "Орташа, 4-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1158
+msgid "Medium, fixed on level 5"
+msgstr "Орташа, 5-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1159
+msgid "Medium, fixed on level 6"
+msgstr "Орташа, 6-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1160
+msgid "Medium, fixed on level 7"
+msgstr "Орташа, 7-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1161
+msgid "Medium, fixed on level 8"
+msgstr "Орташа, 8-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1162
+msgid "Medium, fixed on level 9"
+msgstr "Орташа, 9-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1163
+msgid "Medium, fixed on level 10"
+msgstr "Орташа, 10-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1164
+msgid "Medium, fixed on level 11"
+msgstr "Орташа, 11-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1165
+msgid "Medium, fixed on level 12"
+msgstr "Орташа, 12-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1166
+msgid "Medium, fixed on level 13"
+msgstr "Орташа, 13-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1167
+msgid "Medium, fixed on level 14"
+msgstr "Орташа, 14-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1168
+msgid "Medium, fixed on level 15"
+msgstr "Орташа, 15-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1169
+msgid "Medium, fixed on level 16"
+msgstr "Орташа, 16-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1170
+msgid "Medium, fixed on level 17"
+msgstr "Орташа, 17-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1171
+msgid "Medium, fixed on level 18"
+msgstr "Орташа, 18-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1172
+msgid "Medium, fixed on level 19"
+msgstr "Орташа, 19-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1173
+msgid "Medium, fixed on level 20"
+msgstr "Орташа, 20-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1174
+msgid "Medium, fixed on level 21"
+msgstr "Орташа, 21-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1175
+msgid "Medium, fixed on level 22"
+msgstr "Орташа, 22-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1176
+msgid "Medium, fixed on level 23"
+msgstr "Орташа, 23-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1177
+msgid "Medium, fixed on level 24"
+msgstr "Орташа, 24-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1178
+msgid "Medium, fixed on level 25"
+msgstr "Орташа, 25-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1179
+msgid "Medium, fixed on level 26"
+msgstr "Орташа, 26-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1180
+msgid "Medium with fakes and random levels"
+msgstr "Орташа, жалған элементтермен және кездейсоқ деңгейлермен"
+
+#: src/nibbles-window.vala:1181
+msgid "Medium with fakes, fixed on level 1"
+msgstr "Орташа, жалған элементтермен, 1-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1182
+msgid "Medium with fakes, fixed on level 2"
+msgstr "Орташа, жалған элементтермен, 2-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1183
+msgid "Medium with fakes, fixed on level 3"
+msgstr "Орташа, жалған элементтермен, 3-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1184
+msgid "Medium with fakes, fixed on level 4"
+msgstr "Орташа, жалған элементтермен, 4-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1185
+msgid "Medium with fakes, fixed on level 5"
+msgstr "Орташа, жалған элементтермен, 5-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1186
+msgid "Medium with fakes, fixed on level 6"
+msgstr "Орташа, жалған элементтермен, 6-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1187
+msgid "Medium with fakes, fixed on level 7"
+msgstr "Орташа, жалған элементтермен, 7-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1188
+msgid "Medium with fakes, fixed on level 8"
+msgstr "Орташа, жалған элементтермен, 8-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1189
+msgid "Medium with fakes, fixed on level 9"
+msgstr "Орташа, жалған элементтермен, 9-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1190
+msgid "Medium with fakes, fixed on level 10"
+msgstr "Орташа, жалған элементтермен, 10-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1191
+msgid "Medium with fakes, fixed on level 11"
+msgstr "Орташа, жалған элементтермен, 11-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1192
+msgid "Medium with fakes, fixed on level 12"
+msgstr "Орташа, жалған элементтермен, 12-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1193
+msgid "Medium with fakes, fixed on level 13"
+msgstr "Орташа, жалған элементтермен, 13-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1194
+msgid "Medium with fakes, fixed on level 14"
+msgstr "Орташа, жалған элементтермен, 14-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1195
+msgid "Medium with fakes, fixed on level 15"
+msgstr "Орташа, жалған элементтермен, 15-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1196
+msgid "Medium with fakes, fixed on level 16"
+msgstr "Орташа, жалған элементтермен, 16-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1197
+msgid "Medium with fakes, fixed on level 17"
+msgstr "Орташа, жалған элементтермен, 17-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1198
+msgid "Medium with fakes, fixed on level 18"
+msgstr "Орташа, жалған элементтермен, 18-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1199
+msgid "Medium with fakes, fixed on level 19"
+msgstr "Орташа, жалған элементтермен, 19-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1200
+msgid "Medium with fakes, fixed on level 20"
+msgstr "Орташа, жалған элементтермен, 20-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1201
+msgid "Medium with fakes, fixed on level 21"
+msgstr "Орташа, жалған элементтермен, 21-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1202
+msgid "Medium with fakes, fixed on level 22"
+msgstr "Орташа, жалған элементтермен, 22-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1203
+msgid "Medium with fakes, fixed on level 23"
+msgstr "Орташа, жалған элементтермен, 23-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1204
+msgid "Medium with fakes, fixed on level 24"
+msgstr "Орташа, жалған элементтермен, 24-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1205
+msgid "Medium with fakes, fixed on level 25"
+msgstr "Орташа, жалған элементтермен, 25-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1206
+msgid "Medium with fakes, fixed on level 26"
+msgstr "Орташа, жалған элементтермен, 26-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1207
 msgid "Fast"
 msgstr "Жылдам"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:967
-msgid "Beginner with Fakes"
-msgstr "Бастауыш, жалған бонустармен"
+#: src/nibbles-window.vala:1208
+msgid "Fast with random levels"
+msgstr "Жылдам, кездейсоқ деңгейлермен"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:969
-msgid "Slow with Fakes"
-msgstr "Баяу, жалған бонустармен"
+#: src/nibbles-window.vala:1209
+msgid "Fast, fixed on level 1"
+msgstr "Жылдам, 1-деңгейде бекітілген"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:971
-msgid "Medium with Fakes"
-msgstr "Орташа, жалған бонустармен"
+#: src/nibbles-window.vala:1210
+msgid "Fast, fixed on level 2"
+msgstr "Жылдам, 2-деңгейде бекітілген"
 
-#. Translators: Difficulty level with fake bonuses, displayed on the scores dialog
-#: src/nibbles-window.vala:973
-msgid "Fast with Fakes"
-msgstr "Жылдам, жалған бонустармен"
+#: src/nibbles-window.vala:1211
+msgid "Fast, fixed on level 3"
+msgstr "Жылдам, 3-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1212
+msgid "Fast, fixed on level 4"
+msgstr "Жылдам, 4-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1213
+msgid "Fast, fixed on level 5"
+msgstr "Жылдам, 5-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1214
+msgid "Fast, fixed on level 6"
+msgstr "Жылдам, 6-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1215
+msgid "Fast, fixed on level 7"
+msgstr "Жылдам, 7-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1216
+msgid "Fast, fixed on level 8"
+msgstr "Жылдам, 8-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1217
+msgid "Fast, fixed on level 9"
+msgstr "Жылдам, 9-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1218
+msgid "Fast, fixed on level 10"
+msgstr "Жылдам, 10-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1219
+msgid "Fast, fixed on level 11"
+msgstr "Жылдам, 11-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1220
+msgid "Fast, fixed on level 12"
+msgstr "Жылдам, 12-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1221
+msgid "Fast, fixed on level 13"
+msgstr "Жылдам, 13-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1222
+msgid "Fast, fixed on level 14"
+msgstr "Жылдам, 14-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1223
+msgid "Fast, fixed on level 15"
+msgstr "Жылдам, 15-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1224
+msgid "Fast, fixed on level 16"
+msgstr "Жылдам, 16-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1225
+msgid "Fast, fixed on level 17"
+msgstr "Жылдам, 17-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1226
+msgid "Fast, fixed on level 18"
+msgstr "Жылдам, 18-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1227
+msgid "Fast, fixed on level 19"
+msgstr "Жылдам, 19-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1228
+msgid "Fast, fixed on level 20"
+msgstr "Жылдам, 20-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1229
+msgid "Fast, fixed on level 21"
+msgstr "Жылдам, 21-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1230
+msgid "Fast, fixed on level 22"
+msgstr "Жылдам, 22-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1231
+msgid "Fast, fixed on level 23"
+msgstr "Жылдам, 23-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1232
+msgid "Fast, fixed on level 24"
+msgstr "Жылдам, 24-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1233
+msgid "Fast, fixed on level 25"
+msgstr "Жылдам, 25-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1234
+msgid "Fast, fixed on level 26"
+msgstr "Жылдам, 26-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1235
+msgid "Fast with fakes and random levels"
+msgstr "Жалғандармен және кездейсоқ деңгейлермен жылдам"
+
+#: src/nibbles-window.vala:1236
+msgid "Fast with fakes, fixed on level 1"
+msgstr "Жалғандармен жылдам, 1-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1237
+msgid "Fast with fakes, fixed on level 2"
+msgstr "Жалғандармен жылдам, 2-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1238
+msgid "Fast with fakes, fixed on level 3"
+msgstr "Жалғандармен жылдам, 3-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1239
+msgid "Fast with fakes, fixed on level 4"
+msgstr "Жалғандармен жылдам, 4-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1240
+msgid "Fast with fakes, fixed on level 5"
+msgstr "Жалғандармен жылдам, 5-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1241
+msgid "Fast with fakes, fixed on level 6"
+msgstr "Жалғандармен жылдам, 6-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1242
+msgid "Fast with fakes, fixed on level 7"
+msgstr "Жалғандармен жылдам, 7-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1243
+msgid "Fast with fakes, fixed on level 8"
+msgstr "Жалғандармен жылдам, 8-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1244
+msgid "Fast with fakes, fixed on level 9"
+msgstr "Жалғандармен жылдам, 9-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1245
+msgid "Fast with fakes, fixed on level 10"
+msgstr "Жалғандармен жылдам, 10-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1246
+msgid "Fast with fakes, fixed on level 11"
+msgstr "Жалғандармен жылдам, 11-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1247
+msgid "Fast with fakes, fixed on level 12"
+msgstr "Жалғандармен жылдам, 12-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1248
+msgid "Fast with fakes, fixed on level 13"
+msgstr "Жалғандармен жылдам, 13-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1249
+msgid "Fast with fakes, fixed on level 14"
+msgstr "Жалғандармен жылдам, 14-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1250
+msgid "Fast with fakes, fixed on level 15"
+msgstr "Жалғандармен жылдам, 15-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1251
+msgid "Fast with fakes, fixed on level 16"
+msgstr "Жалғандармен жылдам, 16-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1252
+msgid "Fast with fakes, fixed on level 17"
+msgstr "Жалғандармен жылдам, 17-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1253
+msgid "Fast with fakes, fixed on level 18"
+msgstr "Жалғандармен жылдам, 18-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1254
+msgid "Fast with fakes, fixed on level 19"
+msgstr "Жалғандармен жылдам, 19-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1255
+msgid "Fast with fakes, fixed on level 20"
+msgstr "Жалғандармен жылдам, 20-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1256
+msgid "Fast with fakes, fixed on level 21"
+msgstr "Жалғандармен жылдам, 21-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1257
+msgid "Fast with fakes, fixed on level 22"
+msgstr "Жалғандармен жылдам, 22-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1258
+msgid "Fast with fakes, fixed on level 23"
+msgstr "Жалғандармен жылдам, 23-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1259
+msgid "Fast with fakes, fixed on level 24"
+msgstr "Жалғандармен жылдам, 24-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1260
+msgid "Fast with fakes, fixed on level 25"
+msgstr "Жалғандармен жылдам, 25-деңгейде бекітілген"
+
+#: src/nibbles-window.vala:1261
+msgid "Fast with fakes, fixed on level 26"
+msgstr "Жалғандармен жылдам, 26-деңгейде бекітілген"
 
 #. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:978
+#: src/nibbles-window.vala:1293
 msgid "Difficulty Level:"
 msgstr "Қиындық деңгейі:"
 
-#. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1084
+#. Translators: label that appears at the end of a level; the %d is the number
+#. of the level that was completed
+#: src/nibbles-window.vala:1396
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Деңгейі %d аяқталды!"
 
-#. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1095
+#. Translators: label of a button that appears at the end of a level; starts
+#. next level
+#: src/nibbles-window.vala:1407
 msgid "_Next Level"
 msgstr "_Келесі деңгей"
 
-#. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1132
+#. Translators: label displayed at the end of a level, if the player finished
+#. all the levels
+#: src/nibbles-window.vala:1460
 msgid "Congratulations!"
 msgstr "Құттықтаймыз!"
 
-#. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1136
+#. Translators: label displayed at the end of a level, if the player did not
+#. finished all the levels
+#: src/nibbles-window.vala:1463
 msgid "Game Over!"
 msgstr "Ойын аяқталды!"
 
-#. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1148
+#. Translators: label displayed at the end of a level, if the player finished
+#. all the levels
+#: src/nibbles-window.vala:1474
 msgid "You have completed the game."
 msgstr "Сіз ойынды аяқтадыңыз."
 
-#: src/nibbles-window.vala:1158
+#: src/nibbles-window.vala:1484
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d ұпай"
 
-#. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1169
+#. Translators: label displayed at the end of a level, if the player did not
+#. score enough to have its score saved
+#: src/nibbles-window.vala:1495
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(үздіктер тақтасына жету үшін тағы %ld ұпай керек)"
 
-#. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1176
+#. Translators: label of a button displayed at the end of a level; restarts
+#. the game
+#: src/nibbles-window.vala:1502
 msgid "_Play Again"
 msgstr "Қайта о_йнау"
 
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set
-#: src/players.vala:38
-#| msgid "_0"
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play game only with humans, appearing when there are 4
+#. humans set
+#: src/players.vala:40
 msgid "0"
 msgstr "0"
 
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set
-#: src/players.vala:50
-#| msgid "_4"
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play game with four AIs, appearing when there are 1 or 2
+#. humans set
+#: src/players.vala:52
 msgid "4"
 msgstr "4"
 
-#. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set
-#: src/players.vala:53
-#| msgid "_5"
+#. Translators: in the "Number of players" configuration screen, label of a
+#. button allowing to play game with five AIs, appearing when there is only 1
+#. human set
+#: src/players.vala:55
 msgid "5"
 msgstr "5"
 
-#. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
-#: src/scoreboard.vala:45
+#. Translators: text displayed under the game view, presenting the number of
+#. remaining lives; the %d is replaced by the number that identifies the
+#. player
+#: src/scoreboard.vala:62
 #, c-format
 msgid "Worm %d"
 msgstr "Құрт %d"
+
+#~ msgid "Select your color"
+#~ msgstr "Түсіңізді таңдаңыз"
+
+#~ msgid ""
+#~ "Are you sure you want to start a new game?\n"
+#~ "If you start a new game, the current one will be lost."
+#~ msgstr ""
+#~ "Жаңа ойынды бастауға сенімдісіз бе?\n"
+#~ "Егер жаңа ойынды бастасаңыз, ағымдағы ойын жоғалады."
 
 #~ msgid "Michael Catanzaro"
 #~ msgstr "Michael Catanzaro"
@@ -974,9 +1974,6 @@ msgstr "Құрт %d"
 
 #~ msgid "GNOME Nibbles"
 #~ msgstr "GNOME құрттар ойыны"
-
-#~ msgid "The GNOME Project"
-#~ msgstr "GNOME жобасы"
 
 #~ msgid "Player"
 #~ msgstr "Ойыншы"
