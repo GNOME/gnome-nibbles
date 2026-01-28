@@ -52,11 +52,10 @@ public class Context : Object
     public string app_name { get; construct; }
 
     /**
-     * Describes all of the categories.
-     * Make sure to put a colon at the end (eg. "Minefield:", "Difficulty Level:").
+     * The strings used on the clear scores dialog.
      *
      */
-    public string category_type { get; construct; }
+    private string[] clear_dialog_strings { get; set; }
 
     /**
      * The window that the game will be inside of, this is the window the score dialog will be presented upon.
@@ -129,7 +128,7 @@ public class Context : Object
      *
      * ``app_name`` is your App ID (eg. ``org.gnome.Mines``)
      *
-     * ``category_type`` describes all of the categories, make sure to put a colon at the end (eg. "Minefield:", "Difficulty Level:").
+     * ``clear_dialog_strings`` six strings for the clear scores dialog.
      *
      * ``game_window`` is the window that the game will be inside of, this is the window the score dialog will be presented upon.
      *
@@ -143,18 +142,19 @@ public class Context : Object
      *
      */
     public Context (string app_name,
-                    string category_type,
+                    string[] clear_dialog_strings,
                     Gtk.Window? game_window,
                     CategoryRequestFunc category_request,
                     Style style,
                     string? icon_name = null,
                     IsLowerOrderCategoryFunc is_lower_order = (a, b) => {return false;})
+        requires (6 == clear_dialog_strings.length)
     {
         Object (app_name: app_name,
-                category_type: category_type,
                 game_window: game_window,
                 style: style,
                 icon_name: icon_name ?? app_name);
+        this.clear_dialog_strings = clear_dialog_strings;
                 
         /* If provided this function orders the categories.
          * Otherwise the categories will be ordered in ascending value of str_hash (category.key).
@@ -313,7 +313,7 @@ public class Context : Object
         var high_score_added = is_high_score (the_score.score, category);
         if (high_score_added && game_window != null)
         {
-            var dialog = new Dialog (this, category_type, style, the_score, current_category, icon_name);
+            var dialog = new Dialog (this, clear_dialog_strings, style, the_score, current_category, icon_name);
             dialog.closed.connect (() => add_score.callback ());
             dialog.present (game_window);
             yield;
@@ -347,7 +347,7 @@ public class Context : Object
         var high_score_added = is_high_score (score.score, category);
         if (high_score_added)
         {
-            var dialog = new Dialog (this, category_type, style, score, current_category, icon_name);
+            var dialog = new Dialog (this, clear_dialog_strings, style, score, current_category, icon_name);
             dialog.closed.connect (() => add_score_full.callback ());
             dialog.present (game_window);
             dialog.add_bottom_buttons (new_game_func, quit_app_func);
@@ -448,7 +448,7 @@ public class Context : Object
     public void present_dialog ()
         requires (game_window != null)
     {
-        var dialog = new Dialog (this, category_type, style, null, current_category, icon_name);
+        var dialog = new Dialog (this, clear_dialog_strings, style, null, current_category, icon_name);
         dialog.closed.connect (() => dialog_closed ());
         dialog.present (game_window);
     }

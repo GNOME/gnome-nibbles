@@ -1289,8 +1289,25 @@ private class NibblesWindow : ApplicationWindow
     {
         scores_context = new Games.Scores.Context (
             "gnome-nibbles",
-            /* Translators: label displayed on the scores dialog, preceding a difficulty. */
-            _("Difficulty Level:"),
+            {
+                /* Translators: question displayed on the clear scores dialog */
+                _("Clear Scores?"),
+
+                /* Translators: confirm question displayed on the clear scores dialog when there is only one categorie’s scores to clear */
+                _("Clear these high scores?"),
+
+                /* Translators: confirm question displayed on the clear scores dialog when there is multiple categories' scores to clear */
+                _("Clear these high scores or all high scores?"),
+
+                /* Translators: cancel button (default) text on the clear scores dialog */
+                _("_Cancel"),
+
+                /* Translators: confirm button text on the clear scores dialog to clear one categorie's high scores */
+                _("Clear"),
+
+                /* Translators: confirm button text on the clear scores dialog to clear all high scores */
+                _("Clear all")
+            },
             this,
             get_category,
             Games.Scores.Style.POINTS_GREATER_IS_BETTER,

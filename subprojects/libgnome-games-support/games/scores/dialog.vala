@@ -39,10 +39,12 @@ private class Dialog : Adw.Dialog
     private Score? new_high_score;
     private string? score_or_time;
     private bool single_category;
+    private unowned string[] clear_dialog_strings;
 
-    public Dialog (Context context, string category_type, Style style, Score? new_high_score, Category? current_cat, string icon_name)
+    public Dialog (Context context, string[] clear_dialog_strings, Style style, Score? new_high_score, Category? current_cat, string icon_name)
     {
         this.context = context;
+        this.clear_dialog_strings = clear_dialog_strings;
         this.new_high_score = new_high_score;
 
         Gtk.Builder builder = new Gtk.Builder ();
@@ -146,15 +148,15 @@ private class Dialog : Adw.Dialog
     {
         var dialog = new Adw.AlertDialog
         (
-            _("Clear Scores?"),
-            single_category ? _("Clear this category?") : _("Clear this category or all categories?")
+            clear_dialog_strings[0],
+            single_category ? clear_dialog_strings[1] : clear_dialog_strings[2]
         ) {default_response = "cancel"};
-        dialog.add_response ("cancel", _("_Cancel"));
-        dialog.add_response ("clear", _("Clear category"));
+        dialog.add_response ("cancel", clear_dialog_strings[3]);
+        dialog.add_response ("clear", clear_dialog_strings[4]);
         dialog.set_response_appearance ("clear", Adw.ResponseAppearance.DESTRUCTIVE);
         if (!single_category)
         {
-            dialog.add_response ("clearall", _("Clear all"));
+            dialog.add_response ("clearall", clear_dialog_strings[5]);
             dialog.set_response_appearance ("clearall", Adw.ResponseAppearance.DESTRUCTIVE);
         }
         switch (yield dialog.choose (this, null))
