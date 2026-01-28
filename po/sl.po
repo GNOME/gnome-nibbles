@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2025-10-09 00:02+0000\n"
-"PO-Revision-Date: 2025-10-09 18:16+0200\n"
+"POT-Creation-Date: 2026-01-28 09:07+0000\n"
+"PO-Revision-Date: 2026-01-28 10:54+0100\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
 "n%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
@@ -912,7 +912,8 @@ msgstr "Ali želite igrati novo igro?"
 msgid "If you start a new game, the current one will be lost"
 msgstr "Če začnete novo igro, bo trenutna izgubljena"
 
-#: src/nibbles-window.vala:622
+#. Translators: cancel button (default) text on the clear scores dialog
+#: src/nibbles-window.vala:622 src/nibbles-window.vala:1303
 msgid "_Cancel"
 msgstr "Pre_kliči"
 
@@ -937,7 +938,7 @@ msgid "_Resume"
 msgstr "Na_daljuj"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1428
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1442
 #, c-format
 msgid "Level %d"
 msgstr "Raven %d"
@@ -1823,38 +1824,58 @@ msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 25"
 msgid "Fast with fakes, fixed on level 26"
 msgstr "Rokohitrec z lažnimi bonusi, ves čas na stopnji 26"
 
-#. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1286
-msgid "Difficulty Level:"
-msgstr "Raven zahtevnosti:"
+#. Translators: question displayed on the clear scores dialog
+#: src/nibbles-window.vala:1294
+msgid "Clear Scores?"
+msgstr "Želite počistiti rezultate?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is only one categorie’s scores to clear
+#: src/nibbles-window.vala:1297
+msgid "Clear these high scores?"
+msgstr "Ali želite izbrisati te najboljše rezultate?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is multiple categories' scores to clear
+#: src/nibbles-window.vala:1300
+msgid "Clear these high scores or all high scores?"
+msgstr "Ali želite izbrisati te ali vse najboljše rezultate?"
+
+#. Translators: confirm button text on the clear scores dialog to clear one categorie's high scores
+#: src/nibbles-window.vala:1306
+msgid "Clear"
+msgstr "Počisti"
+
+#. Translators: confirm button text on the clear scores dialog to clear all high scores
+#: src/nibbles-window.vala:1309
+msgid "Clear all"
+msgstr "Počisti vse"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1399
+#: src/nibbles-window.vala:1413
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Raven %d je končana!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1410
+#: src/nibbles-window.vala:1424
 msgid "_Next Level"
 msgstr "_Naslednja raven"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1463
+#: src/nibbles-window.vala:1477
 msgid "Congratulations!"
 msgstr "Čestitke!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1466
+#: src/nibbles-window.vala:1480
 msgid "Game Over!"
 msgstr "Konec igre!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1477
+#: src/nibbles-window.vala:1491
 msgid "You have completed the game."
 msgstr "Končali ste igro."
 
-#: src/nibbles-window.vala:1487
+#: src/nibbles-window.vala:1501
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -1864,13 +1885,13 @@ msgstr[2] "%d točki"
 msgstr[3] "%d točke"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1498
+#: src/nibbles-window.vala:1512
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(še %ld točk do vpisa na seznam najboljših)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1505
+#: src/nibbles-window.vala:1519
 msgid "_Play Again"
 msgstr "_Nova igra"
 
