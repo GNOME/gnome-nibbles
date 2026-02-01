@@ -9,14 +9,14 @@
 # Jeff Bai <jeffbai@aosc.xyz>, 2016.
 # Mandy Wang <wangmychn@gmail.com>, 2016.
 # Weiyi Xu <xuweiyi0923@gmail.com>, 2020.
-# lumingzh <lumingzh@qq.com>, 2023-2025.
+# lumingzh <lumingzh@qq.com>, 2023-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2025-10-09 18:45+0000\n"
-"PO-Revision-Date: 2025-10-10 07:36+0800\n"
+"POT-Creation-Date: 2026-01-28 09:07+0000\n"
+"PO-Revision-Date: 2026-02-01 09:31+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -816,7 +816,7 @@ msgstr ""
 "Jeff Bai <jeffbai@aosc.xyz>, 2016\n"
 "Mandy Wang <wangmychn@gmail.com>, 2016\n"
 "Weiyi Xu <xuweiyi0923@gmail.com>, 2020\n"
-"lumingzh <lumingzh@qq.com>, 2023-2025"
+"lumingzh <lumingzh@qq.com>, 2023-2026"
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
@@ -906,7 +906,8 @@ msgstr "开始新游戏吗？"
 msgid "If you start a new game, the current one will be lost"
 msgstr "如果您开始新游戏，当前游戏将会丢失。"
 
-#: src/nibbles-window.vala:622
+#. Translators: cancel button (default) text on the clear scores dialog
+#: src/nibbles-window.vala:622 src/nibbles-window.vala:1303
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -931,7 +932,7 @@ msgid "_Resume"
 msgstr "继续(_R)"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1428
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1442
 #, c-format
 msgid "Level %d"
 msgstr "第 %d 关"
@@ -1817,51 +1818,71 @@ msgstr "快速（含假食物且固定关卡 25）"
 msgid "Fast with fakes, fixed on level 26"
 msgstr "快速（含假食物且固定关卡 26）"
 
-#. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1286
-msgid "Difficulty Level:"
-msgstr "难度级别："
+#. Translators: question displayed on the clear scores dialog
+#: src/nibbles-window.vala:1294
+msgid "Clear Scores?"
+msgstr "清除得分吗？"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is only one categorie’s scores to clear
+#: src/nibbles-window.vala:1297
+msgid "Clear these high scores?"
+msgstr "清除这些得分吗？"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is multiple categories' scores to clear
+#: src/nibbles-window.vala:1300
+msgid "Clear these high scores or all high scores?"
+msgstr "清除这些得分或所有得分？"
+
+#. Translators: confirm button text on the clear scores dialog to clear one categorie's high scores
+#: src/nibbles-window.vala:1306
+msgid "Clear"
+msgstr "清除"
+
+#. Translators: confirm button text on the clear scores dialog to clear all high scores
+#: src/nibbles-window.vala:1309
+msgid "Clear all"
+msgstr "全部清除"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1399
+#: src/nibbles-window.vala:1413
 #, c-format
 msgid "Level %d Completed!"
 msgstr "关卡 %d 已完成！"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1410
+#: src/nibbles-window.vala:1424
 msgid "_Next Level"
 msgstr "下一关(_N)"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1463
+#: src/nibbles-window.vala:1477
 msgid "Congratulations!"
 msgstr "恭喜！"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1466
+#: src/nibbles-window.vala:1480
 msgid "Game Over!"
 msgstr "游戏结束！"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1477
+#: src/nibbles-window.vala:1491
 msgid "You have completed the game."
 msgstr "您已经完成游戏。"
 
-#: src/nibbles-window.vala:1487
+#: src/nibbles-window.vala:1501
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d 分"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1498
+#: src/nibbles-window.vala:1512
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "（离进入排行榜还差 %ld 分）"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1505
+#: src/nibbles-window.vala:1519
 msgid "_Play Again"
 msgstr "再玩一次(_P)"
 
@@ -1885,6 +1906,9 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "蠕虫 %d"
+
+#~ msgid "Difficulty Level:"
+#~ msgstr "难度级别："
 
 #~ msgid "_Enable fake bonuses."
 #~ msgstr "启用虚假奖励(_E)"
