@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2025-10-09 23:38+0000\n"
-"PO-Revision-Date: 2025-10-10 10:04+1000\n"
+"POT-Creation-Date: 2026-01-28 09:07+0000\n"
+"PO-Revision-Date: 2026-01-29 17:00+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -832,7 +832,7 @@ msgstr ""
 "Stas Solovey <whats_up@tut.by>, 2016.\n"
 "Ivan Komaritsyn <vantu5z@mail.ru>, 2015.\n"
 "Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2015.\n"
-"Ser82-png <asvmail.as@gmail.com>, 2022-2025."
+"Ser82-png <asvmail.as@gmail.com>, 2022-2026."
 
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
@@ -922,7 +922,8 @@ msgstr "Новая игра?"
 msgid "If you start a new game, the current one will be lost"
 msgstr "Если вы начнёте новую игру, текущая игра будет потеряна"
 
-#: src/nibbles-window.vala:622
+#. Translators: cancel button (default) text on the clear scores dialog
+#: src/nibbles-window.vala:622 src/nibbles-window.vala:1303
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -947,7 +948,7 @@ msgid "_Resume"
 msgstr "_Возобновить"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1428
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1442
 #, c-format
 msgid "Level %d"
 msgstr "Уровень %d"
@@ -1833,38 +1834,58 @@ msgstr "Быстро, но с фальшивками и закреплённый
 msgid "Fast with fakes, fixed on level 26"
 msgstr "Быстро, но с фальшивками и закреплённый на уровне 26"
 
-#. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1286
-msgid "Difficulty Level:"
-msgstr "Уровень сложности:"
+#. Translators: question displayed on the clear scores dialog
+#: src/nibbles-window.vala:1294
+msgid "Clear Scores?"
+msgstr "Очистить результаты?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is only one categorie’s scores to clear
+#: src/nibbles-window.vala:1297
+msgid "Clear these high scores?"
+msgstr "Удалить эти лучшие результаты?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is multiple categories' scores to clear
+#: src/nibbles-window.vala:1300
+msgid "Clear these high scores or all high scores?"
+msgstr "Удалить эти лучшие результаты или все результаты?"
+
+#. Translators: confirm button text on the clear scores dialog to clear one categorie's high scores
+#: src/nibbles-window.vala:1306
+msgid "Clear"
+msgstr "Очистить"
+
+#. Translators: confirm button text on the clear scores dialog to clear all high scores
+#: src/nibbles-window.vala:1309
+msgid "Clear all"
+msgstr "Очистить всё"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1399
+#: src/nibbles-window.vala:1413
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Уровень %d завершён!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1410
+#: src/nibbles-window.vala:1424
 msgid "_Next Level"
 msgstr "_Следующий уровень"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1463
+#: src/nibbles-window.vala:1477
 msgid "Congratulations!"
 msgstr "Поздравляем!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1466
+#: src/nibbles-window.vala:1480
 msgid "Game Over!"
 msgstr "Игра окончена!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1477
+#: src/nibbles-window.vala:1491
 msgid "You have completed the game."
 msgstr "Вы прошли игру."
 
-#: src/nibbles-window.vala:1487
+#: src/nibbles-window.vala:1501
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -1873,13 +1894,13 @@ msgstr[1] "%d очка"
 msgstr[2] "%d очков"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1498
+#: src/nibbles-window.vala:1512
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(до попадания на доску почёта осталось набрать очков: %ld)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1505
+#: src/nibbles-window.vala:1519
 msgid "_Play Again"
 msgstr "_Сыграть ещё раз"
 
@@ -1903,6 +1924,9 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "Червячок %d"
+
+#~ msgid "Difficulty Level:"
+#~ msgstr "Уровень сложности:"
 
 #~ msgid "_Enable fake bonuses."
 #~ msgstr "_Разрешить фальшивые бонусы."
