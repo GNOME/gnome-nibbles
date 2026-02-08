@@ -209,7 +209,7 @@ private class NibblesWindow : ApplicationWindow
     /* Game being played */
     private NibblesGame? game = null;
     public  int cli_start_level { private get; internal construct; }
-    private int start_level { private get { return cli_start_level == 0 ? settings.get_int ("start-level") : cli_start_level; }}
+    private int start_level { private get { return cli_start_level == 0 ? (progress == 0 ? 1 : settings.get_int ("start-level")) : cli_start_level; }}
     public int progress { internal get; internal construct set; }
     public  SetupScreen start_screen { private get; internal construct; }
     public bool game_paused
