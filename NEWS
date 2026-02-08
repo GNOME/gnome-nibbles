@@ -1,3 +1,17 @@
+4.5.0 - February 8, 2026
+========================
+
+- No build dependency changes.
+- Fix issue #80.
+- Correct metadata !95 & !96. Thanks to Sabri Ünal for these.
+- Fix the game not starting on level 1 for process of Levels 1 through 26 in
+  sequential order if the previous game was a fixed level > 1
+- Add new feature to clear high scores.
+- Updated translations; Greek, Swedish, Kazakh, Slovenian, Ukrainian, Georgian,
+  Chinese (China) & Russian.
+- To download use:
+  https://gitlab.gnome.org/GNOME/gnome-nibbles/-/archive/4.5.0/gnome-nibbles-4.5.0.tar.bz2
+
 4.4.2 - Halloween (October 31) 2025
 ===================================
 

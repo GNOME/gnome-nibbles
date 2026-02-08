@@ -3,14 +3,13 @@ project('gnome-nibbles',
     ['c', 'vala'],
     license: 'GPL3+',
     meson_version: '>=1.5',
-    version: '4.4.2',
+    version: '4.5.0',
     default_options: ['c_std=c99']) # Vala generated C code should be compatible with c99 (ISO/IEC 9899:1999)
 
 # note, the version number is in meson.options and follows this sequence:
-#  4.4.rc1
-#  4.4.rc2 (if needed)
-#  4.4.0 (next full release)
-#  4.4.1 (bugfix release)
+#  4.5.0 (full release)
+#  4.5.1 (bugfix/translations release)
+
 message(meson.project_name(), 'version', get_option('version') + get_option('append_to_version'))
 gnome      = import('gnome')      # used to install help
 i18n       = import('i18n')       # used for internationalization
