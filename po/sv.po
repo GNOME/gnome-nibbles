@@ -1,18 +1,18 @@
 # Swedish messages for gnome-nibbles.
-# Copyright © 1999-2025 Free Software Foundation, Inc.
+# Copyright © 1999-2026 Free Software Foundation, Inc.
 # Andreas Persenius <ndap@swipnet.se>, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>
 # Martin Norbäck <d95mback@dtek.chalmers.se>, 2000.
 # Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2018, 2020, 2023, 2024, 2025.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2018, 2020, 2023, 2024, 2025, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2025-10-12 01:08+0000\n"
-"PO-Revision-Date: 2025-11-21 23:52+0100\n"
+"POT-Creation-Date: 2026-01-28 09:07+0000\n"
+"PO-Revision-Date: 2026-02-08 22:14+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -917,7 +917,8 @@ msgstr "Nytt spel?"
 msgid "If you start a new game, the current one will be lost"
 msgstr "Om du startar ett nytt spel kommer det aktuella spelet gå förlorat"
 
-#: src/nibbles-window.vala:622
+#. Translators: cancel button (default) text on the clear scores dialog
+#: src/nibbles-window.vala:622 src/nibbles-window.vala:1303
 msgid "_Cancel"
 msgstr "A_vbryt"
 
@@ -942,7 +943,7 @@ msgid "_Resume"
 msgstr "_Fortsätt"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1425
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1442
 #, c-format
 msgid "Level %d"
 msgstr "Nivå %d"
@@ -1828,38 +1829,58 @@ msgstr "Snabb med attrapper, fixerad på nivå 25"
 msgid "Fast with fakes, fixed on level 26"
 msgstr "Snabb med attrapper, fixerad på nivå 26"
 
-#. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1293
-msgid "Difficulty Level:"
-msgstr "Svårighetsgrad:"
+#. Translators: question displayed on the clear scores dialog
+#: src/nibbles-window.vala:1294
+msgid "Clear Scores?"
+msgstr "Rensa poäng?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is only one categorie’s scores to clear
+#: src/nibbles-window.vala:1297
+msgid "Clear these high scores?"
+msgstr "Rensa denna topplista?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is multiple categories' scores to clear
+#: src/nibbles-window.vala:1300
+msgid "Clear these high scores or all high scores?"
+msgstr "Rensa denna topplista eller alla topplistor?"
+
+#. Translators: confirm button text on the clear scores dialog to clear one categorie's high scores
+#: src/nibbles-window.vala:1306
+msgid "Clear"
+msgstr "Rensa"
+
+#. Translators: confirm button text on the clear scores dialog to clear all high scores
+#: src/nibbles-window.vala:1309
+msgid "Clear all"
+msgstr "Rensa alla"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1396
+#: src/nibbles-window.vala:1413
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nivå %d färdig!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1407
+#: src/nibbles-window.vala:1424
 msgid "_Next Level"
 msgstr "_Nästa nivå"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1460
+#: src/nibbles-window.vala:1477
 msgid "Congratulations!"
 msgstr "Gratulerar!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1463
+#: src/nibbles-window.vala:1480
 msgid "Game Over!"
 msgstr "Spelet är slut!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1474
+#: src/nibbles-window.vala:1491
 msgid "You have completed the game."
 msgstr "Du har klarat spelet."
 
-#: src/nibbles-window.vala:1484
+#: src/nibbles-window.vala:1501
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -1867,13 +1888,13 @@ msgstr[0] "%d poäng"
 msgstr[1] "%d poäng"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1495
+#: src/nibbles-window.vala:1512
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(%ld poäng till för att nå topplistan)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1502
+#: src/nibbles-window.vala:1519
 msgid "_Play Again"
 msgstr "S_pela igen"
 
@@ -1897,3 +1918,6 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "Mask %d"
+
+#~ msgid "Difficulty Level:"
+#~ msgstr "Svårighetsgrad:"
