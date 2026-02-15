@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
 "POT-Creation-Date: 2020-07-09 15:00+0000\n"
-"PO-Revision-Date: 2020-07-16 19:46+0200\n"
+"PO-Revision-Date: 2026-02-15 19:46+0200\n"
 "Last-Translator: Carles Ferrando Garcia <carles.ferrando@gnuescultura.eu>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
@@ -112,7 +112,7 @@ msgstr "cert si la finestra està maximitzada."
 
 #: data/org.gnome.Nibbles.gschema.xml:28
 msgid "Is this the first run"
-msgstr "És això la primera execució"
+msgstr "És la primera execució"
 
 #: data/org.gnome.Nibbles.gschema.xml:29
 msgid "Setting to decide whether to show first-run hint dialog or not."
@@ -656,19 +656,19 @@ msgstr "Mostra la versió del llançament"
 #. level request; see 'gnome-nibbles -l 0'
 #: src/gnome-nibbles.vala:118
 msgid "Start level should only be between 1 and 26."
-msgstr "El nivell inicial sols  ha d'estar entre 1 i 26."
+msgstr "El nivell inicial sols ha d'estar entre 1 i 26."
 
 #. Translators: command-line error message, displayed for an invalid number of
 #. nibbles; see 'gnome-nibbles -n 1'
 #: src/gnome-nibbles.vala:124
 msgid "There could only be between 4 and 6 nibbles."
-msgstr "Només podia haver-hi entre 4 i 6 nibbles."
+msgstr "Només pot haver-hi entre 4 i 6 nibbles."
 
 #. Translators: command-line error message, displayed for an invalid number of
 #. players; see 'gnome-nibbles -p 5'
 #: src/gnome-nibbles.vala:130
 msgid "There could only be between 1 and 4 players."
-msgstr "Només podia haver-hi entre 1 i 4 jugadors."
+msgstr "Només pot haver-hi entre 1 i 4 jugadors."
 
 #. Translators: command-line error message, displayed for an invalid given
 #. worms speed; see 'gnome-nibbles -s 5'
@@ -797,7 +797,7 @@ msgstr "porpra"
 #. start a game while one is running
 #: src/nibbles-window.vala:404
 msgid "Are you sure you want to start a new game?"
-msgstr "Teniu seguretat d'iniciar una nova partida?"
+msgstr "Esteu segur que voleu iniciar una partida nova?"
 
 #. Translators: message displayed in a MessageDialog, when the player tries to
 #. start a game while one is running
