@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2025-10-12 01:08+0000\n"
-"PO-Revision-Date: 2025-10-08 20:40+0300\n"
+"POT-Creation-Date: 2026-01-28 09:07+0000\n"
+"PO-Revision-Date: 2026-01-30 01:28+0300\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
@@ -910,7 +910,8 @@ msgstr "Yeni Oyun Başlatılsın Mı?"
 msgid "If you start a new game, the current one will be lost"
 msgstr "Eğer yenisini başlatırsanız, geçerli oyun kaybedilecek."
 
-#: src/nibbles-window.vala:622
+#. Translators: cancel button (default) text on the clear scores dialog
+#: src/nibbles-window.vala:622 src/nibbles-window.vala:1303
 msgid "_Cancel"
 msgstr "İ_ptal"
 
@@ -935,7 +936,7 @@ msgid "_Resume"
 msgstr "_Sürdür"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1425
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1442
 #, c-format
 msgid "Level %d"
 msgstr "%d. Düzey"
@@ -1821,51 +1822,71 @@ msgstr "Hızlı, sahtelerle, 25. düzeyde sabit"
 msgid "Fast with fakes, fixed on level 26"
 msgstr "Hızlı, sahtelerle, 26. düzeyde sabit"
 
-#. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1293
-msgid "Difficulty Level:"
-msgstr "Zorluk Düzeyi:"
+#. Translators: question displayed on the clear scores dialog
+#: src/nibbles-window.vala:1294
+msgid "Clear Scores?"
+msgstr "Puanlar Temizlensin Mi?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is only one categorie’s scores to clear
+#: src/nibbles-window.vala:1297
+msgid "Clear these high scores?"
+msgstr "Bu yüksek puanlar temizlensin mi?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is multiple categories' scores to clear
+#: src/nibbles-window.vala:1300
+msgid "Clear these high scores or all high scores?"
+msgstr "Bu yüksek puanlar mı yoksa tüm yüksek puanlar mı temizlensin?"
+
+#. Translators: confirm button text on the clear scores dialog to clear one categorie's high scores
+#: src/nibbles-window.vala:1306
+msgid "Clear"
+msgstr "Temizle"
+
+#. Translators: confirm button text on the clear scores dialog to clear all high scores
+#: src/nibbles-window.vala:1309
+msgid "Clear all"
+msgstr "Tümünü temizle"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1396
+#: src/nibbles-window.vala:1413
 #, c-format
 msgid "Level %d Completed!"
 msgstr "%d. Düzey Tamamlandı!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1407
+#: src/nibbles-window.vala:1424
 msgid "_Next Level"
 msgstr "_Sonraki Düzey"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1460
+#: src/nibbles-window.vala:1477
 msgid "Congratulations!"
 msgstr "Tebrikler!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1463
+#: src/nibbles-window.vala:1480
 msgid "Game Over!"
 msgstr "Oyun Bitti!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1474
+#: src/nibbles-window.vala:1491
 msgid "You have completed the game."
 msgstr "Oyunu tamamladınız."
 
-#: src/nibbles-window.vala:1484
+#: src/nibbles-window.vala:1501
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
 msgstr[0] "%d Puan"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1495
+#: src/nibbles-window.vala:1512
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(liderler sıralamasına ulaşmaya %ld puan daha gerekiyor)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1502
+#: src/nibbles-window.vala:1519
 msgid "_Play Again"
 msgstr "Yeniden _Oyna"
 
@@ -1889,3 +1910,6 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "%d. Solucan"
+
+#~ msgid "Difficulty Level:"
+#~ msgstr "Zorluk Düzeyi:"
