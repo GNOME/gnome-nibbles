@@ -1,0 +1,565 @@
+# Kazakh translation for gnome-nibbles.
+# Copyright (C) 2026 gnome-nibbles's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-nibbles package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>,  2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-nibbles master\n"
+"POT-Creation-Date: 2026-03-15 02:23+0000\n"
+"PO-Revision-Date: 2026-03-17 23:34+0500\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <Kazakh>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
+
+#. (itstool) path: credit/name
+#: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
+#: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
+#: C/sound-change.page:16 C/speed-change.page:16
+msgid "Aruna Sankaranarayanan"
+msgstr "Aruna Sankaranarayanan"
+
+#. (itstool) path: credit/name
+#: C/basics.page:20 C/controls-change.page:22 C/controls-default.page:20
+#: C/fake-bonus.page:20 C/multi-player.page:21 C/sound-change.page:20
+#: C/speed-change.page:20
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#. (itstool) path: info/desc
+#: C/basics.page:24
+msgid "Start, pause, and quit a game of <app>Nibbles</app>."
+msgstr "<app>Nibbles</app> ойынын бастау, аялдату және одан шығу."
+
+#. (itstool) path: page/title
+#: C/basics.page:27
+msgid "Basic instructions"
+msgstr "Негізгі нұсқаулар"
+
+#. (itstool) path: section/title
+#: C/basics.page:30
+msgid "Start a new game"
+msgstr "Жаңа ойынды бастау"
+
+#. (itstool) path: section/p
+#: C/basics.page:32
+msgid ""
+"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
+"start a new game when being in a game."
+msgstr ""
+"Ойын барысында жаңа ойынды бастау үшін тақырыптама жолағындағы <gui "
+"style=\"button\">Жаңа ойын</gui> батырмасын басыңыз."
+
+#. (itstool) path: section/p
+#: C/basics.page:34
+msgid ""
+"Press the <gui style=\"button\">Play Again</gui> button when you have finished "
+"a game."
+msgstr ""
+"Ойынды аяқтаған соң, <gui style=\"button\">Қайта ойнау</gui> батырмасын басыңыз."
+
+#. (itstool) path: section/title
+#: C/basics.page:39
+msgid "Pause and resume your game"
+msgstr "Ойынды аялдату және жалғастыру"
+
+#. (itstool) path: section/p
+#: C/basics.page:41
+msgid ""
+"Press the <gui style=\"button\">Pause</gui> button in the header bar to pause "
+"your game. You can resume your game by pressing the <gui "
+"style=\"button\">Resume</gui> button."
+msgstr ""
+"Ойынды аялдату үшін тақырыптама жолағындағы <gui style=\"button\">Аялдату</gui> "
+"батырмасын басыңыз. Ойынды <gui style=\"button\">Жалғастыру</gui> батырмасын "
+"басу арқылы қайта жалғастыруға болады."
+
+#. (itstool) path: section/title
+#: C/basics.page:47
+msgid "Quit <app>Nibbles</app>"
+msgstr "<app>Nibbles</app> ойынынан шығу"
+
+#. (itstool) path: section/p
+#: C/basics.page:49
+msgid ""
+"Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+"<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at any "
+"time."
+msgstr ""
+"<app>Nibbles</app> ойынынан кез келген уақытта шығу үшін тақырыптама "
+"жолағындағы <gui style=\"button\">⨯</gui> батырмасын немесе <keyseq><key>Ctrl</"
+"key><key>Q</key></keyseq> пернелерін басыңыз."
+
+#. (itstool) path: credit/name
+#: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
+#: C/sound-change.page:24 C/speed-change.page:24
+msgid "Andre Klapper"
+msgstr "Andre Klapper"
+
+#. (itstool) path: info/desc
+#: C/controls-change.page:30
+msgid "Set custom control keys."
+msgstr "Басқарудың арнайы пернелерін орнату."
+
+#. (itstool) path: page/title
+#: C/controls-change.page:33
+msgid "Change the default controls"
+msgstr "Бастапқы басқаруды өзгерту"
+
+#. (itstool) path: page/p
+#: C/controls-change.page:35
+msgid ""
+"The <link xref=\"controls-default\">default controls</link> can be changed in "
+"<app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
+"player\">multi-player</link> games, when having more than one set of controls "
+"becomes necessary. To change the default controls:"
+msgstr ""
+"<app>Nibbles</app> ішіндегі <link xref=\"controls-default\">бастапқы басқаруды</"
+"link> талғамыңызға қарай немесе бірнеше басқару жиыны қажет болатын <link "
+"xref=\"multi-player\">көп ойыншылы</link> ойындар үшін өзгертуге болады. "
+"Бастапқы басқаруды өзгерту үшін:"
+
+#. (itstool) path: item/p
+#: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
+#: C/speed-change.page:36
+msgid "Start a new game."
+msgstr "Жаңа ойынды бастау."
+
+#. (itstool) path: media/span
+#: C/controls-change.page:46
+msgid "settings"
+msgstr "баптаулар"
+
+#. (itstool) path: item/p
+#: C/controls-change.page:45
+msgid ""
+"On the <gui>Controls</gui> screen, press the <_:media-1/> button for the player "
+"whose controls you want to change."
+msgstr ""
+"<gui>Басқару</gui> экранында басқаруын өзгерткіңіз келетін ойыншы үшін "
+"<_:media-1/> батырмасын басыңыз."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:49
+msgid ""
+"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+"player 3 controls <gui>Worm 3</gui> and so on."
+msgstr ""
+"1-ші ойыншы <gui>1-ші құртты</gui>, 2-ші ойыншы <gui>2-ші құртты</gui>, 3-ші "
+"ойыншы <gui>3-ші құртты</gui> және т.с.с. басқарады."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:54
+msgid ""
+"In the <gui style=\"group\">Controls</gui> list, select the line of the "
+"<gui>Action</gui>. This highlights the line."
+msgstr ""
+"<gui style=\"group\">Басқару</gui> тізімінде <gui>Әрекет</gui> жолын таңдаңыз. "
+"Бұл жолды түспен ерекшелейді."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:58
+msgid ""
+"Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</gui> "
+"are now present in place of the old control."
+msgstr ""
+"Басқарудағы <gui>Перне</gui> элементін таңдаңыз. Енді ескі басқарудың орнында "
+"<gui>Жаңа үдеткіш…</gui> сөздері пайда болады."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:63
+msgid "Press the key you want to use instead of the default key."
+msgstr "Бастапқы перненің орнына пайдаланғыңыз келетін пернені басыңыз."
+
+#. (itstool) path: note/p
+#: C/controls-change.page:66
+msgid ""
+"To keep the old setting click <gui>New accelerator…</gui> again, right click on "
+"<gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else inside "
+"the <gui>Nibbles Preferences</gui> box."
+msgstr ""
+"Ескі баптауды қалдыру үшін <gui>Жаңа үдеткіш…</gui> батырмасын қайта басыңыз, "
+"<gui>Жаңа үдеткіш…</gui> үстінен оң жақ шертіңіз, <key>Esc</key> басыңыз немесе "
+"<gui>Nibbles баптаулары</gui> терезесінің кез келген басқа жеріне шертіңіз."
+
+#. (itstool) path: item/p
+#: C/controls-change.page:72
+msgid ""
+"Repeat the above step to change the other default keys for the current player, "
+"then select the tab for the next player whose controls you want to change and "
+"repeat the process."
+msgstr ""
+"Ағымдағы ойыншы үшін басқа бастапқы пернелерді өзгерту үшін жоғарыдағы қадамды "
+"қайталаңыз, содан кейін басқаруын өзгерткіңіз келетін келесі ойыншының бетін "
+"таңдап, процесті қайталаңыз."
+
+#. (itstool) path: page/p
+#: C/controls-change.page:78
+msgid ""
+"For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
+"<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</key> "
+"on your keyboard when you see <gui>New accelerator…</gui> on the line."
+msgstr ""
+"Мысалы, солға жылжу үшін <key>A</key> пернесін пайдалану үшін, <gui>Әрекет</"
+"gui> ретінде <gui>Солға жылжу</gui> таңдаңыз, содан кейін оның <gui>Пернесін</"
+"gui> таңдаңыз, сосын жолда <gui>Жаңа үдеткіш…</gui> дегенді көргенде, "
+"пернетақтадағы <key>A</key> пернесін басыңыз."
+
+#. (itstool) path: info/desc
+#: C/controls-default.page:25
+msgid "Default keys for <app>Nibbles.</app>"
+msgstr "<app>Nibbles</app> үшін бастапқы пернелер."
+
+#. (itstool) path: page/title
+#: C/controls-default.page:28
+msgid "Keyboard Controls"
+msgstr "Пернетақтамен басқару"
+
+#. (itstool) path: page/p
+#: C/controls-default.page:30
+msgid ""
+"For controlling the movements of your worm in a single-player mode, use the "
+"following default keys:"
+msgstr ""
+"Бір ойыншы режимінде құрттың қозғалысын басқару үшін келесі бастапқы пернелерді "
+"пайдаланыңыз:"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:35
+msgid "<key>Up</key> to move the worm up"
+msgstr "Құртты жоғары жылжыту үшін <key>Жоғары</key> пернесі"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:38
+msgid "<key>Down</key> to move the worm down"
+msgstr "Құртты төмен жылжыту үшін <key>Төмен</key> пернесі"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:41
+msgid "<key>Left</key> to move the worm left"
+msgstr "Құртты солға жылжыту үшін <key>Солға</key> пернесі"
+
+#. (itstool) path: item/p
+#: C/controls-default.page:44
+msgid "<key>Right</key> to move the worm right"
+msgstr "Құртты оңға жылжыту үшін <key>Оңға</key> пернесі"
+
+#. (itstool) path: note/p
+#: C/controls-default.page:49
+msgid "You can <link xref=\"controls-change\">change</link> the default controls."
+msgstr ""
+"Сіз бастапқы басқаруды <link xref=\"controls-change\">өзгерте</link> аласыз."
+
+#. (itstool) path: info/desc
+#: C/fake-bonus.page:28
+msgid "Use fake bonuses in a <app>Nibbles</app> game to make it more challenging."
+msgstr ""
+"Ойынды қиындату үшін <app>Nibbles</app> ойынында жалған бонустарды пайдаланыңыз."
+
+#. (itstool) path: page/title
+#: C/fake-bonus.page:32
+msgid "What are fake bonuses?"
+msgstr "Жалған бонустар деген не?"
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:34
+msgid ""
+"Fake bonuses look like regular bonus shapes but do not give you any points when "
+"your worm swallows them. They cause a reversal in the movement of your worm."
+msgstr ""
+"Жалған бонустар кәдімгі бонустарға ұқсайды, бірақ құртыңыз оларды жұтқанда "
+"ешқандай ұпай бермейді. Олар құртыңыздың қозғалысын кері бағытқа өзгертеді."
+
+#. (itstool) path: page/p
+#: C/fake-bonus.page:38
+msgid "To enable fake bonuses:"
+msgstr "Жалған бонустарды іске қосу үшін:"
+
+#. (itstool) path: item/p
+#: C/fake-bonus.page:44
+msgid ""
+"On the <gui>Preferences</gui> screen, check the <gui style=\"checkbox\">Enable "
+"fake bonuses</gui> checkbox if it is unchecked."
+msgstr ""
+"<gui>Баптаулар</gui> экранында, егер белгіленбесе, <gui "
+"style=\"checkbox\">Жалған бонустарды іске қосу</gui> жалаушасын белгілеңіз."
+
+#. (itstool) path: note/p
+#: C/fake-bonus.page:50 C/speed-change.page:44
+msgid "Preferences cannot be changed in the middle of a game."
+msgstr "Баптауларды ойын ортасында өзгертуге болмайды."
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link:trail"
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "link"
+msgid "Nibbles"
+msgstr "Nibbles"
+
+#. (itstool) path: info/desc
+#: C/index.page:21
+msgid "Index"
+msgstr "Нұсқағыш"
+
+#. (itstool) path: page/title
+#: C/index.page:24
+msgid "<_:media-1/> Nibbles"
+msgstr "<_:media-1/> Nibbles"
+
+#. (itstool) path: page/p
+#: C/index.page:26
+msgid ""
+"<app>Nibbles</app> is a Snake game for GNOME. The aim of the game is to swallow "
+"as many objects as you can while avoiding maze walls and other worms. You have "
+"to complete 26 levels to finish the game."
+msgstr ""
+"<app>Nibbles</app> — GNOME-ға арналған «Жылан» ойыны. Ойынның мақсаты — "
+"лабиринт қабырғалары мен басқа құрттардан қашып, мүмкіндігінше көп объектілерді "
+"жұту. Ойынды аяқтау үшін 26 деңгейден өтуіңіз керек."
+
+#. (itstool) path: section/title
+#: C/index.page:31
+msgid "Game play"
+msgstr "Ойын барысы"
+
+#. (itstool) path: section/title
+#: C/index.page:35
+msgid "Preferences"
+msgstr "Баптаулар"
+
+#. (itstool) path: info/desc
+#: C/multi-player.page:29
+msgid "Play <app>Nibbles</app> with additional players."
+msgstr "<app>Nibbles</app> ойынын қосымша ойыншылармен ойнаңыз."
+
+#. (itstool) path: page/title
+#: C/multi-player.page:32
+msgid "Multi-player games"
+msgstr "Көп ойыншылы ойындар"
+
+#. (itstool) path: page/p
+#: C/multi-player.page:34
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. While a player controls "
+"<gui>Worm 1</gui> in a single-player game, players can additionally control "
+"<gui>Worm 2</gui> to <gui>Worm 6</gui> in a multi-player game. A two-player "
+"game allows you to control <gui>Worm 1</gui> and <gui>Worm 2</gui>, a three "
+"player game allows you to control <gui>Worm 1</gui>, <gui>Worm 2</gui> and "
+"<gui>Worm 3</gui> and so on."
+msgstr ""
+"<app>Nibbles</app> ойынын алты ойыншыға дейін ойнай алады. Бір ойыншы режимінде "
+"ойыншы <gui>1-ші құртты</gui> басқарса, көп ойыншылы ойында ойыншылар қосымша "
+"<gui>2-ші құрттан</gui> <gui>6-шы құртқа</gui> дейін басқара алады. Екі "
+"ойыншылы ойын <gui>1-ші құртты</gui> және <gui>2-ші құртты</gui> басқаруға "
+"мүмкіндік береді, үш ойыншылы ойын <gui>1-ші құртты</gui>, <gui>2-ші құртты</"
+"gui> және <gui>3-ші құртты</gui> басқаруға мүмкіндік береді және т.с.с."
+
+#. (itstool) path: section/title
+#: C/multi-player.page:42
+msgid "Choose the number of players"
+msgstr "Ойыншылар санын таңдау"
+
+#. (itstool) path: section/p
+#: C/multi-player.page:44
+msgid ""
+"<app>Nibbles</app> can be played by up to six players. Up to four of them can "
+"be humans. To set the number of players:"
+msgstr ""
+"<app>Nibbles</app> ойынын алты ойыншыға дейін ойнай алады. Олардың төртеуіне "
+"дейін адам бола алады. Ойыншылар санын орнату үшін:"
+
+#. (itstool) path: item/p
+#: C/multi-player.page:52
+msgid ""
+"On the <gui>Number of players</gui> screen, set the number of human players to "
+"the required number, a maximum of 4."
+msgstr ""
+"<gui>Ойыншылар саны</gui> экранында адам ойыншылардың санын қажетті мөлшерге "
+"(ең көп 4) орнатыңыз."
+
+#. (itstool) path: item/p
+#: C/multi-player.page:56
+msgid "Set the number of computer players."
+msgstr "Компьютер ойыншыларының санын орнату."
+
+#. (itstool) path: credit/name
+#: C/scores.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
+#. (itstool) path: info/desc
+#: C/scores.page:23
+msgid "Swallow different bonuses to score points."
+msgstr "Ұпай жинау үшін әртүрлі бонустарды жұтыңыз."
+
+#. (itstool) path: page/title
+#: C/scores.page:26
+msgid "Scoring points in <app>Nibbles</app>"
+msgstr "<app>Nibbles</app> ойынында ұпай жинау"
+
+#. (itstool) path: page/p
+#: C/scores.page:28
+msgid ""
+"You can score points in <app>Nibbles</app> by eating bonuses. There are 5 "
+"different kinds of bonuses in Nibbles:"
+msgstr ""
+"<app>Nibbles</app> ойынында бонустарды жеу арқылы ұпай жинай аласыз. Nibbles "
+"ойынында бонустардың 5 түрі бар:"
+
+#. (itstool) path: item/p
+#: C/scores.page:32
+msgid ""
+"The apple-shaped bonus <_:media-1/> : This bonus causes an increase in the "
+"length of the worm. The points you gain on eating the apple vary from level to "
+"level and are multiples of the level number. In level 1, the first apple will "
+"give you 1 point, the second apple will give you 2 points, the third apple will "
+"give you 3 points and so on. In level 2, the first apple will give you 2 "
+"points, the second apple will give you 4 points, the third apple will give you "
+"6 points and so on. In level 26, therefore, the first apple will give you 26 "
+"points, the second apple will give you 52 points and so on."
+msgstr ""
+"Алма пішінді бонус <_:media-1/> : Бұл бонус құрттың ұзындығын арттырады. Алманы "
+"жегенде алатын ұпайыңыз деңгейге байланысты өзгеріп отырады және деңгей "
+"нөміріне еселі болады. 1-ші деңгейде бірінші алма 1 ұпай береді, екінші алма 2 "
+"ұпай береді, үшінші алма 3 ұпай береді және т.с.с. 2-ші деңгейде бірінші алма 2 "
+"ұпай береді, екінші алма 4 ұпай береді, үшінші алма 6 ұпай береді және т.с.с. "
+"Осылайша, 26-шы деңгейде бірінші алма 26 ұпай, екінші алма 52 ұпай береді және "
+"т.с.с."
+
+#. (itstool) path: note/p
+#: C/scores.page:44
+msgid ""
+"The apple order count does not depend on the number of apples already eaten by "
+"a worm. If the game is in level 1 and if player 1 eats the first apple, he "
+"scores 1 point, if player 2 eats the second apple, he scores 2 points; a third "
+"player may choose to not eat any apples till the tenth apple and score 10 "
+"points at once."
+msgstr ""
+"Алма кезегінің есебі құрттың бұрын жеген алмаларының санына байланысты емес. "
+"Егер ойын 1-ші деңгейде болса және 1-ші ойыншы бірінші алманы жесе, ол 1 ұпай "
+"жинайды, егер 2-ші ойыншы екінші алманы жесе, ол 2 ұпай жинайды; үшінші ойыншы "
+"оныншы алмаға дейін ешқандай алма жемей, бірден 10 ұпай жинауды таңдауы мүмкін."
+
+#. (itstool) path: item/p
+#: C/scores.page:52
+msgid ""
+"The heart-shaped bonus <_:media-1/> : This bonus gives you an extra life and "
+"does not cause an increase in the length of your worm."
+msgstr ""
+"Жүрек пішінді бонус <_:media-1/> : Бұл бонус сізге қосымша өмір береді және "
+"құртыңыздың ұзындығын арттырмайды."
+
+#. (itstool) path: item/p
+#: C/scores.page:58
+msgid ""
+"The diamond-shaped bonus <_:media-1/> : This bonus does not cause an increase "
+"in the length of the worm and does not give you any points. It causes a "
+"reversal in the movement of all the other worms in the game."
+msgstr ""
+"Ромб пішінді бонус <_:media-1/> : Бұл бонус құрттың ұзындығын арттырмайды және "
+"ешқандай ұпай бермейді. Ол ойындағы барлық басқа құрттардың қозғалысын кері "
+"бағытқа өзгертеді."
+
+#. (itstool) path: item/p
+#: C/scores.page:65
+msgid ""
+"The banana-shaped bonus <_:media-1/> : This bonus causes a greater increase in "
+"the length of the worm than the apple-shaped bonus. The points given by this "
+"bonus vary depending on the level number and the length of the worm. The higher "
+"the level number and the longer the worm, the more the points are scored on "
+"eating this bonus."
+msgstr ""
+"Банан пішінді бонус <_:media-1/> : Бұл бонус құрттың ұзындығын алма пішінді "
+"бонусқа қарағанда көбірек арттырады. Бұл бонус беретін ұпайлар деңгей нөміріне "
+"және құрттың ұзындығына байланысты. Деңгей нөмірі неғұрлым жоғары және құрт "
+"неғұрлым ұзын болса, бұл бонусты жегенде соғұрлым көп ұпай жиналады."
+
+#. (itstool) path: item/p
+#: C/scores.page:74
+msgid ""
+"The cherry-shaped bonus <_:media-1/> : This bonus causes a decrease in the "
+"length of the worm. The points given by this bonus depend on the level number "
+"and the length of the worm. The higher the level number and the longer the "
+"worm, the more the points are scored on eating this bonus."
+msgstr ""
+"Шие пішінді бонус <_:media-1/> : Бұл бонус құрттың ұзындығын қысқартады. Бұл "
+"бонус беретін ұпайлар деңгей нөміріне және құрттың ұзындығына байланысты. "
+"Деңгей нөмірі неғұрлым жоғары және құрт неғұрлым ұзын болса, бұл бонусты "
+"жегенде соғұрлым көп ұпай жиналады."
+
+#. (itstool) path: info/desc
+#: C/sound-change.page:28
+msgid "Change sound settings."
+msgstr "Дыбыс баптауларын өзгерту."
+
+#. (itstool) path: page/title
+#: C/sound-change.page:31
+msgid "Enable or disable sound"
+msgstr "Дыбысты іске қосу немесе сөндіру"
+
+#. (itstool) path: page/p
+#: C/sound-change.page:33
+msgid "To enable or disable sounds:"
+msgstr "Дыбыстарды іске қосу немесе сөндіру үшін:"
+
+#. (itstool) path: item/p
+#: C/sound-change.page:36
+msgid "Press the menu button in the top-right corner of the window."
+msgstr "Терезенің жоғарғы оң жақ бұрышындағы мәзір батырмасын басыңыз."
+
+#. (itstool) path: item/p
+#: C/sound-change.page:39
+msgid "Check or uncheck <gui style=\"checkbox\">Sound</gui>."
+msgstr ""
+"<gui style=\"checkbox\">Дыбыс</gui> жалаушасын белгілеңіз немесе алып тастаңыз."
+
+#. (itstool) path: info/desc
+#: C/speed-change.page:28
+msgid "Change how fast the worms move."
+msgstr "Құрттардың қозғалыс жылдамдығын өзгерту."
+
+#. (itstool) path: page/title
+#: C/speed-change.page:31
+msgid "Change the default speed"
+msgstr "Бастапқы жылдамдықты өзгерту"
+
+#. (itstool) path: page/p
+#: C/speed-change.page:33
+msgid "To change the speed:"
+msgstr "Жылдамдықты өзгерту үшін:"
+
+#. (itstool) path: item/p
+#: C/speed-change.page:39
+msgid ""
+"On the <gui>Preferences</gui> screen, select one of the four speed choices."
+msgstr "<gui>Баптаулар</gui> экранында төрт жылдамдық нұсқасының бірін таңдаңыз."
+
+#. (itstool) path: p/link
+#: C/legal.xml:4
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported лицензиясы"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Бұл жұмыс <_:link-1/> аясында лицензияланған."
