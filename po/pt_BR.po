@@ -1,5 +1,5 @@
 # Brazilian Portuguese translation of gnome-nibbles.
-# Copyright (C) 2020 gnome-nibbles's COPYRIGHT HOLDERS
+# Copyright (C) 2026 gnome-nibbles's COPYRIGHT HOLDERS
 # This file is distributed under the same license as the gnome-nibbles package.
 # Sandro Nunes Henrique <sandro@conectiva.com.br>, 1999.
 # Cândida Nunes da Silva <candida@zaz.com.br>, 2000-2001.
@@ -24,24 +24,30 @@
 # Felipe Braga <fbobraga@gmail.com>, 2015.
 # Artur de Aquino Morais <artur.morais93@outlook.com>, 2016.
 # Enrico Nicoletto <liverig@gmail.com>, 2013, 2016.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2013-2020.
 # Juliano de Souza Camargo <julianosc@pm.me>, 2024-2025.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2013-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2025-10-10 04:51+0000\n"
-"PO-Revision-Date: 2025-10-10 11:19-0300\n"
-"Last-Translator: Juliano de Souza Camargo <julianosc@pm.me>\n"
-"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
+"POT-Creation-Date: 2026-03-14 22:20+0000\n"
+"PO-Revision-Date: 2026-04-21 18:42-0300\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 49.0\n"
+"X-Generator: Gtranslator 50.0\n"
 "X-Project-Style: gnome\n"
+"X-DL-VCS-Web: https://gitlab.gnome.org/GNOME/gnome-nibbles\n"
+"X-DL-Lang: pt_BR\n"
+"X-DL-Module: gnome-nibbles\n"
+"X-DL-Branch: master\n"
+"X-DL-Domain: po\n"
+"X-DL-State: Translating\n"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
@@ -947,7 +953,8 @@ msgstr "Novo jogo?"
 msgid "If you start a new game, the current one will be lost"
 msgstr "Se você iniciar um novo jogo, o atual será perdido"
 
-#: src/nibbles-window.vala:622
+#. Translators: cancel button (default) text on the clear scores dialog
+#: src/nibbles-window.vala:622 src/nibbles-window.vala:1303
 msgid "_Cancel"
 msgstr "C_ancelar"
 
@@ -972,7 +979,7 @@ msgid "_Resume"
 msgstr "_Retornar"
 
 #. Translators: title of the headerbar, while a game is running; the %d is replaced by the level number
-#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1428
+#: src/nibbles-window.vala:1000 src/nibbles-window.vala:1442
 #, c-format
 msgid "Level %d"
 msgstr "Nível %d"
@@ -1858,38 +1865,58 @@ msgstr "Rápido com bônus falso, fixado no nível 25"
 msgid "Fast with fakes, fixed on level 26"
 msgstr "Rápido com bônus falso, fixado no nível 26"
 
-#. Translators: label displayed on the scores dialog, preceding a difficulty.
-#: src/nibbles-window.vala:1286
-msgid "Difficulty Level:"
-msgstr "Nível de dificuldade:"
+#. Translators: question displayed on the clear scores dialog
+#: src/nibbles-window.vala:1294
+msgid "Clear Scores?"
+msgstr "Limpar pontuações?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is only one categorie’s scores to clear
+#: src/nibbles-window.vala:1297
+msgid "Clear these high scores?"
+msgstr "Limpar estas pontuações?"
+
+#. Translators: confirm question displayed on the clear scores dialog when there is multiple categories' scores to clear
+#: src/nibbles-window.vala:1300
+msgid "Clear these high scores or all high scores?"
+msgstr "Limpar estas e todas as pontuações?"
+
+#. Translators: confirm button text on the clear scores dialog to clear one categorie's high scores
+#: src/nibbles-window.vala:1306
+msgid "Clear"
+msgstr "Limpar"
+
+#. Translators: confirm button text on the clear scores dialog to clear all high scores
+#: src/nibbles-window.vala:1309
+msgid "Clear all"
+msgstr "Limpar tudo"
 
 #. Translators: label that appears at the end of a level; the %d is the number of the level that was completed
-#: src/nibbles-window.vala:1399
+#: src/nibbles-window.vala:1413
 #, c-format
 msgid "Level %d Completed!"
 msgstr "Nível %d concluído!"
 
 #. Translators: label of a button that appears at the end of a level; starts next level
-#: src/nibbles-window.vala:1410
+#: src/nibbles-window.vala:1424
 msgid "_Next Level"
 msgstr "_Próximo nível"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1463
+#: src/nibbles-window.vala:1477
 msgid "Congratulations!"
 msgstr "Parabéns!"
 
 #. Translators: label displayed at the end of a level, if the player did not finished all the levels
-#: src/nibbles-window.vala:1466
+#: src/nibbles-window.vala:1480
 msgid "Game Over!"
 msgstr "Fim do jogo!"
 
 #. Translators: label displayed at the end of a level, if the player finished all the levels
-#: src/nibbles-window.vala:1477
+#: src/nibbles-window.vala:1491
 msgid "You have completed the game."
 msgstr "Você completou o jogo."
 
-#: src/nibbles-window.vala:1487
+#: src/nibbles-window.vala:1501
 #, c-format
 msgid "%d Point"
 msgid_plural "%d Points"
@@ -1897,13 +1924,13 @@ msgstr[0] "%d ponto"
 msgstr[1] "%d pontos"
 
 #. Translators: label displayed at the end of a level, if the player did not score enough to have its score saved
-#: src/nibbles-window.vala:1498
+#: src/nibbles-window.vala:1512
 #, c-format
 msgid "(%ld more points to reach the leaderboard)"
 msgstr "(mais %ld pontos para alcançar a classificação)"
 
 #. Translators: label of a button displayed at the end of a level; restarts the game
-#: src/nibbles-window.vala:1505
+#: src/nibbles-window.vala:1519
 msgid "_Play Again"
 msgstr "_Jogar novamente"
 
@@ -1927,6 +1954,9 @@ msgstr "5"
 #, c-format
 msgid "Worm %d"
 msgstr "Minhoca %d"
+
+#~ msgid "Difficulty Level:"
+#~ msgstr "Nível de dificuldade:"
 
 #~ msgid "_Enable fake bonuses."
 #~ msgstr "_Habilita bônus falsos."
