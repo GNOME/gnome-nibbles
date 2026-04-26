@@ -1158,7 +1158,7 @@ internal class WormPositions : Gee.LinkedList<uint16>
 
 private class Worm : Object
 {
-    private const int STARTING_LENGTH = 5; /* STARTING_LENGTH must be greater than 0 */
+    private const uint8 STARTING_LENGTH = 5; /* STARTING_LENGTH must be greater than 0 */
     internal const uint8 STARTING_LIVES = 6;
     internal const uint8 MAX_LIVES = 12;
 
@@ -1315,13 +1315,16 @@ private class Worm : Object
     {
         list.clear ();
 
-        bonus_eaten.clear (); /* forget all the bonuses we have eaten */
+        if (lives > 0)
+        {
+            bonus_eaten.clear (); /* forget all the bonuses we have eaten */
 
-        starting_position = {x, y};
-        list.append_position (starting_position);
+            starting_position = {x, y};
+            list.append_position (starting_position);
 
-        starting_direction = direction;
-        this.direction     = direction;
+            starting_direction = direction;
+            this.direction     = direction;
+        }
         change = 0;
 #if !TEST_COMPILE
         key_queue.clear ();
@@ -1478,14 +1481,17 @@ private class Worm : Object
     }
 
     internal void spawn (int[,] board)
+        requires (STARTING_LENGTH > 0)
     {
-        assert (STARTING_LENGTH > 0);
-        change = STARTING_LENGTH - 1;
-        rounds_to_stay_dematerialized = STARTING_LENGTH;
-        for (int i = 0; i < STARTING_LENGTH; i++)
+        if (!list.is_empty)
         {
-            move_part_1 (board);
-            move_part_2 (board, /* no warp */ null);
+            change = STARTING_LENGTH - 1;
+            rounds_to_stay_dematerialized = STARTING_LENGTH;
+            for (uint8 i = 0; i < STARTING_LENGTH; i++)
+            {
+                move_part_1 (board);
+                move_part_2 (board, /* no warp */ null);
+            }
         }
     }
 
