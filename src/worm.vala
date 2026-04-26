@@ -1551,7 +1551,7 @@ private class Worm : Object
         lives--;
     }
 
-    internal void reset (int[,] board)
+    internal void reset (int[,] board, int dematerialize_rounds)
     {
         is_stopped = true;
         rounds_to_stay_dematerialized = 0;
@@ -1571,7 +1571,7 @@ private class Worm : Object
             direction = starting_direction;
             spawn (board);
 
-            dematerialize (/* number of rounds */ 3, 35);
+            dematerialize (dematerialize_rounds, 35);
         }
     }
 

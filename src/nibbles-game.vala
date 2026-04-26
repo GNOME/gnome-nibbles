@@ -711,7 +711,7 @@ private class NibblesGame : Object
                 worm.score = worm.score * 7 / 10;
 
             if (worm.lives > 0)
-                worm.reset (board);
+                worm.reset (board, current_level == 25 ? 9 : 3);
         }
 
         /* refresh the screen */
