@@ -199,6 +199,12 @@ internal class ColourWheel : Widget
         uint count = 0;
         foreach (var segment in segments)
         {
+            /* avoid GTK warning
+               Gtk-WARNING **: Allocating size to ColourWheelSegment without calling gtk_widget_measure(). How does the code know the size to allocate?
+            */
+            int minimum, natural, minimum_baseline, natural_baseline;
+            segment.measure (HORIZONTAL, -1, out minimum, out natural, out minimum_baseline, out natural_baseline);
+            /* calculate the size of the segment */
             var p = segment.calculate_segment_path (width, height, count, segments.length);
             Rect r;
             p.get_bounds (out r);

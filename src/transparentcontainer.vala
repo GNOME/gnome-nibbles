@@ -64,7 +64,15 @@ public class TransparentContainer : Widget
     protected override void size_allocate (int width, int height, int baseline)
     {
         if (null != child && child.get_visible ())
+        {
+            /* avoid GTK warning
+               Gtk-WARNING **: Allocating size to GtkOverlay without calling gtk_widget_measure(). How does the code know the size to allocate?
+            */
+            int minimum, natural, minimum_baseline, natural_baseline;
+            child.measure (HORIZONTAL, -1, out minimum, out natural, out minimum_baseline, out natural_baseline);
+            /* allocate the size to that of the whole container */
             child.allocate_size ({ 0, 0, width, height}, baseline);
+        }
         base.size_allocate (width, height, baseline);
     }
 }
