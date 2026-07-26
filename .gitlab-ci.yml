@@ -1,6 +1,13 @@
 # See https://hub.docker.com/_/ubuntu
 image: ubuntu:devel
 
+build-options:
+    "env": {
+        "CXX": "g++-16",
+        "CC": "gcc-16"
+    }
+}
+
 include:
   - project: 'gnome/citemplates'
     file: 'flatpak/flatpak_ci_initiative.yml'
@@ -20,6 +27,7 @@ flatpak:
     RUNTIME_REPO: 'https://sdk.gnome.org/gnome-nightly.flatpakrepo'
     APP_ID: 'org.gnome.Nibbles'
     BUNDLE: 'nibbles-git.flatpak'
+    MESON_ARGS: "-Dcc=gcc-16 -Dcxx=g++-16"
 
 nightly:
     extends: '.publish_nightly'
