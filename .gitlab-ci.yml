@@ -1,3 +1,6 @@
+# See https://hub.docker.com/_/ubuntu
+image: ubuntu:devel
+
 include:
   - project: 'gnome/citemplates'
     file: 'flatpak/flatpak_ci_initiative.yml'
