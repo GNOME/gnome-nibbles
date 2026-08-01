@@ -26,5 +26,5 @@ flatpak:
     
 nightly:
     extends: '.publish_nightly'
-    dependencies: ['flatpak']
+    dependencies: ['flatpak', $DEPENDENCIES]
     needs: ['flatpak']
