@@ -20,7 +20,7 @@ flatpak:
   extends: '.flatpak'
   before_script:
     - export DEBIAN_FRONTEND=noninteractive
-    - apt-get update && apt-get -y upgrade && apt-get -y install $DEPENDENCIES
+    - apt update && apt -y upgrade && apt -y install $DEPENDENCIES
   variables:
     MANIFEST_PATH: 'org.gnome.Nibbles.json'
     RUNTIME_REPO: 'https://sdk.gnome.org/gnome-nightly.flatpakrepo'
