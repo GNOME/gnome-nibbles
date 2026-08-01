@@ -12,6 +12,9 @@ include:
 variables:
   FLATPAK_MODULE: 'gnome-nibbles'
   TARBALL_ARTIFACT_PATH: ".flatpak-builder/build/${FLATPAK_MODULE}/_flatpak_build/meson-dist/${CI_PROJECT_NAME}-${CI_COMMIT_TAG}.tar.xz"
+  DEPENDENCIES: desktop-file-utils
+                gcc-c++
+                gtkmm4.0-devel
 
 flatpak:
   extends: '.flatpak'
@@ -20,7 +23,7 @@ flatpak:
     RUNTIME_REPO: 'https://sdk.gnome.org/gnome-nightly.flatpakrepo'
     APP_ID: 'org.gnome.Nibbles'
     BUNDLE: 'nibbles-git.flatpak'
-    DEPENDENCIES: 'mm-common'
+    DEPENDENCIES: $DEPENDENCIES
     
 nightly:
     extends: '.publish_nightly'
