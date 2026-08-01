@@ -13,10 +13,14 @@ variables:
   FLATPAK_MODULE: 'gnome-nibbles'
   TARBALL_ARTIFACT_PATH: ".flatpak-builder/build/${FLATPAK_MODULE}/_flatpak_build/meson-dist/${CI_PROJECT_NAME}-${CI_COMMIT_TAG}.tar.xz"
   DEPENDENCIES: libglibmm-2.68-dev
-                gtkmm4.0-devel
+                libcairomm-1.16-dev
+                libpangomm-2.48-dev
 
 flatpak:
   extends: '.flatpak'
+  before_script:
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt-get update && apt-get -y upgrade && apt-get -y install $DEPENDENCIES
   variables:
     MANIFEST_PATH: 'org.gnome.Nibbles.json'
     RUNTIME_REPO: 'https://sdk.gnome.org/gnome-nightly.flatpakrepo'
@@ -26,5 +30,5 @@ flatpak:
     
 nightly:
     extends: '.publish_nightly'
-    dependencies: ['flatpak', $DEPENDENCIES]
+    dependencies: ['flatpak']
     needs: ['flatpak']
