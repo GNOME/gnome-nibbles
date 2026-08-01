@@ -1,0 +1,53 @@
+From 6e0dfa6ba5c09fdadef70ddb8cf7ce48d4e6376b Mon Sep 17 00:00:00 2001
+From: Kjell Ahlstedt <kjellahlstedt@gmail.com>
+Date: Thu, 18 Jun 2026 15:43:24 +0200
+Subject: [PATCH] Gtk::Snapshot: Add push_fill(), etc.
+
+* gtk/src/snapshot.hg: Add push_fill(), push_stroke(), append_fill(),
+append_stroke().
+
+Part of issue #172
+---
+ gtk/src/snapshot.hg | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/gtk/src/snapshot.hg b/gtk/src/snapshot.hg
+index d25fc8d9..9d0e5c9d 100644
+--- a/gtk/src/snapshot.hg
++++ b/gtk/src/snapshot.hg
+@@ -20,7 +20,9 @@ _CONFIGINCLUDE(gtkmmconfig.h)
+ #include <gdkmm/rectangle.h>
+ #include <gdkmm/graphene_rect.h>
+ #include <gskmm/enums.h>
++#include <gskmm/path.h>
+ #include <gskmm/roundedrect.h>
++#include <gskmm/stroke.h>
+ #include <gskmm/transform.h>
+ #ifndef GTKMM_DISABLE_DEPRECATED
+ #include <gtkmm/stylecontext.h>
+@@ -107,6 +109,11 @@ public:
+   _WRAP_METHOD(void push_rounded_clip(const Gsk::RoundedRect& bounds),
+     gtk_snapshot_push_rounded_clip, newin "4,20")
+ 
++  _WRAP_METHOD(void push_fill(const Glib::RefPtr<const Gsk::Path>& path, Gsk::FillRule fill_rule),
++    gtk_snapshot_push_fill, newin "4,24")
++  _WRAP_METHOD(void push_stroke(const Glib::RefPtr<const Gsk::Path>& path, const Gsk::Stroke& stroke),
++    gtk_snapshot_push_stroke, newin "4,24")
++
+   _WRAP_METHOD(void push_blend(Gsk::BlendMode mask_mode), gtk_snapshot_push_blend, newin "4,22")
+   _WRAP_METHOD(void push_mask(Gsk::MaskMode mask_mode), gtk_snapshot_push_mask, newin "4,22")
+   _WRAP_METHOD(void push_copy(), gtk_snapshot_push_copy)
+@@ -166,6 +173,10 @@ public:
+ 
+   _WRAP_METHOD(void append_layout(const Glib::RefPtr<Pango::Layout>& layout,
+     const Gdk::RGBA& color), gtk_snapshot_append_layout)
++  _WRAP_METHOD(void append_fill(const Glib::RefPtr<const Gsk::Path>& path,
++    Gsk::FillRule fill_rule, const Gdk::RGBA& color), gtk_snapshot_append_fill, newin "4,24")
++  _WRAP_METHOD(void append_stroke(const Glib::RefPtr<const Gsk::Path>& path,
++    const Gsk::Stroke& stroke, const Gdk::RGBA& color), gtk_snapshot_append_stroke, newin "4,24")
+   _WRAP_METHOD(void append_paste(const Gdk::Graphene::Rect& bounds, gsize nth),
+     gtk_snapshot_append_paste)
+ 
+-- 
+GitLab
+

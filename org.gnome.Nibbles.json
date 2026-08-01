@@ -3,7 +3,6 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
-    "sdk-extensions": [ "org.freedesktop.Sdk.Extension.vala" ],
     "command": "gnome-nibbles",
     "finish-args": [
         /* X11 + XShm access */
@@ -28,6 +27,24 @@
         "*.a"
     ],
     "modules": [
+    
+    
+		{
+		  "name": "libsigcplusplus",
+		  "buildsystem": "meson",
+		  "config-opts": [
+			"-Dbuild-tests=false"
+		  ],
+		  "sources": [
+			{
+			  "type": "archive",
+			  "url": "https://github.com/libsigcplusplus/libsigcplusplus/releases/download/3.8.1/libsigc++-3.8.1.tar.xz",
+			  "sha256": "4ff41d1474e501d3baeced4c989d154338206ac16471e614376496b63fe252d1"
+			}
+		  ]
+		},
+    
+    
         {
             "name" : "gsound",
             "buildsystem" : "meson",
@@ -54,6 +71,89 @@
                 }
             ]
         },
+        
+        
+        
+
+		{
+		"name": "gtkmm",
+		"buildsystem": "meson",
+		"sources": [
+		  {
+			"type": "git",
+			"url": "https://gitlab.gnome.org/GNOME/gtkmm.git"
+		  }
+		],
+		"modules":
+		[
+			{
+				"name": "cairomm",
+				"buildsystem": "meson",
+				"config-opts": [
+				  "-Dbuild-tests=false"
+				],
+				"sources": [
+				  {
+					"type": "archive",
+					"url": "https://gitlab.freedesktop.org/cairo/cairomm/-/archive/1.18.1/cairomm-1.18.1.tar.bz2",
+					"sha256": "05de03caac448b038a4319c06a2081a595634d9826e3187e83fb837ef8cd29f7"
+				  }
+				]
+			},
+			
+			{			
+				"name": "pangomm",
+				"buildsystem": "meson",
+				"sources": [
+				  {
+					"type": "git",
+					"url": "https://gitlab.gnome.org/GNOME/pangomm.git"
+				  }
+				]
+				,
+				"modules":
+				[
+					{
+						"name": "glibmm",
+						"buildsystem": "meson",
+  						"sources": [
+						  {
+							"type": "git",
+							"url": "https://gitlab.gnome.org/GNOME/glibmm.git"
+						  }
+						],
+						
+
+						"modules":
+						[
+							{
+							  "name": "mm-common",
+							  "buildsystem": "meson",
+							  "sources": [
+								{
+								  "type": "archive",
+								  "url": "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.8.tar.xz",
+								  "sha256": "b189ee636e839d12c00dabefae099fd488ab2358dec24d264761c011950b02a9"
+								}
+							  ]
+							}
+						]
+
+
+
+
+
+
+					}
+				]
+			}
+			
+			
+			
+		]
+		},        
+        
+        
         {
             "name": "gnome-nibbles",
             "buildsystem": "meson",

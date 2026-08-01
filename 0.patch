@@ -1,0 +1,501 @@
+From eaaefe5b48346cc2a40b3a36b818749a6e2bbfc4 Mon Sep 17 00:00:00 2001
+From: Kjell Ahlstedt <kjellahlstedt@gmail.com>
+Date: Thu, 18 Jun 2026 15:37:29 +0200
+Subject: [PATCH] Add class Gdk::Graphene::Vec2
+
+* gdk/gdkmm.h:
+* gdk/gdkmm/meson.build:
+* gdk/src/filelist.am: Add graphene_vec2.
+* gdk/src/graphene_point.[ccg|hg]: Add Point(cobst Vec2& src),
+distance(), interpolate().
+* gdk/src/graphene_size.[ccg|hg]: Add scale(), interpolate().
+* gdk/src/graphene_vec2.[ccg|hg]: New files.
+* tools/m4/convert_gdk.m4: Add conversions for Graphene::Vec2.
+
+Part of issue #172
+---
+ gdk/gdkmm.h                |   1 +
+ gdk/gdkmm/meson.build      |   1 +
+ gdk/src/filelist.am        |   1 +
+ gdk/src/graphene_point.ccg |  21 ++++++
+ gdk/src/graphene_point.hg  |  36 +++++++++-
+ gdk/src/graphene_size.ccg  |  14 ++++
+ gdk/src/graphene_size.hg   |  23 ++++++
+ gdk/src/graphene_vec2.ccg  |  90 ++++++++++++++++++++++++
+ gdk/src/graphene_vec2.hg   | 139 +++++++++++++++++++++++++++++++++++++
+ tools/m4/convert_gdk.m4    |   5 +-
+ 10 files changed, 329 insertions(+), 2 deletions(-)
+ create mode 100644 gdk/src/graphene_vec2.ccg
+ create mode 100644 gdk/src/graphene_vec2.hg
+
+diff --git a/gdk/gdkmm.h b/gdk/gdkmm.h
+index c2880cef..67a54a6d 100644
+--- a/gdk/gdkmm.h
++++ b/gdk/gdkmm.h
+@@ -44,6 +44,7 @@
+ #include <gdkmm/gltexture.h>
+ #include <gdkmm/gltexturebuilder.h>
+ #include <gdkmm/graphene_rect.h>
++#include <gdkmm/graphene_vec2.h>
+ #include <gdkmm/memorytexture.h>
+ #include <gdkmm/memorytexturebuilder.h>
+ #include <gdkmm/monitor.h>
+diff --git a/gdk/gdkmm/meson.build b/gdk/gdkmm/meson.build
+index a85d6785..5b2c618f 100644
+--- a/gdk/gdkmm/meson.build
++++ b/gdk/gdkmm/meson.build
+@@ -62,6 +62,7 @@ gdkmm_any_hg_ccg_basenames = [
+   'graphene_point',
+   'graphene_rect',
+   'graphene_size',
++  'graphene_vec2',
+   'memorytexture',
+   'memorytexturebuilder',
+   'monitor',
+diff --git a/gdk/src/filelist.am b/gdk/src/filelist.am
+index f2ac7a61..624dbd78 100644
+--- a/gdk/src/filelist.am
++++ b/gdk/src/filelist.am
+@@ -47,6 +47,7 @@ gdkmm_files_any_hg =		\
+ 	graphene_point.hg \
+ 	graphene_rect.hg \
+ 	graphene_size.hg \
++	graphene_vec2.hg \
+ 	memorytexture.hg \
+ 	memorytexturebuilder.hg \
+ 	monitor.hg \
+diff --git a/gdk/src/graphene_point.ccg b/gdk/src/graphene_point.ccg
+index 91a9d312..2fccbe91 100644
+--- a/gdk/src/graphene_point.ccg
++++ b/gdk/src/graphene_point.ccg
+@@ -14,6 +14,7 @@
+  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
+  */
+ 
++#include <gdkmm/graphene_vec2.h>
+ #include <graphene.h>
+ 
+ namespace
+@@ -34,10 +35,30 @@ Point::Point(float x, float y)
+   gobject_ = graphene_point_init(graphene_point_alloc(), x, y);
+ }
+ 
++Point::Point(const Vec2& src)
++{
++  gobject_ = graphene_point_init_from_vec2(graphene_point_alloc(), src.gobj());
++}
++
+ Point::operator bool() const
+ {
+   return gobj();
+ }
+ 
++std::array<float,3> Point::distance(const Point& b) const
++{
++  float x = 0.0;
++  float y = 0.0;
++  const float dist = graphene_point_distance(gobj(), b.gobj(), &x, &y);
++  return {dist, x, y};
++}
++
++Point Point::interpolate(const Point& b, double factor) const
++{
++  Point result(0.0, 0.0);
++  graphene_point_interpolate(gobj(), b.gobj(), factor, result.gobj());
++  return result;
++}
++
+ } //namespace Graphene
+ } //namespace Gdk
+diff --git a/gdk/src/graphene_point.hg b/gdk/src/graphene_point.hg
+index 47c35f7a..9b38bb1d 100644
+--- a/gdk/src/graphene_point.hg
++++ b/gdk/src/graphene_point.hg
+@@ -17,6 +17,8 @@
+ _CONFIGINCLUDE(gdkmmconfig.h)
+ _DEFS(gdkmm,gdk)
+ 
++#include <array>
++
+ #ifndef DOXYGEN_SHOULD_SKIP_THIS
+ extern "C"
+ {
+@@ -29,6 +31,8 @@ namespace Gdk
+ {
+ namespace Graphene
+ {
++class GDKMM_API Vec2;
++
+ //TODO: When we can break ABI, _CLASS_OPAQUE_COPYABLE -> _CLASS_GENERIC.
+ // graphene_point_t gobject_; //Not a pointer.
+ // https://gitlab.gnome.org/GNOME/gtkmm/-/issues/155
+@@ -43,9 +47,11 @@ namespace Graphene
+ class GDKMM_API Point
+ {
+   _CLASS_OPAQUE_COPYABLE(Point, graphene_point_t, NONE, gdkmm_graphene_point_copy, graphene_point_free, GDKMM_API)
+-  _IGNORE(graphene_point_init, graphene_point_init_from_point, graphene_point_free)
++  _IGNORE(graphene_point_init, graphene_point_init_from_point, graphene_point_init_from_vec2,
++    graphene_point_free)
+ public:
+   Point(float x, float y);
++  Point(const Vec2& src);
+ 
+   /** Checks if this instance is valid.
+    * It is valid if and only if it contains a value.
+@@ -63,7 +69,35 @@ public:
+   _MEMBER_SET(y, y, float, float)
+ 
+   _WRAP_METHOD(bool equal(const Point& b) const, graphene_point_equal, newin "4,12")
++
++  /** Computes the distance between this point and point @a b.
++   *
++   * @newin{4,24}
++   *
++   * @param b A %Gdk::Graphene::Point.
++   * @return A 3-element array.
++   *         - Element 0: The distance between the two points.
++   *         - Element 1: Distance component on the X axis.
++   *         - Element 2: Distance component on the Y axis.
++   */
++  std::array<float,3> distance(const Point& b) const;
++  _IGNORE(graphene_point_distance)
++
++  _WRAP_METHOD(float distance_squared(const Point& b) const, graphene_point_distance_squared, newin "4,24")
+   _WRAP_METHOD(bool near(const Point& b, float epsilon) const, graphene_point_near, newin "4,12")
++
++  /** Linearly interpolates the coordinates of this point and point @a b using the
++   * given @a factor.
++   *
++   * @newin{4,24}
++   *
++   * @param b A %Gdk::Graphene::Point.
++   * @param factor The linear interpolation factor.
++   * @return The interpolated point.
++   */
++  Point interpolate(const Point& b, double factor) const;
++  _IGNORE(graphene_point_interpolate)
++  _IGNORE(graphene_point_to_vec2)dnl// Wrapped in a Vec2 constructor.
+ };
+ } // namespace Graphene
+ } // namespace Gdk
+diff --git a/gdk/src/graphene_size.ccg b/gdk/src/graphene_size.ccg
+index 62f11daf..16aefe18 100644
+--- a/gdk/src/graphene_size.ccg
++++ b/gdk/src/graphene_size.ccg
+@@ -39,5 +39,19 @@ Size::operator bool() const
+   return gobj();
+ }
+ 
++Size Size::scale(float factor) const
++{
++  Size result(0.0, 0.0);
++  graphene_size_scale(gobj(), factor, result.gobj());
++  return result;
++}
++
++Size Size::interpolate(const Size& b, double factor) const
++{
++  Size result(0.0, 0.0);
++  graphene_size_interpolate(gobj(), b.gobj(), factor, result.gobj());
++  return result;
++}
++
+ } //namespace Graphene
+ } //namespace Gdk
+diff --git a/gdk/src/graphene_size.hg b/gdk/src/graphene_size.hg
+index 4fcf8fc7..2a8cefa6 100644
+--- a/gdk/src/graphene_size.hg
++++ b/gdk/src/graphene_size.hg
+@@ -62,6 +62,29 @@ public:
+   _MEMBER_SET(height, height, float, float)
+ 
+   _WRAP_METHOD(bool equal(const Size& b) const, graphene_size_equal, newin "4,12")
++
++  /** Scales the components of a this size using the given @a factor.
++   *
++   * @newin{4,24}
++   *
++   * @param factor The scaling factor.
++   * @return The scaled size.
++   */
++  Size scale(float factor) const;
++  _IGNORE(graphene_size_scale)
++
++  /** Linearly interpolates this size and size @a b using the given
++   * interpolation @a factor.
++   *
++   * @newin{4,24}
++   *
++   * @param b A %Gdk::Graphene::Size.
++   * @param factor The linear interpolation factor.
++   * @return The interpolated size.
++   */
++  Size interpolate(const Size& b, double factor) const;
++  _IGNORE(graphene_size_interpolate)
++
+ };
+ } // namespace Graphene
+ } // namespace Gdk
+diff --git a/gdk/src/graphene_vec2.ccg b/gdk/src/graphene_vec2.ccg
+new file mode 100644
+index 00000000..c10a3469
+--- /dev/null
++++ b/gdk/src/graphene_vec2.ccg
+@@ -0,0 +1,90 @@
++/* Copyright 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++#include <gdkmm/graphene_point.h>
++
++namespace Gdk
++{
++namespace Graphene
++{
++
++Vec2::Vec2()
++:
++  gobject_(*graphene_vec2_zero())
++{
++}
++
++Vec2::Vec2(float x, float y)
++{
++  (void)graphene_vec2_init(gobj(), x, y);
++}
++
++Vec2::Vec2(const Point& src)
++{
++  graphene_point_to_vec2(src.gobj(), gobj());
++}
++
++std::array<float,2> Vec2::to_float() const
++{
++  std::array<float,2> result;
++  graphene_vec2_to_float(gobj(), result.data());
++  return result;
++}
++
++Vec2 Vec2::add(const Vec2& other) const
++{
++  Vec2 result;
++  graphene_vec2_add(gobj(), other.gobj(), result.gobj());
++  return result;
++}
++
++Vec2 Vec2::subtract(const Vec2& other) const
++{
++  Vec2 result;
++  graphene_vec2_subtract(gobj(), other.gobj(), result.gobj());
++  return result;
++}
++
++Vec2 Vec2::normalize() const
++{
++  Vec2 result;
++  graphene_vec2_normalize(gobj(), result.gobj());
++  return result;
++}
++
++Vec2 Vec2::scale(float factor) const
++{
++  Vec2 result;
++  graphene_vec2_scale(gobj(), factor, result.gobj());
++  return result;
++}
++
++Vec2 Vec2::negate() const
++{
++  Vec2 result;
++  graphene_vec2_negate(gobj(), result.gobj());
++  return result;
++}
++
++Vec2 Vec2::interpolate(const Vec2& other, double factor) const
++{
++  Vec2 result;
++  graphene_vec2_interpolate(gobj(), other.gobj(), factor, result.gobj());
++  return result;
++}
++
++} // namespace Graphene
++} // namespace Gdk
+diff --git a/gdk/src/graphene_vec2.hg b/gdk/src/graphene_vec2.hg
+new file mode 100644
+index 00000000..a3dc87af
+--- /dev/null
++++ b/gdk/src/graphene_vec2.hg
+@@ -0,0 +1,139 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++ 
++_CONFIGINCLUDE(gdkmmconfig.h)
++_DEFS(gdkmm,gdk)
++
++#include <graphene.h>
++#include <array>
++
++namespace Gdk
++{
++namespace Graphene
++{
++class GDKMM_API Point;
++
++/** A vector with two dimensions, x and y.
++ *
++ * @newin{4,24}
++ */
++class GDKMM_API Vec2
++{
++  _CLASS_GENERIC(Vec2, graphene_vec2_t)
++  _IGNORE(graphene_vec2_init, graphene_vec2_init_from_vec2,
++    graphene_vec2_init_from_float, graphene_vec2_free)
++public:
++  Vec2();
++  Vec2(float x, float y);
++  Vec2(const Point& src);
++
++  /** Stores the components of this vector into an array.
++   *
++   * @newin{4,24}
++   *
++   * @return An array of floating point values with 2 elements.
++   */
++  std::array<float,2> to_float() const;
++  _IGNORE(graphene_vec2_to_float)
++
++  /** Adds each component of two vectors.
++   *
++   * @newin{4,24}
++   *
++   * @param other A vector to add to this vector.
++   * @return The sum of this vector and the other vector.
++   */
++  Vec2 add(const Vec2& other) const;
++  _IGNORE(graphene_vec2_add)
++
++  /** Subtracts each component of the @a other vector from this vector.
++   *
++   * @newin{4,24}
++   *
++   * @param other A vector to subtract from this vector.
++   * @return The difference between this vector and the other vector.
++   */
++  Vec2 subtract(const Vec2& other) const;
++  _IGNORE(graphene_vec2_subtract)
++
++  //TODO:? Some graphene_vec2_*() methods are not wrapped in C++ code, because I
++  // don't understand what they are good for. They can be added to Gdk::Graphene::Vec2
++  // if anyone needs them. /kjellahl 2026-06-14
++  // Vec2 multiply(const Vec2& other) const;
++  // Vec2 divide(const Vec2& other) const;
++
++  _WRAP_METHOD(float dot(const Vec2& other) const, graphene_vec2_dot, newin "4,24")
++  _WRAP_METHOD(float length() const, graphene_vec2_length, newin "4,24")
++
++  /** Computes the normalized vector for the given vector.
++   *
++   * @newin{4,24}
++   *
++   * @return The normalized vector.
++   */
++  Vec2 normalize() const;
++  _IGNORE(graphene_vec2_normalize)
++
++  /** Multiplies all components of this vector with the given scalar @a factor.
++   *
++   * @newin{4,24}
++   * 
++   * @param factor The scalar factor.
++   * @return The scaled vector.
++   */
++  Vec2 scale(float factor) const;
++  _IGNORE(graphene_vec2_scale)
++
++  /** Negates this vector.
++   *
++   * @newin{4,24}
++   *
++   * @return The negated vector.
++   */
++  Vec2 negate() const;
++  _IGNORE(graphene_vec2_negate)
++
++  _WRAP_METHOD(bool near(const Vec2& other, float epsilon) const,
++    graphene_vec2_near, newin "4,24")
++  _WRAP_METHOD(bool equal(const Vec2& other) const, graphene_vec2_equal, newin "4,24")
++
++  // Vec2 min(const Vec2& other) const;
++  // Vec2 max(const Vec2& other) const;
++
++  /** Linearly interpolates this vector and @a other using the given @a factor.
++   *
++   * @newin{4,24}
++   *
++   * @param other The other vector.
++   * @param factor The interpolation factor.
++   * @return The interpolated vector.
++   */
++  Vec2 interpolate(const Vec2& other, double factor) const;
++  _IGNORE(graphene_vec2_interpolate)
++
++  _WRAP_METHOD(float get_x() const, graphene_vec2_get_x, newin "4,24")
++  _WRAP_METHOD(float get_y() const, graphene_vec2_get_y, newin "4,24")
++
++  /// Provides access to the underlying C GObject.
++  graphene_vec2_t*       gobj()       { return &gobject_; }
++  /// Provides access to the underlying C GObject.
++  const graphene_vec2_t* gobj() const { return &gobject_; }
++
++protected:
++  graphene_vec2_t gobject_;
++};
++} // namespace Graphene
++} // namespace Gdk
+diff --git a/tools/m4/convert_gdk.m4 b/tools/m4/convert_gdk.m4
+index ee1843d3..3bc00a4b 100644
+--- a/tools/m4/convert_gdk.m4
++++ b/tools/m4/convert_gdk.m4
+@@ -314,10 +314,13 @@ _CONVERSION(`GdkDrop*',`Glib::RefPtr<Drop>',Glib::wrap($3))
+ _CONVERSION(`GdkDrop*',`Glib::RefPtr<Gdk::Drop>',Glib::wrap($3))
+ 
+ # Graphene
++_CONVERSION(`const graphene_point_t*',`Gdk::Graphene::Point',`Glib::wrap(const_cast<graphene_point_t*>($3), true)')
+ _CONVERSION(`const Point&',`const graphene_point_t*',`($3).gobj()')
+ _CONVERSION(`const Gdk::Graphene::Point&',`const graphene_point_t*',`($3).gobj()')
+ _CONVERSION(`const Rect&',`const graphene_rect_t*',`($3).gobj()')
+ _CONVERSION(`const Gdk::Graphene::Rect&',`const graphene_rect_t*',`($3).gobj()')
+ _CONVERSION(`const Size&',`const graphene_size_t*',`($3).gobj()')
+ _CONVERSION(`const Gdk::Graphene::Size&',`const graphene_size_t*',`($3).gobj()')
+-
++_CONVERSION(`Vec2&',`graphene_vec2_t*',`($3).gobj()')
++_CONVERSION(`const Vec2&',`const graphene_vec2_t*',`($3).gobj()')
++_CONVERSION(`const Gdk::Graphene::Vec2&',`const graphene_vec2_t*',`($3).gobj()')
+-- 
+GitLab
+

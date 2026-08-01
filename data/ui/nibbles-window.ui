@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Nibbles.
+
+   Copyright 2026 Ben Corby
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+
+
+
+
+  <menu id="app-menu">
+    <section>
+      <item>
+        <!-- Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); mutes or unmutes game sound -->
+        <attribute name="label" translatable="yes">_Sound</attribute>
+        <attribute name="action">win.sound</attribute>
+      </item>
+      <item>
+        <!-- Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); switch to full screen mode -->
+        <attribute name="label" translatable="yes">_Full screen</attribute>
+        <attribute name="action">app.fullscreen</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the Scores dialog -->
+        <attribute name="label" translatable="yes">_Scores</attribute>
+        <attribute name="action">app.scores</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog -->
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the help of the application -->
+        <attribute name="label" translatable="yes">_Help</attribute>
+        <attribute name="action">app.help</attribute>
+      </item>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); opens the About dialog -->
+        <attribute name="label" translatable="yes">_About Nibbles</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+  <object class="GtkApplicationWindow" id="nibbles-window">
+    <!-- Translators: title of the window, as displayed by the window manager -->
+    <property name="title" translatable="yes">Nibbles</property>
+    <style>
+      <class name="nibbles-window"/>
+    </style>
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="headerbar">
+        <property name="visible">1</property>
+        <child type="start">
+          <object class="GtkButton" id="new_game_button">
+            <property name="has-frame" >false</property>
+            <property name="visible">0</property>
+            <property name="action-name">app.new-game</property>
+	        <!-- Translators: tool tip for new game tool bar button -->
+			<property name="tooltip-text" translatable="yes">New Game</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">1</property>
+                <property name="icon_name">list-add-symbolic</property>
+                <property name="icon_size">normal</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton" id="hamburger_menu">
+            <property name="has-frame" >false</property>
+            <property name="visible">1</property>
+            <property name="focusable">1</property>
+            <property name="menu-model">app-menu</property>
+	        <!-- Translators: tool tip for hamburger menu tool bar button -->
+			<property name="tooltip-text" translatable="yes">Open Menu</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">1</property>
+                <property name="icon_name">open-menu-symbolic</property>
+                <property name="icon_size">normal</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="pause_button">
+            <property name="has-frame" >false</property>
+            <property name="visible">0</property>
+            <property name="action-name">app.pause</property>
+	        <!-- Translators: tool tip for pause/resume tool bar button -->
+			<property name="tooltip-text" translatable="yes">Pause/Resume Game</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">1</property>
+                <property name="icon_name">media-playback-pause-symbolic</property>
+                <property name="icon_size">normal</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkStack" id="main_stack">
+        <property name="visible">1</property>
+        <property name="margin-start">25</property>
+        <property name="margin-end">25</property>
+        <property name="margin-top">25</property>
+        <property name="margin-bottom">25</property>
+        <property name="hexpand">1</property>
+        <property name="vexpand">1</property>
+        <property name="transition-type">slide-up</property>
+        <property name="transition-duration">500</property>
+        <child>
+          <object class="GtkStackPage">
+            <property name="name">number_of_players</property>
+            <property name="child">
+              <object class="GtkBox" id="players">
+
+
+				<property name="orientation">vertical</property>
+				<property name="halign">center</property>
+				<property name="width-request">644</property>
+				<child>
+				  <object class="GtkBox">
+					<property name="visible">1</property>
+					<property name="orientation">vertical</property>
+					<property name="valign">center</property>
+					<property name="spacing">60</property>
+					<child>
+					  <object class="GtkBox">
+						<property name="visible">1</property>
+						<property name="orientation">vertical</property>
+						<property name="spacing">10</property>
+						<child>
+						  <object class="GtkLabel">
+						    <attributes>
+						      <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+						      <attribute name="scale" value="2"/>
+						    </attributes>
+						    <property name="visible">1</property>
+						    <!-- Translators: title of one of the panels displayed during game configuration; the panel allows to change the number of human and ai worms -->
+						    <property name="label" translatable="1">Number of Players</property>
+						    <style>
+						      <class name="menu-title"/>
+						    </style>
+						  </object>
+						</child>
+					  </object>
+					</child>
+					<child>
+					  <object class="GtkBox">
+						<property name="visible">1</property>
+						<property name="orientation">vertical</property>
+						<property name="spacing">10</property>
+						<child>
+						  <object class="GtkLabel">
+						    <attributes>
+						      <attribute name="scale" value="1.5"/>
+						    </attributes>
+						    <property name="visible">1</property>
+						    <!-- Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 1/2/3/4 human players -->
+						    <property name="label" translatable="1">Select the number of human players.</property>
+						    <property name="margin-bottom">6</property>
+						  </object>
+						</child>
+						<child>
+						  <object class="GtkBox">
+						    <property name="visible">1</property>
+						    <property name="valign">center</property>
+						    <property name="halign">center</property>
+						    <property name="spacing">10</property>
+						    <property name="vexpand">1</property>
+						    <child>
+						      <object class="GtkToggleButton" id="players1">
+						        <property name="has-frame" >true</property>
+						        <property name="visible">1</property>
+						        <property name="use-underline">1</property>
+						        <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play a solo game against AIs (with a mnemonic that appears when pressing Alt) -->
+						        <property name="label" translatable="1">_1</property>
+						        <property name="action-name">win.change-players-number</property>
+						        <property name="width-request">100</property>
+						        <property name="action-target">@i 1</property>
+						        <property name="sensitive" bind-source="players1" bind-property="active" bind-flags="invert-boolean"/>
+						        <style>
+						          <class name="number-box"/>
+						        </style>
+						      </object>
+						    </child>
+						    <child>
+						      <object class="GtkToggleButton" id="players2">
+						        <property name="has-frame" >true</property>
+						        <property name="visible">1</property>
+						        <property name="use-underline">1</property>
+						        <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 2 human players (with a mnemonic that appears when pressing Alt) -->
+						        <property name="label" translatable="1">_2</property>
+						        <property name="action-name">win.change-players-number</property>
+					<property name="width-request">100</property>
+						        <property name="action-target">@i 2</property>
+						        <property name="sensitive" bind-source="players2" bind-property="active" bind-flags="invert-boolean"/>
+						        <style>
+						          <class name="number-box"/>
+						        </style>
+						      </object>
+						    </child>
+						    <child>
+						      <object class="GtkToggleButton" id="players3">
+						        <property name="has-frame" >true</property>
+						        <property name="visible">1</property>
+						        <property name="use-underline">1</property>
+						        <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 3 human players (with a mnemonic that appears when pressing Alt) -->
+						        <property name="label" translatable="1">_3</property>
+						        <property name="action-name">win.change-players-number</property>
+					<property name="width-request">100</property>
+						        <property name="action-target">@i 3</property>
+						        <property name="sensitive" bind-source="players3" bind-property="active" bind-flags="invert-boolean"/>
+						        <style>
+						          <class name="number-box"/>
+						        </style>
+						      </object>
+						    </child>
+						    <child>
+						      <object class="GtkToggleButton" id="players4">
+						        <property name="has-frame" >true</property>
+						        <property name="visible">1</property>
+						        <property name="use-underline">1</property>
+						        <!-- Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 4 human players (with a mnemonic that appears when pressing Alt) -->
+						        <property name="label" translatable="1">_4</property>
+						        <property name="action-name">win.change-players-number</property>
+					<property name="width-request">100</property>
+						        <property name="action-target">@i 4</property>
+						        <property name="sensitive" bind-source="players4" bind-property="active" bind-flags="invert-boolean"/>
+						        <style>
+						          <class name="number-box"/>
+						        </style>
+						      </object>
+						    </child>
+						  </object>
+						</child>
+					  </object>
+					</child>
+					<child>
+					  <object class="GtkBox">
+						<property name="visible">1</property>
+						<property name="orientation">vertical</property>
+						<property name="spacing">10</property>
+						<child>
+						  <object class="GtkLabel">
+						    <attributes>
+						      <attribute name="scale" value="1.5"/>
+						    </attributes>
+						    <property name="visible">1</property>
+						    <!-- Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms -->
+						    <property name="label" translatable="1">Select the number of computer players.</property>
+						    <property name="margin-bottom">6</property>
+						  </object>
+						</child>
+						<child>
+						  <object class="GtkBox">
+						    <property name="visible">1</property>
+						    <property name="valign">center</property>
+						    <property name="halign">center</property>
+						    <property name="spacing">10</property>
+						    <property name="vexpand">1</property>
+						    <child>
+						      <object class="GtkToggleButton" id="worms2">
+						        <property name="has-frame" >true</property>
+						        <property name="visible">1</property>
+						        <property name="use-underline">1</property>
+						        <property name="label" translatable="1">x</property>
+						        <property name="action-name">win.change-nibbles-number</property>
+					<property name="width-request">100</property>
+						        <property name="action-target">@i 2</property>
+						        <property name="sensitive" bind-source="worms2" bind-property="active" bind-flags="invert-boolean"/>
+						        <style>
+						          <class name="number-box"/>
+						        </style>
+						      </object>
+						    </child>
+						    <child>
+						      <object class="GtkToggleButton" id="worms3">
+						        <property name="has-frame" >true</property>
+						        <property name="visible">1</property>
+						        <property name="use-underline">1</property>
+						        <property name="label" translatable="1">x</property>
+						        <property name="action-name">win.change-nibbles-number</property>
+					<property name="width-request">100</property>
+						        <property name="action-target">@i 3</property>
+						        <property name="sensitive" bind-source="worms3" bind-property="active" bind-flags="invert-boolean"/>
+						        <style>
+						          <class name="number-box"/>
+						        </style>
+						      </object>
+						    </child>
+						    <child>
+						      <object class="GtkToggleButton" id="worms4">
+						        <property name="has-frame" >true</property>
+						        <property name="visible">1</property>
+						        <property name="use-underline">1</property>
+						        <property name="label" translatable="1">x</property>
+						        <property name="action-name">win.change-nibbles-number</property>
+					<property name="width-request">100</property>
+						        <property name="action-target">@i 4</property>
+						        <property name="sensitive" bind-source="worms4" bind-property="active" bind-flags="invert-boolean"/>
+						        <style>
+						          <class name="number-box"/>
+						        </style>
+						      </object>
+						    </child>
+						    <child>
+						      <object class="GtkToggleButton" id="worms5">
+						        <property name="has-frame" >true</property>
+						        <property name="visible">1</property>
+						        <property name="use-underline">1</property>
+						        <property name="label" translatable="1">x</property>
+						        <property name="action-name">win.change-nibbles-number</property>
+					<property name="width-request">100</property>
+						        <property name="action-target">@i 5</property>
+						        <property name="sensitive" bind-source="worms5" bind-property="active" bind-flags="invert-boolean"/>
+						        <style>
+						          <class name="number-box"/>
+						        </style>
+						      </object>
+						    </child>
+						    <child>
+						      <object class="GtkToggleButton" id="worms6">
+						        <property name="has-frame" >true</property>
+						        <property name="visible">1</property>
+						        <property name="use-underline">1</property>
+						        <property name="label" translatable="1">x</property>
+						        <property name="action-name">win.change-nibbles-number</property>
+					<property name="width-request">100</property>
+						        <property name="action-target">@i 6</property>
+						        <property name="sensitive" bind-source="worms6" bind-property="active" bind-flags="invert-boolean"/>
+						        <style>
+						          <class name="number-box"/>
+						        </style>
+						      </object>
+						    </child>
+						  </object>
+						</child>
+					  </object>
+					</child>
+				  </object>
+				</child>
+				<child>
+				  <object class="GtkButton">
+					<property name="visible">1</property>
+					<property name="use-underline">1</property>
+					<!-- Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel -->
+					<property name="label" translatable="1">_Next</property>
+					<property name="action-name">win.next-screen</property>
+					<property name="width-request">116</property>
+					<property name="height-request">34</property>
+					<property name="halign">center</property>
+					<property name="margin-top">15</property>
+					<property name="margin-bottom">25</property>
+					<style>
+					  <class name="rounded"/>
+					</style>
+				  </object>
+				</child>
+
+
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStackPage">
+            <property name="name">board_progress</property>
+            <property name="child">
+              <object class="GtkBox" id="board_progress">
+              
+				<property name="orientation">vertical</property>
+				<child>
+				  <object class="GtkBox">
+					<property name="visible">true</property>
+					<property name="orientation">vertical</property>
+					<property name="valign">center</property>
+					<property name="halign">fill</property>
+					<property name="spacing">25</property>
+					<child>
+					  <object class="GtkLabel">
+						<attributes>
+						  <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+						  <attribute name="scale" value="2"/>
+						</attributes>
+						<property name="visible">true</property>
+						<!-- Translators: title of one of the panels displayed during game configuration; the panel allows the method of progress through game's boards to be chosen -->
+						<property name="label" translatable="1">Board Progress</property>
+						<property name="valign">center</property>
+						<style>
+						  <class name="menu-title"/>
+						</style>
+					  </object>
+					</child>
+					<child>
+					  <object class="GtkBox">
+						<property name="visible">true</property>
+						<property name="orientation">vertical</property>
+						<property name="valign">center</property>
+						<property name="halign">center</property>
+						<property name="spacing">10</property>
+						<property name="vexpand">1</property>
+						<property name="width-request">400</property>
+						<child>
+						  <object class="GtkToggleButton" id="progress0">
+						    <property name="has-frame" >false</property>
+						    <property name="visible">true</property>
+						    <property name="hexpand">1</property>
+						    <property name="use-underline">1</property>
+						    <!-- Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to the previous board + 1 -->
+						    <property name="label" translatable="1">_Levels 1 through 26 in sequential order</property>
+						    <property name="action-name">win.change-progress</property>
+						    <property name="action-target">@i 0</property>
+						    <property name="sensitive" bind-source="progress0" bind-property="active" bind-flags="invert-boolean"/>
+						  </object>
+						</child>
+						<child>
+						  <object class="GtkToggleButton" id="progress1">
+						    <property name="has-frame" >false</property>
+						    <property name="visible">true</property>
+						    <property name="hexpand">1</property>
+						    <property name="use-underline">1</property>
+						    <!-- Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to a random board -->
+						    <property name="label" translatable="1">_Random Levels</property>
+						    <property name="action-name">win.change-progress</property>
+						    <property name="action-target">@i 1</property>
+						    <property name="sensitive" bind-source="progress1" bind-property="active" bind-flags="invert-boolean"/>
+						  </object>
+						</child>
+						<child>
+						
+						  <object class="GtkOverlay" id="spin">
+						
+						        <child>
+						          <object class="GtkToggleButton" id="progress2">
+						            <property name="has-frame" >false</property>
+						            <property name="visible">true</property>
+						            <property name="hexpand">1</property>
+						            <property name="use-underline">1</property>
+						            <!-- Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; the game stays on a single board -->
+						            <property name="label" translatable="1">_Fixed Level</property>
+						            <property name="action-name">win.change-progress</property>
+						            <property name="action-target">@i 2</property>
+						            <property name="sensitive" bind-source="progress2" bind-property="active" bind-flags="invert-boolean"/>
+						          </object>
+						        </child>
+						        
+						  </object>
+						  
+						</child>
+						<child>
+						  <object class="GtkSeparator">
+						    <property name="visible">1</property>
+						  </object>
+						</child>
+					  </object>
+					</child>
+				  </object>
+				</child>
+				<child>
+				  <object class="GtkButton">
+					<property name="visible">true</property>
+					<property name="use-underline">1</property>
+					<!-- Translators: label of a button in the "Board Progress" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel -->
+					<property name="label" translatable="1">_Next</property>
+					<property name="action-name">win.next-screen</property>
+					<property name="halign">center</property>
+					<property name="width-request">116</property>
+					<property name="height-request">34</property>
+					<property name="margin-bottom">25</property>
+					<style>
+					  <class name="rounded"/>
+					</style>
+				  </object>
+				</child>
+              
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStackPage">
+            <property name="name">speed</property>
+            <property name="child">
+              <object class="GtkBox" id="speed">
+
+				<property name="orientation">vertical</property>
+				<child>
+				  <object class="GtkBox">
+					<property name="visible">1</property>
+					<property name="orientation">vertical</property>
+					<property name="valign">center</property>
+					<property name="halign">fill</property>
+					<property name="spacing">25</property>
+					<child>
+					  <object class="GtkLabel">
+						<attributes>
+						  <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+						  <attribute name="scale" value="2"/>
+						</attributes>
+						<property name="visible">1</property>
+						<!-- Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably) -->
+						<property name="label" translatable="1">Speed and Fakes</property>
+						<property name="valign">center</property>
+						<style>
+						  <class name="menu-title"/>
+						</style>
+					  </object>
+					</child>
+					<child>
+					  <object class="GtkBox">
+						<property name="visible">1</property>
+						<property name="orientation">vertical</property>
+						<property name="valign">center</property>
+						<property name="halign">center</property>
+						<property name="spacing">10</property>
+						<property name="vexpand">1</property>
+							<property name="width-request">400</property>
+						<child>
+						  <object class="GtkToggleButton" id="speed4">
+						    <property name="has-frame" >false</property>
+						    <property name="visible">1</property>
+						    <property name="hexpand">1</property>
+						    <property name="use-underline">1</property>
+						    <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "really slow" -->
+						    <property name="label" translatable="1">_Beginner</property>
+						    <property name="action-name">win.change-speed</property>
+						    <property name="action-target">@i 4</property>
+						    <property name="sensitive" bind-source="speed4" bind-property="active" bind-flags="invert-boolean"/>
+						    <style>
+						      <class name="speed-box"/>
+						    </style>
+						  </object>
+						</child>
+						<child>
+						  <object class="GtkToggleButton" id="speed3">
+						    <property name="has-frame" >false</property>
+						    <property name="visible">1</property>
+						    <property name="hexpand">1</property>
+						    <property name="use-underline">1</property>
+						    <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "quite slow" -->
+						    <property name="label" translatable="1">_Slow</property>
+						    <property name="action-name">win.change-speed</property>
+						    <property name="action-target">@i 3</property>
+						    <property name="sensitive" bind-source="speed3" bind-property="active" bind-flags="invert-boolean"/>
+						    <style>
+						      <class name="speed-box"/>
+						    </style>
+						  </object>
+						</child>
+						<child>
+						  <object class="GtkToggleButton" id="speed2">
+						    <property name="has-frame" >false</property>
+						    <property name="visible">1</property>
+						    <property name="hexpand">1</property>
+						    <property name="use-underline">1</property>
+						    <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "normal" -->
+						    <property name="label" translatable="1">_Medium</property>
+						    <property name="action-name">win.change-speed</property>
+						    <property name="action-target">@i 2</property>
+						    <property name="sensitive" bind-source="speed2" bind-property="active" bind-flags="invert-boolean"/>
+						    <style>
+						      <class name="speed-box"/>
+						    </style>
+						  </object>
+						</child>
+						<child>
+						  <object class="GtkToggleButton" id="speed1">
+						    <property name="has-frame" >false</property>
+						    <property name="visible">1</property>
+						    <property name="hexpand">1</property>
+						    <property name="use-underline">1</property>
+						    <!-- Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "fast" -->
+						    <property name="label" translatable="1">_Fast</property>
+						    <property name="action-name">win.change-speed</property>
+						    <property name="action-target">@i 1</property>
+						    <property name="sensitive" bind-source="speed1" bind-property="active" bind-flags="invert-boolean"/>
+						    <style>
+						      <class name="speed-box"/>
+						    </style>
+						  </object>
+						</child>
+						<child>
+						  <object class="GtkSeparator">
+						    <property name="visible">1</property>
+						    <style>
+						      <class name="speed-separator"/>
+						    </style>
+						  </object>
+						</child>
+						<child>
+						  <object class="GtkToggleButton" id="enable_fake_bonuses">
+						    <property name="has-frame" >false</property>
+						    <property name="visible">1</property>
+						    <property name="hexpand">1</property>
+						    <property name="use-underline">1</property>
+						    <!-- Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates fake bonuses -->
+						    <property name="label" translatable="1">_Enable fake bonuses</property>
+						    <property name="action-name">win.toggle-fakes</property>
+						  </object>
+						</child>
+					  </object>
+					</child>
+				  </object>
+				</child>
+				<child>
+				  <object class="GtkButton" id="next">
+					<property name="visible">1</property>
+					<property name="use-underline">1</property>
+					<!-- Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel -->
+					<property name="label" translatable="1">_Next</property>
+					<property name="action-name">win.next-screen</property>
+					<property name="halign">center</property>
+					<property name="width-request">116</property>
+					<property name="height-request">34</property>
+					<property name="margin-bottom">25</property>
+					<style>
+					  <class name="rounded"/>
+					</style>
+				  </object>
+				</child>
+
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStackPage">
+            <property name="name">controls</property>
+            <property name="child">
+              <object class="GtkBox" id="controls">
+              
+				<property name="orientation">vertical</property>
+				<child>
+				  <object class="GtkBox">
+					<property name="orientation">vertical</property>
+					<property name="valign">center</property>
+					<property name="spacing">25</property>
+					<child>
+					  <object class="GtkLabel">
+						<attributes>
+						  <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+						  <attribute name="scale" value="2"/>
+						</attributes>
+						<!-- Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player -->
+						<property name="label" translatable="1">Controls</property>
+						<property name="valign">center</property>
+						<style>
+						  <class name="menu-title"/>
+						</style>
+					  </object>
+					</child>
+					<child>
+					  <object class="GtkBox" id="grids_box">
+						<property name="homogeneous">1</property>
+						<property name="halign">center</property>
+						<property name="valign">center</property>
+						<property name="spacing">20</property>
+						<child>
+						
+						
+						</child>
+					  </object>
+					</child>
+				  </object>
+				</child>
+				<child>
+				  <object class="GtkButton" id="button">
+					<property name="use-underline">1</property>
+					<!-- Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game -->
+					<property name="label" translatable="1">_Start</property>
+					<property name="action-name">win.start-game</property>
+					<property name="halign">center</property>
+					<property name="width-request">116</property>
+					<property name="height-request">34</property>
+					<property name="margin-bottom">25</property>
+					<style>
+					  <class name="rounded"/>
+					</style>
+				  </object>
+				</child>
+              
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStackPage">
+            <property name="name">first_run</property>
+            <property name="child">
+			  <object class="GtkBox">
+				<property name="orientation">vertical</property>
+				<property name="width-request">350</property>
+				<property name="height-request">350</property>
+				<child>
+				  <object class="GtkBox">
+					<property name="orientation">vertical</property>
+					<property name="homogeneous">1</property>
+					<property name="valign">center</property>
+					<property name="vexpand">1</property>
+					<child>
+					  <object class="GtkImage">
+						<property name="icon-name">org.gnome.Nibbles</property>
+						<property name="icon-size">large</property>
+						<property name="pixel-size">96</property>
+					  </object>
+					</child>
+					<child>
+					  <object class="GtkLabel">
+						<attributes>
+						  <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+						  <attribute name="scale" value="2"/>
+						</attributes>
+						<!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
+						<property name="label" translatable="1">Welcome, worms.</property>
+						<style>
+						  <class name="menu-title"/>
+						</style>
+					  </object>
+					</child>
+					<child>
+					  <object class="GtkLabel">
+						<!-- Translators: label displayed on a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
+						<property name="label" translatable="1">Eat the treats before the other worms, but don’t hit anything!</property>
+						<property name="valign">start</property>
+						<style>
+						  <class name="tip"/>
+						</style>
+					  </object>
+					</child>
+					<child>
+					  <object class="GtkButton">
+						<property name="use-underline">1</property>
+						<!-- Translators: label of a button in a panel shown only the first time the game is launched; to see it, launch `dconf write /org/gnome/nibbles/first-run 'true'` before launching the game -->
+						<property name="label" translatable="1">Let’s _Play</property>
+						<property name="action-name">win.next-screen</property>
+						<property name="halign">center</property>
+						<property name="valign">start</property>
+						<property name="width-request">116</property>
+						<property name="height-request">34</property>
+						<style>
+						  <class name="rounded"/>
+						</style>
+					  </object>
+					</child>
+				  </object>
+				</child>
+			  </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStackPage">
+            <property name="name">game_box</property>
+            <property name="child">
+              <object class="GtkOverlay" id="overlay">
+                <property name="visible">1</property>
+                <property name="child">
+                  <object class="GtkBox" id="game_box">
+                    <property name="visible">1</property>
+                    <property name="orientation">vertical</property>
+
+                    <child>
+                      <object class="GtkStack" id="statusbar_stack">
+                        <property name="visible">1</property>
+
+                        <child>
+                          <object class="GtkStackPage">
+                            <property name="name">scoreboard</property>
+                            <property name="child">
+                              <object class="GtkBox" id="scoreboard">
+                                <property name="halign">center</property>
+						        <property name="spacing">10</property>
+
+
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkStackPage">
+                            <property name="name">paused</property>
+                            <property name="child">
+                              <object class="GtkLabel" id="pause">
+                                <attributes>
+                                  <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+                                  <attribute name="scale" value="2"/>
+                                </attributes>
+                                <property name="visible">1</property>
+                                <!-- Translators: text displayed at the bottom of the window, when the game is paused -->
+                                <property name="label" translatable="1">Paused</property>
+                                <property name="halign">center</property>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+
+                  </object>
+                </property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

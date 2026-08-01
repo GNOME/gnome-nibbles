@@ -1,0 +1,28 @@
+From aaa9e02ee2c4f474ff3255a93a2c0d53247d545e Mon Sep 17 00:00:00 2001
+From: Kjell Ahlstedt <kjellahlstedt@gmail.com>
+Date: Thu, 18 Jun 2026 16:51:15 +0200
+Subject: [PATCH] Gdk::Graphene::Point: Remove distance_squared()
+
+graphene_point_distance_squared() is new in Graphene 1.12, but gtkmm
+requires only Graphene >= 1.10.0. That's what gtk 4.23.1 requires.
+distance_squared() was added in commit "Add class Gdk::Graphene::Vec2",
+but it was not mentioned in the commit message.
+---
+ gdk/src/graphene_point.hg | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/gdk/src/graphene_point.hg b/gdk/src/graphene_point.hg
+index 9b38bb1d..1502af75 100644
+--- a/gdk/src/graphene_point.hg
++++ b/gdk/src/graphene_point.hg
+@@ -83,7 +83,6 @@ public:
+   std::array<float,3> distance(const Point& b) const;
+   _IGNORE(graphene_point_distance)
+ 
+-  _WRAP_METHOD(float distance_squared(const Point& b) const, graphene_point_distance_squared, newin "4,24")
+   _WRAP_METHOD(bool near(const Point& b, float epsilon) const, graphene_point_near, newin "4,12")
+ 
+   /** Linearly interpolates the coordinates of this point and point @a b using the
+-- 
+GitLab
+

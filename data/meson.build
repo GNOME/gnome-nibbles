@@ -91,4 +91,4 @@ install_man('gnome-nibbles.6')
 
 # Subdirs
 subdir('levels')
-subdir('pix')
+
