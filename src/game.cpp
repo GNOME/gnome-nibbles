@@ -111,42 +111,42 @@ std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uin
             break;
 
         // readable walls, but the game internals use ASCII chars
-        case '┃':
+        case 0xE29483://'┃':
     		return {'b',WarpType::NONE,eDirection::NONE};
             break;
-        case '━':
+        case 0xE29481://'━':
     		return {'c',WarpType::NONE,eDirection::NONE};
             break;
-        case '┗':
+        case 0xE29497://'┗':
     		return {'d',WarpType::NONE,eDirection::NONE};
             break;
-        case '┛':
+        case 0xE2949B://'┛':
     		return {'e',WarpType::NONE,eDirection::NONE};
             break;
-        case '┏':
+        case 0xE2948F://'┏':
     		return {'f',WarpType::NONE,eDirection::NONE};
             break;
-        case '┓':
+        case 0xE29493://'┓':
     		return {'g',WarpType::NONE,eDirection::NONE};
             break;
-        case '┻':
+        case 0xE294BB://'┻':
     		return {'h',WarpType::NONE,eDirection::NONE};
             break;
-        case '┣':
+        case 0xE294A3://'┣':
     		return {'i',WarpType::NONE,eDirection::NONE};
             break;
-        case '┫':
+        case 0xE294AB://'┫':
     		return {'j',WarpType::NONE,eDirection::NONE};
             break;
-        case '┳':
+        case 0xE294B3://'┳':
     		return {'k',WarpType::NONE,eDirection::NONE};
             break;
-        case '╋':
+        case 0xE2958B://'╋':
     		return {'l',WarpType::NONE,eDirection::NONE};
             break;
 
         // start positions
-        case '▲':
+        case 0xE296B2://'▲':
         case 'm':
         	//starts.push_front(Start(WormDirection::NORTH,position));
     		return {'a',WarpType::NONE,eDirection::NORTH};
@@ -156,7 +156,7 @@ std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uin
             //    count++;
             //}
             break;
-        case '◀':
+        case 0xE29780://'◀':
         case 'n':
     		return {'a',WarpType::NONE,eDirection::WEST};
             //if (count < numworms)
@@ -165,7 +165,7 @@ std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uin
             //    count++;
             //}
             break;
-        case '▼':
+        case 0xE296BC://'▼':
         case 'o':
     		return {'a',WarpType::NONE,eDirection::SOUTH};
             //if (count < numworms)
@@ -174,7 +174,7 @@ std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uin
             //    count++;
             //}
             break;
-        case '▶':
+        case 0xE296B6://'▶':
         case 'p':
     		return {'a',WarpType::NONE,eDirection::EAST};
             //if (count < numworms)

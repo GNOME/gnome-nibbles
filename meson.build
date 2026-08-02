@@ -39,7 +39,8 @@ c_compiler_options = []
 #endif
 
 cpp = meson.get_compiler('cpp')
-cpp_if_defines = ['-fdiagnostics-all-candidates']
+#cpp_if_defines = ['-fdiagnostics-all-candidates','-Wno-narrowing']
+cpp_if_defines = ['-Wno-narrowing']
 
 code0 = '''
 #include <gtkmm.h>
@@ -55,7 +56,7 @@ protected:
  	void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& s) override
  	{
 		auto pb = Gsk::PathBuilder::create();
-		pb->add_rect({0,0,get_width(),get_height()});
+		pb->add_rect({0,0,static_cast<float>(get_width()),static_cast<float>(get_height())});
 		s->append_fill(pb->to_path(), Gsk::FillRule::EVEN_ODD, {1,0,0,1});
 	}
 };
