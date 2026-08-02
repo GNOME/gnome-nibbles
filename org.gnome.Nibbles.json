@@ -44,7 +44,7 @@
 			"build-commands":
 			[
 				"mkdir _flatpak_build",
-				"cmake -G Ninja -S llvm -B _flatpak_build -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_RUNTIMES='libunwind;libcxx;libcxxabi'",
+				"cmake -G Ninja -S llvm -B _flatpak_build -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_INSTALL_LIBDIR=lib -DLLVM_TARGETS_TO_BUILD='host' -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF -DLLVM_LIBDIR_SUFFIX='' -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_RUNTIMES='libunwind;libcxx;libcxxabi'",
 				"ninja -C _flatpak_build unwind cxx cxxabi ",
 				"ninja -C _flatpak_build install-unwind install-cxx install-cxxabi"
 			],
