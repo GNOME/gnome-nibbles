@@ -23,12 +23,12 @@
 enum eSetupScreen
 {
 	FIRST_RUN,
-    PLAYERS,
-    PROGRESS,
-    SPEED,
-    CONTROLS,
-    GAME,
-    USUAL
+	PLAYERS,
+	PROGRESS,
+	SPEED,
+	CONTROLS,
+	GAME,
+	USUAL
 };
 
 #define name_to_screen(screen)										\
@@ -90,9 +90,9 @@ public:
 			: Gtk::Widget(cobject), m_refBuilder(refBuilder)
 		{
 		}
-    	explicit PlayerControls(GtkWidget* gobj) :
+		explicit PlayerControls(GtkWidget* gobj) :
 			Glib::ObjectBase(nullptr), // Passing nullptr avoids allocating a duplicate GObject
-		    Gtk::Widget(gobj)
+			Gtk::Widget(gobj)
 		{
 		}
 	protected:
@@ -108,11 +108,11 @@ public:
 		Arrow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder) :
 			Gtk::Widget(cobject), property_direction_(*this, "direction", "")
 		{
-		    auto legacy_controller = Gtk::EventControllerLegacy::create();// Create an event controller
-		    // Connect the raw event signal
-		    legacy_controller->signal_event().connect(sigc::mem_fun(*this, &Arrow::on_legacy_event),
-		    	false /*false allows us to return true from the callback to block further propagation.*/);
-		    add_controller(legacy_controller);// Add the controller to the window
+			auto legacy_controller = Gtk::EventControllerLegacy::create();// Create an event controller
+			// Connect the raw event signal
+			legacy_controller->signal_event().connect(sigc::mem_fun(*this, &Arrow::on_legacy_event),
+				false /*false allows us to return true from the callback to block further propagation.*/);
+			add_controller(legacy_controller);// Add the controller to the window
 		}
 		/* constructor used for registering class via dummy object in register_type() */
 		Arrow() : Glib::ObjectBase("Arrow"), Gtk::Widget(), property_direction_(*this, "direction", "")
@@ -152,8 +152,8 @@ public:
 			GType found_type = g_type_from_name("gtkmm__CustomObject_Arrow");
 			if(!found_type)
 			{
-            	Glib::ustring buffer="class gtkmm__CustomObject_Arrow not registered";
-            	g_critical(buffer.c_str());
+				Glib::ustring buffer="class gtkmm__CustomObject_Arrow not registered";
+				critical(buffer);
 			}
 		}
 		/* call back signal */
@@ -184,15 +184,15 @@ public:
 	 	void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& s) override;
 		bool on_legacy_event(const Glib::RefPtr<const Gdk::Event>&event)
 		{
-            switch (event->get_event_type ())
-            {
+			switch (event->get_event_type ())
+			{
 				case Gdk::Event::Type::BUTTON_RELEASE:
 					m_signal_status.emit();
-                    return true;
-                default:
-                    return false;
-            }
-        }
+					return true;
+				default:
+					return false;
+			}
+		}
 	private:
 		static Glib::ObjectBase* wrap_new(GObject* o)
 		{
@@ -218,50 +218,50 @@ public:
 		ColourWheel(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder) :
 			Glib::ExtraClassInit(&ColourWheel::custom_class_init), Gtk::Box(cobject)
 		{
-		    auto legacy_controller = Gtk::EventControllerLegacy::create();// Create an event controller
-		    // Connect the raw event signal
-		    legacy_controller->signal_event().connect(sigc::mem_fun(*this, &ColourWheel::on_legacy_event),
-		    	false /*false allows us to return true from the callback to block further propagation.*/);
-		    add_controller(legacy_controller);// Add the controller to the window
-		    
-		    auto keypress_controller = Gtk::EventControllerKey::create();// Create an key controller
-		    // Connect the raw event signal
-		    keypress_controller->signal_key_pressed().connect(sigc::mem_fun(*this, &ColourWheel::on_keypress_event),
-		    	false /*false allows us to return true from the callback to block further propagation.*/);
-		    add_controller(keypress_controller);// Add the controller to the window
+			auto legacy_controller = Gtk::EventControllerLegacy::create();// Create an event controller
+			// Connect the raw event signal
+			legacy_controller->signal_event().connect(sigc::mem_fun(*this, &ColourWheel::on_legacy_event),
+				false /*false allows us to return true from the callback to block further propagation.*/);
+			add_controller(legacy_controller);// Add the controller to the window
+			
+			auto keypress_controller = Gtk::EventControllerKey::create();// Create an key controller
+			// Connect the raw event signal
+			keypress_controller->signal_key_pressed().connect(sigc::mem_fun(*this, &ColourWheel::on_keypress_event),
+				false /*false allows us to return true from the callback to block further propagation.*/);
+			add_controller(keypress_controller);// Add the controller to the window
 
-	        auto mouse_position = Gtk::EventControllerMotion::create ();// Create a mouse controller
-	        mouse_position->signal_motion().connect(sigc::track_obj(
-	        	[this](double x, double y) ->
-	        		void
-	        		{
+			auto mouse_position = Gtk::EventControllerMotion::create ();// Create a mouse controller
+			mouse_position->signal_motion().connect(sigc::track_obj(
+				[this](double x, double y) ->
+					void
+					{
 						mouse_point={true,x,y};
 						focus_mouse_segment();
-	        		},
-	        		*this
-	        	));
-		    mouse_position->signal_enter().connect(sigc::track_obj(
-		    	[this](double x, double y) ->
-	        		void
-	        		{
+					},
+					*this
+				));
+			mouse_position->signal_enter().connect(sigc::track_obj(
+				[this](double x, double y) ->
+					void
+					{
 						mouse_point={true,x,y};
 						focus_mouse_segment();
-	        		},
-	        		*this
-	        	));
-		    mouse_position->signal_leave().connect(sigc::track_obj(
-		    	[this]() ->
+					},
+					*this
+				));
+			mouse_position->signal_leave().connect(sigc::track_obj(
+				[this]() ->
 					void
 					{
 						mouse_point.is_valid=false;
 						focus_mouse_segment();
 					},
-	        		*this
-	        	));
+					*this
+				));
 			add_controller (mouse_position);
 		}
 		virtual ~ColourWheel() override = default;
-    	explicit ColourWheel(GtkWidget* gobj) :
+		explicit ColourWheel(GtkWidget* gobj) :
 			Glib::ObjectBase(nullptr), Glib::ExtraClassInit(&ColourWheel::custom_class_init), Gtk::Box()
 		{
 		}
@@ -271,7 +271,7 @@ public:
 			mouse_pressed=false;
 			Gtk::Box::on_show();
 		}
-	    /* override the size_allocate virtual function to calculate path & bounds */
+		/* override the size_allocate virtual function to calculate path & bounds */
 		void size_allocate_vfunc(int width, int height, int baseline) override
 		{
 			Gtk::Box::size_allocate_vfunc(width, height, baseline);
@@ -288,8 +288,8 @@ public:
 				child_allocation.set_width(r->get_width());
 				child_allocation.set_height(r->get_height());
   
-		        static_cast<ColourWheelSegment*>(pSegment)->offset_from_parent = r->get_origin();
-		        static_cast<ColourWheelSegment*>(pSegment)->size_allocate(child_allocation, baseline);
+				static_cast<ColourWheelSegment*>(pSegment)->offset_from_parent = r->get_origin();
+				static_cast<ColourWheelSegment*>(pSegment)->size_allocate(child_allocation, baseline);
 			}
 		}
 		void measure_vfunc(Gtk::Orientation orientation, int for_size, int& minimum, int& natural,
@@ -317,77 +317,77 @@ public:
 			GType found_type = g_type_from_name("gtkmm__CustomObject_ColourWheel");
 			if(!found_type)
 			{
-            	Glib::ustring buffer="class gtkmm__CustomObject_ColourWheel not registered";
-            	g_critical(buffer.c_str());
+				Glib::ustring buffer="class gtkmm__CustomObject_ColourWheel not registered";
+				critical(buffer);
 			}
-    	}
+		}
 		/* utility methods */
-    	unsigned int get_segment_id(Gtk::Widget *pSegment)
-    	{
+		unsigned int get_segment_id(Gtk::Widget *pSegment)
+		{
 			unsigned int id=0;
 			for(Gtk::Widget *p = get_first_child ();p!=nullptr && p!=pSegment;p = p->get_next_sibling (), id++);
-    		return id;
-    	}
-    	unsigned int get_segment_count()
-    	{
+			return id;
+		}
+		unsigned int get_segment_count()
+		{
 			unsigned int count=0;
 			for(Gtk::Widget *p = get_first_child ();p!=nullptr;p = p->get_next_sibling (), count++);
-    		return count;
-    	}
+			return count;
+		}
 	protected:
 		static Glib::ObjectBase* wrap_new(GObject* o)
 		{
 			// Tie lifetime cleanup directly to the parent widget lifecycle
 			return Gtk::manage(new ColourWheel(GTK_WIDGET(o)));
-    	}
+		}
 		bool on_legacy_event(const Glib::RefPtr<const Gdk::Event>&event)
 		{
-            switch (event->get_event_type ())
-            {
-                case Gdk::Event::Type::BUTTON_PRESS:
-                    if (!mouse_pressed)
-                    {
-                        mouse_pressed = true;
+			switch (event->get_event_type ())
+			{
+				case Gdk::Event::Type::BUTTON_PRESS:
+					if (!mouse_pressed)
+					{
+						mouse_pressed = true;
 						focus_mouse_segment();
-                    }
-                    return true;
-                case Gdk::Event::Type::BUTTON_RELEASE:
-                    if (mouse_point.is_valid && get_mouse_point_segment())
-                    {
-                    	select_segment(get_mouse_point_segment());
-                    }
-                    else if (mouse_pressed)
-                    {
-                        mouse_pressed = false;
+					}
+					return true;
+				case Gdk::Event::Type::BUTTON_RELEASE:
+					if (mouse_point.is_valid && get_mouse_point_segment())
+					{
+						select_segment(get_mouse_point_segment());
+					}
+					else if (mouse_pressed)
+					{
+						mouse_pressed = false;
 						focus_mouse_segment();
-                    }
-                    return true;
-                default:
-                    return false;
-            }
-        }
+					}
+					return true;
+				default:
+					return false;
+			}
+		}
 		bool on_keypress_event(const unsigned int &keyval, const unsigned int &keycode, const Gdk::ModifierType &state)
 		{
-            switch (keyval)
-            {
-                case 65293: /* enter key */
-                case 65421: /* keypad enter key */
-                case 32: /* space key */
-                    if (auto focus_segment=get_focus_child())
-                    {
-                        select_segment(focus_segment);
-	                    return true;
-                    }
-                    else
-	                    return false;
-                default:
-                    return false;
-            }
-        }
-        void select_segment(Gtk::Widget *segment);
+			switch (keyval)
+			{
+				case 65293: /* enter key */
+				case 65421: /* keypad enter key */
+				case 32: /* space key */
+					if (auto focus_segment=get_focus_child())
+					{
+						select_segment(focus_segment);
+						return true;
+					}
+					else
+						return false;
+				default:
+					return false;
+			}
+		}
+		void select_segment(Gtk::Widget *segment);
 		/* todo convert to gtkmm see https://gitlab.gnome.org/GNOME/gtkmm/-/commit/a21fc8a0fc13fa9431fe15e9a3e83b507c1970b9 */
-        static void custom_class_init(void* g_class, void* class_data)
-        {
+		static void custom_class_init(void* g_class, void* class_data)
+		{
 			GtkWidgetClass* widget_class = GTK_WIDGET_CLASS(g_class);
 			widget_class->focus = &ColourWheel::on_focus_vfunc;
 		}
@@ -417,6 +417,8 @@ public:
 		 		case GTK_DIR_RIGHT:
 		 			d=Gtk::DirectionType::RIGHT;
 		 			break;
+		 		default:
+		 			return false;
 	 		}
 	 		Gtk::Widget* wrapped_widget = Glib::wrap(self);
 	 		if(auto cpp_self = dynamic_cast<ColourWheel*>(wrapped_widget))
@@ -424,8 +426,8 @@ public:
 				Gtk::Widget *set_focus_child; /* returned value */
 	 			if(cpp_self->focus_vfunc(d, set_focus_child) && set_focus_child)
 	 			{
-		            gtk_widget_child_focus(set_focus_child->gobj(), direction);
-		            return true;
+					gtk_widget_child_focus(set_focus_child->gobj(), direction);
+					return true;
 				}
 			}
 	 		return false;
@@ -433,84 +435,84 @@ public:
 	 	Gtk::Widget *get_child(unsigned int ID)
 	 	{
 	 		unsigned int i;
-            Gtk::Widget *p,*last=nullptr;
+			Gtk::Widget *p,*last=nullptr;
 			for(i=0,p=get_first_child();p!=nullptr && i<ID;last=p, p=p->get_next_sibling(), i++);
 			return p?p:last;
 	 	}
-    private:
+	private:
 		/* if the mouse button is pressed focus the segment its over */
 		void focus_mouse_segment()
 		{
-		    if (mouse_point.is_valid)
-		    {
-		        auto segment = get_mouse_point_segment();
-		        if (nullptr != segment)
-		        {
-		            if (mouse_pressed && !segment->is_focus())
-		            {
-		                auto lose_focus = get_focus_child();
-		                if (nullptr != lose_focus)
-		                    lose_focus->queue_draw();
-		                if(!segment->grab_focus())
-		                {
-		                	Glib::ustring buffer = "gtkmm__CustomObject_ColourWheelSegment::grab_focus(): id=\"";
-		                	buffer += segment->get_buildable_id();
-		                	buffer += "\" failed!";
-		                	g_critical(buffer.c_str());
-		                }
-		                segment->queue_draw();
-		            }
-		            return;
-		        }
-		    }
-		    /*auto lose_focus = get_focus_child ();
-		    if (nullptr != lose_focus)
-		        lose_focus->queue_draw();*/
+			if (mouse_point.is_valid)
+			{
+				auto segment = get_mouse_point_segment();
+				if (nullptr != segment)
+				{
+					if (mouse_pressed && !segment->is_focus())
+					{
+						auto lose_focus = get_focus_child();
+						if (nullptr != lose_focus)
+							lose_focus->queue_draw();
+						if(!segment->grab_focus())
+						{
+							Glib::ustring buffer = "gtkmm__CustomObject_ColourWheelSegment::grab_focus(): id=\"";
+							buffer += segment->get_buildable_id();
+							buffer += "\" failed!";
+							critical(buffer);
+						}
+						segment->queue_draw();
+					}
+					return;
+				}
+			}
+			/*auto lose_focus = get_focus_child ();
+			if (nullptr != lose_focus)
+				lose_focus->queue_draw();*/
 		}
 		/* return the segment the mouse pointer is over, if any */
 		ColourWheelSegment *get_mouse_point_segment ();
-    private:
+	private:
 		bool mouse_pressed;
-	    struct {bool is_valid; float x; float y;} mouse_point;
-    private:
-    	unsigned int get_players(std::vector<PlayerButton*> &players)
-    	{
-    		auto box=get_parent();
-    		if(box->get_buildable_id()!="player_controls")
-    		{
-            	Glib::ustring buffer="player-controls.ui: id=\"player_controls\" is not the parent of id=\"";
-            	buffer+=get_buildable_id();
-            	buffer+="\" id=\"";
-            	buffer+=box->get_buildable_id();
-            	buffer+="\" is!";
-            	g_critical(buffer.c_str());
-    		}
-    		auto grid=box->get_parent();
-    		if(grid->get_buildable_id()!="grids_box")
-    		{
-            	Glib::ustring buffer="nibble-window.ui & player-controls.ui: id=\"grids_box\" is not the parent of id=\"";
-            	buffer+=box->get_buildable_id();
-            	buffer+="\", id=\"";
-            	buffer+=grid->get_buildable_id();
-            	buffer+="\" is!";
-            	g_critical(buffer.c_str());
-    		}
-    		players.clear();
+		struct {bool is_valid; float x; float y;} mouse_point;
+	private:
+		unsigned int get_players(std::vector<PlayerButton*> &players)
+		{
+			auto box=get_parent();
+			if(box->get_buildable_id()!="player_controls")
+			{
+				Glib::ustring buffer="player-controls.ui: id=\"player_controls\" is not the parent of id=\"";
+				buffer+=get_buildable_id();
+				buffer+="\" id=\"";
+				buffer+=box->get_buildable_id();
+				buffer+="\" is!";
+				critical(buffer);
+			}
+			auto grid=box->get_parent();
+			if(grid->get_buildable_id()!="grids_box")
+			{
+				Glib::ustring buffer="nibble-window.ui & player-controls.ui: id=\"grids_box\" is not the parent of id=\"";
+				buffer+=box->get_buildable_id();
+				buffer+="\", id=\"";
+				buffer+=grid->get_buildable_id();
+				buffer+="\" is!";
+				critical(buffer);
+			}
+			players.clear();
 			for(auto box=grid->get_first_child();box;box=box->get_next_sibling())
 			{
 				auto button=box->get_first_child();
-	    		assert(button->get_buildable_id()=="name_label");
+				assert(button->get_buildable_id()=="name_label");
 				players.push_back(static_cast<PlayerButton*>(button));
 			}
 			return players.size();
-    	}
+		}
    	};
 
 	/* gtkmm__CustomObject_ColourWheelSegment is a gtk template */
 	class ColourWheelSegment : public Gtk::Widget
 	{                  
 	public:
-	    const double PIx2 = 6.28318530717958647692528676655900577; /* 2Pi */
+		const double PIx2 = 6.28318530717958647692528676655900577; /* 2Pi */
 
 		/* constructor used for registering class via dummy object in register_type() */
 		ColourWheelSegment() : Glib::ObjectBase("ColourWheelSegment"), Gtk::Widget(),
@@ -521,13 +523,13 @@ public:
 		ColourWheelSegment(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder) : Gtk::Widget(cobject),
 			property_colour_(*this, "colour", 0xffffff)
 		{
-		    set_can_focus();
-		    set_focus_on_click();
-		    //focusable = true;
-		    set_sensitive();
+			set_can_focus();
+			set_focus_on_click();
+			//focusable = true;
+			set_sensitive();
 		}
 		virtual ~ColourWheelSegment() = default;
-	    /* override the size_allocate virtual function to calculate path & bounds */
+		/* override the size_allocate virtual function to calculate path & bounds */
 		void size_allocate_vfunc(int width, int height, int baseline) override
 		{
 			Gtk::Widget::size_allocate_vfunc(width, height, baseline);
@@ -538,18 +540,18 @@ public:
 			Gtk::Widget::measure_vfunc(orientation, for_size, minimum, natural, minimum_baseline, natural_baseline);
 		}
 		void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>&snapshot);
-    	void set_colour(const gulong& colour)
-    	{
+		void set_colour(const gulong& colour)
+		{
 			property_colour_ = colour;
-    	}
-    	gulong get_colour() const
-    	{
-    		return property_colour_.get_value();
-    	}
-    	explicit ColourWheelSegment(GtkWidget* gobj) :
+		}
+		gulong get_colour() const
+		{
+			return property_colour_.get_value();
+		}
+		explicit ColourWheelSegment(GtkWidget* gobj) :
 			Glib::ObjectBase(nullptr), // Passing nullptr avoids allocating a duplicate GObject
-		    Gtk::Widget(gobj),
-		    property_colour_(*this, "colour", 0xffffff)
+			Gtk::Widget(gobj),
+			property_colour_(*this, "colour", 0xffffff)
 		{
 		}
 		static void register_type()
@@ -571,21 +573,21 @@ public:
 			GType found_type = g_type_from_name("gtkmm__CustomObject_ColourWheelSegment");
 			if(!found_type)
 			{
-            	Glib::ustring buffer="class gtkmm__CustomObject_ColourWheelSegment not registered";
-            	g_critical(buffer.c_str());
+				Glib::ustring buffer="class gtkmm__CustomObject_ColourWheelSegment not registered";
+				critical(buffer);
 			}
-    	}
+		}
 		const std::optional<Gdk::Graphene::Rect> get_bounds(unsigned int width, unsigned int height);
 	private:
 		static Glib::ObjectBase* wrap_new(GObject* o)
 		{
 			// Tie lifetime cleanup directly to the parent widget lifecycle
 			return Gtk::manage(new ColourWheelSegment(GTK_WIDGET(o)));
-    	}
-    	Glib::Property<gulong> property_colour_;
+		}
+		Glib::Property<gulong> property_colour_;
 	public:
 		Glib::RefPtr<Gsk::Path> calculate_segment_path (uint width, uint height, uint ID, uint segment_count);
-        Gdk::Graphene::Point offset_from_parent; /* x & y position relative to parent */
+		Gdk::Graphene::Point offset_from_parent; /* x & y position relative to parent */
    	};
 
 	class OverlayMessage : public Gtk::Widget
@@ -611,15 +613,29 @@ public:
 		PlayerButton(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder, const guint &id, NibblesWindow *pWindow) :
 			Glib::ObjectBase(nullptr), Gtk::Button(cobject), KeyHandler(pWindow), id(id), pWindow(pWindow)
 		{
-			// store widgets
+			// remember grid_overlay
 			pOverlay = refBuilder->get_widget<Gtk::Overlay>("grid_overlay");
+			
+			// remember wheel
 			pWheel = Gtk::Builder::get_widget_derived<ColourWheel>(refBuilder, "wheel");
 			auto pWheelSegment0 = Gtk::Builder::get_widget_derived<ColourWheelSegment>(refBuilder, "segment0");
+			if(!pWheelSegment0)
+				critical("player-controls.ui: id=\"segment0\" not found!");
 			auto pWheelSegment1 = Gtk::Builder::get_widget_derived<ColourWheelSegment>(refBuilder, "segment1");
+			if(!pWheelSegment1)
+				critical("player-controls.ui: id=\"segment1\" not found!");
 			auto pWheelSegment2 = Gtk::Builder::get_widget_derived<ColourWheelSegment>(refBuilder, "segment2");
+			if(!pWheelSegment2)
+				critical("player-controls.ui: id=\"segment2\" not found!");
 			auto pWheelSegment3 = Gtk::Builder::get_widget_derived<ColourWheelSegment>(refBuilder, "segment3");
+			if(!pWheelSegment3)
+				critical("player-controls.ui: id=\"segment3\" not found!");
 			auto pWheelSegment4 = Gtk::Builder::get_widget_derived<ColourWheelSegment>(refBuilder, "segment4");
+			if(!pWheelSegment4)
+				critical("player-controls.ui: id=\"segment4\" not found!");
 			auto pWheelSegment5 = Gtk::Builder::get_widget_derived<ColourWheelSegment>(refBuilder, "segment5");
+			if(!pWheelSegment5)
+				critical("player-controls.ui: id=\"segment5\" not found!");
 
 			// create widget wraps
 			pArrow_up = Gtk::Builder::get_widget_derived<Arrow>(refBuilder, "arrow_up");
@@ -659,13 +675,13 @@ public:
 		{
 			if(pOverlay->is_visible())
 			{
-		    	pOverlay->set_visible(false);
-		    	pWheel->set_visible(true);
+				pOverlay->set_visible(false);
+				pWheel->set_visible(true);
 			}
 			else
 			{
-		    	pOverlay->set_visible(true);
-		    	pWheel->set_visible(false);
+				pOverlay->set_visible(true);
+				pWheel->set_visible(false);
 			}
 		}
 		void set_text(unsigned int colour_number)
@@ -701,51 +717,51 @@ public:
 			return raw_keys;
 		}
 	public:
-    	const guint id;
+		const guint id;
 	private:
 		NibblesWindow *pWindow;
-    	Gtk::Overlay *pOverlay=nullptr;
-    	ColourWheel *pWheel=nullptr;
-    	Arrow *pArrow_up, *pArrow_left, *pArrow_right, *pArrow_down;
-    	std::array<unsigned int, 4> keys,raw_keys;/* up, left, right & down */
-    	struct
-    	{
+		Gtk::Overlay *pOverlay=nullptr;
+		ColourWheel *pWheel=nullptr;
+		Arrow *pArrow_up, *pArrow_left, *pArrow_right, *pArrow_down;
+		std::array<unsigned int, 4> keys,raw_keys;/* up, left, right & down */
+		struct
+		{
 			OverlayMessage *pKeyPressMessage=nullptr;
 			unsigned long KeyToSet;/* 0=up, 1=left, 2=right & 3=down */
 			Gtk::Widget *pLabel;/* Gtk::Label* */
-    	} key_pressed_data;
-    private:
-    	unsigned int get_players(std::vector<PlayerButton*> &players)
-    	{
-    		auto box=get_parent();
-    		if(box->get_buildable_id()!="player_controls")
-    		{
-            	Glib::ustring buffer="player-controls.ui: id=\"player_controls\" is not the parent of id=\"";
-            	buffer+=get_buildable_id();
-            	buffer+="\" id=\"";
-            	buffer+=box->get_buildable_id();
-            	buffer+="\" is!";
-            	g_critical(buffer.c_str());
-    		}
-    		auto grid=box->get_parent();
-    		if(grid->get_buildable_id()!="grids_box")
-    		{
-            	Glib::ustring buffer="nibble-window.ui & player-controls.ui: id=\"grids_box\" is not the parent of id=\"";
-            	buffer+=box->get_buildable_id();
-            	buffer+="\", id=\"";
-            	buffer+=grid->get_buildable_id();
-            	buffer+="\" is!";
-            	g_critical(buffer.c_str());
-    		}
-    		players.clear();
+		} key_pressed_data;
+	private:
+		unsigned int get_players(std::vector<PlayerButton*> &players)
+		{
+			auto box=get_parent();
+			if(box->get_buildable_id()!="player_controls")
+			{
+				Glib::ustring buffer="player-controls.ui: id=\"player_controls\" is not the parent of id=\"";
+				buffer+=get_buildable_id();
+				buffer+="\" id=\"";
+				buffer+=box->get_buildable_id();
+				buffer+="\" is!";
+				critical(buffer);
+			}
+			auto grid=box->get_parent();
+			if(grid->get_buildable_id()!="grids_box")
+			{
+				Glib::ustring buffer="nibble-window.ui & player-controls.ui: id=\"grids_box\" is not the parent of id=\"";
+				buffer+=box->get_buildable_id();
+				buffer+="\", id=\"";
+				buffer+=grid->get_buildable_id();
+				buffer+="\" is!";
+				critical(buffer);
+			}
+			players.clear();
 			for(auto box=grid->get_first_child();box;box=box->get_next_sibling())
 			{
 				auto button=box->get_first_child();
-	    		assert(button->get_buildable_id()=="name_label");
+				assert(button->get_buildable_id()=="name_label");
 				players.push_back(static_cast<PlayerButton*>(button));
 			}
 			return players.size();
-    	}
+		}
 		void get_key_settings(Glib::RefPtr<Gio::Settings> pWormSettings, unsigned int &key, unsigned int &raw_key, const char *key_string);
 		void set_key_buttons(const Glib::RefPtr<Gtk::Builder>& refBuilder, unsigned int id);
 	};
@@ -773,11 +789,19 @@ public:
 		{
 			clear();
 		}
-		void add_category(const std::string &path, const std::string &file_name);
+		uint8_t to_category(unsigned long speed, bool fakes, unsigned long progress, unsigned long level) const;
+		const Glib::ustring &get_file(uint8_t category_index) {return m_score_file[category_index];}
+		const std::vector<Score> &get_scores(uint8_t category_index) {return m_scores[category_index];}
+		void add_category(const Glib::ustring &path, const Glib::ustring &file_name);
+		std::vector<unsigned long> add(uint8_t category_index, const std::vector<WormScore> &scores);
 		void clear()
 		{
 			m_scores.clear();
 			m_score_file.clear();
+		}
+		bool is_empty() const
+		{
+			return m_scores.empty();
 		}
 		void set_title()
 		{
@@ -807,6 +831,25 @@ public:
 				m_headerbar.set_title_widget(*title);
 				display_scores(category_index[0]);
 			}
+		}
+		std::pair<bool,Glib::ustring> create_scores_directory()
+		{
+			auto path=Glib::build_filename(Glib::get_user_data_dir());
+			if(create_directory(path))
+			{
+				path=Glib::build_filename(path, "gnome-nibbles");
+				if(create_directory(path))
+				{
+					path=Glib::build_filename(path, "scores");
+					if(create_directory(path))
+						return {true,path};
+				}
+			}
+			return {false,{}};
+		}
+		void set_name(uint8_t category_index, unsigned long row, const Glib::ustring &name)
+		{
+			m_scores[category_index][row].name=name;
 		}
 	private:
 		class RowData : public Glib::Object {
@@ -861,21 +904,6 @@ public:
 				}
 			}
 		}
-		std::pair<bool,Glib::ustring> create_scores_directory()
-		{
-			auto path=Glib::build_filename(Glib::get_user_data_dir());
-			if(create_directory(path))
-			{
-				path=Glib::build_filename(path, "gnome-nibbles");
-				if(create_directory(path))
-				{
-					path=Glib::build_filename(path, "scores");
-					if(create_directory(path))
-						return {true,path};
-				}
-			}
-			return {false,{}};
-		}
 		void add_trash_icon()
 		{
 			auto* trash_button = Gtk::make_managed<Gtk::Button>();
@@ -884,8 +912,8 @@ public:
 			trash_button->set_child(*trash_icon);
 			trash_button->add_css_class("flat");
 			trash_button->set_tooltip_text("Clear Scores");
-		    trash_button->signal_clicked().connect(sigc::track_obj(
-		    	[this]() ->
+			trash_button->signal_clicked().connect(sigc::track_obj(
+				[this]() ->
 					void
 					{
 						auto [success, path]=create_scores_directory();
@@ -893,7 +921,8 @@ public:
 						{
 							if(m_score_file.contains(m_display_category))
 							{
-								Glib::RefPtr<Gio::File> file = Gio::File::create_for_path(m_score_file[m_display_category]);
+								auto file_name=Glib::build_filename(path, m_score_file[m_display_category]);
+								Glib::RefPtr<Gio::File> file = Gio::File::create_for_path(file_name);
 								try
 								{
 									file->remove();
@@ -905,13 +934,13 @@ public:
 						}
 						close();
 					},
-	        		*this
-	        	));
+					*this
+				));
 			m_headerbar.pack_start(*trash_button);
 		}
 		std::pair<uint64_t,bool> read_integer(std::ifstream &stream);
 		std::pair<std::string,bool> read_string(std::ifstream &stream);
-		uint8_t to_catagory_index(const std::string &file_name)
+		uint8_t to_catagory_index(const Glib::ustring &file_name)
 		{
 			uint8_t speed=4; /* 1 to 4 inclusive */
 			uint8_t fakes=0; /* 0 to 1 inclusive */
@@ -941,6 +970,7 @@ public:
 					{
 						fixed*=10;
 						fixed+=(*p-'0');
+						p++;
 					}
 					if(fixed<1 || fixed>26)
 						fixed=1;
@@ -1002,7 +1032,7 @@ public:
 		if (!window)
 		{
 			Glib::ustring buffer="nibbles-window.ui: No \"nibbles_window\" object.";
-           	g_critical(buffer.c_str());
+		   	critical(buffer);
 		}
 
 		return window;
@@ -1023,12 +1053,12 @@ public:
 
 		initilise_about();
 
-	    // Bind UI variables to the template elements defined in the .ui file
+		// Bind UI variables to the template elements defined in the .ui file
 		pScreenStack = m_refBuilder->get_widget<Gtk::Stack>("main_stack");
 		if (!pScreenStack)
 		{
 			Glib::ustring buffer="nibbles-window.ui: No \"main_stack\" object.";
-           	g_critical(buffer.c_str());
+		   	critical(buffer);
 		}
 
 		/* common call backs from the screens */
@@ -1044,36 +1074,36 @@ public:
 	
 		initilise_keys();
 		
-        /* Check whether to display the first run screen */
-        switch (start_screen)
-        {
-        	case GAME:
-        		/*
-		        game.numhumans = pSettings->get_int (PLAYER_SETTINGS);
-		        game.numai     = pSettings->get_int (AI_SETTINGS);
-		        game.speed     = pSettings->get_int (SPEED_SETTINGS);
-		        game.fakes     = pSettings->get_boolean (FAKE_SETTINGS);
-		        game.create_worms (worm_settings);
-		        start_game ();
-		        */
-            	break;
-            case CONTROLS:
-            	/*
-		        game.numhumans = pSettings->get_int (PLAYER_SETTINGS);
-		        game.numai     = pSettings->get_int (AI_SETTINGS);
-		        game.speed     = pSettings->get_int (SPEED_SETTINGS);
-		        game.fakes     = pSettings->get_boolean (FAKE_SETTINGS);
-		        show_controls_screen ();
-		        */
-            	break;
-            case SPEED:
-	            /*
-		        game.numhumans = pSettings->get_int (PLAYER_SETTINGS);
-		        game.numai     = pSettings->get_int (AI_SETTINGS);
-		        main_stack.set_visible_child_name (SPEED_SETTINGS);
-		        */
-            	break;
-            default:
+		/* Check whether to display the first run screen */
+		switch (start_screen)
+		{
+			case GAME:
+				/*
+				game.numhumans = pSettings->get_int (PLAYER_SETTINGS);
+				game.numai     = pSettings->get_int (AI_SETTINGS);
+				game.speed     = pSettings->get_int (SPEED_SETTINGS);
+				game.fakes     = pSettings->get_boolean (FAKE_SETTINGS);
+				game.create_worms (worm_settings);
+				start_game ();
+				*/
+				break;
+			case CONTROLS:
+				/*
+				game.numhumans = pSettings->get_int (PLAYER_SETTINGS);
+				game.numai     = pSettings->get_int (AI_SETTINGS);
+				game.speed     = pSettings->get_int (SPEED_SETTINGS);
+				game.fakes     = pSettings->get_boolean (FAKE_SETTINGS);
+				show_controls_screen ();
+				*/
+				break;
+			case SPEED:
+				/*
+				game.numhumans = pSettings->get_int (PLAYER_SETTINGS);
+				game.numai     = pSettings->get_int (AI_SETTINGS);
+				main_stack.set_visible_child_name (SPEED_SETTINGS);
+				*/
+				break;
+			default:
 				if (pSettings->get_boolean ("first-run"))
 				{
 					pSettings->set_boolean ("first-run",false);
@@ -1081,8 +1111,8 @@ public:
 				}
 				else
 					ScreenStack_set_visible_child(PLAYERS);
-            	break;
-        }
+				break;
+		}
 	}
 
 protected:
@@ -1128,10 +1158,10 @@ private:
 		auto box=m_refBuilder->get_widget<Gtk::Box>(box_name);
 		if(!box)
 		{
-            	Glib::ustring buffer="nibbles-window.ui: id=\"";
-            	buffer+=name;
-            	buffer+="\" not found!";
-            	g_critical(buffer.c_str());
+				Glib::ustring buffer="nibbles-window.ui: id=\"";
+				buffer+=name;
+				buffer+="\" not found!";
+				critical(buffer);
 		}
 		return box;
 	}
@@ -1161,23 +1191,23 @@ private:
 		switch(screen)
 		{
 			case FIRST_RUN:
-		        pScreenStack->set_visible_child ("first_run", tt);
+				pScreenStack->set_visible_child ("first_run", tt);
 				break;
 			case USUAL:
 			case PLAYERS:
-		        pScreenStack->set_visible_child ("number_of_players", tt);
+				pScreenStack->set_visible_child ("number_of_players", tt);
 				break;
 			case PROGRESS:
-		        pScreenStack->set_visible_child ("board_progress", tt);
+				pScreenStack->set_visible_child ("board_progress", tt);
 				break;
 			case SPEED:
-		        pScreenStack->set_visible_child ("speed", tt);
+				pScreenStack->set_visible_child ("speed", tt);
 				break;
 			case CONTROLS:
-		        pScreenStack->set_visible_child ("controls", tt);
+				pScreenStack->set_visible_child ("controls", tt);
 				break;
 			case GAME:
-		        pScreenStack->set_visible_child ("game_box", tt);
+				pScreenStack->set_visible_child ("game_box", tt);
 				break;
 		}
 	}
@@ -1227,13 +1257,13 @@ private:
 		}
 	}
 
-    void next_callback()
-    {
-    	auto s=pScreenStack->get_visible_child_name ();
-    	eSetupScreen e=name_to_screen(s);
-    	ScreenSave(e);
-    	switch(e)
-    	{
+	void next_callback()
+	{
+		auto s=pScreenStack->get_visible_child_name ();
+		eSetupScreen e=name_to_screen(s);
+		ScreenSave(e);
+		switch(e)
+		{
 			case FIRST_RUN:
 				ScreenStack_set_visible_child(PLAYERS, Gtk::StackTransitionType::SLIDE_UP);			
 				break;
@@ -1250,11 +1280,13 @@ private:
 			case CONTROLS:
 				ScreenStack_set_visible_child(GAME, Gtk::StackTransitionType::SLIDE_UP);
 				break;
-    	}
+		}
 	}
 
-    void back_callback();
-	void update_high_scores(std::vector<WormScore> scores);
+	void back_callback();
+	void update_high_scores(unsigned long speed, bool fakes,
+		unsigned long progress,	unsigned long level, const std::vector<WormScore> &scores);
+	void launch_help();
 
 	KeyHandler *key_handler=nullptr;
 public:
@@ -1287,13 +1319,13 @@ private:
 		for(auto box=grid->get_first_child();box;box=box->get_next_sibling())
 		{
 			auto button=box->get_first_child();
-    		if(button->get_buildable_id()!="name_label")
-    		{
-            	Glib::ustring buffer="player-controls.ui: id=\"name_label\" is not the first child of id=\"player_controls\" id=\"";
-            	buffer+=box->get_buildable_id();
-            	buffer+="\" is!";
-            	g_critical(buffer.c_str());
-    		}
+			if(button->get_buildable_id()!="name_label")
+			{
+				Glib::ustring buffer="player-controls.ui: id=\"name_label\" is not the first child of id=\"player_controls\" id=\"";
+				buffer+=box->get_buildable_id();
+				buffer+="\" is!";
+				critical(buffer);
+			}
 			players.push_back(static_cast<PlayerButton*>(button));
 		}
 		return players.size();
@@ -1355,16 +1387,16 @@ private:
 		Glib::VariantBase data = p.get_value();
 		if(data)
 		{
-		    try {
-		        auto int_variant = Glib::VariantBase::cast_dynamic<Glib::Variant<int>>(data);
-		        auto ai_count_selection = int_variant.get()-player_count_selection;
+			try {
+				auto int_variant = Glib::VariantBase::cast_dynamic<Glib::Variant<int>>(data);
+				auto ai_count_selection = int_variant.get()-player_count_selection;
 				pSettings->set_int(AI_SETTINGS,ai_count_selection);
-		    } catch (const std::bad_cast& e) {
-            	Glib::ustring buffer = "The type of pAiButtons->property_state() is ";
-            	buffer+=data.get_type_string();
-            	buffer+=" not i(integer)!";
-            	g_critical(buffer.c_str());
-		    }
+			} catch (const std::bad_cast& e) {
+				Glib::ustring buffer = "The type of pAiButtons->property_state() is ";
+				buffer+=data.get_type_string();
+				buffer+=" not i(integer)!";
+				critical(buffer);
+			}
 		}
 	}
 
@@ -1391,9 +1423,9 @@ private:
 				spin = Gtk::make_managed<Gtk::SpinButton>();
 				spin->set_range(1, 26);
 				spin->set_increments(1, 1);
-		        spin->set_halign(Gtk::Align::END);
-		        spin->get_adjustment()->signal_value_changed().connect(
-		        	sigc::mem_fun(*this, &NibblesWindow::change_spin_callback) );
+				spin->set_halign(Gtk::Align::END);
+				spin->get_adjustment()->signal_value_changed().connect(
+					sigc::mem_fun(*this, &NibblesWindow::change_spin_callback) );
 				spin->set_value(std::clamp(pSettings->get_int(LEVEL_SETTINGS), 1 , 26)); /* initial selection */
 				m_refBuilder->get_widget<Gtk::Overlay>("spin")->add_overlay (*spin);
 			}
@@ -1449,75 +1481,74 @@ private:
 			GetWidget("wheel")->set_visible(false);
 		}
 	}
-
-
+	void delete_view();
 public:
-    void new_game_cb()
-    {
-    }
-    void fullscreen_cb()
-    {
-    	if(full_screen)
-    	{
-    		full_screen=false;
-    		unfullscreen();
-    	}
-    	else
-    	{
-    		full_screen=true;
-    		fullscreen();
-    	}
-    }
-    void help_cb()
-    {
-        //if (false/*!is_game_paused()*/)
-        //    activate_action ("pause");
-
-		/* Don't use uri_launcher_launch as it breaks the help in flatpak. */
-		/* todo change over to use gtkmm */
-        gtk_show_uri(static_cast<Gtk::Window *>(this)->gobj(), "help:gnome-nibbles", GDK_CURRENT_TIME);
-    }
-    void about_cb()
-    {
-        //if (false/*!is_game_paused()*/)
-        //    activate_action ("pause");
-		about.present();
-    }
-    void scores_cb()
-    {
-    	//scores.set_decorated(false);
-
-		/* load high scores from score directory */
-		scores.clear();
-		auto path=Glib::build_filename(Glib::get_user_data_dir(), "gnome-nibbles", "scores");
-		Glib::RefPtr<Gio::File> directory = Gio::File::create_for_path(path);
-		try {
-		    Glib::RefPtr<Gio::FileEnumerator> enumerator = directory->enumerate_children(
-		        "standard::name", Gio::FileQueryInfoFlags::NONE);
-		    Glib::RefPtr<Gio::FileInfo> file_info;
-		    while (file_info = enumerator->next_file()) {
-				scores.add_category(path, file_info->get_name());
-		    }
-		    enumerator->close();
-		} catch (const std::exception& ex) {
-			/* no scores to load */
+	void new_game_cb()
+	{
+	}
+	void fullscreen_cb()
+	{
+		if(full_screen)
+		{
+			full_screen=false;
+			unfullscreen();
 		}
+		else
+		{
+			full_screen=true;
+			fullscreen();
+		}
+	}
+	void help_cb()
+	{
+		//if (false/*!is_game_paused()*/)
+		//    activate_action ("pause");
 
-    	scores.set_transient_for(*this);
-    	scores.set_modal();
-    	scores.set_hide_on_close();
-    	scores.set_resizable(true);
-		scores.set_title();
-    	scores.present();
-    }
-    void pause_cb() /*toggle pause*/
-    {
-    	auto button=GetButton("pause_button");
-    	if(button)
-    	{
+		launch_help();
+	}
+	void about_cb()
+	{
+		//if (false/*!is_game_paused()*/)
+		//    activate_action ("pause");
+		about.present();
+	}
+	void scores_cb()
+	{
+		//scores.set_decorated(false);
+
+		load_high_scores();
+
+		if(scores.is_empty())
+		{
+			pause(true); /* pause the game */
+
+			// Translators: text displayed in an inform box
+			auto* inform = new InformWindow(*this, "No high scores","You must compleate a game to create a high score.");
+			
+			// Handle the response callback asynchronously (non-blocking)
+			inform->close_response().connect([this, inform]() {
+				pause(false); /* continue the game */
+				delete inform;
+			});
+			inform->present();
+		}
+		else
+		{
+			scores.set_transient_for(*this);
+			scores.set_modal();
+			scores.set_hide_on_close();
+			scores.set_resizable(true);
+			scores.set_title();
+			scores.present();
+		}
+	}
+	void pause_cb() /*toggle pause*/
+	{
+		auto button=GetButton("pause_button");
+		if(button)
+		{
 	 		if(auto icon = dynamic_cast<Gtk::Image*>(button->get_child()))
 	 		{
-	 			bool pause;
 	 			if(icon->get_icon_name()=="media-playback-pause-symbolic")
 	 			{
 	 				/* pause the game*/
@@ -1532,12 +1563,12 @@ public:
 	 			}
 	 		}
 		}
-    }
-    void pause(bool p)
-    {
-    	auto button=GetButton("pause_button");
-    	if(button)
-    	{
+	}
+	void pause(bool p)
+	{
+		auto button=GetButton("pause_button");
+		if(button)
+		{
 	 		if(auto icon = dynamic_cast<Gtk::Image*>(button->get_child()))
 	 		{
 	 			if(p)
@@ -1554,8 +1585,35 @@ public:
 	 			}
 	 		}
 		}
-    }
-
+	}
+	void load_high_scores()
+	{
+		/* load high scores from score directory */
+		scores.clear();
+		auto [success, path]=scores.create_scores_directory();
+		if(success)
+		{
+			Glib::RefPtr<Gio::File> directory = Gio::File::create_for_path(path);
+			Gio::FileType type = directory->query_file_type(Gio::FileQueryInfoFlags::NONE);
+			if(type == Gio::FileType::DIRECTORY)
+			{
+				try {
+					Glib::RefPtr<Gio::FileEnumerator> enumerator = directory->enumerate_children("standard::name", Gio::FileQueryInfoFlags::NONE);
+					Glib::RefPtr<Gio::FileInfo> file_info;
+					while((file_info = enumerator->next_file()))
+					{
+						if(file_info->get_file_type()==Gio::FileType::REGULAR)
+							scores.add_category(path, file_info->get_name());
+					}
+					enumerator->close();
+				} catch (const std::exception& ex) {
+					// no scores to load
+				}
+			}
+			
+		}
+	}
+	void save_high_scores(uint8_t category_index);
 private:
 	int cli_start_level;
 	//eSetupScreen start_screen;

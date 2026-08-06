@@ -15,8 +15,7 @@ nibbles_tests = executable(
     cpp_args: cpp_if_defines,
     link_args : '-lm'
 )
-test('nibbles-tests', nibbles_tests)
-
+test('nibbles-tests', nibbles_tests, timeout: 120)
 
 # gnome-nibbles executable
 gnome_nibbles_sources = [
@@ -26,6 +25,7 @@ gnome_nibbles_sources = [
 	'worm.cpp',
     'game.cpp',
     'pseudo_random.cpp',
+    'critical.cpp',
 	resources
 ]
 

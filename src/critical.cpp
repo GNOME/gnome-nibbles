@@ -17,15 +17,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "pseudo_random.h"
+#include <gtkmm.h>
+#include "critical.h"
 
-/* a pseudo random number between 0 and 2^64-1 inclusive */
-unsigned long pseudo_random()
+void critical(const Glib::ustring &critical_message)
 {
-	static auto last = 2ULL; /*seed*/
-	const auto a = 6364136223846793005ULL; /*multiplier*/ 
-	const auto c = 1442695040888963407ULL; /*increment*/
-	last = a * last + c;
-	return last;
+	g_critical("%s",critical_message.c_str());
 }
-

@@ -1,63 +1,32 @@
 {
-    "app-id": "org.gnome.Nibbles",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "master",
-    "sdk": "org.gnome.Sdk",
-    "command": "gnome-nibbles",
-    "sdk-extensions": ["org.freedesktop.Sdk.Extension.llvm22"],
-	"build-options":
-	{
-		"append-path": "/usr/lib/sdk/llvm22/bin",
-		"prepend-ld-library-path": "/usr/lib/sdk/llvm22/lib",
-		"env": {
-		    "CC": "clang",
-		    "CXX": "clang++"
-		}
-	},
+	"app-id": "org.gnome.Nibbles",
+	"runtime": "org.gnome.Platform",
+	"runtime-version": "master",
+	"sdk": "org.gnome.Sdk",
+	"command": "gnome-nibbles",
 	"finish-args": [
-        /* X11 + XShm access */
-        "--share=ipc", "--socket=fallback-x11",
-        /* Wayland access */
-        "--socket=wayland",
-        /* Sound! */
-        "--socket=pulseaudio",
-        /* OpenGL access */
-        "--device=dri"
-    ],
-    "cleanup": [
-        "/include",
-        "/lib/pkgconfig",
-        "/man",
-        "/share/doc",
-        "/share/gtk-doc",
-        "/share/man",
-        "/share/pkgconfig",
-        "/share/vala",
-        "*.la",
-        "*.a"
-    ],
-    "modules":
-    [
-    	{
-			"name": "lib++",
-			"buildsystem": "simple",
-			"build-commands":
-			[
-				"mkdir _flatpak_build",
-				"cmake -G Ninja -S llvm -B _flatpak_build -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_INSTALL_LIBDIR=lib -DLLVM_TARGETS_TO_BUILD='host' -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF -DLLVM_LIBDIR_SUFFIX='' -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_RUNTIMES='libunwind;libcxx;libcxxabi'",
-				"ninja -C _flatpak_build unwind cxx cxxabi ",
-				"ninja -C _flatpak_build install-unwind install-cxx install-cxxabi"
-			],
-			"sources":
-			[
-				{
-					"type": "git",
-					"url": "https://github.com/llvm/llvm-project.git",
-					"depth": 1,
-				    "branch": "main"
-				}
-			]
-		},
+		/* X11 + XShm access */
+		"--share=ipc", "--socket=fallback-x11",
+		/* Wayland access */
+		"--socket=wayland",
+		/* Sound! */
+		"--socket=pulseaudio",
+		/* OpenGL access */
+		"--device=dri"
+	],
+	"cleanup": [
+		"/include",
+		"/lib/pkgconfig",
+		"/man",
+		"/share/doc",
+		"/share/gtk-doc",
+		"/share/man",
+		"/share/pkgconfig",
+		"*.la",
+		"*.a"
+	],
+	"modules":
+	[
 		{
 			"name": "libsigcplusplus",
 			"buildsystem": "meson",
@@ -70,39 +39,40 @@
 					"sha256": "4ff41d1474e501d3baeced4c989d154338206ac16471e614376496b63fe252d1"
 				}
 			]
-		},
-        {
-            "name" : "gsound",
-            "buildsystem" : "meson",
-            "sources" :
-            [
-                {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/gsound.git"
-                }
-            ],
-            "modules":
-            [
-                {
-                    "name": "libcanberra",
-                    "config-opts":
-                    [
-                        "--disable-alsa",
-                        "--disable-null",
-                        "--disable-oss",
-                        "--disable-gtk3"
-                    ],
-                    "sources":
-                	[
-                		{
+		},/* end libsigcplusplus */
+		{
+			"name" : "gsound",
+			"buildsystem" : "meson",
+			"config-opts": ["-Denable_vala=false"],
+			"sources" :
+			[
+				{
+					"type" : "git",
+					"url" : "https://gitlab.gnome.org/GNOME/gsound.git"
+				}
+			],
+			"modules":
+			[
+				{
+					"name": "libcanberra",
+					"config-opts":
+					[
+						"--disable-alsa",
+						"--disable-null",
+						"--disable-oss",
+						"--disable-gtk3"
+					],
+					"sources":
+					[
+						{
 							"type": "archive",
 							"url": "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz",
 							"sha256": "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
-                    	}
-                    ]
-                }
-            ]
-        },
+						}
+					]
+				}
+			]
+		},/* end gsound */
 		{
 			"name": "gtkmm",
 			"buildsystem": "meson",
@@ -170,22 +140,45 @@
 					]
 				}
 			]
-		},        
-        {
-            "name": "gnome-nibbles",
-            "buildsystem": "meson",
+		},/* end gtkmm */
+		{
+			"name": "itstool",
+			"buildsystem": "autotools",
+			"build-options":
+			{
+				"cflags": "-O2 -std=c99"
+			},
 			"config-opts":
 			[
-                "-Dappend_to_version= (GNOME flatpak)",
-                "-Dwebsite=https://gitlab.gnome.org/GNOME/gnome-nibbles"
-            ],
-            "sources":
-            [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gnome-nibbles.git"
-                }                
-            ]
-        }
-    ]
+				"--prefix=/app"
+			],
+			"sources":
+			[
+				{
+					"type": "git",
+					"url": "https://github.com/itstool/itstool.git"
+				}
+			]
+		},/* end itstool */
+		{
+			"name": "gnome-nibbles",
+			"buildsystem": "meson",
+			"build-options":
+			{
+				"cxxflags": "-fdiagnostics-all-candidates"
+			},
+			"config-opts":
+			[
+				"-Dappend_to_version= (GNOME flatpak)",
+				"-Dwebsite=https://gitlab.gnome.org/GNOME/gnome-nibbles"
+			],
+			"sources":
+			[
+				{
+					"type": "git",
+					"url": "https://gitlab.gnome.org/GNOME/gnome-nibbles.git"
+				}                
+			]
+		}/* end gnome-nibbles */
+	]
 }

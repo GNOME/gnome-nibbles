@@ -32,38 +32,38 @@
 
 struct SignedPosition
 {
-    int64_t x; /* x increases going right (or east) */
-    int64_t y; /* y increases going down (or south) */
-    /* used by wrap functions */
-    int64_t x_max=0;
-    int64_t y_max=0;
-    
-    uint8_t wrap_x() const
-    {
-        assert (x_max > 0 && x_max<=92); /* call set_wrapping (x, y) first */
-        if (x >= x_max)
-            return x % x_max;
-        else if (x < 0)
-            return ((x % x_max) + x_max) % x_max;
-        else
-            return (uint8_t)x;
-    }
+	int64_t x; /* x increases going right (or east) */
+	int64_t y; /* y increases going down (or south) */
+	/* used by wrap functions */
+	int64_t x_max=0;
+	int64_t y_max=0;
+	
+	uint8_t wrap_x() const
+	{
+		assert (x_max > 0 && x_max<=92); /* call set_wrapping (x, y) first */
+		if (x >= x_max)
+			return x % x_max;
+		else if (x < 0)
+			return ((x % x_max) + x_max) % x_max;
+		else
+			return (uint8_t)x;
+	}
 
-    uint8_t wrap_y() const
-    {
-        assert (y_max > 0 && y_max<=66); /* call set_wrapping (x, y) first */
-        if (y >= y_max)
-            return y % y_max;
-        else if (y < 0)
-      		return ((y % y_max) + y_max) % y_max;
-        else
-            return (uint8_t)y;
-    }
+	uint8_t wrap_y() const
+	{
+		assert (y_max > 0 && y_max<=66); /* call set_wrapping (x, y) first */
+		if (y >= y_max)
+			return y % y_max;
+		else if (y < 0)
+	  		return ((y % y_max) + y_max) % y_max;
+		else
+			return (uint8_t)y;
+	}
 
-    uint16_t wrap_xy () const
-    {
-        return ((uint16_t)wrap_x() << 8) | wrap_y ();
-    }
+	uint16_t wrap_xy () const
+	{
+		return ((uint16_t)wrap_x() << 8) | wrap_y ();
+	}
 };
 
 /* an enumerated type that represents one quarter of the board */
@@ -87,13 +87,13 @@ class Angle
 	public:
 		explicit int128(int i)
 		{
-		    low = (uint64_t)i;
-		    hi = (i < 0) ? -1 : 0;
+			low = (uint64_t)i;
+			hi = (i < 0) ? -1 : 0;
 		}
 		int128(int64_t i = 0)
 		{
-		    low = (uint64_t)i;
-		    hi = (i < 0) ? -1 : 0;
+			low = (uint64_t)i;
+			hi = (i < 0) ? -1 : 0;
 		}
 		int128 operator+=(const int128& rhs)
 		{
@@ -105,9 +105,9 @@ class Angle
 		}
 		int128 operator+(const int128& rhs) const
 		{
-		    int128 result=*this;
-		    result+=rhs;
-		    return result;
+			int128 result=*this;
+			result+=rhs;
+			return result;
 		}    
 		int128 operator-=(const int128& rhs)
 		{
@@ -117,29 +117,29 @@ class Angle
 		}
 		int128 operator-(const int128& rhs) const
 		{
-		    int128 result=*this;
-		    result-=rhs;
-		    return result;
+			int128 result=*this;
+			result-=rhs;
+			return result;
 		}    
 		int128 operator-() const
 		{
-		    return int128(0) - *this;
+			return int128(0) - *this;
 		}
 		int128 operator<<=(int shift)
 		{
-		    if (shift >= 64)
-		    {
-		        hi = low;
-		        low = 0;
-		        shift -= 64;
-		    }
-		    if (shift > 0)
-		    {
-		        hi <<= shift;
-		        hi |= low >> (64 - shift);
-		        low <<= shift;
-		    }
-		    return *this;
+			if (shift >= 64)
+			{
+				hi = low;
+				low = 0;
+				shift -= 64;
+			}
+			if (shift > 0)
+			{
+				hi <<= shift;
+				hi |= low >> (64 - shift);
+				low <<= shift;
+			}
+			return *this;
 		}
 		int128 operator<<(int shift) const
 		{
@@ -155,19 +155,19 @@ class Angle
 		}
 		int128 operator>>=(int shift)
 		{
-		    if (shift >= 64)
-		    {
-		        low = hi;
-		        hi = 0;
-		        shift -= 64;
-		    }
-		    if (shift > 0)
-		    {
-		        low >>= shift;
-		        low |= hi << (64 - shift);
-		        hi >>= shift;
-		    }
-		    return *this;
+			if (shift >= 64)
+			{
+				low = hi;
+				hi = 0;
+				shift -= 64;
+			}
+			if (shift > 0)
+			{
+				low >>= shift;
+				low |= hi << (64 - shift);
+				hi >>= shift;
+			}
+			return *this;
 		}
 		int128 operator>>(int shift) const
 		{
@@ -245,11 +245,11 @@ class Angle
 			{
 				current <<= 1;
 				if(((a >> i) & 1) > 0)
-				    current.low |= 1;
+					current.low |= 1;
 				if(current >= b)
 				{
-				    current -= b;
-				    quotient += int128(1) << i;
+					current -= b;
+					quotient += int128(1) << i;
 				}
 			}
 
@@ -273,7 +273,7 @@ class Angle
 			for(long i = 0; i < 128; i++)
 			{
 				if((b & 1) > 0)
-				    result+= base;
+					result+= base;
 				base <<= 1;
 				b >>= 1;
 			}
@@ -306,25 +306,25 @@ class Angle
 	#endif
 
 public:
-    /* variables */
-    int128 x; /* x increases going right (or east) */
-    int128 y; /* y increases going down (or south) */
+	/* variables */
+	int128 x; /* x increases going right (or east) */
+	int128 y; /* y increases going down (or south) */
 private:
-    /* variables used by @get */
-    static const int step_multiplier_2n = 38;
-    static const int64_t step_multiplier = 274877906944; /* 2 to the power of 38 */
-    int64_t origin_x;
-    int64_t origin_y;
+	/* variables used by @get */
+	static const int step_multiplier_2n = 38;
+	static const int64_t step_multiplier = 274877906944; /* 2 to the power of 38 */
+	int64_t origin_x;
+	int64_t origin_y;
 public:
-    /* variables used by wrap functions in struct SignedPosition */
-    int64_t x_max; /* one more that the max */
-    int64_t y_max; /* one more that the max */
+	/* variables used by wrap functions in struct SignedPosition */
+	int64_t x_max; /* one more that the max */
+	int64_t y_max; /* one more that the max */
 
 private:
 	bool _set;
 
 public:
-    /* public functions */
+	/* public functions */
 	Angle(int64_t x, int64_t y, int64_t x_max=0, int64_t y_max=0) : x(x), y(y), x_max(x_max), y_max(y_max), _set(true)
 	{
 	}
@@ -360,150 +360,150 @@ public:
 /*
 	const Angle &operator=(const Angle &o)
 	{
-        x = o.x;
-        y = o.y;
-        origin_x = o.origin_x;
-        origin_y = o.origin_y;
-        x_max = o.x_max;
-        y_max = o.y_max;
-        return *this;
+		x = o.x;
+		y = o.y;
+		origin_x = o.origin_x;
+		origin_y = o.origin_y;
+		x_max = o.x_max;
+		y_max = o.y_max;
+		return *this;
 	}
 */
 	bool operator<=(const Angle &o) const
-    {
-        return !(*this > o);
-    }
+	{
+		return !(*this > o);
+	}
 
 	bool operator>(const Angle &o) const
-    {
-        Quarter q=o.get_quarter();
-        switch (get_quarter ())
-        {
-            case Q0:
-                if (q == Q3)
-                    return true;
-                else if (q == Q1)
-                    return false;
-                else
-                    return x*o.y < o.x*y;
-            case Q1:
-                if (q == Q0)
-                    return true;
-                else if (q == Q2)
-                    return false;
-                else
-                    return x*o.y < o.x*y;
-            case Q2:
-                if (q == Q1)
-                    return true;
-                else if (q == Q3)
-                    return false;
-                else
-                    return x*o.y < o.x*y;
-            case Q3:
-                if (q == Q2)
-                    return true;
-                else if (q == Q0)
-                    return false;
-                else
-                    return x*o.y < o.x*y;
-            default:
-                return false;
-        }
-    }
+	{
+		Quarter q=o.get_quarter();
+		switch (get_quarter ())
+		{
+			case Q0:
+				if (q == Q3)
+					return true;
+				else if (q == Q1)
+					return false;
+				else
+					return x*o.y < o.x*y;
+			case Q1:
+				if (q == Q0)
+					return true;
+				else if (q == Q2)
+					return false;
+				else
+					return x*o.y < o.x*y;
+			case Q2:
+				if (q == Q1)
+					return true;
+				else if (q == Q3)
+					return false;
+				else
+					return x*o.y < o.x*y;
+			case Q3:
+				if (q == Q2)
+					return true;
+				else if (q == Q0)
+					return false;
+				else
+					return x*o.y < o.x*y;
+			default:
+				return false;
+		}
+	}
 
-    bool operator<(const Angle &o) const
-    {
-        return !(*this==o) && *this<=o;
-    }
+	bool operator<(const Angle &o) const
+	{
+		return !(*this==o) && *this<=o;
+	}
 
 	bool operator>=(const Angle &o) const
-    {
-        Quarter q=o.get_quarter ();
-        switch (get_quarter ())
-        {
-            case Q0:
-                if (q == Q3)
-                    return true;
-                else if (q == Q1)
-                    return false;
-                else if (q == Q2)
-                    return x*o.y < o.x*y;
-                else
-                    return x*o.y <= o.x*y;
-            case Q1:
-                if (q == Q0)
-                    return true;
-                else if (q == Q2)
-                    return false;
-                else if (q == Q3)
-                    return x*o.y < o.x*y;
-                else
-                    return x*o.y <= o.x*y;
-            case Q2:
-                if (q == Q1)
-                    return true;
-                else if (q == Q3)
-                    return false;
-                else if (q == Q0)
-                    return x*o.y < o.x*y;
-                else
-                    return x*o.y <= o.x*y;
-            case Q3:
-                if (q == Q2)
-                    return true;
-                else if (q == Q0)
-                    return false;
-                else if (q == Q1)
-                    return x*o.y < o.x*y;
-                else
-                    return x*o.y <= o.x*y;
-            default:
-                return false;
-        }
-    }
+	{
+		Quarter q=o.get_quarter ();
+		switch (get_quarter ())
+		{
+			case Q0:
+				if (q == Q3)
+					return true;
+				else if (q == Q1)
+					return false;
+				else if (q == Q2)
+					return x*o.y < o.x*y;
+				else
+					return x*o.y <= o.x*y;
+			case Q1:
+				if (q == Q0)
+					return true;
+				else if (q == Q2)
+					return false;
+				else if (q == Q3)
+					return x*o.y < o.x*y;
+				else
+					return x*o.y <= o.x*y;
+			case Q2:
+				if (q == Q1)
+					return true;
+				else if (q == Q3)
+					return false;
+				else if (q == Q0)
+					return x*o.y < o.x*y;
+				else
+					return x*o.y <= o.x*y;
+			case Q3:
+				if (q == Q2)
+					return true;
+				else if (q == Q0)
+					return false;
+				else if (q == Q1)
+					return x*o.y < o.x*y;
+				else
+					return x*o.y <= o.x*y;
+			default:
+				return false;
+		}
+	}
 
-    bool operator==(const Angle &o) const
-    {
-        return (get_quarter () == o.get_quarter ())
-            && x*o.y == o.x*y;
-    }
+	bool operator==(const Angle &o) const
+	{
+		return (get_quarter () == o.get_quarter ())
+			&& x*o.y == o.x*y;
+	}
 
-    void set_origin (Position origin)
-    {
-        origin_x = (origin.x * 2 + 1) * (step_multiplier / 2);
-        origin_y = (origin.y * 2 + 1) * (step_multiplier / 2);
-    }
+	void set_origin (Position origin)
+	{
+		origin_x = (origin.x * 2 + 1) * (step_multiplier / 2);
+		origin_y = (origin.y * 2 + 1) * (step_multiplier / 2);
+	}
 
-    void set_wrapping (int x, int y)
-    {
-        x_max = x;
-        y_max = y;
-    }
+	void set_wrapping (int x, int y)
+	{
+		x_max = x;
+		y_max = y;
+	}
 
-    bool step_along_x() const
-    {
-        return (x < 0 ? -x : x) > (y < 0 ? -y : y);//std::abs(x) > std::abs(y)
-    }
+	bool step_along_x() const
+	{
+		return (x < 0 ? -x : x) > (y < 0 ? -y : y);//std::abs(x) > std::abs(y)
+	}
 
-    /* get the i position along the angle */
-    SignedPosition get(uint64_t i) const
-    {
-        /* step along x or y axis depending on which is the larger */
-        int64_t delta_x = step_along_x() ?
-        	set_delta_x_sign (step_multiplier):
-            set_delta_x_sign ( (x << step_multiplier_2n) / y);
-        int64_t delta_y = step_along_x() ?
-        	set_delta_y_sign ( (y << step_multiplier_2n) / x):
-            set_delta_y_sign (step_multiplier);
+	/* get the i position along the angle */
+	SignedPosition get(uint64_t i) const
+	{
+		/* step along x or y axis depending on which is the larger */
+		int64_t delta_x = step_along_x() ?
+			set_delta_x_sign (step_multiplier):
+			set_delta_x_sign ( (x << step_multiplier_2n) / y);
+		int64_t delta_y = step_along_x() ?
+			set_delta_y_sign ( (y << step_multiplier_2n) / x):
+			set_delta_y_sign (step_multiplier);
 
-        /* calculate new x,y position */
-        int64_t x_i = origin_x + delta_x * (int64_t)i;
-        int64_t y_i = origin_y + delta_y * (int64_t)i;
+		/* calculate new x,y position */
+		int64_t x_i = origin_x + delta_x * (int64_t)i;
+		int64_t y_i = origin_y + delta_y * (int64_t)i;
 
-        return { (x_i >> step_multiplier_2n),
-            (y_i >> step_multiplier_2n), x_max, y_max};
-    }
+		return { (x_i >> step_multiplier_2n),
+			(y_i >> step_multiplier_2n), x_max, y_max};
+	}
 
 	SignedPosition begin() const
 	{
@@ -515,82 +515,91 @@ public:
 		return get(step_along_x() ? x_max : y_max);
 	}
 
-    /* private functions */
+	/* private functions */
 private:
-    /* -x                     +x
-     *             |              -y
-     *  quarter 3  |  quarter 0
-     *             |              
-     * ------------+-------------
-     *             |
-     *  quarter 2  |  quarter 1
-     *             |              +y
-     *
-     * + is a x=0,y=0
-     */
-    Quarter get_quarter () const
-    {
-        if (x >= 0 && y < 0)
-            return Q0;
-        else if (x > 0 && y >= 0)
-            return Q1;
-        if (x <= 0 && y > 0)
-            return Q2;
-        else
-            return Q3;
-    }
+	/* -x                     +x
+	 *             |              -y
+	 *  quarter 3  |  quarter 0
+	 *             |              
+	 * ------------+-------------
+	 *             |
+	 *  quarter 2  |  quarter 1
+	 *             |              +y
+	 *
+	 * + is a x=0,y=0
+	 */
+	Quarter get_quarter () const
+	{
+		if (x >= 0 && y < 0)
+			return Q0;
+		else if (x > 0 && y >= 0)
+			return Q1;
+		if (x <= 0 && y > 0)
+			return Q2;
+		else
+			return Q3;
+	}
 
-    /* set the parameter to the same sign as x */
-    int64_t set_delta_x_sign (const int128 &_x) const
-    {
-    	if(x<0 ^ _x<0)
-    		return -(int64_t)_x;
-    	else
-    		return (int64_t)_x;
-    }
+	/* set the parameter to the same sign as x */
+	int64_t set_delta_x_sign (const int128 &_x) const
+	{
+		if(x<0 ^ _x<0)
+			return -(int64_t)_x;
+		else
+			return (int64_t)_x;
+	}
 
-    /* set the parameter to the same sign as y */
-    int64_t set_delta_y_sign (const int128 &_y) const
-    {
-    	if(y<0 ^ _y<0)
-    		return -(int64_t)_y;
-    	else
-    		return (int64_t)_y;
-    }
+	/* set the parameter to the same sign as y */
+	int64_t set_delta_y_sign (const int128 &_y) const
+	{
+		if(y<0 ^ _y<0)
+			return -(int64_t)_y;
+		else
+			return (int64_t)_y;
+	}
 };
 
 class WormPositions
 {
 public:
-    void append_position (Position p)
-    {
-        list.push_back(((uint16_t)p.x) << 8 | p.y);
-    }
-    Position get_head() const
-    {
-        auto head=list.front();
-        return {(uint8_t)(head >> 8), (uint8_t)head};
-    }
-    Position get_head_adjacent() const
-    {
-    	auto iterator=list.begin();
-    	std::advance(iterator, 1);
-        return {(uint8_t)(*iterator >> 8), (uint8_t)*iterator};
-    }
-    void set_head(Position p)
-    {
-    	list.front()=((uint16_t)p.x) << 8 | p.y;
-    }
-    void prepend_position(Position p)
-    {
-    	list.push_front(((uint16_t)p.x) << 8 | p.y);
-    }
-    uint16_t remove_tail()
-    {
-    	uint16_t r=list.back();
-        list.pop_back();
-        return r;
-    }
+	void append_position (Position p)
+	{
+		list.push_back(((uint16_t)p.x) << 8 | p.y);
+	}
+	auto get_length() const
+	{
+		return list.size();
+	}
+	bool is_empty() const
+	{
+		return get_length()==0;
+	}
+	Position get_head() const
+	{
+		assert(!is_empty());
+		auto head=list.front();
+		return {(uint8_t)(head >> 8), (uint8_t)(head & 0xff)};
+	}
+	Position get_head_adjacent() const
+	{
+		auto iterator=list.begin();
+		std::advance(iterator, 1);
+		return {(uint8_t)(*iterator >> 8), (uint8_t)*iterator};
+	}
+	void set_head(Position p)
+	{
+		list.front()=((uint16_t)p.x) << 8 | p.y;
+	}
+	void prepend_position(Position p)
+	{
+		list.push_front(((uint16_t)p.x) << 8 | p.y);
+	}
+	uint16_t remove_tail()
+	{
+		uint16_t r=list.back();
+		list.pop_back();
+		return r;
+	}
 	auto begin() const
 	{
 		return list.cbegin();
@@ -599,17 +608,9 @@ public:
 	{
 		return list.cend();
 	}
-	bool is_empty() const
-	{
-		return list.empty();
-	}
 	void reverse()
 	{
 		list.reverse();
-	}
-	auto get_length() const
-	{
-		return list.size();
 	}
 	bool contains(Position position) const
 	{
@@ -648,59 +649,59 @@ public:
 		Map(const std::forward_list<Worm> &worms, uint8_t map_width, uint8_t map_height) :
 			SimpleMap(map_width, map_height)
 		{
-		    add(worms);
+			add(worms);
 		}
 		Map(const std::forward_list<const Worm*> &worms, uint8_t map_width, uint8_t map_height) :
 			SimpleMap(map_width, map_height)
 		{
-		    add(worms);
+			add(worms);
 		}
 		bool contain(uint16_t p) const
 		{
-		    return test(p);
+			return test(p);
 		}
 		bool contain_position(Position p) const
 		{
-		    return contain(((uint16_t)p.x) << 8 | p.y);
+			return contain(((uint16_t)p.x) << 8 | p.y);
 		}
 		bool contain_position(uint8_t x, uint8_t y) const
 		{
-		    return contain(((uint16_t)x) << 8 | y);
+			return contain(((uint16_t)x) << 8 | y);
 		}
 		bool contains(WormPositions positions)
 		{
 			for(const auto &p : positions)
-		        if (contain (p))
-		            return true;
-		    return false;
+				if (contain (p))
+					return true;
+			return false;
 		}
 		/* private functions */
 	private:
 		void add(const std::forward_list<Worm> &worms)
 		{
-		    for(const auto &worm : worms)
-		    {
-		        if (worm.is_materialized())
-		        {
-		            for(const auto &p : worm.get_positions())
-		            {
-		            	set(p);
-		            }
-		        }
-		    }
+			for(const auto &worm : worms)
+			{
+				if (worm.is_materialized())
+				{
+					for(const auto &p : worm.get_positions())
+					{
+						set(p);
+					}
+				}
+			}
 		}
 		void add(const std::forward_list<const Worm*> &worms)
 		{
-		    for(const auto &worm : worms)
-		    {
-		        if (worm->is_materialized())
-		        {
-		            for(const auto &p : worm->get_positions())
-		            {
-		            	set(p);
-		            }
-		        }
-		    }
+			for(const auto &worm : worms)
+			{
+				if (worm->is_materialized())
+				{
+					for(const auto &p : worm->get_positions())
+					{
+						set(p);
+					}
+				}
+			}
 		}
 	};
 	void do_wall_and_warps(
@@ -786,7 +787,7 @@ public:
 	Worm(Game &game, unsigned long current_level, bool human, eWormColour colour,
 		unsigned long width, unsigned long height) :
 		game(game), current_level(current_level), human(human), colour(colour),
-		capacity(height*width), start(start), deadend_board(width,height)
+		capacity(height*width), deadend_board(width,height)
 	{
 		positions.append_position(start.position);
 		direction = start.direction;
@@ -824,7 +825,7 @@ public:
 		bonus_eaten.clear(); /* forget all the bonuses we have eaten */
 		positions.clear();
 		positions.append_position(start.position);
-	    direction = start.direction;
+		direction = start.direction;
 
 		const unsigned long STARTING_LENGTH=5;
 		if(!positions.is_empty())
@@ -844,45 +845,45 @@ public:
 		start=_start;
 		spawn(board,bonuses,force_materialize);
 	}
-    void reverse()
-    {
-        if (!is_still() && !positions.is_empty())
-        {
-            positions.reverse();
+	void reverse()
+	{
+		if (!is_still() && !positions.is_empty())
+		{
+			positions.reverse();
 
-            auto head=positions.get_head();
-            auto adjacent=positions.get_head_adjacent();
-            if (head.y==adjacent.y)
-                direction = (head.x > adjacent.x) ? eDirection::RIGHT : eDirection::LEFT;
-            else
-                direction = (head.y > adjacent.y) ? eDirection::DOWN : eDirection::UP;
-        }
-    }
-    bool decrement_still()
-    {
-        if (rounds_to_stay_still > 0)
-        {
-            --rounds_to_stay_still;
-            return true;
-        }
-        else
-        	return false;
-    }
-    unsigned long get_rounds_to_stay_still() const
-    {
-    	return rounds_to_stay_still;
-    }
+			auto head=positions.get_head();
+			auto adjacent=positions.get_head_adjacent();
+			if (head.y==adjacent.y)
+				direction = (head.x > adjacent.x) ? eDirection::RIGHT : eDirection::LEFT;
+			else
+				direction = (head.y > adjacent.y) ? eDirection::DOWN : eDirection::UP;
+		}
+	}
+	bool decrement_still()
+	{
+		if (rounds_to_stay_still > 0)
+		{
+			--rounds_to_stay_still;
+			return true;
+		}
+		else
+			return false;
+	}
+	unsigned long get_rounds_to_stay_still() const
+	{
+		return rounds_to_stay_still;
+	}
 	bool decrement_score()
-    {
-        if (score > 0)
-        {
-	        --score;
-	        score_changed=true;
-	        return true;
-	    }
-        else
-        	return false;
-    }
+	{
+		if (score > 0)
+		{
+			--score;
+			score_changed=true;
+			return true;
+		}
+		else
+			return false;
+	}
 
 	int ai_deadend (const std::vector<std::vector<unsigned char>> &board,
 		const Map &worm_map,
@@ -899,8 +900,8 @@ public:
 	{
 		/* A LIFE bonus is a more attractive bonus than any other bonus. */
 		return (b0 == Bonus::LIFE && b1 == Bonus::LIFE
-		    || b0 != Bonus::LIFE && b1 != Bonus::LIFE) && d0 < d1
-		    || b0 == Bonus::LIFE && b1 != Bonus::LIFE;
+			|| b0 != Bonus::LIFE && b1 != Bonus::LIFE) && d0 < d1
+			|| b0 == Bonus::LIFE && b1 != Bonus::LIFE;
 	}
 
 	bool ai_can_see_bonus(
@@ -926,79 +927,79 @@ public:
 		direction_queue.add(direction);
 	}
 
-    WormDirection uturn(const std::vector<std::vector<unsigned char>> &board,
-    	const std::forward_list<Worm> &worms,
-    	WormDirection direction);
+	WormDirection uturn(const std::vector<std::vector<unsigned char>> &board,
+		const std::forward_list<Worm> &worms,
+		WormDirection direction);
 
-    void direction_change(
+	void direction_change(
 		const std::vector<std::vector<unsigned char>> &board,
 		const std::forward_list<Worm> &worms,
 		const Bonuses &bonuses,
 		bool test_logging)
-    {
-        if (!is_still() && !positions.is_empty())
-       	{
-            if (human)
-            {
-            	auto [b, dir]=direction_queue.remove();
-		        if (b)
-		        {
-		            switch(dir)
-		            {
-		            	case eDirection::UP:
-						    if (direction == DOWN)
-						    {
-						        direction = uturn(board,worms,UP);
-						        if (direction != UP && direction != DOWN)
-						            direction_queue.prepend(UP);
-						    }
-						    else if (can_move_direction(board,worms,UP))
-						        direction = UP;
-			            	break;
-		            	case eDirection::DOWN:
-						    if (direction == UP)
-						    {
-						        direction = uturn(board,worms,DOWN);
-						        if (direction != DOWN && direction != UP)
-						            direction_queue.prepend (DOWN);
-						    }
-						    else if (can_move_direction(board,worms,DOWN))
-						        direction = DOWN;
-			            	break;
-		            	case eDirection::LEFT:
-						    if (direction == RIGHT)
-						    {
-						        direction = uturn(board,worms,LEFT);
-						        if (direction != LEFT && direction != RIGHT)
-						            direction_queue.prepend (LEFT);
-						    }
-						    else if (can_move_direction(board,worms,LEFT))
-						        direction = LEFT;
-						    break;
-		            	case eDirection::RIGHT:
-						    if (direction == LEFT)
-						    {
-						        direction = uturn(board,worms,RIGHT);
-						        if (direction != RIGHT && direction != LEFT)
-						            direction_queue.prepend (RIGHT);
-						    }
-						    else if (can_move_direction(board,worms,RIGHT))
-						        direction = RIGHT;
-			            	break;
-			            default:
-				            break;
-		            }
-		        }
-                
+	{
+		if (!is_still() && !positions.is_empty())
+	   	{
+			if (human)
+			{
+				auto [b, dir]=direction_queue.remove();
+				if (b)
+				{
+					switch(dir)
+					{
+						case eDirection::UP:
+							if (direction == DOWN)
+							{
+								direction = uturn(board,worms,UP);
+								if (direction != UP && direction != DOWN)
+									direction_queue.prepend(UP);
+							}
+							else if (can_move_direction(board,worms,UP))
+								direction = UP;
+							break;
+						case eDirection::DOWN:
+							if (direction == UP)
+							{
+								direction = uturn(board,worms,DOWN);
+								if (direction != DOWN && direction != UP)
+									direction_queue.prepend (DOWN);
+							}
+							else if (can_move_direction(board,worms,DOWN))
+								direction = DOWN;
+							break;
+						case eDirection::LEFT:
+							if (direction == RIGHT)
+							{
+								direction = uturn(board,worms,LEFT);
+								if (direction != LEFT && direction != RIGHT)
+									direction_queue.prepend (LEFT);
+							}
+							else if (can_move_direction(board,worms,LEFT))
+								direction = LEFT;
+							break;
+						case eDirection::RIGHT:
+							if (direction == LEFT)
+							{
+								direction = uturn(board,worms,RIGHT);
+								if (direction != RIGHT && direction != LEFT)
+									direction_queue.prepend (RIGHT);
+							}
+							else if (can_move_direction(board,worms,RIGHT))
+								direction = RIGHT;
+							break;
+						default:
+							break;
+					}
+				}
+				
 			}
-            else
-            {
-                ai_move(board, worms, bonuses, test_logging); /* make AIs decide what direction they will go */
-            }
+			else
+			{
+				ai_move(board, worms, bonuses, test_logging); /* make AIs decide what direction they will go */
+			}
 		}
-    }
-    static void do_parallel_worm_work(
-    	Worm &self,
+	}
+	static void do_parallel_worm_work(
+		Worm &self,
 		const std::vector<std::vector<unsigned char>> &board,
 		const std::forward_list<Worm> &worms,
 		const Warps &warps,
@@ -1007,57 +1008,57 @@ public:
 		WormSet &dead_worms,
 		WormWarpSet &worm_warps
 		)
-    {
-    	self.direction_change(board, worms, bonuses, test_logging);/* change direction? */
-    	self.do_wall_and_warps(board, worms, warps, dead_worms, worm_warps);
-    }
+	{
+		self.direction_change(board, worms, bonuses, test_logging);/* change direction? */
+		self.do_wall_and_warps(board, worms, warps, dead_worms, worm_warps);
+	}
 	Position get_position_after_direction_move(const std::vector<std::vector<unsigned char>> &board) const
 	{
-        Position position = positions.get_head();
-        position.move(direction, board.size(), board[0].size());
-        return position;
+		Position position = positions.get_head();
+		position.move(direction, board.size(), board[0].size());
+		return position;
 	}
 	Position get_position_after_direction_move(const std::vector<std::vector<unsigned char>> &board,
 		const Position origin, const WormDirection direction) const
 	{
-        Position position = origin;
-        position.move(direction, board.size(), board[0].size());
-        return position;
+		Position position = origin;
+		position.move(direction, board.size(), board[0].size());
+		return position;
 	}
 	bool is_position_clear_of_materialized_worms (const std::forward_list<Worm> &worms, Position position) const
-    {
-        for(const Worm &worm : worms)
-            if (worm.is_materialized() && worm.positions.contains(position))
-                return false;
-        return true;
-    }
-    bool can_move_to(const std::vector<std::vector<unsigned char>> &board,
-    	const std::forward_list<Worm> &worms, Position position) const
-    {
-    	if(board[position.x][position.y] != EMPTYCHAR)
-            return false;
-        else if (!is_position_clear_of_materialized_worms(worms,position))
-            return !is_materialized();/* can move over other worm if I'm not materialized */
-        else
-            return true;
-    }
+	{
+		for(const Worm &worm : worms)
+			if (worm.is_materialized() && worm.positions.contains(position))
+				return false;
+		return true;
+	}
+	bool can_move_to(const std::vector<std::vector<unsigned char>> &board,
+		const std::forward_list<Worm> &worms, Position position) const
+	{
+		if(board[position.x][position.y] != EMPTYCHAR)
+			return false;
+		else if (!is_position_clear_of_materialized_worms(worms,position))
+			return !is_materialized();/* can move over other worm if I'm not materialized */
+		else
+			return true;
+	}
 	bool can_move_to_map(const std::vector<std::vector<unsigned char>> &board,
 		const Map &worm_map, Position position)
-    {
-    	if(board[position.x][position.y] != EMPTYCHAR)
-            return false;
-        else if (worm_map.contain_position (position))
-            return !is_materialized();/* can move over other worm if I'm not materialized */
-        else
-            return true;
-    }
+	{
+		if(board[position.x][position.y] != EMPTYCHAR)
+			return false;
+		else if (worm_map.contain_position (position))
+			return !is_materialized();/* can move over other worm if I'm not materialized */
+		else
+			return true;
+	}
 	bool can_move_direction(const std::vector<std::vector<unsigned char>> &board,
-    	const std::forward_list<Worm> &worms, WormDirection direction)
-    {
-        Position position = positions.get_head (); /* head position */
-        position.move(direction, board.size(), board[0].size());
-        return can_move_to(board, worms, position);
-    }
+		const std::forward_list<Worm> &worms, WormDirection direction)
+	{
+		Position position = positions.get_head (); /* head position */
+		position.move(direction, board.size(), board[0].size());
+		return can_move_to(board, worms, position);
+	}
 	Position move1(const std::vector<std::vector<unsigned char>> &board)
 	{
 		auto head=positions.get_head();
@@ -1071,38 +1072,38 @@ public:
 		{
 			/* Add to the worm's size. */
 		}
-        else
-        {
-            assert(!positions.is_empty());
-            /* Remove a body piece from the tail of the list. */
-            bonus_eaten.erase(positions.remove_tail());
+		else
+		{
+			assert(!positions.is_empty());
+			/* Remove a body piece from the tail of the list. */
+			bonus_eaten.erase(positions.remove_tail());
 			if(target_length>2 && target_length<positions.get_length())
-	            bonus_eaten.erase(positions.remove_tail());
-        }
-        /* Check for bonus, do nothing if there isn't a bonus */
-        auto head=positions.get_head();
-        auto bonus=bonuses[head.x,head.y];
-        if(bonus)
-        {
-        	bonus_eaten.insert(head);
-        	auto b=calculate_bonus(*bonus, bonuses);
-        	score+=b;//calculate_bonus(*bonus, bonuses);
-	        score_changed=true;
-        	bonus->set_to_remove();
-        }
-        
-        if(force_materialize)
-        {
-        	rounds_to_stay_dematerialized=0;
-        }
-        else
-        {
-		    /* If we are dematerialized reduce the rounds dematerialized by one. */
-		    if (rounds_to_stay_dematerialized > 1)
-		        rounds_to_stay_dematerialized -= 1;
-		    /* Try and dematerialize if our rounds are up. */
-		    if (rounds_to_stay_dematerialized == 1)
-		        materialize(board);
+				bonus_eaten.erase(positions.remove_tail());
+		}
+		/* Check for bonus, do nothing if there isn't a bonus */
+		auto head=positions.get_head();
+		auto bonus=bonuses[head.x,head.y];
+		if(bonus)
+		{
+			bonus_eaten.insert(head);
+			auto b=calculate_bonus(*bonus, bonuses);
+			score+=b;//calculate_bonus(*bonus, bonuses);
+			score_changed=true;
+			bonus->set_to_remove();
+		}
+		
+		if(force_materialize)
+		{
+			rounds_to_stay_dematerialized=0;
+		}
+		else
+		{
+			/* If we are dematerialized reduce the rounds dematerialized by one. */
+			if (rounds_to_stay_dematerialized > 1)
+				rounds_to_stay_dematerialized -= 1;
+			/* Try and dematerialize if our rounds are up. */
+			if (rounds_to_stay_dematerialized == 1)
+				materialize(board);
 		}
 	}
 	void move2(const std::vector<std::vector<unsigned char>> &board, Bonuses &bonuses,
@@ -1131,13 +1132,13 @@ public:
 	void add_score(long increase)
 	{
 		score+=increase;
-        score_changed=true;
+		score_changed=true;
 	}
 	void reduce_score_by_percentage(unsigned long percent)
 	{
 		score*=percent;
 		score/=100;
-        score_changed=true;
+		score_changed=true;
 	}
 	bool has_lives() const
 	{
@@ -1161,7 +1162,7 @@ public:
 		bonus_eaten.clear(); /* forget all the bonuses we have eaten */
 		if(lives > 0)
 		{
-		    spawn(board,bonuses);
+			spawn(board,bonuses);
 			rounds_to_stay_dematerialized = dematerialize_rounds;
 			rounds_to_stay_still = 2;
 		}
@@ -1174,12 +1175,16 @@ public:
 	{
 		return bonus_eaten.contains(position);
 	}
-	unsigned long pseudo_random(unsigned long min_inclusive, unsigned long max_exclusive)
+	unsigned long pseudo_random(unsigned long max_exclusive)
+	{
+		return pseudo_random() % max_exclusive;
+	}	
+	unsigned long pseudo_random()
 	{
 		const auto a = 6364136223846793005ULL; /*multiplier*/ 
 		const auto c = 1442695040888963407ULL; /*increment*/
 		pseudo_random_seed = a * pseudo_random_seed + c;
-		return min_inclusive+(pseudo_random_seed % (max_exclusive - min_inclusive));
+		return pseudo_random_seed;
 	}	
 	bool do_score_change()
 	{
@@ -1207,102 +1212,102 @@ private:
 private:
 	void play_sound(const char *sound);
 	void reverse_other_worms();
-    long calculate_bonus(const Bonus &bonus, Bonuses &bonuses)
-    {
-        if (bonus.fake)
-        {
-            reverse();
-            return 0;
-        }
-        else
-        {
-            long score_delta = 0;
-            switch (bonus.type)
-            {
-                case Bonus::REGULAR:
-                	{
-		                long nth_bonus = bonuses.new_regular_bonus_eaten();
-		                target_length += nth_bonus * 4;
-		                score_delta = nth_bonus * current_level;
-		            }
-                    bonus_eaten.insert(bonus);
-                    bonuses.reduce_regular();
-                    play_sound ("gobble");
-                    break;
-                case Bonus::DOUBLE:
-                    score_delta = target_length * current_level;
-                    target_length*=2;
-                    play_sound ("bonus");
-                    break;
-                case Bonus::HALF:
-                    if (target_length > 2)
-                    {
-                        target_length/=2;
-                        score_delta = target_length * current_level;
-                    }
-                    play_sound ("bonus");
-                    break;
-                case Bonus::LIFE:
-                    lives++;
-                    play_sound ("life");
-                    break;
-                case Bonus::REVERSE:
-                	reverse_other_worms();
-                    play_sound ("reverse");
-                    break;
-                case Bonus::WARP:
-                    break;
-            }
-            return score_delta;
-        }
-    }
+	long calculate_bonus(const Bonus &bonus, Bonuses &bonuses)
+	{
+		if (bonus.fake)
+		{
+			reverse();
+			return 0;
+		}
+		else
+		{
+			long score_delta = 0;
+			switch (bonus.type)
+			{
+				case Bonus::REGULAR:
+					{
+						long nth_bonus = bonuses.new_regular_bonus_eaten();
+						target_length += nth_bonus * 4;
+						score_delta = nth_bonus * current_level;
+					}
+					bonus_eaten.insert(bonus);
+					bonuses.reduce_regular();
+					play_sound ("gobble");
+					break;
+				case Bonus::DOUBLE:
+					score_delta = target_length * current_level;
+					target_length*=2;
+					play_sound ("bonus");
+					break;
+				case Bonus::HALF:
+					if (target_length > 2)
+					{
+						target_length/=2;
+						score_delta = target_length * current_level;
+					}
+					play_sound ("bonus");
+					break;
+				case Bonus::LIFE:
+					lives++;
+					play_sound ("life");
+					break;
+				case Bonus::REVERSE:
+					reverse_other_worms();
+					play_sound ("reverse");
+					break;
+				case Bonus::WARP:
+					break;
+			}
+			return score_delta;
+		}
+	}
 	const std::forward_list<const Worm*> get_other_worms(Worm *pSelf);
 	Position get_position_after_direction_move(Position origin, WormDirection direction,
 		const std::vector<std::vector<unsigned char>> &board)
 	{
-        Position position = {origin.x, origin.y};
-        position.move (direction, board.size(), board[0].size());
-        return position;
+		Position position = {origin.x, origin.y};
+		position.move (direction, board.size(), board[0].size());
+		return position;
 	}
 	void materialize(const std::vector<std::vector<unsigned char>> &board)
-    {
-        /*
-         * A worm can only materialise if it is not crossing another worm and
-         * the next 12 locations in front of it don’t contain a materialised
-         * worm. Stop checking the locations for materialised worms if we find
-         * an obstacle on the board.
-         */
-        Map worm_map(get_other_worms(this), board.size(), board[0].size());
-        if (worm_map.contains(positions))
-        {
-            rounds_to_stay_dematerialized += 1; /* wait until to next round to try to materialise */
-        }
-        else
-        {
-		    Position position = positions.get_head();
-		    for (int i = 12; i > 0 ; i--)
-		    {
-		        position = get_position_after_direction_move(position, direction, board);
-		        if (board[position.x][position.y] != EMPTYCHAR)
-		        {
-		            rounds_to_stay_dematerialized = 0; /* materialise now */
-		            return;
-		        }
-		        if (worm_map.contain_position(position))
-		        {
-		            rounds_to_stay_dematerialized += 1; /* wait until to next round to try to materialise */
-		            return;
-		        }
-		    }
-		    rounds_to_stay_dematerialized = 0; /* materialise now */
+	{
+		/*
+		 * A worm can only materialise if it is not crossing another worm and
+		 * the next 12 locations in front of it don’t contain a materialised
+		 * worm. Stop checking the locations for materialised worms if we find
+		 * an obstacle on the board.
+		 */
+		Map worm_map(get_other_worms(this), board.size(), board[0].size());
+		if (worm_map.contains(positions))
+		{
+			rounds_to_stay_dematerialized += 1; /* wait until to next round to try to materialise */
 		}
-    }
+		else
+		{
+			Position position = positions.get_head();
+			for (int i = 12; i > 0 ; i--)
+			{
+				position = get_position_after_direction_move(position, direction, board);
+				if (board[position.x][position.y] != EMPTYCHAR)
+				{
+					rounds_to_stay_dematerialized = 0; /* materialise now */
+					return;
+				}
+				if (worm_map.contain_position(position))
+				{
+					rounds_to_stay_dematerialized += 1; /* wait until to next round to try to materialise */
+					return;
+				}
+			}
+			rounds_to_stay_dematerialized = 0; /* materialise now */
+		}
+	}
 };
 
 class WormSet 
 {
 private:
-    std::forward_list<Worm*> list;
+	std::forward_list<Worm*> list;
 	mutable std::mutex mtx;
 	inline bool contains_no_lock(Worm &worm) const
 	{
@@ -1350,12 +1355,12 @@ public:
 class WormWarpSet
 {
 private:
-    struct sWarp
-    {
-    	Position position;
-    	bool bonus;
-    };
-    std::map<const Worm*, sWarp> map;
+	struct sWarp
+	{
+		Position position;
+		bool bonus;
+	};
+	std::map<const Worm*, sWarp> map;
 	std::mutex mtx;
 public:
 	void add(const Worm &worm, Position target_position, bool bonus)
@@ -1401,276 +1406,276 @@ public:
 class Slice
 {
 public:
-    /* variables */
-    Angle min;
-    Angle max;
+	/* variables */
+	Angle min;
+	Angle max;
 //    bool min_set;
 //    bool max_set;
 
-    /* constructor */
-    Slice()
-    {
+	/* constructor */
+	Slice()
+	{
 //        min_set = false;
 //        max_set = false;
-    }
-    Slice(const Slice &copy) : min(copy.min), max(copy.max)
-    {
-    }
+	}
+	Slice(const Slice &copy) : min(copy.min), max(copy.max)
+	{
+	}
 
-    /* public functions */
+	/* public functions */
 /*    void assign(const Slice &o)
-    {
-        min = o.min;
-        max = o.max;
-        min_set = o.min_set;
-        max_set = o.max_set;
-    }*/
+	{
+		min = o.min;
+		max = o.max;
+		min_set = o.min_set;
+		max_set = o.max_set;
+	}*/
 
-    void set_direction_view(eDirection dir, const std::vector<std::vector<unsigned char>> &board)
-    {
-        /*
-         * For the code to work the ratio x / y should be > 0° and <= 45°
-         * 369665159/-14116942878 is approximately 1½° (Math.atan2 (x,-y) / Math.PI * 180))
-         */
-        const int64_t x = 369665159;
-        const int64_t y = -14116942878;
-        switch(dir)
-        {
-            case eDirection::EAST:
-                /*
-                 *      .
-                 *     ..
-                 *    ...
-                 *   ....
-                 *  o....
-                 *   ....
-                 *    ...
-                 *     ..
-                 *      .
-                 */
-                min={-y, -x, board.size(), board[0].size()}; // mirror on 0° line (x axis) and rotate +90°
-                max={-y, +x, board.size(), board[0].size()}; // rotate +90°print
-                break;
-            case eDirection::SOUTH:
-                /*
-                 *      o
-                 *     ...
-                 *    .....
-                 *   .......
-                 *  .........
-                 */
-                min={+x, -y, board.size(), board[0].size()}; // mirror on 0° line (x axis) and rotate 180°
-                max={-x, -y, board.size(), board[0].size()}; // rotate 180°
-                break;
-            case eDirection::WEST:
-                /*
-                 *  .
-                 *  ..
-                 *  ...
-                 *  ....
-                 *  ....o
-                 *  ....
-                 *  ...
-                 *  ..
-                 *  .
-                 */
-                min={+y, +x, board.size(), board[0].size()}; // mirror on 0° line (x axis) and rotate -90°
-                max={+y, -x, board.size(), board[0].size()}; // rotate -90°
-                break;
-            case eDirection::NORTH:
-                /*
-                 *  .........
-                 *   .......
-                 *    .....
-                 *     ...
-                 *      o
-                 */
-                min={-x, +y, board.size(), board[0].size()}; // mirror on 0° line (x axis)
-                max={+x, +y, board.size(), board[0].size()};
-                break;
-            default:
-                break;
-        }
-    }
+	void set_direction_view(eDirection dir, const std::vector<std::vector<unsigned char>> &board)
+	{
+		/*
+		 * For the code to work the ratio x / y should be > 0° and <= 45°
+		 * 369665159/-14116942878 is approximately 1½° (Math.atan2 (x,-y) / Math.PI * 180))
+		 */
+		const int64_t x = 369665159;
+		const int64_t y = -14116942878;
+		switch(dir)
+		{
+			case eDirection::EAST:
+				/*
+				 *      .
+				 *     ..
+				 *    ...
+				 *   ....
+				 *  o....
+				 *   ....
+				 *    ...
+				 *     ..
+				 *      .
+				 */
+				min={-y, -x, board.size(), board[0].size()}; // mirror on 0° line (x axis) and rotate +90°
+				max={-y, +x, board.size(), board[0].size()}; // rotate +90°print
+				break;
+			case eDirection::SOUTH:
+				/*
+				 *      o
+				 *     ...
+				 *    .....
+				 *   .......
+				 *  .........
+				 */
+				min={+x, -y, board.size(), board[0].size()}; // mirror on 0° line (x axis) and rotate 180°
+				max={-x, -y, board.size(), board[0].size()}; // rotate 180°
+				break;
+			case eDirection::WEST:
+				/*
+				 *  .
+				 *  ..
+				 *  ...
+				 *  ....
+				 *  ....o
+				 *  ....
+				 *  ...
+				 *  ..
+				 *  .
+				 */
+				min={+y, +x, board.size(), board[0].size()}; // mirror on 0° line (x axis) and rotate -90°
+				max={+y, -x, board.size(), board[0].size()}; // rotate -90°
+				break;
+			case eDirection::NORTH:
+				/*
+				 *  .........
+				 *   .......
+				 *    .....
+				 *     ...
+				 *      o
+				 */
+				min={-x, +y, board.size(), board[0].size()}; // mirror on 0° line (x axis)
+				max={+x, +y, board.size(), board[0].size()};
+				break;
+			default:
+				break;
+		}
+	}
 
-    void add_angle(Angle a)
-    {
-        /*
-         * Each angle added makes the slice bigger.
-         */
-        if (!min.is_set() && !max.is_set())
-        {
-            min.set(a);
-        }
-        else if (!min.is_set())
-        {
-            if (a >= max)
-            {
-                min.set(max);
-                max.set(a);
-            }
-            else
-                min.set(a);
-        }
-        else if (!max.is_set())
-        {
-            if (a >= min)
-                max.set(a);
-            else
-            {
-                max.set(min);
-                min.set(a);
-            }
-        }
-        else // min.is_set() && max.is_set()
-        {
-            if (a < min)
-                min.set(a);
-            else if (a > max)
-                max.set(a);
-        }
-    }
+	void add_angle(Angle a)
+	{
+		/*
+		 * Each angle added makes the slice bigger.
+		 */
+		if (!min.is_set() && !max.is_set())
+		{
+			min.set(a);
+		}
+		else if (!min.is_set())
+		{
+			if (a >= max)
+			{
+				min.set(max);
+				max.set(a);
+			}
+			else
+				min.set(a);
+		}
+		else if (!max.is_set())
+		{
+			if (a >= min)
+				max.set(a);
+			else
+			{
+				max.set(min);
+				min.set(a);
+			}
+		}
+		else // min.is_set() && max.is_set()
+		{
+			if (a < min)
+				min.set(a);
+			else if (a > max)
+				max.set(a);
+		}
+	}
 
 	Slice(Position origin, int64_t x, int64_t y, int size)
-    {
-        /*
-         * Set this slice to be the slice created by an object at x,y. When
-         * viewed from the origin.
-         * For normal objects the size is 1 for bonuses it is 2.
-         */
+	{
+		/*
+		 * Set this slice to be the slice created by an object at x,y. When
+		 * viewed from the origin.
+		 * For normal objects the size is 1 for bonuses it is 2.
+		 */
 
-        /*
-         * Example for a bonus.
-         *
-         *
-         *       BB
-         *      /BB
-         *     / /
-         *    //
-         *   O
-         *
-         */
+		/*
+		 * Example for a bonus.
+		 *
+		 *
+		 *       BB
+		 *      /BB
+		 *     / /
+		 *    //
+		 *   O
+		 *
+		 */
 
-        // our origin is in the centre of position e.g. x + 0.5, y + 0.5
-        add_angle ({x * 2 - (origin.x * 2 + 1),  y * 2 - (origin.y * 2 + 1)});
-        add_angle ({ (x + 1 * size)* 2  - (origin.x * 2 + 1), y * 2 - (origin.y * 2 + 1)});
-        add_angle ({x * 2 - (origin.x * 2 + 1), (y + 1 * size)* 2 - (origin.y * 2 + 1)});
-        add_angle ({ (x + 1 * size)* 2 - (origin.x * 2 + 1), (y + 1 * size)* 2 - (origin.y * 2 + 1)});
-    }
+		// our origin is in the centre of position e.g. x + 0.5, y + 0.5
+		add_angle ({x * 2 - (origin.x * 2 + 1),  y * 2 - (origin.y * 2 + 1)});
+		add_angle ({ (x + 1 * size)* 2  - (origin.x * 2 + 1), y * 2 - (origin.y * 2 + 1)});
+		add_angle ({x * 2 - (origin.x * 2 + 1), (y + 1 * size)* 2 - (origin.y * 2 + 1)});
+		add_angle ({ (x + 1 * size)* 2 - (origin.x * 2 + 1), (y + 1 * size)* 2 - (origin.y * 2 + 1)});
+	}
 
-    void intersection_by_position(Position origin, uint8_t _x, uint8_t _y, int size)
-    {
-        /* Take the slice created by an object at x,y when viewed
-         * from the origin and set this to be the overlap with between
-         * the created slice and this slice.
-         */
+	void intersection_by_position(Position origin, uint8_t _x, uint8_t _y, int size)
+	{
+		/* Take the slice created by an object at x,y when viewed
+		 * from the origin and set this to be the overlap with between
+		 * the created slice and this slice.
+		 */
 
-        int64_t x = _x;
-        int64_t y = _y;
-        if (min.x >= 0 && max.x >= 0)
-        {
-            if (!(x + (size -1) > origin.x))
-                x += min.x_max;
-        }
-        else if (min.x < 0 && max.x < 0)
-        {
-            if (!(x < origin.x))
-                x -= min.x_max;
-        }
-        else if (min.y >= 0 && max.y >= 0)
-        {
-            if (!(y + (size -1) > origin.y))
-                y += min.y_max;
-        }
-        else if (min.y < 0 && max.y < 0)
-        {
-            if (!(y < origin.y))
-                y -= min.y_max;
-        }
-        Angle old_min(min);
-        Angle old_max(max);
-        *this=Slice(origin, x, y, size);
-        if (old_min > min)
-            min = old_min;
-        if (old_max < max)
-            max = old_max;
-    }
+		int64_t x = _x;
+		int64_t y = _y;
+		if (min.x >= 0 && max.x >= 0)
+		{
+			if (!(x + (size -1) > origin.x))
+				x += min.x_max;
+		}
+		else if (min.x < 0 && max.x < 0)
+		{
+			if (!(x < origin.x))
+				x -= min.x_max;
+		}
+		else if (min.y >= 0 && max.y >= 0)
+		{
+			if (!(y + (size -1) > origin.y))
+				y += min.y_max;
+		}
+		else if (min.y < 0 && max.y < 0)
+		{
+			if (!(y < origin.y))
+				y -= min.y_max;
+		}
+		Angle old_min(min);
+		Angle old_max(max);
+		*this=Slice(origin, x, y, size);
+		if (old_min > min)
+			min = old_min;
+		if (old_max < max)
+			max = old_max;
+	}
 
-    bool is_empty () const
-    {
-        /* Return true if the slice is empty (covers 0°). */
-        return !min.is_set() || !max.is_set() || min >= max;
-    }
+	bool is_empty () const
+	{
+		/* Return true if the slice is empty (covers 0°). */
+		return !min.is_set() || !max.is_set() || min >= max;
+	}
 
-    bool is_bonus_at(uint8_t x, uint8_t y, Bonus b)
-    {
-        return b.x == x && b.y == y
-            || b.x + 1 == x && b.y == y
-            || b.x == x && b.y + 1 == y
-            || b.x + 1 == x && b.y + 1 == y;
-    }
+	bool is_bonus_at(uint8_t x, uint8_t y, Bonus b)
+	{
+		return b.x == x && b.y == y
+			|| b.x + 1 == x && b.y == y
+			|| b.x == x && b.y + 1 == y
+			|| b.x + 1 == x && b.y + 1 == y;
+	}
 
-    bool is_position_occupied(Position p, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map)
-    {
-    	assert(p.x<board.size() && p.y<board[0].size());
-        return board[p.x][p.y] != 'a' || worm_map.contain_position(p);
-    }
+	bool is_position_occupied(Position p, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map)
+	{
+		assert(p.x<board.size() && p.y<board[0].size());
+		return board[p.x][p.y] != 'a' || worm_map.contain_position(p);
+	}
 
-    int64_t is_visible(Position origin, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map, Bonus bonus)
-    {
-        /*
-         * Return the distance to a bonus if it is possible to see
-         * the bonus. Otherwise return int64.MAX.
-         */
+	int64_t is_visible(Position origin, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map, Bonus bonus)
+	{
+		/*
+		 * Return the distance to a bonus if it is possible to see
+		 * the bonus. Otherwise return int64.MAX.
+		 */
 
-        /* remember the positions we have already checked in this array */
-        std::unordered_set<uint16_t> checked_positions;
+		/* remember the positions we have already checked in this array */
+		std::unordered_set<uint16_t> checked_positions;
 
-        /* follow the min line, looking for a bonus or a blockage (e.g. wall) */
-        for (;!is_empty ();)
-        {
-            int64_t distance = 0;
-            min.set_origin (origin);
-            min.set_wrapping (board.size(), board[0].size());
-            for (;;)
-            {
-            	const SignedPosition p(min.get(distance));
-                distance++;
-                if(!checked_positions.contains(p.wrap_xy()))
-                {
-                    if(is_bonus_at (p.wrap_x(), p.wrap_y(), bonus))
-                    {
-                    	if(min.step_along_x())
-                    	{
-                    		auto dy=origin.y-p.y;
-                    		if(dy<0)
-                    			return distance-dy;
-                    		else
-	                    		return distance+dy;
-                    	}
-                    	else
-                    	{
-                    		auto dx=origin.x-p.x;
-                    		if(dx<0)
-	                    		return distance-dx;
-	                    	else
-	                    		return distance+dx;
-                    	}
-                    }
-                    else if(distance > (min.step_along_x() ? board.size() : board[0].size()) * 2
-                      || is_position_occupied ({p.wrap_x(), p.wrap_y()}, board, worm_map))
-                    {
-                        checked_positions.insert(p.wrap_xy());
-                        /* subtract the slice of the blocked position */
-                        Slice s(origin, p.x, p.y, 1);
-                        min=s.max;
-                        break;
-                    }
-                }
-            }
-        }
-        return std::numeric_limits<int64_t>::max();
-    }
+		/* follow the min line, looking for a bonus or a blockage (e.g. wall) */
+		for (;!is_empty ();)
+		{
+			int64_t distance = 0;
+			min.set_origin (origin);
+			min.set_wrapping (board.size(), board[0].size());
+			for (;;)
+			{
+				const SignedPosition p(min.get(distance));
+				distance++;
+				if(!checked_positions.contains(p.wrap_xy()))
+				{
+					if(is_bonus_at (p.wrap_x(), p.wrap_y(), bonus))
+					{
+						if(min.step_along_x())
+						{
+							auto dy=origin.y-p.y;
+							if(dy<0)
+								return distance-dy;
+							else
+								return distance+dy;
+						}
+						else
+						{
+							auto dx=origin.x-p.x;
+							if(dx<0)
+								return distance-dx;
+							else
+								return distance+dx;
+						}
+					}
+					else if(distance > (min.step_along_x() ? board.size() : board[0].size()) * 2
+					  || is_position_occupied ({p.wrap_x(), p.wrap_y()}, board, worm_map))
+					{
+						checked_positions.insert(p.wrap_xy());
+						/* subtract the slice of the blocked position */
+						Slice s(origin, p.x, p.y, 1);
+						min=s.max;
+						break;
+					}
+				}
+			}
+		}
+		return std::numeric_limits<int64_t>::max();
+	}
 };
 
 

@@ -1,6 +1,6 @@
 # Project
 project('gnome-nibbles',
-    ['cpp','c'],
+    ['cpp'],
     license: ['GPL3+','Apache-2.0'],
     meson_version: '>=1.1',
     version: '4.6.dev',
@@ -39,8 +39,7 @@ c_compiler_options = []
 #endif
 
 cpp = meson.get_compiler('cpp')
-#cpp_if_defines = ['-fdiagnostics-all-candidates','-Wno-narrowing']
-cpp_if_defines = ['-Wno-narrowing']
+cpp_if_defines = ['-Wno-narrowing','-Wno-parentheses','-Wno-sign-compare']
 
 code0 = '''
 #include <gtkmm.h>

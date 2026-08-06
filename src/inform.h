@@ -19,12 +19,12 @@
 #include <gtkmm.h>
 #include <iostream>
 
-class ConfirmWindow : public Gtk::Window {
+class InformWindow : public Gtk::Window {
 public:
-	ConfirmWindow(Gtk::Window& parent, const std::string& message) 
+	InformWindow(Gtk::Window& parent, const std::string& title, const std::string& message) 
 		: m_label(message)
 	{
-		set_title("Confirmation");
+		set_title(title);
 		set_default_size(300, 120);
 		set_resizable(false);
 		
@@ -41,51 +41,33 @@ public:
 		button_box->set_halign(Gtk::Align::END);
 
 		// Build the layout
-		// Translators: text displayed in the negative button of a confirming message box
-		auto no_button = create_button(_("_No"));
-		button_box->append(*no_button);
-		// Translators: text displayed in the positive button of a confirming message box
-		auto yes_button = create_button(_("_Yes"));
-		button_box->append(*yes_button);
+		// Translators: text displayed in the button of the inform dialogue
+		auto close_button = create_button(_("_Close"));
+		button_box->append(*close_button);
 		main_box->append(m_label);
 		main_box->append(*button_box);
 		set_child(*main_box);
 
-		yes_button->signal_clicked().connect(sigc::track_obj(
+		close_button->signal_clicked().connect(sigc::track_obj(
 			[this]()->
 				void
 				{
-					m_responded=true;
-					m_signal_response.emit(true);
-					//close(); // Closes and destroys the window
+					m_close_response.emit();
 				},
 				*this));
-		no_button->signal_clicked().connect(sigc::track_obj(
-			[this]()->
-				void
-				{
-					m_responded=true;
-					m_signal_response.emit(false);
-					//close(); // Closes and destroys the window
-				},
-				*this));        
 	}
 
-	// Define a signal so the main window can listen for the user's choice
-	sigc::signal<void(bool)> signal_response() { return m_signal_response; }
+	// Define a signal so the main window can wait for the user
+	sigc::signal<void(void)> close_response() { return m_close_response; }
 
 protected:
-	bool on_close_request() override {
-		// If they closed via 'X' without clicking Yes or No explicitly
-		if(!m_responded)
-		{
-			m_responded=true;
-			m_signal_response.emit(false); // Emit "false" (cancelled/No)
-		}
+	bool on_close_request() override
+	{
+		m_close_response.emit();
 		return false; // Return false to let the window finish closing and destroying itself
 	}
 	Gtk::Label m_label;
-	sigc::signal<void(bool)> m_signal_response;
+	sigc::signal<void(void)> m_close_response;
 	bool m_responded=false;
 private:
 	Gtk::Button *create_button(Glib::ustring text)

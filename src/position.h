@@ -42,70 +42,70 @@ public:
 		direction(copy)
 	{
 	}
-    eDirection turn_left() const
-    {
-        switch (direction)
-        {
-            case EAST:
-                return NORTH;
-            case NORTH:
-                return WEST;
-            case WEST:
-                return SOUTH;
-            case SOUTH:
-                return EAST;
-            default:
-                assert(false);
-        }
-    }
+	eDirection turn_left() const
+	{
+		switch (direction)
+		{
+			case EAST:
+				return NORTH;
+			case NORTH:
+				return WEST;
+			case WEST:
+				return SOUTH;
+			case SOUTH:
+				return EAST;
+			default:
+				assert(false);
+		}
+	}
 	eDirection turn_right() const
-    {
-        switch (direction)
-        {
-            case EAST:
-                return SOUTH;
-            case SOUTH:
-                return WEST;
-            case WEST:
-                return NORTH;
-            case NORTH:
-                return EAST;
-            default:
-                assert(false);
-        }
-    }
-    std::vector<eDirection> get_space_fill_array() const
-    {
-        switch (direction)
-        {
-            case WEST:
-                return {SOUTH,WEST,NORTH};
-            case NORTH:
-                return {EAST,WEST,NORTH};
-            case EAST:
-                return {EAST,SOUTH,NORTH};
-            case SOUTH:
-                return {EAST,SOUTH,WEST};
-            default:
-                assert(false);
-        }
-    }
-    eDirection reverse() const
-    {
-        switch (direction)
-        {
-            case EAST:
-                return WEST;
-            case SOUTH:
-                return NORTH;
-            case WEST:
-                return EAST;
-            case NORTH:
-                return SOUTH;
-            default:
-                assert(false);
-        }
-    }
+	{
+		switch (direction)
+		{
+			case EAST:
+				return SOUTH;
+			case SOUTH:
+				return WEST;
+			case WEST:
+				return NORTH;
+			case NORTH:
+				return EAST;
+			default:
+				assert(false);
+		}
+	}
+	std::vector<eDirection> get_space_fill_array() const
+	{
+		switch (direction)
+		{
+			case WEST:
+				return {SOUTH,WEST,NORTH};
+			case NORTH:
+				return {EAST,WEST,NORTH};
+			case EAST:
+				return {EAST,SOUTH,NORTH};
+			case SOUTH:
+				return {EAST,SOUTH,WEST};
+			default:
+				assert(false);
+		}
+	}
+	eDirection reverse() const
+	{
+		switch (direction)
+		{
+			case EAST:
+				return WEST;
+			case SOUTH:
+				return NORTH;
+			case WEST:
+				return EAST;
+			case NORTH:
+				return SOUTH;
+			default:
+				assert(false);
+		}
+	}
 	operator eDirection() const
 	{
 		return direction;
@@ -162,36 +162,46 @@ struct Start
 class PositionSet
 {
 private:
-	std::unordered_set<uint16_t> set;
+	std::unordered_set<uint16_t> s;/* max size is 92 by 66 */
 public:
 	PositionSet()
 	{
+		s.reserve(92*66);
 	}
-	PositionSet &operator+=(uint16_t source)
+	void set(uint8_t x, uint8_t y)
 	{
-		set.insert(source);
-		return *this;
-	}
-	PositionSet &operator+=(const Position &source)
-	{
-		set.insert(source);
-		return *this;
+		s.emplace(x*66+y);
 	}
 	void clear()
 	{
-		set.clear();
+		s.clear();
 	}
-	Position remove_one(bool random=false)
+	Position remove_one()
 	{
-		auto i=set.begin();
-		std::advance(i, pseudo_random(0, set.size()));
+		return remove_one(pseudo_random());
+	}
+	Position remove_one(unsigned long random_number)
+	{
+		auto i=s.begin();
+		std::advance(i, random_number % s.size());
 		uint16_t result=*i;
-		set.erase(i);
-		return {result>>8, result & 0xff};
+		s.erase(i);
+		return {result/66, result % 66};
+	}
+	std::pair<uint8_t, uint8_t> remove_one_bonus()
+	{
+		auto i=s.begin();
+		std::advance(i, pseudo_random(0, s.size()));
+		uint16_t result=*i;
+		s.erase(i);
+		s.erase(result+1);
+		s.erase(result+66);
+		s.erase(result+66+1);
+		return {result/66, result % 66};
 	}
 	bool is_empty() const
 	{
-		return set.empty();
+		return s.empty();
 	}
 };
 

@@ -22,13 +22,13 @@ class Bonus
 public:
 	enum eType
 	{
-        REGULAR,
-        HALF,
-        DOUBLE,
-        LIFE,
-        REVERSE,
-        WARP
-    };
+		REGULAR,
+		HALF,
+		DOUBLE,
+		LIFE,
+		REVERSE,
+		WARP
+	};
 	const uint8_t x,y; /*top left position of bonus*/
 	const eType type;
 	const bool fake;
@@ -60,11 +60,11 @@ public:
 		pending_removal=true;
 	}
 	/*
-    struct Hash
-    {
+	struct Hash
+	{
 		size_t operator()(const Bonus& bonus) const noexcept
 		{
-		    return ((size_t)bonus.x) << 8 | bonus.y;
+			return ((size_t)bonus.x) << 8 | bonus.y;
 		}
 	};*/
 };
@@ -103,11 +103,11 @@ public:
 	}
 	uint8_t new_regular_bonus_eaten()
 	{
-        //reset_missed();
-        if (regular_left > 0)
-            return maximum - (regular_left - 1);
-        else
-            return maximum - regular_left;
+		//reset_missed();
+		if (regular_left > 0)
+			return maximum - (regular_left - 1);
+		else
+			return maximum - regular_left;
 	}
 	bool too_many_missed()
 	{
@@ -119,21 +119,21 @@ public:
 		auto previous = bonus_list.before_begin();
 		for (auto bonus = bonus_list.begin();bonus != bonus_list.end();)
 		{
-		    if (bonus->countdown > 0)
-		    {
+			if (bonus->countdown > 0)
+			{
 				bonus->countdown--;
 				previous = bonus;
 				bonus++;
 			}
-		    else
-		    {
-		        if (bonus->type==Bonus::REGULAR && !bonus->fake)
-		        {
-		            missed++;
-		            missed_bonuses_to_replace++;
-		        }
-		    	bonus=bonus_list.erase_after(previous);
-		    }
+			else
+			{
+				if (bonus->type==Bonus::REGULAR && !bonus->fake)
+				{
+					missed++;
+					missed_bonuses_to_replace++;
+				}
+				bonus=bonus_list.erase_after(previous);
+			}
 		}
 		return missed_bonuses_to_replace;
 	}
@@ -156,17 +156,17 @@ public:
 		auto previous = bonus_list.before_begin();
 		for (auto bonus = bonus_list.begin();bonus != bonus_list.end();)
 		{
-		    if (bonus->pending_removal)
-		    {
+			if (bonus->pending_removal)
+			{
 				if(!last_regular_bonus() && bonus->type == Bonus::REGULAR && !bonus->fake)
 					real_bonuses_to_replace++;
-		    	bonus=bonus_list.erase_after(previous);
-		    }
-		    else
-		    {
+				bonus=bonus_list.erase_after(previous);
+			}
+			else
+			{
 				previous = bonus;
-		    	bonus++;
-		    }
+				bonus++;
+			}
 		}
 		return real_bonuses_to_replace;
 	}

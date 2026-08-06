@@ -128,68 +128,67 @@ public:
 	{
 		board = std::move(map);
 	}
-    const unsigned char& operator[](unsigned int x, unsigned int y) const
-    {
-        return board[x][y];
-    }
-    unsigned int get_width() {return width;}
-    unsigned int get_height() {return height;}
-    void create_worms(unsigned long human_count, unsigned long ai_count)
-    {
-    	worms.clear();
-    	assert(human_count+ai_count<=6);
-    	for(unsigned long i=0;i<human_count+ai_count;i++)
-    	{
-    		if(_get_worm_settings_colour==nullptr)
-    		{
-    			Worm worm(*this, level, i<human_count, (eWormColour)i, get_width(), get_height());
-	    		worms.push_front(worm);
-    		}
+	const unsigned char& operator[](unsigned int x, unsigned int y) const
+	{
+		return board[x][y];
+	}
+	unsigned int get_width() {return width;}
+	unsigned int get_height() {return height;}
+	void create_worms(unsigned long human_count, unsigned long ai_count)
+	{
+		worms.clear();
+		assert(human_count+ai_count<=6);
+		for(unsigned long i=0;i<human_count+ai_count;i++)
+		{
+			if(_get_worm_settings_colour==nullptr)
+			{
+				Worm worm(*this, level, i<human_count, (eWormColour)i, get_width(), get_height());
+				worms.push_front(worm);
+			}
 			else
 			{
-	    		Worm worm(*this, level, i<human_count, _get_worm_settings_colour(i), get_width(), get_height());
-	    		worms.push_front(worm);
-	    	}
-    	}
-    	starting_human_count = human_count;
-    	starting_ai_count = ai_count;
-    }
-    void spawn_worms(bool force_materialize=false)
-    {
-    	/* spawn worms for a new board */
-    	auto it=starts.begin();
-    	for(Worm &worm : worms)
-    	{
-    		worm.spawn(*it++, board,bonuses,force_materialize);
-    	}
-    	/* clear bonuses */
+				Worm worm(*this, level, i<human_count, _get_worm_settings_colour(i), get_width(), get_height());
+				worms.push_front(worm);
+			}
+		}
+		starting_human_count = human_count;
+		starting_ai_count = ai_count;
+	}
+	void spawn_worms(bool force_materialize=false)
+	{
+		/* spawn worms for a new board */
+		auto it=starts.begin();
+		for(Worm &worm : worms)
+		{
+			worm.spawn(*it++, board,bonuses,force_materialize);
+		}
+		/* clear bonuses */
 		bonuses_to_replace = 0;
 		bonuses.clear();
-    }
+	}
 	void reverse_worms(Worm *ignore)
 	{
-    	for(Worm &worm : worms)
+		for(Worm &worm : worms)
 		{
 			if(&worm!=ignore)
 				worm.reverse();
 		}		
 	}
 /*	void start (bool add_initial_bonus)
-    {
-        if (add_initial_bonus)
-            add_bonus (true);
+	{
+		if (add_initial_bonus)
+			add_bonus (true);
 
-        is_running = true;
+		is_running = true;
 
-        main_id = Timeout.add (speed == 1 ? gamedelay * 3 / 2 : gamedelay * speed, () => {
-                bonus_cycle = (bonus_cycle + 1) % 3;
-                if (bonus_cycle == 0)
-                    add_bonus (false);
-                return main_loop_cb ();
-            });
-        Source.set_name_by_id (main_id, "[Nibbles] main_loop_cb");
-    }*/
-	std::pair<uint8_t, uint8_t> remove_bonus_location(std::unordered_set<uint16_t> &locations);
+		main_id = Timeout.add (speed == 1 ? gamedelay * 3 / 2 : gamedelay * speed, () => {
+				bonus_cycle = (bonus_cycle + 1) % 3;
+				if (bonus_cycle == 0)
+					add_bonus (false);
+				return main_loop_cb ();
+			});
+		Source.set_name_by_id (main_id, "[Nibbles] main_loop_cb");
+	}*/
 	bool add_bonus(bool regular);
 	void move_worms();
 	const std::forward_list<Worm> &get_worms()
@@ -228,7 +227,7 @@ public:
 	{
 		return bonuses;
 	}
-    /* The Game Status enumerated type, returned by get_game_status ()*/
+	/* The Game Status enumerated type, returned by get_game_status ()*/
 	enum eStatus {GAMEOVER, VICTORY, NEWROUND, ACTIVE};
 
 	eStatus get_game_status() const
@@ -253,7 +252,7 @@ public:
 					return NEWROUND;
 				else
 					return ACTIVE;
-		    }
+			}
 			else /* no human worms alive */
 			{
 				if(starting_human_count>0)
@@ -316,12 +315,11 @@ private:
 	bool fakes;
 	std::forward_list<Worm> worms;
 	Bonuses bonuses;
-    uint8_t bonuses_to_replace;
+	uint8_t bonuses_to_replace;
 	unsigned long starting_human_count,starting_ai_count;
 
 	unsigned int unichar_extra_width(char c)
 	{
-		unsigned int read_more_characters;
 		if((c & 0x80) == 0)
 			return 0;
 		else if((c & 0xE0) == 0xC0)
@@ -417,36 +415,36 @@ private:
 		}
 		return true;
 	}
-    void _add_bonus (uint8_t x, uint8_t y, Bonus::eType bonus_type, bool fake, uint16_t countdown)
-    {
-        Bonus bonus(x, y, bonus_type, fake, countdown);
-        bonuses.add(bonus);
-        if(bonus.type != Bonus::REGULAR)
-            play_sound("appear");
-    }
-    bool two_or_more_worms()
-    {
-    	if(worms.empty())
-    		return false;
-    	auto it=worms.begin();
-    	++it;
-    	return it!=worms.end();
-    }
-    std::pair<unsigned long, unsigned long> count_alive_worms() const
-    {
-    	unsigned long ai=0;
-    	unsigned long human=0;
-    	for(const auto &worm : worms)
-    	{
-    		if(worm.get_lives()>0)
-    		{
-    			if(worm.is_human())
-    				human++;
-    			else
-    				ai++;
-    		}
-    	}
-    	return {human,ai};
-    }
+	void _add_bonus (uint8_t x, uint8_t y, Bonus::eType bonus_type, bool fake, uint16_t countdown)
+	{
+		Bonus bonus(x, y, bonus_type, fake, countdown);
+		bonuses.add(bonus);
+		if(bonus.type != Bonus::REGULAR)
+			play_sound("appear");
+	}
+	bool two_or_more_worms()
+	{
+		if(worms.empty())
+			return false;
+		auto it=worms.begin();
+		++it;
+		return it!=worms.end();
+	}
+	std::pair<unsigned long, unsigned long> count_alive_worms() const
+	{
+		unsigned long ai=0;
+		unsigned long human=0;
+		for(const auto &worm : worms)
+		{
+			if(worm.get_lives()>0)
+			{
+				if(worm.is_human())
+					human++;
+				else
+					ai++;
+			}
+		}
+		return {human,ai};
+	}
 };
 

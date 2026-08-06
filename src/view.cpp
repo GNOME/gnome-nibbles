@@ -39,6 +39,7 @@
 #include <glib/gi18n.h>
 
 #include "definitions.h"
+#include "critical.h"
 #include "map.h"
 #include "pseudo_random.h"
 #include "bonus.h"
@@ -80,36 +81,36 @@ inline Glib::ustring utoa(unsigned long u, unsigned long minimum_length=1)
 	return p+1;
 }
 
-View::View(Game::Progress progress, unsigned long start_level, unsigned long speed,
+View::View(Game::Progress progress, unsigned long start_level, unsigned long speed, bool fakes,
 	Gtk::Button &pause_button,
-	std::function<void(const std::vector<WormScore>)> game_over) :
-	progress(progress), speed(speed), pause_button(pause_button),
-	game_over(game_over), Gtk::Overlay(), static_view(*this), active_view(*this),
+	std::function<void(const std::vector<WormScore>)> game_over) : Gtk::Overlay(),
+	progress(progress), speed(speed), fakes(fakes), pause_button(pause_button),
+	game_over(game_over), static_view(*this), active_view(*this),
 	game(play_sound,get_worm_settings_colour,
 	[this](eWormColour worm_colour, unsigned long lives) {/*life_change*/
-        if(score_box.contains(worm_colour))
-        {
-        	Gtk::Grid *pGrid=get_life_grid(score_box[worm_colour]);
-        	if(pGrid)
-        	{
+		if(score_box.contains(worm_colour))
+		{
+			Gtk::Grid *pGrid=get_life_grid(score_box[worm_colour]);
+			if(pGrid)
+			{
 				for (auto* child : pGrid->get_children())
 					pGrid->remove(*child);
 				for(unsigned int i=pGrid->get_children().size();i<lives;
 					pGrid->attach(*Gtk::make_managed<Life>(),i % 6,i / 6,1,1),i++);
-        	}
-        }
-    },
+			}
+		}
+	},
 	[this](eWormColour worm_colour, unsigned long score) {/*score_change*/
-        if(score_box.contains(worm_colour))
-        {
-        	Gtk::Label *pLabel=get_score_label(score_box[worm_colour]);
-        	if(pLabel)
-        	{
-	        	pLabel->set_text(utoa(score));
-        	}
-        }
-    },
-    progress)
+		if(score_box.contains(worm_colour))
+		{
+			Gtk::Label *pLabel=get_score_label(score_box[worm_colour]);
+			if(pLabel)
+			{
+				pLabel->set_text(utoa(score));
+			}
+		}
+	},
+	progress)
 {
 	unsigned long level;
 	switch(progress)
@@ -123,58 +124,58 @@ View::View(Game::Progress progress, unsigned long start_level, unsigned long spe
 		case Game::Progress::FIXED:
 			level=start_level;
 			break;
-		case Game::Progress::TEST:
+		default: /*Game::Progress::TEST*/
 			level=1;
 			break;
 	}
 	load_board_level(level);
 
-    set_child(static_view);
-    add_overlay(active_view);
-    
-    /* do the next initilisation after being prepended to "game_box" */
-    property_parent().signal_changed().connect(sigc::track_obj(
-    	[this]() ->
-    		void
-    		{
-    			if(get_parent())
-	    			initialise_and_start();
-	    		else
-	    			timer.unset();
-    		},
-    		*this
-    	));
+	set_child(static_view);
+	add_overlay(active_view);
+	
+	/* do the next initilisation after being prepended to "game_box" */
+	property_parent().signal_changed().connect(sigc::track_obj(
+		[this]() ->
+			void
+			{
+				if(get_parent())
+					initialise_and_start();
+				else
+					timer.unset();
+			},
+			*this
+		));
 }
 
 void View::play_sound(const Glib::ustring &sound)
 {
-    GError* error = nullptr;
-    
-    // 1. Create and initialize the GSound context
-    GSoundContext* ctx = gsound_context_new(nullptr, &error);
-    if (!ctx) {
-        std::cerr << "Failed to create GSound context: " << error->message << std::endl;
-        g_error_free(error);
-        return;
-    }
+	GError* error = nullptr;
+	
+	// 1. Create and initialize the GSound context
+	GSoundContext* ctx = gsound_context_new(nullptr, &error);
+	if (!ctx) {
+		std::cerr << "Failed to create GSound context: " << error->message << std::endl;
+		g_error_free(error);
+		return;
+	}
 
 	Glib::ustring path=Glib::build_filename(SOUND_DIRECTORY, sound+".ogg");
-    // 2. Play a simple system sound event or a specific audio file path
-    // Pass attributes as key-value string pairs, ending with a final nullptr
-    gboolean success = gsound_context_play_simple(ctx, nullptr, &error,
-        //GSOUND_ATTR_EVENT_ID, "audio-volume-change", // System theme sound event
-        // To use an absolute path file instead, swap the line above with:
-        GSOUND_ATTR_MEDIA_FILENAME, path.c_str(), 
-        nullptr
-    );
+	// 2. Play a simple system sound event or a specific audio file path
+	// Pass attributes as key-value string pairs, ending with a final nullptr
+	gboolean success = gsound_context_play_simple(ctx, nullptr, &error,
+		//GSOUND_ATTR_EVENT_ID, "audio-volume-change", // System theme sound event
+		// To use an absolute path file instead, swap the line above with:
+		GSOUND_ATTR_MEDIA_FILENAME, path.c_str(), 
+		nullptr
+	);
 
-    if (!success) {
-        std::cerr << "Error playing sound: " << path << " " << error->message << std::endl;
-        g_error_free(error);
-    }
+	if (!success) {
+		std::cerr << "Error playing sound: " << path << " " << error->message << std::endl;
+		g_error_free(error);
+	}
 
-    // 3. Clean up the context allocated on the heap
-    g_object_unref(ctx);
+	// 3. Clean up the context allocated on the heap
+	g_object_unref(ctx);
 }
 
 void View::initialise_and_start()
@@ -217,6 +218,7 @@ void View::initialise_and_start()
 			auto name=get_worm_name(worm);
 			pBox=create_score_box(name,c);
 			score_box[c]=pBox;
+			names[c]=name;
 			get_scoreboard()->append(*pBox);
 
 			pBox=nullptr;
@@ -241,13 +243,13 @@ void View::initialise_and_start()
 	get_statusbar_stack()->set_visible_child("scoreboard");
 	
 	/* worms */
-    game.create_worms(player_count, ai_count);
+	game.create_worms(player_count, ai_count);
 	game.spawn_worms(true);
-    game.add_bonus(true);
+	game.add_bonus(true);
 
-    /* play game */
-    paused=false;
-    play();
+	/* play game */
+	paused=false;
+	play();
 }
 
 void View::load_board_level(unsigned long level)
@@ -302,9 +304,12 @@ bool View::play()
 
 				button->signal_clicked().connect(sigc::track_obj([this,box]() {
 					remove_overlay(*box);
-					game_over(game.get_worm_scores());
+					auto s=game.get_worm_scores();
+					for(auto &w : s)
+						w.worm_name=names[w.colour];
+					game_over(s);
 				}));
-			    add_overlay(*box);
+				add_overlay(*box);
 			}
 			else
 			{
@@ -349,13 +354,13 @@ bool View::play()
 					load_board_level(next_level);
 					game.spawn_worms(true);
 					static_view.redraw();
-				    game.add_bonus(true);
+					game.add_bonus(true);
 
-				    /* play game */
-				    paused=false;
+					/* play game */
+					paused=false;
 					play();
 				}));
-			    add_overlay(*box);
+				add_overlay(*box);
 			}
 		}
 		else /* VICTORY or GAMEOVER */
@@ -385,9 +390,12 @@ bool View::play()
 
 			button->signal_clicked().connect(sigc::track_obj([this,box]() {
 				remove_overlay(*box);
-				game_over(game.get_worm_scores());
+				auto s=game.get_worm_scores();
+				for(auto &w : s)
+					w.worm_name=names[w.colour];
+				game_over(s);
 			}));
-		    add_overlay(*box);
+			add_overlay(*box);
 		}
 	}
 	return false;
@@ -417,36 +425,36 @@ const Glib::ustring View::get_worm_name(unsigned int worm_id)
 	switch(worm_id)
 	{
 		case 0:
-            // Translators: the first worm's name.
-            name=_("Worm 1");
-            break;
+			// Translators: the first worm's name.
+			name=_("Worm 1");
+			break;
 		case 1:
-            // Translators: the seconds worm's name.
-            name=_("Worm 2");
-            break;
+			// Translators: the seconds worm's name.
+			name=_("Worm 2");
+			break;
 		case 2:
-            // Translators: the third worm's name.
-            name=_("Worm 3");
-            break;
+			// Translators: the third worm's name.
+			name=_("Worm 3");
+			break;
 		case 3:
-            // Translators: the fourth worm's name.
-            name=_("Worm 4");
-            break;
+			// Translators: the fourth worm's name.
+			name=_("Worm 4");
+			break;
 		case 4:
-            // Translators: the fifth worm's name.
-            name=_("Worm 5");
-            break;
+			// Translators: the fifth worm's name.
+			name=_("Worm 5");
+			break;
 		case 5:
-            // Translators: the sixth worm's name.
-            name=_("Worm 6");
-            break;
-        default:
-        	{
-        		Glib::ustring buffer=std::source_location::current().file_name();
-        		buffer+=": More than six worms defined!";
-	        	g_critical(buffer.c_str());
-	        }
-            break;
+			// Translators: the sixth worm's name.
+			name=_("Worm 6");
+			break;
+		default:
+			{
+				Glib::ustring buffer=std::source_location::current().file_name();
+				buffer+=": More than six worms defined!";
+				critical(buffer);
+			}
+			break;
 	}
 	return name;
 }

@@ -98,179 +98,166 @@ bool Game::get_unichar(std::ifstream &stream, uint32_t &u32)
 
 std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uint32_t u32)
 {
-    switch (u32)
-    {
-    	case '\n': // new line
-    	case '\r': // carrage return
-    		return {'\0',WarpType::NONE,eDirection::NONE};
-    		break;
-        // readable empty tile, but the game internals use an 'a'
-        case '.':
-        case '+':
-    		return {'a',WarpType::NONE,eDirection::NONE};
-            break;
+	switch (u32)
+	{
+		case '\n': // new line
+		case '\r': // carrage return
+			return {'\0',WarpType::NONE,eDirection::NONE};
+			break;
+		// readable empty tile, but the game internals use an 'a'
+		case '.':
+		case '+':
+			return {'a',WarpType::NONE,eDirection::NONE};
+			break;
 
-        // readable walls, but the game internals use ASCII chars
-        case 0xE29483://'┃':
-    		return {'b',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE29481://'━':
-    		return {'c',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE29497://'┗':
-    		return {'d',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE2949B://'┛':
-    		return {'e',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE2948F://'┏':
-    		return {'f',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE29493://'┓':
-    		return {'g',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE294BB://'┻':
-    		return {'h',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE294A3://'┣':
-    		return {'i',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE294AB://'┫':
-    		return {'j',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE294B3://'┳':
-    		return {'k',WarpType::NONE,eDirection::NONE};
-            break;
-        case 0xE2958B://'╋':
-    		return {'l',WarpType::NONE,eDirection::NONE};
-            break;
+		// readable walls, but the game internals use ASCII chars
+		case 0xE29483://'┃':
+			return {'b',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE29481://'━':
+			return {'c',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE29497://'┗':
+			return {'d',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE2949B://'┛':
+			return {'e',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE2948F://'┏':
+			return {'f',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE29493://'┓':
+			return {'g',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE294BB://'┻':
+			return {'h',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE294A3://'┣':
+			return {'i',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE294AB://'┫':
+			return {'j',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE294B3://'┳':
+			return {'k',WarpType::NONE,eDirection::NONE};
+			break;
+		case 0xE2958B://'╋':
+			return {'l',WarpType::NONE,eDirection::NONE};
+			break;
 
-        // start positions
-        case 0xE296B2://'▲':
-        case 'm':
-        	//starts.push_front(Start(WormDirection::NORTH,position));
-    		return {'a',WarpType::NONE,eDirection::NORTH};
-            //if (count < numworms)
-            //{
-            //    worms[count].set_start (j, i, WormDirection.UP);
-            //    count++;
-            //}
-            break;
-        case 0xE29780://'◀':
-        case 'n':
-    		return {'a',WarpType::NONE,eDirection::WEST};
-            //if (count < numworms)
-            //{
-            //    worms[count].set_start (j, i, WormDirection.LEFT);
-            //    count++;
-            //}
-            break;
-        case 0xE296BC://'▼':
-        case 'o':
-    		return {'a',WarpType::NONE,eDirection::SOUTH};
-            //if (count < numworms)
-            //{
-            //    worms[count].set_start (j, i, WormDirection.DOWN);
-            //    count++;
-            //}
-            break;
-        case 0xE296B6://'▶':
-        case 'p':
-    		return {'a',WarpType::NONE,eDirection::EAST};
-            //if (count < numworms)
-            //{
-            //    worms[count].set_start (j, i, WormDirection.RIGHT);
-            //    count++;
-            //}
-            break;
+		// start positions
+		case 0xE296B2://'▲':
+		case 'm':
+			//starts.push_front(Start(WormDirection::NORTH,position));
+			return {'a',WarpType::NONE,eDirection::NORTH};
+			//if (count < numworms)
+			//{
+			//    worms[count].set_start (j, i, WormDirection.UP);
+			//    count++;
+			//}
+			break;
+		case 0xE29780://'◀':
+		case 'n':
+			return {'a',WarpType::NONE,eDirection::WEST};
+			//if (count < numworms)
+			//{
+			//    worms[count].set_start (j, i, WormDirection.LEFT);
+			//    count++;
+			//}
+			break;
+		case 0xE296BC://'▼':
+		case 'o':
+			return {'a',WarpType::NONE,eDirection::SOUTH};
+			//if (count < numworms)
+			//{
+			//    worms[count].set_start (j, i, WormDirection.DOWN);
+			//    count++;
+			//}
+			break;
+		case 0xE296B6://'▶':
+		case 'p':
+			return {'a',WarpType::NONE,eDirection::EAST};
+			//if (count < numworms)
+			//{
+			//    worms[count].set_start (j, i, WormDirection.RIGHT);
+			//    count++;
+			//}
+			break;
 
-        // warps
-        case 'Q':
-        case 'R':
-        case 'S':
-        case 'T':
-        case 'U':
-        case 'V':
-        case 'W':
-        case 'X':
-        case 'Y':
-        case 'Z':
-            //if (j == 0 || i == 0)
-            //    return false;
+		// warps
+		case 'Q':
+		case 'R':
+		case 'S':
+		case 'T':
+		case 'U':
+		case 'V':
+		case 'W':
+		case 'X':
+		case 'Y':
+		case 'Z':
+			//if (j == 0 || i == 0)
+			//    return false;
 
-            //warp_manager.add_warp_source (board[j, i], j - 1, i - 1, char_value == 'Q');
+			//warp_manager.add_warp_source (board[j, i], j - 1, i - 1, char_value == 'Q');
 
-            //board[j - 1, i - 1] = NibblesGame.WARPCHAR;
-            //board[j    , i - 1] = NibblesGame.WARPCHAR;
-            //board[j - 1, i    ] = NibblesGame.WARPCHAR;
-            //board[j    , i    ] = NibblesGame.WARPCHAR;
+			//board[j - 1, i - 1] = NibblesGame.WARPCHAR;
+			//board[j    , i - 1] = NibblesGame.WARPCHAR;
+			//board[j - 1, i    ] = NibblesGame.WARPCHAR;
+			//board[j    , i    ] = NibblesGame.WARPCHAR;
 
-            //warp_added (j - 1, i - 1);
-    		return {EMPTYCHAR/*(unsigned char)u32*/,WarpType::SOURCE,eDirection::NONE};
-            break;
+			//warp_added (j - 1, i - 1);
+			return {EMPTYCHAR/*(unsigned char)u32*/,WarpType::SOURCE,eDirection::NONE};
+			break;
 
-        case 'r':
-        case 's':
-        case 't':
-        case 'u':
-        case 'v':
-        case 'w':
-        case 'x':
-        case 'y':
-        case 'z':
-            // do not use the up () method: it depends on the locale, and that could have some weird results ("i".up () is either I or İ, for example)
-            //warp_manager.add_warp_target ((int) char_value - (int) 'a' + (int) 'A', j, i);
-    		return {EMPTYCHAR/*(unsigned char)u32*/,WarpType::TARGET,eDirection::NONE};
-            break;
+		case 'r':
+		case 's':
+		case 't':
+		case 'u':
+		case 'v':
+		case 'w':
+		case 'x':
+		case 'y':
+		case 'z':
+			// do not use the up () method: it depends on the locale, and that could have some weird results ("i".up () is either I or İ, for example)
+			//warp_manager.add_warp_target ((int) char_value - (int) 'a' + (int) 'A', j, i);
+			return {EMPTYCHAR/*(unsigned char)u32*/,WarpType::TARGET,eDirection::NONE};
+			break;
 
-        // old walls, kept for compatibility
-        case 'a':
-        case 'b':
-        case 'c':
-        case 'd':
-        case 'e':
-        case 'f':
-        case 'g':
-        case 'h':
-        case 'i':
-        case 'j':
-        case 'k':
-        case 'l':
-    		return {(unsigned char)u32,WarpType::NONE,eDirection::NONE};
-            break;
+		// old walls, kept for compatibility
+		case 'a':
+		case 'b':
+		case 'c':
+		case 'd':
+		case 'e':
+		case 'f':
+		case 'g':
+		case 'h':
+		case 'i':
+		case 'j':
+		case 'k':
+		case 'l':
+			return {(unsigned char)u32,WarpType::NONE,eDirection::NONE};
+			break;
 
-        default:
-    		return {'\0',WarpType::NONE,eDirection::NONE};
-        	break;
-    }
-}
-
-std::pair<uint8_t, uint8_t> Game::remove_bonus_location(std::unordered_set<uint16_t> &locations)
-{
-	/* get a random value from set of positions */
-	auto pick = locations.cbegin();
-	std::advance(pick, pseudo_random(0,locations.size()));
-	uint8_t x=*pick >> 8;
-	uint8_t y=*pick & 0xff;
-	locations.erase(pick);
-	locations.erase((((uint16_t)x)+1)<<8 | y);
-	locations.erase(((uint16_t)x)<<8 | y+1);
-	locations.erase((((uint16_t)x)+1)<<8 | y+1);
-	return {x,y};
+		default:
+			return {'\0',WarpType::NONE,eDirection::NONE};
+			break;
+	}
 }
 
 bool Game::add_bonus(bool regular)
 {
 	uint8_t x,y; /* max size is 92 by 66 */
-	std::unordered_set<uint16_t> free_locations;
-	free_locations.reserve(0x10000);
-    Worm::Map worm_map(worms, board.size(), board[0].size());
+	//std::unordered_set<uint16_t> free_locations;
+	PositionSet free_locations;
+	//free_locations.reserve(0x10000);
+	Worm::Map worm_map(worms, board.size(), board[0].size());
 
 	/* non regular bonuses have a chance of 1 in 50 of appearing */
 	if (!regular)
 	{
 		if (pseudo_random(0, 50) != 0)
-		    return true;
+			return true;
 	}
 
 	/* build the set of positions that can take a bonus */
@@ -282,84 +269,84 @@ bool Game::add_bonus(bool regular)
 				board[x+1][y]==EMPTYCHAR && !worm_map.contain_position(x+1,y) && bonuses[x+1,y]==nullptr && !warps.is_warp_source_position(x+1,y) &&
 				board[x][y+1]==EMPTYCHAR && !worm_map.contain_position(x,y+1) && bonuses[x,y+1]==nullptr && !warps.is_warp_source_position(x,y+1) &&
 				board[x+1][y+1]==EMPTYCHAR && !worm_map.contain_position(x+1,y+1) && bonuses[x+1,y+1]==nullptr && !warps.is_warp_source_position(x+1,y+1))
-				free_locations.emplace(((uint16_t)x)<<8 | y);
+				free_locations.set(x, y);
 		}
 	}
 
 	if(regular)
 	{
-		if(!free_locations.empty())
+		if(!free_locations.is_empty())
 		{
-			std::tie(x, y)=remove_bonus_location(free_locations);/* get a random value from the set of positions */
+			std::tie(x, y)=free_locations.remove_one_bonus();
 			_add_bonus(x, y, Bonus::REGULAR, false, 300);
 		}
 		else
 			return false;
 		
-		if(!free_locations.empty() && fakes && pseudo_random(0, 7)==0)
+		if(!free_locations.is_empty() && fakes && pseudo_random(0, 7)==0)
 		{
-			std::tie(x, y)=remove_bonus_location(free_locations);
-		    _add_bonus(x, y, Bonus::REGULAR, true, 300);
+			std::tie(x, y)=free_locations.remove_one_bonus();
+			_add_bonus(x, y, Bonus::REGULAR, true, 300);
 		}
 	}
 	else if(!bonuses.too_many_missed())
 	{
 		bool good;
 		if (pseudo_random(0, 7)!=0)
-		    good = false;
+			good = false;
 		else
-		    good = true;
+			good = true;
 
 		if (good && !fakes)
-		    return true;
+			return true;
 
 		switch (pseudo_random(0, 21))
 		{
-		    case 0:
-		    case 1:
-		    case 2:
-		    case 3:
-		    case 4:
-		    case 5:
-		    case 6:
-		    case 7:
-		    case 8:
-		    case 9:
-				if(!free_locations.empty())
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+			case 6:
+			case 7:
+			case 8:
+			case 9:
+				if(!free_locations.is_empty())
 				{
-					std::tie(x, y)=remove_bonus_location(free_locations);
-				    _add_bonus(x, y, Bonus::HALF, good, 200);
+					std::tie(x, y)=free_locations.remove_one_bonus();
+					_add_bonus(x, y, Bonus::HALF, good, 200);
 				}
-		        break;
-		    case 10:
-		    case 11:
-		    case 12:
-		    case 13:
-		    case 14:
-				if(!free_locations.empty())
+				break;
+			case 10:
+			case 11:
+			case 12:
+			case 13:
+			case 14:
+				if(!free_locations.is_empty())
 				{
-					std::tie(x, y)=remove_bonus_location(free_locations);
-				    _add_bonus(x, y, Bonus::DOUBLE, good, 150);
+					std::tie(x, y)=free_locations.remove_one_bonus();
+					_add_bonus(x, y, Bonus::DOUBLE, good, 150);
 				}
-		        break;
-		    case 15:
-				if(!free_locations.empty())
+				break;
+			case 15:
+				if(!free_locations.is_empty())
 				{
-					std::tie(x, y)=remove_bonus_location(free_locations);
-				    _add_bonus(x, y, Bonus::LIFE, good, 100);
+					std::tie(x, y)=free_locations.remove_one_bonus();
+					_add_bonus(x, y, Bonus::LIFE, good, 100);
 				}
-		        break;
-		    case 16:
-		    case 17:
-		    case 18:
-		    case 19:
-		    case 20:
-		        if (!free_locations.empty() && two_or_more_worms())
-		        {
-					std::tie(x, y)=remove_bonus_location(free_locations);
-		            _add_bonus(x, y, Bonus::REVERSE, good, 150);
+				break;
+			case 16:
+			case 17:
+			case 18:
+			case 19:
+			case 20:
+				if (!free_locations.is_empty() && two_or_more_worms())
+				{
+					std::tie(x, y)=free_locations.remove_one_bonus();
+					_add_bonus(x, y, Bonus::REVERSE, good, 150);
 				}
-		        break;
+				break;
 		}
 	}
 	return true;
@@ -368,32 +355,32 @@ bool Game::add_bonus(bool regular)
 void Game::move_worms()
 {
 	// manage still worms
-    for(Worm &worm : worms)
-    {
-    	if(worm.decrement_still())
-    	{
-    		if(progress==TEST)
-    			std::cout << "Worm " << (unsigned long)worm.get_colour() << 
-    				" still counter decremented to " << worm.get_rounds_to_stay_still() << std::endl;
-    	}
-    }
+	for(Worm &worm : worms)
+	{
+		if(worm.decrement_still())
+		{
+			if(progress==TEST)
+				std::cout << "Worm " << (unsigned long)worm.get_colour() << 
+					" still counter decremented to " << worm.get_rounds_to_stay_still() << std::endl;
+		}
+	}
 
 	// reduce all worms score if bonuses are not being taken
-    if (bonuses.too_many_missed())
-    {
-        for(Worm &worm : worms)
-        {
-	    	if(worm.decrement_score())
-	    	{
+	if (bonuses.too_many_missed())
+	{
+		for(Worm &worm : worms)
+		{
+			if(worm.decrement_score())
+			{
 				if(progress==TEST)
-	    			std::cout << "Worm " << (unsigned long)worm.get_colour() << 
+					std::cout << "Worm " << (unsigned long)worm.get_colour() << 
 					" score decremented to " << worm.get_score() << std::endl;
-	    	}
-        }
-    }
+			}
+		}
+	}
 
-    for (;bonuses_to_replace>0; --bonuses_to_replace)
-    {
+	for (;bonuses_to_replace>0; --bonuses_to_replace)
+	{
 		bool r=add_bonus(true);
 		if(progress==TEST)
 		{
@@ -402,11 +389,11 @@ void Game::move_worms()
 		}
 		if(!r)
 			break;
-    }
+	}
 
 	unsigned long missed_bonuses_to_replace=bonuses.single_move();
-    for (;missed_bonuses_to_replace>0; --missed_bonuses_to_replace)
-    {
+	for (;missed_bonuses_to_replace>0; --missed_bonuses_to_replace)
+	{
 		bool r=add_bonus(true);
 		if(progress==TEST)
 		{
@@ -420,30 +407,34 @@ void Game::move_worms()
 			bonuses_to_replace+=missed_bonuses_to_replace;
 			break;
 		}
-    }
+	}
 
-    WormSet dead_worms; /* returned by do_parallel_worm_work*/
-    WormWarpSet worm_warps; /* returned by do_parallel_worm_work*/
+	WormSet dead_worms; /* returned by do_parallel_worm_work*/
+	WormWarpSet worm_warps; /* returned by do_parallel_worm_work*/
 
 	if(progress==TEST)
 		std::cout << "do_parallel_worm_work" << std::endl;
 		
-    std::forward_list<std::thread> moving_worms;
-    for(Worm &worm : worms)
-    {
-    	std::thread t(Worm::do_parallel_worm_work,
-    		std::ref(worm), std::ref(board), std::ref(worms), std::ref(warps), std::ref(bonuses), progress==TEST,
-    		std::ref(dead_worms), std::ref(worm_warps));
-    	moving_worms.push_front(std::move(t));
-    }
+	std::forward_list<std::thread> moving_worms;
+	for(Worm &worm : worms)
+	{
+		if(worm.has_lives())
+		{
+			std::thread t(Worm::do_parallel_worm_work,
+				std::ref(worm), std::ref(board), std::ref(worms), std::ref(warps), std::ref(bonuses), progress==TEST,
+				std::ref(dead_worms), std::ref(worm_warps));
+			moving_worms.push_front(std::move(t));
+		}
+	}
 	if(progress==TEST)
 		std::cout << "wait for parallel worms" << std::endl;
 		
-    /* wait until all thread have compleated */
-    for(auto &t : moving_worms)
-    {
-    	if(t.joinable())
-	    	t.join();
+	/* wait until all thread have compleated */
+	for(auto &t : moving_worms)
+	{
+		assert(t.joinable());
+		if(t.joinable())
+			t.join();
 	}
 	if(progress==TEST)
 		std::cout << "parallel worm work finished" << std::endl;
@@ -451,71 +442,73 @@ void Game::move_worms()
 	if(!dead_worms.is_empty())
 		play_sound("crash");
 
-    /* move worms */
-    for(Worm &worm : worms)
-    {
-        if (worm.is_still() || worm.get_positions().is_empty() || dead_worms.contains(worm))
-        {
-        	if(progress==TEST)
-        	{
-        		std::cout << "Worm " << (unsigned long)worm.get_colour() << " ";
-        		if(worm.is_still())
-        			std::cout << "is still, ";
-        		if(worm.get_positions().is_empty())
-        			std::cout << "has no length, ";
-        		if(dead_worms.contains(worm))
-        			std::cout << "has died";
-        		std::cout << std::endl;
-        	}
-            continue;
-        }
-
-        Position n=worm.move1(board);
-        if(progress==TEST)
-        {
-        	std::cout << "Worm " << (unsigned long)worm.get_colour() << (worm.is_materialized()?"":"(dematerialized)") <<
-        		" moves to " << (unsigned long)n.x << "," << (unsigned long)n.y << std::endl;
-        }
-        Position target_position;
-        bool warp_bonus;
-        if(worm_warps.find(worm, target_position, warp_bonus))
-        {
-            worm.move2(board, bonuses, target_position);
-            if(warp_bonus)
-            {
-                worm.add_score((worm.get_length() * level) / 2);
-                play_sound("bonus");
-            }
-        }
-        else
-            worm.move2(board, bonuses);
-    }
-
-	/* kill worms on heads collision */
-    for(Worm &worm : worms)
+	/* move worms */
+	for(Worm &worm : worms)
 	{
-        for(Worm &other_worm : worms)
-        {
-            if (&worm != &other_worm
-             && !other_worm.is_still()
-             && other_worm.get_length()>0
-             && worm.get_positions().get_head() == other_worm.get_positions().get_head())
-            {
-                dead_worms.add(worm);
-                dead_worms.add(other_worm);
-		        if(progress==TEST)
-	        		std::cout << "Worm " << (unsigned long)worm.get_colour() << "(" << (unsigned long)worm.get_positions().get_head().x <<
-	        			"," << (unsigned long)worm.get_positions().get_head().y << ") and " << (unsigned long)other_worm.get_colour() <<
-	        			"(" << (unsigned long)other_worm.get_positions().get_head().x << "," << (unsigned long)other_worm.get_positions().get_head().y <<
-	        			") have had a head on collision" << std::endl;
-            }
-        }
+		if (worm.is_still() || worm.get_positions().is_empty() || dead_worms.contains(worm))
+		{
+			if(progress==TEST)
+			{
+				std::cout << "Worm " << (unsigned long)worm.get_colour() << " ";
+				if(worm.is_still())
+					std::cout << "is still, ";
+				if(worm.get_positions().is_empty())
+					std::cout << "has no length, ";
+				if(dead_worms.contains(worm))
+					std::cout << "has died";
+				std::cout << std::endl;
+			}
+		}
+		else
+		{
+			Position n=worm.move1(board);
+			if(progress==TEST)
+			{
+				std::cout << "Worm " << (unsigned long)worm.get_colour() << (worm.is_materialized()?"":"(dematerialized)") <<
+					" moves to " << (unsigned long)n.x << "," << (unsigned long)n.y << std::endl;
+			}
+			Position target_position;
+			bool warp_bonus;
+			if(worm_warps.find(worm, target_position, warp_bonus))
+			{
+				worm.move2(board, bonuses, target_position);
+				if(warp_bonus)
+				{
+					worm.add_score((worm.get_length() * level) / 2);
+					play_sound("bonus");
+				}
+			}
+			else
+				worm.move2(board, bonuses);
+		}
 	}
 
-    auto real_bonuses_to_replace=bonuses.do_pending_removes();
-    for(;real_bonuses_to_replace>0;real_bonuses_to_replace--)
-    {
-    	bool r=add_bonus(true);
+	/* kill worms on heads collision */
+	for(Worm &worm : worms)
+	{
+		for(Worm &other_worm : worms)
+		{
+			if (&worm != &other_worm
+			 && !other_worm.is_still()
+			 && worm.get_length()>0
+			 && other_worm.get_length()>0
+			 && worm.get_positions().get_head() == other_worm.get_positions().get_head())
+			{
+				dead_worms.add(worm);
+				dead_worms.add(other_worm);
+				if(progress==TEST)
+					std::cout << "Worm " << (unsigned long)worm.get_colour() << "(" << (unsigned long)worm.get_positions().get_head().x <<
+						"," << (unsigned long)worm.get_positions().get_head().y << ") and " << (unsigned long)other_worm.get_colour() <<
+						"(" << (unsigned long)other_worm.get_positions().get_head().x << "," << (unsigned long)other_worm.get_positions().get_head().y <<
+						") have had a head on collision" << std::endl;
+			}
+		}
+	}
+
+	auto real_bonuses_to_replace=bonuses.do_pending_removes();
+	for(;real_bonuses_to_replace>0;real_bonuses_to_replace--)
+	{
+		bool r=add_bonus(true);
 		if(progress==TEST)
 		{
 			if(r)
@@ -528,29 +521,29 @@ void Game::move_worms()
 			bonuses_to_replace+=real_bonuses_to_replace;
 			break;
 		}
-    }
+	}
 
-    /* remove dead worms */
-    for(Worm *worm : dead_worms)
-    {
-        if (two_or_more_worms())
-        	worm->reduce_score_by_percentage(70);
+	/* remove dead worms */
+	for(Worm *worm : dead_worms)
+	{
+		if (two_or_more_worms())
+			worm->reduce_score_by_percentage(70);
 
-        if (worm->has_lives())
-            worm->reset (board, bonuses, level == 25 ? 9 : 3);
-            
-        life_change(worm->get_colour(), worm->get_lives());
-    }
+		if (worm->has_lives())
+			worm->reset (board, bonuses, level == 25 ? 9 : 3);
+			
+		life_change(worm->get_colour(), worm->get_lives());
+	}
 
 	/* inform the view a score has changed */
-    for(Worm &worm : worms)
-    {
-    	if(worm.do_score_change())
+	for(Worm &worm : worms)
+	{
+		if(worm.do_score_change())
 			score_change(worm.get_colour(), worm.get_score());
-    }
+	}
 
-    /* refresh the screen */
-    //redraw (true);
+	/* refresh the screen */
+	//redraw (true);
 }
 
 void Game::print_board() const

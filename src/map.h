@@ -25,8 +25,8 @@ private:
 	const int map_width_physical;
 
 	/* variables */
-	std::vector<uint64_t> map;
 	//std::inplace_vector<uint64_t, ((92 - 1) / (sizeof (uint64_t) * 8) + 1) * 66> map; /* max size is 92 by 66 */
+	std::vector<uint64_t> map;
 
 	/* public functions */
 public:
@@ -36,57 +36,57 @@ public:
 		map_width_physical((map_width - 1) / bits + 1),
 		map(map_width_physical * map_height)
 	{
-	    /*
-	     * The width of this array is determined by the number of bits
-	     * in the array type and the width of the map.
-	     * As a location can only be empty or occupied we need one
-	     * bit to represent each location on the map.
-	     *
-	     * If we had a map width of 64 and an array type of
-	     * uint64 we would need one uint64 to store the
-	     * information.
-	     * The math:
-	     * (map_width – 1) / bits + 1
-	     * (64 – 1) / 64 + 1
-	     * 63 / 64 + 1
-	     * 0 + 1
-	     * 1
-	     *
-	     * If we had a map width of 65 and an array type of
-	     * uint64 we would need two uint64s to store the
-	     * information.
-	     * The math:
-	     * (map_width – 1) / bits + 1
-	     * (65 – 1) / 64 + 1
-	     * 64 / 64 + 1
-	     * 1 + 1
-	     * 2
-	     */
+		/*
+		 * The width of this array is determined by the number of bits
+		 * in the array type and the width of the map.
+		 * As a location can only be empty or occupied we need one
+		 * bit to represent each location on the map.
+		 *
+		 * If we had a map width of 64 and an array type of
+		 * uint64 we would need one uint64 to store the
+		 * information.
+		 * The math:
+		 * (map_width – 1) / bits + 1
+		 * (64 – 1) / 64 + 1
+		 * 63 / 64 + 1
+		 * 0 + 1
+		 * 1
+		 *
+		 * If we had a map width of 65 and an array type of
+		 * uint64 we would need two uint64s to store the
+		 * information.
+		 * The math:
+		 * (map_width – 1) / bits + 1
+		 * (65 – 1) / 64 + 1
+		 * 64 / 64 + 1
+		 * 1 + 1
+		 * 2
+		 */
 	}
 	
 	inline bool test(uint16_t p) const
 	{
-	    /*
-	     * To test if the position p is occupied we need to locate
-	     * the position within the array and the position
-	     * within the unsigned integer.
-	     * As each unsigned integer contains the same number of
-	     * bits we can simply divide p.x by this number bits to
-	     * determine the position within the array.
-	     * The remainder from the above division is the bit position
-	     * we want within the unsigned integer.
-	     *
-	     */
-	    const auto x = p>>8;
-	    const auto y = p & 0xff;
-	    auto [quotient, remainder] = std::div(x, bits);
-	    return (map[y * map_width_physical + quotient] >> remainder & 1) > 0;
+		/*
+		 * To test if the position p is occupied we need to locate
+		 * the position within the array and the position
+		 * within the unsigned integer.
+		 * As each unsigned integer contains the same number of
+		 * bits we can simply divide p.x by this number bits to
+		 * determine the position within the array.
+		 * The remainder from the above division is the bit position
+		 * we want within the unsigned integer.
+		 *
+		 */
+		const auto x = p>>8;
+		const auto y = p & 0xff;
+		auto [quotient, remainder] = std::div(x, bits);
+		return (map[y * map_width_physical + quotient] >> remainder & 1) > 0;
 	}
 
 	inline void set(uint8_t x, uint8_t y)
 	{
 		auto [quotient, remainder] = std::div(x, bits);
-        map[y * map_width_physical + quotient] |= 1ull << remainder;
+		map[y * map_width_physical + quotient] |= 1ull << remainder;
 	}
 	
 	inline void set(uint16_t p)

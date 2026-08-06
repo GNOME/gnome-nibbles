@@ -156,22 +156,22 @@ public:
 				}
 			}
 		}
-	    return {false,Position(),false};
+		return {false,Position(),false};
 	}
 
-    // Non-const iterators (allows modifying items during iteration)
-    auto begin() { return warps.begin(); }
-    auto end()   { return warps.end(); }
+	// Non-const iterators (allows modifying items during iteration)
+	auto begin() { return warps.begin(); }
+	auto end()   { return warps.end(); }
 
-    // Const iterators (required for const Team objects)
-    auto begin() const { return warps.begin(); }
-    auto end()   const { return warps.end(); }
+	// Const iterators (required for const Team objects)
+	auto begin() const { return warps.begin(); }
+	auto end()   const { return warps.end(); }
 private:
 	const std::vector<std::vector<unsigned char>> &board;
-    std::map<unsigned long, Warp> warps;
-    
-    inline void increment_clear(const long x, const long y, const long clear_count, long &clear, PositionSet &positions, unsigned long &longest_clear_count) const
-    {
+	std::map<unsigned long, Warp> warps;
+	
+	inline void increment_clear(const long x, const long y, const long clear_count, long &clear, PositionSet &positions, unsigned long &longest_clear_count) const
+	{
 		clear++;
 		if(clear>=clear_count)
 		{
@@ -180,43 +180,40 @@ private:
 				longest_clear_count=clear_count;
 				positions.clear();
 			}
-			positions+=x<<8 | y;
+			positions.set(x, y);
 		}
 		else if(clear>longest_clear_count)
 		{
 			longest_clear_count=clear;
 			positions.clear();
-			positions+=x<<8 | y;
+			positions.set(x, y);
 		}
 		else if(clear==longest_clear_count)
-			positions+=x<<8 | y;
-    }
-    
-    inline bool is_empty(uint16_t p, const Worm::Map &worm_map) const
-    {
-    	if(board[p >> 8][p & 0xff]!=EMPTYCHAR)
-    		return false;
-    	if(worm_map.contain(p))
-    		return false;
-    	for(const auto &warp : warps)
-    	{
-    		if(warp.second == p)
-    			return false;
-    	}
-    	return true;
-    }
-    
+			positions.set(x, y);
+	}
+	
+	inline bool is_empty(uint16_t p, const Worm::Map &worm_map) const
+	{
+		if(board[p >> 8][p & 0xff]!=EMPTYCHAR)
+			return false;
+		if(worm_map.contain(p))
+			return false;
+		for(const auto &warp : warps)
+		{
+			if(warp.second == p)
+				return false;
+		}
+		return true;
+	}
+	
 	Position random_position(Worm worm, WormDirection direction,
 		const std::forward_list<Worm> &worms, bool ai_worm, int worm_length) const
 	{
-	    Worm::Map worm_map(worms, board.size(), board[0].size());
-#if TEST_COMPILE
-        /* the test are done assuming the worm is a player */
-        auto clear_count = 12;
-#else
-        /* ai worm's don't need a long clear streatch to help them stay alive */
-        auto clear_count = ai_worm?2:12;
-#endif
+		Worm::Map worm_map(worms, board.size(), board[0].size());
+
+		/* ai worm's don't need a long clear streatch to help them stay alive */
+		auto clear_count = ai_worm?2:12;
+
 		const uint8_t width=board.size();
 		const uint8_t height=board[0].size();
 		
@@ -274,32 +271,35 @@ private:
 					}
 				}
 				break;
+			default:
+				std::cout << "Worm has an invalid direction!\n";
+				break;
 		}
 		
-        int lowest_deadend = std::numeric_limits<int>::max();
-        Position lowest_deadend_position;
-        for (;!positions.is_empty();)
-        {
-        	auto position=positions.remove_one(true);
-            if (ai_worm)
-            {
-            	return position;
-            }
-            else /* human worm */
-            {
+		int lowest_deadend = std::numeric_limits<int>::max();
+		Position lowest_deadend_position;
+		for (;!positions.is_empty();)
+		{
+			auto position=positions.remove_one(worm.pseudo_random());
+			if (ai_worm)
+			{
+				return position;
+			}
+			else /* human worm */
+			{
 				auto deadend = worm.ai_deadend_after(board, worms, worm_map, position, direction, worm_length);
 				if (deadend <= 0)
 				{
-                	return position;
+					return position;
 				}
 				if (deadend < lowest_deadend)
 				{
 					lowest_deadend = deadend;
 					lowest_deadend_position = position;
 				}
-            }
-        }
-        return lowest_deadend_position;
+			}
+		}
+		return lowest_deadend_position;
 	}
 };
 

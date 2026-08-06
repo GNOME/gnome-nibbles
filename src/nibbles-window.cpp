@@ -39,16 +39,19 @@
 #include <glib/gi18n.h>
 
 #include "definitions.h"
+#include "critical.h"
 #include "pseudo_random.h"
 #include "map.h"
 #include "bonus.h"
 #include "position.h"
 #include "worm.h"
 #include "warp.h"
+#include "inform.h"
 #include "nibbles-window.h"
 #include "game.h"
 #include "view.h"
 #include "confirm.h"
+#include "new_high_score.h"
 
 /*******************************************************************
  *                                                                 *
@@ -58,121 +61,121 @@
 /* text box functions */
 void NibblesWindow::draw_text(const Glib::RefPtr<Gtk::Snapshot>&snapshot, const Glib::ustring text, const int width, const bool text_at_top, Gtk::Widget &widget)
 {
-    //std::cout << text << std::endl;
-    const float PIby2 = 1.570796326794896619231321691639751442f; /* Pi / 2 */
-    const int border = 20;
-    double text_width;
-    double text_height;
-    int font_size = calculate_font_size (text, width - border, text_width, text_height, widget);
-    float background_width = (float)text_width + border;
-    float background_height = (float)text_height + border;
-    float x = (widget.get_width () - background_width) / 2;
-    float y = text_at_top ? 0 : (widget.get_height () - background_height) / 2;
-    float arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
-    /* draw background */
+	//std::cout << text << std::endl;
+	const float PIby2 = 1.570796326794896619231321691639751442f; /* Pi / 2 */
+	const int border = 20;
+	double text_width;
+	double text_height;
+	int font_size = calculate_font_size (text, width - border, text_width, text_height, widget);
+	float background_width = (float)text_width + border;
+	float background_height = (float)text_height + border;
+	float x = (widget.get_width () - background_width) / 2;
+	float y = text_at_top ? 0 : (widget.get_height () - background_height) / 2;
+	float arc_radius = background_width < background_height ? background_width / 3 : background_height / 3;
+	/* draw background */
 	auto background=Gsk::PathBuilder::create();
-    /* top right corner */
-    background->move_to (x + background_width - arc_radius, y + 0);
-    background->svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + background_width, y + arc_radius);
-    /* bottom right corner */
-    background->line_to (x + background_width, y + background_height - arc_radius);
-    background->svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + background_width - arc_radius, y + background_height);
-    /* bottom left corner */
-    background->line_to (x + arc_radius, y + background_height);
-    background->svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + 0, y + background_height - arc_radius);
-    /* top left corner */
-    background->line_to (x + 0, y + arc_radius);
-    background->svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + arc_radius, y + 0);
-    /* fill with colour */
+	/* top right corner */
+	background->move_to (x + background_width - arc_radius, y + 0);
+	background->svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + background_width, y + arc_radius);
+	/* bottom right corner */
+	background->line_to (x + background_width, y + background_height - arc_radius);
+	background->svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + background_width - arc_radius, y + background_height);
+	/* bottom left corner */
+	background->line_to (x + arc_radius, y + background_height);
+	background->svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + 0, y + background_height - arc_radius);
+	/* top left corner */
+	background->line_to (x + 0, y + arc_radius);
+	background->svg_arc_to (arc_radius, arc_radius, PIby2, false, true, x + arc_radius, y + 0);
+	/* fill with colour */
 	snapshot->append_fill (background->to_path (), Gsk::FillRule::EVEN_ODD, {0.0f, 0.0f, 0.0f, 0.9f});
-    /* draw the text */
-    draw_text_font_size (snapshot, (int)(x + (background_width - text_width) / 2),
-        (int)(y + (background_height - text_height) / 2), text, font_size, widget);
+	/* draw the text */
+	draw_text_font_size (snapshot, (int)(x + (background_width - text_width) / 2),
+		(int)(y + (background_height - text_height) / 2), text, font_size, widget);
 }
 /* calculate the font size that fits in the space */
 int NibblesWindow::calculate_font_size (const Glib::ustring &text, int target_width, double &width, double &height, Gtk::Widget &widget)
 {
-    bool rush_size_steps = true;
-    int fail_count = 0;
-    int last_font_size = 1;
-    int target_font_size = 1;
-    width = 0;
-    height = 0;
-    uint target_width_diff = std::numeric_limits<unsigned int>::max();
+	bool rush_size_steps = true;
+	int fail_count = 0;
+	int last_font_size = 1;
+	int target_font_size = 1;
+	width = 0;
+	height = 0;
+	uint target_width_diff = std::numeric_limits<unsigned int>::max();
 
-    for (int font_size = 1;font_size < 128;)
-    {
-        Glib::RefPtr<Pango::Layout> layout = widget.create_pango_layout (text);
-        Pango::FontDescription font = layout->get_font_description ();
-        if(!font.gobj())
-        	font=Glib::wrap(pango_font_description_from_string("Sans Bold 1pt"));
-        font.set_size (Pango::SCALE * font_size);
-        layout->set_font_description (font);
-        //layout->set_text (text, -1);
-        Pango::Rectangle a,b;
-        layout->get_extents (a, b);
-        int width_diff = target_width - (int)(a.get_width() / Pango::SCALE);
-        if (width_diff > 0 && width_diff < target_width_diff)
-        {
-            target_width_diff = width_diff;
-            target_font_size = font_size;
-            width = a.get_width() / Pango::SCALE;
-            height = a.get_height() / Pango::SCALE;
-            if (!rush_size_steps)
-                fail_count = 0;
-        }
-        else
-        {
-            if (rush_size_steps)
-            {
-                rush_size_steps = false;
-                font_size = last_font_size + 1;
-                fail_count = 0;
-            }
-            else if (fail_count > 2)
-                break;
-            else
-                fail_count++;
-        }
-        if (rush_size_steps)
-        {
-            last_font_size = font_size;
-            font_size *= 2;
-        }
-        else
-            font_size++;
-    }
-    return target_font_size;
+	for (int font_size = 1;font_size < 128;)
+	{
+		Glib::RefPtr<Pango::Layout> layout = widget.create_pango_layout (text);
+		Pango::FontDescription font = layout->get_font_description ();
+		if(!font.gobj())
+			font=Glib::wrap(pango_font_description_from_string("Sans Bold 1pt"));
+		font.set_size (Pango::SCALE * font_size);
+		layout->set_font_description (font);
+		//layout->set_text (text, -1);
+		Pango::Rectangle a,b;
+		layout->get_extents (a, b);
+		int width_diff = target_width - (int)(a.get_width() / Pango::SCALE);
+		if (width_diff > 0 && width_diff < target_width_diff)
+		{
+			target_width_diff = width_diff;
+			target_font_size = font_size;
+			width = a.get_width() / Pango::SCALE;
+			height = a.get_height() / Pango::SCALE;
+			if (!rush_size_steps)
+				fail_count = 0;
+		}
+		else
+		{
+			if (rush_size_steps)
+			{
+				rush_size_steps = false;
+				font_size = last_font_size + 1;
+				fail_count = 0;
+			}
+			else if (fail_count > 2)
+				break;
+			else
+				fail_count++;
+		}
+		if (rush_size_steps)
+		{
+			last_font_size = font_size;
+			font_size *= 2;
+		}
+		else
+			font_size++;
+	}
+	return target_font_size;
 }
 /* draw the text */
 void NibblesWindow::draw_text_font_size (const Glib::RefPtr<Gtk::Snapshot>&snapshot, int x, int y, const Glib::ustring &text, int font_size, Gtk::Widget &widget)
 {
-    int x_offset, y_offset;
-    get_text_offsets (text, font_size, x_offset, y_offset, widget);
-    snapshot->translate ({x - x_offset, y - y_offset});
-    auto layout = widget.create_pango_layout (text);
-    layout->set_alignment (Pango::Alignment::CENTER);
-    auto font=layout->get_font_description ();
-    if(!font.gobj())
-    	font=Glib::wrap(pango_font_description_from_string("Sans Bold 1pt"));
-    font.set_size (Pango::SCALE * font_size);
-    layout->set_font_description (font);
-    //layout->set_text (text, -1);
-    snapshot->append_layout (layout, {1, 1, 1, 1});
+	int x_offset, y_offset;
+	get_text_offsets (text, font_size, x_offset, y_offset, widget);
+	snapshot->translate ({x - x_offset, y - y_offset});
+	auto layout = widget.create_pango_layout (text);
+	layout->set_alignment (Pango::Alignment::CENTER);
+	auto font=layout->get_font_description ();
+	if(!font.gobj())
+		font=Glib::wrap(pango_font_description_from_string("Sans Bold 1pt"));
+	font.set_size (Pango::SCALE * font_size);
+	layout->set_font_description (font);
+	//layout->set_text (text, -1);
+	snapshot->append_layout (layout, {1, 1, 1, 1});
 }
 void NibblesWindow::get_text_offsets (const Glib::ustring &text, int font_size, int &x_offset, int &y_offset, Gtk::Widget &widget)
 {
-    auto layout = widget.create_pango_layout (text);
-    auto font=layout->get_font_description ();
-    if(!font.gobj())
-    	font=Glib::wrap(pango_font_description_from_string("Sans Bold 1pt"));
-    font.set_size (Pango::SCALE * font_size);
-    layout->set_font_description (font);
-    //layout.set_text (text, -1);
-    Pango::Rectangle a,b;
-    layout->get_extents(a,b);
-    x_offset = a.get_x() / Pango::SCALE;
-    y_offset = a.get_y() / Pango::SCALE;
+	auto layout = widget.create_pango_layout (text);
+	auto font=layout->get_font_description ();
+	if(!font.gobj())
+		font=Glib::wrap(pango_font_description_from_string("Sans Bold 1pt"));
+	font.set_size (Pango::SCALE * font_size);
+	layout->set_font_description (font);
+	//layout.set_text (text, -1);
+	Pango::Rectangle a,b;
+	layout->get_extents(a,b);
+	x_offset = a.get_x() / Pango::SCALE;
+	y_offset = a.get_y() / Pango::SCALE;
 }
 /* get the worm's colour from the settings, unknown_colour_worm if no colour set */
 eWormColour get_worm_settings_colour(unsigned long worm_id)
@@ -209,6 +212,7 @@ void set_worm_settings_colour(unsigned long worm_id,eWormColour colour)
 		Glib::ustring my_settings = WORM_BASE_KEY;
 		my_settings += (char)('0'+worm_id);
 		auto pWormSettings = Gio::Settings::create(my_settings);
+		const char *worm_colour_string[]={"red","green","blue","yellow","cyan","purple"};
 		pWormSettings->set_string("color",worm_colour_string[colour]);
 	}
 }
@@ -232,6 +236,8 @@ void NibblesWindow::setup_controls()
 			players_grid->append(*pc0);
 			Glib::ustring button_name = "name_label";
 			auto button = Gtk::Builder::get_widget_derived<PlayerButton>(Builder0, "name_label", p, this);
+			if(!button)
+				critical("player-controls.ui: id=\"name_label\" not found!");
 		}
 	}
 	/* clean up unused players */
@@ -252,16 +258,18 @@ void NibblesWindow::setup_game()
 	auto *view = dynamic_cast<View*>(child);
 	if(!view || child->get_buildable_id()=="statusbar_stack")
 	{
+		auto progress=static_cast<Game::Progress>(progress_selection);
+		auto level=std::clamp(pSettings->get_int(LEVEL_SETTINGS), 1 , 26);
+		auto fakes=pSettings->get_boolean(FAKE_SETTINGS);
 		/* create the view */
-		view=Gtk::make_managed<View>(static_cast<Game::Progress>(progress_selection),
-		std::clamp(pSettings->get_int(LEVEL_SETTINGS), 1 , 26), speed_selection,
-		*GetButton("pause_button"),
-			[this](const std::vector<WormScore> scores) {/*game_over*/
-				/* disable new-game & pause/resume buttons */
-				GetButton("new_game_button")->set_visible(0);
-				GetButton("pause_button")->set_visible(0);
-				update_high_scores(scores);
-			}		
+		view=Gtk::make_managed<View>(progress, level, speed_selection, fakes,
+			*GetButton("pause_button"),
+				[this,level,fakes](const std::vector<WormScore> scores) {/*game_over*/
+					/* disable new-game & pause/resume buttons */
+					GetButton("new_game_button")->set_visible(0);
+					GetButton("pause_button")->set_visible(0);
+					update_high_scores(speed_selection, fakes, progress_selection, level, scores);
+				}		
 		);
 	}
 	/* pass keys to view */
@@ -274,6 +282,14 @@ void NibblesWindow::setup_game()
 	GetButton("pause_button")->set_visible(1);
 	/* Initialise and start the game */
 	game_box->prepend(*view);
+}
+
+void NibblesWindow::delete_view()
+{
+	auto game_box=GetBox("game_box");
+	auto child = game_box->get_first_child();
+	if(auto view = dynamic_cast<View*>(child))
+		game_box->remove(*view);
 }
 
 bool NibblesWindow::pass_key_to_view(guint keycode)
@@ -297,15 +313,15 @@ void NibblesWindow::pause_view(bool pause)
 bool NibblesWindow::on_key_pressed_callback(guint keyval, guint keycode, Gdk::ModifierType state)
 {
 	/* check for single key handler */
-    if(key_handler)
-    {
-    	bool keep_using_key_handler = key_handler->key_pressed(keyval, keycode);/* pass key to handler */
-    	if(!keep_using_key_handler)
-        	key_handler=nullptr;/* stop using handler */
-    	return true;
-    }
-    else
-    	return pass_key_to_view(keycode);
+	if(key_handler)
+	{
+		bool keep_using_key_handler = key_handler->key_pressed(keyval, keycode);/* pass key to handler */
+		if(!keep_using_key_handler)
+			key_handler=nullptr;/* stop using handler */
+		return true;
+	}
+	else
+		return pass_key_to_view(keycode);
 }
 
 void NibblesWindow::initilise_css()
@@ -339,7 +355,7 @@ void NibblesWindow::initilise_css()
 		border-radius: 9999px;
 		padding: 12px 24px;}
 	.rounded:hover {
-	    background: #4990e7;}
+		background: #4990e7;}
 	.rounded:active {
 		background: #2a6ab7;}
 	)");
@@ -366,36 +382,36 @@ void NibblesWindow::initilise_css()
 
 void NibblesWindow::initilise_about()
 {
-    std::vector<Glib::ustring> authors={
-	    /* Translators: text crediting an author, in the about dialog */
-	        _("Sean MacIsaac"),
-	    /* Translators: text crediting an author, in the about dialog */
-	        _("Ian Peters"),
-	    /* Translators: text crediting an author, in the about dialog */
-	        _("Andreas Røsdal"),
-	    /* Translators: text crediting an author, in the about dialog */
-	        _("Guillaume Beland"),
-	    /* Translators: text crediting an author, in the about dialog */
-	        _("Iulian-Gabriel Radu"),
-	    /* Translators: text crediting an author, in the about dialog */
-	        _("Ben Corby")
-	    };
+	std::vector<Glib::ustring> authors={
+		/* Translators: text crediting an author, in the about dialog */
+			_("Sean MacIsaac"),
+		/* Translators: text crediting an author, in the about dialog */
+			_("Ian Peters"),
+		/* Translators: text crediting an author, in the about dialog */
+			_("Andreas Røsdal"),
+		/* Translators: text crediting an author, in the about dialog */
+			_("Guillaume Beland"),
+		/* Translators: text crediting an author, in the about dialog */
+			_("Iulian-Gabriel Radu"),
+		/* Translators: text crediting an author, in the about dialog */
+			_("Ben Corby")
+		};
 
-    /* Translators: text crediting a documenter, in the about dialog */
-    std::vector<Glib::ustring> documenters={ _("Kevin Breit") };
+	/* Translators: text crediting a documenter, in the about dialog */
+	std::vector<Glib::ustring> documenters={ _("Kevin Breit") };
 
-    /* Translators: text crediting a designer, in the about dialog */
+	/* Translators: text crediting a designer, in the about dialog */
 	std::vector<Glib::ustring> artists={ _("Allan Day") };
 
 	Glib::ustring copyright;
-    /* Translators: text crediting some maintainers, seen in the About dialog */
-    copyright+=_("Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal\n");
-     /* Translators: text crediting a maintainer, seen in the About dialog */
-    copyright+=_("Copyright © 2009 – Guillaume Beland\n");
-     /* Translators: text crediting a maintainer, seen in the About dialog */
-    copyright+=_("Copyright © 2015-2020 – Iulian-Gabriel Radu\n");
-     /* Translators: text crediting a maintainer, seen in the About dialog */
-    copyright+=_("Copyright © 2022-2026 – Ben Corby");
+	/* Translators: text crediting some maintainers, seen in the About dialog */
+	copyright+=_("Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal\n");
+	 /* Translators: text crediting a maintainer, seen in the About dialog */
+	copyright+=_("Copyright © 2009 – Guillaume Beland\n");
+	 /* Translators: text crediting a maintainer, seen in the About dialog */
+	copyright+=_("Copyright © 2015-2020 – Iulian-Gabriel Radu\n");
+	 /* Translators: text crediting a maintainer, seen in the About dialog */
+	copyright+=_("Copyright © 2022-2026 – Ben Corby");
 
 	about.set_logo_icon_name("org.gnome.Nibbles");
 	about.set_program_name(PROGRAM_NAME);
@@ -403,12 +419,12 @@ void NibblesWindow::initilise_about()
 	about.set_version(VERSION);
 	about.set_authors(authors);
 	about.set_documenters(documenters);
-    about.set_artists(artists);
-    about.set_copyright(copyright);
+	about.set_artists(artists);
+	about.set_copyright(copyright);
 	about.set_license_type(Gtk::License::GPL_3_0);
 	/* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
 	about.set_translator_credits (_("translator-credits"));
-    about.set_website (WEBSITE);
+	about.set_website (WEBSITE);
 	 /* Translators: small description of the game, seen in the About dialog */
 	about.set_comments(_("A worm game for GNOME"));
 
@@ -469,9 +485,9 @@ void NibblesWindow::initilise_speed_and_fakes()
 }
 void NibblesWindow::initilise_keys()
 {
-    auto key_controller = Gtk::EventControllerKey::create();
-    key_controller->signal_key_pressed().connect(sigc::mem_fun(*this, &NibblesWindow::on_key_pressed_callback), false);
-    static_cast<Gtk::Widget*>(this)->add_controller(key_controller);		
+	auto key_controller = Gtk::EventControllerKey::create();
+	key_controller->signal_key_pressed().connect(sigc::mem_fun(*this, &NibblesWindow::on_key_pressed_callback), false);
+	static_cast<Gtk::Widget*>(this)->add_controller(key_controller);		
 }
 void NibblesWindow::back_callback() /* escape key */
 {
@@ -531,10 +547,85 @@ void NibblesWindow::back_callback() /* escape key */
 	}
 }
 
-void NibblesWindow::update_high_scores(std::vector<WormScore> scores)
+void NibblesWindow::update_high_scores(
+	unsigned long speed, /* 1 to 4 inclusive */
+	bool fakes,
+	unsigned long progress,
+	unsigned long level,
+	const std::vector<WormScore> &score)
 {
-	
-	
+	load_high_scores();
+
+	auto category = scores.to_category(speed, fakes, progress, level);
+	auto rows = scores.add(category, score);
+	bool new_high_score=false;
+	auto* window = new NewHighScoreWindow(*this);
+	auto it=score.begin();
+	for(const auto &row : rows)
+	{
+		if(row<10)
+		{
+			new_high_score=true;
+			window->add(*it);
+			
+		}
+		++it;
+	}
+	if(new_high_score)
+	{
+		// Handle the response callback asynchronously (non-blocking)
+		window->close_response().connect([this,window,category,rows](std::vector<Glib::ustring> names) {
+			auto row=rows.begin();
+			auto name=names.begin();
+			for(;row!=rows.end() && name!=names.end();)
+			{
+				for(;row!=rows.end() && *row>=10;row++);
+				scores.set_name(category,*row++,*name++);
+			}
+			save_high_scores(category);
+			delete window;
+			delete_view();			
+			ScreenStack_set_visible_child(PLAYERS);
+		});
+		window->present();
+	}
+	else
+	{
+		delete window;
+		delete_view();			
+		ScreenStack_set_visible_child(PLAYERS);
+	}
+}
+
+void NibblesWindow::launch_help()
+{
+	/* Don't use uri_launcher_launch as it breaks the help in flatpak. */
+	/* todo change over to use gtkmm */
+	gtk_show_uri(static_cast<Gtk::Window *>(this)->gobj(), "help:gnome-nibbles", GDK_CURRENT_TIME);
+}
+
+void NibblesWindow::save_high_scores(uint8_t category_index)
+{
+	//auto path=Glib::build_filename(Glib::get_user_data_dir(), "gnome-nibbles", "scores");
+	auto [success, path]=scores.create_scores_directory();
+	if(success)
+	{
+		Glib::RefPtr<Gio::File> directory = Gio::File::create_for_path(path);
+		Glib::ustring file_path=Glib::build_filename(path,scores.get_file(category_index));
+
+		try {
+			std::ofstream score_file(file_path);
+			if (score_file)
+			{
+				for(const auto &score : scores.get_scores(category_index))
+				{
+					score_file << std::to_string(score.score) << " " << std::to_string(score.date) << " " << score.name << std::endl;;\
+				}
+			}
+		} catch (const std::exception& ex) {
+			/* problem writing file */
+		}
+	}
 }
 
 /*******************************************************************
@@ -556,23 +647,23 @@ void NibblesWindow::Arrow::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& s)
 {
 	Gtk::Widget::snapshot_vfunc(s);
 
-    //auto path = Gsk::PathBuilder::create ();
-    auto b = gsk_path_builder_new();
-    double width = get_width ();
-    double height = get_height ();
-    struct {double x; double y;} a[7];
-    if(get_direction()=="up")
-    {
-    	a[0] ={0, height / 2};
-    	a[1] ={width / 2, 0};
-    	a[2] ={width, height /2};
-    	a[3] ={width * 2 / 3, height / 2};
-    	a[4] ={width * 2 / 3, height};
-    	a[5] ={width / 3, height};
-    	a[6] ={width / 3, height / 2};
-    }
-    else if(get_direction()=="down")
-    {
+	//auto path = Gsk::PathBuilder::create ();
+	auto b = gsk_path_builder_new();
+	double width = get_width ();
+	double height = get_height ();
+	struct {double x; double y;} a[7];
+	if(get_direction()=="up")
+	{
+		a[0] ={0, height / 2};
+		a[1] ={width / 2, 0};
+		a[2] ={width, height /2};
+		a[3] ={width * 2 / 3, height / 2};
+		a[4] ={width * 2 / 3, height};
+		a[5] ={width / 3, height};
+		a[6] ={width / 3, height / 2};
+	}
+	else if(get_direction()=="down")
+	{
 		a[0] ={0, height / 2};
 		a[1] ={width / 2, height};
 		a[2] ={width, height /2};
@@ -581,8 +672,8 @@ void NibblesWindow::Arrow::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& s)
 		a[5] ={width / 3, 0};
 		a[6] ={width / 3, height / 2};
 	}
-    else if(get_direction()=="left")
-    {
+	else if(get_direction()=="left")
+	{
 		a[0] ={width / 2, 0};
 		a[1] ={0, height / 2};
 		a[2] ={width/2, height};
@@ -591,8 +682,8 @@ void NibblesWindow::Arrow::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& s)
 		a[5] ={width, height / 3};
 		a[6] ={width / 2, height / 3};
 	}
-    else if(get_direction()=="right")
-    {
+	else if(get_direction()=="right")
+	{
 		a[0] ={width / 2, 0};
 		a[1] ={width, height / 2};
 		a[2] ={width / 2, height};
@@ -602,45 +693,45 @@ void NibblesWindow::Arrow::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& s)
 		a[6] ={width / 2, height / 3};
 	}
 	
-    for (int i = 0; i < 7; i++)
-    {
-        if (i == 0)
-        {
-            //path->move_to ((float)a[0].x, (float)a[0].y);
-            gsk_path_builder_move_to(b, (float)a[0].x, (float)a[0].y);
-        }
-        else
-        {
-            //path->line_to ((float)a[i].x, (float)a[i].y);
-            gsk_path_builder_line_to(b, (float)a[i].x, (float)a[i].y);
-        }
-    }
-    GdkRGBA c = {0.2890625f, 0.5625f, 0.84765625f, 1.0f};
-    //if (check_duplicate != null && check_duplicate (direction))
-    //    c = {0.75f, 0f, 0f, 1f};
-    //else
-    //    c = {0.2890625f, 0.5625f, 0.84765625f, 1f};
-    if(player->check_for_key_clash(get_direction()))
-    	c = {0.75f, 0.0f, 0.0f, 1.0f};
-    gsk_path_builder_close(b);
-    auto path = gsk_path_builder_free_to_path(b);
-    gtk_snapshot_append_fill (s->gobj(), path, GSK_FILL_RULE_EVEN_ODD, &c);
+	for (int i = 0; i < 7; i++)
+	{
+		if (i == 0)
+		{
+			//path->move_to ((float)a[0].x, (float)a[0].y);
+			gsk_path_builder_move_to(b, (float)a[0].x, (float)a[0].y);
+		}
+		else
+		{
+			//path->line_to ((float)a[i].x, (float)a[i].y);
+			gsk_path_builder_line_to(b, (float)a[i].x, (float)a[i].y);
+		}
+	}
+	GdkRGBA c = {0.2890625f, 0.5625f, 0.84765625f, 1.0f};
+	//if (check_duplicate != null && check_duplicate (direction))
+	//    c = {0.75f, 0f, 0f, 1f};
+	//else
+	//    c = {0.2890625f, 0.5625f, 0.84765625f, 1f};
+	if(player->check_for_key_clash(get_direction()))
+		c = {0.75f, 0.0f, 0.0f, 1.0f};
+	gsk_path_builder_close(b);
+	auto path = gsk_path_builder_free_to_path(b);
+	gtk_snapshot_append_fill (s->gobj(), path, GSK_FILL_RULE_EVEN_ODD, &c);
 	gsk_path_unref(path);
-    
-        // Get widget allocation (size)
-        //const Gtk::Allocation& allocation = get_allocation();
+	
+		// Get widget allocation (size)
+		//const Gtk::Allocation& allocation = get_allocation();
 /*        const int width = get_width();
-        const int height = get_height();
+		const int height = get_height();
 
-        // Draw a simple rectangle
-        Gdk::RGBA color;
-        color.set_rgba(0.2890625f, 0.5625f, 0.84765625f, 1.0f); // light blue
-        s->append_color(color, Gdk::Rectangle{0, 0, width, height});
+		// Draw a simple rectangle
+		Gdk::RGBA color;
+		color.set_rgba(0.2890625f, 0.5625f, 0.84765625f, 1.0f); // light blue
+		s->append_color(color, Gdk::Rectangle{0, 0, width, height});
 
-        // Draw a smaller red rectangle inside
-        Gdk::RGBA red;
-        red.set_rgba(0.75, 0.0, 0.0, 1.0);
-        s->append_color(red, Gdk::Rectangle{width/4, height/4, width/2, height/2});    
+		// Draw a smaller red rectangle inside
+		Gdk::RGBA red;
+		red.set_rgba(0.75, 0.0, 0.0, 1.0);
+		s->append_color(red, Gdk::Rectangle{width/4, height/4, width/2, height/2});    
 */
 }
 
@@ -699,13 +790,13 @@ void NibblesWindow::PlayerButton::on_clicked_down(Gtk::Widget *pWidget)
 }
 bool NibblesWindow::PlayerButton::key_pressed(guint keyval, guint keycode)
 {
-    if(key_pressed_data.pKeyPressMessage)
-    {
-    	const unsigned long key_index=key_pressed_data.KeyToSet & 0x3; /* 0=up, 1=left, 2=right & 3=down */
-    	/* store key values */
-	    keys[key_index]=keyval;
-	    raw_keys[key_index]=keycode;
-	    /* remove overlay */
+	if(key_pressed_data.pKeyPressMessage)
+	{
+		const unsigned long key_index=key_pressed_data.KeyToSet & 0x3; /* 0=up, 1=left, 2=right & 3=down */
+		/* store key values */
+		keys[key_index]=keyval;
+		raw_keys[key_index]=keycode;
+		/* remove overlay */
 		pOverlay->remove_overlay(*key_pressed_data.pKeyPressMessage);
 		key_pressed_data.pKeyPressMessage=nullptr;
 		/* write settings */
@@ -764,7 +855,8 @@ bool NibblesWindow::PlayerButton::check_for_key_clash(const Glib::ustring &self)
 		Glib::ustring error="player-controls.ui: Invalid arrow direction \"";
 		error+=self;
 		error+="\".";
-		g_critical(error.c_str());
+		critical(error);
+		return true;
 	}
 
 	std::vector<PlayerButton*> players;
@@ -878,26 +970,26 @@ void NibblesWindow::ColourWheel::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot
 /* return the segment the mouse pointer is over, if any */
 NibblesWindow::ColourWheelSegment *NibblesWindow::ColourWheel::get_mouse_point_segment()
 {
-    if(mouse_point.is_valid)
-    {
-    	auto segment_count=get_segment_count();
+	if(mouse_point.is_valid)
+	{
+		auto segment_count=get_segment_count();
 		unsigned int id=0;
 		for(Gtk::Widget *p = get_first_child ();p!=nullptr;p = p->get_next_sibling (), id++)
 		{
 			auto segment=dynamic_cast<ColourWheelSegment *>(p);
 			if(!segment)
 			{
-            	Glib::ustring buffer="player-controls.ui: all children of id=\"";
-            	buffer+=get_buildable_id();
-            	buffer+="\" must be of gtkmm__CustomObject_ColourWheelSegment class.";
-            	g_critical(buffer.c_str());
-            }
+				Glib::ustring buffer="player-controls.ui: all children of id=\"";
+				buffer+=get_buildable_id();
+				buffer+="\" must be of gtkmm__CustomObject_ColourWheelSegment class.";
+				critical(buffer);
+			}
 			else if(segment->calculate_segment_path(get_width (), get_height(), id, segment_count)->
 				in_fill({mouse_point.x,mouse_point.y},Gsk::FillRule::EVEN_ODD))
-                return segment;
+				return segment;
 		}
-    }
-    return nullptr;
+	}
+	return nullptr;
 }
 
 /* override the focus virtual function to enable forward/backward tabs
@@ -910,166 +1002,176 @@ bool NibblesWindow::ColourWheel::focus_vfunc(Gtk::DirectionType direction, Gtk::
 	auto focus_child=get_focus_child();
 	int focus_id=focus_child?get_segment_id(focus_child):-1;
 	switch (direction)
-    {
-        case Gtk::DirectionType::TAB_FORWARD:
-            if (focus_id < 0)
-            {
-                /* no focus, focus on first segment */
-                auto first_segment=get_first_child();
-                set_focus_child=first_segment;
-                first_segment->queue_draw();/* focus */
-                return true;
-            }
-            else if (focus_id < segment_count - 1)
-            {
-                /* move focus to next segment */
-            	auto next_segment=focus_child->get_next_sibling ();
-                set_focus_child=next_segment;
-                focus_child->queue_draw();/* remove focus */
-                next_segment->queue_draw();/* focus */
-                return true;
-            }
-            else
-            {
-                /* last segment reached */
-                Gtk::Widget *p,*last_segment;
+	{
+		case Gtk::DirectionType::TAB_FORWARD:
+			if (focus_id < 0)
+			{
+				/* no focus, focus on first segment */
+				auto first_segment=get_first_child();
+				set_focus_child=first_segment;
+				first_segment->queue_draw();/* focus */
+				return true;
+			}
+			else if (focus_id < segment_count - 1)
+			{
+				/* move focus to next segment */
+				auto next_segment=focus_child->get_next_sibling ();
+				set_focus_child=next_segment;
+				focus_child->queue_draw();/* remove focus */
+				next_segment->queue_draw();/* focus */
+				return true;
+			}
+			else
+			{
+				/* last segment reached */
+				Gtk::Widget *p,*last_segment;
+				last_segment=nullptr;
 				for(p = get_first_child ();p!=nullptr;last_segment = p, p = p->get_next_sibling ());
-               	last_segment->queue_draw();/* remove focus */
-                return false;
-            }
-        case Gtk::DirectionType::TAB_BACKWARD:
-            if (focus_id < 0)
-            {
+				if(last_segment)
+				   	last_segment->queue_draw();/* remove focus */
+				return false;
+			}
+		case Gtk::DirectionType::TAB_BACKWARD:
+			if (focus_id < 0)
+			{
 				/* no focus, focus on last segment */
 				Gtk::Widget *p,*last_segment;
+				last_segment=nullptr;
 				for(p = get_first_child ();p!=nullptr;last_segment = p, p = p->get_next_sibling ());
-				set_focus_child=last_segment;
-				last_segment->queue_draw();/* focus */
+				if(last_segment)
+				{
+					set_focus_child=last_segment;
+					last_segment->queue_draw();/* focus */
+				}
 				return true;
-            }
-            else if (focus_id > 0)
-            {
-                Gtk::Widget *p,*previous_segment;
+			}
+			else if (focus_id > 0)
+			{
+				Gtk::Widget *p,*previous_segment;
+				previous_segment=nullptr;
 				for(p = get_first_child ();p!=nullptr && p!=focus_child;previous_segment = p, p = p->get_next_sibling ());
-                set_focus_child=previous_segment;
-                focus_child->queue_draw();/* remove focus */
-                previous_segment->queue_draw();/* focus */
-                return true;
-            }
-            else
-            {
-                /* first segment reached */
-                auto first_segment=get_first_child();
-                first_segment->queue_draw();/* remove focus */
-                return false;
-            }
-        case Gtk::DirectionType::UP:
-            if (focus_id < 0)
-            {
-                /* no focus */
-                set_focus_child=get_child(180/segment_degrees);
-                set_focus_child->queue_draw();/* focus */
-                return true;
-            }
-            else if (focus_id == 0 || focus_id == segment_count - 1)
-            {
-                /* top reached */
-                focus_child->queue_draw();/* remove focus */
-                return false;
-            }
-            else
-            {
-                if (focus_id < segment_count/2)
-                    set_focus_child=get_child(focus_id-1);
-                else
-                    set_focus_child=get_child(focus_id+1);
-                set_focus_child->queue_draw();/* focus */
-                focus_child->queue_draw();/* remove focus */
-                return true;
-            }
-        case Gtk::DirectionType::DOWN:
-            if (focus_id < 0)
-            {
-                /* no focus */
-                set_focus_child=get_first_child();
-                set_focus_child->queue_draw();/* focus */
-                return true;
-            }
-            else if ((segment_count & 0x1) == 0 && (focus_id == segment_count / 2 || focus_id == segment_count / 2 - 1)
-                    || (segment_count & 0x1) == 1 && focus_id == segment_count / 2)
-            {
-                /* bottom reached */
-                focus_child->queue_draw();/* remove focus */
-                return false;
-            }
-            else
-            {
-                if (focus_id < segment_count / 2)
-                    set_focus_child=get_child(focus_id+1);
-                else
-                    set_focus_child=get_child(focus_id-1);
-                set_focus_child->queue_draw();/* focus */
-                focus_child->queue_draw();/* remove focus */
-                return true;
-            }
-        case Gtk::DirectionType::LEFT:
-            if (focus_id < 0)
-            {
-                /* no focus */
-                set_focus_child=get_child(90/segment_degrees);
-                set_focus_child->queue_draw();/* focus */
-                return true;
-            }
-            else if (focus_id == 270 / segment_degrees || 270 % segment_degrees == 0 && focus_id == 270 / segment_degrees - 1)
-            {
-                /* left most reached */
-                focus_child->queue_draw();/* remove focus */
-                return false;
-            }
-            else
-            {
-                if (focus_id < 270 / segment_degrees && focus_id >= 90 / segment_degrees)
-                    set_focus_child=get_child(focus_id + 1);
-                else
-                    set_focus_child=get_child(focus_id > 0 ? focus_id - 1 : segment_count - 1);
-                set_focus_child->queue_draw();/* focus */
-                focus_child->queue_draw();/* remove focus */
-                return true;
-            }
-        case Gtk::DirectionType::RIGHT:
-            if (focus_id < 0)
-            {
-                /* no focus */
-                set_focus_child=get_child(270 / segment_degrees);
-                set_focus_child->queue_draw();/* focus */
-                return true;
-            }
-            else if (focus_id == 90 / segment_degrees || 90 % segment_degrees == 0 && focus_id == 90 / segment_degrees - 1)
-            {
-                /* right most reached */
-                focus_child->queue_draw();/* remove focus */
-                return false;
-            }
-            else
-            {
-                if (focus_id < 270 / segment_degrees && focus_id >= 90 / segment_degrees)
-                    set_focus_child=get_child(focus_id - 1);
-                else
-                    set_focus_child=get_child((focus_id + 1) % segment_count);
-                set_focus_child->queue_draw();/* focus */
-                focus_child->queue_draw();/* remove focus */
-                return true;
-            }
-        default:
-            if (!focus_child)
-            {
-                set_focus_child=get_first_child();
-                set_focus_child->queue_draw();/* focus */
-	            return true;
-           	}
-           	else
-                return false;
-    }
+				if(previous_segment)
+				{
+					set_focus_child=previous_segment;
+					focus_child->queue_draw();/* remove focus */
+					previous_segment->queue_draw();/* focus */
+				}
+				return true;
+			}
+			else
+			{
+				/* first segment reached */
+				auto first_segment=get_first_child();
+				first_segment->queue_draw();/* remove focus */
+				return false;
+			}
+		case Gtk::DirectionType::UP:
+			if (focus_id < 0)
+			{
+				/* no focus */
+				set_focus_child=get_child(180/segment_degrees);
+				set_focus_child->queue_draw();/* focus */
+				return true;
+			}
+			else if (focus_id == 0 || focus_id == segment_count - 1)
+			{
+				/* top reached */
+				focus_child->queue_draw();/* remove focus */
+				return false;
+			}
+			else
+			{
+				if (focus_id < segment_count/2)
+					set_focus_child=get_child(focus_id-1);
+				else
+					set_focus_child=get_child(focus_id+1);
+				set_focus_child->queue_draw();/* focus */
+				focus_child->queue_draw();/* remove focus */
+				return true;
+			}
+		case Gtk::DirectionType::DOWN:
+			if (focus_id < 0)
+			{
+				/* no focus */
+				set_focus_child=get_first_child();
+				set_focus_child->queue_draw();/* focus */
+				return true;
+			}
+			else if ((segment_count & 0x1) == 0 && (focus_id == segment_count / 2 || focus_id == segment_count / 2 - 1)
+					|| (segment_count & 0x1) == 1 && focus_id == segment_count / 2)
+			{
+				/* bottom reached */
+				focus_child->queue_draw();/* remove focus */
+				return false;
+			}
+			else
+			{
+				if (focus_id < segment_count / 2)
+					set_focus_child=get_child(focus_id+1);
+				else
+					set_focus_child=get_child(focus_id-1);
+				set_focus_child->queue_draw();/* focus */
+				focus_child->queue_draw();/* remove focus */
+				return true;
+			}
+		case Gtk::DirectionType::LEFT:
+			if (focus_id < 0)
+			{
+				/* no focus */
+				set_focus_child=get_child(90/segment_degrees);
+				set_focus_child->queue_draw();/* focus */
+				return true;
+			}
+			else if (focus_id == 270 / segment_degrees || 270 % segment_degrees == 0 && focus_id == 270 / segment_degrees - 1)
+			{
+				/* left most reached */
+				focus_child->queue_draw();/* remove focus */
+				return false;
+			}
+			else
+			{
+				if (focus_id < 270 / segment_degrees && focus_id >= 90 / segment_degrees)
+					set_focus_child=get_child(focus_id + 1);
+				else
+					set_focus_child=get_child(focus_id > 0 ? focus_id - 1 : segment_count - 1);
+				set_focus_child->queue_draw();/* focus */
+				focus_child->queue_draw();/* remove focus */
+				return true;
+			}
+		case Gtk::DirectionType::RIGHT:
+			if (focus_id < 0)
+			{
+				/* no focus */
+				set_focus_child=get_child(270 / segment_degrees);
+				set_focus_child->queue_draw();/* focus */
+				return true;
+			}
+			else if (focus_id == 90 / segment_degrees || 90 % segment_degrees == 0 && focus_id == 90 / segment_degrees - 1)
+			{
+				/* right most reached */
+				focus_child->queue_draw();/* remove focus */
+				return false;
+			}
+			else
+			{
+				if (focus_id < 270 / segment_degrees && focus_id >= 90 / segment_degrees)
+					set_focus_child=get_child(focus_id - 1);
+				else
+					set_focus_child=get_child((focus_id + 1) % segment_count);
+				set_focus_child->queue_draw();/* focus */
+				focus_child->queue_draw();/* remove focus */
+				return true;
+			}
+		default:
+			if (!focus_child)
+			{
+				set_focus_child=get_first_child();
+				set_focus_child->queue_draw();/* focus */
+				return true;
+		   	}
+		   	else
+				return false;
+	}
 }
 
 
@@ -1083,9 +1185,9 @@ void NibblesWindow::ColourWheel::select_segment(Gtk::Widget *segment)
 	eWormColour old_colour=get_worm_settings_colour(player->id);
 	if(old_colour!=new_colour)
 	{
-    	/* check if any other player is using this colour */
+		/* check if any other player is using this colour */
 		std::vector<PlayerButton*> players;
-    	unsigned int player_count=get_players(players);
+		unsigned int player_count=get_players(players);
 		for(unsigned int worm_id=0;worm_id<player_count;worm_id++)
 		{
 			if(worm_id!=player->id) /* ignore self */
@@ -1137,55 +1239,55 @@ void NibblesWindow::ColourWheelSegment::snapshot_vfunc(const Glib::RefPtr<Gtk::S
 {
 	Gtk::Widget::snapshot_vfunc(snapshot);
 
-    const unsigned int ID = ((ColourWheel *)get_parent ())->get_segment_id (this);
-    auto parent_width = ((ColourWheel *)get_parent ())->get_width ();
-    auto parent_height = ((ColourWheel *)get_parent ())->get_height ();
-    double radius = parent_width > parent_height ? parent_height / 2.0 : parent_width / 2.0;
-    double segment = PIx2 / ((ColourWheel *)get_parent ())->get_segment_count ();
-    /* path for segment */
-    auto p = Gsk::PathBuilder::create();
-    /* move to centre of the wheel */
-    double cx = parent_width / 2.0/* - offset_from_parent.get_x()*/;
-    double cy = parent_height / 2.0/* - offset_from_parent.get_y()*/;
-    if (is_focus ())
-    {
-        cx += sin (segment * ID + segment/2) * (radius / 10);
-        cy -= cos (segment * ID + segment/2) * (radius / 10);
-    }
-    p->move_to ((float)cx, (float)cy);
-    /* line to start of arc */
-    double x1 = sin (segment * ID) * radius + cx;
-    double y1 = -cos (segment * ID) * radius + cy;
-    p->line_to ((float)x1, (float)y1);
-    /* arc */
-    double x2 = sin (segment * (ID + 1)) * radius + cx;
-    double y2 = -cos (segment * (ID + 1)) * radius + cy;
-    p->svg_arc_to ((float)radius, (float)radius, (float)segment, false, true, (float)x2, (float)y2);
-    /* fill the segment with our colour */
-    snapshot->append_fill(p->to_path (), Gsk::FillRule::EVEN_ODD, { (get_colour() >> 16 & 0xff) / 255.0f, (get_colour() >> 8 & 0xff) / 255.0f, (get_colour() & 0xff) / 255.0f, 1});
+	const unsigned int ID = ((ColourWheel *)get_parent ())->get_segment_id (this);
+	auto parent_width = ((ColourWheel *)get_parent ())->get_width ();
+	auto parent_height = ((ColourWheel *)get_parent ())->get_height ();
+	double radius = parent_width > parent_height ? parent_height / 2.0 : parent_width / 2.0;
+	double segment = PIx2 / ((ColourWheel *)get_parent ())->get_segment_count ();
+	/* path for segment */
+	auto p = Gsk::PathBuilder::create();
+	/* move to centre of the wheel */
+	double cx = parent_width / 2.0/* - offset_from_parent.get_x()*/;
+	double cy = parent_height / 2.0/* - offset_from_parent.get_y()*/;
+	if (is_focus ())
+	{
+		cx += sin (segment * ID + segment/2) * (radius / 10);
+		cy -= cos (segment * ID + segment/2) * (radius / 10);
+	}
+	p->move_to ((float)cx, (float)cy);
+	/* line to start of arc */
+	double x1 = sin (segment * ID) * radius + cx;
+	double y1 = -cos (segment * ID) * radius + cy;
+	p->line_to ((float)x1, (float)y1);
+	/* arc */
+	double x2 = sin (segment * (ID + 1)) * radius + cx;
+	double y2 = -cos (segment * (ID + 1)) * radius + cy;
+	p->svg_arc_to ((float)radius, (float)radius, (float)segment, false, true, (float)x2, (float)y2);
+	/* fill the segment with our colour */
+	snapshot->append_fill(p->to_path (), Gsk::FillRule::EVEN_ODD, { (get_colour() >> 16 & 0xff) / 255.0f, (get_colour() >> 8 & 0xff) / 255.0f, (get_colour() & 0xff) / 255.0f, 1});
 }
 
 Glib::RefPtr<Gsk::Path> NibblesWindow::ColourWheelSegment::calculate_segment_path(uint width, uint height, uint ID, uint segment_count)
 {
-    /* path for segment */
-    auto p = Gsk::PathBuilder::create();
-    /* move to centre of the wheel */
-    p->move_to (width / 2.0f, height / 2.0f);
-    /* line to start of arc (focus position) */
-    auto radius = width > height ? height / 2.0 : width / 2.0;
-    auto segment = PIx2 / segment_count;
-    auto cx = width / 2.0 + sin (segment * ID + segment/2) * (radius / 10);
-    auto cy = height / 2.0 - cos (segment * ID + segment/2) * (radius / 10);
-    /* line to start of arc */
-    p->line_to ((float)(sin (segment * ID) * radius + cx),
-        (float)(-cos (segment * ID) * radius + cy));
-    /* arc (focus position) */
-    p->svg_arc_to ((float)radius, (float)radius, (float)segment, false, true,
-        (float)(sin (segment * (ID + 1)) * radius + cx),
-        (float)(-cos (segment * (ID + 1)) * radius + cy));
-    /* line back to the center of the wheel */
-    p->close ();
-    return p->to_path();
+	/* path for segment */
+	auto p = Gsk::PathBuilder::create();
+	/* move to centre of the wheel */
+	p->move_to (width / 2.0f, height / 2.0f);
+	/* line to start of arc (focus position) */
+	auto radius = width > height ? height / 2.0 : width / 2.0;
+	auto segment = PIx2 / segment_count;
+	auto cx = width / 2.0 + sin (segment * ID + segment/2) * (radius / 10);
+	auto cy = height / 2.0 - cos (segment * ID + segment/2) * (radius / 10);
+	/* line to start of arc */
+	p->line_to ((float)(sin (segment * ID) * radius + cx),
+		(float)(-cos (segment * ID) * radius + cy));
+	/* arc (focus position) */
+	p->svg_arc_to ((float)radius, (float)radius, (float)segment, false, true,
+		(float)(sin (segment * (ID + 1)) * radius + cx),
+		(float)(-cos (segment * (ID + 1)) * radius + cy));
+	/* line back to the center of the wheel */
+	p->close ();
+	return p->to_path();
 }
 
 const std::optional<Gdk::Graphene::Rect> NibblesWindow::ColourWheelSegment::get_bounds(unsigned int width, unsigned int height)
@@ -1193,7 +1295,7 @@ const std::optional<Gdk::Graphene::Rect> NibblesWindow::ColourWheelSegment::get_
 	auto path=calculate_segment_path(width, height,
 		((ColourWheel *)get_parent ())->get_segment_id(this),
 		((ColourWheel *)get_parent ())->get_segment_count());
-    return path->get_bounds();
+	return path->get_bounds();
 }
 
 /*******************************************************************
@@ -1201,7 +1303,7 @@ const std::optional<Gdk::Graphene::Rect> NibblesWindow::ColourWheelSegment::get_
  *	NibblesWindow::Scores                                          *
  *                                                                 *
  *******************************************************************/
-void NibblesWindow::Scores::add_category(const std::string &path, const std::string &file_name)
+void NibblesWindow::Scores::add_category(const Glib::ustring &path, const Glib::ustring &file_name)
 {
 	auto file_path=Glib::build_filename(path, file_name);
 	try {
@@ -1228,7 +1330,7 @@ void NibblesWindow::Scores::add_category(const std::string &path, const std::str
 								it++;
 							vector.insert(it,s);
 							if(!m_score_file.contains(category_index))
-								m_score_file[category_index]=file_path;
+								m_score_file[category_index]=file_name;
 						}
 						else
 							break;
@@ -1243,6 +1345,75 @@ void NibblesWindow::Scores::add_category(const std::string &path, const std::str
 	} catch (const std::exception& ex) {
 		/* problem reading file */
 	}
+}
+
+uint8_t NibblesWindow::Scores::to_category(unsigned long speed, bool fakes, unsigned long progress, unsigned long level) const
+{
+	uint8_t fixed=0; /* 0 - not fixed, 1-26 fixed at level, 31 random */
+	if(progress==0)
+		fixed=0;
+	else if(progress==1)
+		fixed=31;
+	else
+		fixed=level;
+	return (speed-1)/*2 bits wide*/ | (fakes<<2)/*1 bit wide*/ | (fixed<<3)/*5 bits wide*/;
+}
+
+std::vector<unsigned long> NibblesWindow::Scores::add(uint8_t category_index, const std::vector<WormScore> &scores)
+{
+	std::vector<unsigned long> insert_rows={};
+	for(const auto &score : scores)
+	{
+		int64_t unix_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		Score s(score.score,unix_time,"");
+		unsigned long row=0;
+		auto &vector=m_scores[category_index];
+		auto it=vector.begin();
+		while(it != vector.end() &&
+			((*it).score>s.score || (*it).score==s.score && (*it).date<s.date))
+			{
+				it++;
+				row++;
+			}
+		vector.insert(it,s);
+		for(auto &r:insert_rows)
+		{
+			if(r>=row)
+				r++;
+		}
+		insert_rows.emplace_back(row);
+		if(!m_score_file.contains(category_index))
+		{
+			Glib::ustring file_name;
+			switch(category_index & 0b11)
+			{
+				case 0:
+					file_name="fast";
+					break;
+				case 1:
+					file_name="medium";
+					break;
+				case 2:
+					file_name="slow";
+					break;
+				case 3:
+					file_name="beginner";
+					break;
+			}
+			if(category_index >> 3 == 31)
+				file_name+="-random";
+			else if(category_index >> 3 != 0)
+			{
+				file_name+="-fixed";
+				file_name+=std::to_string(category_index >> 3);
+			}
+			if(category_index & 0b100)
+				file_name+="-fakes";
+				
+			m_score_file[category_index]=file_name;
+		}
+	}
+	return insert_rows;
 }
 
 std::pair<uint64_t,bool> NibblesWindow::Scores::read_integer(std::ifstream &stream)
@@ -1593,71 +1764,54 @@ static Glib::RefPtr<Gio::ListStore<RowData>> store;
 		/* rank column */
 		auto rank_factory=Gtk::SignalListItemFactory::create();
 		rank_factory->signal_setup().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-            item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
+			item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
 		}));
 		rank_factory->signal_bind().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-    		auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
-    		auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
-		    if (data && label) {
-		        label->set_text(std::to_string(data->get_rank()));
-		    }
-        }));
+			auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
+			auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
+			if (data && label) {
+				label->set_text(std::to_string(data->get_rank()));
+			}
+		}));
 		// Translators: text displayed at the top of the first column in the high scores dialogue
 		auto rank_column=Gtk::ColumnViewColumn::create(_("Rank"),rank_factory);
-        rank_column->set_expand(true);
+		rank_column->set_expand(true);
 		rank_column->set_fixed_width(0);
-        view->append_column(rank_column);
-        
-        /* score column */
+		view->append_column(rank_column);
+		
+		/* score column */
 		auto score_factory=Gtk::SignalListItemFactory::create();
 		score_factory->signal_setup().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-            item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
+			item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
 		}));
 		score_factory->signal_bind().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-    		auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
-    		auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
-		    if (data && label) {
-		        label->set_text(std::to_string(data->get_score()));
-		    }
-        }));
+			auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
+			auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
+			if (data && label) {
+				label->set_text(std::to_string(data->get_score()));
+			}
+		}));
 		// Translators: text displayed at the top of the second column in the high scores dialogue
 		auto score_column=Gtk::ColumnViewColumn::create(_("Score"),score_factory);
-        score_column->set_expand(true);
+		score_column->set_expand(true);
 		score_column->set_fixed_width(0);
-        view->append_column(score_column);
-        
-        /* player name column */
+		view->append_column(score_column);
+		
+		/* player name column */
 		auto name_factory=Gtk::SignalListItemFactory::create();
 		name_factory->signal_setup().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-			auto entry = Gtk::make_managed<Gtk::Entry>();
-			/*entry->signal_changed().connect(sigc::track_obj([entry]() {
-					entry->set_has_frame(false);
-					entry->set_editable(false);
-			}));*/
-			entry->signal_activate().connect(sigc::track_obj([entry]() {
-				entry->set_has_frame(false);
-				entry->set_editable(false);
-			}));
-            item->set_child(*entry);
+			item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
 		}));
 		name_factory->signal_bind().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-    		auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
-			auto* entry = dynamic_cast<Gtk::Entry*>(item->get_child());
-    		if(data && entry)
-    		{
-				entry->set_text(data->get_name());
-    			if(data->get_modify())
-					entry->grab_focus();
-				else
-				{
-					entry->set_has_frame(false);
-					entry->set_editable(false);
-				}
+			auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
+			auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
+			if (data && label) {
+				label->set_text(data->get_name());
 			}
-        }));
+		}));
 		// Translators: text displayed at the top of the third column in the high scores dialogue
-        auto player_column=Gtk::ColumnViewColumn::create(_("Player"),name_factory);
-        player_column->set_expand(true);
+		auto player_column=Gtk::ColumnViewColumn::create(_("Player"),name_factory);
+		player_column->set_expand(true);
 		player_column->set_fixed_width(0);
 		view->append_column(player_column);
 		
@@ -1667,7 +1821,7 @@ static Glib::RefPtr<Gio::ListStore<RowData>> store;
 		view->set_model(selection_model);
 
 		auto scrolled_window = Gtk::make_managed<Gtk::ScrolledWindow>();
-		scrolled_window->set_min_content_height(440);
+		scrolled_window->set_min_content_height(380);
 		scrolled_window->set_child(*view);
 
 		set_child(*scrolled_window);

@@ -54,19 +54,17 @@
 #define LEVEL_SETTINGS		"start-level"
 #define WORM_BASE_KEY		"org.gnome.Nibbles.worm"
 
-static const char *worm_colour_string[]={"red","green","blue","yellow","cyan","purple"};
-
 enum eWormColour {
 	red_worm,green_worm,blue_worm,yellow_worm,
 	cyan_worm,purple_worm,unknown_colour_worm};
 	
 inline eWormColour& operator++(eWormColour& c)
 {
-    if(eWormColour::purple_worm==c || eWormColour::unknown_colour_worm==c)
-    	c=red_worm;
-    else
-	    c=static_cast<eWormColour>(static_cast<int>(c) + 1);
-    return c;
+	if(eWormColour::purple_worm==c || eWormColour::unknown_colour_worm==c)
+		c=red_worm;
+	else
+		c=static_cast<eWormColour>(static_cast<int>(c) + 1);
+	return c;
 }
 
 /* utility functions */
@@ -77,6 +75,7 @@ struct WormScore
 {
 	eWormColour colour;
 	unsigned long score;
+	std::string worm_name;
 };
 
 

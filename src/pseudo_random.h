@@ -17,8 +17,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-unsigned long pseudo_random(unsigned long min_inclusive, unsigned long max_exclusive);
+unsigned long pseudo_random();
+
+inline unsigned long pseudo_random(unsigned long min_inclusive, unsigned long max_exclusive)
+{
+	return min_inclusive+(pseudo_random() % (max_exclusive - min_inclusive));
+}
+
 inline unsigned long pseudo_random(unsigned long max_exclusive)
 {
-	return pseudo_random(0,max_exclusive);
+	return pseudo_random() % max_exclusive;
 }
