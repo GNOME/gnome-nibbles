@@ -539,7 +539,7 @@ public:
 		{
 			Gtk::Widget::measure_vfunc(orientation, for_size, minimum, natural, minimum_baseline, natural_baseline);
 		}
-		void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>&snapshot);
+		void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>&snapshot) override;
 		void set_colour(const gulong& colour)
 		{
 			property_colour_ = colour;
@@ -671,7 +671,7 @@ public:
 			set_key_buttons(refBuilder,id);
 		}
 		virtual ~PlayerButton() = default;
-		void on_clicked()
+		void on_clicked() override
 		{
 			if(pOverlay->is_visible())
 			{

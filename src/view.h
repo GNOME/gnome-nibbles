@@ -62,7 +62,7 @@ private:
 		virtual ~StaticView() override = default;
 		void redraw () {queue_draw ();}
 	protected:
-		void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapshot);
+		void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapshot) override;
 	private:
 		View &view;
 		void draw_wall_segment (char i, const Glib::RefPtr<Gtk::Snapshot>& s,
