@@ -171,7 +171,7 @@ int Worm::ai_deadend(const std::vector<std::vector<unsigned char>> &board, const
 	{
 		for (uintsys dir = 4; dir > 0 && (p.size() - 1) < length; dir--)
 		{
-			Position new_position = {p[i]>>8, p[i]&0xff}; /* get position from vector */
+			Position new_position = {(uint8_t)(p[i]>>8), (uint8_t)(p[i]&0xff)}; /* get position from vector */
 			new_position.move((eDirection)dir, board.size(), board[0].size());
 			if (deadend_board[new_position.x, new_position.y] != deadend_board.runnumber
 				&& board[new_position.x][new_position.y]==EMPTYCHAR

@@ -325,7 +325,7 @@ private:
 
 public:
 	/* public functions */
-	Angle(int64_t x, int64_t y, int64_t x_max=0, int64_t y_max=0) : x(x), y(y), x_max(x_max), y_max(y_max), _set(true)
+	Angle(int64_t x, int64_t y, uint64_t x_max=0, uint64_t y_max=0) : x(x), y(y), x_max(x_max), y_max(y_max), _set(true)
 	{
 	}
 

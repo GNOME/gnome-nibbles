@@ -186,7 +186,7 @@ public:
 		std::advance(i, random_number % s.size());
 		uint16_t result=*i;
 		s.erase(i);
-		return {result/66, result % 66};
+		return {(uint8_t)(result/66), (uint8_t)(result % 66)};
 	}
 	std::pair<uint8_t, uint8_t> remove_one_bonus()
 	{
