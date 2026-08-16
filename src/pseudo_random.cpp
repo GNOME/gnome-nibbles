@@ -62,11 +62,11 @@ uint64_t pseudo_random()
 	//return last * 0x2545F4914F6CDD1D;
 
 	/* Xorshift128+ algorithm */
-    uint64_t s1 = last[0];
-    const uint64_t s0 = last[1];
-    const uint64_t result = s0 + s1; /* The "+" non-linear scrambler step */
-    last[0] = s0;
-    s1 ^= s1 << 23; // a
-    last[1] = s1 ^ s0 ^ (s1 >> 17) ^ (s0 >> 26); // b, c
-    return result>>1;/* absolute lowest bit has a linear recurrence structure so avoid it */
+	uint64_t s1 = last[0];
+	const uint64_t s0 = last[1];
+	const uint64_t result = s0 + s1; /* The "+" non-linear scrambler step */
+	last[0] = s0;
+	s1 ^= s1 << 23; // a
+	last[1] = s1 ^ s0 ^ (s1 >> 17) ^ (s0 >> 26); // b, c
+	return result>>1;/* absolute lowest bit has a linear recurrence structure so avoid it */
 }
