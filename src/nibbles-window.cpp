@@ -1330,6 +1330,46 @@ const std::optional<Gdk::Graphene::Rect> NibblesWindow::ColourWheelSegment::get_
  *	NibblesWindow::Scores                                          *
  *                                                                 *
  *******************************************************************/
+void NibblesWindow::Scores::set_title()
+{
+	if(m_scores.size()==1)
+	{
+		auto it=m_scores.cbegin();
+		uint8_t category_index=it->first;
+		auto* title_label = Gtk::make_managed<Gtk::Label>(to_title(category_index));
+		title_label->add_css_class("title");
+		m_headerbar.set_title_widget(*title_label);
+		display_scores(category_index);
+	}
+	else if(m_scores.size()>1)
+	{
+		auto [category_index, strings]=get_ordered_categories();
+		auto* title = Gtk::make_managed<Gtk::DropDown>(strings);
+		title->property_selected().signal_changed().connect(sigc::track_obj(
+			[category_index, title, this]() ->
+				void
+				{
+					auto selected = title->get_selected();
+					if(selected!=GTK_INVALID_LIST_POSITION)
+						display_scores(category_index[selected]);
+				},
+				category_index, title, *this
+			));
+		m_headerbar.set_title_widget(*title);
+		auto [b, last_category_set]=get_last_category();
+		if(b)
+		{
+			unsigned long i;
+			for(i=0;i<category_index.size() && category_index[i]!=last_category_set;i++);
+			if(i<category_index.size())
+				title->set_selected(i);
+			else
+				display_scores(category_index[0]);
+		}
+		else
+			display_scores(category_index[0]);
+	}
+}
 void NibblesWindow::Scores::add_category(const Glib::ustring &path, const Glib::ustring &file_name)
 {
 	auto file_path=Glib::build_filename(path, file_name);
@@ -1762,6 +1802,7 @@ void NibblesWindow::Scores::display_scores(uint8_t category_index)
 {
 static Glib::RefPtr<Gio::ListStore<RowData>> store;
 
+	set_last_category(category_index);
 	auto child=get_child();
 	if(auto view = dynamic_cast<Gtk::ColumnView*>(child))
 	{

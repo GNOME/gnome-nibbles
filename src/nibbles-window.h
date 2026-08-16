@@ -778,7 +778,8 @@ public:
 		/* to do, combine the next two maps */
 		std::unordered_map<uint8_t, std::vector<Score>> m_scores;
 		std::unordered_map<uint8_t, Glib::ustring> m_score_file;
-		uint8_t m_display_category;
+		uint8_t m_display_category,m_last_category;
+		bool m_last_category_set=false;
 	public:
 		Scores()
 		{
@@ -803,35 +804,7 @@ public:
 		{
 			return m_scores.empty();
 		}
-		void set_title()
-		{
-			if(m_scores.size()==1)
-			{
-				auto it=m_scores.cbegin();
-				uint8_t category_index=it->first;
-				auto* title_label = Gtk::make_managed<Gtk::Label>(to_title(category_index));
-				title_label->add_css_class("title");
-				m_headerbar.set_title_widget(*title_label);
-				display_scores(category_index);
-			}
-			else if(m_scores.size()>1)
-			{
-				auto [category_index, strings]=get_ordered_categories();
-				auto* title = Gtk::make_managed<Gtk::DropDown>(strings);
-				title->property_selected().signal_changed().connect(sigc::track_obj(
-					[category_index, title, this]() ->
-						void
-						{
-							auto selected = title->get_selected();
-							if(selected!=GTK_INVALID_LIST_POSITION)
-								display_scores(category_index[selected]);
-						},
-						category_index, title, *this
-					));
-				m_headerbar.set_title_widget(*title);
-				display_scores(category_index[0]);
-			}
-		}
+		void set_title();
 		std::pair<bool,Glib::ustring> create_scores_directory()
 		{
 			auto path=Glib::build_filename(Glib::get_user_data_dir());
@@ -903,6 +876,15 @@ public:
 					return false;
 				}
 			}
+		}
+		std::pair<bool,uint8_t> get_last_category()
+		{
+			return {m_last_category_set, m_last_category};
+		}
+		void set_last_category(uint8_t category)
+		{
+			m_last_category_set=true;
+			m_last_category=category;
 		}
 		void add_trash_icon()
 		{
