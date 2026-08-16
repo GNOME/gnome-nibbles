@@ -508,7 +508,7 @@ void Game::move_worms()
 	}
 
 	/* regular bonus */
-	auto real_bonuses_to_replace=bonuses.do_pending_removes();
+	auto real_bonuses_to_replace=bonuses.do_pending_removes(progress==FIXED);
 	for(;real_bonuses_to_replace>0;real_bonuses_to_replace--)
 	{
 		bool r=add_bonus(true);

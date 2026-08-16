@@ -150,7 +150,7 @@ public:
 	{
 		return regular_left == 0;
 	}
-	uintsys do_pending_removes()
+	uintsys do_pending_removes(bool infinite_bonuses)
 	{
 		uintsys real_bonuses_to_replace = 0;
 		auto previous = bonus_list.before_begin();
@@ -158,7 +158,7 @@ public:
 		{
 			if (bonus->pending_removal)
 			{
-				if(!last_regular_bonus() && bonus->type == Bonus::REGULAR && !bonus->fake)
+				if((!last_regular_bonus() || infinite_bonuses) && bonus->type == Bonus::REGULAR && !bonus->fake)
 					real_bonuses_to_replace++;
 				bonus=bonus_list.erase_after(previous);
 			}
