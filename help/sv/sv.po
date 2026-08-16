@@ -1,11 +1,11 @@
 # Erik Sköldås <erik.skoldas@tele2.se>, 2015.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2020, 2021, 2023.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2020, 2021, 2023, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nibbles doc\n"
-"POT-Creation-Date: 2023-04-14 20:07+0000\n"
-"PO-Revision-Date: 2023-04-15 01:21+0200\n"
+"POT-Creation-Date: 2026-08-16 01:44+0000\n"
+"PO-Revision-Date: 2026-08-16 12:49+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -26,102 +26,102 @@ msgstr ""
 "<tp-sv@listor.tp-sv.se>"
 
 #. (itstool) path: credit/name
-#: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
+#: C/basics.page:17 C/controls-change.page:19 C/controls-default.page:16
 #: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
 #: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
 #. (itstool) path: credit/name
-#: C/basics.page:20 C/controls-change.page:22 C/controls-default.page:20
+#: C/basics.page:21 C/controls-change.page:23 C/controls-default.page:20
 #: C/fake-bonus.page:20 C/multi-player.page:21 C/sound-change.page:20
 #: C/speed-change.page:20
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
-#: C/basics.page:24
+#: C/basics.page:25
 msgid "Start, pause, and quit a game of <app>Nibbles</app>."
 msgstr "Starta, pausa och avsluta en omgång <app>Nibbles</app>."
 
 #. (itstool) path: page/title
-#: C/basics.page:27
+#: C/basics.page:28
 msgid "Basic instructions"
 msgstr "Grundläggande instruktioner"
 
 #. (itstool) path: section/title
-#: C/basics.page:30
+#: C/basics.page:31
 msgid "Start a new game"
 msgstr "Starta ett nytt spel"
 
 #. (itstool) path: section/p
-#: C/basics.page:32
+#: C/basics.page:33
 msgid ""
-"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
-"start a new game when being in a game."
+"Press the <gui style=\"button\">➕</gui> button in the header bar to start a "
+"new game when being in a game."
 msgstr ""
-"Tryck på knappen <gui style=\"button\">Nytt spel</gui> i rubrikraden för att "
-"starta ett nytt spel under tiden du spelar."
+"Tryck på knappen <gui style=\"button\">➕</gui> i rubrikraden för att starta "
+"ett nytt spel under tiden du spelar."
 
 #. (itstool) path: section/p
-#: C/basics.page:34
+#: C/basics.page:35
 msgid ""
-"Press the <gui style=\"button\">Play Again</gui> button when you have "
-"finished a game."
+"Press the <gui style=\"button\">Done</gui> button when you have finished a "
+"game."
 msgstr ""
-"Tryck på knappen <gui style=\"button\">Spela igen</gui> när du har slutfört "
-"ett spel."
+"Tryck på knappen <gui style=\"button\">Färdig</gui> när du har slutfört ett "
+"spel."
 
 #. (itstool) path: section/title
-#: C/basics.page:39
+#: C/basics.page:40
 msgid "Pause and resume your game"
 msgstr "Pausa och återuppta ditt spel"
 
 #. (itstool) path: section/p
-#: C/basics.page:41
+#: C/basics.page:42
 msgid ""
-"Press the <gui style=\"button\">Pause</gui> button in the header bar to "
-"pause your game. You can resume your game by pressing the <gui "
-"style=\"button\">Resume</gui> button."
+"Press the <gui style=\"button\">⏸</gui> button in the header bar to pause "
+"your game. You can resume your game by pressing the <gui style=\"button\">▶</"
+"gui> button."
 msgstr ""
-"Tryck på knappen <gui style=\"button\">Paus</gui> i rubrikraden för att "
-"pausa spelet. Du kan återuppta ditt spel genom att trycka på knappen <gui "
-"style=\"button\">Fortsätt</gui>."
+"Tryck på knappen <gui style=\"button\">⏸</gui> i rubrikraden för att pausa "
+"spelet. Du kan återuppta ditt spel genom att trycka på knappen <gui "
+"style=\"button\">▶</gui>."
 
 #. (itstool) path: section/title
-#: C/basics.page:47
+#: C/basics.page:48
 msgid "Quit <app>Nibbles</app>"
 msgstr "Avsluta <app>Nibbles</app>"
 
 #. (itstool) path: section/p
-#: C/basics.page:49
+#: C/basics.page:50
 msgid ""
-"Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+"Press the <gui style=\"button\">✖️</gui> button in the header bar or press "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
 "any time."
 msgstr ""
-"Tryck på knappen <gui style=\"button\">⨯</gui> i rubrikraden eller tryck "
+"Tryck på knappen <gui style=\"button\">✖️</gui> i rubrikraden eller tryck "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> för att avsluta <app>Nibbles</"
 "app> när som helst."
 
 #. (itstool) path: credit/name
-#: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
+#: C/controls-change.page:27 C/fake-bonus.page:24 C/multi-player.page:25
 #: C/sound-change.page:24 C/speed-change.page:24
 msgid "Andre Klapper"
 msgstr "Andre Klapper"
 
 #. (itstool) path: info/desc
-#: C/controls-change.page:30
+#: C/controls-change.page:31
 msgid "Set custom control keys."
 msgstr "Välj anpassade kontrolltangenter."
 
 #. (itstool) path: page/title
-#: C/controls-change.page:33
+#: C/controls-change.page:34
 msgid "Change the default controls"
 msgstr "Ändra standardtangenter"
 
 #. (itstool) path: page/p
-#: C/controls-change.page:35
+#: C/controls-change.page:36
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -134,91 +134,39 @@ msgstr ""
 "kontroller behövs. För att ändra standardtangenterna:"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
+#: C/controls-change.page:43 C/fake-bonus.page:41 C/multi-player.page:49
 #: C/speed-change.page:36
 msgid "Start a new game."
 msgstr "Starta ett nytt spel."
 
-#. (itstool) path: media/span
+#. (itstool) path: item/p
 #: C/controls-change.page:46
-msgid "settings"
-msgstr "inställningar"
+msgid ""
+"On the <gui>Controls</gui> screen, press the arrow for the direction you "
+"want to redefine the key."
+msgstr ""
+"På skärmen <gui>Styrning</gui>, tryck på pilen för riktningen som du vill "
+"definiera om tangenten för."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:45
-msgid ""
-"On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
-"player whose controls you want to change."
-msgstr ""
-"På skärmen <gui>Styrning</gui>, tryck på knappen <_:media-1/> för den "
-"spelare vars styrning du vill ändra."
-
-#. (itstool) path: note/p
-#: C/controls-change.page:49
-msgid ""
-"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
-"player 3 controls <gui>Worm 3</gui> and so on."
-msgstr ""
-"Spelare 1 kontrollerar <gui>Mask 1</gui>, spelare 2 kontrollerar <gui>Mask "
-"2</gui>, spelare 3 kontrollerar <gui>Mask 3</gui> och så vidare."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:54
-msgid ""
-"In the <gui style=\"group\">Controls</gui> list, select the line of the "
-"<gui>Action</gui>. This highlights the line."
-msgstr ""
-"Välj i listan <gui style=\"group\">Styrning</gui> raden för <gui>Åtgärd</"
-"gui>en. Det kommer att markera raden."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:58
-msgid ""
-"Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
-"gui> are now present in place of the old control."
-msgstr ""
-"Välj kontrollens <gui>Tangent</gui>. Texten <gui>Ny snabbtangent…</gui> "
-"visas nu istället för den gamla kontrollen."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:63
+#: C/controls-change.page:50
 msgid "Press the key you want to use instead of the default key."
 msgstr ""
 "Tryck på tangenten som du vill använda i stället för standardtangenten."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:66
+#: C/controls-change.page:52
 msgid ""
-"To keep the old setting click <gui>New accelerator…</gui> again, right click "
-"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
-"inside the <gui>Nibbles Preferences</gui> box."
+"Any arrow that appears red must have the key redefined otherwise you will "
+"not be able to start the game."
 msgstr ""
-"För att behålla den gamla inställningen, klicka åter på <gui>Ny snabbtangent…"
-"</gui>, högerklicka på <gui>Ny snabbtangent…</gui>, tryck <key>Esc</key> "
-"eller klicka inuti rutan <gui>Inställningar för Nibbles</gui>."
+"Alla pilar som är röda måste få sin tangent omdefinierad, annars kommer du "
+"inte komma starta spelet."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:72
-msgid ""
-"Repeat the above step to change the other default keys for the current "
-"player, then select the tab for the next player whose controls you want to "
-"change and repeat the process."
-msgstr ""
-"Upprepa ovanstående steg för att ändra andra standardtangenter för den "
-"aktuella spelaren, välj sedan fliken för nästa spelare vars kontroller du "
-"vill ändra och upprepa processen."
-
-#. (itstool) path: page/p
-#: C/controls-change.page:78
-msgid ""
-"For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
-"<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
-"key> on your keyboard when you see <gui>New accelerator…</gui> on the line."
-msgstr ""
-"För att exempelvis använda <key>A</key> för att flytta vänster, välj "
-"<gui>Åtgärd</gui> <gui>Flytta vänster</gui>, välj sedan dess <gui>Tangent</"
-"gui>, tryck sedan på <key>A</key> på ditt tangentbord när du ser <gui>Ny "
-"snabbtangent…</gui> på raden."
+#: C/controls-change.page:57
+msgid "Repeat the above step to change the other default keys."
+msgstr "Upprepa steget ovan för att ändra de andra standardtangenterna."
 
 #. (itstool) path: info/desc
 #: C/controls-default.page:25
@@ -576,3 +524,57 @@ msgstr "Creative Commons Erkännande-DelaLika 3.0 Unported"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Det här verket är licensierat under licensen <_:link-1/>."
+
+#~ msgid "settings"
+#~ msgstr "inställningar"
+
+#~ msgid ""
+#~ "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+#~ "player 3 controls <gui>Worm 3</gui> and so on."
+#~ msgstr ""
+#~ "Spelare 1 kontrollerar <gui>Mask 1</gui>, spelare 2 kontrollerar "
+#~ "<gui>Mask 2</gui>, spelare 3 kontrollerar <gui>Mask 3</gui> och så vidare."
+
+#~ msgid ""
+#~ "In the <gui style=\"group\">Controls</gui> list, select the line of the "
+#~ "<gui>Action</gui>. This highlights the line."
+#~ msgstr ""
+#~ "Välj i listan <gui style=\"group\">Styrning</gui> raden för <gui>Åtgärd</"
+#~ "gui>en. Det kommer att markera raden."
+
+#~ msgid ""
+#~ "Select the <gui>Key</gui> on the control. The words <gui>New accelerator…"
+#~ "</gui> are now present in place of the old control."
+#~ msgstr ""
+#~ "Välj kontrollens <gui>Tangent</gui>. Texten <gui>Ny snabbtangent…</gui> "
+#~ "visas nu istället för den gamla kontrollen."
+
+#~ msgid ""
+#~ "To keep the old setting click <gui>New accelerator…</gui> again, right "
+#~ "click on <gui>New accelerator…</gui>, press <key>Esc</key> or click "
+#~ "anywhere else inside the <gui>Nibbles Preferences</gui> box."
+#~ msgstr ""
+#~ "För att behålla den gamla inställningen, klicka åter på <gui>Ny "
+#~ "snabbtangent…</gui>, högerklicka på <gui>Ny snabbtangent…</gui>, tryck "
+#~ "<key>Esc</key> eller klicka inuti rutan <gui>Inställningar för Nibbles</"
+#~ "gui>."
+
+#~ msgid ""
+#~ "Repeat the above step to change the other default keys for the current "
+#~ "player, then select the tab for the next player whose controls you want "
+#~ "to change and repeat the process."
+#~ msgstr ""
+#~ "Upprepa ovanstående steg för att ändra andra standardtangenter för den "
+#~ "aktuella spelaren, välj sedan fliken för nästa spelare vars kontroller du "
+#~ "vill ändra och upprepa processen."
+
+#~ msgid ""
+#~ "For example, to use <key>A</key> to move left, select the <gui>Action</"
+#~ "gui> <gui>Move left</gui>, then select its <gui>Key</gui>, then press "
+#~ "<key>A</key> on your keyboard when you see <gui>New accelerator…</gui> on "
+#~ "the line."
+#~ msgstr ""
+#~ "För att exempelvis använda <key>A</key> för att flytta vänster, välj "
+#~ "<gui>Åtgärd</gui> <gui>Flytta vänster</gui>, välj sedan dess "
+#~ "<gui>Tangent</gui>, tryck sedan på <key>A</key> på ditt tangentbord när "
+#~ "du ser <gui>Ny snabbtangent…</gui> på raden."
