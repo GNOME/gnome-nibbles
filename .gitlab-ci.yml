@@ -1,6 +1,3 @@
-# See https://hub.docker.com/_/ubuntu
-image: ubuntu:devel
-
 include:
   - project: 'gnome/citemplates'
     file: 'flatpak/flatpak_ci_initiative.yml'
@@ -15,14 +12,12 @@ variables:
 
 flatpak:
   extends: '.flatpak'
-
   variables:
     MANIFEST_PATH: 'org.gnome.Nibbles.json'
     RUNTIME_REPO: 'https://sdk.gnome.org/gnome-nightly.flatpakrepo'
     APP_ID: 'org.gnome.Nibbles'
     BUNDLE: 'nibbles-git.flatpak'
-    DEPENDENCIES: $DEPENDENCIES
-    
+
 nightly:
     extends: '.publish_nightly'
     dependencies: ['flatpak']
