@@ -19,47 +19,54 @@
 
 #include <cstdint>
 #include <cassert>
+#include "system_integer.h"
 #include "pseudo_random.h"
 
 bool prohibit=false;
+uint64_t last[2] = {0x2, 0x2};
 
-#if INTPTR_MAX == INT64_MAX
-static uint64_t last = 2; /*seed*/
-
-/* a pseudo random number between 0 and 2^64-1 inclusive */
-uint64_t pseudo_random()
+void set_seed(uint64_t seed_a, uint64_t seed_b)
 {
-	assert(!prohibit);/* must not be called from parallel threads or the tests fail */
-	const auto a = 6364136223846793005ULL; /*multiplier*/
-	const auto c = 1442695040888963407ULL; /*increment*/
-	last = a * last + c;
-	return last;
+	if(seed_a==0 && seed_b==0)
+	{
+		last[0]=0x2;
+		last[1]=0x2;
+	}
+	else
+	{
+		last[0]=seed_a;
+		last[1]=seed_b;
+	}
 }
-
-void set_seed(uint64_t seed)
-{
-	last=seed;
-}
-#else /* 32-bit compiler */
-static uint32_t last = 2; /*seed*/
-
-/* a pseudo random number between 0 and 2^64-1 inclusive */
-uint32_t pseudo_random()
-{
-	assert(!prohibit);/* must not be called from parallel threads or the tests fail */
-	const uint32_t a = 1103515245; /*multiplier*/
-	const uint32_t c = 12345; /*increment*/
-	last = a * last + c;
-	return last;
-}
-
-void set_seed(uint32_t seed)
-{
-	last=seed;
-}
-#endif
 
 void set_test_prohibit(bool state)
 {
 	prohibit=state;
+}
+
+uint64_t pseudo_random()
+{
+	assert(!prohibit); /* When working in parallel worms must not use this
+						  otherwise the test are not consistent. */
+
+	/* Linear Congruential Generator */
+	//const uint64_t a = 6364136223846793005ULL; /*multiplier*/
+	//const uint64_t c = 1442695040888963407ULL; /*increment*/
+	//pseudo_random_seed = a * pseudo_random_seed + c;
+	//return pseudo_random_seed;
+
+	/* Xorshift64* algorithm */
+	//last ^= last >> 12; // a
+	//last ^= last << 25; // b
+	//last ^= last >> 27; // c
+	//return last * 0x2545F4914F6CDD1D;
+
+	/* Xorshift128+ algorithm */
+    uint64_t s1 = last[0];
+    const uint64_t s0 = last[1];
+    const uint64_t result = s0 + s1; /* The "+" non-linear scrambler step */
+    last[0] = s0;
+    s1 ^= s1 << 23; // a
+    last[1] = s1 ^ s0 ^ (s1 >> 17) ^ (s0 >> 26); // b, c
+    return result>>1;/* absolute lowest bit has a linear recurrence structure so avoid it */
 }

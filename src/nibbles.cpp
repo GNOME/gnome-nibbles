@@ -487,58 +487,40 @@ protected:
 
 void initilise_seed()
 {
-#if INTPTR_MAX == INT64_MAX
-	uint64_t seed;
+	uint64_t seed_a,seed_b;
 	/* get data from the stack */
 	uint64_t stack_data[1024];
-	for(uintsys i=0;i<sizeof(stack_data)/sizeof(uint64_t);seed^=stack_data[i++]);
+	for(uintsys i=0;i<sizeof(stack_data)/sizeof(uint64_t);)
+	{
+		seed_a^=stack_data[i++];
+		seed_b^=stack_data[i++];
+	}
 	/* get data from the heap */
 	try {
 		std::allocator<std::byte> a;
 		uint64_t *heap_data=(uint64_t *)a.allocate(1024*sizeof(uint64_t));
-		for(uintsys i=0;i<1024;seed^=heap_data[i++]);
+		for(uintsys i=0;i<1024;)
+		{
+			seed_a^=heap_data[i++];
+			seed_b^=heap_data[i++];
+		}
 		a.deallocate((std::byte *)heap_data, 1024*sizeof(uint64_t));
 	} catch (const std::bad_alloc& e) {
 	}
 	/* get data from the random device */
-	try	{
+	/*try	{
 		std::random_device rd;
 		uint64_t r=rd();
 		seed^=r;
 	} catch(const std::runtime_error &e) {
-	}
+	}*/
 	/* get data from the clock */
 	auto now = std::chrono::steady_clock::now();
 	auto duration_since_boot = now.time_since_epoch();
 	auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
-	seed^=nanoseconds;
-#else
-	uint32_t seed;
-	/* get data from the stack */
-	uint32_t stack_data[1024];
-	for(uintsys i=0;i<sizeof(stack_data)/sizeof(uint32_t);seed^=stack_data[i++]);
-	/* get data from the heap */
-	try {
-		std::allocator<std::byte> a;
-		uint32_t *heap_data=(uint32_t *)a.allocate(1024*sizeof(uint32_t));
-		for(uintsys i=0;i<1024;seed^=heap_data[i++]);
-		a.deallocate((std::byte *)heap_data, 1024*sizeof(uint32_t));
-	} catch (const std::bad_alloc& e) {
-	}
-	/* get data from the random device */
-	try	{
-		std::random_device rd;
-		uint32_t r=rd();
-		seed^=r;
-	} catch(const std::runtime_error &e) {
-	}
-	/* get data from the clock */
-	auto now = std::chrono::steady_clock::now();
-	auto duration_since_boot = now.time_since_epoch();
-	auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
-	seed^=nanoseconds;
-#endif
-	set_seed(seed);
+	seed_a^=nanoseconds<<32;
+	seed_b^=nanoseconds>>32;
+	set_seed(seed_a, seed_b);
 }
 
 int main(int argc, char* argv[])

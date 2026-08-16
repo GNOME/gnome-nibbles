@@ -191,7 +191,7 @@ public:
 	std::pair<uint8_t, uint8_t> remove_one_bonus()
 	{
 		auto i=s.begin();
-		std::advance(i, pseudo_random(0, s.size()));
+		std::advance(i, pseudo_random(s.size()));
 		uint16_t result=*i;
 		s.erase(i);
 		s.erase(result+1);

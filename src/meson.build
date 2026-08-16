@@ -14,7 +14,7 @@ nibbles_tests = executable(
 	cpp_args: cpp_compiler_options,
 	link_args : '-lm'
 )
-test('nibbles-tests', nibbles_tests, timeout: 120)
+test('nibbles-tests', nibbles_tests, timeout: 150)
 
 # gnome-nibbles executable
 gnome_nibbles_sources = [

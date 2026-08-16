@@ -160,7 +160,7 @@ WormDirection Worm::uturn(const std::vector<std::vector<unsigned char>> &board,
  * appear empty).
  */
 
-int Worm::ai_deadend(const std::vector<std::vector<unsigned char>> &board, const Map &worm_map,
+intsys Worm::ai_deadend(const std::vector<std::vector<unsigned char>> &board, const Map &worm_map,
 	Position position, uintsys length)
 {
 	const long p_max = 92*66;
@@ -194,10 +194,10 @@ int Worm::ai_deadend(const std::vector<std::vector<unsigned char>> &board, const
  * least BOARDWIDTH, so that on the levels with long thin paths a worm
  * won't start down the path if it'll crash at the other end.
  */
-int Worm::ai_deadend_after(const std::vector<std::vector<unsigned char>> &board,
+intsys Worm::ai_deadend_after(const std::vector<std::vector<unsigned char>> &board,
 	const std::forward_list<Worm> &worms,
 	const Map &worm_map,
-	Position old_position, WormDirection direction, long length)
+	Position old_position, WormDirection direction, uintsys length)
 {
 	uint8_t width  = (uint8_t)board.size();
 	uint8_t height = (uint8_t)board[0].size();
@@ -337,7 +337,7 @@ bool Worm::ai_can_see_bonus(
 	slice.intersection_by_position (origin, bonus.x, bonus.y, 2 /* always 2 for bonus */);
 	return !slice.is_empty ();
 }
-std::pair<long, Bonus::eType> Worm::ai_count_distance_to_a_bonus_in_direction(
+std::pair<intsys, Bonus::eType> Worm::ai_count_distance_to_a_bonus_in_direction(
 	const std::vector<std::vector<unsigned char>> &board,
 	const Map &worm_map,
 	const Position origin, const WormDirection direction,
@@ -361,7 +361,7 @@ std::pair<long, Bonus::eType> Worm::ai_count_distance_to_a_bonus_in_direction(
 	 *
 	 */
 
-	long bonus_distance = std::numeric_limits<long>::max();
+	intsys bonus_distance = std::numeric_limits<intsys>::max();
 	Bonus::eType bonus_type = (Bonus::eType)(-1);
 
 	Slice slice;
@@ -379,10 +379,10 @@ std::pair<long, Bonus::eType> Worm::ai_count_distance_to_a_bonus_in_direction(
 			if (!slice.is_empty ())
 			{
 				/* we have found a bonus within our field of view, check that nothing is in the way */
-				long distance = slice.is_visible(origin, board, worm_map, b);
+				auto [success,distance] = slice.is_visible(origin, board, worm_map, b);
 				/* If the bonus is visible, its nearer than previous bonuses and it can still be see
 				   if we move in this direction choose it. */
-				if (distance < bonus_distance &&
+				if (success && distance < bonus_distance &&
 					ai_can_see_bonus (board, get_position_after_direction_move(board, origin, direction), b, direction))
 				{
 					bonus_distance = distance;
@@ -405,7 +405,7 @@ void Worm::ai_move (
 	Map worm_map(worms, board.size(), board[0].size());
 
 	/* We have a look in all directions except behind us for a bonus. */
-	long shortest_distance = std::numeric_limits<long>::max();
+	intsys shortest_distance = std::numeric_limits<intsys>::max();
 	auto shortest_dir = direction;
 	Bonus::eType shortest_bonus_type = (Bonus::eType)(-1);
 
@@ -419,10 +419,25 @@ void Worm::ai_move (
 			shortest_distance = d;
 			shortest_dir = direction;
 			shortest_bonus_type = bonus_type;
+			if(test_logging)
+			{
+				std::string logging=std::format("Worm {} calculate direction: ", (unsigned int)get_colour());
+				logging+=std::format("{} distance {}\n", direction==eDirection::EAST?"EAST":(direction==eDirection::WEST?"WEST":(direction==eDirection::NORTH?"NORTH":(direction==eDirection::SOUTH?"SOUTH":("NONE")))), shortest_distance);
+				std::cout << logging;
+			}
+		}
+		else
+		{
+			if(test_logging)
+			{
+				std::string logging=std::format("Worm {} calculate direction: ", (unsigned int)get_colour());
+				logging+=std::format("{} distance {}\n", direction==eDirection::EAST?"EAST":(direction==eDirection::WEST?"WEST":(direction==eDirection::NORTH?"NORTH":(direction==eDirection::SOUTH?"SOUTH":("NONE")))), shortest_distance);
+				std::cout << logging;
+			}
 		}
 	}
 
-	if(shortest_distance >= std::numeric_limits<long>::max())
+	if(shortest_distance >= std::numeric_limits<intsys>::max())
 	{
 		// check next step positions
 		WormDirection start_direction[] = {direction, direction, direction.turn_right(), direction.turn_left()};
@@ -440,7 +455,7 @@ void Worm::ai_move (
 		}
 	}
 
-	if(shortest_distance >= std::numeric_limits<long>::max())
+	if(shortest_distance >= std::numeric_limits<intsys>::max())
 	{
 		// no bonus is visible, one in thirty chance of turning left or right
 		switch(pseudo_random(60))
@@ -477,7 +492,7 @@ void Worm::ai_move (
 	}
 	for(WormDirection direction : dir[0].get_space_fill_array())
 	{
-		int this_len = 0;
+		intsys this_len = 0;
 		/* if we are heading for a LIFE bonus don't worry about being trapped */
 		if(!(direction == bonus_dir && shortest_bonus_type == Bonus::LIFE))
 		{

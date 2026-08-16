@@ -899,14 +899,14 @@ public:
 			return false;
 	}
 
-	int ai_deadend (const std::vector<std::vector<unsigned char>> &board,
+	intsys ai_deadend (const std::vector<std::vector<unsigned char>> &board,
 		const Map &worm_map,
 		Position position, uintsys length);
 
-	int ai_deadend_after (const std::vector<std::vector<unsigned char>> &board,
+	intsys ai_deadend_after (const std::vector<std::vector<unsigned char>> &board,
 		const std::forward_list<Worm> &worms,
 		const Map &worm_map,
-		Position old_position, WormDirection direction, long length);
+		Position old_position, WormDirection direction, uintsys length);
 
 	bool ai_too_close(const std::forward_list<Worm> &worms, WormDirection direction,
 		const uintsys width, const uintsys height);
@@ -925,7 +925,7 @@ public:
 		const Bonus &bonus,
 		const WormDirection direction);
 
-	std::pair<long, Bonus::eType> ai_count_distance_to_a_bonus_in_direction(
+	std::pair<intsys, Bonus::eType> ai_count_distance_to_a_bonus_in_direction(
 		const std::vector<std::vector<unsigned char>> &board,
 		const Map &worm_map,
 		const Position origin, const WormDirection direction,
@@ -1092,7 +1092,7 @@ public:
 			assert(!positions.is_empty());
 			/* Remove a body piece from the tail of the list. */
 			bonus_eaten.erase(positions.remove_tail());
-			if(target_length>2 && target_length<positions.get_length())
+			if(target_length>=2 && target_length<positions.get_length())
 				bonus_eaten.erase(positions.remove_tail());
 		}
 		/* Check for bonus, do nothing if there isn't a bonus */
@@ -1190,31 +1190,21 @@ public:
 	{
 		return bonus_eaten.contains(position);
 	}
-#if INTPTR_MAX == INT64_MAX
-	uint64_t pseudo_random(uint64_t max_exclusive)
+	uintsys pseudo_random(uintsys max_exclusive)
 	{
-		return pseudo_random() % max_exclusive;
+		return (uintsys)(pseudo_random() % max_exclusive);
 	}	
 	uint64_t pseudo_random()
 	{
-		const uint64_t a = 6364136223846793005ULL; /*multiplier*/
-		const uint64_t c = 1442695040888963407ULL; /*increment*/
-		pseudo_random_seed = a * pseudo_random_seed + c;
-		return pseudo_random_seed;
+		/* Xorshift128+ algorithm */
+		uint64_t s1 = pseudo_random_seed_a;
+		const uint64_t s0 = pseudo_random_seed_b;
+		const uint64_t result = s0 + s1; /* The "+" non-linear scrambler step */
+		pseudo_random_seed_a = s0;
+		s1 ^= s1 << 23; // a
+		pseudo_random_seed_b = s1 ^ s0 ^ (s1 >> 17) ^ (s0 >> 26); // b, c
+		return result>>1;/* absolute lowest bit has a linear recurrence structure so avoid it */
 	}
-#else /* 32-bit compiler */
-	uint32_t pseudo_random(uint32_t max_exclusive)
-	{
-		return pseudo_random() % max_exclusive;
-	}	
-	uint32_t pseudo_random()
-	{
-	    const uint32_t a = 1103515245; /*multiplier*/
-	    const uint32_t c = 12345; /*increment*/
-		pseudo_random_seed = a * pseudo_random_seed + c;
-		return pseudo_random_seed;
-	}
-#endif
 	bool do_score_change()
 	{
 		auto r=score_changed;
@@ -1231,16 +1221,9 @@ private:
 	uintsys score;
 	bool score_changed;
 	uintsys lives;
-#if INTPTR_MAX == INT64_MAX
-	uint64_t pseudo_random_seed = 2; /*seed*/
-#else /* 32-bit compiler */
-	uint32_t pseudo_random_seed = 2; /*seed*/
-#endif
+	uint64_t pseudo_random_seed_a = 2;/*seed*/
+	uint64_t pseudo_random_seed_b = 2;/*seed*/
 	bool LastUturnA = false;
-
-
-
-	
 private:
 	void play_sound(const char *sound);
 	void reverse_other_worms();
@@ -1653,11 +1636,10 @@ public:
 		return board[p.x][p.y] != 'a' || worm_map.contain_position(p);
 	}
 
-	int64_t is_visible(Position origin, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map, Bonus bonus)
+	std::pair<bool,intsys> is_visible(Position origin, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map, Bonus bonus)
 	{
 		/*
-		 * Return the distance to a bonus if it is possible to see
-		 * the bonus. Otherwise return std::numeric_limits<int64_t>::max().
+		 * Return the distance to a bonus if it is possible to see the bonus.
 		 */
 
 		/* remember the positions we have already checked in this array */
@@ -1666,7 +1648,7 @@ public:
 		/* follow the min line, looking for a bonus or a blockage (e.g. wall) */
 		for (;!is_empty ();)
 		{
-			uint64_t distance = 0;
+			intsys distance = 0;
 			min.set_origin (origin);
 			min.set_wrapping (board.size(), board[0].size());
 			for (;;)
@@ -1681,20 +1663,20 @@ public:
 						{
 							auto dy=origin.y-p.y;
 							if(dy<0)
-								return distance-dy;
+								return {true,distance-dy};
 							else
-								return distance+dy;
+								return {true,distance+dy};
 						}
 						else
 						{
 							auto dx=origin.x-p.x;
 							if(dx<0)
-								return distance-dx;
+								return {true,distance-dx};
 							else
-								return distance+dx;
+								return {true,distance+dx};
 						}
 					}
-					else if(distance > (min.step_along_x() ? board.size() : board[0].size()) * 2
+					else if(distance > (intsys)((min.step_along_x() ? board.size() : board[0].size()) * 2)
 					  || is_position_occupied ({p.wrap_x(), p.wrap_y()}, board, worm_map))
 					{
 						checked_positions.insert(p.wrap_xy());
@@ -1706,7 +1688,7 @@ public:
 				}
 			}
 		}
-		return std::numeric_limits<int64_t>::max();
+		return {false,std::numeric_limits<intsys>::max()};
 	}
 };
 

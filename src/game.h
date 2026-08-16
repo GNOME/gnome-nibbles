@@ -390,19 +390,19 @@ private:
 			{
 				warps.add_warp_source(u32,p);
 				if(progress==TEST)
-					std::cout << "warp source: " << p.x << "," << p.y << std::endl;
+					std::cout << "warp source: " << (unsigned long)p.x << "," << (unsigned long)p.y << std::endl;
 			}
 			else if(warp==WarpType::TARGET)
 			{
 				warps.add_warp_target(u32-('a'-'A'),p);
 				if(progress==TEST)
-					std::cout << "warp target: " << p.x << "," << p.y << std::endl;
+					std::cout << "warp target: " << (unsigned long)p.x << "," << (unsigned long)p.y << std::endl;
 			}
 			else if(start_direction!=eDirection::NONE)
 			{
 				starts.push_front(Start(start_direction,p));
 				if(progress==TEST)
-					std::cout << "start position: " << p.x << "," << p.y << std::endl;
+					std::cout << "start position: " << (unsigned long)p.x << "," << (unsigned long)p.y << std::endl;
 			}
 		}
 	}
@@ -424,6 +424,8 @@ private:
 		bonuses.add(bonus);
 		if(bonus.type != Bonus::REGULAR)
 			play_sound("appear");
+		else if(progress==TEST)
+			std::cout << "new regular bonus at " << (unsigned long)x << "," << (unsigned long)y << std::endl;
 	}
 	bool two_or_more_worms()
 	{

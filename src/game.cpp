@@ -256,7 +256,7 @@ bool Game::add_bonus(bool regular)
 	if (!regular)
 	{
 		if (pseudo_random(150) != 0)
-			return true;
+			return false;
 	}
 
 	/* build the set of positions that can take a bonus */
@@ -282,7 +282,7 @@ bool Game::add_bonus(bool regular)
 		else
 			return false;
 		
-		if(!free_locations.is_empty() && fakes && pseudo_random(0, 7)==0)
+		if(!free_locations.is_empty() && fakes && pseudo_random(7)==0)
 		{
 			std::tie(x, y)=free_locations.remove_one_bonus();
 			_add_bonus(x, y, Bonus::REGULAR, true, 300);
@@ -291,7 +291,7 @@ bool Game::add_bonus(bool regular)
 	else if(!bonuses.too_many_missed())
 	{
 		bool good;
-		if (pseudo_random(0, 7)!=0)
+		if (pseudo_random(7)!=0)
 			good = false;
 		else
 			good = true;
@@ -299,7 +299,7 @@ bool Game::add_bonus(bool regular)
 		if (good && !fakes)
 			return true;
 
-		switch (pseudo_random(0, 21))
+		switch (pseudo_random(21))
 		{
 			case 0:
 			case 1:
@@ -384,7 +384,7 @@ void Game::move_worms()
 		if(progress==TEST)
 		{
 			if(r)
-				std::cout << "Added a bonus we couldn't add before because of lack of space" << std::endl;
+				std::cout << "added a bonus we couldn't add before because of lack of space" << std::endl;
 		}
 		if(!r)
 			break;
@@ -397,9 +397,9 @@ void Game::move_worms()
 		if(progress==TEST)
 		{
 			if(r)
-				std::cout << "Added missed bonus" << std::endl;
+				std::cout << "added missed bonus" << std::endl;
 			else
-				std::cout << "No room to add missed bonus" << std::endl;
+				std::cout << "no room to add missed bonus" << std::endl;
 		}
 		if(!r)
 		{
@@ -515,9 +515,9 @@ void Game::move_worms()
 		if(progress==TEST)
 		{
 			if(r)
-				std::cout << "Added replacement bonus" << std::endl;
+				std::cout << "added replacement bonus" << std::endl;
 			else
-				std::cout << "No room to add replacement bonus" << std::endl;
+				std::cout << "no room to add replacement bonus" << std::endl;
 		}
 		if(!r)
 		{
@@ -530,9 +530,9 @@ void Game::move_worms()
 	if(progress==TEST)
 	{
 		if(r)
-			std::cout << "Added irregular bonus" << std::endl;
+			std::cout << "added irregular bonus" << std::endl;
 		else
-			std::cout << "No room to add irregula bonus" << std::endl;
+			std::cout << "no room to add irregula bonus" << std::endl;
 	}
 
 	/* remove dead worms */
