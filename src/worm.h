@@ -1163,6 +1163,15 @@ public:
 	{
 		return lives;
 	}
+	uintsys get_lives()
+	{
+		lives_changed=false;
+		return lives;
+	}
+	bool has_lives_change() const
+	{
+		return lives_changed;
+	}
 	uintsys get_score() const
 	{
 		return score;
@@ -1221,6 +1230,7 @@ private:
 	uintsys score;
 	bool score_changed;
 	uintsys lives;
+	bool lives_changed=false;
 	uint64_t pseudo_random_seed_a = 2;/*seed*/
 	uint64_t pseudo_random_seed_b = 2;/*seed*/
 	bool LastUturnA = false;
@@ -1264,6 +1274,7 @@ private:
 					break;
 				case Bonus::LIFE:
 					lives++;
+					lives_changed=true;
 					play_sound ("life");
 					break;
 				case Bonus::REVERSE:

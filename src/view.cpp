@@ -106,8 +106,8 @@ View::View(Game::Progress progress, uintsys start_level, uintsys speed, bool fak
 			{
 				for (auto* child : pGrid->get_children())
 					pGrid->remove(*child);
-				for(unsigned int i=pGrid->get_children().size();i<lives;
-					pGrid->attach(*Gtk::make_managed<Life>(),i % 6,i / 6,1,1),i++);
+				for(uintsys i=pGrid->get_children().size();i<lives && i<6;
+					pGrid->attach(*Gtk::make_managed<Life>(i==5 && lives>6?lives:0),i % 6,0,1,1),i++);
 			}
 		}
 	},
@@ -1251,6 +1251,51 @@ void View::ActiveView::draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> 
 	snapshot->translate({ -(x - a.get_x() / Pango::SCALE), -(y - a.get_y() / Pango::SCALE)});
 }
 Glib::RefPtr<Pango::Layout> View::ActiveView::get_layout(const Glib::ustring &text, uintsys font_size)
+{
+	auto layout = create_pango_layout(text);
+	auto font = layout->get_font_description();
+	if(nullptr==font.gobj() || font.get_family().empty())
+		font = Pango::FontDescription("Sans Bold 1pt");
+	font.set_size(Pango::SCALE * font_size);
+	layout->set_font_description(font);
+	layout->set_text(text);
+	return layout;
+}
+
+/*******************************************************************
+ *                                                                 *
+ *	View::Life                                                     *
+ *                                                                 *
+ *******************************************************************/
+void View::Life::draw_text_target_height(const Glib::RefPtr<Gtk::Snapshot> &snapshot, intsys x, intsys y, const Glib::ustring &text, intsys target_height, intsys center_width)
+{
+	/* draw using x,y as the top left corner of the text */
+	intsys target_font_size = 1;
+	uintsys target_height_diff = std::numeric_limits<uintsys>::max();
+	Pango::Rectangle a = {0,0,0,0};
+
+	for (intsys font_size = 1;font_size < 200;font_size++)
+	{
+		auto layout = get_layout(text, font_size);
+	    Pango::Rectangle b;
+	    layout->get_extents(a, b);
+	    uintsys height_diff = abs(target_height - (intsys)a.get_height() / Pango::SCALE);
+	    if (height_diff > target_height_diff && height_diff - target_height_diff > 2)
+	        break;
+	    else if (height_diff < target_height_diff)
+	    {
+	        target_height_diff = height_diff;
+	        target_font_size = font_size;
+	    }
+	}
+	auto width=(intsys)a.get_width() / Pango::SCALE;
+	auto x_center_offset = width<center_width ? (16 - width)/2 : 0;
+	snapshot->translate({x - a.get_x() / Pango::SCALE + x_center_offset, y - a.get_y() / Pango::SCALE});
+	auto layout = get_layout(text, target_font_size);
+	snapshot->append_layout(layout, {1, 1, 1, 1});
+	snapshot->translate({ -(x - a.get_x() / Pango::SCALE), -(y - a.get_y() / Pango::SCALE)});
+}
+Glib::RefPtr<Pango::Layout> View::Life::get_layout(const Glib::ustring &text, uintsys font_size)
 {
 	auto layout = create_pango_layout(text);
 	auto font = layout->get_font_description();

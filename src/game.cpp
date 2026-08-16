@@ -547,11 +547,13 @@ void Game::move_worms()
 		life_change(worm->get_colour(), worm->get_lives());
 	}
 
-	/* inform the view a score has changed */
+	/* inform the view a score or life has changed */
 	for(Worm &worm : worms)
 	{
 		if(worm.do_score_change())
 			score_change(worm.get_colour(), worm.get_score());
+		if(worm.has_lives_change())
+			life_change(worm.get_colour(), worm.get_lives());
 	}
 
 	/* refresh the screen */

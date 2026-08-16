@@ -118,13 +118,13 @@ private:
 	class Life : public Gtk::Widget
 	{
 	public:
-		Life() : Gtk::Widget()
+		Life(uintsys number=0) : Gtk::Widget(), number(number)
 		{
 		}
 		virtual ~Life() override = default;
 		explicit Life(GtkWidget* gobj) :
 			Glib::ObjectBase(nullptr), // Passing nullptr avoids allocating a duplicate GObject
-			Gtk::Widget(gobj)
+			Gtk::Widget(gobj), number(0)
 		{
 		}
 	protected:
@@ -146,6 +146,9 @@ private:
 			path->cubic_to(x + x_m * 6.835938f, y + y_m * 2.199219f, x + x_m * 5.742188f, y + y_m * 1.816406f, x + x_m * 4.753906f, y + y_m * 1.828125f);
 
 			s->append_fill (path->to_path (), Gsk::FillRule::EVEN_ODD, {1.0f, 0.0f, 0.0f, 1.0f});
+
+			if(number>0)
+				draw_text_target_height(s, 0, 0, number>9 ? "*" : std::to_string(number), 16, 16);
 	 	}
 		void measure_vfunc(Gtk::Orientation orientation, int for_size, int& minimum, int& natural,
 			int& minimum_baseline, int& natural_baseline) const override
@@ -166,11 +169,39 @@ private:
 			natural_baseline = -1;
 		}
 	private:
+		const uintsys number;
 		static Glib::ObjectBase* wrap_new(GObject* o)
 		{
 			// Tie lifetime cleanup directly to the parent widget lifecycle
 			return Gtk::manage(new Life(GTK_WIDGET(o)));
 		}
+		/* calculate the width & height of the text */
+		std::pair<double,double> calculate_text_size(const Glib::ustring &text, int font_size)
+		{
+			auto layout = get_layout(text, font_size);
+			Pango::Rectangle a,b;
+			layout->get_extents(a, b);
+			return {a.get_width() / Pango::SCALE, a.get_height() / Pango::SCALE};
+		}
+		std::pair<intsys,intsys> get_text_offsets(const Glib::ustring &text, int font_size)
+		{
+			auto layout = get_layout(text, font_size);
+			Pango::Rectangle a,b;
+			layout->get_extents(a, b);
+		    return {a.get_x() / Pango::SCALE, a.get_y() / Pango::SCALE};
+		}
+		/* draw the text */
+		void draw_text_font_size(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int font_size)
+		{
+		    auto [x_offset, y_offset]=get_text_offsets(text, font_size);
+		    snapshot->translate(/*Gdk::Graphene::Point*/{x - x_offset, y - y_offset});
+			auto layout = get_layout(text, font_size);
+		    snapshot->append_layout(layout, {1, 1, 1, 1});
+		    snapshot->translate({ -(x - x_offset), -(y - y_offset)});
+		}
+		void draw_text_target_height(const Glib::RefPtr<Gtk::Snapshot> &snapshot,
+			intsys x, intsys y, const Glib::ustring &text, intsys target_width, intsys center_width);
+		Glib::RefPtr<Pango::Layout> get_layout(const Glib::ustring &text, uintsys font_size);
 	};
 
 /* class View */
