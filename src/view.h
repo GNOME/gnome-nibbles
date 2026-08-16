@@ -238,7 +238,6 @@ private:
 	std::bitset<26> levels;
 	unsigned long current_level;
 	const unsigned long speed;
-	bool fakes;
 	Gtk::Button &pause_button;
 	std::function<void(const std::vector<WormScore>)> game_over;
 	GSoundContext* ctx; /* sound */

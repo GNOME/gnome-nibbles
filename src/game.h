@@ -50,16 +50,16 @@ public:
 		std::function<eWormColour(unsigned long)> get_worm_settings_colour,
 		std::function<void(eWormColour, unsigned long)> life_change,
 		std::function<void(eWormColour, unsigned long)> score_change,
-		Progress progress) :
+		Progress progress, bool fakes) :
 			_play_sound(play_sound), _get_worm_settings_colour(get_worm_settings_colour),
 			_life_change(life_change), _score_change(score_change),
-			progress(progress), warps(board)
+			progress(progress), warps(board), fakes(fakes)
 	{
 	}
 	Game(uint8_t max_bonuse_count) :
 		_play_sound(nullptr), _get_worm_settings_colour(nullptr),
 		_life_change(nullptr), _score_change(nullptr),
-		progress(TEST), warps(board), bonuses(max_bonuse_count)
+		progress(TEST), warps(board), fakes(false), bonuses(max_bonuse_count)
 	{
 	}
 	virtual ~Game() = default;

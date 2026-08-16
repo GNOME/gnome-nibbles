@@ -89,7 +89,7 @@ inline Glib::ustring utoa(unsigned long u, unsigned long minimum_length=1)
 View::View(Game::Progress progress, unsigned long start_level, unsigned long speed, bool fakes,
 	Gtk::Button &pause_button,
 	std::function<void(const std::vector<WormScore>)> game_over) : Gtk::Overlay(),
-	progress(progress), speed(speed), fakes(fakes), pause_button(pause_button),
+	progress(progress), speed(speed), pause_button(pause_button),
 	game_over(game_over), static_view(*this), active_view(*this),
 	game(
 	[this](const Glib::ustring &sound) {/*play_sound*/
@@ -118,7 +118,7 @@ View::View(Game::Progress progress, unsigned long start_level, unsigned long spe
 			}
 		}
 	},
-	progress)
+	progress,fakes)
 {
 	// setup sound
 	GError* error = nullptr;
