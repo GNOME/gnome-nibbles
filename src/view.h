@@ -176,7 +176,8 @@ private:
 /* class View */
 public:
 	View(Game::Progress progress, unsigned long start_level, unsigned long speed, bool fakes,
-		Gtk::Button &pause_button, std::function<void(const std::vector<WormScore>)> game_over
+		Gtk::Button &pause_button, std::function<void(const Glib::ustring &level)> set_level_description,
+		std::function<void(const std::vector<WormScore>)> game_over
 	);
 	virtual ~View() override
 	{
@@ -239,6 +240,7 @@ private:
 	unsigned long current_level;
 	const unsigned long speed;
 	Gtk::Button &pause_button;
+	std::function<void(const Glib::ustring &level)> set_level_description;
 	std::function<void(const std::vector<WormScore>)> game_over;
 	GSoundContext* ctx; /* sound */
 	unsigned long countdown;
@@ -265,6 +267,7 @@ private:
 	const Glib::ustring get_worm_name(unsigned int worm_id);
 	const Glib::ustring get_level_completed_message(unsigned long level);
 	const Glib::ustring get_next_level_message(unsigned long level);
+	const Glib::ustring get_level_description(unsigned long level);
 	const Glib::ustring get_countdown_message(unsigned long count);
 
 	Gtk::Label* create_label(Glib::ustring text, unsigned long top_margin)

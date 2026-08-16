@@ -265,12 +265,15 @@ void NibblesWindow::setup_game()
 		/* create the view */
 		view=Gtk::make_managed<View>(progress, cli_start_level>0?cli_start_level:level, speed_selection, fakes,
 			*GetButton("pause_button"),
+				[this](const Glib::ustring &level) {/*set_level_description*/
+					set_title(m_title + " - " + level);
+				},
 				[this,level,fakes](const std::vector<WormScore> scores) {/*game_over*/
 					/* disable new-game & pause/resume buttons */
 					GetButton("new_game_button")->set_visible(0);
 					GetButton("pause_button")->set_visible(0);
 					update_high_scores(speed_selection, fakes, progress_selection, level, scores);
-				}		
+				}
 		);
 	}
 	/* initial fullscreen setting */
@@ -528,9 +531,10 @@ void NibblesWindow::quit()
 			confirm->signal_response().connect([this, confirm, game_box, view](bool confirmed) {
 				if (confirmed)
 				{
-					game_box->remove(*view);
 					GetButton("new_game_button")->set_visible(0);
 					GetButton("pause_button")->set_visible(0);
+					delete_view();	
+					set_title(m_title); /* remove level from the title */
 					ScreenStack_set_visible_child(PLAYERS);
 				}
 				else
@@ -611,7 +615,8 @@ void NibblesWindow::update_high_scores(
 			}
 			save_high_scores(category);
 			delete window;
-			delete_view();			
+			delete_view();	
+			set_title(m_title); /* remove level from the title */
 			ScreenStack_set_visible_child(PLAYERS);
 		});
 		window->present();
@@ -620,6 +625,7 @@ void NibblesWindow::update_high_scores(
 	{
 		delete window;
 		delete_view();			
+		set_title(m_title); /* remove level from the title */
 		ScreenStack_set_visible_child(PLAYERS);
 	}
 }

@@ -88,9 +88,11 @@ inline Glib::ustring utoa(unsigned long u, unsigned long minimum_length=1)
  *******************************************************************/
 View::View(Game::Progress progress, unsigned long start_level, unsigned long speed, bool fakes,
 	Gtk::Button &pause_button,
+	std::function<void(const Glib::ustring &level)> set_level_description,
 	std::function<void(const std::vector<WormScore>)> game_over) : Gtk::Overlay(),
 	progress(progress), speed(speed), pause_button(pause_button),
-	game_over(game_over), static_view(*this), active_view(*this),
+	set_level_description(set_level_description), game_over(game_over),
+	static_view(*this), active_view(*this),
 	game(
 	[this](const Glib::ustring &sound) {/*play_sound*/
 		play_sound(sound);
@@ -265,6 +267,8 @@ void View::load_board_level(unsigned long level)
 	auto path=Glib::build_filename(PKGDATADIR, "levels", filename);
 	game.load_board_from_file(path.c_str(), level);
 	current_level=level;
+	auto level_description=get_level_description(level);
+	set_level_description(level_description);
 	levels.set(current_level-1);
 }
 
@@ -670,6 +674,106 @@ const Glib::ustring View::get_next_level_message(unsigned long level)
 		default:
 			// Translators: information message indicating the next level in a random level game
 			return _("The next level is unknown.");
+	}
+}
+
+const Glib::ustring View::get_level_description(unsigned long level)
+{
+	switch(level)
+	{
+		case 1:
+			// Translators: information message describing the level
+			return _("level one");
+		case 2:
+			// Translators: information message describing the level
+			return _("level two");
+		case 3:
+			// Translators: information message describing the level
+			return _("level three");
+		case 4:
+			// Translators: information message describing the level
+			return _("level four");
+		case 5:
+			// Translators: information message describing the level
+			return _("level five");
+		case 6:
+			// Translators: information message describing the level
+			return _("level six");
+		case 7:
+			// Translators: information message describing the level
+			return _("level seven");
+		case 8:
+			// Translators: information message describing the level
+			return _("level eight");
+		case 9:
+			// Translators: information message describing the level
+			return _("level nine");
+		case 10:
+			// Translators: information message describing the level
+			return _("level ten");
+		case 11:
+			// Translators: information message describing the level
+			return _("level eleven");
+		case 12:
+			// Translators: information message describing the level
+			return _("level twelve");
+		case 13:
+			// Translators: information message describing the level
+			return _("level thirteen");
+		case 14:
+			// Translators: information message describing the level
+			return _("level fourteen");
+		case 15:
+			// Translators: information message describing the level
+			return _("level fifteen");
+		case 16:
+			// Translators: information message describing the level
+			return _("level sixteen");
+		case 17:
+			// Translators: information message describing the level
+			return _("level seventeen");
+		case 18:
+			// Translators: information message describing the level
+			return _("level eighteen");
+		case 19:
+			// Translators: information message describing the level
+			return _("level nineteen");
+		case 20:
+			// Translators: information message describing the level
+			return _("level twenty");
+		case 21:
+			// Translators: information message describing the level
+			return _("level twenty one");
+		case 22:
+			// Translators: information message describing the level
+			return _("level twenty two");
+		case 23:
+			// Translators: information message describing the level
+			return _("level twenty three");
+		case 24:
+			// Translators: information message describing the level
+			return _("level twenty four");
+		case 25:
+			// Translators: information message describing the level
+			return _("level twenty five");
+		case 26:
+			// Translators: information message describing the level
+			return _("level twenty six");
+		case 27:
+			// Translators: information message describing the level
+			return _("level twenty seven");
+		case 28:
+			// Translators: information message describing the level
+			return _("level twenty eight");
+		case 29:
+			// Translators: information message describing the level
+			return _("level twenty nine");
+		case 30:
+			// Translators: information message describing the level
+			return _("level thirty");
+		default:
+			// Translators: information message describing the level
+			return _("unknown level");
 	}
 }
 

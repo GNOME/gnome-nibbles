@@ -1022,7 +1022,7 @@ public:
 
 	NibblesWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder,
 			const char *program_name, int _cli_start_level, eSetupScreen start_screen)
-			: Gtk::ApplicationWindow(cobject), m_refBuilder(refBuilder)
+			: Gtk::ApplicationWindow(cobject), m_refBuilder(refBuilder), m_title(program_name)
 	{
 		set_title(program_name);
 		set_default_size(300,200);
@@ -1099,6 +1099,7 @@ public:
 
 protected:
 	Glib::RefPtr<Gtk::Builder> m_refBuilder;
+	Glib::ustring m_title;
 	Gtk::Stack* pScreenStack {nullptr};
 	Glib::RefPtr<Gio::Settings> pSettings;
 	Glib::RefPtr<Gio::SimpleAction> pPlayerButtons;
