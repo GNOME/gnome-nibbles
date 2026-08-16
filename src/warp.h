@@ -53,7 +53,7 @@ public:
 		}
 		Position get_source_top_left() const
 		{
-			return Position(source>>8 - 1, source & 0xff - 1);
+			return Position((source>>8) - 1, source & 0xff - 1);
 		}
 	};
 	/* methods */

@@ -184,7 +184,7 @@ private:
 			set_vexpand(true);
 		}
 		virtual ~ActiveView() override = default;
-		void redraw () {queue_draw ();}
+		void redraw() {animate++; queue_draw ();}
 	protected:
 	 	void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapshot) override
 	 	{
