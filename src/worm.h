@@ -625,6 +625,13 @@ public:
 	{
 		list.clear();
 	}
+	Position operator[](unsigned long index) const
+	{
+		auto it = list.cbegin();
+		if(index>0)
+			std::advance(it, index);
+		return {(uint8_t)((*it) >> 8), (uint8_t)(*it)};
+	}
 private:
 	std::list<uint16_t> list;
 };
