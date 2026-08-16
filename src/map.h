@@ -25,14 +25,13 @@ private:
 	const int map_width_physical;
 
 	/* variables */
-	//std::inplace_vector<uint64_t, ((92 - 1) / (sizeof (uint64_t) * 8) + 1) * 66> map; /* max size is 92 by 66 */
-	std::vector<uint64_t> map;
+	std::inplace_vector<uintsys, ((92 - 1) / (sizeof (uintsys) * 8) + 1) * 66> map; /* max size is 92 by 66 */
 
 	/* public functions */
 public:
 	/* constructor */
 	SimpleMap(uint8_t map_width, uint8_t map_height) :
-		bits(sizeof (uint64_t) * 8),
+		bits(sizeof (uintsys) * 8),
 		map_width_physical((map_width - 1) / bits + 1),
 		map(map_width_physical * map_height)
 	{

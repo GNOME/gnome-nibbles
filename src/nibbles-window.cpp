@@ -22,7 +22,7 @@
 #include <fstream>
 #include <cassert>
 #include <mutex>
-//#include <inplace_vector>
+#include <inplace_vector>
 #include <queue>
 
 #include <gtkmm.h>
@@ -1546,8 +1546,7 @@ std::pair<std::string,bool> NibblesWindow::Scores::read_string(std::ifstream &st
 
 std::string NibblesWindow::Scores::to_title(uint8_t category_index)
 {
-	//std::inplace_vector<std::string,256> description =
-	std::vector<std::string> description =
+	std::inplace_vector<std::string,256> description =
 	{
 		// Translators: text displayed at the top of the high scores dialogue
 		_("Fast"),

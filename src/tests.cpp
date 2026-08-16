@@ -32,7 +32,7 @@
 #include <unordered_set>
 #include <array>
 #include <mutex>
-//#include <inplace_vector>
+#include <inplace_vector>
 #include <queue>
 
 #include <string_view>

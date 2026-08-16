@@ -89,9 +89,9 @@ code3 = '''
 		return 0;
 	}'''
 code3_links = cpp.links(code3, name : 'std::inplace_vector<>')
-#if not code3_links
-#	error('Can not use std::inplace_vector<> (requires C++26, -std=gnu++26)')
-#endif
+if not code3_links
+	error('Can not use std::inplace_vector<> (requires C++26, -std=gnu++26)')
+endif
 
 # Configuration
 conf = configuration_data()

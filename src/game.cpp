@@ -26,7 +26,7 @@
 #include <functional>
 #include <map>
 #include <mutex>
-//#include <inplace_vector>
+#include <inplace_vector>
 #include <queue>
 
 #include <gtkmm.h>

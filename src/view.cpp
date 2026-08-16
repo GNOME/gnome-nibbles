@@ -28,7 +28,7 @@
 #include <forward_list>
 #include <fstream>
 #include <vector>
-//#include <inplace_vector>
+#include <inplace_vector>
 #include <functional>
 #include <chrono>
 #include <queue>

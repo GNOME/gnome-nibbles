@@ -29,7 +29,7 @@
 #include <functional>
 #include <map>
 #include <mutex>
-//#include <inplace_vector>
+#include <inplace_vector>
 #include <queue>
 
 #include "system_integer.h"
@@ -164,8 +164,7 @@ int Worm::ai_deadend(const std::vector<std::vector<unsigned char>> &board, const
 	Position position, uintsys length)
 {
 	const long p_max = 92*66;
-	//std::inplace_vector<uint16_t, p_max> p;
-	std::vector<uint16_t> p;
+	std::inplace_vector<uint16_t, p_max> p;
 	p.emplace_back(position);
 	for (uintsys i = 0; i < p.size() && (p.size() - 1) < length; i++)
 	{
