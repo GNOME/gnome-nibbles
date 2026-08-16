@@ -103,7 +103,7 @@ public:
 	}
 	uint8_t new_regular_bonus_eaten()
 	{
-		//reset_missed();
+		missed=0;
 		if (regular_left > 0)
 			return maximum - (regular_left - 1);
 		else
