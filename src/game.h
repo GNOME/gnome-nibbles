@@ -167,6 +167,7 @@ public:
 		}
 		/* clear bonuses */
 		bonuses_to_replace = 0;
+		irregular_bonus_cycle = 0;
 		bonuses.clear();
 	}
 	void reverse_worms(Worm *ignore)
@@ -319,6 +320,7 @@ private:
 	std::forward_list<Worm> worms;
 	Bonuses bonuses;
 	uint8_t bonuses_to_replace;
+	uintsys irregular_bonus_cycle;
 	uintsys starting_human_count,starting_ai_count;
 
 	unsigned int unichar_extra_width(char c)

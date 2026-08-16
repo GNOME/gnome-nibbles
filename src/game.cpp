@@ -249,12 +249,10 @@ std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uin
 bool Game::add_bonus(bool regular)
 {
 	uint8_t x,y; /* max size is 92 by 66 */
-	//std::unordered_set<uint16_t> free_locations;
 	PositionSet free_locations;
-	//free_locations.reserve(0x10000);
 	Worm::Map worm_map(worms, board.size(), board[0].size());
 
-	/* non regular bonuses have a chance of 1 in 50 of appearing */
+	/* irregular bonuses have a chance of 1 in 50 of appearing */
 	if (!regular)
 	{
 		if (pseudo_random(0, 50) != 0)
@@ -509,6 +507,7 @@ void Game::move_worms()
 		}
 	}
 
+	/* regular bonus */
 	auto real_bonuses_to_replace=bonuses.do_pending_removes();
 	for(;real_bonuses_to_replace>0;real_bonuses_to_replace--)
 	{
@@ -524,6 +523,19 @@ void Game::move_worms()
 		{
 			bonuses_to_replace+=real_bonuses_to_replace;
 			break;
+		}
+	}
+	/* irregula bonus */
+	irregular_bonus_cycle=(irregular_bonus_cycle+1)%3;
+	if(0==irregular_bonus_cycle)
+	{
+		bool r=add_bonus(false);
+		if(progress==TEST)
+		{
+			if(r)
+				std::cout << "Added irregular bonus" << std::endl;
+			else
+				std::cout << "No room to add irregula bonus" << std::endl;
 		}
 	}
 
