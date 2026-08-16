@@ -160,7 +160,10 @@ public:
 		auto it=starts.begin();
 		for(Worm &worm : worms)
 		{
-			worm.spawn(*it++, board,bonuses,force_materialize);
+			if(worm.has_lives())
+				worm.spawn(*it++, board, bonuses, force_materialize);
+			else
+				it++;
 		}
 		/* clear bonuses */
 		bonuses_to_replace = 0;
