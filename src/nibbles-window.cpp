@@ -264,7 +264,8 @@ void NibblesWindow::setup_game()
 		auto level=std::clamp(pSettings->get_int(LEVEL_SETTINGS), 1 , 26);
 		auto fakes=pSettings->get_boolean(FAKE_SETTINGS);
 		/* create the view */
-		view=Gtk::make_managed<View>(progress, cli_start_level>0?cli_start_level:level, speed_selection, fakes,
+		view=Gtk::make_managed<View>(progress, cli_start_level>0?cli_start_level:
+			(Game::Progress::FIXED==progress?level:1), speed_selection, fakes,
 			*GetButton("pause_button"),
 				[this](const Glib::ustring &level) {/*set_level_description*/
 					set_title(m_title + " - " + level);
