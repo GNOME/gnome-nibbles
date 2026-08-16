@@ -131,11 +131,11 @@ protected:
 		// F1 and friends are managed manually
 		set_accels_for_action ("win.new-game",  {"<Primary>n"});
 		set_accels_for_action ("app.fullscreen",{"F11"});
-		set_accels_for_action ("win.scores",	{});
+		set_accels_for_action ("app.scores",	{"<Primary>s"});
 		set_accels_for_action ("app.pause",     {"<Primary>p", "Pause"});
 		set_accels_for_action ("app.quit",      {"<Primary>q"});
+		set_accels_for_action ("win.next-screen",{"<Primary>n"});
 		set_accels_for_action ("win.back",      {"Escape"});
-		set_accels_for_action ("win.hamburger", {"F10", "Menu"});
 	}
 
 	void on_activate() override
@@ -176,13 +176,13 @@ protected:
 			//add_action("sound",sigc::mem_fun(*pWindow, &NibblesWindow::sound_cb));
 			auto action = Gio::SimpleAction::create(
 				"sound",Glib::Variant<bool>::create(true));
-			action->signal_change_state().connect(
+			action->signal_change_state().connect(sigc::track_obj(
 				[this,action](const Glib::VariantBase& value)
 				{
 					bool state = Glib::VariantBase::cast_dynamic<Glib::Variant<bool>>(value).get();
 					action->set_state(value);
 					pWindow->set_mute(!state);
-				});
+				}));
 			add_action(action);	
 			add_action("fullscreen",sigc::mem_fun(*pWindow, &NibblesWindow::fullscreen_cb));
 			add_action("help",  sigc::mem_fun(*pWindow, &NibblesWindow::help_cb));

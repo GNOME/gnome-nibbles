@@ -1263,6 +1263,8 @@ private:
 			case CONTROLS:
 				ScreenStack_set_visible_child(GAME, Gtk::StackTransitionType::SLIDE_UP);
 				break;
+			case GAME:
+				quit();
 		}
 	}
 
