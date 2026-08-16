@@ -82,6 +82,11 @@ Once the meson setup command completes successfully, you can compile Nibbles:
   $ meson compile -C ../nibbles.build
 ```
 
+Build and run the tests with:
+```
+  $ meson test -C ../nibbles.build
+```
+
 If you have previously installed Nibbles, you can run the tests and Nibbles
 directly from the command line:
 ```
