@@ -29,7 +29,6 @@ gnome_nibbles_sources = [
 ]
 
 gnome_nibbles_deps = [
-	pangomm_dep,
 	glibmm_dep,
 	gtkmm_dep,
 	gsound_dep 

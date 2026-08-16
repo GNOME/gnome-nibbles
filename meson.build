@@ -20,7 +20,6 @@ bindir     = join_paths(prefix, get_option ('bindir'))
 gettext_package = 'gnome-nibbles'
 
 # Dependencies
-pangomm_dep = dependency('pangomm-2.48', version: '>= 2.56.2')
 glibmm_dep = dependency('glibmm-2.68', version: '>= 2.88.1')
 gtkmm_dep = dependency('gtkmm-4.0')
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
