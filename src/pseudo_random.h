@@ -28,3 +28,5 @@ inline unsigned long pseudo_random(unsigned long max_exclusive)
 {
 	return pseudo_random() % max_exclusive;
 }
+
+void set_seed(unsigned long seed);

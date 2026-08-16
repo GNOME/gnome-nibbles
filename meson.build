@@ -25,7 +25,7 @@ gtkmm_dep = dependency('gtkmm-4.0')
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
 
 cpp = meson.get_compiler('cpp')
-cpp_compiler_options = ['-Wno-narrowing','-Wno-parentheses','-Wno-sign-compare']
+cpp_compiler_options = ['-Wno-narrowing','-Wno-parentheses','-Wno-sign-compare','-Wno-uninitialized']
 
 code0 = '''
 #include <gtkmm.h>

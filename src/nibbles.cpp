@@ -28,6 +28,9 @@
 
 #include <unordered_set>/* required for std::unordered_set */
 
+#include <chrono>
+#include <random>
+
 /* language */
 #include <locale>
 #include <glib/gi18n.h>
@@ -38,6 +41,7 @@
 #include "boolean.h"
 #include "inform.h"
 #include "nibbles-window.h"
+#include "pseudo_random.h"
 
 class Nibbles : public Gtk::Application
 {
@@ -480,6 +484,36 @@ protected:
 	}
 };
 
+void initilise_seed()
+{
+	uint64_t seed;
+	/* get data from the stack */
+	uint64_t stack_data[1024];
+	for(unsigned int i=0;i<sizeof(stack_data)/sizeof(uint64_t);seed^=stack_data[i++]);
+	/* get data from the heap */
+	try {
+		std::allocator<std::byte> a;
+		uint64_t *heap_data=(uint64_t *)a.allocate(1024*8);
+		for(unsigned int i=0;i<1024;seed^=heap_data[i++]);
+		a.deallocate((std::byte *)heap_data, 1024*8);
+	} catch (const std::bad_alloc& e) {
+	}
+	/* get data from the random device */
+	try	{
+		std::random_device rd;
+		uint64_t r=rd();
+		seed^=r;
+	} catch(const std::runtime_error &e) {
+	}
+	/* get data from the clock */
+    auto now = std::chrono::steady_clock::now();
+    auto duration_since_boot = now.time_since_epoch();
+    auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
+	seed^=nanoseconds;
+
+	set_seed(seed);
+}
+
 int main(int argc, char* argv[])
 {
 	setlocale (LC_ALL, "");
@@ -488,6 +522,7 @@ int main(int argc, char* argv[])
 	textdomain (GETTEXT_PACKAGE);
 
 	//gtk_init();
+	initilise_seed();
 
 	auto application = Nibbles::create();
 	return application->run(argc, argv);

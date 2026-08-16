@@ -19,13 +19,19 @@
 
 #include "pseudo_random.h"
 
+
+static auto last = 2ULL; /*seed*/
+
 /* a pseudo random number between 0 and 2^64-1 inclusive */
 unsigned long pseudo_random()
 {
-	static auto last = 2ULL; /*seed*/
 	const auto a = 6364136223846793005ULL; /*multiplier*/ 
 	const auto c = 1442695040888963407ULL; /*increment*/
 	last = a * last + c;
 	return last;
 }
 
+void set_seed(unsigned long seed)
+{
+	last=seed;
+}
