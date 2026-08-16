@@ -262,7 +262,7 @@ void NibblesWindow::setup_game()
 		auto level=std::clamp(pSettings->get_int(LEVEL_SETTINGS), 1 , 26);
 		auto fakes=pSettings->get_boolean(FAKE_SETTINGS);
 		/* create the view */
-		view=Gtk::make_managed<View>(progress, level, speed_selection, fakes,
+		view=Gtk::make_managed<View>(progress, cli_start_level>0?cli_start_level:level, speed_selection, fakes,
 			*GetButton("pause_button"),
 				[this,level,fakes](const std::vector<WormScore> scores) {/*game_over*/
 					/* disable new-game & pause/resume buttons */

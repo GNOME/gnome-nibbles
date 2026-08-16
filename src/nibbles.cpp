@@ -164,7 +164,7 @@ protected:
 		try
 		{
 			// create app window
-			pWindow = NibblesWindow::create (PROGRAM_NAME, level == std::numeric_limits<int>::min() ? 0 : level, setup);
+			pWindow = NibblesWindow::create(PROGRAM_NAME, level == std::numeric_limits<int>::min() ? 0 : level, setup);
 			add_window (*pWindow);
 			pWindow->set_default_icon_name ("org.gnome.Nibbles");
 			pWindow->present ();
