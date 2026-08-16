@@ -211,18 +211,19 @@ void View::initialise_and_start()
 		else
 			c=worm_colour[worm];
 		colours_used.insert(c);
+		auto name=get_worm_name(worm);
 		if(!pBox)
 		{
-			auto name=get_worm_name(worm);
 			pBox=create_score_box(name,c);
 			score_box[c]=pBox;
 			names[c]=name;
 			get_scoreboard()->append(*pBox);
-
 			pBox=nullptr;
 		}
 		else
 		{
+			score_box[c]=pBox;
+			names[c]=name;
 			/* make sure there are six lives */
 			Gtk::Grid *pGrid=get_life_grid(pBox);
 			for (auto* child : pGrid->get_children())
