@@ -119,9 +119,6 @@ protected:
 		
 		Glib::set_prgname ("org.gnome.Nibbles");
 
-		Glib::RefPtr<Gtk::Settings> settings = Gtk::Settings::get_default();
-		settings->set_property("gtk-application-prefer-dark-theme", true);
-
 		add_action("quit",  sigc::mem_fun(*this, &Nibbles::quit));
 
 		// F1 and friends are managed manually
