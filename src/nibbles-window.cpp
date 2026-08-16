@@ -528,12 +528,12 @@ void NibblesWindow::quit()
 			auto* confirm = new ConfirmWindow(*this, "Are you sure you want end this game?");
 
 			// Handle the response callback asynchronously (non-blocking)
-			confirm->signal_response().connect([this, confirm, game_box, view](bool confirmed) {
+			confirm->signal_response().connect([this, confirm](bool confirmed) {
 				if (confirmed)
 				{
 					GetButton("new_game_button")->set_visible(0);
 					GetButton("pause_button")->set_visible(0);
-					delete_view();	
+					delete_view();
 					set_title(m_title); /* remove level from the title */
 					ScreenStack_set_visible_child(PLAYERS);
 				}
@@ -615,7 +615,7 @@ void NibblesWindow::update_high_scores(
 			}
 			save_high_scores(category);
 			delete window;
-			delete_view();	
+			delete_view();
 			set_title(m_title); /* remove level from the title */
 			ScreenStack_set_visible_child(PLAYERS);
 		});
