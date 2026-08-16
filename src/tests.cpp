@@ -214,10 +214,14 @@ private:
 void test_board(const std::span<const std::string_view> &strings,
 				uint8_t regular_bonuse_count,
 				uint8_t bonuses_eaten,
+				uint8_t level,
+				uint64_t seed_A,
+				uint64_t seed_B,
 				TestWorms worms)
 {
+	set_seed(seed_A,seed_B);
 	Game game(regular_bonuse_count);
-	game.load_board(strings);
+	game.load_board(strings, level);
 	game.create_worms(0, worms.get_count());
 	game.spawn_worms(true/*force_materialize*/);
 	for(const Worm &worm : game.get_worms())
@@ -270,9 +274,9 @@ void test_heads()
 			"┣━━━━━━━..━━━━━━━┫",
 			"┃▶..............◀┃",
 			"┗━━━━━━━━━━━━━━━━┛"};
-	test_board(test_heads_1, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{12/*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
+	test_board(test_heads_1, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	4/*y*/,	6/*final lives*/,	0/*final score*/,  5/*final length*/},
+		{12/*x*/,	4/*y*/,	6/*final lives*/,	1/*final score*/,  9/*final length*/}});
 
 	constexpr std::array<std::string_view, 6> test_heads_2 = {
 			"┏━━━━━━━━━━━━━━━━┓",
@@ -281,9 +285,9 @@ void test_heads()
 			"┣━━━━━━━.━━━━━━━━┫",
 			"┃▶..............◀┃",
 			"┗━━━━━━━━━━━━━━━━┛"};
-	test_board(test_heads_2, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/},
-		{12/*x*/,	4/*y*/,	5/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
+	test_board(test_heads_2, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1/*final score*/,  9/*final length*/},
+		{12/*x*/,	4/*y*/,	5/*final lives*/,	0/*final score*/,  5/*final length*/}});
 
 	constexpr std::array<std::string_view, 6> test_heads_3 = {
 			"┏━━━━━━━━━━━━━━━━┓",
@@ -292,9 +296,9 @@ void test_heads()
 			"┣━━━━━━━..━━━━━━┳┫",
 			"┃▶.............◀┣┫",
 			"┗━━━━━━━━━━━━━━━┻┛"};
-	test_board(test_heads_3, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/},
-		{11/*x*/,	4/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
+	test_board(test_heads_3, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	4/*y*/,	6/*final lives*/,	0/*final score*/,  5/*final length*/},
+		{11/*x*/,	4/*y*/,	6/*final lives*/,	1/*final score*/,  9/*final length*/}});
 
 	constexpr std::array<std::string_view, 6> test_heads_4 = {
 			"┏━━━━━━━━━━━━━━━━┓",
@@ -303,9 +307,9 @@ void test_heads()
 			"┣━━━━━━━.━━━━━━━┳┫",
 			"┃▶.............◀┣┫",
 			"┗━━━━━━━━━━━━━━━┻┛"};
-	test_board(test_heads_4, 1/*max regular bonuses*/, 0/*bonuses easten*/,{
-		{5 /*x*/,	4/*y*/,	0/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{11/*x*/,	4/*y*/,	0/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
+	test_board(test_heads_4, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	4/*y*/,	5/*final lives*/,	0/*final score*/,  5/*final length*/},
+		{11/*x*/,	4/*y*/,	5/*final lives*/,	1/*final score*/,  9/*final length*/}});
 		
 	constexpr std::array<std::string_view, 6> test_heads_5 = {
 			"┏━━━━━━━┳━━━━━━━━┓",
@@ -314,9 +318,9 @@ void test_heads()
 			"┏━━━━━┛..........┃",
 			"┃▶......┃........┃",
 			"┗━━━━━━━┻━━━━━━━━┛"};
-	test_board(test_heads_5, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	1/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
+	test_board(test_heads_5, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	1/*y*/,	6/*final lives*/,	0/*final score*/,  5/*final length*/},
+		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1/*final score*/,  9/*final length*/}});
 		
 	constexpr std::array<std::string_view, 6> test_heads_6 = {
 			"┏━━━━━━━┳━━━━━━━━┓",
@@ -325,9 +329,9 @@ void test_heads()
 			"┏━━━━━┛..........┃",
 			"┃▶......┃........┃",
 			"┗━━━━━━━┻━━━━━━━━┛"};
-	test_board(test_heads_6, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	1/*y*/,	5/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
+	test_board(test_heads_6, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	1/*y*/,	5/*final lives*/,   0/*final score*/,  5/*final length*/},
+		{5 /*x*/,	4/*y*/,	6/*final lives*/,   1/*final score*/,  9/*final length*/}});
 		
 	 constexpr std::array<std::string_view, 6> test_heads_A = {
 			"┏━━━━━━━┳━━━━━━━━┓",
@@ -336,9 +340,9 @@ void test_heads()
 			"┏━━━━━┛.┃........┃",
 			"┃▶......┃........┃",
 			"┗━━━━━━━┻━━━━━━━━┛"};
-	test_board(test_heads_A, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	1/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/},
-		{5 /*x*/,	4/*y*/,	5/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
+	test_board(test_heads_A, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	1/*y*/,	6/*final lives*/,	1/*final score*/,  9/*final length*/},
+		{5 /*x*/,	4/*y*/,	5/*final lives*/,	0/*final score*/,  5/*final length*/}});
 
 	constexpr std::array<std::string_view, 6> test_heads_B = {
 			"........┏━━━━━━━━┓",
@@ -347,9 +351,9 @@ void test_heads()
 			"┣━━━━━━..........┃",
 			"┃▶......┃........┃",
 			"┗━━━━━━━┻━━━━━━━━┛"};
-	test_board(test_heads_B, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	2/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
+	test_board(test_heads_B, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	2/*y*/,	6/*final lives*/,	0/*final score*/,  5/*final length*/},
+		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1/*final score*/,  9/*final length*/}});
 
 	constexpr std::array<std::string_view, 6> test_heads_C = {
 			"........┏━━━━━━━━┓",
@@ -358,9 +362,9 @@ void test_heads()
 			"┣━━━━━━..........┃",
 			"┃▶......┃........┃",
 			"┗━━━━━━━┻━━━━━━━━┛"};
-	test_board(test_heads_C, 1/*max regular bonuses*/, 0/*bonuses easten*/,{
-		{5 /*x*/,	2/*y*/,	0/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{5 /*x*/,	4/*y*/,	0/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
+	test_board(test_heads_C, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	2/*y*/,	5/*final lives*/,	0/*final score*/,  5/*final length*/},
+		{5 /*x*/,	4/*y*/,	5/*final lives*/,	1/*final score*/,  9/*final length*/}});
 
 	constexpr std::array<std::string_view, 6> test_heads_D = {
 			"........┏━━━━━━━━┓",
@@ -369,9 +373,23 @@ void test_heads()
 			"┣━━━━━━..........┃",
 			"┃▶...............┃",
 			"┗━━━━━━━━━━━━━━━━┛"};
-	test_board(test_heads_D, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	2/*y*/,	6/*final lives*/,	0 /*final score*/,  5 /* final length*/},
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
+	test_board(test_heads_D, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/,	2/*y*/,	6/*final lives*/,	0/*final score*/,  5/*final length*/},
+		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1/*final score*/,  9/*final length*/}});
+
+	/* Important test, it makes sure the worms don't materialize if the end of
+	   the tunnel is blocked by another worm. See level 25. */
+	constexpr std::array<std::string_view, 7> test_heads_E = {
+			".━━━━━━━━━━━━━━━━━━━━━━.┳┳━━━━━━━━━━━━━━━┓",
+			"........................┣┫...............┃",
+			"┏━━━━━━━━━━━━━━━━━━━━━━━┻┛.┏┓..┏┓..┏━━━┓.┃",
+			"┃▶.........................┃┗━━┛┗━┳┻━┓.┃.┃",
+			"┗━━━━━━━━━━━━━━━━━━━━━━━┳┓.┗━━━━━━┛..┗━┛.┃",
+			"........................┣┫..........▶....┃",
+			".━━━━━━━━━━━━━━━━━━━━━━.┻┻━━━━━━━━━━━━━━━┛"};
+	test_board(test_heads_E, 4/*max regular bonuses*/, 4/*bonuses easten*/, 25/*level*/, 4/*seed A*/, 5/*seed B*/,{
+		{5 /*x*/,	3/*y*/,	5/*final lives*/,  0/*final score*/,  5 /* final length*/},
+		{40/*x*/,	5/*y*/,	6/*final lives*/, 250/*final score*/, 45/* final length*/}});
 }
 
 void test_warps()
@@ -383,8 +401,8 @@ void test_warps()
 			"┣━━━━━━┛++┃",
 			"┃▶......+S┃",
 			"┗━━━━━━━━━┛"};
-	test_board(test_warps_1, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/, 4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
+	test_board(test_warps_1, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/, 4/*y*/,	6/*final lives*/,	1 /*final score*/,  9/*final length*/}});
 			
 	constexpr std::array<std::string_view, 6> test_warps_2 = {
 			"┏━━━━━━┓┏━┓",
@@ -393,8 +411,8 @@ void test_warps()
 			"┣━━┛┗━━┛++┃",
 			"┃▶......+S┃",
 			"┗━━━━━━━━━┛"};
-	test_board(test_warps_2, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/, 4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
+	test_board(test_warps_2, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/, 4/*y*/,	6/*final lives*/,	1 /*final score*/,  9/*final length*/}});
 			
 	constexpr std::array<std::string_view, 6> test_warps_3 = {
 			"┏━━━━━━┳━━┓",
@@ -403,8 +421,8 @@ void test_warps()
 			"┃++┣━━━┻━.┃",
 			"┃+S┃▶.....┃",
 			"┗━━┻━━━━━━┛"};
-	test_board(test_warps_3, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{8 /*x*/, 4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
+	test_board(test_warps_3, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{8 /*x*/, 4/*y*/,	6/*final lives*/,	1 /*final score*/,  9/*final length*/}});
 			
 	constexpr std::array<std::string_view, 6> test_warps_4 = {
 			"┏━━━━━━┳━━┓",
@@ -413,8 +431,8 @@ void test_warps()
 			"┃++┣━━━┻━.┃",
 			"┃+S┃▶.....┃",
 			"┗━━┻━━━━━━┛"};
-	test_board(test_warps_4, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{8 /*x*/, 4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
+	test_board(test_warps_4, 1/*max regular bonuses*/, 1/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{8 /*x*/, 4/*y*/,	6/*final lives*/,	1 /*final score*/,  9/*final length*/}});
 			
 	constexpr std::array<std::string_view, 6> test_warps_5 = {
 			"┏━━━━━━━━━━━━┓",
@@ -423,8 +441,8 @@ void test_warps()
 			"┣━━━━━━┛++┃..┃",
 			"┃▶......+Q┃..┃",
 			"┗━━━━━━━━━┻━━┛"};
-	test_board(test_warps_5, 2/*max regular bonuses*/, 2/*bonuses easten*/,{
-		{5 /*x*/, 4/*y*/,	5/*final lives*/,	7 /*final score*/, 	13/* final length*/}});
+	test_board(test_warps_5, 2/*max regular bonuses*/, 2/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{5 /*x*/, 4/*y*/,	5/*final lives*/,	9 /*final score*/, 13/*final length*/}});
 }
 
 void test_games()
@@ -497,13 +515,13 @@ void test_games()
 "┃..........................................................................................┃",
 "┃..........................................................................................┃",
 "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓........┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"};
-	test_board(test_board_8, 12/*max regular bonuses*/, 12/*bonuses easten*/,{
-		{ 4/*x*/,13/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{17/*x*/,28/*y*/,	6/*final lives*/,	26/*final score*/, 	18/* final length*/},
-		{ 8/*x*/,39/*y*/,	6/*final lives*/,	21/*final score*/, 	89/* final length*/},
-		{51/*x*/,46/*y*/,	6/*final lives*/,	34/*final score*/, 	141/* final length*/},
-		{83/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /*final length*/},
-		{38/*x*/,59/*y*/,	4/*final lives*/,	14/*final score*/, 	10/* final length*/}});
+	test_board(test_board_8, 12/*max regular bonuses*/, 12/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{ 4/*x*/,13/*y*/,	6/*final lives*/,	26/*final score*/, 	109/*final length*/},
+		{17/*x*/,28/*y*/,	6/*final lives*/,	18/*final score*/, 	77/*final length*/},
+		{ 8/*x*/,39/*y*/,	6/*final lives*/,	11/*final score*/, 	49/*final length*/},
+		{51/*x*/,46/*y*/,	6/*final lives*/,	 0/*final score*/, 	 5/*final length*/},
+		{83/*x*/,57/*y*/,	6/*final lives*/,	13/*final score*/, 	57/*final length*/},
+		{38/*x*/,59/*y*/,	5/*final lives*/,	10/*final score*/, 	45/*final length*/}});
 
 	/* test because it uses the two kind of warps */
 	constexpr std::array<std::string_view, 66> test_board_11 = {
@@ -573,13 +591,13 @@ void test_games()
 "┃.............................┃┃............................┃┃.............................┃",
 "┃.............................┃┃............................┃┃.............................┃",
 "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"};
-	test_board(test_board_11, 12/*max regular bonuses*/, 12/*bonuses easten*/,{
-		{15/*x*/, 8/*y*/,	6/*final lives*/,	15/*final score*/, 	54/* final length*/},
-		{44/*x*/, 8/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/},
-		{76/*x*/, 8/*y*/,	6/*final lives*/,	20/*final score*/, 	85/* final length*/},
-		{15/*x*/,57/*y*/,	6/*final lives*/,	55/*final score*/, 	25/* final length*/},
-		{48/*x*/,57/*y*/,	5/*final lives*/,	41/*final score*/, 	5 /* final length*/},
-		{76/*x*/,57/*y*/,	6/*final lives*/,	22/*final score*/, 	82/* final length*/}});
+	test_board(test_board_11, 12/*max regular bonuses*/, 12/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{15/*x*/, 8/*y*/,	6/*final lives*/,	10/*final score*/, 	45/*final length*/},
+		{44/*x*/, 8/*y*/,	6/*final lives*/,	 9/*final score*/, 	41/*final length*/},
+		{76/*x*/, 8/*y*/,	6/*final lives*/,	22/*final score*/, 	93/*final length*/},
+		{15/*x*/,57/*y*/,	5/*final lives*/,	22/*final score*/, 	49/*final length*/},
+		{48/*x*/,57/*y*/,	6/*final lives*/,	 9/*final score*/, 	41/*final length*/},
+		{76/*x*/,57/*y*/,	6/*final lives*/,	 1/*final score*/, 	 9/*final length*/}});
 
 	/* test because it uses the random warp */
 	constexpr std::array<std::string_view, 66> test_board_25 = {
@@ -649,13 +667,13 @@ void test_games()
 "┃..........................................................................................┃",
 "┃..........................................................................................┃",
 "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"};
-	test_board(test_board_25, 12/*max regular bonuses*/, 12/*bonuses easten*/,{
-		{20/*x*/, 6/*y*/,	6/*final lives*/,	10/*final score*/, 	45/* final length*/},
-		{63/*x*/, 6/*y*/,	6/*final lives*/,	32/*final score*/, 	106/* final length*/},
-		{85/*x*/,11/*y*/,	6/*final lives*/,	13/*final score*/,  57/* final length*/},
-		{85/*x*/,54/*y*/,	6/*final lives*/,	12/*final score*/, 	53/* final length*/},
-		{20/*x*/,59/*y*/,	6/*final lives*/,	9 /*final score*/, 	41/*final length*/},
-		{63/*x*/,59/*y*/,	4/*final lives*/,	14/*final score*/, 	5 /* final length*/}});
+	test_board(test_board_25, 12/*max regular bonuses*/, 12/*bonuses easten*/, 1/*level*/, 2/*seed A*/, 2/*seed B*/,{
+		{20/*x*/, 6/*y*/,	6/*final lives*/,	22/*final score*/, 	93/*final length*/},
+		{63/*x*/, 6/*y*/,	6/*final lives*/,	 7/*final score*/, 	33/*final length*/},
+		{85/*x*/,11/*y*/,	6/*final lives*/,	23/*final score*/,  97/*final length*/},
+		{85/*x*/,54/*y*/,	6/*final lives*/,	12/*final score*/, 	53/*final length*/},
+		{20/*x*/,59/*y*/,	6/*final lives*/,	 0/*final score*/, 	 5/*final length*/},
+		{63/*x*/,59/*y*/,	5/*final lives*/,	11/*final score*/, 	33/*final length*/}});
 }
 
 int main(int argc, char *argv[])

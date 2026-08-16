@@ -20,6 +20,7 @@
 
 
 #include <iostream>
+#include <cmath>
 #include <cassert>
 #include <vector>
 #include <list>
@@ -367,26 +368,28 @@ std::pair<intsys, Bonus::eType> Worm::ai_count_distance_to_a_bonus_in_direction(
 	Slice slice;
 	for(const Bonus &b : bonuses)
 	{
-		if (bonus_type == Bonus::LIFE && b.type == Bonus::LIFE ||
+		if(bonus_type == Bonus::LIFE && b.type == Bonus::LIFE ||
 			bonus_type != Bonus::LIFE && (
 				b.type == Bonus::REGULAR || b.type == Bonus::DOUBLE
 				|| b.type == Bonus::LIFE || b.type == Bonus::REVERSE))
 		{
 			/* our initial view is set by our direction */
-			slice.set_direction_view (direction, board);
+			slice.set_direction_view(direction, board);
 			/* narrow our view to this bonus (or set an empty view if the bonus is not within our view) */
 			slice.intersection_by_position (origin, b.x, b.y, 2 /* always 2 for bonus */);
-			if (!slice.is_empty ())
+			if(!slice.is_empty ())
 			{
 				/* we have found a bonus within our field of view, check that nothing is in the way */
-				auto [success,distance] = slice.is_visible(origin, board, worm_map, b);
+				auto [success,distance] = slice.is_visible(origin, origin == positions.get_head(), board, worm_map, b);
 				/* If the bonus is visible, its nearer than previous bonuses and it can still be see
 				   if we move in this direction choose it. */
-				if (success && distance < bonus_distance &&
-					ai_can_see_bonus (board, get_position_after_direction_move(board, origin, direction), b, direction))
+				if(success && distance < bonus_distance)
 				{
-					bonus_distance = distance;
-					bonus_type = b;
+					if(distance <= 1 || ai_can_see_bonus (board, get_position_after_direction_move(board, origin, direction), b, direction))
+					{
+						bonus_distance = distance;
+						bonus_type = b;
+					}
 				}
 			}
 		}
@@ -421,16 +424,7 @@ void Worm::ai_move (
 			shortest_bonus_type = bonus_type;
 			if(test_logging)
 			{
-				std::string logging=std::format("Worm {} calculate direction: ", (unsigned int)get_colour());
-				logging+=std::format("{} distance {}\n", direction==eDirection::EAST?"EAST":(direction==eDirection::WEST?"WEST":(direction==eDirection::NORTH?"NORTH":(direction==eDirection::SOUTH?"SOUTH":("NONE")))), shortest_distance);
-				std::cout << logging;
-			}
-		}
-		else
-		{
-			if(test_logging)
-			{
-				std::string logging=std::format("Worm {} calculate direction: ", (unsigned int)get_colour());
+				std::string logging=std::format("Worm {} at {},{} bonus found calculate direction: ", (unsigned int)get_colour(), (unsigned int)positions.get_head().x, (unsigned int)positions.get_head().y);
 				logging+=std::format("{} distance {}\n", direction==eDirection::EAST?"EAST":(direction==eDirection::WEST?"WEST":(direction==eDirection::NORTH?"NORTH":(direction==eDirection::SOUTH?"SOUTH":("NONE")))), shortest_distance);
 				std::cout << logging;
 			}
@@ -470,7 +464,15 @@ void Worm::ai_move (
 				break;
 		}
 	}
-
+	else
+	{
+		if(test_logging)
+		{
+			std::string logging=std::format("Worm {} bonus direction: ", (unsigned int)get_colour());
+			logging+=std::format("{}\n", shortest_dir==eDirection::EAST?"EAST":(shortest_dir==eDirection::WEST?"WEST":(shortest_dir==eDirection::NORTH?"NORTH":(shortest_dir==eDirection::SOUTH?"SOUTH":("NONE")))));
+			std::cout << logging;
+		}
+	}
 	/* Avoid walls, dead-ends and other worm's heads. This is done using
 	 * an evaluation function which is CAPACITY for a wall, 4 if another
 	 * worm's head is in the too close area, 4 if another worm's head
@@ -513,8 +515,18 @@ void Worm::ai_move (
 
 			this_len += ai_deadend_after(board, worms, worm_map, positions.get_head(), direction, target_length);
 		}
-		if(direction == bonus_dir && this_len <= 0)
-			this_len -= 100;
+		if(direction == bonus_dir)
+		{
+			if(this_len <= 0)
+				this_len -= 100;
+			else
+			{
+				if(is_materialized())
+					this_len -= 1;
+				else
+					this_len += 1;
+			}
+		}
 
 		/* If the favoured direction isn't appropriate, then choose
 		 * another direction at random rather than favouring one in

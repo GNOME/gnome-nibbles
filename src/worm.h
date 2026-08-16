@@ -73,7 +73,7 @@ enum Quarter {Q0,Q1,Q2,Q3};
  * Structure to store any angle. e.g 45° (PI / 4) or 2½° (PI / 72).
  * The angle is stored as a ratio of x (opposite) over y (adjacent)
  * so that we can use integers in all our operations.
- * To convert to degrees use (std::atan2((x,-y) / std::numbers::pi * 180).
+ * To convert to degrees use (std::atan2(x,-y) / std::numbers::pi * 180).
  *
  */
 class Angle
@@ -653,15 +653,17 @@ public:
 	{
 	public:
 		/* constructor */
-		Map(const std::forward_list<Worm> &worms, uint8_t map_width, uint8_t map_height) :
+		Map(const std::forward_list<Worm> &worms, uint8_t map_width,
+			uint8_t map_height, bool include_dematerialized_worms=false) :
 			SimpleMap(map_width, map_height)
 		{
-			add(worms);
+			add(worms, include_dematerialized_worms);
 		}
-		Map(const std::forward_list<const Worm*> &worms, uint8_t map_width, uint8_t map_height) :
+		Map(const std::forward_list<const Worm*> &worms, uint8_t map_width,
+			uint8_t map_height, bool include_dematerialized_worms=false) :
 			SimpleMap(map_width, map_height)
 		{
-			add(worms);
+			add(worms, include_dematerialized_worms);
 		}
 		bool contain(uint16_t p) const
 		{
@@ -684,11 +686,11 @@ public:
 		}
 		/* private functions */
 	private:
-		void add(const std::forward_list<Worm> &worms)
+		void add(const std::forward_list<Worm> &worms, bool include_dematerialized_worms=false)
 		{
 			for(const auto &worm : worms)
 			{
-				if (worm.is_materialized())
+				if (include_dematerialized_worms || worm.is_materialized())
 				{
 					for(const auto &p : worm.get_positions())
 					{
@@ -697,11 +699,11 @@ public:
 				}
 			}
 		}
-		void add(const std::forward_list<const Worm*> &worms)
+		void add(const std::forward_list<const Worm*> &worms, bool include_dematerialized_worms=false)
 		{
 			for(const auto &worm : worms)
 			{
-				if (worm->is_materialized())
+				if (include_dematerialized_worms || worm->is_materialized())
 				{
 					for(const auto &p : worm->get_positions())
 					{
@@ -849,8 +851,15 @@ public:
 			target_length=STARTING_LENGTH;
 			for(;positions.get_length()<target_length;)
 			{
+				if(!can_move_to(board, get_position_after_direction_move(board, positions.get_head(), direction)))
+				{
+					auto original_direction = direction;
+					direction = direction.turn_left();
+					if(!can_move_to(board, get_position_after_direction_move(board, positions.get_head(), direction)))
+						direction = original_direction.turn_right();
+				}
 				move1(board);
-				move2(board, bonuses, force_materialize);
+				move2(board, false, bonuses, force_materialize);
 			}
 		}
 	}
@@ -1048,6 +1057,14 @@ public:
 		return true;
 	}
 	bool can_move_to(const std::vector<std::vector<unsigned char>> &board,
+		Position position) const
+	{
+		if(board[position.x][position.y] != EMPTYCHAR)
+			return false;
+		else
+			return true;
+	}
+	bool can_move_to(const std::vector<std::vector<unsigned char>> &board,
 		const std::forward_list<Worm> &worms, Position position) const
 	{
 		if(board[position.x][position.y] != EMPTYCHAR)
@@ -1081,7 +1098,7 @@ public:
 		positions.prepend_position(head);/* Add a new body piece to the head of the list. */
 		return head;
 	}
-	void move2(const std::vector<std::vector<unsigned char>> &board, Bonuses &bonuses, bool force_materialize=false)
+	void move2(const std::vector<std::vector<unsigned char>> &board, bool test_logging, Bonuses &bonuses, bool force_materialize=false)
 	{
 		if(target_length>=positions.get_length())
 		{
@@ -1096,15 +1113,18 @@ public:
 				bonus_eaten.erase(positions.remove_tail());
 		}
 		/* Check for bonus, do nothing if there isn't a bonus */
-		auto head=positions.get_head();
-		auto bonus=bonuses[head.x,head.y];
-		if(bonus)
+		if(is_materialized())
 		{
-			bonus_eaten.insert(head);
-			auto b=calculate_bonus(*bonus, bonuses);
-			score+=b;//calculate_bonus(*bonus, bonuses);
-			score_changed=true;
-			bonus->set_to_remove();
+			auto head=positions.get_head();
+			auto bonus=bonuses[head.x,head.y];
+			if(bonus)
+			{
+				bonus_eaten.insert(head);
+				auto b=calculate_bonus(*bonus, bonuses);
+				score+=b;//calculate_bonus(*bonus, bonuses);
+				score_changed=true;
+				bonus->set_to_remove();
+			}
 		}
 		
 		if(force_materialize)
@@ -1115,18 +1135,22 @@ public:
 		{
 			/* If we are dematerialized reduce the rounds dematerialized by one. */
 			if (rounds_to_stay_dematerialized > 1)
+			{
 				rounds_to_stay_dematerialized -= 1;
+				if(test_logging)
+					std::cout << "Worm " << (unsigned)get_colour() << " stay dematerialise " << rounds_to_stay_dematerialized << "\n";
+			}
 			/* Try and dematerialize if our rounds are up. */
 			if (rounds_to_stay_dematerialized == 1)
-				materialize(board);
+				materialize(board, test_logging);
 		}
 	}
-	void move2(const std::vector<std::vector<unsigned char>> &board, Bonuses &bonuses,
+	void move2(const std::vector<std::vector<unsigned char>> &board, bool test_logging, Bonuses &bonuses,
 		const Position &WarpMove)
 	{
 		/*teleport the head to the new warped position*/
 		positions.set_head(WarpMove);
-		move2(board, bonuses);
+		move2(board, test_logging, bonuses);
 	}
 	const WormDirection &get_direction() const
 	{
@@ -1177,8 +1201,8 @@ public:
 		return score;
 	}
 
-	void reset(const std::vector<std::vector<unsigned char>> &board, Bonuses &bonuses,
-		int dematerialize_rounds)
+	void reset(const std::vector<std::vector<unsigned char>> &board,
+		Bonuses &bonuses)
 	{
 		rounds_to_stay_dematerialized = 0;
 		--lives;
@@ -1187,7 +1211,7 @@ public:
 		if(lives > 0)
 		{
 			spawn(board,bonuses);
-			rounds_to_stay_dematerialized = dematerialize_rounds;
+			rounds_to_stay_dematerialized = 8;
 			rounds_to_stay_still = 2;
 		}
 	}
@@ -1295,7 +1319,7 @@ private:
 		position.move (direction, board.size(), board[0].size());
 		return position;
 	}
-	void materialize(const std::vector<std::vector<unsigned char>> &board)
+	void materialize(const std::vector<std::vector<unsigned char>> &board, bool test_logging)
 	{
 		/*
 		 * A worm can only materialise if it is not crossing another worm and
@@ -1311,21 +1335,27 @@ private:
 		else
 		{
 			Position position = positions.get_head();
-			for (int i = 12; i > 0 ; i--)
+			for (int i = 14; i > 0 ; i--)
 			{
 				position = get_position_after_direction_move(position, direction, board);
 				if (board[position.x][position.y] != EMPTYCHAR)
 				{
 					rounds_to_stay_dematerialized = 0; /* materialise now */
+					if(test_logging)
+						std::cout << "Worm " << (unsigned)get_colour() << " materialise because of wall\n";
 					return;
 				}
 				if (worm_map.contain_position(position))
 				{
 					rounds_to_stay_dematerialized += 1; /* wait until to next round to try to materialise */
+					if(test_logging)
+						std::cout << "Worm " << (unsigned)get_colour() << " stays dematerialise only " << 14 - i << " positions are clear\n";
 					return;
 				}
 			}
 			rounds_to_stay_dematerialized = 0; /* materialise now */
+			if(test_logging)
+				std::cout << "Worm " << (unsigned)get_colour() << " materialise because 14 positions are clear\n";
 		}
 	}
 };
@@ -1647,17 +1677,17 @@ public:
 		return board[p.x][p.y] != 'a' || worm_map.contain_position(p);
 	}
 
-	std::pair<bool,intsys> is_visible(Position origin, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map, Bonus bonus)
+	std::pair<bool,intsys> is_visible(Position origin, bool origin_is_head, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map, const Bonus &bonus)
 	{
 		/*
 		 * Return the distance to a bonus if it is possible to see the bonus.
 		 */
 
 		/* remember the positions we have already checked in this array */
-		std::unordered_set<uint16_t> checked_positions;
+		PositionSet checked_positions;
 
 		/* follow the min line, looking for a bonus or a blockage (e.g. wall) */
-		for (;!is_empty ();)
+		for (;!is_empty();)
 		{
 			intsys distance = 0;
 			min.set_origin (origin);
@@ -1665,38 +1695,23 @@ public:
 			for (;;)
 			{
 				const SignedPosition p(min.get(distance));
-				distance++;
-				if(!checked_positions.contains(p.wrap_xy()))
+				auto x = p.wrap_x();
+				auto y = p.wrap_y();
+				if(!checked_positions.contains(x,y))
 				{
-					if(is_bonus_at (p.wrap_x(), p.wrap_y(), bonus))
-					{
-						if(min.step_along_x())
-						{
-							auto dy=origin.y-p.y;
-							if(dy<0)
-								return {true,distance-dy};
-							else
-								return {true,distance+dy};
-						}
-						else
-						{
-							auto dx=origin.x-p.x;
-							if(dx<0)
-								return {true,distance-dx};
-							else
-								return {true,distance+dx};
-						}
-					}
+					if(is_bonus_at(x, y, bonus))
+						return {true,distance};
 					else if(distance > (intsys)((min.step_along_x() ? board.size() : board[0].size()) * 2)
-					  || is_position_occupied ({p.wrap_x(), p.wrap_y()}, board, worm_map))
+					  || distance > (origin_is_head ? 1 : 0) && is_position_occupied({x, y}, board, worm_map))
 					{
-						checked_positions.insert(p.wrap_xy());
+						checked_positions.set(x, y);
 						/* subtract the slice of the blocked position */
 						Slice s(origin, p.x, p.y, 1);
 						min=s.max;
 						break;
 					}
 				}
+				distance++;
 			}
 		}
 		return {false,std::numeric_limits<intsys>::max()};

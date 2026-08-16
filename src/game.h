@@ -93,9 +93,9 @@ public:
 		return verify_load();
 	}
 */
-	bool load_board(const std::span<const std::string_view> &strings)
+	bool load_board(const std::span<const std::string_view> &strings, const uintsys _level)
 	{
-		level = 1; /* set this for scoreing calculations */
+		level = _level; /* set this for scoreing calculations */
 		board.clear();
 		starts.clear();
 		width=height=0;// we don't yet know the width or height

@@ -172,6 +172,10 @@ public:
 	{
 		s.emplace(x*66+y);
 	}
+	bool contains(uint8_t x, uint8_t y) const
+	{
+		return s.contains(x*66+y);
+	}
 	void clear()
 	{
 		s.clear();

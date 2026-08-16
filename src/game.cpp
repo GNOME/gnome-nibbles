@@ -250,7 +250,7 @@ bool Game::add_bonus(bool regular)
 {
 	uint8_t x,y; /* max size is 92 by 66 */
 	PositionSet free_locations;
-	Worm::Map worm_map(worms, board.size(), board[0].size());
+	Worm::Map worm_map(worms, board.size(), board[0].size(), true /*include dematerialized worms*/);
 
 	/* irregular bonuses have a chance of 1 in 150 of appearing per round*/
 	if (!regular)
@@ -280,7 +280,10 @@ bool Game::add_bonus(bool regular)
 			_add_bonus(x, y, Bonus::REGULAR, false, 300);
 		}
 		else
+		{
+			bonuses_to_replace+=1;
 			return false;
+		}
 		
 		if(!free_locations.is_empty() && fakes && pseudo_random(7)==0)
 		{
@@ -378,7 +381,9 @@ void Game::move_worms()
 		}
 	}
 
-	for (;bonuses_to_replace>0; --bonuses_to_replace)
+	auto i=bonuses_to_replace;
+	bonuses_to_replace=0;
+	for(;i>0; --i)
 	{
 		bool r=add_bonus(true);
 		if(progress==TEST)
@@ -386,8 +391,6 @@ void Game::move_worms()
 			if(r)
 				std::cout << "added a bonus we couldn't add before because of lack of space" << std::endl;
 		}
-		if(!r)
-			break;
 	}
 
 	auto missed_bonuses_to_replace=bonuses.single_move();
@@ -400,11 +403,6 @@ void Game::move_worms()
 				std::cout << "added missed bonus" << std::endl;
 			else
 				std::cout << "no room to add missed bonus" << std::endl;
-		}
-		if(!r)
-		{
-			bonuses_to_replace+=missed_bonuses_to_replace;
-			break;
 		}
 	}
 
@@ -473,7 +471,7 @@ void Game::move_worms()
 			bool warp_bonus;
 			if(worm_warps.find(worm, target_position, warp_bonus))
 			{
-				worm.move2(board, bonuses, target_position);
+				worm.move2(board, progress==TEST, bonuses, target_position);
 				if(warp_bonus)
 				{
 					worm.add_score((worm.get_length() * level) / 2);
@@ -481,7 +479,7 @@ void Game::move_worms()
 				}
 			}
 			else
-				worm.move2(board, bonuses);
+				worm.move2(board, progress==TEST, bonuses);
 		}
 	}
 
@@ -494,6 +492,8 @@ void Game::move_worms()
 			 && !other_worm.is_still()
 			 && worm.get_length()>0
 			 && other_worm.get_length()>0
+			 && worm.is_materialized()
+			 && other_worm.is_materialized()
 			 && worm.get_positions().get_head() == other_worm.get_positions().get_head())
 			{
 				dead_worms.add(worm);
@@ -519,11 +519,6 @@ void Game::move_worms()
 			else
 				std::cout << "no room to add replacement bonus" << std::endl;
 		}
-		if(!r)
-		{
-			bonuses_to_replace+=real_bonuses_to_replace;
-			break;
-		}
 	}
 	/* irregula bonus */
 	bool r=add_bonus(false);
@@ -542,7 +537,7 @@ void Game::move_worms()
 			worm->reduce_score_by_percentage(70);
 
 		if (worm->has_lives())
-			worm->reset (board, bonuses, level == 25 ? 9 : 3);
+			worm->reset(board, bonuses);
 			
 		life_change(worm->get_colour(), worm->get_lives());
 	}
