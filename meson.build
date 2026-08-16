@@ -1,10 +1,10 @@
 # Project
 project('gnome-nibbles',
-    ['cpp'],
-    license: ['GPL3+','Apache-2.0'],
-    meson_version: '>=1.1',
-    version: '4.6.dev',
-    default_options: ['cpp_std=gnu++26']) # for std::ranges::contains
+	['cpp'],
+	license: ['GPL3+'],
+	meson_version: '>=1.1',
+	version: '4.6.dev',
+	default_options: ['cpp_std=gnu++26']) # for std::ranges::contains
 
 message(meson.project_name(), 'version', get_option('version') + get_option('append_to_version'))
 gnome      = import('gnome')      # used to install help
@@ -63,10 +63,10 @@ code1 = '''
 		int128_t i=0x1;
 		i<<126;
 		return i>0;
-    }'''
+	}'''
 code1_compiles = cpp.compiles(code1, name : 'int128_t?')
 if code1_compiles
-    cpp_compiler_options += '-DCAN_USE_int128_t'
+	cpp_compiler_options += '-DCAN_USE_int128_t'
 endif
 
 code2 = '''
@@ -75,10 +75,10 @@ code2 = '''
 		__int128 i=0x1;
 		i<<126;
 		return i>0;
-    }'''
+	}'''
 code2_compiles = cpp.compiles(code2, name : '__int128?')
 if code2_compiles
-    cpp_compiler_options += '-DCAN_USE___int128'
+	cpp_compiler_options += '-DCAN_USE___int128'
 endif
 
 code3 = '''
@@ -87,7 +87,7 @@ code3 = '''
 	{
 		std::inplace_vector<long, 92*66> p;
 		return 0;
-    }'''
+	}'''
 code3_links = cpp.links(code3, name : 'std::inplace_vector<>')
 #if not code3_links
 #	error('Can not use std::inplace_vector<> (requires C++26, -std=gnu++26)')
@@ -109,9 +109,9 @@ add_project_arguments(['-include', 'config.h'], language: 'cpp')
 
 # Postinstall
 gnome.post_install(
-    glib_compile_schemas: true,
-    gtk_update_icon_cache: true,
-    update_desktop_database: true,
+	glib_compile_schemas: true,
+	gtk_update_icon_cache: true,
+	update_desktop_database: true,
 )
 
 # Subdirs
