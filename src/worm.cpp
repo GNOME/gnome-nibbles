@@ -242,39 +242,79 @@ int Worm::ai_deadend_after(const std::vector<std::vector<unsigned char>> &board,
  * that is, that it's within 3 in the direction we're going and within
  * 1 to the side.
  */
-bool Worm::ai_too_close (const std::forward_list<Worm> &worms, WormDirection direction)
+bool Worm::ai_too_close(const std::forward_list<Worm> &worms, WormDirection direction,
+	const uintsys width, const uintsys height)
 {
+	/* board maximums */
+	const intsys max_x = -1 + width;
+	const intsys max_y = -1 + height;
+	/* my position */
+	intsys x=positions.get_head().x;
+	intsys y=positions.get_head().y;
+	intsys delta;
 	for(const Worm &worm : worms)
 	{
-		if (&worm == this || worm.is_still() || worm.positions.is_empty())
-			continue;
-
-		auto dx = (long)positions.get_head().x - (long)worm.positions.get_head().x;
-		auto dy = (long)positions.get_head().y - (long)worm.positions.get_head().y;
-		switch (direction)
+		if(&worm != this && !worm.is_still() && !worm.positions.is_empty())
 		{
-			case eDirection::UP:
-				if (dy > 0 && dy <= 3 && dx >= -1 && dx <= 1)
-					return true;
-				break;
-
-			case eDirection::DOWN:
-				if (dy < 0 && dy >= -3 && dx >= -1 && dx <= 1)
-					return true;
-				break;
-
-			case eDirection::LEFT:
-				if (dx > 0 && dx <= 3 && dy >= -1 && dy <= 1)
-					return true;
-				break;
-
-			case eDirection::RIGHT:
-				if (dx < 0 && dx >= -3 && dy >= -1 && dy <= 1)
-					return true;
-				break;
-
-			default:
-				assert(false);
+			intsys other_x=worm.positions.get_head().x;
+			intsys other_y=worm.positions.get_head().y;
+			switch (direction)
+			{
+				case eDirection::UP:
+					if(other_y > y)
+						other_y-=height; /* wrap y axis worm */
+					if(y - other_y <= 3)
+					{
+						/* y direction to close, check x */
+						if(x==0 && other_x==max_x || x==max_x && other_x==0)
+							return true; /* too close when wrapping x axis */
+						delta = x-other_x;
+						if(delta>=-1 && delta<=1)
+							return true; /* x too close */
+					}
+					break;
+				case eDirection::DOWN:
+					if(other_y < y)
+						other_y+=height; /* wrap y axis worm */
+					if(other_y - y <= 3)
+					{
+						/* y direction to close, check x */
+						if(x==0 && other_x==max_x || x==max_x && other_x==0)
+							return true; /* too close when wrapping x axis */
+						delta = x-other_x;
+						if(delta>=-1 && delta<=1)
+							return true; /* x too close */
+					}
+					break;
+				case eDirection::LEFT:
+					if(other_x > x)
+						other_x-=width; /* wrap x axis worm */
+					if(x - other_x <= 3)
+					{
+						/* x direction to close, check y */
+						if(y==0 && other_y==max_y || y==max_y && other_y==0)
+							return true; /* too close when wrapping y axis */
+						delta = y-other_y;
+						if(delta>=-1 && delta<=1)
+							return true; /* y too close */
+					}
+					break;
+				case eDirection::RIGHT:
+					if(other_x < x)
+						other_x+=width; /* wrap x axis worm */
+					if(other_x - x <= 3)
+					{
+						/* x direction to close, check y */
+						if(y==0 && other_y==max_y || y==max_y && other_y==0)
+							return true; /* too close when wrapping y axis */
+						delta = y-other_y;
+						if(delta>=-1 && delta<=1)
+							return true; /* y too close */
+					}
+					break;
+				default:
+					assert(false);
+			}
 		}
 	}
 	return false;
@@ -371,10 +411,10 @@ void Worm::ai_move (
 	Bonus::eType shortest_bonus_type = (Bonus::eType)(-1);
 
 	WormDirection dir[] = {direction, direction.turn_left(), direction.turn_right()};
-	for (WormDirection direction : dir)
+	for(WormDirection direction : dir)
 	{
 		auto [d, bonus_type] = ai_count_distance_to_a_bonus_in_direction(board, worm_map, positions.get_head(), direction, bonuses);
-		if (ai_is_bonus_more_attractive(bonus_type, d, shortest_bonus_type, shortest_distance)
+		if(ai_is_bonus_more_attractive(bonus_type, d, shortest_bonus_type, shortest_distance)
 			&& can_move_direction(board, worms, direction))
 		{
 			shortest_distance = d;
@@ -383,16 +423,16 @@ void Worm::ai_move (
 		}
 	}
 
-	if (shortest_distance >= std::numeric_limits<long>::max())
+	if(shortest_distance >= std::numeric_limits<long>::max())
 	{
 		// check next step positions
 		WormDirection start_direction[] = {direction, direction, direction.turn_right(), direction.turn_left()};
 		WormDirection look_direction[]  = {direction.turn_left(), direction.turn_right(), direction, direction};
-		for (int i = 0; i < 4; i++)
+		for(int i = 0; i < 4; i++)
 		{
 			auto [d, bonus_type] = ai_count_distance_to_a_bonus_in_direction(board, worm_map,
 				get_position_after_direction_move (board, positions.get_head(), start_direction[i]), look_direction[i], bonuses);
-			if (ai_is_bonus_more_attractive(bonus_type, d, shortest_bonus_type, shortest_distance))
+			if(ai_is_bonus_more_attractive(bonus_type, d, shortest_bonus_type, shortest_distance))
 			{
 				shortest_distance = d + 1; /* +1 for the step we have already taken in our logic */
 				shortest_dir = start_direction[i];
@@ -401,7 +441,7 @@ void Worm::ai_move (
 		}
 	}
 
-	if (shortest_distance >= std::numeric_limits<long>::max())
+	if(shortest_distance >= std::numeric_limits<long>::max())
 	{
 		// no bonus is visible, one in thirty chance of turning left or right
 		switch(pseudo_random(60))
@@ -436,17 +476,17 @@ void Worm::ai_move (
 	{
 		logging = std::format("Worm {} direction; ", (unsigned int)get_colour());
 	}
-	for (WormDirection direction : dir[0].get_space_fill_array())
+	for(WormDirection direction : dir[0].get_space_fill_array())
 	{
 		int this_len = 0;
 		/* if we are heading for a LIFE bonus don't worry about being trapped */
-		if (!(direction == bonus_dir && shortest_bonus_type == Bonus::LIFE))
+		if(!(direction == bonus_dir && shortest_bonus_type == Bonus::LIFE))
 		{
 #if TEST_COMPILE
 			assert (can_move_to(board, worms, get_position_after_direction_move (board, positions.get_head(), direction)) ==
 				can_move_to_map (board, worm_map, get_position_after_direction_move (board, positions.get_head(), direction)));
 #endif
-			if (!can_move_to_map(board, worm_map, get_position_after_direction_move (board, positions.get_head(), direction)))
+			if(!can_move_to_map(board, worm_map, get_position_after_direction_move (board, positions.get_head(), direction)))
 			{
 				this_len += capacity;
 				logging+="*";
@@ -454,12 +494,12 @@ void Worm::ai_move (
 			else
 				logging+=".";
 
-			if (ai_too_close(worms, direction))
+			if(ai_too_close(worms, direction, board.size(), board[0].size()))
 				this_len += 4;
 
 			this_len += ai_deadend_after(board, worms, worm_map, positions.get_head(), direction, target_length);
 		}
-		if (direction == bonus_dir && this_len <= 0)
+		if(direction == bonus_dir && this_len <= 0)
 			this_len -= 100;
 
 		/* If the favoured direction isn't appropriate, then choose
@@ -467,11 +507,11 @@ void Worm::ai_move (
 		 * particular, to stop the worms bunching in the bottom-
 		 * right corner of the board.
 		 */
-		if (this_len <= 0)
+		if(this_len <= 0)
 			this_len -= pseudo_random(100);
 		if(test_logging)
 			logging+=std::format("{}:{} ", direction==eDirection::EAST?"EAST":(direction==eDirection::WEST?"WEST":(direction==eDirection::NORTH?"NORTH":(direction==eDirection::SOUTH?"SOUTH":("NONE")))), this_len);
-		if (this_len < best_yet)
+		if(this_len < best_yet)
 		{
 			best_yet = this_len;
 			best_dir = direction;

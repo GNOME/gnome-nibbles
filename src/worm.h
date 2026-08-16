@@ -908,7 +908,8 @@ public:
 		const Map &worm_map,
 		Position old_position, WormDirection direction, long length);
 
-	bool ai_too_close (const std::forward_list<Worm> &worms, WormDirection direction);
+	bool ai_too_close(const std::forward_list<Worm> &worms, WormDirection direction,
+		const uintsys width, const uintsys height);
 
 	bool ai_is_bonus_more_attractive(Bonus::eType b0, long d0, Bonus::eType b1, long d1)
 	{
