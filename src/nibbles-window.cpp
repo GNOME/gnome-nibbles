@@ -384,6 +384,11 @@ void NibblesWindow::initilise_css()
 		background: #4990e7;}
 	.rounded:active {
 		background: #2a6ab7;}
+	.rounded:disabled {
+		background: #202020;
+		border: 4px solid #003070;
+		color: #808080;
+		}
 	)");
 	Gtk::StyleContext::add_provider_for_display(
 		Gdk::Display::get_default(),
