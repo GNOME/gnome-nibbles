@@ -17,6 +17,8 @@ localedir  = join_paths(prefix, get_option('localedir'))
 podir      = join_paths(meson.project_source_root(), 'po')
 bindir     = join_paths(prefix, get_option ('bindir'))
 
+gettext_package = 'gnome-nibbles'
+
 # Dependencies
 pangomm_dep = dependency('pangomm-2.48', version: '>= 2.56.2')
 glibmm_dep = dependency('glibmm-2.68', version: '>= 2.88.1')
