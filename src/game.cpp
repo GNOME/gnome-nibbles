@@ -415,7 +415,8 @@ void Game::move_worms()
 
 	if(progress==TEST)
 		std::cout << "do_parallel_worm_work" << std::endl;
-		
+
+	set_test_prohibit(true);
 	std::forward_list<std::thread> moving_worms;
 	for(Worm &worm : worms)
 	{
@@ -437,6 +438,8 @@ void Game::move_worms()
 		if(t.joinable())
 			t.join();
 	}
+	set_test_prohibit(false);
+
 	if(progress==TEST)
 		std::cout << "parallel worm work finished" << std::endl;
 

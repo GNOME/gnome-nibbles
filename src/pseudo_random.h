@@ -46,3 +46,4 @@ inline uint32_t pseudo_random(uint32_t max_exclusive)
 
 void set_seed(uint32_t seed);
 #endif
+void set_test_prohibit(bool);
