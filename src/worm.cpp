@@ -94,20 +94,20 @@ WormDirection Worm::uturn(const std::vector<std::vector<unsigned char>> &board,
 	/* player has reversed direction */
 	Position tmp;
 	WormDirection dirA,dirB;
-	int length_posA,length_posB;
+	uintsys length_posA,length_posB;
 	length_posA=0; length_posB=0;
-	if (direction==eDirection::DOWN || direction==eDirection::UP)
+	if(direction==eDirection::DOWN || direction==eDirection::UP)
 	{
 		/* calculate space when we step to the left */
 		tmp = positions.get_head();
 		dirA = eDirection::LEFT;
 		tmp.move(dirA,board.size(),board[0].size());
-		for (length_posA=0; length_posA<board[0].size() && can_move_to (board,worms,tmp); length_posA++,tmp.move (direction, board.size(),board[0].size()));
+		for(length_posA=0; length_posA<board[0].size() && can_move_to (board,worms,tmp); length_posA++,tmp.move (direction, board.size(),board[0].size()));
 		/* calculate space when we step to the right */
 		tmp = positions.get_head();
 		dirB = eDirection::RIGHT;
 		tmp.move(dirB,board.size(),board[0].size());
-		for (length_posB=0; length_posB<board[0].size() && can_move_to (board,worms,tmp); length_posB++,tmp.move (direction, board.size(),board[0].size()));
+		for(length_posB=0; length_posB<board[0].size() && can_move_to (board,worms,tmp); length_posB++,tmp.move (direction, board.size(),board[0].size()));
 	}
 	else /* direction==eDirection::LEFT || direction==eDirection::RIGHT */
 	{
@@ -115,26 +115,26 @@ WormDirection Worm::uturn(const std::vector<std::vector<unsigned char>> &board,
 		tmp = positions.get_head();
 		dirA = eDirection::UP;
 		tmp.move(dirA,board.size(),board[0].size());
-		for (length_posA=0; length_posA<board.size() && can_move_to (board,worms,tmp); length_posA++,tmp.move (direction, board.size(),board[0].size()));
+		for(length_posA=0; length_posA<board.size() && can_move_to (board,worms,tmp); length_posA++,tmp.move (direction, board.size(),board[0].size()));
 		/* calculate space when we step down */
 		tmp = positions.get_head();
 		dirB = eDirection::DOWN;
 		tmp.move(dirB,board.size(),board[0].size());
-		for (length_posB=0; length_posB<board.size() && can_move_to (board,worms,tmp); length_posB++,tmp.move (direction, board.size(),board[0].size()));
+		for(length_posB=0; length_posB<board.size() && can_move_to (board,worms,tmp); length_posB++,tmp.move (direction, board.size(),board[0].size()));
 	}
-	if (length_posA > length_posB)
+	if(length_posA > length_posB)
 	{
 		LastUturnA=true;
 		return dirA;
 	}
-	else if (length_posA < length_posB)
+	else if(length_posA < length_posB)
 	{
 		LastUturnA=false;
 		return dirB;
 	}
-	else if (length_posA > 0 /*|| length_posB > 0*/)
+	else if(length_posA > 0 /*|| length_posB > 0*/)
 	{
-		if (LastUturnA)
+		if(LastUturnA)
 			return dirA;
 		else
 			return dirB;
@@ -161,7 +161,7 @@ WormDirection Worm::uturn(const std::vector<std::vector<unsigned char>> &board,
  */
 
 int Worm::ai_deadend(const std::vector<std::vector<unsigned char>> &board, const Map &worm_map,
-	Position position, long length)
+	Position position, uintsys length)
 {
 	const long p_max = 92*66;
 	//std::inplace_vector<uint16_t, p_max> p;

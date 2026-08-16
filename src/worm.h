@@ -901,7 +901,7 @@ public:
 
 	int ai_deadend (const std::vector<std::vector<unsigned char>> &board,
 		const Map &worm_map,
-		Position position, long length);
+		Position position, uintsys length);
 
 	int ai_deadend_after (const std::vector<std::vector<unsigned char>> &board,
 		const std::forward_list<Worm> &worms,
@@ -1657,7 +1657,7 @@ public:
 	{
 		/*
 		 * Return the distance to a bonus if it is possible to see
-		 * the bonus. Otherwise return int64.MAX.
+		 * the bonus. Otherwise return std::numeric_limits<int64_t>::max().
 		 */
 
 		/* remember the positions we have already checked in this array */
@@ -1666,7 +1666,7 @@ public:
 		/* follow the min line, looking for a bonus or a blockage (e.g. wall) */
 		for (;!is_empty ();)
 		{
-			int64_t distance = 0;
+			uint64_t distance = 0;
 			min.set_origin (origin);
 			min.set_wrapping (board.size(), board[0].size());
 			for (;;)

@@ -103,7 +103,7 @@ int NibblesWindow::calculate_font_size (const Glib::ustring &text, int target_wi
 	int target_font_size = 1;
 	width = 0;
 	height = 0;
-	uint target_width_diff = std::numeric_limits<unsigned int>::max();
+	int target_width_diff = std::numeric_limits<int>::max();
 
 	for (int font_size = 1;font_size < 128;)
 	{
@@ -1037,7 +1037,7 @@ NibblesWindow::ColourWheelSegment *NibblesWindow::ColourWheel::get_mouse_point_s
 bool NibblesWindow::ColourWheel::focus_vfunc(Gtk::DirectionType direction, Gtk::Widget *&set_focus_child)
 {
 	set_focus_child=nullptr;
-	const unsigned int segment_count=get_segment_count();
+	const int segment_count=get_segment_count();
 	const unsigned int segment_degrees=360/segment_count;
 	auto focus_child=get_focus_child();
 	int focus_id=focus_child?get_segment_id(focus_child):-1;
@@ -1162,7 +1162,7 @@ bool NibblesWindow::ColourWheel::focus_vfunc(Gtk::DirectionType direction, Gtk::
 				set_focus_child->queue_draw();/* focus */
 				return true;
 			}
-			else if (focus_id == 270 / segment_degrees || 270 % segment_degrees == 0 && focus_id == 270 / segment_degrees - 1)
+			else if (focus_id == 270l / segment_degrees || 270 % segment_degrees == 0 && focus_id == 270l / segment_degrees - 1)
 			{
 				/* left most reached */
 				focus_child->queue_draw();/* remove focus */
@@ -1170,7 +1170,7 @@ bool NibblesWindow::ColourWheel::focus_vfunc(Gtk::DirectionType direction, Gtk::
 			}
 			else
 			{
-				if (focus_id < 270 / segment_degrees && focus_id >= 90 / segment_degrees)
+				if (focus_id < 270l / segment_degrees && focus_id >= 90l / segment_degrees)
 					set_focus_child=get_child(focus_id + 1);
 				else
 					set_focus_child=get_child(focus_id > 0 ? focus_id - 1 : segment_count - 1);
@@ -1186,7 +1186,7 @@ bool NibblesWindow::ColourWheel::focus_vfunc(Gtk::DirectionType direction, Gtk::
 				set_focus_child->queue_draw();/* focus */
 				return true;
 			}
-			else if (focus_id == 90 / segment_degrees || 90 % segment_degrees == 0 && focus_id == 90 / segment_degrees - 1)
+			else if (focus_id == 90l / segment_degrees || 90 % segment_degrees == 0 && focus_id == 90l / segment_degrees - 1)
 			{
 				/* right most reached */
 				focus_child->queue_draw();/* remove focus */
@@ -1194,7 +1194,7 @@ bool NibblesWindow::ColourWheel::focus_vfunc(Gtk::DirectionType direction, Gtk::
 			}
 			else
 			{
-				if (focus_id < 270 / segment_degrees && focus_id >= 90 / segment_degrees)
+				if (focus_id < 270l / segment_degrees && focus_id >= 90l / segment_degrees)
 					set_focus_child=get_child(focus_id - 1);
 				else
 					set_focus_child=get_child((focus_id + 1) % segment_count);

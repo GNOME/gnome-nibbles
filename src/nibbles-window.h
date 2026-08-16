@@ -968,7 +968,7 @@ public:
 		std::string to_title(uint8_t category_index);
 		bool match(const char *s, const char *e, const std::string &str)
 		{
-			return e-s == str.length() && strncmp(str.c_str(),s,e-s)==0;
+			return s + str.length() == e && strncmp(str.c_str(),s,e-s)==0;
 		}
 		std::pair<std::vector<uint8_t>,std::vector<Glib::ustring>> get_ordered_categories()
 		{
@@ -1439,10 +1439,8 @@ private:
 	{
 		speed_selection = speed;
 		pSettings->set_int(SPEED_SETTINGS,speed_selection);
-		for(unsigned int i=1; i<=4; i++)
-		{
-			GetToggleButton("speed", i)->set_has_frame (i == speed);
-		}
+		for(int i=1; i<=4; i++)
+			GetToggleButton("speed", i)->set_has_frame(i == speed);
 		auto state = Glib::Variant<int>::create(speed);
 		pSpeedButtons->set_state(state);
 	}

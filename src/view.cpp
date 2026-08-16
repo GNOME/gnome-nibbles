@@ -50,7 +50,7 @@
 #include "game.h"
 #include "view.h"
 
-inline void utoa(uint32_t u, Glib::ustring &result, uintsys minimum_length=1)
+inline void utoa(uint32_t u, Glib::ustring &result, intsys minimum_length=1)
 {
 	char buffer[10+1];
 	char *p;
@@ -66,7 +66,7 @@ inline void utoa(uint32_t u, Glib::ustring &result, uintsys minimum_length=1)
 	result+=p+1;
 }
 
-inline Glib::ustring utoa(uint64_t u, uintsys minimum_length=1)
+inline Glib::ustring utoa(uint64_t u, intsys minimum_length=1)
 {
 	char buffer[20+1];
 	char *p;
@@ -293,7 +293,7 @@ bool View::play()
 				game.move_worms();
 				active_view.redraw();
 				auto finish = std::chrono::steady_clock::now();
-				const uintsys level_delay[]={52,70,105,140};/* milli-seconds */
+				const intsys level_delay[]={52,70,105,140};/* milli-seconds */
 				auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(finish - start).count();
 				uintsys delay=1;
 				if(elapsed_ms < level_delay[speed-1])
@@ -822,9 +822,9 @@ void View::StaticView::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapsho
 	snapshot->append_fill(background->to_path(), Gsk::FillRule::EVEN_ODD, {0,0,0,1});
 
 	// draw walls
-	for (int x = 0; x < view.game.get_width(); x++)
+	for (unsigned int x = 0; x < view.game.get_width(); x++)
 	{
-		for (int y = 0; y < view.game.get_height(); y++)
+		for (unsigned int y = 0; y < view.game.get_height(); y++)
 		{
 			// walls
 			if (view.game[x,y] >= 'b' && view.game[x,y] <= 'l')

@@ -170,10 +170,10 @@ private:
 	const std::vector<std::vector<unsigned char>> &board;
 	std::map<uintsys, Warp> warps;
 	
-	inline void increment_clear(const intsys x, const intsys y, const intsys clear_count, intsys &clear, PositionSet &positions, uintsys &longest_clear_count) const
+	inline void increment_clear(const intsys x, const intsys y, const uintsys clear_count, intsys &clear, PositionSet &positions, uintsys &longest_clear_count) const
 	{
 		clear++;
-		if(clear>=clear_count)
+		if((uintsys)clear>=clear_count)
 		{
 			if(longest_clear_count<clear_count)
 			{
@@ -182,13 +182,13 @@ private:
 			}
 			positions.set(x, y);
 		}
-		else if(clear>longest_clear_count)
+		else if((uintsys)clear>longest_clear_count)
 		{
 			longest_clear_count=clear;
 			positions.clear();
 			positions.set(x, y);
 		}
-		else if(clear==longest_clear_count)
+		else if((uintsys)clear==longest_clear_count)
 			positions.set(x, y);
 	}
 	
@@ -212,7 +212,7 @@ private:
 		Worm::Map worm_map(worms, board.size(), board[0].size());
 
 		/* ai worm's don't need a long clear streatch to help them stay alive */
-		auto clear_count = ai_worm?2:12;
+		uintsys clear_count = ai_worm?2:12;
 
 		const uint8_t width=board.size();
 		const uint8_t height=board[0].size();
