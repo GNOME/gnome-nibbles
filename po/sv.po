@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
-"POT-Creation-Date: 2026-08-06 00:22+0000\n"
-"PO-Revision-Date: 2026-08-09 23:51+0200\n"
+"POT-Creation-Date: 2026-08-16 02:21+0000\n"
+"PO-Revision-Date: 2026-08-16 12:39+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -118,7 +118,7 @@ msgid "Enable sounds."
 msgstr "Aktivera ljud."
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: data/org.gnome.Nibbles.gschema.xml:61 src/nibbles.cpp:53
+#: data/org.gnome.Nibbles.gschema.xml:61 src/nibbles.cpp:58
 msgid "Enable fake bonuses"
 msgstr "Aktivera falska bonusar"
 
@@ -142,133 +142,151 @@ msgstr "Antal AI-spelare"
 msgid "Number of AI players."
 msgstr "Antal AI-spelare."
 
-#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:127
-#: data/org.gnome.Nibbles.gschema.xml:174
-#: data/org.gnome.Nibbles.gschema.xml:221
-#: data/org.gnome.Nibbles.gschema.xml:268
-#: data/org.gnome.Nibbles.gschema.xml:315
+#: data/org.gnome.Nibbles.gschema.xml:80 data/org.gnome.Nibbles.gschema.xml:132
+#: data/org.gnome.Nibbles.gschema.xml:184
+#: data/org.gnome.Nibbles.gschema.xml:236
+#: data/org.gnome.Nibbles.gschema.xml:288
+#: data/org.gnome.Nibbles.gschema.xml:340
 msgid "Color to use for worm"
 msgstr "Färg att använda på masken"
 
-#: data/org.gnome.Nibbles.gschema.xml:81 data/org.gnome.Nibbles.gschema.xml:128
-#: data/org.gnome.Nibbles.gschema.xml:175
-#: data/org.gnome.Nibbles.gschema.xml:222
-#: data/org.gnome.Nibbles.gschema.xml:269
-#: data/org.gnome.Nibbles.gschema.xml:316
+#: data/org.gnome.Nibbles.gschema.xml:81 data/org.gnome.Nibbles.gschema.xml:133
+#: data/org.gnome.Nibbles.gschema.xml:185
+#: data/org.gnome.Nibbles.gschema.xml:237
+#: data/org.gnome.Nibbles.gschema.xml:289
+#: data/org.gnome.Nibbles.gschema.xml:341
 msgid "Color to use for worm."
 msgstr "Färg att använda på masken."
 
-#: data/org.gnome.Nibbles.gschema.xml:85 data/org.gnome.Nibbles.gschema.xml:105
-#: data/org.gnome.Nibbles.gschema.xml:132
-#: data/org.gnome.Nibbles.gschema.xml:152
-#: data/org.gnome.Nibbles.gschema.xml:179
-#: data/org.gnome.Nibbles.gschema.xml:199
-#: data/org.gnome.Nibbles.gschema.xml:226
-#: data/org.gnome.Nibbles.gschema.xml:246
-#: data/org.gnome.Nibbles.gschema.xml:273
+#: data/org.gnome.Nibbles.gschema.xml:85 data/org.gnome.Nibbles.gschema.xml:137
+#: data/org.gnome.Nibbles.gschema.xml:189
+#: data/org.gnome.Nibbles.gschema.xml:241
 #: data/org.gnome.Nibbles.gschema.xml:293
-#: data/org.gnome.Nibbles.gschema.xml:320
-#: data/org.gnome.Nibbles.gschema.xml:340
+#: data/org.gnome.Nibbles.gschema.xml:345
+msgid "Name"
+msgstr "Namn"
+
+#: data/org.gnome.Nibbles.gschema.xml:86 data/org.gnome.Nibbles.gschema.xml:138
+#: data/org.gnome.Nibbles.gschema.xml:190
+#: data/org.gnome.Nibbles.gschema.xml:242
+#: data/org.gnome.Nibbles.gschema.xml:294
+#: data/org.gnome.Nibbles.gschema.xml:346
+msgid "Last name use for worm's high score."
+msgstr "Senaste namn som använts för maskarnas topplista."
+
+#: data/org.gnome.Nibbles.gschema.xml:90 data/org.gnome.Nibbles.gschema.xml:110
+#: data/org.gnome.Nibbles.gschema.xml:142
+#: data/org.gnome.Nibbles.gschema.xml:162
+#: data/org.gnome.Nibbles.gschema.xml:194
+#: data/org.gnome.Nibbles.gschema.xml:214
+#: data/org.gnome.Nibbles.gschema.xml:246
+#: data/org.gnome.Nibbles.gschema.xml:266
+#: data/org.gnome.Nibbles.gschema.xml:298
+#: data/org.gnome.Nibbles.gschema.xml:318
+#: data/org.gnome.Nibbles.gschema.xml:350
+#: data/org.gnome.Nibbles.gschema.xml:370
 msgid "Move up"
 msgstr "Flytta uppåt"
 
-#: data/org.gnome.Nibbles.gschema.xml:86 data/org.gnome.Nibbles.gschema.xml:106
-#: data/org.gnome.Nibbles.gschema.xml:133
-#: data/org.gnome.Nibbles.gschema.xml:153
-#: data/org.gnome.Nibbles.gschema.xml:180
-#: data/org.gnome.Nibbles.gschema.xml:200
-#: data/org.gnome.Nibbles.gschema.xml:227
+#: data/org.gnome.Nibbles.gschema.xml:91 data/org.gnome.Nibbles.gschema.xml:111
+#: data/org.gnome.Nibbles.gschema.xml:143
+#: data/org.gnome.Nibbles.gschema.xml:163
+#: data/org.gnome.Nibbles.gschema.xml:195
+#: data/org.gnome.Nibbles.gschema.xml:215
 #: data/org.gnome.Nibbles.gschema.xml:247
-#: data/org.gnome.Nibbles.gschema.xml:274
-#: data/org.gnome.Nibbles.gschema.xml:294
-#: data/org.gnome.Nibbles.gschema.xml:321
-#: data/org.gnome.Nibbles.gschema.xml:341
+#: data/org.gnome.Nibbles.gschema.xml:267
+#: data/org.gnome.Nibbles.gschema.xml:299
+#: data/org.gnome.Nibbles.gschema.xml:319
+#: data/org.gnome.Nibbles.gschema.xml:351
+#: data/org.gnome.Nibbles.gschema.xml:371
 msgid "Key to use for motion up."
 msgstr "Tangent att använda för rörelse uppåt."
 
-#: data/org.gnome.Nibbles.gschema.xml:90 data/org.gnome.Nibbles.gschema.xml:110
-#: data/org.gnome.Nibbles.gschema.xml:137
-#: data/org.gnome.Nibbles.gschema.xml:157
-#: data/org.gnome.Nibbles.gschema.xml:184
-#: data/org.gnome.Nibbles.gschema.xml:204
-#: data/org.gnome.Nibbles.gschema.xml:231
+#: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:115
+#: data/org.gnome.Nibbles.gschema.xml:147
+#: data/org.gnome.Nibbles.gschema.xml:167
+#: data/org.gnome.Nibbles.gschema.xml:199
+#: data/org.gnome.Nibbles.gschema.xml:219
 #: data/org.gnome.Nibbles.gschema.xml:251
-#: data/org.gnome.Nibbles.gschema.xml:278
-#: data/org.gnome.Nibbles.gschema.xml:298
-#: data/org.gnome.Nibbles.gschema.xml:325
-#: data/org.gnome.Nibbles.gschema.xml:345
+#: data/org.gnome.Nibbles.gschema.xml:271
+#: data/org.gnome.Nibbles.gschema.xml:303
+#: data/org.gnome.Nibbles.gschema.xml:323
+#: data/org.gnome.Nibbles.gschema.xml:355
+#: data/org.gnome.Nibbles.gschema.xml:375
 msgid "Move down"
 msgstr "Flytta nedåt"
 
-#: data/org.gnome.Nibbles.gschema.xml:91 data/org.gnome.Nibbles.gschema.xml:111
-#: data/org.gnome.Nibbles.gschema.xml:138
-#: data/org.gnome.Nibbles.gschema.xml:158
-#: data/org.gnome.Nibbles.gschema.xml:185
-#: data/org.gnome.Nibbles.gschema.xml:205
-#: data/org.gnome.Nibbles.gschema.xml:232
+#: data/org.gnome.Nibbles.gschema.xml:96 data/org.gnome.Nibbles.gschema.xml:116
+#: data/org.gnome.Nibbles.gschema.xml:148
+#: data/org.gnome.Nibbles.gschema.xml:168
+#: data/org.gnome.Nibbles.gschema.xml:200
+#: data/org.gnome.Nibbles.gschema.xml:220
 #: data/org.gnome.Nibbles.gschema.xml:252
-#: data/org.gnome.Nibbles.gschema.xml:279
-#: data/org.gnome.Nibbles.gschema.xml:299
-#: data/org.gnome.Nibbles.gschema.xml:326
-#: data/org.gnome.Nibbles.gschema.xml:346
+#: data/org.gnome.Nibbles.gschema.xml:272
+#: data/org.gnome.Nibbles.gschema.xml:304
+#: data/org.gnome.Nibbles.gschema.xml:324
+#: data/org.gnome.Nibbles.gschema.xml:356
+#: data/org.gnome.Nibbles.gschema.xml:376
 msgid "Key to use for motion down."
 msgstr "Tangent att använda för rörelse nedåt."
 
-#: data/org.gnome.Nibbles.gschema.xml:95 data/org.gnome.Nibbles.gschema.xml:115
-#: data/org.gnome.Nibbles.gschema.xml:142
-#: data/org.gnome.Nibbles.gschema.xml:162
-#: data/org.gnome.Nibbles.gschema.xml:189
-#: data/org.gnome.Nibbles.gschema.xml:209
-#: data/org.gnome.Nibbles.gschema.xml:236
+#: data/org.gnome.Nibbles.gschema.xml:100
+#: data/org.gnome.Nibbles.gschema.xml:120
+#: data/org.gnome.Nibbles.gschema.xml:152
+#: data/org.gnome.Nibbles.gschema.xml:172
+#: data/org.gnome.Nibbles.gschema.xml:204
+#: data/org.gnome.Nibbles.gschema.xml:224
 #: data/org.gnome.Nibbles.gschema.xml:256
-#: data/org.gnome.Nibbles.gschema.xml:283
-#: data/org.gnome.Nibbles.gschema.xml:303
-#: data/org.gnome.Nibbles.gschema.xml:330
-#: data/org.gnome.Nibbles.gschema.xml:350
+#: data/org.gnome.Nibbles.gschema.xml:276
+#: data/org.gnome.Nibbles.gschema.xml:308
+#: data/org.gnome.Nibbles.gschema.xml:328
+#: data/org.gnome.Nibbles.gschema.xml:360
+#: data/org.gnome.Nibbles.gschema.xml:380
 msgid "Move left"
 msgstr "Flytta vänster"
 
-#: data/org.gnome.Nibbles.gschema.xml:96 data/org.gnome.Nibbles.gschema.xml:116
-#: data/org.gnome.Nibbles.gschema.xml:143
-#: data/org.gnome.Nibbles.gschema.xml:163
-#: data/org.gnome.Nibbles.gschema.xml:190
-#: data/org.gnome.Nibbles.gschema.xml:210
-#: data/org.gnome.Nibbles.gschema.xml:237
+#: data/org.gnome.Nibbles.gschema.xml:101
+#: data/org.gnome.Nibbles.gschema.xml:121
+#: data/org.gnome.Nibbles.gschema.xml:153
+#: data/org.gnome.Nibbles.gschema.xml:173
+#: data/org.gnome.Nibbles.gschema.xml:205
+#: data/org.gnome.Nibbles.gschema.xml:225
 #: data/org.gnome.Nibbles.gschema.xml:257
-#: data/org.gnome.Nibbles.gschema.xml:284
-#: data/org.gnome.Nibbles.gschema.xml:304
-#: data/org.gnome.Nibbles.gschema.xml:331
-#: data/org.gnome.Nibbles.gschema.xml:351
+#: data/org.gnome.Nibbles.gschema.xml:277
+#: data/org.gnome.Nibbles.gschema.xml:309
+#: data/org.gnome.Nibbles.gschema.xml:329
+#: data/org.gnome.Nibbles.gschema.xml:361
+#: data/org.gnome.Nibbles.gschema.xml:381
 msgid "Key to use for motion left."
 msgstr "Tangent att använda för rörelse åt vänster."
 
-#: data/org.gnome.Nibbles.gschema.xml:100
-#: data/org.gnome.Nibbles.gschema.xml:120
-#: data/org.gnome.Nibbles.gschema.xml:147
-#: data/org.gnome.Nibbles.gschema.xml:167
-#: data/org.gnome.Nibbles.gschema.xml:194
-#: data/org.gnome.Nibbles.gschema.xml:214
-#: data/org.gnome.Nibbles.gschema.xml:241
+#: data/org.gnome.Nibbles.gschema.xml:105
+#: data/org.gnome.Nibbles.gschema.xml:125
+#: data/org.gnome.Nibbles.gschema.xml:157
+#: data/org.gnome.Nibbles.gschema.xml:177
+#: data/org.gnome.Nibbles.gschema.xml:209
+#: data/org.gnome.Nibbles.gschema.xml:229
 #: data/org.gnome.Nibbles.gschema.xml:261
-#: data/org.gnome.Nibbles.gschema.xml:288
-#: data/org.gnome.Nibbles.gschema.xml:308
-#: data/org.gnome.Nibbles.gschema.xml:335
-#: data/org.gnome.Nibbles.gschema.xml:355
+#: data/org.gnome.Nibbles.gschema.xml:281
+#: data/org.gnome.Nibbles.gschema.xml:313
+#: data/org.gnome.Nibbles.gschema.xml:333
+#: data/org.gnome.Nibbles.gschema.xml:365
+#: data/org.gnome.Nibbles.gschema.xml:385
 msgid "Move right"
 msgstr "Flytta höger"
 
-#: data/org.gnome.Nibbles.gschema.xml:101
-#: data/org.gnome.Nibbles.gschema.xml:121
-#: data/org.gnome.Nibbles.gschema.xml:148
-#: data/org.gnome.Nibbles.gschema.xml:168
-#: data/org.gnome.Nibbles.gschema.xml:195
-#: data/org.gnome.Nibbles.gschema.xml:215
-#: data/org.gnome.Nibbles.gschema.xml:242
+#: data/org.gnome.Nibbles.gschema.xml:106
+#: data/org.gnome.Nibbles.gschema.xml:126
+#: data/org.gnome.Nibbles.gschema.xml:158
+#: data/org.gnome.Nibbles.gschema.xml:178
+#: data/org.gnome.Nibbles.gschema.xml:210
+#: data/org.gnome.Nibbles.gschema.xml:230
 #: data/org.gnome.Nibbles.gschema.xml:262
-#: data/org.gnome.Nibbles.gschema.xml:289
-#: data/org.gnome.Nibbles.gschema.xml:309
-#: data/org.gnome.Nibbles.gschema.xml:336
-#: data/org.gnome.Nibbles.gschema.xml:356
+#: data/org.gnome.Nibbles.gschema.xml:282
+#: data/org.gnome.Nibbles.gschema.xml:314
+#: data/org.gnome.Nibbles.gschema.xml:334
+#: data/org.gnome.Nibbles.gschema.xml:366
+#: data/org.gnome.Nibbles.gschema.xml:386
 msgid "Key to use for motion right."
 msgstr "Tangent att använda för rörelse åt höger."
 
@@ -317,7 +335,7 @@ msgstr "Nivå 1 med 5 spelare"
 msgid "Level 18 with 6 players"
 msgstr "Nivå 18 med 6 spelare"
 
-#: data/org.gnome.Nibbles.metainfo.xml.in:91
+#: data/org.gnome.Nibbles.metainfo.xml.in:93
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -430,126 +448,126 @@ msgid "_About Nibbles"
 msgstr "_Om Nibbles"
 
 #. Translators: tool tip for new game tool bar button
-#: data/ui/nibbles-window.ui:78
+#: data/ui/nibbles-window.ui:75
 msgid "New Game"
 msgstr "Nytt spel"
 
 #. Translators: tool tip for hamburger menu tool bar button
-#: data/ui/nibbles-window.ui:95
+#: data/ui/nibbles-window.ui:92
 msgid "Open Menu"
 msgstr "Öppna meny"
 
 #. Translators: tool tip for pause/resume tool bar button
-#: data/ui/nibbles-window.ui:111
+#: data/ui/nibbles-window.ui:108
 msgid "Pause/Resume Game"
 msgstr "Pausa/fortsätt spel"
 
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the number of human and ai worms
-#: data/ui/nibbles-window.ui:163
+#: data/ui/nibbles-window.ui:160
 msgid "Number of Players"
 msgstr "Antal spelare"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 1/2/3/4 human players
-#: data/ui/nibbles-window.ui:183
+#: data/ui/nibbles-window.ui:180
 msgid "Select the number of human players."
 msgstr "Välj antalet mänskliga spelare."
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play a solo game against AIs (with a mnemonic that appears when pressing Alt)
-#: data/ui/nibbles-window.ui:200
+#: data/ui/nibbles-window.ui:197
 msgid "_1"
 msgstr "_1"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 2 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/nibbles-window.ui:216
+#: data/ui/nibbles-window.ui:213
 msgid "_2"
 msgstr "_2"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 3 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/nibbles-window.ui:232
+#: data/ui/nibbles-window.ui:229
 msgid "_3"
 msgstr "_3"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with 4 human players (with a mnemonic that appears when pressing Alt)
-#: data/ui/nibbles-window.ui:248
+#: data/ui/nibbles-window.ui:245
 msgid "_4"
 msgstr "_4"
 
 #. Translators: label in one of the panels displayed during game configuration; allows to choose if the game has 0/1/2/3/4/5 ai-controlled worms
-#: data/ui/nibbles-window.ui:274
+#: data/ui/nibbles-window.ui:271
 msgid "Select the number of computer players."
 msgstr "Välj antalet datorspelare."
 
-#: data/ui/nibbles-window.ui:290 data/ui/nibbles-window.ui:305
-#: data/ui/nibbles-window.ui:320 data/ui/nibbles-window.ui:335
-#: data/ui/nibbles-window.ui:350
+#: data/ui/nibbles-window.ui:287 data/ui/nibbles-window.ui:302
+#: data/ui/nibbles-window.ui:317 data/ui/nibbles-window.ui:332
+#: data/ui/nibbles-window.ui:347
 msgid "x"
 msgstr "x"
 
 #. Translators: label of a button in the "Number of players" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Board Progress" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
 #. Translators: label of a button in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); switch to next panel
-#: data/ui/nibbles-window.ui:371 data/ui/nibbles-window.ui:488
-#: data/ui/nibbles-window.ui:634
+#: data/ui/nibbles-window.ui:368 data/ui/nibbles-window.ui:485
+#: data/ui/nibbles-window.ui:632
 msgid "_Next"
 msgstr "_Nästa"
 
 #. Translators: title of one of the panels displayed during game configuration; the panel allows the method of progress through game's boards to be chosen
-#: data/ui/nibbles-window.ui:411
+#: data/ui/nibbles-window.ui:408
 msgid "Board Progress"
 msgstr "Brädordning"
 
 #. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to the previous board + 1
-#: data/ui/nibbles-window.ui:434
+#: data/ui/nibbles-window.ui:431
 msgid "_Levels 1 through 26 in sequential order"
 msgstr "_Nivå 1 till 26 i tur och ordning"
 
 #. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; sets the next board to a random board
-#: data/ui/nibbles-window.ui:447
+#: data/ui/nibbles-window.ui:444
 msgid "_Random Levels"
 msgstr "_Slumpnivåer"
 
 #. Translators: title of a radiobutton in the "Board Progress" panel displayed during game configuration; the game stays on a single board
-#: data/ui/nibbles-window.ui:464
+#: data/ui/nibbles-window.ui:461
 msgid "_Fixed Level"
 msgstr "_Fast nivå"
 
 #. Translators: title of one of the panels displayed during game configuration; the panel allows to change the worms speed (notably)
-#: data/ui/nibbles-window.ui:526
+#: data/ui/nibbles-window.ui:524
 msgid "Speed and Fakes"
 msgstr "Hastighet och attrapper"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "really slow"
-#: data/ui/nibbles-window.ui:549
+#: data/ui/nibbles-window.ui:547
 msgid "_Beginner"
 msgstr "_Nybörjare"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "quite slow"
-#: data/ui/nibbles-window.ui:565
+#: data/ui/nibbles-window.ui:563
 msgid "_Slow"
 msgstr "_Långsam"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "normal"
-#: data/ui/nibbles-window.ui:581
+#: data/ui/nibbles-window.ui:579
 msgid "_Medium"
 msgstr "_Mellan"
 
 #. Translators: title of a radiobutton in the "Preferences" panel displayed during game configuration; sets worms speed to "fast"
-#: data/ui/nibbles-window.ui:597
+#: data/ui/nibbles-window.ui:595
 msgid "_Fast"
 msgstr "_Snabb"
 
 #. Translators: label of a togglebutton in the "Preferences" panel displayed during game configuration (with a mnemonic that appears when pressing Alt); activates fake bonuses
-#: data/ui/nibbles-window.ui:621
+#: data/ui/nibbles-window.ui:619
 msgid "_Enable fake bonuses"
 msgstr "A_ktivera falska bonusar"
 
 #. Translators: title of one of the panels displayed during game configuration; the panel shows the keyboard controls of each player
-#: data/ui/nibbles-window.ui:669
+#: data/ui/nibbles-window.ui:668
 msgid "Controls"
 msgstr "Styrning"
 
 #. Translators: label of a button in the last panel displayed during game configuration (the "Controls" one); starts the game
-#: data/ui/nibbles-window.ui:694
+#: data/ui/nibbles-window.ui:693
 msgid "_Start"
 msgstr "_Starta"
 
@@ -567,11 +585,6 @@ msgstr "Ät godsakerna innan de andra maskarna, men krocka inte med något!"
 #: data/ui/nibbles-window.ui:758
 msgid "Let’s _Play"
 msgstr "_Börja spela"
-
-#. Translators: text displayed at the bottom of the window, when the game is paused
-#: data/ui/nibbles-window.ui:814
-msgid "Paused"
-msgstr "Pausad"
 
 #. Build the layout
 #. Translators: text displayed in the negative button of a confirming message box
@@ -598,12 +611,12 @@ msgid "New High Score"
 msgstr "Nytt rekord"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:50
+#: src/nibbles.cpp:55
 msgid "Disable fake bonuses"
 msgstr "Inaktivera falska bonusar"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:56
+#: src/nibbles.cpp:61
 msgid "Start at given level (1-26)"
 msgstr "Börja på angiven nivå (1-26)"
 
@@ -612,13 +625,13 @@ msgstr "Börja på angiven nivå (1-26)"
 #. Translators: in the command-line options description, text to indicate the user should specify number of nibbles, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify number of players, see 'gnome-nibbles --help'
 #. Translators: in the command-line options description, text to indicate the user should specify the worms speed, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:58 src/nibbles.cpp:63 src/nibbles.cpp:68 src/nibbles.cpp:73
-#: src/nibbles.cpp:78
+#: src/nibbles.cpp:63 src/nibbles.cpp:68 src/nibbles.cpp:73 src/nibbles.cpp:78
+#: src/nibbles.cpp:83
 msgid "NUMBER"
 msgstr "ANTAL"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:61
+#: src/nibbles.cpp:66
 msgid ""
 "Method of progress through the boards (0 - sequentially, 1 - randomly, 2 - "
 "fixed board)"
@@ -627,64 +640,64 @@ msgstr ""
 "- fast bräde)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:66
+#: src/nibbles.cpp:71
 msgid "Set number of nibbles (4-6)"
 msgstr "Ställ in antal maskar (4-6)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:71
+#: src/nibbles.cpp:76
 msgid "Set number of players (1-4)"
 msgstr "Ange antal spelare (1-4)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:76
+#: src/nibbles.cpp:81
 msgid "Set worms speed (4-1, 4 for slow)"
 msgstr "Ställ in maskhastighet (1-4, 4 för långsam)"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:81
+#: src/nibbles.cpp:86
 msgid "Set three dimensional view"
 msgstr "Ställ in tredimensionell vy"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:84
+#: src/nibbles.cpp:89
 msgid "Set two dimensional view"
 msgstr "Ställ in tvådimensionell vy"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:87
+#: src/nibbles.cpp:92
 msgid "Start playing"
 msgstr "Börja spela"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:90
+#: src/nibbles.cpp:95
 msgid "Turn off the sound"
 msgstr "Slå av ljudet"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:93
+#: src/nibbles.cpp:98
 msgid "Turn on the sound"
 msgstr "Slå på ljudet"
 
 #. Translators: command-line option description, see 'gnome-nibbles --help'
-#: src/nibbles.cpp:96
+#: src/nibbles.cpp:101
 msgid "Show release version and exit"
 msgstr "Visa utgåvans version och avsluta"
 
 #. Translators: command-line error message, displayed for an invalid start level request; see 'gnome-nibbles -l 0'
-#: src/nibbles.cpp:206
+#: src/nibbles.cpp:221
 msgid "Start level must be between 1 and 26 inclusive."
 msgstr "Startnivån ska vara från 1 till 26."
 
 #. Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress'
-#: src/nibbles.cpp:235
+#: src/nibbles.cpp:251
 msgid "Progress method should be; sequentially, randomly, or fixed board."
 msgstr ""
 "Metod för fortskridande ska vara; i tur och ordning, slumpmässigt eller fast "
 "bräde."
 
 #. Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress'
-#: src/nibbles.cpp:257
+#: src/nibbles.cpp:274
 msgid ""
 "Progress method should be; s for sequentially, r for randomly or f for fixed "
 "board."
@@ -693,7 +706,7 @@ msgstr ""
 "slumpmässigt eller f för fast bräde."
 
 #. Translators: command-line error message, displayed for an invalid progress method request; see 'gnome-nibbles --progress'
-#: src/nibbles.cpp:281 src/nibbles.cpp:288
+#: src/nibbles.cpp:302 src/nibbles.cpp:309
 msgid ""
 "Progress method should be; 0 - sequentially, 1 - randomly or 2 - fixed board."
 msgstr ""
@@ -701,26 +714,26 @@ msgstr ""
 "eller 2 - fast bräde."
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -p 5'
-#: src/nibbles.cpp:301
+#: src/nibbles.cpp:322
 msgid "Players must be between 1 and 4 inclusive."
 msgstr "Antalet spelare måste vara från 1 till 4."
 
 #. Translators: command-line error message, displayed for an invalid number of nibbles; see 'gnome-nibbles -n 0'
-#: src/nibbles.cpp:314 src/nibbles.cpp:330
+#: src/nibbles.cpp:335 src/nibbles.cpp:351
 msgid "Nibbles must be between "
 msgstr "Antalet maskar måste vara från "
 
-#: src/nibbles.cpp:314 src/nibbles.cpp:330
+#: src/nibbles.cpp:335 src/nibbles.cpp:351
 msgid " and 6 inclusive."
 msgstr " upp till 6."
 
 #. Translators: command-line error message, displayed for an invalid number of players; see 'gnome-nibbles -s 5'
-#: src/nibbles.cpp:343
+#: src/nibbles.cpp:364
 msgid "Speed must be between 1(fast) and 4(beginner) inclusive."
 msgstr "Hastigheten ska vara från 1 (snabb) till 4 (nybörjare)."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -d -e'
-#: src/nibbles.cpp:357
+#: src/nibbles.cpp:378
 msgid ""
 "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually exclusive."
 msgstr ""
@@ -728,77 +741,77 @@ msgstr ""
 "uteslutande."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles --mute --unmute'
-#: src/nibbles.cpp:380
+#: src/nibbles.cpp:401
 msgid "Options --mute and --unmute are mutually exclusive."
 msgstr "Flaggorna --mute och --unmute är ömsesidigt uteslutande."
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
-#: src/nibbles.cpp:401
+#: src/nibbles.cpp:422
 msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "Flaggorna --3D (-3) och --2D (-2) är ömsesidigt uteslutande."
 
 #. Translators: text crediting an author, in the about dialog
-#: src/nibbles-window.cpp:387
+#: src/nibbles-window.cpp:418
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/nibbles-window.cpp:389
+#: src/nibbles-window.cpp:420
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/nibbles-window.cpp:391
+#: src/nibbles-window.cpp:422
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/nibbles-window.cpp:393
+#: src/nibbles-window.cpp:424
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/nibbles-window.cpp:395
+#: src/nibbles-window.cpp:426
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/nibbles-window.cpp:397
+#: src/nibbles-window.cpp:428
 msgid "Ben Corby"
 msgstr "Ben Corby"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/nibbles-window.cpp:401
+#: src/nibbles-window.cpp:432
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/nibbles-window.cpp:404
+#: src/nibbles-window.cpp:435
 msgid "Allan Day"
 msgstr "Allan Day"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/nibbles-window.cpp:408
+#: src/nibbles-window.cpp:439
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal\n"
 msgstr "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal\n"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/nibbles-window.cpp:410
+#: src/nibbles-window.cpp:441
 msgid "Copyright © 2009 – Guillaume Beland\n"
 msgstr "Copyright © 2009 – Guillaume Beland\n"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/nibbles-window.cpp:412
+#: src/nibbles-window.cpp:443
 msgid "Copyright © 2015-2020 – Iulian-Gabriel Radu\n"
 msgstr "Copyright © 2015-2020 – Iulian-Gabriel Radu\n"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/nibbles-window.cpp:414
+#: src/nibbles-window.cpp:445
 msgid "Copyright © 2022-2026 – Ben Corby"
 msgstr "Copyright © 2022-2026 – Ben Corby"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/nibbles-window.cpp:426
+#: src/nibbles-window.cpp:457
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -812,1459 +825,1617 @@ msgstr ""
 "<tp-sv@listor.tp-sv.se>."
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/nibbles-window.cpp:429
+#: src/nibbles-window.cpp:460
 msgid "A worm game for GNOME"
 msgstr "Ett maskspel för GNOME"
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use for up
-#: src/nibbles-window.cpp:748
+#: src/nibbles-window.cpp:788
 msgid "Press a key for up."
 msgstr "Tryck en tangent för uppåt."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use for left
-#: src/nibbles-window.cpp:760
+#: src/nibbles-window.cpp:800
 msgid "Press a key for left."
 msgstr "Tryck en tangent för vänster."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use for right
-#: src/nibbles-window.cpp:772
+#: src/nibbles-window.cpp:812
 msgid "Press a key for right."
 msgstr "Tryck en tangent för höger."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use for down
-#: src/nibbles-window.cpp:784
+#: src/nibbles-window.cpp:824
 msgid "Press a key for down."
 msgstr "Tryck en tangent för nedåt."
 
 #. Translators: text displayed in a message box directing the player to select the color they want for the worm
-#: src/nibbles-window.cpp:966
+#: src/nibbles-window.cpp:1006
 msgid "Select Your Color"
 msgstr "Välj din färg"
 
 #. Translators: text displayed at the top of the high scores dialogue
-#: src/nibbles-window.cpp:1487
+#: src/nibbles-window.cpp:1552
 msgid "Fast"
 msgstr "Snabb"
 
-#: src/nibbles-window.cpp:1488
+#: src/nibbles-window.cpp:1553
 msgid "Medium"
 msgstr "Mellan"
 
-#: src/nibbles-window.cpp:1489
+#: src/nibbles-window.cpp:1554
 msgid "Slow"
 msgstr "Långsam"
 
-#: src/nibbles-window.cpp:1490
+#: src/nibbles-window.cpp:1555
 msgid "Beginner"
 msgstr "Nybörjare"
 
-#: src/nibbles-window.cpp:1491
+#: src/nibbles-window.cpp:1556
 msgid "Fast with fakes"
 msgstr "Snabb med attrapper"
 
-#: src/nibbles-window.cpp:1492
+#: src/nibbles-window.cpp:1557
 msgid "Medium with fakes"
 msgstr "Mellan med attrapper"
 
-#: src/nibbles-window.cpp:1493
+#: src/nibbles-window.cpp:1558
 msgid "Slow with fakes"
 msgstr "Långsam med attrapper"
 
-#: src/nibbles-window.cpp:1494
+#: src/nibbles-window.cpp:1559
 msgid "Beginner with fakes"
 msgstr "Nybörjare med attrapper"
 
-#: src/nibbles-window.cpp:1495
+#: src/nibbles-window.cpp:1560
 msgid "Fast fixed on level 1"
 msgstr "Snabb, fixerad på nivå 1"
 
-#: src/nibbles-window.cpp:1496
+#: src/nibbles-window.cpp:1561
 msgid "Medium fixed on level 1"
 msgstr "Mellan, fixerad på nivå 1"
 
-#: src/nibbles-window.cpp:1497
+#: src/nibbles-window.cpp:1562
 msgid "Slow fixed on level 1"
 msgstr "Långsam, fixerad på nivå 1"
 
-#: src/nibbles-window.cpp:1498
+#: src/nibbles-window.cpp:1563
 msgid "Beginner fixed on level 1"
 msgstr "Nybörjare, fixerad på nivå 1"
 
-#: src/nibbles-window.cpp:1499
+#: src/nibbles-window.cpp:1564
 msgid "Fast with fakes, fixed on level 1"
 msgstr "Snabb med attrapper, fixerad på nivå 1"
 
-#: src/nibbles-window.cpp:1500
+#: src/nibbles-window.cpp:1565
 msgid "Medium with fakes, fixed on level 1"
 msgstr "Mellan med attrapper, fixerad på nivå 1"
 
-#: src/nibbles-window.cpp:1501
+#: src/nibbles-window.cpp:1566
 msgid "Slow with fakes, fixed on level 1"
 msgstr "Långsam med attrapper, fixerad på nivå 1"
 
-#: src/nibbles-window.cpp:1502
+#: src/nibbles-window.cpp:1567
 msgid "Beginner with fakes, fixed on level 1"
 msgstr "Nybörjare med attrapper, fixerad på nivå 1"
 
-#: src/nibbles-window.cpp:1503
+#: src/nibbles-window.cpp:1568
 msgid "Fast fixed on level 2"
 msgstr "Snabb, fixerad på nivå 2"
 
-#: src/nibbles-window.cpp:1504
+#: src/nibbles-window.cpp:1569
 msgid "Medium fixed on level 2"
 msgstr "Mellan, fixerad på nivå 2"
 
-#: src/nibbles-window.cpp:1505
+#: src/nibbles-window.cpp:1570
 msgid "Slow fixed on level 2"
 msgstr "Långsam, fixerad på nivå 2"
 
-#: src/nibbles-window.cpp:1506
+#: src/nibbles-window.cpp:1571
 msgid "Beginner fixed on level 2"
 msgstr "Nybörjare, fixerad på nivå 2"
 
-#: src/nibbles-window.cpp:1507
+#: src/nibbles-window.cpp:1572
 msgid "Fast with fakes, fixed on level 2"
 msgstr "Snabb med attrapper, fixerad på nivå 2"
 
-#: src/nibbles-window.cpp:1508
+#: src/nibbles-window.cpp:1573
 msgid "Medium with fakes, fixed on level 2"
 msgstr "Mellan med attrapper, fixerad på nivå 2"
 
-#: src/nibbles-window.cpp:1509
+#: src/nibbles-window.cpp:1574
 msgid "Slow with fakes, fixed on level 2"
 msgstr "Långsam med attrapper, fixerad på nivå 2"
 
-#: src/nibbles-window.cpp:1510
+#: src/nibbles-window.cpp:1575
 msgid "Beginner with fakes, fixed on level 2"
 msgstr "Nybörjare med attrapper, fixerad på nivå 2"
 
-#: src/nibbles-window.cpp:1511
+#: src/nibbles-window.cpp:1576
 msgid "Fast fixed on level 3"
 msgstr "Snabb, fixerad på nivå 3"
 
-#: src/nibbles-window.cpp:1512
+#: src/nibbles-window.cpp:1577
 msgid "Medium fixed on level 3"
 msgstr "Mellan, fixerad på nivå 3"
 
-#: src/nibbles-window.cpp:1513
+#: src/nibbles-window.cpp:1578
 msgid "Slow fixed on level 3"
 msgstr "Långsam, fixerad på nivå 3"
 
-#: src/nibbles-window.cpp:1514
+#: src/nibbles-window.cpp:1579
 msgid "Beginner fixed on level 3"
 msgstr "Nybörjare, fixerad på nivå 3"
 
-#: src/nibbles-window.cpp:1515
+#: src/nibbles-window.cpp:1580
 msgid "Fast with fakes, fixed on level 3"
 msgstr "Snabb med attrapper, fixerad på nivå 3"
 
-#: src/nibbles-window.cpp:1516
+#: src/nibbles-window.cpp:1581
 msgid "Medium with fakes, fixed on level 3"
 msgstr "Mellan med attrapper, fixerad på nivå 3"
 
-#: src/nibbles-window.cpp:1517
+#: src/nibbles-window.cpp:1582
 msgid "Slow with fakes, fixed on level 3"
 msgstr "Långsam med attrapper, fixerad på nivå 3"
 
-#: src/nibbles-window.cpp:1518
+#: src/nibbles-window.cpp:1583
 msgid "Beginner with fakes, fixed on level 3"
 msgstr "Nybörjare med attrapper, fixerad på nivå 3"
 
-#: src/nibbles-window.cpp:1519
+#: src/nibbles-window.cpp:1584
 msgid "Fast fixed on level 4"
 msgstr "Snabb, fixerad på nivå 4"
 
-#: src/nibbles-window.cpp:1520
+#: src/nibbles-window.cpp:1585
 msgid "Medium fixed on level 4"
 msgstr "Mellan, fixerad på nivå 4"
 
-#: src/nibbles-window.cpp:1521
+#: src/nibbles-window.cpp:1586
 msgid "Slow fixed on level 4"
 msgstr "Långsam, fixerad på nivå 4"
 
-#: src/nibbles-window.cpp:1522
+#: src/nibbles-window.cpp:1587
 msgid "Beginner fixed on level 4"
 msgstr "Nybörjare, fixerad på nivå 4"
 
-#: src/nibbles-window.cpp:1523
+#: src/nibbles-window.cpp:1588
 msgid "Fast with fakes, fixed on level 4"
 msgstr "Snabb med attrapper, fixerad på nivå 4"
 
-#: src/nibbles-window.cpp:1524
+#: src/nibbles-window.cpp:1589
 msgid "Medium with fakes, fixed on level 4"
 msgstr "Mellan med attrapper, fixerad på nivå 4"
 
-#: src/nibbles-window.cpp:1525
+#: src/nibbles-window.cpp:1590
 msgid "Slow with fakes, fixed on level 4"
 msgstr "Långsam med attrapper, fixerad på nivå 4"
 
-#: src/nibbles-window.cpp:1526
+#: src/nibbles-window.cpp:1591
 msgid "Beginner with fakes, fixed on level 4"
 msgstr "Nybörjare med attrapper, fixerad på nivå 4"
 
-#: src/nibbles-window.cpp:1527
+#: src/nibbles-window.cpp:1592
 msgid "Fast fixed on level 5"
 msgstr "Snabb, fixerad på nivå 5"
 
-#: src/nibbles-window.cpp:1528
+#: src/nibbles-window.cpp:1593
 msgid "Medium fixed on level 5"
 msgstr "Mellan, fixerad på nivå 5"
 
-#: src/nibbles-window.cpp:1529
+#: src/nibbles-window.cpp:1594
 msgid "Slow fixed on level 5"
 msgstr "Långsam, fixerad på nivå 5"
 
-#: src/nibbles-window.cpp:1530
+#: src/nibbles-window.cpp:1595
 msgid "Beginner fixed on level 5"
 msgstr "Nybörjare, fixerad på nivå 5"
 
-#: src/nibbles-window.cpp:1531
+#: src/nibbles-window.cpp:1596
 msgid "Fast with fakes, fixed on level 5"
 msgstr "Snabb med attrapper, fixerad på nivå 5"
 
-#: src/nibbles-window.cpp:1532
+#: src/nibbles-window.cpp:1597
 msgid "Medium with fakes, fixed on level 5"
 msgstr "Mellan med attrapper, fixerad på nivå 5"
 
-#: src/nibbles-window.cpp:1533
+#: src/nibbles-window.cpp:1598
 msgid "Slow with fakes, fixed on level 5"
 msgstr "Långsam med attrapper, fixerad på nivå 5"
 
-#: src/nibbles-window.cpp:1534
+#: src/nibbles-window.cpp:1599
 msgid "Beginner with fakes, fixed on level 5"
 msgstr "Nybörjare med attrapper, fixerad på nivå 5"
 
-#: src/nibbles-window.cpp:1535
+#: src/nibbles-window.cpp:1600
 msgid "Fast fixed on level 6"
 msgstr "Snabb, fixerad på nivå 6"
 
-#: src/nibbles-window.cpp:1536
+#: src/nibbles-window.cpp:1601
 msgid "Medium fixed on level 6"
 msgstr "Mellan, fixerad på nivå 6"
 
-#: src/nibbles-window.cpp:1537
+#: src/nibbles-window.cpp:1602
 msgid "Slow fixed on level 6"
 msgstr "Långsam, fixerad på nivå 6"
 
-#: src/nibbles-window.cpp:1538
+#: src/nibbles-window.cpp:1603
 msgid "Beginner fixed on level 6"
 msgstr "Nybörjare, fixerad på nivå 6"
 
-#: src/nibbles-window.cpp:1539
+#: src/nibbles-window.cpp:1604
 msgid "Fast with fakes, fixed on level 6"
 msgstr "Snabb med attrapper, fixerad på nivå 6"
 
-#: src/nibbles-window.cpp:1540
+#: src/nibbles-window.cpp:1605
 msgid "Medium with fakes, fixed on level 6"
 msgstr "Mellan med attrapper, fixerad på nivå 6"
 
-#: src/nibbles-window.cpp:1541
+#: src/nibbles-window.cpp:1606
 msgid "Slow with fakes, fixed on level 6"
 msgstr "Långsam med attrapper, fixerad på nivå 6"
 
-#: src/nibbles-window.cpp:1542
+#: src/nibbles-window.cpp:1607
 msgid "Beginner with fakes, fixed on level 6"
 msgstr "Nybörjare med attrapper, fixerad på nivå 6"
 
-#: src/nibbles-window.cpp:1543
+#: src/nibbles-window.cpp:1608
 msgid "Fast fixed on level 7"
 msgstr "Snabb, fixerad på nivå 7"
 
-#: src/nibbles-window.cpp:1544
+#: src/nibbles-window.cpp:1609
 msgid "Medium fixed on level 7"
 msgstr "Mellan, fixerad på nivå 7"
 
-#: src/nibbles-window.cpp:1545
+#: src/nibbles-window.cpp:1610
 msgid "Slow fixed on level 7"
 msgstr "Långsam, fixerad på nivå 7"
 
-#: src/nibbles-window.cpp:1546
+#: src/nibbles-window.cpp:1611
 msgid "Beginner fixed on level 7"
 msgstr "Nybörjare, fixerad på nivå 7"
 
-#: src/nibbles-window.cpp:1547
+#: src/nibbles-window.cpp:1612
 msgid "Fast with fakes, fixed on level 7"
 msgstr "Snabb med attrapper, fixerad på nivå 7"
 
-#: src/nibbles-window.cpp:1548
+#: src/nibbles-window.cpp:1613
 msgid "Medium with fakes, fixed on level 7"
 msgstr "Mellan med attrapper, fixerad på nivå 7"
 
-#: src/nibbles-window.cpp:1549
+#: src/nibbles-window.cpp:1614
 msgid "Slow with fakes, fixed on level 7"
 msgstr "Långsam med attrapper, fixerad på nivå 7"
 
-#: src/nibbles-window.cpp:1550
+#: src/nibbles-window.cpp:1615
 msgid "Beginner with fakes, fixed on level 7"
 msgstr "Nybörjare med attrapper, fixerad på nivå 7"
 
-#: src/nibbles-window.cpp:1551
+#: src/nibbles-window.cpp:1616
 msgid "Fast fixed on level 8"
 msgstr "Snabb, fixerad på nivå 8"
 
-#: src/nibbles-window.cpp:1552
+#: src/nibbles-window.cpp:1617
 msgid "Medium fixed on level 8"
 msgstr "Mellan, fixerad på nivå 8"
 
-#: src/nibbles-window.cpp:1553
+#: src/nibbles-window.cpp:1618
 msgid "Slow fixed on level 8"
 msgstr "Långsam, fixerad på nivå 8"
 
-#: src/nibbles-window.cpp:1554
+#: src/nibbles-window.cpp:1619
 msgid "Beginner fixed on level 8"
 msgstr "Nybörjare, fixerad på nivå 8"
 
-#: src/nibbles-window.cpp:1555
+#: src/nibbles-window.cpp:1620
 msgid "Fast with fakes, fixed on level 8"
 msgstr "Snabb med attrapper, fixerad på nivå 8"
 
-#: src/nibbles-window.cpp:1556
+#: src/nibbles-window.cpp:1621
 msgid "Medium with fakes, fixed on level 8"
 msgstr "Mellan med attrapper, fixerad på nivå 8"
 
-#: src/nibbles-window.cpp:1557
+#: src/nibbles-window.cpp:1622
 msgid "Slow with fakes, fixed on level 8"
 msgstr "Långsam med attrapper, fixerad på nivå 8"
 
-#: src/nibbles-window.cpp:1558
+#: src/nibbles-window.cpp:1623
 msgid "Beginner with fakes, fixed on level 8"
 msgstr "Nybörjare med attrapper, fixerad på nivå 8"
 
-#: src/nibbles-window.cpp:1559
+#: src/nibbles-window.cpp:1624
 msgid "Fast fixed on level 9"
 msgstr "Snabb, fixerad på nivå 9"
 
-#: src/nibbles-window.cpp:1560
+#: src/nibbles-window.cpp:1625
 msgid "Medium fixed on level 9"
 msgstr "Mellan, fixerad på nivå 9"
 
-#: src/nibbles-window.cpp:1561
+#: src/nibbles-window.cpp:1626
 msgid "Slow fixed on level 9"
 msgstr "Långsam, fixerad på nivå 9"
 
-#: src/nibbles-window.cpp:1562
+#: src/nibbles-window.cpp:1627
 msgid "Beginner fixed on level 9"
 msgstr "Nybörjare, fixerad på nivå 9"
 
-#: src/nibbles-window.cpp:1563
+#: src/nibbles-window.cpp:1628
 msgid "Fast with fakes, fixed on level 9"
 msgstr "Snabb med attrapper, fixerad på nivå 9"
 
-#: src/nibbles-window.cpp:1564
+#: src/nibbles-window.cpp:1629
 msgid "Medium with fakes, fixed on level 9"
 msgstr "Mellan med attrapper, fixerad på nivå 9"
 
-#: src/nibbles-window.cpp:1565
+#: src/nibbles-window.cpp:1630
 msgid "Slow with fakes, fixed on level 9"
 msgstr "Långsam med attrapper, fixerad på nivå 9"
 
-#: src/nibbles-window.cpp:1566
+#: src/nibbles-window.cpp:1631
 msgid "Beginner with fakes, fixed on level 9"
 msgstr "Nybörjare med attrapper, fixerad på nivå 9"
 
-#: src/nibbles-window.cpp:1567
+#: src/nibbles-window.cpp:1632
 msgid "Fast fixed on level 10"
 msgstr "Snabb, fixerad på nivå 10"
 
-#: src/nibbles-window.cpp:1568
+#: src/nibbles-window.cpp:1633
 msgid "Medium fixed on level 10"
 msgstr "Mellan, fixerad på nivå 10"
 
-#: src/nibbles-window.cpp:1569
+#: src/nibbles-window.cpp:1634
 msgid "Slow fixed on level 10"
 msgstr "Långsam, fixerad på nivå 10"
 
-#: src/nibbles-window.cpp:1570
+#: src/nibbles-window.cpp:1635
 msgid "Beginner fixed on level 10"
 msgstr "Nybörjare, fixerad på nivå 10"
 
-#: src/nibbles-window.cpp:1571
+#: src/nibbles-window.cpp:1636
 msgid "Fast with fakes, fixed on level 10"
 msgstr "Snabb med attrapper, fixerad på nivå 10"
 
-#: src/nibbles-window.cpp:1572
+#: src/nibbles-window.cpp:1637
 msgid "Medium with fakes, fixed on level 10"
 msgstr "Mellan med attrapper, fixerad på nivå 10"
 
-#: src/nibbles-window.cpp:1573
+#: src/nibbles-window.cpp:1638
 msgid "Slow with fakes, fixed on level 10"
 msgstr "Långsam med attrapper, fixerad på nivå 10"
 
-#: src/nibbles-window.cpp:1574
+#: src/nibbles-window.cpp:1639
 msgid "Beginner with fakes, fixed on level 10"
 msgstr "Nybörjare med attrapper, fixerad på nivå 10"
 
-#: src/nibbles-window.cpp:1575
+#: src/nibbles-window.cpp:1640
 msgid "Fast fixed on level 11"
 msgstr "Snabb, fixerad på nivå 11"
 
-#: src/nibbles-window.cpp:1576
+#: src/nibbles-window.cpp:1641
 msgid "Medium fixed on level 11"
 msgstr "Mellan, fixerad på nivå 11"
 
-#: src/nibbles-window.cpp:1577
+#: src/nibbles-window.cpp:1642
 msgid "Slow fixed on level 11"
 msgstr "Långsam, fixerad på nivå 11"
 
-#: src/nibbles-window.cpp:1578
+#: src/nibbles-window.cpp:1643
 msgid "Beginner fixed on level 11"
 msgstr "Nybörjare, fixerad på nivå 11"
 
-#: src/nibbles-window.cpp:1579
+#: src/nibbles-window.cpp:1644
 msgid "Fast with fakes, fixed on level 11"
 msgstr "Snabb med attrapper, fixerad på nivå 11"
 
-#: src/nibbles-window.cpp:1580
+#: src/nibbles-window.cpp:1645
 msgid "Medium with fakes, fixed on level 11"
 msgstr "Mellan med attrapper, fixerad på nivå 11"
 
-#: src/nibbles-window.cpp:1581
+#: src/nibbles-window.cpp:1646
 msgid "Slow with fakes, fixed on level 11"
 msgstr "Långsam med attrapper, fixerad på nivå 11"
 
-#: src/nibbles-window.cpp:1582
+#: src/nibbles-window.cpp:1647
 msgid "Beginner with fakes, fixed on level 11"
 msgstr "Nybörjare med attrapper, fixerad på nivå 11"
 
-#: src/nibbles-window.cpp:1583
+#: src/nibbles-window.cpp:1648
 msgid "Fast fixed on level 12"
 msgstr "Snabb, fixerad på nivå 12"
 
-#: src/nibbles-window.cpp:1584
+#: src/nibbles-window.cpp:1649
 msgid "Medium fixed on level 12"
 msgstr "Mellan, fixerad på nivå 12"
 
-#: src/nibbles-window.cpp:1585
+#: src/nibbles-window.cpp:1650
 msgid "Slow fixed on level 12"
 msgstr "Långsam, fixerad på nivå 12"
 
-#: src/nibbles-window.cpp:1586
+#: src/nibbles-window.cpp:1651
 msgid "Beginner fixed on level 12"
 msgstr "Nybörjare, fixerad på nivå 12"
 
-#: src/nibbles-window.cpp:1587
+#: src/nibbles-window.cpp:1652
 msgid "Fast with fakes, fixed on level 12"
 msgstr "Snabb med attrapper, fixerad på nivå 12"
 
-#: src/nibbles-window.cpp:1588
+#: src/nibbles-window.cpp:1653
 msgid "Medium with fakes, fixed on level 12"
 msgstr "Mellan med attrapper, fixerad på nivå 12"
 
-#: src/nibbles-window.cpp:1589
+#: src/nibbles-window.cpp:1654
 msgid "Slow with fakes, fixed on level 12"
 msgstr "Långsam med attrapper, fixerad på nivå 12"
 
-#: src/nibbles-window.cpp:1590
+#: src/nibbles-window.cpp:1655
 msgid "Beginner with fakes, fixed on level 12"
 msgstr "Nybörjare med attrapper, fixerad på nivå 12"
 
-#: src/nibbles-window.cpp:1591
+#: src/nibbles-window.cpp:1656
 msgid "Fast fixed on level 13"
 msgstr "Snabb, fixerad på nivå 13"
 
-#: src/nibbles-window.cpp:1592
+#: src/nibbles-window.cpp:1657
 msgid "Medium fixed on level 13"
 msgstr "Mellan, fixerad på nivå 13"
 
-#: src/nibbles-window.cpp:1593
+#: src/nibbles-window.cpp:1658
 msgid "Slow fixed on level 13"
 msgstr "Långsam, fixerad på nivå 13"
 
-#: src/nibbles-window.cpp:1594
+#: src/nibbles-window.cpp:1659
 msgid "Beginner fixed on level 13"
 msgstr "Nybörjare, fixerad på nivå 13"
 
-#: src/nibbles-window.cpp:1595
+#: src/nibbles-window.cpp:1660
 msgid "Fast with fakes, fixed on level 13"
 msgstr "Snabb med attrapper, fixerad på nivå 13"
 
-#: src/nibbles-window.cpp:1596
+#: src/nibbles-window.cpp:1661
 msgid "Medium with fakes, fixed on level 13"
 msgstr "Mellan med attrapper, fixerad på nivå 13"
 
-#: src/nibbles-window.cpp:1597
+#: src/nibbles-window.cpp:1662
 msgid "Slow with fakes, fixed on level 13"
 msgstr "Långsam med attrapper, fixerad på nivå 13"
 
-#: src/nibbles-window.cpp:1598
+#: src/nibbles-window.cpp:1663
 msgid "Beginner with fakes, fixed on level 13"
 msgstr "Nybörjare med attrapper, fixerad på nivå 13"
 
-#: src/nibbles-window.cpp:1599
+#: src/nibbles-window.cpp:1664
 msgid "Fast fixed on level 14"
 msgstr "Snabb, fixerad på nivå 14"
 
-#: src/nibbles-window.cpp:1600
+#: src/nibbles-window.cpp:1665
 msgid "Medium fixed on level 14"
 msgstr "Mellan, fixerad på nivå 14"
 
-#: src/nibbles-window.cpp:1601
+#: src/nibbles-window.cpp:1666
 msgid "Slow fixed on level 14"
 msgstr "Långsam, fixerad på nivå 14"
 
-#: src/nibbles-window.cpp:1602
+#: src/nibbles-window.cpp:1667
 msgid "Beginner fixed on level 14"
 msgstr "Nybörjare, fixerad på nivå 14"
 
-#: src/nibbles-window.cpp:1603
+#: src/nibbles-window.cpp:1668
 msgid "Fast with fakes, fixed on level 14"
 msgstr "Snabb med attrapper, fixerad på nivå 14"
 
-#: src/nibbles-window.cpp:1604
+#: src/nibbles-window.cpp:1669
 msgid "Medium with fakes, fixed on level 14"
 msgstr "Mellan med attrapper, fixerad på nivå 14"
 
-#: src/nibbles-window.cpp:1605
+#: src/nibbles-window.cpp:1670
 msgid "Slow with fakes, fixed on level 14"
 msgstr "Långsam med attrapper, fixerad på nivå 14"
 
-#: src/nibbles-window.cpp:1606
+#: src/nibbles-window.cpp:1671
 msgid "Beginner with fakes, fixed on level 14"
 msgstr "Nybörjare med attrapper, fixerad på nivå 14"
 
-#: src/nibbles-window.cpp:1607
+#: src/nibbles-window.cpp:1672
 msgid "Fast fixed on level 15"
 msgstr "Snabb, fixerad på nivå 15"
 
-#: src/nibbles-window.cpp:1608
+#: src/nibbles-window.cpp:1673
 msgid "Medium fixed on level 15"
 msgstr "Mellan, fixerad på nivå 15"
 
-#: src/nibbles-window.cpp:1609
+#: src/nibbles-window.cpp:1674
 msgid "Slow fixed on level 15"
 msgstr "Långsam, fixerad på nivå 15"
 
-#: src/nibbles-window.cpp:1610
+#: src/nibbles-window.cpp:1675
 msgid "Beginner fixed on level 15"
 msgstr "Nybörjare, fixerad på nivå 15"
 
-#: src/nibbles-window.cpp:1611
+#: src/nibbles-window.cpp:1676
 msgid "Fast with fakes, fixed on level 15"
 msgstr "Snabb med attrapper, fixerad på nivå 15"
 
-#: src/nibbles-window.cpp:1612
+#: src/nibbles-window.cpp:1677
 msgid "Medium with fakes, fixed on level 15"
 msgstr "Mellan med attrapper, fixerad på nivå 15"
 
-#: src/nibbles-window.cpp:1613
+#: src/nibbles-window.cpp:1678
 msgid "Slow with fakes, fixed on level 15"
 msgstr "Långsam med attrapper, fixerad på nivå 15"
 
-#: src/nibbles-window.cpp:1614
+#: src/nibbles-window.cpp:1679
 msgid "Beginner with fakes, fixed on level 15"
 msgstr "Nybörjare med attrapper, fixerad på nivå 15"
 
-#: src/nibbles-window.cpp:1615
+#: src/nibbles-window.cpp:1680
 msgid "Fast fixed on level 16"
 msgstr "Snabb, fixerad på nivå 16"
 
-#: src/nibbles-window.cpp:1616
+#: src/nibbles-window.cpp:1681
 msgid "Medium fixed on level 16"
 msgstr "Mellan, fixerad på nivå 16"
 
-#: src/nibbles-window.cpp:1617
+#: src/nibbles-window.cpp:1682
 msgid "Slow fixed on level 16"
 msgstr "Långsam, fixerad på nivå 16"
 
-#: src/nibbles-window.cpp:1618
+#: src/nibbles-window.cpp:1683
 msgid "Beginner fixed on level 16"
 msgstr "Nybörjare, fixerad på nivå 16"
 
-#: src/nibbles-window.cpp:1619
+#: src/nibbles-window.cpp:1684
 msgid "Fast with fakes, fixed on level 16"
 msgstr "Snabb med attrapper, fixerad på nivå 16"
 
-#: src/nibbles-window.cpp:1620
+#: src/nibbles-window.cpp:1685
 msgid "Medium with fakes, fixed on level 16"
 msgstr "Mellan med attrapper, fixerad på nivå 16"
 
-#: src/nibbles-window.cpp:1621
+#: src/nibbles-window.cpp:1686
 msgid "Slow with fakes, fixed on level 16"
 msgstr "Långsam med attrapper, fixerad på nivå 16"
 
-#: src/nibbles-window.cpp:1622
+#: src/nibbles-window.cpp:1687
 msgid "Beginner with fakes, fixed on level 16"
 msgstr "Nybörjare med attrapper, fixerad på nivå 16"
 
-#: src/nibbles-window.cpp:1623
+#: src/nibbles-window.cpp:1688
 msgid "Fast fixed on level 17"
 msgstr "Snabb, fixerad på nivå 17"
 
-#: src/nibbles-window.cpp:1624
+#: src/nibbles-window.cpp:1689
 msgid "Medium fixed on level 17"
 msgstr "Mellan, fixerad på nivå 17"
 
-#: src/nibbles-window.cpp:1625
+#: src/nibbles-window.cpp:1690
 msgid "Slow fixed on level 17"
 msgstr "Långsam, fixerad på nivå 17"
 
-#: src/nibbles-window.cpp:1626
+#: src/nibbles-window.cpp:1691
 msgid "Beginner fixed on level 17"
 msgstr "Nybörjare, fixerad på nivå 17"
 
-#: src/nibbles-window.cpp:1627
+#: src/nibbles-window.cpp:1692
 msgid "Fast with fakes, fixed on level 17"
 msgstr "Snabb med attrapper, fixerad på nivå 17"
 
-#: src/nibbles-window.cpp:1628
+#: src/nibbles-window.cpp:1693
 msgid "Medium with fakes, fixed on level 17"
 msgstr "Mellan med attrapper, fixerad på nivå 17"
 
-#: src/nibbles-window.cpp:1629
+#: src/nibbles-window.cpp:1694
 msgid "Slow with fakes, fixed on level 17"
 msgstr "Långsam med attrapper, fixerad på nivå 17"
 
-#: src/nibbles-window.cpp:1630
+#: src/nibbles-window.cpp:1695
 msgid "Beginner with fakes, fixed on level 17"
 msgstr "Nybörjare med attrapper, fixerad på nivå 17"
 
-#: src/nibbles-window.cpp:1631
+#: src/nibbles-window.cpp:1696
 msgid "Fast fixed on level 18"
 msgstr "Snabb, fixerad på nivå 18"
 
-#: src/nibbles-window.cpp:1632
+#: src/nibbles-window.cpp:1697
 msgid "Medium fixed on level 18"
 msgstr "Mellan, fixerad på nivå 18"
 
-#: src/nibbles-window.cpp:1633
+#: src/nibbles-window.cpp:1698
 msgid "Slow fixed on level 18"
 msgstr "Långsam, fixerad på nivå 18"
 
-#: src/nibbles-window.cpp:1634
+#: src/nibbles-window.cpp:1699
 msgid "Beginner fixed on level 18"
 msgstr "Nybörjare, fixerad på nivå 18"
 
-#: src/nibbles-window.cpp:1635
+#: src/nibbles-window.cpp:1700
 msgid "Fast with fakes, fixed on level 18"
 msgstr "Snabb med attrapper, fixerad på nivå 18"
 
-#: src/nibbles-window.cpp:1636
+#: src/nibbles-window.cpp:1701
 msgid "Medium with fakes, fixed on level 18"
 msgstr "Mellan med attrapper, fixerad på nivå 18"
 
-#: src/nibbles-window.cpp:1637
+#: src/nibbles-window.cpp:1702
 msgid "Slow with fakes, fixed on level 18"
 msgstr "Långsam med attrapper, fixerad på nivå 18"
 
-#: src/nibbles-window.cpp:1638
+#: src/nibbles-window.cpp:1703
 msgid "Beginner with fakes, fixed on level 18"
 msgstr "Nybörjare med attrapper, fixerad på nivå 18"
 
-#: src/nibbles-window.cpp:1639
+#: src/nibbles-window.cpp:1704
 msgid "Fast fixed on level 19"
 msgstr "Snabb, fixerad på nivå 19"
 
-#: src/nibbles-window.cpp:1640
+#: src/nibbles-window.cpp:1705
 msgid "Medium fixed on level 19"
 msgstr "Mellan, fixerad på nivå 19"
 
-#: src/nibbles-window.cpp:1641
+#: src/nibbles-window.cpp:1706
 msgid "Slow fixed on level 19"
 msgstr "Långsam, fixerad på nivå 19"
 
-#: src/nibbles-window.cpp:1642
+#: src/nibbles-window.cpp:1707
 msgid "Beginner fixed on level 19"
 msgstr "Nybörjare, fixerad på nivå 19"
 
-#: src/nibbles-window.cpp:1643
+#: src/nibbles-window.cpp:1708
 msgid "Fast with fakes, fixed on level 19"
 msgstr "Snabb med attrapper, fixerad på nivå 19"
 
-#: src/nibbles-window.cpp:1644
+#: src/nibbles-window.cpp:1709
 msgid "Medium with fakes, fixed on level 19"
 msgstr "Mellan med attrapper, fixerad på nivå 19"
 
-#: src/nibbles-window.cpp:1645
+#: src/nibbles-window.cpp:1710
 msgid "Slow with fakes, fixed on level 19"
 msgstr "Långsam med attrapper, fixerad på nivå 19"
 
-#: src/nibbles-window.cpp:1646
+#: src/nibbles-window.cpp:1711
 msgid "Beginner with fakes, fixed on level 19"
 msgstr "Nybörjare med attrapper, fixerad på nivå 19"
 
-#: src/nibbles-window.cpp:1647
+#: src/nibbles-window.cpp:1712
 msgid "Fast fixed on level 20"
 msgstr "Snabb, fixerad på nivå 20"
 
-#: src/nibbles-window.cpp:1648
+#: src/nibbles-window.cpp:1713
 msgid "Medium fixed on level 20"
 msgstr "Mellan, fixerad på nivå 20"
 
-#: src/nibbles-window.cpp:1649
+#: src/nibbles-window.cpp:1714
 msgid "Slow fixed on level 20"
 msgstr "Långsam, fixerad på nivå 20"
 
-#: src/nibbles-window.cpp:1650
+#: src/nibbles-window.cpp:1715
 msgid "Beginner fixed on level 20"
 msgstr "Nybörjare, fixerad på nivå 20"
 
-#: src/nibbles-window.cpp:1651
+#: src/nibbles-window.cpp:1716
 msgid "Fast with fakes, fixed on level 20"
 msgstr "Snabb med attrapper, fixerad på nivå 20"
 
-#: src/nibbles-window.cpp:1652
+#: src/nibbles-window.cpp:1717
 msgid "Medium with fakes, fixed on level 20"
 msgstr "Mellan med attrapper, fixerad på nivå 20"
 
-#: src/nibbles-window.cpp:1653
+#: src/nibbles-window.cpp:1718
 msgid "Slow with fakes, fixed on level 20"
 msgstr "Långsam med attrapper, fixerad på nivå 20"
 
-#: src/nibbles-window.cpp:1654
+#: src/nibbles-window.cpp:1719
 msgid "Beginner with fakes, fixed on level 20"
 msgstr "Nybörjare med attrapper, fixerad på nivå 20"
 
-#: src/nibbles-window.cpp:1655
+#: src/nibbles-window.cpp:1720
 msgid "Fast fixed on level 21"
 msgstr "Snabb, fixerad på nivå 21"
 
-#: src/nibbles-window.cpp:1656
+#: src/nibbles-window.cpp:1721
 msgid "Medium fixed on level 21"
 msgstr "Mellan, fixerad på nivå 21"
 
-#: src/nibbles-window.cpp:1657
+#: src/nibbles-window.cpp:1722
 msgid "Slow fixed on level 21"
 msgstr "Långsam, fixerad på nivå 21"
 
-#: src/nibbles-window.cpp:1658
+#: src/nibbles-window.cpp:1723
 msgid "Beginner fixed on level 21"
 msgstr "Nybörjare, fixerad på nivå 21"
 
-#: src/nibbles-window.cpp:1659
+#: src/nibbles-window.cpp:1724
 msgid "Fast with fakes, fixed on level 21"
 msgstr "Snabb med attrapper, fixerad på nivå 21"
 
-#: src/nibbles-window.cpp:1660
+#: src/nibbles-window.cpp:1725
 msgid "Medium with fakes, fixed on level 21"
 msgstr "Mellan med attrapper, fixerad på nivå 21"
 
-#: src/nibbles-window.cpp:1661
+#: src/nibbles-window.cpp:1726
 msgid "Slow with fakes, fixed on level 21"
 msgstr "Långsam med attrapper, fixerad på nivå 21"
 
-#: src/nibbles-window.cpp:1662
+#: src/nibbles-window.cpp:1727
 msgid "Beginner with fakes, fixed on level 21"
 msgstr "Nybörjare med attrapper, fixerad på nivå 21"
 
-#: src/nibbles-window.cpp:1663
+#: src/nibbles-window.cpp:1728
 msgid "Fast fixed on level 22"
 msgstr "Snabb, fixerad på nivå 22"
 
-#: src/nibbles-window.cpp:1664
+#: src/nibbles-window.cpp:1729
 msgid "Medium fixed on level 22"
 msgstr "Mellan, fixerad på nivå 22"
 
-#: src/nibbles-window.cpp:1665
+#: src/nibbles-window.cpp:1730
 msgid "Slow fixed on level 22"
 msgstr "Långsam, fixerad på nivå 22"
 
-#: src/nibbles-window.cpp:1666
+#: src/nibbles-window.cpp:1731
 msgid "Beginner fixed on level 22"
 msgstr "Nybörjare, fixerad på nivå 22"
 
-#: src/nibbles-window.cpp:1667
+#: src/nibbles-window.cpp:1732
 msgid "Fast with fakes, fixed on level 22"
 msgstr "Snabb med attrapper, fixerad på nivå 22"
 
-#: src/nibbles-window.cpp:1668
+#: src/nibbles-window.cpp:1733
 msgid "Medium with fakes, fixed on level 22"
 msgstr "Mellan med attrapper, fixerad på nivå 22"
 
-#: src/nibbles-window.cpp:1669
+#: src/nibbles-window.cpp:1734
 msgid "Slow with fakes, fixed on level 22"
 msgstr "Långsam med attrapper, fixerad på nivå 22"
 
-#: src/nibbles-window.cpp:1670
+#: src/nibbles-window.cpp:1735
 msgid "Beginner with fakes, fixed on level 22"
 msgstr "Nybörjare med attrapper, fixerad på nivå 22"
 
-#: src/nibbles-window.cpp:1671
+#: src/nibbles-window.cpp:1736
 msgid "Fast fixed on level 23"
 msgstr "Snabb, fixerad på nivå 23"
 
-#: src/nibbles-window.cpp:1672
+#: src/nibbles-window.cpp:1737
 msgid "Medium fixed on level 23"
 msgstr "Mellan, fixerad på nivå 23"
 
-#: src/nibbles-window.cpp:1673
+#: src/nibbles-window.cpp:1738
 msgid "Slow fixed on level 23"
 msgstr "Långsam, fixerad på nivå 23"
 
-#: src/nibbles-window.cpp:1674
+#: src/nibbles-window.cpp:1739
 msgid "Beginner fixed on level 23"
 msgstr "Nybörjare, fixerad på nivå 23"
 
-#: src/nibbles-window.cpp:1675
+#: src/nibbles-window.cpp:1740
 msgid "Fast with fakes, fixed on level 23"
 msgstr "Snabb med attrapper, fixerad på nivå 23"
 
-#: src/nibbles-window.cpp:1676
+#: src/nibbles-window.cpp:1741
 msgid "Medium with fakes, fixed on level 23"
 msgstr "Mellan med attrapper, fixerad på nivå 23"
 
-#: src/nibbles-window.cpp:1677
+#: src/nibbles-window.cpp:1742
 msgid "Slow with fakes, fixed on level 23"
 msgstr "Långsam med attrapper, fixerad på nivå 23"
 
-#: src/nibbles-window.cpp:1678
+#: src/nibbles-window.cpp:1743
 msgid "Beginner with fakes, fixed on level 23"
 msgstr "Nybörjare med attrapper, fixerad på nivå 23"
 
-#: src/nibbles-window.cpp:1679
+#: src/nibbles-window.cpp:1744
 msgid "Fast fixed on level 24"
 msgstr "Snabb, fixerad på nivå 24"
 
-#: src/nibbles-window.cpp:1680
+#: src/nibbles-window.cpp:1745
 msgid "Medium fixed on level 24"
 msgstr "Mellan, fixerad på nivå 24"
 
-#: src/nibbles-window.cpp:1681
+#: src/nibbles-window.cpp:1746
 msgid "Slow fixed on level 24"
 msgstr "Långsam, fixerad på nivå 24"
 
-#: src/nibbles-window.cpp:1682
+#: src/nibbles-window.cpp:1747
 msgid "Beginner fixed on level 24"
 msgstr "Nybörjare, fixerad på nivå 24"
 
-#: src/nibbles-window.cpp:1683
+#: src/nibbles-window.cpp:1748
 msgid "Fast with fakes, fixed on level 24"
 msgstr "Snabb med attrapper, fixerad på nivå 24"
 
-#: src/nibbles-window.cpp:1684
+#: src/nibbles-window.cpp:1749
 msgid "Medium with fakes, fixed on level 24"
 msgstr "Mellan med attrapper, fixerad på nivå 24"
 
-#: src/nibbles-window.cpp:1685
+#: src/nibbles-window.cpp:1750
 msgid "Slow with fakes, fixed on level 24"
 msgstr "Långsam med attrapper, fixerad på nivå 24"
 
-#: src/nibbles-window.cpp:1686
+#: src/nibbles-window.cpp:1751
 msgid "Beginner with fakes, fixed on level 24"
 msgstr "Nybörjare med attrapper, fixerad på nivå 24"
 
-#: src/nibbles-window.cpp:1687
+#: src/nibbles-window.cpp:1752
 msgid "Fast fixed on level 25"
 msgstr "Snabb, fixerad på nivå 25"
 
-#: src/nibbles-window.cpp:1688
+#: src/nibbles-window.cpp:1753
 msgid "Medium fixed on level 25"
 msgstr "Mellan, fixerad på nivå 25"
 
-#: src/nibbles-window.cpp:1689
+#: src/nibbles-window.cpp:1754
 msgid "Slow fixed on level 25"
 msgstr "Långsam, fixerad på nivå 25"
 
-#: src/nibbles-window.cpp:1690
+#: src/nibbles-window.cpp:1755
 msgid "Beginner fixed on level 25"
 msgstr "Nybörjare, fixerad på nivå 25"
 
-#: src/nibbles-window.cpp:1691
+#: src/nibbles-window.cpp:1756
 msgid "Fast with fakes, fixed on level 25"
 msgstr "Snabb med attrapper, fixerad på nivå 25"
 
-#: src/nibbles-window.cpp:1692
+#: src/nibbles-window.cpp:1757
 msgid "Medium with fakes, fixed on level 25"
 msgstr "Mellan med attrapper, fixerad på nivå 25"
 
-#: src/nibbles-window.cpp:1693
+#: src/nibbles-window.cpp:1758
 msgid "Slow with fakes, fixed on level 25"
 msgstr "Långsam med attrapper, fixerad på nivå 25"
 
-#: src/nibbles-window.cpp:1694
+#: src/nibbles-window.cpp:1759
 msgid "Beginner with fakes, fixed on level 25"
 msgstr "Nybörjare med attrapper, fixerad på nivå 25"
 
-#: src/nibbles-window.cpp:1695
+#: src/nibbles-window.cpp:1760
 msgid "Fast fixed on level 26"
 msgstr "Snabb, fixerad på nivå 26"
 
-#: src/nibbles-window.cpp:1696
+#: src/nibbles-window.cpp:1761
 msgid "Medium fixed on level 26"
 msgstr "Mellan, fixerad på nivå 26"
 
-#: src/nibbles-window.cpp:1697
+#: src/nibbles-window.cpp:1762
 msgid "Slow fixed on level 26"
 msgstr "Långsam, fixerad på nivå 26"
 
-#: src/nibbles-window.cpp:1698
+#: src/nibbles-window.cpp:1763
 msgid "Beginner fixed on level 26"
 msgstr "Nybörjare, fixerad på nivå 26"
 
-#: src/nibbles-window.cpp:1699
+#: src/nibbles-window.cpp:1764
 msgid "Fast with fakes, fixed on level 26"
 msgstr "Snabb med attrapper, fixerad på nivå 26"
 
-#: src/nibbles-window.cpp:1700
+#: src/nibbles-window.cpp:1765
 msgid "Medium with fakes, fixed on level 26"
 msgstr "Mellan med attrapper, fixerad på nivå 26"
 
-#: src/nibbles-window.cpp:1701
+#: src/nibbles-window.cpp:1766
 msgid "Slow with fakes, fixed on level 26"
 msgstr "Långsam med attrapper, fixerad på nivå 26"
 
-#: src/nibbles-window.cpp:1702
+#: src/nibbles-window.cpp:1767
 msgid "Beginner with fakes, fixed on level 26"
 msgstr "Nybörjare med attrapper, fixerad på nivå 26"
 
-#: src/nibbles-window.cpp:1703
+#: src/nibbles-window.cpp:1768
 msgid "Fast fixed on level 27"
 msgstr "Snabb, fixerad på nivå 27"
 
-#: src/nibbles-window.cpp:1704
+#: src/nibbles-window.cpp:1769
 msgid "Medium fixed on level 27"
 msgstr "Mellan, fixerad på nivå 27"
 
-#: src/nibbles-window.cpp:1705
+#: src/nibbles-window.cpp:1770
 msgid "Slow fixed on level 27"
 msgstr "Långsam, fixerad på nivå 27"
 
-#: src/nibbles-window.cpp:1706
+#: src/nibbles-window.cpp:1771
 msgid "Beginner fixed on level 27"
 msgstr "Nybörjare, fixerad på nivå 27"
 
-#: src/nibbles-window.cpp:1707
+#: src/nibbles-window.cpp:1772
 msgid "Fast with fakes, fixed on level 27"
 msgstr "Snabb med attrapper, fixerad på nivå 27"
 
-#: src/nibbles-window.cpp:1708
+#: src/nibbles-window.cpp:1773
 msgid "Medium with fakes, fixed on level 27"
 msgstr "Mellan med attrapper, fixerad på nivå 27"
 
-#: src/nibbles-window.cpp:1709
+#: src/nibbles-window.cpp:1774
 msgid "Slow with fakes, fixed on level 27"
 msgstr "Långsam med attrapper, fixerad på nivå 27"
 
-#: src/nibbles-window.cpp:1710
+#: src/nibbles-window.cpp:1775
 msgid "Beginner with fakes, fixed on level 27"
 msgstr "Nybörjare med attrapper, fixerad på nivå 27"
 
-#: src/nibbles-window.cpp:1711
+#: src/nibbles-window.cpp:1776
 msgid "Fast fixed on level 28"
 msgstr "Snabb, fixerad på nivå 28"
 
-#: src/nibbles-window.cpp:1712
+#: src/nibbles-window.cpp:1777
 msgid "Medium fixed on level 28"
 msgstr "Mellan, fixerad på nivå 28"
 
-#: src/nibbles-window.cpp:1713
+#: src/nibbles-window.cpp:1778
 msgid "Slow fixed on level 28"
 msgstr "Långsam, fixerad på nivå 28"
 
-#: src/nibbles-window.cpp:1714
+#: src/nibbles-window.cpp:1779
 msgid "Beginner fixed on level 28"
 msgstr "Nybörjare, fixerad på nivå 28"
 
-#: src/nibbles-window.cpp:1715
+#: src/nibbles-window.cpp:1780
 msgid "Fast with fakes, fixed on level 28"
 msgstr "Snabb med attrapper, fixerad på nivå 28"
 
-#: src/nibbles-window.cpp:1716
+#: src/nibbles-window.cpp:1781
 msgid "Medium with fakes, fixed on level 28"
 msgstr "Mellan med attrapper, fixerad på nivå 28"
 
-#: src/nibbles-window.cpp:1717
+#: src/nibbles-window.cpp:1782
 msgid "Slow with fakes, fixed on level 28"
 msgstr "Långsam med attrapper, fixerad på nivå 28"
 
-#: src/nibbles-window.cpp:1718
+#: src/nibbles-window.cpp:1783
 msgid "Beginner with fakes, fixed on level 28"
 msgstr "Nybörjare med attrapper, fixerad på nivå 28"
 
-#: src/nibbles-window.cpp:1719
+#: src/nibbles-window.cpp:1784
 msgid "Fast fixed on level 29"
 msgstr "Snabb, fixerad på nivå 29"
 
-#: src/nibbles-window.cpp:1720
+#: src/nibbles-window.cpp:1785
 msgid "Medium fixed on level 29"
 msgstr "Mellan, fixerad på nivå 29"
 
-#: src/nibbles-window.cpp:1721
+#: src/nibbles-window.cpp:1786
 msgid "Slow fixed on level 29"
 msgstr "Långsam, fixerad på nivå 29"
 
-#: src/nibbles-window.cpp:1722
+#: src/nibbles-window.cpp:1787
 msgid "Beginner fixed on level 29"
 msgstr "Nybörjare, fixerad på nivå 29"
 
-#: src/nibbles-window.cpp:1723
+#: src/nibbles-window.cpp:1788
 msgid "Fast with fakes, fixed on level 29"
 msgstr "Snabb med attrapper, fixerad på nivå 29"
 
-#: src/nibbles-window.cpp:1724
+#: src/nibbles-window.cpp:1789
 msgid "Medium with fakes, fixed on level 29"
 msgstr "Mellan med attrapper, fixerad på nivå 29"
 
-#: src/nibbles-window.cpp:1725
+#: src/nibbles-window.cpp:1790
 msgid "Slow with fakes, fixed on level 29"
 msgstr "Långsam med attrapper, fixerad på nivå 29"
 
-#: src/nibbles-window.cpp:1726
+#: src/nibbles-window.cpp:1791
 msgid "Beginner with fakes, fixed on level 29"
 msgstr "Nybörjare med attrapper, fixerad på nivå 29"
 
-#: src/nibbles-window.cpp:1727
+#: src/nibbles-window.cpp:1792
 msgid "Fast fixed on level 30"
 msgstr "Snabb, fixerad på nivå 30"
 
-#: src/nibbles-window.cpp:1728
+#: src/nibbles-window.cpp:1793
 msgid "Medium fixed on level 30"
 msgstr "Mellan, fixerad på nivå 30"
 
-#: src/nibbles-window.cpp:1729
+#: src/nibbles-window.cpp:1794
 msgid "Slow fixed on level 30"
 msgstr "Långsam, fixerad på nivå 30"
 
-#: src/nibbles-window.cpp:1730
+#: src/nibbles-window.cpp:1795
 msgid "Beginner fixed on level 30"
 msgstr "Nybörjare, fixerad på nivå 30"
 
-#: src/nibbles-window.cpp:1731
+#: src/nibbles-window.cpp:1796
 msgid "Fast with fakes, fixed on level 30"
 msgstr "Snabb med attrapper, fixerad på nivå 30"
 
-#: src/nibbles-window.cpp:1732
+#: src/nibbles-window.cpp:1797
 msgid "Medium with fakes, fixed on level 30"
 msgstr "Mellan med attrapper, fixerad på nivå 30"
 
-#: src/nibbles-window.cpp:1733
+#: src/nibbles-window.cpp:1798
 msgid "Slow with fakes, fixed on level 30"
 msgstr "Långsam med attrapper, fixerad på nivå 30"
 
-#: src/nibbles-window.cpp:1734
+#: src/nibbles-window.cpp:1799
 msgid "Beginner with fakes, fixed on level 30"
 msgstr "Nybörjare med attrapper, fixerad på nivå 30"
 
-#: src/nibbles-window.cpp:1735
+#: src/nibbles-window.cpp:1800
 msgid "Fast with random levels"
 msgstr "Snabb med slumpmässiga nivåer"
 
-#: src/nibbles-window.cpp:1736
+#: src/nibbles-window.cpp:1801
 msgid "Medium with random levels"
 msgstr "Mellan med slumpmässiga nivåer"
 
-#: src/nibbles-window.cpp:1737
+#: src/nibbles-window.cpp:1802
 msgid "Slow with random levels"
 msgstr "Långsam med slumpmässiga nivåer"
 
-#: src/nibbles-window.cpp:1738
+#: src/nibbles-window.cpp:1803
 msgid "Beginner with random levels"
 msgstr "Nybörjare med slumpmässiga nivåer"
 
-#: src/nibbles-window.cpp:1739
+#: src/nibbles-window.cpp:1804
 msgid "Fast with fakes and random levels"
 msgstr "Snabb med attrapper och slumpmässiga nivåer"
 
-#: src/nibbles-window.cpp:1740
+#: src/nibbles-window.cpp:1805
 msgid "Medium with fakes and random levels"
 msgstr "Mellan med attrapper och slumpmässiga nivåer"
 
-#: src/nibbles-window.cpp:1741
+#: src/nibbles-window.cpp:1806
 msgid "Slow with fakes and random levels"
 msgstr "Långsam med attrapper och slumpmässiga nivåer"
 
-#: src/nibbles-window.cpp:1742
+#: src/nibbles-window.cpp:1807
 msgid "Beginner with fakes and random levels"
 msgstr "Nybörjare med attrapper och slumpmässiga nivåer"
 
 #. Translators: text displayed at the top of the first column in the high scores dialogue
-#: src/nibbles-window.cpp:1777
+#: src/nibbles-window.cpp:1843
 msgid "Rank"
 msgstr "Placering"
 
 #. Translators: text displayed at the top of the second column in the high scores dialogue
-#: src/nibbles-window.cpp:1795
+#: src/nibbles-window.cpp:1861
 msgid "Score"
 msgstr "Poäng"
 
 #. Translators: text displayed at the top of the third column in the high scores dialogue
-#: src/nibbles-window.cpp:1813
+#: src/nibbles-window.cpp:1879
 msgid "Player"
 msgstr "Spelare"
 
 #. Translators: first line of congratulations message for compleating the game
-#: src/view.cpp:295 src/view.cpp:374
+#: src/view.cpp:313 src/view.cpp:393
 msgid "Congratulations"
 msgstr "Gratulerar"
 
 #. Translators: second line of congratulations message for compleating the game
-#: src/view.cpp:298
+#: src/view.cpp:316
 msgid "You have completed every level!"
 msgstr "Du har klarat alla nivåer!"
 
 #. Translators: button to press to finish the game
-#: src/view.cpp:302 src/view.cpp:388
+#: src/view.cpp:320 src/view.cpp:407
 msgid "_Done"
 msgstr "_Färdig"
 
 #. Translators: button to press to move on to the next level of the game
-#: src/view.cpp:348
+#: src/view.cpp:366
 msgid "_Next Level"
 msgstr "_Nästa nivå"
 
 #. Translators: second line of congratulations message for compleating the game
-#: src/view.cpp:377
+#: src/view.cpp:396
 msgid "You have defeated every enemy worm!"
 msgstr "Du har besegrat alla fiendemaskar!"
 
 #. Translators: game over message
-#: src/view.cpp:384
+#: src/view.cpp:403
 msgid "Game Over"
 msgstr "Spelet är slut"
 
 #. Translators: the first worm's name.
-#: src/view.cpp:429
+#: src/view.cpp:448
 msgid "Worm 1"
 msgstr "Mask 1"
 
 #. Translators: the seconds worm's name.
-#: src/view.cpp:433
+#: src/view.cpp:452
 msgid "Worm 2"
 msgstr "Mask 2"
 
 #. Translators: the third worm's name.
-#: src/view.cpp:437
+#: src/view.cpp:456
 msgid "Worm 3"
 msgstr "Mask 3"
 
 #. Translators: the fourth worm's name.
-#: src/view.cpp:441
+#: src/view.cpp:460
 msgid "Worm 4"
 msgstr "Mask 4"
 
 #. Translators: the fifth worm's name.
-#: src/view.cpp:445
+#: src/view.cpp:464
 msgid "Worm 5"
 msgstr "Mask 5"
 
 #. Translators: the sixth worm's name.
-#: src/view.cpp:449
+#: src/view.cpp:468
 msgid "Worm 6"
 msgstr "Mask 6"
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:468
+#: src/view.cpp:487
 msgid "Level one completed."
 msgstr "Nivå 1 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:471
+#: src/view.cpp:490
 msgid "Level two completed."
 msgstr "Nivå 2 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:474
+#: src/view.cpp:493
 msgid "Level three completed."
 msgstr "Nivå 3 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:477
+#: src/view.cpp:496
 msgid "Level four completed."
 msgstr "Nivå 4 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:480
+#: src/view.cpp:499
 msgid "Level five completed."
 msgstr "Nivå 5 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:483
+#: src/view.cpp:502
 msgid "Level six completed."
 msgstr "Nivå 6 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:486
+#: src/view.cpp:505
 msgid "Level seven completed."
 msgstr "Nivå 7 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:489
+#: src/view.cpp:508
 msgid "Level eight completed."
 msgstr "Nivå 8 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:492
+#: src/view.cpp:511
 msgid "Level nine completed."
 msgstr "Nivå 9 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:495
+#: src/view.cpp:514
 msgid "Level ten completed."
 msgstr "Nivå 10 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:498
+#: src/view.cpp:517
 msgid "Level eleven completed."
 msgstr "Nivå 11 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:501
+#: src/view.cpp:520
 msgid "Level twelve completed."
 msgstr "Nivå 12 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:504
+#: src/view.cpp:523
 msgid "Level thirteen completed."
 msgstr "Nivå 13 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:507
+#: src/view.cpp:526
 msgid "Level fourteen completed."
 msgstr "Nivå 14 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:510
+#: src/view.cpp:529
 msgid "Level fifteen completed."
 msgstr "Nivå 15 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:513
+#: src/view.cpp:532
 msgid "Level sixteen completed."
 msgstr "Nivå 16 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:516
+#: src/view.cpp:535
 msgid "Level seventeen completed."
 msgstr "Nivå 17 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:519
+#: src/view.cpp:538
 msgid "Level eighteen completed."
 msgstr "Nivå 18 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:522
+#: src/view.cpp:541
 msgid "Level nineteen completed."
 msgstr "Nivå 19 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:525
+#: src/view.cpp:544
 msgid "Level twenty completed."
 msgstr "Nivå 20 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:528
+#: src/view.cpp:547
 msgid "Level twenty one completed."
 msgstr "Nivå 21 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:531
+#: src/view.cpp:550
 msgid "Level twenty two completed."
 msgstr "Nivå 22 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:534
+#: src/view.cpp:553
 msgid "Level twenty three completed."
 msgstr "Nivå 23 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:537
+#: src/view.cpp:556
 msgid "Level twenty four completed."
 msgstr "Nivå 24 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:540
+#: src/view.cpp:559
 msgid "Level twenty five completed."
 msgstr "Nivå 25 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:543
+#: src/view.cpp:562
 msgid "Level twenty six completed."
 msgstr "Nivå 26 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:546
+#: src/view.cpp:565
 msgid "Level twenty seven completed."
 msgstr "Nivå 27 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:549
+#: src/view.cpp:568
 msgid "Level twenty eight completed."
 msgstr "Nivå 28 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:552
+#: src/view.cpp:571
 msgid "Level twenty nine completed."
 msgstr "Nivå 29 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:555
+#: src/view.cpp:574
 msgid "Level thirty completed."
 msgstr "Nivå 30 slutförd."
 
 #. Translators: information message indicating the completion of a level
-#: src/view.cpp:558
+#: src/view.cpp:577
 msgid "Unknown level completed."
 msgstr "Okänd nivå slutförd."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:568
+#: src/view.cpp:587
 msgid "The next level is level one."
 msgstr "Nästa nivå är nivå 1."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:571
+#: src/view.cpp:590
 msgid "The next level is level two."
 msgstr "Nästa nivå är nivå 2."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:574
+#: src/view.cpp:593
 msgid "The next level is level three."
 msgstr "Nästa nivå är nivå 3."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:577
+#: src/view.cpp:596
 msgid "The next level is level four."
 msgstr "Nästa nivå är nivå 4."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:580
+#: src/view.cpp:599
 msgid "The next level is level five."
 msgstr "Nästa nivå är nivå 5."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:583
+#: src/view.cpp:602
 msgid "The next level is level six."
 msgstr "Nästa nivå är nivå 6."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:586
+#: src/view.cpp:605
 msgid "The next level is level seven."
 msgstr "Nästa nivå är nivå 7."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:589
+#: src/view.cpp:608
 msgid "The next level is level eight."
 msgstr "Nästa nivå är nivå 8."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:592
+#: src/view.cpp:611
 msgid "The next level is level nine."
 msgstr "Nästa nivå är nivå 9."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:595
+#: src/view.cpp:614
 msgid "The next level is level ten."
 msgstr "Nästa nivå är nivå 10."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:598
+#: src/view.cpp:617
 msgid "The next level is level eleven."
 msgstr "Nästa nivå är nivå 11."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:601
+#: src/view.cpp:620
 msgid "The next level is level twelve."
 msgstr "Nästa nivå är nivå 12."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:604
+#: src/view.cpp:623
 msgid "The next level is level thirteen."
 msgstr "Nästa nivå är nivå 13."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:607
+#: src/view.cpp:626
 msgid "The next level is level fourteen."
 msgstr "Nästa nivå är nivå 14."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:610
+#: src/view.cpp:629
 msgid "The next level is level fifteen."
 msgstr "Nästa nivå är nivå 15."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:613
+#: src/view.cpp:632
 msgid "The next level is level sixteen."
 msgstr "Nästa nivå är nivå 16."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:616
+#: src/view.cpp:635
 msgid "The next level is level seventeen."
 msgstr "Nästa nivå är nivå 17."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:619
+#: src/view.cpp:638
 msgid "The next level is level eighteen."
 msgstr "Nästa nivå är nivå 18."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:622
+#: src/view.cpp:641
 msgid "The next level is level nineteen."
 msgstr "Nästa nivå är nivå 19."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:625
+#: src/view.cpp:644
 msgid "The next level is level twenty."
 msgstr "Nästa nivå är nivå 20."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:628
+#: src/view.cpp:647
 msgid "The next level is level twenty one."
 msgstr "Nästa nivå är nivå 21."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:631
+#: src/view.cpp:650
 msgid "The next level is level twenty two."
 msgstr "Nästa nivå är nivå 22."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:634
+#: src/view.cpp:653
 msgid "The next level is level twenty three."
 msgstr "Nästa nivå är nivå 23."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:637
+#: src/view.cpp:656
 msgid "The next level is level twenty four."
 msgstr "Nästa nivå är nivå 24."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:640
+#: src/view.cpp:659
 msgid "The next level is level twenty five."
 msgstr "Nästa nivå är nivå 25."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:643
+#: src/view.cpp:662
 msgid "The next level is level twenty six."
 msgstr "Nästa nivå är nivå 26."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:646
+#: src/view.cpp:665
 msgid "The next level is level twenty seven."
 msgstr "Nästa nivå är nivå 27."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:649
+#: src/view.cpp:668
 msgid "The next level is level twenty eight."
 msgstr "Nästa nivå är nivå 28."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:652
+#: src/view.cpp:671
 msgid "The next level is level twenty nine."
 msgstr "Nästa nivå är nivå 29."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:655
+#: src/view.cpp:674
 msgid "The next level is level thirty."
 msgstr "Nästa nivå är nivå 30."
 
 #. Translators: information message indicating the next level in a random level game
-#: src/view.cpp:658
+#: src/view.cpp:677
 msgid "The next level is unknown."
 msgstr "Nästa nivå är okänd."
 
+#. Translators: information message describing the level
+#: src/view.cpp:687
+msgid "level one"
+msgstr "nivå 1"
+
+#. Translators: information message describing the level
+#: src/view.cpp:690
+msgid "level two"
+msgstr "nivå 2"
+
+#. Translators: information message describing the level
+#: src/view.cpp:693
+msgid "level three"
+msgstr "nivå 3"
+
+#. Translators: information message describing the level
+#: src/view.cpp:696
+msgid "level four"
+msgstr "nivå 4"
+
+#. Translators: information message describing the level
+#: src/view.cpp:699
+msgid "level five"
+msgstr "nivå 5"
+
+#. Translators: information message describing the level
+#: src/view.cpp:702
+msgid "level six"
+msgstr "nivå 6"
+
+#. Translators: information message describing the level
+#: src/view.cpp:705
+msgid "level seven"
+msgstr "nivå 7"
+
+#. Translators: information message describing the level
+#: src/view.cpp:708
+msgid "level eight"
+msgstr "nivå 8"
+
+#. Translators: information message describing the level
+#: src/view.cpp:711
+msgid "level nine"
+msgstr "nivå 9"
+
+#. Translators: information message describing the level
+#: src/view.cpp:714
+msgid "level ten"
+msgstr "nivå 10"
+
+#. Translators: information message describing the level
+#: src/view.cpp:717
+msgid "level eleven"
+msgstr "nivå 11"
+
+#. Translators: information message describing the level
+#: src/view.cpp:720
+msgid "level twelve"
+msgstr "nivå 12"
+
+#. Translators: information message describing the level
+#: src/view.cpp:723
+msgid "level thirteen"
+msgstr "nivå 13"
+
+#. Translators: information message describing the level
+#: src/view.cpp:726
+msgid "level fourteen"
+msgstr "nivå 14"
+
+#. Translators: information message describing the level
+#: src/view.cpp:729
+msgid "level fifteen"
+msgstr "nivå 15"
+
+#. Translators: information message describing the level
+#: src/view.cpp:732
+msgid "level sixteen"
+msgstr "nivå 16"
+
+#. Translators: information message describing the level
+#: src/view.cpp:735
+msgid "level seventeen"
+msgstr "nivå 17"
+
+#. Translators: information message describing the level
+#: src/view.cpp:738
+msgid "level eighteen"
+msgstr "nivå 18"
+
+#. Translators: information message describing the level
+#: src/view.cpp:741
+msgid "level nineteen"
+msgstr "nivå 19"
+
+#. Translators: information message describing the level
+#: src/view.cpp:744
+msgid "level twenty"
+msgstr "nivå 20"
+
+#. Translators: information message describing the level
+#: src/view.cpp:747
+msgid "level twenty one"
+msgstr "nivå 21"
+
+#. Translators: information message describing the level
+#: src/view.cpp:750
+msgid "level twenty two"
+msgstr "nivå 22"
+
+#. Translators: information message describing the level
+#: src/view.cpp:753
+msgid "level twenty three"
+msgstr "nivå 23"
+
+#. Translators: information message describing the level
+#: src/view.cpp:756
+msgid "level twenty four"
+msgstr "nivå 24"
+
+#. Translators: information message describing the level
+#: src/view.cpp:759
+msgid "level twenty five"
+msgstr "nivå 25"
+
+#. Translators: information message describing the level
+#: src/view.cpp:762
+msgid "level twenty six"
+msgstr "nivå 26"
+
+#. Translators: information message describing the level
+#: src/view.cpp:765
+msgid "level twenty seven"
+msgstr "nivå 27"
+
+#. Translators: information message describing the level
+#: src/view.cpp:768
+msgid "level twenty eight"
+msgstr "nivå 28"
+
+#. Translators: information message describing the level
+#: src/view.cpp:771
+msgid "level twenty nine"
+msgstr "nivå 29"
+
+#. Translators: information message describing the level
+#: src/view.cpp:774
+msgid "level thirty"
+msgstr "nivå 30"
+
+#. Translators: information message describing the level
+#: src/view.cpp:777
+msgid "unknown level"
+msgstr "okänd nivå"
+
 #. Translators: information message indicating 3 seconds until the start of play
-#: src/view.cpp:668
+#: src/view.cpp:787
 msgid "3"
 msgstr "3"
 
 #. Translators: information message indicating 2 seconds until the start of play
-#: src/view.cpp:671
+#: src/view.cpp:790
 msgid "2"
 msgstr "2"
 
 #. Translators: information message indicating 1 seconds until the start of play
-#: src/view.cpp:674
+#: src/view.cpp:793
 msgid "1"
 msgstr "1"
+
+#~ msgid "Paused"
+#~ msgstr "Pausad"
 
 #~ msgid "Are You Sure?"
 #~ msgstr "Är du säker?"
