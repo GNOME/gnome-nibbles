@@ -326,7 +326,7 @@ std::pair<long, Bonus::eType> Worm::ai_count_distance_to_a_bonus_in_direction(
 	Bonus::eType bonus_type = (Bonus::eType)(-1);
 
 	Slice slice;
-	for (Bonus b : bonuses)
+	for(const Bonus &b : bonuses)
 	{
 		if (bonus_type == Bonus::LIFE && b.type == Bonus::LIFE ||
 			bonus_type != Bonus::LIFE && (
