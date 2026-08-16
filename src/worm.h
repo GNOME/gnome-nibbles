@@ -789,6 +789,11 @@ private:
 				q.swap(swap);
 			}
 		}
+		void clear()
+		{
+			std::lock_guard<std::mutex> lock(mtx);
+			q={};
+		}
 	} direction_queue;
 public:
 	Worm(Game &game, uintsys current_level, bool human, eWormColour colour,
@@ -829,6 +834,8 @@ public:
 	}
 	void spawn(const std::vector<std::vector<unsigned char>> &board, Bonuses &bonuses, bool force_materialize=false)
 	{
+		if(is_human())
+			direction_queue.clear(); /* clear direction queue */
 		bonus_eaten.clear(); /* forget all the bonuses we have eaten */
 		positions.clear();
 		positions.append_position(start.position);
@@ -1132,7 +1139,7 @@ public:
 	{
 		return target_length;
 	}
-	auto is_human() const
+	bool is_human() const
 	{
 		return human;
 	}
