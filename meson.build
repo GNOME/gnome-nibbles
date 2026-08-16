@@ -18,28 +18,13 @@ podir      = join_paths(meson.project_source_root(), 'po')
 bindir     = join_paths(prefix, get_option ('bindir'))
 
 # Dependencies
-glib_target_version = '2.88.2' # tested with version 2.88.2
-target_glib = '--target-glib=' + '@0@'.format(glib_target_version)
-gettext_package = 'gnome-nibbles'
-
-#c = meson.get_compiler('c')
-
-glibmm_dep = dependency('glibmm-2.68')
-gtkmm = dependency('gtkmm-4.0')
-glib_dep = dependency('glib-2.0')
+pangomm_dep = dependency('pangomm-2.48', version: '>= 2.56.2')
+glibmm_dep = dependency('glibmm-2.68', version: '>= 2.88.1')
+gtkmm_dep = dependency('gtkmm-4.0')
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
-gtk_dep = dependency('gtk4', version: '>= 4.14') # needed for Gsk.PathBuilder()
-pango_dep = dependency('pango', version: '>= 1.8') # needed for Layout.get_font_description()
-
-# C compiler options
-c_compiler_options = []
-# Suppress all the C compiler warnings.
-#if c.has_argument('-w')
-#    c_compiler_options += '-w'
-#endif
 
 cpp = meson.get_compiler('cpp')
-cpp_if_defines = ['-Wno-narrowing','-Wno-parentheses','-Wno-sign-compare']
+cpp_compiler_options = ['-Wno-narrowing','-Wno-parentheses','-Wno-sign-compare']
 
 code0 = '''
 #include <gtkmm.h>
@@ -65,7 +50,7 @@ int main(int argc, char* argv[])
 	auto test=Gtk::make_managed<Box>();
 }
 '''
-code0_links = cpp.links(code0, dependencies: [gtkmm,glibmm_dep], name : 'Gsk::PathBuilder compiles and links?')
+code0_links = cpp.links(code0, dependencies: [gtkmm_dep,glibmm_dep], name : 'Gsk::PathBuilder compiles and links?')
 if not code0_links
 	error('Can not link with Gsk::PathBuilder (requires gtkmm-4.0 > 4.23.0)')
 endif
@@ -80,7 +65,7 @@ code1 = '''
     }'''
 code1_compiles = cpp.compiles(code1, name : 'int128_t?')
 if code1_compiles
-    cpp_if_defines += '-DCAN_USE_int128_t'
+    cpp_compiler_options += '-DCAN_USE_int128_t'
 endif
 
 code2 = '''
@@ -92,7 +77,7 @@ code2 = '''
     }'''
 code2_compiles = cpp.compiles(code2, name : '__int128?')
 if code2_compiles
-    cpp_if_defines += '-DCAN_USE___int128'
+    cpp_compiler_options += '-DCAN_USE___int128'
 endif
 
 code3 = '''
