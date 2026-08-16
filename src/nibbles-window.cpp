@@ -39,6 +39,7 @@
 #include <locale>
 #include <glib/gi18n.h>
 
+#include "system_integer.h"
 #include "definitions.h"
 #include "critical.h"
 #include "pseudo_random.h"
@@ -179,7 +180,7 @@ void NibblesWindow::get_text_offsets (const Glib::ustring &text, int font_size, 
 	y_offset = a.get_y() / Pango::SCALE;
 }
 /* get the worm's colour from the settings, unknown_colour_worm if no colour set */
-eWormColour get_worm_settings_colour(unsigned long worm_id)
+eWormColour get_worm_settings_colour(uintsys worm_id)
 {
 	if(worm_id>=0 && worm_id<6)
 	{
@@ -206,7 +207,7 @@ eWormColour get_worm_settings_colour(unsigned long worm_id)
 		return unknown_colour_worm;
 }
 /* write the worm's colour to settings */
-void set_worm_settings_colour(unsigned long worm_id,eWormColour colour)
+void set_worm_settings_colour(uintsys worm_id,eWormColour colour)
 {
 	if(worm_id>=0 && worm_id<6 && colour>=0 && colour<6)
 	{
@@ -579,10 +580,10 @@ void NibblesWindow::back_callback() /* escape key */
 }
 
 void NibblesWindow::update_high_scores(
-	unsigned long speed, /* 1 to 4 inclusive */
+	uintsys speed, /* 1 to 4 inclusive */
 	bool fakes,
-	unsigned long progress,
-	unsigned long level,
+	uintsys progress,
+	uintsys level,
 	const std::vector<WormScore> &score)
 {
 	load_high_scores();
@@ -825,7 +826,7 @@ bool NibblesWindow::PlayerButton::key_pressed(guint keyval, guint keycode)
 {
 	if(key_pressed_data.pKeyPressMessage)
 	{
-		const unsigned long key_index=key_pressed_data.KeyToSet & 0x3; /* 0=up, 1=left, 2=right & 3=down */
+		const uintsys key_index=key_pressed_data.KeyToSet & 0x3; /* 0=up, 1=left, 2=right & 3=down */
 		/* store key values */
 		keys[key_index]=keyval;
 		raw_keys[key_index]=keycode;
@@ -1365,7 +1366,7 @@ void NibblesWindow::Scores::set_title()
 		auto [b, last_category_set]=get_last_category();
 		if(b)
 		{
-			unsigned long i;
+			uintsys i;
 			for(i=0;i<category_index.size() && category_index[i]!=last_category_set;i++);
 			if(i<category_index.size())
 				title->set_selected(i);
@@ -1420,7 +1421,7 @@ void NibblesWindow::Scores::add_category(const Glib::ustring &path, const Glib::
 	}
 }
 
-uint8_t NibblesWindow::Scores::to_category(unsigned long speed, bool fakes, unsigned long progress, unsigned long level) const
+uint8_t NibblesWindow::Scores::to_category(uintsys speed, bool fakes, uintsys progress, uintsys level) const
 {
 	uint8_t fixed=0; /* 0 - not fixed, 1-26 fixed at level, 31 random */
 	if(progress==0)
@@ -1432,14 +1433,14 @@ uint8_t NibblesWindow::Scores::to_category(unsigned long speed, bool fakes, unsi
 	return (speed-1)/*2 bits wide*/ | (fakes<<2)/*1 bit wide*/ | (fixed<<3)/*5 bits wide*/;
 }
 
-std::vector<unsigned long> NibblesWindow::Scores::add(uint8_t category_index, const std::vector<WormScore> &scores)
+std::vector<uintsys> NibblesWindow::Scores::add(uint8_t category_index, const std::vector<WormScore> &scores)
 {
-	std::vector<unsigned long> insert_rows={};
+	std::vector<uintsys> insert_rows={};
 	for(const auto &score : scores)
 	{
 		int64_t unix_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 		Score s(score.score,unix_time,"");
-		unsigned long row=0;
+		uintsys row=0;
 		auto &vector=m_scores[category_index];
 		auto it=vector.begin();
 		while(it != vector.end() &&

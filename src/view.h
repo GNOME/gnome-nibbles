@@ -39,7 +39,7 @@ private:
 			timer=t;
 			timer_set=true;
 		}*/
-		void set(sigc::bound_mem_functor<bool (View::*)()> function, unsigned long delay)
+		void set(sigc::bound_mem_functor<bool (View::*)()> function, uintsys delay)
 		{
 			timer=Glib::signal_timeout().connect(function, delay);
 			timer_set=true;
@@ -95,7 +95,7 @@ private:
 			layout->get_extents(a, b);
 			return {a.get_width() / Pango::SCALE, a.get_height() / Pango::SCALE};
 		}
-		std::pair<long,long> get_text_offsets(const Glib::ustring &text, int font_size)
+		std::pair<intsys,intsys> get_text_offsets(const Glib::ustring &text, int font_size)
 		{
 			auto layout = get_layout(text, font_size);
 			Pango::Rectangle a,b;
@@ -112,7 +112,7 @@ private:
 		    snapshot->translate({ -(x - x_offset), -(y - y_offset)});
 		}
 		void draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int target_width);
-		Glib::RefPtr<Pango::Layout> get_layout(const Glib::ustring &text, unsigned long font_size);
+		Glib::RefPtr<Pango::Layout> get_layout(const Glib::ustring &text, uintsys font_size);
 	};
 
 	class Life : public Gtk::Widget
@@ -175,7 +175,7 @@ private:
 
 /* class View */
 public:
-	View(Game::Progress progress, unsigned long start_level, unsigned long speed, bool fakes,
+	View(Game::Progress progress, uintsys start_level, uintsys speed, bool fakes,
 		Gtk::Button &pause_button, std::function<void(const Glib::ustring &level)> set_level_description,
 		std::function<void(const std::vector<WormScore>)> game_over
 	);
@@ -184,7 +184,7 @@ public:
 		if(nullptr!=ctx)	
 			g_object_unref(ctx); /* free sound context */
 	}
-	unsigned long countdown_left()
+	uintsys countdown_left()
 	{
 		return countdown;
 	}
@@ -237,13 +237,13 @@ public:
 private:
 	Game::Progress progress;
 	std::bitset<26> levels;
-	unsigned long current_level;
-	const unsigned long speed;
+	uintsys current_level;
+	const uintsys speed;
 	Gtk::Button &pause_button;
 	std::function<void(const Glib::ustring &level)> set_level_description;
 	std::function<void(const std::vector<WormScore>)> game_over;
 	GSoundContext* ctx; /* sound */
-	unsigned long countdown;
+	uintsys countdown;
 	std::map<unsigned int, HumanAction> keys;
 	StaticView static_view;
 	ActiveView active_view;
@@ -260,17 +260,17 @@ private:
 	
 private:
 	void initialise_and_start();
-	void load_board_level(unsigned long level);
+	void load_board_level(uintsys level);
 	bool play();
 	Gtk::Label* create_label(Glib::ustring text);
 	Gtk::Button* create_button(Glib::ustring text);
 	const Glib::ustring get_worm_name(unsigned int worm_id);
-	const Glib::ustring get_level_completed_message(unsigned long level);
-	const Glib::ustring get_next_level_message(unsigned long level);
-	const Glib::ustring get_level_description(unsigned long level);
-	const Glib::ustring get_countdown_message(unsigned long count);
+	const Glib::ustring get_level_completed_message(uintsys level);
+	const Glib::ustring get_next_level_message(uintsys level);
+	const Glib::ustring get_level_description(uintsys level);
+	const Glib::ustring get_countdown_message(uintsys count);
 
-	Gtk::Label* create_label(Glib::ustring text, unsigned long top_margin)
+	Gtk::Label* create_label(Glib::ustring text, uintsys top_margin)
 	{
 		auto *l=create_label(text);
 		l->set_margin_top(top_margin);

@@ -32,6 +32,7 @@
 //#include <inplace_vector>
 #include <queue>
 
+#include "system_integer.h"
 #include "definitions.h"
 #include "pseudo_random.h"
 #include "map.h"
@@ -166,9 +167,9 @@ int Worm::ai_deadend(const std::vector<std::vector<unsigned char>> &board, const
 	//std::inplace_vector<uint16_t, p_max> p;
 	std::vector<uint16_t> p;
 	p.emplace_back(position);
-	for (unsigned long i = 0; i < p.size() && (p.size() - 1) < length; i++)
+	for (uintsys i = 0; i < p.size() && (p.size() - 1) < length; i++)
 	{
-		for (unsigned long dir = 4; dir > 0 && (p.size() - 1) < length; dir--)
+		for (uintsys dir = 4; dir > 0 && (p.size() - 1) < length; dir--)
 		{
 			Position new_position = {p[i]>>8, p[i]&0xff}; /* get position from vector */
 			new_position.move((eDirection)dir, board.size(), board[0].size());

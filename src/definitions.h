@@ -68,13 +68,13 @@ inline eWormColour& operator++(eWormColour& c)
 }
 
 /* utility functions */
-eWormColour get_worm_settings_colour(unsigned long worm_id);
-void set_worm_settings_colour(unsigned long worm_id,eWormColour colour);
+eWormColour get_worm_settings_colour(uintsys worm_id);
+void set_worm_settings_colour(uintsys worm_id,eWormColour colour);
 
 struct WormScore
 {
 	eWormColour colour;
-	unsigned long score;
+	uintsys score;
 	std::string worm_name;
 };
 

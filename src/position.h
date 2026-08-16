@@ -180,7 +180,7 @@ public:
 	{
 		return remove_one(pseudo_random());
 	}
-	Position remove_one(unsigned long random_number)
+	Position remove_one(uintsys random_number)
 	{
 		auto i=s.begin();
 		std::advance(i, random_number % s.size());

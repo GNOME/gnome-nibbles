@@ -625,7 +625,7 @@ public:
 	{
 		list.clear();
 	}
-	Position operator[](unsigned long index) const
+	Position operator[](uintsys index) const
 	{
 		auto it = list.cbegin();
 		if(index>0)
@@ -719,10 +719,10 @@ public:
 
 private:
 	Game &game;
-	const unsigned long current_level;
+	const uintsys current_level;
 	const bool human;
 	const eWormColour colour;
-	const unsigned long capacity;
+	const uintsys capacity;
 	Start start;
 	/*
 	 * A queue that allows no adjacent duplicates.
@@ -730,21 +730,21 @@ private:
 	class DeadEndBoard
 	{
 	private:
-		const unsigned long width,height;
-		std::vector<unsigned long> board;
+		const uintsys width,height;
+		std::vector<uintsys> board;
 	public:
-		unsigned long runnumber;
-		DeadEndBoard(unsigned long width, unsigned long height) : width(width), height(height)
+		uintsys runnumber;
+		DeadEndBoard(uintsys width, uintsys height) : width(width), height(height)
 		{
 			runnumber=0;
 			board.resize(height*width, runnumber/*initial value*/);
 		}
-		unsigned long &operator[](unsigned long x, unsigned long y)
+		uintsys &operator[](uintsys x, uintsys y)
 		{
 			return board[y*width+x];
 		}
-		unsigned long get_width() {return width;}
-		unsigned long get_height() {return height;}
+		uintsys get_width() {return width;}
+		uintsys get_height() {return height;}
 	} deadend_board;
 	class DirectionQueue
 	{
@@ -791,8 +791,8 @@ private:
 		}
 	} direction_queue;
 public:
-	Worm(Game &game, unsigned long current_level, bool human, eWormColour colour,
-		unsigned long width, unsigned long height) :
+	Worm(Game &game, uintsys current_level, bool human, eWormColour colour,
+		uintsys width, uintsys height) :
 		game(game), current_level(current_level), human(human), colour(colour),
 		capacity(height*width), deadend_board(width,height)
 	{
@@ -834,7 +834,7 @@ public:
 		positions.append_position(start.position);
 		direction = start.direction;
 
-		const unsigned long STARTING_LENGTH=5;
+		const uintsys STARTING_LENGTH=5;
 		if(!positions.is_empty())
 		{
 			rounds_to_stay_still=0;
@@ -876,7 +876,7 @@ public:
 		else
 			return false;
 	}
-	unsigned long get_rounds_to_stay_still() const
+	uintsys get_rounds_to_stay_still() const
 	{
 		return rounds_to_stay_still;
 	}
@@ -1124,11 +1124,11 @@ public:
 	{
 		return direction;
 	}
-	unsigned long get_length() const
+	uintsys get_length() const
 	{
 		return positions.get_length();
 	}
-	unsigned long get_target_length() const
+	uintsys get_target_length() const
 	{
 		return target_length;
 	}
@@ -1141,7 +1141,7 @@ public:
 		score+=increase;
 		score_changed=true;
 	}
-	void reduce_score_by_percentage(unsigned long percent)
+	void reduce_score_by_percentage(uintsys percent)
 	{
 		score*=percent;
 		score/=100;
@@ -1151,11 +1151,11 @@ public:
 	{
 		return lives>0;
 	}
-	unsigned long get_lives() const
+	uintsys get_lives() const
 	{
 		return lives;
 	}
-	unsigned long get_score() const
+	uintsys get_score() const
 	{
 		return score;
 	}
@@ -1182,17 +1182,31 @@ public:
 	{
 		return bonus_eaten.contains(position);
 	}
-	unsigned long pseudo_random(unsigned long max_exclusive)
+#if INTPTR_MAX == INT64_MAX
+	uint64_t pseudo_random(uint64_t max_exclusive)
 	{
 		return pseudo_random() % max_exclusive;
 	}	
-	unsigned long pseudo_random()
+	uint64_t pseudo_random()
 	{
-		const auto a = 6364136223846793005ULL; /*multiplier*/ 
-		const auto c = 1442695040888963407ULL; /*increment*/
+		const uint64_t a = 6364136223846793005ULL; /*multiplier*/
+		const uint64_t c = 1442695040888963407ULL; /*increment*/
 		pseudo_random_seed = a * pseudo_random_seed + c;
 		return pseudo_random_seed;
+	}
+#else /* 32-bit compiler */
+	uint32_t pseudo_random(uint32_t max_exclusive)
+	{
+		return pseudo_random() % max_exclusive;
 	}	
+	uint32_t pseudo_random()
+	{
+	    const uint32_t a = 1103515245; /*multiplier*/
+	    const uint32_t c = 12345; /*increment*/
+		pseudo_random_seed = a * pseudo_random_seed + c;
+		return pseudo_random_seed;
+	}
+#endif
 	bool do_score_change()
 	{
 		auto r=score_changed;
@@ -1200,17 +1214,20 @@ public:
 		return r;
 	}
 private:
-//	unsigned long change; /*when >0 the worms tail is not removed and change is decremented*/
-	unsigned long rounds_to_stay_dematerialized;
-	unsigned long rounds_to_stay_still;
+	uintsys rounds_to_stay_dematerialized;
+	uintsys rounds_to_stay_still;
 	WormPositions positions;
 	WormDirection direction;
 	std::unordered_set<uint16_t> bonus_eaten;/*position of previously eaten bonuses*/
-	unsigned long target_length;
-	unsigned long score;
+	uintsys target_length;
+	uintsys score;
 	bool score_changed;
-	unsigned long lives;
-	unsigned long pseudo_random_seed = 2ULL; /*seed*/
+	uintsys lives;
+#if INTPTR_MAX == INT64_MAX
+	uint64_t pseudo_random_seed = 2; /*seed*/
+#else /* 32-bit compiler */
+	uint32_t pseudo_random_seed = 2; /*seed*/
+#endif
 	bool LastUturnA = false;
 
 

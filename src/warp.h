@@ -57,7 +57,7 @@ public:
 		}
 	};
 	/* methods */
-	void add_warp_source(unsigned long id, Position position)
+	void add_warp_source(uintsys id, Position position)
 	{
 		if(warps.contains(id))
 		{
@@ -91,7 +91,7 @@ public:
 		}
 		return false;
 	}
-	void add_warp_target(unsigned long id, Position position)
+	void add_warp_target(uintsys id, Position position)
 	{
 		if(warps.contains(id))
 		{
@@ -168,9 +168,9 @@ public:
 	auto end()   const { return warps.end(); }
 private:
 	const std::vector<std::vector<unsigned char>> &board;
-	std::map<unsigned long, Warp> warps;
+	std::map<uintsys, Warp> warps;
 	
-	inline void increment_clear(const long x, const long y, const long clear_count, long &clear, PositionSet &positions, unsigned long &longest_clear_count) const
+	inline void increment_clear(const intsys x, const intsys y, const intsys clear_count, intsys &clear, PositionSet &positions, uintsys &longest_clear_count) const
 	{
 		clear++;
 		if(clear>=clear_count)
@@ -217,10 +217,10 @@ private:
 		const uint8_t width=board.size();
 		const uint8_t height=board[0].size();
 		
-		unsigned long longest_clear_count=0;
+		uintsys longest_clear_count=0;
 		PositionSet positions;
-		long x,y;
-		long clear=-1;
+		intsys x,y;
+		intsys clear=-1;
 		switch(direction.reverse())
 		{
 			case eDirection::NORTH:

@@ -139,7 +139,7 @@ private:
 	static constexpr std::array<const char *, 6> worm_colours = {"red","green","blue","yellow","cyan","purple"};
 	Glib::ustring get_last_used_name(eWormColour colour)
 	{
-		for(unsigned long worm_id=0;worm_id<6;worm_id++)
+		for(uintsys worm_id=0;worm_id<6;worm_id++)
 		{
 			Glib::ustring my_settings = WORM_BASE_KEY;
 			my_settings += (char)('0'+worm_id);
@@ -152,7 +152,7 @@ private:
 	}
 	void set_last_used_name(eWormColour colour, const Glib::ustring &name)
 	{
-		for(unsigned long worm_id=0;worm_id<6;worm_id++)
+		for(uintsys worm_id=0;worm_id<6;worm_id++)
 		{
 			Glib::ustring my_settings = WORM_BASE_KEY;
 			my_settings += (char)('0'+worm_id);

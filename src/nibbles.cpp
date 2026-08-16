@@ -35,6 +35,7 @@
 #include <locale>
 #include <glib/gi18n.h>
 
+#include "system_integer.h"
 #include "definitions.h"
 #include "critical.h"
 #include "nibbles.h"
@@ -486,16 +487,17 @@ protected:
 
 void initilise_seed()
 {
+#if INTPTR_MAX == INT64_MAX
 	uint64_t seed;
 	/* get data from the stack */
 	uint64_t stack_data[1024];
-	for(unsigned int i=0;i<sizeof(stack_data)/sizeof(uint64_t);seed^=stack_data[i++]);
+	for(uintsys i=0;i<sizeof(stack_data)/sizeof(uint64_t);seed^=stack_data[i++]);
 	/* get data from the heap */
 	try {
 		std::allocator<std::byte> a;
-		uint64_t *heap_data=(uint64_t *)a.allocate(1024*8);
-		for(unsigned int i=0;i<1024;seed^=heap_data[i++]);
-		a.deallocate((std::byte *)heap_data, 1024*8);
+		uint64_t *heap_data=(uint64_t *)a.allocate(1024*sizeof(uint64_t));
+		for(uintsys i=0;i<1024;seed^=heap_data[i++]);
+		a.deallocate((std::byte *)heap_data, 1024*sizeof(uint64_t));
 	} catch (const std::bad_alloc& e) {
 	}
 	/* get data from the random device */
@@ -506,11 +508,36 @@ void initilise_seed()
 	} catch(const std::runtime_error &e) {
 	}
 	/* get data from the clock */
-    auto now = std::chrono::steady_clock::now();
-    auto duration_since_boot = now.time_since_epoch();
-    auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
+	auto now = std::chrono::steady_clock::now();
+	auto duration_since_boot = now.time_since_epoch();
+	auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
 	seed^=nanoseconds;
-
+#else
+	uint32_t seed;
+	/* get data from the stack */
+	uint32_t stack_data[1024];
+	for(uintsys i=0;i<sizeof(stack_data)/sizeof(uint32_t);seed^=stack_data[i++]);
+	/* get data from the heap */
+	try {
+		std::allocator<std::byte> a;
+		uint32_t *heap_data=(uint32_t *)a.allocate(1024*sizeof(uint32_t));
+		for(uintsys i=0;i<1024;seed^=heap_data[i++]);
+		a.deallocate((std::byte *)heap_data, 1024*sizeof(uint32_t));
+	} catch (const std::bad_alloc& e) {
+	}
+	/* get data from the random device */
+	try	{
+		std::random_device rd;
+		uint32_t r=rd();
+		seed^=r;
+	} catch(const std::runtime_error &e) {
+	}
+	/* get data from the clock */
+	auto now = std::chrono::steady_clock::now();
+	auto duration_since_boot = now.time_since_epoch();
+	auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
+	seed^=nanoseconds;
+#endif
 	set_seed(seed);
 }
 

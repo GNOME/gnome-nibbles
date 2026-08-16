@@ -31,11 +31,13 @@ system’s package manager, provided it provides Nibbles 4.6 or later.
 Otherwise, you will need to install the following dependencies by hand:
 ```
 pkg-config (also known as pkgconf)
+update-desktop-database
+itstool
 meson version >= 1.1
-C++ compiler that supports C++26 with GNU-specific language extensions (-std=gnu++26)
-gtkmm version > 4.23.0 (along with a corresponding version of gtk4)
-glibmm-2.68 version >= 2.88.1 (along with a corresponding version of glib)
 gsound version >= 1.0.2
+C++ compiler that supports C++26 with GNU-specific language extensions (-std=gnu++26)
+gtkmm version >= 4.23.1 (along with a corresponding version of gtk4)
+glibmm-2.68 version >= 2.88.1 (along with a corresponding version of glib)
 ```
 
 ### Debian/Ubuntu using the distribution's build dependencies

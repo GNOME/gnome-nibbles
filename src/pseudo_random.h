@@ -17,16 +17,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-unsigned long pseudo_random();
+#if INTPTR_MAX == INT64_MAX
+uint64_t pseudo_random();
 
-inline unsigned long pseudo_random(unsigned long min_inclusive, unsigned long max_exclusive)
+inline uint64_t pseudo_random(uint64_t min_inclusive, uint64_t max_exclusive)
 {
 	return min_inclusive+(pseudo_random() % (max_exclusive - min_inclusive));
 }
 
-inline unsigned long pseudo_random(unsigned long max_exclusive)
+inline uint64_t pseudo_random(uint64_t max_exclusive)
 {
 	return pseudo_random() % max_exclusive;
 }
 
-void set_seed(unsigned long seed);
+void set_seed(uint64_t seed);
+#else /* 32-bit compiler */
+uint32_t pseudo_random();
+
+inline uint32_t pseudo_random(uint32_t min_inclusive, uint32_t max_exclusive)
+{
+	return min_inclusive+(pseudo_random() % (max_exclusive - min_inclusive));
+}
+
+inline uint32_t pseudo_random(uint32_t max_exclusive)
+{
+	return pseudo_random() % max_exclusive;
+}
+
+void set_seed(uint32_t seed);
+#endif

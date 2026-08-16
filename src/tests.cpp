@@ -38,6 +38,7 @@
 #include <string_view>
 #include <glibmm.h>
 
+#include "system_integer.h"
 #include "definitions.h"
 #include "pseudo_random.h"
 #include "map.h"
@@ -202,7 +203,7 @@ public:
 		}
 	}
 	auto get_count() {return data.size();}
-	auto get(unsigned long i)
+	auto get(uintsys i)
 	{
 		return data[i];
 	}
@@ -221,9 +222,9 @@ void test_board(const std::span<const std::string_view> &strings,
 	game.spawn_worms(true/*force_materialize*/);
 	for(const Worm &worm : game.get_worms())
 	{
-		std::cout << "worm " << (unsigned long)worm.get_colour() << " head at " << (unsigned long)worm.get_positions().get_head().x <<
-			"," << (unsigned long)worm.get_positions().get_head().y << " should be at " << (unsigned long)worms.get(worm.get_colour()).start_x <<
-			"," << (unsigned long)worms.get(worm.get_colour()).start_y << std::endl;
+		std::cout << "worm " << (uintsys)worm.get_colour() << " head at " << (uintsys)worm.get_positions().get_head().x <<
+			"," << (uintsys)worm.get_positions().get_head().y << " should be at " << (uintsys)worms.get(worm.get_colour()).start_x <<
+			"," << (uintsys)worms.get(worm.get_colour()).start_y << std::endl;
 	}
 	for(const Worm &worm : game.get_worms())
 	{
@@ -241,15 +242,15 @@ void test_board(const std::span<const std::string_view> &strings,
 	
 	for(const Worm &worm : game.get_worms())
 	{
-		std::cout << "worm " << (unsigned long)worm.get_colour() << " final lives: " << worm.get_lives() << 
-			" should be " << (unsigned long)worms.get(worm.get_colour()).final_lives << std::endl;
-		std::cout << "worm " << (unsigned long)worm.get_colour() << " final score: " << worm.get_score() << 
-			" should be " << (unsigned long)worms.get(worm.get_colour()).final_score << std::endl;
-		std::cout << "worm " << (unsigned long)worm.get_colour() << " final length: " << worm.get_target_length() << 
-			" should be " << (unsigned long)worms.get(worm.get_colour()).final_length << std::endl;
+		std::cout << "worm " << (uintsys)worm.get_colour() << " final lives: " << worm.get_lives() <<
+			" should be " << (uintsys)worms.get(worm.get_colour()).final_lives << std::endl;
+		std::cout << "worm " << (uintsys)worm.get_colour() << " final score: " << worm.get_score() <<
+			" should be " << (uintsys)worms.get(worm.get_colour()).final_score << std::endl;
+		std::cout << "worm " << (uintsys)worm.get_colour() << " final length: " << worm.get_target_length() <<
+			" should be " << (uintsys)worms.get(worm.get_colour()).final_length << std::endl;
 	}
-	std::cout << "bonuses eaten: " << (unsigned long)game.get_regular_bonuses_consumed() <<
-		" should be " << (unsigned long)bonuses_eaten << std::endl;
+	std::cout << "bonuses eaten: " << (uintsys)game.get_regular_bonuses_consumed() <<
+		" should be " << (uintsys)bonuses_eaten << std::endl;
 	
 	for(const Worm &worm : game.get_worms())
 	{

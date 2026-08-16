@@ -727,7 +727,7 @@ public:
 		struct
 		{
 			OverlayMessage *pKeyPressMessage=nullptr;
-			unsigned long KeyToSet;/* 0=up, 1=left, 2=right & 3=down */
+			uintsys KeyToSet;/* 0=up, 1=left, 2=right & 3=down */
 			Gtk::Widget *pLabel;/* Gtk::Label* */
 		} key_pressed_data;
 	private:
@@ -790,11 +790,11 @@ public:
 		{
 			clear();
 		}
-		uint8_t to_category(unsigned long speed, bool fakes, unsigned long progress, unsigned long level) const;
+		uint8_t to_category(uintsys speed, bool fakes, uintsys progress, uintsys level) const;
 		const Glib::ustring &get_file(uint8_t category_index) {return m_score_file[category_index];}
 		const std::vector<Score> &get_scores(uint8_t category_index) {return m_scores[category_index];}
 		void add_category(const Glib::ustring &path, const Glib::ustring &file_name);
-		std::vector<unsigned long> add(uint8_t category_index, const std::vector<WormScore> &scores);
+		std::vector<uintsys> add(uint8_t category_index, const std::vector<WormScore> &scores);
 		void clear()
 		{
 			m_scores.clear();
@@ -820,28 +820,28 @@ public:
 			}
 			return {false,{}};
 		}
-		void set_name(uint8_t category_index, unsigned long row, const Glib::ustring &name)
+		void set_name(uint8_t category_index, uintsys row, const Glib::ustring &name)
 		{
 			m_scores[category_index][row].name=name;
 		}
 	private:
 		class RowData : public Glib::Object {
-			unsigned long rank;
-			unsigned long score;
+			uintsys rank;
+			uintsys score;
 			Glib::ustring name;
 			bool modify;
 		protected:
-			RowData(unsigned long rank, unsigned long score, const Glib::ustring& name, bool modify=false)
+			RowData(uintsys rank, uintsys score, const Glib::ustring& name, bool modify=false)
 				: Glib::ObjectBase(typeid(RowData)), rank(rank), score(score), name(name), modify(modify)
 			{
 			}
 		public:
-			static Glib::RefPtr<RowData> create(unsigned long rank, unsigned long score, const Glib::ustring& name, bool modify=false)
+			static Glib::RefPtr<RowData> create(uintsys rank, uintsys score, const Glib::ustring& name, bool modify=false)
 			{
 				return Glib::make_refptr_for_instance<RowData>(new RowData(rank, score, name, modify));
 			}
-			unsigned long get_rank() const { return rank; }
-			unsigned long get_score() const { return score; }
+			uintsys get_rank() const { return rank; }
+			uintsys get_score() const { return score; }
 			Glib::ustring get_name() const { return name; }
 			bool get_modify() const { return modify; }
 		};
@@ -991,7 +991,7 @@ public:
 		}
 		void scores_to_store(uint8_t category_index, Glib::RefPtr<Gio::ListStore<RowData>> &store)
 		{
-			unsigned long rank=0;
+			uintsys rank=0;
 			for(const auto &score : m_scores[category_index])
 			{
 				store->append(RowData::create(++rank, score.score, score.name));
@@ -1268,8 +1268,8 @@ private:
 
 	void quit();
 	void back_callback();
-	void update_high_scores(unsigned long speed, bool fakes,
-		unsigned long progress,	unsigned long level, const std::vector<WormScore> &scores);
+	void update_high_scores(uintsys speed, bool fakes,
+		uintsys progress,	uintsys level, const std::vector<WormScore> &scores);
 	void launch_help();
 
 	KeyHandler *key_handler=nullptr;

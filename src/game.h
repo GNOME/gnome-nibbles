@@ -47,9 +47,9 @@ public:
 
 	/* constructor */
 	Game(std::function<void(const char *)> play_sound,
-		std::function<eWormColour(unsigned long)> get_worm_settings_colour,
-		std::function<void(eWormColour, unsigned long)> life_change,
-		std::function<void(eWormColour, unsigned long)> score_change,
+		std::function<eWormColour(uintsys)> get_worm_settings_colour,
+		std::function<void(eWormColour, uintsys)> life_change,
+		std::function<void(eWormColour, uintsys)> score_change,
 		Progress progress, bool fakes) :
 			_play_sound(play_sound), _get_worm_settings_colour(get_worm_settings_colour),
 			_life_change(life_change), _score_change(score_change),
@@ -64,8 +64,8 @@ public:
 	}
 	virtual ~Game() = default;
 
-	bool load_board_from_file(const char *path, unsigned long level);
-/*	bool load_board_from_file(const Glib::ustring &path, unsigned long level)
+	bool load_board_from_file(const char *path, uintsys level);
+/*	bool load_board_from_file(const Glib::ustring &path, uintsys level)
 	{
 		return load_board_from_file(path.c_str(),level);
 	}
@@ -134,11 +134,11 @@ public:
 	}
 	unsigned int get_width() {return width;}
 	unsigned int get_height() {return height;}
-	void create_worms(unsigned long human_count, unsigned long ai_count)
+	void create_worms(uintsys human_count, uintsys ai_count)
 	{
 		worms.clear();
 		assert(human_count+ai_count<=6);
-		for(unsigned long i=0;i<human_count+ai_count;i++)
+		for(uintsys i=0;i<human_count+ai_count;i++)
 		{
 			if(_get_worm_settings_colour==nullptr)
 			{
@@ -208,14 +208,14 @@ public:
 		else if(progress==TEST)
 			std::cout << "play sound " << sound << std::endl;
 	}
-	void score_change(eWormColour colour, unsigned long score)
+	void score_change(eWormColour colour, uintsys score)
 	{
 		if(_score_change!=nullptr)
 			_score_change(colour,score);
 		else if(progress==TEST)
 			std::cout << "worm " << colour << " score " << score << std::endl;
 	}
-	void life_change(eWormColour colour, unsigned long count)
+	void life_change(eWormColour colour, uintsys count)
 	{
 		if(_life_change!=nullptr)
 			_life_change(colour,count);
@@ -305,21 +305,21 @@ public:
 	void print_board() const;
 private:
 	std::function<void(const char *)> _play_sound;
-	std::function<eWormColour(unsigned long)> _get_worm_settings_colour;
-	std::function<void(eWormColour, unsigned long)> _life_change;
-	std::function<void(eWormColour, unsigned long)> _score_change;
+	std::function<eWormColour(uintsys)> _get_worm_settings_colour;
+	std::function<void(eWormColour, uintsys)> _life_change;
+	std::function<void(eWormColour, uintsys)> _score_change;
 	const Progress progress;
 	Warps warps;
 	enum class WarpType {NONE,SOURCE,TARGET};
 	unsigned int width,height;
 	std::vector<std::vector<unsigned char>> board;
 	std::forward_list<Start> starts;
-	unsigned long level;
+	uintsys level;
 	bool fakes;
 	std::forward_list<Worm> worms;
 	Bonuses bonuses;
 	uint8_t bonuses_to_replace;
-	unsigned long starting_human_count,starting_ai_count;
+	uintsys starting_human_count,starting_ai_count;
 
 	unsigned int unichar_extra_width(char c)
 	{
@@ -433,10 +433,10 @@ private:
 		++it;
 		return it!=worms.end();
 	}
-	std::pair<unsigned long, unsigned long> count_alive_worms() const
+	std::pair<uintsys, uintsys> count_alive_worms() const
 	{
-		unsigned long ai=0;
-		unsigned long human=0;
+		uintsys ai=0;
+		uintsys human=0;
 		for(const auto &worm : worms)
 		{
 			if(worm.get_lives()>0)

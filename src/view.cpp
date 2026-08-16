@@ -38,6 +38,7 @@
 #include <locale>
 #include <glib/gi18n.h>
 
+#include "system_integer.h"
 #include "definitions.h"
 #include "critical.h"
 #include "map.h"
@@ -49,7 +50,7 @@
 #include "game.h"
 #include "view.h"
 
-inline void utoa(unsigned int u, Glib::ustring &result, unsigned int minimum_length=1)
+inline void utoa(uint32_t u, Glib::ustring &result, uintsys minimum_length=1)
 {
 	char buffer[10+1];
 	char *p;
@@ -65,7 +66,7 @@ inline void utoa(unsigned int u, Glib::ustring &result, unsigned int minimum_len
 	result+=p+1;
 }
 
-inline Glib::ustring utoa(unsigned long u, unsigned long minimum_length=1)
+inline Glib::ustring utoa(uint64_t u, uintsys minimum_length=1)
 {
 	char buffer[20+1];
 	char *p;
@@ -86,7 +87,7 @@ inline Glib::ustring utoa(unsigned long u, unsigned long minimum_length=1)
  *	View                                                  *
  *                                                                 *
  *******************************************************************/
-View::View(Game::Progress progress, unsigned long start_level, unsigned long speed, bool fakes,
+View::View(Game::Progress progress, uintsys start_level, uintsys speed, bool fakes,
 	Gtk::Button &pause_button,
 	std::function<void(const Glib::ustring &level)> set_level_description,
 	std::function<void(const std::vector<WormScore>)> game_over) : Gtk::Overlay(),
@@ -97,7 +98,7 @@ View::View(Game::Progress progress, unsigned long start_level, unsigned long spe
 	[this](const Glib::ustring &sound) {/*play_sound*/
 		play_sound(sound);
 	},get_worm_settings_colour,
-	[this](eWormColour worm_colour, unsigned long lives) {/*life_change*/
+	[this](eWormColour worm_colour, uintsys lives) {/*life_change*/
 		if(score_box.contains(worm_colour))
 		{
 			Gtk::Grid *pGrid=get_life_grid(score_box[worm_colour]);
@@ -110,7 +111,7 @@ View::View(Game::Progress progress, unsigned long start_level, unsigned long spe
 			}
 		}
 	},
-	[this](eWormColour worm_colour, unsigned long score) {/*score_change*/
+	[this](eWormColour worm_colour, uintsys score) {/*score_change*/
 		if(score_box.contains(worm_colour))
 		{
 			Gtk::Label *pLabel=get_score_label(score_box[worm_colour]);
@@ -131,7 +132,7 @@ View::View(Game::Progress progress, unsigned long start_level, unsigned long spe
 		g_error_free(error);
 	}
 
-	unsigned long level;
+	uintsys level;
 	switch(progress)
 	{
 		case Game::Progress::SEQUENTIAL:
@@ -259,7 +260,7 @@ void View::initialise_and_start()
 	play();
 }
 
-void View::load_board_level(unsigned long level)
+void View::load_board_level(uintsys level)
 {
 	Glib::ustring filename="level";
 	utoa(level, filename, 3);
@@ -292,9 +293,9 @@ bool View::play()
 				game.move_worms();
 				active_view.redraw();
 				auto finish = std::chrono::steady_clock::now();
-				const long level_delay[]={52,70,105,140};/* milli-seconds */
+				const uintsys level_delay[]={52,70,105,140};/* milli-seconds */
 				auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(finish - start).count();
-				unsigned long delay=1;
+				uintsys delay=1;
 				if(elapsed_ms < level_delay[speed-1])
 					delay = level_delay[speed-1] - elapsed_ms;
 				timer.set(sigc::mem_fun(*this, &View::play), delay);
@@ -330,7 +331,7 @@ bool View::play()
 			}
 			else
 			{
-				unsigned long next_level;
+				uintsys next_level;
 				if(Game::Progress::SEQUENTIAL==progress)
 				{
 					next_level=current_level+1;
@@ -339,9 +340,9 @@ bool View::play()
 				}
 				else
 				{
-					std::unordered_set<unsigned long> next_levels;
+					std::unordered_set<uintsys> next_levels;
 					next_levels.reserve(25);
-					for(unsigned long i=0;i<26;i++)
+					for(uintsys i=0;i<26;i++)
 					{
 						if(!levels[i])
 							next_levels.emplace(i+1);
@@ -477,7 +478,7 @@ const Glib::ustring View::get_worm_name(unsigned int worm_id)
 	return name;
 }
 
-const Glib::ustring View::get_level_completed_message(unsigned long level)
+const Glib::ustring View::get_level_completed_message(uintsys level)
 {
 	switch(level)
 	{
@@ -577,7 +578,7 @@ const Glib::ustring View::get_level_completed_message(unsigned long level)
 	}
 }
 
-const Glib::ustring View::get_next_level_message(unsigned long level)
+const Glib::ustring View::get_next_level_message(uintsys level)
 {
 	switch(level)
 	{
@@ -677,7 +678,7 @@ const Glib::ustring View::get_next_level_message(unsigned long level)
 	}
 }
 
-const Glib::ustring View::get_level_description(unsigned long level)
+const Glib::ustring View::get_level_description(uintsys level)
 {
 	switch(level)
 	{
@@ -777,7 +778,7 @@ const Glib::ustring View::get_level_description(unsigned long level)
 	}
 }
 
-const Glib::ustring View::get_countdown_message(unsigned long count)
+const Glib::ustring View::get_countdown_message(uintsys count)
 {
 	switch(count)
 	{
@@ -955,7 +956,7 @@ void View::ActiveView::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapsho
 		draw_text_font_size(snapshot, (int)(x_offset + x_delta * (view.game.get_width() / 2) - w / 2), (int)(y_offset + y_delta * (view.game.get_height() / 2) - h / 2), text, font_size);
 
 		//draw name labels
-		unsigned long id=0;
+		uintsys id=0;
 		for(const auto &worm : view.game.get_worms())
 		{
 			if (!worm.get_positions().is_empty())
@@ -1225,39 +1226,39 @@ void View::ActiveView::draw_worm_segment (const Glib::RefPtr<Gtk::Snapshot> &s, 
 }
 void View::ActiveView::draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int target_width)
 {
-    /* draw using x,y as the top left corner of the text */
-    long target_font_size = 1;
-    unsigned long target_width_diff = std::numeric_limits<unsigned long>::max();
-    Pango::Rectangle a = {0,0,0,0};
+	/* draw using x,y as the top left corner of the text */
+	intsys target_font_size = 1;
+	uintsys target_width_diff = std::numeric_limits<uintsys>::max();
+	Pango::Rectangle a = {0,0,0,0};
 
-    for (int font_size = 1;font_size < 200;font_size++)
-    {
+	for (int font_size = 1;font_size < 200;font_size++)
+	{
 		auto layout = get_layout(text, font_size);
-        Pango::Rectangle b;
-        layout->get_extents(a, b);
-        unsigned long width_diff = abs(target_width - (long)a.get_width() / Pango::SCALE);
-        if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
-            break;
-        else if (width_diff < target_width_diff)
-        {
-            target_width_diff = width_diff;
-            target_font_size = font_size;
-        }
-    }
-    snapshot->translate({x - a.get_x() / Pango::SCALE, y - a.get_y() / Pango::SCALE});
+	    Pango::Rectangle b;
+	    layout->get_extents(a, b);
+	    uintsys width_diff = abs(target_width - (intsys)a.get_width() / Pango::SCALE);
+	    if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
+	        break;
+	    else if (width_diff < target_width_diff)
+	    {
+	        target_width_diff = width_diff;
+	        target_font_size = font_size;
+	    }
+	}
+	snapshot->translate({x - a.get_x() / Pango::SCALE, y - a.get_y() / Pango::SCALE});
 	auto layout = get_layout(text, target_font_size);
-    snapshot->append_layout(layout, {1, 1, 1, 1});
-    snapshot->translate({ -(x - a.get_x() / Pango::SCALE), -(y - a.get_y() / Pango::SCALE)});
+	snapshot->append_layout(layout, {1, 1, 1, 1});
+	snapshot->translate({ -(x - a.get_x() / Pango::SCALE), -(y - a.get_y() / Pango::SCALE)});
 }
-Glib::RefPtr<Pango::Layout> View::ActiveView::get_layout(const Glib::ustring &text, unsigned long font_size)
+Glib::RefPtr<Pango::Layout> View::ActiveView::get_layout(const Glib::ustring &text, uintsys font_size)
 {
 	auto layout = create_pango_layout(text);
 	auto font = layout->get_font_description();
 	if(nullptr==font.gobj() || font.get_family().empty())
 		font = Pango::FontDescription("Sans Bold 1pt");
-    font.set_size(Pango::SCALE * font_size);
-    layout->set_font_description(font);
-    layout->set_text(text);
-    return layout;
+	font.set_size(Pango::SCALE * font_size);
+	layout->set_font_description(font);
+	layout->set_text(text);
+	return layout;
 }
 

@@ -113,9 +113,9 @@ public:
 	{
 		return missed > 2;
 	}
-	unsigned long single_move()
+	uintsys single_move()
 	{
-		unsigned long missed_bonuses_to_replace=0;
+		uintsys missed_bonuses_to_replace=0;
 		auto previous = bonus_list.before_begin();
 		for (auto bonus = bonus_list.begin();bonus != bonus_list.end();)
 		{
@@ -150,9 +150,9 @@ public:
 	{
 		return regular_left == 0;
 	}
-	unsigned long do_pending_removes()
+	uintsys do_pending_removes()
 	{
-		unsigned long real_bonuses_to_replace = 0;
+		uintsys real_bonuses_to_replace = 0;
 		auto previous = bonus_list.before_begin();
 		for (auto bonus = bonus_list.begin();bonus != bonus_list.end();)
 		{
@@ -189,6 +189,6 @@ private:
 	uint8_t regular_left;
 	//std::unordered_set<Bonus,Bonus::Hash> bonus_set; /*top left position of bonus*/
 	std::forward_list<Bonus> bonus_list;
-	unsigned long missed;
+	uintsys missed;
 };
 

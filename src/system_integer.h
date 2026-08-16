@@ -16,40 +16,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+ 
 #include <cstdint>
-#include "pseudo_random.h"
 
 #if INTPTR_MAX == INT64_MAX
-static uint64_t last = 2; /*seed*/
-
-/* a pseudo random number between 0 and 2^64-1 inclusive */
-uint64_t pseudo_random()
-{
-	const auto a = 6364136223846793005ULL; /*multiplier*/
-	const auto c = 1442695040888963407ULL; /*increment*/
-	last = a * last + c;
-	return last;
-}
-
-void set_seed(uint64_t seed)
-{
-	last=seed;
-}
+	typedef uint64_t uintsys;
+	typedef int64_t  intsys;
 #else /* 32-bit compiler */
-static uint32_t last = 2; /*seed*/
-
-/* a pseudo random number between 0 and 2^64-1 inclusive */
-uint32_t pseudo_random()
-{
-	const uint32_t a = 1103515245; /*multiplier*/
-	const uint32_t c = 12345; /*increment*/
-	last = a * last + c;
-	return last;
-}
-
-void set_seed(uint32_t seed)
-{
-	last=seed;
-}
+	typedef uint32_t uintsys;
+	typedef int32_t  intsys;
 #endif

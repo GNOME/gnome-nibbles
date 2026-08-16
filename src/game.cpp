@@ -40,6 +40,7 @@
 #include <locale>
 #include <glib/gi18n.h>
 
+#include "system_integer.h"
 #include "definitions.h"
 #include "pseudo_random.h"
 #include "map.h"
@@ -51,7 +52,7 @@
 //#include "view.h"
 
 
-bool Game::load_board_from_file(const char *path, unsigned long _level)
+bool Game::load_board_from_file(const char *path, uintsys _level)
 {
 	level = _level;
 	std::ifstream map_file(path/*,std::ios::binary*/);
@@ -360,7 +361,7 @@ void Game::move_worms()
 		if(worm.decrement_still())
 		{
 			if(progress==TEST)
-				std::cout << "Worm " << (unsigned long)worm.get_colour() << 
+				std::cout << "Worm " << (uintsys)worm.get_colour() <<
 					" still counter decremented to " << worm.get_rounds_to_stay_still() << std::endl;
 		}
 	}
@@ -373,7 +374,7 @@ void Game::move_worms()
 			if(worm.decrement_score())
 			{
 				if(progress==TEST)
-					std::cout << "Worm " << (unsigned long)worm.get_colour() << 
+					std::cout << "Worm " << (uintsys)worm.get_colour() << 
 					" score decremented to " << worm.get_score() << std::endl;
 			}
 		}
@@ -391,7 +392,7 @@ void Game::move_worms()
 			break;
 	}
 
-	unsigned long missed_bonuses_to_replace=bonuses.single_move();
+	auto missed_bonuses_to_replace=bonuses.single_move();
 	for (;missed_bonuses_to_replace>0; --missed_bonuses_to_replace)
 	{
 		bool r=add_bonus(true);
@@ -449,7 +450,7 @@ void Game::move_worms()
 		{
 			if(progress==TEST)
 			{
-				std::cout << "Worm " << (unsigned long)worm.get_colour() << " ";
+				std::cout << "Worm " << (uintsys)worm.get_colour() << " ";
 				if(worm.is_still())
 					std::cout << "is still, ";
 				if(worm.get_positions().is_empty())
@@ -464,8 +465,8 @@ void Game::move_worms()
 			Position n=worm.move1(board);
 			if(progress==TEST)
 			{
-				std::cout << "Worm " << (unsigned long)worm.get_colour() << (worm.is_materialized()?"":"(dematerialized)") <<
-					" moves to " << (unsigned long)n.x << "," << (unsigned long)n.y << std::endl;
+				std::cout << "Worm " << (uintsys)worm.get_colour() << (worm.is_materialized()?"":"(dematerialized)") <<
+					" moves to " << (uintsys)n.x << "," << (uintsys)n.y << std::endl;
 			}
 			Position target_position;
 			bool warp_bonus;
@@ -497,9 +498,9 @@ void Game::move_worms()
 				dead_worms.add(worm);
 				dead_worms.add(other_worm);
 				if(progress==TEST)
-					std::cout << "Worm " << (unsigned long)worm.get_colour() << "(" << (unsigned long)worm.get_positions().get_head().x <<
-						"," << (unsigned long)worm.get_positions().get_head().y << ") and " << (unsigned long)other_worm.get_colour() <<
-						"(" << (unsigned long)other_worm.get_positions().get_head().x << "," << (unsigned long)other_worm.get_positions().get_head().y <<
+					std::cout << "Worm " << (uintsys)worm.get_colour() << "(" << (uintsys)worm.get_positions().get_head().x <<
+						"," << (uintsys)worm.get_positions().get_head().y << ") and " << (uintsys)other_worm.get_colour() <<
+						"(" << (uintsys)other_worm.get_positions().get_head().x << "," << (uintsys)other_worm.get_positions().get_head().y <<
 						") have had a head on collision" << std::endl;
 			}
 		}
