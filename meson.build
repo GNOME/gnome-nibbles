@@ -3,7 +3,7 @@ project('gnome-nibbles',
 	['cpp'],
 	license: ['GPL3+'],
 	meson_version: '>=1.1',
-	version: '4.6.dev',
+	version: '4.6.rc1',
 	default_options: ['cpp_std=gnu++26']) # for std::ranges::contains
 
 message(meson.project_name(), 'version', get_option('version') + get_option('append_to_version'))
