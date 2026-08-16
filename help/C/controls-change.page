@@ -11,6 +11,7 @@
     <revision pkgversion="3.8" version="0.1" date="2012-03-05" status="candidate"/>
     <revision pkgversion="3.34" version="0.2" date="2020-01-05" status="candidate"/>
     <revision pkgversion="3.38" version="0.3" date="2021-08-08" status="candidate"/>
+	<revision pkgversion="4.6" version="0.0" date="2026-08-12" status="review"/>
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
@@ -42,41 +43,19 @@
       <p>Start a new game.</p>
     </item>
     <item>
-      <p>On the <gui>Controls</gui> screen, press the
-      <media its:translate="no" type="image" src="figures/emblem-system-symbolic.svg"><span its:translate="yes">settings</span></media>
-      button for the player whose controls you want to change.</p>
-      <note style="info">
-        <p>Player 1 controls <gui>Worm 1</gui>, player 2 controls
-        <gui>Worm 2</gui>, player 3 controls <gui>Worm 3</gui> and so on.</p>
-      </note>
-    </item>
-    <item>
-      <p>In the <gui style="group">Controls</gui> list, select the
-      line of the <gui>Action</gui>. This highlights the line.</p>
-    </item>
-    <item>
-      <p>Select the <gui>Key</gui> on the control. The words
-      <gui>New accelerator…</gui> are now present in place of the old
-      control.</p>
+      <p>On the <gui>Controls</gui> screen, press the arrow for the direction 
+		you want to redefine the key.</p>
     </item>
     <item>
       <p>Press the key you want to use instead of the default key.</p>
-      <note style="tip">
-        <!-- TODO: Broken in 3.38; see https://gitlab.gnome.org/GNOME/gnome-nibbles/-/issues/54 -->
-        <p>To keep the old setting click <gui>New accelerator…</gui> again,
-        right click on <gui>New accelerator…</gui>, press <key>Esc</key> or
-        click anywhere else inside the <gui>Nibbles Preferences</gui> box.</p>
+      <note style="info">
+		<p>Any arrow that appears red must have the key redefined otherwise you
+		will not be able to start the game.</p>
       </note>
     </item>
     <item>
-      <p>Repeat the above step to change the other default keys for the
-      current player, then select the tab for the next player whose controls
-      you want to change and repeat the process.</p>
+      <p>Repeat the above step to change the other default keys.</p>
     </item>
   </steps>
-
-  <p>For example, to use <key>A</key> to move left, select the <gui>Action</gui>
-  <gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</key> on your
-  keyboard when you see <gui>New accelerator…</gui> on the line.</p>
 
 </page>
