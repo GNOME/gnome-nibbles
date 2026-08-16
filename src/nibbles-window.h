@@ -1301,6 +1301,7 @@ public:
 		GetButton("button")->set_sensitive(!check_for_key_clash());
 	}
 
+	void sound_change(bool mute);
 private:
 	bool pass_key_to_view(guint keycode);
 	bool on_key_pressed_callback(guint keyval, guint keycode, Gdk::ModifierType state);
@@ -1614,10 +1615,15 @@ public:
 		}
 	}
 	void save_high_scores(uint8_t category_index);
+	void set_mute(bool m)
+	{
+		mute=m;
+		sound_change(mute);
+	}
 private:
 	int cli_start_level;
-	//eSetupScreen start_screen;
 	bool full_screen=false;
+	bool mute=false;
 	Gtk::AboutDialog about;
 	Scores scores;
 };

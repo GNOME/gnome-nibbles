@@ -169,6 +169,17 @@ protected:
 			pWindow->set_default_icon_name ("org.gnome.Nibbles");
 			pWindow->present ();
 			add_action("new-game",sigc::mem_fun(*pWindow, &NibblesWindow::new_game_cb));
+			//add_action("sound",sigc::mem_fun(*pWindow, &NibblesWindow::sound_cb));
+			auto action = Gio::SimpleAction::create(
+				"sound",Glib::Variant<bool>::create(true));
+			action->signal_change_state().connect(
+				[this,action](const Glib::VariantBase& value)
+				{
+					bool state = Glib::VariantBase::cast_dynamic<Glib::Variant<bool>>(value).get();
+					action->set_state(value);
+					pWindow->set_mute(!state);
+				});
+			add_action(action);	
 			add_action("fullscreen",sigc::mem_fun(*pWindow, &NibblesWindow::fullscreen_cb));
 			add_action("help",  sigc::mem_fun(*pWindow, &NibblesWindow::help_cb));
 			add_action("about", sigc::mem_fun(*pWindow, &NibblesWindow::about_cb));

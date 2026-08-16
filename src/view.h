@@ -582,7 +582,11 @@ public:
 	View(Game::Progress progress, unsigned long start_level, unsigned long speed, bool fakes,
 		Gtk::Button &pause_button, std::function<void(const std::vector<WormScore>)> game_over
 	);
-	virtual ~View() override = default;
+	virtual ~View() override
+	{
+		if(nullptr!=ctx)	
+			g_object_unref(ctx); /* free sound context */
+	}
 	bool is_fullscreen_active()
 	{
 		return fullscreen;
@@ -619,6 +623,10 @@ public:
 			play();
 		}
 	}
+	void set_mute(bool state)
+	{
+		mute=state;
+	}
 private:
 	Game::Progress progress;
 	std::bitset<26> levels;
@@ -627,17 +635,19 @@ private:
 	bool fakes;
 	Gtk::Button &pause_button;
 	std::function<void(const std::vector<WormScore>)> game_over;
+	GSoundContext* ctx; /* sound */
 	std::map<unsigned int, HumanAction> keys;
 	StaticView static_view;
 	ActiveView active_view;
 	unsigned int player_count,ai_count;
 	std::vector<eWormColour> worm_colour;
 	bool fullscreen=false;
-	static void play_sound(const Glib::ustring &sound);
+	void play_sound(const Glib::ustring &sound);
 	Game game;
 	std::unordered_map<eWormColour, Gtk::Box *> score_box;
 	std::unordered_map<eWormColour, Glib::ustring> names;
 	bool paused;
+	bool mute;
 	TimeCallBack timer;
 	
 private:

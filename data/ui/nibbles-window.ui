@@ -27,7 +27,7 @@
       <item>
         <!-- Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); mutes or unmutes game sound -->
         <attribute name="label" translatable="yes">_Sound</attribute>
-        <attribute name="action">win.sound</attribute>
+        <attribute name="action">app.sound</attribute>
       </item>
       <item>
         <!-- Translators: toggleable entry of the hamburger menu (with a mnemonic that appears when pressing Alt); switch to full screen mode -->

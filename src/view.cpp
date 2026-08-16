@@ -86,7 +86,10 @@ View::View(Game::Progress progress, unsigned long start_level, unsigned long spe
 	std::function<void(const std::vector<WormScore>)> game_over) : Gtk::Overlay(),
 	progress(progress), speed(speed), fakes(fakes), pause_button(pause_button),
 	game_over(game_over), static_view(*this), active_view(*this),
-	game(play_sound,get_worm_settings_colour,
+	game(
+	[this](const Glib::ustring &sound) {/*play_sound*/
+		play_sound(sound);
+	},get_worm_settings_colour,
 	[this](eWormColour worm_colour, unsigned long lives) {/*life_change*/
 		if(score_box.contains(worm_colour))
 		{
@@ -112,6 +115,15 @@ View::View(Game::Progress progress, unsigned long start_level, unsigned long spe
 	},
 	progress)
 {
+	// setup sound
+	GError* error = nullptr;
+	ctx = gsound_context_new(nullptr, &error);
+	if(!ctx)
+	{
+		std::cerr << "Failed to create GSound context: " << error->message << std::endl;
+		g_error_free(error);
+	}
+
 	unsigned long level;
 	switch(progress)
 	{
@@ -149,33 +161,19 @@ View::View(Game::Progress progress, unsigned long start_level, unsigned long spe
 
 void View::play_sound(const Glib::ustring &sound)
 {
-	GError* error = nullptr;
-	
-	// 1. Create and initialize the GSound context
-	GSoundContext* ctx = gsound_context_new(nullptr, &error);
-	if (!ctx) {
-		std::cerr << "Failed to create GSound context: " << error->message << std::endl;
-		g_error_free(error);
-		return;
+	if(!mute && nullptr!=ctx)
+	{	
+		GError* error = nullptr;
+		Glib::ustring path=Glib::build_filename(SOUND_DIRECTORY, sound+".ogg");
+		gboolean success = gsound_context_play_simple(ctx, nullptr, &error,
+			GSOUND_ATTR_MEDIA_FILENAME, path.c_str(), 
+			nullptr
+		);
+		if (!success) {
+			std::cerr << "Error playing sound: " << path << " " << error->message << std::endl;
+			g_error_free(error);
+		}
 	}
-
-	Glib::ustring path=Glib::build_filename(SOUND_DIRECTORY, sound+".ogg");
-	// 2. Play a simple system sound event or a specific audio file path
-	// Pass attributes as key-value string pairs, ending with a final nullptr
-	gboolean success = gsound_context_play_simple(ctx, nullptr, &error,
-		//GSOUND_ATTR_EVENT_ID, "audio-volume-change", // System theme sound event
-		// To use an absolute path file instead, swap the line above with:
-		GSOUND_ATTR_MEDIA_FILENAME, path.c_str(), 
-		nullptr
-	);
-
-	if (!success) {
-		std::cerr << "Error playing sound: " << path << " " << error->message << std::endl;
-		g_error_free(error);
-	}
-
-	// 3. Clean up the context allocated on the heap
-	g_object_unref(ctx);
 }
 
 void View::initialise_and_start()

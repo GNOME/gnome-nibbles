@@ -1,31 +1,31 @@
 # Tests
 nibbles_tests = executable(
-    'nibbles_tests',
-    [
-        'tests.cpp',
-        'worm.cpp',
-	    'game.cpp',
-	    'pseudo_random.cpp'
-    ],
-    dependencies : [
+	'nibbles_tests',
+	[
+		'tests.cpp',
+		'worm.cpp',
+		'game.cpp',
+		'pseudo_random.cpp'
+	],
+	dependencies : [
 		glibmm_dep,
 		gtkmm,
-        glib_dep,
-    ],
-    cpp_args: cpp_if_defines,
-    link_args : '-lm'
+		glib_dep,
+	],
+	cpp_args: cpp_if_defines,
+	link_args : '-lm'
 )
 test('nibbles-tests', nibbles_tests, timeout: 120)
 
 # gnome-nibbles executable
 gnome_nibbles_sources = [
-    'nibbles.cpp',
-    'nibbles-window.cpp',
-    'view.cpp',
+	'nibbles.cpp',
+	'nibbles-window.cpp',
+	'view.cpp',
 	'worm.cpp',
-    'game.cpp',
-    'pseudo_random.cpp',
-    'critical.cpp',
+	'game.cpp',
+	'pseudo_random.cpp',
+	'critical.cpp',
 	resources
 ]
 
@@ -34,18 +34,18 @@ gnome_nibbles_deps = [
 	gtkmm,
 #    gee_dep,
 #    gio_dep,
-    glib_dep,
-    gsound_dep,
+	glib_dep,
+	gsound_dep,
 #    libgnome_games_support_dep,
-    gtk_dep,
-    pango_dep,
+	gtk_dep,
+	pango_dep,
 #    posix_dep,
 #    libadwaita_dep
 ]
 
 executable(meson.project_name(), gnome_nibbles_sources,
-    dependencies: gnome_nibbles_deps,
-    cpp_args: cpp_if_defines,
-    link_args: '-lm',
-    install: true
+	dependencies: gnome_nibbles_deps,
+	cpp_args: cpp_if_defines,
+	link_args: '-lm',
+	install: true
 )

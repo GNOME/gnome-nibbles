@@ -33,6 +33,7 @@
 #include <unordered_set>
 #include <bitset>
 #include <forward_list>
+#include <gsound.h>
 
 /* language */
 #include <locale>
@@ -272,6 +273,8 @@ void NibblesWindow::setup_game()
 				}		
 		);
 	}
+	/* initial sound setting */
+	view->set_mute(mute);
 	/* pass keys to view */
 	std::vector<PlayerButton*> players;
 	auto players_count=get_players(players);
@@ -308,6 +311,14 @@ void NibblesWindow::pause_view(bool pause)
 	auto child = game_box->get_first_child();
 	if(auto view = dynamic_cast<View*>(child))
 		view->set_pause(pause);
+}
+
+void NibblesWindow::sound_change(bool mute)
+{
+	auto game_box=GetBox("game_box");
+	auto child = game_box->get_first_child();
+	if(auto view = dynamic_cast<View*>(child))
+		view->set_mute(mute);
 }
 
 bool NibblesWindow::on_key_pressed_callback(guint keyval, guint keycode, Gdk::ModifierType state)
