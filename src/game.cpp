@@ -526,8 +526,6 @@ void Game::move_worms()
 	{
 		if(r)
 			std::cout << "added irregular bonus" << std::endl;
-		else
-			std::cout << "no room to add irregula bonus" << std::endl;
 	}
 
 	/* remove dead worms */
