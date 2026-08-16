@@ -1305,6 +1305,7 @@ public:
 private:
 	bool pass_key_to_view(guint keycode);
 	bool on_key_pressed_callback(guint keyval, guint keycode, Gdk::ModifierType state);
+	void fullscreen_view(bool b);
 	void pause_view(bool pause);
 	void initilise_css();
 	void initilise_about();
@@ -1499,6 +1500,25 @@ public:
 			full_screen=true;
 			fullscreen();
 		}
+		fullscreen_view(full_screen);
+		auto main_stack=m_refBuilder->get_widget<Gtk::Stack>("main_stack");
+		if(!main_stack)
+		{
+			critical("nibble-window.ui: id=\"main_stack\" does not exist!");
+		}
+		else
+		{
+			auto margin=full_screen?0:25;
+			main_stack->set_margin_start(margin);
+			main_stack->set_margin_end(margin);
+			main_stack->set_margin_top(margin);
+			main_stack->set_margin_bottom(margin);
+		}
+		auto scoreboard=GetBox("scoreboard");
+		if(!scoreboard)
+			critical("nibble-window.ui: id=\"scoreboard\" does not exist!");
+		else
+			scoreboard->set_visible(!full_screen);
 	}
 	void help_cb()
 	{

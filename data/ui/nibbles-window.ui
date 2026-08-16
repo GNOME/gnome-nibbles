@@ -800,23 +800,6 @@
                             </property>
                           </object>
                         </child>
-                        <child>
-                          <object class="GtkStackPage">
-                            <property name="name">paused</property>
-                            <property name="child">
-                              <object class="GtkLabel" id="pause">
-                                <attributes>
-                                  <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
-                                  <attribute name="scale" value="2"/>
-                                </attributes>
-                                <property name="visible">1</property>
-                                <!-- Translators: text displayed at the bottom of the window, when the game is paused -->
-                                <property name="label" translatable="1">Paused</property>
-                                <property name="halign">center</property>
-                              </object>
-                            </property>
-                          </object>
-                        </child>
 
                       </object>
                     </child>

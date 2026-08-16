@@ -273,6 +273,8 @@ void NibblesWindow::setup_game()
 				}		
 		);
 	}
+	/* initial fullscreen setting */
+	view->set_fullscreen(full_screen);
 	/* initial sound setting */
 	view->set_mute(mute);
 	/* pass keys to view */
@@ -303,6 +305,14 @@ bool NibblesWindow::pass_key_to_view(guint keycode)
 		return view->key_press(keycode);
 	else
 		return false;
+}
+
+void NibblesWindow::fullscreen_view(bool b)
+{
+	auto game_box=GetBox("game_box");
+	auto child = game_box->get_first_child();
+	if(auto view = dynamic_cast<View*>(child))
+		view->set_fullscreen(b);
 }
 
 void NibblesWindow::pause_view(bool pause)

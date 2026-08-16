@@ -609,17 +609,19 @@ public:
 		else
 			return false;
 	}
+	void set_fullscreen(bool b)
+	{
+		fullscreen=b;
+	}
 	void set_pause(bool state/*false for resume*/)
 	{
 		if(state)
 		{
 			paused=true;
-			get_statusbar_stack()->set_visible_child("paused"); /* switch to paused message */
 		}
 		else
 		{
 			paused=false;
-			get_statusbar_stack()->set_visible_child("scoreboard"); /* switch to the score board */
 			play();
 		}
 	}
@@ -641,7 +643,7 @@ private:
 	ActiveView active_view;
 	unsigned int player_count,ai_count;
 	std::vector<eWormColour> worm_colour;
-	bool fullscreen=false;
+	bool fullscreen;
 	void play_sound(const Glib::ustring &sound);
 	Game game;
 	std::unordered_map<eWormColour, Gtk::Box *> score_box;
