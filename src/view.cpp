@@ -275,10 +275,9 @@ bool View::play()
 			auto finish = std::chrono::steady_clock::now();
 			const long level_delay[]={52,70,105,140};/* milli-seconds */
 			auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(finish - start).count();
-			unsigned long delay=0;
+			unsigned long delay=1;
 			if(elapsed_ms < level_delay[speed-1])
 				delay = level_delay[speed-1] - elapsed_ms;
-			//timer=Glib::signal_timeout().connect(sigc::mem_fun(*this, &View::play), delay);
 			timer.set(sigc::mem_fun(*this, &View::play), delay);
 		}
 		else if(state==Game::NEWROUND)
