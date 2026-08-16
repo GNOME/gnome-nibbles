@@ -290,12 +290,8 @@ void test_heads()
 			"┗━━━━━━━━━━━━━━━━┛"};
 #if INTPTR_MAX == INT64_MAX
 	test_board(test_heads_2, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{12/*x*/,	4/*y*/,	4/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
-#else /* 32-bit compiler */
-	test_board(test_heads_2, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
 		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/},
-		{12/*x*/,	4/*y*/,	4/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
+		{12/*x*/,	4/*y*/,	5/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
 #endif
 
 	constexpr std::array<std::string_view, 6> test_heads_3 = {
@@ -306,10 +302,6 @@ void test_heads()
 			"┃▶.............◀┣┫",
 			"┗━━━━━━━━━━━━━━━┻┛"};
 #if INTPTR_MAX == INT64_MAX
-	test_board(test_heads_3, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{11/*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
-#else /* 32-bit compiler */
 	test_board(test_heads_3, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
 		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/},
 		{11/*x*/,	4/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
@@ -335,11 +327,11 @@ void test_heads()
 			"┗━━━━━━━┻━━━━━━━━┛"};
 #if INTPTR_MAX == INT64_MAX
 	test_board(test_heads_5, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	1/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/},
-		{5 /*x*/,	4/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
+		{5 /*x*/,	1/*y*/,	6/*final lives*/,	0 /*final score*/,  5 /* final length*/},
+		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
 #else /* 32-bit compiler */
 	test_board(test_heads_5, 1/*max regular bonuses*/, 1/*bonuses easten*/,{
-		{5 /*x*/,	1/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
+		{5 /*x*/,	1/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/},
 		{5 /*x*/,	4/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/}});
 #endif
 		
@@ -542,20 +534,20 @@ void test_games()
 "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓........┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"};
 #if INTPTR_MAX == INT64_MAX
 	test_board(test_board_8, 12/*max regular bonuses*/, 12/*bonuses easten*/,{
-		{ 4/*x*/,13/*y*/,	4/*final lives*/,	27/*final score*/, 	49/* final length*/},
-		{17/*x*/,28/*y*/,	7/*final lives*/,	2 /*final score*/, 	2 /* final length*/},
-		{ 8/*x*/,39/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{51/*x*/,46/*y*/,	5/*final lives*/,	19/*final score*/, 	77/* final length*/},
-		{83/*x*/,57/*y*/,	6/*final lives*/,	16/*final score*/, 	69/* final length*/},
-		{38/*x*/,59/*y*/,	5/*final lives*/,	4 /*final score*/, 	5 /* final length*/}});
+		{ 4/*x*/,13/*y*/,	6/*final lives*/,	17/*final score*/, 	62/* final length*/},
+		{17/*x*/,28/*y*/,	5/*final lives*/,	10/*final score*/, 	5 /* final length*/},
+		{ 8/*x*/,39/*y*/,	6/*final lives*/,	1 /*final score*/, 	9 /* final length*/},
+		{51/*x*/,46/*y*/,	6/*final lives*/,	30/*final score*/, 	50/* final length*/},
+		{83/*x*/,57/*y*/,	6/*final lives*/,	19/*final score*/, 	81/* final length*/},
+		{38/*x*/,59/*y*/,	6/*final lives*/,	25/*final score*/, 	94/* final length*/}});
 #else /* 32-bit compiler */
 	test_board(test_board_8, 12/*max regular bonuses*/, 12/*bonuses easten*/,{
 		{ 4/*x*/,13/*y*/,	5/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{17/*x*/,28/*y*/,	6/*final lives*/,	0 /*final score*/, 	6 /* final length*/},
-		{ 8/*x*/,39/*y*/,	5/*final lives*/,	0 /*final score*/, 	81/* final length*/},
-		{51/*x*/,46/*y*/,	6/*final lives*/,	0 /*final score*/, 	50/* final length*/},
-		{83/*x*/,57/*y*/,	5/*final lives*/,	12/*final score*/, 	53/* final length*/},
-		{38/*x*/,59/*y*/,	6/*final lives*/,	0 /*final score*/, 	105/* final length*/}});
+		{17/*x*/,28/*y*/,	5/*final lives*/,	12/*final score*/, 	53/* final length*/},
+		{ 8/*x*/,39/*y*/,	6/*final lives*/,	0 /*final score*/, 	53/* final length*/},
+		{51/*x*/,46/*y*/,	6/*final lives*/,	0 /*final score*/, 	18/* final length*/},
+		{83/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	61/* final length*/},
+		{38/*x*/,59/*y*/,	6/*final lives*/,	0 /*final score*/, 	82/* final length*/}});
 #endif
 	/* test because it uses the two kind of warps */
 	constexpr std::array<std::string_view, 66> test_board_11 = {
@@ -627,20 +619,20 @@ void test_games()
 "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"};
 #if INTPTR_MAX == INT64_MAX
 	test_board(test_board_11, 12/*max regular bonuses*/, 12/*bonuses easten*/,{
-		{15/*x*/, 8/*y*/,	7/*final lives*/,	0 /*final score*/, 	49/* final length*/},
-		{44/*x*/, 8/*y*/,	6/*final lives*/,	12/*final score*/, 	97/* final length*/},
-		{76/*x*/, 8/*y*/,	6/*final lives*/,	0 /*final score*/, 	85/* final length*/},
-		{15/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{48/*x*/,57/*y*/,	5/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
-		{76/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	77/* final length*/}});
+		{15/*x*/, 8/*y*/,	5/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
+		{44/*x*/, 8/*y*/,	6/*final lives*/,	0 /*final score*/, 	13/* final length*/},
+		{76/*x*/, 8/*y*/,	5/*final lives*/,	0 /*final score*/, 	49/* final length*/},
+		{15/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	45/* final length*/},
+		{48/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
+		{76/*x*/,57/*y*/,	6/*final lives*/,	12/*final score*/, 	137/* final length*/}});
 #else /* 32-bit compiler */
 	test_board(test_board_11, 12/*max regular bonuses*/, 12/*bonuses easten*/,{
-		{15/*x*/, 8/*y*/,	6/*final lives*/,	12/*final score*/, 	101/* final length*/},
-		{44/*x*/, 8/*y*/,	5/*final lives*/,	0 /*final score*/, 	33/* final length*/},
-		{76/*x*/, 8/*y*/,	6/*final lives*/,	0 /*final score*/, 	44/* final length*/},
-		{15/*x*/,57/*y*/,	5/*final lives*/,	0 /*final score*/, 	49/* final length*/},
-		{48/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	37/* final length*/},
-		{76/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	5 /* final length*/}});
+		{15/*x*/, 8/*y*/,	6/*final lives*/,	0 /*final score*/, 	22/* final length*/},
+		{44/*x*/, 8/*y*/,	5/*final lives*/,	0 /*final score*/, 	5 /* final length*/},
+		{76/*x*/, 8/*y*/,	6/*final lives*/,	0 /*final score*/, 	29/* final length*/},
+		{15/*x*/,57/*y*/,	6/*final lives*/,	12/*final score*/, 	133/* final length*/},
+		{48/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	10/* final length*/},
+		{76/*x*/,57/*y*/,	6/*final lives*/,	0 /*final score*/, 	49/* final length*/}});
 #endif
 	/* test because it uses the random warp */
 	constexpr std::array<std::string_view, 66> test_board_25 = {
@@ -712,20 +704,20 @@ void test_games()
 "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"};
 #if INTPTR_MAX == INT64_MAX
 	test_board(test_board_25, 12/*max regular bonuses*/, 12/*bonuses easten*/,{
-		{20/*x*/, 6/*y*/,	6/*final lives*/,	15/*final score*/, 	65/* final length*/},
-		{63/*x*/, 6/*y*/,	4/*final lives*/,	28/*final score*/, 	53/* final length*/},
-		{85/*x*/,11/*y*/,	5/*final lives*/,	26/*final score*/,  37/* final length*/},
-		{85/*x*/,54/*y*/,	6/*final lives*/,	5 /*final score*/, 	25/* final length*/},
-		{20/*x*/,59/*y*/,	5/*final lives*/,	21/*final score*/, 	29/* final length*/},
-		{63/*x*/,59/*y*/,	5/*final lives*/,	13/*final score*/, 	45/* final length*/}});
+		{20/*x*/, 6/*y*/,	4/*final lives*/,	22/*final score*/, 	85/* final length*/},
+		{63/*x*/, 6/*y*/,	4/*final lives*/,	16/*final score*/, 	10/* final length*/},
+		{85/*x*/,11/*y*/,	6/*final lives*/,	105/*final score*/, 106/* final length*/},
+		{85/*x*/,54/*y*/,	6/*final lives*/,	23/*final score*/, 	65/* final length*/},
+		{20/*x*/,59/*y*/,	5/*final lives*/,	16/*final score*/, 	5 /* final length*/},
+		{63/*x*/,59/*y*/,	6/*final lives*/,	83/*final score*/, 	49/* final length*/}});
 #else /* 32-bit compiler */
 	test_board(test_board_25, 12/*max regular bonuses*/, 12/*bonuses easten*/,{
-		{20/*x*/, 6/*y*/,	6/*final lives*/,	14/*final score*/, 	4 /* final length*/},
-		{63/*x*/, 6/*y*/,	7/*final lives*/,	94/*final score*/, 	130/* final length*/},
-		{85/*x*/,11/*y*/,	6/*final lives*/,	0 /*final score*/,  5 /* final length*/},
-		{85/*x*/,54/*y*/,	5/*final lives*/,	112/*final score*/, 32/* final length*/},
-		{20/*x*/,59/*y*/,	5/*final lives*/,	39/*final score*/, 	49/* final length*/},
-		{63/*x*/,59/*y*/,	5/*final lives*/,	23/*final score*/, 	86/* final length*/}});
+		{20/*x*/, 6/*y*/,	5/*final lives*/,	23/*final score*/, 	5 /* final length*/},
+		{63/*x*/, 6/*y*/,	6/*final lives*/,	27/*final score*/, 	113/* final length*/},
+		{85/*x*/,11/*y*/,	5/*final lives*/,	7 /*final score*/,  5 /* final length*/},
+		{85/*x*/,54/*y*/,	5/*final lives*/,	12/*final score*/,  5 /* final length*/},
+		{20/*x*/,59/*y*/,	5/*final lives*/,	16/*final score*/, 	26/* final length*/},
+		{63/*x*/,59/*y*/,	5/*final lives*/,	6 /*final score*/, 	10/* final length*/}});
 #endif
 }
 

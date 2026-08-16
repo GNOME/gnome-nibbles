@@ -252,10 +252,10 @@ bool Game::add_bonus(bool regular)
 	PositionSet free_locations;
 	Worm::Map worm_map(worms, board.size(), board[0].size());
 
-	/* irregular bonuses have a chance of 1 in 50 of appearing */
+	/* irregular bonuses have a chance of 1 in 150 of appearing per round*/
 	if (!regular)
 	{
-		if (pseudo_random(0, 50) != 0)
+		if (pseudo_random(150) != 0)
 			return true;
 	}
 
@@ -526,17 +526,13 @@ void Game::move_worms()
 		}
 	}
 	/* irregula bonus */
-	irregular_bonus_cycle=(irregular_bonus_cycle+1)%3;
-	if(0==irregular_bonus_cycle)
+	bool r=add_bonus(false);
+	if(progress==TEST)
 	{
-		bool r=add_bonus(false);
-		if(progress==TEST)
-		{
-			if(r)
-				std::cout << "Added irregular bonus" << std::endl;
-			else
-				std::cout << "No room to add irregula bonus" << std::endl;
-		}
+		if(r)
+			std::cout << "Added irregular bonus" << std::endl;
+		else
+			std::cout << "No room to add irregula bonus" << std::endl;
 	}
 
 	/* remove dead worms */
