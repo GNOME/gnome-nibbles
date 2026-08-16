@@ -219,26 +219,27 @@ protected:
 			}
 		}
 		
-		auto progress_variant = g_variant_dict_lookup_value(options->gobj(), PROGRESS_ARGUMENT, nullptr);	
+		Glib::VariantBase progress_variant;
+		options->lookup_value_variant(PROGRESS_ARGUMENT,Glib::VariantType(),progress_variant);
 		if(progress_variant)
 		{
 			options->remove(PROGRESS_ARGUMENT);
-			auto type = g_variant_get_type(progress_variant);
-			if(G_VARIANT_TYPE_STRING == type)
+			if(progress_variant.is_of_type(Glib::VARIANT_TYPE_STRING))
 			{
-				gsize length;
-				auto s = g_variant_get_string(progress_variant, &length);
+				
+				auto progress = Glib::VariantBase::cast_dynamic<Glib::Variant<Glib::ustring>>(progress_variant);
+				auto s = progress.get();
 				if('s' == s[0])
 				{
-					pSettings->set_int (PROGRESS_SETTINGS, 0);
+					pSettings->set_int(PROGRESS_SETTINGS, 0);
 				}
 				else if('r' == s[0])
 				{
-					pSettings->set_int (PROGRESS_SETTINGS, 1);
+					pSettings->set_int(PROGRESS_SETTINGS, 1);
 				}
 				else if('f' == s[0])
 				{
-					pSettings->set_int (PROGRESS_SETTINGS, 2);
+					pSettings->set_int(PROGRESS_SETTINGS, 2);
 				}
 				else
 				{
@@ -247,20 +248,21 @@ protected:
 					return EXIT_FAILURE;
 				}
 			}
-			else if(G_VARIANT_TYPE_BYTE == type)
+			else if(progress_variant.is_of_type(Glib::VARIANT_TYPE_BYTE))
 			{
-				auto c = g_variant_get_byte(progress_variant);
+				auto byte_variant = Glib::VariantBase::cast_dynamic<Glib::Variant<guint8>>(progress_variant);
+				auto c = byte_variant.get();
 				if('s' == c)
 				{
-					pSettings->set_int (PROGRESS_SETTINGS, 0);
+					pSettings->set_int(PROGRESS_SETTINGS, 0);
 				}
 				else if('r' == c)
 				{
-					pSettings->set_int (PROGRESS_SETTINGS, 1);
+					pSettings->set_int(PROGRESS_SETTINGS, 1);
 				}
 				else if('f' == c)
 				{
-					pSettings->set_int (PROGRESS_SETTINGS, 2);
+					pSettings->set_int(PROGRESS_SETTINGS, 2);
 				}
 				else
 				{
@@ -269,22 +271,26 @@ protected:
 					return EXIT_FAILURE;
 				}
 			}
-			else if(G_VARIANT_TYPE_INT16 == type || G_VARIANT_TYPE_UINT16 == type ||
-					G_VARIANT_TYPE_INT32 == type || G_VARIANT_TYPE_UINT32 == type ||
-					G_VARIANT_TYPE_INT64 == type || G_VARIANT_TYPE_UINT64 == type)
+			else if(progress_variant.is_of_type(Glib::VARIANT_TYPE_INT16) ||
+					progress_variant.is_of_type(Glib::VARIANT_TYPE_INT32) ||
+					progress_variant.is_of_type(Glib::VARIANT_TYPE_INT64) ||
+					progress_variant.is_of_type(Glib::VARIANT_TYPE_UINT16) ||
+					progress_variant.is_of_type(Glib::VARIANT_TYPE_UINT32) ||
+					progress_variant.is_of_type(Glib::VARIANT_TYPE_UINT64))
 			{
-				auto i = g_variant_get_int64(progress_variant);
+				auto int_variant = Glib::VariantBase::cast_dynamic<Glib::Variant<gint64>>(progress_variant);
+				auto i = int_variant.get();
 				if(0 == i)
 				{
-					pSettings->set_int (PROGRESS_SETTINGS, 0);
+					pSettings->set_int(PROGRESS_SETTINGS, 0);
 				}
 				else if(1 == i)
 				{
-					pSettings->set_int (PROGRESS_SETTINGS, 1);
+					pSettings->set_int(PROGRESS_SETTINGS, 1);
 				}
 				else if(2 == i)
 				{
-					pSettings->set_int (PROGRESS_SETTINGS, 2);
+					pSettings->set_int(PROGRESS_SETTINGS, 2);
 				}
 				else
 				{
