@@ -390,7 +390,6 @@ void NibblesWindow::initilise_css()
 	auto provider2 = Gtk::CssProvider::create();
 	provider2->load_from_data(R"(
 	.message {
-		color: white;
 		font-size: 12pt;
 		font-weight: bold;
 		padding: 8px 12px;}
