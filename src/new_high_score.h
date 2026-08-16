@@ -62,16 +62,22 @@ public:
 				*this));
 	}
 
+	~NewHighScoreWindow()
+	{
+		for(auto &field : edit_fields)
+		{
+			set_last_used_name(field.first, field.second->get_text());
+		}
+	}
+
 	// Define a signal so the main window can wait for the user
 	sigc::signal<void(std::vector<Glib::ustring>)> close_response() { return m_close_response; }
 
 	void add(const WormScore &ws)
 	{
 		auto row_box=Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL, 10);
-		auto label=Gtk::make_managed<Gtk::Label>("label");
-		
 		Gtk::Label *name=Gtk::make_managed<Gtk::Label>();
-		const char *pango_colour[]={"#ff0000","#00c000","#0080ff","#ffff00","#00ffff","#c000c0"};
+		constexpr std::array<const char *, 6> pango_colour = {"#ff0000","#00c000","#0080ff","#ffff00","#00ffff","#c000c0"};
 		Glib::ustring markup="<span color=\"";
 		markup+=pango_colour[ws.colour];
 		markup+="\">";
@@ -84,7 +90,8 @@ public:
 		Gtk::Label *score=Gtk::make_managed<Gtk::Label>(std::to_string(ws.score));
 		
 		auto edit=Gtk::make_managed<Gtk::Entry>();
-		//edit->set_text("Default Text"); // Sets initial content
+		edit->set_text(get_last_used_name(ws.colour)); // Sets initial content
+		edit_fields[ws.colour]=edit;
 		
 		row_box->append(*name);
 		row_box->append(*score);
@@ -105,6 +112,7 @@ protected:
 	sigc::signal<void(std::vector<Glib::ustring>)> m_close_response;
 	bool m_responded=false;
 private:
+	std::map<eWormColour,Gtk::Entry*> edit_fields;
 	Gtk::Button *create_button(Glib::ustring text)
 	{
 		auto *button=Gtk::make_managed<Gtk::Button>(text);
@@ -127,6 +135,35 @@ private:
 			r=r->get_next_sibling();
 		}
 		return result;
+	}
+	static constexpr std::array<const char *, 6> worm_colours = {"red","green","blue","yellow","cyan","purple"};
+	Glib::ustring get_last_used_name(eWormColour colour)
+	{
+		for(unsigned long worm_id=0;worm_id<6;worm_id++)
+		{
+			Glib::ustring my_settings = WORM_BASE_KEY;
+			my_settings += (char)('0'+worm_id);
+			auto pWormSettings = Gio::Settings::create(my_settings);
+			auto string_colour=pWormSettings->get_string("color");
+			if(string_colour==worm_colours[colour])
+				return pWormSettings->get_string("high-score-name");
+		}
+		return "";
+	}
+	void set_last_used_name(eWormColour colour, const Glib::ustring &name)
+	{
+		for(unsigned long worm_id=0;worm_id<6;worm_id++)
+		{
+			Glib::ustring my_settings = WORM_BASE_KEY;
+			my_settings += (char)('0'+worm_id);
+			auto pWormSettings = Gio::Settings::create(my_settings);
+			auto string_colour=pWormSettings->get_string("color");
+			if(string_colour==worm_colours[colour])
+			{
+				pWormSettings->set_string("high-score-name",name);
+				break;
+			}
+		}
 	}
 };
 

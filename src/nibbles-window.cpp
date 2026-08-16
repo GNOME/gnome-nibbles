@@ -1462,31 +1462,17 @@ std::pair<uint64_t,bool> NibblesWindow::Scores::read_integer(std::ifstream &stre
 
 std::pair<std::string,bool> NibblesWindow::Scores::read_string(std::ifstream &stream)
 {
-	bool successful_read=true;
 	char c;
 	std::string s;
-	/* ignore rubbish characters */
-	while(successful_read)
-	{
-		if(stream.get(c))
-		{
-			if(c>=' ' && c<0x7f)
-				break;
-		}
-		else
-			successful_read=false;
-	}
 	/* read string */
-	while(successful_read)
+	while(stream.get(c))
 	{
 		if(c>=' ' && c<0x7f)
 			s+=c;
 		else
 			break;
-		if(!stream.get(c))
-			successful_read=false;
 	}
-	return {s,successful_read};
+	return {s,true};
 }
 
 std::string NibblesWindow::Scores::to_title(uint8_t category_index)

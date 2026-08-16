@@ -80,6 +80,11 @@
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
     </key>
+    <key name="high-score-name" type="s">
+      <default>''</default>
+      <summary>Name</summary>
+      <description>Last name use for worm's high score.</description>
+    </key>
     <key name="key-up" type="i">
       <default>65362</default>
       <summary>Move up</summary>
@@ -126,6 +131,11 @@
       <default>'green'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
+    </key>
+    <key name="high-score-name" type="s">
+      <default>''</default>
+      <summary>Name</summary>
+      <description>Last name use for worm's high score.</description>
     </key>
     <key name="key-up" type="i">
       <default>119</default>
@@ -174,6 +184,11 @@
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
     </key>
+    <key name="high-score-name" type="s">
+      <default>''</default>
+      <summary>Name</summary>
+      <description>Last name use for worm's high score.</description>
+    </key>
     <key name="key-up" type="i">
       <default>116</default>
       <summary>Move up</summary>
@@ -220,6 +235,11 @@
       <default>'yellow'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
+    </key>
+    <key name="high-score-name" type="s">
+      <default>''</default>
+      <summary>Name</summary>
+      <description>Last name use for worm's high score.</description>
     </key>
     <key name="key-up" type="i">
       <default>56</default>
@@ -268,6 +288,11 @@
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
     </key>
+    <key name="high-score-name" type="s">
+      <default>''</default>
+      <summary>Name</summary>
+      <description>Last name use for worm's high score.</description>
+    </key>
     <key name="key-up" type="i">
       <default>65362</default>
       <summary>Move up</summary>
@@ -314,6 +339,11 @@
       <default>'purple'</default>
       <summary>Color to use for worm</summary>
       <description>Color to use for worm.</description>
+    </key>
+    <key name="high-score-name" type="s">
+      <default>''</default>
+      <summary>Name</summary>
+      <description>Last name use for worm's high score.</description>
     </key>
     <key name="key-up" type="i">
       <default>65362</default>
