@@ -283,6 +283,7 @@ void NibblesWindow::setup_game()
 	for(uint u=0;u<players_count;u++)
 		view->set_keys(get_worm_settings_colour(u),players[u]->get_raw_keys());
 	/* enable new-game & pause/resume buttons */
+	pause(false); /* initialise pause state */
 	GetButton("new_game_button")->set_visible(1);
 	GetButton("pause_button")->set_visible(1);
 	/* Initialise and start the game */
@@ -510,6 +511,37 @@ void NibblesWindow::initilise_keys()
 	key_controller->signal_key_pressed().connect(sigc::mem_fun(*this, &NibblesWindow::on_key_pressed_callback), false);
 	static_cast<Gtk::Widget*>(this)->add_controller(key_controller);		
 }
+void NibblesWindow::quit()
+{
+	auto game_box=GetBox("game_box");
+	if(game_box)
+	{
+		auto child = game_box->get_first_child();
+		auto *view = dynamic_cast<View*>(child);
+		if(view)
+		{
+			pause(true); /* pause the game */
+
+			// Translators: text displayed in a message box confirming game exit
+			auto* confirm = new ConfirmWindow(*this, "Are you sure you want end this game?");
+
+			// Handle the response callback asynchronously (non-blocking)
+			confirm->signal_response().connect([this, confirm, game_box, view](bool confirmed) {
+				if (confirmed)
+				{
+					game_box->remove(*view);
+					GetButton("new_game_button")->set_visible(0);
+					GetButton("pause_button")->set_visible(0);
+					ScreenStack_set_visible_child(PLAYERS);
+				}
+				else
+					pause(false); /* continue the game */
+				delete confirm;
+			});
+			confirm->present();
+		}
+	}
+}
 void NibblesWindow::back_callback() /* escape key */
 {
 	if(full_screen)
@@ -520,32 +552,7 @@ void NibblesWindow::back_callback() /* escape key */
 		eSetupScreen e=name_to_screen(s);
 		if(e==GAME)
 		{
-			auto game_box=GetBox("game_box");
-			if(game_box)
-			{
-				auto child = game_box->get_first_child();
-				auto *view = dynamic_cast<View*>(child);
-				if(view)
-				{
-					pause(true); /* pause the game */
-
-					// Translators: text displayed in a message box confirming game exit
-					auto* confirm = new ConfirmWindow(*this, "Are you sure you want end this game?");
-					
-					// Handle the response callback asynchronously (non-blocking)
-					confirm->signal_response().connect([this, confirm, game_box, view](bool confirmed) {
-						if (confirmed)
-						{
-							game_box->remove(*view);
-							ScreenStack_set_visible_child(PLAYERS);
-						}
-						else
-							pause(false); /* continue the game */
-						delete confirm;
-					});
-					confirm->present();
-				}
-			}
+			quit();
 		}
 		else
 		{

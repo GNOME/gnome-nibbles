@@ -1283,6 +1283,7 @@ private:
 		}
 	}
 
+	void quit();
 	void back_callback();
 	void update_high_scores(unsigned long speed, bool fakes,
 		unsigned long progress,	unsigned long level, const std::vector<WormScore> &scores);
@@ -1487,6 +1488,7 @@ private:
 public:
 	void new_game_cb()
 	{
+		quit();
 	}
 	void fullscreen_cb()
 	{
