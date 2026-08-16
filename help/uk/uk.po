@@ -2,21 +2,21 @@
 # Copyright (C) 2020 gnome-nibbles's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-nibbles package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2026 Yuri Chornoivan <yurchor@ukr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles gnome-3-36\n"
-"POT-Creation-Date: 2023-04-14 20:07+0000\n"
-"PO-Revision-Date: 2023-04-15 18:51+0300\n"
+"POT-Creation-Date: 2026-08-16 18:04+0000\n"
+"PO-Revision-Date: 2026-08-16 21:12+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
-"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n%10>="
+"2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -24,102 +24,116 @@ msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2020"
 
 #. (itstool) path: credit/name
-#: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
+#: C/basics.page:17 C/controls-change.page:19 C/controls-default.page:16
 #: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
 #: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
 #. (itstool) path: credit/name
-#: C/basics.page:20 C/controls-change.page:22 C/controls-default.page:20
+#: C/basics.page:21 C/controls-change.page:23 C/controls-default.page:20
 #: C/fake-bonus.page:20 C/multi-player.page:21 C/sound-change.page:20
 #: C/speed-change.page:20
 msgid "Ekaterina Gerasimova"
 msgstr "Єкатерина Герасимова (Ekaterina Gerasimova)"
 
 #. (itstool) path: info/desc
-#: C/basics.page:24
+#: C/basics.page:25
 msgid "Start, pause, and quit a game of <app>Nibbles</app>."
 msgstr "Запуск, призупинення та завершення гри у <app>Хробака</app>."
 
 #. (itstool) path: page/title
-#: C/basics.page:27
+#: C/basics.page:28
 msgid "Basic instructions"
 msgstr "Базові настанови"
 
 #. (itstool) path: section/title
-#: C/basics.page:30
+#: C/basics.page:31
 msgid "Start a new game"
 msgstr "Початок нової гри"
 
 #. (itstool) path: section/p
-#: C/basics.page:32
+#: C/basics.page:33
+#| msgid ""
+#| "Press the <gui style=\"button\">New Game</gui> button in the header bar "
+#| "to start a new game when being in a game."
 msgid ""
-"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
-"start a new game when being in a game."
+"Press the <gui style=\"button\">➕</gui> button in the header bar to start a "
+"new game when being in a game."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">Нова гра</gui> на панелі заголовка, "
+"Натисніть кнопку <gui style=\"button\">➕</gui> на панелі заголовка, "
 "щоб розпочати нову гру, якщо ви щойно запустили програму."
 
 #. (itstool) path: section/p
-#: C/basics.page:34
+#: C/basics.page:35
+#| msgid ""
+#| "Press the <gui style=\"button\">Play Again</gui> button when you have "
+#| "finished a game."
 msgid ""
-"Press the <gui style=\"button\">Play Again</gui> button when you have "
-"finished a game."
+"Press the <gui style=\"button\">Done</gui> button when you have finished a "
+"game."
 msgstr ""
-"Натисніть розташовану праворуч кнопку <gui style=\"button\">Зіграти знову</"
+"Натисніть розташовану праворуч кнопку <gui style=\"button\">Готово</"
 "gui>, якщо ви завершили попередню гру."
 
 #. (itstool) path: section/title
-#: C/basics.page:39
+#: C/basics.page:40
 msgid "Pause and resume your game"
 msgstr "Призупинення та поновлення гри"
 
 #. (itstool) path: section/p
-#: C/basics.page:41
+#: C/basics.page:42
+#| msgid ""
+#| "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
+#| "pause your game. You can resume your game by pressing the <gui "
+#| "style=\"button\">Resume</gui> button."
 msgid ""
-"Press the <gui style=\"button\">Pause</gui> button in the header bar to "
-"pause your game. You can resume your game by pressing the <gui "
-"style=\"button\">Resume</gui> button."
+"Press the <gui style=\"button\">⏸</gui> button in the header bar to pause "
+"your game. You can resume your game by pressing the <gui style=\"button\">▶</"
+"gui> button."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">Пауза</gui> на панелі заголовка, щоб "
+"Натисніть кнопку <gui style=\"button\">⏸</gui> на панелі заголовка, щоб "
 "призупинити гру. Відновити гру можна натисканням кнопки <gui "
-"style=\"button\">Відновити</gui>."
+"style=\"button\">▶</gui>."
 
 #. (itstool) path: section/title
-#: C/basics.page:47
+#: C/basics.page:48
 msgid "Quit <app>Nibbles</app>"
 msgstr "Завершення гри у <app>Хробака</app>"
 
 #. (itstool) path: section/p
-#: C/basics.page:49
+#: C/basics.page:50
+#| msgid ""
+#| "Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+#| "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> "
+#| "at any time."
 msgid ""
-"Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+"Press the <gui style=\"button\">✖️</gui> button in the header bar or press "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
 "any time."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">⨯</gui> на панелі заголовка вікна "
+"Натисніть кнопку <gui style=\"button\">✖️⨯/gui> на панелі заголовка вікна "
 "програми або натисніть комбінацію клавіш <keyseq><key>Ctrl</key><key>Q</"
 "key></keyseq>, щоб будь-коли вийти з <app>Хробака</app>."
 
 #. (itstool) path: credit/name
-#: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
+#: C/controls-change.page:27 C/fake-bonus.page:24 C/multi-player.page:25
 #: C/sound-change.page:24 C/speed-change.page:24
 msgid "Andre Klapper"
 msgstr "Андре Клаппер (Andre Klapper)"
 
 #. (itstool) path: info/desc
-#: C/controls-change.page:30
+#: C/controls-change.page:31
 msgid "Set custom control keys."
 msgstr "Встановлення нетипових клавіш керування."
 
 #. (itstool) path: page/title
-#: C/controls-change.page:33
+#: C/controls-change.page:34
 msgid "Change the default controls"
 msgstr "Зміна типових засобів керування"
 
 #. (itstool) path: page/p
-#: C/controls-change.page:35
+#: C/controls-change.page:36
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -133,93 +147,44 @@ msgstr ""
 "виконайте такі дії:"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
+#: C/controls-change.page:43 C/fake-bonus.page:41 C/multi-player.page:49
 #: C/speed-change.page:36
 msgid "Start a new game."
 msgstr "Почати нову гру."
 
-#. (itstool) path: media/span
+#. (itstool) path: item/p
 #: C/controls-change.page:46
-msgid "settings"
-msgstr "параметри"
+#| msgid ""
+#| "On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
+#| "player whose controls you want to change."
+msgid ""
+"On the <gui>Controls</gui> screen, press the arrow for the direction you "
+"want to redefine the key."
+msgstr ""
+"На сторінці <gui>Керування</gui> натисніть стрілку для напрямку, для якого ви"
+" хочете змінити комбінацію клавіш."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:45
-msgid ""
-"On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
-"player whose controls you want to change."
-msgstr ""
-"На сторінці <gui>Керування</gui> натисніть кнопку <_:media-1/> для гравця, "
-"чи засоби керування ви хочете змінити."
-
-#. (itstool) path: note/p
-#: C/controls-change.page:49
-msgid ""
-"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
-"player 3 controls <gui>Worm 3</gui> and so on."
-msgstr ""
-"Гравець 1 керує <gui>Хробаком 1</gui>, гравець 2 керує <gui>Хробаком 2</"
-"gui>, гравець 3 керує <gui>Хробаком 3</gui> тощо."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:54
-msgid ""
-"In the <gui style=\"group\">Controls</gui> list, select the line of the "
-"<gui>Action</gui>. This highlights the line."
-msgstr ""
-"У списку <gui style=\"group\">Керування</gui> виберіть рядок для <gui>Дії</"
-"gui>. У відповідь рядок буде підсвічено."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:58
-msgid ""
-"Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
-"gui> are now present in place of the old control."
-msgstr ""
-"Виберіть <gui style=\"group\">Клавішу</gui> для керування. У відповідь рядок "
-"замість попередньої комбінації клавіш буде показано слова <gui>Нове "
-"скорочення…</gui>."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:63
+#: C/controls-change.page:50
 msgid "Press the key you want to use instead of the default key."
 msgstr ""
 "Натисніть комбінацію клавіш, яку ви хочете призначити замість типової."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:66
+#: C/controls-change.page:52
 msgid ""
-"To keep the old setting click <gui>New accelerator…</gui> again, right click "
-"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
-"inside the <gui>Nibbles Preferences</gui> box."
+"Any arrow that appears red must have the key redefined otherwise you will "
+"not be able to start the game."
 msgstr ""
-"Щоб зберегти попередню комбінацію клацніть на пункті <gui>Нове скорочення…</"
-"gui> ще раз, клацніть правою кнопкою на пункті <gui>Нове скорочення…</gui>, "
-"натисніть клавішу <key>Esc</key> або клацніть у будь-якому іншому місці "
-"вікна <gui>Параметри «Хробака»</gui>."
+"Комбінацію клавіш слід перевизначити для усіх стрілок, які показано червоним "
+"кольором, інакше ви не зможете розпочати гру."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:72
-msgid ""
-"Repeat the above step to change the other default keys for the current "
-"player, then select the tab for the next player whose controls you want to "
-"change and repeat the process."
+#: C/controls-change.page:57
+#| msgid "Press the key you want to use instead of the default key."
+msgid "Repeat the above step to change the other default keys."
 msgstr ""
-"Повторіть наведені вище кроки для зміни інших типових комбінацій клавіш для "
-"поточного гравця, потім виберіть вкладку для наступного гравця, чиї засоби "
-"керування ви хочете змінити, і повторіть процедуру."
-
-#. (itstool) path: page/p
-#: C/controls-change.page:78
-msgid ""
-"For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
-"<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
-"key> on your keyboard when you see <gui>New accelerator…</gui> on the line."
-msgstr ""
-"Наприклад, щоб скористатися клавішею <key>A</key> для руху ліворуч, виберіть "
-"у списку <gui>Дія</gui> пункт <gui>Ліворуч</gui> і клацніть на ньому, "
-"натисніть клавішу <key>A</key> на клавіатурі, коли побачите у рядку напис "
-"<gui>Нове скорочення…</gui>."
+"Повторіть наведений вище крок для зміни інших типових комбінацій клавіш."
 
 #. (itstool) path: info/desc
 #: C/controls-default.page:25
@@ -581,6 +546,61 @@ msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Ця робота розповсюджується за умов дотримання <_:link-1/>."
+
+#~ msgid "settings"
+#~ msgstr "параметри"
+
+#~ msgid ""
+#~ "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+#~ "player 3 controls <gui>Worm 3</gui> and so on."
+#~ msgstr ""
+#~ "Гравець 1 керує <gui>Хробаком 1</gui>, гравець 2 керує <gui>Хробаком 2</"
+#~ "gui>, гравець 3 керує <gui>Хробаком 3</gui> тощо."
+
+#~ msgid ""
+#~ "In the <gui style=\"group\">Controls</gui> list, select the line of the "
+#~ "<gui>Action</gui>. This highlights the line."
+#~ msgstr ""
+#~ "У списку <gui style=\"group\">Керування</gui> виберіть рядок для "
+#~ "<gui>Дії</gui>. У відповідь рядок буде підсвічено."
+
+#~ msgid ""
+#~ "Select the <gui>Key</gui> on the control. The words <gui>New accelerator…"
+#~ "</gui> are now present in place of the old control."
+#~ msgstr ""
+#~ "Виберіть <gui style=\"group\">Клавішу</gui> для керування. У відповідь "
+#~ "рядок замість попередньої комбінації клавіш буде показано слова <gui>Нове "
+#~ "скорочення…</gui>."
+
+#~ msgid ""
+#~ "To keep the old setting click <gui>New accelerator…</gui> again, right "
+#~ "click on <gui>New accelerator…</gui>, press <key>Esc</key> or click "
+#~ "anywhere else inside the <gui>Nibbles Preferences</gui> box."
+#~ msgstr ""
+#~ "Щоб зберегти попередню комбінацію клацніть на пункті <gui>Нове скорочення…"
+#~ "</gui> ще раз, клацніть правою кнопкою на пункті <gui>Нове скорочення…</"
+#~ "gui>, натисніть клавішу <key>Esc</key> або клацніть у будь-якому іншому "
+#~ "місці вікна <gui>Параметри «Хробака»</gui>."
+
+#~ msgid ""
+#~ "Repeat the above step to change the other default keys for the current "
+#~ "player, then select the tab for the next player whose controls you want "
+#~ "to change and repeat the process."
+#~ msgstr ""
+#~ "Повторіть наведені вище кроки для зміни інших типових комбінацій клавіш "
+#~ "для поточного гравця, потім виберіть вкладку для наступного гравця, чиї "
+#~ "засоби керування ви хочете змінити, і повторіть процедуру."
+
+#~ msgid ""
+#~ "For example, to use <key>A</key> to move left, select the <gui>Action</"
+#~ "gui> <gui>Move left</gui>, then select its <gui>Key</gui>, then press "
+#~ "<key>A</key> on your keyboard when you see <gui>New accelerator…</gui> on "
+#~ "the line."
+#~ msgstr ""
+#~ "Наприклад, щоб скористатися клавішею <key>A</key> для руху ліворуч, "
+#~ "виберіть у списку <gui>Дія</gui> пункт <gui>Ліворуч</gui> і клацніть на "
+#~ "ньому, натисніть клавішу <key>A</key> на клавіатурі, коли побачите у "
+#~ "рядку напис <gui>Нове скорочення…</gui>."
 
 #~ msgid ""
 #~ "Set the <gui style=\"input\">Number of human players</gui> to the "
