@@ -916,18 +916,6 @@ void View::ActiveView::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapsho
 		draw_bonus(snapshot, x_delta * position.x + x_offset, y_delta * position.y + y_offset, x_delta + x_delta, y_delta + y_delta, Bonus::WARP, animate);
 	}
 
-	/* draw dematerialized worms */
-	for(const auto &worm : view.game.get_worms())
-	{
-		if(!worm.is_materialized())
-		{
-			for(const auto &position : worm.get_positions())
-			{
-				draw_worm_segment(snapshot, x_delta * (position >> 8) + x_offset, y_delta * (position & 0xff) + y_offset, x_delta, y_delta,
-					worm.get_colour(), false, false);
-			}
-		}
-	}
 	/* draw materialized worms */
 	for(const auto &worm : view.game.get_worms())
 	{
@@ -937,6 +925,18 @@ void View::ActiveView::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapsho
 			{
 				draw_worm_segment(snapshot, x_delta * (position >> 8) + x_offset, y_delta * (position & 0xff) + y_offset, x_delta, y_delta,
 					worm.get_colour(), true, worm.was_bonus_eaten_at_this_position(position));
+			}
+		}
+	}
+	/* draw dematerialized worms */
+	for(const auto &worm : view.game.get_worms())
+	{
+		if(!worm.is_materialized())
+		{
+			for(const auto &position : worm.get_positions())
+			{
+				draw_worm_segment(snapshot, x_delta * (position >> 8) + x_offset, y_delta * (position & 0xff) + y_offset, x_delta, y_delta,
+					worm.get_colour(), false, false);
 			}
 		}
 	}
@@ -1172,7 +1172,9 @@ void View::ActiveView::draw_bonus(const Glib::RefPtr<Gtk::Snapshot> &s, int x, i
 			break;
 	}
 }
-void View::ActiveView::draw_worm_segment (const Glib::RefPtr<Gtk::Snapshot> &s, int x, int y, int x_size, int y_size, eWormColour colour, bool is_materialized, bool eaten_bonus)
+void View::ActiveView::draw_worm_segment (const Glib::RefPtr<Gtk::Snapshot> &s,
+	int x, int y, int x_size, int y_size, eWormColour colour,
+	bool is_materialized, bool eaten_bonus)
 {
 	if (eaten_bonus)
 	{
@@ -1203,26 +1205,45 @@ void View::ActiveView::draw_worm_segment (const Glib::RefPtr<Gtk::Snapshot> &s, 
 	}
 
 	const float PI2 = 1.570796326794896619231321691639751442f;
-	float x_s13 = x_size / 3.0f;
-	float x_s23 = x_s13 + x_s13;
-	float y_s13 = y_size / 3.0f;
-	float y_s23 = y_s13 + y_s13;
+	const float x_s13 = x_size / 3.0f;
+	const float x_s23 = x_s13 + x_s13;
+	const float x_s16 = x_size / 6.0f;
+	const float x_s56 = x_s16 * 5.0f;
+	const float y_s13 = y_size / 3.0f;
+	const float y_s23 = y_s13 + y_s13;
+	const float y_s16 = y_size / 6.0f;
+	const float y_s56 = y_s16 * 5.0f;
 	auto path = Gsk::PathBuilder::create();
 	/* top right corner */
-	path->move_to (x + x_s23, y + 0);
-	path->svg_arc_to (x_s13, y_s13, PI2, false, true, x + x_size, y + y_s13);
+	path->move_to(x + x_s23, y + 0);
+	path->svg_arc_to(x_s13, y_s13, PI2, false, true, x + x_size, y + y_s13);
 	/* bottom right corner */
-	path->line_to (x + x_size, y + y_s23);
-	path->svg_arc_to (x_s13, y_s13, PI2, false, true, x + x_s23, y + y_size);
+	path->line_to(x + x_size, y + y_s23);
+	path->svg_arc_to(x_s13, y_s13, PI2, false, true, x + x_s23, y + y_size);
 	/* bottom left corner */
-	path->line_to (x + x_s13, y + y_size);
-	path->svg_arc_to (x_s13, y_s13, PI2, false, true, x + 0, y + y_s23);
+	path->line_to(x + x_s13, y + y_size);
+	path->svg_arc_to(x_s13, y_s13, PI2, false, true, x + 0, y + y_s23);
 	/* top left corner */
-	path->line_to (x + 0, y + y_s13);
-	path->svg_arc_to (x_s13, y_s13, PI2, false, true, x + x_s13, y + 0);
+	path->line_to(x + 0, y + y_s13);
+	path->svg_arc_to(x_s13, y_s13, PI2, false, true, x + x_s13, y + 0);
+	if(!is_materialized) /* leave centre empty */
+	{
+		/* line back to top right corner */
+		path->line_to(x + x_s23, y + 0);
+		/* centre of top right corner */
+		path->line_to(x + x_s56, y + y_s16);
+		/* centre of top left corner */
+		path->line_to(x + x_s16, y + y_s16);
+		/* centre of bottom left corner */
+		path->line_to(x + x_s16, y + y_s56);
+		/* centre of bottom right corner */
+		path->line_to(x + x_s56, y + y_s56);
+		/* centre of top right corner */
+		path->line_to(x + x_s56, y + y_s16);
+	}
 	/* fill */
 	auto [r,g,b] = view.get_worm_rgb(colour, is_materialized);
-	s->append_fill (path->to_path (), Gsk::FillRule::EVEN_ODD, {r, g, b, 1.0f});
+	s->append_fill(path->to_path (), Gsk::FillRule::EVEN_ODD, {r, g, b, 1.0f});
 }
 void View::ActiveView::draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int target_width)
 {

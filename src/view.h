@@ -86,7 +86,7 @@ private:
 		uint64_t animate;
 		
 		void draw_bonus(const Glib::RefPtr<Gtk::Snapshot> &s, int x, int y, int x_size, int y_size, Bonus::eType type, uint64_t animate);
-		void draw_worm_segment (const Glib::RefPtr<Gtk::Snapshot> &s, int x, int y, int x_size, int y_size, eWormColour colour, bool is_materialized, bool eaten_bonus);
+		void draw_worm_segment(const Glib::RefPtr<Gtk::Snapshot> &s, int x, int y, int x_size, int y_size, eWormColour colour, bool is_materialized, bool eaten_bonus);
 		/* calculate the width & height of the text */
 		std::pair<double,double> calculate_text_size(const Glib::ustring &text, int font_size)
 		{
