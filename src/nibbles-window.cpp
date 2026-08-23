@@ -1819,83 +1819,74 @@ std::string NibblesWindow::Scores::to_title(uint8_t category_index)
 
 void NibblesWindow::Scores::display_scores(uint8_t category_index)
 {
-static Glib::RefPtr<Gio::ListStore<RowData>> store;
-
 	set_last_category(category_index);
-	auto child=get_child();
-	if(auto view = dynamic_cast<Gtk::ColumnView*>(child))
-	{
-		store->remove_all();
-		scores_to_store(category_index, store);
-	}
-	else
-	{
-		view = Gtk::make_managed<Gtk::ColumnView>();
-		view->set_reorderable(false);
-		view->set_tab_behavior(Gtk::ListTabBehavior::ITEM);
 
-		/* rank column */
-		auto rank_factory=Gtk::SignalListItemFactory::create();
-		rank_factory->signal_setup().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-			item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
-		}));
-		rank_factory->signal_bind().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-			auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
-			auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
-			if (data && label) {
-				label->set_text(std::to_string(data->get_rank()));
-			}
-		}));
-		// Translators: text displayed at the top of the first column in the high scores dialogue
-		auto rank_column=Gtk::ColumnViewColumn::create(_("Rank"),rank_factory);
-		rank_column->set_expand(true);
-		view->append_column(rank_column);
-		
-		/* score column */
-		auto score_factory=Gtk::SignalListItemFactory::create();
-		score_factory->signal_setup().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-			item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
-		}));
-		score_factory->signal_bind().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-			auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
-			auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
-			if (data && label) {
-				label->set_text(std::to_string(data->get_score()));
-			}
-		}));
-		// Translators: text displayed at the top of the second column in the high scores dialogue
-		auto score_column=Gtk::ColumnViewColumn::create(_("Score"),score_factory);
-		score_column->set_expand(true);
-		view->append_column(score_column);
-		
-		/* player name column */
-		auto name_factory=Gtk::SignalListItemFactory::create();
-		name_factory->signal_setup().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-			item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
-		}));
-		name_factory->signal_bind().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
-			auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
-			auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
-			if (data && label) {
-				label->set_text(data->get_name());
-			}
-		}));
-		// Translators: text displayed at the top of the third column in the high scores dialogue
-		auto player_column=Gtk::ColumnViewColumn::create(_("Player"),name_factory);
-		player_column->set_expand(true);
-		view->append_column(player_column);
-		
-		store = Gio::ListStore<RowData>::create();
-		scores_to_store(category_index, store);
-		auto selection_model = Gtk::NoSelection::create(store);
-		view->set_model(selection_model);
+	auto view = Gtk::make_managed<Gtk::ColumnView>();
+	view->set_reorderable(false);
+	view->set_tab_behavior(Gtk::ListTabBehavior::ITEM);
 
-		auto scrolled_window = Gtk::make_managed<Gtk::ScrolledWindow>();
-		scrolled_window->set_min_content_height(380);
-		scrolled_window->set_child(*view);
+	/* rank column */
+	auto rank_factory=Gtk::SignalListItemFactory::create();
+	rank_factory->signal_setup().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
+		item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
+	}));
+	rank_factory->signal_bind().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
+		auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
+		auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
+		if (data && label) {
+			label->set_text(std::to_string(data->get_rank()));
+		}
+	}));
+	// Translators: text displayed at the top of the first column in the high scores dialogue
+	auto rank_column=Gtk::ColumnViewColumn::create(_("Rank"),rank_factory);
+	rank_column->set_expand(true);
+	view->append_column(rank_column);
 
-		set_child(*scrolled_window);
-	}
+	/* score column */
+	auto score_factory=Gtk::SignalListItemFactory::create();
+	score_factory->signal_setup().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
+		item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
+	}));
+	score_factory->signal_bind().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
+		auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
+		auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
+		if (data && label) {
+			label->set_text(std::to_string(data->get_score()));
+		}
+	}));
+	// Translators: text displayed at the top of the second column in the high scores dialogue
+	auto score_column=Gtk::ColumnViewColumn::create(_("Score"),score_factory);
+	score_column->set_expand(true);
+	view->append_column(score_column);
+
+	/* player name column */
+	auto name_factory=Gtk::SignalListItemFactory::create();
+	name_factory->signal_setup().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
+		item->set_child(*Gtk::make_managed<Gtk::Label>("", Gtk::Align::START));
+	}));
+	name_factory->signal_bind().connect(sigc::track_obj([](const Glib::RefPtr<Gtk::ListItem>& item) {
+		auto data = std::dynamic_pointer_cast<RowData>(item->get_item());
+		auto* label = dynamic_cast<Gtk::Label*>(item->get_child());
+		if (data && label) {
+			label->set_text(data->get_name());
+		}
+	}));
+	// Translators: text displayed at the top of the third column in the high scores dialogue
+	auto player_column=Gtk::ColumnViewColumn::create(_("Player"),name_factory);
+	player_column->set_expand(true);
+	view->append_column(player_column);
+
+	auto store = Gio::ListStore<RowData>::create();
+	scores_to_store(category_index, store);
+	auto selection_model = Gtk::NoSelection::create(store);
+	view->set_model(selection_model);
+
+	auto scrolled_window = Gtk::make_managed<Gtk::ScrolledWindow>();
+	scrolled_window->set_min_content_height(380);
+	scrolled_window->set_child(*view);
+
+	set_child(*scrolled_window); /* on second pass this will delete the old child */
+
 	m_display_category = category_index;
 }
 
