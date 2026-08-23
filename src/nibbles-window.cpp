@@ -1411,7 +1411,7 @@ void NibblesWindow::Scores::add_category(const Glib::ustring &path, const Glib::
 					auto [date, date_success] = read_integer(score_file);
 					if(date_success)
 					{
-						auto [name, name_success] = read_string(score_file);
+						auto [name, name_success] = read_string_to_eol(score_file);
 						if(name_success)
 						{
 							auto category_index=to_catagory_index(file_name);
@@ -1542,19 +1542,13 @@ std::pair<uint64_t,bool> NibblesWindow::Scores::read_integer(std::ifstream &stre
 	return {i,successful_read};
 }
 
-std::pair<std::string,bool> NibblesWindow::Scores::read_string(std::ifstream &stream)
+std::pair<std::string,bool> NibblesWindow::Scores::read_string_to_eol(std::ifstream &stream)
 {
-	char c;
 	std::string s;
-	/* read string */
-	while(stream.get(c))
-	{
-		if(c>=' ' && c<0x7f)
-			s+=c;
-		else
-			break;
-	}
-	return {s,true};
+	if(std::getline(stream, s))
+		return {std::move(s), true};
+	else
+		return {{}, false};
 }
 
 std::string NibblesWindow::Scores::to_title(uint8_t category_index)

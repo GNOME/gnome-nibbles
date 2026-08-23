@@ -921,7 +921,7 @@ public:
 			m_headerbar.pack_start(*trash_button);
 		}
 		std::pair<uint64_t,bool> read_integer(std::ifstream &stream);
-		std::pair<std::string,bool> read_string(std::ifstream &stream);
+		std::pair<std::string,bool> read_string_to_eol(std::ifstream &stream);
 		uint8_t to_catagory_index(const Glib::ustring &file_name)
 		{
 			uint8_t speed=4; /* 1 to 4 inclusive */
