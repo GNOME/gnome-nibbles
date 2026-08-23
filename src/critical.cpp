@@ -24,3 +24,8 @@ void critical(const Glib::ustring &critical_message)
 {
 	g_critical("%s",critical_message.c_str());
 }
+
+void warning(const Glib::ustring &warning_message)
+{
+	g_warning("%s",warning_message.c_str());
+}

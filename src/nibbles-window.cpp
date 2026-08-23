@@ -674,6 +674,9 @@ void NibblesWindow::save_high_scores(uint8_t category_index)
 			}
 		} catch (const std::exception& ex) {
 			/* problem writing file */
+			Glib::ustring message="Failed to save high scores: ";
+			message+=ex.what();
+			warning(message);
 		}
 	}
 }

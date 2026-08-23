@@ -18,3 +18,4 @@
  */
 
 void critical(const Glib::ustring &critical_message);
+void warning(const Glib::ustring &warning_message);
