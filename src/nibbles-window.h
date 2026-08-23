@@ -824,6 +824,11 @@ public:
 		{
 			m_scores[category_index][row].name=name;
 		}
+		void set_last_category(uint8_t category)
+		{
+			m_last_category_set=true;
+			m_last_category=category;
+		}
 	private:
 		class RowData : public Glib::Object {
 			uintsys rank;
@@ -880,11 +885,6 @@ public:
 		std::pair<bool,uint8_t> get_last_category()
 		{
 			return {m_last_category_set, m_last_category};
-		}
-		void set_last_category(uint8_t category)
-		{
-			m_last_category_set=true;
-			m_last_category=category;
 		}
 		void add_trash_icon()
 		{

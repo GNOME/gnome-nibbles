@@ -653,6 +653,7 @@ void NibblesWindow::update_high_scores(
 			delete window;
 			delete_view();
 			set_title(m_title); /* remove level from the title */
+			scores.set_last_category(category);
 			ScreenStack_set_visible_child(PLAYERS);
 		});
 		window->present();
