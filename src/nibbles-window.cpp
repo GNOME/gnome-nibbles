@@ -671,7 +671,7 @@ void NibblesWindow::save_high_scores(uint8_t category_index)
 			{
 				for(const auto &score : scores.get_scores(category_index))
 				{
-					score_file << std::to_string(score.score) << " " << std::to_string(score.date) << " " << score.name << std::endl;;\
+					score_file << std::to_string(score.score) << " " << std::to_string(score.date) << " " << score.name << std::endl;
 				}
 			}
 		} catch (const std::exception& ex) {
