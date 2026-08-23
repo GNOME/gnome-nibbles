@@ -351,11 +351,28 @@ bool NibblesWindow::on_key_pressed_callback(guint keyval, guint keycode, Gdk::Mo
 	}
 	else
 	{
-		/* f10 menu key */
-		if (keyval == GDK_KEY_F10)
+		if(keyval == GDK_KEY_F10) /* f10 menu key */
 		{
 			hamburger_cb();
 			return true;
+		}
+		else if(keyval == GDK_KEY_F1) /* f1 key */
+		{
+			if((state & Gdk::ModifierType::SHIFT_MASK) == Gdk::ModifierType::SHIFT_MASK) /* shift f1 */
+			{
+				about_cb();
+				return true;
+			}
+			else if((state & Gdk::ModifierType::CONTROL_MASK) == Gdk::ModifierType::CONTROL_MASK) /* control f1 */
+			{
+				if(auto action = lookup_action("show-help-overlay"))
+				{
+					pause(true);
+					action->activate();
+					return true;
+				}
+			}
+			return false;
 		}
 		else
 			return pass_key_to_view(keycode);
