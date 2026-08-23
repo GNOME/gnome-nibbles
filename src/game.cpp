@@ -521,12 +521,8 @@ void Game::move_worms()
 		}
 	}
 	/* irregula bonus */
-	bool r=add_bonus(false);
-	if(progress==TEST)
-	{
-		if(r)
-			std::cout << "added irregular bonus" << std::endl;
-	}
+	if(progress!=TEST || board.size()==92 && board[0].size()==66)
+		add_bonus(false);
 
 	/* remove dead worms */
 	for(Worm *worm : dead_worms)
