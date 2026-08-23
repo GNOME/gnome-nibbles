@@ -1852,7 +1852,6 @@ static Glib::RefPtr<Gio::ListStore<RowData>> store;
 		// Translators: text displayed at the top of the first column in the high scores dialogue
 		auto rank_column=Gtk::ColumnViewColumn::create(_("Rank"),rank_factory);
 		rank_column->set_expand(true);
-		rank_column->set_fixed_width(0);
 		view->append_column(rank_column);
 		
 		/* score column */
@@ -1870,7 +1869,6 @@ static Glib::RefPtr<Gio::ListStore<RowData>> store;
 		// Translators: text displayed at the top of the second column in the high scores dialogue
 		auto score_column=Gtk::ColumnViewColumn::create(_("Score"),score_factory);
 		score_column->set_expand(true);
-		score_column->set_fixed_width(0);
 		view->append_column(score_column);
 		
 		/* player name column */
@@ -1888,7 +1886,6 @@ static Glib::RefPtr<Gio::ListStore<RowData>> store;
 		// Translators: text displayed at the top of the third column in the high scores dialogue
 		auto player_column=Gtk::ColumnViewColumn::create(_("Player"),name_factory);
 		player_column->set_expand(true);
-		player_column->set_fixed_width(0);
 		view->append_column(player_column);
 		
 		store = Gio::ListStore<RowData>::create();
