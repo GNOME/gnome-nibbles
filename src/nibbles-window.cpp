@@ -348,7 +348,16 @@ bool NibblesWindow::on_key_pressed_callback(guint keyval, guint keycode, Gdk::Mo
 		return true;
 	}
 	else
-		return pass_key_to_view(keycode);
+	{
+		/* f10 menu key */
+		if (keyval == GDK_KEY_F10)
+		{
+			hamburger_cb();
+			return true;
+		}
+		else
+			return pass_key_to_view(keycode);
+	}
 }
 
 void NibblesWindow::initilise_css()
@@ -517,8 +526,9 @@ void NibblesWindow::initilise_speed_and_fakes()
 void NibblesWindow::initilise_keys()
 {
 	auto key_controller = Gtk::EventControllerKey::create();
+	key_controller->set_propagation_phase(Gtk::PropagationPhase::CAPTURE);
 	key_controller->signal_key_pressed().connect(sigc::mem_fun(*this, &NibblesWindow::on_key_pressed_callback), false);
-	static_cast<Gtk::Widget*>(this)->add_controller(key_controller);		
+	add_controller(key_controller);
 }
 void NibblesWindow::quit()
 {

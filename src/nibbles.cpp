@@ -130,13 +130,15 @@ protected:
 		add_action("quit",  sigc::mem_fun(*this, &Nibbles::quit));
 
 		// F1 and friends are managed manually
-		set_accels_for_action ("win.new-game",  {"<Primary>n"});
-		set_accels_for_action ("app.fullscreen",{"F11"});
-		set_accels_for_action ("app.scores",	{"<Primary>s"});
-		set_accels_for_action ("app.pause",     {"<Primary>p", "Pause"});
-		set_accels_for_action ("app.quit",      {"<Primary>q"});
-		set_accels_for_action ("win.next-screen",{"<Primary>n"});
-		set_accels_for_action ("win.back",      {"Escape"});
+		//set_accels_for_action ("app.hamburger", {"F10"});
+		set_accels_for_action("win.new-game",	{"<Primary>n"});
+		set_accels_for_action("app.fullscreen",	{"F11"});
+		set_accels_for_action("app.help",		{"F1"});
+		set_accels_for_action("app.scores",		{"<Primary>s"});
+		set_accels_for_action("app.pause",		{"<Primary>p", "Pause"});
+		set_accels_for_action("app.quit",		{"<Primary>q"});
+		set_accels_for_action("win.next-screen",{"<Primary>n"});
+		set_accels_for_action("win.back",		{"Escape"});
 	}
 
 	void on_activate() override
@@ -173,6 +175,7 @@ protected:
 			add_window (*pWindow);
 			pWindow->set_default_icon_name ("org.gnome.Nibbles");
 			pWindow->present ();
+			add_action("hamburger",sigc::mem_fun(*pWindow, &NibblesWindow::hamburger_cb));
 			add_action("new-game",sigc::mem_fun(*pWindow, &NibblesWindow::new_game_cb));
 			//add_action("sound",sigc::mem_fun(*pWindow, &NibblesWindow::sound_cb));
 			auto action = Gio::SimpleAction::create(

@@ -1469,6 +1469,20 @@ private:
 	}
 	void delete_view();
 public:
+	void hamburger_cb()
+	{
+		auto hamburger_menu=m_refBuilder->get_widget<Gtk::MenuButton>("hamburger_menu");
+		if(hamburger_menu)
+		{
+			if (!full_screen && !hamburger_menu->get_active())
+			{
+				pause(true);
+				hamburger_menu->popup();
+			}
+		}
+		else
+			critical("nibble-window.ui: id=\"hamburger_menu\" does not exist!");
+	}
 	void new_game_cb()
 	{
 		quit();
@@ -1507,15 +1521,12 @@ public:
 	}
 	void help_cb()
 	{
-		//if (false/*!is_game_paused()*/)
-		//    activate_action ("pause");
-
+		pause(true);
 		launch_help();
 	}
 	void about_cb()
 	{
-		//if (false/*!is_game_paused()*/)
-		//    activate_action ("pause");
+		pause(true);
 		about.present();
 	}
 	void scores_cb()
