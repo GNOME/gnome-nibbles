@@ -1266,10 +1266,11 @@ void View::ActiveView::draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> 
 	        target_font_size = font_size;
 	    }
 	}
+	snapshot->save();
 	snapshot->translate({x - a.get_x() / Pango::SCALE, y - a.get_y() / Pango::SCALE});
 	auto layout = get_layout(text, target_font_size);
 	snapshot->append_layout(layout, {1, 1, 1, 1});
-	snapshot->translate({ -(x - a.get_x() / Pango::SCALE), -(y - a.get_y() / Pango::SCALE)});
+	snapshot->restore();
 }
 Glib::RefPtr<Pango::Layout> View::ActiveView::get_layout(const Glib::ustring &text, uintsys font_size)
 {
@@ -1311,10 +1312,11 @@ void View::Life::draw_text_target_height(const Glib::RefPtr<Gtk::Snapshot> &snap
 	}
 	auto width=(intsys)a.get_width() / Pango::SCALE;
 	auto x_center_offset = width<center_width ? (16 - width)/2 : 0;
+	snapshot->save();
 	snapshot->translate({x - a.get_x() / Pango::SCALE + x_center_offset, y - a.get_y() / Pango::SCALE});
 	auto layout = get_layout(text, target_font_size);
 	snapshot->append_layout(layout, {1, 1, 1, 1});
-	snapshot->translate({ -(x - a.get_x() / Pango::SCALE), -(y - a.get_y() / Pango::SCALE)});
+	snapshot->restore();
 }
 Glib::RefPtr<Pango::Layout> View::Life::get_layout(const Glib::ustring &text, uintsys font_size)
 {

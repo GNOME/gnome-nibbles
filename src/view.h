@@ -105,11 +105,12 @@ private:
 		/* draw the text */
 		void draw_text_font_size(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int font_size)
 		{
-		    auto [x_offset, y_offset]=get_text_offsets(text, font_size);
-		    snapshot->translate(/*Gdk::Graphene::Point*/{x - x_offset, y - y_offset});
+			auto [x_offset, y_offset]=get_text_offsets(text, font_size);
+			snapshot->save();
+			snapshot->translate(/*Gdk::Graphene::Point*/{x - x_offset, y - y_offset});
 			auto layout = get_layout(text, font_size);
-		    snapshot->append_layout(layout, {1, 1, 1, 1});
-		    snapshot->translate({ -(x - x_offset), -(y - y_offset)});
+			snapshot->append_layout(layout, {1, 1, 1, 1});
+			snapshot->restore();
 		}
 		void draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int target_width);
 		Glib::RefPtr<Pango::Layout> get_layout(const Glib::ustring &text, uintsys font_size);
@@ -193,11 +194,12 @@ private:
 		/* draw the text */
 		void draw_text_font_size(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int font_size)
 		{
-		    auto [x_offset, y_offset]=get_text_offsets(text, font_size);
-		    snapshot->translate(/*Gdk::Graphene::Point*/{x - x_offset, y - y_offset});
+			auto [x_offset, y_offset]=get_text_offsets(text, font_size);
+			snapshot->save();
+			snapshot->translate(/*Gdk::Graphene::Point*/{x - x_offset, y - y_offset});
 			auto layout = get_layout(text, font_size);
-		    snapshot->append_layout(layout, {1, 1, 1, 1});
-		    snapshot->translate({ -(x - x_offset), -(y - y_offset)});
+			snapshot->append_layout(layout, {1, 1, 1, 1});
+			snapshot->restore();
 		}
 		void draw_text_target_height(const Glib::RefPtr<Gtk::Snapshot> &snapshot,
 			intsys x, intsys y, const Glib::ustring &text, intsys target_width, intsys center_width);

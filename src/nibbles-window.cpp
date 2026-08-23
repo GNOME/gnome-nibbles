@@ -150,20 +150,22 @@ int NibblesWindow::calculate_font_size (const Glib::ustring &text, int target_wi
 	return target_font_size;
 }
 /* draw the text */
-void NibblesWindow::draw_text_font_size (const Glib::RefPtr<Gtk::Snapshot>&snapshot, int x, int y, const Glib::ustring &text, int font_size, Gtk::Widget &widget)
+void NibblesWindow::draw_text_font_size(const Glib::RefPtr<Gtk::Snapshot>&snapshot, int x, int y, const Glib::ustring &text, int font_size, Gtk::Widget &widget)
 {
 	int x_offset, y_offset;
-	get_text_offsets (text, font_size, x_offset, y_offset, widget);
-	snapshot->translate ({x - x_offset, y - y_offset});
+	get_text_offsets(text, font_size, x_offset, y_offset, widget);
+	snapshot->save();
+	snapshot->translate({x - x_offset, y - y_offset});
 	auto layout = widget.create_pango_layout (text);
-	layout->set_alignment (Pango::Alignment::CENTER);
-	auto font=layout->get_font_description ();
+	layout->set_alignment(Pango::Alignment::CENTER);
+	auto font=layout->get_font_description();
 	if(!font.gobj())
 		font=Glib::wrap(pango_font_description_from_string("Sans Bold 1pt"));
-	font.set_size (Pango::SCALE * font_size);
-	layout->set_font_description (font);
+	font.set_size(Pango::SCALE * font_size);
+	layout->set_font_description(font);
 	//layout->set_text (text, -1);
-	snapshot->append_layout (layout, {1, 1, 1, 1});
+	snapshot->append_layout(layout, {1, 1, 1, 1});
+	snapshot->restore();
 }
 void NibblesWindow::get_text_offsets (const Glib::ustring &text, int font_size, int &x_offset, int &y_offset, Gtk::Widget &widget)
 {
