@@ -10,7 +10,7 @@ msgid ""
 msgstr "Project-Id-Version: gnome-nibbles master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
 "POT-Creation-Date: 2026-05-10 05:39+0000\n"
-"PO-Revision-Date: 2026-07-14 10:00+0100\n"
+"PO-Revision-Date: 2026-08-23 10:00+0100\n"
 "Last-Translator: Asier Saratsua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
@@ -297,6 +297,11 @@ msgstr "1. maila 5 jokalarirekin"
 #: data/org.gnome.Nibbles.metainfo.xml.in:38
 msgid "Level 18 with 6 players"
 msgstr "18. maila 6 jokalarirekin"
+
+#. Translators: the name of the app's developers, seen in the About dialog
+#: data/org.gnome.Nibbles.metainfo.xml.in:92 src/gnome-nibbles.vala:425
+msgid "The GNOME Project"
+msgstr "GNOME proiektua"
 
 #. Translators: title of the Are You Sure? window
 #: data/ui/are-you-sure.ui:27
@@ -757,11 +762,6 @@ msgstr "Kevin Breit"
 #: src/gnome-nibbles.vala:417
 msgid "Allan Day"
 msgstr "Allan Day"
-
-#. Translators: the name of the app's developers, seen in the About dialog
-#: src/gnome-nibbles.vala:425
-msgid "The GNOME Project"
-msgstr "GNOME proiektua"
 
 #. Translators: small description of the game, seen in the About dialog
 #: src/gnome-nibbles.vala:436
@@ -1473,107 +1473,107 @@ msgstr "Tartekoa gezurrezkoekin eta ausazko mailekin"
 
 #: src/nibbles-window.vala:1181
 msgid "Medium with fakes, fixed on level 1"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 1. mailan"
 
 #: src/nibbles-window.vala:1182
 msgid "Medium with fakes, fixed on level 2"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 2. mailan"
 
 #: src/nibbles-window.vala:1183
 msgid "Medium with fakes, fixed on level 3"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 3. mailan"
 
 #: src/nibbles-window.vala:1184
 msgid "Medium with fakes, fixed on level 4"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 4. mailan"
 
 #: src/nibbles-window.vala:1185
 msgid "Medium with fakes, fixed on level 5"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 5. mailan"
 
 #: src/nibbles-window.vala:1186
 msgid "Medium with fakes, fixed on level 6"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 6. mailan"
 
 #: src/nibbles-window.vala:1187
 msgid "Medium with fakes, fixed on level 7"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 7. mailan"
 
 #: src/nibbles-window.vala:1188
 msgid "Medium with fakes, fixed on level 8"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 8. mailan"
 
 #: src/nibbles-window.vala:1189
 msgid "Medium with fakes, fixed on level 9"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 9. mailan"
 
 #: src/nibbles-window.vala:1190
 msgid "Medium with fakes, fixed on level 10"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 10. mailan"
 
 #: src/nibbles-window.vala:1191
 msgid "Medium with fakes, fixed on level 11"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 11. mailan"
 
 #: src/nibbles-window.vala:1192
 msgid "Medium with fakes, fixed on level 12"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 12. mailan"
 
 #: src/nibbles-window.vala:1193
 msgid "Medium with fakes, fixed on level 13"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 13. mailan"
 
 #: src/nibbles-window.vala:1194
 msgid "Medium with fakes, fixed on level 14"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 14. mailan"
 
 #: src/nibbles-window.vala:1195
 msgid "Medium with fakes, fixed on level 15"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 15. mailan"
 
 #: src/nibbles-window.vala:1196
 msgid "Medium with fakes, fixed on level 16"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 16. mailan"
 
 #: src/nibbles-window.vala:1197
 msgid "Medium with fakes, fixed on level 17"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 17. mailan"
 
 #: src/nibbles-window.vala:1198
 msgid "Medium with fakes, fixed on level 18"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 18. mailan"
 
 #: src/nibbles-window.vala:1199
 msgid "Medium with fakes, fixed on level 19"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 19. mailan"
 
 #: src/nibbles-window.vala:1200
 msgid "Medium with fakes, fixed on level 20"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 20. mailan"
 
 #: src/nibbles-window.vala:1201
 msgid "Medium with fakes, fixed on level 21"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 21. mailan"
 
 #: src/nibbles-window.vala:1202
 msgid "Medium with fakes, fixed on level 22"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 22. mailan"
 
 #: src/nibbles-window.vala:1203
 msgid "Medium with fakes, fixed on level 23"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 23. mailan"
 
 #: src/nibbles-window.vala:1204
 msgid "Medium with fakes, fixed on level 24"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 24. mailan"
 
 #: src/nibbles-window.vala:1205
 msgid "Medium with fakes, fixed on level 25"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 25. mailan"
 
 #: src/nibbles-window.vala:1206
 msgid "Medium with fakes, fixed on level 26"
-msgstr ""
+msgstr "Tartekoa gezurrezkoekin, 26. mailan"
 
 #: src/nibbles-window.vala:1207
 msgid "Fast"
@@ -1585,215 +1585,215 @@ msgstr "Azkarra ausazko mailekin"
 
 #: src/nibbles-window.vala:1209
 msgid "Fast, fixed on level 1"
-msgstr ""
+msgstr "Azkarra, 1. mailan"
 
 #: src/nibbles-window.vala:1210
 msgid "Fast, fixed on level 2"
-msgstr ""
+msgstr "Azkarra, 2. mailan"
 
 #: src/nibbles-window.vala:1211
 msgid "Fast, fixed on level 3"
-msgstr ""
+msgstr "Azkarra, 3. mailan"
 
 #: src/nibbles-window.vala:1212
 msgid "Fast, fixed on level 4"
-msgstr ""
+msgstr "Azkarra, 4. mailan"
 
 #: src/nibbles-window.vala:1213
 msgid "Fast, fixed on level 5"
-msgstr ""
+msgstr "Azkarra, 5. mailan"
 
 #: src/nibbles-window.vala:1214
 msgid "Fast, fixed on level 6"
-msgstr ""
+msgstr "Azkarra, 6. mailan"
 
 #: src/nibbles-window.vala:1215
 msgid "Fast, fixed on level 7"
-msgstr ""
+msgstr "Azkarra, 7. mailan"
 
 #: src/nibbles-window.vala:1216
 msgid "Fast, fixed on level 8"
-msgstr ""
+msgstr "Azkarra, 8. mailan"
 
 #: src/nibbles-window.vala:1217
 msgid "Fast, fixed on level 9"
-msgstr ""
+msgstr "Azkarra, 9. mailan"
 
 #: src/nibbles-window.vala:1218
 msgid "Fast, fixed on level 10"
-msgstr ""
+msgstr "Azkarra, 10. mailan"
 
 #: src/nibbles-window.vala:1219
 msgid "Fast, fixed on level 11"
-msgstr ""
+msgstr "Azkarra, 11. mailan"
 
 #: src/nibbles-window.vala:1220
 msgid "Fast, fixed on level 12"
-msgstr ""
+msgstr "Azkarra, 12. mailan"
 
 #: src/nibbles-window.vala:1221
 msgid "Fast, fixed on level 13"
-msgstr ""
+msgstr "Azkarra, 13. mailan"
 
 #: src/nibbles-window.vala:1222
 msgid "Fast, fixed on level 14"
-msgstr ""
+msgstr "Azkarra, 14. mailan"
 
 #: src/nibbles-window.vala:1223
 msgid "Fast, fixed on level 15"
-msgstr ""
+msgstr "Azkarra, 15. mailan"
 
 #: src/nibbles-window.vala:1224
 msgid "Fast, fixed on level 16"
-msgstr ""
+msgstr "Azkarra, 16. mailan"
 
 #: src/nibbles-window.vala:1225
 msgid "Fast, fixed on level 17"
-msgstr ""
+msgstr "Azkarra, 17. mailan"
 
 #: src/nibbles-window.vala:1226
 msgid "Fast, fixed on level 18"
-msgstr ""
+msgstr "Azkarra, 18. mailan"
 
 #: src/nibbles-window.vala:1227
 msgid "Fast, fixed on level 19"
-msgstr ""
+msgstr "Azkarra, 19. mailan"
 
 #: src/nibbles-window.vala:1228
 msgid "Fast, fixed on level 20"
-msgstr ""
+msgstr "Azkarra, 20. mailan"
 
 #: src/nibbles-window.vala:1229
 msgid "Fast, fixed on level 21"
-msgstr ""
+msgstr "Azkarra, 21. mailan"
 
 #: src/nibbles-window.vala:1230
 msgid "Fast, fixed on level 22"
-msgstr ""
+msgstr "Azkarra, 22. mailan"
 
 #: src/nibbles-window.vala:1231
 msgid "Fast, fixed on level 23"
-msgstr ""
+msgstr "Azkarra, 23. mailan"
 
 #: src/nibbles-window.vala:1232
 msgid "Fast, fixed on level 24"
-msgstr ""
+msgstr "Azkarra, 24. mailan"
 
 #: src/nibbles-window.vala:1233
 msgid "Fast, fixed on level 25"
-msgstr ""
+msgstr "Azkarra, 25. mailan"
 
 #: src/nibbles-window.vala:1234
 msgid "Fast, fixed on level 26"
-msgstr ""
+msgstr "Azkarra, 26. mailan"
 
 #: src/nibbles-window.vala:1235
 msgid "Fast with fakes and random levels"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin eta ausazko mailekin"
 
 #: src/nibbles-window.vala:1236
 msgid "Fast with fakes, fixed on level 1"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 1. mailan"
 
 #: src/nibbles-window.vala:1237
 msgid "Fast with fakes, fixed on level 2"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 2. mailan"
 
 #: src/nibbles-window.vala:1238
 msgid "Fast with fakes, fixed on level 3"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 3. mailan"
 
 #: src/nibbles-window.vala:1239
 msgid "Fast with fakes, fixed on level 4"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 4. mailan"
 
 #: src/nibbles-window.vala:1240
 msgid "Fast with fakes, fixed on level 5"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 5. mailan"
 
 #: src/nibbles-window.vala:1241
 msgid "Fast with fakes, fixed on level 6"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 6. mailan"
 
 #: src/nibbles-window.vala:1242
 msgid "Fast with fakes, fixed on level 7"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 7. mailan"
 
 #: src/nibbles-window.vala:1243
 msgid "Fast with fakes, fixed on level 8"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 8. mailan"
 
 #: src/nibbles-window.vala:1244
 msgid "Fast with fakes, fixed on level 9"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 9. mailan"
 
 #: src/nibbles-window.vala:1245
 msgid "Fast with fakes, fixed on level 10"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 10. mailan"
 
 #: src/nibbles-window.vala:1246
 msgid "Fast with fakes, fixed on level 11"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 11. mailan"
 
 #: src/nibbles-window.vala:1247
 msgid "Fast with fakes, fixed on level 12"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 12. mailan"
 
 #: src/nibbles-window.vala:1248
 msgid "Fast with fakes, fixed on level 13"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 13. mailan"
 
 #: src/nibbles-window.vala:1249
 msgid "Fast with fakes, fixed on level 14"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 14. mailan"
 
 #: src/nibbles-window.vala:1250
 msgid "Fast with fakes, fixed on level 15"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 15. mailan"
 
 #: src/nibbles-window.vala:1251
 msgid "Fast with fakes, fixed on level 16"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 16. mailan"
 
 #: src/nibbles-window.vala:1252
 msgid "Fast with fakes, fixed on level 17"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 17. mailan"
 
 #: src/nibbles-window.vala:1253
 msgid "Fast with fakes, fixed on level 18"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 18. mailan"
 
 #: src/nibbles-window.vala:1254
 msgid "Fast with fakes, fixed on level 19"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 19. mailan"
 
 #: src/nibbles-window.vala:1255
 msgid "Fast with fakes, fixed on level 20"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 20. mailan"
 
 #: src/nibbles-window.vala:1256
 msgid "Fast with fakes, fixed on level 21"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 21. mailan"
 
 #: src/nibbles-window.vala:1257
 msgid "Fast with fakes, fixed on level 22"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 22. mailan"
 
 #: src/nibbles-window.vala:1258
 msgid "Fast with fakes, fixed on level 23"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 23. mailan"
 
 #: src/nibbles-window.vala:1259
 msgid "Fast with fakes, fixed on level 24"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 24. mailan"
 
 #: src/nibbles-window.vala:1260
 msgid "Fast with fakes, fixed on level 25"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 25. mailan"
 
 #: src/nibbles-window.vala:1261
 msgid "Fast with fakes, fixed on level 26"
-msgstr ""
+msgstr "Azkarra gezurrezkoekin, 26. mailan"
 
 #. Translators: question displayed on the clear scores dialog
 #: src/nibbles-window.vala:1294
