@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"POT-Creation-Date: 2026-03-15 02:23+0000\n"
-"PO-Revision-Date: 2026-03-17 23:34+0500\n"
+"POT-Creation-Date: 2026-08-24 15:29+0000\n"
+"PO-Revision-Date: 2026-08-29 15:10+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <Kazakh>\n"
 "Language: kk\n"
@@ -22,101 +22,100 @@ msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
 #. (itstool) path: credit/name
-#: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
+#: C/basics.page:17 C/controls-change.page:19 C/controls-default.page:16
 #: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
 #: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
 #. (itstool) path: credit/name
-#: C/basics.page:20 C/controls-change.page:22 C/controls-default.page:20
+#: C/basics.page:21 C/controls-change.page:23 C/controls-default.page:20
 #: C/fake-bonus.page:20 C/multi-player.page:21 C/sound-change.page:20
 #: C/speed-change.page:20
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
-#: C/basics.page:24
+#: C/basics.page:25
 msgid "Start, pause, and quit a game of <app>Nibbles</app>."
 msgstr "<app>Nibbles</app> ойынын бастау, аялдату және одан шығу."
 
 #. (itstool) path: page/title
-#: C/basics.page:27
+#: C/basics.page:28
 msgid "Basic instructions"
 msgstr "Негізгі нұсқаулар"
 
 #. (itstool) path: section/title
-#: C/basics.page:30
+#: C/basics.page:31
 msgid "Start a new game"
 msgstr "Жаңа ойынды бастау"
 
 #. (itstool) path: section/p
-#: C/basics.page:32
+#: C/basics.page:33
 msgid ""
-"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
-"start a new game when being in a game."
+"Press the <gui style=\"button\">➕</gui> button in the header bar to start a "
+"new game when being in a game."
 msgstr ""
 "Ойын барысында жаңа ойынды бастау үшін тақырыптама жолағындағы <gui "
-"style=\"button\">Жаңа ойын</gui> батырмасын басыңыз."
+"style=\"button\">➕</gui> батырмасын басыңыз."
 
 #. (itstool) path: section/p
-#: C/basics.page:34
+#: C/basics.page:35
 msgid ""
-"Press the <gui style=\"button\">Play Again</gui> button when you have finished "
-"a game."
+"Press the <gui style=\"button\">Done</gui> button when you have finished a game."
 msgstr ""
-"Ойынды аяқтаған соң, <gui style=\"button\">Қайта ойнау</gui> батырмасын басыңыз."
+"Ойынды аяқтаған соң, <gui style=\"button\">Дайын</gui> батырмасын басыңыз."
 
 #. (itstool) path: section/title
-#: C/basics.page:39
+#: C/basics.page:40
 msgid "Pause and resume your game"
 msgstr "Ойынды аялдату және жалғастыру"
 
 #. (itstool) path: section/p
-#: C/basics.page:41
+#: C/basics.page:42
 msgid ""
-"Press the <gui style=\"button\">Pause</gui> button in the header bar to pause "
-"your game. You can resume your game by pressing the <gui "
-"style=\"button\">Resume</gui> button."
+"Press the <gui style=\"button\">⏸</gui> button in the header bar to pause your "
+"game. You can resume your game by pressing the <gui style=\"button\">▶</gui> "
+"button."
 msgstr ""
-"Ойынды аялдату үшін тақырыптама жолағындағы <gui style=\"button\">Аялдату</gui> "
-"батырмасын басыңыз. Ойынды <gui style=\"button\">Жалғастыру</gui> батырмасын "
-"басу арқылы қайта жалғастыруға болады."
+"Ойынды аялдату үшін тақырыптама жолағындағы <gui style=\"button\">⏸</gui> "
+"батырмасын басыңыз. Ойынды <gui style=\"button\">▶</gui> батырмасын басу арқылы "
+"қайта жалғастыруға болады."
 
 #. (itstool) path: section/title
-#: C/basics.page:47
+#: C/basics.page:48
 msgid "Quit <app>Nibbles</app>"
 msgstr "<app>Nibbles</app> ойынынан шығу"
 
 #. (itstool) path: section/p
-#: C/basics.page:49
+#: C/basics.page:50
 msgid ""
-"Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+"Press the <gui style=\"button\">✖️</gui> button in the header bar or press "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at any "
 "time."
 msgstr ""
 "<app>Nibbles</app> ойынынан кез келген уақытта шығу үшін тақырыптама "
-"жолағындағы <gui style=\"button\">⨯</gui> батырмасын немесе <keyseq><key>Ctrl</"
+"жолағындағы <gui style=\"button\">✖️</gui> батырмасын немесе <keyseq><key>Ctrl</"
 "key><key>Q</key></keyseq> пернелерін басыңыз."
 
 #. (itstool) path: credit/name
-#: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
+#: C/controls-change.page:27 C/fake-bonus.page:24 C/multi-player.page:25
 #: C/sound-change.page:24 C/speed-change.page:24
 msgid "Andre Klapper"
 msgstr "Andre Klapper"
 
 #. (itstool) path: info/desc
-#: C/controls-change.page:30
+#: C/controls-change.page:31
 msgid "Set custom control keys."
 msgstr "Басқарудың арнайы пернелерін орнату."
 
 #. (itstool) path: page/title
-#: C/controls-change.page:33
+#: C/controls-change.page:34
 msgid "Change the default controls"
 msgstr "Бастапқы басқаруды өзгерту"
 
 #. (itstool) path: page/p
-#: C/controls-change.page:35
+#: C/controls-change.page:36
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed in "
 "<app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -129,90 +128,37 @@ msgstr ""
 "Бастапқы басқаруды өзгерту үшін:"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
+#: C/controls-change.page:43 C/fake-bonus.page:41 C/multi-player.page:49
 #: C/speed-change.page:36
 msgid "Start a new game."
 msgstr "Жаңа ойынды бастау."
 
-#. (itstool) path: media/span
+#. (itstool) path: item/p
 #: C/controls-change.page:46
-msgid "settings"
-msgstr "баптаулар"
+msgid ""
+"On the <gui>Controls</gui> screen, press the arrow for the direction you want "
+"to redefine the key."
+msgstr ""
+"<gui>Басқару</gui> экранында басқаруын өзгерткіңіз келетін батырманы басыңыз."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:45
-msgid ""
-"On the <gui>Controls</gui> screen, press the <_:media-1/> button for the player "
-"whose controls you want to change."
-msgstr ""
-"<gui>Басқару</gui> экранында басқаруын өзгерткіңіз келетін ойыншы үшін "
-"<_:media-1/> батырмасын басыңыз."
-
-#. (itstool) path: note/p
-#: C/controls-change.page:49
-msgid ""
-"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
-"player 3 controls <gui>Worm 3</gui> and so on."
-msgstr ""
-"1-ші ойыншы <gui>1-ші құртты</gui>, 2-ші ойыншы <gui>2-ші құртты</gui>, 3-ші "
-"ойыншы <gui>3-ші құртты</gui> және т.с.с. басқарады."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:54
-msgid ""
-"In the <gui style=\"group\">Controls</gui> list, select the line of the "
-"<gui>Action</gui>. This highlights the line."
-msgstr ""
-"<gui style=\"group\">Басқару</gui> тізімінде <gui>Әрекет</gui> жолын таңдаңыз. "
-"Бұл жолды түспен ерекшелейді."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:58
-msgid ""
-"Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</gui> "
-"are now present in place of the old control."
-msgstr ""
-"Басқарудағы <gui>Перне</gui> элементін таңдаңыз. Енді ескі басқарудың орнында "
-"<gui>Жаңа үдеткіш…</gui> сөздері пайда болады."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:63
+#: C/controls-change.page:50
 msgid "Press the key you want to use instead of the default key."
 msgstr "Бастапқы перненің орнына пайдаланғыңыз келетін пернені басыңыз."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:66
+#: C/controls-change.page:52
 msgid ""
-"To keep the old setting click <gui>New accelerator…</gui> again, right click on "
-"<gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else inside "
-"the <gui>Nibbles Preferences</gui> box."
+"Any arrow that appears red must have the key redefined otherwise you will not "
+"be able to start the game."
 msgstr ""
-"Ескі баптауды қалдыру үшін <gui>Жаңа үдеткіш…</gui> батырмасын қайта басыңыз, "
-"<gui>Жаңа үдеткіш…</gui> үстінен оң жақ шертіңіз, <key>Esc</key> басыңыз немесе "
-"<gui>Nibbles баптаулары</gui> терезесінің кез келген басқа жеріне шертіңіз."
+"Қызыл болып көрінетін кез келген бағдаршаның пернесін қайта анықтау керек, "
+"әйтпесе ойынды бастай алмайсыз."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:72
-msgid ""
-"Repeat the above step to change the other default keys for the current player, "
-"then select the tab for the next player whose controls you want to change and "
-"repeat the process."
-msgstr ""
-"Ағымдағы ойыншы үшін басқа бастапқы пернелерді өзгерту үшін жоғарыдағы қадамды "
-"қайталаңыз, содан кейін басқаруын өзгерткіңіз келетін келесі ойыншының бетін "
-"таңдап, процесті қайталаңыз."
-
-#. (itstool) path: page/p
-#: C/controls-change.page:78
-msgid ""
-"For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
-"<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</key> "
-"on your keyboard when you see <gui>New accelerator…</gui> on the line."
-msgstr ""
-"Мысалы, солға жылжу үшін <key>A</key> пернесін пайдалану үшін, <gui>Әрекет</"
-"gui> ретінде <gui>Солға жылжу</gui> таңдаңыз, содан кейін оның <gui>Пернесін</"
-"gui> таңдаңыз, сосын жолда <gui>Жаңа үдеткіш…</gui> дегенді көргенде, "
-"пернетақтадағы <key>A</key> пернесін басыңыз."
+#: C/controls-change.page:57
+msgid "Repeat the above step to change the other default keys."
+msgstr "Басқа бастапқы пернелерді өзгерту үшін жоғарыдағы қадамды қайталаңыз."
 
 #. (itstool) path: info/desc
 #: C/controls-default.page:25
@@ -563,3 +509,56 @@ msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported лицензияс�
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Бұл жұмыс <_:link-1/> аясында лицензияланған."
+
+#~ msgid "settings"
+#~ msgstr "баптаулар"
+
+#~ msgid ""
+#~ "Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
+#~ "player 3 controls <gui>Worm 3</gui> and so on."
+#~ msgstr ""
+#~ "1-ші ойыншы <gui>1-ші құртты</gui>, 2-ші ойыншы <gui>2-ші құртты</gui>, 3-ші "
+#~ "ойыншы <gui>3-ші құртты</gui> және т.с.с. басқарады."
+
+#~ msgid ""
+#~ "In the <gui style=\"group\">Controls</gui> list, select the line of the "
+#~ "<gui>Action</gui>. This highlights the line."
+#~ msgstr ""
+#~ "<gui style=\"group\">Басқару</gui> тізімінде <gui>Әрекет</gui> жолын "
+#~ "таңдаңыз. Бұл жолды түспен ерекшелейді."
+
+#~ msgid ""
+#~ "Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
+#~ "gui> are now present in place of the old control."
+#~ msgstr ""
+#~ "Басқарудағы <gui>Перне</gui> элементін таңдаңыз. Енді ескі басқарудың "
+#~ "орнында <gui>Жаңа үдеткіш…</gui> сөздері пайда болады."
+
+#~ msgid ""
+#~ "To keep the old setting click <gui>New accelerator…</gui> again, right click "
+#~ "on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
+#~ "inside the <gui>Nibbles Preferences</gui> box."
+#~ msgstr ""
+#~ "Ескі баптауды қалдыру үшін <gui>Жаңа үдеткіш…</gui> батырмасын қайта "
+#~ "басыңыз, <gui>Жаңа үдеткіш…</gui> үстінен оң жақ шертіңіз, <key>Esc</key> "
+#~ "басыңыз немесе <gui>Nibbles баптаулары</gui> терезесінің кез келген басқа "
+#~ "жеріне шертіңіз."
+
+#~ msgid ""
+#~ "Repeat the above step to change the other default keys for the current "
+#~ "player, then select the tab for the next player whose controls you want to "
+#~ "change and repeat the process."
+#~ msgstr ""
+#~ "Ағымдағы ойыншы үшін басқа бастапқы пернелерді өзгерту үшін жоғарыдағы "
+#~ "қадамды қайталаңыз, содан кейін басқаруын өзгерткіңіз келетін келесі "
+#~ "ойыншының бетін таңдап, процесті қайталаңыз."
+
+#~ msgid ""
+#~ "For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
+#~ "<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
+#~ "key> on your keyboard when you see <gui>New accelerator…</gui> on the line."
+#~ msgstr ""
+#~ "Мысалы, солға жылжу үшін <key>A</key> пернесін пайдалану үшін, <gui>Әрекет</"
+#~ "gui> ретінде <gui>Солға жылжу</gui> таңдаңыз, содан кейін оның "
+#~ "<gui>Пернесін</gui> таңдаңыз, сосын жолда <gui>Жаңа үдеткіш…</gui> дегенді "
+#~ "көргенде, пернетақтадағы <key>A</key> пернесін басыңыз."
