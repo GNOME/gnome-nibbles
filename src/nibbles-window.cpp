@@ -675,8 +675,10 @@ void NibblesWindow::update_high_scores(
 void NibblesWindow::launch_help()
 {
 	/* Don't use uri_launcher_launch as it breaks the help in flatpak. */
-	/* todo change over to use gtkmm */
+	#pragma GCC diagnostic push
+	#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 	gtk_show_uri(static_cast<Gtk::Window *>(this)->gobj(), "help:gnome-nibbles", GDK_CURRENT_TIME);
+	#pragma GCC diagnostic pop
 }
 
 void NibblesWindow::save_high_scores(uint8_t category_index)
