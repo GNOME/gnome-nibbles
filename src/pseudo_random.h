@@ -17,15 +17,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <iostream>
-
 void set_seed(uint64_t seed_a,uint64_t seed_b);
 
 uint64_t pseudo_random();
 
 inline uintsys pseudo_random(uintsys max_exclusive)
 {
-	return (uintsys)(pseudo_random() % max_exclusive);
+	return static_cast<uintsys>(pseudo_random() % max_exclusive);
 }
 
 void set_test_prohibit(bool);
