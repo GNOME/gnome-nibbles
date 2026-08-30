@@ -88,12 +88,14 @@ inline Glib::ustring utoa(uint64_t u, intsys minimum_length=1)
  *                                                                 *
  *******************************************************************/
 View::View(Game::Progress progress, uintsys start_level, uintsys speed, bool fakes,
-	Gtk::Button &pause_button,
+	Gtk::Button &new_game_button, Gtk::Button &pause_button,
 	std::function<void(const Glib::ustring &level)> set_level_description,
-	std::function<void(const std::vector<WormScore>)> game_over) : Gtk::Overlay(),
-	progress(progress), speed(speed), pause_button(pause_button),
+	std::function<void(const std::vector<WormScore>)> game_over,
+	std::function<void(Gtk::Widget *pWin)> next) : Gtk::Overlay(),
+	progress(progress), speed(speed),
+	new_game_button(new_game_button), pause_button(pause_button),
 	set_level_description(set_level_description), game_over(game_over),
-	static_view(*this), active_view(*this),
+	next_level_function(next), static_view(*this), active_view(*this),
 	game(
 	[this](const Glib::ustring &sound) {/*play_sound*/
 		play_sound(sound);
@@ -303,6 +305,7 @@ bool View::play()
 		}
 		else if(state==Game::NEWROUND)
 		{
+			new_game_button.set_visible(0);
 			pause_button.set_visible(0);
 			if(levels.all()) /* all levels have been compleated */
 			{
@@ -364,6 +367,7 @@ bool View::play()
 				}
 				// Translators: button to press to move on to the next level of the game
 				auto *button=create_button(_("_Next Level"));
+				button->set_focusable(true);
 				box->append(*button);
 				
 				button->signal_clicked().connect(sigc::track_obj([this,next_level,box]() {
@@ -380,10 +384,12 @@ bool View::play()
 					play();
 				}));
 				add_overlay(*box);
+				next_level_function(button);
 			}
 		}
 		else /* VICTORY or GAMEOVER */
 		{
+			new_game_button.set_visible(0);
 			pause_button.set_visible(0);
 			auto *box=Gtk::make_managed<Gtk::Box>(Gtk::Orientation::VERTICAL);
 			box->set_valign(Gtk::Align::CENTER);

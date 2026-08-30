@@ -209,8 +209,10 @@ private:
 /* class View */
 public:
 	View(Game::Progress progress, uintsys start_level, uintsys speed, bool fakes,
-		Gtk::Button &pause_button, std::function<void(const Glib::ustring &level)> set_level_description,
-		std::function<void(const std::vector<WormScore>)> game_over
+		Gtk::Button &new_game_button, Gtk::Button &pause_button,
+		std::function<void(const Glib::ustring &level)> set_level_description,
+		std::function<void(const std::vector<WormScore>)> game_over,
+		std::function<void(Gtk::Widget *)> next_level_function
 	);
 	virtual ~View() override
 	{
@@ -272,9 +274,10 @@ private:
 	std::bitset<26> levels;
 	uintsys current_level;
 	const uintsys speed;
-	Gtk::Button &pause_button;
+	Gtk::Button &new_game_button, &pause_button;
 	std::function<void(const Glib::ustring &level)> set_level_description;
 	std::function<void(const std::vector<WormScore>)> game_over;
+	std::function<void(Gtk::Widget *)> next_level_function;
 	GSoundContext* ctx; /* sound */
 	uintsys countdown;
 	std::map<unsigned int, HumanAction> keys;
