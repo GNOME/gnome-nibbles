@@ -1551,6 +1551,7 @@ public:
 		}
 		else
 		{
+			pause(true); /* pause the game */
 			scores.set_transient_for(*this);
 			scores.set_modal();
 			scores.set_hide_on_close();
