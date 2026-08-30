@@ -356,28 +356,31 @@ bool NibblesWindow::on_key_pressed_callback(guint keyval, guint keycode, Gdk::Mo
 	}
 	else
 	{
-		if(keyval == GDK_KEY_F10) /* f10 menu key */
+		if(keyval == GDK_KEY_F10)
 		{
 			hamburger_cb();
 			return true;
 		}
-		else if(keyval == GDK_KEY_F1) /* f1 key */
+		else if(keyval == GDK_KEY_F1 &&
+			static_cast<bool>(state & Gdk::ModifierType::SHIFT_MASK))
 		{
-			if(static_cast<bool>(state & Gdk::ModifierType::SHIFT_MASK)) /* shift f1 */
-			{
-				about_cb();
-				return true;
-			}
-			else if(static_cast<bool>(state & Gdk::ModifierType::CONTROL_MASK)) /* control f1 */
-			{
-				if(auto action = lookup_action("show-help-overlay"))
-				{
-					pause(true);
-					action->activate();
-					return true;
-				}
-			}
-			return false;
+			about_cb();
+			return true;
+		}
+		else if(keyval == GDK_KEY_F1 &&
+			static_cast<bool>(state & Gdk::ModifierType::CONTROL_MASK))
+		{
+			pause(true);
+			if(auto action = lookup_action("show-help-overlay"))
+				action->activate();
+			else
+				warning("Failed to open shortcuts.");
+			return true;
+		}
+		else if(keyval == GDK_KEY_Pause)
+		{
+			pause_cb();
+			return true;
 		}
 		else if(static_cast<bool>((Gdk::ModifierType::SHIFT_MASK | Gdk::ModifierType::CONTROL_MASK) & state))
 			return false;

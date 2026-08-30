@@ -131,13 +131,11 @@ protected:
 
 		// F1 and friends are managed manually
 		//set_accels_for_action ("app.hamburger", {"F10"});
-		set_accels_for_action("win.new-game",	{"<Primary>n"});
 		set_accels_for_action("app.fullscreen",	{"F11"});
 		set_accels_for_action("app.help",		{"F1"});
 		set_accels_for_action("app.scores",		{"<Primary>s"});
-		set_accels_for_action("app.pause",		{"<Primary>p", "Pause"});
+		set_accels_for_action("app.pause",		{"<Primary>p"});
 		set_accels_for_action("app.quit",		{"<Primary>q"});
-		set_accels_for_action("win.next-screen",{"<Primary>n"});
 		set_accels_for_action("win.back",		{"Escape"});
 	}
 
