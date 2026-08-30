@@ -491,6 +491,8 @@ protected:
 
 void initilise_seed()
 {
+	#pragma GCC diagnostic push
+	#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 	uint64_t seed_a,seed_b;
 	/* get data from the stack */
 	uint64_t stack_data[1024];
@@ -518,6 +520,7 @@ void initilise_seed()
 		seed^=r;
 	} catch(const std::runtime_error &e) {
 	}*/
+	#pragma GCC diagnostic pop
 	/* get data from the clock */
 	auto now = std::chrono::steady_clock::now();
 	auto duration_since_boot = now.time_since_epoch();
