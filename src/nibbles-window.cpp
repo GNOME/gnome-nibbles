@@ -986,18 +986,15 @@ void NibblesWindow::PlayerButton::get_key_settings(Glib::RefPtr<Gio::Settings> p
 	int i=pWormSettings->get_int(r);
 	if(i<0)
 	{
-		GdkKeymapKey *_keys = NULL;
-		int n_keys=0;
-		/* todo add map_keyval to gtkmm */
-		gdk_display_map_keyval(get_display()->gobj(),key,&_keys,&n_keys);
-		if(n_keys>0)
+		auto keys=get_display()->map_keyval(key);
+		if(keys.size()>0)
 		{
-			raw_key=_keys[0].keycode;
+			raw_key=keys[0].get_keycode();
 			pWormSettings->set_int(r,raw_key);
 		}
 	}
 	else
-		raw_key=(unsigned int)i;
+		raw_key=static_cast<unsigned int>(i);
 }
 
 void NibblesWindow::PlayerButton::set_key_buttons(const Glib::RefPtr<Gtk::Builder>& refBuilder, unsigned int id)

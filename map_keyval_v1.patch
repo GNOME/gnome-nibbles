@@ -1,0 +1,227 @@
+diff --git a/gdk/gdkmm.h b/gdk/gdkmm.h
+index 67a54a6d..44f48b5d 100644
+--- a/gdk/gdkmm.h
++++ b/gdk/gdkmm.h
+@@ -45,6 +45,7 @@
+ #include <gdkmm/gltexturebuilder.h>
+ #include <gdkmm/graphene_rect.h>
+ #include <gdkmm/graphene_vec2.h>
++#include <gdkmm/keymapkey.h>
+ #include <gdkmm/memorytexture.h>
+ #include <gdkmm/memorytexturebuilder.h>
+ #include <gdkmm/monitor.h>
+diff --git a/gdk/gdkmm/meson.build b/gdk/gdkmm/meson.build
+index 5b2c618f..850eea92 100644
+--- a/gdk/gdkmm/meson.build
++++ b/gdk/gdkmm/meson.build
+@@ -63,6 +63,7 @@ gdkmm_any_hg_ccg_basenames = [
+   'graphene_rect',
+   'graphene_size',
+   'graphene_vec2',
++  'keymapkey',
+   'memorytexture',
+   'memorytexturebuilder',
+   'monitor',
+diff --git a/gdk/src/display.ccg b/gdk/src/display.ccg
+index aa7970ef..4dc784af 100644
+--- a/gdk/src/display.ccg
++++ b/gdk/src/display.ccg
+@@ -1,4 +1,4 @@
+-/* Copyright (C) 1998-2002 The gtkmm Development Team
++/* Copyright (C) 1998-2026 The gtkmm Development Team
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Lesser General Public
+@@ -28,4 +28,21 @@
+ 
+ namespace Gdk
+ {
++  std::vector<KeymapKey> Display::map_keyval(guint keyval) const
++  {
++    GdkKeymapKey* c_keys = nullptr;
++    int n_keys = 0;
++
++    if(gdk_display_map_keyval(const_cast<GdkDisplay*>(gobj()), keyval, &c_keys, &n_keys))
++    {
++      std::vector<KeymapKey> keys;
++      keys.reserve(n_keys);
++      for(int i = 0; i < n_keys; ++i)
++        keys.emplace_back(c_keys+i);
++      g_free(c_keys);
++      return keys;
++    }
++    else
++      return {};
++  }
+ } //namespace Gdk
+diff --git a/gdk/src/display.hg b/gdk/src/display.hg
+index a386f8af..9d658e52 100644
+--- a/gdk/src/display.hg
++++ b/gdk/src/display.hg
+@@ -1,4 +1,4 @@
+-/* Copyright (C) 1998-2002 The gtkmm Development Team
++/* Copyright (C) 1998-2026 The gtkmm Development Team
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Lesser General Public
+@@ -18,6 +18,7 @@
+ 
+ #include <gdkmm/applaunchcontext.h>
+ #include <gdkmm/event.h>
++#include <gdkmm/keymapkey.h>
+ 
+ _DEFS(gdkmm,gdk)
+ _PINCLUDE(glibmm/private/object_p.h)
+@@ -132,6 +133,25 @@ public:
+   _WRAP_METHOD(Glib::RefPtr<Monitor> get_monitor_at_surface(const Glib::RefPtr<Surface>& surface), gdk_display_get_monitor_at_surface, refreturn)
+   _WRAP_METHOD(Glib::RefPtr<const Monitor> get_monitor_at_surface(const Glib::RefPtr<Surface>& surface) const, gdk_display_get_monitor_at_surface, refreturn, constversion)
+ 
++  /** Obtains a list of keycode/group/level combinations that will generate @a keyval.
++   *
++   * Groups and levels are two kinds of keyboard mode; in general, the level
++   * determines whether the top or bottom symbol on a key is used, and the
++   * group determines whether the left or right symbol is used.
++   * The level is computed from the modifier mask.
++   *
++   * On US keyboards, the shift key changes the keyboard level, and there
++   * are no groups. A group switch key might convert a keyboard between
++   * Hebrew to English modes, for example.
++   *
++   * @newin{4,24}
++   *
++   * @param keyval A keyval, such as GDK_KEY_a, GDK_KEY_Up, GDK_KEY_Return, etc.
++   * @return A vector of Gdk::KeymapKey.
++   */
++  std::vector<KeymapKey> map_keyval(guint keyval) const;
++  _IGNORE(gdk_display_map_keyval)
++
+   _IGNORE(gdk_display_translate_key)dnl// "This function should rarely be needed"
+ 
+   template <class ValueType>
+diff --git a/gdk/src/filelist.am b/gdk/src/filelist.am
+index 624dbd78..70cfa9a1 100644
+--- a/gdk/src/filelist.am
++++ b/gdk/src/filelist.am
+@@ -48,6 +48,7 @@ gdkmm_files_any_hg =		\
+ 	graphene_rect.hg \
+ 	graphene_size.hg \
+ 	graphene_vec2.hg \
++	keymapkey.hg \
+ 	memorytexture.hg \
+ 	memorytexturebuilder.hg \
+ 	monitor.hg \
+diff --git a/gdk/src/keymapkey.ccg b/gdk/src/keymapkey.ccg
+new file mode 100644
+index 00000000..93690322
+--- /dev/null
++++ b/gdk/src/keymapkey.ccg
+@@ -0,0 +1,33 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library; if not, see <https://www.gnu.org/licenses/>.
++ */
++
++namespace Gdk
++{
++  KeymapKey::KeymapKey()
++  :
++  gobject_{}
++  {}
++
++  KeymapKey::KeymapKey(guint keycode, int group, int level)
++  :
++  gobject_{keycode, group, level}
++  {}
++
++  KeymapKey::KeymapKey(const GdkKeymapKey* keymap_key)
++  :
++  gobject_(keymap_key ? *keymap_key : GdkKeymapKey{})
++  {}
++} // namespace Gdk
+diff --git a/gdk/src/keymapkey.hg b/gdk/src/keymapkey.hg
+new file mode 100644
+index 00000000..9bb8938b
+--- /dev/null
++++ b/gdk/src/keymapkey.hg
+@@ -0,0 +1,70 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library; if not, see <https://www.gnu.org/licenses/>.
++ */
++
++_CONFIGINCLUDE(gdkmmconfig.h)
++
++#include <gdk/gdk.h>
++
++_DEFS(gdkmm,gdk)
++
++namespace Gdk
++{
++/** Describes a hardware key that can be mapped to a key value.
++ *
++ * @newin{4,24}
++ */
++class GDKMM_API KeymapKey
++{
++  _CLASS_GENERIC(KeymapKey, GdkKeymapKey)
++public:
++  KeymapKey();
++  KeymapKey(guint keycode, int group, int level);
++  explicit KeymapKey(const GdkKeymapKey* keymap_key); // always takes a copy
++
++  /** The hardware keycode.
++   * This is an identifying number for a physical key.
++   */
++  _MEMBER_GET(keycode, keycode, guint, guint)
++  _MEMBER_SET(keycode, keycode, guint, guint)
++
++  /** Indicates movement in a horizontal direction.
++   * Usually groups are used for two different languages. In group 0, a key might
++   * have two English characters, and in group 1 it might have two Hebrew characters.
++   * The Hebrew characters will be printed on the key next to the English characters.
++   */
++  _MEMBER_GET(group, group, int, int)
++  _MEMBER_SET(group, group, int, int)
++
++  /** Indicates which symbol on the key will be used, in a vertical direction.
++   * So on a standard US keyboard, the key with the number “1” on it also has the
++   * exclamation point ("!") character on it. The level indicates whether to use
++   * the “1” or the “!” symbol. The letter keys are considered to have a lowercase
++   * letter at level 0, and an uppercase letter at level 1, though only the
++   * uppercase letter is printed.
++   */
++  _MEMBER_GET(level, level, int, int)
++  _MEMBER_SET(level, level, int, int)
++
++  /// Provides access to the underlying C object.
++  GdkKeymapKey*       gobj()       { return &gobject_; }
++  /// Provides access to the underlying C object.
++  const GdkKeymapKey* gobj() const { return &gobject_; }
++
++protected:
++  GdkKeymapKey gobject_;
++};
++
++} // namespace Gdk

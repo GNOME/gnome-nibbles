@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 	auto test=Gtk::make_managed<Box>();
 }
 '''
-code0_links = cpp.links(code0, dependencies: [gtkmm_dep,glibmm_dep], name : 'Gsk::PathBuilder compiles and links?')
+code0_links = cpp.links(code0, dependencies: [gtkmm_dep,glibmm_dep], name : 'Gsk::PathBuilder()')
 if not code0_links
 	error('Can not link with Gsk::PathBuilder (requires gtkmm-4.0 > 4.23.0)')
 endif
@@ -91,6 +91,20 @@ code3 = '''
 code3_links = cpp.links(code3, name : 'std::inplace_vector<>')
 if not code3_links
 	error('Can not use std::inplace_vector<> (requires C++26, -std=gnu++26)')
+endif
+
+code4 = '''
+	#include <gtkmm.h>
+	int main(int argc, char *argv[])
+	{
+		Gtk::ApplicationWindow window;
+		Glib::RefPtr<Gdk::Display> pDisplay=window.get_display();
+		auto keys=pDisplay->map_keyval(32);
+		return 0;
+	}'''
+code4_links = cpp.links(code4, dependencies: [gtkmm_dep,glibmm_dep], name : 'Gdk::Display::map_keyval()')
+if not code4_links
+	error('Can not link with Gdk::Display::map_keyval (requires gtkmm-4.0 > 4.23.2)')
 endif
 
 # Configuration
