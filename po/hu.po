@@ -1,5 +1,5 @@
 # Hungarian translation for gnome-nibbles.
-# Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2019, 2020, 2023, 2024 Free Software Foundation, Inc.
+# Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2019, 2020, 2023, 2024, 2026 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-nibbles package.
 #
 # Szabolcs Ban <shooby at gnome dot hu>, 1999, 2000, 2001.
@@ -9,14 +9,14 @@
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Szabolcs Varga <shirokuma at shirokuma dot hu>, 2005.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2016.
-# Balázs Úr <ur.balazs at fsf dot hu>, 2013, 2015, 2016, 2019, 2020, 2023, 2024.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2013, 2015, 2016, 2019, 2020, 2023, 2024, 2026.
 # Balázs Meskó <mesko.balazs at fsf dot hu>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues\n"
-"POT-Creation-Date: 2023-12-23 13:28+0000\n"
-"PO-Revision-Date: 2024-02-22 02:01+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-nibbles/issues/\n"
+"POT-Creation-Date: 2024-04-16 22:34+0000\n"
+"PO-Revision-Date: 2026-09-01 21:35+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -24,27 +24,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #. Translators: title of the window, as displayed by the window manager
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:3
+#: data/org.gnome.Nibbles.appdata.xml.in:7 data/org.gnome.Nibbles.desktop.in:2
 #: data/ui/nibbles.ui:64 src/gnome-nibbles.vala:39
 msgid "Nibbles"
 msgstr "Kukacok"
 
-#: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:4
+#: data/org.gnome.Nibbles.appdata.xml.in:8 data/org.gnome.Nibbles.desktop.in:3
 msgid "Guide a worm around a maze"
 msgstr "Kukac irányítása egy labirintusban"
 
 #: data/org.gnome.Nibbles.appdata.xml.in:10
-#| msgid ""
-#| "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
-#| "enemy worms while eating doughnuts and ice cream to increase your length. "
-#| "Each worm has ten lives and loses one by running into a wall, another "
-#| "worm, or itself. The enemy worms are after the same bonuses that you are, "
-#| "so be careful: if they become too large, you won’t have much room for "
-#| "movement."
 msgid ""
 "Control a worm in its quest to eat bonuses and become longer. Outmaneuver "
 "enemy worms while eating apples and bananas to increase your length. Each "
@@ -52,12 +45,12 @@ msgid ""
 "itself. The enemy worms are after the same bonuses that you are, so be "
 "careful. If the worms become too large, you won’t have much room to move."
 msgstr ""
-"Irányítson egy kukacot a küldetésén a bónuszok megevésére és hosszabbodásra."
-" Manőverezze ki az ellenséges kukacokat, miközben almák és banánok"
-" megevésével növeli a kukac hosszát. Minden kukacnak hat élete van, és"
-" elveszít egyet, ha falba, másik kukacba vagy saját magába ütközik. Az"
-" ellenséges kukacok ugyanazokat a bónuszokat próbálják elérni, így legyen"
-" óvatos: ha a kukacok túl nagyra nőnek, akkor nem marad túl sok helye mozogni."
+"Irányítson egy kukacot a küldetésén a bónuszok megevésére és hosszabbodásra. "
+"Manőverezze ki az ellenséges kukacokat, miközben almák és banánok "
+"megevésével növeli a kukac hosszát. Minden kukacnak hat élete van, és "
+"elveszít egyet, ha falba, másik kukacba vagy saját magába ütközik. Az "
+"ellenséges kukacok ugyanazokat a bónuszokat próbálják elérni, így legyen "
+"óvatos: ha a kukacok túl nagyra nőnek, akkor nem marad túl sok helye mozogni."
 
 #: data/org.gnome.Nibbles.appdata.xml.in:17
 msgid ""
@@ -77,8 +70,12 @@ msgstr ""
 "Játsszon önállóan akár öt ellenséges kukac ellen, vagy ossza meg "
 "billentyűzetét egy barátjával játszva."
 
+#: data/org.gnome.Nibbles.appdata.xml.in:63
+msgid "The GNOME Project"
+msgstr "A GNOME projekt"
+
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Nibbles.desktop.in:6
+#: data/org.gnome.Nibbles.desktop.in:5
 msgid "game;snake;board;"
 msgstr "játék;kígyó;tábla;"
 
@@ -134,12 +131,10 @@ msgstr ""
 "A kukacok sebessége, ahol az „1” jelentése „gyors”, a „4” jelentése „lassú”."
 
 #: data/org.gnome.Nibbles.gschema.xml:45
-#| msgid "Enable sounds"
 msgid "Enable 3D"
 msgstr "3D engedélyezése"
 
 #: data/org.gnome.Nibbles.gschema.xml:46
-#| msgid "Enable sounds."
 msgid "Enable 3D."
 msgstr "3D engedélyezése."
 
@@ -547,7 +542,6 @@ msgstr "Nyomja meg a balra gombját."
 
 #. Translators: text displayed in a message box directing the player to press the key they want to use to direct the worm right
 #: src/controls.vala:287
-#| msgid "Key to use for motion right."
 msgid "Press a key for right."
 msgstr "Nyomja meg a jobbra gombját."
 
@@ -651,81 +645,78 @@ msgstr ""
 
 #. Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2'
 #: src/gnome-nibbles.vala:187
-#| msgid ""
-#| "Options --disable-fakes (-d) and --enable-fakes (-e) are mutually "
-#| "exclusive."
 msgid "Options --3D (-3) and --2D (-2) are mutually exclusive."
 msgstr "A --3D (-3) és a --2D (-2) kapcsolók kölcsönösen kizárják egymást."
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:329
+#: src/gnome-nibbles.vala:332
 msgid "Sean MacIsaac"
 msgstr "Sean MacIsaac"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:333
+#: src/gnome-nibbles.vala:336
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:337
+#: src/gnome-nibbles.vala:340
 msgid "Andreas Røsdal"
 msgstr "Andreas Røsdal"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:341
+#: src/gnome-nibbles.vala:344
 msgid "Guillaume Beland"
 msgstr "Guillaume Beland"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:345
+#: src/gnome-nibbles.vala:348
 msgid "Iulian-Gabriel Radu"
 msgstr "Iulian-Gabriel Radu"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/gnome-nibbles.vala:349
+#: src/gnome-nibbles.vala:352
 msgid "Ben Corby"
 msgstr "Ben Corby"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/gnome-nibbles.vala:353
+#: src/gnome-nibbles.vala:356
 msgid "Kevin Breit"
 msgstr "Kevin Breit"
 
 #. Translators: text crediting a designer, in the about dialog
-#: src/gnome-nibbles.vala:357
+#: src/gnome-nibbles.vala:360
 msgid "Allan Day"
 msgstr "Allan Day"
 
 #. Translators: small description of the game, seen in the About dialog
-#: src/gnome-nibbles.vala:363
+#: src/gnome-nibbles.vala:366
 msgid "A worm game for GNOME"
 msgstr "Egy kukacos játék a GNOME-hoz"
 
 #. Translators: text crediting some maintainers, seen in the About dialog
-#: src/gnome-nibbles.vala:367
+#: src/gnome-nibbles.vala:370
 msgid "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 msgstr "Copyright © 1999-2008 – Sean MacIsaac, Ian Peters, Andreas Røsdal"
 
 #. Translators: text crediting a maintainer, seen in the About dialog
-#: src/gnome-nibbles.vala:371
+#: src/gnome-nibbles.vala:374
 msgid "Copyright © 2009 – Guillaume Beland"
 msgstr "Copyright © 2009 – Guillaume Beland"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:375
+#: src/gnome-nibbles.vala:378
 #, c-format
 msgid "Copyright © %u-%u – Iulian-Gabriel Radu"
 msgstr "Copyright © %u-%u – Iulian-Gabriel Radu"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u is replaced with the years of start and end
-#: src/gnome-nibbles.vala:379
+#: src/gnome-nibbles.vala:382
 #, c-format
 msgid "Copyright © %u-%u – Ben Corby"
 msgstr "Copyright © %u-%u – Ben Corby"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-nibbles.vala:385
+#: src/gnome-nibbles.vala:388
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -740,21 +731,18 @@ msgstr ""
 #. Translators: One second to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with one AI, appearing when there are 3 or 4 humans set
 #: src/nibbles-view.vala:606 src/players.vala:39
-#| msgid "_1"
 msgid "1"
 msgstr "1"
 
 #. Translators: Two seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with two AIs, appearing when there are 2, 3 or 4 humans set
 #: src/nibbles-view.vala:609 src/players.vala:42
-#| msgid "_2"
 msgid "2"
 msgstr "2"
 
 #. Translators: Three seconds to go until the game starts.
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with three AIs, appearing when there are 1, 2 or 3 humans set
 #: src/nibbles-view.vala:612 src/players.vala:45
-#| msgid "_3"
 msgid "3"
 msgstr "3"
 
@@ -780,19 +768,16 @@ msgstr "4. kukac"
 
 #. Translators: the fifth worm's name.
 #: src/nibbles-view.vala:637
-#| msgid "Worm 1"
 msgid "Worm 5"
 msgstr "5. kukac"
 
 #. Translators: the sixth worm's name.
 #: src/nibbles-view.vala:640
-#| msgid "Worm 1"
 msgid "Worm 6"
 msgstr "6. kukac"
 
 #. Translators: message displayed in a Message Dialog, when the player tries to start a new game while one is running, the '\n' is a new line character
 #: src/nibbles-view.vala:665
-#| msgid "If you start a new game, the current one will be lost."
 msgid ""
 "Are you sure you want to start a new game?\n"
 "If you start a new game, the current one will be lost."
@@ -952,25 +937,21 @@ msgstr "_Játék újra"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game only with humans, appearing when there are 4 humans set
 #: src/players.vala:36
-#| msgid "_0"
 msgid "0"
 msgstr "0"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with four AIs, appearing when there are 1 or 2 humans set
 #: src/players.vala:48
-#| msgid "_4"
 msgid "4"
 msgstr "4"
 
 #. Translators: in the "Number of players" configuration screen, label of a button allowing to play game with five AIs, appearing when there is only 1 human set
 #: src/players.vala:51
-#| msgid "_5"
 msgid "5"
 msgstr "5"
 
 #. Translators: text displayed under the game view, presenting the number of remaining lives; the %d is replaced by the number that identifies the player
 #: src/scoreboard.vala:45
 #, c-format
-#| msgid "Worm 1"
 msgid "Worm %d"
 msgstr "%d. kukac"
