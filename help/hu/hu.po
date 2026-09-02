@@ -1,14 +1,14 @@
 # Hungarian translation for gnome-nibbles help.
-# Copyright (C) 2013, 2014, 2015, 2021, 2023 Free Software Foundation, Inc.
+# Copyright (C) 2013, 2014, 2015, 2021, 2023, 2026 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-nibbles help.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2013, 2014, 2015.
-# Balázs Úr <ur.balazs at fsf dot hu>, 2021, 2023.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2021, 2023, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-nibbles_help master\n"
-"POT-Creation-Date: 2023-04-14 20:07+0000\n"
-"PO-Revision-Date: 2023-04-21 03:05+0200\n"
+"POT-Creation-Date: 2026-08-29 10:11+0000\n"
+"PO-Revision-Date: 2026-09-02 09:51+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -16,112 +16,125 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
 "Kelemen Gábor <kelemeng at gnome dot hu>, 2013, 2014, 2015.\n"
-"Úr Balázs <ur.balazs at fsf dot hu>, 2021, 2023."
+"Úr Balázs <ur.balazs at fsf dot hu>, 2021, 2023, 2026."
 
 #. (itstool) path: credit/name
-#: C/basics.page:16 C/controls-change.page:18 C/controls-default.page:16
+#: C/basics.page:17 C/controls-change.page:19 C/controls-default.page:16
 #: C/fake-bonus.page:16 C/index.page:17 C/multi-player.page:17 C/scores.page:15
 #: C/sound-change.page:16 C/speed-change.page:16
 msgid "Aruna Sankaranarayanan"
 msgstr "Aruna Sankaranarayanan"
 
 #. (itstool) path: credit/name
-#: C/basics.page:20 C/controls-change.page:22 C/controls-default.page:20
+#: C/basics.page:21 C/controls-change.page:23 C/controls-default.page:20
 #: C/fake-bonus.page:20 C/multi-player.page:21 C/sound-change.page:20
 #: C/speed-change.page:20
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: info/desc
-#: C/basics.page:24
+#: C/basics.page:25
 msgid "Start, pause, and quit a game of <app>Nibbles</app>."
 msgstr "Indítás, szüneteltetés és kilépés a <app>Kukacok</app> játékból."
 
 #. (itstool) path: page/title
-#: C/basics.page:27
+#: C/basics.page:28
 msgid "Basic instructions"
 msgstr "Alapvető utasítások"
 
 #. (itstool) path: section/title
-#: C/basics.page:30
+#: C/basics.page:31
 msgid "Start a new game"
 msgstr "Új játék indítása"
 
 #. (itstool) path: section/p
-#: C/basics.page:32
+#: C/basics.page:33
+#| msgid ""
+#| "Press the <gui style=\"button\">New Game</gui> button in the header bar "
+#| "to start a new game when being in a game."
 msgid ""
-"Press the <gui style=\"button\">New Game</gui> button in the header bar to "
-"start a new game when being in a game."
+"Press the <gui style=\"button\">➕</gui> button in the header bar to start a "
+"new game when being in a game."
 msgstr ""
-"Nyomja meg a fejlécsávon lévő <gui style=\"button\">Új játék</gui> gombot, "
-"hogy új játékot indítson, miközben játékban van."
+"Nyomja meg a fejlécsávon lévő <gui style=\"button\">➕</gui> gombot, hogy új já"
+"tékot indítson, miközben játékban van."
 
 #. (itstool) path: section/p
-#: C/basics.page:34
+#: C/basics.page:35
+#| msgid ""
+#| "Press the <gui style=\"button\">Play Again</gui> button when you have "
+#| "finished a game."
 msgid ""
-"Press the <gui style=\"button\">Play Again</gui> button when you have "
-"finished a game."
+"Press the <gui style=\"button\">Done</gui> button when you have finished a "
+"game."
 msgstr ""
-"Nyomja meg a <gui style=\"button\">Játék újra</gui> gombot, ha befejezte a "
-"játékot."
+"Nyomja meg a <gui style=\"button\">Kész</gui> gombot, ha befejezte a játékot."
 
 #. (itstool) path: section/title
-#: C/basics.page:39
+#: C/basics.page:40
 msgid "Pause and resume your game"
 msgstr "Játék megállítása/folytatása"
 
 #. (itstool) path: section/p
-#: C/basics.page:41
+#: C/basics.page:42
+#| msgid ""
+#| "Press the <gui style=\"button\">Pause</gui> button in the header bar to "
+#| "pause your game. You can resume your game by pressing the <gui "
+#| "style=\"button\">Resume</gui> button."
 msgid ""
-"Press the <gui style=\"button\">Pause</gui> button in the header bar to "
-"pause your game. You can resume your game by pressing the <gui "
-"style=\"button\">Resume</gui> button."
+"Press the <gui style=\"button\">⏸</gui> button in the header bar to pause "
+"your game. You can resume your game by pressing the <gui style=\"button\">▶</"
+"gui> button."
 msgstr ""
-"Nyomja meg a fejlécsávon lévő <gui style=\"button\">Szünet</gui> gombot a "
-"játék szüneteltetéséhez. A játékot a <gui style=\"button\">Folytatás</gui> "
-"gomb megnyomásával folytathatja."
+"Nyomja meg a fejlécsávon lévő <gui style=\"button\">⏸</gui> gombot a játék szü"
+"neteltetéséhez. A játékot a <gui style=\"button\">▶</gui> gomb megnyomásával f"
+"olytathatja."
 
 #. (itstool) path: section/title
-#: C/basics.page:47
+#: C/basics.page:48
 msgid "Quit <app>Nibbles</app>"
 msgstr "Kilépés a <app>Kukacokból</app>"
 
 #. (itstool) path: section/p
-#: C/basics.page:49
+#: C/basics.page:50
+#| msgid ""
+#| "Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+#| "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> "
+#| "at any time."
 msgid ""
-"Press the <gui style=\"button\">⨯</gui> button in the header bar or press "
+"Press the <gui style=\"button\">✖️</gui> button in the header bar or press "
 "<keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit <app>Nibbles</app> at "
 "any time."
 msgstr ""
-"Nyomja meg a fejlécsávon lévő <gui style=\"button\">⨯</gui> gombot, vagy "
-"nyomja meg a <keyseq><key>Ctrl</key><key>Q</key></keyseq> "
-"billentyűkombinációt a <app>Kukacok</app> bezárásához."
+"Nyomja meg a fejlécsávon lévő <gui style=\"button\">✖️</gui> gombot, vagy nyom"
+"ja meg bármikor a <keyseq><key>Ctrl</key><key>Q</key></keyseq> billentyűkombin"
+"ációt a <app>Kukacok</app> játékból való kilépéshez."
 
 #. (itstool) path: credit/name
-#: C/controls-change.page:26 C/fake-bonus.page:24 C/multi-player.page:25
+#: C/controls-change.page:27 C/fake-bonus.page:24 C/multi-player.page:25
 #: C/sound-change.page:24 C/speed-change.page:24
 msgid "Andre Klapper"
 msgstr "Andre Klapper"
 
 #. (itstool) path: info/desc
-#: C/controls-change.page:30
+#: C/controls-change.page:31
 msgid "Set custom control keys."
 msgstr "Egyéni vezérlőbillentyűk beállítása."
 
 #. (itstool) path: page/title
-#: C/controls-change.page:33
+#: C/controls-change.page:34
 msgid "Change the default controls"
 msgstr "Az alapértelmezett vezérlés módosítása"
 
 #. (itstool) path: page/p
-#: C/controls-change.page:35
+#: C/controls-change.page:36
 msgid ""
 "The <link xref=\"controls-default\">default controls</link> can be changed "
 "in <app>Nibbles</app> to suit your preference or for <link xref=\"multi-"
@@ -135,93 +148,44 @@ msgstr ""
 "vezérlés megváltoztatása:"
 
 #. (itstool) path: item/p
-#: C/controls-change.page:42 C/fake-bonus.page:41 C/multi-player.page:49
+#: C/controls-change.page:43 C/fake-bonus.page:41 C/multi-player.page:49
 #: C/speed-change.page:36
 msgid "Start a new game."
 msgstr "Új játék indítása."
 
-#. (itstool) path: media/span
+#. (itstool) path: item/p
 #: C/controls-change.page:46
-msgid "settings"
-msgstr "beállítások"
+#| msgid ""
+#| "On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
+#| "player whose controls you want to change."
+msgid ""
+"On the <gui>Controls</gui> screen, press the arrow for the direction you "
+"want to redefine the key."
+msgstr ""
+"A <gui>Vezérlés</gui> képernyőn nyomja meg a nyilat annál az iránynál, amelyné"
+"l át szeretné állítani a billentyűt."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:45
-msgid ""
-"On the <gui>Controls</gui> screen, press the <_:media-1/> button for the "
-"player whose controls you want to change."
-msgstr ""
-"A <gui>Vezérlés</gui> képernyőn nyomja meg a <_:media-1/> gombot annál a "
-"játékosnál, akinek a vezérlését módosítani szeretné."
-
-#. (itstool) path: note/p
-#: C/controls-change.page:49
-msgid ""
-"Player 1 controls <gui>Worm 1</gui>, player 2 controls <gui>Worm 2</gui>, "
-"player 3 controls <gui>Worm 3</gui> and so on."
-msgstr ""
-"Az 1. játékos irányítja a <gui>Kukac 1-et</gui>, a 2. játékos a <gui>Kukac 2-"
-"t</gui>, a 3. játékos a <gui>Kukac 3-at</gui> és így tovább."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:54
-msgid ""
-"In the <gui style=\"group\">Controls</gui> list, select the line of the "
-"<gui>Action</gui>. This highlights the line."
-msgstr ""
-"A <gui style=\"group\">Vezérlés</gui> listában válassza a <gui>Művelet</gui> "
-"sorát. Ez kiemeli a sort."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:58
-msgid ""
-"Select the <gui>Key</gui> on the control. The words <gui>New accelerator…</"
-"gui> are now present in place of the old control."
-msgstr ""
-"Válassza ki a <gui>Billentyűt</gui> a vezérlőn. Az <gui>Új gyorsbillentyű…</"
-"gui> felirat jelenik meg a korábbi vezérlőbillentyű helyén."
-
-#. (itstool) path: item/p
-#: C/controls-change.page:63
+#: C/controls-change.page:50
 msgid "Press the key you want to use instead of the default key."
 msgstr "Nyomja meg az alapértelmezett helyett használni kívánt billentyűt."
 
 #. (itstool) path: note/p
-#: C/controls-change.page:66
+#: C/controls-change.page:52
 msgid ""
-"To keep the old setting click <gui>New accelerator…</gui> again, right click "
-"on <gui>New accelerator…</gui>, press <key>Esc</key> or click anywhere else "
-"inside the <gui>Nibbles Preferences</gui> box."
+"Any arrow that appears red must have the key redefined otherwise you will "
+"not be able to start the game."
 msgstr ""
-"A régi beállítás megtartásához kattintson újra az <gui>Új gyorsbillentyű…</"
-"gui> gombra, kattintson a jobb egérgombbal az <gui>Új gyorsbillentyű…</gui> "
-"gombra, nyomja meg az <key>Esc</key> billentyűt, vagy kattintson bárhová a "
-"<gui>Kukacok beállításai</gui> ablakban."
+"Minden pirosan megjelenő nyílnál át kell állítani a billentyűt, különben nem f"
+"ogja tudni elindítani a játékot."
 
 #. (itstool) path: item/p
-#: C/controls-change.page:72
-msgid ""
-"Repeat the above step to change the other default keys for the current "
-"player, then select the tab for the next player whose controls you want to "
-"change and repeat the process."
+#: C/controls-change.page:57
+#| msgid "Press the key you want to use instead of the default key."
+msgid "Repeat the above step to change the other default keys."
 msgstr ""
-"Ismételje meg a fenti lépést az aktuális játékos többi alapértelmezett "
-"billentyűjének módosításához, majd válassza ki a következő játékoshoz "
-"tartozó lapot, akinek vezérlőbillentyűit meg szeretné változtatni, és kezdje "
-"újra a folyamatot."
-
-#. (itstool) path: page/p
-#: C/controls-change.page:78
-msgid ""
-"For example, to use <key>A</key> to move left, select the <gui>Action</gui> "
-"<gui>Move left</gui>, then select its <gui>Key</gui>, then press <key>A</"
-"key> on your keyboard when you see <gui>New accelerator…</gui> on the line."
-msgstr ""
-"Például az <key>A</key> billentyűnek a balra mozgáshoz történő használatához "
-"válassza a <gui>Művelet</gui> <gui>Mozgás balra</gui> lehetőséget, válassza "
-"ki a <gui>Billentyűjét</gui>, és nyomja meg az <key>A</key> billentyűt a "
-"billentyűzeten, amikor megjelenik az <gui>Új gyorsbillentyű</gui> szöveg a "
-"sorban."
+"Ismételje meg a fenti lépést a többi alapértelmezett billentyű megváltoztatásá"
+"hoz."
 
 #. (itstool) path: info/desc
 #: C/controls-default.page:25
