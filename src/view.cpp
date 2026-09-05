@@ -22,8 +22,10 @@
 #include <gsk/gsk.h>
 #include <cassert>
 #include <mutex>
+#include <condition_variable>
 #include <source_location>/* for std::source_location::current().file_name() */
 #include <unordered_set>
+#include <thread>
 #include <bitset>
 #include <forward_list>
 #include <fstream>
@@ -84,13 +86,13 @@ inline Glib::ustring utoa(uint64_t u, intsys minimum_length=1)
 
 /*******************************************************************
  *                                                                 *
- *	View                                                  *
+ *  View                                                           *
  *                                                                 *
  *******************************************************************/
 View::View(Game::Progress progress, uintsys start_level, uintsys speed, bool fakes,
 	Gtk::Button &new_game_button, Gtk::Button &pause_button,
 	std::function<void(const Glib::ustring &level)> set_level_description,
-	std::function<void(const std::vector<WormScore>)> game_over,
+	std::function<void(const std::vector<WormScore> &)> game_over,
 	std::function<void(Gtk::Widget *pWin)> next) : Gtk::Overlay(),
 	progress(progress), speed(speed),
 	new_game_button(new_game_button), pause_button(pause_button),
@@ -106,7 +108,7 @@ View::View(Game::Progress progress, uintsys start_level, uintsys speed, bool fak
 			Gtk::Grid *pGrid=get_life_grid(score_box[worm_colour]);
 			if(pGrid)
 			{
-				for (auto* child : pGrid->get_children())
+				for(auto* child : pGrid->get_children())
 					pGrid->remove(*child);
 				for(uintsys i=pGrid->get_children().size();i<lives && i<6;
 					pGrid->attach(*Gtk::make_managed<Life>(i==5 && lives>6?lives:0),i % 6,0,1,1),i++);
@@ -116,11 +118,8 @@ View::View(Game::Progress progress, uintsys start_level, uintsys speed, bool fak
 	[this](eWormColour worm_colour, uintsys score) {/*score_change*/
 		if(score_box.contains(worm_colour))
 		{
-			Gtk::Label *pLabel=get_score_label(score_box[worm_colour]);
-			if(pLabel)
-			{
+			if(Gtk::Label *pLabel=get_score_label(score_box[worm_colour]))
 				pLabel->set_text(utoa(score));
-			}
 		}
 	},
 	progress,fakes)
@@ -128,10 +127,56 @@ View::View(Game::Progress progress, uintsys start_level, uintsys speed, bool fak
 	// setup sound
 	GError* error = nullptr;
 	ctx = gsound_context_new(nullptr, &error);
-	if(!ctx)
+	if(ctx)
 	{
-		std::cerr << "Failed to create GSound context: " << error->message << std::endl;
-		g_error_free(error);
+		sound_thread=std::jthread(
+			[this](std::stop_token stop)
+			{
+				while (!stop.stop_requested())
+				{
+					Glib::ustring sound_file;
+					{
+						std::unique_lock lock(sound_thread_gate);
+						sound_trigger.wait(lock, [this,stop] {
+							bool continue_waiting=!stop.stop_requested() && sound_queue.empty();
+							return !continue_waiting;
+						});
+						if(stop.stop_requested())
+							return;
+						if(!sound_queue.empty())
+						{
+							sound_file = sound_queue.front();
+							sound_queue.pop();
+						}
+					}
+					if(!sound_file.empty())
+					{
+						GError* error = nullptr;
+						gboolean success = gsound_context_play_simple(ctx, nullptr, &error,
+							GSOUND_ATTR_MEDIA_FILENAME, sound_file.c_str(),
+							nullptr
+						);
+						if (!success) {
+							std::cerr << "Error playing sound: " << sound_file;
+							if(error)
+							{
+								std::cerr << " " << error->message;
+								g_error_free(error);
+							}
+							std::cerr << std::endl;
+						}
+					}
+				}
+			}
+		);
+	}
+	else
+	{
+		if(error)
+		{
+			std::cerr << "Failed to create GSound context: " << error->message << std::endl;
+			g_error_free(error);
+		}
 	}
 
 	uintsys level;
@@ -173,16 +218,13 @@ void View::play_sound(const Glib::ustring &sound)
 {
 	if(!mute && nullptr!=ctx)
 	{	
-		GError* error = nullptr;
 		Glib::ustring path=Glib::build_filename(SOUND_DIRECTORY, sound+".ogg");
-		gboolean success = gsound_context_play_simple(ctx, nullptr, &error,
-			GSOUND_ATTR_MEDIA_FILENAME, path.c_str(), 
-			nullptr
-		);
-		if (!success) {
-			std::cerr << "Error playing sound: " << path << " " << error->message << std::endl;
-			g_error_free(error);
+		/* play the sound in another thread so we don't slow down the game */
+		{
+			std::lock_guard lock(sound_thread_gate);
+			sound_queue.push(path);
 		}
+		sound_trigger.notify_one();
 	}
 }
 
@@ -203,51 +245,28 @@ void View::initialise_and_start()
 	}
 	
 	/* build the score board */
+	auto *scoreboard = get_scoreboard();
+	score_box.clear();
+	names.clear();
+	while (auto *child = scoreboard->get_first_child())
+		scoreboard->remove(*child);
+	worm_colour.clear();
 	std::unordered_set<eWormColour> colours_used;
-	Gtk::Box* pBox=dynamic_cast<Gtk::Box*>(get_scoreboard()->get_first_child());
 	for(unsigned int worm=0;worm<player_count+ai_count;worm++)
 	{
-		eWormColour c;
-		if(worm_colour.size()<worm+1)
-		{
-			c=get_worm_settings_colour(worm);
-			if(colours_used.contains(c))
-			{
-				for(c=red_worm;c<unknown_colour_worm && colours_used.contains(c);++c);
-			}
-			set_worm_settings_colour(worm,c);
-			worm_colour.push_back(c);
-		}
-		else
-			c=worm_colour[worm];
+		eWormColour c=get_worm_settings_colour(worm);
+		if(colours_used.contains(c))
+			for(c=red_worm;c<unknown_colour_worm && colours_used.contains(c);++c);
+		set_worm_settings_colour(worm,c);
+		worm_colour.push_back(c);
 		colours_used.insert(c);
 		auto name=get_worm_name(worm);
-		if(!pBox)
-		{
-			pBox=create_score_box(name,c);
-			score_box[c]=pBox;
-			names[c]=name;
-			get_scoreboard()->append(*pBox);
-			pBox=nullptr;
-		}
-		else
-		{
-			score_box[c]=pBox;
-			names[c]=name;
-			/* make sure there are six lives */
-			Gtk::Grid *pGrid=get_life_grid(pBox);
-			for (auto* child : pGrid->get_children())
-				pGrid->remove(*child);
-			for(unsigned int i=pGrid->get_children().size();i<6;
-				pGrid->attach(*Gtk::make_managed<Life>(),i++,0,1,1));
-			/* set the score to 0 */
-			Gtk::Label *pLabel=get_score_label(pBox);
-			pLabel->set_text("0");
-			
-			pBox=dynamic_cast<Gtk::Box*>(pBox->get_next_sibling());
-		}
+		auto *pBox=create_score_box(name,c);
+		score_box[c]=pBox;
+		names[c]=name;
+		get_scoreboard()->append(*pBox);
 	}
-	
+
 	/* switch to the score board (not paused)*/
 	get_statusbar_stack()->set_visible_child("scoreboard");
 	
@@ -285,29 +304,38 @@ bool View::play()
 		{
 			if(countdown>0)
 			{
-				active_view.redraw();
-				play_sound("gobble");
-				timer.set(sigc::mem_fun(*this, &View::play), 1000/*milli-seconds*/);
+				active_view.redraw(
+					[this]() {/*drawing_finished_function*/
+						play_sound("gobble");
+						if(countdown>0)
+						{
+							countdown--;
+							timer.set(sigc::mem_fun(*this, &View::play), 1000/*milliseconds*/);
+						}
+					});
 			}
 			else
 			{
 				auto start = std::chrono::steady_clock::now();
 				game.move_worms();
-				active_view.redraw();
-				auto finish = std::chrono::steady_clock::now();
-				const intsys level_delay[]={52,70,105,140};/* milli-seconds */
-				auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(finish - start).count();
-				uintsys delay=1;
-				if(elapsed_ms < level_delay[speed-1])
-					delay = level_delay[speed-1] - elapsed_ms;
-				timer.set(sigc::mem_fun(*this, &View::play), delay);
+				active_view.animate_draw(
+					[this,start]() {/*drawing_finished_function*/
+						auto finish = std::chrono::steady_clock::now();
+						auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(finish - start).count();
+						const intsys level_delay[]={52,70,105,140};/*milliseconds*/
+						uintsys delay=1;
+						assert(speed > 0 && speed <= 4);
+						if(elapsed_ms < level_delay[speed-1])
+							delay = level_delay[speed-1] - elapsed_ms;
+						timer.set(sigc::mem_fun(*this, &View::play), delay);
+					});
 			}
 		}
 		else if(state==Game::NEWROUND)
 		{
 			new_game_button.set_visible(0);
 			pause_button.set_visible(0);
-			if(levels.all()) /* all levels have been compleated */
+			if(levels.all()) /* all levels have been completed */
 			{
 				/* VICTORY */
 				auto *box=Gtk::make_managed<Gtk::Box>(Gtk::Orientation::VERTICAL);
@@ -444,7 +472,7 @@ Gtk::Button* View::create_button(Glib::ustring text)
 	return button;
 }
 
-const Glib::ustring View::get_worm_name(unsigned int worm_id)
+Glib::ustring View::get_worm_name(unsigned int worm_id)
 {
 	Glib::ustring name;
 	switch(worm_id)
@@ -454,7 +482,7 @@ const Glib::ustring View::get_worm_name(unsigned int worm_id)
 			name=_("Worm 1");
 			break;
 		case 1:
-			// Translators: the seconds worm's name.
+			// Translators: the second worm's name.
 			name=_("Worm 2");
 			break;
 		case 2:
@@ -484,7 +512,7 @@ const Glib::ustring View::get_worm_name(unsigned int worm_id)
 	return name;
 }
 
-const Glib::ustring View::get_level_completed_message(uintsys level)
+Glib::ustring View::get_level_completed_message(uintsys level)
 {
 	switch(level)
 	{
@@ -584,7 +612,7 @@ const Glib::ustring View::get_level_completed_message(uintsys level)
 	}
 }
 
-const Glib::ustring View::get_next_level_message(uintsys level)
+Glib::ustring View::get_next_level_message(uintsys level)
 {
 	switch(level)
 	{
@@ -684,7 +712,7 @@ const Glib::ustring View::get_next_level_message(uintsys level)
 	}
 }
 
-const Glib::ustring View::get_level_description(uintsys level)
+Glib::ustring View::get_level_description(uintsys level)
 {
 	switch(level)
 	{
@@ -784,7 +812,7 @@ const Glib::ustring View::get_level_description(uintsys level)
 	}
 }
 
-const Glib::ustring View::get_countdown_message(uintsys count)
+Glib::ustring View::get_countdown_message(uintsys count)
 {
 	switch(count)
 	{
@@ -795,7 +823,7 @@ const Glib::ustring View::get_countdown_message(uintsys count)
 			// Translators: information message indicating 2 seconds until the start of play
 			return _("2");
 		case 1:
-			// Translators: information message indicating 1 seconds until the start of play
+			// Translators: information message indicating 1 second until the start of play
 			return _("1");
 		default:
 			return "";
@@ -957,13 +985,14 @@ void View::ActiveView::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapsho
 	{
 		// count down
 		int font_size = 252;
-		auto text=std::to_string(view.countdown_left());
+		auto text=view.get_countdown_message(view.countdown_left());
 		auto [w,h]=calculate_text_size(text, font_size);
 		draw_text_font_size(snapshot, (int)(x_offset + x_delta * (view.game.get_width() / 2) - w / 2), (int)(y_offset + y_delta * (view.game.get_height() / 2) - h / 2), text, font_size);
 
 		//draw name labels
-		uintsys id=0;
-		for(const auto &worm : view.game.get_worms())
+		auto &worms=view.game.get_worms();
+		uintsys id=std::distance(worms.begin(), worms.end());
+		for(const auto &worm : worms)
 		{
 			if (!worm.get_positions().is_empty())
 			{
@@ -974,7 +1003,7 @@ void View::ActiveView::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapsho
 					auto p=worm.get_positions()[middle];
 					draw_text_target_width(snapshot, x_offset + x_delta * (p.x + 1) + x_delta / 2,
 								  y_offset + y_delta * (p.y),
-								  view.get_worm_name(id++), x_delta * worm.get_length());
+								  view.get_worm_name(--id), x_delta * worm.get_length());
 				}
 				else if (worm.get_direction() == eDirection::LEFT || worm.get_direction() == eDirection::RIGHT)
 				{
@@ -985,11 +1014,16 @@ void View::ActiveView::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapsho
 						x = worm.get_positions()[worm.get_length()-1].x;
 					draw_text_target_width(snapshot, x_offset + x_delta * x,
 								  y_offset + y_delta * (head.y) - y_delta,
-								  view.get_worm_name(id++), x_delta * worm.get_length());
+								  view.get_worm_name(--id), x_delta * worm.get_length());
 				}
 			}
 		}
-		view.countdown_decrement();
+	}
+	if(nullptr!=drawing_finished_function)
+	{
+		auto f=drawing_finished_function;
+		drawing_finished_function=nullptr;
+		f();
 	}
 }
 void View::ActiveView::draw_bonus(const Glib::RefPtr<Gtk::Snapshot> &s, int x, int y, int x_size, int y_size, Bonus::eType type, uint64_t animate)
@@ -1251,30 +1285,33 @@ void View::ActiveView::draw_worm_segment (const Glib::RefPtr<Gtk::Snapshot> &s,
 	auto [r,g,b] = view.get_worm_rgb(colour, is_materialized);
 	s->append_fill(path->to_path (), Gsk::FillRule::EVEN_ODD, {r, g, b, 1.0f});
 }
-void View::ActiveView::draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int target_width)
+void View::ActiveView::draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, intsys target_width)
 {
 	/* draw using x,y as the top left corner of the text */
 	intsys target_font_size = 1;
 	uintsys target_width_diff = std::numeric_limits<uintsys>::max();
-	Pango::Rectangle a = {0,0,0,0};
 
 	for (int font_size = 1;font_size < 200;font_size++)
 	{
 		auto layout = get_layout(text, font_size);
-	    Pango::Rectangle b;
-	    layout->get_extents(a, b);
-	    uintsys width_diff = abs(target_width - (intsys)a.get_width() / Pango::SCALE);
-	    if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
-	        break;
-	    else if (width_diff < target_width_diff)
-	    {
-	        target_width_diff = width_diff;
-	        target_font_size = font_size;
-	    }
+		Pango::Rectangle a, b;
+		layout->get_extents(a, b);
+		uintsys width_diff = target_width > a.get_width() / Pango::SCALE ?
+			target_width - a.get_width() / Pango::SCALE :
+			a.get_width() / Pango::SCALE - target_width;
+		if (width_diff > target_width_diff && width_diff - target_width_diff > 2)
+			break;
+		else if (width_diff < target_width_diff)
+		{
+			target_width_diff = width_diff;
+			target_font_size = font_size;
+		}
 	}
+	auto layout = get_layout(text, target_font_size);
+	Pango::Rectangle a,b;
+	layout->get_extents(a, b);
 	snapshot->save();
 	snapshot->translate({x - a.get_x() / Pango::SCALE, y - a.get_y() / Pango::SCALE});
-	auto layout = get_layout(text, target_font_size);
 	snapshot->append_layout(layout, {1, 1, 1, 1});
 	snapshot->restore();
 }
@@ -1300,27 +1337,30 @@ void View::Life::draw_text_target_height(const Glib::RefPtr<Gtk::Snapshot> &snap
 	/* draw using x,y as the top left corner of the text */
 	intsys target_font_size = 1;
 	uintsys target_height_diff = std::numeric_limits<uintsys>::max();
-	Pango::Rectangle a = {0,0,0,0};
 
 	for (intsys font_size = 1;font_size < 200;font_size++)
 	{
 		auto layout = get_layout(text, font_size);
-	    Pango::Rectangle b;
-	    layout->get_extents(a, b);
-	    uintsys height_diff = abs(target_height - (intsys)a.get_height() / Pango::SCALE);
-	    if (height_diff > target_height_diff && height_diff - target_height_diff > 2)
-	        break;
-	    else if (height_diff < target_height_diff)
-	    {
-	        target_height_diff = height_diff;
-	        target_font_size = font_size;
-	    }
+		Pango::Rectangle a, b;
+		layout->get_extents(a, b);
+		uintsys height_diff = target_height > a.get_height() / Pango::SCALE ?
+			target_height - a.get_height() / Pango::SCALE :
+			a.get_height() / Pango::SCALE - target_height;
+		if (height_diff > target_height_diff && height_diff - target_height_diff > 2)
+			break;
+		else if (height_diff < target_height_diff)
+		{
+			target_height_diff = height_diff;
+			target_font_size = font_size;
+		}
 	}
+	auto layout = get_layout(text, target_font_size);
+	Pango::Rectangle a,b;
+	layout->get_extents(a, b);
 	auto width=(intsys)a.get_width() / Pango::SCALE;
 	auto x_center_offset = width<center_width ? (16 - width)/2 : 0;
 	snapshot->save();
 	snapshot->translate({x - a.get_x() / Pango::SCALE + x_center_offset, y - a.get_y() / Pango::SCALE});
-	auto layout = get_layout(text, target_font_size);
 	snapshot->append_layout(layout, {1, 1, 1, 1});
 	snapshot->restore();
 }

@@ -19,9 +19,11 @@
 
 #include <cstdint>
 #include <cassert>
+#include <mutex>
 #include "system_integer.h"
 #include "pseudo_random.h"
 
+std::mutex mtx;
 bool prohibit=false;
 uint64_t last[2] = {0x2, 0x2};
 
@@ -44,10 +46,18 @@ void set_test_prohibit(bool state)
 	prohibit=state;
 }
 
+uint64_t pseudo_random_thread_safe()
+{
+    std::lock_guard<std::mutex> lock(mtx);
+    return pseudo_random();
+}
+
 uint64_t pseudo_random()
 {
+#if defined(TESTS)
 	assert(!prohibit); /* When working in parallel worms must not use this
 						  otherwise the test are not consistent. */
+#endif
 
 	/* Linear Congruential Generator */
 	//const uint64_t a = 6364136223846793005ULL; /*multiplier*/

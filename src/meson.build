@@ -11,7 +11,7 @@ nibbles_tests = executable(
 		glibmm_dep,
 		gtkmm_dep
 	],
-	cpp_args: cpp_compiler_options,
+	cpp_args: cpp_compiler_options + '-DTESTS',
 	link_args : '-lm'
 )
 test('nibbles-tests', nibbles_tests, timeout: 150)

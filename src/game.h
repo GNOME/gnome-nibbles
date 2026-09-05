@@ -64,35 +64,11 @@ public:
 	}
 	virtual ~Game() = default;
 
+	Game(const Game& copy) = delete;/* don't copy */
+	Game& operator=(const Game& copy) = delete;/* don't copy */
+
 	bool load_board_from_file(const char *path, uintsys level);
-/*	bool load_board_from_file(const Glib::ustring &path, uintsys level)
-	{
-		return load_board_from_file(path.c_str(),level);
-	}
-	
-	bool load_board(const Glib::ustring &string)
-	{
-		board.clear();
-		width=height=0;// we don't yet know the width or height
-		const char *s=string.c_str();
-		const char *e=s+string.length();
-		uint32_t u32;
-		
-		while(s<e)
-		{
-			u32=0xff & *s;
-			auto extra=unichar_extra_width(*s++);
-			for(;e-s<=extra;s++)
-			{
-				u32<<=8;
-				u32|=0xff & *s;
-			}
-			build_board(to_board_char(u32), board);
-		}
-		height=board[board.size()-1].size();
-		return verify_load();
-	}
-*/
+
 	bool load_board(const std::span<const std::string_view> &strings, const uintsys _level)
 	{
 		level = _level; /* set this for scoreing calculations */
@@ -123,11 +99,6 @@ public:
 		height=board[board.size()-1].size();
 		return verify_load();
 	}
-
-	void set_map(std::vector<std::vector<unsigned char>> &map)
-	{
-		board = std::move(map);
-	}
 	const unsigned char& operator[](unsigned int x, unsigned int y) const
 	{
 		return board[x][y];
@@ -142,13 +113,15 @@ public:
 		{
 			if(_get_worm_settings_colour==nullptr)
 			{
-				Worm worm(*this, level, i<human_count, (eWormColour)i, get_width(), get_height());
-				worms.push_front(worm);
+				/*Worm worm(*this, level, i<human_count, (eWormColour)i, get_width(), get_height());
+				worms.push_front(worm);*/
+				worms.emplace_front(*this, level, i<human_count, (eWormColour)i, get_width(), get_height());
 			}
 			else
 			{
-				Worm worm(*this, level, i<human_count, _get_worm_settings_colour(i), get_width(), get_height());
-				worms.push_front(worm);
+				/*Worm worm(*this, level, i<human_count, _get_worm_settings_colour(i), get_width(), get_height());
+				worms.push_front(worm);*/
+				worms.emplace_front(*this, level, i<human_count, _get_worm_settings_colour(i), get_width(), get_height());
 			}
 		}
 		starting_human_count = human_count;
@@ -157,13 +130,14 @@ public:
 	void spawn_worms(bool force_materialize=false)
 	{
 		/* spawn worms for a new board */
-		auto it=starts.begin();
+		auto it=starts.end();
+		for(uintsys i=std::distance(starts.begin(), starts.end())-starting_human_count-starting_ai_count;i>0;--i,--it);
 		for(Worm &worm : worms)
 		{
 			if(worm.has_lives())
-				worm.spawn(*it++, board, bonuses, force_materialize);
+				worm.spawn(*--it, board, bonuses, force_materialize);
 			else
-				it++;
+				--it;
 		}
 		/* clear bonuses */
 		bonuses_to_replace = 0;
@@ -313,7 +287,7 @@ private:
 	enum class WarpType {NONE,SOURCE,TARGET};
 	unsigned int width,height;
 	std::vector<std::vector<unsigned char>> board;
-	std::forward_list<Start> starts;
+	std::list<Start> starts;
 	uintsys level;
 	bool fakes;
 	std::forward_list<Worm> worms;
@@ -329,8 +303,9 @@ private:
 			return 1;
 		else if((c & 0xF0) == 0xE0)
 			return 2;
-		else /*if((c & 0xF8) == 0xF0)*/
+		else if((c & 0xF8) == 0xF0)
 			return 3;
+		return 0;
 	}
 	bool get_unichar(std::ifstream &stream, uint32_t &u32);
 	void build_board(uint32_t u32, std::vector<std::vector<unsigned char>> &board)
@@ -400,7 +375,7 @@ private:
 			}
 			else if(start_direction!=eDirection::NONE)
 			{
-				starts.push_front(Start(start_direction,p));
+				starts.push_back(Start(start_direction,p));
 				if(progress==TEST)
 					std::cout << "start position: " << (unsigned long)p.x << "," << (unsigned long)p.y << std::endl;
 			}

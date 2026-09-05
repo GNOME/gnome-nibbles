@@ -20,6 +20,7 @@
 void set_seed(uint64_t seed_a,uint64_t seed_b);
 
 uint64_t pseudo_random();
+uint64_t pseudo_random_thread_safe();
 
 inline uintsys pseudo_random(uintsys max_exclusive)
 {

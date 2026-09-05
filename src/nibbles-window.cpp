@@ -22,6 +22,7 @@
 #include <fstream>
 #include <cassert>
 #include <mutex>
+#include <condition_variable>
 #include <inplace_vector>
 #include <queue>
 
@@ -31,6 +32,7 @@
 
 #include <algorithm>/* required for std::ranges::contains */
 #include <unordered_set>
+#include <thread>
 #include <bitset>
 #include <forward_list>
 #include <gsound.h>

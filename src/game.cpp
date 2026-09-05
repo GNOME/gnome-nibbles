@@ -49,8 +49,6 @@
 #include "worm.h"
 #include "warp.h"
 #include "game.h"
-//#include "view.h"
-
 
 bool Game::load_board_from_file(const char *path, uintsys _level)
 {
@@ -104,87 +102,46 @@ std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uin
 		case '\n': // new line
 		case '\r': // carrage return
 			return {'\0',WarpType::NONE,eDirection::NONE};
-			break;
 		// readable empty tile, but the game internals use an 'a'
 		case '.':
 		case '+':
 			return {'a',WarpType::NONE,eDirection::NONE};
-			break;
-
 		// readable walls, but the game internals use ASCII chars
 		case 0xE29483://'┃':
 			return {'b',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE29481://'━':
 			return {'c',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE29497://'┗':
 			return {'d',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE2949B://'┛':
 			return {'e',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE2948F://'┏':
 			return {'f',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE29493://'┓':
 			return {'g',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE294BB://'┻':
 			return {'h',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE294A3://'┣':
 			return {'i',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE294AB://'┫':
 			return {'j',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE294B3://'┳':
 			return {'k',WarpType::NONE,eDirection::NONE};
-			break;
 		case 0xE2958B://'╋':
 			return {'l',WarpType::NONE,eDirection::NONE};
-			break;
-
 		// start positions
 		case 0xE296B2://'▲':
 		case 'm':
-			//starts.push_front(Start(WormDirection::NORTH,position));
 			return {'a',WarpType::NONE,eDirection::NORTH};
-			//if (count < numworms)
-			//{
-			//    worms[count].set_start (j, i, WormDirection.UP);
-			//    count++;
-			//}
-			break;
 		case 0xE29780://'◀':
 		case 'n':
 			return {'a',WarpType::NONE,eDirection::WEST};
-			//if (count < numworms)
-			//{
-			//    worms[count].set_start (j, i, WormDirection.LEFT);
-			//    count++;
-			//}
-			break;
 		case 0xE296BC://'▼':
 		case 'o':
 			return {'a',WarpType::NONE,eDirection::SOUTH};
-			//if (count < numworms)
-			//{
-			//    worms[count].set_start (j, i, WormDirection.DOWN);
-			//    count++;
-			//}
-			break;
 		case 0xE296B6://'▶':
 		case 'p':
 			return {'a',WarpType::NONE,eDirection::EAST};
-			//if (count < numworms)
-			//{
-			//    worms[count].set_start (j, i, WormDirection.RIGHT);
-			//    count++;
-			//}
-			break;
-
 		// warps
 		case 'Q':
 		case 'R':
@@ -196,20 +153,7 @@ std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uin
 		case 'X':
 		case 'Y':
 		case 'Z':
-			//if (j == 0 || i == 0)
-			//    return false;
-
-			//warp_manager.add_warp_source (board[j, i], j - 1, i - 1, char_value == 'Q');
-
-			//board[j - 1, i - 1] = NibblesGame.WARPCHAR;
-			//board[j    , i - 1] = NibblesGame.WARPCHAR;
-			//board[j - 1, i    ] = NibblesGame.WARPCHAR;
-			//board[j    , i    ] = NibblesGame.WARPCHAR;
-
-			//warp_added (j - 1, i - 1);
 			return {EMPTYCHAR/*(unsigned char)u32*/,WarpType::SOURCE,eDirection::NONE};
-			break;
-
 		case 'r':
 		case 's':
 		case 't':
@@ -219,11 +163,7 @@ std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uin
 		case 'x':
 		case 'y':
 		case 'z':
-			// do not use the up () method: it depends on the locale, and that could have some weird results ("i".up () is either I or İ, for example)
-			//warp_manager.add_warp_target ((int) char_value - (int) 'a' + (int) 'A', j, i);
 			return {EMPTYCHAR/*(unsigned char)u32*/,WarpType::TARGET,eDirection::NONE};
-			break;
-
 		// old walls, kept for compatibility
 		case 'a':
 		case 'b':
@@ -238,11 +178,8 @@ std::tuple<unsigned char, Game::WarpType, WormDirection> Game::to_board_char(uin
 		case 'k':
 		case 'l':
 			return {(unsigned char)u32,WarpType::NONE,eDirection::NONE};
-			break;
-
 		default:
 			return {'\0',WarpType::NONE,eDirection::NONE};
-			break;
 	}
 }
 

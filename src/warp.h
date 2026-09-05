@@ -53,7 +53,7 @@ public:
 		}
 		Position get_source_top_left() const
 		{
-			return Position((source>>8) - 1, source & 0xff - 1);
+			return Position((source>>8) - 1, (source & 0xff) - 1);
 		}
 	};
 	/* methods */
@@ -63,9 +63,7 @@ public:
 		{
 			auto source=warps[id].source;
 			if(source==0xffff)
-			{
 				warps[id].source=position;
-			}
 			else
 			{
 				warps[id].target=position;
@@ -74,9 +72,7 @@ public:
 			}
 		}
 		else
-		{
 			warps[id]=Warp(position,0xffff);
-		}
 	}
 	bool is_warp_source_position(uint8_t _x, uint8_t y) const
 	{
@@ -99,11 +95,9 @@ public:
 			warps[id].target=position;
 		}
 		else
-		{
 			warps[id]=Warp(0xffff,position);
-		}
 	}
-	std::tuple<bool, Position, bool> get_warp_target(Position worm_position, Worm worm,
+	std::tuple<bool, Position, bool> get_warp_target(Position worm_position, Worm &worm,
 		WormDirection worm_direction,
 		int worm_length, bool ai_worm,
 		const std::forward_list<Worm> &worms) const
@@ -113,9 +107,7 @@ public:
 			if(warp == worm_position)
 			{
 				if(warp.no_target())
-				{
 					return {true,random_position(worm, worm_direction, worms, ai_worm, worm_length),true};
-				}
 				else
 				{
 					Position target_position;
@@ -192,21 +184,21 @@ private:
 			positions.set(x, y);
 	}
 	
-	inline bool is_empty(uint16_t p, const Worm::Map &worm_map) const
+	inline bool is_empty(intsys x, intsys y, const Worm::Map &worm_map) const
 	{
-		if(board[p >> 8][p & 0xff]!=EMPTYCHAR)
+		if(board[static_cast<uint8_t>(x)][static_cast<uint8_t>(y)]!=EMPTYCHAR)
 			return false;
-		if(worm_map.contain(p))
+		if(worm_map.contain_position(static_cast<uint8_t>(x),static_cast<uint8_t>(y)))
 			return false;
 		for(const auto &warp : warps)
 		{
-			if(warp.second == p)
+			if(warp.second == (static_cast<uint16_t>(x)<<8 | static_cast<uint8_t>(y)))
 				return false;
 		}
 		return true;
 	}
 	
-	Position random_position(Worm worm, WormDirection direction,
+	Position random_position(Worm &worm, WormDirection direction,
 		const std::forward_list<Worm> &worms, bool ai_worm, int worm_length) const
 	{
 		Worm::Map worm_map(worms, board.size(), board[0].size());
@@ -226,9 +218,10 @@ private:
 			case eDirection::NORTH:
 				for(x=0;x<width;x++)
 				{
+					clear=-1; /* start a new clear run count */
 					for(y=height-1;y>=0;y--)
 					{
-						if(!is_empty(x<<8 | y, worm_map))
+						if(!is_empty(x, y, worm_map))
 							clear=-1; /* start a new clear run count */
 						else
 							increment_clear(x, y, clear_count, clear, positions, longest_clear_count);
@@ -238,9 +231,10 @@ private:
 			case eDirection::SOUTH:
 				for(x=0;x<width;x++)
 				{
+					clear=-1; /* start a new clear run count */
 					for(y=0;y<height;y++)
 					{
-						if(!is_empty(x<<8 | y, worm_map))
+						if(!is_empty(x, y, worm_map))
 							clear=-1; /* start a new clear run count */
 						else
 							increment_clear(x, y, clear_count, clear, positions, longest_clear_count);
@@ -250,9 +244,10 @@ private:
 			case eDirection::EAST:
 				for(y=0;y<height;y++)
 				{
+					clear=-1; /* start a new clear run count */
 					for(x=0;x<width;x++)
 					{
-						if(!is_empty(x<<8 | y, worm_map))
+						if(!is_empty(x, y, worm_map))
 							clear=-1; /* start a new clear run count */
 						else
 							increment_clear(x, y, clear_count, clear, positions, longest_clear_count);
@@ -262,9 +257,10 @@ private:
 			case eDirection::WEST:
 				for(y=0;y<height;y++)
 				{
+					clear=-1; /* start a new clear run count */
 					for(x=width-1;x>=0;x--)
 					{
-						if(!is_empty(x<<8 | y, worm_map))
+						if(!is_empty(x, y, worm_map))
 							clear=-1; /* start a new clear run count */
 						else
 							increment_clear(x, y, clear_count, clear, positions, longest_clear_count);
@@ -278,21 +274,22 @@ private:
 		
 		int lowest_deadend = std::numeric_limits<int>::max();
 		Position lowest_deadend_position;
-		for (;!positions.is_empty();)
+		for(;!positions.is_empty();)
 		{
-			auto position=positions.remove_one(worm.pseudo_random());
-			if (ai_worm)
-			{
+#if defined(TESTS)
+			auto r=worm.pseudo_random();
+#else
+            auto r=pseudo_random_thread_safe();
+#endif
+			auto position=positions.remove_one(r);
+			if(ai_worm)
 				return position;
-			}
 			else /* human worm */
 			{
 				auto deadend = worm.ai_deadend_after(board, worms, worm_map, position, direction, worm_length);
-				if (deadend <= 0)
-				{
+				if(deadend <= 0)
 					return position;
-				}
-				if (deadend < lowest_deadend)
+				if(deadend < lowest_deadend)
 				{
 					lowest_deadend = deadend;
 					lowest_deadend_position = position;

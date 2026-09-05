@@ -20,6 +20,7 @@
 
 
 #include <iostream>
+#include <format>
 #include <cmath>
 #include <cassert>
 #include <vector>
@@ -53,7 +54,7 @@ void Worm::reverse_other_worms()
 	game.reverse_worms(this);
 }
 
-const std::forward_list<const Worm*> Worm::get_other_worms(Worm *pSelf)
+std::forward_list<const Worm*> Worm::get_other_worms(Worm *pSelf)
 {
 	std::forward_list<const Worm*> worms;
 	for(const Worm &worm : game.get_worms())

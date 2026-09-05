@@ -489,43 +489,11 @@ protected:
 
 void initilise_seed()
 {
-	#pragma GCC diagnostic push
-	#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
-	uint64_t seed_a,seed_b;
-	/* get data from the stack */
-	uint64_t stack_data[1024];
-	for(uintsys i=0;i<sizeof(stack_data)/sizeof(uint64_t);)
-	{
-		seed_a^=stack_data[i++];
-		seed_b^=stack_data[i++];
-	}
-	/* get data from the heap */
-	try {
-		std::allocator<std::byte> a;
-		uint64_t *heap_data=(uint64_t *)a.allocate(1024*sizeof(uint64_t));
-		for(uintsys i=0;i<1024;)
-		{
-			seed_a^=heap_data[i++];
-			seed_b^=heap_data[i++];
-		}
-		a.deallocate((std::byte *)heap_data, 1024*sizeof(uint64_t));
-	} catch (const std::bad_alloc& e) {
-	}
-	/* get data from the random device */
-	/*try	{
-		std::random_device rd;
-		uint64_t r=rd();
-		seed^=r;
-	} catch(const std::runtime_error &e) {
-	}*/
-	#pragma GCC diagnostic pop
-	/* get data from the clock */
 	auto now = std::chrono::steady_clock::now();
 	auto duration_since_boot = now.time_since_epoch();
-	auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
-	seed_a^=nanoseconds<<32;
-	seed_b^=nanoseconds>>32;
-	set_seed(seed_a, seed_b);
+	uint64_t nanoseconds_since_boot = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
+	set_seed(nanoseconds_since_boot/*random data from the clock */,
+		reinterpret_cast<uintsys>(&now)/*random data from the stack pointer*/);
 }
 
 int main(int argc, char* argv[])

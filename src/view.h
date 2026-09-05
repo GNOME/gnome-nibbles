@@ -22,7 +22,7 @@
 
 class View : public Gtk::Overlay
 {
-/* sub classes */
+/* subclasses */
 private:
 	class TimeCallBack
 	{
@@ -78,12 +78,23 @@ private:
 			set_vexpand(true);
 		}
 		virtual ~ActiveView() override = default;
-		void redraw() {animate++; queue_draw ();}
+		void redraw(std::function<void()> _drawing_finished_function=nullptr)
+		{
+			drawing_finished_function=_drawing_finished_function;
+			queue_draw();
+		}
+		void animate_draw(std::function<void()> _drawing_finished_function=nullptr)
+		{
+			animate++;
+			drawing_finished_function=_drawing_finished_function;
+			queue_draw();
+		}
 	protected:
 		void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& snapshot) override;
 	private:
 		View &view;
 		uint64_t animate;
+		std::function<void()> drawing_finished_function=nullptr;
 		
 		void draw_bonus(const Glib::RefPtr<Gtk::Snapshot> &s, int x, int y, int x_size, int y_size, Bonus::eType type, uint64_t animate);
 		void draw_worm_segment(const Glib::RefPtr<Gtk::Snapshot> &s, int x, int y, int x_size, int y_size, eWormColour colour, bool is_materialized, bool eaten_bonus);
@@ -100,7 +111,7 @@ private:
 			auto layout = get_layout(text, font_size);
 			Pango::Rectangle a,b;
 			layout->get_extents(a, b);
-		    return {a.get_x() / Pango::SCALE, a.get_y() / Pango::SCALE};
+			return {a.get_x() / Pango::SCALE, a.get_y() / Pango::SCALE};
 		}
 		/* draw the text */
 		void draw_text_font_size(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int font_size)
@@ -112,7 +123,7 @@ private:
 			snapshot->append_layout(layout, {1, 1, 1, 1});
 			snapshot->restore();
 		}
-		void draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int target_width);
+		void draw_text_target_width(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, intsys target_width);
 		Glib::RefPtr<Pango::Layout> get_layout(const Glib::ustring &text, uintsys font_size);
 	};
 
@@ -123,11 +134,11 @@ private:
 		{
 		}
 		virtual ~Life() override = default;
-		explicit Life(GtkWidget* gobj) :
+		/*explicit Life(GtkWidget* gobj) :
 			Glib::ObjectBase(nullptr), // Passing nullptr avoids allocating a duplicate GObject
 			Gtk::Widget(gobj), number(0)
 		{
-		}
+		}*/
 	protected:
 	 	void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& s) override
 	 	{
@@ -154,28 +165,19 @@ private:
 		void measure_vfunc(Gtk::Orientation orientation, int for_size, int& minimum, int& natural,
 			int& minimum_baseline, int& natural_baseline) const override
 		{
-			if (orientation == Gtk::Orientation::HORIZONTAL)
-			{
-				minimum = 16;
-				natural = 16;
-			}
-			else
-			{
-				minimum = 16;
-				natural = 16;
-			}
-
-			// Don't use baseline alignment.
+			/* square image */
+			minimum = 16;
+			natural = 16;
 			minimum_baseline = -1;
 			natural_baseline = -1;
 		}
 	private:
 		const uintsys number;
-		static Glib::ObjectBase* wrap_new(GObject* o)
+		/*static Glib::ObjectBase* wrap_new(GObject* o)
 		{
 			// Tie lifetime cleanup directly to the parent widget lifecycle
 			return Gtk::manage(new Life(GTK_WIDGET(o)));
-		}
+		}*/
 		/* calculate the width & height of the text */
 		std::pair<double,double> calculate_text_size(const Glib::ustring &text, int font_size)
 		{
@@ -189,7 +191,7 @@ private:
 			auto layout = get_layout(text, font_size);
 			Pango::Rectangle a,b;
 			layout->get_extents(a, b);
-		    return {a.get_x() / Pango::SCALE, a.get_y() / Pango::SCALE};
+			return {a.get_x() / Pango::SCALE, a.get_y() / Pango::SCALE};
 		}
 		/* draw the text */
 		void draw_text_font_size(const Glib::RefPtr<Gtk::Snapshot> &snapshot, int x, int y, const Glib::ustring &text, int font_size)
@@ -211,21 +213,29 @@ public:
 	View(Game::Progress progress, uintsys start_level, uintsys speed, bool fakes,
 		Gtk::Button &new_game_button, Gtk::Button &pause_button,
 		std::function<void(const Glib::ustring &level)> set_level_description,
-		std::function<void(const std::vector<WormScore>)> game_over,
+		std::function<void(const std::vector<WormScore>&)> game_over,
 		std::function<void(Gtk::Widget *)> next_level_function
 	);
 	virtual ~View() override
 	{
-		if(nullptr!=ctx)	
+		if(nullptr!=ctx)
+		{
+			{
+				std::lock_guard lock(sound_thread_gate);
+				sound_queue={};
+				sound_thread.request_stop();
+			}
+			sound_trigger.notify_one();
+			if(sound_thread.joinable())
+				sound_thread.join();
 			g_object_unref(ctx); /* free sound context */
+		}
 	}
+	View(const View& copy) = delete;/* don't copy */
+	View& operator=(const View& copy) = delete;/* don't copy */
 	uintsys countdown_left()
 	{
 		return countdown;
-	}
-	void countdown_decrement()
-	{
-		countdown--;
 	}
 	bool is_fullscreen_active()
 	{
@@ -233,6 +243,7 @@ public:
 	}
 	void set_keys(eWormColour colour, const std::array<unsigned int, 4> &raw_keys/* up, left, right & down */)
 	{
+		keys.clear();
 		keys.insert({raw_keys[0],{colour, eDirection::UP}});
 		keys.insert({raw_keys[1],{colour, eDirection::LEFT}});
 		keys.insert({raw_keys[2],{colour, eDirection::RIGHT}});
@@ -255,14 +266,11 @@ public:
 	}
 	void set_pause(bool state/*false for resume*/)
 	{
-		if(state)
+		if(paused!=state)
 		{
-			paused=true;
-		}
-		else
-		{
-			paused=false;
-			play();
+			paused=state;
+			if(!paused)
+				play();
 		}
 	}
 	void set_mute(bool state)
@@ -287,6 +295,10 @@ private:
 	std::vector<eWormColour> worm_colour;
 	bool fullscreen;
 	void play_sound(const Glib::ustring &sound);
+	std::jthread sound_thread;
+	std::queue<Glib::ustring> sound_queue;
+	std::mutex sound_thread_gate;
+	std::condition_variable sound_trigger;
 	Game game;
 	std::unordered_map<eWormColour, Gtk::Box *> score_box;
 	std::unordered_map<eWormColour, Glib::ustring> names;
@@ -300,11 +312,11 @@ private:
 	bool play();
 	Gtk::Label* create_label(Glib::ustring text);
 	Gtk::Button* create_button(Glib::ustring text);
-	const Glib::ustring get_worm_name(unsigned int worm_id);
-	const Glib::ustring get_level_completed_message(uintsys level);
-	const Glib::ustring get_next_level_message(uintsys level);
-	const Glib::ustring get_level_description(uintsys level);
-	const Glib::ustring get_countdown_message(uintsys count);
+	Glib::ustring get_worm_name(unsigned int worm_id);
+	Glib::ustring get_level_completed_message(uintsys level);
+	Glib::ustring get_next_level_message(uintsys level);
+	Glib::ustring get_level_description(uintsys level);
+	Glib::ustring get_countdown_message(uintsys count);
 
 	Gtk::Label* create_label(Glib::ustring text, uintsys top_margin)
 	{

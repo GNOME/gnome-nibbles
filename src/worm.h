@@ -23,7 +23,7 @@
 #elif defined(CAN_USE___int128)
 	typedef __int128 int128;
 #else
-	#define use_internal_int128
+	typedef _BitInt(128) int128;
 #endif
 
 #if !defined(EMPTYCHAR)
@@ -78,233 +78,6 @@ enum Quarter {Q0,Q1,Q2,Q3};
  */
 class Angle
 {
-	#if defined(use_internal_int128)
-	/* A cut down 128 bit integer with only a subset of operators. */
-	struct int128
-	{
-		uint64_t low;
-		int64_t hi;
-	public:
-		explicit int128(int i)
-		{
-			low = (uint64_t)i;
-			hi = (i < 0) ? -1 : 0;
-		}
-		int128(int64_t i = 0)
-		{
-			low = (uint64_t)i;
-			hi = (i < 0) ? -1 : 0;
-		}
-		int128 operator+=(const int128& rhs)
-		{
-			uint64_t new_low = low + rhs.low;
-			int64_t carry = (new_low < low);  // overflow from low 64 bits
-			hi = hi + rhs.hi + carry;
-			low = new_low;
-			return *this;
-		}
-		int128 operator+(const int128& rhs) const
-		{
-			int128 result=*this;
-			result+=rhs;
-			return result;
-		}    
-		int128 operator-=(const int128& rhs)
-		{
-			hi -= rhs.hi + (rhs.low > low);
-			low -= rhs.low;
-			return *this;
-		}
-		int128 operator-(const int128& rhs) const
-		{
-			int128 result=*this;
-			result-=rhs;
-			return result;
-		}    
-		int128 operator-() const
-		{
-			return int128(0) - *this;
-		}
-		int128 operator<<=(int shift)
-		{
-			if (shift >= 64)
-			{
-				hi = low;
-				low = 0;
-				shift -= 64;
-			}
-			if (shift > 0)
-			{
-				hi <<= shift;
-				hi |= low >> (64 - shift);
-				low <<= shift;
-			}
-			return *this;
-		}
-		int128 operator<<(int shift) const
-		{
-			int128 result=*this;
-			result<<=shift;
-			return result;
-		}
-		int128 operator<<(long shift) const
-		{
-			int128 result=*this;
-			result<<=shift;
-			return result;
-		}
-		int128 operator>>=(int shift)
-		{
-			if (shift >= 64)
-			{
-				low = hi;
-				hi = 0;
-				shift -= 64;
-			}
-			if (shift > 0)
-			{
-				low >>= shift;
-				low |= hi << (64 - shift);
-				hi >>= shift;
-			}
-			return *this;
-		}
-		int128 operator>>(int shift) const
-		{
-			int128 result=*this;
-			result>>=shift;
-			return result;
-		}
-		int128 operator>>(long shift) const
-		{
-			int128 result=*this;
-			result>>=shift;
-			return result;
-		}
-		bool operator>(const int128& rhs) const
-		{
-			if(hi!=rhs.hi)
-				return hi>rhs.hi;
-			else
-				return low>rhs.low;
-		}
-		bool operator>(int rhs) const
-		{
-			return *this > int128(rhs);
-		}
-		bool operator<=(const int128& rhs) const
-		{
-			return !(*this>rhs);
-		}
-		bool operator<=(int rhs) const
-		{
-			return !(*this>int128(rhs));
-		}
-		bool operator<(const int128& rhs) const
-		{
-			if(hi!=rhs.hi)
-				return hi<rhs.hi;
-			else
-				return low<rhs.low;
-		}
-		bool operator<(int rhs) const
-		{
-			return *this<int128(rhs);
-		}
-		bool operator>=(const int128& rhs) const
-		{
-			return !(*this<rhs);
-		}
-		bool operator>=(int rhs) const
-		{
-			return *this>=int128(rhs);
-		}
-		bool operator==(const int128& rhs) const
-		{
-			return hi==rhs.hi && low==rhs.low;
-		}
-		int128 operator/(const int128 &rhs) const
-		{
-			assert(!(rhs.hi==0 && rhs.low==0));
-
-			// Handle sign
-			bool neg = (hi < 0) ^ (rhs.hi < 0);
-
-			int128 a = *this;
-			int128 b = rhs;
-
-			if(a.hi < 0)
-				a = -a;
-			if(b.hi < 0)
-				b = -b;
-
-			int128 quotient = 0;
-			int128 current = 0;
-
-			for(long i = 127; i >= 0; --i)
-			{
-				current <<= 1;
-				if(((a >> i) & 1) > 0)
-					current.low |= 1;
-				if(current >= b)
-				{
-					current -= b;
-					quotient += int128(1) << i;
-				}
-			}
-
-			return neg ? -quotient : quotient;
-		}
-		int128 operator*(const int128 &rhs) const
-		{
-			bool neg = (hi < 0) ^ (rhs.hi < 0);
-
-			int128 a = *this;
-			int128 b = rhs;
-
-			if (a.hi < 0)
-				a = -a;
-			if (b.hi < 0)
-				b = -b;
-
-			int128 result = 0;
-			int128 base = a;
-
-			for(long i = 0; i < 128; i++)
-			{
-				if((b & 1) > 0)
-					result+= base;
-				base <<= 1;
-				b >>= 1;
-			}
-
-			return neg ? -result : result;
-		}	
-		int128 operator&=(const int128 &rhs)
-		{
-			hi &= rhs.hi;
-			low &= rhs.low;
-			return *this;
-		}
-		int128 operator&(const int128 &rhs) const
-		{
-			int128 result=*this;
-			result &= rhs;
-			return result;
-		}
-		int128 operator&(int rhs) const
-		{
-			int128 result=*this;
-			result &= rhs;
-			return result;
-		}
-		operator int64_t() const
-		{
-			return low;
-		}
-	};
-	#endif
-
 public:
 	/* variables */
 	int128 x; /* x increases going right (or east) */
@@ -677,7 +450,7 @@ public:
 		{
 			return contain(((uint16_t)x) << 8 | y);
 		}
-		bool contains(WormPositions positions)
+		bool contains(const WormPositions &positions)
 		{
 			for(const auto &p : positions)
 				if (contain (p))
@@ -811,17 +584,8 @@ public:
 		score_changed=true;
 	}
 	~Worm() = default;
-	Worm(const Worm &copy) :
-		game(copy.game), current_level(copy.current_level), human(copy.human), colour(copy.colour),
-		capacity(copy.capacity), deadend_board(copy.deadend_board)
-	{
-		positions = copy.positions;
-		direction = copy.direction;
-		rounds_to_stay_dematerialized=copy.rounds_to_stay_dematerialized;
-		lives=copy.lives;
-		score=copy.score;
-		score_changed=true;
-	}
+	Worm(const Worm& copy) = delete;/* don't copy */
+	Worm& operator=(const Worm& copy) = delete;/* don't copy */
 	bool is_materialized() const
 	{
 		return rounds_to_stay_dematerialized==0;
@@ -1223,6 +987,7 @@ public:
 	{
 		return bonus_eaten.contains(position);
 	}
+#if defined(TESTS)
 	uintsys pseudo_random(uintsys max_exclusive)
 	{
 		return (uintsys)(pseudo_random() % max_exclusive);
@@ -1238,6 +1003,7 @@ public:
 		pseudo_random_seed_b = s1 ^ s0 ^ (s1 >> 17) ^ (s0 >> 26); // b, c
 		return result>>1;/* absolute lowest bit has a linear recurrence structure so avoid it */
 	}
+#endif
 	bool do_score_change()
 	{
 		auto r=score_changed;
@@ -1255,8 +1021,10 @@ private:
 	bool score_changed;
 	uintsys lives;
 	bool lives_changed=false;
-	uint64_t pseudo_random_seed_a = 2;/*seed*/
-	uint64_t pseudo_random_seed_b = 2;/*seed*/
+#if defined(TESTS)
+	uint64_t pseudo_random_seed_a = 4;/*seed*/
+	uint64_t pseudo_random_seed_b = 4;/*seed*/
+#endif
 	bool LastUturnA = false;
 private:
 	void play_sound(const char *sound);
@@ -1311,7 +1079,7 @@ private:
 			return score_delta;
 		}
 	}
-	const std::forward_list<const Worm*> get_other_worms(Worm *pSelf);
+	std::forward_list<const Worm*> get_other_worms(Worm *pSelf);
 	Position get_position_after_direction_move(Position origin, WormDirection direction,
 		const std::vector<std::vector<unsigned char>> &board)
 	{
@@ -1419,12 +1187,14 @@ private:
 	std::map<const Worm*, sWarp> map;
 	std::mutex mtx;
 public:
+	/* this function is called from parallel threads */
 	void add(const Worm &worm, Position target_position, bool bonus)
 	{
 		std::lock_guard<std::mutex> lock(mtx);
 		map[&worm].position = target_position;
 		map[&worm].bonus = bonus;
 	}
+	/* this function is not called from parallel threads */
 	bool find(const Worm &worm, Position &target_position, bool &bonus)
 	{
 		if(map.contains(&worm))
@@ -1674,7 +1444,7 @@ public:
 	bool is_position_occupied(Position p, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map)
 	{
 		assert(p.x<board.size() && p.y<board[0].size());
-		return board[p.x][p.y] != 'a' || worm_map.contain_position(p);
+		return board[p.x][p.y] != EMPTYCHAR || worm_map.contain_position(p);
 	}
 
 	std::pair<bool,intsys> is_visible(Position origin, bool origin_is_head, const std::vector<std::vector<unsigned char>> &board, const Worm::Map &worm_map, const Bonus &bonus)
