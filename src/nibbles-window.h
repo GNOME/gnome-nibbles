@@ -166,18 +166,9 @@ public:
 		void measure_vfunc(Gtk::Orientation orientation, int for_size, int& minimum, int& natural,
 			int& minimum_baseline, int& natural_baseline) const override
 		{
-			if (orientation == Gtk::Orientation::HORIZONTAL)
-			{
-				minimum = 35;
-				natural = 35;
-			}
-			else
-			{
-				minimum = 35;
-				natural = 35;
-			}
-
-			// Don't use baseline alignment.
+			/* square image */
+			minimum = 35;
+			natural = 35;
 			minimum_baseline = -1;
 			natural_baseline = -1;
 		}
