@@ -8,7 +8,7 @@ supplier of your operating system, such as your Linux distribution.
 
 ## Building from a release tarball
 
-Download the tarball from https://gitlab.gnome.org/GNOME/gtkmm/-/releases
+Download the tarball from https://gitlab.gnome.org/GNOME/gnome-nibbles/-/releases
 
 Extract the tarball and go to the extracted directory:
 ```
@@ -36,7 +36,7 @@ itstool
 meson version >= 1.1
 gsound version >= 1.0.2
 C++ compiler that supports C++26 with GNU-specific language extensions (-std=gnu++26)
-gtkmm version >= 4.23.1 (along with a corresponding version of gtk4)
+gtkmm version > 4.23.2 (along with a corresponding version of gtk4)
 glibmm-2.68 version >= 2.88.1 (along with a corresponding version of glib)
 ```
 
