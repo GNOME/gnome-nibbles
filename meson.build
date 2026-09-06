@@ -20,7 +20,6 @@ bindir     = join_paths(prefix, get_option ('bindir'))
 gettext_package = 'gnome-nibbles'
 
 # Dependencies
-glibmm_dep = dependency('glibmm-2.68', version: '>= 2.88.1')
 gtkmm_dep = dependency('gtkmm-4.0')
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
 
@@ -51,7 +50,7 @@ int main(int argc, char* argv[])
 	auto test=Gtk::make_managed<Box>();
 }
 '''
-code0_links = cpp.links(code0, dependencies: [gtkmm_dep,glibmm_dep], name : 'Gsk::PathBuilder()')
+code0_links = cpp.links(code0, dependencies: [gtkmm_dep], name : 'Gsk::PathBuilder()')
 if not code0_links
 	error('Can not link with Gsk::PathBuilder (requires gtkmm-4.0 > 4.23.0)')
 endif
@@ -65,7 +64,7 @@ code1 = '''
 		auto keys=pDisplay->map_keyval(32);
 		return 0;
 	}'''
-code1_links = cpp.links(code1, dependencies: [gtkmm_dep,glibmm_dep], name : 'Gdk::Display::map_keyval()')
+code1_links = cpp.links(code1, dependencies: [gtkmm_dep], name : 'Gdk::Display::map_keyval()')
 if not code1_links
 	error('Can not link with Gdk::Display::map_keyval (requires gtkmm-4.0 > 4.23.2)')
 endif

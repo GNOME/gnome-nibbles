@@ -8,7 +8,6 @@ nibbles_tests = executable(
 		'pseudo_random.cpp'
 	],
 	dependencies : [
-		glibmm_dep,
 		gtkmm_dep
 	],
 	cpp_args: cpp_compiler_options + '-DTESTS',
@@ -29,7 +28,6 @@ gnome_nibbles_sources = [
 ]
 
 gnome_nibbles_deps = [
-	glibmm_dep,
 	gtkmm_dep,
 	gsound_dep 
 ]

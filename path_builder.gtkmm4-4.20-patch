@@ -1,0 +1,1522 @@
+diff -Nur gtkmm-4.20.0.original/gdk/gdkmm/meson.build gtkmm-4.20.0.fixed/gdk/gdkmm/meson.build
+--- gtkmm-4.20.0.original/gdk/gdkmm/meson.build	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gdk/gdkmm/meson.build	2026-09-08 09:33:17.395041330 +1000
+@@ -62,6 +62,7 @@
+   'graphene_point',
+   'graphene_rect',
+   'graphene_size',
++  'graphene_vec2',
+   'memorytexture',
+   'memorytexturebuilder',
+   'monitor',
+diff -Nur gtkmm-4.20.0.original/gdk/gdkmm.h gtkmm-4.20.0.fixed/gdk/gdkmm.h
+--- gtkmm-4.20.0.original/gdk/gdkmm.h	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gdk/gdkmm.h	2026-09-08 09:33:17.395041330 +1000
+@@ -44,6 +44,7 @@
+ #include <gdkmm/gltexture.h>
+ #include <gdkmm/gltexturebuilder.h>
+ #include <gdkmm/graphene_rect.h>
++#include <gdkmm/graphene_vec2.h>
+ #include <gdkmm/memorytexture.h>
+ #include <gdkmm/memorytexturebuilder.h>
+ #include <gdkmm/monitor.h>
+diff -Nur gtkmm-4.20.0.original/gdk/src/filelist.am gtkmm-4.20.0.fixed/gdk/src/filelist.am
+--- gtkmm-4.20.0.original/gdk/src/filelist.am	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gdk/src/filelist.am	2026-09-08 09:33:17.396041328 +1000
+@@ -47,6 +47,7 @@
+ 	graphene_point.hg \
+ 	graphene_rect.hg \
+ 	graphene_size.hg \
++	graphene_vec2.hg \
+ 	memorytexture.hg \
+ 	memorytexturebuilder.hg \
+ 	monitor.hg \
+diff -Nur gtkmm-4.20.0.original/gdk/src/graphene_point.ccg gtkmm-4.20.0.fixed/gdk/src/graphene_point.ccg
+--- gtkmm-4.20.0.original/gdk/src/graphene_point.ccg	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gdk/src/graphene_point.ccg	2026-09-08 09:33:17.396041328 +1000
+@@ -14,6 +14,7 @@
+  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
+  */
+ 
++#include <gdkmm/graphene_vec2.h>
+ #include <graphene.h>
+ 
+ namespace
+@@ -34,10 +35,30 @@
+   gobject_ = graphene_point_init(graphene_point_alloc(), x, y);
+ }
+ 
++Point::Point(const Vec2& src)
++{
++  gobject_ = graphene_point_init_from_vec2(graphene_point_alloc(), src.gobj());
++}
++
+ Point::operator bool() const
+ {
+   return gobj();
+ }
+ 
++std::array<float,3> Point::distance(const Point& b) const
++{
++  float x = 0.0;
++  float y = 0.0;
++  const float dist = graphene_point_distance(gobj(), b.gobj(), &x, &y);
++  return {dist, x, y};
++}
++
++Point Point::interpolate(const Point& b, double factor) const
++{
++  Point result(0.0, 0.0);
++  graphene_point_interpolate(gobj(), b.gobj(), factor, result.gobj());
++  return result;
++}
++
+ } //namespace Graphene
+ } //namespace Gdk
+diff -Nur gtkmm-4.20.0.original/gdk/src/graphene_point.hg gtkmm-4.20.0.fixed/gdk/src/graphene_point.hg
+--- gtkmm-4.20.0.original/gdk/src/graphene_point.hg	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gdk/src/graphene_point.hg	2026-09-08 09:33:17.404041321 +1000
+@@ -17,6 +17,8 @@
+ _CONFIGINCLUDE(gdkmmconfig.h)
+ _DEFS(gdkmm,gdk)
+ 
++#include <array>
++
+ #ifndef DOXYGEN_SHOULD_SKIP_THIS
+ extern "C"
+ {
+@@ -29,6 +31,8 @@
+ {
+ namespace Graphene
+ {
++class GDKMM_API Vec2;
++
+ //TODO: When we can break ABI, _CLASS_OPAQUE_COPYABLE -> _CLASS_GENERIC.
+ // graphene_point_t gobject_; //Not a pointer.
+ // https://gitlab.gnome.org/GNOME/gtkmm/-/issues/155
+@@ -43,9 +47,11 @@
+ class GDKMM_API Point
+ {
+   _CLASS_OPAQUE_COPYABLE(Point, graphene_point_t, NONE, gdkmm_graphene_point_copy, graphene_point_free, GDKMM_API)
+-  _IGNORE(graphene_point_init, graphene_point_init_from_point, graphene_point_free)
++  _IGNORE(graphene_point_init, graphene_point_init_from_point, graphene_point_init_from_vec2,
++    graphene_point_free)
+ public:
+   Point(float x, float y);
++  Point(const Vec2& src);
+ 
+   /** Checks if this instance is valid.
+    * It is valid if and only if it contains a value.
+@@ -63,7 +69,34 @@
+   _MEMBER_SET(y, y, float, float)
+ 
+   _WRAP_METHOD(bool equal(const Point& b) const, graphene_point_equal, newin "4,12")
++
++  /** Computes the distance between this point and point @a b.
++   *
++   * @newin{4,24}
++   *
++   * @param b A %Gdk::Graphene::Point.
++   * @return A 3-element array.
++   *         - Element 0: The distance between the two points.
++   *         - Element 1: Distance component on the X axis.
++   *         - Element 2: Distance component on the Y axis.
++   */
++  std::array<float,3> distance(const Point& b) const;
++  _IGNORE(graphene_point_distance)
++
+   _WRAP_METHOD(bool near(const Point& b, float epsilon) const, graphene_point_near, newin "4,12")
++
++  /** Linearly interpolates the coordinates of this point and point @a b using the
++   * given @a factor.
++   *
++   * @newin{4,24}
++   *
++   * @param b A %Gdk::Graphene::Point.
++   * @param factor The linear interpolation factor.
++   * @return The interpolated point.
++   */
++  Point interpolate(const Point& b, double factor) const;
++  _IGNORE(graphene_point_interpolate)
++  _IGNORE(graphene_point_to_vec2)dnl// Wrapped in a Vec2 constructor.
+ };
+ } // namespace Graphene
+ } // namespace Gdk
+diff -Nur gtkmm-4.20.0.original/gdk/src/graphene_size.ccg gtkmm-4.20.0.fixed/gdk/src/graphene_size.ccg
+--- gtkmm-4.20.0.original/gdk/src/graphene_size.ccg	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gdk/src/graphene_size.ccg	2026-09-08 09:33:17.396041328 +1000
+@@ -39,5 +39,19 @@
+   return gobj();
+ }
+ 
++Size Size::scale(float factor) const
++{
++  Size result(0.0, 0.0);
++  graphene_size_scale(gobj(), factor, result.gobj());
++  return result;
++}
++
++Size Size::interpolate(const Size& b, double factor) const
++{
++  Size result(0.0, 0.0);
++  graphene_size_interpolate(gobj(), b.gobj(), factor, result.gobj());
++  return result;
++}
++
+ } //namespace Graphene
+ } //namespace Gdk
+diff -Nur gtkmm-4.20.0.original/gdk/src/graphene_size.hg gtkmm-4.20.0.fixed/gdk/src/graphene_size.hg
+--- gtkmm-4.20.0.original/gdk/src/graphene_size.hg	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gdk/src/graphene_size.hg	2026-09-08 09:33:17.396041328 +1000
+@@ -62,6 +62,29 @@
+   _MEMBER_SET(height, height, float, float)
+ 
+   _WRAP_METHOD(bool equal(const Size& b) const, graphene_size_equal, newin "4,12")
++
++  /** Scales the components of a this size using the given @a factor.
++   *
++   * @newin{4,24}
++   *
++   * @param factor The scaling factor.
++   * @return The scaled size.
++   */
++  Size scale(float factor) const;
++  _IGNORE(graphene_size_scale)
++
++  /** Linearly interpolates this size and size @a b using the given
++   * interpolation @a factor.
++   *
++   * @newin{4,24}
++   *
++   * @param b A %Gdk::Graphene::Size.
++   * @param factor The linear interpolation factor.
++   * @return The interpolated size.
++   */
++  Size interpolate(const Size& b, double factor) const;
++  _IGNORE(graphene_size_interpolate)
++
+ };
+ } // namespace Graphene
+ } // namespace Gdk
+diff -Nur gtkmm-4.20.0.original/gdk/src/graphene_vec2.ccg gtkmm-4.20.0.fixed/gdk/src/graphene_vec2.ccg
+--- gtkmm-4.20.0.original/gdk/src/graphene_vec2.ccg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gdk/src/graphene_vec2.ccg	2026-09-08 09:33:17.396041328 +1000
+@@ -0,0 +1,90 @@
++/* Copyright 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++#include <gdkmm/graphene_point.h>
++
++namespace Gdk
++{
++namespace Graphene
++{
++
++Vec2::Vec2()
++:
++  gobject_(*graphene_vec2_zero())
++{
++}
++
++Vec2::Vec2(float x, float y)
++{
++  (void)graphene_vec2_init(gobj(), x, y);
++}
++
++Vec2::Vec2(const Point& src)
++{
++  graphene_point_to_vec2(src.gobj(), gobj());
++}
++
++std::array<float,2> Vec2::to_float() const
++{
++  std::array<float,2> result;
++  graphene_vec2_to_float(gobj(), result.data());
++  return result;
++}
++
++Vec2 Vec2::add(const Vec2& other) const
++{
++  Vec2 result;
++  graphene_vec2_add(gobj(), other.gobj(), result.gobj());
++  return result;
++}
++
++Vec2 Vec2::subtract(const Vec2& other) const
++{
++  Vec2 result;
++  graphene_vec2_subtract(gobj(), other.gobj(), result.gobj());
++  return result;
++}
++
++Vec2 Vec2::normalize() const
++{
++  Vec2 result;
++  graphene_vec2_normalize(gobj(), result.gobj());
++  return result;
++}
++
++Vec2 Vec2::scale(float factor) const
++{
++  Vec2 result;
++  graphene_vec2_scale(gobj(), factor, result.gobj());
++  return result;
++}
++
++Vec2 Vec2::negate() const
++{
++  Vec2 result;
++  graphene_vec2_negate(gobj(), result.gobj());
++  return result;
++}
++
++Vec2 Vec2::interpolate(const Vec2& other, double factor) const
++{
++  Vec2 result;
++  graphene_vec2_interpolate(gobj(), other.gobj(), factor, result.gobj());
++  return result;
++}
++
++} // namespace Graphene
++} // namespace Gdk
+diff -Nur gtkmm-4.20.0.original/gdk/src/graphene_vec2.hg gtkmm-4.20.0.fixed/gdk/src/graphene_vec2.hg
+--- gtkmm-4.20.0.original/gdk/src/graphene_vec2.hg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gdk/src/graphene_vec2.hg	2026-09-08 09:33:17.397041328 +1000
+@@ -0,0 +1,139 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++ 
++_CONFIGINCLUDE(gdkmmconfig.h)
++_DEFS(gdkmm,gdk)
++
++#include <graphene.h>
++#include <array>
++
++namespace Gdk
++{
++namespace Graphene
++{
++class GDKMM_API Point;
++
++/** A vector with two dimensions, x and y.
++ *
++ * @newin{4,24}
++ */
++class GDKMM_API Vec2
++{
++  _CLASS_GENERIC(Vec2, graphene_vec2_t)
++  _IGNORE(graphene_vec2_init, graphene_vec2_init_from_vec2,
++    graphene_vec2_init_from_float, graphene_vec2_free)
++public:
++  Vec2();
++  Vec2(float x, float y);
++  Vec2(const Point& src);
++
++  /** Stores the components of this vector into an array.
++   *
++   * @newin{4,24}
++   *
++   * @return An array of floating point values with 2 elements.
++   */
++  std::array<float,2> to_float() const;
++  _IGNORE(graphene_vec2_to_float)
++
++  /** Adds each component of two vectors.
++   *
++   * @newin{4,24}
++   *
++   * @param other A vector to add to this vector.
++   * @return The sum of this vector and the other vector.
++   */
++  Vec2 add(const Vec2& other) const;
++  _IGNORE(graphene_vec2_add)
++
++  /** Subtracts each component of the @a other vector from this vector.
++   *
++   * @newin{4,24}
++   *
++   * @param other A vector to subtract from this vector.
++   * @return The difference between this vector and the other vector.
++   */
++  Vec2 subtract(const Vec2& other) const;
++  _IGNORE(graphene_vec2_subtract)
++
++  //TODO:? Some graphene_vec2_*() methods are not wrapped in C++ code, because I
++  // don't understand what they are good for. They can be added to Gdk::Graphene::Vec2
++  // if anyone needs them. /kjellahl 2026-06-14
++  // Vec2 multiply(const Vec2& other) const;
++  // Vec2 divide(const Vec2& other) const;
++
++  _WRAP_METHOD(float dot(const Vec2& other) const, graphene_vec2_dot, newin "4,24")
++  _WRAP_METHOD(float length() const, graphene_vec2_length, newin "4,24")
++
++  /** Computes the normalized vector for the given vector.
++   *
++   * @newin{4,24}
++   *
++   * @return The normalized vector.
++   */
++  Vec2 normalize() const;
++  _IGNORE(graphene_vec2_normalize)
++
++  /** Multiplies all components of this vector with the given scalar @a factor.
++   *
++   * @newin{4,24}
++   * 
++   * @param factor The scalar factor.
++   * @return The scaled vector.
++   */
++  Vec2 scale(float factor) const;
++  _IGNORE(graphene_vec2_scale)
++
++  /** Negates this vector.
++   *
++   * @newin{4,24}
++   *
++   * @return The negated vector.
++   */
++  Vec2 negate() const;
++  _IGNORE(graphene_vec2_negate)
++
++  _WRAP_METHOD(bool near(const Vec2& other, float epsilon) const,
++    graphene_vec2_near, newin "4,24")
++  _WRAP_METHOD(bool equal(const Vec2& other) const, graphene_vec2_equal, newin "4,24")
++
++  // Vec2 min(const Vec2& other) const;
++  // Vec2 max(const Vec2& other) const;
++
++  /** Linearly interpolates this vector and @a other using the given @a factor.
++   *
++   * @newin{4,24}
++   *
++   * @param other The other vector.
++   * @param factor The interpolation factor.
++   * @return The interpolated vector.
++   */
++  Vec2 interpolate(const Vec2& other, double factor) const;
++  _IGNORE(graphene_vec2_interpolate)
++
++  _WRAP_METHOD(float get_x() const, graphene_vec2_get_x, newin "4,24")
++  _WRAP_METHOD(float get_y() const, graphene_vec2_get_y, newin "4,24")
++
++  /// Provides access to the underlying C GObject.
++  graphene_vec2_t*       gobj()       { return &gobject_; }
++  /// Provides access to the underlying C GObject.
++  const graphene_vec2_t* gobj() const { return &gobject_; }
++
++protected:
++  graphene_vec2_t gobject_;
++};
++} // namespace Graphene
++} // namespace Gdk
+diff -Nur gtkmm-4.20.0.original/gsk/gskmm/meson.build gtkmm-4.20.0.fixed/gsk/gskmm/meson.build
+--- gtkmm-4.20.0.original/gsk/gskmm/meson.build	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/gskmm/meson.build	2026-09-08 09:33:17.397041328 +1000
+@@ -27,7 +27,12 @@
+ # Generated from pairs of .hg and .ccg files.
+ gskmm_any_hg_ccg_basenames = [
+   'enums',
++  'path',
++  'pathbuilder',
++  'pathmeasure',
++  'pathpoint',
+   'roundedrect',
++  'stroke',
+   'transform',
+ ]
+ 
+diff -Nur gtkmm-4.20.0.original/gsk/gskmm.h gtkmm-4.20.0.fixed/gsk/gskmm.h
+--- gtkmm-4.20.0.original/gsk/gskmm.h	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/gskmm.h	2026-09-08 09:33:17.397041328 +1000
+@@ -19,7 +19,10 @@
+ 
+ #include <gdkmm.h>
+ 
++#include <gskmm/pathbuilder.h>
++#include <gskmm/pathmeasure.h>
+ #include <gskmm/roundedrect.h>
++#include <gskmm/stroke.h>
+ #include <gskmm/transform.h>
+ 
+ #endif /* _GSKMM_GSKMM_H_ */
+diff -Nur gtkmm-4.20.0.original/gsk/src/enums.hg gtkmm-4.20.0.fixed/gsk/src/enums.hg
+--- gtkmm-4.20.0.original/gsk/src/enums.hg	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/enums.hg	2026-09-08 09:34:28.431907388 +1000
+@@ -26,6 +26,9 @@
+ _WRAP_ENUM(BlendMode, GskBlendMode, decl_prefix GSKMM_API, newin "4,20")
+ _WRAP_ENUM(Corner, GskCorner, CONV_TO_INT, decl_prefix GSKMM_API, newin "4,20")
+ _WRAP_ENUM(FillRule, GskFillRule, decl_prefix GSKMM_API, newin "4,20")
++_WRAP_ENUM(LineCap, GskLineCap, decl_prefix GSKMM_API, newin "4,24")
++_WRAP_ENUM(LineJoin, GskLineJoin, decl_prefix GSKMM_API, newin "4,24")
++_WRAP_ENUM(PathDirection, GskPathDirection, decl_prefix GSKMM_API, newin "4,24")
+ _WRAP_ENUM(MaskMode, GskMaskMode, decl_prefix GSKMM_API, newin "4,20")
+ _WRAP_ENUM(ScalingFilter, GskScalingFilter, decl_prefix GSKMM_API, newin "4,20")
+ 
+diff -Nur gtkmm-4.20.0.original/gsk/src/filelist.am gtkmm-4.20.0.fixed/gsk/src/filelist.am
+--- gtkmm-4.20.0.original/gsk/src/filelist.am	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/filelist.am	2026-09-08 09:33:17.398041327 +1000
+@@ -12,7 +12,12 @@
+ 
+ gskmm_files_any_hg = \
+   enums.hg \
++  path.hg \
++  pathbuilder.hg \
++  pathmeasure.hg \
++  pathpoint.hg \
+   roundedrect.hg \
++  stroke.hg
+   transform.hg
+ 
+ gskmm_files_deprecated_hg =
+diff -Nur gtkmm-4.20.0.original/gsk/src/gsk_docs_override.xml gtkmm-4.20.0.fixed/gsk/src/gsk_docs_override.xml
+--- gtkmm-4.20.0.original/gsk/src/gsk_docs_override.xml	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/gsk_docs_override.xml	2026-09-08 09:33:17.398041327 +1000
+@@ -1,3 +1,12 @@
+ <root>
++<substitute_enumerator_name from_prefix="GSK_LINE_CAP_" to_prefix="Gsk::LineCap::" />
++<substitute_enumerator_name from_prefix="GSK_LINE_JOIN_" to_prefix="Gsk::LineJoin::" />
+ <substitute_enumerator_name from_prefix="GSK_TRANSFORM_CATEGORY_2D" to_prefix="Gsk::Transform::Category::CAT_2D" />
++<!-- Some enums have enumerators without unique prefixes. Handle these enumerators individually. -->
++<substitute_enumerator_name from="GSK_PATH_MOVE" to="Gdk::Path::Operation::MOVE" />
++<substitute_enumerator_name from="GSK_PATH_CLOSE" to="Gdk::Path::Operation::CLOSE" />
++<substitute_enumerator_name from="GSK_PATH_LINE" to="Gdk::Path::Operation::LINE" />
++<substitute_enumerator_name from="GSK_PATH_QUAD" to="Gdk::Path::Operation::QUAD" />
++<substitute_enumerator_name from="GSK_PATH_CUBIC" to="Gdk::Path::Operation::CUBIC" />
++<substitute_enumerator_name from="GSK_PATH_CONIC" to="Gdk::Path::Operation::CONIC" />
+ </root>
+diff -Nur gtkmm-4.20.0.original/gsk/src/pathbuilder.ccg gtkmm-4.20.0.fixed/gsk/src/pathbuilder.ccg
+--- gtkmm-4.20.0.original/gsk/src/pathbuilder.ccg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/pathbuilder.ccg	2026-09-08 09:33:17.399041326 +1000
+@@ -0,0 +1,15 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
+diff -Nur gtkmm-4.20.0.original/gsk/src/pathbuilder.hg gtkmm-4.20.0.fixed/gsk/src/pathbuilder.hg
+--- gtkmm-4.20.0.original/gsk/src/pathbuilder.hg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/pathbuilder.hg	2026-09-08 09:33:17.399041326 +1000
+@@ -0,0 +1,118 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++_CONFIGINCLUDE(gskmmconfig.h)
++
++_DEFS(gskmm,gsk)
++
++#include <glibmm/refptr.h>
++#include <gdkmm/graphene_point.h>
++#include <gdkmm/graphene_rect.h>
++#include <gskmm/path.h>
++#include <gskmm/pathpoint.h>
++#include <gskmm/roundedrect.h>
++#include <cairomm/path.h>
++#include <pangomm/layout.h>
++#include <gsk/gsk.h> // GskPathBuilder
++
++namespace Gsk
++{
++/** Constructs `Gsk::Path` objects.
++ *
++ * Adding contours to the path can be done in two ways.
++ * The easiest option is to use the `add_*` group of functions that add
++ * predefined contours to the current path, either common shapes like
++ * add_circle() or by adding from other paths like add_path().
++ *
++ * The `add_*` methods always add complete contours,
++ * and do not use or modify the current point.
++ *
++ * The other option is to define each line and curve manually with
++ * the `*_to` group of functions. You start with
++ * a call to move_to() to set the starting point
++ * and then use multiple calls to any of the drawing functions to
++ * move the pen along the plane. Once you are done, you can call
++ * close() to close the path by connecting it
++ * back with a line to the starting point.
++ *
++ * This is similar to how paths are drawn in Cairo.
++ *
++ * Note that %Gsk::PathBuilder will reduce the degree of added Bézier
++ * curves as much as possible, to simplify rendering.
++ *
++ * @newin{4,24}
++ */
++class GSKMM_API PathBuilder final
++{
++  // GskPathBuilder is registered as a boxed type, but it has custom
++  // reference-counting instead of copy/free functions, so we use it via RefPtr.
++  _CLASS_OPAQUE_REFCOUNTED(PathBuilder, GskPathBuilder, gsk_path_builder_new, gsk_path_builder_ref, gsk_path_builder_unref, GSKMM_API)
++  // Necessary if used in _WRAP_PROPERTY: _IS_REFCOUNTED_BOXEDTYPE dnl// Generate a Glib::Value specialization
++  _IGNORE(gsk_path_builder_ref, gsk_path_builder_unref)
++
++public:
++  _WRAP_METHOD(Glib::RefPtr<Path> to_path(), gsk_path_builder_to_path, newin "4,24")
++  _IGNORE(gsk_path_builder_free_to_path)
++  _WRAP_METHOD(Gdk::Graphene::Point get_current_point() const,
++    gsk_path_builder_get_current_point, newin "4,24")
++  _WRAP_METHOD(void add_path(const Glib::RefPtr<const Path>& path),
++    gsk_path_builder_add_path, newin "4,24")
++  _WRAP_METHOD(void add_reverse_path(const Glib::RefPtr<const Path>& path),
++    gsk_path_builder_add_reverse_path, newin "4,24")
++  _WRAP_METHOD(void add_cairo_path(const Cairo::RefPtr<const Cairo::Path>& path),
++    gsk_path_builder_add_cairo_path, newin "4,24")
++  _WRAP_METHOD(void add_layout(const Glib::RefPtr<const Pango::Layout>& layout),
++    gsk_path_builder_add_layout, newin "4,24")
++  _WRAP_METHOD(void add_rect(const Gdk::Graphene::Rect& rect),
++    gsk_path_builder_add_rect, newin "4,24")
++  _WRAP_METHOD(void add_rounded_rect(const Gsk::RoundedRect& rect),
++    gsk_path_builder_add_rounded_rect, newin "4,24")
++  _WRAP_METHOD( void add_circle(const Gdk::Graphene::Point& center, float radius),
++    gsk_path_builder_add_circle, newin "4,24")
++  _WRAP_METHOD(void add_segment(const Glib::RefPtr<const Path>& path,
++    const PathPoint& start, const PathPoint& end), gsk_path_builder_add_segment, newin "4,24")
++  _WRAP_METHOD(void move_to(float x, float y), gsk_path_builder_move_to, newin "4,24")
++  _WRAP_METHOD(void rel_move_to(float x, float y), gsk_path_builder_rel_move_to, newin "4,24")
++  _WRAP_METHOD(void line_to(float x, float y), gsk_path_builder_line_to, newin "4,24")
++  _WRAP_METHOD(void rel_line_to(float x, float y), gsk_path_builder_rel_line_to, newin "4,24")
++  _WRAP_METHOD(void quad_to(float x1, float y1, float x2, float y2),
++    gsk_path_builder_quad_to, newin "4,24")
++  _WRAP_METHOD(void rel_quad_to(float x1, float y1, float x2, float y2),
++    gsk_path_builder_rel_quad_to, newin "4,24")
++  _WRAP_METHOD(void cubic_to(float x1, float y1, float x2, float y2, float x3, float y3),
++    gsk_path_builder_cubic_to, newin "4,24")
++  _WRAP_METHOD(void rel_cubic_to(float x1, float y1, float x2, float y2, float x3, float y3),
++    gsk_path_builder_rel_cubic_to, newin "4,24")
++  _WRAP_METHOD(void conic_to(float x1, float y1, float x2, float y2, float weight),
++    gsk_path_builder_conic_to, newin "4,24")
++  _WRAP_METHOD(void rel_conic_to(float x1, float y1, float x2, float y2, float weight),
++    gsk_path_builder_rel_conic_to, newin "4,24")
++  _WRAP_METHOD(void arc_to(float x1, float y1, float x2, float y2),
++    gsk_path_builder_arc_to, newin "4,24")
++  _WRAP_METHOD(void rel_arc_to(float x1, float y1, float x2, float y2),
++    gsk_path_builder_rel_arc_to, newin "4,24")
++  _WRAP_METHOD(void svg_arc_to(float rx, float ry, float x_axis_rotation, bool large_arc,
++    bool positive_sweep, float x, float y), gsk_path_builder_svg_arc_to, newin "4,24")
++  _WRAP_METHOD(void rel_svg_arc_to(float rx, float ry, float x_axis_rotation, bool large_arc,
++    bool positive_sweep, float x, float y), gsk_path_builder_rel_svg_arc_to, newin "4,24")
++  _WRAP_METHOD(void html_arc_to(float x1, float y1, float x2, float y2, float radius),
++    gsk_path_builder_html_arc_to, newin "4,24")
++  _WRAP_METHOD(void rel_html_arc_to(float x1, float y1, float x2, float y2, float radius),
++    gsk_path_builder_rel_html_arc_to, newin "4,24")
++  _WRAP_METHOD(void close(), gsk_path_builder_close, newin "4,24")
++};
++
++} // namespace Gsk
+diff -Nur gtkmm-4.20.0.original/gsk/src/path.ccg gtkmm-4.20.0.fixed/gsk/src/path.ccg
+--- gtkmm-4.20.0.original/gsk/src/path.ccg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/path.ccg	2026-09-08 09:33:17.398041327 +1000
+@@ -0,0 +1,112 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++#include <gskmm/stroke.h>
++
++namespace
++{
++extern "C"
++{
++// Why static? Because non-static functions with C linkage get external linkage,
++// even if they are defined in an anonymous namespace.
++static gboolean Path_foreach_callback(GskPathOperation op, const graphene_point_t* pts,
++  gsize n_pts, float weight, gpointer user_data)
++{
++  auto slot = static_cast<Gsk::Path::SlotForeach*>(user_data);
++  std::vector<Gdk::Graphene::Point> cpp_pts;
++  for (auto pt = pts; pt < pts+n_pts; ++pt)
++    cpp_pts.emplace_back(const_cast<graphene_point_t*>(pt), true);
++
++  return (*slot)(static_cast<Gsk::Path::Operation>(op), cpp_pts, weight);
++}
++
++static gboolean Path_intersection_callback(GskPath* path1, const GskPathPoint* point1,
++  GskPath* path2, const GskPathPoint* point2, GskPathIntersection kind, gpointer user_data)
++{
++  auto slot = static_cast<Gsk::Path::SlotIntersection*>(user_data);
++  auto cpp_path1 = Glib::wrap(path1, true);
++  auto cpp_point1 = Glib::wrap(point1);
++  auto cpp_path2 = Glib::wrap(path2, true);
++  auto cpp_point2 = Glib::wrap(point2);
++
++  return (*slot)(cpp_path1, cpp_point1, cpp_path2, cpp_point2,
++    static_cast<Gsk::Path::Intersection>(kind));
++}
++
++} // extern "C"
++} // anonymous namespace
++
++namespace Gsk
++{
++std::optional<Gdk::Graphene::Rect> Path::get_bounds() const
++{
++  Gdk::Graphene::Rect bounds(0.0, 0.0, 0.0, 0.0);
++  const bool result = gsk_path_get_bounds(const_cast<GskPath*>(gobj()), bounds.gobj());
++  if (!result)
++    return {};
++  return bounds;
++}
++
++std::optional<Gdk::Graphene::Rect> Path::get_tight_bounds() const
++{
++  Gdk::Graphene::Rect bounds(0.0, 0.0, 0.0, 0.0);
++  const bool result = gsk_path_get_tight_bounds(const_cast<GskPath*>(gobj()), bounds.gobj());
++  if (!result)
++    return {};
++  return bounds;
++}
++
++std::optional<Gdk::Graphene::Rect> Path::get_stroke_bounds(const Stroke& stroke) const
++{
++  Gdk::Graphene::Rect bounds(0.0, 0.0, 0.0, 0.0);
++  const bool result = gsk_path_get_stroke_bounds(const_cast<GskPath*>(gobj()),
++    stroke.gobj(), bounds.gobj());
++  if (!result)
++    return {};
++  return bounds;
++}
++
++std::optional<PathPoint> Path::get_start_point() const
++{
++  PathPoint point;
++  const bool result = gsk_path_get_start_point(const_cast<GskPath*>(gobj()), point.gobj());
++  if (!result)
++    return {};
++  return point;
++}
++
++std::optional<PathPoint> Path::get_end_point() const
++{
++  PathPoint result;
++  const bool success = gsk_path_get_end_point(const_cast<GskPath*>(gobj()), result.gobj());
++  if (!success)
++    return {};
++  return result;
++}
++
++std::optional<std::pair<PathPoint,float>> Path::get_closest_point(
++  const Gdk::Graphene::Point& point, float threshold) const
++{
++  PathPoint result;
++  float distance = 0.0;
++  const bool success = gsk_path_get_closest_point(const_cast<GskPath*>(gobj()),
++    point.gobj(), threshold, result.gobj(), &distance);
++  if (!success)
++    return {};
++  return std::pair<PathPoint,float>{result, distance};
++}
++
++} // namespace Gsk
+diff -Nur gtkmm-4.20.0.original/gsk/src/path.hg gtkmm-4.20.0.fixed/gsk/src/path.hg
+--- gtkmm-4.20.0.original/gsk/src/path.hg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/path.hg	2026-09-08 09:33:17.398041327 +1000
+@@ -0,0 +1,215 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++_CONFIGINCLUDE(gskmmconfig.h)
++
++_DEFS(gskmm,gsk)
++
++#include <glibmm/refptr.h>
++#include <gdkmm/graphene_rect.h>
++#include <gskmm/pathpoint.h>
++#include <cairomm/context.h>
++#include <gsk/gsk.h> // GskPath
++#include <optional>
++#include <utility> // std::pair
++#include <vector>
++
++namespace Gsk
++{
++class GSKMM_API Stroke;
++
++/** Describes lines and curves that are more complex than simple rectangles.
++ *
++ * Paths can be used for rendering (filling or stroking) and for animations
++ * (e.g. as trajectories).
++ *
++ * %Gsk::Path is an immutable, opaque, reference-counted struct.
++ * After creation, you cannot change the types it represents. Instead,
++ * new %Gsk::Path objects have to be created. The Gsk::PathBuilder
++ * structure is meant to help in this endeavor.
++ *
++ * Conceptually, a path consists of zero or more contours (continuous, connected
++ * curves), each of which may or may not be closed. Contours are typically
++ * constructed from Bézier segments.
++ *
++ * <picture>
++ *   <source srcset="path-dark.png" media="(prefers-color-scheme: dark)">
++ *   <img alt="A Path" src="path-light.png">
++ * </picture>
++ *
++ * @newin{4,24}
++ */
++class GSKMM_API Path final
++{
++  // GskPath is registered as a boxed type, but it has custom
++  // reference-counting instead of copy/free functions, so we use it via RefPtr.
++  _CLASS_OPAQUE_REFCOUNTED(Path, GskPath, NONE, gsk_path_ref, gsk_path_unref, GSKMM_API)
++  // Necessary if used in _WRAP_PROPERTY: _IS_REFCOUNTED_BOXEDTYPE dnl// Generate a Glib::Value specialization
++  _IGNORE(gsk_path_ref, gsk_path_unref)
++
++public:
++  _WRAP_ENUM(ForeachFlags, GskPathForeachFlags, decl_prefix GSKMM_API, newin "4,24")
++  _WRAP_ENUM(Intersection, GskPathIntersection, decl_prefix GSKMM_API, newin "4,24")
++  _WRAP_ENUM(Operation, GskPathOperation, decl_prefix GSKMM_API, newin "4,24")
++
++  /** Type of the callback to iterate through the operations of a path.
++   *
++   * For each operation, the callback is given the @a op itself, the points
++   * that the operation is applied to in @a pts, and a @a weight for conic curves.
++   *
++   * Each contour of the path starts with a Gsk::Path::Operation::MOVE operation.
++   * Closed contours end with a Gsk::Path::Operation::CLOSE operation.
++   *
++   * @newin{4,24}
++   *
++   * @param op The operation.
++   * @param pts The points of the operation.
++   * @param weight The weight for conic curves, or unused if not a conic curve.
++   * @return <tt>true</tt> to continue iterating the path, <tt>false</tt> to
++   *   immediately abort and not call the function again.
++   */
++  using SlotForeach = sigc::slot<bool(Operation, const std::vector<Gdk::Graphene::Point>&, float)>;
++
++  /** Type of the callback to iterate through the intersections of two paths.
++   *
++   * @newin{4,24}
++   *
++   * @param path1 The first path.
++   * @param point1 The intersection as point on @a path1.
++   * @param path2 The second path.
++   * @param point2 The intersection as point on @a path2.
++   * @param kind The nature of the intersection.
++   * @return <tt>true</tt> to continue iterating, <tt>false</tt> to
++   *   stop the iteration and not call the function again
++   */
++  using SlotIntersection = sigc::slot<bool(const Glib::RefPtr<Path>&,
++    const PathPoint&, const Glib::RefPtr<Path>&, const PathPoint&, Intersection kind)>;
++
++  _WRAP_METHOD(Glib::ustring to_string() const, gsk_path_to_string, newin "4,24")
++  _IGNORE(gsk_path_print)
++  _WRAP_METHOD(static Glib::RefPtr<Path> parse(const Glib::ustring& string),
++    gsk_path_parse, newin "4,24")
++  _WRAP_METHOD(void to_cairo(const ::Cairo::RefPtr< ::Cairo::Context>& cr) const,
++    gsk_path_to_cairo, newin "4,24")
++  _WRAP_METHOD(bool is_empty() const, gsk_path_is_empty, newin "4,24")
++  _WRAP_METHOD(bool is_closed() const, gsk_path_is_closed, newin "4,24")
++
++  /** Computes the bounds of the given path.
++   *
++   * The returned bounds may be larger than necessary, because this
++   * function aims to be fast, not accurate. The bounds are guaranteed
++   * to contain the path. For accurate bounds, use get_tight_bounds().
++   *
++   * It is possible that the returned rectangle has 0 width and/or height.
++   * This can happen when the path only describes a point or an
++   * axis-aligned line.
++   *
++   * If the path is empty, no value is returned. This is different from the case
++   * where the path is a single point at the origin, where a zero rectangle
++   * is returned.
++   *
++   * @newin{4,24}
++   *
++   * @return The bounds of this path, if any.
++   */
++  std::optional<Gdk::Graphene::Rect> get_bounds() const;
++  _IGNORE(gsk_path_get_bounds)
++
++  /** Computes the tight bounds of the given path.
++   *
++   * This function works harder than get_bounds() to
++   * produce the smallest possible bounds.
++   *
++   * @newin{4,24}
++   *
++   * @return The bounds of this path, if any. See get_bounds().
++   */
++  std::optional<Gdk::Graphene::Rect> get_tight_bounds() const;
++  _IGNORE(gsk_path_get_tight_bounds)
++
++  /** Computes the bounds for stroking the given path with the
++   * given parameters.
++   *
++   * The returned bounds may be larger than necessary, because this
++   * function aims to be fast, not accurate. The bounds are guaranteed
++   * to contain the area affected by the stroke, including protrusions
++   * like miters.
++   *
++   * @newin{4,24}
++   *
++   * @param stroke Stroke parameters.
++   * @return The bounds of this path, if any. See get_bounds().
++   */
++  std::optional<Gdk::Graphene::Rect> get_stroke_bounds(const Stroke& stroke) const;
++  _IGNORE(gsk_path_get_stroke_bounds)
++
++  _WRAP_METHOD(bool in_fill(const Gdk::Graphene::Point& point, FillRule fill_rule) const,
++    gsk_path_in_fill, newin "4,24")
++
++  /** Gets the start point of the path.
++   *
++   * An empty path has no points, so no value is returned in this case.
++   *
++   * @newin{4,24}
++   *
++   * @return The start point, if any.
++   */
++  std::optional<PathPoint> get_start_point() const;
++  _IGNORE(gsk_path_get_start_point)
++
++  /** Gets the end point of the path.
++   *
++   * An empty path has no points, so no value is returned in this case.
++   *
++   * @newin{4,24}
++   *
++   * @return The end point, if any.
++   */
++  std::optional<PathPoint> get_end_point() const;
++  _IGNORE(gsk_path_get_end_point)
++
++  _WRAP_METHOD(bool get_next(PathPoint& point) const, gsk_path_get_next, newin "4,24")
++  _WRAP_METHOD(bool get_previous(PathPoint& point) const,
++    gsk_path_get_previous, newin "4,24")
++
++  /** Computes the closest point on the path to the given point.
++   *
++   * If there is no point closer than the given @a threshold, no value is returned.
++   *
++   * @newin{4,24}
++   *
++   * @param point The point.
++   * @param threshold Maximum allowed distance.
++   * @return {closest_point, distance}, if there is a point within @a threshold.
++   */
++  std::optional<std::pair<PathPoint,float>> get_closest_point(const Gdk::Graphene::Point& point,
++    float threshold) const;
++  _IGNORE(gsk_path_get_closest_point)
++
++  _WRAP_METHOD(bool foreach(ForeachFlags flags, const SlotForeach& slot{func}),
++    gsk_path_foreach, slot_name slot, slot_callback Path_foreach_callback,
++    no_slot_copy, newin "4,24")
++
++  _WRAP_METHOD(bool equal(const Glib::RefPtr<const Path>& path2) const,
++    gsk_path_equal, newin "4,24")
++
++  _WRAP_METHOD(bool foreach_intersection(const Glib::RefPtr<const Path>& path2,
++    const SlotIntersection& slot{func}),
++    gsk_path_foreach_intersection, slot_name slot, slot_callback Path_intersection_callback,
++    no_slot_copy, newin "4,24")
++};
++
++} // namespace Gsk
+diff -Nur gtkmm-4.20.0.original/gsk/src/pathmeasure.ccg gtkmm-4.20.0.fixed/gsk/src/pathmeasure.ccg
+--- gtkmm-4.20.0.original/gsk/src/pathmeasure.ccg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/pathmeasure.ccg	2026-09-08 09:33:17.399041326 +1000
+@@ -0,0 +1,29 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++#include <gskmm/path.h>
++
++namespace Gsk
++{
++std::optional<PathPoint> PathMeasure::get_point(float distance)
++{
++  PathPoint out_point;
++  const bool result = gsk_path_measure_get_point(gobj(), distance, out_point.gobj());
++  if (!result)
++    return {};
++  return out_point;
++}
++} // namespace Gsk
+diff -Nur gtkmm-4.20.0.original/gsk/src/pathmeasure.hg gtkmm-4.20.0.fixed/gsk/src/pathmeasure.hg
+--- gtkmm-4.20.0.original/gsk/src/pathmeasure.hg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/pathmeasure.hg	2026-09-08 09:33:17.399041326 +1000
+@@ -0,0 +1,71 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++_CONFIGINCLUDE(gskmmconfig.h)
++
++_DEFS(gskmm,gsk)
++
++#include <glibmm/refptr.h>
++#include <gskmm/pathpoint.h>
++#include <gsk/gsk.h> // GskPathMeasure
++#include <optional>
++
++namespace Gsk
++{
++class GSKMM_API Path;
++
++/** Performs measurements on paths such as determining the length of the path.
++ *
++ * Many measuring operations require sampling the path length
++ * at intermediate points. Therefore, a %Gsk::PathMeasure has
++ * a tolerance that determines what precision is required
++ * for such approximations.
++ *
++ * @newin{4,24}
++ */
++class GSKMM_API PathMeasure final
++{
++  // GskPathMeasure is registered as a boxed type, but it has custom
++  // reference-counting instead of copy/free functions, so we use it via RefPtr.
++  _CLASS_OPAQUE_REFCOUNTED(PathMeasure, GskPathMeasure, NONE, gsk_path_measure_ref, gsk_path_measure_unref, GSKMM_API)
++  // Necessary if used in _WRAP_PROPERTY: _IS_REFCOUNTED_BOXEDTYPE dnl// Generate a Glib::Value specialization
++  _IGNORE(gsk_path_measure_ref, gsk_path_measure_unref)
++
++public:
++  _WRAP_METHOD(static Glib::RefPtr<PathMeasure> create(const Glib::RefPtr<const Path>& path),
++    gsk_path_measure_new, newin "4,24")
++  _WRAP_METHOD(static Glib::RefPtr<PathMeasure> create(const Glib::RefPtr<const Path>& path,
++    float tolerance), gsk_path_measure_new_with_tolerance, newin "4,24")
++  // Gsk::Path is immutable. No need for a non-const get-method.
++  _WRAP_METHOD(Glib::RefPtr<Path> get_path() const, gsk_path_measure_get_path,
++    refreturn, newin "4,24")
++  _WRAP_METHOD(float get_tolerance() const, gsk_path_measure_get_tolerance, newin "4,24")
++  _WRAP_METHOD(float get_length() const, gsk_path_measure_get_length, newin "4,24")
++
++  /** Gets the point at the given distance into the path.
++   *
++   * An empty path has no points, so no value is returned in that case.
++   *
++   * @newin{4,24}
++   *
++   * @param distance The distance.
++   * @return The point, if it was set.
++   */
++  std::optional<PathPoint> get_point(float distance);
++  _IGNORE(gsk_path_measure_get_point)
++};
++
++} // namespace Gsk
+diff -Nur gtkmm-4.20.0.original/gsk/src/pathpoint.ccg gtkmm-4.20.0.fixed/gsk/src/pathpoint.ccg
+--- gtkmm-4.20.0.original/gsk/src/pathpoint.ccg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/pathpoint.ccg	2026-09-08 09:33:17.399041326 +1000
+@@ -0,0 +1,46 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++#include <gskmm/path.h>
++#include <gskmm/pathmeasure.h>
++
++namespace Gsk
++{
++Gdk::Graphene::Point PathPoint::get_position(const Glib::RefPtr<const Path>& path) const
++{
++  Gdk::Graphene::Point position(0.0f, 0.0f);
++  gsk_path_point_get_position(gobj(), const_cast<GskPath*>(path->gobj()), position.gobj());
++  return position;
++}
++
++Gdk::Graphene::Vec2 PathPoint::get_tangent(const Glib::RefPtr<const Path>& path,
++  PathDirection direction) const
++{
++  Gdk::Graphene::Vec2 tangent(0.0f, 0.0f);
++  gsk_path_point_get_tangent(gobj(), const_cast<GskPath*>(path->gobj()), static_cast<GskPathDirection>(direction),
++    tangent.gobj());
++  return tangent;
++}
++
++std::pair<float, Gdk::Graphene::Point> PathPoint::get_curvature(const Glib::RefPtr<const Path>& path,
++    PathDirection direction) const
++{
++  Gdk::Graphene::Point center(0.0f, 0.0f);
++  const float curvature = gsk_path_point_get_curvature(gobj(), const_cast<GskPath*>(path->gobj()),
++    static_cast<GskPathDirection>(direction), center.gobj());
++  return {curvature, center};
++}
++} // namespace Gsk
+diff -Nur gtkmm-4.20.0.original/gsk/src/pathpoint.hg gtkmm-4.20.0.fixed/gsk/src/pathpoint.hg
+--- gtkmm-4.20.0.original/gsk/src/pathpoint.hg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/pathpoint.hg	2026-09-08 09:33:17.399041326 +1000
+@@ -0,0 +1,130 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++_CONFIGINCLUDE(gskmmconfig.h)
++
++_DEFS(gskmm,gsk)
++
++#include <gdkmm/graphene_point.h>
++#include <gdkmm/graphene_vec2.h>
++#include <gskmm/enums.h>
++#include <gsk/gsk.h> // GskPathPoint
++#include <utility> // std::pair
++
++namespace Gsk
++{
++class GSKMM_API Path;
++class GSKMM_API PathMeasure;
++
++/** Represents a point on a path.
++ *
++ * It can be queried for properties of the path at that point,
++ * such as its tangent or its curvature.
++ *
++ * To obtain a %Gsk::PathPoint, use Gsk::Path::get_closest_point(),
++ * Gsk::Path::get_start_point(), Gsk::Path::get_end_point()
++ * or Gsk::PathMeasure::get_point().
++ *
++ * Note that %Gsk::PathPoint structs are meant to be stack-allocated,
++ * and don't hold a reference to the path object they are obtained from.
++ * It is the callers responsibility to keep a reference to the path
++ * as long as the %Gsk::PathPoint is used.
++ *
++ * @newin{4,24}
++ */
++class GSKMM_API PathPoint
++{
++  _CLASS_BOXEDTYPE_STATIC(PathPoint, GskPathPoint, GSKMM_API)
++  _IGNORE(gsk_path_point_copy, gsk_path_point_free)
++
++public:
++  _WRAP_METHOD(bool equal(const PathPoint& point2) const, gsk_path_point_equal, newin "4,24")
++  _WRAP_METHOD(int compare(const PathPoint& point2) const, gsk_path_point_compare, newin "4,24")
++
++  /** Gets the position of the point.
++   *
++   * @newin{4,24}
++   *
++   * @param path The path that this @a point is on.
++   * @return The coordinates of the point.
++   */
++  Gdk::Graphene::Point get_position(const Glib::RefPtr<const Path>& path) const;
++  _IGNORE(gsk_path_point_get_position)
++
++  /** Gets the tangent of the path at this point.
++   *
++   * Note that certain points on a path may not have a single
++   * tangent, such as sharp turns. At such points, there are
++   * two tangents — the direction of the path going into the
++   * point, and the direction coming out of it. The @a direction
++   * argument lets you choose which one to get.
++   *
++   * If the path is just a single point (e.g. a circle with
++   * radius zero), then the tangent is set to `0, 0`.
++   *
++   * If you want to orient something in the direction of the
++   * path, get_rotation() may be more convenient to use.
++   *
++   * @newin{4,24}
++   *
++   * @param path The path that this point is on.
++   * @param direction The direction for which to return the tangent.
++   * @return The tangent at this point.
++   */
++  Gdk::Graphene::Vec2 get_tangent(const Glib::RefPtr<const Path>& path,
++    PathDirection direction) const;
++  _IGNORE(gsk_path_point_get_tangent)
++
++  _WRAP_METHOD(float get_rotation(const Glib::RefPtr<const Path>& path,
++    PathDirection direction) const, gsk_path_point_get_rotation, newin "4,24")
++
++  /** Calculates the curvature of the path at this point.
++   *
++   * Returns the center of the osculating circle as well.
++   * The curvature is the inverse of the radius of the osculating circle.
++   *
++   * Lines have a curvature of zero (indicating an osculating circle of
++   * infinite radius). In this case, the @a center is set to `0, 0`.
++   *
++   * Circles with a radius of zero have `INFINITY` as curvature.
++   *
++   * Note that certain points on a path may not have a single curvature,
++   * such as sharp turns. At such points, there are two curvatures — the
++   * (limit of) the curvature of the path going into the point, and the
++   * (limit of) the curvature of the path coming out of it. The @a direction
++   * argument lets you choose which one to get.
++   *
++   * <picture>
++   * <source srcset="curvature-dark.png" media="(prefers-color-scheme: dark)">
++   * <img alt="Osculating circle" src="curvature-light.png">
++   * </picture>
++   * 
++   * @newin{4,24}
++   * 
++   * @param path The path that this point is on.
++   * @param direction The direction for which to return the curvature.
++   * @return {curvature, center} The curvature of the path at this point
++   *         and the center of the osculating circle.
++   */
++  std::pair<float, Gdk::Graphene::Point> get_curvature(const Glib::RefPtr<const Path>& path,
++    PathDirection direction) const;
++  _IGNORE(gsk_path_point_get_curvature)
++
++  _WRAP_METHOD(float get_distance(const Glib::RefPtr<const PathMeasure>& measure) const,
++    gsk_path_point_get_distance, newin "4,24")
++};
++
++} // namespace Gsk
+diff -Nur gtkmm-4.20.0.original/gsk/src/stroke.ccg gtkmm-4.20.0.fixed/gsk/src/stroke.ccg
+--- gtkmm-4.20.0.original/gsk/src/stroke.ccg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/stroke.ccg	2026-09-08 09:33:17.399041326 +1000
+@@ -0,0 +1,38 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++namespace Gsk
++{
++Stroke::Stroke(float line_width)
++:
++  gobject_(gsk_stroke_new(line_width))
++{
++}
++
++void Stroke::set_dash(const std::vector<float>& dash)
++{
++  gsk_stroke_set_dash(gobj(), dash.data(), dash.size());
++}
++
++std::vector<float> Stroke::get_dash() const
++{
++  gsize n_dash = 0;
++  const float* c_dash = gsk_stroke_get_dash(gobj(), &n_dash);
++  if (!c_dash)
++    return {};
++  return {c_dash, c_dash+n_dash};
++}
++} // namespace Gsk
+diff -Nur gtkmm-4.20.0.original/gsk/src/stroke.hg gtkmm-4.20.0.fixed/gsk/src/stroke.hg
+--- gtkmm-4.20.0.original/gsk/src/stroke.hg	1970-01-01 10:00:00.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/stroke.hg	2026-09-08 09:33:17.400041325 +1000
+@@ -0,0 +1,95 @@
++/* Copyright (C) 2026 The gtkmm Development Team
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
++ */
++
++_CONFIGINCLUDE(gskmmconfig.h)
++
++_DEFS(gskmm,gsk)
++
++#include <gskmm/enums.h>
++#include <cairomm/context.h>
++#include <gsk/gsk.h> // GskStroke
++#include <vector>
++
++namespace Gsk
++{
++/** Collects the parameters that are needed when stroking a path.
++ *
++ * @newin{4,24}
++ */
++class GSKMM_API Stroke
++{
++  _CLASS_BOXEDTYPE(Stroke, GskStroke, NONE, gsk_stroke_copy, gsk_stroke_free, GSKMM_API)
++  _IGNORE(gsk_stroke_copy, gsk_stroke_free)
++
++public:
++  Stroke(float line_width);
++
++  _WRAP_METHOD(bool equal(const Stroke& stroke2) const, gsk_stroke_equal, newin "4,24")
++  _WRAP_METHOD(void set_line_width(float line_width), gsk_stroke_set_line_width, newin "4,24")
++  _WRAP_METHOD(float get_line_width() const, gsk_stroke_get_line_width, newin "4,24")
++  _WRAP_METHOD(void _set_line_cap(LineCap line_cap), gsk_stroke_set_line_cap, newin "4,24")
++  _WRAP_METHOD(LineCap get_line_cap() const, gsk_stroke_get_line_cap, newin "4,24")
++  _WRAP_METHOD(void _set_line_join(LineJoin line_join), gsk_stroke_set_line_join, newin "4,24")
++  _WRAP_METHOD(LineJoin get_line_join() const, gsk_stroke_get_line_join, newin "4,24")
++  _WRAP_METHOD(void set_miter_limit(float limit), gsk_stroke_set_miter_limit, newin "4,24")
++  _WRAP_METHOD(float get_miter_limit() const, gsk_stroke_get_miter_limit, newin "4,24")
++
++  /** Sets the dash pattern to use.
++   *
++   * A dash pattern is specified by a vector of alternating non-negative
++   * values. Each value provides the length of alternate "on" and "off"
++   * portions of the stroke.
++   *
++   * Each "on" segment will have caps applied as if the segment were a
++   * separate contour. In particular, it is valid to use an "on" length
++   * of 0 with Gsk::LineCap::ROUND or Gsk::LineCap::SQUARE
++   * to draw dots or squares along a path.
++   * 
++   * If @a dash is an empty vector, if all elements in @a dash are 0, or if there are
++   * negative values in @a dash, then dashing is disabled.
++   *
++   * If @a dash.size() is 1, an alternating "on" and "off" pattern with the
++   * single dash length provided is assumed.
++   *
++   * If @a dash.size() is uneven, the dash vector will be used with the first
++   * element in @a dash defining an "on" or "off" in alternating passes
++   * through the vector.
++   *
++   * You can specify a starting offset into the dash with set_dash_offset().
++   *
++   * @newin{4,24}
++   *
++   * @param dash The vector of dashes.
++   */
++  void set_dash(const std::vector<float>& dash);
++  _IGNORE(gsk_stroke_set_dash)
++
++  /** Gets the dash vector in use.
++   *
++   * @newin{4,24}
++   *
++   * @return The dash vector. Can be empty.
++   */
++  std::vector<float> get_dash() const;
++  _IGNORE(gsk_stroke_get_dash)
++
++  _WRAP_METHOD(void set_dash_offset(float offset), gsk_stroke_set_dash_offset, newin "4,24")
++  _WRAP_METHOD(float get_dash_offset() const, gsk_stroke_get_dash_offset, newin "4,24")
++  _WRAP_METHOD(void to_cairo(const ::Cairo::RefPtr< ::Cairo::Context>& cr) const, 
++    gsk_stroke_to_cairo, newin "4,24")
++};
++
++} // namespace Gsk
+diff -Nur gtkmm-4.20.0.original/gsk/src/transform.hg gtkmm-4.20.0.fixed/gsk/src/transform.hg
+--- gtkmm-4.20.0.original/gsk/src/transform.hg	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gsk/src/transform.hg	2026-09-08 09:33:17.400041325 +1000
+@@ -20,6 +20,7 @@
+ 
+ #include <glibmm/refptr.h>
+ #include <glibmm/ustring.h>
++#include <glibmm/value.h>
+ #include <gdkmm/graphene_point.h>
+ #include <gdkmm/graphene_rect.h>
+ #include <gsk/gsk.h> // For GskTransform
+diff -Nur gtkmm-4.20.0.original/gtk/src/snapshot.hg gtkmm-4.20.0.fixed/gtk/src/snapshot.hg
+--- gtkmm-4.20.0.original/gtk/src/snapshot.hg	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/gtk/src/snapshot.hg	2026-09-08 09:41:09.588924092 +1000
+@@ -19,7 +19,9 @@
+ #include <gdkmm/snapshot.h>
+ #include <gdkmm/rectangle.h>
+ #include <gdkmm/graphene_rect.h>
++#include <gskmm/path.h>
+ #include <gskmm/roundedrect.h>
++#include <gskmm/stroke.h>
+ #include <gskmm/transform.h>
+ #include <gtkmm/stylecontext.h>
+ #include <pangomm/layout.h>
+@@ -103,6 +105,11 @@
+   _WRAP_METHOD(void push_rounded_clip(const Gsk::RoundedRect& bounds),
+     gtk_snapshot_push_rounded_clip, newin "4,20")
+ 
++  _WRAP_METHOD(void push_fill(const Glib::RefPtr<const Gsk::Path>& path, Gsk::FillRule fill_rule),
++    gtk_snapshot_push_fill, newin "4,24")
++  _WRAP_METHOD(void push_stroke(const Glib::RefPtr<const Gsk::Path>& path, const Gsk::Stroke& stroke),
++    gtk_snapshot_push_stroke, newin "4,24")
++
+   _WRAP_METHOD(void push_cross_fade(double progress), gtk_snapshot_push_cross_fade)
+ 
+   _IGNORE(gtk_snapshot_push_gl_shader) dnl// deprecated
+@@ -154,6 +161,10 @@
+ 
+   _WRAP_METHOD(void append_layout(const Glib::RefPtr<Pango::Layout>& layout,
+     const Gdk::RGBA& color), gtk_snapshot_append_layout)
++  _WRAP_METHOD(void append_fill(const Glib::RefPtr<const Gsk::Path>& path,
++    Gsk::FillRule fill_rule, const Gdk::RGBA& color), gtk_snapshot_append_fill, newin "4,24")
++  _WRAP_METHOD(void append_stroke(const Glib::RefPtr<const Gsk::Path>& path,
++    const Gsk::Stroke& stroke, const Gdk::RGBA& color), gtk_snapshot_append_stroke, newin "4,24")
+ 
+   _WRAP_METHOD(void render_backgrount(const Glib::RefPtr<StyleContext>& context,
+     double x, double y, double width, double height), gtk_snapshot_render_background,
+diff -Nur gtkmm-4.20.0.original/tools/m4/convert_gdk.m4 gtkmm-4.20.0.fixed/tools/m4/convert_gdk.m4
+--- gtkmm-4.20.0.original/tools/m4/convert_gdk.m4	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/tools/m4/convert_gdk.m4	2026-09-08 09:33:17.397041328 +1000
+@@ -314,10 +314,13 @@
+ _CONVERSION(`GdkDrop*',`Glib::RefPtr<Gdk::Drop>',Glib::wrap($3))
+ 
+ # Graphene
++_CONVERSION(`const graphene_point_t*',`Gdk::Graphene::Point',`Glib::wrap(const_cast<graphene_point_t*>($3), true)')
+ _CONVERSION(`const Point&',`const graphene_point_t*',`($3).gobj()')
+ _CONVERSION(`const Gdk::Graphene::Point&',`const graphene_point_t*',`($3).gobj()')
+ _CONVERSION(`const Rect&',`const graphene_rect_t*',`($3).gobj()')
+ _CONVERSION(`const Gdk::Graphene::Rect&',`const graphene_rect_t*',`($3).gobj()')
+ _CONVERSION(`const Size&',`const graphene_size_t*',`($3).gobj()')
+ _CONVERSION(`const Gdk::Graphene::Size&',`const graphene_size_t*',`($3).gobj()')
+-
++_CONVERSION(`Vec2&',`graphene_vec2_t*',`($3).gobj()')
++_CONVERSION(`const Vec2&',`const graphene_vec2_t*',`($3).gobj()')
++_CONVERSION(`const Gdk::Graphene::Vec2&',`const graphene_vec2_t*',`($3).gobj()')
+diff -Nur gtkmm-4.20.0.original/tools/m4/convert_gsk.m4 gtkmm-4.20.0.fixed/tools/m4/convert_gsk.m4
+--- gtkmm-4.20.0.original/tools/m4/convert_gsk.m4	2025-09-20 01:23:30.000000000 +1000
++++ gtkmm-4.20.0.fixed/tools/m4/convert_gsk.m4	2026-09-08 09:38:24.379354641 +1000
+@@ -21,12 +21,32 @@
+ _CONV_ENUM(Gsk,BlendMode)
+ _CONV_ENUM(Gsk,Corner)
+ _CONV_ENUM(Gsk,FillRule)
++_CONV_ENUM(Gsk,LineCap)
++_CONV_ENUM(Gsk,LineJoin)
+ _CONV_ENUM(Gsk,MaskMode)
++_CONV_ENUM(Gsk,PathDirection)
++_CONV_INCLASS_ENUM(Gsk,Path,ForeachFlags)
++_CONV_INCLASS_ENUM(Gsk,Path,Intersection)
++_CONV_INCLASS_ENUM(Gsk,Path,Operation)
+ _CONV_ENUM(Gsk,ScalingFilter)
+ _CONV_INCLASS_ENUM(Gsk,Transform,Category)
+ 
++_CONVERSION(`const Cairo::RefPtr<const Cairo::Path>&',`const cairo_path_t*',`(($3) ? ($3)->cobj() : nullptr)')
++
+ _CONVERSION(`const Gsk::RoundedRect&',`const GskRoundedRect*',($3).gobj())
+ 
++_CONVERSION(`const Glib::RefPtr<const Path>&',`const GskPath*',__CONVERT_REFPTR_TO_P)
++_CONVERSION(`const Glib::RefPtr<const Path>&',`GskPath*',__CONVERT_CONST_REFPTR_TO_P)
++_CONVERSION(`const Glib::RefPtr<const Gsk::Path>&',`GskPath*',__CONVERT_CONST_REFPTR_TO_P)
++_CONVERSION(`GskPath*',`Glib::RefPtr<Path>',`Glib::wrap($3)')
++_CONVERSION(`const Glib::RefPtr<const PathMeasure>&',`GskPathMeasure*',__CONVERT_CONST_REFPTR_TO_P)
++_CONVERSION(`GskPathMeasure*',`Glib::RefPtr<PathMeasure>',`Glib::wrap($3)')
++_CONVERSION(`const PathPoint&',`const GskPathPoint*',($3).gobj())
++_CONVERSION(`PathPoint&',`GskPathPoint*',($3).gobj())
++
++_CONVERSION(`const Stroke&',`gconstpointer',($3).gobj())
++_CONVERSION(`const Gsk::Stroke&',`const GskStroke*',($3).gobj())
++
+ _CONVERSION(`const Glib::RefPtr<Transform>&',`GskTransform*',__CONVERT_REFPTR_TO_P)
+ _CONVERSION(`const Glib::RefPtr<Gsk::Transform>&',`GskTransform*',__CONVERT_REFPTR_TO_P)
+ _CONVERSION(`const Glib::RefPtr<const Transform>&',`GskTransform*',__CONVERT_CONST_REFPTR_TO_P)
