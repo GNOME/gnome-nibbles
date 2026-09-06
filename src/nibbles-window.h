@@ -218,47 +218,7 @@ public:
 		ColourWheel(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder) :
 			Glib::ExtraClassInit(&ColourWheel::custom_class_init), Gtk::Box(cobject)
 		{
-			auto legacy_controller = Gtk::EventControllerLegacy::create();// Create an event controller
-			// Connect the raw event signal
-			legacy_controller->signal_event().connect(sigc::mem_fun(*this, &ColourWheel::on_legacy_event),
-				false /*false allows us to return true from the callback to block further propagation.*/);
-			add_controller(legacy_controller);// Add the controller to the window
-			
-			auto keypress_controller = Gtk::EventControllerKey::create();// Create an key controller
-			// Connect the raw event signal
-			keypress_controller->signal_key_pressed().connect(sigc::mem_fun(*this, &ColourWheel::on_keypress_event),
-				false /*false allows us to return true from the callback to block further propagation.*/);
-			add_controller(keypress_controller);// Add the controller to the window
-
-			auto mouse_position = Gtk::EventControllerMotion::create ();// Create a mouse controller
-			mouse_position->signal_motion().connect(sigc::track_obj(
-				[this](double x, double y) ->
-					void
-					{
-						mouse_point={true,x,y};
-						focus_mouse_segment();
-					},
-					*this
-				));
-			mouse_position->signal_enter().connect(sigc::track_obj(
-				[this](double x, double y) ->
-					void
-					{
-						mouse_point={true,x,y};
-						focus_mouse_segment();
-					},
-					*this
-				));
-			mouse_position->signal_leave().connect(sigc::track_obj(
-				[this]() ->
-					void
-					{
-						mouse_point.is_valid=false;
-						focus_mouse_segment();
-					},
-					*this
-				));
-			add_controller (mouse_position);
+			initilise_controllers();
 		}
 		virtual ~ColourWheel() override = default;
 		explicit ColourWheel(GtkWidget* gobj) :
@@ -475,6 +435,7 @@ public:
 		bool mouse_pressed;
 		struct {bool is_valid; float x; float y;} mouse_point;
 	private:
+		void initilise_controllers();
 		unsigned int get_players(std::vector<PlayerButton*> &players)
 		{
 			auto box=get_parent();

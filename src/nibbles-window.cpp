@@ -1258,7 +1258,6 @@ bool NibblesWindow::ColourWheel::focus_vfunc(Gtk::DirectionType direction, Gtk::
 	}
 }
 
-
 void NibblesWindow::ColourWheel::select_segment(Gtk::Widget *segment)
 {
 	const eWormColour new_colour=(eWormColour)get_segment_id(segment);
@@ -1313,6 +1312,52 @@ void NibblesWindow::ColourWheel::select_segment(Gtk::Widget *segment)
 	}
    	player->on_clicked();
 }
+
+void NibblesWindow::ColourWheel::initilise_controllers()
+{
+	auto legacy_controller = Gtk::EventControllerLegacy::create();// Create an event controller
+	// Connect the raw event signal
+	legacy_controller->signal_event().connect(sigc::mem_fun(*this, &ColourWheel::on_legacy_event),
+		false /*false allows us to return true from the callback to block further propagation.*/);
+	add_controller(legacy_controller);// Add the controller to the window
+
+	auto keypress_controller = Gtk::EventControllerKey::create();// Create an key controller
+	// Connect the raw event signal
+	keypress_controller->signal_key_pressed().connect(sigc::mem_fun(*this, &ColourWheel::on_keypress_event),
+		false /*false allows us to return true from the callback to block further propagation.*/);
+	add_controller(keypress_controller);// Add the controller to the window
+
+	auto mouse_position = Gtk::EventControllerMotion::create ();// Create a mouse controller
+	mouse_position->signal_motion().connect(sigc::track_obj(
+		[this](double x, double y) ->
+			void
+			{
+				mouse_point={true,x,y};
+				focus_mouse_segment();
+			},
+			*this
+		));
+	mouse_position->signal_enter().connect(sigc::track_obj(
+		[this](double x, double y) ->
+			void
+			{
+				mouse_point={true,x,y};
+				focus_mouse_segment();
+			},
+			*this
+		));
+	mouse_position->signal_leave().connect(sigc::track_obj(
+		[this]() ->
+			void
+			{
+				mouse_point.is_valid=false;
+				focus_mouse_segment();
+			},
+			*this
+		));
+	add_controller (mouse_position);
+}
+
 
 /*******************************************************************
  *                                                                 *
