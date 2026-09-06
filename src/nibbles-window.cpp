@@ -1127,7 +1127,7 @@ bool NibblesWindow::ColourWheel::focus_vfunc(Gtk::DirectionType direction, Gtk::
 {
 	set_focus_child=nullptr;
 	const int segment_count=get_segment_count();
-	const unsigned int segment_degrees=360/segment_count;
+	const int segment_degrees=360/segment_count;
 	auto focus_child=get_focus_child();
 	int focus_id=focus_child?get_segment_id(focus_child):-1;
 	switch (direction)
