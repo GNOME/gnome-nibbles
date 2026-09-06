@@ -346,52 +346,11 @@ public:
 		}
 		void select_segment(Gtk::Widget *segment);
 		/* todo convert to gtkmm see https://gitlab.gnome.org/GNOME/gtkmm/-/commit/a21fc8a0fc13fa9431fe15e9a3e83b507c1970b9 */
-		static void custom_class_init(void* g_class, void* class_data)
-		{
-			GtkWidgetClass* widget_class = GTK_WIDGET_CLASS(g_class);
-			widget_class->focus = &ColourWheel::on_focus_vfunc;
-		}
+		static void custom_class_init(void* g_class, void* class_data);
 		/* todo convert to gtkmm see https://gitlab.gnome.org/GNOME/gtkmm/-/commit/a21fc8a0fc13fa9431fe15e9a3e83b507c1970b9 */
 	 	bool focus_vfunc(Gtk::DirectionType direction,Gtk::Widget *&set_focus_child);
 		/* todo convert to gtkmm see https://gitlab.gnome.org/GNOME/gtkmm/-/commit/a21fc8a0fc13fa9431fe15e9a3e83b507c1970b9 */
-	 	static gboolean on_focus_vfunc(GtkWidget *self, GtkDirectionType direction)
-	 	{
-	 		Gtk::DirectionType d;
-	 		switch(direction)
-	 		{
-	 			case GTK_DIR_TAB_FORWARD:
-		 			d=Gtk::DirectionType::TAB_FORWARD;
-		 			break;
-		 		case GTK_DIR_TAB_BACKWARD:
-		 			d=Gtk::DirectionType::TAB_BACKWARD;
-		 			break;
-		 		case GTK_DIR_UP:
-		 			d=Gtk::DirectionType::UP;
-		 			break;
-		 		case GTK_DIR_DOWN:
-		 			d=Gtk::DirectionType::DOWN;
-		 			break;
-		 		case GTK_DIR_LEFT:
-		 			d=Gtk::DirectionType::LEFT;
-		 			break;
-		 		case GTK_DIR_RIGHT:
-		 			d=Gtk::DirectionType::RIGHT;
-		 			break;
-		 		default:
-		 			return false;
-	 		}
-	 		Gtk::Widget* wrapped_widget = Glib::wrap(self);
-	 		if(auto cpp_self = dynamic_cast<ColourWheel*>(wrapped_widget))
-	 		{
-				Gtk::Widget *set_focus_child; /* returned value */
-	 			if(cpp_self->focus_vfunc(d, set_focus_child) && set_focus_child)
-	 			{
-					gtk_widget_child_focus(set_focus_child->gobj(), direction);
-					return true;
-				}
-			}
-	 		return false;
-	 	}
+		static gboolean on_focus_vfunc(GtkWidget *self, GtkDirectionType direction);
 	 	Gtk::Widget *get_child(unsigned int ID)
 	 	{
 	 		unsigned int i;

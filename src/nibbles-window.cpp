@@ -1041,6 +1041,51 @@ void NibblesWindow::PlayerButton::set_key_buttons(const Glib::RefPtr<Gtk::Builde
  *                                                                 *
  *******************************************************************/
 
+void NibblesWindow::ColourWheel::custom_class_init(void* g_class, void* class_data)
+{
+	GtkWidgetClass* widget_class = GTK_WIDGET_CLASS(g_class);
+	widget_class->focus = &ColourWheel::on_focus_vfunc;
+}
+
+gboolean NibblesWindow::ColourWheel::on_focus_vfunc(GtkWidget *self, GtkDirectionType direction)
+{
+	Gtk::DirectionType d;
+	switch(direction)
+	{
+		case GTK_DIR_TAB_FORWARD:
+			d=Gtk::DirectionType::TAB_FORWARD;
+			break;
+		case GTK_DIR_TAB_BACKWARD:
+			d=Gtk::DirectionType::TAB_BACKWARD;
+			break;
+		case GTK_DIR_UP:
+			d=Gtk::DirectionType::UP;
+			break;
+		case GTK_DIR_DOWN:
+			d=Gtk::DirectionType::DOWN;
+			break;
+		case GTK_DIR_LEFT:
+			d=Gtk::DirectionType::LEFT;
+			break;
+		case GTK_DIR_RIGHT:
+			d=Gtk::DirectionType::RIGHT;
+			break;
+		default:
+			return false;
+	}
+	Gtk::Widget* wrapped_widget = Glib::wrap(self);
+	if(auto cpp_self = dynamic_cast<ColourWheel*>(wrapped_widget))
+	{
+		Gtk::Widget *set_focus_child; /* returned value */
+		if(cpp_self->focus_vfunc(d, set_focus_child) && set_focus_child)
+		{
+			gtk_widget_child_focus(set_focus_child->gobj(), direction);
+			return true;
+		}
+	}
+	return false;
+}
+
 void NibblesWindow::ColourWheel::snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>&snapshot)
 {
 	Gtk::Box::snapshot_vfunc(snapshot);
