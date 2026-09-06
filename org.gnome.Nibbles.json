@@ -81,10 +81,6 @@
 				{
 					"type": "git",
 					"url": "https://gitlab.gnome.org/GNOME/gtkmm.git"
-				},
-				{
-					"type": "patch",
-					"path": "map_keyval_v1.patch"
 				}
 			],
 			"modules":
