@@ -80,7 +80,7 @@ const Angle DEGREES[180] = {
 	{945863099,   4449936015}, {447311163,    2301216440}, {5068628620, 28745621343}, {188964624,   1193075681}, {245001517,    1743276376}, {369814153,    3011894576},
 	{323166194,   3074720949}, {253534415,    2897911624}, {206616305,   2954750821}, {38070016,     726419179}, {70826143,     2028195370}, {68740219,     3938124509}};
 
-Angle negative_degrees (Angle a)
+Angle negative_degrees(Angle a)
 {
 	return Angle(-a.x, a.y);
 }
@@ -154,7 +154,7 @@ void test_angles()
 
 	// test angle wrap around
 	a[0] = DEGREES[136];                   /* 136.0° */
-	a[1] = negative_degrees (DEGREES[45]); /* -45.0° */
+	a[1] = negative_degrees(DEGREES[45]); /* -45.0° */
 	assert (a[0] < a[1]);
 
 	// test quarter wrap around

@@ -17,17 +17,297 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if defined(CAN_USE_int128_t)
-	#include <cstdint>
-	typedef int128_t int128;
-#elif defined(CAN_USE___int128)
-	typedef __int128 int128;
-#else
-	typedef _BitInt(128) int128;
-#endif
-
 #if !defined(EMPTYCHAR)
 	#define EMPTYCHAR 'a'
+#endif
+
+#if defined(__SIZEOF_INT128__)
+
+using int128 = __int128_t;
+
+#elif defined(CAN_USE__BitInt)
+
+using int128 = _BitInt(128);
+
+#else
+
+#warning Using a compiler that supports _BitInt(128) in C++ code (e.g. clang++) will give better performance
+struct int128
+{
+	uint64_t lo;
+	uint64_t hi;/* top bit set indicates a negative int128 */
+
+	int128(int64_t v = 0) : lo(static_cast<uint64_t>(v)), hi(v < 0 ? UINT64_MAX : 0) {}
+
+	explicit int128(int v) : int128(static_cast<int64_t>(v)) {}
+
+	bool negative() const
+	{
+		return (hi >> 63) != 0;
+	}
+
+	int128& operator+=(const int128& rhs)
+	{
+		uint64_t old = lo;
+		lo += rhs.lo;
+		hi += rhs.hi + (lo < old);
+		return *this;
+	}
+
+	int128 operator+(const int128& rhs) const
+	{
+		int128 r = *this;
+		r += rhs;
+		return r;
+	}
+
+	int128& operator-=(const int128& rhs)
+	{
+		uint64_t old = lo;
+		lo -= rhs.lo;
+		hi -= rhs.hi + (old < rhs.lo);
+		return *this;
+	}
+
+	int128 operator-(const int128& rhs) const
+	{
+		int128 r = *this;
+		r -= rhs;
+		return r;
+	}
+
+	int128 operator-() const
+	{
+		int128 r;
+		r.lo = ~lo + 1;
+		r.hi = ~hi + (r.lo == 0);
+		return r;
+	}
+
+	int128& operator<<=(int n)
+	{
+		if(n <= 0)
+			return *this;
+
+		if(n >= 128)
+		{
+			lo = hi = 0;
+		}
+		else if(n >= 64)
+		{
+			hi = lo << (n - 64);
+			lo = 0;
+		}
+		else
+		{
+			hi = (hi << n) | (lo >> (64 - n));
+			lo <<= n;
+		}
+
+		return *this;
+	}
+
+	int128 operator<<(int n) const
+	{
+		int128 r = *this;
+		r <<= n;
+		return r;
+	}
+
+	int128 operator<<(long n) const
+	{
+		return *this << static_cast<int>(n);
+	}
+
+	int128& operator>>=(int n)
+	{
+		if(n <= 0)
+			return *this;
+
+		const uint64_t sign = negative() ? UINT64_MAX : 0;
+
+		if(n >= 128)
+		{
+			lo = hi = sign;
+		}
+		else if(n >= 64)
+		{
+			lo = (hi >> (n - 64)) |
+				 (sign << (128 - n));
+			hi = sign;
+		}
+		else
+		{
+			lo = (lo >> n) | (hi << (64 - n));
+			hi = (hi >> n) | (sign << (64 - n));
+		}
+
+		return *this;
+	}
+
+	int128 operator>>(int n) const
+	{
+		int128 r = *this;
+		r >>= n;
+		return r;
+	}
+
+	int128 operator>>(long n) const
+	{
+		return *this >> static_cast<int>(n);
+	}
+
+	int128& operator&=(const int128& rhs)
+	{
+		lo &= rhs.lo;
+		hi &= rhs.hi;
+		return *this;
+	}
+
+	int128 operator&(const int128& rhs) const
+	{
+		int128 r = *this;
+		r &= rhs;
+		return r;
+	}
+
+	int128 operator&(int rhs) const
+	{
+		return *this & int128(rhs);
+	}
+
+	bool operator==(const int128& rhs) const
+	{
+		return lo == rhs.lo && hi == rhs.hi;
+	}
+
+	bool operator!=(const int128& rhs) const
+	{
+		return !(*this == rhs);
+	}
+
+	bool operator<(const int128& rhs) const
+	{
+		const bool a_neg = negative();
+		const bool b_neg = rhs.negative();
+
+		if(a_neg != b_neg)
+			return a_neg;
+
+		if(hi != rhs.hi)
+			return hi < rhs.hi;
+
+		return lo < rhs.lo;
+	}
+
+	bool operator>(const int128& rhs) const
+	{
+		return rhs < *this;
+	}
+
+	bool operator<=(const int128& rhs) const
+	{
+		return !(*this > rhs);
+	}
+
+	bool operator>=(const int128& rhs) const
+	{
+		return !(*this < rhs);
+	}
+
+	bool operator<(int rhs) const
+	{
+		return *this < int128(rhs);
+	}
+
+	bool operator>(int rhs) const
+	{
+		return *this > int128(rhs);
+	}
+
+	bool operator<=(int rhs) const
+	{
+		return *this <= int128(rhs);
+	}
+
+	bool operator>=(int rhs) const
+	{
+		return *this >= int128(rhs);
+	}
+
+	/*
+	 * Simple shift/add multiplication.
+	 *
+	 * Everything is done modulo 2^128, which is what we need
+	 * for two's-complement integer arithmetic.
+	 */
+	int128 operator*(const int128& rhs) const
+	{
+		const bool neg = negative() ^ rhs.negative();
+
+		int128 a = *this;
+		int128 b = rhs;
+
+		if(a.negative())
+			a = -a;
+		if(b.negative())
+			b = -b;
+
+		int128 result = 0;
+		for(int i = 0; i < 128; ++i)
+		{
+			if(b & 1)
+				result += a;
+			a <<= 1;
+			b >>= 1;
+		}
+		return neg ? -result : result;
+	}
+
+	/*
+	 * Simple binary long division.
+	 */
+	int128 operator/(const int128& rhs) const
+	{
+		assert(rhs);
+
+		const bool neg = negative() ^ rhs.negative();
+
+		int128 a = *this;
+		int128 b = rhs;
+
+		if(a.negative())
+			a = -a;
+		if(b.negative())
+			b = -b;
+
+		int128 quotient = 0;
+		int128 remainder = 0;
+		for(int i = 127; i >= 0; --i)
+		{
+			remainder <<= 1;
+			if((a >> i) & 1)
+				remainder.lo |= 1;
+			if(remainder >= b)
+			{
+				remainder -= b;
+				quotient += int128(1) << i;
+			}
+		}
+		return neg ? -quotient : quotient;
+	}
+
+	explicit operator int64_t() const
+	{
+		return static_cast<int64_t>(lo);
+	}
+
+	explicit operator bool() const
+	{
+		return lo!=0 || hi!=0;
+	}
+};
+
 #endif
 
 struct SignedPosition
@@ -55,7 +335,7 @@ struct SignedPosition
 		if (y >= y_max)
 			return y % y_max;
 		else if (y < 0)
-	  		return ((y % y_max) + y_max) % y_max;
+			return ((y % y_max) + y_max) % y_max;
 		else
 			return (uint8_t)y;
 	}
@@ -98,7 +378,7 @@ private:
 
 public:
 	/* public functions */
-	Angle(int64_t x, int64_t y, uint64_t x_max=0, uint64_t y_max=0) : x(x), y(y), x_max(x_max), y_max(y_max), _set(true)
+	Angle(int128 x, int128 y, uint64_t x_max=0, uint64_t y_max=0) : x(x), y(y), x_max(x_max), y_max(y_max), _set(true)
 	{
 	}
 
@@ -726,7 +1006,7 @@ public:
 		bool test_logging)
 	{
 		if (!is_still() && !positions.is_empty())
-	   	{
+		{
 			if (human)
 			{
 				auto [b, dir]=direction_queue.remove();
@@ -1487,6 +1767,4 @@ public:
 		return {false,std::numeric_limits<intsys>::max()};
 	}
 };
-
-
 

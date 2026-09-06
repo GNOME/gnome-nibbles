@@ -57,28 +57,29 @@ if not code0_links
 endif
 
 code1 = '''
-	#include <cstdint>
+	#include <gtkmm.h>
 	int main(int argc, char *argv[])
 	{
-		int128_t i=0x1;
-		i<<126;
-		return i>0;
+		Gtk::ApplicationWindow window;
+		Glib::RefPtr<Gdk::Display> pDisplay=window.get_display();
+		auto keys=pDisplay->map_keyval(32);
+		return 0;
 	}'''
-code1_compiles = cpp.compiles(code1, name : 'int128_t?')
-if code1_compiles
-	cpp_compiler_options += '-DCAN_USE_int128_t'
+code1_links = cpp.links(code1, dependencies: [gtkmm_dep,glibmm_dep], name : 'Gdk::Display::map_keyval()')
+if not code1_links
+	error('Can not link with Gdk::Display::map_keyval (requires gtkmm-4.0 > 4.23.2)')
 endif
 
 code2 = '''
 	int main(int argc, char *argv[])
 	{
-		__int128 i=0x1;
+		_BitInt(128) i=0x1;
 		i<<126;
 		return i>0;
 	}'''
-code2_compiles = cpp.compiles(code2, name : '__int128?')
+code2_compiles = cpp.compiles(code2, name : '_BitInt(128)')
 if code2_compiles
-	cpp_compiler_options += '-DCAN_USE___int128'
+	cpp_compiler_options += '-DCAN_USE__BitInt'
 endif
 
 code3 = '''
@@ -93,19 +94,6 @@ if not code3_links
 	error('Can not use std::inplace_vector<> (requires C++26, -std=gnu++26)')
 endif
 
-code4 = '''
-	#include <gtkmm.h>
-	int main(int argc, char *argv[])
-	{
-		Gtk::ApplicationWindow window;
-		Glib::RefPtr<Gdk::Display> pDisplay=window.get_display();
-		auto keys=pDisplay->map_keyval(32);
-		return 0;
-	}'''
-code4_links = cpp.links(code4, dependencies: [gtkmm_dep,glibmm_dep], name : 'Gdk::Display::map_keyval()')
-if not code4_links
-	error('Can not link with Gdk::Display::map_keyval (requires gtkmm-4.0 > 4.23.2)')
-endif
 
 # Configuration
 conf = configuration_data()
