@@ -135,6 +135,7 @@ protected:
 		set_accels_for_action("app.help",		{"F1"});
 		set_accels_for_action("app.scores",		{"<Primary>s"});
 		set_accels_for_action("app.pause",		{"<Primary>p"});
+		set_accels_for_action("app.new-game",	{"<Primary>n"});
 		set_accels_for_action("app.quit",		{"<Primary>q"});
 		set_accels_for_action("win.back",		{"Escape"});
 	}
