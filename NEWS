@@ -1,16 +1,16 @@
-4.6.rc1 - August 16, 2026
-=========================
+4.6.0 - September 12, 2026
+==========================
 
-- Switched from Vala to C++, so there are far less dependencies:
+- Switched source code from Vala to C++, so there are far less dependencies:
   meson version >= 1.1
   gsound version >= 1.0.2
-  gtkmm version >= 4.23.1
-  glibmm-2.68 version >= 2.88.1
-  I may have made a mistake in the packaging as a lot has changed with the
-  switch. Please raise any issues you find with this release candidate.
-- Fix issues #82, #83, #84, #85, #86 & #87
-- Updated translations; Georgian, Slovenian, Ukrainian, Swedish &
-  Brazilian Portuguese.
+  gtkmm version > 4.23.2
+  see README.md for details.
+- Fix issues #82, #83, #84, #85 & #86.
+- Updated translations; Georgian, Slovenian, Ukrainian, Swedish,
+  Brazilian Portuguese, Chinese (China), Belarusian, Kazakh, Basque, Hungarian &
+  Norwegian Bokmål.
+  https://gitlab.gnome.org/GNOME/gnome-nibbles/-/archive/4.6.0/gnome-nibbles-4.6.0.tar.bz2
 
 4.5.2 - May 10, 2026
 ====================
