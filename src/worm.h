@@ -21,331 +21,6 @@
 	#define EMPTYCHAR 'a'
 #endif
 
-#if defined(__SIZEOF_INT128__)
-
-using int128 = __int128_t;
-
-#elif defined(CAN_USE__BitInt)
-
-using int128 = _BitInt(128);
-
-#else
-
-#warning Using a compiler that supports _BitInt(128) in C++ code (e.g. clang++) will give better performance
-struct int128
-{
-	uint64_t lo;
-	uint64_t hi;/* top bit set indicates a negative int128 */
-
-	int128(int64_t v = 0) : lo(static_cast<uint64_t>(v)), hi(v < 0 ? UINT64_MAX : 0) {}
-
-	explicit int128(int v) : int128(static_cast<int64_t>(v)) {}
-
-	bool negative() const
-	{
-		return (hi >> 63) != 0;
-	}
-
-	int128& operator+=(const int128& rhs)
-	{
-		uint64_t old = lo;
-		lo += rhs.lo;
-		hi += rhs.hi + (lo < old);
-		return *this;
-	}
-
-	int128 operator+(const int128& rhs) const
-	{
-		int128 r = *this;
-		r += rhs;
-		return r;
-	}
-
-	int128& operator-=(const int128& rhs)
-	{
-		uint64_t old = lo;
-		lo -= rhs.lo;
-		hi -= rhs.hi + (old < rhs.lo);
-		return *this;
-	}
-
-	int128 operator-(const int128& rhs) const
-	{
-		int128 r = *this;
-		r -= rhs;
-		return r;
-	}
-
-	int128 operator-() const
-	{
-		int128 r;
-		r.lo = ~lo + 1;
-		r.hi = ~hi + (r.lo == 0);
-		return r;
-	}
-
-	int128& operator<<=(int n)
-	{
-		if(n <= 0)
-			return *this;
-
-		if(n >= 128)
-		{
-			lo = hi = 0;
-		}
-		else if(n >= 64)
-		{
-			hi = lo << (n - 64);
-			lo = 0;
-		}
-		else
-		{
-			hi = (hi << n) | (lo >> (64 - n));
-			lo <<= n;
-		}
-
-		return *this;
-	}
-
-	int128 operator<<(int n) const
-	{
-		int128 r = *this;
-		r <<= n;
-		return r;
-	}
-
-	int128 operator<<(long n) const
-	{
-		return *this << static_cast<int>(n);
-	}
-
-	int128& operator>>=(int n)
-	{
-		if(n <= 0)
-			return *this;
-
-		const uint64_t sign = negative() ? UINT64_MAX : 0;
-
-		if(n >= 128)
-		{
-			lo = hi = sign;
-		}
-		else if(n >= 64)
-		{
-			lo = (hi >> (n - 64)) |
-				 (sign << (128 - n));
-			hi = sign;
-		}
-		else
-		{
-			lo = (lo >> n) | (hi << (64 - n));
-			hi = (hi >> n) | (sign << (64 - n));
-		}
-
-		return *this;
-	}
-
-	int128 operator>>(int n) const
-	{
-		int128 r = *this;
-		r >>= n;
-		return r;
-	}
-
-	int128 operator>>(long n) const
-	{
-		return *this >> static_cast<int>(n);
-	}
-
-	int128& operator&=(const int128& rhs)
-	{
-		lo &= rhs.lo;
-		hi &= rhs.hi;
-		return *this;
-	}
-
-	int128 operator&(const int128& rhs) const
-	{
-		int128 r = *this;
-		r &= rhs;
-		return r;
-	}
-
-	int128 operator&(int rhs) const
-	{
-		return *this & int128(rhs);
-	}
-
-	bool operator==(const int128& rhs) const
-	{
-		return lo == rhs.lo && hi == rhs.hi;
-	}
-
-	bool operator!=(const int128& rhs) const
-	{
-		return !(*this == rhs);
-	}
-
-	bool operator<(const int128& rhs) const
-	{
-		const bool a_neg = negative();
-		const bool b_neg = rhs.negative();
-
-		if(a_neg != b_neg)
-			return a_neg;
-
-		if(hi != rhs.hi)
-			return hi < rhs.hi;
-
-		return lo < rhs.lo;
-	}
-
-	bool operator>(const int128& rhs) const
-	{
-		return rhs < *this;
-	}
-
-	bool operator<=(const int128& rhs) const
-	{
-		return !(*this > rhs);
-	}
-
-	bool operator>=(const int128& rhs) const
-	{
-		return !(*this < rhs);
-	}
-
-	bool operator<(int rhs) const
-	{
-		return *this < int128(rhs);
-	}
-
-	bool operator>(int rhs) const
-	{
-		return *this > int128(rhs);
-	}
-
-	bool operator<=(int rhs) const
-	{
-		return *this <= int128(rhs);
-	}
-
-	bool operator>=(int rhs) const
-	{
-		return *this >= int128(rhs);
-	}
-
-	/*
-	 * Simple shift/add multiplication.
-	 *
-	 * Everything is done modulo 2^128, which is what we need
-	 * for two's-complement integer arithmetic.
-	 */
-	int128 operator*(const int128& rhs) const
-	{
-		const bool neg = negative() ^ rhs.negative();
-
-		int128 a = *this;
-		int128 b = rhs;
-
-		if(a.negative())
-			a = -a;
-		if(b.negative())
-			b = -b;
-
-		int128 result = 0;
-		for(int i = 0; i < 128; ++i)
-		{
-			if(b & 1)
-				result += a;
-			a <<= 1;
-			b >>= 1;
-		}
-		return neg ? -result : result;
-	}
-
-	/*
-	 * Simple binary long division.
-	 */
-	int128 operator/(const int128& rhs) const
-	{
-		assert(rhs);
-
-		const bool neg = negative() ^ rhs.negative();
-
-		int128 a = *this;
-		int128 b = rhs;
-
-		if(a.negative())
-			a = -a;
-		if(b.negative())
-			b = -b;
-
-		int128 quotient = 0;
-		int128 remainder = 0;
-		for(int i = 127; i >= 0; --i)
-		{
-			remainder <<= 1;
-			if((a >> i) & 1)
-				remainder.lo |= 1;
-			if(remainder >= b)
-			{
-				remainder -= b;
-				quotient += int128(1) << i;
-			}
-		}
-		return neg ? -quotient : quotient;
-	}
-
-	explicit operator int64_t() const
-	{
-		return static_cast<int64_t>(lo);
-	}
-
-	explicit operator bool() const
-	{
-		return lo!=0 || hi!=0;
-	}
-};
-
-#endif
-
-struct SignedPosition
-{
-	int64_t x; /* x increases going right (or east) */
-	int64_t y; /* y increases going down (or south) */
-	/* used by wrap functions */
-	int64_t x_max=0;
-	int64_t y_max=0;
-	
-	uint8_t wrap_x() const
-	{
-		assert (x_max > 0 && x_max<=92); /* call set_wrapping (x, y) first */
-		if (x >= x_max)
-			return x % x_max;
-		else if (x < 0)
-			return ((x % x_max) + x_max) % x_max;
-		else
-			return (uint8_t)x;
-	}
-
-	uint8_t wrap_y() const
-	{
-		assert (y_max > 0 && y_max<=66); /* call set_wrapping (x, y) first */
-		if (y >= y_max)
-			return y % y_max;
-		else if (y < 0)
-			return ((y % y_max) + y_max) % y_max;
-		else
-			return (uint8_t)y;
-	}
-
-	uint16_t wrap_xy () const
-	{
-		return ((uint16_t)wrap_x() << 8) | wrap_y ();
-	}
-};
-
 /* an enumerated type that represents one quarter of the board */
 enum Quarter {Q0,Q1,Q2,Q3};
 
@@ -774,6 +449,7 @@ public:
 
 private:
 	Game &game;
+	LXM_GENERATION_ALGORITHM rnd;
 	const uintsys current_level;
 	const bool human;
 	const eWormColour colour;
@@ -851,9 +527,11 @@ private:
 		}
 	} direction_queue;
 public:
-	Worm(Game &game, uintsys current_level, bool human, eWormColour colour,
+	Worm(Game &game, LXM_GENERATION_ALGORITHM &rnd,
+		uintsys current_level, bool human, eWormColour colour,
 		uintsys width, uintsys height) :
-		game(game), current_level(current_level), human(human), colour(colour),
+		game(game), rnd(rnd.split()),
+		current_level(current_level), human(human), colour(colour),
 		capacity(height*width), deadend_board(width,height)
 	{
 		positions.append_position(start.position);
@@ -1267,23 +945,24 @@ public:
 	{
 		return bonus_eaten.contains(position);
 	}
-#if defined(TESTS)
 	uintsys pseudo_random(uintsys max_exclusive)
 	{
 		return (uintsys)(pseudo_random() % max_exclusive);
 	}	
 	uint64_t pseudo_random()
 	{
-		/* Xorshift128+ algorithm */
-		uint64_t s1 = pseudo_random_seed_a;
-		const uint64_t s0 = pseudo_random_seed_b;
-		const uint64_t result = s0 + s1; /* The "+" non-linear scrambler step */
-		pseudo_random_seed_a = s0;
-		s1 ^= s1 << 23; // a
-		pseudo_random_seed_b = s1 ^ s0 ^ (s1 >> 17) ^ (s0 >> 26); // b, c
-		return result>>1;/* absolute lowest bit has a linear recurrence structure so avoid it */
+		if(pseudo_random_use_last)
+		{
+			pseudo_random_use_last=false;
+			return static_cast<uint64_t>(pseudo_random_last>>64);
+		}
+		else
+		{
+			pseudo_random_use_last=true;
+			pseudo_random_last=rnd.next128();
+			return static_cast<uint64_t>(pseudo_random_last);
+		}
 	}
-#endif
 	bool do_score_change()
 	{
 		auto r=score_changed;
@@ -1301,11 +980,9 @@ private:
 	bool score_changed;
 	uintsys lives;
 	bool lives_changed=false;
-#if defined(TESTS)
-	uint64_t pseudo_random_seed_a = 4;/*seed*/
-	uint64_t pseudo_random_seed_b = 4;/*seed*/
-#endif
 	bool LastUturnA = false;
+	bool pseudo_random_use_last=false;
+	uint128 pseudo_random_last;
 private:
 	void play_sound(const char *sound);
 	void reverse_other_worms();

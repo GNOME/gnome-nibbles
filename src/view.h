@@ -214,7 +214,8 @@ public:
 		Gtk::Button &new_game_button, Gtk::Button &pause_button,
 		std::function<void(const Glib::ustring &level)> set_level_description,
 		std::function<void(const std::vector<WormScore>&)> game_over,
-		std::function<void(Gtk::Widget *)> next_level_function
+		std::function<void(Gtk::Widget *)> next_level_function,
+		LXM_GENERATION_ALGORITHM &rnd
 	);
 	virtual ~View() override
 	{
@@ -286,6 +287,7 @@ private:
 	std::function<void(const Glib::ustring &level)> set_level_description;
 	std::function<void(const std::vector<WormScore>)> game_over;
 	std::function<void(Gtk::Widget *)> next_level_function;
+	LXM_GENERATION_ALGORITHM &rnd;
 	GSoundContext* ctx; /* sound */
 	uintsys countdown;
 	std::map<unsigned int, HumanAction> keys;
@@ -317,7 +319,27 @@ private:
 	Glib::ustring get_next_level_message(uintsys level);
 	Glib::ustring get_level_description(uintsys level);
 	Glib::ustring get_countdown_message(uintsys count);
+	bool pseudo_random_use_last=false;
+	uint128 pseudo_random_last;
 
+	uintsys pseudo_random(uintsys max_exclusive)
+	{
+		return (uintsys)(pseudo_random() % max_exclusive);
+	}
+	uint64_t pseudo_random()
+	{
+		if(pseudo_random_use_last)
+		{
+			pseudo_random_use_last=false;
+			return static_cast<uint64_t>(pseudo_random_last>>64);
+		}
+		else
+		{
+			pseudo_random_use_last=true;
+			pseudo_random_last=rnd.next128();
+			return static_cast<uint64_t>(pseudo_random_last);
+		}
+	}
 	Gtk::Label* create_label(Glib::ustring text, uintsys top_margin)
 	{
 		auto *l=create_label(text);

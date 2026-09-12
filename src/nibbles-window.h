@@ -913,7 +913,7 @@ public:
 		void display_scores(uint8_t category_index);
 	};
 	
-	static NibblesWindow* create(const char *program_name, int cli_start_level, eSetupScreen start_screen)
+	static NibblesWindow* create(const char *program_name, int cli_start_level, eSetupScreen start_screen, LXM_GENERATION_ALGORITHM &rnd)
 	{
 		Arrow::register_type();
 		ColourWheel::register_type();
@@ -921,7 +921,7 @@ public:
 		auto refBuilder = Gtk::Builder::create_from_resource("/org/gnome/Nibbles/ui/nibbles-window.ui");
 		auto window = Gtk::Builder::get_widget_derived<NibblesWindow>(
 			refBuilder, 
-			"nibbles-window", program_name, cli_start_level, start_screen);
+			"nibbles-window", program_name, cli_start_level, start_screen, rnd);
 		if (!window)
 		{
 			Glib::ustring buffer="nibbles-window.ui: No \"nibbles_window\" object.";
@@ -932,8 +932,8 @@ public:
 	}
 
 	NibblesWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder,
-			const char *program_name, int _cli_start_level, eSetupScreen start_screen)
-			: Gtk::ApplicationWindow(cobject), m_refBuilder(refBuilder), m_title(program_name)
+			const char *program_name, int _cli_start_level, eSetupScreen start_screen, LXM_GENERATION_ALGORITHM &rnd)
+			: Gtk::ApplicationWindow(cobject), m_refBuilder(refBuilder), m_title(program_name), rnd(rnd)
 	{
 		set_title(program_name);
 		set_default_size(300,200);
@@ -1011,6 +1011,7 @@ public:
 protected:
 	Glib::RefPtr<Gtk::Builder> m_refBuilder;
 	Glib::ustring m_title;
+	LXM_GENERATION_ALGORITHM &rnd;
 	Gtk::Stack* pScreenStack {nullptr};
 	Glib::RefPtr<Gio::Settings> pSettings;
 	Glib::RefPtr<Gio::SimpleAction> pPlayerButtons;

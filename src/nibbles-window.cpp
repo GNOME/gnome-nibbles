@@ -284,7 +284,8 @@ void NibblesWindow::setup_game()
 				},
 				[this](Gtk::Widget *pW) {/*next level*/
 					set_default_widget(*pW);
-				}
+				},
+			rnd
 		);
 	}
 	/* initial fullscreen setting */

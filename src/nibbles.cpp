@@ -20,6 +20,9 @@
 #include <cstdlib>
 #include <iostream>
 #include <cassert>
+#include <thread>
+#include <sstream>
+#include <bit>
 
 #include <glibmm.h>
 #include <gtkmm.h>
@@ -30,6 +33,8 @@
 
 #include <chrono>
 #include <random>
+#include <sys/syscall.h>
+#include <unistd.h>
 
 /* language */
 #include <locale>
@@ -41,13 +46,15 @@
 #include "nibbles.h"
 #include "boolean.h"
 #include "inform.h"
-#include "nibbles-window.h"
 #include "pseudo_random.h"
+#include "nibbles-window.h"
 
 class Nibbles : public Gtk::Application
 {
 protected:
-	Nibbles() : Gtk::Application("org.gnome.Nibbles", Gio::Application::Flags::HANDLES_COMMAND_LINE)
+	Nibbles(LXM_GENERATION_ALGORITHM &pseudo_random_number_generator) :
+		Gtk::Application("org.gnome.Nibbles", Gio::Application::Flags::HANDLES_COMMAND_LINE),
+		pseudo_random_number_generator(pseudo_random_number_generator)
 	{
 		Glib::set_application_name (PROGRAM_NAME);
 		
@@ -103,12 +110,13 @@ protected:
 
 	
 public:
-	static Glib::RefPtr<Nibbles> create()
+	static Glib::RefPtr<Nibbles> create(LXM_GENERATION_ALGORITHM &pseudo_random_number_generator)
 	{
-		return Glib::make_refptr_for_instance<Nibbles>(new Nibbles());
+		return Glib::make_refptr_for_instance<Nibbles>(new Nibbles(pseudo_random_number_generator));
 	}
 
 private:
+	LXM_GENERATION_ALGORITHM &pseudo_random_number_generator;
 	NibblesWindow *pWindow		= nullptr;
 	bool start                  = false;
 	int level                   = std::numeric_limits<int>::min();
@@ -170,7 +178,7 @@ protected:
 		try
 		{
 			// create app window
-			pWindow = NibblesWindow::create(PROGRAM_NAME /*title*/, level == std::numeric_limits<int>::min() ? 0 : level, setup);
+			pWindow = NibblesWindow::create(PROGRAM_NAME /*title*/, level == std::numeric_limits<int>::min() ? 0 : level, setup, pseudo_random_number_generator);
 			add_window (*pWindow);
 			pWindow->set_default_icon_name ("org.gnome.Nibbles");
 			pWindow->present ();
@@ -488,13 +496,30 @@ protected:
 	}
 };
 
-void initilise_seed()
+auto initilise_seed()
 {
+	/* fixed increment */
+    std::stringstream ss;
+    ss << std::this_thread::get_id();
+	uint64_t thread_id = std::stoull(ss.str(), nullptr, 0);
+	uint128 fixed_increment = std::byteswap(thread_id);
+	fixed_increment<<=64;
+
+	/* lcg_seed */
+	uint128 process_id = getpid();
+
+	/* xbg_seeds */
 	auto now = std::chrono::steady_clock::now();
 	auto duration_since_boot = now.time_since_epoch();
-	uint64_t nanoseconds_since_boot = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
-	set_seed(nanoseconds_since_boot/*random data from the clock */,
-		reinterpret_cast<uintsys>(&now)/*random data from the stack pointer*/);
+	uint128 nanoseconds_since_boot = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_boot).count();
+	auto p = std::make_unique<uint8_t>();
+	uint8_t *raw_ptr = p.get();
+
+	return LXM_GENERATION_ALGORITHM(fixed_increment,
+		process_id<<64,
+		nanoseconds_since_boot<<72,/*random data from the clock*/
+		static_cast<uint128>(reinterpret_cast<std::uintptr_t>(&now))/*64 or 32 bits of random data from the stack pointer*/ | 
+			(static_cast<uint128>(reinterpret_cast<std::uintptr_t>(raw_ptr))<<64)/*64 or 32 bits of random data from the heap pointer*/);
 }
 
 int main(int argc, char* argv[])
@@ -505,9 +530,9 @@ int main(int argc, char* argv[])
 	textdomain (GETTEXT_PACKAGE);
 
 	//gtk_init();
-	initilise_seed();
+	auto pseudo_random=initilise_seed();
 
-	auto application = Nibbles::create();
+	auto application = Nibbles::create(pseudo_random);
 	return application->run(argc, argv);
 }
 

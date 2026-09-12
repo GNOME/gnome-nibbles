@@ -43,20 +43,22 @@ public:
 		FIXED,
 		TEST
 	};
-	
 
 	/* constructor */
-	Game(std::function<void(const char *)> play_sound,
+	Game(LXM_GENERATION_ALGORITHM &rnd,
+		std::function<void(const char *)> play_sound,
 		std::function<eWormColour(uintsys)> get_worm_settings_colour,
 		std::function<void(eWormColour, uintsys)> life_change,
 		std::function<void(eWormColour, uintsys)> score_change,
 		Progress progress, bool fakes) :
+			rnd(rnd.split()),
 			_play_sound(play_sound), _get_worm_settings_colour(get_worm_settings_colour),
 			_life_change(life_change), _score_change(score_change),
 			progress(progress), warps(board), fakes(fakes)
 	{
 	}
-	Game(uint8_t max_bonuse_count) :
+	Game(LXM_GENERATION_ALGORITHM &rnd, uint8_t max_bonuse_count) :
+		rnd(rnd),
 		_play_sound(nullptr), _get_worm_settings_colour(nullptr),
 		_life_change(nullptr), _score_change(nullptr),
 		progress(TEST), warps(board), fakes(false), bonuses(max_bonuse_count)
@@ -115,13 +117,13 @@ public:
 			{
 				/*Worm worm(*this, level, i<human_count, (eWormColour)i, get_width(), get_height());
 				worms.push_front(worm);*/
-				worms.emplace_front(*this, level, i<human_count, (eWormColour)i, get_width(), get_height());
+				worms.emplace_front(*this, rnd, level, i<human_count, (eWormColour)i, get_width(), get_height());
 			}
 			else
 			{
 				/*Worm worm(*this, level, i<human_count, _get_worm_settings_colour(i), get_width(), get_height());
 				worms.push_front(worm);*/
-				worms.emplace_front(*this, level, i<human_count, _get_worm_settings_colour(i), get_width(), get_height());
+				worms.emplace_front(*this, rnd, level, i<human_count, _get_worm_settings_colour(i), get_width(), get_height());
 			}
 		}
 		starting_human_count = human_count;
@@ -278,6 +280,7 @@ public:
 	}
 	void print_board() const;
 private:
+	LXM_GENERATION_ALGORITHM rnd;
 	std::function<void(const char *)> _play_sound;
 	std::function<eWormColour(uintsys)> _get_worm_settings_colour;
 	std::function<void(eWormColour, uintsys)> _life_change;
@@ -294,7 +297,27 @@ private:
 	Bonuses bonuses;
 	uint8_t bonuses_to_replace;
 	uintsys starting_human_count,starting_ai_count;
+	bool pseudo_random_use_last=false;
+	uint128 pseudo_random_last;
 
+	uintsys pseudo_random(uintsys max_exclusive)
+	{
+		return (uintsys)(pseudo_random() % max_exclusive);
+	}
+	uint64_t pseudo_random()
+	{
+		if(pseudo_random_use_last)
+		{
+			pseudo_random_use_last=false;
+			return static_cast<uint64_t>(pseudo_random_last>>64);
+		}
+		else
+		{
+			pseudo_random_use_last=true;
+			pseudo_random_last=rnd.next128();
+			return static_cast<uint64_t>(pseudo_random_last);
+		}
+	}
 	unsigned int unichar_extra_width(char c)
 	{
 		if((c & 0x80) == 0)

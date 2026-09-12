@@ -72,9 +72,9 @@ endif
 code2 = '''
 	int main(int argc, char *argv[])
 	{
-		_BitInt(128) i=0x1;
-		i<<126;
-		return i>0;
+		unsigned _BitInt(128) u=0x2;
+		_BitInt(128) i=-1;
+		return 0;
 	}'''
 code2_compiles = cpp.compiles(code2, name : '_BitInt(128)')
 if code2_compiles

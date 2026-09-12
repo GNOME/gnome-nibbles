@@ -180,10 +180,6 @@ public:
 	{
 		s.clear();
 	}
-	Position remove_one()
-	{
-		return remove_one(pseudo_random());
-	}
 	Position remove_one(uint64_t random_number)
 	{
 		auto i=s.begin();
@@ -192,10 +188,10 @@ public:
 		s.erase(i);
 		return {(uint8_t)(result/66), (uint8_t)(result % 66)};
 	}
-	std::pair<uint8_t, uint8_t> remove_one_bonus()
+	std::pair<uint8_t, uint8_t> remove_one_bonus(uint64_t random_number)
 	{
 		auto i=s.begin();
-		std::advance(i, pseudo_random(s.size()));
+		std::advance(i, random_number % s.size());
 		uint16_t result=*i;
 		s.erase(i);
 		s.erase(result+1);

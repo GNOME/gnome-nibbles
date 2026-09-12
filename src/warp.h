@@ -276,12 +276,7 @@ private:
 		Position lowest_deadend_position;
 		for(;!positions.is_empty();)
 		{
-#if defined(TESTS)
-			auto r=worm.pseudo_random();
-#else
-            auto r=pseudo_random_thread_safe();
-#endif
-			auto position=positions.remove_one(r);
+			auto position=positions.remove_one(worm.pseudo_random());
 			if(ai_worm)
 				return position;
 			else /* human worm */

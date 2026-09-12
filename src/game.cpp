@@ -213,7 +213,7 @@ bool Game::add_bonus(bool regular)
 	{
 		if(!free_locations.is_empty())
 		{
-			std::tie(x, y)=free_locations.remove_one_bonus();
+			std::tie(x, y)=free_locations.remove_one_bonus(pseudo_random());
 			_add_bonus(x, y, Bonus::REGULAR, false, 300);
 		}
 		else
@@ -224,7 +224,7 @@ bool Game::add_bonus(bool regular)
 		
 		if(!free_locations.is_empty() && fakes && pseudo_random(7)==0)
 		{
-			std::tie(x, y)=free_locations.remove_one_bonus();
+			std::tie(x, y)=free_locations.remove_one_bonus(pseudo_random());
 			_add_bonus(x, y, Bonus::REGULAR, true, 300);
 		}
 	}
@@ -253,7 +253,7 @@ bool Game::add_bonus(bool regular)
 			case 9:
 				if(!free_locations.is_empty())
 				{
-					std::tie(x, y)=free_locations.remove_one_bonus();
+					std::tie(x, y)=free_locations.remove_one_bonus(pseudo_random());
 					_add_bonus(x, y, Bonus::HALF, good, 200);
 				}
 				break;
@@ -264,14 +264,14 @@ bool Game::add_bonus(bool regular)
 			case 14:
 				if(!free_locations.is_empty())
 				{
-					std::tie(x, y)=free_locations.remove_one_bonus();
+					std::tie(x, y)=free_locations.remove_one_bonus(pseudo_random());
 					_add_bonus(x, y, Bonus::DOUBLE, good, 150);
 				}
 				break;
 			case 15:
 				if(!free_locations.is_empty())
 				{
-					std::tie(x, y)=free_locations.remove_one_bonus();
+					std::tie(x, y)=free_locations.remove_one_bonus(pseudo_random());
 					_add_bonus(x, y, Bonus::LIFE, good, 100);
 				}
 				break;
@@ -282,7 +282,7 @@ bool Game::add_bonus(bool regular)
 			case 20:
 				if (!free_locations.is_empty() && two_or_more_worms())
 				{
-					std::tie(x, y)=free_locations.remove_one_bonus();
+					std::tie(x, y)=free_locations.remove_one_bonus(pseudo_random());
 					_add_bonus(x, y, Bonus::REVERSE, good, 150);
 				}
 				break;
@@ -349,7 +349,6 @@ void Game::move_worms()
 	if(progress==TEST)
 		std::cout << "do_parallel_worm_work" << std::endl;
 
-	set_test_prohibit(true);
 	std::forward_list<std::thread> moving_worms;
 	for(Worm &worm : worms)
 	{
@@ -371,7 +370,6 @@ void Game::move_worms()
 		if(t.joinable())
 			t.join();
 	}
-	set_test_prohibit(false);
 
 	if(progress==TEST)
 		std::cout << "parallel worm work finished" << std::endl;

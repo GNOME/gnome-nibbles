@@ -4,8 +4,7 @@ nibbles_tests = executable(
 	[
 		'tests.cpp',
 		'worm.cpp',
-		'game.cpp',
-		'pseudo_random.cpp'
+		'game.cpp'
 	],
 	dependencies : [
 		gtkmm_dep
@@ -22,7 +21,6 @@ gnome_nibbles_sources = [
 	'view.cpp',
 	'worm.cpp',
 	'game.cpp',
-	'pseudo_random.cpp',
 	'critical.cpp',
 	resources
 ]

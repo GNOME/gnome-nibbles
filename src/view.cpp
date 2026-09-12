@@ -93,12 +93,12 @@ View::View(Game::Progress progress, uintsys start_level, uintsys speed, bool fak
 	Gtk::Button &new_game_button, Gtk::Button &pause_button,
 	std::function<void(const Glib::ustring &level)> set_level_description,
 	std::function<void(const std::vector<WormScore> &)> game_over,
-	std::function<void(Gtk::Widget *pWin)> next) : Gtk::Overlay(),
+	std::function<void(Gtk::Widget *pWin)> next, LXM_GENERATION_ALGORITHM &rnd) : Gtk::Overlay(),
 	progress(progress), speed(speed),
 	new_game_button(new_game_button), pause_button(pause_button),
 	set_level_description(set_level_description), game_over(game_over),
-	next_level_function(next), static_view(*this), active_view(*this),
-	game(
+	next_level_function(next), rnd(rnd), static_view(*this), active_view(*this),
+	game(rnd,
 	[this](const Glib::ustring &sound) {/*play_sound*/
 		play_sound(sound);
 	},get_worm_settings_colour,
