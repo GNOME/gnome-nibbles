@@ -20,54 +20,11 @@ bindir     = join_paths(prefix, get_option ('bindir'))
 gettext_package = 'gnome-nibbles'
 
 # Dependencies
-gtkmm_dep = dependency('gtkmm-4.0')
+gtkmm_dep = dependency('gtkmm-4.0', version: '4.24')
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
 
 cpp = meson.get_compiler('cpp')
 cpp_compiler_options = ['-Wno-narrowing','-Wno-parentheses']
-
-code0 = '''
-#include <gtkmm.h>
-
-class Box : public Gtk::Widget
-{
-public:
-	Box() : Gtk::Widget()
-	{
-	}
-	virtual ~Box() override = default;
-protected:
- 	void snapshot_vfunc(const Glib::RefPtr<Gtk::Snapshot>& s) override
- 	{
-		auto pb = Gsk::PathBuilder::create();
-		pb->add_rect({0,0,static_cast<float>(get_width()),static_cast<float>(get_height())});
-		s->append_fill(pb->to_path(), Gsk::FillRule::EVEN_ODD, {1,0,0,1});
-	}
-};
-
-int main(int argc, char* argv[])
-{
-	auto test=Gtk::make_managed<Box>();
-}
-'''
-code0_links = cpp.links(code0, dependencies: [gtkmm_dep], name : 'Gsk::PathBuilder()')
-if not code0_links
-	error('Can not link with Gsk::PathBuilder (requires gtkmm-4.0 > 4.23.0)')
-endif
-
-code1 = '''
-	#include <gtkmm.h>
-	int main(int argc, char *argv[])
-	{
-		Gtk::ApplicationWindow window;
-		Glib::RefPtr<Gdk::Display> pDisplay=window.get_display();
-		auto keys=pDisplay->map_keyval(32);
-		return 0;
-	}'''
-code1_links = cpp.links(code1, dependencies: [gtkmm_dep], name : 'Gdk::Display::map_keyval()')
-if not code1_links
-	error('Can not link with Gdk::Display::map_keyval (requires gtkmm-4.0 > 4.23.2)')
-endif
 
 code2 = '''
 	int main(int argc, char *argv[])
