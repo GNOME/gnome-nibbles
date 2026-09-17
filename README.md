@@ -36,7 +36,7 @@ itstool
 meson version >= 1.1
 gsound version >= 1.0.2
 C++ compiler that supports C++26 with GNU-specific language extensions (-std=gnu++26)
-gtkmm version > 4.23.2 (along with a corresponding version of gtk4)
+gtkmm version > 4.24 (along with a corresponding version of gtk4)
 ```
 
 ### Debian/Ubuntu using the distribution's build dependencies
