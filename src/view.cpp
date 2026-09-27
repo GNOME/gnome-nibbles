@@ -277,7 +277,7 @@ void View::initialise_and_start()
 
 	/* play game */
 	paused=false;
-	countdown=3;
+	countdown=3+1;
 	play();
 }
 
@@ -294,6 +294,23 @@ void View::load_board_level(uintsys level)
 	levels.set(current_level-1);
 }
 
+void View::do_move()
+{
+	auto start = std::chrono::steady_clock::now();
+	game.move_worms();
+	active_view.animate_draw(
+		[this,start]() {/*drawing_finished_function*/
+			auto finish = std::chrono::steady_clock::now();
+			auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(finish - start).count();
+			const intsys level_delay[]={52,70,105,140};/*milliseconds*/
+			uintsys delay=1;
+			assert(speed > 0 && speed <= 4);
+			if(elapsed_ms < level_delay[speed-1])
+				delay = level_delay[speed-1] - elapsed_ms;
+			timer.set(sigc::mem_fun(*this, &View::play), delay);
+		});
+}
+
 bool View::play()
 {
 	timer.unset();
@@ -304,32 +321,24 @@ bool View::play()
 		{
 			if(countdown>0)
 			{
-				active_view.redraw(
-					[this]() {/*drawing_finished_function*/
-						play_sound("gobble");
-						if(countdown>0)
-						{
-							countdown--;
+				if(countdown>1)
+				{
+					countdown--;
+					active_view.redraw(
+						[this]() {/*drawing_finished_function*/
+							play_sound("gobble");
 							timer.set(sigc::mem_fun(*this, &View::play), 1000/*milliseconds*/);
-						}
-					});
+						});
+				}
+				else
+				{
+					countdown=0;
+					play_sound("gobble");
+					do_move();
+				}
 			}
 			else
-			{
-				auto start = std::chrono::steady_clock::now();
-				game.move_worms();
-				active_view.animate_draw(
-					[this,start]() {/*drawing_finished_function*/
-						auto finish = std::chrono::steady_clock::now();
-						auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(finish - start).count();
-						const intsys level_delay[]={52,70,105,140};/*milliseconds*/
-						uintsys delay=1;
-						assert(speed > 0 && speed <= 4);
-						if(elapsed_ms < level_delay[speed-1])
-							delay = level_delay[speed-1] - elapsed_ms;
-						timer.set(sigc::mem_fun(*this, &View::play), delay);
-					});
-			}
+				do_move();
 		}
 		else if(state==Game::NEWROUND)
 		{
@@ -408,7 +417,7 @@ bool View::play()
 
 					/* play game */
 					paused=false;
-					countdown=3;
+					countdown=3+1;
 					play();
 				}));
 				add_overlay(*box);

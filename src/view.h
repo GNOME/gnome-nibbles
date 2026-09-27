@@ -312,6 +312,7 @@ private:
 	void initialise_and_start();
 	void load_board_level(uintsys level);
 	bool play();
+	void do_move();
 	Gtk::Label* create_label(Glib::ustring text);
 	Gtk::Button* create_button(Glib::ustring text);
 	Glib::ustring get_worm_name(unsigned int worm_id);
