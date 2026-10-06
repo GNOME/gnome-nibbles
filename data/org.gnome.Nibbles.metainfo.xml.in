@@ -82,7 +82,7 @@
   </releases>
   <launchable type="desktop-id">org.gnome.Nibbles.desktop</launchable>
   <url type="homepage">https://gitlab.gnome.org/GNOME/gnome-nibbles/-/wikis/home</url>
-  <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-nibbles/issues</url>
+  <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-nibbles/-/work_items</url>
   <url type="vcs-browser">https://gitlab.gnome.org/GNOME/gnome-nibbles/</url>
   <url type="donation">https://donate.gnome.org/</url>
   <url type="help">https://help.gnome.org/gnome-nibbles/</url>
