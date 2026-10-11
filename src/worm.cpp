@@ -31,8 +31,12 @@
 #include <functional>
 #include <map>
 #include <mutex>
-#include <inplace_vector>
+#if !defined(NO_INPLACE_VECTOR)
+	#include <inplace_vector>
+#endif
 #include <queue>
+#include <span>
+#include <bit>
 
 #include "system_integer.h"
 #include "definitions.h"
@@ -166,7 +170,12 @@ intsys Worm::ai_deadend(const std::vector<std::vector<unsigned char>> &board, co
 	Position position, uintsys length)
 {
 	const long p_max = 92*66;
+#if defined(NO_INPLACE_VECTOR)
+	std::vector<uint16_t> p;
+	p.reserve(p_max);
+#else
 	std::inplace_vector<uint16_t, p_max> p;
+#endif
 	p.emplace_back(position);
 	for (uintsys i = 0; i < p.size() && (p.size() - 1) < length; i++)
 	{

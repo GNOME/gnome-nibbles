@@ -27,10 +27,14 @@
 #include <unordered_set>
 #include <array>
 #include <mutex>
-#include <inplace_vector>
+#if !defined(NO_INPLACE_VECTOR)
+	#include <inplace_vector>
+#endif
 #include <queue>
 
+#include <span>
 #include <string_view>
+#include <bit>
 #include <glibmm.h>
 
 #include "system_integer.h"

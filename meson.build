@@ -4,7 +4,7 @@ project('gnome-nibbles',
 	license: ['GPL3+'],
 	meson_version: '>=1.1',
 	version: '4.6.0',
-	default_options: ['cpp_std=gnu++26']) # for std::ranges::contains
+	default_options: ['cpp_std=gnu++26'])
 
 message(meson.project_name(), 'version', get_option('version') + get_option('append_to_version'))
 gnome      = import('gnome')      # used to install help
@@ -90,7 +90,7 @@ code3 = '''
 	}'''
 code3_links = cpp.links(code3, name : 'std::inplace_vector<>')
 if not code3_links
-	error('Can not use std::inplace_vector<> (requires C++26, -std=gnu++26)')
+    cpp_compiler_options += '-DNO_INPLACE_VECTOR'
 endif
 
 

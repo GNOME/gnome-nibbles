@@ -25,7 +25,11 @@ private:
 	const int map_width_physical;
 
 	/* variables */
+#if defined(NO_INPLACE_VECTOR)
+	uintsys map[((92 - 1) / (sizeof (uintsys) * 8) + 1) * 66];
+#else
 	std::inplace_vector<uintsys, ((92 - 1) / (sizeof (uintsys) * 8) + 1) * 66> map; /* max size is 92 by 66 */
+#endif
 
 	/* public functions */
 public:

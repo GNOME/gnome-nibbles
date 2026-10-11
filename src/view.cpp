@@ -27,13 +27,17 @@
 #include <unordered_set>
 #include <thread>
 #include <bitset>
+#include <bit>
 #include <forward_list>
 #include <fstream>
 #include <vector>
-#include <inplace_vector>
+#if !defined(NO_INPLACE_VECTOR)
+	#include <inplace_vector>
+#endif
 #include <functional>
 #include <chrono>
 #include <queue>
+#include <span>
 #include <gsound.h>
 
 /* language */

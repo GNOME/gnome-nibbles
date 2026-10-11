@@ -53,25 +53,18 @@ Use the root user:
 
 ## Compiling & Installing
 You need to use a C++ compiler that supports C++26 with GNU-specific language
-extensions, such as GCC 16 or Clang 22.
+extensions, such as GCC 16 or Clang 21.
 ```
   $ meson setup --prefix ~/my-nibbles ../nibbles.build
-```
-If your default compiler does not support C++26, the meson setup stage will
-fail with `Can not use std::inplace_vector<> (requires C++26, -std=gnu++26)`.
-You can specify a compiler that supports C++26 using the CXX
-environment variable:
-```
-  $ CXX=g++-16 meson setup --prefix ~/my-nibbles ../nibbles.build
 ```
 To build a release version of the software instead of a debug version, add
 the `--buildtype=release` option to the `meson setup` command:
 ```
   $ meson setup --prefix ~/my-nibbles --buildtype=release ../nibbles.build
 ```
-or
+Or, if you need to specify the specific compiler:
 ```
-  $ CXX=g++-16 meson setup --prefix ~/my-nibbles --buildtype=release ../nibbles.build
+  $ CXX=clang++-21 meson setup --prefix ~/my-nibbles --buildtype=release ../nibbles.build
 ```
 
 If Meson complains about a missing dependency, you will need to install the

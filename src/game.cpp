@@ -26,8 +26,12 @@
 #include <functional>
 #include <map>
 #include <mutex>
-#include <inplace_vector>
+#if !defined(NO_INPLACE_VECTOR)
+	#include <inplace_vector>
+#endif
 #include <queue>
+#include <span>
+#include <bit>
 
 #include <gtkmm.h>
 #include <gsk/gsk.h>

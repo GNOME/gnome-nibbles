@@ -23,7 +23,9 @@
 #include <cassert>
 #include <mutex>
 #include <condition_variable>
-#include <inplace_vector>
+#if !defined(NO_INPLACE_VECTOR)
+	#include <inplace_vector>
+#endif
 #include <queue>
 
 #include <gtkmm.h>
@@ -34,7 +36,9 @@
 #include <unordered_set>
 #include <thread>
 #include <bitset>
+#include <bit>
 #include <forward_list>
+#include <span>
 #include <gsound.h>
 
 /* language */
@@ -1675,7 +1679,11 @@ std::pair<std::string,bool> NibblesWindow::Scores::read_string_to_eol(std::ifstr
 
 std::string NibblesWindow::Scores::to_title(uint8_t category_index)
 {
+#if defined(NO_INPLACE_VECTOR)
+	std::string description[] =
+#else
 	std::inplace_vector<std::string,256> description =
+#endif
 	{
 		// Translators: text displayed at the top of the high scores dialogue
 		_("Fast"),
