@@ -20,7 +20,7 @@ bindir     = join_paths(prefix, get_option ('bindir'))
 gettext_package = 'gnome-nibbles'
 
 # Dependencies
-gtkmm_dep = dependency('gtkmm-4.0', version: '4.24.0')
+gtkmm_dep = dependency('gtkmm-4.0', version: '>= 4.24.0')
 gsound_dep = dependency('gsound', version: '>= 1.0.2')
 
 cpp = meson.get_compiler('cpp')
