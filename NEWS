@@ -1,3 +1,11 @@
+4.6.1 - Canadian Thanksgiving (October 11) 2026
+===============================================
+
+- Fix issues #88 & #89
+  Nibbles now compiles correctly with libc++ (clang 21 release)
+- Updated translation; Serbian
+  https://gitlab.gnome.org/GNOME/gnome-nibbles/-/archive/4.6.1/gnome-nibbles-4.6.1.tar.bz2
+
 4.6.0 - September 12, 2026
 ==========================
 
