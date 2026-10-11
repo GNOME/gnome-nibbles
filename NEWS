@@ -1,3 +1,10 @@
+4.6.2 - Canadian Thanksgiving (October 11) 2026
+===============================================
+
+- Fix meson check for gtkmm should be >= 4.24.0
+- Updated translation; Norwegian Nynorsk
+  https://gitlab.gnome.org/GNOME/gnome-nibbles/-/archive/4.6.2/gnome-nibbles-4.6.2.tar.bz2
+
 4.6.1 - Canadian Thanksgiving (October 11) 2026
 ===============================================
 
