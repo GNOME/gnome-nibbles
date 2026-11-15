@@ -150,6 +150,10 @@ public:
 		}
 		return {false,Position(),false};
 	}
+	void clear()
+	{
+		warps.clear();
+	}
 
 	// Non-const iterators (allows modifying items during iteration)
 	auto begin() { return warps.begin(); }

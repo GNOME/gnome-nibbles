@@ -60,6 +60,7 @@ bool Game::load_board_from_file(const char *path, uintsys _level)
 	std::ifstream map_file(path/*,std::ios::binary*/);
 	if (map_file.is_open())
 	{		
+		warps.clear();
 		board.clear();
 		starts.clear();
 		width=92;// boards loaded from file are a fix width

@@ -74,6 +74,7 @@ public:
 	bool load_board(const std::span<const std::string_view> &strings, const uintsys _level)
 	{
 		level = _level; /* set this for scoreing calculations */
+		warps.clear();
 		board.clear();
 		starts.clear();
 		width=height=0;// we don't yet know the width or height
