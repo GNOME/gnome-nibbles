@@ -156,6 +156,14 @@ protected:
 
 	void Start()
 	{
+		auto windows = get_windows();
+
+		if (!windows.empty())
+		{
+			windows.front()->present();
+			return;
+		}
+
 		eSetupScreen setup;
 		if (start)
 			setup = GAME;
