@@ -9,9 +9,18 @@ include:
 variables:
   FLATPAK_MODULE: 'gnome-nibbles'
   TARBALL_ARTIFACT_PATH: ".flatpak-builder/build/${FLATPAK_MODULE}/_flatpak_build/meson-dist/${CI_PROJECT_NAME}-${CI_COMMIT_TAG}.tar.xz"
+  FLATPAK_BUILDER_FLAGS: '--ccache'
+
+.ccache-template:
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - '.flatpak-builder/ccache'
 
 flatpak-libstdc++:
-  extends: '.flatpak'
+  extends:
+    - '.flatpak'
+    - '.ccache-template'
   variables:
     MANIFEST_PATH: 'org.gnome.Nibbles.json'
     RUNTIME_REPO: 'https://sdk.gnome.org/gnome-nightly.flatpakrepo'
@@ -19,7 +28,9 @@ flatpak-libstdc++:
     BUNDLE: 'nibbles-git.flatpak'
 
 flatpak-libc++:
-  extends: '.flatpak'
+  extends:
+    - '.flatpak'
+    - '.ccache-template'
   variables:
     MANIFEST_PATH: 'org.gnome.Nibbles.libc++.json'
     RUNTIME_REPO: 'https://sdk.gnome.org/gnome-nightly.flatpakrepo'
