@@ -46,11 +46,6 @@
       <summary>Worms movement speed</summary>
       <description>The speed of the worms, where ‘1’ means “fast” and ‘4’ “slow”.</description>
     </key>
-    <key name="three-dimensional-view" type="b">
-      <default>false</default>
-      <summary>Enable 3D</summary>
-      <description>Enable 3D.</description>
-    </key>
     <key name="sound" type="b">
       <default>true</default>
       <summary>Enable sounds</summary>

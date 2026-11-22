@@ -90,12 +90,6 @@ protected:
 				N_("NUMBER"));
 
 		/* Translators: command-line option description, see 'gnome-nibbles --help' */
-		add_main_option_entry (Gio::Application::OptionType::BOOL, THREE_DIMENSIONAL_ARGUMENT, '3', N_("Set three dimensional view"));
-
-		/* Translators: command-line option description, see 'gnome-nibbles --help' */
-		add_main_option_entry (Gio::Application::OptionType::BOOL, TWO_DIMENSIONAL_ARGUMENT, '2', N_("Set two dimensional view"));
-
-		/* Translators: command-line option description, see 'gnome-nibbles --help' */
 		add_main_option_entry (Gio::Application::OptionType::BOOL, START_ARGUMENT, 0, N_("Start playing"));
 
 		/* Translators: command-line option description, see 'gnome-nibbles --help' */
@@ -425,27 +419,6 @@ protected:
 		{
 			options->remove(UNMUTE_ARGUMENT);
 			pSettings->set_boolean(SOUND_SETTINGS, true);
-		}
-
-		bool three_dimensional = is_arg(options, THREE_DIMENSIONAL_ARGUMENT);
-		bool two_dimensional   = is_arg(options, TWO_DIMENSIONAL_ARGUMENT);
-		if (three_dimensional && two_dimensional)
-		{
-			options->remove(THREE_DIMENSIONAL_ARGUMENT);
-			options->remove(TWO_DIMENSIONAL_ARGUMENT);
-			/* Translators: command-line error message, displayed for an invalid combination of options; see 'gnome-nibbles -3 -2' */
-			std::cerr << _("Options --3D (-3) and --2D (-2) are mutually exclusive.") << std::endl;
-			return EXIT_FAILURE;
-		}
-		else if (three_dimensional)
-		{
-			options->remove(THREE_DIMENSIONAL_ARGUMENT);
-			pSettings->set_boolean (THREE_DIMENSIONAL_SETTINGS, true);
-		}
-		else if (two_dimensional)
-	   	{
-			options->remove(TWO_DIMENSIONAL_ARGUMENT);
-			pSettings->set_boolean (THREE_DIMENSIONAL_SETTINGS, false);
 		}
 
 		if (is_arg(options, START_ARGUMENT))

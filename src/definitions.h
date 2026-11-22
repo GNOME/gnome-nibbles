@@ -39,8 +39,6 @@
 #define ENABLE_FAKES_ARGUMENT "enable-fakes"
 #define MUTE_ARGUMENT		"mute"
 #define UNMUTE_ARGUMENT		"unmute"
-#define THREE_DIMENSIONAL_ARGUMENT "3D"
-#define TWO_DIMENSIONAL_ARGUMENT "2D"
 #define START_ARGUMENT		"start"
 
 /* Settings */
@@ -49,7 +47,6 @@
 #define AI_SETTINGS			"ai"
 #define FAKE_SETTINGS		"fakes"
 #define SOUND_SETTINGS		"sound"
-#define THREE_DIMENSIONAL_SETTINGS "three-dimensional-view"
 #define PROGRESS_SETTINGS	PROGRESS_ARGUMENT
 #define LEVEL_SETTINGS		"start-level"
 #define WORM_BASE_KEY		"org.gnome.Nibbles.worm"
