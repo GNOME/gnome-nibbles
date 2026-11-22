@@ -185,14 +185,18 @@ protected:
 			add_action("hamburger",sigc::mem_fun(*pWindow, &NibblesWindow::hamburger_cb));
 			add_action("new-game",sigc::mem_fun(*pWindow, &NibblesWindow::new_game_cb));
 			//add_action("sound",sigc::mem_fun(*pWindow, &NibblesWindow::sound_cb));
+			auto pSettings = Gio::Settings::create("org.gnome.Nibbles");
+			bool sound = pSettings->get_boolean(SOUND_SETTINGS);
+			pWindow->set_mute(!sound);
 			auto action = Gio::SimpleAction::create(
-				"sound",Glib::Variant<bool>::create(true));
+				"sound",Glib::Variant<bool>::create(sound));
 			action->signal_change_state().connect(sigc::track_obj(
-				[this,action](const Glib::VariantBase& value)
+				[this,action,pSettings](const Glib::VariantBase& value)
 				{
 					bool state = Glib::VariantBase::cast_dynamic<Glib::Variant<bool>>(value).get();
 					action->set_state(value);
 					pWindow->set_mute(!state);
+					pSettings->set_boolean(SOUND_SETTINGS, state);
 				}));
 			add_action(action);	
 			add_action("fullscreen",sigc::mem_fun(*pWindow, &NibblesWindow::fullscreen_cb));
@@ -415,12 +419,12 @@ protected:
 		else if (mute)
 		{
 			options->remove(MUTE_ARGUMENT);
-			pSettings->set_boolean (SOUND_SETTINGS, false);
+			pSettings->set_boolean(SOUND_SETTINGS, false);
 		}
 		else if (unmute)
 		{
 			options->remove(UNMUTE_ARGUMENT);
-			pSettings->set_boolean (SOUND_SETTINGS, true);
+			pSettings->set_boolean(SOUND_SETTINGS, true);
 		}
 
 		bool three_dimensional = is_arg(options, THREE_DIMENSIONAL_ARGUMENT);
